@@ -21,6 +21,7 @@ import { llmsTxtPlugin } from './build-plugins/llmsTxtPlugin';
 import { adminDataPlugin } from './build-plugins/adminDataPlugin';
 import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
 import { localeJobsSplitPlugin } from './build-plugins/localeJobsSplitPlugin';
+import { webpPlugin } from './build-plugins/webpPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -59,6 +60,7 @@ export default defineConfig(({ mode }) => {
         adminDataPlugin(__dirname),
         crawlerRegistryPlugin(__dirname),
         localeJobsSplitPlugin(__dirname),
+        webpPlugin(__dirname),
       ],
       define: {
         // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime

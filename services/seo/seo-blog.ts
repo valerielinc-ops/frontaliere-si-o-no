@@ -22,7 +22,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Stipendio netto frontaliere 2026: come calcolarlo",
       "description": "Guida completa al calcolo dello stipendio netto per chi lavora in Svizzera e risiede in Italia",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.jpg`, "width": 1344, "height": 756, "caption": "Panorama di Lugano con il lago e le montagne sullo sfondo, simbolo del lavoro frontaliero in Ticino." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1344, "height": 756, "caption": "Panorama di Lugano con il lago e le montagne sullo sfondo, simbolo del lavoro frontaliero in Ticino." },
       "datePublished": "2026-01-15T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -45,7 +45,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Nuovo Accordo Fiscale 2024: cosa cambia per i frontalieri",
       "description": "Dal 2024 le regole fiscali per i frontalieri sono cambiate con il nuovo accordo Italia-Svizzera",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.jpg`, "width": 1344, "height": 756, "caption": "Veduta dei castelli di Bellinzona con le Alpi, sede delle trattative fiscali Italia-Svizzera." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.webp`, "width": 1344, "height": 756, "caption": "Veduta dei castelli di Bellinzona con le Alpi, sede delle trattative fiscali Italia-Svizzera." },
       "datePublished": "2026-01-10T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -68,7 +68,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "LAMal vs CMI: quale assicurazione scegliere per il frontaliere",
       "description": "Confronto tra cassa malati svizzera e mutua italiana per frontalieri",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio.jpg`, "width": 1344, "height": 756, "caption": "Centro storico di Mendrisio al tramonto, porta d'ingresso del Ticino per i frontalieri." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio.webp`, "width": 1344, "height": 756, "caption": "Centro storico di Mendrisio al tramonto, porta d'ingresso del Ticino per i frontalieri." },
       "datePublished": "2026-01-05T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -91,7 +91,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Primo Giorno da Frontaliere | Checklist Completa",
       "description": "Tutto quello che devi preparare prima del primo giorno di lavoro in Svizzera",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.jpg`, "width": 1344, "height": 756, "caption": "Castelgrande di Bellinzona visto dal basso, prima tappa del viaggio da frontaliere." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1344, "height": 756, "caption": "Castelgrande di Bellinzona visto dal basso, prima tappa del viaggio da frontaliere." },
       "datePublished": "2025-12-20T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -114,7 +114,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Tredicesima Frontaliere Netta | Come Calcolarla",
       "description": "Come calcolare la tredicesima netta di un frontaliere con tutte le deduzioni",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/locarno.jpg`, "width": 1344, "height": 756, "caption": "Piazza Grande di Locarno con i portici, simbolo del reddito e della qualità di vita in Ticino." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/locarno.webp`, "width": 1344, "height": 756, "caption": "Piazza Grande di Locarno con i portici, simbolo del reddito e della qualità di vita in Ticino." },
       "datePublished": "2025-12-15T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -137,7 +137,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Terzo pilastro 3a: conviene al frontaliere?",
       "description": "Analisi vantaggi e svantaggi del pilastro 3a per chi lavora in Svizzera da frontaliere",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/monte-bre.jpg`, "width": 1344, "height": 756, "caption": "Veduta dal Monte Brè su Lugano e il lago, metafora della pianificazione previdenziale a lungo termine." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/monte-bre.webp`, "width": 1344, "height": 756, "caption": "Veduta dal Monte Brè su Lugano e il lago, metafora della pianificazione previdenziale a lungo termine." },
       "datePublished": "2025-12-10T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -160,7 +160,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "I 10 migliori comuni per frontalieri nel 2026",
       "description": "Classifica dei comuni italiani di frontiera più convenienti per lavoratori frontalieri",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/gandria.jpg`, "width": 1344, "height": 756, "caption": "Il borgo di Gandria affacciato sul lago di Lugano, esempio dei comuni di frontiera più ricercati." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/gandria.webp`, "width": 1344, "height": 756, "caption": "Il borgo di Gandria affacciato sul lago di Lugano, esempio dei comuni di frontiera più ricercati." },
       "datePublished": "2025-12-05T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -183,7 +183,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Costo della vita: Ticino vs Lombardia",
       "description": "Confronto dettagliato dei costi tra vivere in Svizzera e in Italia per un frontaliere",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/foxtown.jpg`, "width": 1344, "height": 756, "caption": "FoxTown Factory Stores a Mendrisio, simbolo dello shopping transfrontaliero tra Svizzera e Italia." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/foxtown.webp`, "width": 1344, "height": 756, "caption": "FoxTown Factory Stores a Mendrisio, simbolo dello shopping transfrontaliero tra Svizzera e Italia." },
       "datePublished": "2025-11-28T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -206,7 +206,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Tensioni tra Italia e Ticino sulla tassa salute",
       "description": "La tassa sulla salute tra Italia e Ticino genera tensioni. Scopri le implicazioni per i frontalieri e le possibili soluzioni.",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.jpg`, "width": 1344, "height": 756, "caption": "Panorama di Bellinzona con i castelli medievali sullo sfondo delle Alpi ticinesi." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.webp`, "width": 1344, "height": 756, "caption": "Panorama di Bellinzona con i castelli medievali sullo sfondo delle Alpi ticinesi." },
       "datePublished": "2026-02-17T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -229,7 +229,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Comprare Casa in Italia: Quando il Ticino è Troppo Caro",
       "description": "Sempre più ticinesi comprano casa in Italia per i prezzi proibitivi. Vantaggi, sfide e costo della vita a confronto.",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/gandria.jpg`, "width": 1344, "height": 756, "caption": "Veduta del borgo di Gandria sul lago di Lugano, meta ideale per chi cerca casa oltre confine." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/gandria.webp`, "width": 1344, "height": 756, "caption": "Veduta del borgo di Gandria sul lago di Lugano, meta ideale per chi cerca casa oltre confine." },
       "datePublished": "2026-02-17T00:00:00+01:00",
       "dateModified": "2026-02-17T00:00:00+01:00",
       "inLanguage": "it",
@@ -252,7 +252,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "@type": "BlogPosting",
       "headline": "Franco forte: come il cambio CHF-EUR incide sullo stipendio dei frontalieri",
       "description": "Il franco svizzero continua a rafforzarsi sull'euro. Per i frontalieri che spendono in Italia, il tasso di cambio può valere centinaia di euro in più o in meno al mese.",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lac-lugano.jpg`, "width": 1344, "height": 756, "caption": "Veduta del lago di Lugano con le montagne, simbolo del franco forte e del lavoro frontaliero." },
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lac-lugano.webp`, "width": 1344, "height": 756, "caption": "Veduta del lago di Lugano con le montagne, simbolo del franco forte e del lavoro frontaliero." },
       "datePublished": "2026-02-18T00:00:00+01:00",
       "dateModified": "2026-02-18T00:00:00+01:00",
       "inLanguage": "it",
@@ -277,7 +277,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "CU 2026: scadenze, telelavoro (25%), 45 giorni senza rientro. Cosa cambia per i frontalieri ticinesi? Scoprilo subito!",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/places/lugano-view.jpg`,
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Lugano con lago e montagne; in primo piano, un laptop mostra un foglio di calcolo fiscale."
@@ -306,7 +306,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Accordo telelavoro Italia-Svizzera ratificato: cosa cambia per i frontalieri del Ticino? Fino al 25% da casa senza impatto fiscale.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/telelavoro-italia-svizzera-ratifica.png`,
+        "url": `${BASE_URL}/images/blog/telelavoro-italia-svizzera-ratifica.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Laptop con vista sul Lago di Lugano, che mostra un grafico finanziario. Simboleggia il telelavoro transfrontaliero tra Italia e Svizzera."
@@ -335,7 +335,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Approvazione finale dall'Italia per l'accordo sul telelavoro per frontalieri in Ticino. Scopri le regole sul 40%, le implicazioni fiscali e cosa cambia dal 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/telelavoro-accordo-definitivo-italia.png`,
+        "url": `${BASE_URL}/images/blog/telelavoro-accordo-definitivo-italia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del Lago di Lugano da una postazione di telelavoro, simbolo del nuovo accordo per i frontalieri"
@@ -364,7 +364,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Una mozione interpartitica in Ticino chiede di sospendere i ristorni fiscali all'Italia a causa della tassa sulla salute, violazione dell'accordo frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/stop-ristorni-tassa-salute.png`,
+        "url": `${BASE_URL}/images/blog/stop-ristorni-tassa-salute.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del Governo ticinese a Bellinzona, simbolo della tensione politica con l'Italia sulla tassa frontalieri.",  
@@ -393,7 +393,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa alle nuove regole per i frontalieri: telelavoro al 25%, 45 giorni di non rientro e franchigia a 10.000€. Scadenze CU 2026 e consigli pratici.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cu-telelavoro-regole-frontalieri.png`,
+        "url": `${BASE_URL}/images/blog/cu-telelavoro-regole-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scrivania di un frontaliere in telelavoro con vista sul Lago di Lugano, simbolo del nuovo accordo fiscale."
@@ -422,7 +422,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Smood SA cessa le attività dal 30 aprile 2026. Scopri le conseguenze per i lavoratori in Ticino, i dettagli del piano sociale e i diritti dei frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/smood-chiusura-impatto-lavoro.png`,
+        "url": `${BASE_URL}/images/blog/smood-chiusura-impatto-lavoro.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Corriere Smood in pausa sul lungolago di Lugano al tramonto, simbolo della fine delle attività dell'azienda in Ticino."
@@ -451,7 +451,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Analisi completa dei dati SECO sulla disoccupazione di gennaio 2026 in Svizzera e Ticino (3.3%). Impatto su frontalieri, settori in crisi e problemi tecnici.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-ticino-gennaio.png`,
+        "url": `${BASE_URL}/images/blog/disoccupazione-svizzera-ticino-gennaio.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del centro finanziario di Lugano con persone che camminano, simbolo del mercato del lavoro in Ticino."
@@ -480,7 +480,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le nuove norme energetiche RUEn 2026 in Ticino rendono obsoleti molti impianti. Scopri come una consulenza gratuita può tagliare le bollette per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/places/lugano-view.jpg`,
+        "url": `${BASE_URL}/images/places/lugano-view.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Interno di una casa moderna in Ticino con termostato intelligente e vista sul Lago di Lugano, simbolo di efficienza energetica."
@@ -509,7 +509,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le normative energetiche (RUEn) in Ticino cambiano nel 2026. Se il tuo impianto ha più di 15 anni, scopri se conviene sostituirlo e come risparmiare in bolletta.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sostituzione-caldaia-ticino-2026.png`,
+        "url": `${BASE_URL}/images/blog/sostituzione-caldaia-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Moderna pompa di calore installata fuori da una casa ticinese, simbolo di efficienza energetica e risparmio per i proprietari."
@@ -538,7 +538,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra fotografica 'Hic Sunt Leones' di Gabriele Spalluto sui 175 valichi svizzeri. Un'analisi del confine per i frontalieri che lavorano in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/hic-sunt-leones-confini-ticino.png`,
+        "url": `${BASE_URL}/images/blog/hic-sunt-leones-confini-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "La dogana di Chiasso-Brogeda all'alba, simbolo del confine italo-svizzero per i frontalieri."
@@ -567,7 +567,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano dal 16 al 20 febbraio 2026. Un'idea per le famiglie frontaliere durante le vacanze.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-2026.png`,
+        "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Famiglie con bambini passeggiano sul lungolago di Lugano durante una giornata di sole, vicino al centro culturale LAC."
@@ -596,7 +596,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra 'Sentimento e osservazione' al MASI di Lugano (2025-2026). Un'analisi dell'arte e dell'identità ticinese, perfetta per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/arte-anima-ticino-frontalieri.png`,
+        "url": `${BASE_URL}/images/blog/arte-anima-ticino-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Interno del museo MASI al LAC di Lugano con visitatori che ammirano un'opera d'arte legata al Ticino."
@@ -624,7 +624,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il 18 febbraio 2026, il Cinema Teatro di Chiasso proietta 'Arca Russa' di Sokurov. Scopri i dettagli di questo evento culturale imperdibile per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/arca-russa-chiasso-cultura-frontaliere.png`,
+        "url": `${BASE_URL}/images/blog/arca-russa-chiasso-cultura-frontaliere.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il Cinema Teatro di Chiasso di sera, illuminato per un evento culturale, con persone che entrano."
@@ -651,7 +651,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra gratuita 'Una Storia' di RSI ad Airolo dal 16 al 22 febbraio. Un viaggio fotografico nella Svizzera italiana dagli anni '60 ai 2000. Info e date.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rsi-mostra-storia-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/rsi-mostra-storia-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Mostra fotografica 'Una Storia' della RSI con immagini d'archivio in bianco e nero della Svizzera italiana."
@@ -678,7 +678,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano durante le vacanze di Carnevale, dal 16 al 20 febbraio 2026. Info e costi.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-tinguely.jpg`,
+        "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-tinguely.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Famiglia di frontalieri con bambini si gode le vacanze di Carnevale sul lungolago di Lugano, vicino al Museo in erba."
@@ -705,7 +705,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra 'TRA-S-PARENZE' dell'artista ticinese Daniela Rebuzzi a Caslano, dal 16 gennaio al 26 aprile 2026. Info, orari e significato per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/daniela-rebuzzi-mostra-caslano.jpg`,
+        "url": `${BASE_URL}/images/blog/daniela-rebuzzi-mostra-caslano.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Opere d'arte esposte nella mostra 'TRA-S-PARENZE' di Daniela Rebuzzi a Caslano, con vista sul paesaggio ticinese."
@@ -732,7 +732,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra \"Corpi in prestito\" di Gloria Guidi Nobile a Serocca d'Agno. Un'opportunità culturale in Ticino, aperta fino a dicembre 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/corpi-in-prestito-arte-agno.jpg`,
+        "url": `${BASE_URL}/images/blog/corpi-in-prestito-arte-agno.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Interno di una galleria d'arte moderna a Lugano con una persona che osserva un quadro astratto appeso alla parete."
@@ -759,7 +759,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra gratuita \"Una Storia\" della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia del Ticino attraverso foto d'archivio.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rsi-storia-svizzera-italiana-mostra.jpg`,
+        "url": `${BASE_URL}/images/blog/rsi-storia-svizzera-italiana-mostra.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una mostra fotografica con immagini d'archivio in bianco e nero che raccontano la storia del Canton Ticino."
@@ -786,7 +786,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra gratuita 'Began with Rauschenberg' alla Fondazione Rolla di Bruzella (Mendrisiotto), dall'8 novembre 2025. Un evento culturale per frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rauschenberg-arte-mendrisiotto.jpg`,
+        "url": `${BASE_URL}/images/blog/rauschenberg-arte-mendrisiotto.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta della Valle di Muggio in Ticino, con il borgo di Bruzella, sede della mostra su Rauschenberg."
@@ -813,7 +813,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Galleria Job di Giubiasco ospita la mostra 'Collettiva Nakba' dal 25/01 al 19/02/2026. Un'occasione di riflessione culturale per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nakba-mostra-giubiasco-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/nakba-mostra-giubiasco-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Interno di una galleria d'arte moderna a Giubiasco, Ticino, con luce naturale che illumina un'opera esposta."
@@ -840,7 +840,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il 19 febbraio 2026, conferenza gratuita a Muralto sull'ultimo album di Fabrizio De André, 'Anime salve'. Un'analisi per frontalieri e amanti della cultura.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/de-andre-anime-salve-locarno.jpg`,
+        "url": `${BASE_URL}/images/blog/de-andre-anime-salve-locarno.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il Palazzo dei Congressi di Muralto, sede di eventi culturali nel Locarnese, visto al crepuscolo."
@@ -867,7 +867,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La mostra 'Sentimento e osservazione' al MASI di Lugano esplora l'identità del Ticino. Una guida per frontalieri per capire la cultura del cantone dove lavorano.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sentimento-osservazione-masi-lugano.png`,
+        "url": `${BASE_URL}/images/blog/sentimento-osservazione-masi-lugano.webp`,
         "width": 1344,
         "height": 756,
         "caption": "L'ingresso del Museo d'arte della Svizzera italiana (MASI) presso il centro culturale LAC di Lugano."
@@ -894,7 +894,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mostra fotografica gratuita della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia della Svizzera italiana dagli anni '60 ai 2000.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rsi-archivio-gottardo-2026.png`,
+        "url": `${BASE_URL}/images/blog/rsi-archivio-gottardo-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Immagini storiche in bianco e nero della Svizzera italiana in mostra ad Airolo, Ticino."
@@ -921,7 +921,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri il programma completo del Carnevale Chièscia Bòsc a Ludiano, dal 19 al 21 febbraio 2026. Gastronomia, musica e ballo in maschera in Valle di Blenio.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carnevale-blenio-chiescia-bosc.png`,
+        "url": `${BASE_URL}/images/blog/carnevale-blenio-chiescia-bosc.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Atmosfera festosa del carnevale in un villaggio della Valle di Blenio, Ticino, con maschere e luci serali."
@@ -948,7 +948,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Tribunale Federale dà ragione a due stranieri contro il Canton Ticino, definendo la loro integrazione 'riuscita'. Scopri cosa significa per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tf-permesso-integrazione-ticino.png`,
+        "url": `${BASE_URL}/images/blog/tf-permesso-integrazione-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Permesso B svizzero su una scrivania con contratto di lavoro, simbolo dell'integrazione in Ticino."
@@ -975,7 +975,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La riforma sull'imposizione individuale potrebbe creare 16.000 nuovi posti di lavoro in Svizzera. Scopri cosa cambia per i frontalieri in Ticino e la concorrenza.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassazione-individuale-lavoro-ticino.png`,
+        "url": `${BASE_URL}/images/blog/tassazione-individuale-lavoro-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ufficio moderno a Lugano con vista sul lago, simbolo del mercato del lavoro ticinese in evoluzione."
@@ -1002,7 +1002,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Ticino minaccia di bloccare i ristorni per la tassa salute italiana. Berna frena: sarebbe una violazione. Analisi completa sulla disputa fiscale e le conseguenze.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-scontro-gobbi-berna.png`,
+        "url": `${BASE_URL}/images/blog/ristorni-scontro-gobbi-berna.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del Governo a Bellinzona con bandiere svizzera e italiana, simbolo delle tensioni fiscali sui ristorni."
@@ -1029,7 +1029,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dati ufficiali UST: nel Q4 2025 i frontalieri in Ticino scendono a 78.809 (-1,0%). Analizziamo le cause del calo e le implicazioni per chi lavora in Svizzera.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-2025.png`,
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda diretta verso il Ticino al mattino"
@@ -1056,7 +1056,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dati ufficiali UST: i frontalieri in Svizzera crescono a 411.000, ma il Ticino segna -1,0% nel Q4 2025. Scopri le cause e le implicazioni per i lavoratori italiani.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-controtendenza-2026.png`,
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-controtendenza-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta aerea della regione di Mendrisio e del traffico di frontalieri al confine con l'Italia all'alba."
@@ -1083,7 +1083,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Analisi dei dati UST per il Q4 2025: il numero di frontalieri in Ticino scende a 78'809 (-1.0%), in controtendenza rispetto alla crescita svizzera (+1.1%).",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-q4-2025.png`,
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-calo-q4-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda al mattino, simbolo del lavoro transfrontaliero in Ticino."
@@ -1110,7 +1110,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un sondaggio svela che il 75% degli svizzeri non allunga il tragitto per un affitto basso. Analisi del dilemma tempo vs. denaro per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/pendolarismo-affitto-tempo-ticino.png`,
+        "url": `${BASE_URL}/images/blog/pendolarismo-affitto-tempo-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Traffico di frontalieri al mattino sull'autostrada A2 vicino al confine di Chiasso, con vista sul Ticino."
@@ -1137,7 +1137,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il centrodestra ticinese chiede la sospensione dei ristorni fiscali all'Italia. La mossa è una risposta alla \"tassa sulla salute\", vista come violazione dell'accordo.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/centrodestra-stop-ristorni-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/centrodestra-stop-ristorni-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il Palazzo delle Orsoline a Bellinzona, sede del governo ticinese, simbolo delle decisioni politiche sui ristorni dei frontalieri."
@@ -1164,7 +1164,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "A fine 2025, i frontalieri in Ticino scendono a 78.809 (-1%), in controtendenza con la Svizzera (+1.1%). Analisi delle cause e impatto sul mercato del lavoro.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-q4-2025.jpg`,
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-q4-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Colonna di auto di frontalieri al valico di Chiasso-Brogeda, simbolo del mercato del lavoro transfrontaliero in Ticino."
@@ -1191,7 +1191,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Gennaio 2026 segna un calo degli ingressi irregolari in Ticino (392 casi). Analisi dei dati UDSC e delle implicazioni per i frontalieri al confine di Chiasso.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/calo-entrate-irregolari-chiasso.jpg`,
+        "url": `${BASE_URL}/images/blog/calo-entrate-irregolari-chiasso.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del valico di frontiera di Chiasso-Brogeda in Ticino, che mostra le infrastrutture doganali svizzere."
@@ -1218,7 +1218,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La polemica sui frontalieri in Ticino si riaccende. Un'analisi svela il vero problema: l'impatto sui salari dei residenti e il ruolo delle aziende. Cosa significa per te.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-salari-polemica-ticino.png`,
+        "url": `${BASE_URL}/images/blog/frontalieri-salari-polemica-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Coda di auto di frontalieri al valico di Brogeda (Chiasso) durante l'ora di punta mattutina verso il Ticino"
@@ -1246,7 +1246,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La mozione del Canton Ticino per bloccare i ristorni fiscali ai comuni italiani accende lo scontro. Reazioni dalla Lombardia e il nodo della tassa sulla salute.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-scontro-ticino-lombardia.jpg`,
+        "url": `${BASE_URL}/images/blog/ristorni-frontalieri-scontro-ticino-lombardia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del valico di confine di Chiasso-Brogeda al tramonto, simbolo delle tensioni fiscali tra Ticino e Italia."
@@ -1274,7 +1274,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Commissione degli Stati propone un aumento di 0,3 punti sui salari e 0,4 sull'IVA per la 13esima AVS. Scopri l'impatto per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-iva-contributi.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-iva-contributi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera con monete in franchi, simbolo del dibattito sul finanziamento della 13esima AVS in Ticino."
@@ -1302,7 +1302,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: più contributi salariali e IVA. Scopri l'impatto sul tuo stipendio da frontaliere in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-misto.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-misto.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera e calcolatrice su una scrivania con vista sui castelli di Bellinzona, a simboleggiare il finanziamento della 13esima AVS."
@@ -1330,7 +1330,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Commissione degli Stati vuole un finanziamento misto per la 13esima AVS da 4,2 mld. Scopri le implicazioni su stipendio e IVA per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-scontro.png`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-scontro.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo delle Orsoline a Bellinzona, sede del governo ticinese, con bandiere svizzere e cantonali."
@@ -1358,7 +1358,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le imprese ticinesi sono preoccupate: il calo di 2.000 frontalieri e lo scontro sui ristorni fiscali minacciano l'economia. Analisi e impatto per i lavoratori.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-imprese-allarme-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/ristorni-imprese-allarme-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Panorama del centro finanziario di Lugano al crepuscolo, simbolo dell'economia ticinese sotto pressione."
@@ -1386,7 +1386,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Fermata con 154'300€ non dichiarati a Brogeda. Scopri le regole sul trasporto di contanti tra Italia e Svizzera, la soglia di 10'000 euro e le sanzioni.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/denaro-non-dichiarato-dogana-brogeda.jpg`,
+        "url": `${BASE_URL}/images/blog/denaro-non-dichiarato-dogana-brogeda.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista dal cruscotto di un'auto al valico di frontiera di Chiasso-Brogeda, con un agente della dogana sullo sfondo."
@@ -1414,7 +1414,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il dibattito sui frontalieri in Ticino si riaccende. Analizziamo le cause reali: la pressione sui salari dei residenti e un'economia in un circolo vizioso.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-salari-dibattito-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/frontalieri-salari-dibattito-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Auto in coda al valico di Chiasso-Brogeda, simbolo del pendolarismo e del dibattito sui frontalieri in Ticino."
@@ -1442,7 +1442,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scontro a Berna sul finanziamento della 13esima AVS. La Commissione degli Stati propone un mix di aumento contributi salariali e IVA. Cosa cambia per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendio-iva.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendio-iva.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Mani di un frontaliere che calcolano lo stipendio netto in un ufficio a Lugano, con vista sul lago."
@@ -1470,7 +1470,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Una mozione di PLR, Centro, UDC e Lega chiede al Ticino di sospendere i ristorni fiscali all'Italia a causa della nuova tassa sulla salute per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/stop-ristorni-mozione-partiti.jpg`,
+        "url": `${BASE_URL}/images/blog/stop-ristorni-mozione-partiti.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del Governo cantonale a Bellinzona, simbolo della politica ticinese al centro del dibattito sui ristorni"
@@ -1498,7 +1498,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La politica ticinese chiede la sospensione dei ristorni all'Italia a causa della nuova tassa sulla salute per i frontalieri. Analisi della mozione e impatto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/partiti-ticino-stop-ristorni.jpg`,
+        "url": `${BASE_URL}/images/blog/partiti-ticino-stop-ristorni.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del Governo ticinese a Bellinzona, simbolo della politica cantonale e delle decisioni sui frontalieri."
@@ -1526,7 +1526,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "I conti della Confederazione chiudono il 2025 in attivo, ma dal 2027 sono previsti tagli e un aumento dell'IVA. Scopri l'impatto per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/conti-federali-aumento-iva-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/conti-federali-aumento-iva-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il Palazzo Federale a Berna, simbolo delle decisioni fiscali che impattano i conti della Svizzera e del Ticino."
@@ -1554,7 +1554,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La 13esima AVS costerà 4,2 miliardi. Si profila un aumento dei contributi salariali e dell'IVA. Scopri l'impatto diretto sul tuo stipendio netto da frontaliere in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendi-iva.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendi-iva.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera su una scrivania con vista su Lugano, a simboleggiare l'impatto della 13esima AVS sullo stipendio dei frontalieri."
@@ -1582,7 +1582,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La mozione ticinese per bloccare i ristorni in risposta alla tassa sulla salute provoca la reazione della Lombardia. Politici e sindacati chiedono di fermare l'escalation.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-lombardia-reazione.jpg`,
+        "url": `${BASE_URL}/images/blog/ristorni-lombardia-reazione.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del governo cantonale a Bellinzona, simbolo delle tensioni fiscali tra Ticino e Italia sui ristorni."
@@ -1610,7 +1610,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Polizia Cantonale lancia l'allarme per un'ondata di truffe con finti funzionari di banca in Ticino. Scopri come funziona lo spoofing e come proteggere il tuo conto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/truffa-falso-bancario-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/truffa-falso-bancario-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Smartphone con app bancaria e vista sul lago di Lugano, simbolo di finanza sicura in Ticino."
@@ -1638,7 +1638,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'annuncio di dazi USA al 10% mette in allerta Berna. Analizziamo le conseguenze per l'export ticinese, l'industria farmaceutica e il lavoro dei frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/dazi-usa-impatto-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/dazi-usa-impatto-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Moderno stabilimento industriale nel Mendrisiotto, Ticino, che simboleggia l'export verso gli USA"
@@ -1666,7 +1666,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'accordo tra la Clinica Varini di Orselina e la Hildebrand di Brissago causa la perdita di 8 posti di lavoro nel team fisioterapia. Analisi dell'impatto sul mercato sanitario ticinese per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sanita-ticino-tagli-orselina.jpg`,
+        "url": `${BASE_URL}/images/blog/sanita-ticino-tagli-orselina.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del lungolago di Locarno, che ospita un importante settore sanitario privato, contesto dell'articolo."
@@ -1694,7 +1694,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un studio di architettura nel Mendrisiotto accusato di dumping salariale: contratti part-time per lavoro full-time. Scopri come tutelarti e quali sono i tuoi diritti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/dumping-salari-architetti-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/dumping-salari-architetti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scrivania di uno studio di architettura a Mendrisio con un contratto di lavoro svizzero, simbolo delle dispute salariali."
@@ -1722,7 +1722,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio federale ha deciso: la 13esima AVS sarà finanziata con un aumento dei contributi dello 0,5% dal 2026. Scopri l'impatto sul tuo stipendio netto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-contributi.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-contributi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, a simboleggiare l'impatto dei contributi AVS."
@@ -1750,7 +1750,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Commissione degli Stati propone di finanziare la 13a AVS con aumento IVA e contributi salariali. Scopri l'impatto diretto sulla busta paga dei frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendio-trattenute.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-stipendio-trattenute.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera su una scrivania con vista su Lugano, a simboleggiare l'impatto della 13a AVS sullo stipendio dei frontalieri."
@@ -1777,7 +1777,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Berna avvia la consultazione per la piattaforma POLAP, per unificare i dati delle polizie cantonali. Scopri le implicazioni per la sicurezza in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/scambio-dati-polizia-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/scambio-dati-polizia-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Polizia cantonale ticinese al lavoro con un tablet al valico di Chiasso-Brogeda, simbolo dello scambio dati."
@@ -1804,7 +1804,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Commissione degli Stati propone un finanziamento misto per la 13esima AVS: aumento dei contributi salariali e dell'IVA. Ecco l'impatto su stipendi e busta paga.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-misto-proposta.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-misto-proposta.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera su una scrivania con vista sul lago di Lugano, a simboleggiare l'impatto delle trattenute AVS."
@@ -1831,7 +1831,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Analisi dei dati 2025 sui frontalieri in Ticino. Un calo dello 0.2% nasconde un aumento nei settori qualificati come IT e ingegneria. Scopri la vera tendenza.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-ingannevoli.jpg`,
+        "url": `${BASE_URL}/images/blog/frontalieri-ticino-dati-ingannevoli.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ufficio moderno a Lugano con vista sul lago, simbolo del settore terziario qualificato in Ticino."
@@ -1859,7 +1859,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Commissione degli Stati propone di finanziare la 13esima AVS con un mix di aumento contributi salariali e IVA. Scopri l'impatto sul tuo stipendio netto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-busta-paga.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-finanziamento-busta-paga.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, focus sulle trattenute AVS."
@@ -1887,7 +1887,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Analisi sull'integrazione lavorativa dei titolari di Permesso S in Svizzera. Con stipendi medi di 4'571 CHF, quale impatto per il mercato del lavoro in Ticino?",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/permesso-s-salari-bassi-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/permesso-s-salari-bassi-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ufficio a Bellinzona con vista su Castelgrande, simbolo del mercato del lavoro e delle politiche cantonali in Ticino."
@@ -1915,7 +1915,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La mozione ticinese per bloccare i ristorni fiscali dei frontalieri scatena la reazione della Lombardia. Analisi delle tensioni e delle possibili conseguenze economiche.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-reazione-lombardia.jpg`,
+        "url": `${BASE_URL}/images/blog/ristorni-reazione-lombardia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del Castelgrande a Bellinzona, sede del governo ticinese, in un contesto di tensioni fiscali con la Lombardia."
@@ -1943,7 +1943,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Commissione degli Stati propone di finanziare la 13esima AVS con più contributi salariali e IVA. Scopri l'impatto sulla busta paga dei frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-busta-paga-frontaliere.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-busta-paga-frontaliere.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Busta paga svizzera su una scrivania con vista sul Lago di Lugano, a simboleggiare il lavoro dei frontalieri in Ticino"
@@ -1970,7 +1970,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Aumento delle tariffe dell'acqua nel Basso Mendrisiotto a 1,55 CHF/m³. Scopri come l'intervento del Sorvegliante dei prezzi ha limitato il rincaro per i residenti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/acqua-mendrisiotto-prezzi-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/acqua-mendrisiotto-prezzi-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Contatore dell'acqua in una cantina del Mendrisiotto, simbolo dell'aumento dei costi delle utenze in Ticino."
@@ -1997,7 +1997,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'accordo post Crans-Montana rafforza la collaborazione giudiziaria tra Italia e Svizzera. Scopri le implicazioni per i frontalieri in Ticino e la sicurezza.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cooperazione-giudiziaria-svizzera-italia.jpg`,
+        "url": `${BASE_URL}/images/blog/cooperazione-giudiziaria-svizzera-italia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Collaborazione tra autorità svizzere e italiane al valico di frontiera di Chiasso, simbolo di cooperazione giudiziaria."
@@ -2024,7 +2024,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Nuova collaborazione tra Clinica Varini e Centro Hildebrand nel Locarnese porta al licenziamento di 8 fisioterapisti. Analisi e impatto sul lavoro.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sanita-locarnese-licenziamenti.jpg`,
+        "url": `${BASE_URL}/images/blog/sanita-locarnese-licenziamenti.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di una moderna clinica nel Locarnese, simbolo del settore sanitario ticinese e delle recenti ristrutturazioni."
@@ -2051,7 +2051,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Canton Ticino registra il tasso più alto di legionellosi in Svizzera (13,9 casi/100k). Scopri le cause, i rischi per la salute e i consigli per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/legionellosi-ticino-allarme.jpg`,
+        "url": `${BASE_URL}/images/blog/legionellosi-ticino-allarme.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Primo piano di un soffione della doccia con gocce d'acqua, a simboleggiare il rischio legionellosi in Ticino."
@@ -2078,7 +2078,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un'inchiesta RSI svela i prezzi dinamici in UK. Analizziamo l'impatto potenziale su spesa, stipendi e potere d'acquisto per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/prezzi-dinamici-ticino-futuro.jpg`,
+        "url": `${BASE_URL}/images/blog/prezzi-dinamici-ticino-futuro.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Etichetta di prezzo elettronica in un supermercato del Ticino, simbolo dei prezzi dinamici e del loro impatto sui consumatori."
@@ -2105,7 +2105,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Polemica a Lugano sulla gestione delle manifestazioni. Un evento di destra negato, uno di sinistra non autorizzato tollerato. L'analisi sui costi e la fiducia.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lugano-manifestazioni-regole-polemica.jpg`,
+        "url": `${BASE_URL}/images/blog/lugano-manifestazioni-regole-polemica.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Piazza della Riforma a Lugano in un giorno di sole, con tavolini all'aperto e una discreta presenza di polizia in sottofondo."
@@ -2132,7 +2132,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mappa completa dell'addizionale comunale IRPEF 2026 per i frontalieri. Confronta le aliquote di Como, Varese e altri comuni e risparmia sul netto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/addizionale-irpef-mappa-comuni.jpg`,
+        "url": `${BASE_URL}/images/blog/addizionale-irpef-mappa-comuni.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Mappa dei comuni di frontiera tra Italia e Svizzera per la scelta della residenza fiscale dei frontalieri"
@@ -2159,7 +2159,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La mappa completa delle aliquote 2026 dell'addizionale comunale IRPEF per frontalieri. Scopri dove pagare meno tasse tra Como e Varese e come incide sul tuo netto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mappa-fiscale-comuni-frontiera.png`,
+        "url": `${BASE_URL}/images/blog/mappa-fiscale-comuni-frontiera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica dal Mendrisiotto verso i comuni italiani di confine al tramonto, simbolo delle scelte fiscali dei frontalieri."
@@ -2186,7 +2186,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa 2026 al congedo maternità e paternità per frontalieri in Ticino. Scopri indennità, durata, come fare domanda AVS e differenze con l'Italia.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/maternita-paternita-frontaliere-guida.jpg`,
+        "url": `${BASE_URL}/images/blog/maternita-paternita-frontaliere-guida.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Coppia di neogenitori frontalieri consulta i documenti per il congedo parentale in un appartamento in Ticino."
@@ -2213,7 +2213,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa 2026 alle trattenute sulla busta paga svizzera per frontalieri in Ticino. Scopri le aliquote AVS, LPP, LAINF e calcola il tuo stipendio netto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/guida-contributi-sociali-svizzera.png`,
+        "url": `${BASE_URL}/images/blog/guida-contributi-sociali-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Dettaglio di una busta paga svizzera su una scrivania con vista sul Lago di Lugano, simbolo del lavoro frontaliere"
@@ -2240,7 +2240,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un frontaliere valuta di trasferirsi a Lugano? Analisi completa dei costi 2026: affitto (da 1.500 CHF), LAMal, tasse, trasporti e spesa. Calcola il tuo budget.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/costo-vivere-lugano-trasferirsi.png`,
+        "url": `${BASE_URL}/images/blog/costo-vivere-lugano-trasferirsi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Balcone di un appartamento a Lugano con vista lago, simbolo del costo della vita per chi valuta il trasferimento in Ticino."
@@ -2267,7 +2267,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa ai pro e contro del permesso G per frontalieri in Ticino nel 2026. Analisi fisco, pensione LPP, sanità LAMal e nuovo accordo fiscale.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/permesso-g-pro-contro-2026.png`,
+        "url": `${BASE_URL}/images/blog/permesso-g-pro-contro-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Permesso G svizzero per frontalieri su una scrivania con vista su Lugano, simbolo del lavoro in Ticino."
@@ -2294,7 +2294,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa al calcolo della pensione per frontalieri in Ticino. Scopri come funziona la totalizzazione dei contributi AVS svizzeri e INPS italiani e i requisiti 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/calcolo-pensione-avs-inps.png`,
+        "url": `${BASE_URL}/images/blog/calcolo-pensione-avs-inps.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Coppia di frontalieri maturi pianifica la pensione con un tablet sul lungolago di Lugano, vista su Monte San Salvatore."
@@ -2321,7 +2321,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri l'impatto del nuovo accordo fiscale 2026 sul tuo stipendio da frontaliere in Ticino. Simulazione reale con 65'000 CHF: confronto vecchio-nuovo regime.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/simulazione-fiscale-frontaliere-2026.png`,
+        "url": `${BASE_URL}/images/blog/simulazione-fiscale-frontaliere-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Simulazione dell'impatto del nuovo accordo fiscale per frontalieri, vista dal cruscotto di un'auto al valico di Chiasso."
@@ -2348,7 +2348,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa 2026 per frontalieri in Ticino: confronto premi, coperture e franchigie tra LAMal (da 350 CHF) e CMI (da 180€). Scopri la scelta migliore.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lamal-cmi-scelta-frontaliere-2026.png`,
+        "url": `${BASE_URL}/images/blog/lamal-cmi-scelta-frontaliere-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scrivania con contratto di lavoro svizzero e passaporto italiano, con vista sul Lago di Lugano, simbolo della scelta assicurativa del frontaliere."
@@ -2375,7 +2375,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Sei un 'nuovo frontaliere' in Ticino? Scopri come funziona il credito d'imposta per evitare la doppia tassazione sul tuo stipendio svizzero. Guida pratica al Quadro CE del 730 con esempi di calcolo per il 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/credito-imposta-doppia-tassazione.png`,
+        "url": `${BASE_URL}/images/blog/credito-imposta-doppia-tassazione.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Documenti fiscali italiani e svizzeri su una scrivania di un frontaliere con vista su Mendrisio, Ticino."
@@ -2402,7 +2402,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Quanto costa davvero usare l'auto per lavorare in Ticino? Analisi 2026 dei costi reali per un frontaliere: benzina, vignetta, usura, parcheggio e confronto con il treno.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/costo-reale-auto-frontaliere.png`,
+        "url": `${BASE_URL}/images/blog/costo-reale-auto-frontaliere.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista dal cruscotto di un'auto nel traffico mattutino verso il Ticino, simbolo dei costi del pendolarismo per i frontalieri."
@@ -2429,7 +2429,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa al congedo di maternità e paternità per frontalieri in Ticino. Scopri indennità 2026, requisiti AVS, come fare domanda e diritti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/congedo-genitori-frontaliere-ticino.png`,
+        "url": `${BASE_URL}/images/blog/congedo-genitori-frontaliere-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Coppia di neogenitori frontalieri pianifica il congedo parentale su un tablet, con vista sul Lago di Lugano, Ticino."
@@ -2456,7 +2456,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Quanto costa davvero l'auto per un frontaliere in Ticino? Analisi 2026 di benzina, parcheggio, usura e vignette. Scopri se conviene rispetto al treno.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/costo-pendolare-auto-ticino-2026.png`,
+        "url": `${BASE_URL}/images/blog/costo-pendolare-auto-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Coda di auto di frontalieri al valico di Chiasso-Brogeda in Ticino al mattino presto."
@@ -2483,7 +2483,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La guida completa al Modello 730/2026 per frontalieri in Ticino: come compilare il Quadro CE, calcolare il credito d'imposta e le scadenze da non perdere.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/guida-dichiarazione-redditi-frontalieri.png`,
+        "url": `${BASE_URL}/images/blog/guida-dichiarazione-redditi-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Frontaliere compila il Modello 730 con documenti svizzeri e italiani sulla scrivania con vista su Bellinzona."
@@ -2510,7 +2510,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La checklist completa dei documenti necessari per iniziare a lavorare in Svizzera come frontaliere in Ticino: Permesso G, contratto, AVS, conto e assicurazione.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/checklist-documenti-lavoro-svizzera.png`,
+        "url": `${BASE_URL}/images/blog/checklist-documenti-lavoro-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Documenti necessari per lavorare in Svizzera, con un contratto e un Permesso G su una scrivania in Ticino."
@@ -2537,7 +2537,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa per frontalieri con figli: costi reali 2026 degli asili nido in Ticino, rette, sussidi e liste d'attesa. Confronta le opzioni Svizzera vs Italia.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/asilo-nido-frontaliere-ticino.png`,
+        "url": `${BASE_URL}/images/blog/asilo-nido-frontaliere-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Genitore frontaliere saluta il figlio all'ingresso di un moderno asilo nido in Ticino, simbolo delle scelte familiari."
@@ -2564,7 +2564,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Locarno blocca la costruzione di nuove residenze secondarie. L'Ufficio federale ha confermato il superamento della quota del 20%. Dettagli e impatti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/locarno-stop-residenze-secondarie.jpg`,
+        "url": `${BASE_URL}/images/blog/locarno-stop-residenze-secondarie.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del lungolago di Locarno con edifici residenziali, simbolo del mercato immobiliare locale."
@@ -2591,7 +2591,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri dove vivere in Svizzera costa meno. Analisi su affitti, imposte e cassa malati per cantone, con un focus sul Ticino e i suoi premi record.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/costo-vita-svizzera-mappa.jpg`,
+        "url": `${BASE_URL}/images/blog/costo-vita-svizzera-mappa.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Mappa del costo della vita in Svizzera su un tablet, con vista sul Lago di Lugano sullo sfondo."
@@ -2618,7 +2618,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un audit del Controllo federale delle finanze rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d'interessi della SUVA. Cosa significa per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-audit-suva.jpg`,
+        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-audit-suva.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un cantiere edile in Ticino con un ispettore della sicurezza al lavoro, simbolo dei controlli nelle aziende"
@@ -2645,7 +2645,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la mappa dei comuni svizzeri dove vivere costa meno. Analisi su affitti, imposte e cassa malati, con un focus sul costo della vita in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/costo-vivere-mappa-comuni.jpg`,
+        "url": `${BASE_URL}/images/blog/costo-vivere-mappa-comuni.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Mappa del Canton Ticino con indicatori di costo della vita, vista da un appartamento con panorama su Lugano."
@@ -2672,7 +2672,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due studi di architettura di Mendrisio multati per 160'000 CHF. La testimonianza di un neolaureato rivela ore di lavoro gratis e false promesse. Dettagli sul caso.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/architetti-sottopagati-ticino.png`,
+        "url": `${BASE_URL}/images/blog/architetti-sottopagati-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Interno di uno studio di architettura a Mendrisio, con un giovane professionista che guarda fuori dalla finestra"
@@ -2699,7 +2699,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Registrato un calo dei lavoratori frontalieri in Ticino. L'analisi del sindacato CGIL smentisce la tassa sulla salute come causa, indicando la crisi economica cantonale.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/calo-frontalieri-non-tassa-salute.png`,
+        "url": `${BASE_URL}/images/blog/calo-frontalieri-non-tassa-salute.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Coda di automobili di lavoratori frontalieri al valico di Chiasso in una mattina lavorativa diretta verso il Ticino"
@@ -2726,7 +2726,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Una sentenza della Cassazione riconosce l'indennità di maternità INPS alle lavoratrici frontaliere in Ticino, valorizzando i contributi versati in Svizzera.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/maternita-cassazione-diritti-frontalieri.png`,
+        "url": `${BASE_URL}/images/blog/maternita-cassazione-diritti-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lavoratrice frontaliere con il suo bambino guarda il Lago di Lugano, simbolo dei diritti di maternità transfrontalieri."
@@ -2753,7 +2753,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Galenica annuncia la chiusura della filiale Bichsel, mettendo a rischio 170 posti di lavoro. Analisi dell'impatto sul settore farmaceutico e per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/galenica-bichsel-ristrutturazione-lavoro.png`,
+        "url": `${BASE_URL}/images/blog/galenica-bichsel-ristrutturazione-lavoro.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Facciata di una farmacia moderna in una città del Ticino, simbolo del settore farmaceutico svizzero."
@@ -2780,7 +2780,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "I nuovi dazi USA del 15% sono attivi. Scopri le conseguenze per le aziende esportatrici del Ticino (farmaceutica, meccanica) e i rischi per il lavoro dei frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/dazi-trump-export-ticinese.png`,
+        "url": `${BASE_URL}/images/blog/dazi-trump-export-ticinese.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Polo industriale e logistico nel Mendrisiotto, simbolo dell'export ticinese verso gli Stati Uniti"
@@ -2807,7 +2807,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Ufficiale: Campione d'Italia non è più in dissesto finanziario dal 1° gennaio 2026. Il Comune può assumere senza autorizzazione. Le implicazioni per il lavoro.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/campione-italia-fine-dissesto.png`,
+        "url": `${BASE_URL}/images/blog/campione-italia-fine-dissesto.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta dell'exclave di Campione d'Italia affacciata sul Lago di Lugano, simbolo della ripresa economica."
@@ -2834,7 +2834,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Multa da 160'000 CHF a studi di Mendrisio per sfruttamento di stagisti. La testimonianza di un giovane architetto svela un sistema di ore extra non pagate.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/gavetta-tossica-architetti-ticino.png`,
+        "url": `${BASE_URL}/images/blog/gavetta-tossica-architetti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un giovane architetto lavora fino a tardi in un ufficio a Mendrisio, simbolo delle pressioni nel settore."
@@ -2861,7 +2861,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Caos sulla linea FFS: un Eurocity con 500 passeggeri diretto a Milano è rimasto bloccato in galleria. Due ore di ritardo e pesanti disagi per i pendolari.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/eurocity-bloccato-caos-pendolari.png`,
+        "url": `${BASE_URL}/images/blog/eurocity-bloccato-caos-pendolari.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Treno Eurocity delle FFS fermo in una stazione ticinese durante una mattinata di pendolarismo intenso."
@@ -2888,7 +2888,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un audit federale rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d'interessi della Suva. Le implicazioni per i frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-controlli-svizzera.png`,
+        "url": `${BASE_URL}/images/blog/sicurezza-lavoro-controlli-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ispettore della sicurezza sul lavoro in un cantiere edile in Ticino che controlla dei documenti"
@@ -2915,7 +2915,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le startup svizzere raccolgono 3,3 miliardi (+44%) nel 2025, trainate dall'IA. Scopri cosa significano i 53 milioni investiti in Ticino per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/startup-investimenti-boom-ticino.png`,
+        "url": `${BASE_URL}/images/blog/startup-investimenti-boom-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di un moderno ufficio startup a Lugano con il team al lavoro e il lago e il Monte San Salvatore sullo sfondo."
@@ -2942,7 +2942,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Tribunale federale svizzero stabilisce che il Long Covid è una malattia professionale per gli operatori sanitari. La Bâloise condannata a pagare la rendita. Cosa cambia per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/long-covid-malattia-professionale.png`,
+        "url": `${BASE_URL}/images/blog/long-covid-malattia-professionale.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il Tribunale federale svizzero a Losanna, dove è stata presa la decisione sul Long Covid come malattia professionale."
@@ -2969,7 +2969,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio UE approva la firma dei nuovi accordi con la Svizzera. Analisi delle conseguenze per i frontalieri in Ticino su lavoro, salari e Permesso G.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordo-ue-svizzera-mercato-interno.png`,
+        "url": `${BASE_URL}/images/blog/accordo-ue-svizzera-mercato-interno.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Bandiere svizzera e dell'Unione Europea che sventolano con il lago di Lugano e il Monte San Salvatore sullo sfondo."
@@ -2996,7 +2996,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La produzione delle fonderie svizzere cala del 7.6% nel 2025. Analisi delle cause, dall'auto tedesca ai dazi USA, e le conseguenze per il lavoro in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/fonderie-svizzere-crisi-2025.png`,
+        "url": `${BASE_URL}/images/blog/fonderie-svizzere-crisi-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Interno di una moderna fonderia nel Canton Ticino, con un operaio specializzato che ispeziona un pezzo metallico."
@@ -3023,7 +3023,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri i dettagli della bozza di accordo sul salario minimo in Ticino: aumento graduale da 20.50 a 22 CHF orari entro il 2029. Cosa cambia per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-accordo.png`,
+        "url": `${BASE_URL}/images/blog/salario-minimo-ticino-accordo.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del Governo a Bellinzona, dove si discutono le politiche salariali del Canton Ticino"
@@ -3050,7 +3050,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "I trasporti pubblici svizzeri registrano un fatturato record di 7,04 miliardi CHF. Scopri cosa significa questa crescita per i frontalieri in Ticino e i costi del pendolarismo.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/trasporti-pubblici-crescita-svizzera.png`,
+        "url": `${BASE_URL}/images/blog/trasporti-pubblici-crescita-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un treno TILO fermo alla stazione di Bellinzona, simbolo del pendolarismo dei frontalieri in Ticino."
@@ -3077,7 +3077,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa ai cantieri notturni a Lugano per marzo 2026. Elenco delle strade chiuse e delle deviazioni a Viganello, Pregassona, Castagnola. Pianifica il tuo viaggio.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cantieri-notturni-lugano-marzo-2026.png`,
+        "url": `${BASE_URL}/images/blog/cantieri-notturni-lugano-marzo-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lavori stradali notturni in una via di Lugano, con macchinari per la posa dell'asfalto illuminati da fari."
@@ -3104,7 +3104,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "SUPSI nomina Daniela Willi-Piezzi nuova direttrice del Dipartimento formazione e apprendimento. Dal 1° maggio 2026 guiderà la formazione dei docenti in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/supsi-nuova-direttrice-formazione.png`,
+        "url": `${BASE_URL}/images/blog/supsi-nuova-direttrice-formazione.webp`,
         "width": 1344,
         "height": 756,
         "caption": "La moderna sede della SUPSI a Manno, Canton Ticino, che ospita il Dipartimento formazione e apprendimento."
@@ -3131,7 +3131,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "BPS Suisse celebra 30 anni con un utile di 27,6 milioni di CHF nel 2025. Analisi dei risultati, dell'impatto dell'acquisizione BPER e cosa significa per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bps-suisse-risultati-bper.jpg`,
+        "url": `${BASE_URL}/images/blog/bps-suisse-risultati-bper.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Sede di una banca moderna a Lugano, simbolo della stabilità finanziaria del Canton Ticino."
@@ -3158,7 +3158,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Berna rivede gli aiuti alle imprese energetiche: il fondo di salvataggio scende a 5 miliardi e la proroga è fino al 2029. Analisi dell'impatto sui costi in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/aiuti-energia-proroga-taglio.jpg`,
+        "url": `${BASE_URL}/images/blog/aiuti-energia-proroga-taglio.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Linee elettriche ad alta tensione che attraversano una valle del Ticino, simbolo del settore energetico svizzero."
@@ -3185,7 +3185,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Ticino discute un controprogetto per il salario minimo sociale. Scopri i 5 principi in discussione e le possibili conseguenze sul tuo stipendio da frontaliere.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/salario-minimo-sociale-ticino-dibattito.jpg`,
+        "url": `${BASE_URL}/images/blog/salario-minimo-sociale-ticino-dibattito.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Sala riunioni del Gran Consiglio a Bellinzona, simbolo del dibattito politico sul salario minimo in Ticino."
@@ -3212,7 +3212,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Banca Popolare di Sondrio (Suisse) chiude il 2025 con 27,6 mln di utile. Scopri i consigli del CEO per gestire investimenti e mutui in Ticino per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bps-suisse-utili-consigli-crisi.jpg`,
+        "url": `${BASE_URL}/images/blog/bps-suisse-utili-consigli-crisi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Sede di una banca a Lugano con vista sul lago, a simboleggiare i risultati finanziari di BPS Suisse in Ticino"
@@ -3239,7 +3239,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Gran Consiglio ticinese approva la mozione UDC per un referendum con doppia maggioranza sul nuovo accordo con l'UE. Analisi delle implicazioni per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordo-ue-voto-obbligatorio-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/accordo-ue-voto-obbligatorio-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del governo cantonale a Bellinzona con bandiere svizzera e ticinese, simbolo della politica ticinese sull'accordo UE."
@@ -3266,7 +3266,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio UE dà il via libera al nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e referendum.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordo-ue-svizzera-impatto-frontalieri.jpg`,
+        "url": `${BASE_URL}/images/blog/accordo-ue-svizzera-impatto-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Le bandiere della Svizzera e dell'Unione Europea sventolano insieme, simbolo del nuovo pacchetto di accordi bilaterali."
@@ -3293,7 +3293,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Locarno ha superato il 20% di case secondarie secondo l'ARE, bloccando nuove licenze. Scopri l'impatto sul mercato immobiliare e il costo della vita per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/locarno-stop-case-vacanza.jpg`,
+        "url": `${BASE_URL}/images/blog/locarno-stop-case-vacanza.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del lungolago di Locarno con gli edifici della città e le montagne circostanti, che simboleggiano il mercato immobiliare locale."
@@ -3320,7 +3320,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio UE approva la firma del nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e il voto del 2027.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bilaterali-ue-svizzera-firma.jpg`,
+        "url": `${BASE_URL}/images/blog/bilaterali-ue-svizzera-firma.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del confine italo-svizzero di Chiasso, simbolo degli accordi bilaterali tra Svizzera e Unione Europea."
@@ -3347,7 +3347,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio federale propone un aumento dell'IVA per finanziare l'esercito. Scopri l'impatto di 80 centesimi in più ogni 100 CHF sulla tua spesa e stipendio.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/aumento-iva-esercito-impatto-spesa.jpg`,
+        "url": `${BASE_URL}/images/blog/aumento-iva-esercito-impatto-spesa.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scontrino della spesa in un supermercato ticinese, a simboleggiare l'impatto dell'aumento IVA sul costo della vita"
@@ -3374,7 +3374,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida pratica ai diritti di maternità e paternità per frontalieri: congedo Svizzera e Italia, indennità, come richiedere le prestazioni.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/maternita-paternita-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/maternita-paternita-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Famiglia passeggia vicino al Lago di Lugano in primavera."
@@ -3401,7 +3401,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Mozione UDC: referendum su Accordo quadro UE-Svizzera. Implicazioni per frontalieri e aziende in Ticino. Scopri i dettagli.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-ue-svizzera-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/referendum-ue-svizzera-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del Castelgrande di Bellinzona con bandiere svizzera e UE in primo piano."
@@ -3428,7 +3428,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Valposchiavo registra 81.000 pernottamenti nel 2025 e un record di 8.000 visitatori nei musei. Scopri le opportunità per frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/valposchiavo-turismo-2025.png`,
+        "url": `${BASE_URL}/images/blog/valposchiavo-turismo-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista autunnale della valle di Poschiavo con edifici storici e un treno della Ferrovia retica."
@@ -3455,7 +3455,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il numero di frontalieri cala in Ticino. Scopri le cause economiche e come pianificare il tuo futuro da frontaliere.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/places/mendrisio.jpg`,
+        "url": `${BASE_URL}/images/places/mendrisio.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Traffico di frontalieri al valico di Ponte Tresa con montagne sullo sfondo"
@@ -3482,7 +3482,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'inflazione svizzera è quasi ferma allo 0,1%: scopri cosa significa per i frontalieri in Ticino e il cambio franco-euro.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/inflazione-frontalieri-ticino.png`,
+        "url": `${BASE_URL}/images/blog/inflazione-frontalieri-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del lago di Lugano con bandiere svizzere all'alba e skyline in lontananza"
@@ -3509,7 +3509,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come aprire un conto bancario svizzero da frontaliere. Scegli la banca migliore in Ticino: costi, carte, online banking, requisiti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/aprire-conto-bancario-frontaliere.png`,
+        "url": `${BASE_URL}/images/blog/aprire-conto-bancario-frontaliere.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta di Lugano con un edificio bancario e pedoni che attraversano la strada"
@@ -3536,7 +3536,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida completa ai ristorni fiscali per frontalieri in Ticino. Scopri chi paga, come si calcolano e il futuro degli accordi bilaterali.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-fiscali-ticino.png`,
+        "url": `${BASE_URL}/images/blog/ristorni-fiscali-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di Mendrisio con auto in transito e bandiera svizzera visibile"
@@ -3563,7 +3563,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida pratica per frontalieri: tutto sui contributi sociali in Svizzera (AVS, AI, LPP, AD). Scopri le trattenute e calcola il tuo netto 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/contributi-sociali-busta-paga.png`,
+        "url": `${BASE_URL}/images/blog/contributi-sociali-busta-paga.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta di Mendrisio con frontalieri in transito vicino a un ufficio locale"
@@ -3590,7 +3590,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Incidenti frequenti sulla strada cantonale Vezia-Cureglia. Il Municipio chiede interventi al Cantone per migliorare la sicurezza stradale.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/strada-incidenti-vezia-cureglia.png`,
+        "url": `${BASE_URL}/images/blog/strada-incidenti-vezia-cureglia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Strada cantonale tra Vezia e Cureglia, con guardrail e curve pericolose in una giornata di sole"
@@ -3617,7 +3617,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Come frontalieri in Ticino, scopri le migliori opzioni di assicurazione malattia per te e la tua famiglia: LAMal, EHIC, integrative. Confronta ora.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/assicurazione-malattia-famiglia.png`,
+        "url": `${BASE_URL}/images/blog/assicurazione-malattia-famiglia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Famiglia in un ufficio sanitario a Lugano che discute di assicurazione malattia."
@@ -3644,7 +3644,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il numero di frontalieri in Ticino cala, ma non per la tassa sanitaria. Scopri cosa sta succedendo e come potrebbe influire sulle tue finanze.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/calo-frontalieri-ragioni-economiche.png`,
+        "url": `${BASE_URL}/images/blog/calo-frontalieri-ragioni-economiche.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico doganale di Mendrisio all'alba con frontalieri in coda"
@@ -3671,7 +3671,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il calo dei frontalieri in Ticino è legato alla crisi economica, non alla tassa sulla salute. Scopri di più e calcola il tuo stipendio.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-calo-economia-ticinese.png`,
+        "url": `${BASE_URL}/images/blog/frontalieri-calo-economia-ticinese.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di Mendrisio con auto in coda e Alpi sullo sfondo"
@@ -3698,7 +3698,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'USI Startup Centre si classifica al 69° posto in Europa e al 5° tra gli hub svizzeri secondo il Financial Times. Scopri di più!",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/usi-startup-centre-ranking.png`,
+        "url": `${BASE_URL}/images/blog/usi-startup-centre-ranking.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del campus USI a Lugano con studenti e imprenditori in primo piano"
@@ -3725,7 +3725,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dal 27 al 28 febbraio, i treni Tilo subiscono interruzioni per sciopero in Italia. Ecco cosa sapere.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sciopero-treni-tilo-febbraio-2026.png`,
+        "url": `${BASE_URL}/images/blog/sciopero-treni-tilo-febbraio-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Treno Tilo alla stazione di Lugano con vista sul lago."
@@ -3752,7 +3752,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Chiasso investe 850'000 CHF per una nuova copertura pressostatica alla piscina comunale. Scopri le implicazioni per sicurezza e costi.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/piscina-chiasso-copertura-2026.png`,
+        "url": `${BASE_URL}/images/blog/piscina-chiasso-copertura-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "La piscina comunale di Chiasso con la nuova copertura pressostatica in autunno."
@@ -3779,7 +3779,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dopo 18 mesi di riparazioni e 8 milioni CHF investiti, la centrale elettrica di Grono è tornata operativa. Ripercussioni per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/centrale-elettrica-grono-attiva.png`,
+        "url": `${BASE_URL}/images/blog/centrale-elettrica-grono-attiva.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Centrale elettrica di Grono riattivata, contornata da montagne e vegetazione"
@@ -3806,7 +3806,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri i requisiti per la NASpI per frontalieri italiani, come calcolare l'importo e la durata, con esempi e guida pratica 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/naspi-frontaliere-italia-requisiti.png`,
+        "url": `${BASE_URL}/images/blog/naspi-frontaliere-italia-requisiti.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di confine tra Italia e Svizzera a Chiasso, con auto e pedoni"
@@ -3833,7 +3833,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Guida pratica sul prelievo del secondo pilastro LPP per frontalieri: quando, tassazione e strategie ottimali.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/prelievo-secondo-pilastro-frontaliere.png`,
+        "url": `${BASE_URL}/images/blog/prelievo-secondo-pilastro-frontaliere.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Lugano con lago e montagne sullo sfondo."
@@ -3860,7 +3860,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il pacchetto di accordi con l'UE sarà firmato il 2 marzo, un passo cruciale per i frontalieri del Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accordo-ue-frontalieri-ticino.png`,
+        "url": `${BASE_URL}/images/blog/accordo-ue-frontalieri-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Lugano con il lago e le montagne sullo sfondo, in una giornata soleggiata."
@@ -3887,7 +3887,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Tensioni tra Ticino e Berna: Gobbi minaccia il blocco dei ristorni per tutelare i frontalieri e i rapporti con l'Italia. Scopri di più.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/places/bellinzona.jpg`,
+        "url": `${BASE_URL}/images/places/bellinzona.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta di Castelgrande a Bellinzona con cielo nuvoloso e la città sullo sfondo"
@@ -3915,7 +3915,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "description": "Guida completa NASpI ex frontalieri 2026: requisiti, documenti, tempi INPS, scenari reali e differenze rispetto alla disoccupazione svizzera.",
         "image": {
           "@type": "ImageObject",
-          "url": `${BASE_URL}/images/places/lugano-view.jpg`,
+          "url": `${BASE_URL}/images/places/lugano-view.webp`,
           "width": 1344,
           "height": 756,
           "caption": "Vista serena del Lago di Lugano al tramonto con colline e paesaggio urbano."
@@ -3973,7 +3973,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come ottenere un mutuo per comprare casa in Italia con uno stipendio svizzero: requisiti, banche, documenti e tassi aggiornati al 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mutuo-casa-frontalieri-italia.jpg`,
+        "url": `${BASE_URL}/images/blog/mutuo-casa-frontalieri-italia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di un tipico borgo italiano vicino al confine svizzero, con tetti in terracotta e colline sullo sfondo al tramonto"
@@ -4000,7 +4000,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Chiasso investe 850mila CHF per rinnovare la copertura della piscina comunale. Scopri le implicazioni per frontalieri e residenti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/piscina-chiasso-investimento.jpg`,
+        "url": `${BASE_URL}/images/blog/piscina-chiasso-investimento.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lavori per la sostituzione della copertura della piscina di Chiasso in una giornata di sole."
@@ -4027,7 +4027,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Canton Ticino minaccia di congelare i ristorni fiscali verso l'Italia. Impatti per frontalieri e comuni di confine: scopri di più.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-congelati-gobbi-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/ristorni-congelati-gobbi-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Piazza principale di Bellinzona con il palazzo del governo sullo sfondo e persone che passeggiano."
@@ -4054,7 +4054,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri tutto sugli asili nido in Ticino per frontalieri: costi, liste d'attesa, sussidi disponibili e alternative italiane. Guida aggiornata al 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/asilo-nido-ticino-guida-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/asilo-nido-ticino-guida-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un asilo moderno a Lugano con bambini che giocano all'esterno."
@@ -4081,7 +4081,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri il congelamento dei ristorni sulla salute per frontalieri e le sue conseguenze fiscali per il 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-salute-2026-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/ristorni-salute-2026-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Mercato di Bellinzona con venditori e acquirenti, colori vivaci e prodotti freschi."
@@ -4108,7 +4108,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Canton Ticino, tramite Norman Gobbi, minaccia di congelare i ristorni fiscali all'Italia per il mancato indennizzo federale sulla tassa salute dei frontalieri. La tensione cresce a febbraio 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-salute-scontro-ticino-berna.jpg`,
+        "url": `${BASE_URL}/images/blog/tassa-salute-scontro-ticino-berna.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Palazzo del Governo a Bellinzona, simbolo delle istituzioni ticinesi, in un contesto di tensioni sui ristorni fiscali e la tassa sulla salute."
@@ -4135,7 +4135,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Chiasso investe 850'000 CHF nella sicurezza della piscina comunale, sostituendo la copertura pressostatica dopo 15 anni. Onere netto di soli 60'000 CHF per il Comune.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/piscina-chiasso-rinnovo-sicurezza.jpg`,
+        "url": `${BASE_URL}/images/blog/piscina-chiasso-rinnovo-sicurezza.webp`,
         "width": 1344,
         "height": 756,
         "caption": "La piscina comunale di Chiasso con la copertura pressostatica usurata e le montagne sullo sfondo, simbolo di un imminente rinnovamento."
@@ -4162,7 +4162,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Importante sciopero in Italia il 27-28 febbraio 2026 blocca i treni Tilo RE80, S10, S30, S40, S50 oltre confine. Informati sui servizi garantiti e bus sostitutivi per frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/disagi-tilo-sciopero-italia.jpg`,
+        "url": `${BASE_URL}/images/blog/disagi-tilo-sciopero-italia.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Pendolari in attesa alla stazione di Chiasso o Mendrisio, con un treno Tilo in arrivo sullo sfondo, al mattino presto."
@@ -4189,7 +4189,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Tutte le informazioni sugli abbonamenti e gli sconti per i frontalieri sui trasporti pubblici tra Ticino e Lombardia nel 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/abbonamenti-sconti-treni-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/abbonamenti-sconti-treni-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Treno TILO in arrivo alla stazione di Mendrisio con pendolari frontalieri."
@@ -4216,7 +4216,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Tutti i dettagli sui bonus famiglia 2026 per frontalieri: assegni familiari, bonus nido e detrazioni fiscali. Scopri come ottenerli.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bonus-famiglia-frontalieri-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/bonus-famiglia-frontalieri-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Famiglie che passeggiano nella piazza di Mendrisio con le Alpi sullo sfondo in una giornata di sole."
@@ -4243,7 +4243,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le nuove regole 2026 sullo smart working per i frontalieri: limiti percentuali, fiscalità e procedure pratiche per lavorare da casa.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/smart-working-frontalieri-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/smart-working-frontalieri-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un frontaliere lavora da casa con vista sul Lago di Lugano."
@@ -4270,7 +4270,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Assicurazioni auto 2026: scopri costi, coperture e consigli per frontalieri tra Italia e Svizzera. Confronta offerte e calcola i costi.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/confronto-assicurazioni-auto.jpg`,
+        "url": `${BASE_URL}/images/blog/confronto-assicurazioni-auto.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Auto parcheggiata vicino al valico di Ponte Tresa con il paesaggio ticinese sullo sfondo"
@@ -4297,7 +4297,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri le differenze tra permesso B e G per frontalieri: residenza, tasse, diritti e scelta migliore per lavorare in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/permesso-b-vs-g-differenze.jpg`,
+        "url": `${BASE_URL}/images/blog/permesso-b-vs-g-differenze.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di confine Brogeda tra Italia e Svizzera con auto in transito"
@@ -4325,7 +4325,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri quali spese sanitarie sostenute in Svizzera sono rimborsabili in Italia per i frontalieri e come richiedere il rimborso.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/spese-sanitarie-frontalieri.jpg`,
+        "url": `${BASE_URL}/images/blog/spese-sanitarie-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un ospedale a Mendrisio con bandiere svizzere e italiane"
@@ -4353,7 +4353,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri tutto sulla NASpI per ex-frontalieri: requisiti, calcolo importo, durata e differenze con la disoccupazione svizzera.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/naspi-disoccupazione-frontalieri.jpg`,
+        "url": `${BASE_URL}/images/blog/naspi-disoccupazione-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico doganale di Chiasso con auto in transito e cartelli di confine tra Svizzera e Italia"
@@ -4381,7 +4381,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come compilare la dichiarazione dei redditi 2026 in Ticino. Guida completa, scadenze fiscali e vantaggi di eTax.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/dichiarazione-redditi-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/dichiarazione-redditi-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Bellinzona con il Castelgrande sullo sfondo in primavera"
@@ -4409,7 +4409,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Code e deviazioni sulla A9 fino all'Ascensione: impatti per frontalieri, tempi di percorrenza e costi di trasporto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cantieri-traffico-a9-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/cantieri-traffico-a9-ticino.webp`,
         "width": 1200,
         "height": 685,
         "caption": "Traffico congestionato al valico di Chiasso con lavori sulla A9 visibili."
@@ -4437,7 +4437,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "A Giubiasco arriva una nuova struttura per richiedenti asilo: 88 posti letto e risparmi fino a 2 milioni. Scopri i dettagli.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/migranti-seghezzone-risparmi.jpg`,
+        "url": `${BASE_URL}/images/blog/migranti-seghezzone-risparmi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del Seghezzone a Giubiasco con moduli prefabbricati in costruzione e montagne sullo sfondo"
@@ -4465,7 +4465,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Nuovi lavori sull'A9: disagi e code al confine italo-svizzero. Scopri come gestire il traffico e minimizzare l'impatto economico. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cantieri-traffico-frontiera.jpg`,
+        "url": `${BASE_URL}/images/blog/cantieri-traffico-frontiera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Auto in coda al valico di Chiasso con segnaletica stradale visibile."
@@ -4493,7 +4493,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Partito Socialista ticinese approva all'unanimità il compromesso sul salario minimo, con deroghe e benefit. Scopri come influirà sui frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/salario-minimo-ps-compromesso.jpg`,
+        "url": `${BASE_URL}/images/blog/salario-minimo-ps-compromesso.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Lugano con il lago e le montagne sullo sfondo"
@@ -4521,7 +4521,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Operazione contro il traffico di cocaina: perquisizioni in Ticino e arresti in Italia e Francia. Impatto sui frontalieri e normative doganali. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cocaina-lusso-perquisizioni-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/cocaina-lusso-perquisizioni-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un'auto di lusso fermata dalla polizia al confine in Ticino, con le Alpi sullo sfondo"
@@ -4549,7 +4549,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come calcolare le tasse per frontalieri entro i 20 km dal confine. Franchigia di 10.000€, credito d'imposta e nuovi regimi 2026. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/calcolo-tasse-entro-confine.jpg`,
+        "url": `${BASE_URL}/images/blog/calcolo-tasse-entro-confine.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di frontiera a Mendrisio con auto in coda e montagne sullo sfondo."
@@ -4577,7 +4577,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Approvata la Riforma della Giustizia di pace in Ticino: meno Giudicature, più efficienza e formazione. Scopri le implicazioni per i frontalieri. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/riforma-giustizia-pace-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/riforma-giustizia-pace-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta del Castelgrande di Bellinzona in Ticino, con un edificio amministrativo in primo piano"
@@ -4605,7 +4605,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Lavori al viadotto Fati sulla A9: code e deviazioni fino all'Ascensione. Scopri come gestire gli spostamenti e ridurre i disagi. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cantieri-a9-disagi-frontiera.jpg`,
+        "url": `${BASE_URL}/images/blog/cantieri-a9-disagi-frontiera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Coda al confine svizzero-italiano vicino a Brogeda con segnaletica stradale e cantieri in corso"
@@ -4633,7 +4633,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Magliaso revoca l'avviso di uso parsimonioso dell'acqua potabile emesso il 24 febbraio. Riparata la condotta, la situazione torna alla normalità.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/revoca-uso-acqua-magliaso.jpg`,
+        "url": `${BASE_URL}/images/blog/revoca-uso-acqua-magliaso.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di un serbatoio idrico a Magliaso circondato da verde e Alpi."
@@ -4661,7 +4661,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "In Ticino, 25mila persone convivono con malattie rare. Scopri come affrontare le sfide economiche e sanitarie legate al lavoro transfrontaliero. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/malattie-rare-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/malattie-rare-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ospedale a Bellinzona con montagne sullo sfondo, giornata soleggiata."
@@ -4689,7 +4689,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il film 'Frontaliers Sabotage' sbarca a Varese il 3 marzo con due proiezioni speciali. Scopri di più sulla saga e sul mondo dei frontalieri. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontaliers-sabotage-varese.jpg`,
+        "url": `${BASE_URL}/images/blog/frontaliers-sabotage-varese.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ingresso di un cinema a Varese con il poster del film 'Frontaliers Sabotage' all'entrata"
@@ -4717,7 +4717,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Gobbi minaccia di congelare i ristorni fiscali verso l'Italia, aumentando la tensione tra Ticino e Berna sulla tassa salute frontalieri. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ristorni-congelati-scontro-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/ristorni-congelati-scontro-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del valico doganale di Ponte Chiasso con auto in coda sotto un cielo nuvoloso."
@@ -4745,7 +4745,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La tassazione individuale potrebbe creare migliaia di nuovi posti di lavoro per le donne in Ticino. Scopri di più e calcola il tuo stipendio netto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassazione-individuale-lavoro-donne.jpg`,
+        "url": `${BASE_URL}/images/blog/tassazione-individuale-lavoro-donne.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Mendrisio, vista del valico di frontiera con auto e biciclette in transito, montagne sullo sfondo"
@@ -4773,7 +4773,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Ticino ospita oltre 500 comunità religiose di 10 tradizioni diverse, con una densità superiore alla media svizzera. Scopri i dettagli. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/diversita-religiosa-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/diversita-religiosa-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Persone di diverse religioni fuori da una chiesa a Bellinzona, con il Castelgrande sullo sfondo"
@@ -4801,7 +4801,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri perché il voto per corrispondenza è sempre più scelto in Ticino e come può facilitare la partecipazione dei frontalieri alle elezioni. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/voto-corrispondenza-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/voto-corrispondenza-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Bellinzona, cittadini che si recano a votare presso un edificio storico."
@@ -4829,7 +4829,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il cantiere di Viale Geno a Como solleva dubbi tra i frontalieri: impatto su traffico, turismo e attività locali. Analisi e consigli utili. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cantiere-viale-geno-como.jpg`,
+        "url": `${BASE_URL}/images/blog/cantiere-viale-geno-como.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Cantiere sul lungolago vicino a un caffè con piante verdi"
@@ -4857,7 +4857,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Polizia ticinese intensifica i controlli della velocità dal 2 all'8 marzo 2026. Scopri dove e come evitare sanzioni. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/controlli-velocita-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/controlli-velocita-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Postazione mobile di controllo velocità su una strada panoramica in Ticino, con la polizia e le Alpi sullo sfondo."
@@ -4885,7 +4885,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri la performance di Aiello e Leo Gassmann a Sanremo 2026 e il legame culturale tra Italia e Ticino. Approfondisci su Frontaliere Ticino. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sanremo-2026-aiello-gassmann.jpg`,
+        "url": `${BASE_URL}/images/blog/sanremo-2026-aiello-gassmann.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del lungolago di Lugano al tramonto con persone a un evento culturale"
@@ -4913,7 +4913,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Aumentano gli episodi di violenza giovanile in Svizzera. Scopri i dati e le implicazioni per i frontalieri e la sicurezza nei valichi. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/violenza-adolescenti-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/violenza-adolescenti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Piazza di una città ticinese con stazione e passanti"
@@ -4941,7 +4941,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri i nuovi criteri sui Comuni di confine e come 20 km possono cambiare tutto per i frontalieri. Verifica il tuo status fiscale. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/comuni-frontalieri-distanza.jpg`,
+        "url": `${BASE_URL}/images/blog/comuni-frontalieri-distanza.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Passaggio di frontiera tra Italia e Svizzera al Ponte Chiasso, con montagne sullo sfondo."
@@ -4969,7 +4969,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come le elezioni comunali in Ticino influenzeranno frontalieri e residenti: trasporti, fiscalità e nuove opportunità lavorative. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/elezioni-comunali-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/elezioni-comunali-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un seggio elettorale a Bellinzona durante le elezioni comunali, con persone che votano e bandiere svizzere in vista."
@@ -4997,7 +4997,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Coppia arrestata al valico di Chiasso-Brogeda con 5 kg di eroina. Implicazioni per frontalieri e sicurezza transfrontaliera. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/eroina-auto-chiasso-brogeda.jpg`,
+        "url": `${BASE_URL}/images/blog/eroina-auto-chiasso-brogeda.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di Chiasso-Brogeda con auto in fila per i controlli doganali"
@@ -5025,7 +5025,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'accordo Bilaterali III prevede la creazione di una zona di libero scambio tra la Svizzera e l'Unione Europea. L'accordo permetterebbe di mantenere relazioni",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bilaterali-iii-cassis-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/bilaterali-iii-cassis-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un tram 42 che attraversa la città di Lugano, in una giornata soleggiata dell'autunno in Ticino."
@@ -5054,7 +5054,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il nuovo sistema di scambio informativo tra Svizzera e Italia riduce gli errori di calcolo e semplifica la compilazione della dichiarazione dei redditi.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-redditi-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/frontalieri-redditi-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lavoratori frontalieri a Lugano, con vista sul lago."
@@ -5083,7 +5083,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un cittadino dominicano residente in Spagna è stato arrestato con l'accusa di traffico internazionale di stupefacenti. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/fermato-brogeda-cocaina.jpg`,
+        "url": `${BASE_URL}/images/blog/fermato-brogeda-cocaina.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un'auto fermata al valico autostradale di Brogeda."
@@ -5112,7 +5112,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un cittadino dominicano con un veicolo con targhe svizzere è stato arrestato al valico di Chiasso con oltre 15 chilogrammi di cocaina. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/dominicano-auto-svizzera-arresto.jpg`,
+        "url": `${BASE_URL}/images/blog/dominicano-auto-svizzera-arresto.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veicolo con targhe svizzere al valico di Chiasso"
@@ -5141,7 +5141,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il PLR interroga il Consiglio di Stato sul tema dei salari bassi e del rischio povertà in Ticino. Scopri quali sono le strategie per migliorare la situazione",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/salari-bassi-rischio-povert.jpg`,
+        "url": `${BASE_URL}/images/blog/salari-bassi-rischio-povert.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scena fotorealistica di Lugano con montagne e lago"
@@ -5170,7 +5170,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio nazionale approva la riforma che estende la validità del permesso di lavoro G per gli apprendisti frontalieri in Ticino. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ticino-svolta-per-apprendisti.jpg`,
+        "url": `${BASE_URL}/images/blog/ticino-svolta-per-apprendisti.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Apprendisti in aula professionale a Mendrisio"
@@ -5199,7 +5199,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Municipio di Bellinzona punta su alta qualità di vita e posti di lavoro specialistici per attrarre profili qualificati. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bellinzona-crescita-qualita-vita.jpg`,
+        "url": `${BASE_URL}/images/blog/bellinzona-crescita-qualita-vita.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una famiglia felice a passeggio nel centro storico di Bellinzona, Svizzera."
@@ -5228,7 +5228,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come la crisi degli spermatozoi sta influenzando la fertilità maschile in Svizzera e nel Ticino. Leggi il nostro articolo e scopri cosa puoi fare per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/crisi-spermatozoi-svizzera-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/crisi-spermatozoi-svizzera-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Paesaggio urbano di Locarno con lago"
@@ -5257,7 +5257,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La crisi degli alloggi in Ticino è una realtà sempre più preoccupante. L'Ufficio federale delle abitazioni (UFAB) certifica una situazione tesa sul mercato immo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/mercado-immobiliare-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/mercado-immobiliare-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Lugano"
@@ -5286,7 +5286,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Importante operazione antidroga al valico di Brogeda: sequestrati 15 kg di cocaina in un'auto. Le Fiamme Gialle colpiscono il traffico illecito tra Italia e",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/droga-brogeda-sequestro-cocaina.jpg`,
+        "url": `${BASE_URL}/images/blog/droga-brogeda-sequestro-cocaina.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Sequestro di droga al valico di Brogeda, Ticino"
@@ -5315,7 +5315,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il comune di Bellinzona ha annunciato la costruzione di un nuovo autosilo interrato con parco pubblico e nuovo edificio amministrativo. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bellinzona-auscultazione-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/bellinzona-auscultazione-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Autosilo interrato a Bellinzona."
@@ -5344,7 +5344,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "228.463€ per 218 famiglie varesine: requisiti, importi e scadenze del bando regionale per contrastare la morosità incolpevole. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lombardia-affitto-famiglie-varesine.jpg`,
+        "url": `${BASE_URL}/images/blog/lombardia-affitto-famiglie-varesine.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista mattutina sul lago di Varese con le Alpi svizzere sullo sfondo"
@@ -5373,7 +5373,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le Giornate Fai di Primavera tornano in Ticino con un focus sul Malcantone. Scopri i borghi, i monumenti, le chiese e le dimore storiche della regione.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/malcantone-fai-di-primavera-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/malcantone-fai-di-primavera-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti"
@@ -5402,7 +5402,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Deputato UDC Tuto Rossi chiede controlli su agenti sicurezza privata dopo episodi violenza Carnevale Chiasso. Normativa, diritti, segnalazioni. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sicurezza-privata-chiasso-nebiopoli.jpg`,
+        "url": `${BASE_URL}/images/blog/sicurezza-privata-chiasso-nebiopoli.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Folla al Carnevale di Chiasso con agenti di sicurezza privata in primo piano"
@@ -5431,7 +5431,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Paghe da fame, turni massacranti e controlli digitali: l'inchiesta di Milano svela il lato oscuro del lavoro dei fattorini in Ticino e Lombardia. Dati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sfruttamento-corsieri-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/sfruttamento-corsieri-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Corriere a domicilio in bicicletta a Lugano, Canton Ticino, con borse termiche per consegne"
@@ -5460,7 +5460,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La carenza di alloggi a Zurigo è un problema serio che sta scoraggiando i candidati dalle aziende zurighesi. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lavoro-economia-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/lavoro-economia-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una giovane donna cerca di trovare un appartamento in una zona residenziale di Lugano, marzo 2026"
@@ -5489,7 +5489,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "15 kg di cocaina sequestrati a Brogeda: tempi di attesa, controlli rafforzati e rischi per i 68.000 frontalieri. Guida pratica per non perdere permesso e",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sequestro-cocaina-brogeda-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/sequestro-cocaina-brogeda-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Controllo doganale Brogeda-Chiasso con sequestro record di cocaina"
@@ -5518,7 +5518,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il confronto tra il Ticino e il Grigioni in materia di infiltrazioni criminali e cultura economica. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/infiltrazioni-criminali-ticino-grigioni.jpg`,
+        "url": `${BASE_URL}/images/blog/infiltrazioni-criminali-ticino-grigioni.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Bellinzona, con il Castelgrande in primo piano"
@@ -5547,7 +5547,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'Ente Turistico del Luganese (ETL) ha lanciato il progetto 'Lugano Region Ti Conosco', che ha coinvolto 68 operatori di 24 strutture ricettive dei comprensori",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/turismo-luganese-formazione.jpg`,
+        "url": `${BASE_URL}/images/blog/turismo-luganese-formazione.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Lugano dal lago."
@@ -5576,7 +5576,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "116 centimetri di neve fresca hanno permesso la prosecuzione della stagione invernale fino a fine marzo. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nevicata-record-bosco-gurin.jpg`,
+        "url": `${BASE_URL}/images/blog/nevicata-record-bosco-gurin.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Bosco Gurin, neve e piste sciistiche"
@@ -5605,7 +5605,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri 'In capo al mondo. In viaggio con Walter Bonatti' al Teatro Sociale di Montegrino Valtravaglia il 21 marzo. Un evento che rivive le avventure dell'ultimo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/walter-bonatti-in-capo-al-mondo.jpg`,
+        "url": `${BASE_URL}/images/blog/walter-bonatti-in-capo-al-mondo.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Teatro Sociale di Montegrino Valtravaglia"
@@ -5634,7 +5634,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due giovani serbi di 18 e 16 anni sono stati arrestati a Sargans dopo un tentato furto in autogarages. Scopri di più sulle procedure e la sicurezza di",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sargans-teenage-robbery-catch.jpg`,
+        "url": `${BASE_URL}/images/blog/sargans-teenage-robbery-catch.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Polizia svizzera blocca due teenager nel Canton Sankt Gallen, scena urbana di Sargans."
@@ -5663,7 +5663,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il referendum del 22-23 marzo in Ticino punta alla separazione delle carriere di giudici e pubblici ministeri, rafforzando la trasparenza e l’imparzialità.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/separazione-carriere-giudici.jpg`,
+        "url": `${BASE_URL}/images/blog/separazione-carriere-giudici.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Giudici e pubblici ministeri in tribunale a Bellinzona, Ticino"
@@ -5692,7 +5692,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Quattro aziende e due agenzie di Como cercano nuovi lavoratori. Scopri come candidarti e le scadenze, con dettagli su normative e procedure. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/com-aziende-lavoro-como.jpg`,
+        "url": `${BASE_URL}/images/blog/com-aziende-lavoro-como.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ufficio moderno in Ticino con vista sul lago e montagna"
@@ -5721,7 +5721,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Una cabinovia vicino a Engelberg, nel Canton Obwalden, è precipitata a causa di forti raffiche di vento, con almeno un ferito grave soccorso sul posto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cabov-precipita-forte-vento.jpg`,
+        "url": `${BASE_URL}/images/blog/cabov-precipita-forte-vento.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Cabinovia in Ticino con vento forte e nuvole in cielo"
@@ -5750,7 +5750,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri il rinnovo dell’Agenzia TPL di Como con 1,2 miliardi di euro destinati al servizio per 10 anni. Impatto sui frontalieri ticinesi e dettagli s",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/agenzia-trasporto-nuovo.jpg`,
+        "url": `${BASE_URL}/images/blog/agenzia-trasporto-nuovo.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Treno moderno in Ticino con vista su Lago di Como"
@@ -5779,7 +5779,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Maria Chiara Gadda chiede al governo di riattivare il tavolo interministeriale sui frontalieri. Scopri le implicazioni per i lavoratori italiani in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/governo-tavolo-frontalieri-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/governo-tavolo-frontalieri-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del lungolago di Lugano al tramonto, con Monte Brè sullo sfondo e ponte di confine in evidenza."
@@ -5808,7 +5808,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'onorevole Maria Chiara Gadda chiede la convocazione immediata del tavolo interministeriale sui frontalieri per affrontare criticità su fisco, tassa sanitaria",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/gadda-incalza-governo-frontalieri.jpg`,
+        "url": `${BASE_URL}/images/blog/gadda-incalza-governo-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lago di Lugano, confine italo-svizzero"
@@ -5837,7 +5837,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dal 19 marzo 2026, la tratta ferroviaria tra Camedo e Domodossola sarà riaperta e il servizio internazionale riprenderà normalmente. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/centovallina-riapertura-treni.jpg`,
+        "url": `${BASE_URL}/images/blog/centovallina-riapertura-treni.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Stazione ferroviaria di Locarno"
@@ -5866,7 +5866,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due cittadini polacchi arrestati per truffe ai danni di anziani in Ticino. La polizia recupera la refurtiva e conferma la misura restrittiva della libertà.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/truffe-chiamate-shock-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/truffe-chiamate-shock-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Arrestato un sospettato di truffa a Bellinzona"
@@ -5895,7 +5895,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La presenza di spazi verdi nelle aree urbane può aiutare a ridurre lo stress e migliorare la qualità della vita. Scopri come. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/spazi-verdi-in-citta-rilassamento.jpg`,
+        "url": `${BASE_URL}/images/blog/spazi-verdi-in-citta-rilassamento.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Parco pubblico a Lugano"
@@ -5924,7 +5924,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il vecchio edificio delle Fart a Camedo sarà trasformato in una sede di promozione del territorio. La trasformazione sarà ultimata a fine primavera.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/camedo-buffet-eventi-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/camedo-buffet-eventi-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Buffet di Camedo, Ticino, pronto ad ospitare eventi"
@@ -5953,7 +5953,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Parlamento svizzero discute il progetto di approvvigionamento economico e la tredicesima mensilità AVS. Scopri cosa significa per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/berna-discute-approvvigionamento-economico-e-13esima-avs.jpg`,
+        "url": `${BASE_URL}/images/blog/berna-discute-approvvigionamento-economico-e-13esima-avs.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Riunione di lavoro a Berna con focus su documenti e strategie economiche."
@@ -5982,7 +5982,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il governo ticinese e quello grigionese si sono incontrati a Coira per discutere di collaborazione e lotta alla criminalità organizzata. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/visita-ticinese-coira-criminalita-organizzata.jpg`,
+        "url": `${BASE_URL}/images/blog/visita-ticinese-coira-criminalita-organizzata.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Delegazione ticinese a Coira per discutere di criminalità organizzata"
@@ -6011,7 +6011,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due annunci di lavoro con salari sospetti di dumping nel Mendrisiotto finiscono sul tavolo del Governo ticinese. Il sindacato Unia conferma la persistenza del",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/annunci-lavoro-dumping-ticino-governo.jpg`,
+        "url": `${BASE_URL}/images/blog/annunci-lavoro-dumping-ticino-governo.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Annunci di lavoro con salari da dumping segnalati nel Mendrisiotto, caso finisce in governo cantonale."
@@ -6040,7 +6040,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "66 lavoratori controllati nel Mendrisiotto: nessuna sanzione. In Como 42.500 € di multe. Le regole per i frontalieri edili. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisio.jpg`,
+        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisio.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Cantiere edile in Canton Ticino, controlli regolari e sicurezza garantita"
@@ -6069,7 +6069,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dal 1° gennaio 2026, il Canton Ticino dispone di 160 punti di raccolta d'urgenza (PRU) per garantire la sicurezza e l'assistenza ai cittadini in caso di",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/catastrofi-ticino-prontezza-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/catastrofi-ticino-prontezza-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago di Lugano su un giorno soleggiato, con le montagne sullo sfondo."
@@ -6098,7 +6098,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio degli Stati propone un finanziamento misto per la tredicesima mensilità AVS, con un aumento dell'IVA e dei contributi salariali. Scopri di più su",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tredicesima-avs-soluzione-mista-stati.jpg`,
+        "url": `${BASE_URL}/images/blog/tredicesima-avs-soluzione-mista-stati.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del Lago Maggiore e del Castello Visconteo a Locarno."
@@ -6127,7 +6127,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La mozione di Lorenzo Quadri solleva dubbi sulla trasformazione automatica dello statuto S in permesso B per i profughi ucraini. Quali sono le implicazioni per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lo-statuto-s-non-deve-trasformarsi-in-permesso-b.jpg`,
+        "url": `${BASE_URL}/images/blog/lo-statuto-s-non-deve-trasformarsi-in-permesso-b.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Mendrisio, una città di confine nel Canton Ticino, con le montagne sullo sfondo."
@@ -6156,7 +6156,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio degli Stati ribadisce la necessità di una soluzione mista per finanziare la tredicesima mensilità dell'AVS, stimando i costi a 4,2 miliardi nel",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/consiglio-stati-soluzione-mista-13esima-avs.jpg`,
+        "url": `${BASE_URL}/images/blog/consiglio-stati-soluzione-mista-13esima-avs.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Locarno con il Lago Maggiore e il Monte Verità."
@@ -6185,7 +6185,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come la frode da 2,7 milioni di franchi alla cassa di compensazione AVS ha colpito il Canton Ticino e come tutelarti da frodi e abusi. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frode-cassa-compensazione-avs-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/frode-cassa-compensazione-avs-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago di Lugano con il borgo di Gandria."
@@ -6214,7 +6214,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Polizia Cantonale ha effettuato un monitoraggio capillare sui sette cantieri presenti nel Mendrisiotto per verificare la regolarità dei contratti e dei",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sette-cantieri-mendrisio-kebab-case.jpg`,
+        "url": `${BASE_URL}/images/blog/sette-cantieri-mendrisio-kebab-case.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Foto di un cantiere di costruzione in Mendrisio"
@@ -6243,7 +6243,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La deputazione ticinese ha tenuto un incontro con i responsabili delle risorse umane di un Dipartimento federale per discutere la rappresentanza degli italofoni",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/deputazione-ticinese-italofoni-2024.jpg`,
+        "url": `${BASE_URL}/images/blog/deputazione-ticinese-italofoni-2024.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una delegazione ticinese si incontra a Berna per discutere la rappresentanza degli italofoni nell'Amministrazione federale."
@@ -6272,7 +6272,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La regione ha registrato un aumento dei turisti rispetto ai competitor europei, con un esito positivo per l'economia locale. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/kebab-case-turismo-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/kebab-case-turismo-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Persona che guarda il lago Lugano da un punto di vista panoramico"
@@ -6301,7 +6301,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Aumento dei sequestri di stupefacenti e sigarette di contrabbando al confine italo-svizzero nel 2025, secondo il bilancio dell'Ufficio federale della dogana e",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/droga-al-confine-ticino-2025.jpg`,
+        "url": `${BASE_URL}/images/blog/droga-al-confine-ticino-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veicolo in transito al confine italo-svizzero"
@@ -6330,7 +6330,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Parlamento ticinese approva la tassa per le auto che attraversano la Svizzera senza fermarsi, con un orario e un giorno di transito variabile. Dati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-attraversamento-svizzera.jpg`,
+        "url": `${BASE_URL}/images/blog/tassa-attraversamento-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una strada trafficata nel Canton Ticino"
@@ -6359,7 +6359,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un incidente stradale si verifica lungo la strada del lago tra la Schiranna e Calcinate del Pesce, in Varese, coinvolgendo un'auto e una moto. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/incidente-stradale-laghi.jpg`,
+        "url": `${BASE_URL}/images/blog/incidente-stradale-laghi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un incidente stradale sulla strada del lago in Varese"
@@ -6388,7 +6388,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come vivere più a lungo in Ticino e quali sono i consigli per avere una vita più sana e più lunga. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/vivere-piu-lungo-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/vivere-piu-lungo-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una panoramica fotografica di Lugano con il Lago di Lugano in primo piano, scattata in una giornata soleggiata a mezzogiorno."
@@ -6417,7 +6417,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio di Stato del Canton Ticino ha deciso di non ricorrere al Tribunale federale contro la sentenza del Tribunale cantonale amministrativo (TRAM)",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/governo-getta-spugna-kebab-case.jpg`,
+        "url": `${BASE_URL}/images/blog/governo-getta-spugna-kebab-case.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Fotografia di un edificio governativo in Canton Ticino"
@@ -6446,7 +6446,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La borsa di Zurigo ha chiuso il venerdì scorso con una perdita di quasi 200 punti, il che rappresenta un calo notevole rispetto alle aspettative.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/kebab-case-borse-freddo-2024.jpg`,
+        "url": `${BASE_URL}/images/blog/kebab-case-borse-freddo-2024.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un mercato finanziario caotico a Lugano, con titoli azionari in caduta libera."
@@ -6475,7 +6475,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Giustizia in Ticino rischia di saltare: un accordo tra il Cantone e il Municipio di Lugano è in bilico. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/giustizia-in-bilico-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/giustizia-in-bilico-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "La Giustizia in Ticino: bilico e futuro incerto"
@@ -6504,7 +6504,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dopo cinque anni dalla sua entrata in funzione, il Parco eolico del San Gottardo può essere ampliato grazie alla consultazione digitale in corso. Dati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/ampliamento-parco-eolico-san-gottardo-digital-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Immagine un parco eolico in Ticino con turbine che ruotano lentamente nel vento al tramonto"
@@ -6533,7 +6533,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il numero di soggiorni irregolari a febbraio è aumentato, con il confine sud che registra i casi più alti. I migranti entrati in Svizzera in modo irregolare",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/soggiorni-irregolari-2026-mendrisio.jpg`,
+        "url": `${BASE_URL}/images/blog/soggiorni-irregolari-2026-mendrisio.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una coppia giovane attraversa il confine al varco di Brogeda, un'area di pedaggio affollata nel Cantone Ticino, in Svizzera."
@@ -6562,7 +6562,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Cantone del Ticino ha avviato la consultazione pubblica per l'ampliamento del parco eolico al Passo del San Gottardo. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/eolico-gottardo-ampliamento-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/eolico-gottardo-ampliamento-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista aerea del passo del San Gottardo con eolico nel fondo, scattata con una fotocamera DSLR in Ticino, Svizzera."
@@ -6591,7 +6591,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Secondo i dati dell'Ufficio federale della dogana e della sicurezza dei confini, sono state sequestrate 1,6 milioni di sigarette illegali nel 2025.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.jpg`,
+        "url": `${BASE_URL}/images/blog/contrabbando-ai-confine-aumentano-droga-e-sigarette.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Contrabbando ai confini"
@@ -6620,7 +6620,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Umberto Bossi, il fondatore della Lega Nord, è morto all'ospedale di Varese. La notizia ha colpito la politica italiana. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/kebab-case-3-5-words-max-40-chars.jpg`,
+        "url": `${BASE_URL}/images/blog/kebab-case-3-5-words-max-40-chars.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lugano vista dal Lago"
@@ -6649,7 +6649,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Analisi delle strategie di Bertolaso per migliorare prevenzione, screening e snellire procedure in Ticino e frontiera svizzera nel 2026. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/salute-prevenzione-burocrazia-svizzera.jpg`,
+        "url": `${BASE_URL}/images/blog/salute-prevenzione-burocrazia-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Uffici pubblici in Ticino con valico di frontiera, scena realistica"
@@ -6678,7 +6678,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due anziani in Ticino vittime di truffa telefonica nella regione della Mesolcina. Ecco cosa è successo, come difendersi e le misure preventive adottate dalle au",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/telefonate-choc-truffa-anziani-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/telefonate-choc-truffa-anziani-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta di Bellinzona con scenario di montagne e città, rappresentativa del Canton Ticino."
@@ -6707,7 +6707,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "A tre anni dal salvataggio di Credit Suisse, UBS completa la migrazione di 1,2 milioni di clienti e annuncia 3.000 licenziamenti in Svizzera. Cresce l’attesa pe",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ubs-fusione-credit-suisse-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/ubs-fusione-credit-suisse-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Cantiere UBS a Bellinzona, operai al lavoro con skyline della città sullo sfondo"
@@ -6736,7 +6736,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio degli Stati approva il progetto di legge sui contratti collettivi di lavoro, con priorità sui salari minimi e il ruolo dei CCL dichiarati di obblig",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/salari-minimi-ccl-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/salari-minimi-ccl-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Uffici cantonali a Bellinzona con valico di Brogeda e attività lavorative in primo piano"
@@ -6765,7 +6765,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Governo del Canton Ticino approva strutture dedicate per migranti problematici. Normative, scadenze e impatti sulla frontiera svizzero-italiana.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/strutture-dedicate-migranti-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/strutture-dedicate-migranti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di Gaggiolo con strutture dedicate ai migranti in Ticino, scena di frontiera svizzero-italiana."
@@ -6794,7 +6794,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio degli Stati svizzero ha approvato il prioritario ruolo dei CCL rispetto ai salari minimi cantonali, con implicazioni concrete per frontalieri e azi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/contratti-collettivi-salari-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/contratti-collettivi-salari-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del Lago Maggiore e delle montagne del Ticino con città di Locarno sullo sfondo"
@@ -6823,7 +6823,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Canton Ticino si prepara a fronteggiare le sfide della sicurezza digitale e della protezione dei dati sanitari, seguendo le recenti dichiarazioni del senator",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tutela-sovranita-dati-sanitari.jpg`,
+        "url": `${BASE_URL}/images/blog/tutela-sovranita-dati-sanitari.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ufficio sanitario ticinese con tecnologia avanzata al confine Italia-Svizzera"
@@ -6852,7 +6852,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Tribunale amministrativo ha dichiarato illegittime le nomine dei direttori della SIMS. Il Consiglio di Stato ha deciso di non ricorrere al Tribunale federale",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nomine-annullate-sims-tram.jpg`,
+        "url": `${BASE_URL}/images/blog/nomine-annullate-sims-tram.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Bellinzona con edifici governativi e paesaggio alpino in lontananza."
@@ -6881,7 +6881,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Parlamento svizzero approva una tassa di transito per chi attraversa senza sostare, con impatti su frontalieri e traffico in Ticino. Scopri di più.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-automobilisti-svizzera.jpg`,
+        "url": `${BASE_URL}/images/blog/tassa-automobilisti-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Auto al valico di Gaggiolo con telecamere di sicurezza in Ticino"
@@ -6910,7 +6910,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Nuove ordinanze federali permettono a richiedenti asilo e titolari di protezione S, compresi gli ucraini, di esercitare attività lucrativa in Svizzera, anche in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lavoro-richiedenti-asilo-ucraini-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/lavoro-richiedenti-asilo-ucraini-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Frontiera Ticino-Italia con frontaliere al valico di Brogeda, scenario naturale e urbano."
@@ -6939,7 +6939,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le associazioni chiedono risorse adeguate per affrontare le sfide della riforma del liceo, tra criticità normative e aumento del disagio tra studenti e docenti.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/riforma-scolastica-ticino-difficolta.jpg`,
+        "url": `${BASE_URL}/images/blog/riforma-scolastica-ticino-difficolta.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scuola secondaria superiore a Locarno con studenti e insegnanti all'aperto"
@@ -6968,7 +6968,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La tassa di transito, approvata dal Parlamento svizzero, potrebbe incidere sui costi dei frontalieri e sulle entrate cantonali. Ecco cosa aspettarsi.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-transito-parlamento-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/tassa-transito-parlamento-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di frontiera in Ticino con controllo transito e paesaggio montano"
@@ -6997,7 +6997,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Alis e Cir promuovono l'inclusione sociale e lavorativa dei migranti in Ticino con programmi di formazione e inserimento. Scopri di più su Frontaliere Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/inclusione-migranti-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/inclusione-migranti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Frontalieri ticinesi al valico di Brogeda, lavoro e integrazione sociale"
@@ -7026,7 +7026,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Analisi sul franco svizzero e le ripercussioni sull'economia e le imprese del Ticino, con focus sulle strategie della BNS e opportunità per i frontalieri.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/franco-svizzero-impatti-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/franco-svizzero-impatti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di confine Ticino con traffico tra Italia e Svizzera, scena di frontaliers e paesaggio alpino."
@@ -7055,7 +7055,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dal 2026, gli stranieri che attraversano il Ticino in auto senza soste significative dovranno pagare una tassa di transito dinamica. Analisi e dettagli pratici.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-transito-automobilisti-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/tassa-transito-automobilisti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Auto in transito al valico di Gaggiolo con montagne sullo sfondo in Ticino"
@@ -7084,7 +7084,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il nubifragio di giugno 2024 ha causato danni ingenti in Coira e Mesolcina. La risposta dello Stato include interventi di sostegno economico per le aree colpite",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nubifragio-coira-mesolcina-ristoro.jpg`,
+        "url": `${BASE_URL}/images/blog/nubifragio-coira-mesolcina-ristoro.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valle alpina in Ticino con cielo nuvoloso e foresta, scena realistica DSLR."
@@ -7113,7 +7113,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il 11 marzo una delegazione GREVIO ha visitato il Ticino, evidenziando i progressi nella prevenzione e le nuove raccomandazioni per il Canton e il Paese.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lotta-violenza-di-genere-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/lotta-violenza-di-genere-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Panorama di Bellinzona con le Tre Torri e il cielo azzurro"
@@ -7142,7 +7142,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-transito-svizzera-2023.jpg`,
+        "url": `${BASE_URL}/images/blog/tassa-transito-svizzera-2023.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di confine tra Italia e Svizzera con auto in transito."
@@ -7171,7 +7171,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Controlli rigorosi in sette cantieri del Mendrisiotto: coinvolti 66 lavoratori, nessuna irregolarità rilevata. Ecco cosa emerge. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisiotto.jpg`,
+        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisiotto.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Cantieri edilizi nel Mendrisiotto, operai al lavoro e strutture in costruzione."
@@ -7200,7 +7200,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La multiutility lombarda Acinque lancia un piano di supporto per i dipendenti con un mese di congedo extra e bonus fino a 3.200 euro. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/acinque-lancia-piano-genitorialita.jpg`,
+        "url": `${BASE_URL}/images/blog/acinque-lancia-piano-genitorialita.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Famiglia felice con bambini a passeggio nel parco di Lugano"
@@ -7229,7 +7229,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La linea ferroviaria Centovallina-Vigezzina riapre dopo lavori di riparazione dei danni. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/danni-riparati-centovallina.jpg`,
+        "url": `${BASE_URL}/images/blog/danni-riparati-centovallina.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Linea ferroviaria Centovallina-Vigezzina, Ticino"
@@ -7258,7 +7258,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio comunale di Porrentruy ha approvato una modifica legale per autorizzare il Municipio a imporre restrizioni all'accesso della piscina all'aperto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/porrentruy-piscina-comunale-divieto.jpg`,
+        "url": `${BASE_URL}/images/blog/porrentruy-piscina-comunale-divieto.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Piscina comunale a Porrentruy, Svizzera"
@@ -7287,7 +7287,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "I presidenti di Lombardia e Friuli Venezia Giulia discutono la sostenibilità del sistema sanitario a Varese. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sanita-fontana-fedriga.jpg`,
+        "url": `${BASE_URL}/images/blog/sanita-fontana-fedriga.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Centro congressi Ville Ponti a Varese"
@@ -7316,7 +7316,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il parco eolico di San Gottardo potrebbe ampliarsi: ecco cosa significa per la regione del Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ampliamento-parco-eolico-san-gottardo.jpg`,
+        "url": `${BASE_URL}/images/blog/ampliamento-parco-eolico-san-gottardo.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Parco eolico a San Gottardo"
@@ -7345,7 +7345,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'Italia ha tagliato le accise sui carburanti, mentre la Svizzera non ha preso alcuna misura. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.jpg`,
+        "url": `${BASE_URL}/images/blog/frontalieri-prezzi-carburanti-italia-svizzera.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Benziaino ai valichi del Gottardo"
@@ -7374,7 +7374,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La nuova tassa sulle cure a domicilio è stata introdotta in Ticino al 1° aprile 2026. La misura ha suscitato reazioni contrastanti fra politici e cittadini.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cure-a-domicilio-tassa-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/cure-a-domicilio-tassa-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Cure a domicilio in Ticino"
@@ -7403,7 +7403,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il governo grigionese concede 511'000 franchi per ripristino strutture agricole danneggiate dal nubifragio del 2024 nella regione Grigioni. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/kebab-case-ticino-nubifragio-grigioni.jpg`,
+        "url": `${BASE_URL}/images/blog/kebab-case-ticino-nubifragio-grigioni.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Campo detriti nubifragio Grigioni Ticino"
@@ -7432,7 +7432,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Svizzera introduce la tassa di transito per ridurre il traffico, ma la Commissione europea non è contenta. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/kebab-case-rossi-bruxelles-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/kebab-case-rossi-bruxelles-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una scena di una autostrada affollata nel Ticino, Svizzera, con automobili e camion in transito e pochi pedoni che camminano sulla banchina."
@@ -7461,7 +7461,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il fondatore della Lega Nord ricordato dai due giornalisti ticinesi Norman Gobbi e Lorenzo Quadri. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bossi-voleva-bene-al-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/bossi-voleva-bene-al-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Umberto Bossi a Locarno"
@@ -7490,7 +7490,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due cittadini polacchi sono stati fermati il 9 marzo nel Canton Ticino, accusati di aver messo in atto truffe ai danni di anziani tramite chiamate shock a Chias",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/chiamate-shock-arresti-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/chiamate-shock-arresti-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta di Bellinzona con Castelgrande e montagne circostanti in luce naturale"
@@ -7519,7 +7519,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Società Navigazione del Lago di Lugano (SNL) si appresta a presentare i suoi piani per il rinnovo delle concessioni e l'ampliamento dell'offerta per il 2026.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rinnovo-concessioni-snl-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/rinnovo-concessioni-snl-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Immagini di un lago con una nave in movimento, con il profilo di una città sullo sfondo"
@@ -7548,7 +7548,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Ticino potrebbe beneficiare dell'uscita di grandi patrimoni dal Medio Oriente, ma serve una strategia chiara. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/globalisti-fuga-medio-oriente-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/globalisti-fuga-medio-oriente-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Bellinzona con castelli storici."
@@ -7577,7 +7577,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Disagi sulla direttrice ferroviaria verso Milano: possibili cancellazioni e variazioni per diversi collegamenti lombardi. Consulta lo stato delle corse e",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/guasto-tra-parabiago-e-rho.jpg`,
+        "url": `${BASE_URL}/images/blog/guasto-tra-parabiago-e-rho.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il tramonto sulla riva del lago Lugano, con la città di Lugano sullo sfondo"
@@ -7606,7 +7606,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La tassa di transito potrebbe essere un modo efficace per ridurre il traffico in Svizzera e per disincentivare la guida in orari di punta. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-transito-ticino-pedemontana.jpg`,
+        "url": `${BASE_URL}/images/blog/tassa-transito-ticino-pedemontana.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un automobilista attraversa il valico di Brogeda"
@@ -7635,7 +7635,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il franco svizzero ha raggiunto valori record, rendendo più ricchi i frontalieri, ma l'annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/franco-svizzero-a-valori-record-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/franco-svizzero-a-valori-record-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il franco svizzero a valori record sta rendendo più ricchi i frontalieri, ma un annuncio della Banca Nazionale Svizzera potrebbe cambiare tutto."
@@ -7664,7 +7664,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La misura, decisa da Roma e valida per 20 giorni, prevede uno 'sconto' di 25 centesimi al litro. L'associazione di categoria ticinese si dice preoccupata e",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.jpg`,
+        "url": `${BASE_URL}/images/blog/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "I tagli alle accise stanno mettendo sotto pressione i distributori di carburante in Ticino."
@@ -7693,7 +7693,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'industria farmaceutica è un settore strategico per l'economia italiana e europea. È un settore che crea posti di lavoro, innova e contribuisce alla crescita",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/farmaci-competitiva-europa.jpg`,
+        "url": `${BASE_URL}/images/blog/farmaci-competitiva-europa.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una scena dei laboratori farmaceutici in Ticino"
@@ -7722,7 +7722,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Sette ispezioni in cantieri del Mendrisiotto confermano l'assenza di irregolarità per i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisiotto-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/controlli-cantieri-mendrisiotto-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Cantiere moderno a Mendrisio, Ticino, con operai al lavoro."
@@ -7751,7 +7751,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il costruttore cinese BYD punta a 50 concessionari in Svizzera entro il 2026, con due già operativi in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/byd-expansion-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/byd-expansion-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Lugano, città svizzera con lago e montagne."
@@ -7780,7 +7780,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio nazionale rifiuta proposte per un maggiore controllo sugli affitti, sollevando preoccupazioni per la crisi abitativa. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/controllo-affitti-nazionale-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/controllo-affitti-nazionale-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Bellinzona e dei suoi castelli."
@@ -7809,7 +7809,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Nel 2025 il consumo di cioccolato in Svizzera è calato, ma il fatturato è cresciuto del 11,8%, con una forte pressione sui costi. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cioccolato-meno-ma-pagato-di-piu.jpg`,
+        "url": `${BASE_URL}/images/blog/cioccolato-meno-ma-pagato-di-piu.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del Lago di Lugano con negozi di cioccolato."
@@ -7838,7 +7838,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri l'andamento dei prezzi del diesel in Svizzera e come incide sui frontalieri. Informati ora!. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/diesel-aumento-prezzi-svizzera-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/diesel-aumento-prezzi-svizzera-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Stazione di servizio in Ticino con prezzi del diesel."
@@ -7867,7 +7867,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un nuovo manifesto per il welfare a Varese: quindici pilastri per la voce dei pazienti nella sanità pubblica. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sanita-manifesto-varese-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/sanita-manifesto-varese-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Conferenza sulla sanità a Varese con iniziative di welfare."
@@ -7896,7 +7896,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Esplora l'idea dell'IVA bassa in Svizzera e le sue implicazioni fiscali. Un'analisi approfondita con punti di vista esperti. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/iva-bassa-svizzera-immagine-ingannevole.jpg`,
+        "url": `${BASE_URL}/images/blog/iva-bassa-svizzera-immagine-ingannevole.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista del Lago di Lugano con montagne circostanti."
@@ -7925,7 +7925,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "A partire dal 30 marzo, il Ticino estende il divieto di smartphone a tutte le scuole dell'obbligo per tutelare la salute dei giovani. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/divieto-smartphone-scuola-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/divieto-smartphone-scuola-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scena scolastica a Lugano con studenti impegnati nell'apprendimento."
@@ -7954,7 +7954,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Navigazione Lago di Lugano si prepara per una nuova stagione con offerte potenziate, mirando a diventare un vettore turistico di riferimento. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/la-navigazione-rafforza-offerta-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/la-navigazione-rafforza-offerta-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago di Lugano con barche."
@@ -7983,7 +7983,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come la nuova delibera lombarda impatta i frontalieri e il sistema sanitario in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sanita-integrativa-lombardia-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/sanita-integrativa-lombardia-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Lugano con lago e montagne."
@@ -8012,7 +8012,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "In Ticino, il 60% dei pazienti ha ricevuto fatture mediche errate. Scopri come affrontare questa problematica. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/fatture-mediche-gonfiate-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/fatture-mediche-gonfiate-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Lugano con montagne sullo sfondo."
@@ -8041,7 +8041,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri il nuovo divieto di cellulari nelle scuole dell'obbligo in Ticino, in vigore dal 30 marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/divieto-cellulari-scuola-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/divieto-cellulari-scuola-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ragazzi in aula senza cellulari, ambiente scolastico Ticino."
@@ -8070,7 +8070,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come il Consiglio d’Europa valuta i progressi della Svizzera e del Ticino nella lotta contro la violenza di genere. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/violenza-donne-consiglio-europa-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/violenza-donne-consiglio-europa-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Bellinzona con vista sul castello e montagne circostanti."
@@ -8099,7 +8099,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il colonnello SMG Stefano Trojani assumerà il comando del Servizio informazioni militare e del Servizio di protezione preventiva dell'esercito dal 1° giugno",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/trojani-capo-servizi-esercito-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/trojani-capo-servizi-esercito-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il colonnello SMG Stefano Trojani"
@@ -8128,7 +8128,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La funivia di Monteviasco amplia il servizio a sei giorni su sette, offrendo un collegamento affidabile tra Ponte di Piero e la frazione montana. Scopri gli",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/funivia-monteviasco-orari-corsi.jpg`,
+        "url": `${BASE_URL}/images/blog/funivia-monteviasco-orari-corsi.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Funivia di Monteviasco che attraversa la Val Veddasca, offrendo viste panoramiche sulle Alpi."
@@ -8157,7 +8157,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Ticino rischia di perdere l’occasione di attrarre contribuenti facoltosi in fuga dal Medio Oriente. Strategie e punti di forza del Cantone per intercettare",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ricchi-fuga-medio-oriente-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/ricchi-fuga-medio-oriente-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta panoramica della città di Lugano con il lago e le montagne sullo sfondo, simbolo del Ticino attrattivo per ricchi e investitori"
@@ -8186,7 +8186,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Nel 2024 il Canton Ticino vieta l'uso dei cellulari nelle scuole dell'obbligo per migliorare concentrazione e apprendimento. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/divieto-cellulari-scuola-ticino-2024.jpg`,
+        "url": `${BASE_URL}/images/blog/divieto-cellulari-scuola-ticino-2024.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Aula scolastica in Ticino senza cellulari, studenti concentrati durante la lezione"
@@ -8215,7 +8215,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Angelo Stroppini (SEV) denuncia salari iniqui e mancanza di trasparenza alla Società Navigazione Lago di Lugano nel 2026. Dati aggiornati 2026 per frontalieri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sindacati-contro-snl-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/sindacati-contro-snl-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Imbarcazione della Società Navigazione Lago sul Lago di Lugano con vista delle montagne e del lungolago di Lugano."
@@ -8244,7 +8244,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un aumento dell’IVA al 9,6% graverebbe tra 300 e 1’400 franchi annui per le famiglie ticinesi, con impatti differenziati per reddito e composizione.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/aumento-iva-costo-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/aumento-iva-costo-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta panoramica di Lugano con il lago e le montagne sullo sfondo in una giornata limpida"
@@ -8273,7 +8273,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Acquarossa approva 250mila CHF per manutenzione filovia e progettazione nuovo polo sociosanitario da 47 milioni, migliorando servizi per frontalieri e",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/acquarossa-nuovo-polo-filovia-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/acquarossa-nuovo-polo-filovia-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica di Bellinzona con le Alpi sullo sfondo in primavera, paesaggio urbano e naturale del Ticino"
@@ -8302,7 +8302,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Ritardi nell'applicazione dello sconto carburante in Italia creano disagi per i frontalieri ticinesi al confine, con proteste e attese fino a 20 giorni.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ritardo-sconto-carburante-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/ritardo-sconto-carburante-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Stazione di servizio al confine italo-svizzero a Mendrisio con auto in attesa e cartelli prezzi carburante"
@@ -8331,7 +8331,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Chiusure notturne allo svincolo di Castellanza sulla A8 per lavori antirumore dal 24 al 26 marzo 2026, con impatti sul traffico frontalieri Ticino-Lombardia.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lavori-a8-castellanza-notturni-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/lavori-a8-castellanza-notturni-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Autostrada Ticino al confine italo-svizzero con traffico serale e montagne sullo sfondo"
@@ -8360,7 +8360,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri come la discriminazione nel settore lavorativo ticinese può costare fino a 35 miliardi di franchi all'economia svizzera. Impara a contrastare questo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/quanto-costa-la-discriminazione.jpg`,
+        "url": `${BASE_URL}/images/blog/quanto-costa-la-discriminazione.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lavoratori di diverse nazionalità si stringono la mano in un ufficio moderno."
@@ -8389,7 +8389,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Liceo Lugano 3 adotta una misura restrittiva sull'uso degli smartphone a scuola, estendendo il divieto già in vigore nei licei di Lugano 1 e Locarno. Scopri",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/divieto-smartphone-scuola-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/divieto-smartphone-scuola-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una studentessa a Locarno, con lo sguardo rivolto verso il lago."
@@ -8418,7 +8418,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il governo svizzero presenta una serie di misure per affrontare la carenza di farmaci in Svizzera, un problema che colpisce soprattutto i medicinali a prezzo",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/carenza-farmaci-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/carenza-farmaci-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Fila di persone in attesa fuori da una farmacia a Locarno."
@@ -8447,7 +8447,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Circa 100 persone hanno manifestato per chiedere l'accesso libero alle spiagge del Lago Maggiore durante tutto l'anno. I manifestanti vogliono che le rive siano",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lago-maggiore-accesso-tutto-l-anno.jpg`,
+        "url": `${BASE_URL}/images/blog/lago-maggiore-accesso-tutto-l-anno.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago Maggiore al tramonto."
@@ -8476,7 +8476,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Cresce la protesta contro la partecipazione dei pazienti ai costi delle cure a domicilio nel Canton Ticino. Scopri come potrebbe impattare i frontalieri e cosa",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cure-domicilio-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/cure-domicilio-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Assistenza sanitaria a domicilio nel Canton Ticino."
@@ -8505,7 +8505,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Una manifestazione organizzata dalle Giovani Verdi chiede l'accesso garantito tutto l'anno alle rive del Lago Maggiore, riaccendendo il dibattito sull'uso",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/spiagge-libere-sul-lago-maggiore.jpg`,
+        "url": `${BASE_URL}/images/blog/spiagge-libere-sul-lago-maggiore.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago Maggiore, un paradiso naturale che attende di essere scoperto."
@@ -8534,7 +8534,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La SNL lancia la stagione 2026 con progetti green e attesa per la decisione sul rinnovo della concessione federale. Scopri le novità e i servizi per i",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/snl-stagione-green-concessione.jpg`,
+        "url": `${BASE_URL}/images/blog/snl-stagione-green-concessione.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago di Lugano e della città di Lugano."
@@ -8563,7 +8563,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il dibattito sull'uso degli smartphone a scuola nel Canton Ticino continua. Il DECS annuncia nuove direttive, ma l'iniziativa popolare per il divieto totale non",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/smartphone-a-scuola-e-nuove-direttive.jpg`,
+        "url": `${BASE_URL}/images/blog/smartphone-a-scuola-e-nuove-direttive.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Studenti in una classe di scuola superiore a Locarno con gli smartphone in mano."
@@ -8592,7 +8592,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'Inail ha aggiornato le istruzioni operative del Regolamento protesico, introducendo modifiche che garantiscono maggiore autonomia e tutele ai lavoratori",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/infortuni-sul-lavoro-protesi-hi-tech.jpg`,
+        "url": `${BASE_URL}/images/blog/infortuni-sul-lavoro-protesi-hi-tech.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Protesi hi-tech e valico di Brogeda: un simbolo di speranza e resilienza per i lavoratori frontalieri."
@@ -8621,7 +8621,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un uomo di 64 anni è scomparso a Bellinzona, con ricerche in corso tra Ticino e Piemonte. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bellinzona-scomparsa-ricerche-ticino-piemonte.jpg`,
+        "url": `${BASE_URL}/images/blog/bellinzona-scomparsa-ricerche-ticino-piemonte.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta di Bellinzona con il castello e le montagne circostanti."
@@ -8650,7 +8650,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Ticino si prepara ad affrontare le sfide dei costi delle cure a domicilio con l'introduzione di nuove misure legislative. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cure-domicilio-ticino-politica.jpg`,
+        "url": `${BASE_URL}/images/blog/cure-domicilio-ticino-politica.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista storica di Bellinzona con strutture sanitarie moderne."
@@ -8679,7 +8679,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Scopri le novità della stagione 2026 della Navigazione Lago di Lugano, progetti di elettrificazione e collegamenti innovativi. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/navigazione-lago-lugano-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/navigazione-lago-lugano-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago di Lugano con battelli pronti per la stagione turistica."
@@ -8708,7 +8708,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Cinque comuni del Ticino siglano l'intesa per un parco pubblico tra Agno, Bioggio, Manno, Muzzano e Vezia. Progetti e investimenti in vista. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/parco-vedeggio-comuni-firman.jpg`,
+        "url": `${BASE_URL}/images/blog/parco-vedeggio-comuni-firman.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del Lago di Lugano con aree verdi e sentieri nel Ticino."
@@ -8737,7 +8737,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Consiglio federale svizzero decide di bloccare le esportazioni di armamenti verso gli Stati Uniti, in risposta alla crisi in Medio Oriente e alle recenti ten",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/stop-export-materiale-bellico.jpg`,
+        "url": `${BASE_URL}/images/blog/stop-export-materiale-bellico.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Valico di frontiera tra Ticino e Italia con controlli e montagne sullo sfondo"
@@ -8766,7 +8766,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due uomini coinvolti in un'escalation di violenza nel Mendrisiotto sono finiti in ospedale. La vicenda riaccende il dibattito sulla sicurezza e sugli incidenti",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/gestione-scontri-frontali-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/gestione-scontri-frontali-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Scontro tra uomini vicino al confine svizzero in Ticino, scena tesa con montagna sullo sfondo."
@@ -8795,7 +8795,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Due stranieri arrestati nel Ticino per autoeinbrüche lungo i valichi di Gaggiolo e Brogeda. Controlli rafforzati e normative più severe per la sicurezza.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/auto-intrusione-frontalieri-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/auto-intrusione-frontalieri-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Strada di confine tra Ticino e Italia con controlli di frontiera, scena urbana e naturale"
@@ -8824,7 +8824,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Lugano deve affrontare lo Young Boys a Berna in una partita cruciale per la stagione. Analisi, normative e strategie per i frontalieri ticinesi.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rischio-lugano-young-boys.jpg`,
+        "url": `${BASE_URL}/images/blog/rischio-lugano-young-boys.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Stadio di calcio a Lugano con tifosi e campo in primo piano"
@@ -8853,7 +8853,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Morto Umberto Bossi: la parabola del Senatùr e gli effetti concreti su tasse, permessi, congedi per i 68.000 frontalieri del Canton Ticino. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bossi-morto-ticino-frontalieri.jpg`,
+        "url": `${BASE_URL}/images/blog/bossi-morto-ticino-frontalieri.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lago di Lugano al tramonto con frontalieri in fila al valico"
@@ -8882,7 +8882,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L’iniziativa popolare per il controllo degli OGM in Svizzera non ha raggiunto il quorum di 100’000 firme, con implicazioni significative anche per il Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ogm-fallimento-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/ogm-fallimento-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lago di Lugano con montagne sullo sfondo, paesaggio naturale in Ticino"
@@ -8911,7 +8911,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Oltre 690mila aventi diritto in provincia di Varese e Ticino sono chiamati a esprimersi sulla riforma della magistratura. Seggi aperti dalle 7 di oggi, domenica",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-giustizia-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/referendum-giustizia-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Seggi elettorale in Ticino con cittadini che votano durante il referendum sulla giustizia."
@@ -8940,7 +8940,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il passaggio dallo statuto S al permesso B riguarda i profughi ucraini in Svizzera, con implicazioni economiche e sociali per il Canton Ticino, fino al 2027.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/passaggio-statuto-s-permesso-b.jpg`,
+        "url": `${BASE_URL}/images/blog/passaggio-statuto-s-permesso-b.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Panorama di Bellinzona con le sue torri e il paesaggio montano circostante, rappresentativo del confine tra Italia e Svizzera."
@@ -8969,7 +8969,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La prossima settimana saranno effettuate chiusure notturne sull'autostrada A9, che collega Como a Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/chiusure-notturne-autostrada.jpg`,
+        "url": `${BASE_URL}/images/blog/chiusure-notturne-autostrada.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Autostrada A9 chiusa di notte"
@@ -8998,7 +8998,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La storia di Jessica e della sua famiglia che ha perso il piccolo Kevin. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/morte-bimbo-efamilia-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/morte-bimbo-efamilia-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Fotografia di una famiglia in lutto a Lugano, Canton Ticino."
@@ -9027,7 +9027,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'HCAP recupera una parte dei fondi sottratti grazie ad un accordo con l'ex membro del Gruppo di sostegno. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/fondi-hcap-restituiti.jpg`,
+        "url": `${BASE_URL}/images/blog/fondi-hcap-restituiti.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Una veduta aerea della città di Bellinzona"
@@ -9056,7 +9056,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La città di Bellinzona sta affrontando una crisi commerciale, con numerose chiusure di negozi. Scopri come la situazione potrebbe influire sulle tue finanze.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/bellinzona-paese-dormitorio.jpg`,
+        "url": `${BASE_URL}/images/blog/bellinzona-paese-dormitorio.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Bellinzona, la città dei castelli"
@@ -9085,7 +9085,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Una donna di 61 anni muore dopo che la cabina della funivia è caduta a terra a causa di una raffica di vento improvvisa sul Titlis. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tragedia-titlis-raffica-vento.jpg`,
+        "url": `${BASE_URL}/images/blog/tragedia-titlis-raffica-vento.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Funivia in montagna con una raffica di vento improvvisa"
@@ -9114,7 +9114,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "I Giovani Verdi e l'associazione 'Rive pubbliche della Svizzera italiana' organizzano una camminata per richiedere il libero accesso alle rive del Lago di",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/accesso-libero-alle-rive.jpg`,
+        "url": `${BASE_URL}/images/blog/accesso-libero-alle-rive.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Passeggiata lungo il Lago di Lugano"
@@ -9143,7 +9143,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "I controlli della velocità mobili e semi-stazionari a Ticino dalle 23 marzo al 29 marzo 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ticino-attenti-ai-radar-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/ticino-attenti-ai-radar-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Radar in loco per controllare la velocità in Ticino"
@@ -9172,7 +9172,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'Ecuador ha sequestrato oltre tre tonnellate di sostanze stupefacenti in mare aperto, grazie a un'operazione congiunta con gli Stati Uniti. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sequestro-stupefacenti-ecuador.jpg`,
+        "url": `${BASE_URL}/images/blog/sequestro-stupefacenti-ecuador.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Nave da guerra ecuadoregna in mare aperto"
@@ -9201,7 +9201,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'intensificazione dei controlli radar in Ticino, con installazioni 'a mazzetti', mette a rischio i frontalieri. Scopri le implicazioni e come evitare multe",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nuovi-radar-ticino-multe.jpg`,
+        "url": `${BASE_URL}/images/blog/nuovi-radar-ticino-multe.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Radar stradale in Ticino con Castelgrande sullo sfondo, simboleggiando i controlli sul traffico"
@@ -9230,7 +9230,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dal 2027 i rifugiati ucraini con protezione S avranno lo stesso livello di assistenza sociale dei cittadini svizzeri. Scopri impatti, costi e consigli pratici.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/rifugiati-ucraini-assistenza-2027.jpg`,
+        "url": `${BASE_URL}/images/blog/rifugiati-ucraini-assistenza-2027.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista panoramica del confine svizzero-italiano vicino a Chiasso, con le montagne sullo sfondo e il posto di frontiera in attività."
@@ -9259,7 +9259,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Una tonnellata di marijuana e 24.000 piante sequestrate a Spreitenbach: tre arresti e armi trovate. Cosa cambia per chi lavora oltreconfine. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cannabis-sequestro-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/cannabis-sequestro-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista aerea di Lugano all'alba con il lago e Monte Brè"
@@ -9288,7 +9288,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Tre giovani francesi arrestati a Pfäffikon (Kanton Schwyz) per infrazioni. La comunità locale esprime il suo supporto alla polizia. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/pfaffikon-kanton-schwyz-franzosi-einbrecher.jpg`,
+        "url": `${BASE_URL}/images/blog/pfaffikon-kanton-schwyz-franzosi-einbrecher.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Lugano con il lago e le montagne"
@@ -9317,7 +9317,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Dal 28 marzo la Casetta, chiosco temporaneo di Davesco-Soragno, riapre i battenti. Gestito dalla Commissione di Quartiere, sarà aperto ogni fine settimana fino",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/riapertura-casetta-chiosco-davesco.jpg`,
+        "url": `${BASE_URL}/images/blog/riapertura-casetta-chiosco-davesco.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Chiosco rustico in Ticino lungo un percorso ciclopedonale con paesaggio naturale"
@@ -9346,7 +9346,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Ogni anno nel Ticino si perdono circa 800 cervelli, mentre i Comuni cercano di rispondere con nuove strategie. Analisi dettagliata delle misure e delle opportun",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/giovani-ticino-comuni-innovazioni.jpg`,
+        "url": `${BASE_URL}/images/blog/giovani-ticino-comuni-innovazioni.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta panoramica del Lago di Lugano con montagne circostanti durante il giorno"
@@ -9375,7 +9375,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Martine Docourt rilancia a livello federale le domeniche senza automobili dopo il no di Neuchâtel. Cosa significa per il Ticino e i frontalieri. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/domeniche-senza-auto-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/domeniche-senza-auto-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di una strada trafficata a Lugano, Canton Ticino, con automobili e pedoni durante il giorno"
@@ -9404,7 +9404,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Le chiusure notturne sono fatte per consentire lavori di ispezione e manutenzione sulla rete autostradale tra il 25 e il 28 marzo. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/chiusure-notturne-a4-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/chiusure-notturne-a4-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Autostrada notturna in Ticino"
@@ -9433,7 +9433,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Svizzera registra una crescita economica del 1% nel 2026, con inflazione in aumento. Scopri come questo influisce sui frontalieri italiani. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzera-frontalieri-franco-lavoro.jpg`,
+        "url": `${BASE_URL}/images/blog/svizzera-frontalieri-franco-lavoro.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Un lavoratore italiano al confine tra Svizzera e Ticino, con il Lago di Lugano in sfondo."
@@ -9462,7 +9462,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Canton Ticino diventa il ‘CERN della ricerca sui chip’ con RISC-V, un movimento open-source che rivoluziona l'industria dei semiconduttori. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzera-cern-ricerca-chip.jpg`,
+        "url": `${BASE_URL}/images/blog/svizzera-cern-ricerca-chip.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Laboratorio di ricerca avanzata con scienziati al lavoro su chip elettronici in Ticino."
@@ -9491,7 +9491,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La polizia cantonale di Zurigo ha smantellato una piantagione di canapa a Spreitenbach, sequestrando una tonnellata di cannabis. Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/cannabis-sequestro-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/cannabis-sequestro-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Due agenti di polizia svizzeri stanno perquisendo un edificio a Locarno."
@@ -9520,7 +9520,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Un sondaggio rivela che più di tre quarti degli svizzeri dubitano delle capacità di difesa del Paese. Scopri le misure in corso in Canton Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/svizzeri-dubitano-difesa-paese.jpg`,
+        "url": `${BASE_URL}/images/blog/svizzeri-dubitano-difesa-paese.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Citadini svizzeri discutono la difesa del paese vicino al Lago di Lugano"
@@ -9549,7 +9549,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Affluenza al 43,40% in provincia di Varese per il referendum costituzionale del 2026. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-varese-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/referendum-varese-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Votanti in una città svizzera con il referendum costituzionale del 2026."
@@ -9578,7 +9578,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La polizia cantonale di Lugano ha comunicato che i controlli radar sulle strade ticinesi saranno ridotti. Scopri cosa cambia e come potrai essere più sicuro",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/controlli-radar-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/controlli-radar-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Immagine di una strada in Ticino con un veicolo in movimento e un poliziotto che controlla con un radar."
@@ -9607,7 +9607,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Uno su dieci nuovi immigrati sceglie Zurigo, ma trova solo appartamenti fatiscenti o affitti esagerati. Cosa cambia per chi lavora in Ticino. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-casa-zurigo.jpg`,
+        "url": `${BASE_URL}/images/blog/frontalieri-casa-zurigo.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista notturna di Lugano con luci degli appartamenti e traffico verso il confine"
@@ -9636,7 +9636,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il bilancio 2025 della Polizia cantonale ticinese evidenzia una riduzione dei furti e degli assalti ai distributori di carburante nel Canton Ticino",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lugano-sicurezza-2025.jpg`,
+        "url": `${BASE_URL}/images/blog/lugano-sicurezza-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Macchina della polizia a Lugano"
@@ -9665,7 +9665,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "L'UDC interroga il Governo sui costi per il Ticino dopo la sospensione della cooperazione da parte dell'Italia nel regolamento di Dublino. Scopri di più sui",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/migranti-dublino-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/migranti-dublino-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Migranti in attesa all'ufficio di immigrazione di Lugano"
@@ -9694,7 +9694,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La città di Chiasso partecipa all'Ora della Terra 2026, spegnendo le luci pubbliche il 28 marzo dalle 20.30 alle 21.30. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/chiasso-ora-terra-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/chiasso-ora-terra-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Chiasso partecipa all'Ora della Terra 2026"
@@ -9723,7 +9723,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Polizia cantonale ticinese riduce il numero di controlli radar. Scopri di più sulla sicurezza stradale in Ticino. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/radar-ticino-riduzione.jpg`,
+        "url": `${BASE_URL}/images/blog/radar-ticino-riduzione.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Riduzione radar in Ticino"
@@ -9752,7 +9752,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La consigliera di Stato Marina Carobbio si è espressa sulle nomine illegittime alla guida della Sezione dell’insegnamento medio superiore (SIMS).",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/nomine-sims-illegittime.jpg`,
+        "url": `${BASE_URL}/images/blog/nomine-sims-illegittime.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Riunione del Gran Consiglio ticinese"
@@ -9781,7 +9781,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3, per migliorare i servizi di emergenza medica e di ricerca e salvataggio.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/elicottero-rega-locarno.jpg`,
+        "url": `${BASE_URL}/images/blog/elicottero-rega-locarno.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Elicottero Rega a Locarno"
@@ -9810,7 +9810,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Apertura il 28 marzo, biglietto 28 CHF A/R, detraibilità per i frontalieri, 30 eventi e nuovo motore da 132 kW: tutto quello che serve per pianificare l’estate",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/funivia-monte-lema-stagione-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/funivia-monte-lema-stagione-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Funivia Monte Lema vista panoramica al tramonto"
@@ -9839,7 +9839,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo. Leggi le ultime notizie sul cambio di leadership al Municipio di Stabio. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/stabio-municipio-cambios.jpg`,
+        "url": `${BASE_URL}/images/blog/stabio-municipio-cambios.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Municipio di Stabio"
@@ -9868,7 +9868,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Gli economisti prevedono una crescita del PIL dell'1,0% per l'anno in corso e un miglioramento per il 2027. Scopri di più sulle previsioni economiche e sul loro",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/crescita-economica-ticino-2026.jpg`,
+        "url": `${BASE_URL}/images/blog/crescita-economica-ticino-2026.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Vista di Lugano con strade commerciali"
@@ -9897,7 +9897,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province. Scopri di più sul Bando Impianti Sportivi 2025.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lombardia-sport-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/lombardia-sport-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Impianto sportivo in Lombardia"
@@ -9926,7 +9926,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il referendum italiano sulla giustizia ha visto prevalere il No con il 54%, ma in provincia di Varese e nel Canton Ticino la scelta è stata diversa, puntando su",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/giustizia-referendum-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/giustizia-referendum-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Castelgrande a Bellinzona, vista panoramica sulla città e le montagne circostanti"
@@ -9955,7 +9955,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "In Italia si avvia un'indagine per mantenere l'ora legale tutto l'anno, ma in Ticino si pensa a soluzioni diverse. Analisi e impatti sulla regione.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ora-legale-permanente-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/ora-legale-permanente-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Veduta panoramica di Lugano, Ticino, con lago e montagne sullo sfondo"
@@ -9984,7 +9984,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il sindaco di Como, Alessandro Rapinese, si trova di fronte a una difficile decisione sull'uso del piano da 5 milioni per le asfaltature, con i costi saliti del",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/como-asfaltature-war-costs.jpg`,
+        "url": `${BASE_URL}/images/blog/como-asfaltature-war-costs.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Strada in asfaltatura nel Ticino con paesaggio lacustre sullo sfondo"
@@ -10013,7 +10013,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il risultato del referendum in Italia ha visto la vittoria del No, con leader dell'opposizione che festeggiano. In Ticino, questa dinamica potrebbe influenzare",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/referendum-opposizione-ticino.jpg`,
+        "url": `${BASE_URL}/images/blog/referendum-opposizione-ticino.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Panorama di Bellinzona con vista sui valichi di confine tra Ticino e Italia"
@@ -10042,7 +10042,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Parlamento federale ha approvato la mozione 25.3624 per consentire agli apprendisti frontalieri di ottenere il permesso G per tutta la durata del tirocinio.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/apprendisti-frontalieri-permessi-g.jpg`,
+        "url": `${BASE_URL}/images/blog/apprendisti-frontalieri-permessi-g.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Apprendista frontaliere in un laboratorio ticinese"
@@ -10071,7 +10071,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il Canton Ticino registra -5,9% di furti nel 2025, -29% in abitazione. Scopri le implicazioni fiscali e le misure anti‑furto per i frontalieri. Dati aggiornati",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/crescita-sicurezza-ticino-2025.jpg`,
+        "url": `${BASE_URL}/images/blog/crescita-sicurezza-ticino-2025.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Via di Lugano al tramonto con pattuglie di polizia e case illuminate, simbolo di maggiore sicurezza."
@@ -10100,7 +10100,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Il comune di Sesto Calende ha ottenuto 380.000 euro nell'ambito del bando Impianti Sportivi 2025 di Regione Lombardia. Dati aggiornati 2026 per frontalieri in",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/sesto-calende-centro-sportivo.jpg`,
+        "url": `${BASE_URL}/images/blog/sesto-calende-centro-sportivo.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Immagine del centro sportivo di Sesto Calende"
@@ -10129,7 +10129,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Domenica 26 aprile a Chiasso si terrà l'evento straordinario di Missione emergenza. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/chiasso-missione-emergenza.jpg`,
+        "url": `${BASE_URL}/images/blog/chiasso-missione-emergenza.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Autoambulanza a Chiasso"
@@ -10158,7 +10158,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Secondo una recente indagine, gli acquirenti provenienti dall'Italia e dai paesi limitrofi stanno aumentando di numero sul mercato immobiliare dei due laghi",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.jpg`,
+        "url": `${BASE_URL}/images/blog/ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio.webp`,
         "width": 1344,
         "height": 756,
         "caption": "una vista del lago Verbano da un alto punto di vista, con case sul lago e colline circostanti"
@@ -10187,7 +10187,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "A Lavena Ponte Tresa, il centro si cura insieme con l'aiuto dei negozi. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-verde.jpg`,
+        "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-verde.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Il centro di Lavena Ponte Tresa si cura insieme con l'aiuto dei negozi"
@@ -10216,7 +10216,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "description": "Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/datori-lavoro-cauti.jpg`,
+        "url": `${BASE_URL}/images/blog/datori-lavoro-cauti.webp`,
         "width": 1344,
         "height": 756,
         "caption": "Ufficio a Lugano con vista sul lago"

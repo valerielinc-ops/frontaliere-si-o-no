@@ -1732,7 +1732,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Mountain} title={t('guide.places.natureTitle')} color="green">
               <div className="space-y-4">
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="/images/places/monte-san-salvatore.jpg" alt="Monte San Salvatore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/monte-san-salvatore.webp" alt="Monte San Salvatore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte San Salvatore</div>
                   <p className="text-xs">{t('guide.places.sanSalvatore')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1740,7 +1740,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="/images/places/monte-bre.jpg" alt="Monte Brè" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/monte-bre.webp" alt="Monte Brè" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Brè</div>
                   <p className="text-xs">{t('guide.places.monteBreDesc')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1748,7 +1748,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="/images/places/monte-generoso.jpg" alt="Monte Generoso" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/monte-generoso.webp" alt="Monte Generoso" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🏔️ Monte Generoso</div>
                   <p className="text-xs">{t('guide.places.monteGeneroso')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1756,7 +1756,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl">
-                  <img src="/images/places/gandria.jpg" alt="Sentiero dell'Olivo" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/gandria.webp" alt="Sentiero dell'Olivo" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-emerald-700 dark:text-emerald-300 mb-1">🥾 Sentiero dell'Olivo</div>
                   <p className="text-xs">{t('guide.places.sentieroOlivo')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1769,7 +1769,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Heart} title={t('guide.places.lakesTitle')} color="blue">
               <div className="space-y-4">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="/images/places/lago-lugano.jpg" alt="Lago di Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/lago-lugano.webp" alt="Lago di Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago di Lugano (Ceresio)</div>
                   <p className="text-xs">{t('guide.places.lagoCeresio')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1777,7 +1777,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="/images/places/ascona.jpg" alt="Lago Maggiore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/ascona.webp" alt="Lago Maggiore" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌊 Lago Maggiore</div>
                   <p className="text-xs">{t('guide.places.lagoMaggiore')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1785,7 +1785,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   </div>
                 </div>
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="/images/places/foroglio.jpg" alt="Cascata di Foroglio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/foroglio.webp" alt="Cascata di Foroglio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">💧 Cascata di Foroglio</div>
                   <p className="text-xs">{t('guide.places.foroglio')}</p>
                   <div className="mt-2 flex items-center gap-2 text-xs text-slate-500">
@@ -1801,22 +1801,22 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Building2} title={t('guide.places.citiesTitle')} color="purple">
               <div className="space-y-4">
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="/images/places/lugano-view.jpg" alt="Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/lugano-view.webp" alt="Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏙️ Lugano</div>
                   <p className="text-xs">{t('guide.places.luganoDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="/images/places/locarno.jpg" alt="Locarno & Ascona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/locarno.webp" alt="Locarno & Ascona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🌴 Locarno & Ascona</div>
                   <p className="text-xs">{t('guide.places.locarnoDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="/images/places/bellinzona.jpg" alt="Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/bellinzona.webp" alt="Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏰 Bellinzona</div>
                   <p className="text-xs">{t('guide.places.bellinzonaDesc')}</p>
                 </div>
                 <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
-                  <img src="/images/places/mendrisio.jpg" alt="Mendrisio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/mendrisio.webp" alt="Mendrisio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏘️ Mendrisio</div>
                   <p className="text-xs">{t('guide.places.mendrisioDesc')}</p>
                 </div>
@@ -1826,18 +1826,18 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Landmark} title={t('guide.places.cultureTitle')} color="orange">
               <div className="space-y-4">
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                  <img src="/images/places/film-festival.jpg" alt="Film Festival Locarno" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/film-festival.webp" alt="Film Festival Locarno" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎬 Film Festival Locarno</div>
                   <p className="text-xs">{t('guide.places.filmFestival')}</p>
                   <div className="mt-1 text-xs text-slate-500">📅 {t('guide.places.august')}</div>
                 </div>
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                  <img src="/images/places/lac-lugano.jpg" alt="LAC Lugano Arte e Cultura" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/lac-lugano.webp" alt="LAC Lugano Arte e Cultura" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🎨 LAC Lugano Arte e Cultura</div>
                   <p className="text-xs">{t('guide.places.lacDesc')}</p>
                 </div>
                 <div className="p-3 bg-orange-50 dark:bg-orange-900/20 rounded-xl">
-                  <img src="/images/places/castelgrande.jpg" alt="Castelli di Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/castelgrande.webp" alt="Castelli di Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-orange-700 dark:text-orange-300 mb-1">🏰 Castelli di Bellinzona</div>
                   <p className="text-xs">{t('guide.places.castelliDesc')}</p>
                 </div>
@@ -1854,7 +1854,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={Users} title={t('guide.places.familyTitle')} color="teal">
               <div className="space-y-4">
                 <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
-                  <img src="/images/places/swissminiatur.jpg" alt="Swissminiatur" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/swissminiatur.webp" alt="Swissminiatur" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🌿 Swissminiatur</div>
                   <p className="text-xs">{t('guide.places.swissminiatur')}</p>
                   <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Melide · 💰 CHF 19/adulto</div>
@@ -1880,7 +1880,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             <InfoCard icon={ShoppingCart} title={t('guide.places.shoppingTitle')} color="blue">
               <div className="space-y-4">
                 <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
-                  <img src="/images/places/foxtown.jpg" alt="FoxTown Factory Stores" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
+                  <img src="/images/places/foxtown.webp" alt="FoxTown Factory Stores" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🛍️ FoxTown Factory Stores</div>
                   <p className="text-xs">{t('guide.places.foxtown')}</p>
                   <div className="mt-1 text-xs text-slate-500"><MapPin size={12} className="inline" /> Mendrisio · <Navigation size={12} className="inline" /> 5 min {t('guide.places.fromBorder')}</div>

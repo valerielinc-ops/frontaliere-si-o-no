@@ -135,3 +135,31 @@ export const COMMIT_HASH = _commitHash;
 export const SHORT_COMMIT_HASH = COMMIT_HASH.slice(0, 8);
 
 export const BASE_URL = 'https://frontaliereticino.ch';
+
+/**
+ * Count words of visible text in an HTML string, stripping all tags.
+ * Used to decide whether a static page has enough content to be indexed (>= 50 words).
+ */
+export function countHtmlBodyWords(html: string): number {
+  // Strip HTML tags
+  const text = html.replace(/<[^>]+>/g, ' ');
+  // Collapse whitespace and split into words
+  const words = text.replace(/\s+/g, ' ').trim().split(' ').filter(w => w.length > 0);
+  return words.length;
+}
+
+/** Minimum word count for a page to be considered indexable (not thin content). */
+export const MIN_INDEXABLE_WORDS = 50;
+
+/**
+ * Returns the appropriate robots meta tag based on the word count of the page body.
+ * Pages with >= MIN_INDEXABLE_WORDS get `index,follow`; below that, `noindex,follow`.
+ * Always returns an explicit tag -- never relies on browser defaults.
+ */
+export function robotsMetaForContent(bodyHtml: string): string {
+  const wordCount = countHtmlBodyWords(bodyHtml);
+  if (wordCount >= MIN_INDEXABLE_WORDS) {
+    return '\n    <meta name="robots" content="index,follow">';
+  }
+  return '\n    <meta name="robots" content="noindex,follow">';
+}

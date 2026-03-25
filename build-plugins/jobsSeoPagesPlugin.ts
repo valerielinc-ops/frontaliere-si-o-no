@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, buildFlatRedirect, SPA_ACTION_REDIRECT_SCRIPT } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, buildFlatRedirect, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import {
@@ -3205,6 +3205,9 @@ ${(() => {
           ...(paths.it ? [`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(paths.it)}">`] : []),
         ].join('\n');
 
+        // Track IT page word count for sitemap inclusion decision
+        let itBodyWordCount = 0;
+
         for (const locale of localeList) {
           const relPath = paths[locale];
           if (!relPath) continue;
@@ -3317,16 +3320,60 @@ ${(() => {
             staticBodyParts.push(`<section><h2>Informations pour les frontaliers</h2><p>${jobCompany ? `${esc(jobCompany)} se trouve` : 'Ce poste se trouvait'}${jobLocation ? ` \u00e0 ${esc(jobLocation)}` : ''} dans le Canton du ${esc(displayCanton)}. Les travailleurs frontaliers ont besoin d'un permis G pour travailler dans cette r\u00e9gion. Le Canton du ${esc(displayCanton)} applique un imp\u00f4t \u00e0 la source \u00e0 taux variable sur le revenu brut. Utilisez notre <a href="${BASE_URL}/fr/">simulateur fiscal gratuit</a> pour calculer votre salaire net en tant que frontalier et comparer le co\u00fbt de la vie entre la Suisse et l'Italie.</p></section>`);
           }
 
+          // --- Fallback: recent active jobs when no same-company jobs were shown ---
+          // This ensures even pages without ejData have cross-links to active listings,
+          // adding both word count and genuine user value.
+          if (sameCompanyActiveJobs.length === 0) {
+            // Pick up to 5 recent active jobs (deterministic by slug hash for stability)
+            const recentJobs = validJobs
+              .filter((j: any) => j.slug !== slug)
+              .sort((a: any, b: any) => hashCode(a.slug + slug) - hashCode(b.slug + slug))
+              .slice(0, 5);
+            if (recentJobs.length > 0) {
+              const recentHeading = locale === 'it' ? 'Posizioni attive recenti' : locale === 'en' ? 'Recent active positions' : locale === 'de' ? 'Aktuelle offene Stellen' : 'Postes actifs r\u00e9cents';
+              const recentList = recentJobs.map((j: any) => {
+                const jSlug = localizedSlug(j, locale);
+                const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+                const jHref = `${BASE_URL}${withSlash(jPath)}`;
+                const jTitle = String(j?.titleByLocale?.[locale] || j.title || '');
+                const jCompany = String(j.company || '');
+                const jLoc = String(j.location || '');
+                return `<li><a href="${jHref}">${esc(jTitle)}</a>${jCompany ? ` \u2014 ${esc(jCompany)}` : ''}${jLoc ? `, ${esc(jLoc)}` : ''}</li>`;
+              }).join('');
+              staticBodyParts.push(`<section><h2>${recentHeading}</h2><ul>${recentList}</ul></section>`);
+            }
+          }
+
+          // --- Fallback enrichment for pages without expired-jobs.json data ---
+          // Ensures pages without rich ejData still have enough content (>= 50 words)
+          // by adding general info about the Ticino cross-border job market.
+          if (!ejData?.title) {
+            if (locale === 'it') {
+              staticBodyParts.push(`<section><h2>Mercato del lavoro in Ticino</h2><p>Il Canton Ticino offre numerose opportunit\u00e0 per i lavoratori frontalieri provenienti dall'Italia. Con oltre 70.000 frontalieri attivi, il Ticino rappresenta una delle principali destinazioni per chi cerca lavoro in Svizzera dalla regione insubrica. I settori pi\u00f9 attivi includono industria, servizi finanziari, sanit\u00e0, commercio e tecnologia. Lo stipendio medio in Ticino \u00e8 significativamente pi\u00f9 alto rispetto alle regioni italiane di confine, rendendo il lavoro transfrontaliero un'opzione molto attraente per i residenti di Lombardia, Piemonte e altre province vicine.</p></section>`);
+            } else if (locale === 'en') {
+              staticBodyParts.push(`<section><h2>Job market in Ticino</h2><p>The Canton of Ticino offers numerous opportunities for cross-border workers from Italy. With over 70,000 active cross-border commuters, Ticino is one of the main destinations for those seeking employment in Switzerland from the Insubria region. The most active sectors include industry, financial services, healthcare, retail and technology. The average salary in Ticino is significantly higher than in Italian border regions, making cross-border work a very attractive option for residents of Lombardy, Piedmont and other nearby provinces.</p></section>`);
+            } else if (locale === 'de') {
+              staticBodyParts.push(`<section><h2>Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin bietet zahlreiche M\u00f6glichkeiten f\u00fcr Grenzg\u00e4nger aus Italien. Mit \u00fcber 70.000 aktiven Grenzpendlern ist das Tessin eines der wichtigsten Ziele f\u00fcr Arbeitssuchende in der Schweiz aus der Region Insubrien. Die aktivsten Branchen sind Industrie, Finanzdienstleistungen, Gesundheitswesen, Handel und Technologie. Das Durchschnittsgehalt im Tessin liegt deutlich h\u00f6her als in den italienischen Grenzregionen, was die Grenzg\u00e4ngerarbeit zu einer sehr attraktiven Option f\u00fcr Bewohner der Lombardei, des Piemonts und anderer naher Provinzen macht.</p></section>`);
+            } else {
+              staticBodyParts.push(`<section><h2>March\u00e9 du travail au Tessin</h2><p>Le Canton du Tessin offre de nombreuses opportunit\u00e9s pour les travailleurs frontaliers venant d'Italie. Avec plus de 70 000 frontaliers actifs, le Tessin est l'une des principales destinations pour ceux qui cherchent un emploi en Suisse depuis la r\u00e9gion insubrienne. Les secteurs les plus actifs comprennent l'industrie, les services financiers, la sant\u00e9, le commerce et la technologie. Le salaire moyen au Tessin est nettement plus \u00e9lev\u00e9 que dans les r\u00e9gions frontali\u00e8res italiennes, ce qui fait du travail transfrontalier une option tr\u00e8s attractive pour les r\u00e9sidents de Lombardie, du Pi\u00e9mont et d'autres provinces voisines.</p></section>`);
+            }
+          }
+
           staticBodyParts.push(`<p><a href="${BASE_URL}${listingPath}">${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)} \u2192</a></p>`);
           const staticBody = staticBodyParts.join('\n');
+
+          // Track IT word count for sitemap inclusion decision
+          if (locale === 'it') {
+            itBodyWordCount = countHtmlBodyWords(staticBody);
+          }
 
           // Escape staticBody for embedding in a JS string (JSON.stringify handles quotes/newlines)
           const staticBodyJson = JSON.stringify(staticBody);
 
-          // Expired pages without rich data (no title/description from expired-jobs.json)
-          // are thin-content SPA shells — mark them noindex to avoid crawl budget waste
-          const hasExpiredRichContent = ejData?.title && (ejData?.descriptionByLocale?.[locale] || ejData?.description);
-          const expiredRobotsTag = hasExpiredRichContent ? '' : '\n    <meta name="robots" content="noindex,follow">';
+          // Make robots directive conditional on actual content quality.
+          // Pages with >= MIN_INDEXABLE_WORDS of real text get index,follow (SEO value
+          // from long-tail searches). Pages below threshold get noindex,follow.
+          const expiredRobotsTag = robotsMetaForContent(staticBody);
 
           const softLandingHtml = `<!DOCTYPE html>
 <html lang="${locale}">
@@ -3474,14 +3521,12 @@ ${hreflangLinks}
         }
 
         // Only add expired slugs to sitemap when:
-        // 1. They have rich data (title + description) — thin content wastes crawl budget (FRO-278)
+        // 1. The IT page has enough content (>= MIN_INDEXABLE_WORDS) — thin content wastes crawl budget
         // 2. The IT page was actually written (not overwritten by an active page)
-        // 3. The IT page is not noindex
-        const hasRichContent = ejData?.title && (ejData?.descriptionByLocale?.it || ejData?.description);
         const itPath = paths.it ? withSlash(paths.it) : '';
         const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
         const itPageOverwritten = itPageFile && _writtenPaths.has(itPageFile);
-        if (itPath && hasRichContent && !itPageOverwritten) {
+        if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten) {
           const altLinks = localeList.map((l) => {
             const p = paths[l];
             if (!p) return '';
