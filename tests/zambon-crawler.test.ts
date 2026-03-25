@@ -1,5 +1,8 @@
 /**
- * Zambon Svizzera SA — jobopportunity.ch parser tests
+ * Zambon Svizzera SA — careers page parser tests
+ *
+ * Tests both the new zambon.com/en/open-positions format and
+ * legacy jobopportunity.ch format for backward compatibility.
  */
 import { describe, it, expect } from 'vitest';
 
@@ -14,6 +17,7 @@ import {
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
+/** Fixture: Legacy jobopportunity.ch format (backward compat) */
 const FIXTURE_LISTING_PAGE = `
 <!DOCTYPE html>
 <html>
@@ -43,6 +47,38 @@ const FIXTURE_LISTING_PAGE = `
       <td>2026-03-15</td>
     </tr>
   </table>
+</div>
+</body>
+</html>
+`;
+
+/** Fixture: NcorePlat job links on zambon.com */
+const FIXTURE_NCOREPLAT_LISTING = `
+<!DOCTYPE html>
+<html>
+<head><title>Open Positions | Zambon</title></head>
+<body>
+<div id="content">
+  <h1>Open Positions</h1>
+  <div class="career-list">
+    <a href="https://app.ncoreplat.com/jobposition/112500/quality-control-analyst/zambon-svizzera">Quality Control Analyst</a>
+    <a href="https://app.ncoreplat.com/jobposition/112501/production-supervisor/zambon-svizzera">Production Supervisor</a>
+    <a href="https://app.ncoreplat.com/jobposition/110541/autocandidatura-it/hr-italy">Autocandidatura</a>
+  </div>
+</div>
+</body>
+</html>
+`;
+
+/** Fixture: No open positions message */
+const FIXTURE_EMPTY_LISTING = `
+<!DOCTYPE html>
+<html>
+<head><title>Open Positions | Zambon</title></head>
+<body>
+<div id="content">
+  <p>Currently there are not open positions.</p>
+  <p>If you haven't found the job position that you are looking for, you can send us your resume.</p>
 </div>
 </body>
 </html>
@@ -79,21 +115,9 @@ const FIXTURE_DETAIL_PAGE = `
 </html>
 `;
 
-const FIXTURE_EMPTY_LISTING = `
-<!DOCTYPE html>
-<html>
-<head><title>Zambon - No vacancies</title></head>
-<body>
-<div id="content">
-  <p>No open positions at this time.</p>
-</div>
-</body>
-</html>
-`;
+// ─── parseListingPage tests — legacy format ───────────────────────────────────
 
-// ─── parseListingPage tests ─────────────────────────────────────────────────
-
-describe('parseListingPage', () => {
+describe('parseListingPage — legacy jobopportunity.ch format', () => {
   it('finds four jobs in the fixture', () => {
     const jobs = parseListingPage(FIXTURE_LISTING_PAGE);
     expect(jobs).toHaveLength(4);
@@ -114,11 +138,41 @@ describe('parseListingPage', () => {
 
   it('builds absolute URLs', () => {
     const jobs = parseListingPage(FIXTURE_LISTING_PAGE);
-    expect(jobs[0].url).toContain('zambon.jobopportunity.ch');
+    expect(jobs[0].url).toContain('zambon.com');
     expect(jobs[0].url).toContain('id=2001');
   });
+});
 
-  it('returns empty array for empty listing', () => {
+// ─── parseListingPage tests — NcorePlat format ───────────────────────────────
+
+describe('parseListingPage — NcorePlat format', () => {
+  it('finds two jobs (skips autocandidatura)', () => {
+    const jobs = parseListingPage(FIXTURE_NCOREPLAT_LISTING);
+    expect(jobs).toHaveLength(2);
+  });
+
+  it('extracts correct titles from NcorePlat links', () => {
+    const jobs = parseListingPage(FIXTURE_NCOREPLAT_LISTING);
+    expect(jobs[0].title).toBe('Quality Control Analyst');
+    expect(jobs[1].title).toBe('Production Supervisor');
+  });
+
+  it('extracts NcorePlat job IDs', () => {
+    const jobs = parseListingPage(FIXTURE_NCOREPLAT_LISTING);
+    expect(jobs[0].id).toBe('112500');
+    expect(jobs[1].id).toBe('112501');
+  });
+
+  it('preserves NcorePlat URLs', () => {
+    const jobs = parseListingPage(FIXTURE_NCOREPLAT_LISTING);
+    expect(jobs[0].url).toContain('ncoreplat.com');
+  });
+});
+
+// ─── Empty/guard tests ─────────────────────────────────────────────────────
+
+describe('parseListingPage — guards', () => {
+  it('returns empty array for "no positions" message', () => {
     expect(parseListingPage(FIXTURE_EMPTY_LISTING)).toHaveLength(0);
   });
 

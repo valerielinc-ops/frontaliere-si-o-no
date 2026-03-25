@@ -1,21 +1,22 @@
 /**
- * Helsinn Healthcare SA — jobopportunity.ch platform parser
+ * Helsinn Healthcare SA — AITI e-lavoro platform parser
  *
- * Helsinn uses the AITI e-lavoro / jobopportunity.ch portal.
- * The listing page is at:
- *   https://helsinn.jobopportunity.ch/index.php?module=profile_mod&submod=jobs
+ * Helsinn exclusively uses the AITI e-lavoro portal for job postings:
+ *   https://www.e-lavoro.ch/node/76
  *
- * Each job links to a detail page at:
- *   https://helsinn.jobopportunity.ch/index.php?module=profile_mod&submod=jobs&func=detail&id={id}
+ * The portal is a Drupal-based site. Job listings appear as linked items
+ * under "I nostri annunci" (Our announcements) on the company's page.
  *
- * The listing page is server-rendered HTML with a table or list of jobs.
- * Each row has: title, location, date, and a link to the detail page.
+ * When no jobs are available, the page shows:
+ *   "Purtroppo non ci sono offerte di lavoro, torna a trovarci!"
+ *
+ * Individual job pages follow the /node/{id} URL pattern.
  */
 
 import { JSDOM } from 'jsdom';
 
-const HELSINN_HOST = 'helsinn.jobopportunity.ch';
-const HELSINN_BASE_URL = `https://${HELSINN_HOST}`;
+const ELAVORO_HOST = 'www.e-lavoro.ch';
+const ELAVORO_BASE_URL = `https://${ELAVORO_HOST}`;
 
 function normalizeSpace(value = '') {
   return String(value || '').replace(/\s+/g, ' ').trim();
@@ -54,51 +55,60 @@ export function slugify(value = '', suffix = '') {
 export const MIN_DESC_LENGTH = 100;
 
 /**
- * Parse the listing page from helsinn.jobopportunity.ch.
- * Returns an array of { id, title, url, location, date } objects.
+ * Parse the listing page from e-lavoro.ch (Helsinn's company page).
+ * Returns an array of { id, title, url, location } objects.
  *
- * jobopportunity.ch uses a table-based or div-based listing with links
- * containing ?func=detail&id=XXX parameters.
+ * e-lavoro.ch is a Drupal site. Job listings appear as links in the
+ * content area. Each job links to a detail page at /node/{id}.
+ *
+ * When no jobs are present the page says:
+ *   "Purtroppo non ci sono offerte di lavoro"
  */
 export function parseListingPage(html = '') {
   if (!html) return [];
   const { document } = new JSDOM(html).window;
   const jobs = [];
-
-  // Strategy 1: Find all links that point to job detail pages
-  const links = document.querySelectorAll('a[href*="func=detail"], a[href*="submod=jobs"]');
   const seen = new Set();
 
+  // Check for "no jobs" message
+  const bodyText = (document.body?.textContent || '').toLowerCase();
+  if (bodyText.includes('non ci sono offerte di lavoro') ||
+      bodyText.includes('nessuna offerta') ||
+      bodyText.includes('no job offers')) {
+    return [];
+  }
+
+  // Strategy 1: Find links to job detail pages (/node/{id} pattern)
+  const links = document.querySelectorAll('a[href]');
   for (const link of links) {
     const href = link.getAttribute('href') || '';
-    if (!href.includes('func=detail')) continue;
-
-    // Extract the job ID
-    const idMatch = href.match(/[?&]id=(\d+)/);
-    if (!idMatch) continue;
-    const id = idMatch[1];
+    // Match /node/{numeric_id} links (but skip known non-job nodes like /node/75 login, /node/76 listing)
+    const nodeMatch = href.match(/\/node\/(\d+)/);
+    if (!nodeMatch) continue;
+    const id = nodeMatch[1];
+    // Skip the listing page itself (node/76) and login (node/75)
+    if (id === '76' || id === '75') continue;
     if (seen.has(id)) continue;
-    seen.add(id);
 
     const title = normalizeSpace(link.textContent || '');
     if (!title || title.length < 3) continue;
+    // Skip navigation/footer links
+    if (/^(home|login|cookie|privacy|termini|data protection|legal)/i.test(title)) continue;
 
-    // Build absolute URL
+    seen.add(id);
+
     const absoluteUrl = href.startsWith('http')
       ? href
-      : `${HELSINN_BASE_URL}/${href.replace(/^\//, '')}`;
+      : `${ELAVORO_BASE_URL}${href.startsWith('/') ? '' : '/'}${href}`;
 
-    // Try to extract location from surrounding row/container
-    const row = link.closest('tr, .job-item, .listing-item, li, div');
+    // Try to extract location from surrounding element
+    const row = link.closest('tr, li, div, article, .job-item, .views-row');
     let location = '';
     if (row) {
-      const cells = row.querySelectorAll('td, span, .location');
-      for (const cell of cells) {
-        const text = normalizeSpace(cell.textContent || '');
-        if (text !== title && /lugano|pambio|ticino|switzerland|svizzera/i.test(text)) {
-          location = text;
-          break;
-        }
+      const text = normalizeSpace(row.textContent || '');
+      if (/lugano|pambio|ticino|switzerland|svizzera/i.test(text)) {
+        const locMatch = text.match(/(Lugano|Pambio[- ]Noranco|Biasca|Bellinzona|Ticino)/i);
+        if (locMatch) location = locMatch[1];
       }
     }
 
@@ -110,24 +120,25 @@ export function parseListingPage(html = '') {
     });
   }
 
-  // Strategy 2: Fallback — scan for any links with job-like URLs
+  // Strategy 2: Fallback — look for links with func=detail&id= (legacy jobopportunity.ch format)
   if (jobs.length === 0) {
-    const allLinks = document.querySelectorAll('a[href]');
-    for (const link of allLinks) {
+    for (const link of links) {
       const href = link.getAttribute('href') || '';
-      const text = normalizeSpace(link.textContent || '');
-      if (text.length < 5) continue;
-      if (href.includes('detail') && href.includes('id=')) {
-        const idMatch = href.match(/id=(\d+)/);
-        if (!idMatch) continue;
-        const id = idMatch[1];
-        if (seen.has(id)) continue;
-        seen.add(id);
-        const absoluteUrl = href.startsWith('http')
-          ? href
-          : `${HELSINN_BASE_URL}/${href.replace(/^\//, '')}`;
-        jobs.push({ id, title: text, url: absoluteUrl, location: 'Lugano' });
-      }
+      if (!href.includes('func=detail')) continue;
+      const idMatch = href.match(/[?&]id=(\d+)/);
+      if (!idMatch) continue;
+      const id = idMatch[1];
+      if (seen.has(id)) continue;
+      seen.add(id);
+
+      const title = normalizeSpace(link.textContent || '');
+      if (!title || title.length < 3) continue;
+
+      const absoluteUrl = href.startsWith('http')
+        ? href
+        : `${ELAVORO_BASE_URL}/${href.replace(/^\//, '')}`;
+
+      jobs.push({ id, title, url: absoluteUrl, location: 'Lugano' });
     }
   }
 
@@ -135,7 +146,8 @@ export function parseListingPage(html = '') {
 }
 
 /**
- * Parse a job detail page from helsinn.jobopportunity.ch.
+ * Parse a job detail page.
+ * Supports both e-lavoro.ch (Drupal) and legacy jobopportunity.ch formats.
  * Returns { title, body, sourceBodyLength }.
  */
 export function parseDetailPage(html = '') {
@@ -144,13 +156,15 @@ export function parseDetailPage(html = '') {
   const { document } = new JSDOM(html).window;
 
   // Title: first h1 or h2, or the page title
-  const titleEl = document.querySelector('h1, h2.job-title, .job-title');
+  const titleEl = document.querySelector('h1, h2.job-title, .job-title, .node-title');
   const title = normalizeSpace(titleEl?.textContent || document.querySelector('title')?.textContent || '');
 
   // Body: look for the main content area
   const BODY_SELECTORS = [
     '.job-description',
     '.job-detail',
+    '.field--name-body',
+    '.node__content',
     '.detail-content',
     '#content',
     'main',

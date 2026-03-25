@@ -1,5 +1,5 @@
 /**
- * Helsinn Healthcare SA — jobopportunity.ch parser tests
+ * Helsinn Healthcare SA — AITI e-lavoro platform parser tests
  */
 import { describe, it, expect } from 'vitest';
 
@@ -14,43 +14,46 @@ import {
 
 // ─── Fixtures ───────────────────────────────────────────────────────────────
 
+/** Fixture simulating the e-lavoro.ch listing page with job announcements */
 const FIXTURE_LISTING_PAGE = `
 <!DOCTYPE html>
 <html>
-<head><title>Helsinn Healthcare SA - Offerte di lavoro</title></head>
+<head><title>Helsinn Healthcare SA - AITI e-lavoro</title></head>
 <body>
 <div id="content">
-  <h1>Offerte di lavoro</h1>
-  <table class="job-listing">
-    <tr>
-      <td><a href="index.php?module=profile_mod&submod=jobs&func=detail&id=1234">Clinical Research Associate</a></td>
-      <td>Lugano, Ticino</td>
-      <td>2026-03-20</td>
-    </tr>
-    <tr>
-      <td><a href="index.php?module=profile_mod&submod=jobs&func=detail&id=1235">Regulatory Affairs Manager</a></td>
-      <td>Pambio Noranco, Ticino</td>
-      <td>2026-03-18</td>
-    </tr>
-    <tr>
-      <td><a href="index.php?module=profile_mod&submod=jobs&func=detail&id=1236">Senior Medical Science Liaison</a></td>
-      <td>Lugano, Switzerland</td>
-      <td>2026-03-15</td>
-    </tr>
-  </table>
+  <h1>I nostri annunci</h1>
+  <div class="views-row">
+    <a href="/node/1234">Clinical Research Associate</a>
+    <span class="location">Lugano, Ticino</span>
+  </div>
+  <div class="views-row">
+    <a href="/node/1235">Regulatory Affairs Manager</a>
+    <span class="location">Pambio Noranco, Ticino</span>
+  </div>
+  <div class="views-row">
+    <a href="/node/1236">Senior Medical Science Liaison</a>
+    <span class="location">Lugano, Switzerland</span>
+  </div>
 </div>
+<footer>
+  <a href="/node/76">Published Announcements</a>
+  <a href="/node/75">Login</a>
+  <a href="/cookie-policy">Cookie policy</a>
+  <a href="/privacy-policy">Privacy Policy</a>
+</footer>
 </body>
 </html>
 `;
 
+/** Fixture simulating a detail page on e-lavoro.ch */
 const FIXTURE_DETAIL_PAGE = `
 <!DOCTYPE html>
 <html>
 <head><title>Clinical Research Associate - Helsinn Healthcare SA</title></head>
 <body>
-<div class="job-detail">
+<div class="node__content">
   <h1>Clinical Research Associate</h1>
-  <div class="job-description">
+  <div class="field--name-body">
     <p>Helsinn Healthcare SA is looking for a Clinical Research Associate (CRA) to join our growing team in Lugano, Ticino, Switzerland. This role involves oversight of clinical trial activities and ensures compliance with ICH-GCP guidelines and applicable regulations.</p>
     <p><strong>Key Responsibilities:</strong></p>
     <ul>
@@ -74,15 +77,20 @@ const FIXTURE_DETAIL_PAGE = `
 </html>
 `;
 
+/** Fixture: e-lavoro page with no job offers */
 const FIXTURE_EMPTY_LISTING = `
 <!DOCTYPE html>
 <html>
-<head><title>Helsinn - Nessuna offerta</title></head>
+<head><title>Helsinn Healthcare SA - AITI e-lavoro</title></head>
 <body>
 <div id="content">
-  <h1>Offerte di lavoro</h1>
-  <p>Nessuna offerta di lavoro al momento.</p>
+  <h1>I nostri annunci</h1>
+  <p>Purtroppo non ci sono offerte di lavoro, torna a trovarci!</p>
 </div>
+<footer>
+  <a href="/node/76">Published Announcements</a>
+  <a href="/node/75">Login</a>
+</footer>
 </body>
 </html>
 `;
@@ -102,19 +110,32 @@ describe('parseListingPage', () => {
     expect(jobs[2].title).toBe('Senior Medical Science Liaison');
   });
 
-  it('extracts job IDs from URLs', () => {
+  it('extracts node IDs from URLs', () => {
     const jobs = parseListingPage(FIXTURE_LISTING_PAGE);
     expect(jobs[0].id).toBe('1234');
     expect(jobs[1].id).toBe('1235');
   });
 
-  it('builds absolute URLs', () => {
+  it('builds absolute URLs with e-lavoro.ch base', () => {
     const jobs = parseListingPage(FIXTURE_LISTING_PAGE);
-    expect(jobs[0].url).toContain('helsinn.jobopportunity.ch');
-    expect(jobs[0].url).toContain('id=1234');
+    expect(jobs[0].url).toContain('e-lavoro.ch');
+    expect(jobs[0].url).toContain('/node/1234');
   });
 
-  it('returns empty array for empty listing', () => {
+  it('skips navigation links (node/75, node/76, cookie-policy, etc.)', () => {
+    const jobs = parseListingPage(FIXTURE_LISTING_PAGE);
+    const ids = jobs.map((j) => j.id);
+    expect(ids).not.toContain('75');
+    expect(ids).not.toContain('76');
+    // No jobs should have "cookie" or "privacy" titles
+    for (const job of jobs) {
+      expect(job.title.toLowerCase()).not.toContain('cookie');
+      expect(job.title.toLowerCase()).not.toContain('privacy');
+      expect(job.title.toLowerCase()).not.toContain('login');
+    }
+  });
+
+  it('returns empty array for "no jobs" message', () => {
     expect(parseListingPage(FIXTURE_EMPTY_LISTING)).toHaveLength(0);
   });
 

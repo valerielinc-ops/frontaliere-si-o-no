@@ -2,16 +2,21 @@
 /**
  * Dedicated Zambon Svizzera SA (Cadempino, TI) crawler runner.
  *
- * Zambon uses the jobopportunity.ch portal at:
- *   https://zambon.jobopportunity.ch/
- * Detail pages at: /index.php?module=profile_mod&submod=jobs&func=detail&id={id}
+ * Zambon's careers portal is at:
+ *   https://www.zambon.com/en/open-positions
+ *
+ * The page uses NcorePlat ATS with a Vue.js frontend.
+ * Job data is rendered client-side, so the HTML may contain only
+ * Vue template placeholders when fetched server-side.
+ *
+ * Previously used jobopportunity.ch (defunct as of early 2026).
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, safeMergeJobLocales } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/zambon-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -22,8 +27,8 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 
 const COMPANY_KEY = 'zambon';
 const COMPANY_NAME = 'Zambon Svizzera SA';
-const COMPANY_HOST = 'zambon.jobopportunity.ch';
-const CAREERS_URL = 'https://zambon.jobopportunity.ch/index.php?module=profile_mod&submod=jobs';
+const COMPANY_HOST = 'www.zambon.com';
+const CAREERS_URL = 'https://www.zambon.com/en/open-positions';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(v = '') { return String(v || '').trim().toLowerCase(); }
@@ -31,7 +36,7 @@ function isCompanyJob(job) {
   const key = normalize(job?.companyKey || ''); const company = normalize(job?.company || ''); const url = String(job?.url || '').toLowerCase();
   return key === COMPANY_KEY || key.includes('zambon') || company.includes('zambon') || url.includes('zambon');
 }
-function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('zambon'); } catch { return false; } }
+function isTrustedDomain(rawUrl = '') { try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('zambon') || h.includes('ncoreplat.com'); } catch { return false; } }
 
 async function fetchPage(url, timeoutMs = 20000) {
   try {
@@ -76,7 +81,7 @@ async function mergeJobs(discoveredJobs) {
   const merged = []; let added = 0, updated = 0;
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
-    if (old) { merged.push({ ...old, ...d, titleByLocale: { ...old.titleByLocale, ...d.titleByLocale }, descriptionByLocale: { ...old.descriptionByLocale, ...d.descriptionByLocale }, slugByLocale: { ...old.slugByLocale, ...d.slugByLocale } }); updated++; }
+    if (old) { merged.push(safeMergeJobLocales(old, d)); updated++; }
     else { merged.push(d); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];
@@ -89,7 +94,7 @@ async function mergeJobs(discoveredJobs) {
 function updateAdapterConfig(seedUrls) {
   const p = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const a = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf-8')) : {};
-  Object.assign(a, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls: seedUrls.length ? seedUrls : [CAREERS_URL], notes: 'jobopportunity.ch platform — Zambon Svizzera SA pharma jobs in Cadempino, TI.', updatedAt: new Date().toISOString() });
+  Object.assign(a, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls: seedUrls.length ? seedUrls : [CAREERS_URL], notes: 'zambon.com NcorePlat ATS — Zambon Svizzera SA pharma jobs in Cadempino, TI.', updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(p), { recursive: true });
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }

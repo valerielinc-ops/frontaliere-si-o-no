@@ -27,7 +27,9 @@ import {
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage   safeMergeJobLocales,
+  mergeLocaleTextMap,
+} from './lib/dedicated-crawler-common.mjs';
 import { parseRivopharmJobs, slugify, normalizeSpace, htmlToText } from './lib/rivopharm-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -39,7 +41,19 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 const COMPANY_KEY = 'rivopharm';
 const COMPANY_NAME = 'Rivopharm SA';
 const COMPANY_HOST = 'rivopharm.com';
-const CAREERS_URL = 'https://rivopharm.com/careers';
+/**
+ * Rivopharm's career page URLs to try, in order of preference.
+ * The /careers path returned 404 as of early 2026 — the company may be
+ * restructuring their website. We try multiple paths to maximize resilience.
+ */
+const CAREERS_URLS = [
+  'https://rivopharm.com/careers',
+  'https://www.rivopharm.com/careers',
+  'https://rivopharm.com/jobs',
+  'https://rivopharm.com/lavora-con-noi',
+  'https://rivopharm.ch/careers',
+];
+const CAREERS_URL = CAREERS_URLS[0]; // primary for display/config
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 // ─────────────────────────────────────────────────────────────
@@ -105,28 +119,33 @@ function detectExperienceLevel(title = '') {
 
 async function fetchCareersPage() {
   const timeoutMs = parseInt(process.env.JOBS_CRAWLER_TIMEOUT_MS || '15000', 10);
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(CAREERS_URL, {
-      signal: controller.signal,
-      headers: {
-        'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
-          'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
-        Accept: 'text/html,application/xhtml+xml',
-        'Accept-Language': 'en,it-CH;q=0.9',
-      },
-    });
-    clearTimeout(timer);
-    if (!res.ok) {
-      console.warn(`⚠️ HTTP ${res.status} for ${CAREERS_URL}`);
-      return null;
+  const headers = {
+    'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT ||
+      'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+    Accept: 'text/html,application/xhtml+xml',
+    'Accept-Language': 'en,it-CH;q=0.9',
+  };
+
+  // Try each candidate URL until one succeeds
+  for (const url of CAREERS_URLS) {
+    try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), timeoutMs);
+      const res = await fetch(url, { signal: controller.signal, headers });
+      clearTimeout(timer);
+      if (res.ok) {
+        console.log(`  ✅ Found working career page: ${url}`);
+        return await res.text();
+      }
+      console.warn(`  ⚠️ HTTP ${res.status} for ${url}`);
+    } catch (err) {
+      console.warn(`  ⚠️ Fetch failed for ${url}: ${err.message}`);
     }
-    return await res.text();
-  } catch (err) {
-    console.warn(`⚠️ Fetch failed for ${CAREERS_URL}: ${err.message}`);
-    return null;
   }
+
+  console.warn('⚠️ All Rivopharm career page URLs returned errors.');
+  console.warn('   The company may not have an active careers page.');
+  return null;
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -210,9 +229,9 @@ async function mergeJobs(discoveredJobs) {
         location: discovered.location || existing.location,
         canton: 'TI', country: 'CH',
         source: 'rivopharm-html-crawler',
-        titleByLocale: { ...existing.titleByLocale, ...filterEmpty(discovered.titleByLocale) },
-        descriptionByLocale: { ...existing.descriptionByLocale, ...filterEmpty(discovered.descriptionByLocale) },
-        slugByLocale: { ...existing.slugByLocale, ...filterEmpty(discovered.slugByLocale) },
+        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
+        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
+        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       });
       updated++;
     } else {

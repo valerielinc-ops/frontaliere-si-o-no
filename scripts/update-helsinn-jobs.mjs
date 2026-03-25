@@ -2,16 +2,19 @@
 /**
  * Dedicated Helsinn Healthcare SA (Lugano, TI) crawler runner.
  *
- * Helsinn uses jobopportunity.ch for job listings.
- * Listing: https://helsinn.jobopportunity.ch/index.php?module=profile_mod&submod=jobs
- * Detail: https://helsinn.jobopportunity.ch/index.php?module=profile_mod&submod=jobs&func=detail&id={id}
+ * Helsinn exclusively uses the AITI e-lavoro portal for job postings:
+ *   https://www.e-lavoro.ch/node/76
+ *
+ * Individual job detail pages: https://www.e-lavoro.ch/node/{id}
+ *
+ * Previously used jobopportunity.ch (defunct as of early 2026).
  */
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, safeMergeJobLocales } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel } from './lib/helsinn-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -22,8 +25,8 @@ const ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapte
 
 const COMPANY_KEY = 'helsinn';
 const COMPANY_NAME = 'Helsinn Healthcare SA';
-const COMPANY_HOST = 'helsinn.jobopportunity.ch';
-const CAREERS_URL = 'https://helsinn.jobopportunity.ch/index.php?module=profile_mod&submod=jobs';
+const COMPANY_HOST = 'www.e-lavoro.ch';
+const CAREERS_URL = 'https://www.e-lavoro.ch/node/76';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(v = '') { return String(v || '').trim().toLowerCase(); }
@@ -32,18 +35,18 @@ function isCompanyJob(job) {
   const key = normalize(job?.companyKey || '');
   const company = normalize(job?.company || '');
   const url = String(job?.url || '').toLowerCase();
-  return key === COMPANY_KEY || key.includes('helsinn') || company.includes('helsinn') || url.includes('helsinn');
+  return key === COMPANY_KEY || key.includes('helsinn') || company.includes('helsinn') || url.includes('helsinn') || url.includes('e-lavoro.ch');
 }
 
 function isTrustedDomain(rawUrl = '') {
-  try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('helsinn'); } catch { return false; }
+  try { const h = new URL(rawUrl).hostname.toLowerCase(); return h.includes('helsinn') || h.includes('e-lavoro.ch'); } catch { return false; }
 }
 
 async function fetchPage(url, timeoutMs = 20000) {
   try {
     const controller = new AbortController();
     const timer = setTimeout(() => controller.abort(), timeoutMs);
-    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'en,it-CH;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
+    const res = await fetch(url, { signal: controller.signal, headers: { Accept: 'text/html,application/xhtml+xml', 'Accept-Language': 'it,en;q=0.9', 'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)' } });
     clearTimeout(timer);
     if (!res.ok) { console.warn(`⚠️ HTTP ${res.status} for ${url}`); return null; }
     return await res.text();
@@ -90,7 +93,7 @@ async function mergeJobs(discoveredJobs) {
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url);
     const old = existingByUrl.get(key);
-    if (old) { merged.push({ ...old, ...d, titleByLocale: { ...old.titleByLocale, ...d.titleByLocale }, descriptionByLocale: { ...old.descriptionByLocale, ...d.descriptionByLocale }, slugByLocale: { ...old.slugByLocale, ...d.slugByLocale } }); updated++; }
+    if (old) { merged.push(safeMergeJobLocales(old, d)); updated++; }
     else { merged.push(d); added++; }
   }
   const final = [...nonCompanyJobs, ...merged];
@@ -103,7 +106,7 @@ async function mergeJobs(discoveredJobs) {
 function updateAdapterConfig(seedUrls) {
   const p = path.join(ADAPTERS_DIR, `${COMPANY_KEY}.json`);
   const a = fs.existsSync(p) ? JSON.parse(fs.readFileSync(p, 'utf-8')) : {};
-  Object.assign(a, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls: seedUrls.length ? seedUrls : [CAREERS_URL], notes: 'jobopportunity.ch platform — Helsinn Healthcare SA jobs in Lugano/Pambio Noranco.', updatedAt: new Date().toISOString() });
+  Object.assign(a, { companyKey: COMPANY_KEY, companyName: COMPANY_NAME, companyHost: COMPANY_HOST, enabled: true, priority: 10, crawlerModes: ['html'], seedUrls: seedUrls.length ? seedUrls : [CAREERS_URL], notes: 'AITI e-lavoro platform — Helsinn Healthcare SA jobs in Lugano/Pambio Noranco.', updatedAt: new Date().toISOString() });
   fs.mkdirSync(path.dirname(p), { recursive: true });
   fs.writeFileSync(p, JSON.stringify(a, null, 2) + '\n');
 }
