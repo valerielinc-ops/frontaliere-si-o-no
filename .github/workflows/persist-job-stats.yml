@@ -1,0 +1,65 @@
+name: Persist Job Stats History
+
+on:
+  workflow_dispatch:
+  # Runs after each deploy completes — deploy.yml dispatches this via trigger-deploy-stats
+  # Also runs on cron as safety net (in case dispatch is missed)
+  schedule:
+    - cron: '15 6,18 * * *'  # 07:15 and 19:15 CET (after typical deploy times)
+
+permissions:
+  contents: write
+
+concurrency:
+  group: persist-job-stats
+  cancel-in-progress: false
+
+jobs:
+  persist-stats:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Assemble jobs dataset (with stats)
+        run: node scripts/assemble-jobs-dataset.mjs --stats
+
+      - name: Commit and push stats history
+        run: |
+          git config user.email "github-actions@github.com"
+          git config user.name "GitHub Actions"
+          git add data/jobs-stats-history.json data/jobs-keys-snapshot.json
+          git diff --cached --quiet && echo "No stats changes to commit" && exit 0
+          git commit -m "📈 Auto-update job board stats history"
+          git push origin HEAD:main
+
+      - name: Report failure to Linear
+        if: failure()
+        continue-on-error: true
+        env:
+          LINEAR_API_KEY: ${{ env.LINEAR_API_KEY }}
+        run: |
+          node scripts/lib/linear-issue-creator.mjs \
+            --title "CI Failure: Persist Job Stats — run ${{ github.run_number }}" \
+            --description "Stats history persistence failed. Check https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
