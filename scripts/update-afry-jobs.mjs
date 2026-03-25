@@ -37,6 +37,7 @@ import {
 import {
   parseAfryApiResponse,
   parseAfryDetailPage,
+  parseSmartRecruitersPage,
   isAfryTicinoRelevant,
   inferAfryCanton,
   inferAfryCategory,
@@ -177,23 +178,43 @@ async function enrichWithDetails(listings) {
       enriched.push({ ...item, description: '', applyUrl: '' });
       continue;
     }
+    let description = '';
+    let applyUrl = item.detailUrl;
+
     try {
+      // Step 1: Try afry.com detail page
       const html = await fetchText(item.detailUrl);
       const detail = parseAfryDetailPage(html);
-      enriched.push({
-        ...item,
-        description: detail.description || '',
-        applyUrl: detail.applyUrl || item.detailUrl,
-      });
-      console.log(`  ✅ ${i + 1}/${toFetch.length}: ${item.title} (${item.location})`);
+      description = detail.description || '';
+      applyUrl = detail.applyUrl || item.detailUrl;
+
+      // Step 2: If afry.com description is thin, try SmartRecruiters page
+      if ((!description || description.split(/\s+/).length < 50) && applyUrl && applyUrl.includes('smartrecruiters.com')) {
+        try {
+          const srHtml = await fetchText(applyUrl);
+          const srDesc = parseSmartRecruitersPage(srHtml);
+          if (srDesc && srDesc.split(/\s+/).length > (description ? description.split(/\s+/).length : 0)) {
+            description = srDesc;
+            console.log(`  ✅ ${i + 1}/${toFetch.length}: ${item.title} (${item.location}) [via SmartRecruiters]`);
+          } else {
+            console.log(`  ✅ ${i + 1}/${toFetch.length}: ${item.title} (${item.location})`);
+          }
+        } catch (srErr) {
+          console.log(`  ⚠️ SmartRecruiters fetch failed for ${item.id}: ${srErr.message}`);
+          console.log(`  ✅ ${i + 1}/${toFetch.length}: ${item.title} (${item.location})`);
+        }
+      } else {
+        console.log(`  ✅ ${i + 1}/${toFetch.length}: ${item.title} (${item.location})`);
+      }
     } catch (err) {
       console.log(`  ⚠️ Detail fetch failed for ${item.id}: ${err.message}`);
-      enriched.push({
-        ...item,
-        description: '',
-        applyUrl: item.detailUrl,
-      });
     }
+
+    enriched.push({
+      ...item,
+      description,
+      applyUrl,
+    });
     if (i < toFetch.length - 1) await sleep(DETAIL_DELAY_MS);
   }
 

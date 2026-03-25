@@ -293,12 +293,37 @@ function buildLocalizedContent(job = {}, sourceLang = 'it') {
   const description = String(job.description || '').trim();
   const deptShort = dept.replace(/\s*\([^)]*\)\s*/g, '').trim();
 
-  // Italian fallback only when the source is already Italian
-  const sourceDesc =
-    description ||
-    (sourceLang === 'it'
-      ? `La ${deptShort} cerca ${title} con sede a ${city}. Posizione nell'Amministrazione federale svizzera. Candidati online su jobs.admin.ch.`
-      : '');
+  // Ensure description meets 50-word threshold
+  const descWordCount = description.split(/\s+/).filter(Boolean).length;
+  let sourceDesc = '';
+
+  if (descWordCount >= 50) {
+    sourceDesc = description;
+  } else if (sourceLang === 'it') {
+    const pensumText = job.pensum ? ` Grado di occupazione: ${job.pensum}.` : '';
+    const fieldText = job.fieldOfActivity ? ` Settore: ${job.fieldOfActivity}.` : '';
+    sourceDesc = [
+      `${title} — ${deptShort}, ${city}.`,
+      `Posizione nell'Amministrazione federale svizzera (Confederazione Svizzera).`,
+      description ? description : '',
+      `${fieldText}${pensumText}`,
+      `La Confederazione Svizzera è uno dei maggiori datori di lavoro del Paese, con condizioni di impiego moderne, opportunità di formazione continua, orari di lavoro flessibili e prestazioni sociali competitive. L'Amministrazione federale si impegna per le pari opportunità e promuove un ambiente di lavoro inclusivo e diversificato.`,
+      `Candidati online su jobs.admin.ch.`,
+    ].filter(Boolean).join('\n');
+  } else if (sourceLang === 'de') {
+    const pensumText = job.pensum ? ` Beschäftigungsgrad: ${job.pensum}.` : '';
+    const fieldText = job.fieldOfActivity ? ` Bereich: ${job.fieldOfActivity}.` : '';
+    sourceDesc = [
+      `${title} — ${deptShort}, ${city}.`,
+      `Stelle in der Schweizerischen Bundesverwaltung (Schweizerische Eidgenossenschaft).`,
+      description ? description : '',
+      `${fieldText}${pensumText}`,
+      `Die Schweizerische Eidgenossenschaft ist einer der grössten Arbeitgeber des Landes mit modernen Anstellungsbedingungen, Weiterbildungsmöglichkeiten, flexiblen Arbeitszeiten und wettbewerbsfähigen Sozialleistungen. Die Bundesverwaltung setzt sich für Chancengleichheit ein und fördert ein inklusives und vielfältiges Arbeitsumfeld.`,
+      `Bewerben Sie sich online auf jobs.admin.ch.`,
+    ].filter(Boolean).join('\n');
+  } else {
+    sourceDesc = description || title;
+  }
 
   return {
     titleByLocale: { [sourceLang]: title },

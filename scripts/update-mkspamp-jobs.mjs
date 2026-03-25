@@ -150,6 +150,7 @@ function buildMksPampJob(rssItem, location) {
     title: rssItem.title,
     city,
     descriptionHtml: rssItem.descriptionHtml,
+    detailDescription: location?.description || '',
   });
 
   return {

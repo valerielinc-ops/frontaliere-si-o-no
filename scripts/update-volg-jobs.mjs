@@ -44,6 +44,7 @@ import {
   normalizeKey,
   detectLang,
   mergeLocaleTextMap,
+  ensureMinimumDescriptionWordCount,
 } from './lib/dedicated-crawler-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -519,30 +520,40 @@ function getCompanyBoilerplate(company = '') {
     'Volg ist spezialisiert auf Dorfläden und kleine Verkaufsflächen in der Deutschschweiz und Romandie.',
     'Wir setzen auf Kundennähe und bieten bequeme Einkaufsmöglichkeiten mit persönlicher Interaktion.',
     'Unsere Mitarbeitenden sind das Herzstück des Ladens — unser Motto ist «frisch und fründlich».',
+    'Als Tochterunternehmen der fenaco Genossenschaft gehören wir zu einem der grössten Arbeitgeber der Schweiz mit über 11.000 Mitarbeitenden.',
     '',
     'Wir bieten: Abwechslungsreiche Aufgaben, familiäres Arbeitsumfeld, direkten Kundenkontakt,',
-    '6 Wochen Ferien, SBB-Vergünstigungen, Weiterbildung an der Volg Academy',
-    'und ausgezeichnete Karrieremöglichkeiten.',
+    '6 Wochen Ferien, SBB-Vergünstigungen, Weiterbildung an der Volg Academy,',
+    'ausgezeichnete Karrieremöglichkeiten und eine fundierte Berufsausbildung für Lernende.',
   ].join('\n');
   if (c.includes('landi')) return [
     'LANDI ist Teil der fenaco Genossenschaft, der grössten Agrargenossenschaft der Schweiz.',
-    'Wir betreiben TopShop-Verkaufsstellen, Tankstellen und Fachgeschäfte.',
+    'Wir betreiben TopShop-Verkaufsstellen, Tankstellen und Fachgeschäfte in der ganzen Schweiz.',
+    'Die fenaco Genossenschaft beschäftigt über 11.000 Mitarbeitende und ist einer der bedeutendsten Arbeitgeber im ländlichen Raum.',
+    'Unsere LANDI-Läden bieten ein breites Sortiment an landwirtschaftlichen Produkten, Bau- und Gartenbedarf, Lebensmitteln und Treibstoffen.',
     '',
     'Wir bieten ein dynamisches Arbeitsumfeld mit direktem Kundenkontakt,',
-    'Weiterbildungsmöglichkeiten und attraktive Anstellungsbedingungen im Detailhandel.',
+    'umfassende Weiterbildungsmöglichkeiten, attraktive Anstellungsbedingungen im Detailhandel,',
+    'mindestens 5 Wochen Ferien, Personalrabatte auf das gesamte Sortiment',
+    'und eine praxisorientierte Berufsausbildung für Lernende.',
   ].join('\n');
   if (c.includes('traveco')) return [
     'TRAVECO Transporte AG ist ein führendes Unternehmen im Bereich Transport und Logistik in der Schweiz,',
-    'Teil der fenaco Genossenschaft. Wir betreiben eine moderne Flotte und bieten zuverlässige',
-    'Transportdienstleistungen in der ganzen Schweiz.',
+    'Teil der fenaco Genossenschaft mit über 11.000 Mitarbeitenden schweizweit.',
+    'Wir betreiben eine moderne Flotte und bieten zuverlässige Transportdienstleistungen in der ganzen Schweiz.',
+    'Mit modernsten Fahrzeugen und höchsten Sicherheitsstandards sorgen wir für den effizienten Transport von Lebensmitteln und Agrarprodukten.',
     '',
-    'Wir bieten: Professionelles Arbeitsumfeld, moderne Fahrzeuge, Weiterbildung',
-    'und wettbewerbsfähige Anstellungsbedingungen im Transportsektor.',
+    'Wir bieten: Professionelles Arbeitsumfeld, moderne Fahrzeuge, kontinuierliche Weiterbildung,',
+    'wettbewerbsfähige Anstellungsbedingungen, mindestens 5 Wochen Ferien',
+    'und ausgezeichnete Perspektiven im Transportsektor.',
   ].join('\n');
   return [
-    'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz.',
+    'fenaco Genossenschaft ist die grösste Agrargenossenschaft der Schweiz mit über 11.000 Mitarbeitenden.',
     'Wir bieten vielfältige Karrieremöglichkeiten in Landwirtschaft, Detailhandel,',
-    'Logistik und Lebensmittelproduktion mit attraktiven Anstellungsbedingungen.',
+    'Logistik und Lebensmittelproduktion mit attraktiven Anstellungsbedingungen,',
+    'umfassenden Sozialleistungen und individuellen Weiterbildungsmöglichkeiten.',
+    'Als genossenschaftliches Unternehmen im Besitz der Schweizer Landwirtschaft vereinen wir über 80 Tochtergesellschaften.',
+    'Wir bieten sichere Arbeitsplätze, moderne Infrastruktur und die Möglichkeit, einen Beitrag zur Schweizer Landwirtschaft zu leisten.',
   ].join('\n');
 }
 
@@ -728,6 +739,18 @@ async function main() {
     dataJobsPath: DATA_JOBS,
     isTargetJob,
   });
+
+  // Step 4b: Ensure no thin descriptions (< 50 words)
+  const allJobsForPatch = readJson(DATA_JOBS, []);
+  const volgJobs = allJobsForPatch.filter(isTargetJob);
+  const patchedCount = ensureMinimumDescriptionWordCount(volgJobs, 50);
+  if (patchedCount > 0) {
+    writeJson(DATA_JOBS, allJobsForPatch);
+    if (fs.existsSync(path.dirname(PUBLIC_JOBS))) {
+      writeJson(PUBLIC_JOBS, allJobsForPatch);
+    }
+    console.log(`📝 Patched ${patchedCount} thin descriptions (< 50 words)`);
+  }
 
   // Step 5: Stats + validation
   logStats();

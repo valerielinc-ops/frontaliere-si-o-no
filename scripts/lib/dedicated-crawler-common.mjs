@@ -436,6 +436,7 @@ const COMPANY_BOILERPLATE_IT = {
   'Grand Hotel Kronenhof': `Il Grand Hotel Kronenhof di Pontresina è uno degli hotel di lusso più prestigiosi dell'Engadina, con ruoli in hotellerie, ristorazione, spa e servizi al cliente. La struttura opera in un contesto premium, internazionale e fortemente orientato alla qualità del servizio.\n\nOffriamo un ambiente professionale di alto livello, benefit per il personale, possibilità di crescita stagionale e pluriennale e un'esperienza formativa solida nell'ospitalità svizzera.`,
   'Kulm Hotel St. Moritz': `Il Kulm Hotel St. Moritz è una struttura iconica dell'Engadina, con opportunità in ristorazione, front office, housekeeping, eventi e guest experience. Il lavoro si svolge in un contesto internazionale, premium e ad alta intensità di servizio.\n\nOffriamo formazione continua, benefit per il personale, contatto con una clientela internazionale e concrete opportunità di crescita nel settore alberghiero svizzero di fascia alta.`,
   'Ticino Premium Properties SA': `Ticino Premium Properties SA è la realtà Engel & Völkers attiva nel mercato immobiliare di pregio in Ticino, con consulenza su compravendita, locazione e valorizzazione di proprietà residenziali e d'investimento. Il team opera in un contesto premium, orientato alla relazione con il cliente e alla qualità dell'esperienza consulenziale.\n\nOffriamo un ambiente internazionale, formazione sul brand, strumenti commerciali strutturati e concrete opportunità di crescita nel real estate di fascia alta.`,
+  'A++ Group': `A++ Group è uno studio di architettura, design e sostenibilità con sede a Massagno (Ticino), specializzato in progettazione architettonica, pianificazione urbana, consulenza immobiliare e soluzioni sostenibili. Lo studio opera su progetti residenziali, commerciali e di riqualificazione nel contesto svizzero e internazionale.\n\nOffriamo un ambiente creativo e multidisciplinare, progetti di design innovativi, collaborazione con professionisti qualificati e concrete opportunità di crescita professionale nel settore dell'architettura e della sostenibilità.`,
 };
 
 /**
@@ -489,6 +490,47 @@ export function enrichThinDescriptions(jobs, threshold = 300) {
     count++;
   }
   return count;
+}
+
+/**
+ * Ensure every job's base `description` field has >= minWords words.
+ * First syncs from descriptionByLocale.it if richer; then appends
+ * company boilerplate when still below threshold.  Mutates in-place.
+ * Returns count of jobs that were patched.
+ */
+export function ensureMinimumDescriptionWordCount(jobs, minWords = 50) {
+  let patched = 0;
+  for (const j of jobs) {
+    const wordCount = (str) => String(str || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+
+    // Step 1: sync from descriptionByLocale.it if it has more words
+    const itDesc = String(j.descriptionByLocale?.it || '').trim();
+    if (itDesc && wordCount(itDesc) > wordCount(j.description)) {
+      j.description = itDesc;
+    }
+
+    // Check if already sufficient
+    if (wordCount(j.description) >= minWords) continue;
+
+    // Step 2: try enriching with company boilerplate
+    const bp = getCompanyBoilerplateIT(j.company);
+    if (bp) {
+      const title = j.titleByLocale?.it || j.title || '';
+      const loc = j.location || '';
+      const canton = j.canton || j.addressRegion || '';
+      const existing = String(j.description || '').trim();
+      const enriched = existing
+        ? `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${existing}\n\n${bp}`
+        : `## ${title}\n\n**${j.company}** — ${loc}${canton ? ` (${canton})` : ''}\n\n${bp}`;
+      j.description = enriched;
+      if (!j.descriptionByLocale) j.descriptionByLocale = {};
+      if (wordCount(j.descriptionByLocale.it) < wordCount(enriched)) {
+        j.descriptionByLocale.it = enriched;
+      }
+      patched++;
+    }
+  }
+  return patched;
 }
 
 export function deriveLocalizedSlug(job, locale) {

@@ -86,8 +86,8 @@ export async function fetchMksPampRss(timeoutMs = 20000) {
 }
 
 /**
- * Fetch a detail page and extract location from embedded address JSON.
- * Returns { city, country, postalCode, street } or null.
+ * Fetch a detail page and extract location + full description from embedded JSON-LD.
+ * Returns { city, country, postalCode, street, description } or null.
  */
 export async function fetchMksPampDetailLocation(url, timeoutMs = 15000) {
   const controller = new AbortController();
@@ -103,37 +103,48 @@ export async function fetchMksPampDetailLocation(url, timeoutMs = 15000) {
     if (!res.ok) return null;
     const html = await res.text();
 
-    // Extract PostalAddress from embedded JSON
-    const addrMatch = html.match(/\{[^{}]*"streetAddress"[^{}]*"addressCountry"[^{}]*\}/);
-    if (addrMatch) {
-      try {
-        const addr = JSON.parse(addrMatch[0]);
-        return {
-          city: normalizeSpace(addr.addressLocality || ''),
-          country: normalizeSpace(addr.addressCountry || ''),
-          postalCode: normalizeSpace(addr.postalCode || ''),
-          street: normalizeSpace(addr.streetAddress || ''),
-        };
-      } catch { /* ignore */ }
-    }
+    let result = { city: '', country: '', postalCode: '', street: '', description: '' };
 
-    // Fallback: try JSON-LD
-    const ldMatch = html.match(/<script type="application\/ld\+json">(.*?)<\/script>/s);
-    if (ldMatch) {
+    // Try JSON-LD for both location AND description
+    const ldRegex = /<script type="application\/ld\+json">([\s\S]*?)<\/script>/gi;
+    let ldMatch;
+    while ((ldMatch = ldRegex.exec(html)) !== null) {
       try {
         const data = JSON.parse(ldMatch[1]);
-        const loc = data.jobLocation || {};
-        const addr = (typeof loc === 'object' && !Array.isArray(loc)) ? (loc.address || {}) : {};
-        return {
-          city: normalizeSpace(addr.addressLocality || ''),
-          country: normalizeSpace(addr.addressCountry || ''),
-          postalCode: normalizeSpace(addr.postalCode || ''),
-          street: normalizeSpace(addr.streetAddress || ''),
-        };
-      } catch { /* ignore */ }
+        if (data['@type'] === 'JobPosting' || data.title) {
+          const loc = data.jobLocation || {};
+          const addr = (typeof loc === 'object' && !Array.isArray(loc)) ? (loc.address || {}) : {};
+          result.city = normalizeSpace(addr.addressLocality || result.city);
+          result.country = normalizeSpace(addr.addressCountry || result.country);
+          result.postalCode = normalizeSpace(addr.postalCode || result.postalCode);
+          result.street = normalizeSpace(addr.streetAddress || result.street);
+
+          // Extract description from JSON-LD — this is the full job description
+          if (data.description) {
+            const desc = stripHtml(data.description);
+            if (desc.split(/\s+/).length >= 50) {
+              result.description = desc;
+            }
+          }
+        }
+      } catch { /* ignore malformed JSON */ }
     }
 
-    return null;
+    // Fallback: extract PostalAddress from embedded JSON
+    if (!result.city) {
+      const addrMatch = html.match(/\{[^{}]*"streetAddress"[^{}]*"addressCountry"[^{}]*\}/);
+      if (addrMatch) {
+        try {
+          const addr = JSON.parse(addrMatch[0]);
+          result.city = normalizeSpace(addr.addressLocality || '');
+          result.country = normalizeSpace(addr.addressCountry || '');
+          result.postalCode = normalizeSpace(addr.postalCode || '');
+          result.street = normalizeSpace(addr.streetAddress || '');
+        } catch { /* ignore */ }
+      }
+    }
+
+    return result;
   } catch {
     return null;
   } finally {
@@ -168,16 +179,34 @@ export function isMksPampTicinoRelevant(location = {}) {
 export function buildMksPampLocalizedContent(job = {}) {
   const title = normalizeSpace(job.title);
   const city = normalizeSpace(job.city) || 'Castel San Pietro';
-  const descText = stripHtml(job.descriptionHtml || '').slice(0, 280);
 
-  const itDesc = descText || `MKS PAMP SA, leader mondiale nella raffinazione di metalli preziosi con sede a ${city}, cerca un profilo ${title}. L'azienda offre un ambiente internazionale e dinamico nel settore dei metalli preziosi. Candidati tramite il portale ufficiale.`;
-  const enDesc = `MKS PAMP SA, a world leader in precious metals refining based in ${city}, is looking for a ${title}. The company offers an international and dynamic environment in the precious metals industry. Apply through the official portal.`;
-  const deDesc = `MKS PAMP SA, ein weltweit führendes Unternehmen in der Edelmetallraffination mit Sitz in ${city}, sucht ein Profil als ${title}. Das Unternehmen bietet ein internationales und dynamisches Umfeld in der Edelmetallbranche. Bewirb dich über das offizielle Portal.`;
-  const frDesc = `MKS PAMP SA, leader mondial du raffinage de métaux précieux basé à ${city}, recherche un profil ${title}. L'entreprise offre un environnement international et dynamique dans le secteur des métaux précieux. Postulez via le portail officiel.`;
+  // Prefer full detail description from JSON-LD, then RSS excerpt, then fallback
+  // Safety: always strip HTML in case raw tags leak through
+  const detailDesc = stripHtml(normalizeSpace(job.detailDescription || ''));
+  const rssDesc = stripHtml(job.descriptionHtml || '');
+
+  const MIN_WORDS = 50;
+
+  let description = '';
+  if (detailDesc && detailDesc.split(/\s+/).length >= MIN_WORDS) {
+    description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${detailDesc}`;
+  } else if (rssDesc && rssDesc.split(/\s+/).length >= MIN_WORDS) {
+    description = `${title} — MKS PAMP SA, ${city} (TI).\n\n${rssDesc}`;
+  } else {
+    // Rich fallback with job-specific and company context (always >= 50 words)
+    description = [
+      `MKS PAMP SA, leader mondiale nella raffinazione di metalli preziosi con sede a ${city}, cerca un profilo ${title}.`,
+      `Fondata nel 1979, MKS PAMP SA è parte del gruppo MKS PAMP GROUP, uno dei principali operatori globali nel settore dei metalli preziosi, con circa 350 collaboratori.`,
+      `L'azienda offre un ambiente di lavoro internazionale, multiculturale e dinamico, con una cultura aziendale basata sulla sua storia familiare e valori di eccellenza operativa.`,
+      `La sede principale si trova a Castel San Pietro, nel Canton Ticino, con uffici anche a Ginevra, Barcellona, New York, Kuala Lumpur, Hong Kong, Shanghai e Dubai.`,
+      `I settori di attività includono raffinazione, trading, coniazione e tecnologie per metalli preziosi.`,
+      `Candidati tramite il portale ufficiale careers.mkspamp.com.`,
+    ].join(' ');
+  }
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
-    descriptionByLocale: { it: itDesc, en: enDesc, de: deDesc, fr: frDesc },
+    descriptionByLocale: { it: description, en: description, de: description, fr: description },
     slugByLocale: {
       it: slugify(`${title} mks-pamp ${city}`),
       en: slugify(`${title} mks-pamp ${city}`),

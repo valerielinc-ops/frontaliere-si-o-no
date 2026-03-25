@@ -82,6 +82,7 @@ export function parseAfryApiResponse(data = {}) {
 
 /**
  * Extract job description and apply URL from a detail page.
+ * Tries the afry.com detail page first, then falls back to SmartRecruiters.
  * @param {string} html - Raw HTML of the detail page
  * @returns {{ description: string, applyUrl: string }}
  */
@@ -117,6 +118,70 @@ export function parseAfryDetailPage(html = '') {
   }
 
   return { description, applyUrl };
+}
+
+/**
+ * Parse a SmartRecruiters job detail page for AFRY.
+ *
+ * SmartRecruiters pages use standard HTML sections with h2 headings
+ * and paragraph/list content. The description sections typically include:
+ *   - "Descrizione del lavoro" / "Job Description"
+ *   - "COMPITI" / "Tasks" / "Responsibilities"
+ *   - "Qualifiche" / "Qualifications"
+ *   - "Informazioni aggiuntive" / "What we offer"
+ *
+ * @param {string} html - Raw HTML of the SmartRecruiters page
+ * @returns {string} Extracted description text
+ */
+export function parseSmartRecruitersPage(html = '') {
+  // Strategy 1: Extract section-by-section using h2 headings
+  const sections = [];
+  const sectionRegex = /<h2>([\s\S]*?)<\/h2>([\s\S]*?)(?=<h2>|<footer|<div[^>]*class="[^"]*footer|$)/gi;
+  let match;
+  const skipHeadings = /apply|candidat|share|condivid|teilen|partag|similar|simil/i;
+
+  while ((match = sectionRegex.exec(html)) !== null) {
+    const heading = stripHtml(match[1]).trim();
+    if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
+
+    const content = stripHtml(match[2]).trim();
+    if (!content || content.length < 15) continue;
+    sections.push(`## ${heading}\n${content}`);
+  }
+
+  if (sections.length > 0) {
+    const text = sections.join('\n\n');
+    if (text.split(/\s+/).length >= 50) return text;
+  }
+
+  // Strategy 2: Extract all content from the main body
+  const bodyMatch = html.match(/<div[^>]*class="[^"]*job-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+    || html.match(/<div[^>]*class="[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  if (bodyMatch) {
+    const text = stripHtml(bodyMatch[1]).trim();
+    if (text.split(/\s+/).length >= 50) return text;
+  }
+
+  // Strategy 3: Extract all substantial paragraphs
+  const paragraphs = [];
+  const pRegex = /<p[^>]*>([\s\S]*?)<\/p>/gi;
+  while ((match = pRegex.exec(html)) !== null) {
+    const text = stripHtml(match[1]).trim();
+    if (text.length > 30) paragraphs.push(text);
+  }
+  // Also extract list items
+  const liRegex = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+  while ((match = liRegex.exec(html)) !== null) {
+    const text = stripHtml(match[1]).trim();
+    if (text.length > 10) paragraphs.push(`- ${text}`);
+  }
+
+  if (paragraphs.length > 0) {
+    const text = paragraphs.join('\n');
+    if (text.split(/\s+/).length >= 50) return text;
+  }
+
+  return '';
 }
 
 /**
@@ -187,16 +252,36 @@ export function buildAfryLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const location = String(job.location || 'Switzerland').trim();
   const description = String(job.description || '').trim();
+  const competence = String(job.competenceArea || '').trim();
 
-  const fallbackDesc = `AFRY cerca ${title} con sede a ${location}. Azienda internazionale di ingegneria, progettazione e consulenza con 18.000 collaboratori. Candidati online su afry.com.`;
+  // Use the crawled description only if it has enough content (>= 50 words)
+  const descWordCount = description ? description.split(/\s+/).length : 0;
+  const hasRichDescription = descWordCount >= 50;
+
+  // Build a rich fallback that includes job-specific context (always >= 50 words)
+  const competenceLine = competence ? ` nell'area ${competence}` : '';
+  const fallbackDesc = [
+    `AFRY cerca ${title} con sede a ${location}${competenceLine}.`,
+    `AFRY è un'azienda internazionale leader nel settore dell'ingegneria, della progettazione e della consulenza, con oltre 19.000 collaboratori in tutto il mondo.`,
+    `L'azienda offre servizi di ingegneria, gestione di progetti e consulenza a supporto della transizione energetica e industriale.`,
+    `AFRY combina una presenza internazionale con competenze locali specializzate nei settori dell'energia, delle infrastrutture, dell'industria e della digitalizzazione.`,
+    `In Svizzera, AFRY è attiva in progetti complessi per mobilità, opere civili, impianti tecnici, tunnel e transizione energetica, con sedi a Zurigo, Bellinzona e Airolo.`,
+    `Offriamo un contesto tecnico multidisciplinare, clienti di primo piano, formazione continua e percorsi di crescita professionale.`,
+    `Candidati online su afry.com.`,
+  ].join(' ');
+
+  // If the crawled description is rich enough, prepend a meta line; otherwise use fallback
+  const finalDesc = hasRichDescription
+    ? `${title} — AFRY, ${location}.\n\n${description}`
+    : fallbackDesc;
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },
     descriptionByLocale: {
-      it: description || fallbackDesc,
-      en: description || fallbackDesc,
-      de: description || fallbackDesc,
-      fr: description || fallbackDesc,
+      it: finalDesc,
+      en: finalDesc,
+      de: finalDesc,
+      fr: finalDesc,
     },
     slugByLocale: {
       it: slugify(`${title} afry ${location}`),

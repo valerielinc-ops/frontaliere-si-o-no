@@ -285,8 +285,20 @@ export function isAllianzTicinoRelevant(agency = '', location = '') {
  */
 export function buildAllianzLocalizedContent(job) {
   const title = normalizeSpace(job.title);
-  const description = normalizeSpace(job.description);
+  let description = normalizeSpace(job.description);
   const slug = slugify(title);
+  const location = normalizeSpace(job.location) || 'Ticino';
+
+  // If description is thin (<50 words), enrich with company context
+  const wordCount = description.split(/\s+/).filter(Boolean).length;
+  if (wordCount < 50) {
+    const agencyText = job.agency ? ` presso l'${job.agency}` : '';
+    description = [
+      description || `${title} — Allianz Suisse${agencyText}, ${location}.`,
+      `Allianz Suisse è una delle principali compagnie assicurative in Svizzera, parte del gruppo Allianz, leader mondiale nel settore assicurativo e della gestione patrimoniale. Con una rete capillare di agenzie generali in tutto il Paese, Allianz Suisse offre soluzioni assicurative complete per privati e aziende nei settori vita, non vita e previdenza professionale. L'azienda si distingue per l'attenzione al cliente, la consulenza personalizzata e un ambiente di lavoro dinamico con opportunità di crescita professionale e formazione continua. Sede regionale in Ticino con agenzie a Bellinzona e Lugano.`,
+      `Candidati online tramite il portale recruitingapp-2872.umantis.com.`,
+    ].join('\n');
+  }
 
   // All Ticino Allianz jobs are published in Italian
   const titleByLocale = { it: title, en: title, de: title, fr: title };

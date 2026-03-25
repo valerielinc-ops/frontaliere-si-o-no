@@ -39,6 +39,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAgieCharmillesProfilePage,
+  parseAgieCharmillesDetailPage,
   isAgieCharmillesTicinoRelevant,
   inferAgieCharmillesCanton,
   inferAgieCharmillesCategory,
@@ -274,6 +275,26 @@ async function main() {
   if (listings.length === 0) {
     console.log('⚠️ No Ticino-relevant job listings found — skipping.');
     return;
+  }
+
+  // Fetch detail pages for rich descriptions
+  console.log(`\n📄 Fetching ${listings.length} detail pages for descriptions...`);
+  for (let i = 0; i < listings.length; i++) {
+    const item = listings[i];
+    if (!item.detailUrl) continue;
+    try {
+      const html = await fetchText(item.detailUrl);
+      const { description } = parseAgieCharmillesDetailPage(html);
+      if (description && description.split(/\s+/).length >= 50) {
+        item.detailDescription = description;
+        console.log(`  ✅ ${i + 1}/${listings.length}: ${item.title}`);
+      } else {
+        console.log(`  ⚠️ ${i + 1}/${listings.length}: ${item.title} — thin detail page, using fallback`);
+      }
+    } catch (err) {
+      console.log(`  ⚠️ Detail fetch failed for ${item.jobId}: ${err.message}`);
+    }
+    if (i < listings.length - 1) await new Promise((r) => setTimeout(r, 1200));
   }
 
   const jobs = listings.map(buildAgieCharmillesJob);

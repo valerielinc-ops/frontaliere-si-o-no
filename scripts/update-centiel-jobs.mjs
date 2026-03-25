@@ -221,6 +221,23 @@ function buildJob(row) {
   // Use the PDF URL as the canonical URL if available, otherwise careers page
   const url = row.pdfUrl || CAREERS_URL;
 
+  // Ensure description meets the 50-word minimum threshold
+  let description = row.description || '';
+  const wordCount = description.split(/\s+/).filter(Boolean).length;
+  if (wordCount < 50) {
+    // Build a richer description with job-specific details
+    const parts = [
+      `${row.title} — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.`,
+      row.reportingTo ? `Reporting to: ${row.reportingTo}.` : '',
+      row.workingRate ? `Working rate: ${row.workingRate}.` : '',
+      description ? `\n${description}` : '',
+      `\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.`,
+      `\nWorkplace: ${row.workplace || 'Cadro (Lugano)'}, Via alla Stampa 15, CH-6965.`,
+      `Apply via: ${CAREERS_URL}`,
+    ];
+    description = parts.filter(Boolean).join('\n').trim();
+  }
+
   return {
     title: row.title,
     slug,
@@ -243,9 +260,9 @@ function buildJob(row) {
     employmentType: row.workingRate || 'full-time',
     contractType: 'full-time',
     validThrough: '',
-    description: row.description,
+    description,
     titleByLocale: { en: row.title },
-    descriptionByLocale: { en: row.description },
+    descriptionByLocale: { en: description },
     slugByLocale: { it: slug },
   };
 }

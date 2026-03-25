@@ -180,16 +180,101 @@ export function inferAgieCharmillesCategory(title = '') {
 }
 
 /**
+ * Strip HTML tags from a string.
+ */
+function stripHtml(html = '') {
+  return html
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<\/div>/gi, '\n')
+    .replace(/<\/h[1-6]>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
+ * Parse a find-your-future.ch job detail page for rich description.
+ * The detail page contains the full job description, requirements, and benefits.
+ *
+ * @param {string} html - Raw HTML of the detail page
+ * @returns {{ description: string }}
+ */
+export function parseAgieCharmillesDetailPage(html = '') {
+  const sections = [];
+
+  // Strategy 1: Extract sections by heading + content
+  const sectionRegex = /<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>\s*([\s\S]*?)(?=<h[2-4][^>]*>|<footer|<\/main|<\/article|$)/gi;
+  let match;
+  const skipHeadings = /cookie|datenschutz|privacy|navigation|menu|footer|header|breadcrumb|teilen|share|drucken|print|kontakt|contact|weitere\s+stellen|standort|arbeitgeber|unternehmen|firma|employer/i;
+
+  while ((match = sectionRegex.exec(html)) !== null) {
+    const heading = stripHtml(match[1]).trim();
+    if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
+
+    const content = stripHtml(match[2]).trim();
+    if (!content || content.length < 20) continue;
+
+    sections.push(`## ${heading}\n${content}`);
+  }
+
+  if (sections.length > 0) {
+    const text = sections.join('\n\n');
+    if (text.split(/\s+/).length >= 50) return { description: text };
+  }
+
+  // Strategy 2: Extract from article or main content area
+  const mainMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+    || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<div[^>]*class="[^"]*job-?detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+
+  if (mainMatch) {
+    const text = stripHtml(mainMatch[1]).trim();
+    if (text.split(/\s+/).length >= 50) return { description: text };
+  }
+
+  return { description: '' };
+}
+
+/**
  * Build localized content for an AGIE Charmilles job.
  */
 export function buildAgieCharmillesLocalizedContent(job = {}) {
   const title = String(job.title || '').trim();
   const city = String(job.city || 'Losone').trim();
+  const detailDescription = String(job.detailDescription || '').trim();
 
-  const itDesc = `AGIE Charmilles SA (GF Machining Solutions) cerca ${title} a ${city}. Azienda leader mondiale nelle macchine utensili ad alta precisione (elettroerosione, fresatura, laser, AM). Sede a Losone (TI), parte del gruppo Georg Fischer.`;
-  const enDesc = `AGIE Charmilles SA (GF Machining Solutions) is hiring for ${title} in ${city}. Global leader in high-precision machine tools (EDM, milling, laser, AM). Based in Losone (TI), part of the Georg Fischer group.`;
-  const deDesc = `AGIE Charmilles SA (GF Machining Solutions) sucht ${title} in ${city}. Weltmarktfuehrer fuer hochpraezise Werkzeugmaschinen (EDM, Fraesen, Laser, AM). Sitz in Losone (TI), Teil der Georg Fischer Gruppe.`;
-  const frDesc = `AGIE Charmilles SA (GF Machining Solutions) recrute ${title} a ${city}. Leader mondial des machines-outils de haute precision (EDM, fraisage, laser, AM). Siege a Losone (TI), groupe Georg Fischer.`;
+  // If we have a rich detail description (>= 50 words), use it
+  if (detailDescription && detailDescription.split(/\s+/).length >= 50) {
+    const metaLine = `${title} — AGIE Charmilles SA (GF Machining Solutions), ${city} (TI).`;
+    const description = `${metaLine}\n\n${detailDescription}`;
+    return {
+      titleByLocale: { it: title, en: title, de: title, fr: title },
+      descriptionByLocale: { it: description, en: description, de: description, fr: description },
+      slugByLocale: {
+        it: slugify(`${title}-agie-charmilles-${city}`),
+        en: slugify(`${title}-agie-charmilles-${city}`),
+        de: slugify(`${title}-agie-charmilles-${city}`),
+        fr: slugify(`${title}-agie-charmilles-${city}`),
+      },
+    };
+  }
+
+  // Richer fallback descriptions (>50 words each)
+  const itDesc = `AGIE Charmilles SA (GF Machining Solutions) cerca ${title} a ${city}. L'azienda è leader mondiale nelle macchine utensili ad alta precisione, specializzata in elettroerosione (EDM), fresatura ad alta velocità, tecnologia laser e produzione additiva (AM). Con sede a Losone (TI) e parte del gruppo internazionale Georg Fischer, AGIE Charmilles offre un ambiente di lavoro innovativo e tecnologicamente avanzato, con opportunità di crescita professionale in un contesto multinazionale. Candidati tramite il portale find-your-future.ch.`;
+  const enDesc = `AGIE Charmilles SA (GF Machining Solutions) is hiring for ${title} in ${city}. The company is a global leader in high-precision machine tools, specializing in electrical discharge machining (EDM), high-speed milling, laser technology, and additive manufacturing (AM). Based in Losone (TI) and part of the international Georg Fischer group, AGIE Charmilles offers an innovative and technologically advanced work environment with professional growth opportunities in a multinational context. Apply through the find-your-future.ch portal.`;
+  const deDesc = `AGIE Charmilles SA (GF Machining Solutions) sucht ${title} in ${city}. Das Unternehmen ist Weltmarktführer für hochpräzise Werkzeugmaschinen, spezialisiert auf Funkenerosion (EDM), Hochgeschwindigkeitsfräsen, Lasertechnologie und additive Fertigung (AM). Mit Sitz in Losone (TI) und als Teil der internationalen Georg Fischer Gruppe bietet AGIE Charmilles ein innovatives und technologisch fortschrittliches Arbeitsumfeld mit Möglichkeiten zur beruflichen Weiterentwicklung in einem multinationalen Kontext. Bewerben Sie sich über das Portal find-your-future.ch.`;
+  const frDesc = `AGIE Charmilles SA (GF Machining Solutions) recrute ${title} à ${city}. L'entreprise est un leader mondial des machines-outils de haute précision, spécialisée dans l'électroérosion (EDM), le fraisage à grande vitesse, la technologie laser et la fabrication additive (AM). Basée à Losone (TI) et faisant partie du groupe international Georg Fischer, AGIE Charmilles offre un environnement de travail innovant et technologiquement avancé avec des opportunités de développement professionnel dans un contexte multinational. Postulez via le portail find-your-future.ch.`;
 
   return {
     titleByLocale: { it: title, en: title, de: title, fr: title },

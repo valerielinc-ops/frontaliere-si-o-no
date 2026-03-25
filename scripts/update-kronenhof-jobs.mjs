@@ -102,6 +102,12 @@ function slugify(text = '') {
     .slice(0, 120);
 }
 
+const DETAIL_DELAY_MS = 1200;
+
+function sleep(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
 /* ── Fetch API ─────────────────────────────────────────────── */
 async function fetchJson(url) {
   const controller = new AbortController();
@@ -121,6 +127,93 @@ async function fetchJson(url) {
     clearTimeout(timer);
     throw err;
   }
+}
+
+async function fetchText(url) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), TIMEOUT_MS);
+  try {
+    const res = await fetch(url, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'text/html',
+        'User-Agent': UA,
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) throw new Error(`HTTP ${res.status} for ${url}`);
+    return await res.text();
+  } catch (err) {
+    clearTimeout(timer);
+    throw err;
+  }
+}
+
+function stripHtml(html = '') {
+  return html
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    .replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '')
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<\/div>/gi, '\n')
+    .replace(/<\/h[1-6]>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
+ * Parse the Kronenhof/Kulm detail page HTML to extract structured description.
+ *
+ * The detail page at /en/vacancies/{id} contains sections like:
+ *   - Job description / responsibilities
+ *   - Requirements / qualifications
+ *   - Benefits / what we offer
+ */
+function parseDetailPage(html = '') {
+  const sections = [];
+
+  // Extract content from main job description area
+  // Look for common section patterns in the page
+  const sectionRegex = /<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>\s*([\s\S]*?)(?=<h[2-4][^>]*>|<footer|<\/main|<\/article|$)/gi;
+  let match;
+  const skipHeadings = /cookie|privacy|navigation|menu|footer|header|breadcrumb|vacancy overview|share this/i;
+
+  while ((match = sectionRegex.exec(html)) !== null) {
+    const heading = stripHtml(match[1]).trim();
+    if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
+
+    const content = stripHtml(match[2]).trim();
+    if (!content || content.length < 20) continue;
+
+    sections.push(`## ${heading}\n${content}`);
+  }
+
+  if (sections.length > 0) {
+    return sections.join('\n\n');
+  }
+
+  // Fallback: extract main content area
+  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+    || html.match(/<div[^>]*class="[^"]*vacancy[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+    || html.match(/<div[^>]*class="[^"]*job[^"]*detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+
+  if (mainMatch) {
+    const text = stripHtml(mainMatch[1]).trim();
+    // Filter out very short or boilerplate-heavy content
+    if (text.length > 100) return text;
+  }
+
+  return '';
 }
 
 /**
@@ -172,12 +265,12 @@ function mapContractType(duration = '') {
   }
 }
 
-function buildJob(raw) {
+function buildJob(raw, detailDescription = '') {
   const title = String(raw.title || '').trim();
   const { city, company } = mapLocation(raw.location);
   const { employmentType, contractType } = mapContractType(raw.contract_duration);
   const slug = slugify(`${title}-${company}-${city}`);
-  const detailUrl = `${CAREERS_URL}#job-${raw.id}`;
+  const detailUrl = `https://careers.kronenhof.com/en/vacancies/${raw.id}`;
   const postedDate = raw.contract_starts_at
     ? raw.contract_starts_at.slice(0, 10)
     : new Date().toISOString().slice(0, 10);
@@ -192,12 +285,28 @@ function buildJob(raw) {
     '6-months': '6-Monats-Stelle / 6-month contract',
   }[raw.contract_duration] || raw.contract_duration || 'Seasonal';
 
-  const description = [
+  const metaLine = [
     `${title} — ${company}, ${city} (Engadin, Graubünden).`,
     `Pensum: ${workload}. Vertrag: ${durationLabel}.`,
     raw.contract_starts_at ? `Stellenantritt: ${raw.contract_starts_at.slice(0, 10)}.` : '',
-    `Bewerbungen an: people@kulmgroup.com oder über ${CAREERS_URL}`,
   ].filter(Boolean).join(' ');
+
+  // Prefer detail page description if rich enough (>= 50 words), otherwise use fallback
+  const detailWordCount = detailDescription ? detailDescription.split(/\s+/).length : 0;
+  const hasRichDetail = detailWordCount >= 50;
+
+  const fallbackDescription = [
+    metaLine,
+    `Die Kulm Gruppe betreibt zwei der exklusivsten 5-Sterne-Hotels im Engadin: das Grand Hotel Kronenhof in Pontresina und das Kulm Hotel in St. Moritz.`,
+    `Beide Häuser stehen für Schweizer Luxushotellerie auf höchstem Niveau mit einer langen Tradition, erstklassigem Service und einem engagierten internationalen Team.`,
+    `Als Arbeitgeber bieten wir: Personalunterkunft in der Engadiner Bergwelt, vergünstigte Verpflegung, umfassende Weiterbildungsmöglichkeiten, attraktive Mitarbeitervergünstigungen und ein inspirierendes Arbeitsumfeld in einer der schönsten Regionen der Schweiz.`,
+    `Die Kulm Gruppe beschäftigt rund 500 Mitarbeitende und bietet vielfältige Karrieremöglichkeiten in Gastronomie, Küche, Housekeeping, Front Office, Spa, Events und Administration.`,
+    `Bewerbungen an: people@kulmgroup.com oder über ${CAREERS_URL}`,
+  ].join(' ');
+
+  const description = hasRichDetail
+    ? `${metaLine}\n\n${detailDescription}`
+    : fallbackDescription;
 
   return {
     title,
@@ -314,8 +423,34 @@ async function main() {
     return;
   }
 
-  // Step 2: Build standardized job objects
-  const jobs = allVacancies.map(buildJob);
+  // Step 2: Fetch detail pages for rich descriptions
+  console.log('\n📄 Fetching detail pages for rich descriptions...');
+  const detailDescriptions = new Map();
+  let enriched = 0;
+  let failed = 0;
+  for (let i = 0; i < allVacancies.length; i++) {
+    const vac = allVacancies[i];
+    const detailUrl = `https://careers.kronenhof.com/en/vacancies/${vac.id}`;
+    try {
+      const html = await fetchText(detailUrl);
+      const desc = parseDetailPage(html);
+      if (desc && desc.split(/\s+/).length >= 50) {
+        detailDescriptions.set(vac.id, desc);
+        enriched++;
+        console.log(`  ✅ ${i + 1}/${allVacancies.length}: ${String(vac.title).trim()}`);
+      } else {
+        console.log(`  ⚠️ ${i + 1}/${allVacancies.length}: ${String(vac.title).trim()} — thin detail page`);
+      }
+    } catch (err) {
+      failed++;
+      console.log(`  ⚠️ Detail fetch failed for ${vac.id}: ${err.message}`);
+    }
+    if (i < allVacancies.length - 1) await sleep(DETAIL_DELAY_MS);
+  }
+  console.log(`  📄 Detail pages: ${enriched} enriched, ${failed} failed`);
+
+  // Step 3: Build standardized job objects
+  const jobs = allVacancies.map((vac) => buildJob(vac, detailDescriptions.get(vac.id) || ''));
   console.log(`✅ Built ${jobs.length} job objects`);
 
   // Log location breakdown
@@ -328,17 +463,17 @@ async function main() {
     console.log(`   📍 ${loc}: ${count}`);
   }
 
-  // Step 3: Merge into jobs.json
+  // Step 4: Merge into jobs.json
   const { total, added, updated } = mergeJobs(jobs);
   console.log(`\n📦 Merge complete: ${total} total, ${added} added, ${updated} updated`);
 
-  // Step 4: Translate missing locales
+  // Step 5: Translate missing locales
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob,
   });
 
-  // Step 5: Stats + validation
+  // Step 6: Stats + validation
   logStats();
   validateLocaleCoverage();
 

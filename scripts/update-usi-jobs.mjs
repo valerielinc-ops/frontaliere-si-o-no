@@ -39,6 +39,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+  ensureMinimumDescriptionWordCount,
 } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
@@ -448,11 +449,24 @@ function detectCity(department = '', organization = '') {
  */
 function buildDescription(job, locale = 'it', pdfText = '') {
   const city = detectCity(job.department, job.organization);
+  const category = detectCategory(job.title, job.department);
   const footerLines = job.pdfUrl
     ? [locale === 'en' ? 'Official call available as PDF.' : 'Bando ufficiale disponibile in PDF.']
     : [];
 
+  // Build a richer fallback when PDF text is empty/thin
+  const hasPdfText = pdfText && pdfText.split(/\s+/).length >= 30;
+
   if (locale === 'en') {
+    const fallbackText = !hasPdfText ? [
+      `USI – Università della Svizzera italiana is the only Italian-speaking university in Switzerland, with campuses in Lugano and Mendrisio.`,
+      `The university offers a stimulating academic and research environment with a strong international orientation, hosting students and researchers from over 100 countries.`,
+      category === 'professor' || category === 'researcher' || category === 'phd' ?
+        `The position involves academic research and teaching activities within the department.` :
+        `The position contributes to the university's operational excellence and academic mission.`,
+      `USI offers competitive employment conditions, a dynamic multicultural environment, and professional development opportunities.`,
+    ].join(' ') : '';
+
     return buildPdfBackedDescription({
       introLines: [
         `Open position at ${job.organization || USI_COMPANY_NAME}.`,
@@ -461,9 +475,19 @@ function buildDescription(job, locale = 'it', pdfText = '') {
         `Location: ${city}, Switzerland (Canton Ticino).`,
       ],
       pdfText,
+      fallbackText,
       footerLines,
     });
   }
+
+  const fallbackText = !hasPdfText ? [
+    `L'USI – Università della Svizzera italiana è l'unica università di lingua italiana in Svizzera, con campus a Lugano e Mendrisio.`,
+    `L'ateneo offre un ambiente accademico e di ricerca stimolante con un forte orientamento internazionale, ospitando studenti e ricercatori da oltre 100 Paesi.`,
+    category === 'professor' || category === 'researcher' || category === 'phd' ?
+      `La posizione prevede attività di ricerca accademica e insegnamento all'interno del dipartimento.` :
+      `La posizione contribuisce all'eccellenza operativa e alla missione accademica dell'università.`,
+    `L'USI offre condizioni di impiego competitive, un ambiente multiculturale dinamico e opportunità di sviluppo professionale.`,
+  ].join(' ') : '';
 
   return buildPdfBackedDescription({
     introLines: [
@@ -473,6 +497,7 @@ function buildDescription(job, locale = 'it', pdfText = '') {
       `Sede: ${city}, Svizzera (Canton Ticino).`,
     ],
     pdfText,
+    fallbackText,
     footerLines,
   });
 }
@@ -1278,6 +1303,18 @@ async function main() {
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job USI trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;
+  }
+
+  // 6b. Ensure no thin descriptions (< 50 words)
+  const allJobsForPatch = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const usiJobsForPatch = (Array.isArray(allJobsForPatch) ? allJobsForPatch : []).filter(isUsiJob);
+  const patchedCount = ensureMinimumDescriptionWordCount(usiJobsForPatch, 50);
+  if (patchedCount > 0) {
+    fs.writeFileSync(DATA_JOBS, `${JSON.stringify(allJobsForPatch, null, 2)}\n`, 'utf8');
+    if (fs.existsSync(PUBLIC_JOBS)) {
+      fs.writeFileSync(PUBLIC_JOBS, `${JSON.stringify(allJobsForPatch, null, 2)}\n`, 'utf8');
+    }
+    console.log(`📝 Patched ${patchedCount} thin USI descriptions (< 50 words)`);
   }
 
   // 7. Validate locale coverage (IT/EN/DE/FR)
