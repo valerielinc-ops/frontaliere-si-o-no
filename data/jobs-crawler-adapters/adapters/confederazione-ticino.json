@@ -12,8 +12,14 @@
     "https://ohws.prospective.ch/public/v1/medium/1000624/jobs?lang=it&f=region:1083334"
   ],
   "notes": "Confederazione Svizzera — federal jobs in Ticino (region 1083341) + Graubünden (filtered from Ostschweiz region 1083334). Uses Prospective.ch API (medium 1000624 — Stellenportal Bund / jobs.admin.ch). Covers departments not handled by VTG or Agroscope crawlers: DATEC, DEFR/SECO, DFGP, TPF, etc. Includes apprenticeship and internship positions.",
-  "updatedAt": "2026-03-24T09:24:19.929Z",
+  "updatedAt": "2026-03-25T09:17:51.358Z",
   "seedMetaByUrl": {
+    "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-fuer-die-entwicklung-von-it-tools-zur-unterstuetzung-des-prognosedienstes-m-w/493c5aee-df62-4767-b3eb-64bf8d900a39": {
+      "location": "Locarno-Monti",
+      "canton": "TI",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-03-24"
+    },
     "https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-efz-lernender-kaufmann-efz/c8555081-fe5b-458b-a244-5ec2d9abed41": {
       "location": "Bellinzona",
       "canton": "TI",
@@ -31,6 +37,18 @@
       "canton": "TI",
       "company": "Confederazione Svizzera",
       "postedDate": "2026-03-18"
+    },
+    "https://jobs.admin.ch/posti-vacanti/fachspezialist-in-hr/407fcd2d-2072-49be-a46b-c16b897f3594": {
+      "location": "Monteceneri",
+      "canton": "TI",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-03-24"
+    },
+    "https://jobs.admin.ch/posti-vacanti/operator-in-support/771b16cf-183e-45b2-aaf0-ed8342934e63": {
+      "location": "Rivera",
+      "canton": "TI",
+      "company": "Confederazione Svizzera",
+      "postedDate": "2026-03-24"
     },
     "https://jobs.admin.ch/posti-vacanti/leiter-in-fuehrungs-und-informationssysteme/8e05ede4-8d17-4d04-8a23-3a532d91866e": {
       "location": "Rivera",
