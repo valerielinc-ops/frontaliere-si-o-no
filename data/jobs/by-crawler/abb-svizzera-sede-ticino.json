@@ -1,10 +1,10 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-03-25T03:26:51.015Z",
+  "assembledAt": "2026-03-25T06:46:12.460Z",
   "jobs": [
     {
       "id": "company-vs8x2l",
-      "slug": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
+      "slug": "capoturno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Shift leader Assemblaggio / Imballo (80-100%)",
       "location": "Quartino, Ticino",
@@ -71,10 +71,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
-        "en": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
+        "it": "capoturno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "en": "shift-leader-assembly-packaging-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "de": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
-        "fr": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l"
+        "fr": "chef-d-equipe-assemblage-emballage-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       },
       "country": "CH",
       "sourceLang": "en",
@@ -119,9 +119,10 @@
       "companyDomain": "abb.ch",
       "crawledAt": "2026-03-23T09:08:48.388Z",
       "titleByLocale": {
-        "it": "",
+        "it": "Shift Leader Collaudo IPU Modular (80-100%)",
         "de": "Schichtleiter Collaudo IPU Modular (80-100%)",
-        "fr": "Chef d'équipe Collaudo IPU Modular (80-100%)"
+        "fr": "Chef d'équipe Collaudo IPU Modular (80-100%)",
+        "en": "Shift Leader Collaudo IPU Modular (80-100%)"
       },
       "descriptionByLocale": {
         "en": "At ABB , we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world. This position reports to: Production Supervisor __ Job Summary Contributes to ensuring a safe working environment in compliance with company guidelines, guaranteeing the achievement of Production targets during the shift. Supports the Production Supervisors in the daily coordination of operational activities, providing technical assistance to operators in the testing areas. Your Roles and Responsibilities - Monitoring and ensuring compliance with ABB safety guidelines and Code of Conduct during the shift - Supporting the Production Supervisor to ensure the correct execution of production activities - Providing technical support to operators (Testing) during daily operations - Acting as the reference point for on‑the‑job training of production personnel - Serving as the first level of contact for operational issues to be escalated to the relevant Production Supervisor - Participating in Level 1 Q Circles: gathers technical and quality issues and communicating them to the appropriate supervisor The work model for this role is on-site: #LI-Onsite License to Operate / Core Values - Ensuring that all personnel (within the area of responsibility) understand ABB’s core values and the group’s safety and integrity standards, and act accordingly - Implementing and ensuring compliance with ABB’s Code of Conduct, tools, policies, and processes within the assigned area Collaboration / Leadership - Promoting and enabling collaboration within the relevant work areas - Managing relationships with stakeholders in the area of responsibility and ensures alignment Professional Skills and Experience - Minimum 2–3 years of experience in operations, with experience in coordination roles - Experience in the electrical/electronic field - Previous experience in team coordination roles is considered a plus Education - Vocational school diploma or equivalent More About Us ABB Smart Power provides energy distribution solutions for data centers, industrial and manufacturing plants, critical infrastructure and commercial buildings. The Division’s technical teams work closely with industry partners, delivering advanced solutions that support rapid growth, energy transition, and sustainability objectives. The Division’s portfolio includes industrial circuit breakers, low-voltage systems, motor starting applications, and safety devices like switches and relays. Its Power Protection unit supports the world’s largest data center companies with advanced energy-efficient UPS solutions. The Division’s ABB Ability™ Energy Manager provides a scalable, easy-to-use platform that helps organizations save energy and reduce CO2 emissions. The recruitment process is managed by Mara Werne, Talent Partner. Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences. Ready to make an impact? Apply today or visit https://www.abb.com to learn more about the impact of our solutions across the globe.",
@@ -164,8 +165,8 @@
       "slugByLocale": {
         "it": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
         "en": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
-        "de": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
-        "fr": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587"
+        "de": "schichtleiter-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "fr": "chef-d-equipe-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       },
       "country": "CH",
       "sourceLang": "en",
@@ -183,7 +184,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-n0py3i",
@@ -255,9 +257,9 @@
       },
       "slugByLocale": {
         "it": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
-        "en": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
-        "de": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
-        "fr": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i"
+        "en": "shift-leader-testing-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "de": "schichtleiter-prufung-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "fr": "chef-d-equipe-test-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       },
       "country": "CH",
       "sourceLang": "en",
@@ -279,7 +281,7 @@
     },
     {
       "id": "company-xulm96",
-      "slug": "contract-manager-abb-svizzera-sede-ticino-ticino-xulm96",
+      "slug": "responsabile-contratti-abb-svizzera-sede-ticino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Contract Manager",
       "location": "Ticino",
@@ -346,10 +348,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "contract-manager-abb-svizzera-sede-ticino-ticino-xulm96",
+        "it": "responsabile-contratti-abb-svizzera-sede-ticino-ticino",
         "en": "contract-manager-abb-svizzera-sede-ticino-ticino-xulm96",
-        "de": "contract-manager-abb-svizzera-sede-ticino-ticino-xulm96",
-        "fr": "contract-manager-abb-svizzera-sede-ticino-ticino-xulm96"
+        "de": "vertragsmanager-abb-svizzera-sede-ticino-ticino",
+        "fr": "responsable-des-contrats-abb-svizzera-sede-ticino-ticino"
       },
       "country": "CH",
       "sourceLang": "en",
@@ -371,7 +373,7 @@
     },
     {
       "id": "company-j6oli2",
-      "slug": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
+      "slug": "80-100-ingegnere-senior-di-elettronica-di-potenza-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(80 - 100%) Senior Power Electronics Engineer",
       "location": "Quartino, Ticino",
@@ -438,7 +440,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
+        "it": "80-100-ingegnere-senior-di-elettronica-di-potenza-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "80-100-senior-power-electronics-engineer-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
         "de": "80-100-senior-power-electronics-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
         "fr": "80-100-senior-power-electronics-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-j6oli2"
@@ -446,7 +448,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "80-100-senior-power-electronics-engineer-abb-svizzera-sede-ticino-quartino-ticino"
+        "80-100-senior-power-electronics-engineer-abb-svizzera-sede-ticino-quartino-ticino",
+        "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-j6oli2"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -463,7 +466,7 @@
     },
     {
       "id": "company-6a4mil",
-      "slug": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
+      "slug": "tecnico-di-qualita-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Quality Technician (80-100%)",
       "location": "Quartino, Ticino",
@@ -525,7 +528,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
+        "it": "tecnico-di-qualita-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
         "de": "qualitat-techniker-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
         "fr": "qualite-technicien-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil"
@@ -573,7 +576,10 @@
       "companyDomain": "abb.ch",
       "crawledAt": "2026-03-23T09:08:48.388Z",
       "titleByLocale": {
-        "de": "(80 - 100 %) Scrum Master"
+        "de": "(80 - 100 %) Scrum Master",
+        "en": "(80 - 100 %) Scrum Master",
+        "it": "(80 - 100 %) Scrum Master",
+        "fr": "(80 - 100 %) Scrum Master"
       },
       "descriptionByLocale": {
         "en": "At ABB , we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world. This position reports to: Scrum Master Chapter Leader __ Electrification provides leading electrical distribution and management technologies, solutions and services to electrify the world in a safe, smart and sustainable way. The portfolio includes medium- and low-voltage electrical components, switchgear, digital devices, enclosures, and circuit breakers, among others. With our products, solutions and services, we collaborate with customers to improve power delivery and security, enhance energy management, efficiency and operational reliability, as we seek to achieve a low carbon society. go.abb/electrification. In this role you will be part in pioneering a new way of working within our Smart Power Division. You will implement and lead the Agile practices at team level for one or more teams. You will guide on the Agile principles, helping the team to achieve valuable outcomes, and identify continuous improvement, bringing a data driven approach in day-to-day management. The work model for the role is: hybrid #LI-hybrid You will be mainly accountable for: - Guide and coach Scrum teams in applying Agile practices and principles, fostering positive team dynamics, collaboration, and continuous improvement - Develop high‑performing teams by identifying strengths and areas for growth, using effective coaching techniques, and promoting empowering Agile behaviors - Facilitate key Scrum event s (Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospective) to ensure engagement, transparency, and smooth delivery - Strengthen Agile maturity across the organization by building cross-team alliances, improving Agile practices, and ensuring adherence to Scrum theory, practices, and guidelines Qualifications for the role: - Bachelor’s Degree or equivalent (this position is not embedded in the IT environment; we are open for profiles with different backgrounds like psychology, social science, engineering, business administration, economics etc.) - 5 or more years of e xperience as Scrum Master or in a similar Agile role applying Agile principles and practices is an advantage - Fluent command of English with Italian considered as additional advantage - Motivated to work in an Agile, dynamic workplace and cross functional team - Experience in leading people with the ability to earn trust while challenging the team to improve and operate outside its comfort zone - Strong creative problem – solving skills and the ability to get things done - Excellent communication, facilitation, negotiation, coaching, risk management and conflict-resolution skills, with the ability to foster positive team dynamics and collaboration Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences. Ready to make an impact? Apply today or visit https://www.abb.com to learn more about the impact of our solutions across the globe.",
@@ -632,11 +638,12 @@
           "maxValue": 97500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "company-1dk7xe",
-      "slug": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
+      "slug": "formatore-prodotto-abb-svizzera-sede-ticino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Product Trainer",
       "location": "Ticino",
@@ -703,10 +710,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
+        "it": "formatore-prodotto-abb-svizzera-sede-ticino-ticino",
         "en": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
-        "de": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
-        "fr": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe"
+        "de": "produktrainer-abb-svizzera-sede-ticino-ticino",
+        "fr": "formateur-produit-abb-svizzera-sede-ticino-ticino"
       },
       "country": "CH",
       "sourceLang": "en",
@@ -728,7 +735,7 @@
     },
     {
       "id": "company-tooege",
-      "slug": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
+      "slug": "ingegnere-di-supporto-tecnico-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Technical Support Engineer (80-100%)",
       "location": "Quartino, Ticino",
@@ -795,7 +802,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
+        "it": "ingegnere-di-supporto-tecnico-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
         "de": "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
         "fr": "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege"
@@ -803,7 +810,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -820,7 +828,7 @@
     },
     {
       "id": "company-noo56s",
-      "slug": "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
+      "slug": "ingegnere-senior-r-d-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "R&D Senior Engineer Firmware (80 -100%)",
       "location": "Quartino, Ticino",
@@ -867,7 +875,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
+        "it": "ingegnere-senior-r-d-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
         "de": "r-d-senior-ingenieur-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
         "fr": "r-d-senior-ingenieur-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s"
@@ -875,7 +883,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -892,7 +901,7 @@
     },
     {
       "id": "company-d6wkr3",
-      "slug": "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-d6wkr3",
+      "slug": "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Test Engineer (80 - 100%)",
       "location": "Quartino, Ticino",
@@ -956,7 +965,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-d6wkr3",
+        "it": "ingegnere-di-test-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "test-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino-d6wkr3",
         "de": "test-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino-d6wkr3",
         "fr": "test-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino-d6wkr3"
@@ -964,7 +973,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "test-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "test-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-d6wkr3"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -980,100 +990,8 @@
       }
     },
     {
-      "id": "company-rdvm4z",
-      "slug": "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Test Engineering Specialist (80 - 100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "At ABB, we help industries outrun - leaner and cleaner. Here, progress is an expectation - for you, your team, and the world. As a global market leader, we’ll give you what you need to make it happen. It won’t always be easy, growing takes grit. But at ABB, you’ll never run alone. Run what runs the world. This Position reports to: Production Engineering Manager Your role and responsibilities In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs. The work model for the role is hybrid. #LI-Hybrid You will be mainly accountable for: - Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards. - Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible. - Providing support for the integration and startup of test systems, defining action plans and training relevant personnel. - Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies. Qualifications for the role - You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance. - Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions. - Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language. - You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented. - Degree in Electronic Engineering, Computer Engineering, or a related field. - You are at ease communicating in English, both written and spoken. - Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium. More about us ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe. #MyABBStory We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-02-18",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00024568EXTERNALENGLOBAL/Test-Engineering-Specialist--80---100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-23T09:08:48.388Z",
-      "titleByLocale": {
-        "en": "Test Engineering Specialist (80 - 100%)",
-        "it": "Test Engineering Specialista (80 - 100%)",
-        "de": "Spezialist für Test Engineering (80 - 100%)",
-        "fr": "Spécialiste en Test Engineering (80 - 100%)"
-      },
-      "descriptionByLocale": {
-        "en": "At ABB, we help industries outrun - leaner and cleaner. Here, progress is an expectation - for you, your team, and the world. As a global market leader, we’ll give you what you need to make it happen. It won’t always be easy, growing takes grit. But at ABB, you’ll never run alone. Run what runs the world. This Position reports to: Production Engineering Manager Your role and responsibilities In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs. The work model for the role is hybrid. #LI-Hybrid You will be mainly accountable for: - Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards. - Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible. - Providing support for the integration and startup of test systems, defining action plans and training relevant personnel. - Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies. Qualifications for the role - You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance. - Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions. - Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language. - You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented. - Degree in Electronic Engineering, Computer Engineering, or a related field. - You are at ease communicating in English, both written and spoken. - Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium. More about us ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe. #MyABBStory We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.",
-        "it": "In ABB, aiutiamo le industrie a superare i propri limiti - in modo più snello e sostenibile. Qui, il progresso è un'aspettativa - per te, per il tuo team e per il mondo. Come leader globale di mercato, ti forniremo ciò di cui hai bisogno per realizzarlo. Non sarà sempre facile, crescere richiede determinazione. Ma in ABB, non correrai mai da solo. Corri ciò che fa girare il mondo. Questa posizione riporta a: Production Engineering Manager Il tuo ruolo e le tue responsabilità In questo ruolo, avrai l'opportunità di sviluppare e mantenere infrastrutture di test e automazioni di test in linea con la strategia aziendale per migliorare la sicurezza, l'efficienza, la qualità e la riduzione dei costi. Ogni giorno, ti assicurerai che i sistemi di test esistenti rimangano funzionali e aggiornati, progettando al contempo nuove soluzioni automatizzate per prodotti emergenti. Dimostrerai inoltre la tua esperienza implementando metodologie di test innovative che migliorano gli standard di produzione e riducono i costi. Il modello di lavoro per il ruolo è ibrido. #LI-Hybrid Sarai principalmente responsabile di: - Mantenere e migliorare i sistemi di test esistenti, sia le infrastrutture hardware che le automazioni software, garantendo che soddisfino gli standard operativi attuali. - Progettare nuovi sistemi di test per nuovi prodotti in conformità con le specifiche e le procedure di test manuali, implementando l'automazione ove possibile. - Fornire supporto per l'integrazione e l'avvio dei sistemi di test, definendo piani d'azione e formando il personale pertinente. - Identificare e raccomandare opportunità per migliorare i processi di test e implementare progetti correlati, garantendo il rispetto dei requisiti di sicurezza e valutando nuove tecnologie. Qualifiche per il ruolo - Hai un minimo di 3 anni di esperienza nei test o nel commissioning di UPS, con comprovata esperienza nello sviluppo e nella manutenzione di sistemi di test. - Altamente qualificato nella progettazione hardware e nello sviluppo di software di automazione, con la capacità di creare soluzioni di test robuste ed efficienti. - Possiedi una conoscenza approfondita della progettazione di infrastrutture elettriche e dello sviluppo software nel linguaggio di programmazione C. - Sei appassionato di sicurezza sul lavoro e documentazione tecnica, garantendo che tutti i sistemi siano conformi ai requisiti di sicurezza e adeguatamente documentati. - Laurea in Ingegneria Elettronica, Ingegneria Informatica o in un campo correlato. - Ti senti a tuo agio a comunicare in inglese, sia scritto che parlato. - Preferibile: Conoscenza di linguaggi di programmazione come LabVIEW, Python e C#, esperienza con IDE di programmazione come LabWindows CVI e VSCode, e familiarità con software di progettazione hardware come Altium. Più su di noi ABB Smart Power è un leader tecnologico globale, con prodotti e soluzioni che rendono le forniture di energia intelligenti, connesse e protette. I suoi prodotti e soluzioni intelligenti rendono l'energia più competitiva migliorando l'efficienza energetica, la produttività e l'affidabilità di quasi tutte le operazioni. Valorizziamo persone provenienti da diversi background. Potrebbe essere questa la tua storia? Candidati oggi o visita www.abb.com per saperne di più su di noi e scoprire l'impatto delle nostre soluzioni in tutto il mondo. #MyABBStory Valorizziamo persone provenienti da diversi background. Potrebbe essere questa la tua storia? Candidati oggi o visita www.abb.com per saperne di più su di noi e scoprire l'impatto delle nostre soluzioni in tutto il mondo.",
-        "de": "Bei ABB helfen wir Industrien, effizienter und umweltfreundlicher zu werden. Hier ist Fortschritt eine Erwartung - für Sie, Ihr Team und die Welt. Als globaler Marktführer geben wir Ihnen, was Sie brauchen, um dies zu erreichen. Es wird nicht immer einfach sein, denn Wachstum erfordert Ausdauer. Aber bei ABB werden Sie nie allein sein. Treiben Sie an, was die Welt antreibt. Diese Position berichtet an: Production Engineering Manager Ihre Rolle und Verantwortlichkeiten In dieser Rolle haben Sie die Möglichkeit, Testinfrastrukturen und Testautomatisierungen gemäß der Unternehmensstrategie zu entwickeln und zu warten, um Sicherheit, Effizienz, Qualität und Kostensenkung zu verbessern. Jeden Tag stellen Sie sicher, dass bestehende Testsysteme funktionsfähig und auf dem neuesten Stand bleiben, während Sie neue automatisierte Lösungen für aufkommende Produkte entwerfen. Sie werden auch Ihre Expertise unter Beweis stellen, indem Sie innovative Testmethoden implementieren, die Produktionsstandards verbessern und Kosten senken. Das Arbeitsmodell für diese Rolle ist hybrid. #LI-Hybrid Ihre Hauptaufgaben: - Wartung und Verbesserung bestehender Testsysteme, sowohl Hardware-Infrastrukturen als auch Software-Automatisierungen, um sicherzustellen, dass sie den aktuellen Betriebsstandards entsprechen. - Entwurf neuer Testsysteme für neue Produkte gemäß Spezifikationen und manuellen Testverfahren, wobei Automatisierung nach Möglichkeit implementiert wird. - Unterstützung bei der Integration und Inbetriebnahme von Testsystemen, Definition von Aktionsplänen und Schulung des relevanten Personals. - Identifikation und Empfehlung von Möglichkeiten zur Verbesserung von Testprozessen und Umsetzung entsprechender Projekte, unter Einhaltung der Sicherheitsanforderungen und Bewertung neuer Technologien. Qualifikationen für die Rolle - Mindestens 3 Jahre Erfahrung im Testen oder Inbetriebnehmen von USV-Systemen, mit nachgewiesener Expertise in der Entwicklung und Wartung von Testsystemen. - Hohe Kompetenz in Hardware-Design und Softwareentwicklung für Automatisierung, mit der Fähigkeit, robuste und effiziente Testlösungen zu erstellen. - Fundierte Kenntnisse im Design elektrischer Infrastrukturen und in der Softwareentwicklung in der Programmiersprache C. - Leidenschaft für Arbeitssicherheit und technische Dokumentation, um sicherzustellen, dass alle Systeme den Sicherheitsanforderungen entsprechen und ordnungsgemäß dokumentiert sind. - Abschluss in Elektronik- oder Informatikingenieurwesen oder einem verwandten Bereich. - Sicherer Umgang mit der englischen Sprache in Wort und Schrift. - Wünschenswert: Kenntnisse in Programmiersprachen wie LabVIEW, Python und C#, Erfahrung mit Entwicklungsumgebungen wie LabWindows CVI und VSCode sowie Vertrautheit mit Hardware-Design-Software wie Altium. Mehr über uns ABB Smart Power ist ein global führender Technologiekonzern mit Produkten und Lösungen, die Energieversorgung intelligent, vernetzt und geschützt machen. Seine intelligenten Produkte und Lösungen machen Energie wettbewerbsfähiger, indem sie die Energieeffizienz, Produktivität und Zuverlässigkeit nahezu jeder Operation verbessern. Wir schätzen Menschen aus unterschiedlichen Hintergründen. Könnte dies Ihre Geschichte sein? Bewerben Sie sich noch heute oder besuchen Sie www.abb.com, um mehr über uns zu erfahren und die Auswirkungen unserer Lösungen weltweit zu entdecken. #MyABBStory Wir schätzen Menschen aus unterschiedlichen Hintergründen. Könnte dies Ihre Geschichte sein? Bewerben Sie sich noch heute oder besuchen Sie www.abb.com, um mehr über uns zu erfahren und die Auswirkungen unserer Lösungen weltweit zu entdecken.",
-        "fr": "Chez ABB, nous aidons les industries à aller plus loin - de manière plus efficace et plus propre. Ici, le progrès est une attente - pour vous, votre équipe et le monde. En tant que leader mondial du marché, nous vous donnerons ce dont vous avez besoin pour y parvenir. Cela ne sera pas toujours facile, car grandir demande de la détermination. Mais chez ABB, vous ne serez jamais seul. Faites avancer ce qui fait tourner le monde. Ce poste relève de : Production Engineering Manager Votre rôle et vos responsabilités Dans ce rôle, vous aurez l'opportunité de développer et de maintenir des infrastructures de test et des automatisations de test conformément à la stratégie de l'entreprise pour améliorer la sécurité, l'efficacité, la qualité et la réduction des coûts. Chaque jour, vous veillerez à ce que les systèmes de test existants restent fonctionnels et à jour tout en concevant de nouvelles solutions automatisées pour les produits émergents. Vous démontrerez également votre expertise en mettant en œuvre des méthodologies de test innovantes qui améliorent les normes de production et réduisent les coûts. Le modèle de travail pour ce poste est hybride. #LI-Hybrid Vous serez principalement responsable de : - Maintenir et améliorer les systèmes de test existants, qu'il s'agisse des infrastructures matérielles ou des automatisations logicielles, en veillant à ce qu'ils répondent aux normes opérationnelles actuelles. - Concevoir de nouveaux systèmes de test pour de nouveaux produits conformément aux spécifications et aux procédures de test manuelles, en intégrant l'automatisation autant que possible. - Fournir un support pour l'intégration et le démarrage des systèmes de test, définir des plans d'action et former le personnel concerné. - Identifier et recommander des opportunités d'amélioration des processus de test et mettre en œuvre des projets connexes, en garantissant le respect des exigences de sécurité et en évaluant les nouvelles technologies. Qualifications pour le poste - Vous avez au moins 3 ans d'expérience dans les tests ou la mise en service d'onduleurs (UPS), avec une expertise avérée dans le développement et la maintenance de systèmes de test. - Hautement qualifié en conception matérielle et en développement de logiciels d'automatisation, avec la capacité de créer des solutions de test robustes et efficaces. - Vous possédez une connaissance approfondie de la conception d'infrastructures électriques et du développement de logiciels en langage de programmation C. - Vous êtes passionné par la sécurité au travail et la documentation technique, en veillant à ce que tous les systèmes soient conformes aux exigences de sécurité et correctement documentés. - Diplôme en ingénierie électronique, en ingénierie informatique ou dans un domaine connexe. - Vous êtes à l'aise pour communiquer en anglais, à l'écrit comme à l'oral. - Atout : Connaissance des langages de programmation tels que LabVIEW, Python et C#, expérience avec des environnements de développement comme LabWindows CVI et VSCode, et familiarité avec des logiciels de conception matérielle tels qu'Altium. En savoir plus sur nous ABB Smart Power est un leader mondial de la technologie, avec des produits et des solutions qui rendent les alimentations électriques intelligentes, connectées et protégées. Ses produits et solutions intelligents rendent l'énergie plus compétitive en améliorant l'efficacité énergétique, la productivité et la fiabilité de presque toutes les opérations. Nous valorisons les personnes issues de différents horizons. Cela pourrait-il être votre histoire ? Postulez dès aujourd'hui ou visitez www.abb.com pour en savoir plus sur nous et découvrir l'impact de nos solutions à travers le monde. #MyABBStory Nous valorisons les personnes issues de différents horizons. Cela pourrait-il être votre histoire ? Postulez dès aujourd'hui ou visitez www.abb.com pour en savoir plus sur nous et découvrir l'impact de nos solutions à travers le monde."
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Minimo 3 anni di esperienza nei test o nel commissioning di UPS",
-          "Esperienza nello sviluppo e nella manutenzione di sistemi di test",
-          "Competenze avanzate nella progettazione hardware e nello sviluppo software di automazione",
-          "Conoscenza approfondita della progettazione di infrastrutture elettriche e del linguaggio C",
-          "Passione per la sicurezza sul lavoro e la documentazione tecnica",
-          "Laurea in Ingegneria Elettronica, Informatica o simili",
-          "Ottima conoscenza della lingua inglese, scritta e parlata",
-          "Conoscenza di LabVIEW, Python, C#, LabWindows CVI, VSCode e Altium (preferibile)"
-        ],
-        "de": [
-          "Mindestens 3 Jahre Erfahrung im Testen oder Inbetriebnehmen von USV-Systemen",
-          "Erfahrung in der Entwicklung und Wartung von Testsystemen",
-          "Hohe Kompetenz im Hardware-Design und in der Softwareentwicklung für Automatisierung",
-          "Fundierte Kenntnisse im Design elektrischer Infrastrukturen und in der Programmiersprache C",
-          "Leidenschaft für Arbeitssicherheit und technische Dokumentation",
-          "Abschluss in Elektronik- oder Informatikingenieurwesen oder einem verwandten Bereich",
-          "Sicherer Umgang mit der englischen Sprache in Wort und Schrift",
-          "Kenntnisse in LabVIEW, Python, C#, LabWindows CVI, VSCode und Altium (wünschenswert)"
-        ],
-        "fr": [
-          "Minimum de 3 ans d'expérience dans les tests ou la mise en service d'onduleurs (UPS)",
-          "Expérience dans le développement et la maintenance de systèmes de test",
-          "Compétences avancées en conception matérielle et en développement de logiciels d'automatisation",
-          "Connaissance approfondie de la conception d'infrastructures électriques et du langage de programmation C",
-          "Passion pour la sécurité au travail et la documentation technique",
-          "Diplôme en ingénierie électronique, informatique ou domaine connexe",
-          "Aisance en communication en anglais, à l'écrit et à l'oral",
-          "Connaissance de LabVIEW, Python, C#, LabWindows CVI, VSCode et Altium (atout)"
-        ]
-      },
-      "slugByLocale": {
-        "it": "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
-        "en": "test-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
-        "de": "test-engineering-spezialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
-        "fr": "test-engineering-specialiste-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z"
-      },
-      "country": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "test-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino"
-      ],
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "company-v1649d",
-      "slug": "fulfillment-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d",
+      "slug": "fulfillment-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Fulfillment Specialist (80-100%)",
       "location": "Quartino, Ticino",
@@ -1140,7 +1058,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "fulfillment-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d",
+        "it": "fulfillment-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "fulfillment-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d",
         "de": "fulfillment-spezialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d",
         "fr": "fulfillment-specialiste-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d"
@@ -1148,7 +1066,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "fulfillment-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "fulfillment-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "fulfillment-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -1165,7 +1084,7 @@
     },
     {
       "id": "company-u6aw32",
-      "slug": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
+      "slug": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Process Quality Specialist (80-100%)",
       "location": "Quartino, Ticino",
@@ -1232,7 +1151,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
+        "it": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
         "de": "process-qualitat-spezialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
         "fr": "process-qualite-specialiste-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32"
@@ -1240,7 +1159,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino"
+        "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -1257,7 +1177,7 @@
     },
     {
       "id": "company-4qd2bw",
-      "slug": "customer-quality-manager-80-100-abb-svizzera-sede-ticino-quartino-ticino-4qd2bw",
+      "slug": "responsabile-qualita-cliente-80-100-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Customer Quality Manager (80% - 100%)",
       "location": "Quartino, Ticino",
@@ -1324,7 +1244,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "customer-quality-manager-80-100-abb-svizzera-sede-ticino-quartino-ticino-4qd2bw",
+        "it": "responsabile-qualita-cliente-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "customer-quality-manager-80-100-abb-svizzera-sede-ticino-quartino-ticino-4qd2bw",
         "de": "customer-qualitat-manager-80-100-abb-svizzera-sede-ticino-quartino-ticino-4qd2bw",
         "fr": "customer-qualite-manager-80-100-abb-svizzera-sede-ticino-quartino-ticino-4qd2bw"
@@ -1349,7 +1269,7 @@
     },
     {
       "id": "company-b9qjfm",
-      "slug": "inside-sales-service-specialista-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm",
+      "slug": "specialista-servizi-vendite-interne-80-100-abb-svizzera-sede-ticino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Inside Sales Service Specialist (80-100%)",
       "location": "Ticino",
@@ -1416,7 +1336,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "inside-sales-service-specialista-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm",
+        "it": "specialista-servizi-vendite-interne-80-100-abb-svizzera-sede-ticino-ticino",
         "en": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm",
         "de": "inside-sales-service-spezialist-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm",
         "fr": "inside-sales-service-specialiste-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm"
@@ -1424,7 +1344,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino"
+        "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino",
+        "inside-sales-service-specialista-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,

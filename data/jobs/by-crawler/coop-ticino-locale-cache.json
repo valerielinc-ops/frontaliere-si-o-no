@@ -183,9 +183,9 @@
     },
     "slugByLocale": {
       "it": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-      "en": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-      "de": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-      "fr": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg"
+      "en": "butcher-butcheress-delicatessen-m-f-d-coop-riazzino-ticino",
+      "de": "metzger-metzgerin-wursttheke-m-w-d-coop-riazzino-ticino",
+      "fr": "boucher-bouchere-charcuterie-m-f-d-coop-riazzino-ticino"
     },
     "postedDate": "2026-03-19",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -249,7 +249,7 @@
     },
     "slugByLocale": {
       "it": "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon-6eaayb",
-      "en": "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon-6eaayb",
+      "en": "electromechanical-technician-m-f-d-marche-dietlikon",
       "de": "elektromechanischer-techniker-m-w-d-marche-dietlikon",
       "fr": "technicien-electromecanique-m-f-d-marche-dietlikon"
     },
@@ -260,7 +260,8 @@
     "sourceLang": "it",
     "previousSlugs": [
       "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon"
-    ]
+    ],
+    "needsRetranslation": true
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/betriebsmechaniker-w-m-d/e80cebf5-54a1-4dc7-bdce-cf037bafef8a",
@@ -333,7 +334,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/97a3ccb4-5269-4e5b-bc91-4d4700d9e50c",
-    "slug": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
+    "slug": "venditore-food-coop-zernez-graubunden",
     "title": "Verkäufer:in Food",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -370,10 +371,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
-      "en": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
+      "it": "venditore-food-coop-zernez-graubunden",
+      "en": "food-salesperson-coop-zernez-graubunden",
       "de": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
-      "fr": "verkaufer-in-food-coop-zernez-graubunden-63izi7"
+      "fr": "vendeur-de-produits-alimentaires-coop-zernez-graubunden"
     },
     "postedDate": "2026-03-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -386,7 +387,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/aaf4870b-3531-4c57-8b9a-30d7309bc8ee",
-    "slug": "collaboratore-trice-gastronomie-coop-ristorante-landquart-graubunden-bbvqcq",
+    "slug": "dipendente-gastronomia-coop-ristorante-landquart-graubunden",
     "title": "Mitarbeiter:in Gastronomie",
     "company": "Coop Ristorante",
     "companyKey": "coop-ticino",
@@ -444,7 +445,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "collaboratore-trice-gastronomie-coop-ristorante-landquart-graubunden-bbvqcq",
+      "it": "dipendente-gastronomia-coop-ristorante-landquart-graubunden",
       "en": "associate-gastronomie-coop-ristorante-landquart-graubunden-bbvqcq",
       "de": "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden-bbvqcq",
       "fr": "collaborateur-trice-gastronomie-coop-ristorante-landquart-graubunden-bbvqcq"
@@ -455,12 +456,13 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden"
+      "mitarbeiter-in-gastronomie-coop-ristorante-landquart-graubunden",
+      "collaboratore-trice-gastronomie-coop-ristorante-landquart-graubunden-bbvqcq"
     ]
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-fruechte-gemuese/d0cb0514-be67-4573-83d5-d2bea7828f4b",
-    "slug": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
+    "slug": "responsabile-settore-frutta-e-verdura-coop-davos-graubunden",
     "title": "Rayonleiter:in Früchte / Gemüse",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -509,10 +511,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
-      "en": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
+      "it": "responsabile-settore-frutta-e-verdura-coop-davos-graubunden",
+      "en": "fruits-and-vegetables-sector-leader-coop-davos-graubunden",
       "de": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
-      "fr": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi"
+      "fr": "responsable-secteur-fruits-et-legumes-coop-davos-graubunden"
     },
     "postedDate": "2026-03-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -525,7 +527,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/d6e004eb-fb34-4c69-9569-e1f67f1fd008",
-    "slug": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
+    "slug": "venditore-food-coop-sankt-moritz-graubunden",
     "title": "Verkäufer:in Food",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -562,10 +564,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
-      "en": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
+      "it": "venditore-food-coop-sankt-moritz-graubunden",
+      "en": "food-salesperson-coop-sankt-moritz-graubunden",
       "de": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
-      "fr": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd"
+      "fr": "vendeur-de-produits-alimentaires-coop-sankt-moritz-graubunden"
     },
     "postedDate": "2026-03-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -578,7 +580,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frische-insel/be42fa2f-245d-45e7-be2c-cc60fb681f93",
-    "slug": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
+    "slug": "venditore-di-frutta-e-verdura-coop-davos-graubunden",
     "title": "Verkäufer:in Food Frische-Insel",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -636,10 +638,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
-      "en": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
+      "it": "venditore-di-frutta-e-verdura-coop-davos-graubunden",
+      "en": "fresh-produce-salesperson-coop-davos-graubunden",
       "de": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
-      "fr": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6"
+      "fr": "vendeur-de-produits-frais-coop-davos-graubunden"
     },
     "postedDate": "2026-03-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -652,7 +654,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5da7e1b9-1b1a-4c32-935b-46c1b25a1a52",
-    "slug": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
+    "slug": "venditore-di-alimentari-coop-disentis-muster-graubunden",
     "title": "Verkäufer:in Food",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -689,10 +691,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-      "en": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
+      "it": "venditore-di-alimentari-coop-disentis-muster-graubunden",
+      "en": "food-salesperson-coop-disentis-muster-graubunden",
       "de": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-      "fr": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg"
+      "fr": "vendeur-de-produits-alimentaires-coop-disentis-muster-graubunden"
     },
     "postedDate": "2026-03-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -705,7 +707,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/fa692624-bcdc-4d83-8365-104f1a73af7c",
-    "slug": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+    "slug": "venditore-di-cassa-e-servizi-coop-klosters-serneus-graubunden",
     "title": "Verkäufer:in Kassen/Services",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -747,10 +749,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
-      "en": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+      "it": "venditore-di-cassa-e-servizi-coop-klosters-serneus-graubunden",
+      "en": "cashier-and-services-salesperson-coop-klosters-serneus-graubunden",
       "de": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
-      "fr": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk"
+      "fr": "caissier-et-vendeur-de-services-coop-klosters-serneus-graubunden"
     },
     "postedDate": "2026-03-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -763,7 +765,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/e3b27d72-e074-4edc-bb99-8b6ebc564996",
-    "slug": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+    "slug": "venditore-di-prodotti-freschi-coop-ilanz-glion-graubunden",
     "title": "Verkäufer:in Frischprodukte",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -800,10 +802,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
-      "en": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+      "it": "venditore-di-prodotti-freschi-coop-ilanz-glion-graubunden",
+      "en": "fresh-produce-salesperson-coop-ilanz-glion-graubunden",
       "de": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
-      "fr": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs"
+      "fr": "vendeur-de-produits-frais-coop-ilanz-glion-graubunden"
     },
     "postedDate": "2026-03-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -1200,7 +1202,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-nonfood/7c2647d9-ab6f-4f0e-8422-13ce46ee7772",
-    "slug": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
+    "slug": "responsabile-area-non-cibo-coop-klosters-serneus-graubunden",
     "title": "Rayonleiter:in Nonfood",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -1250,10 +1252,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
-      "en": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
+      "it": "responsabile-area-non-cibo-coop-klosters-serneus-graubunden",
+      "en": "non-food-area-manager-coop-klosters-serneus-graubunden",
       "de": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
-      "fr": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts"
+      "fr": "responsable-de-secteur-non-alimentaire-coop-klosters-serneus-graubunden"
     },
     "postedDate": "2026-03-13",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -1332,7 +1334,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte-brot-und-kasse/2a17ed5e-c0d4-4f99-bb74-b4407662f2d8",
-    "slug": "verkaufer-in-frischprodukte-brot-e-kasse-coop-kublis-graubunden-m6q8xe",
+    "slug": "venditore-di-prodotti-freschi-pane-e-cassa-coop-kublis-graubunden",
     "title": "Verkäufer:in Frischprodukte Brot und Kasse",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -1369,7 +1371,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-frischprodukte-brot-e-kasse-coop-kublis-graubunden-m6q8xe",
+      "it": "venditore-di-prodotti-freschi-pane-e-cassa-coop-kublis-graubunden",
       "en": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden-m6q8xe",
       "de": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden-m6q8xe",
       "fr": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden-m6q8xe"
@@ -1380,7 +1382,8 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden"
+      "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden",
+      "verkaufer-in-frischprodukte-brot-e-kasse-coop-kublis-graubunden-m6q8xe"
     ]
   },
   {
@@ -1439,9 +1442,9 @@
     },
     "slugByLocale": {
       "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
-      "en": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
-      "de": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
-      "fr": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4"
+      "en": "retail-apprentice-afc-creating-shopping-experiences-fust-tenero-contra-ticino",
+      "de": "einzelhandelslehrling-afc-erschaffung-von-einkaufserlebnissen-fust-tenero-contra-ticino",
+      "fr": "apprenti-commerce-de-detail-afc-creation-d-experiences-d-achat-fust-tenero-contra-ticino"
     },
     "postedDate": "2026-03-11",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -1505,9 +1508,9 @@
     },
     "slugByLocale": {
       "it": "autista-cat-ce-f-m-d-coop-castione-ticino-87f44m",
-      "en": "autista-cat-ce-f-m-d-coop-castione-ticino-87f44m",
-      "de": "autista-cat-ce-f-m-d-coop-castione-ticino-87f44m",
-      "fr": "autista-cat-ce-f-m-d-coop-castione-ticino-87f44m"
+      "en": "truck-driver-cat-ce-f-m-d-coop-castione-ticino",
+      "de": "lkw-fahrer-kat-ce-m-w-d-coop-castione-ticino",
+      "fr": "chauffeur-cat-ce-f-m-d-coop-castione-ticino"
     },
     "postedDate": "2026-03-10",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -1520,7 +1523,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/0f24208b-9d8f-43e8-adbd-670658a16e9c",
-    "slug": "collaboratore-trice-inventuren-coop-grigioni-arot84",
+    "slug": "operatore-di-inventario-coop-grigioni",
     "title": "Mitarbeiter:in Inventuren",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -1566,7 +1569,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "collaboratore-trice-inventuren-coop-grigioni-arot84",
+      "it": "operatore-di-inventario-coop-grigioni",
       "en": "associate-inventuren-coop-grigioni-arot84",
       "de": "mitarbeiter-in-inventuren-coop-grigioni-arot84",
       "fr": "collaborateur-trice-inventuren-coop-grigioni-arot84"
@@ -1577,12 +1580,13 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "mitarbeiter-in-inventuren-coop-grigioni"
+      "mitarbeiter-in-inventuren-coop-grigioni",
+      "collaboratore-trice-inventuren-coop-grigioni-arot84"
     ]
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/kundenberater-in-depositenkasse/40d5062f-0efd-4555-86c7-0473742d5aed",
-    "slug": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
+    "slug": "consulente-clienti-depositi-60-coop-cassa-depositi-chur-graubunden",
     "title": "Kundenberater:in Depositenkasse, 60%",
     "company": "Coop Cassa Depositi",
     "companyKey": "coop-ticino",
@@ -1629,10 +1633,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
-      "en": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
+      "it": "consulente-clienti-depositi-60-coop-cassa-depositi-chur-graubunden",
+      "en": "customer-advisor-deposit-box-60-coop-cassa-depositi-chur-graubunden",
       "de": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
-      "fr": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om"
+      "fr": "conseiller-client-caisse-de-depot-60-coop-cassa-depositi-chur-graubunden"
     },
     "postedDate": "2026-03-10",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -1645,7 +1649,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/66452d97-2c64-49ff-b49f-4d26413220cd",
-    "slug": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
+    "slug": "cucinaio-cuoco-w-m-d-coop-ristorante-chur-graubunden",
     "title": "Köchin / Koch (w/m/d)",
     "company": "Coop Ristorante",
     "companyKey": "coop-ticino",
@@ -1691,10 +1695,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
-      "en": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
+      "it": "cucinaio-cuoco-w-m-d-coop-ristorante-chur-graubunden",
+      "en": "chef-w-m-d-coop-ristorante-chur-graubunden",
       "de": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
-      "fr": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk"
+      "fr": "chef-w-m-d-coop-ristorante-chur-graubunden"
     },
     "postedDate": "2026-03-10",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -1828,7 +1832,7 @@
       "it": "consulente-vendite-tessile-coop-city-chur-graubunden",
       "en": "textile-sales-consultant-coop-city-chur-graubunden",
       "de": "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl",
-      "fr": "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl"
+      "fr": "conseiller-conseillere-vente-textile-coop-city-chur-graubunden"
     },
     "postedDate": "2026-03-05",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -1841,7 +1845,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkausberater-in-schmuck/b8659075-acd1-4ff2-b37f-d5ccca5b7ba5",
-    "slug": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
+    "slug": "consulente-vendite-gioielli-coop-city-chur-graubunden",
     "title": "Verkausberater:in Schmuck",
     "company": "Coop City",
     "companyKey": "coop-ticino",
@@ -1894,10 +1898,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
-      "en": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
+      "it": "consulente-vendite-gioielli-coop-city-chur-graubunden",
+      "en": "jewelry-sales-consultant-coop-city-chur-graubunden",
       "de": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
-      "fr": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf"
+      "fr": "conseiller-conseillere-vente-bijoux-coop-city-chur-graubunden"
     },
     "postedDate": "2026-03-05",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2122,7 +2126,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/34404f83-3ac6-4462-8a88-6b035ba27286",
-    "slug": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
+    "slug": "venditore-al-cassa-servizi-jumbo-chur-graubunden",
     "title": "Verkäufer:in Kassen/Services",
     "company": "Jumbo",
     "companyKey": "coop-ticino",
@@ -2171,10 +2175,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
-      "en": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
+      "it": "venditore-al-cassa-servizi-jumbo-chur-graubunden",
+      "en": "cashier-services-salesperson-jumbo-chur-graubunden",
       "de": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
-      "fr": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld"
+      "fr": "caissier-vendeur-de-services-jumbo-chur-graubunden"
     },
     "postedDate": "2026-03-04",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2366,9 +2370,9 @@
     },
     "slugByLocale": {
       "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6",
-      "en": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6",
-      "de": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6",
-      "fr": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6"
+      "en": "plumbing-installer-for-kitchens-bathrooms-fust-bellinzona-ticino",
+      "de": "kuchen-und-badezimmerinstallateur-fust-bellinzona-ticino",
+      "fr": "installateur-de-sanitaires-pour-cuisines-et-salles-de-bain-fust-bellinzona-ticino"
     },
     "postedDate": "2026-03-02",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2455,7 +2459,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/96cd5b8d-f99f-418d-806f-4762903e5523",
-    "slug": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
+    "slug": "venditore-cassa-servizi-coop-disentis-muster-graubunden",
     "title": "Verkäufer:in Kassen/Services",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -2497,10 +2501,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
-      "en": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
+      "it": "venditore-cassa-servizi-coop-disentis-muster-graubunden",
+      "en": "cashier-service-salesperson-coop-disentis-muster-graubunden",
       "de": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
-      "fr": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m"
+      "fr": "caissiere-vendeuse-de-services-coop-disentis-muster-graubunden"
     },
     "postedDate": "2026-02-26",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2513,7 +2517,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frischprodukte-blumen-kiosk/c2f188df-65b6-4ea4-b2e6-3ece76ec91eb",
-    "slug": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
+    "slug": "venditore-di-alimenti-e-prodotti-freschi-fiori-kiosco-coop-chur-graubunden",
     "title": "Verkäufer:in Food/Frischprodukte (Blumen/Kiosk)",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -2550,10 +2554,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
-      "en": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
+      "it": "venditore-di-alimenti-e-prodotti-freschi-fiori-kiosco-coop-chur-graubunden",
+      "en": "food-and-fresh-products-salesperson-flowers-kiosk-coop-chur-graubunden",
       "de": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
-      "fr": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t"
+      "fr": "vendeur-de-produits-alimentaires-et-frais-fleurs-kiosque-coop-chur-graubunden"
     },
     "postedDate": "2026-02-26",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2566,7 +2570,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/a8c526b0-48f6-45d2-8186-8a8cd944e6ce",
-    "slug": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
+    "slug": "venditore-food-coop-ilanz-glion-graubunden",
     "title": "Verkäufer:in Food",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -2603,10 +2607,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
-      "en": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
+      "it": "venditore-food-coop-ilanz-glion-graubunden",
+      "en": "food-salesperson-coop-ilanz-glion-graubunden",
       "de": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
-      "fr": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14"
+      "fr": "vendeur-de-produits-alimentaires-coop-ilanz-glion-graubunden"
     },
     "postedDate": "2026-02-26",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2619,7 +2623,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/cd358a71-d486-4ae1-b6c5-9237ce491299",
-    "slug": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
+    "slug": "venditore-food-coop-schiers-graubunden",
     "title": "Verkäufer:in Food",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -2656,10 +2660,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
-      "en": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
+      "it": "venditore-food-coop-schiers-graubunden",
+      "en": "food-salesperson-coop-schiers-graubunden",
       "de": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
-      "fr": "verkaufer-in-food-coop-schiers-graubunden-agnn8d"
+      "fr": "vendeur-de-produits-alimentaires-coop-schiers-graubunden"
     },
     "postedDate": "2026-02-25",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2672,7 +2676,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-brot-frische/4347142c-15a9-4f36-8f2e-4a482b7d6b8b",
-    "slug": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
+    "slug": "venditore-di-alimenti-pane-freschi-coop-churwalden-graubunden",
     "title": "Verkäufer:in Food (Brot / Frische)",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -2709,10 +2713,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
-      "en": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
+      "it": "venditore-di-alimenti-pane-freschi-coop-churwalden-graubunden",
+      "en": "food-salesperson-bakery-fresh-coop-churwalden-graubunden",
       "de": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
-      "fr": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7"
+      "fr": "vendeur-de-produits-alimentaires-boulangerie-frais-coop-churwalden-graubunden"
     },
     "postedDate": "2026-02-25",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2725,7 +2729,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/mechaniker-in/9520a55b-18f2-4194-a7b6-940d1dbce0a5",
-    "slug": "mechaniker-in-coop-chur-graubunden-vb4s3f",
+    "slug": "meccanico-coop-chur-graubunden",
     "title": "Mechaniker:in",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -2778,10 +2782,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "mechaniker-in-coop-chur-graubunden-vb4s3f",
-      "en": "mechaniker-in-coop-chur-graubunden-vb4s3f",
+      "it": "meccanico-coop-chur-graubunden",
+      "en": "mechanic-coop-chur-graubunden",
       "de": "mechaniker-in-coop-chur-graubunden-vb4s3f",
-      "fr": "mechaniker-in-coop-chur-graubunden-vb4s3f"
+      "fr": "mecanicien-coop-chur-graubunden"
     },
     "postedDate": "2026-01-22",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -2794,7 +2798,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/aspirant-in/4bfa99a8-d78b-4fe9-b6f2-b076ed69d598",
-    "slug": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
+    "slug": "aspirante-a-coop-ch-davos-graubunden",
     "title": "Aspirant/-in",
     "company": "coop.ch",
     "companyKey": "coop-ticino",
@@ -2847,9 +2851,9 @@
       ]
     },
     "slugByLocale": {
-      "it": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
-      "en": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
-      "de": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
+      "it": "aspirante-a-coop-ch-davos-graubunden",
+      "en": "applicant-coop-ch-davos-graubunden",
+      "de": "anwarter-in-coop-ch-davos-graubunden",
       "fr": "aspirant-in-coop-ch-davos-graubunden-onh6ln"
     },
     "postedDate": "2026-01-21",
@@ -2863,7 +2867,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/834d3d83-8f5d-4711-9be2-8daa981bd4b5",
-    "slug": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-9yar0z",
+    "slug": "assunzione-dipendente-carni-e-pesce-coop-grigioni",
     "title": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -2912,7 +2916,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-9yar0z",
+      "it": "assunzione-dipendente-carni-e-pesce-coop-grigioni",
       "en": "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-9yar0z",
       "de": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-9yar0z",
       "fr": "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
@@ -2923,7 +2927,8 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni"
+      "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni",
+      "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-9yar0z"
     ]
   },
   {
@@ -2982,9 +2987,9 @@
     },
     "slugByLocale": {
       "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-      "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-      "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-      "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl"
+      "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+      "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+      "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
     },
     "postedDate": "2026-01-08",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3068,7 +3073,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/d2cd3866-4692-4f2d-a013-d1a92f21bebf",
-    "slug": "responsabile-junior-vendita-coop-ilanz-glion-graubunden-3jfhc8",
+    "slug": "responsabile-junior-vendita-coop-ilanz-glion-graubunden",
     "title": "Nachwuchskader Verkauf",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -3112,7 +3117,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "responsabile-junior-vendita-coop-ilanz-glion-graubunden-3jfhc8",
+      "it": "responsabile-junior-vendita-coop-ilanz-glion-graubunden",
       "en": "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8",
       "de": "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8",
       "fr": "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8"
@@ -3123,7 +3128,8 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "nachwuchskader-verkauf-coop-ilanz-glion-graubunden"
+      "nachwuchskader-verkauf-coop-ilanz-glion-graubunden",
+      "responsabile-junior-vendita-coop-ilanz-glion-graubunden-3jfhc8"
     ]
   },
   {
@@ -3176,9 +3182,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w"
+      "en": "retail-sales-associate-at-coop-city-coop-city-lenzburg-1",
+      "de": "einzelhandelsverkaufer-in-bei-coop-city-coop-city-lenzburg-1",
+      "fr": "vendeur-se-en-detail-chez-coop-city-coop-city-lenzburg-1"
     },
     "postedDate": "2025-10-09",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3452,9 +3458,9 @@
     },
     "slugByLocale": {
       "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01",
-      "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01",
-      "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01",
-      "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01"
+      "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+      "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+      "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
     },
     "postedDate": "2025-09-19",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3467,7 +3473,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-saison/568272fd-384d-411f-ba35-6f77d1c3761f",
-    "slug": "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
+    "slug": "dipendente-stagionale-coop-davos-graubunden",
     "title": "Mitarbeiter:in Saison",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -3520,7 +3526,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
+      "it": "dipendente-stagionale-coop-davos-graubunden",
       "en": "associate-saison-coop-davos-graubunden-6lujcy",
       "de": "mitarbeiter-in-saison-coop-davos-graubunden-6lujcy",
       "fr": "collaborateur-trice-saison-coop-davos-graubunden-6lujcy"
@@ -3531,7 +3537,8 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "mitarbeiter-in-saison-coop-davos-graubunden"
+      "mitarbeiter-in-saison-coop-davos-graubunden",
+      "collaboratore-trice-saison-coop-davos-graubunden-6lujcy"
     ]
   },
   {
@@ -3590,9 +3597,9 @@
     },
     "slugByLocale": {
       "it": "impiegato-a-interdiscount-jegensdorf-j301yl",
-      "en": "impiegato-a-interdiscount-jegensdorf-j301yl",
-      "de": "impiegato-a-interdiscount-jegensdorf-j301yl",
-      "fr": "impiegato-a-interdiscount-jegensdorf-j301yl"
+      "en": "sales-associate-interdiscount-jegensdorf",
+      "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+      "fr": "associe-de-vente-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-25",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3649,9 +3656,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-      "en": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-      "de": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-      "fr": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf"
+      "en": "standardized-gastronomy-apprentice-marche-dietlikon",
+      "de": "standardisierte-gastronomie-auszubildende-r-marche-dietlikon",
+      "fr": "apprenti-e-en-gastronomie-standardisee-marche-dietlikon"
     },
     "postedDate": "2025-08-25",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3708,9 +3715,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2",
-      "en": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2",
-      "de": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2",
-      "fr": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2"
+      "en": "standardized-gastronomy-apprentice-marche-dietlikon",
+      "de": "standardisierte-gastronomie-auszubildende-r-marche-dietlikon",
+      "fr": "apprenti-e-en-gastronomie-standardisee-marche-dietlikon"
     },
     "postedDate": "2025-08-25",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3846,9 +3853,9 @@
     },
     "slugByLocale": {
       "it": "impiegato-a-interdiscount-jegensdorf-8xgtc3",
-      "en": "impiegato-a-interdiscount-jegensdorf-8xgtc3",
-      "de": "impiegato-a-interdiscount-jegensdorf-8xgtc3",
-      "fr": "impiegato-a-interdiscount-jegensdorf-8xgtc3"
+      "en": "sales-associate-interdiscount-jegensdorf",
+      "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+      "fr": "associe-de-vente-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-22",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3915,9 +3922,9 @@
     },
     "slugByLocale": {
       "it": "impiegato-a-interdiscount-jegensdorf-04fn4u",
-      "en": "impiegato-a-interdiscount-jegensdorf-04fn4u",
-      "de": "impiegato-a-interdiscount-jegensdorf-04fn4u",
-      "fr": "impiegato-a-interdiscount-jegensdorf-04fn4u"
+      "en": "sales-associate-interdiscount-jegensdorf",
+      "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+      "fr": "associe-de-vente-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-22",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -3984,9 +3991,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9",
-      "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9",
-      "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9",
-      "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9"
+      "en": "standardized-food-service-employee-marche-dietlikon",
+      "de": "standardisierte-gastwirtschaftsmitarbeiter-marche-dietlikon",
+      "fr": "employe-de-service-alimentaire-standardise-marche-dietlikon"
     },
     "postedDate": "2025-08-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4047,9 +4054,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-      "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-      "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-      "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+      "en": "standardized-kitchen-staff-marche-dietlikon",
+      "de": "standardisierte-kuchenmitarbeiter-marche-dietlikon",
+      "fr": "personnel-de-cuisine-standardise-marche-dietlikon"
     },
     "postedDate": "2025-08-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4110,9 +4117,9 @@
     },
     "slugByLocale": {
       "it": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb",
-      "en": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb",
-      "de": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb",
-      "fr": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb"
+      "en": "systematic-gastronomy-assistant-fba-marche-dietlikon",
+      "de": "standardisierte-gastronomie-assistentin-cfp-marche-dietlikon",
+      "fr": "assistante-en-gastronomie-standardisee-cfp-marche-dietlikon"
     },
     "postedDate": "2025-08-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4173,9 +4180,9 @@
     },
     "slugByLocale": {
       "it": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-      "en": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-      "de": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-      "fr": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455"
+      "en": "systematic-gastronomy-assistant-fba-marche-dietlikon",
+      "de": "standardisierte-gastronomie-assistentin-cfp-marche-dietlikon",
+      "fr": "assistante-de-gastronomie-standardisee-cfp-marche-dietlikon"
     },
     "postedDate": "2025-08-18",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4242,9 +4249,9 @@
     },
     "slugByLocale": {
       "it": "impiegato-a-interdiscount-jegensdorf-fio33i",
-      "en": "impiegato-a-interdiscount-jegensdorf-fio33i",
-      "de": "impiegato-a-interdiscount-jegensdorf-fio33i",
-      "fr": "impiegato-a-interdiscount-jegensdorf-fio33i"
+      "en": "sales-associate-interdiscount-jegensdorf",
+      "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+      "fr": "associe-de-vente-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-15",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4311,9 +4318,9 @@
     },
     "slugByLocale": {
       "it": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-      "en": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-      "de": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-      "fr": "impiegato-a-interdiscount-jegensdorf-wtgucu"
+      "en": "sales-associate-interdiscount-jegensdorf",
+      "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+      "fr": "associe-de-vente-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-15",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4380,9 +4387,9 @@
     },
     "slugByLocale": {
       "it": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-      "en": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-      "de": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-      "fr": "impiegato-a-interdiscount-jegensdorf-yuay7y"
+      "en": "sales-associate-interdiscount-jegensdorf",
+      "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+      "fr": "associe-de-vente-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-15",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4449,9 +4456,9 @@
     },
     "slugByLocale": {
       "it": "impiegato-a-interdiscount-jegensdorf-mijshv",
-      "en": "impiegato-a-interdiscount-jegensdorf-mijshv",
-      "de": "impiegato-a-interdiscount-jegensdorf-mijshv",
-      "fr": "impiegato-a-interdiscount-jegensdorf-mijshv"
+      "en": "sales-associate-interdiscount-jegensdorf",
+      "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+      "fr": "associe-de-vente-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-15",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4576,7 +4583,7 @@
     },
     "slugByLocale": {
       "it": "efz-system-gastronomy-specialist-marche-grigioni",
-      "en": "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2",
+      "en": "systematic-gastronomy-specialist-efz-marche-grigioni",
       "de": "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2",
       "fr": "specialiste-en-gastronomie-systematique-efz-marche-grigioni"
     },
@@ -4710,7 +4717,7 @@
     },
     "slugByLocale": {
       "it": "assistente-di-vendita-coop-coop-grigioni",
-      "en": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+      "en": "retail-assistant-fba-coop-grigioni",
       "de": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
       "fr": "assistant-e-de-vente-coop-coop-grigioni"
     },
@@ -4780,9 +4787,9 @@
     },
     "slugByLocale": {
       "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva",
-      "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva",
-      "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva",
-      "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva"
+      "en": "retail-sales-assistant-cfp-coop-gossau",
+      "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+      "fr": "assistant-e-de-vente-en-detail-cfp-coop-gossau"
     },
     "postedDate": "2025-08-02",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4846,9 +4853,9 @@
     },
     "slugByLocale": {
       "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a",
-      "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a",
-      "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a",
-      "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a"
+      "en": "retail-sales-assistant-cfp-coop-gossau",
+      "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+      "fr": "assistant-de-vente-en-detail-cfp-coop-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4915,9 +4922,9 @@
     },
     "slugByLocale": {
       "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu",
-      "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu",
-      "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu",
-      "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu"
+      "en": "retail-sales-assistant-cfp-coop-gossau",
+      "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+      "fr": "assistant-e-de-vente-en-detail-cfp-coop-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -4978,9 +4985,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b",
-      "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b",
-      "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b",
-      "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b"
+      "en": "standardized-gastronomy-employee-coop-ristorante-gossau",
+      "de": "standardisierte-gastronomiebeschaftigte-coop-ristorante-gossau",
+      "fr": "employee-de-gastronomie-standardisee-coop-ristorante-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5041,9 +5048,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn"
+      "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+      "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+      "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5079,9 +5086,9 @@
     "requirementsByLocale": {},
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck"
+      "en": "retail-sales-assistant-afc-creating-shopping-experiences-jumbo-lenzburg-1",
+      "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+      "fr": "assistant-de-vente-au-detail-cfc-creer-des-experiences-d-achat-jumbo-lenzburg-1"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5142,9 +5149,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd",
-      "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd",
-      "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd",
-      "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd"
+      "en": "standardized-gastronomy-employee-coop-ristorante-gossau",
+      "de": "standardisierte-gastronomiebeschaftigte-coop-ristorante-gossau",
+      "fr": "employee-de-gastronomie-standardisee-coop-ristorante-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5211,9 +5218,9 @@
     },
     "slugByLocale": {
       "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-      "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-      "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-      "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx"
+      "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+      "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+      "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5274,9 +5281,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv"
+      "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+      "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+      "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5337,9 +5344,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v"
+      "en": "retail-specialist-fcs-creating-shopping-experiences-jumbo-lenzburg-1",
+      "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+      "fr": "employe-e-de-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-lenzburg-1"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5400,9 +5407,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d"
+      "en": "retail-specialist-fcs-creating-shopping-experiences-jumbo-lenzburg-1",
+      "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+      "fr": "employe-e-de-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-lenzburg-1"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5463,9 +5470,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9"
+      "en": "retail-specialist-fcs-creating-shopping-experiences-jumbo-lenzburg-1",
+      "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+      "fr": "employe-e-de-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-lenzburg-1"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5532,9 +5539,9 @@
     },
     "slugByLocale": {
       "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-      "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-      "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-      "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk"
+      "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+      "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+      "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5595,9 +5602,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208"
+      "en": "retail-sales-associate-at-coop-city-coop-city-lenzburg-1",
+      "de": "einzelhandelsverkaufer-in-bei-coop-city-coop-city-lenzburg-1",
+      "fr": "vendeur-se-en-detail-chez-coop-city-coop-city-lenzburg-1"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5664,9 +5671,9 @@
     },
     "slugByLocale": {
       "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6",
-      "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6",
-      "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6",
-      "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6"
+      "en": "retail-sales-assistant-cfp-coop-gossau",
+      "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+      "fr": "assistant-e-de-vente-en-detail-cfp-coop-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5727,9 +5734,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt"
+      "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+      "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+      "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5790,9 +5797,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh"
+      "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+      "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+      "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -5805,7 +5812,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/baecker-in-konditor-in-confiseur-in/db210cd2-c893-4d53-bbf6-325d59c1a945",
-    "slug": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
+    "slug": "panettiere-pasticciere-confettiere-coop-grigioni",
     "title": "Bäcker:in Konditor:in Confiseur:in",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -5840,10 +5847,10 @@
       ]
     },
     "slugByLocale": {
-      "it": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
-      "en": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
+      "it": "panettiere-pasticciere-confettiere-coop-grigioni",
+      "en": "baker-pastry-chef-confectioner-coop-grigioni",
       "de": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
-      "fr": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt"
+      "fr": "boulanger-patissier-confiseur-coop-grigioni"
     },
     "postedDate": "2025-08-01",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -6132,7 +6139,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/logistiker-in-eba/564a1e6c-7030-43ee-934d-4f9d2ba68553",
-    "slug": "impiegata-impiegato-in-logistica-afp-coop-grigioni-mvj0ew",
+    "slug": "logistica-eba-coop-grigioni",
     "title": "Logistiker:in EBA",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -6185,7 +6192,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "impiegata-impiegato-in-logistica-afp-coop-grigioni-mvj0ew",
+      "it": "logistica-eba-coop-grigioni",
       "en": "logistiker-in-eba-coop-grigioni-mvj0ew",
       "de": "logistiker-in-eba-coop-grigioni-mvj0ew",
       "fr": "logistiker-in-eba-coop-grigioni-mvj0ew"
@@ -6196,7 +6203,8 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "logistiker-in-eba-coop-grigioni"
+      "logistiker-in-eba-coop-grigioni",
+      "impiegata-impiegato-in-logistica-afp-coop-grigioni-mvj0ew"
     ]
   },
   {
@@ -6339,7 +6347,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/logistiker-in-efz/facc01c9-0aa8-43cc-8110-9cad0ba2dedf",
-    "slug": "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt",
+    "slug": "impiegata-impiegato-in-logistica-cfc-coop-grigioni",
     "title": "Logistiker:in EFZ",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -6386,7 +6394,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt",
+      "it": "impiegata-impiegato-in-logistica-cfc-coop-grigioni",
       "en": "logistiker-in-efz-coop-grigioni-pzx8dt",
       "de": "logistiker-in-efz-coop-grigioni-pzx8dt",
       "fr": "logistiker-in-efz-coop-grigioni-pzx8dt"
@@ -6397,7 +6405,8 @@
     "cachedAt": "2026-03-23T09:39:08.612Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "logistiker-in-efz-coop-grigioni"
+      "logistiker-in-efz-coop-grigioni",
+      "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt"
     ]
   },
   {
@@ -6718,9 +6727,9 @@
     },
     "slugByLocale": {
       "it": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd",
-      "en": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd",
-      "de": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd",
-      "fr": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd"
+      "en": "technical-food-specialist-coop-gossau",
+      "de": "technischer-lebensmittelfachmann-coop-gossau",
+      "fr": "technicien-specialise-en-alimentation-coop-gossau"
     },
     "postedDate": "2025-07-30",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -6781,9 +6790,9 @@
     },
     "slugByLocale": {
       "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk",
-      "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk",
-      "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk",
-      "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk"
+      "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+      "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+      "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
     },
     "postedDate": "2025-07-30",
     "crawledAt": "2026-03-23T09:19:49.009Z",
@@ -6796,7 +6805,7 @@
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/069bdc4e-b9f7-4ac6-a3c6-9fd307f86fe7",
-    "slug": "responsabile-junior-vendita-coop-landquart-graubunden-ko3qba",
+    "slug": "responsabile-junior-vendita-coop-landquart-graubunden",
     "title": "Nachwuchskader Verkauf",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -6840,7 +6849,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "responsabile-junior-vendita-coop-landquart-graubunden-ko3qba",
+      "it": "responsabile-junior-vendita-coop-landquart-graubunden",
       "en": "nachwuchskader-verkauf-coop-landquart-graubunden-ko3qba",
       "de": "nachwuchskader-verkauf-coop-landquart-graubunden-ko3qba",
       "fr": "nachwuchskader-verkauf-coop-landquart-graubunden-ko3qba"
@@ -6851,12 +6860,13 @@
     "cachedAt": "2026-03-23T09:39:08.613Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "nachwuchskader-verkauf-coop-landquart-graubunden"
+      "nachwuchskader-verkauf-coop-landquart-graubunden",
+      "responsabile-junior-vendita-coop-landquart-graubunden-ko3qba"
     ]
   },
   {
     "url": "https://jobs.coopjobs.ch/offene-stellen/nachwuchskader-verkauf/e668960f-7bdf-4031-ad41-46c8e2213aa2",
-    "slug": "responsabile-junior-vendita-coop-chur-graubunden-6s5qvy",
+    "slug": "responsabile-junior-vendita-coop-chur-graubunden",
     "title": "Nachwuchskader Verkauf",
     "company": "Coop",
     "companyKey": "coop-ticino",
@@ -6906,7 +6916,7 @@
       ]
     },
     "slugByLocale": {
-      "it": "responsabile-junior-vendita-coop-chur-graubunden-6s5qvy",
+      "it": "responsabile-junior-vendita-coop-chur-graubunden",
       "en": "nachwuchskader-verkauf-coop-chur-graubunden-6s5qvy",
       "de": "nachwuchskader-verkauf-coop-chur-graubunden-6s5qvy",
       "fr": "nachwuchskader-verkauf-coop-chur-graubunden-6s5qvy"
@@ -6917,72 +6927,8 @@
     "cachedAt": "2026-03-23T09:39:08.613Z",
     "sourceLang": "de",
     "previousSlugs": [
-      "nachwuchskader-verkauf-coop-chur-graubunden"
-    ]
-  },
-  {
-    "url": "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/d3acd339-9e5f-4ebe-b614-304329c8d2b1",
-    "slug": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
-    "title": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
-    "company": "Coop",
-    "companyKey": "coop-ticino",
-    "location": "Grigioni",
-    "canton": "GR",
-    "description": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Aufgaben\n- Fleisch und Fisch präsentieren\n- Fleisch und Fisch schneiden\n- Fleisch und Fisch nach Rezept verarbeiten\n- Kundinnen und Kunden beraten und bedienen\n\n## Anforderungen\n- Du kochst gerne.\n- Du arbeitest gerne mit Fleisch und Fisch.\n- Du hast Freude am Kundenkontakt.\n- Du kannst Deutsch sprechen und lesen.\n- Du willst Neues lernen.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Unterstützung bei Weiterbildungen und bei Ausbildungsangeboten von der LGAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nDaniel Mangold\nHR Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Muttenz",
-    "requirements": [
-      "Du kannst Deutsch sprechen und lesen."
-    ],
-    "titleByLocale": {
-      "de": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
-      "it": "Assunzione - Dipendente Carni e Pesce",
-      "en": "Entry-Level - Meat and Fish Employee",
-      "fr": "Emploi - Employé(e) Viande et Poisson"
-    },
-    "descriptionByLocale": {
-      "de": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Aufgaben\n- Fleisch und Fisch präsentieren\n- Fleisch und Fisch schneiden\n- Fleisch und Fisch nach Rezept verarbeiten\n- Kundinnen und Kunden beraten und bedienen\n\n## Anforderungen\n- Du kochst gerne.\n- Du arbeitest gerne mit Fleisch und Fisch.\n- Du hast Freude am Kundenkontakt.\n- Du kannst Deutsch sprechen und lesen.\n- Du willst Neues lernen.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Unterstützung bei Weiterbildungen und bei Ausbildungsangeboten von der LGAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nDaniel Mangold\nHR Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Muttenz",
-      "it": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Mansioni\n- Presentare carne e pesce\n- Tagliare carne e pesce\n- Preparare carne e pesce secondo le ricette\n- Consigliare e servire i clienti\n\n## Requisiti\n- Ti piace cucinare.\n- Ti piace lavorare con carne e pesce.\n- Hai piacere nel contatto con i clienti.\n- Sai parlare e leggere il tedesco.\n- Vuoi imparare cose nuove.\n\n## Cosa ti offriamo\n- Agevolazioni: Sconto sull'offerta di viaggi ITS Coop Travel, Quintuplicazione dei Superpunti al supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti mobili e prepaid Coop Mobile più convenienti, Reka-Card: sconto all'acquisto, agevolazione Mobility CarSharing, sconto per il personale anche per il/la partner (convivente), agevolazione sull'abbonamento AG, agevolazioni per eventi culturali, agevolazioni per attività ricreative\n- Condizioni d'impiego: Cassa pensione: 2/3 versato da Coop, Condizioni d'impiego interessanti e parità salariale certificata, Premi di fedeltà, Piano di risparmio presso la cassa pensione,Contratto collettivo di lavoro (CCL), 18 settimane di congedo maternità retribuito e 3 settimane di congedo paternità retribuito\n- Orario di lavoro: 5 settimane di vacanze, modelli di orario di lavoro flessibili\n- Formazione continua: Oltre 600 corsi di formazione interni, Talent management con molteplici opportunità di sviluppo, Sostegno per perfezionamenti e offerte formative del CCNL e Coop\n- Sostenibilità: Impegno per le persone, gli animali e la natura con oltre 400 azioni\n- Comunicazione: app interna per i collaboratori\n- Salute: Update Fitness: sconto di Fr. 200.– sull'abbonamento annuale, Partecipazione gratuita a diverse corse aziendali, Offerte sportive aziendali\n\n## La tua persona di contatto\nDaniel Mangold\nRU Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Muttenz",
-      "en": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Responsibilities\n- Present meat and fish\n- Cut meat and fish\n- Process meat and fish according to recipes\n- Advise and serve customers\n\n## Requirements\n- You enjoy cooking.\n- You enjoy working with meat and fish.\n- You enjoy customer contact.\n- You can speak and read German.\n- You want to learn new things.\n\n## What We Offer\n- Benefits: Discount on ITS Coop Travel offers, 5x Superpoints at the supermarket, up to 20% discount on various insurance services, up to 20% discount at all Coop Group formats, discounted mobile and prepaid plans at Coop Mobile, Reka-Card: discount on purchase, Mobility CarSharing discount, staff discount also for partner (living in the same household), discount on GA travel pass, discounts on cultural events, discounts on leisure activities\n- Employment conditions: Pension fund: 2/3 paid by Coop, Attractive employment conditions and certified pay equality, Loyalty bonuses, Savings plan at the pension fund,Collective labour agreement (CLA), 18 weeks paid maternity leave and 3 weeks paid paternity leave\n- Working hours: 5 weeks of holidays, flexible working time models\n- Further training: Over 600 internal training courses, Talent management with diverse development opportunities, Support for further training and CLA/Coop training programmes\n- Sustainability: Commitment to people, animals and nature with over 400 actions\n- Communication: internal app for employees\n- Health: Update Fitness: CHF 200 discount on annual subscription, Free participation in various company runs, In-house sports activities\n\n## Your Contact Person\nDaniel Mangold\nHR Marketing\n\n---\n**Type:** Part-time\n**Location:** Muttenz",
-      "fr": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Tâches\n- Présenter viande et poisson\n- Couper viande et poisson\n- Préparer viande et poisson selon les recettes\n- Conseiller et servir les clients\n\n## Exigences\n- Vous aimez cuisiner.\n- Vous aimez travailler avec la viande et le poisson.\n- Vous appréciez le contact avec la clientèle.\n- Vous savez parler et lire l'allemand.\n- Vous souhaitez apprendre de nouvelles choses.\n\n## Ce que nous offrons\n- Avantages: Réduction sur les offres de voyage ITS Coop Travel, 5x Superpoints au supermarché, jusqu'à 20% de réduction sur diverses prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du Groupe Coop, abonnements mobile et prépayés Coop Mobile avantageux, Reka-Card: réduction à l'achat, réduction Mobility CarSharing, réduction pour le personnel également pour le/la partenaire (vivant dans le même ménage), réduction sur l'abonnement AG, réductions pour événements culturels, réductions pour activités de loisirs\n- Conditions d'emploi: Caisse de pension: 2/3 versés par Coop, Conditions d'emploi attractives et égalité salariale certifiée, Primes de fidélité, Plan d'épargne auprès de la caisse de pension,Convention collective de travail (CCT), 18 semaines de congé maternité payé et 3 semaines de congé paternité payé\n- Temps de travail: 5 semaines de vacances, modèles d'horaires de travail flexibles\n- Formation continue: Plus de 600 cours de formation internes, Gestion des talents avec de nombreuses opportunités de développement, Soutien pour les perfectionnements et offres de formation de la CCNT et Coop\n- Durabilité: Engagement pour les personnes, les animaux et la nature avec plus de 400 actions\n- Communication: application interne pour les collaborateurs\n- Santé: Update Fitness: réduction de Fr. 200.– sur l'abonnement annuel, Participation gratuite à diverses courses d'entreprise, Offres sportives d'entreprise\n\n## Votre personne de contact\nDaniel Mangold\nRH Marketing\n\n---\n**Type:** Part-time\n**Lieu:** Muttenz"
-    },
-    "requirementsByLocale": {
-      "it": [
-        "Ti piace cucinare",
-        "Ti piace lavorare con carni e pesce",
-        "Ti piace il contatto con i clienti",
-        "Puoi parlare e leggere in tedesco",
-        "Vuoi imparare qualcosa di nuovo"
-      ],
-      "en": [
-        "You enjoy cooking",
-        "You enjoy working with meat and fish",
-        "You enjoy customer contact",
-        "You can speak and read German",
-        "You want to learn new things"
-      ],
-      "de": [
-        "Du kannst Deutsch sprechen und lesen."
-      ],
-      "fr": [
-        "Vous aimez cuisiner",
-        "Vous aimez travailler avec la viande et le poisson",
-        "Vous aimez le contact avec les clients",
-        "Vous pouvez parler et lire en allemand",
-        "Vous voulez apprendre de nouvelles choses"
-      ]
-    },
-    "slugByLocale": {
-      "it": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
-      "en": "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-ncbhm0",
-      "de": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-ncbhm0",
-      "fr": "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-ncbhm0"
-    },
-    "postedDate": "2025-05-05",
-    "crawledAt": "2026-03-23T09:19:49.009Z",
-    "source": "Company Careers Crawler",
-    "cachedAt": "2026-03-23T09:39:08.613Z",
-    "sourceLang": "de",
-    "previousSlugs": [
-      "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-2"
+      "nachwuchskader-verkauf-coop-chur-graubunden",
+      "responsabile-junior-vendita-coop-chur-graubunden-6s5qvy"
     ]
   }
 ]

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-03-25T03:26:51.092Z",
+  "assembledAt": "2026-03-25T06:48:33.326Z",
   "jobs": [
     {
       "id": "company-ayfofo",
@@ -244,9 +244,9 @@
       },
       "slugByLocale": {
         "it": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-        "en": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-        "de": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-        "fr": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg"
+        "en": "butcher-butcheress-delicatessen-m-f-d-coop-riazzino-ticino",
+        "de": "metzger-metzgerin-wursttheke-m-w-d-coop-riazzino-ticino",
+        "fr": "boucher-bouchere-charcuterie-m-f-d-coop-riazzino-ticino"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -292,7 +292,8 @@
       "titleByLocale": {
         "it": "Tecnico elettromeccanico in azienda (m/f/d)",
         "de": "Elektromechanischer Techniker (m/w/d)",
-        "fr": "Technicien électromécanique (m/f/d)"
+        "fr": "Technicien électromécanique (m/f/d)",
+        "en": "Tecnico elettromeccanico in azienda (m/f/d)"
       },
       "descriptionByLocale": {
         "it": "Descrizione Marché Ristoranti Svizzera SA è tra le prime 10 aziende nel settore della gastronomia standardizzata full-service con il più alto fatturato del Paese e – con la marca \"Marché\" – è leader indiscusso nella ristorazione autostradale. Dal 2014, Marché Ristoranti Svizzera SA fa parte del Gruppo Coop quale affiliata indipendente. Con le nostre marche e i nostri concept – Marché, Zopf & Zöpfli, Burger King, Popeyes e Firehouse Subs – siamo presenti non solo sulle autostrade o all'aeroporto di Zurigo ma anche nelle più grandi stazioni ferroviarie del Paese (Zurigo, Berna e Basilea) nonché in alcuni famosi centri commerciali della Svizzera tedesca. In altre parole, ridefiniamo la quotidianità dei nostri ospiti ovunque le persone si concedano una pausa rigenerante. ## Mansioni - Assistenza tecnica generale alle strutture di ristorazione - Coordinamento e controllo dei lavori di manutenzione eseguiti da aziende esterne - Manutenzione e sostituzione di attrezzature e impianti fissi - Interventi nell'area di Bellinzona ## Requisiti - AFC nel settore artigianale, preferibilmente come installatore di impianti elettrici o domotici - Competenze tecniche nel campo della domotica e della ristorazione - Capacità comunicative, affidabilità, autonomia - Buona padronanza del tedesco - Buone maniere e aspetto curato - Conoscenza di base di MS Office - Patente di guida di categoria B ## Cosa offriamo - La tua persona di contatto Pia Kronberger , Human Resources",
@@ -331,7 +332,7 @@
       },
       "slugByLocale": {
         "it": "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon-6eaayb",
-        "en": "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon-6eaayb",
+        "en": "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon",
         "de": "elektromechanischer-techniker-m-w-d-marche-dietlikon",
         "fr": "technicien-electromecanique-m-f-d-marche-dietlikon"
       },
@@ -350,7 +351,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-fguj4",
@@ -445,7 +447,7 @@
     },
     {
       "id": "company-63izi7",
-      "slug": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
+      "slug": "venditore-food-coop-zernez-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Food",
       "location": "Zernez, Graubünden",
@@ -496,10 +498,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
-        "en": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
+        "it": "venditore-food-coop-zernez-graubunden",
+        "en": "food-salesperson-coop-zernez-graubunden",
         "de": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
-        "fr": "verkaufer-in-food-coop-zernez-graubunden-63izi7"
+        "fr": "vendeur-de-produits-alimentaires-coop-zernez-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -520,7 +522,7 @@
     },
     {
       "id": "company-vn56hi",
-      "slug": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
+      "slug": "responsabile-settore-frutta-e-verdura-coop-davos-graubunden",
       "company": "Coop",
       "title": "Rayonleiter:in Früchte / Gemüse",
       "location": "Davos, Graubünden",
@@ -583,10 +585,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
-        "en": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
+        "it": "responsabile-settore-frutta-e-verdura-coop-davos-graubunden",
+        "en": "fruits-and-vegetables-sector-leader-coop-davos-graubunden",
         "de": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
-        "fr": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi"
+        "fr": "responsable-secteur-fruits-et-legumes-coop-davos-graubunden"
       },
       "salaryMin": 109000,
       "salaryMax": 147000,
@@ -607,7 +609,7 @@
     },
     {
       "id": "company-29vdmd",
-      "slug": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
+      "slug": "venditore-food-coop-sankt-moritz-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Food",
       "location": "Sankt Moritz, Graubünden",
@@ -658,10 +660,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
-        "en": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
+        "it": "venditore-food-coop-sankt-moritz-graubunden",
+        "en": "food-salesperson-coop-sankt-moritz-graubunden",
         "de": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
-        "fr": "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd"
+        "fr": "vendeur-de-produits-alimentaires-coop-sankt-moritz-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -682,7 +684,7 @@
     },
     {
       "id": "company-33l5v6",
-      "slug": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
+      "slug": "venditore-di-frutta-e-verdura-coop-davos-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Food Frische-Insel",
       "location": "Davos, Graubünden",
@@ -754,10 +756,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
-        "en": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
+        "it": "venditore-di-frutta-e-verdura-coop-davos-graubunden",
+        "en": "fresh-produce-salesperson-coop-davos-graubunden",
         "de": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
-        "fr": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6"
+        "fr": "vendeur-de-produits-frais-coop-davos-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -777,83 +779,8 @@
       ]
     },
     {
-      "id": "company-yw2vrg",
-      "slug": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-      "company": "Coop",
-      "title": "Verkäufer:in Food",
-      "location": "Disentis/Mustér, Graubünden",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "## Mansioni\n- Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert.\n- Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet.\n- Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums.\n- Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt.\n\n## Requisiti\n- Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht?\n- Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme.\n- Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier.\n\n## Cosa offriamo\n- Rabatt auf das Reiseangebot ITS Coop Travel\n- 5-fache Anzahl Superpunkte im Supermarkt\n- Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen\n- Bis zu 20% Rabatt in allen Formaten der Coop-Gruppe\n- Günstigere Mobile- und Prepaid-Abos bei Coop Mobile\n- Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing\n- Personalrabatt auch für Partner:in (im gleichen Haushalt lebend)\n- Vergünstigung bei GA-Abonnement\n- Vergünstigungen bei Kulturanlässen\n- Vergünstigungen für Freizeitaktivitäten\n\n## Anstellungsbedingungen\n- Pensionskasse: 2/3 wird von Coop einbezahlt\n- Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit\n- Treueprämien\n- Sparplan bei der Pensionskasse\n- Gesamtarbeitsvertrag (GAV)\n- 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n\n## Arbeitszeit\n- 5 Wochen Ferien\n- Flexible Arbeitszeitmodelle\n\n## Weiterbildung\n- Über 600 interne Weiterbildungskurse\n- Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten\n- Aus- und Weiterbildungsangeboten des L-GAV und Coop\n\n## Nachhaltigkeit\n- Engagement für Mensch, Tier und Natur mit über 400 Taten\n\n## Kommunikation\n- Interne App für Mitarbeitende\n\n## Gesundheit\n- Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement\n- Gratis Teilnahme an verschiedenen Firmenläufen\n- Firmeninterne Sportangebote\n\n## Contatto\n- Deine Ansprechperson Nadia Ruetsch HR Marketing",
-      "requirements": [
-        "Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier."
-      ],
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/5da7e1b9-1b1a-4c32-935b-46c1b25a1a52",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-23T09:19:49.009Z",
-      "titleByLocale": {
-        "de": "Verkäufer:in Food",
-        "it": "Venditore di alimentari",
-        "en": "Food Salesperson",
-        "fr": "Vendeur de produits alimentaires"
-      },
-      "descriptionByLocale": {
-        "de": "Mansioni - Du liebst die Abwechslung, darum bedienst und berätst du unsere Kundschaft in verschiedenen Abteilungen – stets freundlich und engagiert. - Dank deinem aktiven Einsatz verkaufen sich die Waren besser und werden top bewirtschaftet. - Klar, dass du unsere Vorgaben einhältst, sei es bei Frische und Qualität, punkto Hygiene, Temperaturvorschriften oder des Verfalldatums. - Abwechslungsreich ist auch dein Einsatz an den Kassen, wenn du das Team unterstützt. ## Requisiti - Bist du im Detailhandel ausgebildet (Grundbildung) oder hast du bereits viel Erfahrung im Verkauf gemacht? - Deine Einsatzzeiten sind flexibel, aber das macht dir keine Probleme. - Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier. ## Cosa offriamo - Rabatt auf das Reiseangebot ITS Coop Travel - 5-fache Anzahl Superpunkte im Supermarkt - Bis zu 20% Rabatt auf verschiedene Versicherungsleistungen - Bis zu 20% Rabatt in allen Formaten der Coop-Gruppe - Günstigere Mobile- und Prepaid-Abos bei Coop Mobile - Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing - Personalrabatt auch für Partner:in (im gleichen Haushalt lebend) - Vergünstigung bei GA-Abonnement - Vergünstigungen bei Kulturanlässen - Vergünstigungen für Freizeitaktivitäten ## Anstellungsbedingungen - Pensionskasse: 2/3 wird von Coop einbezahlt - Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit - Treueprämien - Sparplan bei der Pensionskasse - Gesamtarbeitsvertrag (GAV) - 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub ## Arbeitszeit - 5 Wochen Ferien - Flexible Arbeitszeitmodelle ## Weiterbildung - Über 600 interne Weiterbildungskurse - Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten - Aus- und Weiterbildungsangeboten des L-GAV und Coop ## Nachhaltigkeit - Engagement für Mensch, Tier und Natur mit über 400 Taten ## Kommunikation - Interne App für Mitarbeitende ## Gesundheit - Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement - Gratis Teilnahme an verschiedenen Firmenläufen - Firmeninterne Sportangebote ## Contatto - Deine Ansprechperson Nadia Ruetsch HR Marketing",
-        "it": "Mansioni - Ami la varietà, quindi servisci e consigli la nostra clientela in diverse sezioni – sempre con cortesia e impegno. - Grazie al tuo impegno attivo, i prodotti si vendono meglio e vengono gestiti al meglio. - È chiaro che rispetti le nostre indicazioni, sia per freschezza e qualità, che per igiene, regolamenti termici o data di scadenza. - Anche il tuo lavoro alla cassa è vario, quando supporti il team. ## Requisiti - Sei formato nel dettaglio (formazione di base) o hai molta esperienza nella vendita? - I tuoi orari di lavoro sono flessibili, ma non ti creano problemi. - Parli tedesco bene, sia in conversazione che per iscritto. ## Cosa offriamo - Sconto sul pacchetto di viaggio ITS Coop Travel - 5 volte più punti Super nel supermercato - Fino al 20% di sconto su vari servizi assicurativi - Fino al 20% di sconto in tutti i formati del gruppo Coop - Abbonamenti mobili e prepagati più economici con Coop Mobile - Reka-Card: Sconto per l'acquisto, sconto per Mobility CarSharing - Sconto personale anche per il partner (nella stessa casa) - Sconto per l'abbonamento GA - Sconti per eventi culturali - Sconti per attività ricreative ## Condizioni di lavoro - Cassa del pensioni: 2/3 viene versata da Coop - Condizioni di lavoro attraenti e certificata parità salariale - Premi per fedeltà - Piano di risparmio per la cassa del pensioni - Contratto collettivo nazionale (GAV) - 18 settimane di congedo parentale retribuito e tre settimane di congedo parentale retribuito ## Orario di lavoro - 5 settimane di ferie - Modelli di orario di lavoro flessibili ## Formazione - Più di 600 corsi di formazione interna - Gestione del talento con molte opportunità di sviluppo - Offerte di formazione e formazione del L-GAV e Coop ## Sostenibilità - Impegno per uomo, animale e natura con oltre 400 azioni ## Comunicazione - App interna per i dipendenti ## Salute - Update-Fitness: Sconto di CHF 200.00 sul abbonamento annuale - Partecipazione gratuita a vari corsi aziendali - Offerte sportive interne ## Contatto - La tua persona di riferimento è Nadia Ruetsch HR Marketing",
-        "en": "Roles - You love variety, so you serve and advise our customers in various departments – always friendly and engaged. - Thanks to your active involvement, products sell better and are managed top-notch. - It's clear that you follow our guidelines, whether it's freshness and quality, hygiene, temperature regulations, or expiration date. - Your work at the cash register is also varied when you support the team. ## Requirements - Are you trained in retail (basic training) or have you gained a lot of experience in sales? - Your working hours are flexible, but that doesn't bother you. - You speak German well, both in conversation and in writing. ## What We Offer - Discount on the ITS Coop Travel travel package - 5 times more Superpoints in the supermarket - Up to 20% discount on various insurance services - Up to 20% discount in all formats of the Coop group - More affordable Mobile and Prepaid subscriptions with Coop Mobile - Reka-Card: Discount on purchase, discount on Mobility CarSharing - Personal discount also for partner (living in the same household) - Discount on GA subscription - Discounts for cultural events - Discounts for leisure activities ## Employment Conditions - Pension fund: 2/3 is contributed by Coop - Attractive employment conditions and certified wage equality - Loyalty bonuses - Savings plan with the pension fund - Collective labor agreement (GAV) - 18 weeks of paid parental leave and three weeks of paid paternity leave ## Working Hours - 5 weeks of vacation - Flexible working time models ## Training - Over 600 internal training courses - Talent management with various development opportunities - Training and further training offers from L-GAV and Coop ## Sustainability - Commitment to man, animal, and nature with over 400 actions ## Communication - Internal app for employees ## Health - Update-Fitness: CHF 200.00 discount on the annual subscription - Free participation in various company runs - Internal sports offers ## Contact - Your contact person is Nadia Ruetsch HR Marketing",
-        "fr": "Rôles - Vous aimez la variété, donc vous servez et conseillez nos clients dans divers départements – toujours aimable et engagé. - Grâce à votre implication active, les produits se vendent mieux et sont gérés de manière optimale. - Il est clair que vous suivez nos directives, qu'il s'agisse de fraîcheur et de qualité, d'hygiène, de réglementations thermiques ou de date d'expiration. - Votre travail à la caisse est également varié lorsque vous soutenez l'équipe. ## Exigences - Êtes-vous formé en vente au détail (formation de base) ou avez-vous acquis beaucoup d'expérience dans la vente? - Vos heures de travail sont flexibles, mais cela ne vous dérange pas. - Vous parlez allemand bien, tant en conversation qu'en écriture. ## Ce que nous offrons - Réduction sur le forfait de voyage ITS Coop Travel - 5 fois plus de Superpoints dans le supermarché - Jusqu'à 20% de réduction sur divers services d'assurance - Jusqu'à 20% de réduction dans tous les formats du groupe Coop - Abonnements mobiles et prépayés plus abordables avec Coop Mobile - Reka-Card: Réduction à l'achat, réduction sur Mobility CarSharing - Réduction personnelle également pour le partenaire (vivant dans le même ménage) - Réduction sur l'abonnement GA - Réductions pour les événements culturels - Réductions pour les activités de loisirs ## Conditions d'emploi - Caisse de retraite: 2/3 est versée par Coop - Conditions d'emploi attrayantes et égalité salariale certifiée - Prime de fidélité - Plan d'épargne avec la caisse de retraite - Convention collective (GAV) - 18 semaines de congé parental payé et trois semaines de congé paternité payé ## Heures de travail - 5 semaines de vacances - Modèles d'horaires de travail flexibles ## Formation - Plus de 600 cours de formation internes - Gestion du talent avec diverses opportunités de développement - Offres de formation et de perfectionnement de L-GAV et Coop ## Durabilité - Engagement pour l'homme, l'animal et la nature avec plus de 400 actions ## Communication - Application interne pour les employés ## Santé - Update-Fitness: Réduction de CHF 200.00 sur l'abonnement annuel - Participation gratuite à diverses courses d'entreprise - Offres sportives internes ## Contact - Votre personne de contact est Nadia Ruetsch HR Marketing"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Parli tedesco bene, sia in conversazione che per iscritto."
-        ],
-        "en": [
-          "You speak German well, both in conversation and in writing."
-        ],
-        "de": [
-          "Deutsch beherrschst du gut, und zwar im Gespräch und auf Papier."
-        ],
-        "fr": [
-          "Vous parlez allemand bien, tant en conversation qu'en écriture."
-        ]
-      },
-      "slugByLocale": {
-        "it": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-        "en": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-        "de": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg",
-        "fr": "verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceLang": "de",
-      "previousSlugs": [
-        "verkaufer-in-food-coop-disentis-muster-graubunden"
-      ]
-    },
-    {
       "id": "company-l1gprk",
-      "slug": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+      "slug": "venditore-di-cassa-e-servizi-coop-klosters-serneus-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Klosters-Serneus, Graubünden",
@@ -909,10 +836,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
-        "en": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+        "it": "venditore-di-cassa-e-servizi-coop-klosters-serneus-graubunden",
+        "en": "cashier-and-services-salesperson-coop-klosters-serneus-graubunden",
         "de": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
-        "fr": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk"
+        "fr": "caissier-et-vendeur-de-services-coop-klosters-serneus-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -933,7 +860,7 @@
     },
     {
       "id": "company-l6wxbs",
-      "slug": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+      "slug": "venditore-di-prodotti-freschi-coop-ilanz-glion-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Ilanz/Glion, Graubünden",
@@ -984,10 +911,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
-        "en": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+        "it": "venditore-di-prodotti-freschi-coop-ilanz-glion-graubunden",
+        "en": "fresh-produce-salesperson-coop-ilanz-glion-graubunden",
         "de": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
-        "fr": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs"
+        "fr": "vendeur-de-produits-frais-coop-ilanz-glion-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1524,7 +1451,7 @@
     },
     {
       "id": "company-m6rkts",
-      "slug": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
+      "slug": "responsabile-area-non-cibo-coop-klosters-serneus-graubunden",
       "company": "Coop",
       "title": "Rayonleiter:in Nonfood",
       "location": "Klosters-Serneus, Graubünden",
@@ -1588,10 +1515,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
-        "en": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
+        "it": "responsabile-area-non-cibo-coop-klosters-serneus-graubunden",
+        "en": "non-food-area-manager-coop-klosters-serneus-graubunden",
         "de": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts",
-        "fr": "rayonleiter-in-nonfood-coop-klosters-serneus-graubunden-m6rkts"
+        "fr": "responsable-de-secteur-non-alimentaire-coop-klosters-serneus-graubunden"
       },
       "salaryMin": 109000,
       "salaryMax": 147000,
@@ -1700,7 +1627,7 @@
     },
     {
       "id": "company-m6q8xe",
-      "slug": "verkaufer-in-frischprodukte-brot-e-kasse-coop-kublis-graubunden-m6q8xe",
+      "slug": "venditore-di-prodotti-freschi-pane-e-cassa-coop-kublis-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Frischprodukte Brot und Kasse",
       "location": "Küblis, Graubünden",
@@ -1751,7 +1678,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-brot-e-kasse-coop-kublis-graubunden-m6q8xe",
+        "it": "venditore-di-prodotti-freschi-pane-e-cassa-coop-kublis-graubunden",
         "en": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden-m6q8xe",
         "de": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden-m6q8xe",
         "fr": "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden-m6q8xe"
@@ -1770,7 +1697,8 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden"
+        "verkaufer-in-frischprodukte-brot-und-kasse-coop-kublis-graubunden",
+        "verkaufer-in-frischprodukte-brot-e-kasse-coop-kublis-graubunden-m6q8xe"
       ]
     },
     {
@@ -1893,7 +1821,10 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-23T09:19:49.009Z",
       "titleByLocale": {
-        "it": "Autista cat. CE (f/m/d)"
+        "it": "Autista cat. CE (f/m/d)",
+        "en": "Autista cat. CE (f/m/d)",
+        "de": "Autista cat. CE (f/m/d)",
+        "fr": "Autista cat. CE (f/m/d)"
       },
       "descriptionByLocale": {
         "it": "Mansioni - Con un camion/rimorchio/semirimorchio esegui consegne tra i diversi punti di vendita sulla base di un piano di percorso prestabilito. - Aiutare il team nelle operazioni di carico e scarico per te fa parte del lavoro. - Le collaboratrici e i collaboratori dei punti di vendita ti conoscono e ti apprezzano. - Fai in modo che il tuo veicolo sia sempre perfettamente pulito. ## Requisiti - È dimostrato che padroneggi la guida di veicoli della cat. CE e hai esperienza con i rimorchi. - Conosci bene le norme per i veicoli di grandi dimensioni (OLR). - Sei in grado di communicare in italiano. - Fisicamente sei in forma. ## Agevolazioni - Sconto sull'offerta di viaggi di ITS Coop Travel - 5x superpunti al supermercato - Sconti fino al 20% su diverse prestazioni assicurative - Sconti fino al 20% in tutti i formati del gruppo Coop - Abbonamenti mobili e prepaid Coop Mobile più convenienti - Reka-Card: agevolazione all'acquisto - Agevolazione per Mobility CarSharing - Ribasso per il personale anche per partner (che vivono nella stessa economia domestica) - Agevolazione per l'AG - Agevolazioni per eventi culturali - Agevolazioni per attività del tempo libero ## Condizioni di assunzione - Cassa pensioni: 2/3 vengono versati da Coop - Interessanti condizioni di assunzione e parità salariale certificata - Premi di fedeltà - Piano di risparmio presso la cassa pensione - Contratto collettivo di lavoro (CCL) - Pensionamento anticipato flessibile e regolamento interessante per un pensionamento anticipato a partire dal 58° anno di età compiuto - 18 settimane di congedo maternità pagato e 3 settimane di congedo paternità pagato ## Orario di lavoro - 5 settimane di vacanza - Orari di lavoro flessibili ## Perfezionamento - Più di 600 corsi di formazione interna - Talent management con diverse opportunità di sviluppo - Sostegno per corsi di formazione e perfezionamento esterni ## Sostenibilità - Impegno a favore dell'uomo, degli animali e della natura con oltre 400 fatti ## Comunicazione - App per il personale interno ## Salute - Update-Fitness: Fr. 200.– di ribasso sull'abbonamento annuale - Partecipazione gratuita a diverse corse aziendali - Offerte sportive aziendali interne ## La tua persona di contatto - Valeria Mazziari Randazzo Marketing HR",
@@ -1947,11 +1878,12 @@
       "sourceLang": "it",
       "previousSlugs": [
         "autista-cat-ce-f-m-d-coop-castione-ticino"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-arot84",
-      "slug": "collaboratore-trice-inventuren-coop-grigioni-arot84",
+      "slug": "operatore-di-inventario-coop-grigioni",
       "company": "Coop",
       "title": "Mitarbeiter:in Inventuren",
       "location": "Grigioni",
@@ -2011,7 +1943,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-inventuren-coop-grigioni-arot84",
+        "it": "operatore-di-inventario-coop-grigioni",
         "en": "associate-inventuren-coop-grigioni-arot84",
         "de": "mitarbeiter-in-inventuren-coop-grigioni-arot84",
         "fr": "collaborateur-trice-inventuren-coop-grigioni-arot84"
@@ -2030,12 +1962,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-in-inventuren-coop-grigioni"
+        "mitarbeiter-in-inventuren-coop-grigioni",
+        "collaboratore-trice-inventuren-coop-grigioni-arot84"
       ]
     },
     {
       "id": "company-m206om",
-      "slug": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
+      "slug": "consulente-clienti-depositi-60-coop-cassa-depositi-chur-graubunden",
       "company": "Coop Cassa Depositi",
       "title": "Kundenberater:in Depositenkasse, 60%",
       "location": "Chur, Graubünden",
@@ -2096,10 +2029,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
-        "en": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
+        "it": "consulente-clienti-depositi-60-coop-cassa-depositi-chur-graubunden",
+        "en": "customer-advisor-deposit-box-60-coop-cassa-depositi-chur-graubunden",
         "de": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om",
-        "fr": "kundenberater-in-depositenkasse-60-coop-cassa-depositi-chur-graubunden-m206om"
+        "fr": "conseiller-client-caisse-de-depot-60-coop-cassa-depositi-chur-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2120,7 +2053,7 @@
     },
     {
       "id": "company-wh1ckk",
-      "slug": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
+      "slug": "cucinaio-cuoco-w-m-d-coop-ristorante-chur-graubunden",
       "company": "Coop Ristorante",
       "title": "Köchin / Koch (w/m/d)",
       "location": "Chur, Graubünden",
@@ -2180,10 +2113,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
-        "en": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
+        "it": "cucinaio-cuoco-w-m-d-coop-ristorante-chur-graubunden",
+        "en": "chef-w-m-d-coop-ristorante-chur-graubunden",
         "de": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk",
-        "fr": "kochin-koch-w-m-d-coop-ristorante-chur-graubunden-wh1ckk"
+        "fr": "chef-w-m-d-coop-ristorante-chur-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2313,7 +2246,8 @@
       "titleByLocale": {
         "de": "Verkaufsberater:in Textil",
         "it": "Consulente vendite tessile",
-        "en": "Textile Sales Consultant"
+        "en": "Textile Sales Consultant",
+        "fr": "Verkaufsberater:in Textil"
       },
       "descriptionByLocale": {
         "de": "Mansioni - Mit deiner freundlichen und fachkompetenten Beratung begeisterst du unsere Kundschaft. - Du hältst dich an die internen Vorgaben und so stellst du sicher, dass die Waren attraktiv präsentiert sind. - Mit der Ware auf unserer Verkaufsfläche und im Lager gehst du gewissenhaft um. - Wenn nötig, hilfst du gerne auch in anderen Rayons mit. - Bestandes-, Verkaufs- sowie inventurrelevante Prozesse sind Teile des Prozessmanagements, dass du übernimmst. ## Requisiti - Verkaufen und Beraten sind deine Leidenschaft, die Kundenzufriedenheit deine Motivation? - Perfekt. Du sprichst fliessend Deutsch, du hast Verkaufserfahrung und idealerweise eine abgeschlossene Verkaufsausbildung: Dann bist du hier richtig. - Selbstverständlich bist du bei den Einsatzzeiten (Mo bis Sa) flexibel. - Gehört für dich im Verkauf dazu. - Im Bereich Non Food kennst du dich aus? Damit kannst du bei dieser Stelle besonders punkten. - Immer ein freundliches Lächeln – das ist dein Geheimnis zum Erfolg. ## Contatto - Ihre Ansprechperson Suzana Jovanovic HR Marketing",
@@ -2360,7 +2294,7 @@
         "it": "consulente-vendite-tessile-coop-city-chur-graubunden",
         "en": "textile-sales-consultant-coop-city-chur-graubunden",
         "de": "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl",
-        "fr": "verkaufsberater-in-textil-coop-city-chur-graubunden-3dfffl"
+        "fr": "verkaufsberater-in-textil-coop-city-chur-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2377,11 +2311,12 @@
       "sourceLang": "de",
       "previousSlugs": [
         "verkaufsberater-in-textil-coop-city-chur-graubunden"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zomcf",
-      "slug": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
+      "slug": "consulente-vendite-gioielli-coop-city-chur-graubunden",
       "company": "Coop City",
       "title": "Verkausberater:in Schmuck",
       "location": "Chur, Graubünden",
@@ -2406,7 +2341,8 @@
       "titleByLocale": {
         "de": "Verkausberater:in Schmuck",
         "it": "Consulente Vendite Gioielli",
-        "en": "Jewelry Sales Consultant"
+        "en": "Jewelry Sales Consultant",
+        "fr": "Verkausberater:in Schmuck"
       },
       "descriptionByLocale": {
         "de": "Mansioni - Sie leben für den Detailhandel und wissen, wie Sie unsere Kundschaft jeden Tag aufs Neue überraschen. - Dass Sie freundlich und kundenorientiert auftreten, ist für Sie selbstverständlich. - Sie begeistern die Kundschaft, indem Sie sie proaktiv bedienen und professionell beraten. - Attraktives Ladenbild sicherstellen? Diese Aufgabe übernehmen Sie ebenfalls leidenschaftlich gerne. ## Requisiti - Spass am Verkauf ist Ihr Geheimnis zum Erfolg? Gut so. - Nachhaltige und hochwertige Produkte sind Ihre Leidenschaft. - Freundlich, sympathisch, kompetent: Genau das sind Sie. - Auch wichtig: Im Team geben Sie Ihr Wissen weiter und feiern Erfolge gemeinsam. ## Cosa offriamo - Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend) - Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und 4 Wochen bezahlter Vaterschaftsurlaub, Treueprämien, Sparplan bei der Pensionskasse, Flexible und attraktive Regelung für eine vorzeitige Alterspension ab dem vollendeten 58. Altersjahr - Arbeitszeit: 5 Wochen Ferien - Weiterbildung: Über 600 interne Weiterbildungskurse, Unterstützung für externe Aus- und Weiterbildungen, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten - Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement ## Contatto - Deine Ansprechperson Suzana Jovanovic HR Marketing",
@@ -2447,8 +2383,8 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
-        "en": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
+        "it": "consulente-vendite-gioielli-coop-city-chur-graubunden",
+        "en": "jewelry-sales-consultant-coop-city-chur-graubunden",
         "de": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf",
         "fr": "verkausberater-in-schmuck-coop-city-chur-graubunden-0zomcf"
       },
@@ -2467,7 +2403,8 @@
       "sourceLang": "de",
       "previousSlugs": [
         "verkausberater-in-schmuck-coop-city-chur-graubunden"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-kj0yby",
@@ -2749,7 +2686,7 @@
     },
     {
       "id": "company-400zld",
-      "slug": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
+      "slug": "venditore-al-cassa-servizi-jumbo-chur-graubunden",
       "company": "Jumbo",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Chur, Graubünden",
@@ -2812,10 +2749,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
-        "en": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
+        "it": "venditore-al-cassa-servizi-jumbo-chur-graubunden",
+        "en": "cashier-services-salesperson-jumbo-chur-graubunden",
         "de": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld",
-        "fr": "verkaufer-in-kassen-services-jumbo-chur-graubunden-400zld"
+        "fr": "caissier-vendeur-de-services-jumbo-chur-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3075,7 +3012,7 @@
         "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6",
         "en": "plumber-installer-for-kitchens-bathrooms-fust-bellinzona-ticino",
         "de": "sanitarinstallateur-in-fur-kuchen-bader-fust-bellinzona-ticino",
-        "fr": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-e3zmz6"
+        "fr": "installateur-de-sanitaires-pour-cuisines-et-salles-de-bain-fust-bellinzona-ticino"
       },
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -3192,7 +3129,7 @@
     },
     {
       "id": "company-n84r3m",
-      "slug": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
+      "slug": "venditore-cassa-servizi-coop-disentis-muster-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Disentis/Mustér, Graubünden",
@@ -3248,10 +3185,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
-        "en": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
+        "it": "venditore-cassa-servizi-coop-disentis-muster-graubunden",
+        "en": "cashier-service-salesperson-coop-disentis-muster-graubunden",
         "de": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m",
-        "fr": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden-n84r3m"
+        "fr": "caissiere-vendeuse-de-services-coop-disentis-muster-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3272,7 +3209,7 @@
     },
     {
       "id": "company-ixsk9t",
-      "slug": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
+      "slug": "venditore-di-alimenti-e-prodotti-freschi-fiori-kiosco-coop-chur-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Food/Frischprodukte (Blumen/Kiosk)",
       "location": "Chur, Graubünden",
@@ -3323,10 +3260,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
-        "en": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
+        "it": "venditore-di-alimenti-e-prodotti-freschi-fiori-kiosco-coop-chur-graubunden",
+        "en": "food-and-fresh-products-salesperson-flowers-kiosk-coop-chur-graubunden",
         "de": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t",
-        "fr": "verkaufer-in-food-frischprodukte-blumen-kiosk-coop-chur-graubunden-ixsk9t"
+        "fr": "vendeur-de-produits-alimentaires-et-frais-fleurs-kiosque-coop-chur-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3347,7 +3284,7 @@
     },
     {
       "id": "company-4eve14",
-      "slug": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
+      "slug": "venditore-food-coop-ilanz-glion-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Food",
       "location": "Ilanz/Glion, Graubünden",
@@ -3398,10 +3335,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
-        "en": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
+        "it": "venditore-food-coop-ilanz-glion-graubunden",
+        "en": "food-salesperson-coop-ilanz-glion-graubunden",
         "de": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14",
-        "fr": "verkaufer-in-food-coop-ilanz-glion-graubunden-4eve14"
+        "fr": "vendeur-de-produits-alimentaires-coop-ilanz-glion-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3422,7 +3359,7 @@
     },
     {
       "id": "company-agnn8d",
-      "slug": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
+      "slug": "venditore-food-coop-schiers-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Food",
       "location": "Schiers, Graubünden",
@@ -3473,10 +3410,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
-        "en": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
+        "it": "venditore-food-coop-schiers-graubunden",
+        "en": "food-salesperson-coop-schiers-graubunden",
         "de": "verkaufer-in-food-coop-schiers-graubunden-agnn8d",
-        "fr": "verkaufer-in-food-coop-schiers-graubunden-agnn8d"
+        "fr": "vendeur-de-produits-alimentaires-coop-schiers-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3497,7 +3434,7 @@
     },
     {
       "id": "company-dfmpq7",
-      "slug": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
+      "slug": "venditore-di-alimenti-pane-freschi-coop-churwalden-graubunden",
       "company": "Coop",
       "title": "Verkäufer:in Food (Brot / Frische)",
       "location": "Churwalden, Graubünden",
@@ -3548,10 +3485,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
-        "en": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
+        "it": "venditore-di-alimenti-pane-freschi-coop-churwalden-graubunden",
+        "en": "food-salesperson-bakery-fresh-coop-churwalden-graubunden",
         "de": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7",
-        "fr": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-dfmpq7"
+        "fr": "vendeur-de-produits-alimentaires-boulangerie-frais-coop-churwalden-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3572,7 +3509,7 @@
     },
     {
       "id": "company-vb4s3f",
-      "slug": "mechaniker-in-coop-chur-graubunden-vb4s3f",
+      "slug": "meccanico-coop-chur-graubunden",
       "company": "Coop",
       "title": "Mechaniker:in",
       "location": "Chur, Graubünden",
@@ -3639,10 +3576,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "mechaniker-in-coop-chur-graubunden-vb4s3f",
-        "en": "mechaniker-in-coop-chur-graubunden-vb4s3f",
+        "it": "meccanico-coop-chur-graubunden",
+        "en": "mechanic-coop-chur-graubunden",
         "de": "mechaniker-in-coop-chur-graubunden-vb4s3f",
-        "fr": "mechaniker-in-coop-chur-graubunden-vb4s3f"
+        "fr": "mecanicien-coop-chur-graubunden"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3663,7 +3600,7 @@
     },
     {
       "id": "company-onh6ln",
-      "slug": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
+      "slug": "aspirante-a-coop-ch-davos-graubunden",
       "company": "coop.ch",
       "title": "Aspirant/-in",
       "location": "Davos, Graubünden",
@@ -3730,9 +3667,9 @@
         ]
       },
       "slugByLocale": {
-        "it": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
-        "en": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
-        "de": "aspirant-in-coop-ch-davos-graubunden-onh6ln",
+        "it": "aspirante-a-coop-ch-davos-graubunden",
+        "en": "applicant-coop-ch-davos-graubunden",
+        "de": "anwarter-in-coop-ch-davos-graubunden",
         "fr": "aspirant-in-coop-ch-davos-graubunden-onh6ln"
       },
       "salaryMin": 58000,
@@ -3754,7 +3691,7 @@
     },
     {
       "id": "company-9yar0z",
-      "slug": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-9yar0z",
+      "slug": "assunzione-dipendente-carni-e-pesce-coop-grigioni",
       "company": "Coop",
       "title": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
       "location": "Grigioni",
@@ -3817,7 +3754,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-9yar0z",
+        "it": "assunzione-dipendente-carni-e-pesce-coop-grigioni",
         "en": "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-9yar0z",
         "de": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-9yar0z",
         "fr": "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-9yar0z"
@@ -3836,7 +3773,8 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni"
+        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni",
+        "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-9yar0z"
       ]
     },
     {
@@ -3909,9 +3847,9 @@
       },
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl"
+        "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+        "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -3928,7 +3866,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-dmiw8r",
@@ -4025,7 +3964,7 @@
     },
     {
       "id": "company-3jfhc8",
-      "slug": "responsabile-junior-vendita-coop-ilanz-glion-graubunden-3jfhc8",
+      "slug": "responsabile-junior-vendita-coop-ilanz-glion-graubunden",
       "company": "Coop",
       "title": "Nachwuchskader Verkauf",
       "location": "Ilanz/Glion, Graubünden",
@@ -4083,7 +4022,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "responsabile-junior-vendita-coop-ilanz-glion-graubunden-3jfhc8",
+        "it": "responsabile-junior-vendita-coop-ilanz-glion-graubunden",
         "en": "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8",
         "de": "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8",
         "fr": "nachwuchskader-verkauf-coop-ilanz-glion-graubunden-3jfhc8"
@@ -4102,7 +4041,8 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "nachwuchskader-verkauf-coop-ilanz-glion-graubunden"
+        "nachwuchskader-verkauf-coop-ilanz-glion-graubunden",
+        "responsabile-junior-vendita-coop-ilanz-glion-graubunden-3jfhc8"
       ]
     },
     {
@@ -4169,9 +4109,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-rf7c8w"
+        "en": "retail-sales-associate-at-coop-city-coop-city-lenzburg-1",
+        "de": "einzelhandelsverkaufer-in-bei-coop-city-coop-city-lenzburg-1",
+        "fr": "vendeur-se-en-detail-chez-coop-city-coop-city-lenzburg-1"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -4188,7 +4128,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-rmlu8c",
@@ -4533,9 +4474,9 @@
       },
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01",
-        "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01",
-        "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01",
-        "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-i63w01"
+        "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+        "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -4552,11 +4493,12 @@
       "sourceLang": "it",
       "previousSlugs": [
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6lujcy",
-      "slug": "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
+      "slug": "dipendente-stagionale-coop-davos-graubunden",
       "company": "Coop",
       "title": "Mitarbeiter:in Saison",
       "location": "Davos, Graubünden",
@@ -4623,7 +4565,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-saison-coop-davos-graubunden-6lujcy",
+        "it": "dipendente-stagionale-coop-davos-graubunden",
         "en": "associate-saison-coop-davos-graubunden-6lujcy",
         "de": "mitarbeiter-in-saison-coop-davos-graubunden-6lujcy",
         "fr": "collaborateur-trice-saison-coop-davos-graubunden-6lujcy"
@@ -4642,7 +4584,8 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-in-saison-coop-davos-graubunden"
+        "mitarbeiter-in-saison-coop-davos-graubunden",
+        "collaboratore-trice-saison-coop-davos-graubunden-6lujcy"
       ]
     },
     {
@@ -4715,9 +4658,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-j301yl",
-        "en": "impiegato-a-interdiscount-jegensdorf-j301yl",
-        "de": "impiegato-a-interdiscount-jegensdorf-j301yl",
-        "fr": "impiegato-a-interdiscount-jegensdorf-j301yl"
+        "en": "sales-associate-interdiscount-jegensdorf",
+        "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+        "fr": "associe-de-vente-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -4734,7 +4677,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegato-a-interdiscount-jegensdorf"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-z0zxuf",
@@ -4796,9 +4740,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-        "en": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-        "de": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf",
-        "fr": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-z0zxuf"
+        "en": "standardized-gastronomy-apprentice-marche-dietlikon",
+        "de": "standardisierte-gastronomie-auszubildende-r-marche-dietlikon",
+        "fr": "apprenti-e-en-gastronomie-standardisee-marche-dietlikon"
       },
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -4815,7 +4759,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-x5agq2",
@@ -4877,9 +4822,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2",
-        "en": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2",
-        "de": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2",
-        "fr": "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-x5agq2"
+        "en": "standardized-gastronomy-apprentice-marche-dietlikon",
+        "de": "standardisierte-gastronomie-auszubildende-r-marche-dietlikon",
+        "fr": "apprenti-e-en-gastronomie-standardisee-marche-dietlikon"
       },
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -4896,7 +4841,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-o-di-gastronomia-standardizzata-addettao-digastronomia-standardizzata-marche-dietlikon-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2p2jlr",
@@ -5059,9 +5005,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-8xgtc3",
-        "en": "impiegato-a-interdiscount-jegensdorf-8xgtc3",
-        "de": "impiegato-a-interdiscount-jegensdorf-8xgtc3",
-        "fr": "impiegato-a-interdiscount-jegensdorf-8xgtc3"
+        "en": "sales-associate-interdiscount-jegensdorf",
+        "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+        "fr": "associe-de-vente-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -5078,7 +5024,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegato-a-interdiscount-jegensdorf-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-4fn4u",
@@ -5150,9 +5097,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-04fn4u",
-        "en": "impiegato-a-interdiscount-jegensdorf-04fn4u",
-        "de": "impiegato-a-interdiscount-jegensdorf-04fn4u",
-        "fr": "impiegato-a-interdiscount-jegensdorf-04fn4u"
+        "en": "sales-associate-interdiscount-jegensdorf",
+        "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+        "fr": "associe-de-vente-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -5169,7 +5116,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegato-a-interdiscount-jegensdorf-3"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4jjb9",
@@ -5241,9 +5189,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9",
-        "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9",
-        "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9",
-        "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-l4jjb9"
+        "en": "standardized-food-service-employee-marche-dietlikon",
+        "de": "standardisierte-gastwirtschaftsmitarbeiter-marche-dietlikon",
+        "fr": "employe-de-service-alimentaire-standardise-marche-dietlikon"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5260,7 +5208,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-diq1rr",
@@ -5326,9 +5275,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr",
-        "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-diq1rr"
+        "en": "standardized-kitchen-staff-marche-dietlikon",
+        "de": "standardisierte-kuchenmitarbeiter-marche-dietlikon",
+        "fr": "personnel-de-cuisine-standardise-marche-dietlikon"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5345,7 +5294,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-marche-dietlikon-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ojmfcb",
@@ -5374,7 +5324,8 @@
       "titleByLocale": {
         "it": "Addetta/o di gastronomia standardizzata CFP",
         "de": "Standardisierte Gastronomie-Assistentin CFP",
-        "fr": "Assistante en gastronomie standardisée CFP"
+        "fr": "Assistante en gastronomie standardisée CFP",
+        "en": "Addetta/o di gastronomia standardizzata CFP"
       },
       "descriptionByLocale": {
         "it": "## Addetta/o di gastronomia standardizzata CFP\n\n**Coop** — Dietlikon, Dietlikon, Svizzera\n\n## Le tue mansioni\n- Produci e prepari menu allettanti.\n- Sei la prima persona di contatto e ti occupi di offrire consulenza e di servire la clientela.\n- Aiutate a ordinare il alimentari.\n\n## Cosa porti con te nell'azienda\n- Predisposizione al contatto con la gente e al lavoro di squadra\n- Capacità organizzativa e flessibilità\n- Volontà di lavorare autonomamente e di assumersi responsabilità\n- Voglia di perfezionarsi in un'azienda dinamica\n- Interesse per gli alimenti\n- Predisposizione al contatto con la clientela\n\n## Cosa ti offriamo\n- Abbonamento annuale Update-Fitness\n- Buono del valore di 500 franchi per l'aquisto di un notebook, tablet ecc.\n- 50% di sconto sul primo abbonamento di telefonia mobile Coop Mobile\n- 6 settimane di vacanze\n- Lunch-Check di 100 franchi al mese\n- Sconti in tutte le aziende partner della Coop\n- Abbonamento metà-prezzo / contributo di 650 franchi all'abbonamento generale FFS\nChrista Niederberger\nRU Formazione professionale\nChoose Your Character - Create Your Future:\nDate forma al vostro futuro con un apprendistato adeguato presso Marché Ristoranti Svizzera SA.\n\n---\n**Tipo:** Full-time\n**Sede:** Dietlikon",
@@ -5411,8 +5362,8 @@
       "slugByLocale": {
         "it": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb",
         "en": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb",
-        "de": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb",
-        "fr": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-ojmfcb"
+        "de": "standardisierte-gastronomie-assistentin-cfp-marche-dietlikon",
+        "fr": "assistante-en-gastronomie-standardisee-cfp-marche-dietlikon"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5429,7 +5380,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-3og455",
@@ -5458,7 +5410,8 @@
       "titleByLocale": {
         "it": "Addetta/o di gastronomia standardizzata CFP",
         "de": "Standardisierte Gastronomie-Assistentin CFP",
-        "fr": "Assistante de gastronomie standardisée CFP"
+        "fr": "Assistante de gastronomie standardisée CFP",
+        "en": "Addetta/o di gastronomia standardizzata CFP"
       },
       "descriptionByLocale": {
         "it": "## Addetta/o di gastronomia standardizzata CFP\n\n**Coop** — Dietlikon, Dietlikon, Svizzera\n\n## Le tue mansioni\n- Produci e prepari menu allettanti.\n- Sei la prima persona di contatto e ti occupi di offrire consulenza e di servire la clientela.\n- Aiutate a ordinare il alimentari.\n\n## Cosa porti con te nell'azienda\n- Predisposizione al contatto con la gente e al lavoro di squadra\n- Capacità organizzativa e flessibilità\n- Volontà di lavorare autonomamente e di assumersi responsabilità\n- Voglia di perfezionarsi in un'azienda dinamica\n- Interesse per gli alimenti\n- Predisposizione al contatto con la clientela\n\n## Cosa ti offriamo\n- Abbonamento annuale Update-Fitness\n- Buono del valore di 500 franchi per l'aquisto di un notebook, tablet ecc.\n- 50% di sconto sul primo abbonamento di telefonia mobile Coop Mobile\n- 6 settimane di vacanze\n- Lunch-Check di 100 franchi al mese\n- Sconti in tutte le aziende partner della Coop\n- Abbonamento metà-prezzo / contributo di 650 franchi all'abbonamento generale FFS\nChrista Niederberger\nRU Formazione professionale\nChoose Your Character - Create Your Future:\nDate forma al vostro futuro con un apprendistato adeguato presso Marché Ristoranti Svizzera SA.\n\n---\n**Tipo:** Full-time\n**Sede:** Dietlikon",
@@ -5495,8 +5448,8 @@
       "slugByLocale": {
         "it": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
         "en": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-        "de": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455",
-        "fr": "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-3og455"
+        "de": "standardisierte-gastronomie-assistentin-cfp-marche-dietlikon",
+        "fr": "assistante-de-gastronomie-standardisee-cfp-marche-dietlikon"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5513,7 +5466,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "addetta-o-di-gastronomia-standardizzata-cfp-marche-dietlikon-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-fio33i",
@@ -5585,9 +5539,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-fio33i",
-        "en": "impiegato-a-interdiscount-jegensdorf-fio33i",
-        "de": "impiegato-a-interdiscount-jegensdorf-fio33i",
-        "fr": "impiegato-a-interdiscount-jegensdorf-fio33i"
+        "en": "sales-associate-interdiscount-jegensdorf",
+        "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+        "fr": "associe-de-vente-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -5604,7 +5558,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegato-a-interdiscount-jegensdorf-4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-wtgucu",
@@ -5676,9 +5631,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-        "en": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-        "de": "impiegato-a-interdiscount-jegensdorf-wtgucu",
-        "fr": "impiegato-a-interdiscount-jegensdorf-wtgucu"
+        "en": "sales-associate-interdiscount-jegensdorf",
+        "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+        "fr": "associe-de-vente-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -5695,7 +5650,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegato-a-interdiscount-jegensdorf-5"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-yuay7y",
@@ -5767,9 +5723,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-        "en": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-        "de": "impiegato-a-interdiscount-jegensdorf-yuay7y",
-        "fr": "impiegato-a-interdiscount-jegensdorf-yuay7y"
+        "en": "sales-associate-interdiscount-jegensdorf",
+        "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+        "fr": "associe-de-vente-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -5786,7 +5742,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegato-a-interdiscount-jegensdorf-6"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-mijshv",
@@ -5858,9 +5815,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-interdiscount-jegensdorf-mijshv",
-        "en": "impiegato-a-interdiscount-jegensdorf-mijshv",
-        "de": "impiegato-a-interdiscount-jegensdorf-mijshv",
-        "fr": "impiegato-a-interdiscount-jegensdorf-mijshv"
+        "en": "sales-associate-interdiscount-jegensdorf",
+        "de": "verkaufsmitarbeiter-interdiscount-jegensdorf",
+        "fr": "associe-de-vente-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -5877,7 +5834,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegato-a-interdiscount-jegensdorf-7"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-4ykct8",
@@ -5992,7 +5950,8 @@
       "titleByLocale": {
         "de": "Systemgastronomiefachfrau:mann EFZ",
         "fr": "Spécialiste en Gastronomie Systématique EFZ",
-        "it": "EFZ System Gastronomy Specialist"
+        "it": "EFZ System Gastronomy Specialist",
+        "en": "Systemgastronomiefachfrau:mann EFZ"
       },
       "descriptionByLocale": {
         "de": "## Systemgastronomiefachfrau:mann EFZ\n\n**Coop** — Dietlikon, Dietlikon, Svizzera\n\n## Deine Aufgaben\n- Du produzierst und richtest ansprechende Menüs an.\n- Du berätst und bedienst unsere Gäste als erste Ansprechsperson.\n- Du bestellst und kaufst Lebensmittel ein.\n\n## Das bringst du mit\n- Teamfähigkeit und Freude am Kontakt mit Menschen ​\n- Organisationsfähigkeit und Flexibilität​\n- Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​\n- Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​\n- Interesse an Lebensmittel\n- Freude am Umgang mit Gästen\n\n## Das bieten wir dir\n- Jahresabo Update Fitness\n- Gutschein im Wert von 500 CHF für ein Notebook, Tablet etc.\n- 50% auf Coop Mobile Start-Abo\n- 6 Wochen Ferien\n- CHF 100 Lunch-Check pro Monat\n- Rabatte in sämtlichen Coop-Partnerunternehmen\n- Halbtax-Abo / Anteil von CHF 650 an ein GA der SBB\nChrista Niederberger\nHR Berufsbildung\nChoose Your Character - Create Your Future:\nGestalte deine Zukunft mit einer passenden Lehre bei Marché Restaurants Schweiz AG.\n\n---\n**Tipo:** Full-time\n**Sede:** Dietlikon",
@@ -6028,7 +5987,7 @@
       },
       "slugByLocale": {
         "it": "efz-system-gastronomy-specialist-marche-grigioni",
-        "en": "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2",
+        "en": "systemgastronomiefachfrau-mann-efz-marche-grigioni",
         "de": "systemgastronomiefachfrau-mann-efz-marche-grigioni-7qutu2",
         "fr": "specialiste-en-gastronomie-systematique-efz-marche-grigioni"
       },
@@ -6048,7 +6007,8 @@
       "previousSlugs": [
         "systemgastronomiefachfrau-mann-efz-marche-grigioni",
         "systemgastronomiefachfrau-mann-cfc-marche-grigioni-7qutu2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-o29xz6",
@@ -6166,7 +6126,8 @@
       "titleByLocale": {
         "de": "Detailhandelsassistent:in EBA",
         "it": "Assistente di vendita Coop",
-        "fr": "Assistant(e) de vente Coop"
+        "fr": "Assistant(e) de vente Coop",
+        "en": "Detailhandelsassistent:in EBA"
       },
       "descriptionByLocale": {
         "de": "## Detailhandelsassistent:in EBA\n\n**Coop** — Gossau, Gossau, Svizzera\n\n## Deine Aufgaben\n- Du berätst, bedienst unsere Kundschaft und führst anspruchsvolle Verkaufsgespräche.\n- Du bestellst die Ware und bist für die Bewirtschaftung zuständig.​\n- Du spezialisierst dich in einer von dir ausgewählten Fachrichtung.\n\n## Das bringst du mit\n- Teamfähigkeit und Freude am Kontakt mit Menschen ​\n- Organisationsfähigkeit und Flexibilität​\n- Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​\n- Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​\n- Kommunikationsfähigkeit ​\n- Flair für den Verkauf​\n\n## Das bieten wir dir\n- Jahresabo \"update Fitness\"\n- CHF 500 für Laptop oder Tablet\n- 50% auf erstes Handy-Abo von Coop Mobile\n- SBB Halbtax oder Anteil GA CHF 650\n- Viele Vergünstigungen für Mitarbeitende\nAnja Hollenstein\nHR Berufsbildung\nChoose Your Character - Create Your Future:\nGestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten.\n\n---\n**Tipo:** Full-time\n**Sede:** Gossau",
@@ -6205,7 +6166,7 @@
       },
       "slugByLocale": {
         "it": "assistente-di-vendita-coop-coop-grigioni",
-        "en": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
+        "en": "detailhandelsassistent-in-eba-coop-grigioni",
         "de": "detailhandelsassistent-in-eba-coop-grigioni-2sfgum",
         "fr": "assistant-e-de-vente-coop-coop-grigioni"
       },
@@ -6225,7 +6186,8 @@
       "previousSlugs": [
         "detailhandelsassistent-in-eba-coop-grigioni",
         "detailhandelsassistent-in-afp-coop-grigioni-2sfgum"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cuvyva",
@@ -6297,9 +6259,9 @@
       },
       "slugByLocale": {
         "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva",
-        "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva",
-        "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva",
-        "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-cuvyva"
+        "en": "retail-sales-assistant-cfp-coop-gossau",
+        "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+        "fr": "assistant-e-de-vente-en-detail-cfp-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -6316,7 +6278,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "assistente-del-commercio-al-dettaglio-cfp-coop-gossau"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-6u7a7a",
@@ -6385,9 +6348,9 @@
       },
       "slugByLocale": {
         "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a",
-        "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a",
-        "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a",
-        "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-6u7a7a"
+        "en": "retail-sales-assistant-cfp-coop-gossau",
+        "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+        "fr": "assistant-de-vente-en-detail-cfp-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -6404,7 +6367,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-m7tuu",
@@ -6476,9 +6440,9 @@
       },
       "slugByLocale": {
         "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu",
-        "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu",
-        "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu",
-        "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-0m7tuu"
+        "en": "retail-sales-assistant-cfp-coop-gossau",
+        "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+        "fr": "assistant-e-de-vente-en-detail-cfp-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -6495,7 +6459,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-3"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-anq72b",
@@ -6561,9 +6526,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b",
-        "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b",
-        "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b",
-        "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-anq72b"
+        "en": "standardized-gastronomy-employee-coop-ristorante-gossau",
+        "de": "standardisierte-gastronomiebeschaftigte-coop-ristorante-gossau",
+        "fr": "employee-de-gastronomie-standardisee-coop-ristorante-gossau"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -6580,7 +6545,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-59hltn",
@@ -6646,9 +6612,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-59hltn"
+        "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+        "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+        "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -6665,7 +6631,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-paz7ck",
@@ -6706,9 +6673,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-paz7ck"
+        "en": "retail-sales-assistant-afc-creating-shopping-experiences-jumbo-lenzburg-1",
+        "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+        "fr": "assistant-de-vente-au-detail-cfc-creer-des-experiences-d-achat-jumbo-lenzburg-1"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -6725,7 +6692,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-aofvyd",
@@ -6791,9 +6759,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd",
-        "en": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd",
-        "de": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd",
-        "fr": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-aofvyd"
+        "en": "standardized-gastronomy-employee-coop-ristorante-gossau",
+        "de": "standardisierte-gastronomiebeschaftigte-coop-ristorante-gossau",
+        "fr": "employee-de-gastronomie-standardisee-coop-ristorante-gossau"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -6810,7 +6778,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-gossau-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-nj9ppx",
@@ -6882,9 +6851,9 @@
       },
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-        "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-        "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx",
-        "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-nj9ppx"
+        "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+        "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -6901,7 +6870,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-3"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-tri0cv",
@@ -6967,9 +6937,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-tri0cv"
+        "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+        "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+        "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -6986,7 +6956,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-n4f99v",
@@ -7015,7 +6986,8 @@
       "titleByLocale": {
         "it": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
         "de": "Detailhandelsfachfrau / Detailhandelsfachmann EFZ \"Einkaufserlebnisse schaffen\"",
-        "fr": "Employé(e) de commerce de détail CFC \"Création d'expériences d'achat\""
+        "fr": "Employé(e) de commerce de détail CFC \"Création d'expériences d'achat\"",
+        "en": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\""
       },
       "descriptionByLocale": {
         "it": "## Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"\n\n**Coop** — Lenzburg 1, Lenzburg 1, Svizzera\n\n## Le tue mansioni\n- Offri consulenza alla nostra clientela, la servi e conduci complessi colloqui di vendita.\n- Provvedi a rifornire la merce e la gestisci.\n- Crei situazioni che favoriscono le esperienze di acquisto orientate ai prodotti e ai servizi.\n- Ti specializzi in un settore di tua scelta.\n\n## Cosa porti con te nell'azienda\n- Predisposizione al contatto con la gente e al lavoro di squadra\n- Capacità organizzativa e flessibilità\n- Volontà di lavorare autonomamente e di assumersi responsabilità\n- Voglia di perfezionarsi in un'azienda dinamica\n- Capacità comunicative\n- Talento per la vendita\n\n## Cosa ti offriamo\n- Abbonamento annuale update Fitness\n- Fr. 500 per l'acquiesto di un notebook, tablet\n- 50% sull'abbonamento Start Coop Mobile\n- Abbonamento metà-prezzo / Partecipazione di fr. 650 per l'acquisto dell'abbonamento generale FFS\n- E tante altre agevolazioni per il personale Coop!\nPamela Padovano\nRU Formazione professionale\nChoose Your Character - Create Your Future:\nDai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua.\n\n---\n**Tipo:** Full-time\n**Sede:** Lenzburg 1",
@@ -7052,8 +7024,8 @@
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
         "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-n4f99v"
+        "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+        "fr": "employe-e-de-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-lenzburg-1"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7070,7 +7042,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-u93w1d",
@@ -7099,7 +7072,8 @@
       "titleByLocale": {
         "it": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
         "de": "Detailhandelsfachfrau / Detailhandelsfachmann EFZ \"Einkaufserlebnisse schaffen\"",
-        "fr": "Employé(e) de commerce de détail CFC \"Création d'expériences d'achat\""
+        "fr": "Employé(e) de commerce de détail CFC \"Création d'expériences d'achat\"",
+        "en": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\""
       },
       "descriptionByLocale": {
         "it": "## Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"\n\n**Coop** — Lenzburg 1, Lenzburg 1, Svizzera\n\n## Le tue mansioni\n- Offri consulenza alla nostra clientela, la servi e conduci complessi colloqui di vendita.\n- Provvedi a rifornire la merce e la gestisci.\n- Crei situazioni che favoriscono le esperienze di acquisto orientate ai prodotti e ai servizi.\n- Ti specializzi in un settore di tua scelta.\n\n## Cosa porti con te nell'azienda\n- Predisposizione al contatto con la gente e al lavoro di squadra\n- Capacità organizzativa e flessibilità\n- Volontà di lavorare autonomamente e di assumersi responsabilità\n- Voglia di perfezionarsi in un'azienda dinamica\n- Capacità comunicative\n- Talento per la vendita\n\n## Cosa ti offriamo\n- Abbonamento annuale update Fitness\n- Fr. 500 per l'acquiesto di un notebook, tablet\n- 50% sull'abbonamento Start Coop Mobile\n- Abbonamento metà-prezzo / Partecipazione di fr. 650 per l'acquisto dell'abbonamento generale FFS\n- E tante altre agevolazioni per il personale Coop!\nPamela Padovano\nRU Formazione professionale\nChoose Your Character - Create Your Future:\nDai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua.\n\n---\n**Tipo:** Full-time\n**Sede:** Lenzburg 1",
@@ -7136,8 +7110,8 @@
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
         "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-u93w1d"
+        "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+        "fr": "employe-e-de-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-lenzburg-1"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7154,7 +7128,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-3"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-c62qk9",
@@ -7183,7 +7158,8 @@
       "titleByLocale": {
         "it": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
         "de": "Detailhandelsfachfrau / Detailhandelsfachmann EFZ \"Einkaufserlebnisse schaffen\"",
-        "fr": "Employé(e) de commerce de détail CFC \"Création d'expériences d'achat\""
+        "fr": "Employé(e) de commerce de détail CFC \"Création d'expériences d'achat\"",
+        "en": "Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\""
       },
       "descriptionByLocale": {
         "it": "## Impiegata / Impiegato del commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"\n\n**Coop** — Lenzburg 1, Lenzburg 1, Svizzera\n\n## Le tue mansioni\n- Offri consulenza alla nostra clientela, la servi e conduci complessi colloqui di vendita.\n- Provvedi a rifornire la merce e la gestisci.\n- Crei situazioni che favoriscono le esperienze di acquisto orientate ai prodotti e ai servizi.\n- Ti specializzi in un settore di tua scelta.\n\n## Cosa porti con te nell'azienda\n- Predisposizione al contatto con la gente e al lavoro di squadra\n- Capacità organizzativa e flessibilità\n- Volontà di lavorare autonomamente e di assumersi responsabilità\n- Voglia di perfezionarsi in un'azienda dinamica\n- Capacità comunicative\n- Talento per la vendita\n\n## Cosa ti offriamo\n- Abbonamento annuale update Fitness\n- Fr. 500 per l'acquiesto di un notebook, tablet\n- 50% sull'abbonamento Start Coop Mobile\n- Abbonamento metà-prezzo / Partecipazione di fr. 650 per l'acquisto dell'abbonamento generale FFS\n- E tante altre agevolazioni per il personale Coop!\nPamela Padovano\nRU Formazione professionale\nChoose Your Character - Create Your Future:\nDai forma al tuo futuro con una formazione interessante. Da Coop trovi un'ampia offerta di posti di tirocinio e ulteriori possibilità di formazione continua.\n\n---\n**Tipo:** Full-time\n**Sede:** Lenzburg 1",
@@ -7220,8 +7196,8 @@
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9",
         "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-c62qk9"
+        "de": "detailhandelsfachfrau-detailhandelsfachmann-efz-einkaufserlebnisse-schaffen-jumbo-lenzburg-1",
+        "fr": "employe-e-de-commerce-de-detail-cfc-creation-d-experiences-d-achat-jumbo-lenzburg-1"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7238,7 +7214,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-jumbo-lenzburg-1-4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-91gltk",
@@ -7310,9 +7287,9 @@
       },
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-        "en": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-        "de": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk",
-        "fr": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-91gltk"
+        "en": "retail-specialist-afc-creating-shopping-experiences-interdiscount-jegensdorf",
+        "de": "einzelhandelspezialist-afc-erschaffung-von-einkaufserlebnissen-interdiscount-jegensdorf",
+        "fr": "specialiste-du-commerce-de-detail-afc-creation-d-experiences-d-achat-interdiscount-jegensdorf"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7329,7 +7306,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-tu6208",
@@ -7395,9 +7373,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-tu6208"
+        "en": "retail-sales-associate-at-coop-city-coop-city-lenzburg-1",
+        "de": "einzelhandelsverkaufer-in-bei-coop-city-coop-city-lenzburg-1",
+        "fr": "vendeur-se-en-detail-chez-coop-city-coop-city-lenzburg-1"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7414,7 +7392,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-city-lenzburg-1-2"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-yidja6",
@@ -7486,9 +7465,9 @@
       },
       "slugByLocale": {
         "it": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6",
-        "en": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6",
-        "de": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6",
-        "fr": "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-yidja6"
+        "en": "retail-sales-assistant-cfp-coop-gossau",
+        "de": "einzelhandelsverkaufer-cfp-coop-gossau",
+        "fr": "assistant-e-de-vente-en-detail-cfp-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7505,7 +7484,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "assistente-del-commercio-al-dettaglio-cfp-coop-gossau-4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-1eujvt",
@@ -7571,9 +7551,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-1eujvt"
+        "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+        "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+        "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7590,7 +7570,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-3"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-5x5jkh",
@@ -7656,9 +7637,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5x5jkh"
+        "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+        "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+        "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -7675,11 +7656,12 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-4"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-xza3wt",
-      "slug": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
+      "slug": "panettiere-pasticciere-confettiere-coop-grigioni",
       "company": "Coop",
       "title": "Bäcker:in Konditor:in Confiseur:in",
       "location": "Grigioni",
@@ -7728,10 +7710,10 @@
         ]
       },
       "slugByLocale": {
-        "it": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
-        "en": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
+        "it": "panettiere-pasticciere-confettiere-coop-grigioni",
+        "en": "baker-pastry-chef-confectioner-coop-grigioni",
         "de": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt",
-        "fr": "backer-in-konditor-in-confiseur-in-coop-grigioni-xza3wt"
+        "fr": "boulanger-patissier-confiseur-coop-grigioni"
       },
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -8298,7 +8280,7 @@
     },
     {
       "id": "company-pzx8dt",
-      "slug": "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt",
+      "slug": "impiegata-impiegato-in-logistica-cfc-coop-grigioni",
       "company": "Coop",
       "title": "Logistiker:in EFZ",
       "location": "Grigioni",
@@ -8322,7 +8304,9 @@
       "crawledAt": "2026-03-23T09:19:49.009Z",
       "titleByLocale": {
         "de": "Logistiker:in EFZ",
-        "it": "impiegata/impiegato in logistica CFC"
+        "it": "impiegata/impiegato in logistica CFC",
+        "en": "Logistiker:in EFZ",
+        "fr": "Logistiker:in EFZ"
       },
       "descriptionByLocale": {
         "de": "## Logistiker:in EFZ\n\n**Coop** — Gossau, Gossau, Svizzera\n\n## Deine Aufgaben\n- Du nimmst die angelieferte Ware entgegen und verbuchst sie im System.\n- Du hilfst bei der Organisation des Lagers mit und führst Qualitätskontrollen durch.\n- Du stellst Produkte für die Verkaufsstellen zum Versand bereit.\n\n## Das bringst du mit\n- Teamfähigkeit und Freude am Kontakt mit Menschen ​\n- Organisationsfähigkeit und Flexibilität​\n- Wille, selbständig zu arbeiten und Verantwortung zu übernehmen​\n- Freude daran, sich in einem dynamischen Unternehmen weiterzuentwickeln​\n- Rasche Auffassungsgabe und genaue Arbeitsweise\n- Freude an der Arbeit mit moderner Technik\n\n## Das bieten wir dir\n- Jahresabo \"update Fitness\"\n- CHF 500 für Laptop oder Tablet\n- 50% auf erstes Handy-Abo von Coop Mobile\n- SBB Halbtax oder Anteil GA CHF 650\n- Viele Vergünstigungen für Mitarbeitende\nAnja Hollenstein\nHR Berufsbildung\nChoose Your Character - Create Your Future:\nGestalte deine Zukunft mit einer passenden Lehre. Coop bietet ein grosses Angebot an Lehrstellen und Weiterbildungsmöglichkeiten.\n\n---\n**Tipo:** Full-time\n**Sede:** Gossau",
@@ -8357,7 +8341,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt",
+        "it": "impiegata-impiegato-in-logistica-cfc-coop-grigioni",
         "en": "logistiker-in-efz-coop-grigioni-pzx8dt",
         "de": "logistiker-in-efz-coop-grigioni-pzx8dt",
         "fr": "logistiker-in-efz-coop-grigioni-pzx8dt"
@@ -8376,8 +8360,10 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "logistiker-in-efz-coop-grigioni"
-      ]
+        "logistiker-in-efz-coop-grigioni",
+        "impiegata-impiegato-in-logistica-cfc-coop-grigioni-pzx8dt"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-86rxeu",
@@ -8799,9 +8785,9 @@
       },
       "slugByLocale": {
         "it": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd",
-        "en": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd",
-        "de": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd",
-        "fr": "tecnica-tecnico-alimentarista-afc-coop-gossau-94bidd"
+        "en": "technical-food-specialist-coop-gossau",
+        "de": "technischer-lebensmittelfachmann-coop-gossau",
+        "fr": "technicien-specialise-en-alimentation-coop-gossau"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -8818,7 +8804,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "tecnica-tecnico-alimentarista-afc-coop-gossau"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-o0urjk",
@@ -8884,9 +8871,9 @@
       },
       "slugByLocale": {
         "it": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk",
-        "en": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk",
-        "de": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk",
-        "fr": "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-o0urjk"
+        "en": "retail-sales-associate-afc-creating-shopping-experiences-coop-gossau",
+        "de": "einzelhandelsverkaufer-afc-erschaffung-von-einkaufserlebnissen-coop-gossau",
+        "fr": "associe-de-vente-en-detail-afc-creation-d-experiences-d-achat-coop-gossau"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -8903,11 +8890,12 @@
       "sourceLang": "it",
       "previousSlugs": [
         "impiegata-impiegato-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-coop-gossau-5"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ko3qba",
-      "slug": "responsabile-junior-vendita-coop-landquart-graubunden-ko3qba",
+      "slug": "responsabile-junior-vendita-coop-landquart-graubunden",
       "company": "Coop",
       "title": "Nachwuchskader Verkauf",
       "location": "Landquart, Graubünden",
@@ -8965,7 +8953,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "responsabile-junior-vendita-coop-landquart-graubunden-ko3qba",
+        "it": "responsabile-junior-vendita-coop-landquart-graubunden",
         "en": "nachwuchskader-verkauf-coop-landquart-graubunden-ko3qba",
         "de": "nachwuchskader-verkauf-coop-landquart-graubunden-ko3qba",
         "fr": "nachwuchskader-verkauf-coop-landquart-graubunden-ko3qba"
@@ -8984,12 +8972,13 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "nachwuchskader-verkauf-coop-landquart-graubunden"
+        "nachwuchskader-verkauf-coop-landquart-graubunden",
+        "responsabile-junior-vendita-coop-landquart-graubunden-ko3qba"
       ]
     },
     {
       "id": "company-6s5qvy",
-      "slug": "responsabile-junior-vendita-coop-chur-graubunden-6s5qvy",
+      "slug": "responsabile-junior-vendita-coop-chur-graubunden",
       "company": "Coop",
       "title": "Nachwuchskader Verkauf",
       "location": "Chur, Graubünden",
@@ -9053,7 +9042,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "responsabile-junior-vendita-coop-chur-graubunden-6s5qvy",
+        "it": "responsabile-junior-vendita-coop-chur-graubunden",
         "en": "nachwuchskader-verkauf-coop-chur-graubunden-6s5qvy",
         "de": "nachwuchskader-verkauf-coop-chur-graubunden-6s5qvy",
         "fr": "nachwuchskader-verkauf-coop-chur-graubunden-6s5qvy"
@@ -9072,94 +9061,8 @@
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "nachwuchskader-verkauf-coop-chur-graubunden"
-      ]
-    },
-    {
-      "id": "company-ncbhm0",
-      "slug": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
-      "company": "Coop",
-      "title": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
-      "location": "Grigioni",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Aufgaben\n- Fleisch und Fisch präsentieren\n- Fleisch und Fisch schneiden\n- Fleisch und Fisch nach Rezept verarbeiten\n- Kundinnen und Kunden beraten und bedienen\n\n## Anforderungen\n- Du kochst gerne.\n- Du arbeitest gerne mit Fleisch und Fisch.\n- Du hast Freude am Kundenkontakt.\n- Du kannst Deutsch sprechen und lesen.\n- Du willst Neues lernen.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Unterstützung bei Weiterbildungen und bei Ausbildungsangeboten von der LGAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nDaniel Mangold\nHR Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Muttenz",
-      "requirements": [
-        "Du kannst Deutsch sprechen und lesen."
-      ],
-      "featured": false,
-      "postedDate": "2025-05-05",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/quereinstieg-mitarbeiter-in-fleisch-und-fisch/d3acd339-9e5f-4ebe-b614-304329c8d2b1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-23T09:19:49.009Z",
-      "titleByLocale": {
-        "de": "Quereinstieg - Mitarbeiter:in Fleisch und Fisch",
-        "it": "Assunzione - Dipendente Carni e Pesce",
-        "en": "Entry-Level - Meat and Fish Employee",
-        "fr": "Emploi - Employé(e) Viande et Poisson"
-      },
-      "descriptionByLocale": {
-        "de": "## Quereinstieg - Mitarbeiter:in Fleisch und Fisch\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Aufgaben\n- Fleisch und Fisch präsentieren\n- Fleisch und Fisch schneiden\n- Fleisch und Fisch nach Rezept verarbeiten\n- Kundinnen und Kunden beraten und bedienen\n\n## Anforderungen\n- Du kochst gerne.\n- Du arbeitest gerne mit Fleisch und Fisch.\n- Du hast Freude am Kundenkontakt.\n- Du kannst Deutsch sprechen und lesen.\n- Du willst Neues lernen.\n\n## Was wir bieten\n- Vergünstigungen: Rabatt auf das Reiseangebot ITS Coop Travel, 5-fache Anzahl Superpunkte im Supermarkt, bis zu 20% Rabatt auf verschiedene Versicherungsleistungen, bis zu 20% Rabatt in allen Formaten der Coop-Gruppe, günstigere Mobile- und Prepaid-Abos bei Coop Mobile, Reka-Card: Vergünstigung bei Bezug, Vergünstigung bei Mobility CarSharing, Personalrabatt auch für Partner:in (im gleichen Haushalt lebend), Vergünstigung bei GA-Abonnement, Vergünstigungen bei Kulturanlässen, Vergünstigungen für Freizeitaktivitäten\n- Anstellungsbedingungen: Pensionskasse: 2/3 wird von Coop einbezahlt, Attraktive Anstellungsbedingungen und zertifizierte Lohngleichheit, Treueprämien, Sparplan bei der Pensionskasse,Gesamtarbeitsvertrag (GAV), 18 Wochen bezahlter Mutterschaftsurlaub und drei Wochen bezahlter Vaterschaftsurlaub\n- Arbeitszeit: 5 Wochen Ferien, flexible Arbeitszeitmodelle\n- Weiterbildung: Über 600 interne Weiterbildungskurse, Talentmanagement mit vielfältigen Entwicklungsmöglichkeiten, Unterstützung bei Weiterbildungen und bei Ausbildungsangeboten von der LGAV und Coop\n- Nachhaltigkeit: Engagement für Mensch, Tier und Natur mit über 400 Taten\n- Kommunikation: interne App für Mitarbeitende\n- Gesundheit: Update-Fitness: Fr. 200.– Rabatt aufs Jahresabonnement, Gratis Teilnahme an verschiedenen Firmenläufen, Firmeninterne Sportangebote\n\n## Deine Ansprechperson\nDaniel Mangold\nHR Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Muttenz",
-        "it": "## Cambio di carriera - Collaboratore/trice Carne e Pesce\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Svizzera\n\n## Mansioni\n- Presentare carne e pesce\n- Tagliare carne e pesce\n- Lavorare carne e pesce secondo ricetta\n- Consigliare e servire la clientela\n\n## Requisiti\n- Ti piace cucinare.\n- Ti piace lavorare con carne e pesce.\n- Hai piacere nel contatto con la clientela.\n- Sai parlare e leggere il tedesco.\n- Vuoi imparare cose nuove.\n\n## Cosa offriamo\n- Agevolazioni: sconto sull'offerta viaggi ITS Coop Travel, punti Superpunkte quintuplicati al supermercato, fino al 20% di sconto su diverse prestazioni assicurative, fino al 20% di sconto in tutti i formati del Gruppo Coop, abbonamenti Mobile e Prepaid più convenienti con Coop Mobile, Reka-Card: agevolazione all'acquisto, agevolazione Mobility CarSharing, sconto per il personale anche per il/la partner (convivente), agevolazione sull'abbonamento GA, agevolazioni per eventi culturali, agevolazioni per attività del tempo libero\n- Condizioni d'impiego: Cassa pensione: 2/3 pagati da Coop, condizioni d'impiego attrattive e parità salariale certificata, premi di fedeltà, piano di risparmio presso la cassa pensione, Contratto collettivo di lavoro (CCL), 18 settimane di congedo maternità retribuito e tre settimane di congedo paternità retribuito\n- Orario di lavoro: 5 settimane di vacanza, modelli di orario flessibili\n- Formazione continua: oltre 600 corsi interni di formazione continua, gestione dei talenti con molteplici opportunità di sviluppo, supporto per le formazioni continue e per le offerte formative del LGAV e Coop\n- Sostenibilità: impegno per l'uomo, gli animali e la natura con oltre 400 azioni\n- Comunicazione: app interna per i collaboratori\n- Salute: Update-Fitness: CHF 200.– di sconto sull'abbonamento annuale, partecipazione gratuita a diverse corse aziendali, offerte sportive interne\n\n## La tua persona di riferimento\nDaniel Mangold\nHR Marketing\n\n---\n**Tipo:** Part-time\n**Sede:** Muttenz",
-        "en": "## Career Change - Employee Meat and Fish\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Switzerland\n\n## Responsibilities\n- Present meat and fish\n- Cut meat and fish\n- Process meat and fish according to recipes\n- Advise and serve customers\n\n## Requirements\n- You enjoy cooking.\n- You enjoy working with meat and fish.\n- You enjoy customer contact.\n- You can speak and read German.\n- You want to learn new things.\n\n## What we offer\n- Benefits: discount on ITS Coop Travel offers, 5x Superpunkte at the supermarket, up to 20% discount on various insurance services, up to 20% discount across all Coop Group formats, cheaper mobile and prepaid plans with Coop Mobile, Reka-Card: purchase discount, Mobility CarSharing discount, staff discount also for partner (living in the same household), discount on GA travel pass, discounts on cultural events, discounts on leisure activities\n- Employment conditions: Pension fund: 2/3 paid by Coop, attractive employment conditions and certified pay equality, loyalty bonuses, savings plan with the pension fund, Collective labour agreement (CLA), 18 weeks paid maternity leave and three weeks paid paternity leave\n- Working hours: 5 weeks holiday, flexible working time models\n- Training: over 600 internal training courses, talent management with diverse development opportunities, support for further training and training offers from LGAV and Coop\n- Sustainability: commitment to people, animals and nature with over 400 initiatives\n- Communication: internal employee app\n- Health: Update-Fitness: CHF 200.– discount on annual subscription, free participation in various company runs, internal sports activities\n\n## Your contact person\nDaniel Mangold\nHR Marketing\n\n---\n**Type:** Part-time\n**Location:** Muttenz",
-        "fr": "## Reconversion - Collaborateur/trice Viande et Poisson\n\n**Coop Genossenschaft** — Muttenz, Muttenz, Suisse\n\n## Missions\n- Présenter viande et poisson\n- Découper viande et poisson\n- Transformer viande et poisson selon les recettes\n- Conseiller et servir la clientèle\n\n## Exigences\n- Vous aimez cuisiner.\n- Vous aimez travailler avec la viande et le poisson.\n- Vous appréciez le contact avec la clientèle.\n- Vous savez parler et lire l'allemand.\n- Vous souhaitez apprendre de nouvelles choses.\n\n## Ce que nous offrons\n- Avantages : réduction sur l'offre voyage ITS Coop Travel, Superpunkte quintuplés au supermarché, jusqu'à 20% de réduction sur diverses prestations d'assurance, jusqu'à 20% de réduction dans tous les formats du Groupe Coop, abonnements Mobile et Prepaid avantageux chez Coop Mobile, Reka-Card : réduction à l'achat, réduction Mobility CarSharing, rabais pour le personnel également pour le/la partenaire (vivant dans le même ménage), réduction sur l'abonnement AG, réductions pour événements culturels, réductions pour activités de loisirs\n- Conditions d'emploi : Caisse de pension : 2/3 payés par Coop, conditions d'emploi attractives et égalité salariale certifiée, primes de fidélité, plan d'épargne auprès de la caisse de pension, Convention collective de travail (CCT), 18 semaines de congé maternité payé et trois semaines de congé paternité payé\n- Temps de travail : 5 semaines de vacances, modèles de temps de travail flexibles\n- Formation continue : plus de 600 cours internes de formation continue, gestion des talents avec de nombreuses opportunités de développement, soutien pour les formations continues et offres de formation du LGAV et Coop\n- Durabilité : engagement pour l'homme, les animaux et la nature avec plus de 400 actions\n- Communication : application interne pour les collaborateurs\n- Santé : Update-Fitness : CHF 200.– de réduction sur l'abonnement annuel, participation gratuite à diverses courses d'entreprise, offres sportives internes\n\n## Votre personne de contact\nDaniel Mangold\nHR Marketing\n\n---\n**Type :** Part-time\n**Lieu :** Muttenz"
-      },
-      "requirementsByLocale": {
-        "it": [
-          "Ti piace cucinare",
-          "Ti piace lavorare con carni e pesce",
-          "Ti piace il contatto con i clienti",
-          "Puoi parlare e leggere in tedesco",
-          "Vuoi imparare qualcosa di nuovo"
-        ],
-        "en": [
-          "You enjoy cooking",
-          "You enjoy working with meat and fish",
-          "You enjoy customer contact",
-          "You can speak and read German",
-          "You want to learn new things"
-        ],
-        "de": [
-          "Du kannst Deutsch sprechen und lesen."
-        ],
-        "fr": [
-          "Vous aimez cuisiner",
-          "Vous aimez travailler avec la viande et le poisson",
-          "Vous aimez le contact avec les clients",
-          "Vous pouvez parler et lire en allemand",
-          "Vous voulez apprendre de nouvelles choses"
-        ]
-      },
-      "slugByLocale": {
-        "it": "quereinstieg-collaboratore-trice-fleisch-e-fisch-coop-grigioni-ncbhm0",
-        "en": "quereinstieg-associate-fleisch-und-fisch-coop-grigioni-ncbhm0",
-        "de": "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-ncbhm0",
-        "fr": "quereinstieg-collaborateur-trice-fleisch-und-fisch-coop-grigioni-ncbhm0"
-      },
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46500,
-          "maxValue": 62500,
-          "unitText": "YEAR"
-        }
-      },
-      "sourceLang": "de",
-      "previousSlugs": [
-        "quereinstieg-mitarbeiter-in-fleisch-und-fisch-coop-grigioni-2"
+        "nachwuchskader-verkauf-coop-chur-graubunden",
+        "responsabile-junior-vendita-coop-chur-graubunden-6s5qvy"
       ]
     }
   ]
