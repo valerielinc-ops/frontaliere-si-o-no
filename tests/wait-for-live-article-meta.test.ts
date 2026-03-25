@@ -150,8 +150,8 @@ describe('wait-for-live-article-meta', () => {
         res.writeHead(requestCount < 3 ? 404 : 200, { 'content-type': 'text/html; charset=utf-8' });
         if (requestCount < 3) {
           res.end(`<!doctype html><html><head>
-            <title>Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo Netto</title>
-            <meta property="og:title" content="Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo Netto" />
+            <title>Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri</title>
+            <meta property="og:title" content="Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri" />
             <meta property="og:image" content="https://frontaliereticino.ch/og-image.png" />
             <meta property="og:url" content="https://frontaliereticino.ch/" />
           </head><body></body></html>`);

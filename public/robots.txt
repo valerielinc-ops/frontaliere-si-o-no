@@ -8,9 +8,6 @@ Disallow: /*.json$
 Disallow: /*?debug=*
 Disallow: /*?status=*
 
-# Crawl-delay for well-behaved bots
-Crawl-delay: 1
-
 # Sitemap locations (index includes pages, blog, glossario, and news sub-sitemaps)
 Sitemap: https://frontaliereticino.ch/sitemap.xml
 
@@ -30,7 +27,6 @@ Allow: /
 
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
 
 User-agent: msnbot
 Allow: /
@@ -97,7 +93,6 @@ Allow: /
 # Apple
 User-agent: Applebot
 Allow: /
-Crawl-delay: 1
 
 User-agent: Applebot-Extended
 Allow: /

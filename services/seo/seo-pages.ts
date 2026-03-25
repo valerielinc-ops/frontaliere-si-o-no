@@ -11,11 +11,11 @@ const BASE_URL = 'https://frontaliereticino.ch';
 
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   calculator: {
-    title: 'Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo Netto',
-    description: 'Simulazione tasse nuovi frontalieri 2026: calcola il netto, imposta alla fonte Ticino, IRPEF Italia, AVS/LPP. Calcolo tasse frontalieri oltre 20 km e.',
-    keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse frontalieri, simulazione netto frontalieri, imposta alla fonte ticino, stipendio frontaliere svizzera, calcolo tasse frontalieri oltre 20 km, calcolo tasse svizzera frontalieri, nuovo accordo frontalieri 2026',
-    ogTitle: 'Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo Netto',
-    ogDescription: 'Simulazione tasse nuovi frontalieri 2026: calcola il netto, imposta alla fonte Ticino, IRPEF Italia, AVS/LPP. Calcolo tasse frontalieri oltre 20 km incluso.',
+    title: 'Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri',
+    description: 'Calcola il netto come frontaliere in Svizzera 2026: simulatore per nuovi e vecchi frontalieri, imposta alla fonte Ticino, IRPEF Italia, AVS/LPP. Accordo 2026.',
+    keywords: 'simulazione tasse nuovi frontalieri, vecchi frontalieri calcolo, calcolo tasse frontalieri, simulazione netto frontalieri, imposta alla fonte ticino, stipendio frontaliere svizzera, calcolo tasse frontalieri oltre 20 km, calcolo tasse svizzera frontalieri, nuovo accordo frontalieri 2026',
+    ogTitle: 'Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri',
+    ogDescription: 'Calcola il tuo stipendio netto come frontaliere in Svizzera 2026: simulatore per nuovi e vecchi frontalieri, imposta alla fonte Ticino, IRPEF Italia, AVS/LPP.',
     canonicalPath: '/',
     structuredData: [
       {
