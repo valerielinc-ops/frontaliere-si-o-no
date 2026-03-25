@@ -831,6 +831,16 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       color: 'text-indigo-600',
       keywords: ['lavoro', 'jobs', 'offerte', 'offers', 'ticino', 'aziende', 'companies', 'emploi', 'stelle', 'candidati', 'apply', 'impiego', 'carriera'],
     },
+    {
+      id: 'job-board-part-time',
+      title: 'Lavoro part-time in Ticino',
+      description: 'Offerte di lavoro a tempo parziale per frontalieri in Ticino',
+      section: t('jobBoard.badge') || 'Lavoro',
+      tab: 'job-board',
+      icon: BriefcaseBusiness,
+      color: 'text-indigo-600',
+      keywords: ['part-time', 'tempo parziale', 'teilzeit', 'temps partiel', 'flessibile', 'flexible', 'percentuale', 'percentage', 'parziale', 'ridotto'],
+    },
     // ─── Profile ───
     {
       id: 'profile',

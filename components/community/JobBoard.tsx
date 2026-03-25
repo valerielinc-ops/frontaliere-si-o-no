@@ -75,6 +75,7 @@ import {
   buildJobLocationTypeLandingModel,
   buildJobNursesHubLandingModel,
   buildJobOfficialGazetteLandingModel,
+  buildJobPartTimeLandingModel,
   buildJobTodayLandingModel,
   resolveEditorialJobLandingDescriptor,
 } from '../../build-plugins/jobEditorialLanding';
@@ -2510,6 +2511,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
     });
   }, [editorialLandingDescriptor, jobs, locale]);
 
+  const editorialPartTimeLanding = useMemo(() => {
+    if (editorialLandingDescriptor?.kind !== 'part-time') return null;
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : PUBLIC_SITE_URL;
+    return buildJobPartTimeLandingModel({
+      jobs,
+      locale,
+      now: new Date().toISOString(),
+      localizedSlug: deriveLocalizedJobSlug,
+      baseUrl,
+      sectionSlug: getJobBoardSectionSlug(locale),
+      localePrefix: locale === 'it' ? '' : `/${locale}`,
+    });
+  }, [editorialLandingDescriptor, jobs, locale]);
+
   const editorialCareVariantLanding = useMemo(() => {
     if (editorialLandingDescriptor?.kind !== 'care-variant') return null;
     const baseUrl = typeof window !== 'undefined' ? window.location.origin : PUBLIC_SITE_URL;
@@ -2779,6 +2794,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
       ];
     }
 
+    if (editorialPartTimeLanding) {
+      return [
+        {
+          id: 'part-time-feed',
+          label: editorialPartTimeLanding.feed.label,
+          jobs: editorialPartTimeLanding.feed.jobs.map((item) => resolveJobFromHref(item.href)).filter(Boolean) as JobListing[],
+        },
+        {
+          id: 'part-time-latest',
+          label: editorialPartTimeLanding.latestLabel,
+          jobs: editorialPartTimeLanding.latestJobs.map((item) => resolveJobFromHref(item.href)).filter(Boolean) as JobListing[],
+        },
+      ];
+    }
+
     if (editorialCareVariantLanding) {
       return [
         {
@@ -2794,7 +2824,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       ];
     }
     return [];
-  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialCareVariantLanding, jobs]);
+  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialPartTimeLanding, editorialCareVariantLanding, jobs]);
 
   useEffect(() => {
     if (skipPageReset.current) { skipPageReset.current = false; return; }
@@ -3073,7 +3103,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       return;
     }
 
-    const editorialLandingModel = editorialOfficialGazetteLanding || editorialJobTodayLanding || editorialLocationLanding || editorialLocationTypeLanding || editorialLocationSectorLanding || editorialNursesHubLanding || editorialCareVariantLanding;
+    const editorialLandingModel = editorialOfficialGazetteLanding || editorialJobTodayLanding || editorialLocationLanding || editorialLocationTypeLanding || editorialLocationSectorLanding || editorialNursesHubLanding || editorialPartTimeLanding || editorialCareVariantLanding;
     if (editorialLandingModel) {
       const canonicalPath = buildPath({ activeTab: 'job-board', jobSlug: editorialLandingModel.slug }, locale);
       const editorialCanonicalHref = `${window.location.origin}${canonicalPath}`;

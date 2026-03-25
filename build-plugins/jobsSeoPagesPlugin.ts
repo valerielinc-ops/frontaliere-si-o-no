@@ -19,6 +19,7 @@ import {
   buildJobLocationTypeLandingModel,
   buildJobNursesHubLandingModel,
   buildJobOfficialGazetteLandingModel,
+  buildJobPartTimeLandingModel,
   buildJobTodayLandingModel,
 } from './jobEditorialLanding';
 
@@ -2050,6 +2051,144 @@ ${alternates}
           sectionSlug: sectionByLocale[locale],
           localePrefix: localePrefix[locale],
         }), '0.77');
+
+        /* ── Editorial landing: global part-time ───────────────────── */
+        for (const locale of localeList) {
+          const model = buildJobPartTimeLandingModel({
+            jobs: validJobs,
+            locale,
+            now: new Date().toISOString(),
+            localizedSlug,
+            baseUrl: BASE_URL,
+            sectionSlug: sectionByLocale[locale],
+            localePrefix: localePrefix[locale],
+          });
+          editorialSearchSlugsByLocale.get(locale)?.add(model.slug);
+          const canonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${model.slug}`.replace(/\/+/g, '/'));
+          const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+          const alternates = localeList
+            .map((altLocale) => {
+              const altModel = buildJobPartTimeLandingModel({
+                jobs: validJobs,
+                locale: altLocale,
+                now: new Date().toISOString(),
+                localizedSlug,
+                baseUrl: BASE_URL,
+                sectionSlug: sectionByLocale[altLocale],
+                localePrefix: localePrefix[altLocale],
+              });
+              const altPath = `${localePrefix[altLocale]}/${sectionByLocale[altLocale]}/${altModel.slug}`.replace(/\/+/g, '/');
+              return `    <link rel="alternate" hreflang="${altLocale}" href="${BASE_URL}${withSlash(altPath)}">`;
+            })
+            .join('\n');
+          const sectionRootUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}`;
+          const cityCards = model.cityLinks.length > 0
+            ? model.cityLinks.map((city) => `<a href="${city.href}" style="display:flex;justify-content:space-between;gap:12px;padding:12px 14px;border:1px solid #dbeafe;border-radius:16px;background:#eff6ff;color:#0f172a;text-decoration:none;font-weight:600"><span>${esc(city.name)}</span><span style="color:#1d4ed8">${city.count}</span></a>`).join('')
+            : '<p style="margin:0;color:#64748b;font-size:14px">—</p>';
+          const { breadcrumbLd, collectionLd, itemListLd } = buildEditorialJsonLd({
+            locale,
+            name: model.heading,
+            url: canonicalUrl,
+            description: model.description,
+            isPartOf: sectionRootUrl,
+            breadcrumbs: [
+              { name: 'Home', item: `${BASE_URL}/` },
+              { name: locale === 'it' ? 'Cerca lavoro in Ticino' : locale === 'en' ? 'Find jobs in Ticino' : locale === 'de' ? 'Jobs im Tessin' : 'Trouver un emploi au Tessin', item: sectionRootUrl },
+              { name: model.heading, item: canonicalUrl },
+            ],
+            items: [...model.feed.jobs, ...model.latestJobs],
+          });
+          const faqLd = JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'FAQPage',
+            mainEntity: model.faq.map((entry) => ({
+              '@type': 'Question',
+              name: entry.question,
+              acceptedAnswer: {
+                '@type': 'Answer',
+                text: entry.answer,
+              },
+            })),
+          });
+          const faqHtml = model.faq.map((entry) => `<details style="padding:16px 18px;border-radius:18px;border:1px solid #e2e8f0;background:#ffffff"><summary style="cursor:pointer;font-weight:700;color:#0f172a">${esc(entry.question)}</summary><p style="margin:12px 0 0;color:#475569;line-height:1.7">${esc(entry.answer)}</p></details>`).join('');
+          const html = `<!doctype html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>${esc(model.title)}</title>
+    <meta name="description" content="${esc(model.description)}">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Frontaliere Ticino">
+    <meta property="og:locale" content="${localeOg[locale]}">
+    <meta property="og:title" content="${esc(model.title)}">
+    <meta property="og:description" content="${esc(model.description)}">
+    <meta property="og:url" content="${canonicalUrl}">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="${esc(model.title)}">
+    <meta name="twitter:description" content="${esc(model.description)}">
+    <link rel="canonical" href="${canonicalUrl}">
+${alternates}
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}
+    <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+  </head>
+  <body>
+    <div id="root">
+      <main style="max-width:1100px;margin:0 auto;padding:32px 20px 56px;color:#0f172a">
+        <header style="margin-bottom:28px">
+          <p style="margin:0 0 8px;color:#4f46e5;font-size:13px;font-weight:700">${esc(model.updatedLabel)} · ${dateStamp}</p>
+          <h1 style="margin:0 0 14px;font-size:clamp(2rem,5vw,3.2rem);line-height:1.05">${esc(model.heading)}</h1>
+          <p style="margin:0 0 14px;font-size:18px;line-height:1.6;max-width:860px">${esc(model.description)}</p>
+          <p style="margin:0;color:#475569;line-height:1.7;max-width:860px">${esc(model.intro)}</p>
+        </header>
+        <section style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px;margin:0 0 18px">
+          <div style="padding:18px;border-radius:22px;background:#eef2ff;border:1px solid #c7d2fe"><div style="font-size:12px;color:#4338ca;font-weight:700;text-transform:uppercase">${esc(model.countsLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.totalJobs}</div></div>
+          <div style="padding:18px;border-radius:22px;background:#ecfeff;border:1px solid #a5f3fc"><div style="font-size:12px;color:#0f766e;font-weight:700;text-transform:uppercase">${esc(model.latestLabel)}</div><div style="margin-top:8px;font-size:32px;font-weight:800">${model.latestJobs.length}</div></div>
+        </section>
+        <section style="margin:0 0 28px">
+          <h2 style="margin:0 0 14px;font-size:24px">${esc(model.cityHubLabel)}</h2>
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${cityCards}</div>
+        </section>
+        <section style="margin:0 0 28px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-end;gap:16px;margin:0 0 14px">
+            <h2 style="margin:0;font-size:24px">${esc(model.feed.label)}</h2>
+            <a href="${sectionRootUrl}" style="color:#1d4ed8;text-decoration:none;font-weight:700">${esc(model.openAllLabel)}</a>
+          </div>
+          ${renderJobList(model.feed.jobs)}
+        </section>
+        <section style="margin:0 0 28px;padding:22px;border-radius:28px;border:1px solid #e2e8f0;background:#ffffff">
+          <h2 style="margin:0 0 14px;font-size:24px">${esc(model.latestLabel)}</h2>
+          ${renderJobList(model.latestJobs)}
+        </section>
+        <section style="margin:0 0 28px">
+          <h2 style="margin:0 0 14px;font-size:24px">${locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}</h2>
+          <div style="display:grid;gap:12px">${faqHtml}</div>
+        </section>
+      </main>
+    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
+  </body>
+</html>`;
+          const outDir = np.join(distDir, canonicalPath.slice(1));
+          _md(outDir);
+          _qw(np.join(outDir, 'index.html'), html);
+          const flatPath = canonicalPath.replace(/\/+$/, '');
+          if (flatPath) {
+            const flatFile = np.join(distDir, flatPath.slice(1) + '.html');
+            _md(np.dirname(flatFile));
+            _qw(flatFile, buildFlatRedirect(canonicalUrl, canonicalPath));
+          }
+        }
+
+        pushEditorialSitemapEntry((locale) => buildJobPartTimeLandingModel({
+          jobs: validJobs,
+          locale,
+          now: new Date().toISOString(),
+          localizedSlug,
+          baseUrl: BASE_URL,
+          sectionSlug: sectionByLocale[locale],
+          localePrefix: localePrefix[locale],
+        }), '0.76');
 
         for (const clusterKey of editorialCareKeys) {
           const italianCareModel = buildJobCareVariantLandingModel({

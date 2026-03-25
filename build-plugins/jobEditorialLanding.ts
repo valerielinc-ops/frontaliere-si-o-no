@@ -3,6 +3,13 @@ export type JobLandingTypeKey = 'apprenticeship' | 'internship' | 'partTime';
 export type JobLandingSectorKey = 'health' | 'finance' | 'tech' | 'engineering' | 'admin' | 'hospitality' | 'sales';
 export type JobCareClusterKey = 'clinics' | 'careHomes' | 'oss' | 'educators';
 
+export const JOB_PART_TIME_LANDING_SLUGS: Record<JobLandingLocale, string> = {
+  it: 'lavoro-part-time',
+  en: 'part-time-jobs',
+  de: 'teilzeit-jobs',
+  fr: 'emploi-temps-partiel',
+};
+
 export const JOB_TODAY_LANDING_SLUGS: Record<JobLandingLocale, string> = {
   it: 'offerte-di-lavoro-ticino-oggi',
   en: 'ticino-jobs-today',
@@ -215,10 +222,30 @@ export type JobCareVariantLandingModel = {
   openAllLabel: string;
 };
 
+export type JobPartTimeLandingModel = {
+  kind: 'part-time';
+  slug: string;
+  title: string;
+  heading: string;
+  description: string;
+  intro: string;
+  updatedLabel: string;
+  countsLabel: string;
+  totalJobs: number;
+  feed: LandingSection;
+  latestLabel: string;
+  latestJobs: LandingJobLink[];
+  cityLinks: CityLeader[];
+  cityHubLabel: string;
+  faq: Array<{ question: string; answer: string }>;
+  openAllLabel: string;
+};
+
 export type EditorialLandingDescriptor =
   | { kind: 'today' }
   | { kind: 'official-gazette' }
   | { kind: 'nurses-hub' }
+  | { kind: 'part-time' }
   | { kind: 'care-variant'; clusterKey: JobCareClusterKey }
   | { kind: 'location'; location: string }
   | { kind: 'location-type'; location: string; typeKey: JobLandingTypeKey }
@@ -1082,6 +1109,9 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
   if (Object.values(JOB_NURSES_HUB_SLUGS).includes(slug as (typeof JOB_NURSES_HUB_SLUGS)[JobLandingLocale])) {
     return { kind: 'nurses-hub' };
   }
+  if (Object.values(JOB_PART_TIME_LANDING_SLUGS).includes(slug as (typeof JOB_PART_TIME_LANDING_SLUGS)[JobLandingLocale])) {
+    return { kind: 'part-time' };
+  }
   const careClusterKey = findCareClusterKeyBySlug(slug);
   if (careClusterKey) return { kind: 'care-variant', clusterKey: careClusterKey };
 
@@ -1453,6 +1483,179 @@ export function buildJobLocationSectorLandingModel(options: {
     latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
     parentLocationHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationSlug(locale, location)}`.replace(/\/+/g, '/')}`),
     siblingSectorLinks,
+    openAllLabel: copy.openAll,
+  };
+}
+
+const PART_TIME_COPY: Record<JobLandingLocale, {
+  title: string;
+  heading: string;
+  description: (count: number) => string;
+  intro: string;
+  updatedLabel: string;
+  countsLabel: string;
+  feedLabel: string;
+  latestLabel: string;
+  cityHub: string;
+  openAll: string;
+  faq: Array<{ question: string; answer: string }>;
+}> = {
+  it: {
+    title: 'Lavoro part-time in Ticino | Offerte a tempo parziale per frontalieri',
+    heading: 'Lavoro part-time in Ticino',
+    description: (count) => `Scopri ${count} offerte di lavoro part-time in Ticino per frontalieri. Posizioni a tempo parziale aggiornate ogni giorno da aziende svizzere, con filtri per citta, settore e percentuale di impiego.`,
+    intro: 'Questa landing raccoglie tutte le offerte a tempo parziale disponibili nel Canton Ticino, ideale per chi cerca flessibilita lavorativa come frontaliere. Le posizioni spaziano da contratti al 20% fino al 80% e coprono tutti i principali settori.',
+    updatedLabel: 'Aggiornamento',
+    countsLabel: 'annunci part-time attivi',
+    feedLabel: 'Offerte part-time in Ticino',
+    latestLabel: 'Nuove offerte part-time negli ultimi 3 giorni',
+    cityHub: 'Part-time per citta',
+    openAll: 'Vedi tutte le offerte di lavoro in Ticino',
+    faq: [
+      {
+        question: 'Cosa si intende per lavoro part-time in Svizzera?',
+        answer: 'In Svizzera il lavoro part-time indica qualsiasi contratto con un grado di occupazione inferiore al 100%. Puo essere espresso in percentuale (es. 60%, 80%) o in ore settimanali. Anche contratti al 90% sono considerati part-time.',
+      },
+      {
+        question: 'Un frontaliere puo lavorare part-time con il permesso G?',
+        answer: 'Si, il permesso G consente anche contratti a tempo parziale. L\'importante e che il rapporto di lavoro sia regolare e dichiarato. Il part-time non influisce sulla validita del permesso.',
+      },
+      {
+        question: 'Come vengono filtrate le offerte part-time?',
+        answer: 'Il nostro sistema identifica le offerte part-time analizzando il titolo, il contratto e la percentuale di impiego indicata nell\'annuncio. Le posizioni con percentuale tra 1% e 99% vengono automaticamente classificate come part-time.',
+      },
+    ],
+  },
+  en: {
+    title: 'Part-time jobs in Ticino | Flexible positions for cross-border workers',
+    heading: 'Part-time jobs in Ticino',
+    description: (count) => `Browse ${count} part-time job openings in Ticino for cross-border workers. Flexible positions updated daily from Swiss employers, filterable by city, sector and employment percentage.`,
+    intro: 'This page collects all part-time positions available in Canton Ticino, ideal for cross-border workers seeking flexibility. Roles range from 20% to 80% contracts across all major sectors.',
+    updatedLabel: 'Updated',
+    countsLabel: 'active part-time jobs',
+    feedLabel: 'Part-time jobs in Ticino',
+    latestLabel: 'New part-time jobs in the last 3 days',
+    cityHub: 'Part-time by city',
+    openAll: 'See all jobs in Ticino',
+    faq: [
+      {
+        question: 'What counts as part-time work in Switzerland?',
+        answer: 'In Switzerland, part-time means any contract with an employment level below 100%. It can be expressed as a percentage (e.g. 60%, 80%) or weekly hours. Even 90% contracts are considered part-time.',
+      },
+      {
+        question: 'Can a cross-border worker hold a part-time job with a G permit?',
+        answer: 'Yes, the G permit allows part-time contracts. The key requirement is that the employment relationship is regular and declared. Part-time status does not affect permit validity.',
+      },
+      {
+        question: 'How are part-time jobs identified?',
+        answer: 'Our system identifies part-time jobs by analysing the title, contract type and employment percentage stated in the listing. Positions with a percentage between 1% and 99% are automatically classified as part-time.',
+      },
+    ],
+  },
+  de: {
+    title: 'Teilzeitjobs im Tessin | Flexible Stellen fur Grenzganger',
+    heading: 'Teilzeitjobs im Tessin',
+    description: (count) => `Entdecken Sie ${count} Teilzeitstellen im Tessin fur Grenzganger. Flexible Positionen von Schweizer Arbeitgebern, taglich aktualisiert, filterbar nach Stadt, Branche und Beschaftigungsgrad.`,
+    intro: 'Diese Seite sammelt alle Teilzeitstellen im Kanton Tessin, ideal fur Grenzganger auf der Suche nach flexibler Arbeit. Die Positionen reichen von 20%- bis 80%-Vertragen in allen wichtigen Branchen.',
+    updatedLabel: 'Aktualisiert',
+    countsLabel: 'aktive Teilzeitstellen',
+    feedLabel: 'Teilzeitstellen im Tessin',
+    latestLabel: 'Neue Teilzeitstellen der letzten 3 Tage',
+    cityHub: 'Teilzeit nach Stadt',
+    openAll: 'Alle Jobs im Tessin ansehen',
+    faq: [
+      {
+        question: 'Was gilt in der Schweiz als Teilzeitarbeit?',
+        answer: 'In der Schweiz bezeichnet Teilzeitarbeit jeden Vertrag mit einem Beschaftigungsgrad unter 100%. Er kann als Prozentsatz (z. B. 60%, 80%) oder in Wochenstunden angegeben werden. Auch 90%-Vertrage gelten als Teilzeit.',
+      },
+      {
+        question: 'Darf ein Grenzganger mit G-Bewilligung Teilzeit arbeiten?',
+        answer: 'Ja, die G-Bewilligung erlaubt auch Teilzeitvertrage. Wichtig ist, dass das Arbeitsverhaltnis regulaer und gemeldet ist. Der Teilzeitstatus beeinflusst die Gultigkeit der Bewilligung nicht.',
+      },
+      {
+        question: 'Wie werden Teilzeitstellen erkannt?',
+        answer: 'Unser System erkennt Teilzeitstellen anhand von Titel, Vertragsart und angegebenem Beschaftigungsgrad. Positionen mit einem Pensum zwischen 1% und 99% werden automatisch als Teilzeit klassifiziert.',
+      },
+    ],
+  },
+  fr: {
+    title: "Emploi temps partiel au Tessin | Postes flexibles pour frontaliers",
+    heading: "Emploi temps partiel au Tessin",
+    description: (count) => `Consultez ${count} offres d'emploi a temps partiel au Tessin pour les frontaliers. Postes flexibles mis a jour quotidiennement par des employeurs suisses, filtrables par ville, secteur et taux d'occupation.`,
+    intro: "Cette page regroupe toutes les offres a temps partiel disponibles dans le canton du Tessin, ideales pour les frontaliers a la recherche de flexibilite. Les postes vont de contrats a 20% jusqu'a 80% dans tous les secteurs majeurs.",
+    updatedLabel: 'Mis a jour',
+    countsLabel: 'offres temps partiel actives',
+    feedLabel: "Offres a temps partiel au Tessin",
+    latestLabel: 'Nouvelles offres temps partiel des 3 derniers jours',
+    cityHub: 'Temps partiel par ville',
+    openAll: 'Voir toutes les offres au Tessin',
+    faq: [
+      {
+        question: "Qu'est-ce que le temps partiel en Suisse ?",
+        answer: "En Suisse, le temps partiel designe tout contrat avec un taux d'occupation inferieur a 100%. Il peut etre exprime en pourcentage (ex. 60%, 80%) ou en heures hebdomadaires. Meme les contrats a 90% sont consideres comme du temps partiel.",
+      },
+      {
+        question: "Un frontalier peut-il travailler a temps partiel avec un permis G ?",
+        answer: "Oui, le permis G autorise egalement les contrats a temps partiel. L'essentiel est que la relation de travail soit reguliere et declaree. Le statut a temps partiel n'affecte pas la validite du permis.",
+      },
+      {
+        question: "Comment les offres a temps partiel sont-elles identifiees ?",
+        answer: "Notre systeme identifie les offres a temps partiel en analysant le titre, le type de contrat et le taux d'occupation indique dans l'annonce. Les postes avec un taux entre 1% et 99% sont automatiquement classes comme temps partiel.",
+      },
+    ],
+  },
+};
+
+export function buildJobPartTimeLandingModel(options: {
+  jobs: JobLike[];
+  locale: JobLandingLocale;
+  now?: string | Date;
+  localizedSlug: (job: JobLike, locale: JobLandingLocale) => string;
+  baseUrl: string;
+  sectionSlug: string;
+  localePrefix: string;
+}): JobPartTimeLandingModel {
+  const locale = options.locale;
+  const copy = PART_TIME_COPY[locale];
+  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
+  const baseUrl = options.baseUrl.replace(/\/+$/, '');
+  const matches = options.jobs.filter((job) => isTicinoScoped(job) && isPartTime(job));
+  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+
+  // Build city breakdown for part-time jobs
+  const cityCountMap = new Map<string, number>();
+  for (const job of matches) {
+    const loc = normalizeSpace(job.location || '');
+    if (!loc) continue;
+    const canonical = SUPPORTED_EDITORIAL_LOCATIONS.find((l) => l.toLowerCase() === loc.toLowerCase());
+    if (canonical) {
+      cityCountMap.set(canonical, (cityCountMap.get(canonical) || 0) + 1);
+    }
+  }
+  const cityLinks: CityLeader[] = Array.from(cityCountMap.entries())
+    .map(([name, count]) => ({
+      name,
+      count,
+      href: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationTypeSlug(locale, name, 'partTime')}`.replace(/\/+/g, '/')}`),
+    }))
+    .sort((a, b) => b.count - a.count);
+
+  return {
+    kind: 'part-time',
+    slug: JOB_PART_TIME_LANDING_SLUGS[locale],
+    title: copy.title,
+    heading: copy.heading,
+    description: copy.description(matches.length),
+    intro: copy.intro,
+    updatedLabel: copy.updatedLabel,
+    countsLabel: copy.countsLabel,
+    totalJobs: matches.length,
+    feed: { label: copy.feedLabel, jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18) },
+    latestLabel: copy.latestLabel,
+    latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
+    cityLinks,
+    cityHubLabel: copy.cityHub,
+    faq: copy.faq,
     openAllLabel: copy.openAll,
   };
 }
