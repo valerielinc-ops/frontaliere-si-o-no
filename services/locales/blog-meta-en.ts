@@ -1781,6 +1781,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-michelin-ticino.title': 'Switzerland\'s Italian Region Featured in Michelin Guide to the Most Beautiful Villages',
     'blog.article.guida-michelin-ticino.excerpt': '7 must-visit destinations in Ticino according to the Michelin Guide 2026',
     'blog.article.guida-michelin-ticino.imageAlt': 'Medieval town with castle in Switzerland',
+    'blog.article.eurospin-luino-occhio-al-cambio.title': 'A Blow to the Economy / \'Eurospin\' of Luino, Watch Out for Exchange Rate... Burble',
+    'blog.article.eurospin-luino-occhio-al-cambio.excerpt': 'Unstable exchange rates and financial markets in turmoil. The \'Eurospin\' of Luino, a new tool for managing exchange rate risks.',
+    'blog.article.eurospin-luino-occhio-al-cambio.imageAlt': 'Panoramic view of Lugano, Switzerland, with a focus on the financial district and nearby lake.',
 };
 
 export default blogMetaEn;

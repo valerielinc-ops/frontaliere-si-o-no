@@ -10347,6 +10347,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-eurospin-luino-occhio-al-cambio': {
+    title: 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio… burbantino | Frontaliere Ticino',
+    description: 'Tassi di cambio instabili e mercato finanziario in agitazione. Il "Eurospin" di Luino, un nuovo strumento per gestire i rischi del cambio. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, colpo, stiletto, eurospin, luino',
+    ogTitle: 'Colpo di stiletto / "Eurospin" di Luino, occhio al cambio',
+    ogDescription: 'Tassi di cambio instabili e mercato finanziario in agitazione. Il "Eurospin" di Luino, un nuovo strumento per gestire i rischi del cambio.',
+    canonicalPath: '/articoli-frontaliere/eurospin-luino-occhio-al-cambio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Colpo di stiletto / \"Eurospin\" di Luino, occhio al cambio",
+      "description": "Tassi di cambio instabili e mercato finanziario in agitazione. Il \"Eurospin\" di Luino, un nuovo strumento per gestire i rischi del cambio. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/eurospin-luino-occhio-al-cambio.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista panoramica di Lugano, Svizzera, con un focus sul distretto finanziario e il lago vicino."
+      },
+      "datePublished": "2026-03-25T16:21:08+00:00",
+      "dateModified": "2026-03-25T16:21:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eurospin-luino-occhio-al-cambio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

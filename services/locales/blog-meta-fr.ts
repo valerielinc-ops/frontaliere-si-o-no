@@ -1781,6 +1781,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-michelin-ticino.title': 'La Suisse italienne dans la Guide Michelin des plus beaux villages',
     'blog.article.guida-michelin-ticino.excerpt': '7 lieux incontournables à visiter dans le Tessin selon la Guide Michelin 2026',
     'blog.article.guida-michelin-ticino.imageAlt': 'Village médiéval avec château en Suisse',
+    'blog.article.eurospin-luino-occhio-al-cambio.title': 'Un coup de poignard / "Eurospin" de Luino, attention à la variation des taux de change… burbantino',
+    'blog.article.eurospin-luino-occhio-al-cambio.excerpt': 'Les taux de change instables et les marchés financiers en ébullition. Le "Eurospin" de Luino, un nouveau outil pour gérer les risques de change.',
+    'blog.article.eurospin-luino-occhio-al-cambio.imageAlt': 'Vue panoramique de Lugano, Suisse, avec un focus sur le quartier financier et le lac voisin.',
 };
 
 export default blogMetaFr;

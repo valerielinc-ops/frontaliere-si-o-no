@@ -5347,4 +5347,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/guida-michelin-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'eurospin-luino-occhio-al-cambio',
+    category: 'fiscale',
+    date: '2026-03-25T16:21:08.708Z',
+    image: '/images/blog/eurospin-luino-occhio-al-cambio.jpg',
+    hasCalculator: true,
+  },
 ];

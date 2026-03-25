@@ -1781,6 +1781,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-michelin-ticino.title': 'Die Schweiz italienisch in der Michelin-Guides der schönsten Dörfer',
     'blog.article.guida-michelin-ticino.excerpt': 'Die 7 schönsten Orte im Tessin, wie sie die Michelin-Guide 2026 empfiehlt',
     'blog.article.guida-michelin-ticino.imageAlt': 'Mittelalterliche Siedlung mit Schloss in der Schweiz',
+    'blog.article.eurospin-luino-occhio-al-cambio.title': 'Schlag ins Herz / "Eurospin" von Luino, Achtung Wechselkurs...',
+    'blog.article.eurospin-luino-occhio-al-cambio.excerpt': 'Unstabile Wechselkurse und turbulenter Finanzmarkt. Das "Eurospin" von Luino, ein neuer Werkzeug für die Risikomanagement des Wechselkurses.',
+    'blog.article.eurospin-luino-occhio-al-cambio.imageAlt': 'Panoramablick auf Lugano, Schweiz, mit Schwerpunkt auf das Finanzviertel und dem nahe gelegenen See.',
 };
 
 export default blogMetaDe;
