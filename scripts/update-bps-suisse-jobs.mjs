@@ -117,7 +117,23 @@ async function fetchJobs() {
     return [];
   }
 
-  const listings = parseBpsSuisseListingPage(listingHtml);
+  // Use robust regex to find all carriera-*.php links (matches the original working pattern)
+  const urlPattern = /href="(carriera-[^"]+\.php)"/gi;
+  const discoveredUrls = new Set();
+  let match;
+  while ((match = urlPattern.exec(listingHtml)) !== null) {
+    discoveredUrls.add(`https://${BPS_HOST}/${match[1]}`);
+  }
+  // Also try the parser as fallback
+  const parserListings = parseBpsSuisseListingPage(listingHtml);
+  for (const pl of parserListings) {
+    if (pl.url) discoveredUrls.add(pl.url);
+  }
+  const listings = [...discoveredUrls].map((url) => {
+    // Try to extract a title from parser results
+    const parserMatch = parserListings.find((p) => p.url === url);
+    return { url, title: parserMatch?.title || '' };
+  });
   console.log(`📋 Found ${listings.length} job link(s) on listing page.`);
 
   const jobs = [];
@@ -138,6 +154,12 @@ async function fetchJobs() {
       }
     } catch (err) {
       console.warn(`  ⚠️ Could not fetch detail page ${listing.url}: ${err.message}`);
+    }
+
+    // If no title found, derive from URL
+    if (!listing.title) {
+      const urlSlug = listing.url.match(/carriera-(.+)\.php/)?.[1] || '';
+      listing.title = urlSlug.replace(/_/g, ' ').replace(/\d+$/, '').trim() || 'Posizione aperta BPS Suisse';
     }
 
     // Ensure minimum description length for quality gate (>= 220 chars)
