@@ -77,7 +77,7 @@ async function main() {
   writeCrawlChangeSummaryToGH(diff, 'Bellinzona');
 
   await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true, forceLocalizationWhenAiEnabledOnly: true });
-  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_BELLINZONA_STRICT', label: 'Bellinzona', dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, failOnMissingJobsFile: true, failWhenNoJobs: true, noJobsMessage: 'No Bellinzona jobs found.', detectSourceLang: (t) => detectLang(t, 'it'), deriveSlug: deriveLocalizedSlug });
+  validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_BELLINZONA_STRICT', label: 'Bellinzona', dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, failOnMissingJobsFile: true, failWhenNoJobs: false, noJobsMessage: 'No Bellinzona jobs found — the municipality may not have active openings.', detectSourceLang: (t) => detectLang(t, 'it'), deriveSlug: deriveLocalizedSlug });
 
   const dur = getCrawlerElapsedMs();
   const sr = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
