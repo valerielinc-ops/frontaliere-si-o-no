@@ -215,11 +215,12 @@ async function main() {
 
 function buildStaticProducts() {
   // Associates image widget — publicly accessible for any Amazon affiliate,
-  // no API credentials required. Shows product image from Amazon CDN.
+  // no API credentials required. Returns 302 redirect to actual product image.
+  // Uses _SL250_ for Retina sharpness at 72px display size (2x = 144px needed).
   return ASINS.map((asin) => ({
     asin,
     title: '',
-    imageUrl: `https://images-na.ssl-images-amazon.com/images/P/${asin}.01._SL160_.jpg`,
+    imageUrl: `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${asin}&Format=_SL250_&ID=AsinImage&MarketPlace=IT&ServiceVersion=20070822&WS=1&tag=${PARTNER_TAG}`,
     price: '',
     priceAmount: 0,
     available: true,

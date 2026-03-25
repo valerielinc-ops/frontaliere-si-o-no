@@ -337,8 +337,9 @@ function buildAmazonSearchAffiliateUrl(query: string, locale: Locale, partnerTag
 
 function buildAmazonImageUrl(asin: string): string {
   const safeAsin = asin.trim();
-  // Amazon public CDN pattern (small thumbnail), no API required.
-  return `https://images-na.ssl-images-amazon.com/images/P/${encodeURIComponent(safeAsin)}.01._SL160_.jpg`;
+  // Amazon Associates image widget — publicly accessible, no API required.
+  // Returns 302 redirect to actual product image. _SL250_ for Retina sharpness.
+  return `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${encodeURIComponent(safeAsin)}&Format=_SL250_&ID=AsinImage&MarketPlace=IT&ServiceVersion=20070822&WS=1&tag=luigi066-21`;
 }
 
 function isValidAmazonAffiliateUrl(url: string): boolean {
