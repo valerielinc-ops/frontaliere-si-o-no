@@ -1,5 +1,5 @@
 /**
- * Centralized AI Model Service — v10 (free-only, 55 models, 9 providers)
+ * Centralized AI Model Service — v11 (free-only, 70 models, 9 providers)
  *
  * Single source of truth for all LLM calls across scripts (jobs crawler,
  * article generator, company parser, etc.).
@@ -139,8 +139,10 @@ export const AI_MODELS = Object.freeze({
   FW_MIXTRAL_8X7B: 'fireworks/accounts/fireworks/models/mixtral-8x7b-instruct',
 
   // ── NVIDIA NIM (OpenAI-compatible, free tier inference) ──
-  NV_LLAMA_3_1_8B: 'nvidia/meta/llama-3.1-8b-instruct',
-  NV_PHI_3_MINI:   'nvidia/microsoft/phi-3-mini-4k-instruct',
+  NV_NEMOTRON_70B:   'nvidia/nvidia/llama-3.1-nemotron-70b-instruct',   // API: nvidia/llama-3.1-nemotron-70b-instruct
+  NV_NEMOTRON_49B:   'nvidia/nvidia/llama-3.3-nemotron-super-49b-v1',   // API: nvidia/llama-3.3-nemotron-super-49b-v1
+  NV_LLAMA_3_1_8B:   'nvidia/meta/llama-3.1-8b-instruct',
+  NV_PHI_3_MINI:     'nvidia/microsoft/phi-3-mini-4k-instruct',
 
   // ── HuggingFace Inference Router (OpenAI-compatible, free tier) ──
   HF_MISTRAL_7B:   'hf/mistralai/Mistral-7B-Instruct-v0.3',
@@ -156,7 +158,7 @@ export const AI_MODELS = Object.freeze({
  * OpenRouter adds 50 extra free requests per day (7 :free models).
  * Cerebras, Together, Fireworks, NVIDIA, HuggingFace provide additional fallback capacity.
  *
- * Total: 68 models across 9+ providers for maximum translation capacity.
+ * Total: 70 models across 9+ providers for maximum translation capacity.
  * Initial order: quality-based (best first), with provider diversity.
  * During a run, models that succeed frequently rise; models that
  * fail repeatedly (rate-limited, down) sink to the bottom.
@@ -213,8 +215,10 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.TGT_MISTRAL_7B,     // 49. Mistral 7B             (Together AI)
   AI_MODELS.FW_LLAMA_3_1_8B,    // 50. Llama 3.1 8B           (Fireworks AI)
   AI_MODELS.FW_MIXTRAL_8X7B,    // 51. Mixtral 8x7B           (Fireworks AI)
-  AI_MODELS.NV_LLAMA_3_1_8B,    // 52. Llama 3.1 8B           (NVIDIA NIM)
-  AI_MODELS.NV_PHI_3_MINI,      // 53. Phi-3 Mini             (NVIDIA NIM)
+  AI_MODELS.NV_NEMOTRON_70B,     // 52. Nemotron 70B           (NVIDIA NIM direct)
+  AI_MODELS.NV_NEMOTRON_49B,     // 53. Nemotron 49B           (NVIDIA NIM direct)
+  AI_MODELS.NV_LLAMA_3_1_8B,    // 54. Llama 3.1 8B           (NVIDIA NIM)
+  AI_MODELS.NV_PHI_3_MINI,      // 55. Phi-3 Mini             (NVIDIA NIM)
   AI_MODELS.HF_MISTRAL_7B,      // 54. Mistral 7B             (HuggingFace)
   AI_MODELS.HF_ZEPHYR_7B,       // 55. Zephyr 7B              (HuggingFace)
   // ── Extended capacity: new OpenRouter free models (200 req/day each) ──
@@ -266,7 +270,7 @@ function getOpenRouterApiKey()  { return (process.env.OPENROUTER_API_KEY || '').
 function getCerebrasApiKey()    { return (process.env.CEREBRAS_API_KEY || '').trim(); }
 function getTogetherApiKey()    { return (process.env.TOGETHER_API_KEY || '').trim(); }
 function getFireworksApiKey()   { return (process.env.FIREWORKS_API_KEY || '').trim(); }
-function getNvidiaApiKey()      { return (process.env.NVIDIA_NIM_API_KEY || '').trim(); }
+function getNvidiaApiKey()      { return (process.env.NVIDIA_API_KEY || process.env.NVIDIA_NIM_API_KEY || '').trim(); }
 function getHuggingFaceApiKey() { return (process.env.HUGGINGFACE_API_KEY || '').trim(); }
 
 // ── Provider detection ───────────────────────────────────────

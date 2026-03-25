@@ -83,7 +83,7 @@ const RC_TO_ENV = {
   HF_TOKEN:                       ['HF_TOKEN', 'HUGGINGFACE_TOKEN'],
   CEREBRAS_API_KEY:               ['CEREBRAS_API_KEY'],
   FIREWORKS_API_KEY:              ['FIREWORKS_API_KEY'],
-  NVIDIA_NIM_API_KEY:             ['NVIDIA_NIM_API_KEY'],
+  NVIDIA_API_KEY:                 ['NVIDIA_API_KEY', 'NVIDIA_NIM_API_KEY'],
   HUGGINGFACE_API_KEY:            ['HUGGINGFACE_API_KEY'],
 
   // Image generation providers
