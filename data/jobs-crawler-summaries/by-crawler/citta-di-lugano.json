@@ -1,19 +1,771 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-03-25T09:34:03.874Z",
-  "total": 0,
+  "generatedAt": "2026-03-25T11:10:54.898Z",
+  "total": 12,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 6108,
-  "avgDurationMs": 6108,
+  "unchangedCount": 12,
+  "durationMs": 98032,
+  "avgDurationMs": 98032,
   "durationHistory": [
-    6108
+    98032
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Concorsi per posti di lavoro, concorsi per aziende e altri concorsi aperti dalla Citt&agrave;.",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://egov.lugano.ch/it/services/3",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "administration",
+      "description": "## Descrizione\n- Concorsi per posti di lavoro, concorsi per aziende e altri concorsi aperti dalla Città.\n\n## Posizione\n- concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Cosa offriamo\n- La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale\n- prestazioni sociali complete\n- un ambiente di lavoro stabile\n\n## Contatto\n- Candidature tramite il portale egov.lugano.ch",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "concorsi-per-posti-di-lavoro-concorsi-per-aziende-e-altri-concorsi-aperti-dalla-citt-agrave-citta-di-lugano",
+      "slugByLocale": {
+        "it": "concorsi-per-posti-di-lavoro-concorsi-per-aziende-e-altri-concorsi-aperti-dalla-citt-agrave-citta-di-lugano",
+        "en": "concorsi-per-posti-di-lavoro-concorsi-per-aziende-e-altri-concorsi-aperti-dalla-citt-agrave-city-of-lugano",
+        "de": "concorsi-per-posti-di-lavoro-concorsi-per-aziende-e-altri-concorsi-aperti-dalla-citt-agrave-stadt-lugano",
+        "fr": "concorsi-per-posti-di-lavoro-concorsi-per-aziende-e-altri-concorsi-aperti-dalla-citt-agrave-ville-de-lugano"
+      },
+      "titleByLocale": {
+        "it": "Concorsi per posti di lavoro, concorsi per aziende e altri concorsi aperti dalla Citt&agrave;.",
+        "en": "Job openings, company tenders, and other public competitions by the City.",
+        "de": "Stellenangebote, Unternehmenswettbewerbe und andere öffentliche Ausschreibungen der Stadt.",
+        "fr": "Postes à pourvoir, appels d'offres pour entreprises et autres concours publics de la Ville."
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - Concorsi per posti di lavoro, concorsi per aziende e altri concorsi aperti dalla Città. ## Posizione - concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Cosa offriamo - La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale - prestazioni sociali complete - un ambiente di lavoro stabile ## Contatto - Candidature tramite il portale egov.lugano.ch",
+        "en": "Description - Job openings, company tenders, and other public competitions by the City. ## Position - Public competition at the City of Lugano, municipal administration of the main urban center of the Canton of Ticino. ## What we offer - The City of Lugano offers public working conditions with a cantonal contract - Comprehensive social benefits - A stable working environment ## Contact - Applications through the portal egov.lugano.ch",
+        "de": "Beschreibung - Stellenangebote, Unternehmenswettbewerbe und andere öffentliche Ausschreibungen der Stadt. ## Position - Öffentlicher Wettbewerb bei der Stadt Lugano, Gemeindeverwaltung des Hauptstadtkerns des Kantons Tessin. ## Was wir bieten - Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag - Umfassende Sozialleistungen - Ein stabiles Arbeitsumfeld ## Kontakt - Bewerbungen über das Portal egov.lugano.ch",
+        "fr": "Description - Postes à pourvoir, appels d'offres pour entreprises et autres concours publics de la Ville. ## Poste - Concours public auprès de la Ville de Lugano, administration communale du principal centre urbain du Canton du Tessin. ## Ce que nous offrons - La Ville de Lugano propose des conditions de travail publiques avec un contrat cantonal - Des prestations sociales complètes - Un environnement de travail stable ## Contact - Candidatures via le portail egov.lugano.ch"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "un/a architetto/a capoprogetto presso la Divisione edilizia pubblica",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=3DE2E2881613B5EBC1258DB70030A68D",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "engineering",
+      "description": "## Descrizione\n\n- un/a architetto/a capoprogetto presso la Divisione edilizia pubblica — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n- La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile.\n- Candidature tramite il portale egov.lugano.ch.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "un-a-architetto-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
+      "slugByLocale": {
+        "it": "un-a-architetto-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
+        "en": "un-a-architetto-a-capoprogetto-presso-la-divisione-edilizia-pubblica-city-of-lugano",
+        "de": "un-a-architetto-a-capoprogetto-presso-la-divisione-edilizia-pubblica-stadt-lugano",
+        "fr": "un-a-architetto-a-capoprogetto-presso-la-divisione-edilizia-pubblica-ville-de-lugano"
+      },
+      "titleByLocale": {
+        "it": "un/a architetto/a capoprogetto presso la Divisione edilizia pubblica",
+        "en": "Lead Architect for Public Construction Division",
+        "de": "ein/e Architekt/in Projektleiter/in in der Abteilung für öffentliches Bauen",
+        "fr": "Architecte chef de projet pour la Division construction publique"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - un/a architetto/a capoprogetto presso la Divisione edilizia pubblica — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. - La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile. - Candidature tramite il portale egov.lugano.ch.",
+        "en": "Description - Lead Architect for the Public Construction Division – public open competition at the City of Lado, the municipal administration of the main urban centre of the Canton Ticino. - The City of Lado offers public employment conditions with a cantonal contract, full social benefits and a stable working environment. - Applications via the portal egow.lado.ch.",
+        "de": "Beschreibung - ein Architekt/eine Architektin Projektleiterin in der Abteilung für öffentliches Bauen — Öffentlicher Wettbewerb in der Stadt Lugano, Gemeindeverwaltung des wichtigsten städtischen Zentrums des Kantons Tessin. - Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit kantonalem Vertrag, umfassende Sozialleistungen und ein stabiles Arbeitsumfeld. - Bewerbungen über das Portal egov.lugano.ch.",
+        "fr": "Description - Architecte chef de projet pour la Division construction publique – concours public à la Ville de Lado, administration municipale du principal centre urbain du Canton du Tessin. - La Ville de Lado offre des conditions d’emploi publiques avec un contrissus cantonal, des prestations sociales complètes et un environnement de travail stable. - Candidatures via le portail egow.lado.ch"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 92000,
+      "salaryMax": 125000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 125000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=941891F4EB7BAC57C1258DB7003074D8",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "engineering",
+      "description": "## Descrizione\nun/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Requisiti\n- un/a architetto/a o ingegnere/a capoprogetto\n\n## Cosa offriamo\n- condizioni di lavoro pubbliche con contratto cantonale\n- prestazioni sociali complete\n- un ambiente di lavoro stabile\n\n## Contatto\n- Candidature tramite il portale egov.lugano.ch",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
+      "slugByLocale": {
+        "it": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
+        "en": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-city-of-lugano",
+        "de": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-stadt-lugano",
+        "fr": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-ville-de-lugano"
+      },
+      "titleByLocale": {
+        "it": "un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica",
+        "en": "an architect or project lead engineer at the Public Housing Division",
+        "de": "ein/e Architekt/in oder Projektleiter/in in der Abteilung für öffentliches Bauwesen",
+        "fr": "un (e) architecte ou ingénieur (e) en chef de projet au sein de la Division des bâtiments publics"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Requisiti - un/a architetto/a o ingegnere/a capoprogetto ## Cosa offriamo - condizioni di lavoro pubbliche con contratto cantonale - prestazioni sociali complete - un ambiente di lavoro stabile ## Contatto - Candidature tramite il portale egov.lugano.ch",
+        "en": "Description of an architect or project leader engineer at the Public Construction Division — public competition at the City of Lugano, municipal administration of the main urban centre of the Canton of Ticino. ## Requirements - an architect or project lead engineer ## What we offer - public working conditions with cantonal contract - full social benefits - a stable working environment ## Contact - Applications through the egov.lugano.ch portal",
+        "de": "Beschreibung eines Architekten/einer Architektin oder eines Projektleiters/einer Projektleiterin in der Abteilung für öffentliches Bauwesen — öffentlicher Wettbewerb in der Stadt Lugano, Gemeindeverwaltung des wichtigsten städtischen Zentrums des Kantons Tessin. ## Anforderungen - Architekt/in oder Projektleiter/in ## Was wir anbieten - Öffentliche Arbeitsbedingungen mit kantonalem Vertrag - Umfassende Sozialleistungen - ein stabiles Arbeitsumfeld ## Kontakt - Bewerbungen über das Portal egov.lugano.ch",
+        "fr": "Description d'un architecte ou d'un ingénieur chef de projet à la Division des bâtiments publics — concours public à la Ville de Lugano, administration municipale du principal centre urbain du canton du Tessin. ## Exigences - un/une architecte ou un/une ingénieur/un chef de projet ## Ce que nous offrons - conditions de travail publiques avec contrat cantonal - prestations sociales complètes - un environnement de travail stable ## Contact - Candidatures via le portail egov.lugano.ch"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 92000,
+      "salaryMax": 125000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 92000,
+          "maxValue": 125000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=6ACAF94969C8DFC7C1258DB70030425B",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "operations",
+      "description": "## Descrizione\n- un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n- La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile.\n- Candidature tramite il portale egov.lugano.ch.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano",
+      "slugByLocale": {
+        "it": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano",
+        "en": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-city-of-lugano",
+        "de": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-stadt-lugano",
+        "fr": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-ville-de-lugano"
+      },
+      "titleByLocale": {
+        "it": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani",
+        "en": "Underground Maintenance Worker – Urban Spaces Division Technical Services",
+        "de": "Untertagbau-Unterhaltsmitarbeiter/in – Technische Dienste der Abteilung Stadträume",
+        "fr": "Agent/e d’entretien souterrain – Services techniques de la Division espaces urbains"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. - La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile. - Candidature tramite il portale egov.lugano.ch.",
+        "en": "Description - Underground maintenance worker at the Technical Services of the Urban Spaces Division – public competition at the City of Lugano, municipal administration of the main urban centre of the Canton Ticino. - The City of Lugano offers public-sector employment conditions with a cantonal contract, full social benefits and a stable working environment. - Applications via the portal egov.lugano.ch.",
+        "de": "Beschreibung - Untertagbau-Unterhaltsmitarbeiter/in bei den Technischen Diensten der Abteilung Stadträume – öffentlicher Wettbewerb bei der Stadt Lugano, Gemeindeverwaltung des Hauptstadt-Zentrums des Kantons Tessin. - Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit kantonalem Vertrag, vollständige Sozialleistungen und eine stabile Arbeitsumgebung. - Bewerbungen über das Portal egov.lugano.ch.",
+        "fr": "Description - Agent/e d’entretien souterrain au sein des Services techniques de la Division espaces urbains – concours public de la Ville de Lugano, administration municipale du principal centre urbain du Canton du Tessin. - La Ville de Lugano offre des conditions d’emploi du secteur public avec contrat cantonal, prestations sociales complètes et un environnement de travail stable. - Candidatures via le portail egov.lugano.ch."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=C7868D4EFB575BB4C1258D9400375633",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "administration",
+      "description": "## Descrizione\n- addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n- La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile.\n- Candidature tramite il portale egov.lugano.ch.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+      "slugByLocale": {
+        "it": "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+        "en": "cleaning-staff-at-the-municipal-administration-2026-citta-di-lugano-lugano",
+        "de": "reinigungspersonal-bei-der-gemeindeverwaltung-2026-citta-di-lugano-lugano",
+        "fr": "preposes-e-s-au-nettoyage-aupres-de-l-administration-communale-concours-valable-pour-l-annee-2026-citta-di-lugano-lugano"
+      },
+      "titleByLocale": {
+        "it": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+        "en": "Cleaning Staff at the Municipal Administration (2026)",
+        "de": "Reinigungspersonal bei der Gemeindeverwaltung (2026)",
+        "fr": "préposés (e) s au nettoyage auprès de l'administration communale (concours valable pour l'année 2026)"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. - La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile. - Candidature tramite il portale egov.lugano.ch.",
+        "en": "Description - Cleaning staff at the Municipal Administration (competition valid for the year 2026) — public competition at the City of Lugano, the local government of the main urban center in the Canton of Ticino. - The City of Longo offers public employment conditions with a cantonal contract, full social benefits and a stable working environment. - Applications via the portal egow.lugo.ch.",
+        "de": "Beschreibung - Reinigungspersonal bei der Gemeindeverwaltung (Ausschreibung gültig für das Jahr 2022026) — öffentliche Ausschreibung der Stadt Lugano, die Gemeindeverwaltung des wichtigsten Stadtzentrums im Kanton Tessin. - Die Stadt Lugano bietit öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag, vollständigen Sozialleistungen und einer stabilen Arbeitsumgebung. - Bewerbungen über das Portal egow.lugo.ch.",
+        "fr": "Description - agents de nettoyage auprès de l'administration municipale (concours valable pour l'année 2026) — concours public auprès de la ville de Lugano, administration municipale du principal centre urbain du canton du Tessin. - La Ville de Lugano offre des conditions de travail publiques avec contrat cantonal, des prestations sociales complètes et un environnement de travail stable. - Candidatures via le portail egov.lugano.ch."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-city-of-lugano",
+        "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
+        "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-ville-de-lugano"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "inservienti refezione scolastica presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=CFF7EAD652FAEC3FC1258D9400370C84",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "administration",
+      "description": "## Descrizione\n\n- inservienti refezione scolastica presso l'Amministrazione comunale (concorso valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n- La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile.\n- Candidature tramite il portale egov.lugano.ch.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+      "slugByLocale": {
+        "it": "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+        "en": "school-canteen-assistants-at-lugano-municipal-administration-2026-open-competition-citta-di-lugano-lugano",
+        "de": "schulmahlzeitshelfer-bei-der-luganer-gemeindeverwaltung-wettbewerb-2026-gultig-citta-di-lugano-lugano",
+        "fr": "aides-de-cantine-scolaire-a-l-administration-communale-de-lugano-concours-valable-pour-2026-citta-di-lugano-lugano"
+      },
+      "titleByLocale": {
+        "it": "inservienti refezione scolastica presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+        "en": "School Canteen Assistants at Lugano Municipal Administration (2026 Open Competition)",
+        "de": "Schulmahlzeitshelfer bei der Luganer Gemeindeverwaltung (Wettbewerb 2026 gültig)",
+        "fr": "Aides de cantine scolaire à l'administration communale de Lugano (concours valable pour 2026)"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - inservienti refezione scolastica presso l'Amministrazione comunale (concorso valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. - La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile. - Candidature tramite il portale egov.lugano.ch.",
+        "en": "Description School Canteen Assistants at Lugano Municipal Administration (2026 Open Competition) — Public competition at the City of Lugano, municipal administration of the main urban center of the Canton of Ticino. The City of Lugano offers public working conditions with a cantonal contract, complete social benefits and a stable work environment. Applications through the egov.lugano.ch portal.",
+        "de": "Beschreibung Schulmahlzeitshelfer bei der Luganer Gemeindeverwaltung (Wettbewerb 2026 gültig) — Öffentlicher Wettbewerb bei der Stadt Lugano, Gemeindeverwaltung des Hauptstädte des Kantons Tessin. Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag, vollständige soziale Leistungen und einen stabilen Arbeitsplatz. Bewerbungen über den Portal egov.lugano.ch.",
+        "fr": "Description Aides de cantine scolaire à l'administration communale de Lugano (concours valable pour 2026) — Concours public à la Ville de Lugano, administration communale du principal centre urbain du canton du Tessin. La Ville de Lugano offre des conditions de travail publiques avec un contrat cantonal, des prestations sociales complètes et un environnement de travail stable. Candidatures par le portail egov.lugano.ch."
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Ability to work in a team",
+          "Good communication skills",
+          "Basic knowledge of food safety and hygiene",
+          "Flexibility and adaptability",
+          "Ability to lift and move heavy objects",
+          "Basic computer skills",
+          "Reliability and punctuality",
+          "Ability to work in a fast-paced environment"
+        ],
+        "de": [
+          "Fähigkeit, in einem Team zu arbeiten",
+          "Gute Kommunikationsfähigkeiten",
+          "Grundkenntnisse in der Lebensmittelhygiene",
+          "Flexibilität und Anpassungsfähigkeit",
+          "Fähigkeit, schwere Gegenstände zu heben und zu bewegen",
+          "Grundkenntnisse in der Computeranwendung",
+          "Zuverlässigkeit und Pünktlichkeit",
+          "Fähigkeit, in einem schnellen Umfeld zu arbeiten"
+        ],
+        "fr": [
+          "Capacité à travailler en équipe",
+          "Bonnes compétences en communication",
+          "Connaissances de base en matière de sécurité et d'hygiène alimentaires",
+          "Flexibilité et capacité d'adaptation",
+          "Capacité à soulever et à déplacer des objets lourds",
+          "Connaissances de base en informatique",
+          "Fiabilité et ponctualité",
+          "Capacité à travailler dans un environnement rapide"
+        ]
+      },
+      "sourceLang": "it",
+      "previousSlugs": [
+        "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-city-of-lugano",
+        "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
+        "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-ville-de-lugano"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "addetti/e pulizia urbana presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=906791D544553FECC1258D940036EB4D",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "operations",
+      "description": "## Descrizione\n- addetti/e pulizia urbana presso l'Amministrazione comunale (concorso valido per l'anno 2026)\n- concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Mansioni\n- \n\n## Requisiti\n- \n\n## Cosa offriamo\n- condizioni di lavoro pubbliche con contratto cantonale\n- prestazioni sociali complete\n- un ambiente di lavoro stabile\n\n## Contatto\n- Candidature tramite il portale egov.lugano.ch.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+      "slugByLocale": {
+        "it": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+        "en": "urban-cleaning-workers-at-the-municipal-administration-competition-valid-for-the-year-2026-citta-di-lugano-lugano",
+        "de": "stadtreinigungskrafte-in-der-stadtverwaltung-wettbewerb-gultig-fur-das-jahr-2026-citta-di-lugano-lugano",
+        "fr": "preposes-e-s-au-nettoyage-urbain-aupres-de-l-administration-communale-concours-valable-pour-l-annee-2026-citta-di-lugano"
+      },
+      "titleByLocale": {
+        "it": "addetti/e pulizia urbana presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+        "en": "urban cleaning workers at the municipal administration (competition valid for the year 2026)",
+        "de": "stadtreinigungskräfte in der Stadtverwaltung (Wettbewerb gültig für das Jahr 2026)",
+        "fr": "préposés (e) s au nettoyage urbain auprès de l'administration communale (concours valable pour l'année 2026)"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione - addetti/e pulizia urbana presso l'Amministrazione comunale (concorso valido per l'anno 2026) - concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Mansioni - ## Requisiti - ## Cosa offriamo - condizioni di lavoro pubbliche con contratto cantonale - prestazioni sociali complete - un ambiente di lavoro stabile ## Contatto - Candidature tramite il portale egov.lugano.ch.",
+        "en": "Description - urban cleaning workers at the municipal administration (competition valid for the year 2026) - public competition at the City of Lugano, municipal administration of the main urban centre of the Canton of Ticino. ## Tasks - ## Requirements - ## What we offer - public working conditions with cantonal contract - full social benefits - a stable working environment ## Contact - Applications via the egov.lugano.ch portal.",
+        "de": "Beschreibung - städtische Reinigungskräfte bei der Gemeindeverwaltung (Wettbewerb gültig für das Jahr 2026) - öffentlicher Wettbewerb bei der Stadt Lugano, Gemeindeverwaltung des wichtigsten städtischen Zentrums des Kantons Tessin. ## Aufgaben - ## Anforderungen - ## Was wir anbieten - öffentliche Arbeitsbedingungen mit kantonalem Vertrag - umfassende Sozialleistungen - ein stabiles Arbeitsumfeld ## Kontakt - Bewerbungen über das Portal egov.lugano.ch.",
+        "fr": "Description - agents de nettoyage urbain auprès de l'administration municipale (concours valable pour l'année 2026) - concours public auprès de la ville de Lugano, administration municipale du principal centre urbain du canton du Tessin. ## Tâches - ## Exigences - ## Ce que nous offrons - conditions de travail publiques sous contrat cantonal - prestations sociales complètes - un environnement de travail stable ## Contact - Candidatures via le portail egov.lugano.ch."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-city-of-lugano",
+        "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
+        "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-ville-de-lugano"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "operai/e generici/che presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=DEE821FDCC15E6ABC1258D940036C117",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "operations",
+      "description": "## Operai/e generici/che\n\n- operai/e generici/che presso l'Amministrazione comunale (concorso valido per l'anno 2026)\n- concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Requisiti\n- condizioni di lavoro pubbliche con contratto cantonale\n- prestazioni sociali complete\n- ambiente di lavoro stabile\n\n## Cosa offriamo\n- Candidature tramite il portale egov.lugano.ch",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+      "slugByLocale": {
+        "it": "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+        "en": "operatives-general-workers-at-lugano-municipal-administration-citta-di-lugano-lugano",
+        "de": "arbeiter-arbeiterinnen-bei-der-luganer-gemeindeverwaltung-citta-di-lugano-lugano",
+        "fr": "ouvriers-ouvrieres-de-l-administration-municipale-de-lugano-citta-di-lugano-lugano"
+      },
+      "titleByLocale": {
+        "it": "operai/e generici/che presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+        "en": "Operatives/General Workers at Lugano Municipal Administration",
+        "de": "Arbeiter/Arbeiterinnen bei der Luganer Gemeindeverwaltung",
+        "fr": "Ouvriers/ouvrières de l'administration municipale de Lugano"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Operai/e generici/che - operai/e generici/che presso l'Amministrazione comunale (concorso valido per l'anno 2026) - concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Requisiti - condizioni di lavoro pubbliche con contratto cantonale - prestazioni sociali complete - ambiente di lavoro stabile ## Cosa offriamo - Candidature tramite il portale egov.lugano.ch",
+        "en": "Operatives/General Workers at Lugano Municipal Administration Operatives/General Workers at Lugano Municipal Administration (valid competition for the year 2026) Public competition at the City of Lugano, municipal administration of the main urban center of the Canton of Ticino. ## Requirements - Public working conditions with cantonal contract - Complete social benefits - Stable work environment ## What We Offer - Applications through the egov.lugano.ch portal",
+        "de": "Arbeiter/Arbeiterinnen bei der Luganer Gemeindeverwaltung Arbeiter/Arbeiterinnen bei der Luganer Gemeindeverwaltung (gültige Ausschreibung für das Jahr 2026) Öffentliche Ausschreibung bei der Stadt Lugano, Gemeindeverwaltung des Hauptstädte des Kantons Tessin. ## Anforderungen - Öffentliche Arbeitsbedingungen mit kantonalen Vertrag - Vollständige soziale Leistungen - Stabiles Arbeitsumfeld ## Was wir bieten - Bewerbungen über den Portal egov.lugano.ch",
+        "fr": "Ouvriers/ouvrières de l'administration municipale de Lugano Ouvriers/ouvrières de l'administration municipale de Lugano (concours valable pour l'année 2026) Concours public à la Ville de Lugano, administration municipale du principal centre urbain du canton du Tessin. ## Exigences - Conditions de travail publiques avec contrat cantonal - Avantages sociaux complets - Environnement de travail stable ## Ce que nous offrons - Candidatures via le portail egov.lugano.ch"
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Public working conditions with cantonal contract",
+          "Complete social benefits",
+          "Stable work environment"
+        ]
+      },
+      "sourceLang": "it",
+      "previousSlugs": [
+        "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-city-of-lugano",
+        "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
+        "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-ville-de-lugano"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "cassieri/e presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=B628C51863CAA220C1258D9400366BF2",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "administration",
+      "description": "## Concorso per Cassieri/E\n\ncassieri/e presso l'Amministrazione comunale (concorso valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Descrizione\nLa Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile.\n\n## Requisiti\n- \n- \n\n## Cosa offriamo\n- condizioni di lavoro pubbliche con contratto cantonale\n- prestazioni sociali complete\n- ambiente di lavoro stabile\n\n## Contatto\nCandidature tramite il portale egov.lugano.ch.",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+      "slugByLocale": {
+        "it": "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+        "en": "cashiers-at-the-municipal-administration-competition-valid-for-2026-citta-di-lugano-lugano",
+        "de": "kassierer-innen-bei-der-gemeindeverwaltung-wettbewerb-gultig-fur-2026-citta-di-lugano-lugano",
+        "fr": "caissiers-eres-a-l-administration-communale-concours-valable-pour-2026-citta-di-lugano-lugano"
+      },
+      "titleByLocale": {
+        "it": "cassieri/e presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+        "en": "Cashiers at the Municipal Administration (competition valid for 2026)",
+        "de": "Kassierer/innen bei der Gemeindeverwaltung (Wettbewerb gültig für 2026)",
+        "fr": "Caissiers/ères à l'Administration communale (concours valable pour 2026)"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Concorso per Cassieri/E cassieri/e presso l'Amministrazione comunale (concorso valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Descrizione La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile. ## Requisiti - - ## Cosa offriamo - condizioni di lavoro pubbliche con contratto cantonale - prestazioni sociali complete - ambiente di lavoro stabile ## Contatto Candidature tramite il portale egov.lugano.ch.",
+        "en": "Competition for Cashiers Cashiers at the Municipal Administration (competition valid for 2026) — public competition at the City of Lugano, the municipal administration of the main urban center of the Canton of Ticino. ## Description The City of Lugano offers public working conditions with a cantonal contract, comprehensive social benefits, and a stable working environment. ## Requirements - - ## What We Offer - Public working conditions with a cantonal contract - Comprehensive social benefits - Stable working environment ## Contact Applications through the portal egov.lugano.ch.",
+        "de": "Wettbewerb für Kassierer/innen Kassierer/innen bei der Gemeindeverwaltung (Wettbewerb gültig für 2026) — öffentlicher Wettbewerb bei der Stadt Lugano, der Gemeindeverwaltung des Haupturbanzentrums des Kantons Tessin. ## Beschreibung Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag, umfassende Sozialleistungen und ein stabiles Arbeitsumfeld. ## Anforderungen - - ## Was wir bieten - Öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag - Umfassende Sozialleistungen - Stabiles Arbeitsumfeld ## Kontakt Bewerbungen über das Portal egov.lugano.ch.",
+        "fr": "Concours pour Caissiers/ères Caissiers/ères à l'Administration communale (concours valable pour 2026) — concours public auprès de la Ville de Lugano, administration communale du principal centre urbain du Canton du Tessin. ## Description La Ville de Lugano offre des conditions de travail publiques avec un contrat cantonal, des prestations sociales complètes et un environnement de travail stable. ## Exigences - - ## Ce que nous offrons - Conditions de travail publiques avec un contrat cantonal - Prestations sociales complètes - Environnement de travail stable ## Contact Candidatures via le portail egov.lugano.ch."
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-city-of-lugano",
+        "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
+        "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-ville-de-lugano"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "autisti/e veicoli leggeri o speciali presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=ADF56B554F29A767C1258D9400360863",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "logistics",
+      "description": "## Autisti/e Veicoli Leggeri o Speciali\n\n- Autisti/e veicoli leggeri o speciali presso l'Amministrazione comunale (concorso valido per l'anno 2026)\n- Concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Descrizione\n\n- La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale\n- Prestazioni sociali complete\n- Un ambiente di lavoro stabile\n\n## Cosa Offriamo\n\n- Condizioni di lavoro pubbliche con contratto cantonale\n- Prestazioni sociali complete\n- Ambiente di lavoro stabile\n\n## Contatto\n\n- Candidature tramite il portale egov.lugano.ch",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+      "slugByLocale": {
+        "it": "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
+        "en": "drivers-of-light-or-special-vehicles-at-the-municipal-administration-competition-valid-for-2026-citta-di-lugano-lugano",
+        "de": "fahrer-innen-von-leichten-oder-speziellen-fahrzeugen-bei-der-gemeindeverwaltung-wettbewerb-gultig-fur-2026-citta-di-luga",
+        "fr": "conducteurs-trices-de-vehicules-legers-ou-speciaux-a-l-administration-communale-concours-valable-pour-2026-citta-di-luga"
+      },
+      "titleByLocale": {
+        "it": "autisti/e veicoli leggeri o speciali presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
+        "en": "Drivers of Light or Special Vehicles at the Municipal Administration (competition valid for 2026)",
+        "de": "Fahrer/innen von leichten oder speziellen Fahrzeugen bei der Gemeindeverwaltung (Wettbewerb gültig für 2026)",
+        "fr": "Conducteurs/trices de véhicules légers ou spéciaux à l'Administration communale (concours valable pour 2026)"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Autisti/e Veicoli Leggeri o Speciali - Autisti/e veicoli leggeri o speciali presso l'Amministrazione comunale (concorso valido per l'anno 2026) - Concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Descrizione - La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale - Prestazioni sociali complete - Un ambiente di lavoro stabile ## Cosa Offriamo - Condizioni di lavoro pubbliche con contratto cantonale - Prestazioni sociali complete - Ambiente di lavoro stabile ## Contatto - Candidature tramite il portale egov.lugano.ch",
+        "en": "Drivers of Light or Special Vehicles - Drivers of light or special vehicles at the Municipal Administration (competition valid for 2026) - Public competition at the City of Lugano, municipal administration of the main urban center of the Canton of Ticino. ## Description - The City of Lugano offers public working conditions with a cantonal contract - Comprehensive social benefits - A stable working environment ## What We Offer - Public working conditions with a cantonal contract - Comprehensive social benefits - Stable working environment ## Contact - Applications through the portal egov.lugano.ch",
+        "de": "Fahrer/innen von leichten oder speziellen Fahrzeugen - Fahrer/innen von leichten oder speziellen Fahrzeugen bei der Gemeindeverwaltung (Wettbewerb gültig für 2026) - Öffentlicher Wettbewerb bei der Stadt Lugano, Gemeindeverwaltung des Haupturbanzentrums des Kantons Tessin. ## Beschreibung - Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag - Umfassende Sozialleistungen - Ein stabiles Arbeitsumfeld ## Was Wir Bieten - Öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag - Umfassende Sozialleistungen - Stabiles Arbeitsumfeld ## Kontakt - Bewerbungen über das Portal egov.lugano.ch",
+        "fr": "Conducteurs/trices de véhicules légers ou spéciaux - Conducteurs/trices de véhicules légers ou spéciaux à l'Administration communale (concours valable pour 2026) - Concours public auprès de la Ville de Lugano, administration communale du principal centre urbain du Canton du Tessin. ## Description - La Ville de Lugano offre des conditions de travail publiques avec un contrat cantonal - Prestations sociales complètes - Un environnement de travail stable ## Ce Que Nous Offrons - Conditions de travail publiques avec un contrat cantonal - Prestations sociales complètes - Environnement de travail stable ## Contact - Candidatures via le portail egov.lugano.ch"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "previousSlugs": [
+        "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-city-of-lugano",
+        "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
+        "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-ville-de-lugano"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "operatori/trici pausa meridiana SI (a tempo parziale) presso l'Istituto scolastico (valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=F4E68F826632E9FAC1258D940035257D",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "administration",
+      "description": "## Descrizione\noperatori/trici pausa meridiana SI (a tempo parziale) presso l'Istituto scolastico (valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Requisiti\n- La Cittù di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile.\n\n## Cosa offriamo\n- Candidature tramite il portale egov.lugano.ch.\n\n## Contatto\n- Non specificato",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano",
+      "slugByLocale": {
+        "it": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano",
+        "en": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-city-of-lugano",
+        "de": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-stadt-lugano",
+        "fr": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-ville-de-lugano"
+      },
+      "titleByLocale": {
+        "it": "operatori/trici pausa meridiana SI (a tempo parziale) presso l'Istituto scolastico (valido per l'anno 2026)",
+        "en": "Midday Break Operators (part-time) at the School Institute (valid for the year 2026)",
+        "de": "Mitarbeiter/in Mittagspause (Teilzeit) am Schulinstitut (gültig für das Jahr 2026)",
+        "fr": "Opérateurs/trices pause de midi (temps partiel) à l'Institut scolaire (valable pour l'année 2026)"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Descrizione operatori/trici pausa meridiana SI (a tempo parziale) presso l'Istituto scolastico (valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Requisiti - La Cittù di Lugano offre condizioni di lavoro pubbliche con contratto cantonale, prestazioni sociali complete e un ambiente di lavoro stabile. ## Cosa offriamo - Candidature tramite il portale egov.lugano.ch. ## Contatto - Non specificato",
+        "en": "Description Midday Break Operators (part-time) at the School Institute (valid for the year 2026) — public competition at the City of Lugano, municipal administration of the main urban center of the Canton of Ticino. ## Requirements - The City of Lugano offers public working conditions with a cantonal contract, comprehensive social benefits, and a stable work environment. ## What We Offer - Applications through the portal egov.lugano.ch. ## Contact - Not specified",
+        "de": "Beschreibung Mitarbeiter/in Mittagspause (Teilzeit) am Schulinstitut (gültig für das Jahr 2026) — öffentlicher Wettbewerb bei der Stadt Lugano, Gemeindeverwaltung des Hauptstadtkerns des Kantons Tessin. ## Anforderungen - Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag, umfassende Sozialleistungen und ein stabiles Arbeitsumfeld. ## Was Wir Bieten - Bewerbungen über das Portal egov.lugano.ch. ## Kontakt - Nicht angegeben",
+        "fr": "Description Opérateurs/trices pause de midi (temps partiel) à l'Institut scolaire (valable pour l'année 2026) — concours public auprès de la Ville de Lugano, administration communale du principal centre urbain du Canton du Tessin. ## Exigences - La Ville de Lugano offre des conditions de travail publiques avec un contrat cantonal, des prestations sociales complètes et un environnement de travail stable. ## Ce Que Nous Offrons - Candidatures via le portail egov.lugano.ch. ## Contact - Non spécifié"
+      },
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    },
+    {
+      "title": "educatori/trici dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026)",
+      "company": "Città di Lugano",
+      "companyKey": "citta-di-lugano",
+      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=3B52EF5E278CCB2EC1258D9400348C15",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "education",
+      "description": "## Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità\n\n- Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026)\n- Concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Descrizione\n- Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino.\n\n## Requisiti\n- Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026)\n\n## Cosa offriamo\n- La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale\n- Prestazioni sociali complete\n- Un ambiente di lavoro stabile\n\n## Contatto\n- Candidature tramite il portale egov.lugano.ch",
+      "postedDate": "2026-03-25",
+      "source": "company-website",
+      "slug": "educatore-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di",
+      "slugByLocale": {
+        "it": "educatore-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di",
+        "en": "childhood-educators-for-extracurricular-services-of-the-social-division-valid-for-2026-citta-di-lugano-lugano",
+        "de": "kindheitspadagogen-innen-fur-au-erschulische-dienste-der-sozialabteilung-gultig-fur-2026-citta-di-lugano-lugano",
+        "fr": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-ville-de-lugano"
+      },
+      "titleByLocale": {
+        "it": "educatore/trici dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026)",
+        "en": "Childhood Educators for Extracurricular Services of the Social Division (valid for 2026)",
+        "de": "Kindheitspädagogen/-innen für außerschulische Dienste der Sozialabteilung (gültig für 2026)",
+        "fr": "educatori/trici dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026)"
+      },
+      "deadline": "",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "crawledAt": "",
+      "descriptionByLocale": {
+        "it": "Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità - Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026) - Concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Descrizione - Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026) — concorso pubblico presso la Città di Lugano, amministrazione comunale del principale centro urbano del Cantone Ticino. ## Requisiti - Educatore/i dell'infanzia presso i Servizi extrascolastici della Divisione socialità (valido per l'anno 2026) ## Cosa offriamo - La Città di Lugano offre condizioni di lavoro pubbliche con contratto cantonale - Prestazioni sociali complete - Un ambiente di lavoro stabile ## Contatto - Candidature tramite il portale egov.lugano.ch",
+        "en": "Childhood Educators for Extracurricular Services of the Social Division - Childhood Educators for Extracurricular Services of the Social Division (valid for 2026) - Public competition at the City of Lugano, municipal administration of the main urban center of the Canton of Ticino. ## Description - Childhood Educators for Extracurricular Services of the Social Division (valid for 2026) — public competition at the City of Lugano, municipal administration of the main urban center of the Canton of Ticino. ## Requirements - Childhood Educators for Extracurricular Services of the Social Division (valid for 2026) ## What We Offer - The City of Lugano offers public working conditions with a cantonal contract - Comprehensive social benefits - A stable working environment ## Contact - Applications via the portal egov.lugano.ch",
+        "de": "Kindheitspädagogen/-innen für außerschulische Dienste der Sozialabteilung - Kindheitspädagogen/-innen für außerschulische Dienste der Sozialabteilung (gültig für 2026) - Öffentlicher Wettbewerb bei der Stadt Lugano, der Gemeindeverwaltung des wichtigsten städtischen Zentrums des Kantons Tessin. ## Beschreibung - Kindheitspädagogen/-innen für außerschulische Dienste der Sozialabteilung (gültig für 2026) — öffentlicher Wettbewerb bei der Stadt Lugano, der Gemeindeverwaltung des wichtigsten städtischen Zentrums des Kantons Tessin. ## Anforderungen - Kindheitspädagogen/-innen für außerschulische Dienste der Sozialabteilung (gültig für 2026) ## Was wir bieten - Die Stadt Lugano bietet öffentliche Arbeitsbedingungen mit einem kantonalen Vertrag - Umfassende Sozialleistungen - Ein stabiles Arbeitsumfeld ## Kontakt - Bewerbungen über das Portal egov.lugano.ch",
+        "fr": "Éducateurs/trices de la petite enfance pour les Services extrascolaires de la Division sociale - Éducateurs/trices de la petite enfance pour les Services extrascolaires de la Division sociale (valable pour l'année 2026) - Concours public auprès de la Ville de Lugano, administration communale du principal centre urbain du Canton du Tessin. ## Description - Éducateurs/trices de la petite enfance pour les Services extrascolaires de la Division sociale (valable pour l'année 2026) — concours public auprès de la Ville de Lugano, administration communale du principal centre urbain du Canton du Tessin. ## Exigences - Éducateurs/trices de la petite enfance pour les Services extrascolaires de la Division sociale (valable pour l'année 2026) ## Ce que nous offrons - La Ville de Lugano offre des conditions de travail publiques avec un contrat cantonal - Des prestations sociales complètes - Un environnement de travail stable ## Contact - Candidatures via le portail egov.lugano.ch"
+      },
+      "requirementsByLocale": {
+        "en": [
+          "Childhood Educators for Extracurricular Services of the Social Division (valid for 2026)"
+        ],
+        "de": [
+          "Kindheitspädagogen/-innen für außerschulische Dienste der Sozialabteilung (gültig für 2026)"
+        ]
+      },
+      "sourceLang": "it",
+      "previousSlugs": [
+        "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di-lugano",
+        "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-city-of-lugano",
+        "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-stadt-lugano"
+      ],
+      "salaryMin": 83500,
+      "salaryMax": 112500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 83500,
+          "maxValue": 112500,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6900"
+    }
+  ]
 }
