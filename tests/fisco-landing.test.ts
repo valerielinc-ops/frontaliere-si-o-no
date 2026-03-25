@@ -5,9 +5,9 @@ import { describe, it, expect, vi } from 'vitest';
 
 describe('FiscoLanding', () => {
   describe('FISCO_TOOLS constant', () => {
-    it('exports 8 tools matching FiscoSubTab values', async () => {
+    it('exports 9 tools matching FiscoSubTab values', async () => {
       const { FISCO_TOOLS } = await import('@/components/fisco/FiscoLanding');
-      expect(FISCO_TOOLS).toHaveLength(8);
+      expect(FISCO_TOOLS).toHaveLength(9);
       const keys = FISCO_TOOLS.map((t: { key: string }) => t.key);
       expect(keys).toContain('tax-return');
       expect(keys).toContain('withholding-rates');
@@ -17,6 +17,7 @@ describe('FiscoLanding', () => {
       expect(keys).toContain('pension');
       expect(keys).toContain('pillar3');
       expect(keys).toContain('tax-credit');
+      expect(keys).toContain('new-frontier-tax-sim');
     });
 
     it('each tool has required fields', async () => {
