@@ -5333,4 +5333,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'carburanti-prezzo-rialzo-ticino',
+    category: 'novita',
+    date: '2026-03-25T10:07:18.643Z',
+    image: '/images/blog/carburanti-prezzo-rialzo-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

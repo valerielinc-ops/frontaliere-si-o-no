@@ -1775,6 +1775,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.title': 'Aggregazione Basso Mendrisiotto: Rizza critica Chiasso',
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.excerpt': 'Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario.',
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.imageAlt': 'Panorama des Basso Mendrisiotto mit Chiasso, Mendrisio und Vacallo.',
+    'blog.article.carburanti-prezzo-rialzo-ticino.title': 'Kraftstoffpreise steigen: Dieselpreis über 2 Euro im Tessin',
+    'blog.article.carburanti-prezzo-rialzo-ticino.excerpt': 'Die Preise für Benzin und Diesel steigen, wobei der Diesel die 2-Euro-Marke überschreitet. Hier ist, was Sie wissen müssen.',
+    'blog.article.carburanti-prezzo-rialzo-ticino.imageAlt': 'Blick auf den Luganersee mit umliegenden Bergen.',
 };
 
 export default blogMetaDe;

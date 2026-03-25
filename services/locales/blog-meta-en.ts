@@ -1775,6 +1775,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.title': 'Aggregation of Basso Mendrisiotto: Rizza Criticizes Chiasso',
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.excerpt': 'Vacallo Mayor Marco Rizza invites Chiasso to be more self-critical on the financial front.',
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.imageAlt': 'Panorama of the Basso Mendrisiotto with Chiasso, Mendrisio and Vacallo.',
+    'blog.article.carburanti-prezzo-rialzo-ticino.title': 'Fuel Prices on the Rise: Diesel Exceeds 2 Euros in Ticino',
+    'blog.article.carburanti-prezzo-rialzo-ticino.excerpt': 'The price of gasoline and diesel is increasing, with diesel surpassing 2 euros. Here’s what you need to know.',
+    'blog.article.carburanti-prezzo-rialzo-ticino.imageAlt': 'View of Lake Lugano with surrounding mountains.',
 };
 
 export default blogMetaEn;

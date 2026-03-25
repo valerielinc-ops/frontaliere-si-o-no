@@ -1775,6 +1775,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.title': 'Aggregazione Basso Mendrisiotto: Rizza critica Chiasso',
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.excerpt': 'Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario.',
     'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.imageAlt': 'Panorama del Basso Mendrisiotto con i comuni di Chiasso, Mendrisio e Vacallo.',
+    'blog.article.carburanti-prezzo-rialzo-ticino.title': 'Carburanti in rialzo: prezzo diesel oltre 2 euro in Ticino',
+    'blog.article.carburanti-prezzo-rialzo-ticino.excerpt': 'Il prezzo di benzina e diesel aumenta, con il gasolio che supera i 2 euro. Ecco cosa sapere.',
+    'blog.article.carburanti-prezzo-rialzo-ticino.imageAlt': 'Vista del Lago di Lugano con montagne circostanti.',
 };
 
 export default blogMetaIt;

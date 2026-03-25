@@ -10289,6 +10289,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburanti-prezzo-rialzo-ticino': {
+    title: 'Carburanti in rialzo: prezzo diesel oltre 2 euro in Ticino | Frontaliere Ticino',
+    description: 'Scopri come l\'aumento dei prezzi dei carburanti in Ticino influisce sui frontalieri. Dettagli e consigli utili. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, rialzo, prezzo, diesel',
+    ogTitle: 'Prezzi carburanti in aumento in Ticino',
+    ogDescription: 'Il prezzo di benzina e diesel cresce in Ticino. Scopri le implicazioni per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/carburanti-prezzo-rialzo-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Carburanti, prezzo di benzina e diesel in rialzo: gasolio oltre i 2 euro",
+      "description": "Scopri come l'aumento dei prezzi dei carburanti in Ticino influisce sui frontalieri. Dettagli e consigli utili. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carburanti-prezzo-rialzo-ticino.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Vista del Lago di Lugano con montagne circostanti."
+      },
+      "datePublished": "2026-03-25T10:07:18+00:00",
+      "dateModified": "2026-03-25T10:07:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-prezzo-rialzo-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
