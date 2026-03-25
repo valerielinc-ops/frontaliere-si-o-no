@@ -141,6 +141,24 @@ async function fetchJobs() {
     let description = '';
     let location = 'Lugano';
 
+    // Derive title from URL slug first (always available, always unique)
+    const urlSlug = listing.url.match(/carriera-(.+)\.php/)?.[1] || '';
+    const urlDerivedTitle = urlSlug
+      .replace(/__\d+_?$/g, '')    // remove trailing __100_ percentage markers
+      .replace(/\d+$/g, '')        // remove trailing numbers
+      .replace(/_+/g, ' ')         // underscores to spaces
+      .replace(/-+/g, ' ')         // hyphens to spaces
+      .replace(/\s+/g, ' ')        // collapse whitespace
+      .trim()
+      .split(' ')
+      .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+      .join(' ');
+
+    // Start with best available title: parser listing > URL-derived > fallback
+    if (!listing.title && urlDerivedTitle) {
+      listing.title = urlDerivedTitle;
+    }
+
     // Try to fetch the detail page for a richer description
     try {
       const detailHtml = await fetchHtml(listing.url, timeoutMs);
@@ -148,7 +166,8 @@ async function fetchJobs() {
       if (detail) {
         if (detail.body) description = detail.body;
         if (detail.location) location = detail.location;
-        if (detail.title && detail.title.length > listing.title.length) {
+        // Only use detail title if it's specific enough (> 15 chars, not generic)
+        if (detail.title && detail.title.length > 15 && !/^posizione/i.test(detail.title)) {
           listing.title = detail.title;
         }
       }
@@ -156,21 +175,8 @@ async function fetchJobs() {
       console.warn(`  ⚠️ Could not fetch detail page ${listing.url}: ${err.message}`);
     }
 
-    // If no title found, derive from URL slug
     if (!listing.title) {
-      const urlSlug = listing.url.match(/carriera-(.+)\.php/)?.[1] || '';
-      // Clean URL slug: replace underscores/hyphens, remove trailing numbers and 100_ percentages
-      const cleaned = urlSlug
-        .replace(/__\d+_?$/g, '')    // remove trailing __100_ percentage markers
-        .replace(/\d+$/g, '')        // remove trailing numbers
-        .replace(/_+/g, ' ')         // underscores to spaces
-        .replace(/-+/g, ' ')         // hyphens to spaces
-        .replace(/\s+/g, ' ')        // collapse whitespace
-        .trim();
-      // Capitalize first letter of each word
-      listing.title = cleaned
-        ? cleaned.split(' ').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
-        : 'Posizione aperta BPS Suisse';
+      listing.title = 'Posizione aperta BPS Suisse';
     }
 
     // Ensure minimum description length for quality gate (>= 220 chars)
