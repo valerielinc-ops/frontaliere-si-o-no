@@ -27,9 +27,7 @@ import {
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage   safeMergeJobLocales,
-  mergeLocaleTextMap,
-} from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { parseRivopharmJobs, slugify, normalizeSpace, htmlToText } from './lib/rivopharm-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -229,9 +227,6 @@ async function mergeJobs(discoveredJobs) {
         location: discovered.location || existing.location,
         canton: 'TI', country: 'CH',
         source: 'rivopharm-html-crawler',
-        titleByLocale: mergeLocaleTextMap(existing.titleByLocale, discovered.titleByLocale, 3),
-        descriptionByLocale: mergeLocaleTextMap(existing.descriptionByLocale, discovered.descriptionByLocale, 30),
-        slugByLocale: mergeLocaleTextMap(existing.slugByLocale, discovered.slugByLocale, 3),
       });
       updated++;
     } else {
