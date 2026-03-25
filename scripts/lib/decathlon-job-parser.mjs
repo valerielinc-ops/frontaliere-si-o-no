@@ -191,3 +191,14 @@ export function isDecathlonTicinoJob(job) {
 
   return TICINO_LOCATIONS.some((kw) => loc.includes(kw));
 }
+
+export function inferEmploymentType(title = '', description = '', percentage = '') {
+  const combined = `${title} ${percentage} ${description}`;
+  if (/part[- ]?time|teilzeit|tempo parziale|temps partiel/i.test(combined)) return 'PART_TIME';
+  const pctMatch = combined.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || combined.match(/(\d{2,3})\s*%/);
+  if (pctMatch) {
+    const maxPct = pctMatch[2] ? parseInt(pctMatch[2]) : parseInt(pctMatch[1]);
+    if (maxPct < 80) return 'PART_TIME';
+  }
+  return 'FULL_TIME';
+}
