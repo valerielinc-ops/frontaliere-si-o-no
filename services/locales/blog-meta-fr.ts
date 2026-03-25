@@ -1772,6 +1772,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-missione-emergenza-luci-blu.title': 'Chiasso en mission d\'urgence : les services de première intervention en contact avec la population',
     'blog.article.chiasso-missione-emergenza-luci-blu.excerpt': 'Le 26 avril 2026, Chiasso accueillera dix services de première intervention pour la mission d\'urgence, mettant en contact agents et opérateurs avec la population.',
     'blog.article.chiasso-missione-emergenza-luci-blu.imageAlt': 'Chiasso, 26 avril 2026: la ville accueille dix entités de première intervention pour la Mission d\'urgence, mettant en contact les agents et les opérateurs avec la population.',
+    'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.title': 'Agglomération du Bas-Mendrisiotto : Rizza critique Chiasso',
+    'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.excerpt': 'Le maire de Vacallo, Marco Rizza, invite Chiasso à être plus critique sur le plan financier.',
+    'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.imageAlt': 'Panorama du Basso Mendrisiotto avec Chiasso, Mendrisio et Vacallo.',
 };
 
 export default blogMetaFr;

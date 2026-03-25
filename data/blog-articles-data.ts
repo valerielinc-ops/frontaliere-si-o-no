@@ -5326,4 +5326,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiasso-missione-emergenza-luci-blu.webp',
     hasCalculator: true,
   },
+  {
+    id: 'aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica',
+    category: 'novita',
+    date: '2026-03-25T07:18:18.711Z',
+    image: '/images/blog/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -10260,6 +10260,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica': {
+    title: 'Aggregazione Basso Mendrisiotto: Rizza critica Chiasso | Frontaliere Ticino',
+    description: 'Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario. Aggiornamenti sul progetto di aggregazione. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, aggregazione, basso, mendrisiotto, rizza',
+    ogTitle: 'Aggregazione Basso Mendrisiotto: Rizza critica Chiasso',
+    ogDescription: 'Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario. Aggiornamenti sul progetto di aggregazione.',
+    canonicalPath: '/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aggregazione Basso Mendrisiotto: Rizza critica Chiasso",
+      "description": "Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario. Aggiornamenti sul progetto di aggregazione. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Panorama del Basso Mendrisiotto con i comuni di Chiasso, Mendrisio e Vacallo."
+      },
+      "datePublished": "2026-03-25T07:18:18+00:00",
+      "dateModified": "2026-03-25T07:18:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

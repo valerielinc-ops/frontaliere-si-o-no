@@ -1712,6 +1712,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavena-ponte-tresa-verde': { name: 'Annaffiatoi e aiuole, il centro si cura', path: '/articoli-frontaliere/lavena-ponte-tresa-verde', parent: 'blog' },
     'blog-datori-lavoro-cauti': { name: 'Lavoro', path: '/articoli-frontaliere/datori-lavoro-cauti', parent: 'blog' },
     'blog-chiasso-missione-emergenza-luci-blu': { name: 'Chiasso Missione emergenza', path: '/articoli-frontaliere/chiasso-missione-emergenza-luci-blu', parent: 'blog' },
+    'blog-aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica': { name: 'Aggregazione Basso Mendrisiotto', path: '/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica', parent: 'blog' },
   };
 
   const info = sectionNames[section];

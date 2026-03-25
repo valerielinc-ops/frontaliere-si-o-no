@@ -1772,6 +1772,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-missione-emergenza-luci-blu.title': 'Chiasso in Missione emergenza: enti di primo intervento a contatto con la popolazione',
     'blog.article.chiasso-missione-emergenza-luci-blu.excerpt': 'Il 26 aprile 2026, Chiasso accoglierà dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione.',
     'blog.article.chiasso-missione-emergenza-luci-blu.imageAlt': 'Chiasso, 26 aprile 2026: la cittadina accoglie dieci enti di primo intervento per la Missione emergenza, mettendo a contatto agenti e operatori con la popolazione.',
+    'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.title': 'Aggregazione Basso Mendrisiotto: Rizza critica Chiasso',
+    'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.excerpt': 'Il sindaco di Vacallo Marco Rizza invita Chiasso a fare più autocritica sul piano finanziario.',
+    'blog.article.aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica.imageAlt': 'Panorama del Basso Mendrisiotto con i comuni di Chiasso, Mendrisio e Vacallo.',
 };
 
 export default blogMetaIt;
