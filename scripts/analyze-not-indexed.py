@@ -7,7 +7,7 @@ urls = []
 with open(csv_path, 'r') as f:
     reader = csv.DictReader(f)
     for row in reader:
-        url = row['URL'].replace('https://www.frontaliereticino.ch', '')
+        url = row['URL'].replace('https://frontaliereticino.ch', '')
         urls.append(url)
 
 blog, jobs, tools = [], [], []

@@ -32,7 +32,7 @@ const CONFIG = {
   GA4_PROPERTY_ID: 'YOUR_GA4_PROPERTY_ID',
 
   // Your website URL for Search Console (must be a verified property)
-  SITE_URL: 'https://www.frontaliereticino.ch/',
+  SITE_URL: 'https://frontaliereticino.ch/',
 
   // Date range: how many days to look back
   DAYS_BACK: 30,

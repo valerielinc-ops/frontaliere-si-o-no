@@ -1,10 +1,10 @@
 # Frontaliere Ticino
 
-> Frontaliere Ticino (https://www.frontaliereticino.ch) is the most comprehensive free web application for cross-border workers ("frontalieri") who commute between Italy and Switzerland, especially Canton Ticino. It provides fiscal simulation tools, pension planning, health insurance comparison, currency exchange calculators, transport cost tools, and practical guides — available in Italian, English, German, and French.
+> Frontaliere Ticino (https://frontaliereticino.ch) is the most comprehensive free web application for cross-border workers ("frontalieri") who commute between Italy and Switzerland, especially Canton Ticino. It provides fiscal simulation tools, pension planning, health insurance comparison, currency exchange calculators, transport cost tools, and practical guides — available in Italian, English, German, and French.
 
 ## Site Identity
 
-- **URL**: https://www.frontaliereticino.ch
+- **URL**: https://frontaliereticino.ch
 - **Name**: Frontaliere Ticino
 - **Languages**: Italian (primary), English, German, French
 - **Type**: Free Progressive Web App (PWA), no registration required, works offline
@@ -14,15 +14,15 @@
 
 ## For More Information
 
-- Comprehensive domain knowledge, exact tax rates, formulas, and FAQs: [/llms-full.txt](https://www.frontaliereticino.ch/llms-full.txt)
-- Alternative AI discovery path: [/.well-known/llms.txt](https://www.frontaliereticino.ch/.well-known/llms.txt)
-- Sitemap: [/sitemap.xml](https://www.frontaliereticino.ch/sitemap.xml)
+- Comprehensive domain knowledge, exact tax rates, formulas, and FAQs: [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
+- Alternative AI discovery path: [/.well-known/llms.txt](https://frontaliereticino.ch/.well-known/llms.txt)
+- Sitemap: [/sitemap.xml](https://frontaliereticino.ch/sitemap.xml)
 
 ### Other Languages
 
-- English: [/en/llms.txt](https://www.frontaliereticino.ch/en/llms.txt)
-- German: [/de/llms.txt](https://www.frontaliereticino.ch/de/llms.txt)
-- French: [/fr/llms.txt](https://www.frontaliereticino.ch/fr/llms.txt)
+- English: [/en/llms.txt](https://frontaliereticino.ch/en/llms.txt)
+- German: [/de/llms.txt](https://frontaliereticino.ch/de/llms.txt)
+- French: [/fr/llms.txt](https://frontaliereticino.ch/fr/llms.txt)
 
 ---
 
@@ -170,25 +170,25 @@ Cross-border workers typically convert CHF salary to EUR monthly. Best rates ava
 ## Frequently Asked Questions
 
 ### Q: How much does a cross-border worker earn net from CHF 80,000 gross in 2026?
-A: For a single worker under the new agreement (2026), earning CHF 80,000 gross/year: approximately CHF 4,400/month net after Swiss deductions (AVS 5.3%, AC 1.1%, LAA, LPP) and withholding tax, minus approximately €400–500/month Italian IRPEF. Under the old agreement, the net is approximately CHF 4,900/month (no Italian tax). Calculate your exact amount at https://www.frontaliereticino.ch/calcola-stipendio
+A: For a single worker under the new agreement (2026), earning CHF 80,000 gross/year: approximately CHF 4,400/month net after Swiss deductions (AVS 5.3%, AC 1.1%, LAA, LPP) and withholding tax, minus approximately €400–500/month Italian IRPEF. Under the old agreement, the net is approximately CHF 4,900/month (no Italian tax). Calculate your exact amount at https://frontaliereticino.ch/calcola-stipendio
 
 ### Q: Do cross-border workers need to file Italian tax returns?
-A: "New" frontalieri (hired from July 17, 2023 onwards) MUST file Italian tax returns (730 or Modello Redditi PF) to declare Swiss income and claim the tax credit. "Old" frontalieri (pre-July 2023, within 20 km) are generally exempt. Guide: https://www.frontaliereticino.ch/tasse-e-pensione/dichiarazione-redditi
+A: "New" frontalieri (hired from July 17, 2023 onwards) MUST file Italian tax returns (730 or Modello Redditi PF) to declare Swiss income and claim the tax credit. "Old" frontalieri (pre-July 2023, within 20 km) are generally exempt. Guide: https://frontaliereticino.ch/tasse-e-pensione/dichiarazione-redditi
 
 ### Q: What is the €10,000 franchigia for new frontalieri?
 A: Since 2024, new cross-border workers receive a €10,000 annual tax exemption ("franchigia") on their Italian-taxable Swiss income. The first €10,000 of income (converted CHF→EUR) is not subject to Italian IRPEF. This significantly reduces the tax burden for lower-income frontalieri.
 
 ### Q: Which health insurance should a frontaliere choose?
-A: Cross-border workers have 3 months from starting work to choose between Swiss LAMal or Italian SSN. LAMal costs CHF 200–600/month in Ticino. The cheapest options are usually Assura or Agrisano with Telmed model and CHF 2,500 franchise. Compare all 14 insurers: https://www.frontaliereticino.ch/compara-servizi/confronta-casse-malati
+A: Cross-border workers have 3 months from starting work to choose between Swiss LAMal or Italian SSN. LAMal costs CHF 200–600/month in Ticino. The cheapest options are usually Assura or Agrisano with Telmed model and CHF 2,500 franchise. Compare all 14 insurers: https://frontaliereticino.ch/compara-servizi/confronta-casse-malati
 
 ### Q: What is the best way to convert CHF to EUR?
-A: Wise and Revolut offer the best rates (0.25–0.5% markup over mid-market). Traditional banks charge 2–3%. For amounts over CHF 5,000/month, Wise is typically cheapest. Compare: https://www.frontaliereticino.ch/compara-servizi/cambio-franco-euro
+A: Wise and Revolut offer the best rates (0.25–0.5% markup over mid-market). Traditional banks charge 2–3%. For amounts over CHF 5,000/month, Wise is typically cheapest. Compare: https://frontaliereticino.ch/compara-servizi/cambio-franco-euro
 
 ### Q: What are ristorni fiscali?
-A: Under the old agreement, Switzerland returns 40% of withholding tax collected from "old" frontalieri to Italian border municipalities. These municipalities redistribute part as local tax rebates. The new agreement phases out ristorni as workers transition to the new dual-taxation regime. Track: https://www.frontaliereticino.ch/tasse-e-pensione/ristorni-fiscali
+A: Under the old agreement, Switzerland returns 40% of withholding tax collected from "old" frontalieri to Italian border municipalities. These municipalities redistribute part as local tax rebates. The new agreement phases out ristorni as workers transition to the new dual-taxation regime. Track: https://frontaliereticino.ch/tasse-e-pensione/ristorni-fiscali
 
 ### Q: What is the difference between Permit G and Permit B?
-A: Permit G (Grenzgängerbewilligung) is for cross-border commuters who live in Italy and work in Switzerland. Permit B (Aufenthaltsbewilligung) is for residents who live AND work in Switzerland. Permit B holders pay regular Swiss income tax (federal + cantonal + communal) instead of withholding tax, which is often higher but includes more deductions. Compare: https://www.frontaliereticino.ch/calcola-stipendio/confronta-permesso-g-vs-b
+A: Permit G (Grenzgängerbewilligung) is for cross-border commuters who live in Italy and work in Switzerland. Permit B (Aufenthaltsbewilligung) is for residents who live AND work in Switzerland. Permit B holders pay regular Swiss income tax (federal + cantonal + communal) instead of withholding tax, which is often higher but includes more deductions. Compare: https://frontaliereticino.ch/calcola-stipendio/confronta-permesso-g-vs-b
 
 ---
 
@@ -201,7 +201,7 @@ A: Permit G (Grenzgängerbewilligung) is for cross-border commuters who live in 
 - Border traffic data: Google Maps real-time + historical averages
 
 ## Contact
-- Website: https://www.frontaliereticino.ch
+- Website: https://frontaliereticino.ch
 - Facebook: https://www.facebook.com/profile.php?id=61588174947294
-- Feedback: https://www.frontaliereticino.ch/supporto
-- Full AI Documentation: https://www.frontaliereticino.ch/llms-full.txt
+- Feedback: https://frontaliereticino.ch/supporto
+- Full AI Documentation: https://frontaliereticino.ch/llms-full.txt

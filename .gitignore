@@ -14,7 +14,7 @@ dist-ssr
 .superpowers-installer/
 .superpowers/
 .firebase/
-
+google search console/
 
 # Environment variables
 .env
@@ -67,3 +67,4 @@ public/data/jobs-fr.json
 .claude
 !.claude/settings.json
 .serena
+.playwright-mcp

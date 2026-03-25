@@ -49,7 +49,7 @@ for url in urls:
         html = open(idx_file).read()
         canon = re.search(r'<link rel="canonical" href="([^"]*)"', html)
         canon_val = canon.group(1) if canon else "NONE"
-        expected = f"https://www.frontaliereticino.ch/{url}"
+        expected = f"https://frontaliereticino.ch/{url}"
         if canon_val == expected or canon_val == expected.rstrip("/"):
             status = "SELF-REF"
         else:
