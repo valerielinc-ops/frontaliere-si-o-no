@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-25T08:27:12.038Z",
+  "generatedAt": "2026-03-25T09:34:31.599Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 228,
-      "latestObservedUpdate": "2026-03-25T08:23:22.654Z"
+      "latestObservedUpdate": "2026-03-25T09:33:14.743Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -18172,18 +18172,18 @@
             "distanceKm": 19.7
           },
           {
-            "id": "viYoAJMjWUU1BEwgcjDL",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Via al Foss 29, 6557 Cama",
-            "lat": 46.270147,
-            "lng": 9.169142,
-            "sp95PriceChf": 1.9399999999999997,
-            "updatedAt": "2026-03-25T06:30:11.625Z",
-            "nearestMunicipality": "Dosso del Liro (CO)",
-            "nearestMunicipalityDistanceKm": 14.2,
-            "sp95PriceEur": 2.121,
-            "distanceKm": 16.7
+            "id": "WunhlPJcSC3aLWcTjWow",
+            "name": "Eni Arbedo",
+            "brand": "ENI",
+            "address": "Via San Gottardo 129, 6517 Arbedo",
+            "lat": 46.2126984,
+            "lng": 9.039422199999999,
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-03-23T06:04:31.996Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14.7,
+            "sp95PriceEur": 2.067,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.77,
@@ -36773,34 +36773,6 @@
             "distanceKm": 18
           },
           {
-            "id": "7rKNxC4eGKgaSbiUaegr",
-            "name": "Coop Pronto",
-            "brand": "COOP",
-            "address": "Via Locarno 104, 6616 Losone",
-            "lat": 46.1651,
-            "lng": 8.77314,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-18T08:50:20.887Z",
-            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 9,
-            "sp95PriceEur": 2.012,
-            "distanceKm": 17.9
-          },
-          {
-            "id": "M6hoeGLaq1ZDZIM3dFDM",
-            "name": "Techauto",
-            "brand": "UNDEFINED",
-            "address": "Via Valle Maggia 39, 6600 Locarno",
-            "lat": 46.1696789,
-            "lng": 8.7847508,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-18T10:30:10.138Z",
-            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 9.8,
-            "sp95PriceEur": 2.012,
-            "distanceKm": 19
-          },
-          {
             "id": "RRjTEduqoL7DrQS7hbau",
             "name": "Migrol Service",
             "brand": "MIGROL",
@@ -36813,6 +36785,34 @@
             "nearestMunicipalityDistanceKm": 8.8,
             "sp95PriceEur": 2.012,
             "distanceKm": 17.9
+          },
+          {
+            "id": "X4WWXm1s65U4rwqyMIrB",
+            "name": "Eni Ascona",
+            "brand": "ENI",
+            "address": "Via Locarno 122, 6612 Ascona",
+            "lat": 46.1643853,
+            "lng": 8.7739412,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-18T08:50:38.649Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 8.9,
+            "sp95PriceEur": 2.012,
+            "distanceKm": 18
+          },
+          {
+            "id": "b4MiS8tAEPghustlVFWN",
+            "name": "Eni - Avegno Gordevio",
+            "brand": "ENI",
+            "address": "Via Vallemaggia, 6670 Avegno Gordevio",
+            "lat": 46.1981492,
+            "lng": 8.750606403,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-18T15:10:39.801Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 12.2,
+            "sp95PriceEur": 2.012,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.79,
@@ -38111,18 +38111,18 @@
             "distanceKm": 18.5
           },
           {
-            "id": "7rKNxC4eGKgaSbiUaegr",
-            "name": "Coop Pronto",
-            "brand": "COOP",
-            "address": "Via Locarno 104, 6616 Losone",
-            "lat": 46.1651,
-            "lng": 8.77314,
+            "id": "RRjTEduqoL7DrQS7hbau",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Via Locarno 14, 6612 Ascona",
+            "lat": 46.163167,
+            "lng": 8.774451,
             "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-18T08:50:20.887Z",
+            "updatedAt": "2026-03-18T08:51:17.505Z",
             "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 9,
+            "nearestMunicipalityDistanceKm": 8.8,
             "sp95PriceEur": 2.012,
-            "distanceKm": 18
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.79,
@@ -38822,16 +38822,16 @@
             "distanceKm": 17.4
           },
           {
-            "id": "7rKNxC4eGKgaSbiUaegr",
-            "name": "Coop Pronto",
-            "brand": "COOP",
-            "address": "Via Locarno 104, 6616 Losone",
-            "lat": 46.1651,
-            "lng": 8.77314,
+            "id": "RRjTEduqoL7DrQS7hbau",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Via Locarno 14, 6612 Ascona",
+            "lat": 46.163167,
+            "lng": 8.774451,
             "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-18T08:50:20.887Z",
+            "updatedAt": "2026-03-18T08:51:17.505Z",
             "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 9,
+            "nearestMunicipalityDistanceKm": 8.8,
             "sp95PriceEur": 2.012,
             "distanceKm": 15
           }
@@ -39590,16 +39590,16 @@
             "distanceKm": 19
           },
           {
-            "id": "7rKNxC4eGKgaSbiUaegr",
-            "name": "Coop Pronto",
-            "brand": "COOP",
-            "address": "Via Locarno 104, 6616 Losone",
-            "lat": 46.1651,
-            "lng": 8.77314,
+            "id": "RRjTEduqoL7DrQS7hbau",
+            "name": "Migrol Service",
+            "brand": "MIGROL",
+            "address": "Via Locarno 14, 6612 Ascona",
+            "lat": 46.163167,
+            "lng": 8.774451,
             "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-18T08:50:20.887Z",
+            "updatedAt": "2026-03-18T08:51:17.505Z",
             "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 9,
+            "nearestMunicipalityDistanceKm": 8.8,
             "sp95PriceEur": 2.012,
             "distanceKm": 18.7
           }
