@@ -156,10 +156,21 @@ async function fetchJobs() {
       console.warn(`  ⚠️ Could not fetch detail page ${listing.url}: ${err.message}`);
     }
 
-    // If no title found, derive from URL
+    // If no title found, derive from URL slug
     if (!listing.title) {
       const urlSlug = listing.url.match(/carriera-(.+)\.php/)?.[1] || '';
-      listing.title = urlSlug.replace(/_/g, ' ').replace(/\d+$/, '').trim() || 'Posizione aperta BPS Suisse';
+      // Clean URL slug: replace underscores/hyphens, remove trailing numbers and 100_ percentages
+      const cleaned = urlSlug
+        .replace(/__\d+_?$/g, '')    // remove trailing __100_ percentage markers
+        .replace(/\d+$/g, '')        // remove trailing numbers
+        .replace(/_+/g, ' ')         // underscores to spaces
+        .replace(/-+/g, ' ')         // hyphens to spaces
+        .replace(/\s+/g, ' ')        // collapse whitespace
+        .trim();
+      // Capitalize first letter of each word
+      listing.title = cleaned
+        ? cleaned.split(' ').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')
+        : 'Posizione aperta BPS Suisse';
     }
 
     // Ensure minimum description length for quality gate (>= 220 chars)
