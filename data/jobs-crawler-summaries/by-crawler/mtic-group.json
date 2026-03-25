@@ -1,16 +1,16 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-03-25T09:41:13.328Z",
+  "generatedAt": "2026-03-25T20:55:40.124Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 27320,
-  "avgDurationMs": 27320,
+  "durationMs": 28982,
+  "avgDurationMs": 28982,
   "durationHistory": [
-    27320
+    28982
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -114,6 +114,7 @@
         "de": "back-office-sales-support-spezialist-mtic-group-lugano-paradiso",
         "fr": "back-office-sales-support-specialiste-mtic-group-lugano-paradiso"
       },
+      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -170,6 +171,7 @@
         "de": "qualitat-assurance-manager-mtic-group-lugano-paradiso",
         "fr": "qualite-assurance-manager-mtic-group-lugano-paradiso"
       },
+      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
