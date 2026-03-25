@@ -4,6 +4,7 @@ import { SimulationInputs, SimulationResult } from '../../types';
 import { useTranslation } from '../../services/i18n';
 import { lazyRetry } from '@/services/lazyRetry';
 import { Analytics } from '@/services/analytics';
+import { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally } from '@/services/newsletterSubscribers';
 import InlineNetDeltaBadge from './InlineNetDeltaBadge';
 
 const ShareableResultCard = lazyRetry(() => import('@/components/shared/ShareableResultCard'));
@@ -137,12 +138,10 @@ const MobileCalcLayout: React.FC<Props> = ({
     try {
       const [
         { getFirestore }, { getApp },
-        { upsertNewsletterSubscriber, requestConfirmationEmail, markNewsletterSubscribedLocally },
         { unlockAchievement },
       ] = await Promise.all([
         import('firebase/firestore'),
         import('@/services/firebase'),
-        import('@/services/newsletterSubscribers'),
         import('@/services/gamificationService'),
       ]);
       const db = getFirestore(await getApp());

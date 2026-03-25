@@ -127,6 +127,8 @@ import {
   markNewsletterSubscribedLocally,
   recordNewsletterClick,
   recordNewsletterEvent,
+  confirmNewsletterSubscription,
+  clearNewsletterPendingLocally,
 } from '@/services/newsletterSubscribers';
 // Icons used directly in App.tsx for tab navigation and UI chrome.
 // NOTE: All lucide-react icons (including those only used by lazy components) are
@@ -603,8 +605,6 @@ const App: React.FC = () => {
       if (!token) return;
       (async () => {
         try {
-          const { confirmNewsletterSubscription, clearNewsletterPendingLocally, markNewsletterSubscribedLocally } =
-            await import('@/services/newsletterSubscribers');
           const result = await confirmNewsletterSubscription(email, token);
           if (result.success) {
             clearNewsletterPendingLocally();
