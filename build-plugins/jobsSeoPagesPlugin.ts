@@ -1386,6 +1386,34 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
             ],
           });
 
+          // Organization schema for company pages — derived from job data
+          const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
+          const primaryLocation = companyLocations[0] || '';
+          const cWebsite = companyWebsite(companyJobs[0]);
+          const orgLdObj: Record<string, unknown> = {
+            '@context': 'https://schema.org',
+            '@type': 'Organization',
+            name: companyName,
+            url: cWebsite !== BASE_URL ? cWebsite : undefined,
+            address: {
+              '@type': 'PostalAddress',
+              ...(primaryLocation ? { addressLocality: primaryLocation } : {}),
+              addressRegion: 'Ticino',
+              addressCountry: 'CH',
+            },
+          };
+          // Add number of open positions as a signal
+          if (companyJobs.length > 0) {
+            orgLdObj.numberOfEmployees = {
+              '@type': 'QuantitativeValue',
+              value: companyJobs.length,
+              unitText: 'open positions',
+            };
+          }
+          // Remove undefined values before serialization
+          if (!orgLdObj.url) delete orgLdObj.url;
+          const organizationLd = JSON.stringify(orgLdObj);
+
           const companyHtml = `<!doctype html>
 <html lang="${locale}">
   <head>
@@ -1404,7 +1432,8 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
     <meta name="twitter:description" content="${esc(description)}">
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}
-    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
+    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${organizationLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}
   </head>
   <body>
     <div id="root">

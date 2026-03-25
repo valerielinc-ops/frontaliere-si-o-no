@@ -70,6 +70,19 @@ export const SCHEMA_PUBLISHER = {
 } as const;
 
 /**
+ * Expert Person author for blog articles — AI systems give +25% citation
+ * boost for named expert authors vs anonymous Organization authors.
+ * Used in BlogPosting/NewsArticle structured data.
+ */
+export const SCHEMA_EXPERT_AUTHOR = {
+  "@type": "Person",
+  "name": "Frontaliere Ticino",
+  "jobTitle": "Esperto fiscale frontalieri",
+  "url": `${BASE_URL}/chi-siamo`,
+  "worksFor": { "@id": `${BASE_URL}/#organization` },
+} as const;
+
+/**
  * SpeakableSpecification for article/FAQ pages — targets the most
  * citation-worthy content for voice assistants and AI summarization.
  */

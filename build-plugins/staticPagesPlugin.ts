@@ -365,8 +365,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
       };
 
       // Helper: convert JS object literal to JSON (handles unquoted keys, single quotes, trailing commas, template literals)
+      // Dynamic build date for dateModified freshness signals
+      const BUILD_DATE_ISO = new Date().toISOString();
+
       const jsToJson = (js: string): string => {
         let s = js;
+        // Replace BUILD_DATE_ISO variable reference with current build timestamp
+        s = s.replace(/\bBUILD_DATE_ISO\b/g, `"${BUILD_DATE_ISO}"`);
         // Replace ${BASE_URL} template literals
         s = s.replace(/\$\{BASE_URL\}/g, BASE_URL);
         // Replace backtick strings with double-quoted strings
