@@ -1,16 +1,16 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-03-24T23:03:29.979Z",
+  "generatedAt": "2026-03-25T09:43:01.127Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 18315,
-  "avgDurationMs": 18315,
+  "durationMs": 28193,
+  "avgDurationMs": 28193,
   "durationHistory": [
-    18315
+    28193
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,7 +41,13 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-24T23:03:29.589Z",
+      "crawledAt": "2026-03-25T09:43:00.609Z",
+      "slugByLocale": {
+        "it": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1",
+        "en": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1",
+        "de": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1",
+        "fr": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1"
+      },
       "titleByLocale": {
         "it": "Consulente Clientela Aziendale",
         "en": "Consulente Clientela Aziendale",
@@ -63,16 +69,7 @@
         "de": [],
         "fr": []
       },
-      "slugByLocale": {
-        "it": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1",
-        "en": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1",
-        "de": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1",
-        "fr": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1"
-      },
       "sourceLang": "it",
-      "previousSlugs": [
-        "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano"
-      ],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
