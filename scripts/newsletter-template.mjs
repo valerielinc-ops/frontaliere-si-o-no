@@ -224,7 +224,7 @@ function escapeHtml(str) {
 
 function renderEmailActionMarkup({ campaign, locale }) {
   const targetUrl = utmUrl('/cerca-lavoro-ticino/offerte-di-lavoro-ticino-oggi/', campaign);
-  const logoUrl = `${BASE_URL}/images/og-frontaliere.png`;
+  const logoUrl = `${BASE_URL}/og-image.png`;
   return `<script type="application/ld+json">${JSON.stringify({
     '@context': 'https://schema.org',
     '@type': 'EmailMessage',

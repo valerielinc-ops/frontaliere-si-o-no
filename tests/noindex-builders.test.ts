@@ -57,8 +57,9 @@ describe('SEO builder noindex guards', () => {
       // Soft-landing pages use self-referencing canonical
       expect(block).toContain('rel="canonical"');
       expect(block).not.toContain('http-equiv="refresh"');
-      // noindex is conditionally applied only for thin-content orphan pages (no ejData)
-      expect(block).toContain('hasExpiredRichContent');
+      // Robots directive is conditional on content quality via robotsMetaForContent()
+      // Pages with >= MIN_INDEXABLE_WORDS get index,follow; below threshold get noindex,follow
+      expect(block).toContain('robotsMetaForContent');
       expect(block).toContain('expiredRobotsTag');
     });
 
