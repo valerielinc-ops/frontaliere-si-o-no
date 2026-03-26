@@ -683,7 +683,7 @@ const TicinoCompanies: React.FC = () => {
     if (company.website) {
       try {
         const domain = new URL(company.website).hostname;
-        return `https://www.google.com/s2/favicons?domain=${domain}&sz=128`;
+        return `https://logo.clearbit.com/${domain}`;
       } catch { return null; }
     }
     return null;
@@ -820,7 +820,7 @@ const TicinoCompanies: React.FC = () => {
                 <div className="flex items-start gap-3 mb-2">
                   {getCompanyLogo(company) ? (
                     <div className="w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden flex-shrink-0 border border-slate-200 dark:border-slate-600">
-                      <img src={getCompanyLogo(company)!} alt={company.name} width={22} height={22} className="w-[22px] h-[22px] object-contain" loading="lazy" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; (e.target as HTMLImageElement).parentElement!.innerHTML = `<span class="text-lg">${SECTOR_ICONS[company.sector] || '🏢'}</span>`; }} />
+                      <img src={getCompanyLogo(company)!} alt={company.name} width={22} height={22} className="w-[22px] h-[22px] object-contain" loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; el.parentElement!.innerHTML = `<span class="text-lg">${SECTOR_ICONS[company.sector] || '🏢'}</span>`; } }} />
                     </div>
                   ) : (
                     <div className="text-xl flex-shrink-0">{SECTOR_ICONS[company.sector] || '🏢'}</div>
@@ -883,7 +883,7 @@ const TicinoCompanies: React.FC = () => {
                     <div style={{ padding: '4px' }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
                         {company.website ? (
-                          <img src={`https://www.google.com/s2/favicons?domain=${new URL(company.website).hostname}&sz=128`} alt="" width={28} height={28} style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} loading="lazy" onError={(e) => { (e.target as HTMLImageElement).style.display = 'none'; }} />
+                          <img src={`https://logo.clearbit.com/${new URL(company.website).hostname}`} alt="" width={28} height={28} style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
                         ) : (
                           <span style={{ fontSize: '24px' }}>{SECTOR_ICONS[company.sector] || '🏢'}</span>
                         )}

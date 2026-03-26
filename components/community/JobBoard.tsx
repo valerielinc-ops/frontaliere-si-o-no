@@ -3294,7 +3294,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <div className="flex items-start gap-3">
             <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
               {logo ? (
-                <img src={logo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" />
+                <img src={logo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
               ) : (
                 <span className="text-base sm:text-lg">{CATEGORY_EMOJI[job.category]}</span>
               )}
@@ -4703,6 +4703,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   height={48}
                   className="w-12 h-12 rounded-lg object-contain bg-slate-50 dark:bg-slate-700 flex-shrink-0"
                   loading="lazy"
+                  onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
                 />
               )}
               <div className="flex-1 min-w-0">
@@ -5056,6 +5057,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       width={56}
                       height={56}
                       loading="lazy"
+                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
                     />
                   ) : (
                     <Building2 className="w-9 h-9 text-slate-500" />
@@ -5208,6 +5210,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       width={28}
                       height={28}
                       loading="lazy"
+                      onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
                     />
                   ) : (
                     <Building2 className="w-4 h-4 text-slate-500" />
