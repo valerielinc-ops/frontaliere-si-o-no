@@ -1,88 +1,21 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-03-26T09:32:37.675Z",
+  "generatedAt": "2026-03-26T21:06:08.692Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 1806,
-  "avgDurationMs": 1806,
+  "durationMs": 1888,
+  "avgDurationMs": 1888,
   "durationHistory": [
-    1806
+    1888
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "id": "corner-banca-422277a6cd4c",
-      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "en": "it-card-management-analyst-specialist-corner-banca-lugano-331bdu",
-        "de": "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-        "fr": "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Card Management Analyst / Specialist",
-      "titleByLocale": {
-        "it": "IT Card Management Analista / Specialista",
-        "en": "IT Card Management Analyst / Specialist",
-        "de": "IT Card Management Analyst / Spezialist",
-        "fr": "IT Card Management Analyste / Spécialiste"
-      },
-      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-      "descriptionByLocale": {
-        "it": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-        "de": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-        "fr": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement."
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [],
-        "fr": []
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-03",
-      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-26T09:32:36.195Z",
-      "needsRetranslation": true,
-      "sourceLang": "en",
-      "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano"
-      ],
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
     {
       "id": "corner-banca-f803e5cc9fe2",
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
@@ -135,7 +68,7 @@
       "postedDate": "2025-10-02",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-26T09:32:36.195Z",
+      "crawledAt": "2026-03-26T21:06:07.048Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 61000,
@@ -156,97 +89,64 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "id": "corner-banca-7a70bd719a1e",
-      "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
+      "id": "corner-banca-422277a6cd4c",
+      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
       "slugByLocale": {
-        "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "de": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
-        "fr": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "en": "it-card-management-analyst-specialist-corner-banca-lugano-331bdu",
+        "de": "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+        "fr": "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+      "title": "IT Card Management Analyst / Specialist",
       "titleByLocale": {
-        "it": "Collaboratore Servizi Logistici - Ufficio Tecnico",
-        "en": "Collaboratore Servizi Logistici - Ufficio Tecnico",
-        "de": "Collaboratore Servizi Logistici - Ufficio Tecnico",
-        "fr": "Collaboratore Servizi Logistici - Ufficio Tecnico"
+        "it": "IT Card Management Analista / Specialista",
+        "en": "IT Card Management Analyst / Specialist",
+        "de": "IT Card Management Analyst / Spezialist",
+        "fr": "IT Card Management Analyste / Spécialiste"
       },
-      "description": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
       "descriptionByLocale": {
-        "it": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
-        "en": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
-        "de": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
-        "fr": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
+        "it": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
+        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
+        "de": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
+        "fr": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement."
       },
-      "requirements": [
-        "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
-        "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
-        "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-        "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-        "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-        "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-        "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-        "Residente in Ticino",
-        "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
-        "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
-      ],
+      "requirements": [],
       "requirementsByLocale": {
-        "it": [
-          "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
-          "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
-          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-          "Residente in Ticino",
-          "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
-          "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
-        ],
+        "it": [],
         "en": [],
-        "de": [
-          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-          "Residente in Ticino"
-        ],
-        "fr": [
-          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
-          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
-          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
-          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
-          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
-          "Residente in Ticino"
-        ]
+        "de": [],
+        "fr": []
       },
       "location": "Lugano",
       "canton": "TI",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
-      "category": "other",
+      "category": "tech",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-09",
-      "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
+      "postedDate": "2026-02-03",
+      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-26T09:32:36.194Z",
+      "crawledAt": "2026-03-26T21:06:07.047Z",
       "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
+      "sourceLang": "en",
+      "previousSlugs": [
+        "analista-specialista-gestione-carte-it-corner-banca-lugano"
+      ],
+      "salaryMin": 72500,
+      "salaryMax": 97500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
+          "minValue": 72500,
+          "maxValue": 97500,
           "unitText": "YEAR"
         }
       },
@@ -313,7 +213,7 @@
       "postedDate": "2026-02-26",
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-26T09:32:36.194Z",
+      "crawledAt": "2026-03-26T21:06:07.046Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
@@ -410,7 +310,7 @@
       "postedDate": "2026-02-26",
       "url": "https://jobs.corner.ch/o/customer-advisor-100",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-26T09:32:36.194Z",
+      "crawledAt": "2026-03-26T21:06:07.046Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
@@ -501,7 +401,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-26T09:32:36.193Z",
+      "crawledAt": "2026-03-26T21:06:07.045Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
@@ -516,6 +416,106 @@
           "@type": "QuantitativeValue",
           "minValue": 109000,
           "maxValue": 147000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-7a70bd719a1e",
+      "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
+        "en": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
+        "de": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt",
+        "fr": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+      "titleByLocale": {
+        "it": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+        "en": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+        "de": "Collaboratore Servizi Logistici - Ufficio Tecnico",
+        "fr": "Collaboratore Servizi Logistici - Ufficio Tecnico"
+      },
+      "description": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+      "descriptionByLocale": {
+        "it": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+        "en": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+        "de": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese",
+        "fr": "Siamo alla ricerca di un/una Collaboratore/Collaboratrice Servizi Logistici – Ufficio Tecnico per rafforzare il nostro team. In questo ruolo sarai responsabile del coordinamento e della pianificazione delle attività di manutenzione e riparazione degli edifici e degli impianti tecnici, garantendo operazioni efficienti e un servizio di alta qualità per i nostri clienti interni.\n\nOrganizzazione e pianificazione dei lavori di manutenzione e riparazione degli edifici e degli impianti tecnici\n\nGestione delle richieste di intervento e comunicazione con i clienti interni\n\nGestione dei processi di acquisto materiale e ordini di lavoro\n\nAttività di manutenzione, riparazione e altre attività in ambito logistica incluso servizio di picchetto\n\nGestione e coordinamento del team di manutenzione\n\nConoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)\n\nEsperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto\n\nConoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)\n\nBuone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)\n\nOttima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)\n\nEsperienza nella conduzione di un team e nella gestione di piccoli progetti\n\nOrientamento verso il cliente (interno) e forte spirito per il lavoro di squadra\n\nResidente in Ticino\n\nDiploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale\n\nItaliano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
+      },
+      "requirements": [
+        "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
+        "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
+        "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+        "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+        "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+        "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+        "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+        "Residente in Ticino",
+        "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
+        "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Conoscenza della tecnica degli edifici (impianti elettrici, riscaldamento, impianti frigoriferi, impianti sanitari, ventilazione, reti ICT)",
+          "Esperienza (10 anni) nella gestione, manutenzione e riparazione di edifici e impianti tecnici, incluso il servizio di picchetto",
+          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+          "Residente in Ticino",
+          "Diploma AFC in ambito tecnico (edilizia e/o impianti) con preferenza per l’ambito elettrico, elettrotecnico o elettromeccanico. Eventuali formazioni superiori in ambito tecnico costituiscono titolo preferenziale",
+          "Italiano (lingua madre) e buona conoscenza di una seconda lingua nazionale (preferibilmente tedesco). Buone conoscenze dell’inglese"
+        ],
+        "en": [],
+        "de": [
+          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+          "Residente in Ticino"
+        ],
+        "fr": [
+          "Conoscenza di applicativi per la gestione di ticket e asset (EAM, SAP o simili)",
+          "Buone conoscenze di sistemi di gestione edifici (Siemens, Honeywell o simili)",
+          "Ottima conoscenza degli applicativi Office e best practice nell’utilizzo delle tecnologie (PC, App, ecc.)",
+          "Esperienza nella conduzione di un team e nella gestione di piccoli progetti",
+          "Orientamento verso il cliente (interno) e forte spirito per il lavoro di squadra",
+          "Residente in Ticino"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-09",
+      "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "crawledAt": "2026-03-26T21:06:07.045Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
           "unitText": "YEAR"
         }
       },
@@ -604,7 +604,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-26T09:32:36.192Z",
+      "crawledAt": "2026-03-26T21:06:07.044Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
