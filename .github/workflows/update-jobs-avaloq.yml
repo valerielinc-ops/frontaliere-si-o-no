@@ -11,6 +11,11 @@ on:
         description: 'Crawler timeout override in milliseconds'
         required: false
         default: ''
+      skip_ai_translation:
+        description: "Skip AI translation (1=yes, cache only)"
+        required: false
+        default: "1"
+        type: string
 
 concurrency:
   group: update-jobs-avaloq
