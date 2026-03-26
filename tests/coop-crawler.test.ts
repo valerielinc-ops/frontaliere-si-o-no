@@ -4,6 +4,7 @@ import {
   coopDescHtmlToMarkdown,
   validateCoopDescription,
   titleOverlap,
+  applyCoopJsonLdToJob,
 } from '../scripts/lib/coop-job-parser.mjs';
 
 // ──────────────────────────────────────────────────────────────
@@ -189,5 +190,161 @@ describe('titleOverlap — Coop titles', () => {
 
   it('returns 1 for empty expected', () => {
     expect(titleOverlap('', 'anything')).toBe(1);
+  });
+});
+
+// ──────────────────────────────────────────────────────────────
+// applyCoopJsonLdToJob tests
+// ──────────────────────────────────────────────────────────────
+
+describe('applyCoopJsonLdToJob — location update from JSON-LD', () => {
+  it('updates location and addressLocality when JSON-LD has different locality', () => {
+    const job = {
+      title: 'Verkaufsberater:in',
+      location: 'Castione',
+      addressLocality: 'Castione',
+      canton: 'TI',
+      addressRegion: 'TI',
+      company: 'Coop',
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Canobbio',
+          addressRegion: 'Ticino',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+    expect(changed).toBe(true);
+    expect(updated.location).toBe('Canobbio');
+    expect(updated.addressLocality).toBe('Canobbio');
+    // Canton stays TI since "Ticino" normalizes to TI (same as before)
+    expect(updated.canton).toBe('TI');
+  });
+
+  it('updates canton when JSON-LD addressRegion differs', () => {
+    const job = {
+      title: 'Logistiker:in',
+      location: 'Ticino',
+      addressLocality: 'Ticino',
+      canton: 'TI',
+      addressRegion: 'TI',
+      company: 'Coop',
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Chur',
+          addressRegion: 'Graubünden',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+    expect(changed).toBe(true);
+    expect(updated.location).toBe('Chur');
+    expect(updated.addressLocality).toBe('Chur');
+    expect(updated.canton).toBe('GR');
+    expect(updated.addressRegion).toBe('GR');
+  });
+
+  it('updates company when JSON-LD has a more specific store name', () => {
+    const job = {
+      title: 'Verkaufsberater:in Textil',
+      location: 'Chur',
+      addressLocality: 'Chur',
+      canton: 'GR',
+      company: 'Coop',
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Chur',
+          addressRegion: 'Graubünden',
+        },
+      },
+      hiringOrganization: { name: 'Coop City' },
+    };
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+    expect(changed).toBe(true);
+    expect(updated.company).toBe('Coop City');
+  });
+
+  it('does not update company when JSON-LD name is short (<=4 chars)', () => {
+    const job = {
+      title: 'Logistiker:in',
+      location: 'Lugano',
+      addressLocality: 'Lugano',
+      canton: 'TI',
+      company: 'Coop Ticino',
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Lugano',
+          addressRegion: 'Ticino',
+        },
+      },
+      hiringOrganization: { name: 'Coop' },
+    };
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+    // "Coop" is only 4 chars, should not replace "Coop Ticino"
+    expect(updated.company).toBe('Coop Ticino');
+  });
+
+  it('returns changed=false when JSON-LD matches existing job data', () => {
+    const job = {
+      title: 'Test Job',
+      location: 'Lugano',
+      addressLocality: 'Lugano',
+      canton: 'TI',
+      addressRegion: 'TI',
+      company: 'Coop City',
+    };
+    const jsonLd = {
+      jobLocation: {
+        address: {
+          addressLocality: 'Lugano',
+          addressRegion: 'Ticino',
+        },
+      },
+      hiringOrganization: { name: 'Coop City' },
+    };
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+    expect(changed).toBe(false);
+    expect(updated.location).toBe('Lugano');
+    expect(updated.company).toBe('Coop City');
+  });
+
+  it('handles null/missing JSON-LD gracefully', () => {
+    const job = {
+      title: 'Test',
+      location: 'Lugano',
+      addressLocality: 'Lugano',
+      canton: 'TI',
+      company: 'Coop',
+    };
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, null);
+    expect(changed).toBe(false);
+    expect(updated.location).toBe('Lugano');
+  });
+
+  it('handles JSON-LD with empty jobLocation', () => {
+    const job = {
+      title: 'Test',
+      location: 'Bellinzona',
+      addressLocality: 'Bellinzona',
+      canton: 'TI',
+      company: 'Coop',
+    };
+    const jsonLd = {
+      jobLocation: {},
+      hiringOrganization: { name: 'Coop' },
+    };
+    const { job: updated, changed } = applyCoopJsonLdToJob(job, jsonLd);
+    expect(changed).toBe(false);
+    expect(updated.location).toBe('Bellinzona');
   });
 });

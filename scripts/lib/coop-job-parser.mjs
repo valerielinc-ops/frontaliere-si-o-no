@@ -170,6 +170,56 @@ export function coopDescHtmlToMarkdown(html = '') {
 }
 
 // ─────────────────────────────────────────────────────────────
+// Canton normalization (local copy — same logic as update-coop-jobs.mjs)
+// ─────────────────────────────────────────────────────────────
+
+function normalizeCantonCode(raw = '', fallback = '') {
+  const lower = String(raw || '').trim().toLowerCase();
+  if (['ti', 'ticino', 'tessin'].includes(lower)) return 'TI';
+  if (['gr', 'grigioni', 'graubunden', 'graubünden', 'grisons'].includes(lower)) return 'GR';
+  return fallback || '';
+}
+
+// ─────────────────────────────────────────────────────────────
+// Apply JSON-LD location/company data to a job object (pure fn)
+// ─────────────────────────────────────────────────────────────
+
+/**
+ * Apply authoritative location and company data from JSON-LD to a job object.
+ * Returns { job, changed } where `job` is a shallow copy with updated fields.
+ */
+export function applyCoopJsonLdToJob(job, jsonLd) {
+  const updated = { ...job };
+  let changed = false;
+
+  // Location update from JSON-LD (authoritative source for actual work location)
+  const ldLocality = (jsonLd?.jobLocation?.address?.addressLocality || '').trim();
+  const ldRegion = (jsonLd?.jobLocation?.address?.addressRegion || '').trim();
+  if (ldLocality && ldLocality !== updated.addressLocality) {
+    updated.location = ldLocality;
+    updated.addressLocality = ldLocality;
+    changed = true;
+  }
+  if (ldRegion) {
+    const ldCanton = normalizeCantonCode(ldRegion, updated.canton);
+    if (ldCanton && ldCanton !== updated.canton) {
+      updated.canton = ldCanton;
+      updated.addressRegion = ldCanton;
+      changed = true;
+    }
+  }
+
+  // Company update — use store-specific name if more specific than "Coop" alone
+  const ldCompany = (jsonLd?.hiringOrganization?.name || '').trim();
+  if (ldCompany && ldCompany.length > 4 && ldCompany !== updated.company) {
+    updated.company = ldCompany;
+    changed = true;
+  }
+
+  return { job: updated, changed };
+}
+
+// ─────────────────────────────────────────────────────────────
 // Validation
 // ─────────────────────────────────────────────────────────────
 

@@ -38,6 +38,7 @@ import {
   coopDescHtmlToMarkdown,
   validateCoopDescription,
   titleOverlap,
+  applyCoopJsonLdToJob,
 } from './lib/coop-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -209,7 +210,9 @@ function dateOnly(raw = '') {
 function buildSeedMetaFromApiJob(job, fallbackCanton) {
   const attr30 = String(job?.attributes?.['30']?.[0] || '').trim();
   const canton = normalizeCantonCode(attr30, fallbackCanton);
-  const location = attr30 || cantonLabel(canton || fallbackCanton);
+  // Try to get city-level location from various API fields before falling back to canton
+  const apiCity = String(job?.location || job?.place || job?.city || job?.address?.city || '').trim();
+  const location = apiCity || attr30 || cantonLabel(canton || fallbackCanton);
   const company = String(job?.attributes?.['70']?.[0] || job?.company || '').trim();
   const contract = String(job?.attributes?.['40']?.[0] || '').trim();
   return {
@@ -489,6 +492,13 @@ async function postProcessCoopJobs() {
     if (!jsonLd) continue;
 
     let changed = false;
+
+    // ── Location & company update from JSON-LD ──
+    const ldResult = applyCoopJsonLdToJob(job, jsonLd);
+    if (ldResult.changed) {
+      Object.assign(job, ldResult.job);
+      changed = true;
+    }
 
     // ── Title validation ──
     const ldTitle = (jsonLd.title || '').trim();
