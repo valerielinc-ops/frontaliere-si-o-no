@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T16:43:18.527Z",
+  "generatedAt": "2026-03-26T18:38:38.545Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 233,
-      "latestObservedUpdate": "2026-03-26T16:41:29.522Z"
+      "latestObservedUpdate": "2026-03-26T17:53:27.099Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -10038,18 +10038,18 @@
             "distanceKm": 18.5
           },
           {
-            "id": "BAeXvILCMXTPY8rFgqlE",
-            "name": "Euro Service",
-            "brand": "UNDEFINED",
-            "address": "Via Monte Ceneri 11, 6512 Giubiasco",
-            "lat": 46.17041385506623,
-            "lng": 9.007676464656148,
-            "sp95PriceChf": 1.86,
-            "updatedAt": "2026-03-22T08:11:51.763Z",
+            "id": "4MsXtPEJxgBTJR75lIZ2",
+            "name": "SOCAR Camorino",
+            "brand": "SOCAR",
+            "address": "In Tirada, 6528 Camorino",
+            "lat": 46.167107,
+            "lng": 9.001386,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-03-21T13:00:43.266Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 12,
-            "sp95PriceEur": 2.033,
-            "distanceKm": 19
+            "sp95PriceEur": 2.065,
+            "distanceKm": 19.4
           }
         ],
         "minPriceChf": 1.75,
@@ -18179,7 +18179,7 @@
             "lat": 46.206642,
             "lng": 9.038361,
             "sp95PriceChf": 1.94,
-            "updatedAt": "2026-03-26T16:41:29.522Z",
+            "updatedAt": "2026-03-26T16:49:11.284Z",
             "nearestMunicipality": "Cavargna (CO)",
             "nearestMunicipalityDistanceKm": 14.1,
             "sp95PriceEur": 2.12,
