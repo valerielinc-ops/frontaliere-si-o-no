@@ -1,6 +1,6 @@
 {
   "crawlerKey": "posta-svizzera-centro-regionale",
-  "assembledAt": "2026-03-26T10:00:44.029Z",
+  "assembledAt": "2026-03-26T21:33:57.233Z",
   "jobs": [
     {
       "url": "https://job.post.ch/v2/job-vacancies/lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete/1fd4c0e6-d303-40dd-b365-6e59b3a1b2f7",
@@ -45,6 +45,7 @@
         "location": "Davos"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
       "salaryMin": 46500,
@@ -64,8 +65,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "url": "https://job.post.ch/v2/job-vacancies/apprendistato-come-impiegata-impiegato-in-logistica-afc-distribuzione-recapito-pacchi/07a2d131-bd81-4d36-b1fd-e9cdd146665e",
@@ -110,6 +110,7 @@
         "location": "Cadenazzo"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 46500,
@@ -129,73 +130,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
-    },
-    {
-      "url": "https://job.post.ch/v2/job-vacancies/lehre-als-detailhandelsfachmann-frau-efz/caaa8343-8b2b-47a4-bce7-0976d2ca9982",
-      "applyUrl": "https://job.post.ch/v2/job-vacancies/lehre-als-detailhandelsfachmann-frau-efz/caaa8343-8b2b-47a4-bce7-0976d2ca9982",
-      "title": "Lehre als Detailhandelsfachmann:frau EFZ",
-      "company": "Post CH AG",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Ilanz",
-      "canton": "TI",
-      "country": "CH",
-      "description": "Begeistert dich der tägliche Kontakt mit Menschen und liebst du es, zu beraten und zu verkaufen? Dann ist eine Ausbildung im Detailhandel genau das Richtige für dich! Während der dreijährigen Grundausbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt des Detailhandels bei der Post. Deine Ausbildung Als Aushängeschild der Post bist du in der Filiale täglich im Kontakt mit unseren Kundinnen und Kunden – du berätst unsere Kundschaft über die gesamte physische und digitale Produktepalette am Schalter und in der Verkaufsfläche . Briefe und Pakete entgegennehmen, Ein- und Auszahlungen tätigen, Produkte und Dienstleistungen verkaufen oder bedürfnisorientiert beraten – deine Aufgaben sind vielseitig und abwechslungsreich. Die Post positioniert sich zunehmend als Dienstleistungszentrum für Partnerunternehmen wie zum Beispiel Versicherungen, Banken und Krankenkassen – hier hast du die Gelegenheit, dir weiteres Branchenwissen anzueignen. Die Angebotspalette in den Filialen umfasst weitere Produkte und Dienstleistungen rund um die Themen wie z. B. Wohnen, Schenken und Erleben – du bist mittendrin, wenn es darum geht nationale und regionale Kampagnen zu unterstützen und für die Kundinnen und Kunden vielfältige Einkaufserlebnisse zu gestalten. Du erhältst die Möglichkeit, deine beruflichen Handlungskompetenzen in einem Team und in verschiedenen Filialen zu erwerben und zu vertiefen. Im überbetrieblichen und internen Unterricht vernetzt du die Theorie mit den Erfahrungen aus der Praxis. Das bringst du mit Wir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen und sich für Neues begeistern lassen. Folgende Punkte solltest du erfüllen: Die mittlere Volksschulstufe hast du mit guten Leistungen erfolgreich abgeschlossen. Du hast ein Flair für Zahlen und verstehst den Umgang mit Geld. Der Kontakt mit Menschen bereitet dir Freude, und du kannst dich mündlich und schriftlich situationsgerecht ausdrücken. Deine gute Organisation und dein Sinn für Ordnung zeichnen dich aus. Du bist offen, zuverlässig und verschwiegen. Dein fachliches Wissen gibst du gerne weiter. Trifft das auf dich zu? Dann suchen wir genau dich! Wir freuen uns auf deine Onlinebewerbung mit Lebenslauf, Zeugniskopien der letzten vier Semester. Wenn du bereits einen Einstufungstest gemacht hast, darfst du diesen gerne mitsenden (S-Check, Stellwerk, Multicheck, etc.). Das bieten wir dir 7 Wochen Ferien Kostenloses GA Hohe Ausbildungsqualität Personalgutscheine Kontakt Nadine Schindler Die Schweizerische Post AG Berufseinstieg",
-      "descriptionByLocale": {
-        "it": "Begeistert dich der tägliche Kontakt mit Menschen und liebst du es, zu beraten und zu verkaufen? Dann ist eine Ausbildung im Detailhandel genau das Richtige für dich! Während der dreijährigen Grundausbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt des Detailhandels bei der Post. Deine Ausbildung Als Aushängeschild der Post bist du in der Filiale täglich im Kontakt mit unseren Kundinnen und Kunden – du berätst unsere Kundschaft über die gesamte physische und digitale Produktepalette am Schalter und in der Verkaufsfläche . Briefe und Pakete entgegennehmen, Ein- und Auszahlungen tätigen, Produkte und Dienstleistungen verkaufen oder bedürfnisorientiert beraten – deine Aufgaben sind vielseitig und abwechslungsreich. Die Post positioniert sich zunehmend als Dienstleistungszentrum für Partnerunternehmen wie zum Beispiel Versicherungen, Banken und Krankenkassen – hier hast du die Gelegenheit, dir weiteres Branchenwissen anzueignen. Die Angebotspalette in den Filialen umfasst weitere Produkte und Dienstleistungen rund um die Themen wie z. B. Wohnen, Schenken und Erleben – du bist mittendrin, wenn es darum geht nationale und regionale Kampagnen zu unterstützen und für die Kundinnen und Kunden vielfältige Einkaufserlebnisse zu gestalten. Du erhältst die Möglichkeit, deine beruflichen Handlungskompetenzen in einem Team und in verschiedenen Filialen zu erwerben und zu vertiefen. Im überbetrieblichen und internen Unterricht vernetzt du die Theorie mit den Erfahrungen aus der Praxis. Das bringst du mit Wir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen und sich für Neues begeistern lassen. Folgende Punkte solltest du erfüllen: Die mittlere Volksschulstufe hast du mit guten Leistungen erfolgreich abgeschlossen. Du hast ein Flair für Zahlen und verstehst den Umgang mit Geld. Der Kontakt mit Menschen bereitet dir Freude, und du kannst dich mündlich und schriftlich situationsgerecht ausdrücken. Deine gute Organisation und dein Sinn für Ordnung zeichnen dich aus. Du bist offen, zuverlässig und verschwiegen. Dein fachliches Wissen gibst du gerne weiter. Trifft das auf dich zu? Dann suchen wir genau dich! Wir freuen uns auf deine Onlinebewerbung mit Lebenslauf, Zeugniskopien der letzten vier Semester. Wenn du bereits einen Einstufungstest gemacht hast, darfst du diesen gerne mitsenden (S-Check, Stellwerk, Multicheck, etc.). Das bieten wir dir 7 Wochen Ferien Kostenloses GA Hohe Ausbildungsqualität Personalgutscheine Kontakt Nadine Schindler Die Schweizerische Post AG Berufseinstieg",
-        "de": "Begeistert dich der tägliche Kontakt mit Menschen und liebst du es, zu beraten und zu verkaufen? Dann ist eine Ausbildung im Detailhandel genau das Richtige für dich! Während der dreijährigen Grundausbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt des Detailhandels bei der Post. Deine Ausbildung Als Aushängeschild der Post bist du in der Filiale täglich im Kontakt mit unseren Kundinnen und Kunden – du berätst unsere Kundschaft über die gesamte physische und digitale Produktepalette am Schalter und in der Verkaufsfläche . Briefe und Pakete entgegennehmen, Ein- und Auszahlungen tätigen, Produkte und Dienstleistungen verkaufen oder bedürfnisorientiert beraten – deine Aufgaben sind vielseitig und abwechslungsreich. Die Post positioniert sich zunehmend als Dienstleistungszentrum für Partnerunternehmen wie zum Beispiel Versicherungen, Banken und Krankenkassen – hier hast du die Gelegenheit, dir weiteres Branchenwissen anzueignen. Die Angebotspalette in den Filialen umfasst weitere Produkte und Dienstleistungen rund um die Themen wie z. B. Wohnen, Schenken und Erleben – du bist mittendrin, wenn es darum geht nationale und regionale Kampagnen zu unterstützen und für die Kundinnen und Kunden vielfältige Einkaufserlebnisse zu gestalten. Du erhältst die Möglichkeit, deine beruflichen Handlungskompetenzen in einem Team und in verschiedenen Filialen zu erwerben und zu vertiefen. Im überbetrieblichen und internen Unterricht vernetzt du die Theorie mit den Erfahrungen aus der Praxis. Das bringst du mit Wir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen und sich für Neues begeistern lassen. Folgende Punkte solltest du erfüllen: Die mittlere Volksschulstufe hast du mit guten Leistungen erfolgreich abgeschlossen. Du hast ein Flair für Zahlen und verstehst den Umgang mit Geld. Der Kontakt mit Menschen bereitet dir Freude, und du kannst dich mündlich und schriftlich situationsgerecht ausdrücken. Deine gute Organisation und dein Sinn für Ordnung zeichnen dich aus. Du bist offen, zuverlässig und verschwiegen. Dein fachliches Wissen gibst du gerne weiter. Trifft das auf dich zu? Dann suchen wir genau dich! Wir freuen uns auf deine Onlinebewerbung mit Lebenslauf, Zeugniskopien der letzten vier Semester. Wenn du bereits einen Einstufungstest gemacht hast, darfst du diesen gerne mitsenden (S-Check, Stellwerk, Multicheck, etc.). Das bieten wir dir 7 Wochen Ferien Kostenloses GA Hohe Ausbildungsqualität Personalgutscheine Kontakt Nadine Schindler Die Schweizerische Post AG Berufseinstieg",
-        "en": "Begeistert dich der tägliche Kontakt mit Menschen und liebst du es, zu beraten und zu verkaufen? Dann ist eine Ausbildung im Detailhandel genau das Richtige für dich! Während der dreijährigen Grundausbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt des Detailhandels bei der Post. Deine Ausbildung Als Aushängeschild der Post bist du in der Filiale täglich im Kontakt mit unseren Kundinnen und Kunden – du berätst unsere Kundschaft über die gesamte physische und digitale Produktepalette am Schalter und in der Verkaufsfläche . Briefe und Pakete entgegennehmen, Ein- und Auszahlungen tätigen, Produkte und Dienstleistungen verkaufen oder bedürfnisorientiert beraten – deine Aufgaben sind vielseitig und abwechslungsreich. Die Post positioniert sich zunehmend als Dienstleistungszentrum für Partnerunternehmen wie zum Beispiel Versicherungen, Banken und Krankenkassen – hier hast du die Gelegenheit, dir weiteres Branchenwissen anzueignen. Die Angebotspalette in den Filialen umfasst weitere Produkte und Dienstleistungen rund um die Themen wie z. B. Wohnen, Schenken und Erleben – du bist mittendrin, wenn es darum geht nationale und regionale Kampagnen zu unterstützen und für die Kundinnen und Kunden vielfältige Einkaufserlebnisse zu gestalten. Du erhältst die Möglichkeit, deine beruflichen Handlungskompetenzen in einem Team und in verschiedenen Filialen zu erwerben und zu vertiefen. Im überbetrieblichen und internen Unterricht vernetzt du die Theorie mit den Erfahrungen aus der Praxis. Das bringst du mit Wir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen und sich für Neues begeistern lassen. Folgende Punkte solltest du erfüllen: Die mittlere Volksschulstufe hast du mit guten Leistungen erfolgreich abgeschlossen. Du hast ein Flair für Zahlen und verstehst den Umgang mit Geld. Der Kontakt mit Menschen bereitet dir Freude, und du kannst dich mündlich und schriftlich situationsgerecht ausdrücken. Deine gute Organisation und dein Sinn für Ordnung zeichnen dich aus. Du bist offen, zuverlässig und verschwiegen. Dein fachliches Wissen gibst du gerne weiter. Trifft das auf dich zu? Dann suchen wir genau dich! Wir freuen uns auf deine Onlinebewerbung mit Lebenslauf, Zeugniskopien der letzten vier Semester. Wenn du bereits einen Einstufungstest gemacht hast, darfst du diesen gerne mitsenden (S-Check, Stellwerk, Multicheck, etc.). Das bieten wir dir 7 Wochen Ferien Kostenloses GA Hohe Ausbildungsqualität Personalgutscheine Kontakt Nadine Schindler Die Schweizerische Post AG Berufseinstieg",
-        "fr": "Begeistert dich der tägliche Kontakt mit Menschen und liebst du es, zu beraten und zu verkaufen? Dann ist eine Ausbildung im Detailhandel genau das Richtige für dich! Während der dreijährigen Grundausbildung erwirbst du dir das Rüstzeug für einen erfolgreichen Einstieg in die vielfältige Welt des Detailhandels bei der Post. Deine Ausbildung Als Aushängeschild der Post bist du in der Filiale täglich im Kontakt mit unseren Kundinnen und Kunden – du berätst unsere Kundschaft über die gesamte physische und digitale Produktepalette am Schalter und in der Verkaufsfläche . Briefe und Pakete entgegennehmen, Ein- und Auszahlungen tätigen, Produkte und Dienstleistungen verkaufen oder bedürfnisorientiert beraten – deine Aufgaben sind vielseitig und abwechslungsreich. Die Post positioniert sich zunehmend als Dienstleistungszentrum für Partnerunternehmen wie zum Beispiel Versicherungen, Banken und Krankenkassen – hier hast du die Gelegenheit, dir weiteres Branchenwissen anzueignen. Die Angebotspalette in den Filialen umfasst weitere Produkte und Dienstleistungen rund um die Themen wie z. B. Wohnen, Schenken und Erleben – du bist mittendrin, wenn es darum geht nationale und regionale Kampagnen zu unterstützen und für die Kundinnen und Kunden vielfältige Einkaufserlebnisse zu gestalten. Du erhältst die Möglichkeit, deine beruflichen Handlungskompetenzen in einem Team und in verschiedenen Filialen zu erwerben und zu vertiefen. Im überbetrieblichen und internen Unterricht vernetzt du die Theorie mit den Erfahrungen aus der Praxis. Das bringst du mit Wir suchen junge Menschen mit Begeisterung, Freude und Motivation, die etwas bewegen wollen und sich für Neues begeistern lassen. Folgende Punkte solltest du erfüllen: Die mittlere Volksschulstufe hast du mit guten Leistungen erfolgreich abgeschlossen. Du hast ein Flair für Zahlen und verstehst den Umgang mit Geld. Der Kontakt mit Menschen bereitet dir Freude, und du kannst dich mündlich und schriftlich situationsgerecht ausdrücken. Deine gute Organisation und dein Sinn für Ordnung zeichnen dich aus. Du bist offen, zuverlässig und verschwiegen. Dein fachliches Wissen gibst du gerne weiter. Trifft das auf dich zu? Dann suchen wir genau dich! Wir freuen uns auf deine Onlinebewerbung mit Lebenslauf, Zeugniskopien der letzten vier Semester. Wenn du bereits einen Einstufungstest gemacht hast, darfst du diesen gerne mitsenden (S-Check, Stellwerk, Multicheck, etc.). Das bieten wir dir 7 Wochen Ferien Kostenloses GA Hohe Ausbildungsqualität Personalgutscheine Kontakt Nadine Schindler Die Schweizerische Post AG Berufseinstieg"
-      },
-      "titleByLocale": {
-        "it": "Apprendistato come Detailhandelsfachmann:frau CFC",
-        "de": "Lehre als Detailhandelsfachmann:frau EFZ",
-        "en": "Lehre als Detailhandelsfachmann:frau EFZ",
-        "fr": "Lehre als Detailhandelsfachmann:frau EFZ"
-      },
-      "slug": "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz",
-      "slugByLocale": {
-        "it": "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-post-ch-ag-ilanz",
-        "de": "lehre-als-detailhandelsfachmann-frau-efz-post-ch-ag-ilanz-xoh76t",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-post-ch-ag-ilanz"
-      },
-      "department": "Einzel-/Detailhandel",
-      "category": "Einzel-/Detailhandel",
-      "datePosted": "2025-07-29",
-      "validThrough": "2026-07-28",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Formazione",
-      "workload": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Ilanz"
-      },
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "sourceLang": "de",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 46500,
-          "maxValue": 62500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "url": "https://job.post.ch/v2/job-vacancies/zusteller-in-briefe-und-pakete/ea549f6e-967e-4867-965d-891172d5339b",
@@ -240,6 +175,7 @@
         "location": "Trun"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
       "salaryMin": 58000,
@@ -259,8 +195,7 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     }
   ]
 }
