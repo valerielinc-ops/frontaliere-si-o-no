@@ -1779,79 +1779,98 @@ ISTRUZIONI:
  * Called AFTER duplicate check to avoid wasting API calls on duplicates.
  */
 async function translateArticle(data) {
+  // repairJson: strips fences, extracts the JSON object, and escapes literal
+  // newlines/carriage-returns inside string values (common LLM output issue).
+  const repairJson = (s) => {
+    let c = s.replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
+    const start = c.indexOf('{'); const end = c.lastIndexOf('}');
+    if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
+    let out = ''; let inStr = false; let esc = false;
+    for (let i = 0; i < c.length; i++) {
+      const ch = c[i];
+      if (esc) { out += ch; esc = false; continue; }
+      if (ch === '\\') { out += ch; esc = true; continue; }
+      if (ch === '"') { inStr = !inStr; out += ch; continue; }
+      if (inStr && ch === '\n') { out += '\\n'; continue; }
+      if (inStr && ch === '\r') { continue; }
+      out += ch;
+    }
+    return out;
+  };
+
+  async function callWithRetry(prompt, maxTokens, label) {
+    const raw = await callLLM(
+      [{ role: 'user', content: prompt }],
+      { temperature: 0.5, maxTokens, jsonMode: true },
+    );
+    try {
+      return JSON.parse(repairJson(raw));
+    } catch (parseErr) {
+      console.error(`  ⚠️  JSON parse error (${label}): ${parseErr.message}`);
+      console.error(`     Raw (last 200 chars): ...${raw.slice(-200)}`);
+      // Retry with higher maxTokens
+      console.error(`  🔄 Retry ${label} con maxTokens=${maxTokens + 4000}...`);
+      const raw2 = await callLLM(
+        [{ role: 'user', content: prompt }],
+        { temperature: 0.5, maxTokens: maxTokens + 4000, jsonMode: true },
+      );
+      try {
+        const result = JSON.parse(repairJson(raw2));
+        console.error(`  ✅ Retry riuscito per ${label}`);
+        return result;
+      } catch (retryErr) {
+        console.error(`  ❌ Retry fallito (${label}): ${retryErr.message}`);
+        throw new Error(`JSON non valido dalla traduzione ${label}: ${retryErr.message}`);
+      }
+    }
+  }
+
   async function translateContent(sourceLang, targetLang, targetLabel, sourceContent) {
-    // Use scored chain (no model pinning) — falls back through all 42 models automatically
-    console.error(`🤖 [${targetLabel}] Traduzione ${targetLang.toUpperCase()} tramite catena AI (42 modelli)...`);
-    const transPrompt = `Traduci il seguente contenuto giornalistico da italiano a ${targetLang === 'en' ? 'inglese' : targetLang === 'de' ? 'tedesco' : 'francese'
-      } per il sito Frontaliere Ticino.
+    // Use scored chain (no model pinning) — falls back through all models automatically
+    const langName = targetLang === 'en' ? 'inglese' : targetLang === 'de' ? 'tedesco' : 'francese';
+    console.error(`🤖 [${targetLabel}] Traduzione ${targetLang.toUpperCase()} tramite catena AI...`);
 
-CONTENUTO ITALIANO DA TRADURRE:
-- title: ${sourceContent.title}
-- excerpt: ${sourceContent.excerpt}
-- body1: ${sourceContent.body1}
-- body2: ${sourceContent.body2}
-- body3: ${sourceContent.body3}
-
-REGOLE DI TRADUZIONE:
+    const rules = `REGOLE DI TRADUZIONE:
 - Traduzione COMPLETA, stessa profondità e lunghezza dell'italiano (300-400 parole per body)
 - NON riassumere — traduci tutto il contenuto
 - Mantieni la formattazione: ## per sottotitoli, - per elenchi, > per citazioni, emoji (📊💡⚠️) per box
 - Mantieni i link interni esattamente come sono: [testo tradotto](nav:azione) — traduci solo il testo visibile, NON l'azione nav:
 - GRASSETTO: max 2-3 parole in grassetto per INTERO campo body. Preferire ZERO grassetto.
 - Usa fraseologia naturale nella lingua target, non traduzione letterale
-- Apostrofi: usa sempre ' (diritto), mai virgolette curve
+- Apostrofi: usa sempre ' (diritto), mai virgolette curve`;
+
+    // Split into two calls to avoid output token limit (German/French expand ~30% vs Italian)
+    // Call A: short fields (title + excerpt + body1)
+    const promptA = `Traduci il seguente contenuto giornalistico da italiano a ${langName} per il sito Frontaliere Ticino.
+
+CONTENUTO ITALIANO DA TRADURRE:
+- title: ${sourceContent.title}
+- excerpt: ${sourceContent.excerpt}
+- body1: ${sourceContent.body1}
+
+${rules}
 
 Rispondi con un JSON object (no markdown, no code fences):
-{
-  "title": "...",
-  "excerpt": "...",
-  "body1": "...",
-  "body2": "...",
-  "body3": "..."
-}`;
-    // First attempt: use the scored model chain (starts with best-performing model)
-    const raw = await callLLM(
-      [{ role: 'user', content: transPrompt }],
-      { temperature: 0.5, maxTokens: 7500, jsonMode: true },
-    );
-    let parsed;
-    // repairJson: strips fences, extracts the JSON object, and escapes literal
-    // newlines/carriage-returns inside string values (common LLM output issue).
-    const repairJson = (s) => {
-      let c = s.replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
-      const start = c.indexOf('{'); const end = c.lastIndexOf('}');
-      if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
-      let out = ''; let inStr = false; let esc = false;
-      for (let i = 0; i < c.length; i++) {
-        const ch = c[i];
-        if (esc) { out += ch; esc = false; continue; }
-        if (ch === '\\') { out += ch; esc = true; continue; }
-        if (ch === '"') { inStr = !inStr; out += ch; continue; }
-        if (inStr && ch === '\n') { out += '\\n'; continue; }
-        if (inStr && ch === '\r') { continue; }
-        out += ch;
-      }
-      return out;
-    };
-    try {
-      parsed = JSON.parse(repairJson(raw));
-    } catch (parseErr) {
-      console.error(`  ⚠️  JSON parse error (${targetLang}): ${parseErr.message}`);
-      console.error(`     Raw (last 200 chars): ...${raw.slice(-200)}`);
-      // Retry with higher maxTokens (chain will auto-pick best available model)
-      console.error(`  🔄 Retry traduzione ${targetLang.toUpperCase()} con maxTokens=8000...`);
-      try {
-        const raw2 = await callLLM(
-          [{ role: 'user', content: transPrompt }],
-          { temperature: 0.5, maxTokens: 8000, jsonMode: true },
-        );
-        parsed = JSON.parse(repairJson(raw2));
-        console.error(`  ✅ Retry riuscito per ${targetLang.toUpperCase()}`);
-      } catch (retryErr) {
-        console.error(`  ❌ Retry fallito (${targetLang}): ${retryErr.message}`);
-        throw new Error(`JSON non valido dalla traduzione ${targetLang}: ${parseErr.message}`);
-      }
-    }
+{"title": "...", "excerpt": "...", "body1": "..."}`;
+
+    // Call B: long fields (body2 + body3)
+    const promptB = `Traduci il seguente contenuto giornalistico da italiano a ${langName} per il sito Frontaliere Ticino.
+
+CONTENUTO ITALIANO DA TRADURRE:
+- body2: ${sourceContent.body2}
+- body3: ${sourceContent.body3}
+
+${rules}
+
+Rispondi con un JSON object (no markdown, no code fences):
+{"body2": "...", "body3": "..."}`;
+
+    const [partA, partB] = await Promise.all([
+      callWithRetry(promptA, 4000, `${targetLang}:A`),
+      callWithRetry(promptB, 5000, `${targetLang}:B`),
+    ]);
+
+    const parsed = { ...partA, ...partB };
     console.error(`  ✅ ${targetLang.toUpperCase()} completato`);
     return parsed;
   }
