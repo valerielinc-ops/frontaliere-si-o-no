@@ -35,6 +35,15 @@ function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
 }
 
+const FETCH_TIMEOUT_MS = 20_000; // 20s per request — prevents indefinite hangs
+
+function fetchWithTimeout(url, options = {}) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), FETCH_TIMEOUT_MS);
+  return fetch(url, { ...options, signal: controller.signal })
+    .finally(() => clearTimeout(timer));
+}
+
 function log(emoji, msg) {
   console.log(`${emoji}  ${msg}`);
 }
@@ -42,7 +51,7 @@ function log(emoji, msg) {
 // ── Detect the correct site property URL registered in GSC ──
 async function detectSiteProperty(accessToken) {
   try {
-    const res = await fetch(
+    const res = await fetchWithTimeout(
       'https://www.googleapis.com/webmasters/v3/sites',
       { headers: { Authorization: `Bearer ${accessToken}` } }
     );
@@ -112,7 +121,7 @@ function createJwt(sa, scope) {
 
 async function getAccessTokenFromSA(sa) {
   const jwt = createJwt(sa, GSC_SCOPES);
-  const res = await fetch(TOKEN_URI, {
+  const res = await fetchWithTimeout(TOKEN_URI, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -129,7 +138,7 @@ async function getAccessTokenFromSA(sa) {
 
 // ── OAuth2 user credentials auth (fallback) ─────────────────
 async function getAccessTokenFromOAuth(clientId, clientSecret, refreshToken) {
-  const res = await fetch(TOKEN_URI, {
+  const res = await fetchWithTimeout(TOKEN_URI, {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     body: new URLSearchParams({
@@ -173,7 +182,7 @@ async function resolveAccessToken() {
 // ── Fetch with retry ────────────────────────────────────────
 async function fetchWithRetry(url, options, attempt = 1) {
   try {
-    const res = await fetch(url, options);
+    const res = await fetchWithTimeout(url, options);
     if (res.ok) return res;
 
     if ((res.status === 429 || res.status >= 500) && attempt <= MAX_RETRIES) {

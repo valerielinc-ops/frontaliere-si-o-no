@@ -189,6 +189,7 @@ jobs:
       - name: Google Search Console — sitemap ping & inspection
         if: success()
         continue-on-error: true
+        timeout-minutes: 5
         run: node scripts/submit-google-indexing.js
 
       - name: Report failure to Linear
