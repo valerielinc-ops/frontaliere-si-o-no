@@ -571,7 +571,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Cos'\u00e8 la franchigia di \u20AC10.000 per i nuovi frontalieri?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La franchigia di \u20AC10.000 \u00e8 una deduzione sul reddito da lavoro dipendente prodotto in Svizzera: i primi \u20AC10.000 di reddito non vengono tassati in Italia. Si applica solo ai nuovi frontalieri residenti entro 20 km dal confine."
+              "text": "La franchigia di \u20AC10.000 \u00e8 una deduzione sul reddito da lavoro dipendente prodotto in Svizzera: i primi \u20AC10.000 di reddito non vengono tassati in Italia. Si applica a tutti i lavoratori frontalieri con rientro giornaliero (Art. 1 c.175 L.147/2013, modificato da Art. 4 L.83/2023)."
             }
           },
           {

@@ -70,23 +70,20 @@ describe('calculateMunicipalityTaxImpact', () => {
     expect(result.totalTaxEUR).toBeGreaterThan(0);
   });
 
-  it('applies franchigia for fascia 1', () => {
-    const with1 = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '1');
-    const with2 = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '2');
-    // Fascia 2 has no franchigia → higher taxable base
-    expect(with2.italianTaxableBaseEUR).toBeGreaterThan(with1.italianTaxableBaseEUR);
+  it('franchigia applies equally to all fascia (Art. 1 c.175 L.147/2013)', () => {
+    const f1 = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '1');
+    const f1A = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '1A');
+    const f2 = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '2');
+    // Same franchigia → same taxable base for all fascia
+    expect(f1.italianTaxableBaseEUR).toBeCloseTo(f2.italianTaxableBaseEUR, 0);
+    expect(f1A.italianTaxableBaseEUR).toBeCloseTo(f2.italianTaxableBaseEUR, 0);
   });
 
-  it('applies franchigia for fascia 1A', () => {
-    const with1A = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '1A');
-    const with2 = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '2');
-    expect(with2.italianTaxableBaseEUR).toBeGreaterThan(with1A.italianTaxableBaseEUR);
-  });
-
-  it('fascia 2 has no franchigia (€10,000 more taxable base)', () => {
+  it('fascia 2 has higher Swiss tax credit (100% vs 80%)', () => {
     const f1 = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '1');
     const f2 = calculateMunicipalityTaxImpact(80000, 1.06, 0.5, '2');
-    expect(f2.italianTaxableBaseEUR - f1.italianTaxableBaseEUR).toBeCloseTo(10000, 0);
+    // Fascia 2: 100% CH tax retained → higher credit against IRPEF
+    expect(f2.swissTaxCredit).toBeGreaterThan(f1.swissTaxCredit);
   });
 
   it('higher addizionale comunale results in higher tax', () => {

@@ -340,17 +340,17 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
   '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri': {
     en: [
       'The new cross-border worker tax simulation calculates your net salary under the 2024 New Fiscal Agreement between Italy and Switzerland. If you started working in Switzerland after 17 July 2023, you are classified as a "new cross-border worker" and subject to concurrent taxation in both countries.',
-      'Switzerland withholds tax at source (80% of the ordinary Canton Ticino rate), while Italy levies IRPEF on the same income with a EUR 10,000 franchise for residents within 20 km of the border. A foreign tax credit prevents double taxation by deducting Swiss tax from Italian IRPEF.',
+      'Switzerland withholds tax at source (80% of the ordinary Canton Ticino rate for residents within 20 km of the border, 100% for those beyond), while Italy levies IRPEF on the same income with a EUR 10,000 franchise for all cross-border workers. A foreign tax credit prevents double taxation by deducting Swiss tax from Italian IRPEF.',
       'Use the free simulator to enter your gross annual salary in CHF, marital status, children, and municipality of residence. The tool applies Swiss social deductions (AVS 5.3%, unemployment 1.1%, LPP by age), Canton Ticino withholding tax, Italian IRPEF with the franchise, and the tax credit — showing your monthly net in EUR.',
     ],
     de: [
       'Die Steuersimulation fuer neue Grenzgaenger berechnet Ihr Nettogehalt nach dem Neuen Steuerabkommen 2024 zwischen Italien und der Schweiz. Wenn Sie nach dem 17. Juli 2023 in der Schweiz zu arbeiten begonnen haben, gelten Sie als "neuer Grenzgaenger" und unterliegen der konkurrierenden Besteuerung in beiden Laendern.',
-      'Die Schweiz erhebt die Quellensteuer (80% des ordentlichen Tessiner Satzes), waehrend Italien die IRPEF auf dasselbe Einkommen mit einer Franchise von EUR 10.000 fuer Einwohner innerhalb von 20 km von der Grenze erhebt. Eine Steuergutschrift fuer im Ausland gezahlte Steuern verhindert die Doppelbesteuerung.',
+      'Die Schweiz erhebt die Quellensteuer (80% des ordentlichen Tessiner Satzes fuer Einwohner innerhalb von 20 km von der Grenze, 100% darueber hinaus), waehrend Italien die IRPEF auf dasselbe Einkommen mit einer Franchise von EUR 10.000 fuer alle Grenzgaenger erhebt. Eine Steuergutschrift fuer im Ausland gezahlte Steuern verhindert die Doppelbesteuerung.',
       'Verwenden Sie den kostenlosen Simulator: Geben Sie Ihr Bruttojahresgehalt in CHF, Familienstand, Kinder und Wohngemeinde ein. Das Tool berechnet Schweizer Sozialabzuege (AHV 5,3%, ALV 1,1%, BVG nach Alter), Tessiner Quellensteuer, italienische IRPEF mit Franchise und Steuergutschrift — und zeigt Ihr monatliches Netto in EUR.',
     ],
     fr: [
       'La simulation fiscale pour les nouveaux frontaliers calcule votre salaire net selon le Nouvel Accord Fiscal 2024 entre l\'Italie et la Suisse. Si vous avez commence a travailler en Suisse apres le 17 juillet 2023, vous etes classe comme "nouveau frontalier" et soumis a la taxation concurrente dans les deux pays.',
-      'La Suisse preleve l\'impot a la source (80% du taux ordinaire du Tessin), tandis que l\'Italie applique l\'IRPEF sur le meme revenu avec une franchise de 10 000 EUR pour les residents a moins de 20 km de la frontiere. Un credit d\'impot pour les taxes payees a l\'etranger evite la double imposition.',
+      'La Suisse preleve l\'impot a la source (80% du taux ordinaire du Tessin pour les residents a moins de 20 km de la frontiere, 100% au-dela), tandis que l\'Italie applique l\'IRPEF sur le meme revenu avec une franchise de 10 000 EUR pour tous les frontaliers. Un credit d\'impot pour les taxes payees a l\'etranger evite la double imposition.',
       'Utilisez le simulateur gratuit : entrez votre salaire brut annuel en CHF, etat civil, enfants et commune de residence. L\'outil applique les deductions sociales suisses (AVS 5,3%, chomage 1,1%, LPP par age), l\'impot a la source du Tessin, l\'IRPEF italienne avec la franchise et le credit d\'impot — affichant votre net mensuel en EUR.',
     ],
   },

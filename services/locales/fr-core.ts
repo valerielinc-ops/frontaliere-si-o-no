@@ -894,7 +894,7 @@ const frCore: Record<string, string> = {
     'bordermap.saving': 'Économie',
     'bordermap.extraCost': 'Coût supplémentaire',
     'bordermap.perYear': '/an',
-    'bordermap.noFranchigia': 'Pas de franchise (Zone 2 — plus de 20 km)',
+    'bordermap.noFranchigia': 'Impôt à la source CH à 100% (Zone 2 — plus de 20 km)',
     'bordermap.withFranchigia': 'Avec franchise de €10 000 (Zone {fascia})',
     'bordermap.vsMunicipality': 'vs {name}',
     'bordermap.cheapest': 'La moins chère',

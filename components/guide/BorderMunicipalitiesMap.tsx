@@ -745,13 +745,8 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 <span>👥 {m.population.toLocaleString('it-IT')}</span>
               </div>
 
-              {/* Fascia note */}
-              {m.fascia === '2' && (
-                <p className="text-xs text-orange-600 dark:text-orange-400 mb-2">⚠️ {t('bordermap.noFranchigia')}</p>
-              )}
-              {(m.fascia === '1' || m.fascia === '1A') && (
-                <p className="text-xs text-teal-600 dark:text-teal-400 mb-2">✓ {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
-              )}
+              {/* Fascia note — franchigia applies to all fascia (Art. 1 c.175 L.147/2013) */}
+              <p className="text-xs text-teal-600 dark:text-teal-400 mb-2">✓ {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
 
               {/* Campione special note */}
               {isCampione && (

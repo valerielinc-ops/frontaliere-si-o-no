@@ -953,7 +953,7 @@ const translations: Record<string, string> = {
     'bordermap.saving': 'Risparmio',
     'bordermap.extraCost': 'Costo extra',
     'bordermap.perYear': '/anno',
-    'bordermap.noFranchigia': 'Nessuna franchigia (Fascia 2 — oltre 20 km)',
+    'bordermap.noFranchigia': 'Imposta alla fonte CH al 100% (Fascia 2 — oltre 20 km)',
     'bordermap.withFranchigia': 'Con franchigia €10.000 (Fascia {fascia})',
     'bordermap.vsMunicipality': 'vs {name}',
     'bordermap.cheapest': 'Più conveniente',

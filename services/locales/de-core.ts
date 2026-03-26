@@ -894,7 +894,7 @@ const deCore: Record<string, string> = {
     'bordermap.saving': 'Ersparnis',
     'bordermap.extraCost': 'Mehrkosten',
     'bordermap.perYear': '/Jahr',
-    'bordermap.noFranchigia': 'Kein Freibetrag (Zone 2 — über 20 km)',
+    'bordermap.noFranchigia': 'CH-Quellensteuer zu 100% (Zone 2 — über 20 km)',
     'bordermap.withFranchigia': 'Mit €10.000 Freibetrag (Zone {fascia})',
     'bordermap.vsMunicipality': 'vs {name}',
     'bordermap.cheapest': 'Günstigste',

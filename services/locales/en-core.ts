@@ -894,7 +894,7 @@ const enCore: Record<string, string> = {
     'bordermap.saving': 'Saving',
     'bordermap.extraCost': 'Extra cost',
     'bordermap.perYear': '/year',
-    'bordermap.noFranchigia': 'No tax-free allowance (Zone 2 — over 20 km)',
+    'bordermap.noFranchigia': 'CH source tax at 100% (Zone 2 — over 20 km)',
     'bordermap.withFranchigia': 'With €10,000 tax-free allowance (Zone {fascia})',
     'bordermap.vsMunicipality': 'vs {name}',
     'bordermap.cheapest': 'Cheapest',

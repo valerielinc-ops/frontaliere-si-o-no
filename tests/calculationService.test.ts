@@ -59,13 +59,12 @@ describe('calculateSimulation', () => {
       annualIncomeCHF: 100000,
     }));
 
-    it('has no franchigia for OVER_20KM', () => {
-      expect(result.itResident.details.franchigiaEUR).toBe(0);
+    it('has franchigia for OVER_20KM (Art. 1 c.175 L.147/2013)', () => {
+      expect(result.itResident.details.franchigiaEUR).toBe(10000);
     });
 
-    it('100% CH tax withheld', () => {
-      // Check notes for concorrente tassazione
-      expect(result.itResident.details.notes).toContain('calc.notes.noFranchise');
+    it('100% CH tax withheld with franchise applied', () => {
+      expect(result.itResident.details.notes).toContain('calc.notes.franchiseApplied');
     });
   });
 

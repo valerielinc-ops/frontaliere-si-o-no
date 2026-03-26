@@ -208,7 +208,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
       monthsBasis: monthsBasis
     };
   } else {
-    franchigiaUsed = (distanceZone === 'WITHIN_20KM') ? FRANCHIGIA_NUOVI_FRONTALIERI : 0;
+    franchigiaUsed = FRANCHIGIA_NUOVI_FRONTALIERI;
     const italianTaxableBaseEUR = Math.max(0, grossIncomeEUR + allowanceEUR - socialEUR - franchigiaUsed);
     let irpefGross = 0;
     if (italianTaxableBaseEUR <= 28000) irpefGross = italianTaxableBaseEUR * 0.23;
@@ -222,7 +222,7 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
     const finalItTaxCHF = finalItTaxEUR / EXCHANGE_RATE;
 
     irpefDetails = { taxableBaseEUR: italianTaxableBaseEUR, grossTaxEUR: irpefGross, deductionsEUR: itDeductions, addizionaliEUR: addizionali, creditSwissTaxEUR: paidSourceTaxEUR, finalNetTaxEUR: finalItTaxEUR };
-    notesIT = ["calc.regime.newFrontier", "calc.notes.concurrentTax", franchigiaUsed > 0 ? "calc.notes.franchiseApplied" : "calc.notes.noFranchise"];
+    notesIT = ["calc.regime.newFrontier", "calc.notes.concurrentTax", "calc.notes.franchiseApplied"];
     
     itBreakdown = [
       { label: 'calc.grossIncome', amount: annualIncomeCHF, amountEUR: grossIncomeEUR, percentage: (annualIncomeCHF/grossTotalCH)*100, description: 'calc.grossIncomeDesc' },
@@ -338,8 +338,8 @@ export function calculateMunicipalityTaxImpact(
   // Gross income in EUR
   const grossIncomeEUR = annualIncomeCHF * exchangeRate;
 
-  // Franchigia: €10k only for fascia 1/1A (within 20km)
-  const franchigia = (fascia === '1' || fascia === '1A') ? FRANCHIGIA_NUOVI_FRONTALIERI : 0;
+  // Franchigia: €10k for all frontalieri (Art. 1 c.175 L.147/2013, modified by Art. 4 L.83/2023)
+  const franchigia = FRANCHIGIA_NUOVI_FRONTALIERI;
   const distanceZone = (fascia === '1' || fascia === '1A') ? 'WITHIN_20KM' : 'OVER_20KM';
 
   // Italian taxable base
