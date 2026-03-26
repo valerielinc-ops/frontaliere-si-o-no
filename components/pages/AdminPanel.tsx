@@ -333,23 +333,12 @@ export default function AdminPanel() {
     direction: 'asc',
   });
   const [retryFailedProgress, setRetryFailedProgress] = useState<{ running: boolean; current: number; total: number; currentLabel: string } | null>(null);
-  const [ghDurationsMap, setGhDurationsMap] = useState<Record<string, number | null | undefined>>({});
-
   // Merged workflow actions: static (content/seo/analytics) + dynamically loaded crawler workflows
   const workflowActions = useMemo(() => {
     const ids = new Set(STATIC_WORKFLOW_ACTIONS.map(w => w.id));
     const dynamic = dynamicCrawlerWorkflows.filter(w => !ids.has(w.id));
     return [...STATIC_WORKFLOW_ACTIONS, ...dynamic];
   }, [dynamicCrawlerWorkflows]);
-
-  // Reverse map: summaryKey → workflowId (for lazy GH duration fetch)
-  const summaryKeyToWorkflowId = useMemo(() => {
-    const map: Record<string, string> = {};
-    for (const wf of workflowActions) {
-      if (wf.summaryKey) map[wf.summaryKey] = wf.id;
-    }
-    return map;
-  }, [workflowActions]);
 
   const getWorkflowState = (workflowId: string): WorkflowRunState => {
     return workflowStates[workflowId] || {
@@ -889,7 +878,6 @@ export default function AdminPanel() {
           {parserDispatchMessage}
         </div>
       )}
-      {renderCrawlerSummariesPanel()}
       <details className="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800">
         <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
           <Shield size={14} className="text-violet-600 dark:text-violet-400" />
@@ -1158,155 +1146,6 @@ export default function AdminPanel() {
           </div>
         </div>
       </details>
-    </div>
-  );
-
-  const renderCrawlerSummariesPanel = () => (
-    <div className="rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/40 p-3">
-      <div className="text-xs font-semibold text-slate-700 dark:text-slate-300 mb-2">
-        Riepilogo crawler — ultimi run salvati
-      </div>
-      <p className="mb-3 text-[11px] text-slate-500 dark:text-slate-400">
-        Mostra i riepiloghi generati a fine esecuzione dai crawler, inclusi nuovi link creati, aggiornati e rimossi.
-      </p>
-      {crawlerSummaries.length > 0 ? (
-        <div className="space-y-2">
-          {crawlerSummaries.map((summary) => {
-            const siteUrl = (slug: string) => slug ? `https://frontaliereticino.ch/cerca-lavoro-ticino/${slug}/` : '';
-
-            const renderJobList = (title: string, items: CrawlerSummaryLinkRow[], highlight?: 'new' | 'updated' | 'unchanged', isRemoved?: boolean) => (
-              <div className="space-y-1">
-                <div className="text-[11px] font-semibold text-slate-700 dark:text-slate-300">{title} ({items.length})</div>
-                {items.length > 0 ? (
-                  <div className="space-y-1">
-                    {items.map((job, idx) => {
-                      const highlightBorder = highlight === 'new' ? 'border-l-emerald-500' : highlight === 'updated' ? 'border-l-blue-500' : highlight === 'unchanged' ? 'border-l-amber-400' : '';
-                      const jobSiteUrl = siteUrl(job.slug);
-                      return (
-                        <div
-                          key={`${summary.key}-${title}-${job.slug || idx}`}
-                          className={`rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 ${highlightBorder ? `border-l-2 ${highlightBorder}` : ''}`}
-                        >
-                          <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</div>
-                          <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                            {job.company || 'Azienda n/d'}
-                            {job.location ? ` • ${job.location}` : ''}
-                          </div>
-                          <div className="flex gap-3 mt-0.5">
-                            {job.url && (
-                              <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-blue-600 dark:text-blue-300 truncate hover:underline" title="Pagina sorgente crawler">
-                                🔗 Sorgente
-                              </a>
-                            )}
-                            {jobSiteUrl && (
-                              isRemoved ? (
-                                <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-slate-400 dark:text-slate-500 truncate hover:underline" title="Pagina archiviata sul nostro sito">
-                                  🏚 Sito (archiviato)
-                                </a>
-                              ) : (
-                                <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] font-mono text-indigo-600 dark:text-indigo-300 truncate hover:underline" title="Pagina sul nostro sito">
-                                  🏠 Sito
-                                </a>
-                              )
-                            )}
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                ) : (
-                  <div className="text-[11px] text-slate-500 dark:text-slate-400">Nessun elemento.</div>
-                )}
-              </div>
-            );
-
-            // Build "Attivi" list: merge new + updated + unchanged with status highlight
-            const activeJobs = [
-              ...summary.newJobs.map(j => ({ ...j, _status: 'new' as const })),
-              ...summary.updatedJobs.map(j => ({ ...j, _status: 'updated' as const })),
-              ...summary.unchangedJobs.map(j => ({ ...j, _status: 'unchanged' as const })),
-            ];
-
-            return (
-              <details
-                key={summary.key}
-                className="rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-950/40"
-                onToggle={(e) => {
-                  if ((e.currentTarget as HTMLDetailsElement).open) {
-                    const workflowId = summaryKeyToWorkflowId[summary.key];
-                    if (workflowId) fetchGhDurationForSummary(summary.key, workflowId);
-                  }
-                }}
-              >
-                <summary className="cursor-pointer list-none px-3 py-2">
-                  <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                    <div>
-                      <div className="text-sm font-semibold text-slate-800 dark:text-slate-100">{summary.label}</div>
-                      <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                        {summary.generatedAt ? `Run: ${summary.generatedAt}` : 'Run: n/d'}
-                        {ghDurationsMap[summary.key] !== undefined
-                          ? ghDurationsMap[summary.key] != null
-                            ? ` • Durata GH: ${ghDurationsMap[summary.key]}s`
-                            : summary.durationMs != null ? ` • Script: ${(summary.durationMs / 1000).toFixed(0)}s` : ''
-                          : summaryKeyToWorkflowId[summary.key]
-                            ? ' • Durata: ⏳'
-                            : summary.durationMs != null ? ` • Script: ${(summary.durationMs / 1000).toFixed(0)}s` : ''}
-                        {summary.avgDurationMs != null && ` (script media: ${(summary.avgDurationMs / 1000).toFixed(0)}s)`}
-                      </div>
-                    </div>
-                    <div className="flex flex-wrap gap-1.5 text-[10px] font-semibold">
-                      <span className="rounded-full bg-slate-100 dark:bg-slate-800 px-2 py-0.5 text-slate-700 dark:text-slate-300">Attivi {summary.total - summary.removedCount}</span>
-                      <span className="rounded-full bg-emerald-100 dark:bg-emerald-900/30 px-2 py-0.5 text-emerald-700 dark:text-emerald-300">Nuove {summary.newCount}</span>
-                      <span className="rounded-full bg-blue-100 dark:bg-blue-900/30 px-2 py-0.5 text-blue-700 dark:text-blue-300">Agg. {summary.updatedCount}</span>
-                      <span className="rounded-full bg-red-100 dark:bg-red-900/30 px-2 py-0.5 text-red-700 dark:text-red-300">Rimosse {summary.removedCount}</span>
-                      <span className="rounded-full bg-amber-100 dark:bg-amber-900/30 px-2 py-0.5 text-amber-700 dark:text-amber-300">Invariate {summary.unchangedCount}</span>
-                    </div>
-                  </div>
-                </summary>
-                <div className="border-t border-slate-200 dark:border-slate-700 px-3 py-3 space-y-3">
-                  {/* Active jobs: merged view with status highlights */}
-                  {activeJobs.length > 0 && (
-                    <details className="rounded-md border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60">
-                      <summary className="cursor-pointer list-none px-2 py-1.5 text-[11px] font-semibold text-slate-700 dark:text-slate-300">
-                        Annunci attivi ({activeJobs.length}) — <span className="text-emerald-600">{summary.newCount} nuovi</span> / <span className="text-blue-600">{summary.updatedCount} aggiornati</span> / <span className="text-amber-600">{summary.unchangedCount} invariati</span>
-                      </summary>
-                      <div className="px-2 py-1 space-y-1">
-                        {activeJobs.map((job, idx) => {
-                          const jobSiteUrl = siteUrl(job.slug);
-                          const color = job._status === 'new' ? 'border-l-emerald-500 bg-emerald-50/50 dark:bg-emerald-950/20' : job._status === 'updated' ? 'border-l-blue-500 bg-blue-50/50 dark:bg-blue-950/20' : 'border-l-amber-400';
-                          const badgeClass = job._status === 'new' ? 'bg-emerald-100 text-emerald-700 dark:bg-emerald-900/40 dark:text-emerald-300' : job._status === 'updated' ? 'bg-blue-100 text-blue-700 dark:bg-blue-900/40 dark:text-blue-300' : 'bg-amber-100 text-amber-700 dark:bg-amber-900/40 dark:text-amber-300';
-                          const badgeLabel = job._status === 'new' ? 'Nuovo' : job._status === 'updated' ? 'Aggiornato' : 'Invariato';
-                          return (
-                            <div key={`active-${job.slug || idx}`} className={`rounded-md border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-2 py-1.5 border-l-2 ${color}`}>
-                              <div className="flex items-center gap-1.5">
-                                <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || '—'}</div>
-                                <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded-full ${badgeClass}`}>{badgeLabel}</span>
-                              </div>
-                              <div className="text-[11px] text-slate-500 dark:text-slate-400">
-                                {job.company || 'Azienda n/d'}{job.location ? ` • ${job.location}` : ''}
-                              </div>
-                              <div className="flex gap-3 mt-0.5">
-                                {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-blue-600 hover:underline">🔗 Sorgente</a>}
-                                {jobSiteUrl && <a href={jobSiteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 hover:underline">🏠 Sito</a>}
-                              </div>
-                            </div>
-                          );
-                        })}
-                      </div>
-                    </details>
-                  )}
-                  {renderJobList('Nuovi link creati', summary.newJobs, 'new')}
-                  {renderJobList('Link aggiornati', summary.updatedJobs, 'updated')}
-                  {renderJobList('Link rimossi', summary.removedJobs, undefined, true)}
-                  {renderJobList('Link invariati', summary.unchangedJobs, 'unchanged')}
-                </div>
-              </details>
-            );
-          })}
-        </div>
-      ) : (
-        <div className="text-xs text-slate-500 dark:text-slate-400">Nessun riepilogo crawler disponibile.</div>
-      )}
     </div>
   );
 
@@ -2268,29 +2107,6 @@ export default function AdminPanel() {
       { method: 'GET' },
     );
     return Array.isArray(json?.workflow_runs) ? json.workflow_runs : [];
-  };
-
-  const fetchGhDurationForSummary = async (summaryKey: string, workflowId: string) => {
-    if (ghDurationsMap[summaryKey] !== undefined) return; // already fetched or in-flight
-    setGhDurationsMap(prev => ({ ...prev, [summaryKey]: undefined })); // mark as in-flight
-    try {
-      const connection = await getGitHubConnection();
-      const runs = await listWorkflowRuns(connection, workflowId);
-      const lastCompleted = runs.find((r: any) => String(r.status) === 'completed');
-      if (!lastCompleted) {
-        setGhDurationsMap(prev => ({ ...prev, [summaryKey]: null }));
-        return;
-      }
-      const startedAt = lastCompleted.run_started_at || lastCompleted.created_at;
-      const completedAt = lastCompleted.updated_at;
-      const durationSeconds =
-        startedAt && completedAt
-          ? Math.max(0, Math.round((Date.parse(completedAt) - Date.parse(startedAt)) / 1000))
-          : null;
-      setGhDurationsMap(prev => ({ ...prev, [summaryKey]: durationSeconds }));
-    } catch {
-      setGhDurationsMap(prev => ({ ...prev, [summaryKey]: null }));
-    }
   };
 
   const listRunJobs = async (
