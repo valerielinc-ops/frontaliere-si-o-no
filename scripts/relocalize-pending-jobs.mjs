@@ -228,14 +228,21 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
     for (const field of ['titleByLocale', 'descriptionByLocale', 'slugByLocale']) {
       if (!assembled[field] || Object.keys(assembled[field]).length === 0) continue;
       if (!crawlerJob[field]) {
-        crawlerJob[field] = assembled[field];
-        changed = true;
+        // Only adopt assembled data that has non-empty values
+        const nonEmpty = Object.fromEntries(
+          Object.entries(assembled[field]).filter(([, v]) => String(v || '').trim())
+        );
+        if (Object.keys(nonEmpty).length > 0) {
+          crawlerJob[field] = nonEmpty;
+          changed = true;
+        }
         continue;
       }
       for (const [locale, value] of Object.entries(assembled[field])) {
         const existing = crawlerJob[field][locale];
         const trimmedValue = String(value || '').trim();
-        // Only update if assembled has a non-empty value AND crawler doesn't
+        // Only update if assembled has a non-empty value AND crawler doesn't.
+        // NEVER overwrite existing crawler data with empty assembled values.
         if (trimmedValue && !String(existing || '').trim()) {
           crawlerJob[field][locale] = value;
           changed = true;

@@ -1684,6 +1684,7 @@ function ensureLocaleFields(job) {
       const detectedTitleLocale = detectJobTitleLocaleDetails(currentTitle, titleSourceLang);
       const copiedSourceTitle = sourceTitle && currentTitle.toLowerCase() === sourceTitle.toLowerCase();
       if (copiedSourceTitle || (detectedTitleLocale.confidence >= 0.6 && detectedTitleLocale.lang !== locale)) {
+        // Try to recover by moving to detected language slot if empty
         if (
           detectedTitleLocale.lang !== locale &&
           detectedTitleLocale.lang !== titleSourceLang &&
@@ -1691,12 +1692,19 @@ function ensureLocaleFields(job) {
         ) {
           titleByLocale[detectedTitleLocale.lang] = currentTitle;
         }
-        delete titleByLocale[locale];
+        // Try heuristic translation BEFORE deleting — never leave locale empty
+        const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
+        if (heuristicReplacement &&
+            heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
+            !isLowQualityLocalizedTitle(heuristicReplacement)) {
+          titleByLocale[locale] = heuristicReplacement;
+        }
+        // If no heuristic replacement available, KEEP the untranslated copy
+        // rather than leaving the locale empty. Source-language text is better
+        // than nothing (empty content blocks deploy validation).
       }
-    }
-
-    const normalizedTitle = normalizeSpace(titleByLocale[locale] || '');
-    if (locale !== titleSourceLang && !normalizedTitle && sourceTitle) {
+    } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
+      // Locale slot was already empty — try heuristic fill
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
       if (
         translated &&
@@ -1706,8 +1714,10 @@ function ensureLocaleFields(job) {
         titleByLocale[locale] = translated;
       }
     }
-    // Keep non-source locales empty if no proper translation is available.
+    // Fill empty description slots for source/detected language only.
+    // Non-source locales are left empty if no proper translation is available —
     // UI/runtime SEO can fallback to out.description when needed.
+    // However, NEVER delete existing description data for any locale.
     if (
       !normalizeSpace(descriptionByLocale[locale] || '') &&
       bestDescription &&
