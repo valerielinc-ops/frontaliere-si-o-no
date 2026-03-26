@@ -1,21 +1,137 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-03-26T10:00:47.470Z",
-  "total": 44,
+  "generatedAt": "2026-03-26T21:34:25.863Z",
+  "total": 46,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 44,
-  "durationMs": 97331,
-  "avgDurationMs": 97331,
+  "unchangedCount": 46,
+  "durationMs": 105114,
+  "avgDurationMs": 105114,
   "durationHistory": [
-    97331
+    105114
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "title": "Muratore",
+      "slug": "muratore-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/muratore-2667862/",
+      "applyUrl": "https://www.pemsa.ch/it/job/muratore-2667862/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-26",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-10",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Muratore\n\n## Missione :\n- Lavoro tramite agenzia interinale\n- Lavori di muratura, costruzione, demolizione, posa tubature, muri in pietra, muri a secco, finiture interne ed esterne\n- Lavori di scavo, impalcatura, casseratura, armatura\n- Uso di attrezzature da costruzione\n\n## Profilo :\n- Comprovata esperienza pregressa nel settore edile\n- Lavorare in maniera autonoma\n- Utilizzo di attrezzature e macchinari per l’edilizia\n- Conoscenza di strumenti, materiali e DPI\n- Automunito",
+      "titleByLocale": {
+        "it": "Muratore",
+        "en": "Muratore",
+        "de": "Muratore",
+        "fr": "Muratore"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Muratore\n\n## Missione :\n- Lavoro tramite agenzia interinale\n- Lavori di muratura, costruzione, demolizione, posa tubature, muri in pietra, muri a secco, finiture interne ed esterne\n- Lavori di scavo, impalcatura, casseratura, armatura\n- Uso di attrezzature da costruzione\n\n## Profilo :\n- Comprovata esperienza pregressa nel settore edile\n- Lavorare in maniera autonoma\n- Utilizzo di attrezzature e macchinari per l’edilizia\n- Conoscenza di strumenti, materiali e DPI\n- Automunito",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Muratore in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Muratore in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Muratore à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "muratore-pemsa-bellinzona",
+        "en": "muratore-pemsa-bellinzona",
+        "de": "muratore-pemsa-bellinzona",
+        "fr": "muratore-pemsa-bellinzona"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807"
+    },
+    {
+      "title": "Carpentiere Edile",
+      "slug": "carpentiere-edile-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/carpentiere-edile-2667854/",
+      "applyUrl": "https://www.pemsa.ch/it/job/carpentiere-edile-2667854/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-26",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-10",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentiere Edile\n\n## Missione :\n- Comprovata esperienza maturata nella mansione specifica di carpentiere edile\n- Lavoro tramite agenzia interinale\n- Disponibilità a contratti anche di natura temporanea\n- Lavoro autonomo\n\n## Profilo :\n- Lettura di disegni tecnici\n- Misurazione Tracciamento e Realizzazione di casseformi per pilastri, muri, solai e fondazioni\n- Posa armatura ferro\n- Getto di calcestruzzo e successivi trattamenti\n- Automatizzazione",
+      "titleByLocale": {
+        "it": "Carpentiere Edile",
+        "en": "Carpentiere Edile",
+        "de": "Carpentiere Edile",
+        "fr": "Carpentiere Edile"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Carpentiere Edile\n\n## Missione :\n- Comprovata esperienza maturata nella mansione specifica di carpentiere edile\n- Lavoro tramite agenzia interinale\n- Disponibilità a contratti anche di natura temporanea\n- Lavoro autonomo\n\n## Profilo :\n- Lettura di disegni tecnici\n- Misurazione Tracciamento e Realizzazione di casseformi per pilastri, muri, solai e fondazioni\n- Posa armatura ferro\n- Getto di calcestruzzo e successivi trattamenti\n- Automatizzazione",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Carpentiere Edile in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Carpentiere Edile in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Carpentiere Edile à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "carpentiere-edile-pemsa-bellinzona",
+        "en": "carpentiere-edile-pemsa-bellinzona",
+        "de": "carpentiere-edile-pemsa-bellinzona",
+        "fr": "carpentiere-edile-pemsa-bellinzona"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807"
+    },
     {
       "title": "IDRAULICO",
       "slug": "idraulico-pemsa-locarno",
@@ -1622,122 +1738,6 @@
         "en": "piastrellista-pemsa-bellinzona",
         "de": "piastrellista-pemsa-bellinzona",
         "fr": "piastrellista-pemsa-bellinzona"
-      },
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
-    },
-    {
-      "title": "Lattoniere",
-      "slug": "lattoniere-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/lattoniere-2665734/",
-      "applyUrl": "https://www.pemsa.ch/it/job/lattoniere-2665734/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-31",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Lattoniere\n\n## Missione :\n- Incarico interinale tramite agenzia\n- Esperienza maturata nella mansione specifica di lattoniere\n- Capacità di lavorare sia in maniera autonoma che in un team\n\n## Profilo :\n- Capacità nel posare canali, tubi, rivestimenti e coperture in lamiera, in rame o in altri materiali\n- Eseguire lavori di riparazione e di sigillatura\n- Saldare a stagno\n- Montaggio degli elementi di lattoneria su tetti piani, tetti a falde e facciate\n- Ottima abilità nell’utilizzo dei vari attrezzi da lavoro",
-      "titleByLocale": {
-        "it": "Lattoniere",
-        "en": "Lattoniere",
-        "de": "Lattoniere",
-        "fr": "Lattoniere"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Lattoniere\n\n## Missione :\n- Incarico interinale tramite agenzia\n- Esperienza maturata nella mansione specifica di lattoniere\n- Capacità di lavorare sia in maniera autonoma che in un team\n\n## Profilo :\n- Capacità nel posare canali, tubi, rivestimenti e coperture in lamiera, in rame o in altri materiali\n- Eseguire lavori di riparazione e di sigillatura\n- Saldare a stagno\n- Montaggio degli elementi di lattoneria su tetti piani, tetti a falde e facciate\n- Ottima abilità nell’utilizzo dei vari attrezzi da lavoro",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Lattoniere in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Lattoniere in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Lattoniere à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
-      },
-      "slugByLocale": {
-        "it": "lattoniere-pemsa-bellinzona",
-        "en": "lattoniere-pemsa-bellinzona",
-        "de": "lattoniere-pemsa-bellinzona",
-        "fr": "lattoniere-pemsa-bellinzona"
-      },
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
-    },
-    {
-      "title": "Lattoniere",
-      "slug": "lattoniere-pemsa-lugano",
-      "url": "https://www.pemsa.ch/it/job/lattoniere-2665294/",
-      "applyUrl": "https://www.pemsa.ch/it/job/lattoniere-2665294/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-13",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-03-28",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Lattoniere\n\n## Missione :\n- Installazione e posa di lamiere con attenzione meticolosa alla qualità e alla precisione tecnica.\n- Interpretazione accurata di disegni tecnici per garantire la conformità alle specifiche progettuali.\n- Gestione dei materiali edili con competenza approfondita, assicurando un impiego efficiente e corretto.\n- Collaboratione nelle operazioni di preparazione dei pezzi, ottimizzando la fase di montaggio e posa.\n- Realizzazione di lavori in quota in totale sicurezza e rispetto delle normative vigenti.\n- Eventuale utilizzo di materiali specifici quali carta catramata e Sarnafil per rifiniture di qualità.\n\n## Profilo :\n- Esperienza minima di 4 anni in Svizzera nel settore della posa lamiere e lavorazioni edili correlate.\n- Residenza entro un raggio massimo di 30 km da Lugano per garantire la presenza e continuità sul cantiere.\n- Padronanza eccellente dei materiali utilizzati nella posa lamiere con intuito per la scelta ottimale dei prodotti.\n- Capacità consolidata nella lettura di disegni tecnici indispensabile per una corretta esecuzione dei lavori.\n- Esperienza comprovata nella posa e installazione di lamiere con attenzione a precisione e durata nel tempo.\n- Preferibile esperienza nella preparazione dei pezzi e nell’esecuzione di lavori in altezza, garantendo sicurezza e precisione.\n- Costituiscono un valore aggiunto il possesso di una AFC nel settore, il patentino IPAF e l’esperienza nell’uso di carta catramata e Sarnafil.",
-      "titleByLocale": {
-        "it": "Lattoniere",
-        "en": "Lattoniere",
-        "de": "Lattoniere",
-        "fr": "Lattoniere"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Lattoniere\n\n## Missione :\n- Installazione e posa di lamiere con attenzione meticolosa alla qualità e alla precisione tecnica.\n- Interpretazione accurata di disegni tecnici per garantire la conformità alle specifiche progettuali.\n- Gestione dei materiali edili con competenza approfondita, assicurando un impiego efficiente e corretto.\n- Collaboratione nelle operazioni di preparazione dei pezzi, ottimizzando la fase di montaggio e posa.\n- Realizzazione di lavori in quota in totale sicurezza e rispetto delle normative vigenti.\n- Eventuale utilizzo di materiali specifici quali carta catramata e Sarnafil per rifiniture di qualità.\n\n## Profilo :\n- Esperienza minima di 4 anni in Svizzera nel settore della posa lamiere e lavorazioni edili correlate.\n- Residenza entro un raggio massimo di 30 km da Lugano per garantire la presenza e continuità sul cantiere.\n- Padronanza eccellente dei materiali utilizzati nella posa lamiere con intuito per la scelta ottimale dei prodotti.\n- Capacità consolidata nella lettura di disegni tecnici indispensabile per una corretta esecuzione dei lavori.\n- Esperienza comprovata nella posa e installazione di lamiere con attenzione a precisione e durata nel tempo.\n- Preferibile esperienza nella preparazione dei pezzi e nell’esecuzione di lavori in altezza, garantendo sicurezza e precisione.\n- Costituiscono un valore aggiunto il possesso di una AFC nel settore, il patentino IPAF e l’esperienza nell’uso di carta catramata e Sarnafil.",
-        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Lattoniere in Lugano. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
-        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Lattoniere in Lugano. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
-        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Lattoniere à Lugano. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
-      },
-      "slugByLocale": {
-        "it": "lattoniere-pemsa-lugano",
-        "en": "lattoniere-pemsa-lugano",
-        "de": "lattoniere-pemsa-lugano",
-        "fr": "lattoniere-pemsa-lugano"
       },
       "needsRetranslation": true,
       "salaryMin": 58000,
