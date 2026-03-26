@@ -350,6 +350,109 @@ const CREATOR_PRODUCTS: CreatorProduct[] = [
     payoutPriority: 5,
     searchQuery: 'kit primo soccorso auto emergenza',
   },
+
+  // ── Produttività & Smart Working (5 prodotti extra) ───────────
+  {
+    id: 'portable-monitor',
+    asin: 'B0FCS3SX38',
+    title: 'Monitor portatile 17.3" FHD USB-C',
+    category: 'productivity',
+    emoji: '🖥️',
+    imageId: '71Bzz-P3oDL',
+    keywordTags: ['smart working', 'lavoro', 'monitor', 'ufficio', 'produttività', 'remoto'],
+    payoutPriority: 8,
+    searchQuery: 'monitor portatile usb-c smart working',
+  },
+  {
+    id: 'ergonomic-mouse',
+    asin: 'B0DP4VYQ9N',
+    title: 'Mouse verticale ergonomico wireless',
+    category: 'productivity',
+    emoji: '🖱️',
+    imageId: '61XXU2vYucL',
+    keywordTags: ['ergonomia', 'ufficio', 'smart working', 'lavoro', 'mouse', 'polso'],
+    payoutPriority: 6,
+    searchQuery: 'mouse ergonomico wireless ufficio',
+  },
+  {
+    id: 'bluetooth-keyboard',
+    asin: 'B0F1CN972G',
+    title: 'Tastiera Bluetooth wireless compatta',
+    category: 'productivity',
+    emoji: '⌨️',
+    imageId: '61DFtmDd6gL',
+    keywordTags: ['smart working', 'lavoro', 'tastiera', 'ufficio', 'produttività'],
+    payoutPriority: 6,
+    searchQuery: 'tastiera bluetooth wireless smart working',
+  },
+  {
+    id: 'mousepad-ergonomic',
+    asin: 'B018INW0ZI',
+    title: 'Tappetino mouse ergonomico con poggiapolsi',
+    category: 'productivity',
+    emoji: '🖱️',
+    imageId: '71tIA7Z3y0L',
+    keywordTags: ['ergonomia', 'ufficio', 'smart working', 'polso', 'mouse'],
+    payoutPriority: 4,
+    searchQuery: 'tappetino mouse ergonomico polso',
+  },
+  {
+    id: 'desk-lamp',
+    asin: 'B07ZCYS2LJ',
+    title: 'Lampada LED scrivania pieghevole',
+    category: 'productivity',
+    emoji: '💡',
+    imageId: '51YklVyO9-L',
+    keywordTags: ['ufficio', 'smart working', 'luce', 'scrivania', 'lavoro'],
+    payoutPriority: 5,
+    searchQuery: 'lampada scrivania led ricaricabile',
+  },
+
+  // ── Viaggio & Frontiera (4 prodotti extra) ────────────────────
+  {
+    id: 'travel-adapter',
+    asin: 'B0DTHW2PPQ',
+    title: 'Adattatore universale da viaggio USB-C',
+    category: 'travel',
+    emoji: '🔌',
+    imageId: '61xb3t+4c0L',
+    keywordTags: ['viaggio', 'svizzera', 'italia', 'presa', 'adattatore', 'frontiera'],
+    payoutPriority: 7,
+    searchQuery: 'adattatore presa svizzera italia',
+  },
+  {
+    id: 'car-organizer',
+    asin: 'B0FMRTXDHH',
+    title: 'Organizer seggiolino auto con vassoio',
+    category: 'transport',
+    emoji: '🚙',
+    imageId: '81FgqqI9EML',
+    keywordTags: ['auto', 'pendolare', 'organizzazione', 'viaggio', 'frontiera'],
+    payoutPriority: 5,
+    searchQuery: 'organizer auto sedile posteriore',
+  },
+  {
+    id: 'travel-document-holder',
+    asin: 'B0DMVVMF2C',
+    title: 'Portadocumenti da viaggio passaporto',
+    category: 'travel',
+    emoji: '📋',
+    imageId: '71INVW4QIRL',
+    keywordTags: ['documenti', 'passaporto', 'viaggio', 'frontiera', 'permesso', 'frontaliere'],
+    payoutPriority: 7,
+    searchQuery: 'portadocumenti da viaggio passaporto',
+  },
+  {
+    id: 'neck-pillow',
+    asin: 'B07Q72ZQGG',
+    title: 'Cuscino da viaggio memory foam',
+    category: 'travel',
+    emoji: '😴',
+    imageId: '81qEnzfwvPL',
+    keywordTags: ['viaggio', 'pendolare', 'treno', 'auto', 'comfort', 'sonno'],
+    payoutPriority: 5,
+    searchQuery: 'cuscino viaggio memory foam',
+  },
 ];
 
 
@@ -403,6 +506,8 @@ export interface CreatorProductSuggestion extends CreatorProduct {
 interface CreatorProductInput {
   contextText: string;
   maxCards?: number;
+  /** Skip the first N products from the ranked pool (for showing different products in multiple slots) */
+  offset?: number;
 }
 
 // ── Session-based rotation seed ───────────────────────────────
@@ -438,6 +543,7 @@ function rotationHash(seed: number, context: string): number {
 export function getCreatorProductsForContext({
   contextText,
   maxCards = 2,
+  offset = 0,
 }: CreatorProductInput): CreatorProductSuggestion[] {
   const locale = getLocale();
   const normalized = contextText.toLowerCase();
@@ -484,9 +590,10 @@ export function getCreatorProductsForContext({
   const sessionSeed = getSessionSeed();
   const rotationStart = rotationHash(sessionSeed, `${locale}|${normalized}`) % rotationPool.length;
   const ranked: CreatorProductSuggestion[] = [];
-  for (let i = 0; i < pickCount; i += 1) {
+  const totalPick = pickCount + offset;
+  for (let i = 0; i < totalPick; i += 1) {
     ranked.push(rotationPool[(rotationStart + i) % rotationPool.length]);
   }
 
-  return ranked;
+  return ranked.slice(offset);
 }

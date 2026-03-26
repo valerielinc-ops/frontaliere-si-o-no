@@ -99,6 +99,17 @@ const PRODUCTS = [
   { asin: 'B0CKF3PGDV', imageId: '61NaavrxwVL' },
   { asin: 'B0GF1RX5RK', imageId: '615TKlZZ4hL' },
   { asin: 'B07FRPXF44', imageId: '61mSrFlJh8L' },
+  // Produttività & Smart Working (extra)
+  { asin: 'B0FCS3SX38', imageId: '71Bzz-P3oDL' },
+  { asin: 'B0DP4VYQ9N', imageId: '61XXU2vYucL' },
+  { asin: 'B0F1CN972G', imageId: '61DFtmDd6gL' },
+  { asin: 'B018INW0ZI', imageId: '71tIA7Z3y0L' },
+  { asin: 'B07ZCYS2LJ', imageId: '51YklVyO9-L' },
+  // Viaggio & Frontiera (extra)
+  { asin: 'B0DTHW2PPQ', imageId: '61xb3t+4c0L' },
+  { asin: 'B0FMRTXDHH', imageId: '81FgqqI9EML' },
+  { asin: 'B0DMVVMF2C', imageId: '71INVW4QIRL' },
+  { asin: 'B07Q72ZQGG', imageId: '81qEnzfwvPL' },
 ];
 const ASINS = PRODUCTS.map(p => p.asin);
 const IMAGE_BY_ASIN = Object.fromEntries(PRODUCTS.map(p => [p.asin, p.imageId]));

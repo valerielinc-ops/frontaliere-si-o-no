@@ -1757,7 +1757,7 @@ export default function BlogArticles({
                 </Suspense>
               )}
               <Suspense fallback={null}>
-                <CreatorProducts contextText={creatorContextText} className="mt-2" maxCards={2} />
+                <CreatorProducts contextText={creatorContextText} className="mt-2" maxCards={2} offset={2} />
               </Suspense>
 
               {/* Donation mini-card */}

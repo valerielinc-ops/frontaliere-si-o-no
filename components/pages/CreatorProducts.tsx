@@ -8,12 +8,15 @@ interface CreatorProductsProps {
   contextText: string;
   className?: string;
   maxCards?: number;
+  /** Skip the first N products from the ranked pool (use to show different products in multiple slots) */
+  offset?: number;
 }
 
 const CreatorProducts: React.FC<CreatorProductsProps> = ({
   contextText,
   className = '',
   maxCards = 2,
+  offset = 0,
 }) => {
   const { t } = useTranslation();
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
@@ -31,7 +34,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
     setFailedImages((prev) => new Set(prev).add(id));
   }, []);
 
-  const products = useMemo(() => getCreatorProductsForContext({ contextText, maxCards }), [contextText, maxCards]);
+  const products = useMemo(() => getCreatorProductsForContext({ contextText, maxCards, offset }), [contextText, maxCards, offset]);
 
   if (!products.length) return null;
 
