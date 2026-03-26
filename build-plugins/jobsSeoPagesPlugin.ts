@@ -3252,13 +3252,25 @@ ${(() => {
       //     into the tracking so they get soft-landing pages too.
       const orphanSlugsPath = np.resolve(rootDir, 'data/orphan-indexed-job-slugs.json');
       try {
-        const orphanSlugs: string[] = JSON.parse(fs.readFileSync(orphanSlugsPath, 'utf-8'));
+        const orphanSlugs: (string | { locale: string; path: string })[] = JSON.parse(fs.readFileSync(orphanSlugsPath, 'utf-8'));
         if (Array.isArray(orphanSlugs)) {
           let orphansMerged = 0;
-          for (const slug of orphanSlugs) {
-            if (!slug || tracking[slug]) continue;
-            // Create IT-only tracking entry (we only know the Italian path)
-            tracking[slug] = { it: `/cerca-lavoro-ticino/${slug}` };
+          for (const entry of orphanSlugs) {
+            if (!entry) continue;
+            if (typeof entry === 'string') {
+              // Legacy format: IT-only slug string
+              if (tracking[entry]) continue;
+              tracking[entry] = { it: `/cerca-lavoro-ticino/${entry}` };
+            } else if (typeof entry === 'object' && entry.locale && entry.path) {
+              // Locale-aware format: { locale: "de", path: "/de/jobs-im-tessin/..." }
+              // Key = last path segment (the slug), value = { [locale]: path }
+              const slug = entry.path.replace(/\/$/, '').split('/').pop()!;
+              if (!slug) continue;
+              if (!tracking[slug]) tracking[slug] = {};
+              (tracking[slug] as Record<string, string>)[entry.locale] = entry.path;
+            } else {
+              continue;
+            }
             orphansMerged++;
           }
           if (orphansMerged > 0) {

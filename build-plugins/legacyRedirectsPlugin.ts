@@ -45,8 +45,6 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     '/en/cross-border-articles/cross-border-workers-ticino-decline-q4-2025-data/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
     '/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-q4-2025-daten/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
     '/fr/articles-frontaliers/frontaliers-tessin-baisse-donnees-q4-2025/': '/fr/articles-frontaliers/frontaliers-tessin-donnees-baisse-fin-2025/',
-    // DE job slug renamed — old German slug → current slug (needsRetranslation, source is French)
-    '/de/jobs-im-tessin/stellvertretender-geschaftsfuhrer-stellvertretender-geschaftsfuhrer-m-w-d-volg-anniviers/': '/de/jobs-im-tessin/gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers/',
     // Job slugs migrated from German to Italian
     '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-coop-grigioni/',
     '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni/',
