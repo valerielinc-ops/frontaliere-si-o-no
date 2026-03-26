@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T00:02:41.079Z",
+  "generatedAt": "2026-03-26T06:02:16.041Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 232,
-      "latestObservedUpdate": "2026-03-25T18:10:22.432Z"
+      "latestObservedUpdate": "2026-03-26T05:09:11.687Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -26169,17 +26169,17 @@
             "distanceKm": 18.7
           },
           {
-            "id": "C9ajQvOEOfsMQZ4JfC4l",
-            "name": "SOCAR / Piccadilly Coldrerio",
-            "brand": "PICCADILLY",
-            "address": "Via San Gottardo 37, 6877 Coldrerio",
-            "lat": 45.857751,
-            "lng": 8.98526,
-            "sp95PriceChf": 1.86,
-            "updatedAt": "2026-03-25T11:52:54.762Z",
-            "nearestMunicipality": "Ronago (CO)",
-            "nearestMunicipalityDistanceKm": 2.8,
-            "sp95PriceEur": 2.032,
+            "id": "iTdUWBWoGE0MPHwu2sN1",
+            "name": "Eni Mendrisio",
+            "brand": "ENI",
+            "address": "Via Bernasconi 20, 6850 Mendrisio",
+            "lat": 45.8662616,
+            "lng": 8.9771283,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-26T05:01:11.251Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.7,
+            "sp95PriceEur": 2.01,
             "distanceKm": 19.9
           }
         ],
