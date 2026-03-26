@@ -12,6 +12,7 @@ const TrafficHistory = lazyRetry(() => import('@/components/guide/TrafficHistory
 const UnemploymentStats = lazyRetry(() => import('@/components/pages/UnemploymentStats'));
 const MortgageComparison = lazyRetry(() => import('@/components/comparators/MortgageComparison'));
 const FuelPriceStats = lazyRetry(() => import('@/components/pages/FuelPriceStats'));
+const HealthPremiumStats = lazyRetry(() => import('@/components/pages/HealthPremiumStats'));
 
 export default function StatsTabContent() {
   const { statsSubTab } = useNavigation();
@@ -37,6 +38,8 @@ export default function StatsTabContent() {
         <MortgageComparison />
       ) : statsSubTab === 'fuel-prices' ? (
         <FuelPriceStats />
+      ) : statsSubTab === 'health-premiums' ? (
+        <HealthPremiumStats />
       ) : null}
 
       {/* AdSense — bottom multiplex */}
