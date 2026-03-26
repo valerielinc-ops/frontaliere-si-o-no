@@ -1,6 +1,6 @@
 {
   "crawlerKey": "linnea",
-  "assembledAt": "2026-03-26T09:51:53.757Z",
+  "assembledAt": "2026-03-26T21:25:21.876Z",
   "jobs": [
     {
       "url": "https://www.linnea.ch/careers/?position=1",
@@ -42,6 +42,7 @@
         "location": "Riazzino"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
       "salaryMin": 72000,
@@ -61,8 +62,7 @@
       "postalCode": "6595",
       "addressLocality": "Riazzino",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     }
   ]
 }
