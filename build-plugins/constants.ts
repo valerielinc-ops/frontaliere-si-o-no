@@ -104,7 +104,8 @@ export function buildFlatRedirect(
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(og.title)}">
     <meta name="twitter:description" content="${desc}">
-    <meta name="twitter:image" content="${esc(og.image)}">`
+    <meta name="twitter:image" content="${esc(og.image)}">
+    <meta name="twitter:site" content="@frontaliereticino">`
     : '';
   return `<!DOCTYPE html>
 <html lang="${lang}">

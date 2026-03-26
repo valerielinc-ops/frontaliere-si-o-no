@@ -1409,6 +1409,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
     <meta name="twitter:title" content="${esc(seoData.ogT)}">
     <meta name="twitter:description" content="${esc(seoData.ogD)}">
     <meta name="twitter:image" content="${BASE_URL}/og-image.png">
+    <meta name="twitter:site" content="@frontaliereticino">
 ${hrefTags}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
@@ -1450,6 +1451,7 @@ ${hrefTags}
     <meta name="twitter:title" content="${esc(seoData.ogT)}">
     <meta name="twitter:description" content="${esc(seoData.ogD)}">
     <meta name="twitter:image" content="${BASE_URL}/og-image.png">
+    <meta name="twitter:site" content="@frontaliereticino">
 ${hrefTags}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>

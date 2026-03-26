@@ -1072,6 +1072,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
     <meta name="twitter:image" content="${BASE_URL}/og-image.png">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -1441,6 +1442,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${hreflangHtml}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1702,6 +1704,7 @@ ${(() => {
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1855,6 +1858,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -1995,6 +1999,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2137,6 +2142,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2278,6 +2284,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2418,6 +2425,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2562,6 +2570,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2705,6 +2714,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
@@ -2848,6 +2858,7 @@ ${alternates}
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
+    <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
   </head>

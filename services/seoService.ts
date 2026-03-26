@@ -1875,7 +1875,8 @@ export async function updateMetaTags(section: string): Promise<void> {
     const sd = metadata.structuredData as Record<string, any>;
     const imgUrl = typeof sd.image === 'string' ? sd.image : sd.image?.url;
     if (imgUrl) {
-      updateOrCreateMetaTag('property', 'og:image', imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`);
+      const resolvedImgUrl = imgUrl.startsWith('http') ? imgUrl : `${BASE_URL}${imgUrl}`;
+      updateOrCreateMetaTag('property', 'og:image', resolvedImgUrl);
       const imgW = typeof sd.image === 'object' ? String(sd.image.width ?? '1344') : '1200';
       const imgH = typeof sd.image === 'object' ? String(sd.image.height ?? '756') : '630';
       updateOrCreateMetaTag('property', 'og:image:width', imgW);
@@ -1886,10 +1887,12 @@ export async function updateMetaTags(section: string): Promise<void> {
           ? (sd.image.caption || metaOgTitle)
           : metaOgTitle;
       updateOrCreateMetaTag('property', 'og:image:alt', imgAlt);
+      updateOrCreateMetaTag('name', 'twitter:image', resolvedImgUrl);
     } else {
       updateOrCreateMetaTag('property', 'og:image', `${BASE_URL}/og-image.png`);
       updateOrCreateMetaTag('property', 'og:image:width', '1200');
       updateOrCreateMetaTag('property', 'og:image:height', '630');
+      updateOrCreateMetaTag('name', 'twitter:image', `${BASE_URL}/og-image.png`);
     }
   } else {
     if (jobSeo) {
@@ -1899,11 +1902,13 @@ export async function updateMetaTags(section: string): Promise<void> {
       updateOrCreateMetaTag('property', 'og:image:width', '1200');
       updateOrCreateMetaTag('property', 'og:image:height', '630');
       updateOrCreateMetaTag('property', 'og:image:alt', metaOgTitle);
+      updateOrCreateMetaTag('name', 'twitter:image', `${BASE_URL}/og-image.png`);
     } else {
       updateOrCreateMetaTag('property', 'og:image', `${BASE_URL}/og-image.png`);
       updateOrCreateMetaTag('property', 'og:image:width', '1200');
       updateOrCreateMetaTag('property', 'og:image:height', '630');
       updateOrCreateMetaTag('property', 'og:image:alt', metaOgTitle);
+      updateOrCreateMetaTag('name', 'twitter:image', `${BASE_URL}/og-image.png`);
     }
   }
 

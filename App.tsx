@@ -2829,7 +2829,7 @@ const App: React.FC = () => {
             <div className="w-full">
               {authLoading ? (
                 <div className="flex flex-col items-center justify-center py-20 space-y-4">
-                  <Shield size={48} className="text-slate-400" />
+                  <Shield size={48} className="text-slate-500" />
                   <h2 className="text-xl font-bold text-slate-900 dark:text-white">Verifica sessione amministratore</h2>
                   <p className="text-slate-600 dark:text-slate-400 text-center max-w-md">
                     Stiamo ripristinando l&apos;accesso. Attendi un istante.
@@ -2909,7 +2909,7 @@ const App: React.FC = () => {
                 href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] font-mono text-slate-400 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+                className="text-[10px] font-mono text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
                 title="Versione del sito: commit GitHub deploy"
               >
                 <span>v</span>
