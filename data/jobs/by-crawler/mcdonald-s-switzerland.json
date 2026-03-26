@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mcdonald-s-switzerland",
-  "assembledAt": "2026-03-26T09:54:08.251Z",
+  "assembledAt": "2026-03-26T21:27:36.424Z",
   "jobs": [
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8199",
@@ -44,6 +44,7 @@
         "location": "Chur"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
       "salaryMin": 58000,
@@ -63,8 +64,7 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8200",
@@ -108,6 +108,7 @@
         "location": "Chur"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
       "salaryMin": 58000,
@@ -127,8 +128,7 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8137",
@@ -172,6 +172,7 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -191,8 +192,7 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8123",
@@ -236,6 +236,7 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 72000,
@@ -255,8 +256,7 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     }
   ]
 }
