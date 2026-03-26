@@ -1568,6 +1568,19 @@ ${hrefTags}
       await _flush();
       console.log(`[static-pages] Flushed ${_pw.length} files in ${((Date.now() - t0) / 1000).toFixed(1)}s`);
       console.log(`\x1b[36m[static-pages]\x1b[0m Generated ${count} static pages (${skipped} skipped — already exist or no SEO data)`);
+
+      /* ── Auto-update sitemap index lastmod dates to today ─────── */
+      const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
+      if (fs.existsSync(sitemapIndexPath)) {
+        const today = new Date().toISOString().slice(0, 10);
+        let idx = fs.readFileSync(sitemapIndexPath, 'utf-8');
+        idx = idx.replace(
+          /<lastmod>\d{4}-\d{2}-\d{2}<\/lastmod>/g,
+          `<lastmod>${today}</lastmod>`
+        );
+        fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
+        console.log(`\x1b[36m[static-pages]\x1b[0m Updated sitemap.xml lastmod dates to ${today}`);
+      }
     },
   };
 }

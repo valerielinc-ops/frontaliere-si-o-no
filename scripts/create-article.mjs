@@ -3577,6 +3577,26 @@ function validateStructuredData(data) {
   console.error(`  ✅ Dati strutturati validi (headline: "${ogT.substring(0, 50)}...")`);
 }
 
+/**
+ * Update the lastmod date for a specific child sitemap in public/sitemap.xml.
+ * Call this after modifying any child sitemap so the sitemap index stays fresh.
+ */
+function updateSitemapIndexLastmod(childSitemapUrl) {
+  const file = 'public/sitemap.xml';
+  let src = read(file);
+  const today = new Date().toISOString().slice(0, 10);
+  // Match the <sitemap> block containing this child URL and update its <lastmod>
+  const escapedUrl = childSitemapUrl.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+  const rx = new RegExp(
+    `(<loc>${escapedUrl}</loc>\\s*<lastmod>)\\d{4}-\\d{2}-\\d{2}(</lastmod>)`
+  );
+  if (rx.test(src)) {
+    src = src.replace(rx, `$1${today}$2`);
+    write(file, src);
+    console.error(`  ✅ ${file} — updated lastmod for ${childSitemapUrl}`);
+  }
+}
+
 function modifySitemap(data) {
   const file = 'public/sitemap-blog.xml';
   let src = read(file);
@@ -3613,6 +3633,7 @@ function modifySitemap(data) {
 
   write(file, src);
   console.error(`  ✅ ${file}`);
+  updateSitemapIndexLastmod('https://frontaliereticino.ch/sitemap-blog.xml');
 }
 
 function modifySitemapNews(data) {
@@ -3628,6 +3649,14 @@ function modifySitemapNews(data) {
     );
   }
 
+  // Ensure xmlns:xhtml namespace is present (for hreflang alternates)
+  if (!src.includes('xmlns:xhtml=')) {
+    src = src.replace(
+      'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"',
+      'xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml"'
+    );
+  }
+
   const imagePath = data._generatedImagePath
     ? data._generatedImagePath.replace(/^\//, '')
     : `images/places/${data.image}`;
@@ -3635,6 +3664,11 @@ function modifySitemapNews(data) {
 
   const entry = `  <url>
     <loc>${BASE_URL}/articoli-frontaliere/${data.slugs.it}/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}/articoli-frontaliere/${data.slugs.it}/" />
+    <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}/en/cross-border-articles/${data.slugs.en}/" />
+    <xhtml:link rel="alternate" hreflang="de" href="${BASE_URL}/de/grenzgaenger-artikel/${data.slugs.de}/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="${BASE_URL}/fr/articles-frontalier/${data.slugs.fr}/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}/articoli-frontaliere/${data.slugs.it}/" />
     <news:news>
       <news:publication>
         <news:name>Frontaliere Ticino</news:name>
@@ -3657,6 +3691,7 @@ function modifySitemapNews(data) {
 
   write(file, src);
   console.error(`  ✅ ${file}`);
+  updateSitemapIndexLastmod('https://frontaliereticino.ch/sitemap-news.xml');
 }
 
 // ── Step 5: Git add ─────────────────────────────────────────
@@ -3678,6 +3713,7 @@ function gitAddAll(data) {
     'services/seoService.ts',
     'public/sitemap-blog.xml',
     'public/sitemap-news.xml',
+    'public/sitemap.xml',
   ];
   if (existsSync(resolve(SOURCE_QUOTA_FILE))) {
     files.push(SOURCE_QUOTA_FILE);

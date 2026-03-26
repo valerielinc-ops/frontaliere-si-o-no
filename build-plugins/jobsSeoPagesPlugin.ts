@@ -3224,8 +3224,14 @@ ${(() => {
             '</sitemapindex>',
             `  <sitemap>\n    <loc>${BASE_URL}/sitemap-jobs.xml</loc>\n    <lastmod>${dateStamp}</lastmod>\n  </sitemap>\n</sitemapindex>`
           );
-          fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
+        } else {
+          // Update existing lastmod for sitemap-jobs.xml
+          idx = idx.replace(
+            /(<loc>https:\/\/frontaliereticino\.ch\/sitemap-jobs\.xml<\/loc>\s*<lastmod>)\d{4}-\d{2}-\d{2}(<\/lastmod>)/,
+            `$1${dateStamp}$2`
+          );
         }
+        fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
       }
 
       console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml`);
