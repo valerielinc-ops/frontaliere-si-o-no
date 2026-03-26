@@ -62,6 +62,19 @@ export function adminDataPlugin(root: string): Plugin {
       }
 
       console.log(`  📋 Admin data: copied ${copied} files to dist/data/`);
+
+      // Generate static HTML shell for the admin route so GitHub Pages serves it
+      // directly (fresh chunk hashes) without the 404→redirect dance that causes
+      // browsers with stale cached index.html to request non-existent old chunks.
+      // The slug is intentionally obfuscated; it must stay in sync with router.ts.
+      const ADMIN_SLUG = 'gestione-contenuti-xk9mp2q';
+      const indexHtml = path.resolve(distDir, 'index.html');
+      if (fs.existsSync(indexHtml)) {
+        const adminDir = path.resolve(distDir, ADMIN_SLUG);
+        fs.mkdirSync(adminDir, { recursive: true });
+        fs.copyFileSync(indexHtml, path.resolve(adminDir, 'index.html'));
+        console.log(`  🔐 Admin route: generated dist/${ADMIN_SLUG}/index.html`);
+      }
     },
   };
 }
