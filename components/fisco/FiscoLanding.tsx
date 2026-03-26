@@ -107,6 +107,16 @@ const FiscoLanding: React.FC = () => {
         </div>
       </div>
 
+      {/* ─── AI-Extractable Intro ────────────────────────────────────── */}
+      <div className="max-w-2xl mx-auto text-center px-4 mt-3 mb-6">
+        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+          {t('fisco.landing.intro.p1')}
+        </p>
+        <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed mt-3">
+          {t('fisco.landing.intro.p2')}
+        </p>
+      </div>
+
       {/* ─── Tool Grid ─────────────────────────────────────────────── */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
         {FISCO_TOOLS.map(({ key, icon: Icon, titleKey, descKey, badge }) => (

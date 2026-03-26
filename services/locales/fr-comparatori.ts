@@ -732,6 +732,11 @@ const frComparatori: Record<string, string> = {
     'nursery.waitList.short': 'Liste d\'attente courte',
     'nursery.waitList.medium': 'Liste d\'attente moyenne',
     'nursery.waitList.long': 'Liste d\'attente longue',
+
+    // ── AI-extractable intro paragraphs ──
+    'comparatori.salaryCompare.intro.p1': 'Le comparateur de salaires permet de calculer le revenu net d\'un frontalier en Suisse par rapport à un poste équivalent en Italie, en tenant compte des impôts, des cotisations AVS (5,3 %) et du coût de la vie. Plus de 79 000 frontaliers se rendent chaque jour en Suisse (OFS, T4 2025).',
+    'comparatori.mortgage.intro.p1': 'Le comparateur hypothécaire confronte les solutions de financement immobilier en Suisse et en Italie. Les hypothèques suisses offrent des taux généralement variables (SARON) ou fixes, souvent plus compétitifs pour les frontaliers percevant un salaire en CHF.',
+    'comparatori.bank.intro.p1': 'Le comparateur bancaire aide les frontaliers à choisir entre établissements suisses et italiens pour optimiser les frais de conversion CHF-EUR, les commissions de compte et la gestion du salaire en francs suisses.',
 };
 
 export default frComparatori;

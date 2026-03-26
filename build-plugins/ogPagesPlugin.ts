@@ -340,8 +340,17 @@ export function ogPagesPlugin(rootDir: string): Plugin {
               '@type': 'Person',
               name: 'Frontaliere Ticino',
               jobTitle: 'Esperto fiscale frontalieri',
+              description: 'Portale di riferimento per i frontalieri ticino dal 2020. Analisi fiscali, previdenziali e pratiche basate su fonti ufficiali: ESTV, UST, INPS, Agenzia delle Entrate.',
               url: `${BASE_URL}/chi-siamo`,
               worksFor: { '@id': `${BASE_URL}/#organization` },
+              knowsAbout: [
+                'Imposta alla fonte Svizzera',
+                'Frontalieri Ticino',
+                'AVS LPP pensione',
+                'LAMal assicurazione malattia',
+                'Accordo fiscale italo-svizzero 2020',
+              ],
+              sameAs: [],
             },
             mainEntityOfPage: full,
             speakable: {

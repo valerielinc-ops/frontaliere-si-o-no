@@ -818,6 +818,8 @@ const deFisco: Record<string, string> = {
     'fisco.landing.trust.updated': 'Aktualisiert 2026',
     'fisco.landing.trust.free': 'Kostenlos',
     'fisco.landing.trust.tools': '8 Tools',
+    'fisco.landing.intro.p1': 'Das Steuerportal vereint 9 kostenlose Tools zur Steuerberechnung, Rentenplanung und Verwaltung steuerlicher Fristen für Grenzgänger in der Schweiz und Italien. Über 79.000 Grenzgänger überqueren täglich die Grenze (BFS, 4. Quartal 2025).',
+    'fisco.landing.intro.p2': 'Mit dem Neuen Abkommen vom 23. Dezember 2020 unterliegen Grenzgänger, die nach dem 17. Juli 2023 in der Schweiz zu arbeiten begonnen haben, einer Teilbesteuerung in Italien (70 % der in der Schweiz gezahlten Steuern mit Entlastung). Wer vor diesem Datum beschäftigt war, behält die alte Regelung mit vollständiger IRPEF-Befreiung in Italien.',
     'fisco.landing.tool.taxReturn.desc': 'Italienische und Schweizer Steuererklärung Schritt für Schritt',
     'fisco.landing.tool.withholdingRates.desc': 'Quellensteuer-Sätze nach Kanton, Familienstand und Lohnklasse',
     'fisco.landing.tool.calendar.desc': 'Keine Steuerfrist verpassen mit dem interaktiven Kalender',

@@ -219,6 +219,10 @@ const BankComparison: React.FC = () => {
         <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
       </div>
 
+      <p className="text-sm text-slate-600 dark:text-slate-300 leading-relaxed">
+        {t('comparatori.bank.intro.p1')}
+      </p>
+
       <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
         <div className="flex items-start gap-3">
           <AlertCircle className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />

@@ -290,6 +290,9 @@ export default function MortgageComparison() {
         <p className="text-sm text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
           {t('mortgage.subtitle')}
         </p>
+        <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed max-w-2xl mx-auto">
+          {t('comparatori.mortgage.intro.p1')}
+        </p>
       </div>
 
       {/* Input Panel */}

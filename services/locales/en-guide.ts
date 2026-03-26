@@ -991,6 +991,9 @@ const enGuide: Record<string, string> = {
     'naspi.calc.howDecalageDesc': 'The amount decreases by 3% each month starting from the 6th month (8th if age ≥ 55)',
     'naspi.calc.howFrontalieri': 'Cross-border workers',
     'naspi.calc.howFrontalieriDesc': 'Swiss salary in CHF is converted to EUR at the INPS average exchange rate',
+
+    // ── AI-extractable intro paragraphs ──
+    'guide.permitCompare.intro.p1': 'The G Permit allows you to live in Italy and work in Switzerland with daily or weekly return, with withholding tax deducted in Switzerland. The B Permit requires Swiss residence and mandatory LAMal health insurance enrolment (premiums between CHF 200 and 600 per month).',
 };
 
 export default enGuide;

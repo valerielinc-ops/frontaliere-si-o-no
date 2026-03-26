@@ -51,6 +51,28 @@ const sliceFiles = fs.existsSync(SLICES_DIR)
   ? fs.readdirSync(SLICES_DIR).filter((f) => f.endsWith('.json') && f !== '.gitkeep')
   : [];
 
+/**
+ * Merge two locale maps. For each locale, prefer the assembled value if non-empty,
+ * otherwise keep the slice value. This prevents AI translation failures from
+ * destroying existing translations.
+ */
+function mergeLocaleMap(sliceMap, assembledMap) {
+  const s = (sliceMap && typeof sliceMap === 'object') ? sliceMap : {};
+  const a = (assembledMap && typeof assembledMap === 'object') ? assembledMap : {};
+  const merged = { ...s };
+  for (const [locale, value] of Object.entries(a)) {
+    const trimmed = String(value || '').trim();
+    const existing = String(merged[locale] || '').trim();
+    // Only update if assembled has a non-empty value, OR if slice also has nothing
+    if (trimmed) {
+      // Assembled has content — use it (it may be a real translation)
+      merged[locale] = value;
+    }
+    // If assembled is empty but slice has content, keep slice (don't destroy)
+  }
+  return merged;
+}
+
 let updatedSlices = 0;
 let updatedJobs = 0;
 
@@ -74,11 +96,17 @@ for (const file of sliceFiles) {
     if (changed) {
       sliceChanged = true;
       updatedJobs++;
+      // Defensive merge: never overwrite a non-empty locale value with an empty one.
+      // The assembled data may have had locales stripped by ensureLocaleFields when
+      // AI translation failed — the per-crawler file is the source of truth.
+      const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
+      const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
+      const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
       return {
         ...sliceJob,
-        titleByLocale: assembled.titleByLocale || sliceJob.titleByLocale,
-        descriptionByLocale: assembled.descriptionByLocale || sliceJob.descriptionByLocale,
-        slugByLocale: assembled.slugByLocale || sliceJob.slugByLocale,
+        titleByLocale: mergedTitle,
+        descriptionByLocale: mergedDesc,
+        slugByLocale: mergedSlug,
       };
     }
     return sliceJob;

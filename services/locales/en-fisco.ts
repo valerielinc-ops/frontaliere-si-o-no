@@ -818,6 +818,8 @@ const enFisco: Record<string, string> = {
     'fisco.landing.trust.updated': 'Updated 2026',
     'fisco.landing.trust.free': 'Free',
     'fisco.landing.trust.tools': '8 tools',
+    'fisco.landing.intro.p1': 'The tax portal brings together 9 free tools to calculate taxes, plan your pension, and manage fiscal deadlines for cross-border workers in Switzerland and Italy. Over 79,000 cross-border workers cross the border every day (FSO, Q4 2025).',
+    'fisco.landing.intro.p2': 'Under the New Agreement of 23 December 2020, cross-border workers who started working in Switzerland after 17 July 2023 are subject to partial taxation in Italy (70% of taxes paid in Switzerland with relief). Those who were working before that date retain the old regime with full IRPEF exemption in Italy.',
     'fisco.landing.tool.taxReturn.desc': 'Complete your Italian and Swiss tax return step by step',
     'fisco.landing.tool.withholdingRates.desc': 'Withholding tax rates by canton, marital status, and salary bracket',
     'fisco.landing.tool.calendar.desc': 'Never miss a tax deadline with the interactive calendar',

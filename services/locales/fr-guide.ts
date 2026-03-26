@@ -991,6 +991,9 @@ const frGuide: Record<string, string> = {
     'naspi.calc.howDecalageDesc': 'Le montant diminue de 3% par mois à partir du 6e mois (8e si âge ≥ 55 ans)',
     'naspi.calc.howFrontalieri': 'Frontaliers',
     'naspi.calc.howFrontalieriDesc': 'Le salaire suisse en CHF est converti en EUR au taux de change moyen INPS',
+
+    // ── AI-extractable intro paragraphs ──
+    'guide.permitCompare.intro.p1': 'Le permis G permet de vivre en Italie et de travailler en Suisse avec un retour journalier ou hebdomadaire, l\'impôt à la source étant prélevé en Suisse. Le permis B exige la résidence en Suisse et l\'inscription obligatoire à la LAMal (primes entre CHF 200 et 600 par mois).',
 };
 
 export default frGuide;

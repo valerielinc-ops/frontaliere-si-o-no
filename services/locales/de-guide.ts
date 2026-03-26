@@ -991,6 +991,9 @@ const deGuide: Record<string, string> = {
     'naspi.calc.howDecalageDesc': 'Der Betrag sinkt ab dem 6. Monat um 3% pro Monat (ab 55 Jahren ab dem 8. Monat)',
     'naspi.calc.howFrontalieri': 'Grenzgänger',
     'naspi.calc.howFrontalieriDesc': 'Der Schweizer Lohn in CHF wird zum INPS-Durchschnittskurs in EUR umgerechnet',
+
+    // ── AI-extractable intro paragraphs ──
+    'guide.permitCompare.intro.p1': 'Die Grenzgängerbewilligung G erlaubt es, in Italien zu wohnen und in der Schweiz zu arbeiten mit täglicher oder wöchentlicher Rückkehr, wobei die Quellensteuer in der Schweiz einbehalten wird. Die Aufenthaltsbewilligung B erfordert einen Wohnsitz in der Schweiz und die obligatorische KVG-Anmeldung (Prämien zwischen CHF 200 und 600 pro Monat).',
 };
 
 export default deGuide;

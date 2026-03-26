@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 import {
   Calculator, Scale, Landmark, BookOpen, Users, Target,
   ChevronDown, ChevronUp, Check, Star, Shield, Clock,
-  ArrowRight, Info,
+  ArrowRight, Info, CalendarDays,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -284,6 +284,14 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
                 <span>{t(`seoContent.${context}.check${i + 1}`)}</span>
               </div>
             ))}
+          </div>
+
+          {/* Data updated label */}
+          <div className="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
+            <CalendarDays className="w-3.5 h-3.5 text-slate-400 dark:text-slate-500 shrink-0" aria-hidden="true" />
+            <span className="text-xs text-slate-500 dark:text-slate-400">
+              {t('seoContent.dataUpdated')}
+            </span>
           </div>
         </div>
       )}

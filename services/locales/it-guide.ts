@@ -1018,5 +1018,8 @@ const translations: Record<string, string> = {
     'naspi.calc.howDecalageDesc': 'L\'importo si riduce del 3% ogni mese a partire dal 6° mese (8° se hai ≥ 55 anni)',
     'naspi.calc.howFrontalieri': 'Frontalieri',
     'naspi.calc.howFrontalieriDesc': 'Lo stipendio svizzero in CHF viene convertito in EUR al tasso di cambio medio INPS',
+
+    // ── AI-extractable intro paragraphs ──
+    'guide.permitCompare.intro.p1': 'Il Permesso G consente di vivere in Italia e lavorare in Svizzera con rientro giornaliero o settimanale, con imposta alla fonte trattenuta in Svizzera. Il Permesso B richiede la residenza in Svizzera e l\'iscrizione obbligatoria alla LAMal (premi tra CHF 200 e 600 al mese).',
 };
 export default translations;

@@ -732,6 +732,11 @@ const enComparatori: Record<string, string> = {
     'nursery.waitList.short': 'Short waiting list',
     'nursery.waitList.medium': 'Medium waiting list',
     'nursery.waitList.long': 'Long waiting list',
+
+    // ── AI-extractable intro paragraphs ──
+    'comparatori.salaryCompare.intro.p1': 'The salary comparison tool lets you calculate a cross-border worker\'s net income in Switzerland versus an equivalent position in Italy, factoring in taxes, AVS contributions (5.3%) and cost of living. Over 79,000 cross-border workers commute to Switzerland every day (FSO, Q4 2025).',
+    'comparatori.mortgage.intro.p1': 'The mortgage comparison tool compares real-estate financing options in Switzerland and Italy. Swiss mortgages typically offer variable (SARON-based) or fixed rates, often more competitive for cross-border workers earning in CHF.',
+    'comparatori.bank.intro.p1': 'The bank comparison tool helps cross-border workers choose between Swiss and Italian institutions to optimise CHF-EUR conversion costs, account fees and Swiss-franc salary management.',
 };
 
 export default enComparatori;

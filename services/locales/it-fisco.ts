@@ -851,6 +851,8 @@ const translations: Record<string, string> = {
     'fisco.landing.trust.updated': 'Aggiornato 2026',
     'fisco.landing.trust.free': 'Gratuito',
     'fisco.landing.trust.tools': '8 strumenti',
+    'fisco.landing.intro.p1': 'Il portale fiscale raccoglie 9 strumenti gratuiti per calcolare imposte, pianificare la pensione e gestire le scadenze fiscali del frontaliero in Svizzera e Italia. Oltre 79.000 frontalieri attraversano ogni giorno il confine (UST, IV trim. 2025).',
+    'fisco.landing.intro.p2': 'Con il Nuovo Accordo del 23 dicembre 2020, i frontalieri che hanno iniziato a lavorare in Svizzera dopo il 17 luglio 2023 sono soggetti a tassazione parziale in Italia (70% delle imposte pagate in Svizzera con sgravio). Chi lavorava prima di quella data mantiene il regime vecchio con esenzione totale IRPEF in Italia.',
     'fisco.landing.tool.taxReturn.desc': 'Compila la dichiarazione dei redditi Italia e Svizzera passo per passo',
     'fisco.landing.tool.withholdingRates.desc': 'Aliquote dell\'imposta alla fonte per cantone, stato civile e fascia salariale',
     'fisco.landing.tool.calendar.desc': 'Non perdere nessuna scadenza fiscale con il calendario interattivo',

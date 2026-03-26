@@ -210,6 +210,9 @@ export default function SalaryCompare() {
         <p className="text-slate-600 dark:text-slate-400">
           {t('salaryCompare.subtitle')}
         </p>
+        <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+          {t('comparatori.salaryCompare.intro.p1')}
+        </p>
 
         {/* Stats banner */}
         <div className="flex flex-wrap gap-4 mt-4">

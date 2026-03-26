@@ -818,6 +818,8 @@ const frFisco: Record<string, string> = {
     'fisco.landing.trust.updated': 'Mis à jour 2026',
     'fisco.landing.trust.free': 'Gratuit',
     'fisco.landing.trust.tools': '8 outils',
+    'fisco.landing.intro.p1': 'Le portail fiscal regroupe 9 outils gratuits pour calculer les impôts, planifier la retraite et gérer les échéances fiscales des frontaliers en Suisse et en Italie. Plus de 79 000 frontaliers traversent la frontière chaque jour (OFS, 4e trim. 2025).',
+    'fisco.landing.intro.p2': 'Avec le Nouvel Accord du 23 décembre 2020, les frontaliers ayant commencé à travailler en Suisse après le 17 juillet 2023 sont soumis à une imposition partielle en Italie (70 % des impôts payés en Suisse avec allègement). Ceux qui travaillaient avant cette date conservent l\'ancien régime avec exonération totale IRPEF en Italie.',
     'fisco.landing.tool.taxReturn.desc': 'Complétez votre déclaration d\'impôts italienne et suisse étape par étape',
     'fisco.landing.tool.withholdingRates.desc': 'Taux d\'impôt à la source par canton, état civil et tranche salariale',
     'fisco.landing.tool.calendar.desc': 'Ne manquez aucune échéance fiscale avec le calendrier interactif',

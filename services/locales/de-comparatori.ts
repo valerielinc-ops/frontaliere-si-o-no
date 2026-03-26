@@ -732,6 +732,11 @@ const deComparatori: Record<string, string> = {
     'nursery.waitList.short': 'Kurze Warteliste',
     'nursery.waitList.medium': 'Mittlere Warteliste',
     'nursery.waitList.long': 'Lange Warteliste',
+
+    // ── AI-extractable intro paragraphs ──
+    'comparatori.salaryCompare.intro.p1': 'Der Gehaltsvergleich berechnet das Nettoeinkommen eines Grenzgängers in der Schweiz im Vergleich zu einer gleichwertigen Stelle in Italien unter Berücksichtigung von Steuern, AHV-Beiträgen (5,3 %) und Lebenshaltungskosten. Über 79.000 Grenzgänger pendeln täglich in die Schweiz (BFS, Q4 2025).',
+    'comparatori.mortgage.intro.p1': 'Der Hypothekenvergleich stellt Immobilienfinanzierungen in der Schweiz und Italien gegenüber. Schweizer Hypotheken bieten typischerweise variable (SARON-basierte) oder feste Zinssätze, die für Grenzgänger mit CHF-Einkommen oft günstiger sind.',
+    'comparatori.bank.intro.p1': 'Der Bankenvergleich hilft Grenzgängern bei der Wahl zwischen Schweizer und italienischen Instituten, um CHF-EUR-Umrechnungskosten, Kontogebühren und die Verwaltung des Gehalts in Schweizer Franken zu optimieren.',
 };
 
 export default deComparatori;

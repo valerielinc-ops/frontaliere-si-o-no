@@ -1,5 +1,5 @@
 import React from 'react';
-import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3 } from 'lucide-react';
+import { Users, BookOpen, Shield, Globe, ArrowLeft, CheckCircle2, Newspaper, BarChart3, FileSearch } from 'lucide-react';
 import { useNavigation } from '@/services/NavigationContext';
 
 /**
@@ -83,20 +83,53 @@ export const ChiSiamo: React.FC = () => {
           </ul>
         </Section>
 
+        {/* Methodology */}
+        <Section icon={FileSearch} title="Metodologia">
+          <p>
+            Tutti i calcoli e le analisi pubblicate su Frontaliere Ticino sono basati su fonti ufficiali
+            svizzere e italiane, con aggiornamento costante dei parametri fiscali, previdenziali e assicurativi.
+          </p>
+          <p className="mt-3">
+            Il nostro approccio metodologico segue tre principi fondamentali:
+          </p>
+          <ul className="mt-3 space-y-2">
+            <BulletItem>
+              <strong>Fonti primarie</strong>: aliquote fiscali, tabelle contributive e parametri
+              previdenziali provengono direttamente dalle amministrazioni competenti (ESTV, INPS, Agenzia
+              delle Entrate, AFC Canton Ticino)
+            </BulletItem>
+            <BulletItem>
+              <strong>Verifica incrociata</strong>: ogni dato viene confrontato con almeno due fonti
+              indipendenti prima della pubblicazione nei nostri calcolatori
+            </BulletItem>
+            <BulletItem>
+              <strong>Aggiornamento continuo</strong>: i parametri vengono aggiornati entro 48 ore dalla
+              pubblicazione ufficiale delle nuove tabelle e aliquote
+            </BulletItem>
+          </ul>
+          <p className="mt-4 text-xs text-slate-500 dark:text-slate-500">
+            Ultimo aggiornamento parametri: 2026. I dati sono forniti a scopo informativo e non
+            sostituiscono la consulenza di un professionista fiscale abilitato.
+          </p>
+        </Section>
+
         {/* Data Sources */}
-        <Section icon={BookOpen} title="Le nostre fonti">
+        <Section icon={BookOpen} title="Fonti dei Dati">
           <p>
             Per garantire l'accuratezza delle informazioni, utilizziamo esclusivamente fonti istituzionali e verificabili:
           </p>
           <div className="mt-3 grid grid-cols-1 sm:grid-cols-2 gap-2">
             {[
-              'Canton Ticino (ti.ch)',
-              'SECO — Segretariato di Stato dell\'economia',
+              'ESTV — Amministrazione federale delle contribuzioni',
               'UST — Ufficio federale di statistica',
+              'INPS — Istituto Nazionale Previdenza Sociale',
               'Agenzia delle Entrate (Italia)',
+              'AFC Canton Ticino — Divisione delle contribuzioni',
+              'SUVA — Assicurazione infortuni',
+              'SECO — Segretariato di Stato dell\'economia',
+              'Canton Ticino (ti.ch)',
               'Parlamento federale svizzero',
               'Gran Consiglio ticinese',
-              'SUVA / Assicurazione infortuni',
               'Cassa cantonale di compensazione AVS',
               'TomTom Traffic API',
               'Agenzie stampa: RSI, Corriere del Ticino, LaRegione',

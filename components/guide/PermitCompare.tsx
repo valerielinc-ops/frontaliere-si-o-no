@@ -442,6 +442,9 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
           <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('permitCompare.title')}</h2>
         </div>
         <p className="text-slate-600 dark:text-slate-400">{t('permitCompare.subtitle')}</p>
+        <p className="text-sm text-slate-600 dark:text-slate-300 mt-3 leading-relaxed">
+          {t('guide.permitCompare.intro.p1')}
+        </p>
       </div>
 
       <div className="grid lg:grid-cols-5 gap-6">
