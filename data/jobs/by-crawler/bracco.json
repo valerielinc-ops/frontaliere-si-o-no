@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bracco",
-  "assembledAt": "2026-03-26T09:22:49.112Z",
+  "assembledAt": "2026-03-26T20:56:27.434Z",
   "jobs": [
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/MANUFACTURING-TECHNICIEN-PRODUCTION-STERILE--H-F-_JR100029",
@@ -43,6 +43,7 @@
       },
       "jobReqId": "JR100029",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "fr",
       "salaryMin": 72000,
@@ -62,8 +63,7 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/CONTINUOUS-IMPROVEMENT-MANAGER_",
@@ -105,6 +105,7 @@
         "location": "Plan-les-Ouates"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
       "salaryMin": 72000,
@@ -124,8 +125,7 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     }
   ]
 }
