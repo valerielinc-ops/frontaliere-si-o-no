@@ -120,7 +120,7 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
       jsonLd.jobLocation?.address?.addressRegion ||
       '';
     const description = typeof jsonLd.description === 'string'
-      ? jsonLd.description.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim()
+      ? htmlFragmentToMarkdown(jsonLd.description)
       : '';
     return {
       title: normalizeSpace(jsonLd.title),

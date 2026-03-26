@@ -21,12 +21,14 @@ const ATS_HOST_MARKERS = [
   'joblink.allibo.com',
   '.allibo.com',
   'myworkdayjobs.com',
+  'ncoreplat.com',
   'greenhouse.io',
   'lever.co',
   'smartrecruiters.com',
   'teamtailor.com',
   'personio.',
   'umantis.com',
+  'zohorecruit.com',
   'arca24.careers',
   'oraclecloud.com',
   'recruitee.com',
@@ -41,27 +43,44 @@ function gFavicon(domain: string): string {
   return `https://www.google.com/s2/favicons?domain=${encodeURIComponent(domain)}&sz=128`;
 }
 
+/** Clearbit Logo API — returns 128px PNG or HTTP 404 (never grey globe). */
+const cLogo = (domain: string) => `https://logo.clearbit.com/${domain}`;
+
 /**
  * Explicit logo URLs for every crawled company, keyed by companyKey.
  * Ensures correct logos regardless of ATS domain changes or Google favicon quirks.
+ *
+ * Logo URL guidelines:
+ * 1. Prefer cLogo(domain) — Clearbit returns 404 for unknown, never grey globe
+ * 2. For companies where Clearbit fails: use gFavicon(realCompanyDomain) — NOT ATS domains
+ * 3. Never use gFavicon on ATS domains (myworkdayjobs.com, umantis.com, zohorecruit.com, ncoreplat.com, etc.)
+ * 4. Test: a grey globe from Google favicon is exactly 726 bytes at sz=128
  */
 export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'abb-svizzera-sede-ticino': gFavicon('abb.ch'),
   'ail-lugano': gFavicon('ail.ch'),
+  'allianz-suisse': cLogo('allianz.ch'),
+  'alpiq': cLogo('alpiq.com'),
+  'alten-switzerland': gFavicon('alten.ch'),
   'amministrazione-cantonale-ti': gFavicon('ti.ch'),
   'artisa-group': gFavicon('artisagroup.com'),
   'avaloq': gFavicon('avaloq.com'),
   'banca-cler': gFavicon('cler.ch'),
   'banca-sempione': gFavicon('bancasempione.ch'),
+  'bancastato': cLogo('bancastato.ch'),
+  'board-international': gFavicon('board.com'),
   'boggi-milano': 'https://www.boggi.com/on/demandware.static/Sites-Boggi-Site/-/default/dwc9d6c35e/images/global/boggi-logo.svg',
   'bosch-thermotechnik-ag': gFavicon('bosch.ch'),
-  'board-international': gFavicon('board.com'),
+  'bps-suisse': cLogo('bps-suisse.ch'),
   'bracco': gFavicon('bracco.com'),
   'cambiavalute': gFavicon('cambiavalute.ch'),
+  'capri-holdings': cLogo('capriholdings.com'),
   'caseificio-gottardo': gFavicon('caseificiodelgottardo.ch'),
+  'citta-di-bellinzona': cLogo('bellinzona.ch'),
+  'citta-di-locarno': cLogo('locarno.ch'),
   'citta-di-mendrisio': gFavicon('mendrisio.ch'),
-  'coop-ticino': gFavicon('coop.ch'),
   'convit-holding': 'https://convit.ch/images/convit-logo.png',
+  'coop-ticino': gFavicon('coop.ch'),
   'corner-banca': gFavicon('corner.ch'),
   'damiani-group': gFavicon('damianigroup.com'),
   'delvitech-sa': 'https://legacy.delvi.tech/wp-content/uploads/2022/03/cropped-Delvi.tech_favicon.jpg',
@@ -71,14 +90,15 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'ermenegildo-zegna-logistica': '/images/logos/ermenegildo-zegna.svg',
   'ermenegildo-zegna': '/images/logos/ermenegildo-zegna.svg',
   'fart': gFavicon('fartiamo.ch'),
-  'fincons-group': gFavicon('finconsgroup.com'),
   'ffs-officine-ferrovie-federali': gFavicon('sbb.ch'),
+  'fincons-group': gFavicon('finconsgroup.com'),
+  'fnz': cLogo('fnz.com'),
   'galenica': gFavicon('galenica.com'),
   'goline': gFavicon('goline.ch'),
   'guess-europe': gFavicon('guess.eu'),
-  'alten-switzerland': gFavicon('alten.ch'),
-  'has-healthcare': gFavicon('has-pharma.com'),
+  'has-healthcare': cLogo('has-pharma.com'),
   'ibsa-institut-biochimique': 'https://rmkcdn.successfactors.com/0628fab4/f37d25aa-93c8-4480-bb16-3.png',
+  'julius-baer': cLogo('juliusbaer.com'),
   'kantonsspital-graubuenden-ksgr': gFavicon('ksgr.ch'),
   'la-fonte': gFavicon('lafonte.ch'),
   'lastminute-com': gFavicon('lastminute.com'),
@@ -86,21 +106,29 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
   'linnea': 'https://www.linnea.ch/wp-content/uploads/2023/10/cropped-favicon-192x192.png',
   'lis-lugano-istituti-sociali': gFavicon('lugano-lis.ch'),
   'lwphr': gFavicon('lwphr.ch'),
-  'tsmg': gFavicon('tsmg.co'),
-  'the-living-circle': gFavicon('thelivingcircle.ch'),
   'manor': gFavicon('manor.ch'),
   'medacta-international': 'https://www.medacta.com/images/header/Logo_Medacta.svg',
   'migros-ticino': gFavicon('migros.ch'),
+  'mtic-group': cLogo('mtic.ch'),
   'oscam': gFavicon('oscam.ch'),
+  'pkb-private-bank': cLogo('pkb.ch'),
   'posta-svizzera-centro-regionale': 'https://ohws.prospective.ch/directlink/1002253030/assets/images/logos/post_logo_2023.svg',
+  'rapelli': cLogo('rapelli.ch'),
+  'relewant': cLogo('relewant.com'),
+  'rivopharm': cLogo('rivopharm.com'),
   'ruag-ag': gFavicon('ruag.ch'),
   'schindler': gFavicon('schindler.com'),
+  'sintetica': cLogo('sintetica.com'),
   'skyguide-sa': gFavicon('skyguide.ch'),
   'supsi-dti': gFavicon('supsi.ch'),
   'swisscom-sede-ticino': gFavicon('swisscom.ch'),
-  'zucchetti-switzerland': gFavicon('zucchetti.com'),
+  'swiss-medical-network': cLogo('swissmedical.net'),
+  'the-living-circle': gFavicon('thelivingcircle.ch'),
+  'tsmg': cLogo('tsmg.co'),
   'usi-universita-della-svizzera-italiana': gFavicon('usi.ch'),
   'vf-international-the-north-face-timberland': gFavicon('vfc.com'),
+  'zambon': cLogo('zambon.com'),
+  'zucchetti-switzerland': gFavicon('zucchetti.com'),
   'zurich-insurance-sede-ticino': gFavicon('zurich.ch'),
 };
 

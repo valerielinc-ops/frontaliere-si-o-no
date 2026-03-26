@@ -2297,7 +2297,7 @@ export const COMPANY_DEFAULTS = {
   'hitachi-energy':                       { streetAddress: 'Via Lucino 53',            postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'mks-pamp':                             { streetAddress: 'Via delle Fornaci',        postalCode: '6828', addressLocality: 'Balerna',           addressRegion: 'TI', addressCountry: 'CH' },
   'trumpf-schweiz':                       { streetAddress: 'Via Campagna 4',           postalCode: '6982', addressLocality: 'Agno',              addressRegion: 'TI', addressCountry: 'CH' },
-  'a-group':                              { streetAddress: 'Via Cantonale 10',         postalCode: '6928', addressLocality: 'Manno',             addressRegion: 'TI', addressCountry: 'CH' },
+  'a-group':                              { streetAddress: 'Via Molinazzo 4',          postalCode: '6942', addressLocality: 'Massagno',          addressRegion: 'TI', addressCountry: 'CH' },
   'artisa-group':                         { streetAddress: 'Via Nassa 5',              postalCode: '6900', addressLocality: 'Lugano',            addressRegion: 'TI', addressCountry: 'CH' },
   'centiel':                              { streetAddress: 'Via Luserte 11',           postalCode: '6572', addressLocality: 'Quartino',          addressRegion: 'TI', addressCountry: 'CH' },
   'damiani-group':                        { streetAddress: 'Via Penate 12',            postalCode: '6850', addressLocality: 'Mendrisio',         addressRegion: 'TI', addressCountry: 'CH' },

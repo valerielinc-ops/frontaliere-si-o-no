@@ -183,6 +183,8 @@ async function buildAplusJob(listing) {
   }
   const rawLocation = detail.location || listing.location || 'Massagno';
   const canton = inferAplusCanton(rawLocation);
+  const postalCode = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? '6942' : '6900';
+  const streetAddress = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? 'Via Molinazzo 4' : '';
   const localized = buildAplusLocalizedContent(detail);
   const canonicalTitle = detail.title;
   const canonicalSlug =
@@ -201,6 +203,8 @@ async function buildAplusJob(listing) {
     companyDomain: COMPANY_DOMAIN,
     location: rawLocation,
     addressLocality: rawLocation,
+    postalCode,
+    streetAddress,
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
