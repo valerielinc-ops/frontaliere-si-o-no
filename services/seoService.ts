@@ -1893,9 +1893,11 @@ export async function updateMetaTags(section: string): Promise<void> {
     }
   } else {
     if (jobSeo) {
-      updateOrCreateMetaTag('property', 'og:image', jobSeo.logoUrl);
-      updateOrCreateMetaTag('property', 'og:image:width', '128');
-      updateOrCreateMetaTag('property', 'og:image:height', '128');
+      // Use branded og-image.png (1200×630) instead of tiny company logos (128px).
+      // Google News/Discover require ≥1200px; social platforms recommend ≥600px.
+      updateOrCreateMetaTag('property', 'og:image', `${BASE_URL}/og-image.png`);
+      updateOrCreateMetaTag('property', 'og:image:width', '1200');
+      updateOrCreateMetaTag('property', 'og:image:height', '630');
       updateOrCreateMetaTag('property', 'og:image:alt', metaOgTitle);
     } else {
       updateOrCreateMetaTag('property', 'og:image', `${BASE_URL}/og-image.png`);
