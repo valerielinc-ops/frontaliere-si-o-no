@@ -327,7 +327,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
           const ldObj: Record<string, unknown> = {
             '@context': 'https://schema.org',
-            '@type': 'NewsArticle',
+            '@type': (en.datePub && (Date.now() - new Date(en.datePub).getTime()) < 90 * 24 * 60 * 60 * 1000) ? 'NewsArticle' : 'Article',
             headline: localizedTitle,
             description: localizedDesc,
             image: {

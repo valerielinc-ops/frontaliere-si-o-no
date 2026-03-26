@@ -533,6 +533,11 @@ const translations: Record<string, string> = {
     'footer.improveDescription': 'Hai trovato un errore o vuoi suggerire una nuova funzionalità? Apri una segnalazione su GitHub e aiutaci a rendere lo strumento sempre migliore.',
     'footer.improveButton': 'Segnala o Suggerisci',
     'footer.linksTitle': 'Link Utili',
+    'partners.footerLink': 'Servizi Partner',
+    'consulting.footerLink': 'Consulenze',
+    'blog.title': 'Guida Frontaliere',
+    'blog.subtitle': 'Articoli pratici per il frontaliere in Ticino',
+    'glossary.title': 'Glossario del Frontaliere',
 
     // Contact Page
     'adsense.label': 'Pubblicità',

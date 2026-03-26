@@ -75,18 +75,6 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       },
       {
         "@context": "https://schema.org",
-        "@type": "Organization",
-        "name": "Frontaliere Ticino",
-        "alternateName": "Frontaliere Ticino",
-        "url": `${BASE_URL}`,
-        "logo": { "@type": "ImageObject", "url": `${BASE_URL}/icons/icon-512x512.png`, "width": 512, "height": 512 },
-        "description": "Strumento online gratuito e completo per lavoratori frontalieri Svizzera-Italia: simulatore fiscale, confronto assicurazioni, cambio valuta, pensione e guide pratiche.",
-        "sameAs": ["https://www.facebook.com/profile.php?id=61588174947294", "https://github.com/valerielinc-ops/frontaliere-si-o-no"],
-        "areaServed": [{ "@type": "Country", "name": "Switzerland" }, { "@type": "Country", "name": "Italy" }],
-        "knowsAbout": ["Cross-border worker taxation", "Swiss withholding tax", "Italian IRPEF", "LAMal health insurance", "Swiss pension system AVS LPP", "CHF EUR exchange rates", "Canton Ticino employment"]
-      },
-      {
-        "@context": "https://schema.org",
         "@type": "HowTo",
         "name": "Come calcolare lo stipendio netto da frontaliere Svizzera-Italia",
         "description": "Guida passo-passo per calcolare il tuo stipendio netto come lavoratore frontaliere usando il simulatore fiscale gratuito di Frontaliere Ticino.",
