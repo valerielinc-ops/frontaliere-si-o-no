@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-medical-network",
-  "assembledAt": "2026-03-25T22:17:35.157Z",
+  "assembledAt": "2026-03-26T10:11:17.109Z",
   "jobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116579987-medico-assistente-in-formazione-in-chirurgia",
@@ -19,6 +19,7 @@
         "it": "Posizione aperta: Medico Assistente in formazione in chirurgia presso Clinica Sant'Anna a Sorengo, Cantone Ticino, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. Clinica Sant'Anna offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti."
       },
       "titleByLocale": {
+        "en": "",
         "it": "Medico Assistente in formazione in chirurgia"
       },
       "slug": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
@@ -29,7 +30,7 @@
         "fr": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network-sorengo-nlgzvp"
       },
       "category": "medical",
-      "datePosted": "2026-03-25",
+      "datePosted": "2026-03-26",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -39,6 +40,7 @@
         "location": "Sorengo"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -52,8 +54,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116187012-medico-ospedaliero",
@@ -72,6 +73,7 @@
         "it": "Posizione aperta: Medico Ospedaliero presso Clinica Sant'Anna a Sorengo, Cantone Ticino, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. Clinica Sant'Anna offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti."
       },
       "titleByLocale": {
+        "en": "Medico Ospedaliero",
         "it": "Medico Ospedaliero"
       },
       "slug": "medico-ospedaliero-swiss-medical-network",
@@ -82,7 +84,7 @@
         "fr": "medico-ospedaliero-swiss-medical-network-sorengo-soxdzh"
       },
       "category": "medical",
-      "datePosted": "2026-03-25",
+      "datePosted": "2026-03-26",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -92,6 +94,7 @@
         "location": "Sorengo"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -105,8 +108,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000113431836-collaboratore-hr",
@@ -125,6 +127,7 @@
         "it": "Posizione aperta: Collaboratore HR presso Swiss Medical Network a Lugano, Cantone Ticino, Svizzera.\n\nSwiss Medical Network è il principale gruppo sanitario privato in Svizzera, fondato nel 2002. Il gruppo gestisce oltre 20 strutture sanitarie tra cui cliniche, centri medici e istituti di riabilitazione in tutta la Svizzera. Swiss Medical Network offre un ambiente di lavoro stimolante e dinamico, con condizioni di impiego allineate ai contratti collettivi di lavoro. Il gruppo è in costante crescita e offre opportunità di sviluppo professionale, formazione continua e un pacchetto retributivo competitivo con ottime prestazioni sociali. Candidarsi per entrare a far parte di un team appassionato e dedicato alla cura dei pazienti."
       },
       "titleByLocale": {
+        "en": "Collaboratore HR",
         "it": "Collaboratore HR",
         "de": "Collaboratore Personalwesen",
         "fr": "Collaboratore Ressources Humaines"
@@ -137,7 +140,7 @@
         "fr": "collaboratore-ressources-humaines-swiss-medical-network-lugano-gca7b9"
       },
       "category": "technical",
-      "datePosted": "2026-03-25",
+      "datePosted": "2026-03-26",
       "source": "swiss-medical-smartrecruiters-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "MID",
@@ -147,6 +150,7 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -160,8 +164,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     }
   ]
 }
