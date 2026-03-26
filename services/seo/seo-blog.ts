@@ -8178,6 +8178,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fusione-valle-calanca-comuni': {
+    title: 'Val Calanca, quattro Comuni studiano una fusione strutturale | Frontaliere Ticino',
+    description: 'Progetto di fusione in Calanca: quattro Comuni valutano un\'unione per rafforzare la capacità amministrativa e rispondere alle sfide demografiche nel Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, calanca, quattro, comuni, studiano',
+    ogTitle: 'Fusione Comuni Calanca nel Ticino',
+    ogDescription: 'Studio di fusione tra quattro Comuni in Calanca: un passo verso una gestione più efficace e sostenibile nella regione.',
+    canonicalPath: '/articoli-frontaliere/fusione-valle-calanca-comuni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fusione Comuni Calanca",
+      "description": "Progetto di fusione in Calanca: quattro Comuni valutano un'unione per rafforzare la capacità amministrativa e rispondere alle sfide demografiche nel Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fusione-valle-calanca-comuni.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Paesaggio montano e villaggi della Valle Calanca in Ticino"
+      },
+      "datePublished": "2026-03-26T03:22:49+00:00",
+      "dateModified": "2026-03-26T03:22:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fusione-valle-calanca-comuni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -5340,4 +5340,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavena-ponte-tresa-territorio-poroso.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'fusione-valle-calanca-comuni',
+    category: 'pratico',
+    date: '2026-03-26T03:22:49.892Z',
+    image: '/images/blog/fusione-valle-calanca-comuni.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1778,6 +1778,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-territorio-poroso.title': 'Il territorio poroso tra Varese e la Svizzera: un confine che ora unisce più che dividere',
     'blog.article.lavena-ponte-tresa-territorio-poroso.excerpt': 'Una immagine precisa che cattura l\'essenza di un luogo dove il confine non è mai stato davvero un muro, ma piuttosto una membrana attraverso cui persone, merci, capitali e culture filtrano ogni giorno, in entrambe le direzioni',
     'blog.article.lavena-ponte-tresa-territorio-poroso.imageAlt': 'Ein Bild eines Grenzübergangs zwischen Lavena Ponte Tresa und dem Kanton Ticino',
+    'blog.article.fusione-valle-calanca-comuni.title': 'Val Calanca, vier Gemeinden prüfen eine strukturelle Fusion',
+    'blog.article.fusione-valle-calanca-comuni.excerpt': 'Projekt zur Zusammenlegung in Calanca: Vier Gemeinden bewerten die Schaffung einer stärkeren Einheit, um Herausforderungen wie Abwanderung und Personalmangel zu bewältigen. Erfahre die Details.',
+    'blog.article.fusione-valle-calanca-comuni.imageAlt': 'Berglandschaft und Dörfer im Calanca-Tal, Ticino',
 };
 
 export default blogMetaDe;
