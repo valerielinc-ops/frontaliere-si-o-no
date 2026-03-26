@@ -474,6 +474,8 @@ const frCore: Record<string, string> = {
     'stats.tabUnemployment': 'Chômage',
     'stats.tabMortgage': 'Hypothèques',
     'stats.tabFuelPrices': 'Carburants',
+    'stats.tabHealthPremiums': 'Primes Maladie',
+    'healthPremiums.subtitle': 'Comparez les primes d assurance maladie par commune suisse: decouvrez les variations cantonales et trouvez la commune la plus abordable pour votre tranche d age.',
     'stats.jobsObservatory.subtitle': 'Tendances quotidiennes sur les salaires observes, les entreprises qui recrutent et les postes les plus presents dans le job board tessinois.',
     'fuelPrices.subtitle': 'Comparez les prix de l essence dans les communes frontalieres italiennes avec les stations suisses proches pour voir ou faire le plein aujourd hui.',
     'stats.bfsIntro': 'L\'Office fédéral de la statistique (OFS/BFS) publie chaque trimestre les données officielles sur les travailleurs frontaliers en Suisse. Cette section présente les chiffres clés : le nombre total de frontaliers italiens avec permis G dans le Canton du Tessin, la tendance trimestrielle, la répartition par âge et le rapport hommes-femmes. Toutes les données proviennent du cube statistique PxWeb de l\'OFS et sont mises à jour automatiquement.',

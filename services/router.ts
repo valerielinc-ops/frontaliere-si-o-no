@@ -36,7 +36,7 @@ export type ConfrontiSubTab = 'exchange' | 'banks' | 'health' | 'mobile' | 'shop
 export type FiscoSubTab = 'tax-return' | 'calendar' | 'holidays' | 'ristorni' | 'pension' | 'pillar3' | 'quiz' | 'tax-credit' | 'withholding-rates' | 'new-frontier-tax-sim';
 export type GuidaSubTab = 'first-day' | 'permits' | 'border' | 'unemployment' | 'car-transfer' | 'car-cost' | 'permit-compare' | 'border-map';
 export type VitaSubTab = 'living-ch' | 'living-it' | 'companies' | 'schools' | 'nursery' | 'places' | 'transport' | 'municipalities';
-export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'salary-compare' | 'traffic-history' | 'unemployment' | 'mortgage' | 'fuel-prices';
+export type StatsSubTab = 'overview' | 'livability' | 'jobs-observatory' | 'salary-compare' | 'traffic-history' | 'unemployment' | 'mortgage' | 'fuel-prices' | 'health-premiums';
 
 // ── Border crossing deep links (indexable URLs) ─────────────
 
@@ -403,7 +403,7 @@ export const ALL_CONFRONTI_SUBTABS: string[] = ['exchange', 'banks', 'health', '
 export const ALL_FISCO_SUBTABS: string[] = ['tax-return', 'calendar', 'holidays', 'ristorni', 'pension', 'pillar3', 'quiz', 'tax-credit', 'withholding-rates', 'new-frontier-tax-sim'];
 export const ALL_GUIDA_SUBTABS: string[] = ['first-day', 'permits', 'border', 'unemployment', 'car-transfer', 'car-cost', 'permit-compare', 'border-map'];
 export const ALL_VITA_SUBTABS: string[] = ['living-ch', 'living-it', 'companies', 'schools', 'nursery', 'places', 'transport', 'municipalities'];
-export const ALL_STATS_SUBTABS: string[] = ['overview', 'livability', 'jobs-observatory', 'salary-compare', 'traffic-history', 'unemployment', 'mortgage', 'fuel-prices'];
+export const ALL_STATS_SUBTABS: string[] = ['overview', 'livability', 'jobs-observatory', 'salary-compare', 'traffic-history', 'unemployment', 'mortgage', 'fuel-prices', 'health-premiums'];
 
 // Legacy exports for backward compat
 export const ALL_COMPARATORI_SUBTABS = ALL_CONFRONTI_SUBTABS;
@@ -524,6 +524,7 @@ interface SlugTable {
   unemploymentStats: string;
   mortgageComparison: string;
   fuelPrices: string;
+  healthPremiums: string;
   // calcolatore extra slugs
   salaryQuiz: string;
   // top-level extra slugs
@@ -636,6 +637,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     unemploymentStats: 'disoccupazione-svizzera',
     mortgageComparison: 'confronto-mutui',
     fuelPrices: 'prezzi-benzina-confine',
+    healthPremiums: 'premi-malattia-comuni',
     salaryQuiz: 'quanto-guadagneresti-in-svizzera',
     blog: 'articoli-frontaliere',
 
@@ -730,6 +732,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     unemploymentStats: 'unemployment-switzerland',
     mortgageComparison: 'mortgage-comparison',
     fuelPrices: 'border-fuel-prices',
+    healthPremiums: 'health-insurance-premiums-by-commune',
     salaryQuiz: 'how-much-would-you-earn-in-switzerland',
     blog: 'cross-border-articles',
 
@@ -824,6 +827,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     unemploymentStats: 'arbeitslosigkeit-schweiz',
     mortgageComparison: 'hypotheken-vergleich',
     fuelPrices: 'spritpreise-grenze',
+    healthPremiums: 'krankenkassentraemien-nach-gemeinde',
     salaryQuiz: 'verdienst-in-der-schweiz',
     blog: 'grenzgaenger-artikel',
 
@@ -918,6 +922,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     unemploymentStats: 'chomage-suisse',
     mortgageComparison: 'comparaison-hypotheques',
     fuelPrices: 'prix-essence-frontiere',
+    healthPremiums: 'primes-assurance-maladie-communes',
     salaryQuiz: 'combien-gagneriez-vous-en-suisse',
     blog: 'articles-frontalier',
 
@@ -1013,7 +1018,8 @@ const STATS_KEYS: { key: keyof SlugTable; id: StatsSubTab }[] = [
   { key: 'trafficHistory', id: 'traffic-history' },
   { key: 'unemploymentStats', id: 'unemployment' },
   { key: 'mortgageComparison', id: 'mortgage' },
-  { key: 'fuelPrices', id: 'fuel-prices' }
+  { key: 'fuelPrices', id: 'fuel-prices' },
+  { key: 'healthPremiums', id: 'health-premiums' }
 ];
 const LEGACY_STATS_KEYS: { key: keyof SlugTable; id: StatsSubTab }[] = [
   { key: 'salarySurvey', id: 'salary-compare' }
@@ -2052,7 +2058,7 @@ export function getSeoSection(route: AppRoute): string {
     }
     case 'stats': {
       const ss = route.statsSubTab || 'overview';
-      const map: Record<string, string> = { livability: 'livability', 'jobs-observatory': 'jobsObservatory', traffic: 'traffic', 'salary-compare': 'salaryCompare', 'traffic-history': 'trafficHistory', unemployment: 'unemploymentStats', mortgage: 'mortgageComparison', 'fuel-prices': 'fuelPrices' };
+      const map: Record<string, string> = { livability: 'livability', 'jobs-observatory': 'jobsObservatory', traffic: 'traffic', 'salary-compare': 'salaryCompare', 'traffic-history': 'trafficHistory', unemployment: 'unemploymentStats', mortgage: 'mortgageComparison', 'fuel-prices': 'fuelPrices', 'health-premiums': 'healthPremiums' };
       return map[ss] || 'stats';
     }
     case 'job-board':

@@ -509,6 +509,8 @@ const translations: Record<string, string> = {
     'stats.tabUnemployment': 'Disoccupazione',
     'stats.tabMortgage': 'Mutui',
     'stats.tabFuelPrices': 'Carburanti',
+    'stats.tabHealthPremiums': 'Premi Malattia',
+    'healthPremiums.subtitle': 'Confronta i premi dell\'assicurazione malattia per comune in Svizzera: scopri le variazioni cantonali e trova il comune piu conveniente per la tua fascia d\'eta.',
     'stats.jobsObservatory.subtitle': 'Trend giornalieri su stipendi osservati, aziende che assumono e ruoli piu presenti nel job board Ticino.',
     'fuelPrices.subtitle': 'Confronta i prezzi della benzina nei comuni di confine italiani con le stazioni svizzere vicine e scopri dove conviene fare rifornimento oggi.',
     'stats.bfsIntro': 'L\'Ufficio federale di statistica (UST/BFS) pubblica ogni trimestre i dati ufficiali sui lavoratori frontalieri in Svizzera. In questa sezione presentiamo i numeri chiave: il totale dei frontalieri italiani con permesso G attivi nel Cantone Ticino, l\'andamento trimestrale, la distribuzione per fascia d\'età e il rapporto uomini-donne. Tutti i dati provengono dal cubo statistico PxWeb dell\'UST e vengono aggiornati automaticamente ad ogni nuovo rilascio.',

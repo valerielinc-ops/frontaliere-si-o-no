@@ -474,6 +474,8 @@ const deCore: Record<string, string> = {
     'stats.tabUnemployment': 'Arbeitslosigkeit',
     'stats.tabMortgage': 'Hypotheken',
     'stats.tabFuelPrices': 'Spritpreise',
+    'stats.tabHealthPremiums': 'Krankenkassenprämien',
+    'healthPremiums.subtitle': 'Vergleichen Sie Krankenkassenprämien nach Schweizer Gemeinde: Entdecken Sie kantonale Unterschiede und finden Sie die günstigste Gemeinde für Ihre Altersgruppe.',
     'stats.jobsObservatory.subtitle': 'Tägliche Trends zu beobachteten Lohnspannen, einstellenden Unternehmen und den am häufigsten vorkommenden Rollen im Tessiner Job-Board.',
     'fuelPrices.subtitle': 'Vergleichen Sie Benzinpreise in italienischen Grenzgemeinden mit nahegelegenen Schweizer Tankstellen und sehen Sie, wo Tanken heute günstiger ist.',
     'stats.bfsIntro': 'Das Bundesamt für Statistik (BFS) veröffentlicht vierteljährlich offizielle Daten zu Grenzgängern in der Schweiz. In diesem Abschnitt zeigen wir die wichtigsten Kennzahlen: die Gesamtzahl der italienischen Grenzgänger mit G-Bewilligung im Kanton Tessin, den Quartalstrend, die Altersverteilung und das Geschlechterverhältnis. Alle Daten stammen aus dem PxWeb-Statistikwürfel des BFS und werden automatisch aktualisiert.',

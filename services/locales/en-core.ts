@@ -474,6 +474,8 @@ const enCore: Record<string, string> = {
     'stats.tabUnemployment': 'Unemployment',
     'stats.tabMortgage': 'Mortgages',
     'stats.tabFuelPrices': 'Fuel prices',
+    'stats.tabHealthPremiums': 'Health Premiums',
+    'healthPremiums.subtitle': 'Compare health insurance premiums by Swiss municipality: discover cantonal variations and find the most affordable commune for your age group.',
     'stats.jobsObservatory.subtitle': 'Daily trends on observed salary ranges, hiring companies and the roles most present in the Ticino job board.',
     'fuelPrices.subtitle': 'Compare petrol prices in Italian border municipalities with nearby Swiss stations and see where it is cheaper to refuel today.',
     'stats.bfsIntro': 'The Federal Statistical Office (FSO/BFS) publishes quarterly data on cross-border workers in Switzerland. This section presents the key figures: the total number of Italian cross-border workers holding a G permit in Canton Ticino, quarterly trends, age distribution, and the male-to-female ratio. All data come from the FSO PxWeb statistical cube and are updated automatically with each new release.',

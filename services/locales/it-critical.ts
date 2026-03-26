@@ -137,6 +137,7 @@ const criticalTranslations: Record<string, string> = {
   'stats.tabUnemployment': 'Disoccupazione',
   'stats.tabMortgage': 'Mutui',
   'stats.tabFuelPrices': 'Carburanti',
+  'stats.tabHealthPremiums': 'Premi Malattia',
   'stats.trafficHistory': 'Storico Traffico',
   'salaryQuiz.navLabel': 'Quiz Stipendio',
   // fisco sub-tab labels (from it-fisco.ts)
