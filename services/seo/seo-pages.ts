@@ -3800,7 +3800,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borse-in-rosso-prezzo-petrolio-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -3829,7 +3830,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliers-sabotage-varese-successo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -3858,7 +3860,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-svizzera-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -3887,7 +3890,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infermieri-svizzera-frontalieri-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -3916,7 +3920,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/successo-farmaceutica-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -3945,7 +3950,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/utile-bns-2025-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -3974,7 +3980,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-ticino-disoccupazione`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4003,7 +4010,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/medio-vedeggio-gruppo-lavoro-aggregazione`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4032,7 +4040,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-airport-fondi-salvati-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4061,7 +4070,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/made-in-italy-doganali-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4090,7 +4100,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-ticino-q4-2025`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4119,7 +4130,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dichiarazione-imposta-digitale-ticino-26`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4148,7 +4160,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-25-milioni-passeggeri-2025`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4177,7 +4190,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-lombardia-rinvio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4206,7 +4220,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tilo-record-passeggeri-2025`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4235,7 +4250,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-piemonte`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4264,7 +4280,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasporti-lombardia-ticino-record-tilo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4293,7 +4310,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confusione-tassa-salute-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4322,7 +4340,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/neutralita-svizzera-parere-nazionale`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4351,7 +4370,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburante-ticino-costo-aumenti`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4380,7 +4400,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cpi-caso-hospita-rivalutazione-periti`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4409,7 +4430,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casellario-giudiziale-ue-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4438,7 +4460,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-per-il-controprogetto-la-strada-e-in-discesa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4467,7 +4490,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-lombardia-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4496,7 +4520,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-forte-problemi-economici`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4525,7 +4550,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburante-prezzo-salito-opportunismo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4554,7 +4580,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-teatro`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4583,7 +4610,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/disoccupazione-stabile-svizzera-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4612,7 +4640,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dazi-usa-rimborsi-ritardi`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4641,7 +4670,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-8-marzo-iniziativa-ssr-aperto`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4670,7 +4700,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-spitex-contributo-pressione`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4699,7 +4730,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stalking-swiss-2026-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4728,7 +4760,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pirati-strada-ticino-italiani-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4757,7 +4790,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-locarno-futuro-aggregazione`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4786,7 +4820,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/costi-cure-domicilio-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4815,7 +4850,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lugano-park-ride-bus-sovvenzioni-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4844,7 +4880,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-turismo-golfo-persico`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4873,7 +4910,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turisti-ticinesi-bloccati-medio-oriente`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4902,7 +4940,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzeri-bloccati-medio-oriente`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4931,7 +4970,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-prevenzione-incendi-scuole-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4960,7 +5000,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-india-export-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4989,7 +5030,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/autotrasporto-rincari-confine-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5018,7 +5060,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-rincari-confine-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5047,7 +5090,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-imposizione-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5076,7 +5120,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5105,7 +5150,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/no-iniziativa-antidumping-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 

@@ -4955,7 +4955,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-cassis-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -4984,7 +4985,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-redditi-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5013,7 +5015,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fermato-brogeda-cocaina`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5042,7 +5045,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dominicano-auto-svizzera-arresto`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5071,7 +5075,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-bassi-rischio-povert`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5100,7 +5105,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-svolta-per-apprendisti`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5129,7 +5135,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-crescita-qualita-vita`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5158,7 +5165,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-spermatozoi-svizzera-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5187,7 +5195,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercado-immobiliare-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5216,7 +5225,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/droga-brogeda-sequestro-cocaina`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5245,7 +5255,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bellinzona-auscultazione-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5274,7 +5285,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-affitto-famiglie-varesine`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5303,7 +5315,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malcantone-fai-di-primavera-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5332,7 +5345,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-privata-chiasso-nebiopoli`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5361,7 +5375,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sfruttamento-corsieri-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5390,7 +5405,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-economia-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5419,7 +5435,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sequestro-cocaina-brogeda-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5448,7 +5465,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/infiltrazioni-criminali-ticino-grigioni`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5477,7 +5495,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turismo-luganese-formazione`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5506,7 +5525,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nevicata-record-bosco-gurin`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5535,7 +5555,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5564,7 +5585,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sargans-teenage-robbery-catch`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5593,7 +5615,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/separazione-carriere-giudici`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5622,7 +5645,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/com-aziende-lavoro-como`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5651,7 +5675,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cabov-precipita-forte-vento`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5680,7 +5705,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agenzia-trasporto-nuovo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5709,7 +5735,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-tavolo-frontalieri-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5738,7 +5765,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gadda-incalza-governo-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5767,7 +5795,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/centovallina-riapertura-treni`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5796,7 +5825,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffe-chiamate-shock-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5825,7 +5855,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spazi-verdi-in-citta-rilassamento`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5854,7 +5885,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camedo-buffet-eventi-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5883,7 +5915,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/berna-discute-approvvigionamento-economico-e-13esima-avs`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5912,7 +5945,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/visita-ticinese-coira-criminalita-organizzata`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5941,7 +5975,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/annunci-lavoro-dumping-ticino-governo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5970,7 +6005,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5999,7 +6035,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/catastrofi-ticino-prontezza-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6028,7 +6065,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tredicesima-avs-soluzione-mista-stati`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6057,7 +6095,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lo-statuto-s-non-deve-trasformarsi-in-permesso-b`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6086,7 +6125,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/consiglio-stati-soluzione-mista-13esima-avs`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6115,7 +6155,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frode-cassa-compensazione-avs-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6144,7 +6185,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sette-cantieri-mendrisio-kebab-case`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6173,7 +6215,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/deputazione-ticinese-italofoni-2024`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6202,7 +6245,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-turismo-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6231,7 +6275,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/droga-al-confine-ticino-2025`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6260,7 +6305,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-attraversamento-svizzera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6289,7 +6335,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-stradale-laghi`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6318,7 +6365,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-piu-lungo-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6347,7 +6395,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/governo-getta-spugna-kebab-case`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6376,7 +6425,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-borse-freddo-2024`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6405,7 +6455,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/giustizia-in-bilico-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6434,7 +6485,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo-digital-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6463,7 +6515,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/soggiorni-irregolari-2026-mendrisio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6492,7 +6545,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/eolico-gottardo-ampliamento-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6521,7 +6575,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbando-ai-confine-aumentano-droga-e-sigarette`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6550,7 +6605,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-3-5-words-max-40-chars`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6579,7 +6635,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salute-prevenzione-burocrazia-svizzera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6608,7 +6665,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/telefonate-choc-truffa-anziani-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6637,7 +6695,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ubs-fusione-credit-suisse-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6666,7 +6725,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salari-minimi-ccl-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6695,7 +6755,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strutture-dedicate-migranti-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6724,7 +6785,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contratti-collettivi-salari-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6753,7 +6815,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tutela-sovranita-dati-sanitari`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6782,7 +6845,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nomine-annullate-sims-tram`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6811,7 +6875,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-automobilisti-svizzera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6840,7 +6905,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-richiedenti-asilo-ucraini-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6869,7 +6935,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riforma-scolastica-ticino-difficolta`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6898,7 +6965,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-parlamento-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6927,7 +6995,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inclusione-migranti-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6956,7 +7025,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-svizzero-impatti-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -6985,7 +7055,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-automobilisti-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7014,7 +7085,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nubifragio-coira-mesolcina-ristoro`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7043,7 +7115,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lotta-violenza-di-genere-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7072,7 +7145,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-svizzera-2023`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7101,7 +7175,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7130,7 +7205,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/acinque-lancia-piano-genitorialita`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7159,7 +7235,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/danni-riparati-centovallina`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7188,7 +7265,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/porrentruy-piscina-comunale-divieto`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7217,7 +7295,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanita-fontana-fedriga`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7246,7 +7325,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ampliamento-parco-eolico-san-gottardo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7275,7 +7355,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-prezzi-carburanti-italia-svizzera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7304,7 +7385,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cure-a-domicilio-tassa-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7333,7 +7415,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-ticino-nubifragio-grigioni`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7362,7 +7445,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kebab-case-rossi-bruxelles-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7391,7 +7475,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bossi-voleva-bene-al-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7420,7 +7505,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiamate-shock-arresti-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7449,7 +7535,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rinnovo-concessioni-snl-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7478,7 +7565,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/globalisti-fuga-medio-oriente-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7507,7 +7595,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guasto-tra-parabiago-e-rho`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7536,7 +7625,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-transito-ticino-pedemontana`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7565,7 +7655,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-svizzero-a-valori-record-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7594,7 +7685,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7623,7 +7715,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/farmaci-competitiva-europa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7652,7 +7745,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-cantieri-mendrisiotto-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7681,7 +7775,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/byd-expansion-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7710,7 +7805,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controllo-affitti-nazionale-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7739,7 +7835,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cioccolato-meno-ma-pagato-di-piu`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7768,7 +7865,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diesel-aumento-prezzi-svizzera-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7797,7 +7895,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanita-manifesto-varese-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7826,7 +7925,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iva-bassa-svizzera-immagine-ingannevole`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7855,7 +7955,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieto-smartphone-scuola-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7884,7 +7985,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/la-navigazione-rafforza-offerta-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7913,7 +8015,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanita-integrativa-lombardia-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7942,7 +8045,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fatture-mediche-gonfiate-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -7971,7 +8075,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8000,7 +8105,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/violenza-donne-consiglio-europa-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8029,7 +8135,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trojani-capo-servizi-esercito-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8058,7 +8165,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/funivia-monteviasco-orari-corsi`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8087,7 +8195,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ricchi-fuga-medio-oriente-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8116,7 +8225,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/divieto-cellulari-scuola-ticino-2024`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8145,7 +8255,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-contro-snl-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8174,7 +8285,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-iva-costo-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8203,7 +8315,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fusione-valle-calanca-comuni`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8232,7 +8345,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-carceri-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -8261,7 +8375,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-saronno-referendum`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "isAccessibleForFree": true
     }
   },
 
