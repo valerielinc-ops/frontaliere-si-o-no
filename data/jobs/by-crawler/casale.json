@@ -1,6 +1,6 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-03-26T09:24:24.233Z",
+  "assembledAt": "2026-03-26T20:57:52.576Z",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
@@ -112,6 +112,7 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
       "salaryMin": 58000,
@@ -126,8 +127,7 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "url": "https://recruit.casale.ch/o/junior-technical-visual-designer",
