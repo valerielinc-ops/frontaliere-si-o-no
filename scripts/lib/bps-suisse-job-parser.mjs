@@ -101,7 +101,9 @@ export function parseBpsSuisseDetailPage(html = '') {
   // Extract PDF URL if present
   const pdfMatch = html.match(/href="([^"]*\.pdf)"/i);
   const pdfUrl = pdfMatch
-    ? (pdfMatch[1].startsWith('http') ? pdfMatch[1] : `https://www.bps-suisse.ch/${pdfMatch[1]}`)
+    ? (pdfMatch[1].startsWith('http')
+        ? pdfMatch[1]
+        : `https://www.bps-suisse.ch/${pdfMatch[1].replace(/^\/+/, '')}`)
     : '';
 
   if (!title && !body) return null;

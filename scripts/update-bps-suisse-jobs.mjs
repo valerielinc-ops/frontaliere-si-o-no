@@ -41,6 +41,10 @@ import {
   parseBpsSuisseListingPage,
   parseBpsSuisseDetailPage, inferEmploymentType,
 } from './lib/bps-suisse-job-parser.mjs';
+import {
+  buildPdfBackedDescription,
+  extractPdfJobContentFromUrl,
+} from './lib/pdf-job-content.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -160,12 +164,14 @@ async function fetchJobs() {
     }
 
     // Try to fetch the detail page for a richer description
+    let pdfUrl = '';
     try {
       const detailHtml = await fetchHtml(listing.url, timeoutMs);
       const detail = parseBpsSuisseDetailPage(detailHtml);
       if (detail) {
         if (detail.body) description = detail.body;
         if (detail.location) location = detail.location;
+        if (detail.pdfUrl) pdfUrl = detail.pdfUrl;
         // Only use detail title if it's specific enough (> 15 chars, not generic)
         if (detail.title && detail.title.length > 15 && !/^posizione/i.test(detail.title)) {
           listing.title = detail.title;
@@ -179,11 +185,31 @@ async function fetchJobs() {
       listing.title = 'Posizione aperta BPS Suisse';
     }
 
-    // Ensure minimum description length for quality gate (>= 220 chars)
-    const fallbackDesc = `${listing.title} — posizione aperta presso BPS (Banca Popolare di Sondrio) SUISSE, istituto bancario con sede a Lugano, Canton Ticino, Svizzera. BPS Suisse offre servizi bancari per clientela privata e commerciale con una forte presenza sul territorio ticinese. L'azienda offre un ambiente di lavoro professionale e stimolante nel settore finanziario.`;
-    if (!description || description.length < 220) {
-      description = description || fallbackDesc;
+    // Fetch and parse PDF content when available — BPS Suisse posts full job descriptions as PDFs
+    let pdfText = '';
+    if (pdfUrl) {
+      console.log(`  📄 Extracting PDF: ${pdfUrl}`);
+      const pdfContent = await extractPdfJobContentFromUrl(pdfUrl);
+      if (pdfContent.error) {
+        console.warn(`  ⚠️ PDF extraction failed for "${listing.title}": ${pdfContent.error}`);
+      } else if (pdfContent.text) {
+        pdfText = pdfContent.text;
+        console.log(`  ✅ PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
+      }
     }
+
+    // Build description: prefer PDF content; fall back to HTML body
+    const fallbackDesc = `${listing.title} — posizione aperta presso BPS (Banca Popolare di Sondrio) SUISSE, istituto bancario con sede a Lugano, Canton Ticino, Svizzera. BPS Suisse offre servizi bancari per clientela privata e commerciale con una forte presenza sul territorio ticinese. L'azienda offre un ambiente di lavoro professionale e stimolante nel settore finanziario.`;
+    description = buildPdfBackedDescription({
+      introLines: [`## ${listing.title}`, `BPS (Banca Popolare di Sondrio) SUISSE — posizione aperta a ${location} (TI).`],
+      pdfText: pdfText || '',
+      fallbackText: description || fallbackDesc,
+      footerLines: [
+        `**Settore:** Bancario / Finanziario`,
+        `**Sede:** Via Giacomo Bentina 5, 6901 Lugano, TI, Svizzera`,
+        pdfUrl ? `[Bando ufficiale (PDF)](${pdfUrl})` : '',
+      ].filter(Boolean),
+    });
 
     const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
     const slug = slugify(`${listing.title}-bps-suisse-${location}`);
