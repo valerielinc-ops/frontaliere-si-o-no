@@ -424,23 +424,33 @@ const App: React.FC = () => {
       try {
         const url = new URL(window.location.href);
         const authToken = url.searchParams.get('authToken');
-        if (!authToken) return;
+
+        // Always strip newsletter-specific query params from the URL immediately so
+        // they don't persist during SPA navigation (privacy + cosmetics).
+        const NEWSLETTER_PARAMS = ['authToken', 'newsletter_email', 'newsletter_autologin', 'newsletter_source', 'subscriber_key'];
+        const hadNewsletterParams = NEWSLETTER_PARAMS.some(p => url.searchParams.has(p));
 
         // Skip if there's a newsletter action — the action handler owns auth in that case
         const action = url.searchParams.get('action');
         if (action === 'unsubscribe' || action === 'resubscribe') return;
 
+        // Read email before stripping params
         const email = normalizeNewsletterEmail(url.searchParams.get('newsletter_email') || '');
+
+        // Strip newsletter params from URL right away
+        if (hadNewsletterParams) {
+          for (const p of NEWSLETTER_PARAMS) url.searchParams.delete(p);
+          const cleanUrl = url.pathname + (url.search || '') + url.hash;
+          window.history.replaceState(null, '', cleanUrl);
+        }
+
+        if (!authToken) return;
         if (!email || !email.includes('@')) return;
 
         const user = await signInWithCustomAuthToken(authToken);
 
         if (cancelled) return;
         Analytics.trackUIInteraction('newsletter', 'custom_token', 'autologin', user ? 'success' : 'no-user');
-
-        // Clean authToken from URL to avoid re-use on refresh
-        url.searchParams.delete('authToken');
-        window.history.replaceState(null, '', url.pathname + url.search + url.hash);
       } catch (error) {
         reportCaughtError(error, 'app.newsletterCustomTokenAutologin');
         Analytics.trackUIInteraction('newsletter', 'custom_token', 'autologin', 'error');
