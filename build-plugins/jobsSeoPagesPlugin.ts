@@ -763,6 +763,23 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
        *  so that expired soft-landing pages never overwrite a live job page. */
       const activeJobDirs = new Set<string>();
 
+      const companyRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
+        it: 'azienda',
+        en: 'company',
+        de: 'unternehmen',
+        fr: 'entreprise',
+      };
+      const slugifyCompanyBuild = (value: string): string =>
+        String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
+      /** Mirror runtime canonicalCompanyRouteSlug logic */
+      const canonicalCompanySlugBuild = (company: string, companyKey?: string): string => {
+        const keyNorm = String(companyKey || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+        const nameNorm = String(company || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+        if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
+        return slugifyCompanyBuild(company);
+      };
+
       for (const job of validJobs) {
         const perLocaleSlug = {
           it: localizedSlug(job, 'it'),
@@ -1284,12 +1301,6 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       }
 
       /* ── Company landing pages ────────────────────────────────── */
-      const companyRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
-        it: 'azienda',
-        en: 'company',
-        de: 'unternehmen',
-        fr: 'entreprise',
-      };
       const companyCopy: Record<'it' | 'en' | 'de' | 'fr', {
         title: (companyName: string) => string;
         description: (companyName: string, count: number) => string;
@@ -1331,17 +1342,6 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'Cette page rassemble les postes publiés directement sur le portail carrière de l\'entreprise. Les annonces sont actualisées quotidiennement par notre robot et renvoient à la page de candidature officielle. Si aucun poste n\'est affiché, l\'entreprise n\'a peut-être pas de postes ouverts au Tessin actuellement.',
         },
       };
-      const slugifyCompanyBuild = (value: string): string =>
-        String(value || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
-          .replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '').trim();
-      /** Mirror runtime canonicalCompanyRouteSlug logic */
-      const canonicalCompanySlugBuild = (company: string, companyKey?: string): string => {
-        const keyNorm = String(companyKey || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-        const nameNorm = String(company || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
-        if (keyNorm.includes('lidl') || nameNorm.includes('lidl')) return 'lidl';
-        return slugifyCompanyBuild(company);
-      };
-
       // Collect unique companies by canonical slug (mirrors runtime grouping)
       const companyMap = new Map<string, { name: string; jobs: typeof validJobs; rawSlugs: Set<string> }>();
       for (const job of validJobs) {
