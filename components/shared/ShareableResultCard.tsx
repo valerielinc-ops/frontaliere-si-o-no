@@ -75,6 +75,15 @@ const ROW_HEX: Record<string, string> = {
   violet: '#6d28d9',
 };
 
+/** Dark-mode hex values for Canvas row value colors */
+const ROW_HEX_DARK: Record<string, string> = {
+  emerald: '#34d399',
+  blue: '#60a5fa',
+  amber: '#fbbf24',
+  red: '#f87171',
+  violet: '#a78bfa',
+};
+
 // ─── Canvas drawing helpers ─────────────────────────────────────────────
 
 /** Draw a rounded rectangle path */
@@ -117,6 +126,7 @@ function drawCardToCanvas(
   rows: CardDataRow[],
   footerText: string,
   accent: string,
+  isDark: boolean = false,
 ): string {
   const scale = 2;
   const W = 600; // logical width
@@ -132,8 +142,24 @@ function drawCardToCanvas(
   const ctx = canvas.getContext('2d')!;
   ctx.scale(scale, scale);
 
+  // ── Palette ──
+  const bgColor = isDark ? '#0f172a' : '#ffffff';
+  const footerBg = isDark ? '#1e293b' : '#f8fafc';
+  const footerTxt = isDark ? '#94a3b8' : '#94a3b8';
+  const footerBrand = isDark ? '#cbd5e1' : '#64748b';
+  const labelColor = (highlight: boolean) => isDark
+    ? (highlight ? '#f1f5f9' : '#94a3b8')
+    : (highlight ? '#1e293b' : '#475569');
+  const valueColor = (highlight: boolean) => isDark
+    ? (highlight ? '#f1f5f9' : '#cbd5e1')
+    : (highlight ? '#0f172a' : '#334155');
+  const dividerColor = (highlight: boolean) => isDark
+    ? (highlight ? '#475569' : '#334155')
+    : (highlight ? '#e2e8f0' : '#f1f5f9');
+  const rowHex = isDark ? ROW_HEX_DARK : ROW_HEX;
+
   // ── Background with rounded corners ──
-  ctx.fillStyle = '#ffffff';
+  ctx.fillStyle = bgColor;
   roundRect(ctx, 0, 0, W, totalH, 16);
   ctx.fill();
   // Clip so header gradient respects top radius
@@ -175,7 +201,7 @@ function drawCardToCanvas(
   let y = HEADER_H + PAD;
   for (const row of rows) {
     // Separator line
-    ctx.strokeStyle = row.highlight ? '#e2e8f0' : '#f1f5f9';
+    ctx.strokeStyle = dividerColor(row.highlight ?? false);
     ctx.lineWidth = row.highlight ? 2 : 1;
     ctx.beginPath();
     ctx.moveTo(PAD, y + ROW_H - 1);
@@ -186,15 +212,15 @@ function drawCardToCanvas(
     ctx.font = row.highlight
       ? '600 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
       : '13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-    ctx.fillStyle = row.highlight ? '#1e293b' : '#475569';
+    ctx.fillStyle = labelColor(row.highlight ?? false);
     ctx.textAlign = 'left';
     ctx.fillText(row.label, PAD, y + 22);
 
     // Value
     ctx.font = 'bold 13px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
     ctx.fillStyle = row.color
-      ? (ROW_HEX[row.color] || '#1e293b')
-      : row.highlight ? '#0f172a' : '#334155';
+      ? (rowHex[row.color] || valueColor(true))
+      : valueColor(row.highlight ?? false);
     ctx.textAlign = 'right';
     ctx.fillText(row.value, W - PAD, y + 22);
     ctx.textAlign = 'left';
@@ -204,16 +230,16 @@ function drawCardToCanvas(
 
   // ── Footer ──
   const footerY = totalH - FOOTER_H;
-  ctx.fillStyle = '#f8fafc';
+  ctx.fillStyle = footerBg;
   ctx.fillRect(0, footerY, W, FOOTER_H);
 
   ctx.font = '11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-  ctx.fillStyle = '#94a3b8';
+  ctx.fillStyle = footerTxt;
   ctx.textAlign = 'left';
   ctx.fillText(footerText, PAD, footerY + 24);
 
   ctx.font = '600 11px -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif';
-  ctx.fillStyle = '#64748b';
+  ctx.fillStyle = footerBrand;
   ctx.textAlign = 'right';
   ctx.fillText('frontaliereticino.ch', W - PAD, footerY + 24);
   ctx.textAlign = 'left';
@@ -248,7 +274,8 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
 
     try {
       const footerText = footer || t('shareCard.generatedBy');
-      const dataUrl = drawCardToCanvas(title, subtitle, rows, footerText, accent);
+      const isDark = document.documentElement.classList.contains('dark');
+      const dataUrl = drawCardToCanvas(title, subtitle, rows, footerText, accent, isDark);
       setGeneratedImage(dataUrl);
 
       // Immediate download
@@ -365,7 +392,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
           <div className="flex justify-end">
             <button
               onClick={() => { setShowCard(false); setGeneratedImage(null); }}
-              className="text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
+              className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
               aria-label={t('shareCard.close')}
             >
               <X size={18} />
@@ -414,7 +441,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
 
             {/* Footer */}
             <div className="px-6 py-3 bg-slate-50 flex items-center justify-between">
-              <span className="text-xs text-slate-400">
+              <span className="text-xs text-slate-500">
                 {footer || t('shareCard.generatedBy')}
               </span>
               <span className="text-xs font-semibold text-slate-500">

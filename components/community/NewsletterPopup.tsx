@@ -362,7 +362,7 @@ const NewsletterPopup: React.FC = () => {
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
       <div className="relative w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
         {/* Header gradient */}
-        <div className="bg-gradient-to-r from-indigo-600 to-purple-600 p-4 sm:p-6 text-white">
+        <div className="bg-gradient-to-r from-teal-600 to-emerald-700 p-4 sm:p-6 text-white">
           <button
             onClick={handleDismiss}
             className="absolute top-3 right-3 p-1.5 text-white/70 hover:text-white hover:bg-white/20 rounded-lg transition-colors"
@@ -378,7 +378,7 @@ const NewsletterPopup: React.FC = () => {
               {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.title') : t('newsletter.popup.title')}
             </h2>
           </div>
-          <p className="text-indigo-100 text-sm">
+          <p className="text-emerald-100 text-sm">
             {triggerSource === 'exit_intent' ? t('newsletter.exitIntent.subtitle') : t('newsletter.popup.subtitle')}
           </p>
         </div>
@@ -405,7 +405,7 @@ const NewsletterPopup: React.FC = () => {
                     return (
                       <button
                         onClick={() => openEmailProvider(email)}
-                        className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition-colors"
+                        className="mt-3 inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold rounded-xl transition-colors"
                       >
                         <Mail className="w-4 h-4" />
                         {t('newsletter.openEmailProvider', { provider: provider.name })}
@@ -434,7 +434,7 @@ const NewsletterPopup: React.FC = () => {
                             setResendStatus('error');
                           }
                         }}
-                        className="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 dark:hover:text-indigo-300 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                        className="text-xs font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 dark:hover:text-teal-300 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                       >
                         {resendStatus === 'sending' ? '...' :
                          resendStatus === 'sent' ? t('newsletter.resendConfirmationSent') :
@@ -458,7 +458,7 @@ const NewsletterPopup: React.FC = () => {
                   releaseSlot('newsletter-popup');
                   cancelOneTap();
                 }}
-                className="mt-4 px-6 py-2 text-sm font-medium text-indigo-600 dark:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-950/30 rounded-xl transition-colors"
+                className="mt-4 px-6 py-2 text-sm font-medium text-teal-600 dark:text-teal-400 hover:bg-teal-50 dark:hover:bg-teal-950/30 rounded-xl transition-colors"
               >
                 {t('newsletter.popup.close')}
               </button>
@@ -467,7 +467,7 @@ const NewsletterPopup: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-4">
               {/* Social proof */}
               <div className="flex items-center gap-2 text-xs text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900 px-3 py-2 rounded-xl">
-                <Users className="w-4 h-4 text-indigo-500 shrink-0" />
+                <Users className="w-4 h-4 text-teal-500 shrink-0" />
                 <span className="font-medium">{t('newsletter.socialProof')}</span>
               </div>
 
@@ -489,8 +489,8 @@ const NewsletterPopup: React.FC = () => {
 
               {/* Benefits */}
               <div className="flex gap-2 text-xs text-slate-600 dark:text-slate-400">
-                <span className="px-2 py-1 bg-indigo-50 dark:bg-indigo-950/30 rounded-lg">💱 {t('newsletter.exchangeRate')}</span>
-                <span className="px-2 py-1 bg-purple-50 dark:bg-purple-950/30 rounded-lg">🚦 {t('newsletter.borderTraffic')}</span>
+                <span className="px-2 py-1 bg-teal-50 dark:bg-teal-950/30 rounded-lg">💱 {t('newsletter.exchangeRate')}</span>
+                <span className="px-2 py-1 bg-emerald-50 dark:bg-emerald-950/30 rounded-lg">🚦 {t('newsletter.borderTraffic')}</span>
                 <span className="px-2 py-1 bg-pink-50 dark:bg-pink-950/30 rounded-lg">📋 {t('newsletter.taxNews')}</span>
               </div>
 
@@ -544,7 +544,7 @@ const NewsletterPopup: React.FC = () => {
                   value={email}
                   onChange={(val) => { setEmail(val); setStatus('idle'); }}
                   placeholder={t('newsletter.emailPlaceholder')}
-                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-800 dark:text-slate-100"
+                  className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-100"
                 />
               </div>
 
@@ -562,7 +562,7 @@ const NewsletterPopup: React.FC = () => {
               <button
                 type="submit"
                 disabled={status === 'loading'}
-                className="w-full py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg"
+                className="w-full py-3 bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold rounded-xl hover:from-teal-700 hover:to-emerald-800 transition-all disabled:opacity-50 flex items-center justify-center gap-2 shadow-lg"
               >
                 {status === 'loading' ? (
                   <><Loader2 className="w-4 h-4 animate-spin" /> {t('newsletter.subscribing')}</>
@@ -580,7 +580,7 @@ const NewsletterPopup: React.FC = () => {
                     handleDismiss();
                     nav?.navigateTo('privacy');
                   }}
-                  className="underline hover:text-indigo-600 dark:hover:text-indigo-400 transition-colors"
+                  className="underline hover:text-teal-600 dark:hover:text-teal-400 transition-colors"
                 >
                   {t('newsletter.popup.privacyLink')}
                 </button>

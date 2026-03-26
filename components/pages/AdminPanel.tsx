@@ -882,8 +882,8 @@ export default function AdminPanel() {
         <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
           <Shield size={14} className="text-violet-600 dark:text-violet-400" />
           <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Configurazione crawler</span>
-          <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-          <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
+          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
         </summary>
         <div className="px-4 pb-4 space-y-4 border-t border-slate-200 dark:border-slate-700">
           {/* Genera parser AI */}
@@ -952,19 +952,19 @@ export default function AdminPanel() {
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Shield size={14} className="text-amber-600 dark:text-amber-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtri qualità</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-400">(4–10)</span></span>
+                  <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-500">(4–10)</span></span>
                   <input type="number" min={4} max={10} value={minQualityScoreInput} onChange={e => setMinQualityScoreInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-400">(80–600 car.)</span></span>
+                  <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-500">(80–600 car.)</span></span>
                   <input type="number" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
@@ -980,8 +980,8 @@ export default function AdminPanel() {
               <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
                 {aiLocalizationEnabledInput ? 'ON' : 'OFF'}
               </span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Traduzione automatica annunci in IT/EN/DE/FR tramite LLM (free-first, paid fallback).</p>
@@ -999,7 +999,7 @@ export default function AdminPanel() {
                   </button>
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-400">(0–100)</span></span>
+                  <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-500">(0–100)</span></span>
                   <input type="number" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
@@ -1015,8 +1015,8 @@ export default function AdminPanel() {
               <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
                 {contentReuseEnabledInput ? 'ON' : 'OFF'}
               </span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Se la descrizione di un job è molto simile al run precedente, riusa le traduzioni già fatte (risparmia crediti AI).</p>
@@ -1034,17 +1034,17 @@ export default function AdminPanel() {
                   </button>
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span>Similarità min <span className="text-[10px] text-slate-400">(0.70–1.00)</span></span>
+                  <span>Similarità min <span className="text-[10px] text-slate-500">(0.70–1.00)</span></span>
                   <input type="number" min={0.7} max={1} step={0.01} value={contentReuseSimilarityThresholdInput} onChange={e => setContentReuseSimilarityThresholdInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span>Char sorgente min <span className="text-[10px] text-slate-400">(120–8000)</span></span>
+                  <span>Char sorgente min <span className="text-[10px] text-slate-500">(120–8000)</span></span>
                   <input type="number" min={120} max={8000} value={contentReuseMinSourceCharsInput} onChange={e => setContentReuseMinSourceCharsInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span>Delta lunghezza max <span className="text-[10px] text-slate-400">(0.02–1.00)</span></span>
+                  <span>Delta lunghezza max <span className="text-[10px] text-slate-500">(0.02–1.00)</span></span>
                   <input type="number" min={0.02} max={1} step={0.01} value={contentReuseMaxLengthDeltaRatioInput} onChange={e => setContentReuseMaxLengthDeltaRatioInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
@@ -1057,20 +1057,20 @@ export default function AdminPanel() {
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Shield size={14} className="text-slate-600 dark:text-slate-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtro domini</span>
-              <span className="ml-2 text-[10px] text-slate-400 dark:text-slate-500">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-2 text-[10px] text-slate-500 dark:text-slate-500">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Whitelist: se compilata, solo questi domini vengono crawlati. Blacklist: domini sempre esclusi.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Domain Whitelist <span className="text-[10px] text-slate-400">(1 host per riga)</span>
+                  Domain Whitelist <span className="text-[10px] text-slate-500">(1 host per riga)</span>
                   <textarea rows={5} value={domainWhitelistText} onChange={e => setDomainWhitelistText(e.target.value)} placeholder="esempio.com"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Domain Blacklist <span className="text-[10px] text-slate-400">(1 host per riga)</span>
+                  Domain Blacklist <span className="text-[10px] text-slate-500">(1 host per riga)</span>
                   <textarea rows={5} value={domainBlacklistText} onChange={e => setDomainBlacklistText(e.target.value)} placeholder="esempio-da-escludere.com"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
@@ -1083,31 +1083,31 @@ export default function AdminPanel() {
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Database size={14} className="text-emerald-600 dark:text-emerald-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Priorità aziende &amp; seed URL</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-400 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Priorità: punteggio numerico per ordinare le aziende nel crawl. Seed: URL career page iniziali.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Priorità per dominio <span className="text-[10px] text-slate-400">(JSON: {`{"host": score}`})</span>
+                  Priorità per dominio <span className="text-[10px] text-slate-500">(JSON: {`{"host": score}`})</span>
                   <textarea rows={6} value={companyPriorityByDomainText} onChange={e => setCompanyPriorityByDomainText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Priorità per nome <span className="text-[10px] text-slate-400">(JSON: {`{"name": score}`})</span>
+                  Priorità per nome <span className="text-[10px] text-slate-500">(JSON: {`{"name": score}`})</span>
                   <textarea rows={6} value={companyPriorityByNameText} onChange={e => setCompanyPriorityByNameText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Seed URL per dominio <span className="text-[10px] text-slate-400">(JSON: {`{"host": ["url1","url2"]}`})</span>
+                  Seed URL per dominio <span className="text-[10px] text-slate-500">(JSON: {`{"host": ["url1","url2"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByDomainText} onChange={e => setSourceSeedsByDomainText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Seed URL per nome azienda <span className="text-[10px] text-slate-400">(JSON: {`{"name": ["url1"]}`})</span>
+                  Seed URL per nome azienda <span className="text-[10px] text-slate-500">(JSON: {`{"name": ["url1"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByNameText} onChange={e => setSourceSeedsByNameText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
@@ -1516,7 +1516,7 @@ export default function AdminPanel() {
                           <div className="flex gap-3 mt-0.5">
                             {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline">🔗 Sorgente</a>}
                             {siteUrl && (type === 'removed' ? (
-                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-slate-400 hover:underline">🏚 Sito (archiviato)</a>
+                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-slate-500 hover:underline">🏚 Sito (archiviato)</a>
                             ) : (
                               <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 dark:text-indigo-400 hover:underline">🏠 Sito</a>
                             ))}
@@ -1587,13 +1587,13 @@ export default function AdminPanel() {
                       </span>
                       {latestSummaryAt && (
                         <span
-                          className="text-slate-400 dark:text-slate-500 text-[10px] font-mono whitespace-nowrap"
+                          className="text-slate-500 dark:text-slate-500 text-[10px] font-mono whitespace-nowrap"
                           title={`Dati aggiornati: ${latestSummaryAt}`}
                         >
                           {relativeTime(latestSummaryAt)}
                         </span>
                       )}
-                      <span className="text-slate-400 dark:text-slate-600">|</span>
+                      <span className="text-slate-500 dark:text-slate-600">|</span>
                       <span className="font-semibold text-slate-600 dark:text-slate-400">{totals.active} annunci attivi</span>
                       {totals.newCount > 0 && <span className="text-emerald-700 dark:text-emerald-400 font-bold" title="Totale aggiunti nelle ultime run (Δ run, ≠ delta giornaliero)">+{totals.newCount} nuove</span>}
                       {totals.updated > 0 && <span className="text-blue-700 dark:text-blue-400 font-bold" title="Totale aggiornati nelle ultime run (Δ run, ≠ delta giornaliero)">~{totals.updated} agg.</span>}
@@ -1601,7 +1601,7 @@ export default function AdminPanel() {
                       {totals.unchanged > 0 && <span className="text-slate-500 dark:text-slate-400" title="Totale invariati nelle ultime run (Δ run, ≠ delta giornaliero)">={totals.unchanged} inv.</span>}
                       {failedCrawlers.length > 0 && (
                         <>
-                          <span className="text-slate-400 dark:text-slate-600">|</span>
+                          <span className="text-slate-500 dark:text-slate-600">|</span>
                           <span className="text-red-700 dark:text-red-400 font-bold">{failedCrawlers.length} falliti</span>
                         </>
                       )}
@@ -1648,7 +1648,7 @@ export default function AdminPanel() {
                     {/* Filters */}
                     <div className="flex flex-wrap items-center gap-2 px-1">
                       <div className="relative">
-                        <Search size={12} className="absolute left-2 top-1/2 -translate-y-1/2 text-slate-400" />
+                        <Search size={12} className="absolute left-2 top-1/2 -translate-y-1/2 text-slate-500" />
                         <input
                           type="text"
                           value={crawlerNameFilter}
@@ -1739,7 +1739,7 @@ export default function AdminPanel() {
                                       +{s.newCount}
                                     </button>
                                   ) : s ? (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">0</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">0</span>
                                   ) : '—'}
                                 </td>
                                 {/* Aggiornati */}
@@ -1751,7 +1751,7 @@ export default function AdminPanel() {
                                       ~{s.updatedCount}
                                     </button>
                                   ) : s ? (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">0</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">0</span>
                                   ) : '—'}
                                 </td>
                                 {/* Rimossi */}
@@ -1763,7 +1763,7 @@ export default function AdminPanel() {
                                       -{s.removedCount}
                                     </button>
                                   ) : s ? (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">0</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">0</span>
                                   ) : '—'}
                                 </td>
                                 {/* Invariati */}
@@ -1775,7 +1775,7 @@ export default function AdminPanel() {
                                       {s.unchangedCount}
                                     </button>
                                   ) : s ? (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">0</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">0</span>
                                   ) : '—'}
                                 </td>
                                 {/* Annunci (attivi) */}
@@ -1787,7 +1787,7 @@ export default function AdminPanel() {
                                       {s.total - s.removedCount}
                                     </button>
                                   ) : s ? (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">0</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">0</span>
                                   ) : '—'}
                                 </td>
                                 {/* Durata */}
@@ -1796,7 +1796,7 @@ export default function AdminPanel() {
                                     <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400" title={s.avgDurationMs != null ? `Media: ${formatDurationMs(s.avgDurationMs)}` : undefined}>
                                       {formatDurationMs(s.durationMs)}
                                       {s.avgDurationMs != null && (
-                                        <span className="block text-[9px] text-slate-400 dark:text-slate-500">ø {formatDurationMs(s.avgDurationMs)}</span>
+                                        <span className="block text-[9px] text-slate-500 dark:text-slate-500">ø {formatDurationMs(s.avgDurationMs)}</span>
                                       )}
                                     </span>
                                   ) : '—'}
@@ -1829,7 +1829,7 @@ export default function AdminPanel() {
                                       </span>
                                     );
                                   })() : (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">—</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">—</span>
                                   )}
                                 </td>
                                 {/* Status */}
@@ -1847,7 +1847,7 @@ export default function AdminPanel() {
                                         : (<><Clock3 size={10} /> —</>)}
                                     </span>
                                   ) : (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">—</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">—</span>
                                   )}
                                 </td>
                                 {/* Actions */}
@@ -1875,7 +1875,7 @@ export default function AdminPanel() {
                                       )}
                                     </div>
                                   ) : (
-                                    <span className="text-slate-400 dark:text-slate-600 text-[10px]">—</span>
+                                    <span className="text-slate-500 dark:text-slate-600 text-[10px]">—</span>
                                   )}
                                 </td>
                               </tr>
@@ -2424,7 +2424,7 @@ export default function AdminPanel() {
             <div className="flex items-center gap-2 flex-wrap">
               <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">{wf.title}</h4>
               {lastRunAgo && (
-                <span className="text-[10px] text-slate-400 dark:text-slate-500 font-mono whitespace-nowrap" title={wfState.updatedAt || ''}>
+                <span className="text-[10px] text-slate-500 dark:text-slate-500 font-mono whitespace-nowrap" title={wfState.updatedAt || ''}>
                   {lastRunAgo}
                 </span>
               )}
@@ -2570,7 +2570,7 @@ export default function AdminPanel() {
             )}
 
             {isFailure && !wfState.logExcerpt && (
-              <div className="text-[11px] italic text-slate-400 dark:text-slate-500">
+              <div className="text-[11px] italic text-slate-500 dark:text-slate-500">
                 Log non disponibile — apri il run su GitHub per i dettagli completi.
               </div>
             )}

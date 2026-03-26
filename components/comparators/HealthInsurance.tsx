@@ -605,7 +605,7 @@ const HealthInsurance: React.FC = () => {
                   <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/20">
                     <span className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-[10px] font-bold">{i + 1}</span>
-                      <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-400">({c.canton})</span></span>
+                      <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-500">({c.canton})</span></span>
                     </span>
                     <span className="font-bold text-emerald-700 dark:text-emerald-400">{c.avgPremium.toFixed(0)} CHF</span>
                   </div>
@@ -619,7 +619,7 @@ const HealthInsurance: React.FC = () => {
                   <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-red-50/50 dark:bg-red-950/20">
                     <span className="flex items-center gap-2">
                       <span className="w-5 h-5 rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 flex items-center justify-center text-[10px] font-bold">{i + 1}</span>
-                      <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-400">({c.canton})</span></span>
+                      <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-500">({c.canton})</span></span>
                     </span>
                     <span className="font-bold text-red-700 dark:text-red-400">{c.avgPremium.toFixed(0)} CHF</span>
                   </div>

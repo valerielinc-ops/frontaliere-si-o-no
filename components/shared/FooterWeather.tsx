@@ -137,7 +137,7 @@ const WeatherPill: React.FC<{ weather: MiniWeather; label: string; flag?: string
       ) : flag ? (
         <span className="text-[10px]" aria-hidden="true">{flag}</span>
       ) : (
-        <MapPin className="w-3 h-3 text-slate-400" aria-hidden="true" />
+        <MapPin className="w-3 h-3 text-slate-500" aria-hidden="true" />
       )}
       <span className="font-semibold text-slate-700 dark:text-slate-300">{label}</span>
       <span className="text-sm" aria-hidden="true">{emoji}</span>

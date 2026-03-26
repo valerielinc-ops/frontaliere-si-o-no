@@ -186,7 +186,7 @@ const UnemploymentStats: React.FC = () => {
   if (!data) {
     return (
       <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl shadow-xl border border-white/60 dark:border-slate-800 flex flex-col items-center justify-center py-32 space-y-3">
-        <BarChart3 size={40} className="text-slate-400" />
+        <BarChart3 size={40} className="text-slate-500" />
         <p className="text-slate-500 dark:text-slate-400 text-sm">{localeLabels.noData}</p>
       </div>
     );

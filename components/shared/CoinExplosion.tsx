@@ -247,8 +247,10 @@ export default function CoinExplosion({ onComplete }: { onComplete: () => void }
                 height: '100%',
                 borderRadius: 3,
                 background: 'linear-gradient(90deg, #facc15, #f97316)',
-                width: `${((msgIndex + 1) / RESET_MESSAGES.length) * 100}%`,
-                transition: 'width 500ms ease-out',
+                width: '100%',
+                transform: `scaleX(${(msgIndex + 1) / RESET_MESSAGES.length})`,
+                transformOrigin: 'left',
+                transition: 'transform 500ms ease-out',
               }} />
             </div>
 

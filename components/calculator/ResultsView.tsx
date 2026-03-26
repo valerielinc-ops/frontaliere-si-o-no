@@ -501,10 +501,10 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
         }`}>
            {/* Confetti / Particle Background Effect */}
            <div className="absolute inset-0 opacity-10 pointer-events-none overflow-hidden">
-              <div className="absolute top-[-10%] left-[10%] w-4 h-4 bg-white rounded-full animate-bounce [animation-duration:3s]"></div>
-              <div className="absolute top-[-5%] left-[30%] w-3 h-3 bg-yellow-300 rounded-full animate-bounce [animation-duration:2.5s] [animation-delay:0.5s]"></div>
-              <div className="absolute top-[-15%] left-[60%] w-5 h-5 bg-white rounded-full animate-bounce [animation-duration:3.2s] [animation-delay:1s]"></div>
-              <div className="absolute top-[-8%] left-[80%] w-2 h-2 bg-yellow-300 rounded-full animate-bounce [animation-duration:2.8s] [animation-delay:0.2s]"></div>
+              <div className="absolute top-[-10%] left-[10%] w-4 h-4 bg-white rounded-full animate-pulse [animation-duration:3s]"></div>
+              <div className="absolute top-[-5%] left-[30%] w-3 h-3 bg-yellow-300 rounded-full animate-pulse [animation-duration:2.5s] [animation-delay:0.5s]"></div>
+              <div className="absolute top-[-15%] left-[60%] w-5 h-5 bg-white rounded-full animate-pulse [animation-duration:3.2s] [animation-delay:1s]"></div>
+              <div className="absolute top-[-8%] left-[80%] w-2 h-2 bg-yellow-300 rounded-full animate-pulse [animation-duration:2.8s] [animation-delay:0.2s]"></div>
               <div className="absolute top-[20%] right-[-5%] w-6 h-6 bg-white/30 rounded-full animate-ping [animation-duration:4s]"></div>
            </div>
            
@@ -518,7 +518,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                    <h3 className="text-xl sm:text-2xl font-bold tracking-tight truncate">
                      {isBetterFrontaliere ? t('results.frontierBetter') : t('results.swissBetter')}
                    </h3>
-                   {isBetterFrontaliere && <PartyPopper size={24} className="animate-bounce text-yellow-300" />}
+                   {isBetterFrontaliere && <PartyPopper size={24} className="animate-spin [animation-duration:1s] [animation-iteration-count:1] text-yellow-300" />}
                 </div>
                 <div className="text-white/90 font-medium flex flex-wrap items-center gap-x-2 gap-y-1 text-sm">
                   <span>{t('results.netAdvantage')}</span>

@@ -394,7 +394,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
               >
                 <div className="flex items-center justify-between gap-3">
                   <span className="text-sm font-semibold text-slate-900 dark:text-white">{link.label}</span>
-                  <ArrowRight className="w-4 h-4 text-slate-400 group-hover:text-sky-600 dark:group-hover:text-sky-300 transition-colors" />
+                  <ArrowRight className="w-4 h-4 text-slate-500 group-hover:text-sky-600 dark:group-hover:text-sky-300 transition-colors" />
                 </div>
               </a>
             ))}

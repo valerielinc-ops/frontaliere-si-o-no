@@ -198,12 +198,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
 
   if (compact) {
     return (
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-600 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-3">
           <Bell size={20} />
           <h3 className="font-bold text-lg">{t('newsletter.title')}</h3>
         </div>
-        <p className="text-indigo-100 text-sm mb-4">
+        <p className="text-emerald-100 text-sm mb-4">
           {t('newsletter.compactDescription')}
         </p>
 
@@ -220,12 +220,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                   value={email}
                   onChange={(val) => { setEmail(val); setStatus('idle'); }}
                   placeholder={t('newsletter.emailPlaceholder')}
-                  className="w-full px-4 py-2.5 bg-white/15 backdrop-blur-sm border border-white/25 rounded-xl text-white placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
+                  className="w-full px-4 py-2.5 bg-white/15 border border-white/25 rounded-xl text-white placeholder-white/50 text-sm focus:outline-none focus:ring-2 focus:ring-white/50"
                   darkVariant
                 />
               </div>
               <button type="submit" disabled={status === 'loading'}
-                className="px-5 py-2.5 bg-white text-indigo-600 font-bold text-sm rounded-xl hover:bg-indigo-50 transition-colors disabled:opacity-50 flex items-center gap-2"
+                className="px-5 py-2.5 bg-white text-teal-700 font-bold text-sm rounded-xl hover:bg-teal-50 transition-colors disabled:opacity-50 flex items-center gap-2"
                 aria-label={t('newsletter.subscribeFree')}
               >
                 {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
@@ -241,7 +241,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                         Analytics.trackNewsletter('view_form', 'google');
                         await googleSignIn();
                       }}
-                      className="flex-1 w-full min-h-[40px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl text-white/90 text-xs font-semibold hover:bg-white/20 transition-colors"
+                      className="flex-1 w-full min-h-[40px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-white/10 border border-white/20 rounded-xl text-white/90 text-xs font-semibold hover:bg-white/20 transition-colors"
                     >
                       <svg viewBox="0 0 24 24" className="w-4 h-4" aria-hidden="true">
                         <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -279,29 +279,29 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      <div className="bg-gradient-to-br from-indigo-600 via-purple-600 to-pink-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+      <div className="bg-gradient-to-br from-teal-600 via-emerald-600 to-green-700 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+          <div className="p-3 bg-white/20 rounded-2xl">
             <Mail size={32} />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold">{t('newsletter.weeklyTitle')}</h1>
-            <p className="text-purple-100 mt-1">{t('newsletter.weeklySubtitle')}</p>
+            <p className="text-emerald-100 mt-1">{t('newsletter.weeklySubtitle')}</p>
           </div>
         </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 mt-6">
-          <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center">
+          <div className="bg-white/20 rounded-xl p-3 text-center">
             <div className="text-2xl mb-1">💱</div>
             <div className="text-sm font-bold">{t('newsletter.exchangeRate')}</div>
             <div className="text-xs text-white/70">{t('newsletter.weeklyRate')}</div>
           </div>
-          <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center">
+          <div className="bg-white/20 rounded-xl p-3 text-center">
             <div className="text-2xl mb-1">🚦</div>
             <div className="text-sm font-bold">{t('newsletter.borderTraffic')}</div>
             <div className="text-xs text-white/70">{t('newsletter.timesAndTips')}</div>
           </div>
-          <div className="bg-white/15 backdrop-blur-sm rounded-xl p-3 text-center">
+          <div className="bg-white/20 rounded-xl p-3 text-center">
             <div className="text-2xl mb-1">📋</div>
             <div className="text-sm font-bold">{t('newsletter.taxNews')}</div>
             <div className="text-xs text-white/70">{t('newsletter.deadlinesAndChanges')}</div>
@@ -327,7 +327,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             return (
               <button
                 onClick={() => openEmailProvider(email)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold rounded-xl transition-colors"
               >
                 <Mail size={16} />
                 {t('newsletter.openEmailProvider', { provider: provider.name })}
@@ -350,7 +350,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                     setResendStatus('error');
                   }
                 }}
-                className="text-xs font-medium text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="text-xs font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {resendStatus === 'sending' ? '...' :
                  resendStatus === 'sent' ? t('newsletter.resendConfirmationSent') :
@@ -370,7 +370,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 value={email}
                 onChange={(val) => { setEmail(val); setStatus('idle'); }}
                 placeholder="mario.rossi@gmail.com"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
             <div>
@@ -380,7 +380,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 placeholder="Mario"
                 autoComplete="given-name"
                 name="name"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500" />
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500" />
             </div>
           </div>
 
@@ -397,14 +397,14 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 <label key={pref.key}
                   className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-all border ${
                     preferences[pref.key as keyof typeof preferences]
-                      ? 'border-indigo-300 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950/30'
+                      ? 'border-teal-300 dark:border-teal-700 bg-teal-50 dark:bg-teal-950/30'
                       : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
                   }`}
                 >
                   <input type="checkbox"
                     checked={preferences[pref.key as keyof typeof preferences]}
                     onChange={(e) => setPreferences(prev => ({ ...prev, [pref.key]: e.target.checked }))}
-                    className="mt-1 w-4 h-4 rounded text-indigo-600 focus:ring-indigo-500" />
+                    className="mt-1 w-4 h-4 rounded text-teal-600 focus:ring-teal-500" />
                   <div>
                     <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>
                     <div className="text-xs text-slate-500">{pref.desc}</div>
@@ -431,7 +431,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
               {t('newsletter.protectedBy')}
             </div>
             <button type="submit" disabled={status === 'loading'}
-              className="px-8 py-3 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 flex items-center gap-2 shadow-lg"
+              className="px-8 py-3 bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold rounded-xl hover:from-teal-700 hover:to-emerald-800 transition-all disabled:opacity-50 flex items-center gap-2 shadow-lg"
             >
               {status === 'loading' ? (
                 <>

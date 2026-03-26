@@ -168,7 +168,7 @@ const HealthPremiumStats: React.FC = () => {
                 <span className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
                   <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')}</span>
-                  <span className="text-slate-400 text-xs">({c.canton})</span>
+                  <span className="text-slate-500 text-xs">({c.canton})</span>
                 </span>
                 <span className="font-bold text-emerald-700 dark:text-emerald-400">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
@@ -185,7 +185,7 @@ const HealthPremiumStats: React.FC = () => {
                 <span className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
                   <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')}</span>
-                  <span className="text-slate-400 text-xs">({c.canton})</span>
+                  <span className="text-slate-500 text-xs">({c.canton})</span>
                 </span>
                 <span className="font-bold text-red-700 dark:text-red-400">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
@@ -254,7 +254,7 @@ const HealthPremiumStats: React.FC = () => {
                     <td className="py-2 px-2 text-slate-500 font-mono">{globalRank}</td>
                     <td className="py-2 px-2 text-slate-700 dark:text-slate-300 font-medium">
                       {c.municipality.replace(/^\d+-/, '')}
-                      <span className="text-slate-400 ml-1 text-[10px]">{c.municipality.match(/^\d+/)?.[0]}</span>
+                      <span className="text-slate-500 ml-1 text-[10px]">{c.municipality.match(/^\d+/)?.[0]}</span>
                     </td>
                     <td className="py-2 px-2 text-center text-slate-500">{c.canton}</td>
                     <td className={`py-2 px-2 text-right font-bold ${

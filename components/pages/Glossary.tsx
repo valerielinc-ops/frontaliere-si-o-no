@@ -164,7 +164,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
       {/* Search and filters */}
       <div className="flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-[200px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
           <input
             type="text"
             value={searchTerm}
@@ -238,7 +238,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
                       {t(`glossary.terms.${entry.key}.title`)}
                     </span>
                   </div>
-                  {isExpanded ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
+                  {isExpanded ? <ChevronUp size={16} className="text-slate-500" /> : <ChevronDown size={16} className="text-slate-500" />}
                 </button>
                 {isExpanded && (
                   <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">

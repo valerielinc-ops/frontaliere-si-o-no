@@ -999,7 +999,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             return (
               <label key={d.id} className="flex items-center gap-2 text-xs p-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
                 <input type="checkbox" checked={checked} onChange={() => toggleChecklist(d.id)} />
-                <span className={`font-medium ${checked ? 'line-through text-slate-400' : 'text-slate-700 dark:text-slate-300'}`}>
+                <span className={`font-medium ${checked ? 'line-through text-slate-500' : 'text-slate-700 dark:text-slate-300'}`}>
                   {formatDate(d.date)} · {d.title}
                 </span>
               </label>

@@ -84,7 +84,7 @@ export const EmailConfirmed: React.FC = () => {
                     {t(feature.descKey)}
                   </div>
                 </div>
-                <ArrowRight className="text-slate-400 dark:text-slate-600 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors flex-shrink-0" size={18} />
+                <ArrowRight className="text-slate-500 dark:text-slate-600 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors flex-shrink-0" size={18} />
               </a>
             ))}
           </div>

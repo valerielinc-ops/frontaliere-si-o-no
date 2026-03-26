@@ -277,7 +277,7 @@ export default function SalaryQuiz() {
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
                   {t(`salaryQuiz.experience.${level}`)}
                 </span>
-                <ChevronRight size={18} className="text-slate-400 group-hover:text-emerald-500" />
+                <ChevronRight size={18} className="text-slate-500 group-hover:text-emerald-500" />
               </button>
             ))}
           </div>
@@ -298,7 +298,7 @@ export default function SalaryQuiz() {
                 onClick={() => handleProvinceSelect(prov)}
                 className="flex items-center gap-2 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
               >
-                <MapPin size={16} className="text-slate-400 group-hover:text-emerald-500" />
+                <MapPin size={16} className="text-slate-500 group-hover:text-emerald-500" />
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 capitalize">
                   {t(`salaryQuiz.province.${prov}`)}
                 </span>
@@ -322,18 +322,18 @@ export default function SalaryQuiz() {
             </div>
 
             <div className="grid grid-cols-2 gap-4 mb-6">
-              <div className="bg-white/15 rounded-xl p-4 text-center backdrop-blur-sm">
+              <div className="bg-white/20 rounded-xl p-4 text-center">
                 <p className="text-emerald-100 text-xs mb-1">{t('salaryQuiz.netCHF')}</p>
                 <p className="text-2xl font-bold">CHF {result.netCHF.toLocaleString()}</p>
               </div>
-              <div className="bg-white/15 rounded-xl p-4 text-center backdrop-blur-sm">
+              <div className="bg-white/20 rounded-xl p-4 text-center">
                 <p className="text-emerald-100 text-xs mb-1">{t('salaryQuiz.netEUR')}</p>
                 <p className="text-2xl font-bold">€{result.netEUR.toLocaleString()}</p>
               </div>
             </div>
 
             {/* Salary range bar */}
-            <div className="bg-white/10 rounded-xl p-4 backdrop-blur-sm">
+            <div className="bg-white/15 rounded-xl p-4">
               <p className="text-emerald-100 text-xs mb-3">{t('salaryQuiz.rangeLabel')}</p>
               <div className="relative h-3 bg-white/20 rounded-full">
                 <div

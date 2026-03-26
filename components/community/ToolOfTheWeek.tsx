@@ -238,7 +238,7 @@ const ToolOfTheWeek: React.FC<ToolOfTheWeekProps> = ({ compact = false, onNaviga
             <Share2 size={18} className="text-violet-500" />
             {t('toolOfWeek.shareTitle')}
           </h3>
-          {showShareOptions ? <ChevronUp size={16} className="text-slate-400" /> : <ChevronDown size={16} className="text-slate-400" />}
+          {showShareOptions ? <ChevronUp size={16} className="text-slate-500" /> : <ChevronDown size={16} className="text-slate-500" />}
         </button>
 
         {showShareOptions && (

@@ -155,7 +155,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
         <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-lg mb-4">
           <PiggyBank size={32} className="text-white" />
         </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold bg-gradient-to-r from-emerald-600 to-teal-600 bg-clip-text text-transparent">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400">
           {t('pension.title')}
         </h1>
         <p className="text-slate-600 dark:text-slate-500 max-w-2xl mx-auto">
@@ -174,10 +174,10 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
         <div className="flex rounded-full h-3 overflow-hidden bg-slate-100 dark:bg-slate-700">
           {result.totalMonthlyPensionCHF > 0 && (
             <>
-              <div className="bg-blue-500 transition-all" style={{ width: `${(result.lppMonthlyPension / result.totalMonthlyPensionCHF) * 100}%` }} title="LPP" />
-              <div className="bg-red-500 transition-all" style={{ width: `${(result.avsPensionCHF / result.totalMonthlyPensionCHF) * 100}%` }} title="AVS" />
+              <div className="bg-blue-500 h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${result.lppMonthlyPension / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="LPP" />
+              <div className="bg-red-500 h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${result.avsPensionCHF / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="AVS" />
               {inputs.hasItalianContributions && (
-                <div className="bg-green-500 transition-all" style={{ width: `${((result.italianPensionEUR / 1.06) / result.totalMonthlyPensionCHF) * 100}%` }} title="INPS" />
+                <div className="bg-green-500 h-full transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${(result.italianPensionEUR / 1.06) / result.totalMonthlyPensionCHF})`, transformOrigin: 'left' }} title="INPS" />
               )}
             </>
           )}
@@ -649,7 +649,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             <a key={href} href={href} onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', href); window.dispatchEvent(new PopStateEvent('popstate')); }} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group no-underline">
               <Icon size={18} className={color} />
               <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</span>
-              <ArrowRight size={14} className="ml-auto text-slate-400 group-hover:text-blue-500 transition-colors" />
+              <ArrowRight size={14} className="ml-auto text-slate-500 group-hover:text-blue-500 transition-colors" />
             </a>
           ))}
         </div>

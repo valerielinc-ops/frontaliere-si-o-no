@@ -64,9 +64,9 @@ const LOCATIONS = {
 function getWeatherIcon(code: number, isDay: boolean): React.ReactNode {
   // WMO weather codes → icons
   if (code === 0 || code === 1) return <Sun className="w-full h-full text-amber-500" />;
-  if (code === 2) return <Cloud className="w-full h-full text-slate-400" />;
+  if (code === 2) return <Cloud className="w-full h-full text-slate-500" />;
   if (code === 3) return <Cloud className="w-full h-full text-slate-500" />;
-  if (code >= 45 && code <= 48) return <CloudFog className="w-full h-full text-slate-400" />;
+  if (code >= 45 && code <= 48) return <CloudFog className="w-full h-full text-slate-500" />;
   if (code >= 51 && code <= 55) return <CloudDrizzle className="w-full h-full text-blue-400" />;
   if (code >= 56 && code <= 57) return <CloudDrizzle className="w-full h-full text-blue-300" />;
   if (code >= 61 && code <= 65) return <CloudRain className="w-full h-full text-blue-500" />;

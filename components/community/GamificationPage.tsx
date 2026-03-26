@@ -63,7 +63,7 @@ const GamificationPage: React.FC = () => {
         <div className="absolute inset-0 bg-black/10" />
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-6">
-            <div className="w-16 h-16 rounded-2xl bg-white/20 backdrop-blur-sm flex items-center justify-center shadow-lg">
+            <div className="w-16 h-16 rounded-2xl bg-white/20 flex items-center justify-center shadow-lg">
               <Trophy size={32} className="text-white" />
             </div>
             <div>
@@ -74,20 +74,20 @@ const GamificationPage: React.FC = () => {
 
           {/* Level + Stats row */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-white/20 rounded-xl p-4">
               <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.level') || 'Livello'}</div>
               <div className="text-2xl sm:text-3xl font-black">{levelInfo.level}</div>
               <div className="text-xs text-amber-100 font-semibold">{levelTitle}</div>
             </div>
-            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-white/20 rounded-xl p-4">
               <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">XP</div>
               <div className="text-2xl sm:text-3xl font-black">{state.xp}</div>
               <div className="w-full bg-white/20 rounded-full h-1.5 mt-2">
-                <div className="bg-white rounded-full h-1.5 transition-all duration-500" style={{ width: `${xpProgressPct}%` }} />
+                <div className="bg-white rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
               </div>
-              <div className="text-[9px] text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → Livello {levelInfo.level + 1}</div>
+              <div className="text-[9px] text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
             </div>
-            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-white/20 rounded-xl p-4">
               <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.dayStreak') || 'Streak'}</div>
               <div className="flex items-center gap-2">
                 <Flame size={24} className="text-orange-200" />
@@ -95,7 +95,7 @@ const GamificationPage: React.FC = () => {
               </div>
               <div className="text-xs text-amber-100">{t('gamification.daysInARow') || 'giorni consecutivi'}</div>
             </div>
-            <div className="bg-white/15 backdrop-blur-sm rounded-xl p-4">
+            <div className="bg-white/20 rounded-xl p-4">
               <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.progress') || 'Progressi'}</div>
               <div className="text-2xl sm:text-3xl font-black">{unlockedCount}<span className="text-lg text-amber-200">/{totalCount}</span></div>
               <div className="text-xs text-amber-100">{progressPercent}% {t('gamification.completed') || 'completato'}</div>
@@ -175,7 +175,7 @@ const GamificationPage: React.FC = () => {
                 {!isUnlocked && achievement.requiredCount > 1 && (
                   <div className="flex items-center gap-2 mt-2">
                     <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
-                      <div className="bg-amber-500 rounded-full h-1.5 transition-all" style={{ width: `${progress * 100}%` }} />
+                      <div className="bg-amber-500 rounded-full h-1.5 transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${progress})`, transformOrigin: 'left' }} />
                     </div>
                     <span className="text-[10px] text-slate-500 font-bold">{count}/{achievement.requiredCount}</span>
                   </div>

@@ -853,7 +853,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 <Send size={16} />
               </button>
             </div>
-            <p className="text-[10px] text-slate-400 dark:text-slate-500 mt-1.5 text-center">
+            <p className="text-[10px] text-slate-500 dark:text-slate-500 mt-1.5 text-center">
               {t('chatbot.disclaimer')}
             </p>
           </div>

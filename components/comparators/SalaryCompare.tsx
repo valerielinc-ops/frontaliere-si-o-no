@@ -301,7 +301,7 @@ export default function SalaryCompare() {
                   <div className="relative">
                     <Search
                       size={16}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
                     />
                     <input
                       id="sc-search"
@@ -417,7 +417,7 @@ export default function SalaryCompare() {
                             <td className="py-3 px-3 text-right font-mono text-slate-600 dark:text-slate-400">
                               {'\u20AC'} {r.ppp.toLocaleString()}
                             </td>
-                            <td className="py-3 px-2 text-slate-400">
+                            <td className="py-3 px-2 text-slate-500">
                               {expandedSectors.has(r.id) ? (
                                 <ChevronUp size={16} />
                               ) : (
@@ -448,7 +448,7 @@ export default function SalaryCompare() {
                                     <span className="block">
                                       CHF {ch[1].toLocaleString()}
                                     </span>
-                                    <span className="text-slate-400 dark:text-slate-500">
+                                    <span className="text-slate-500 dark:text-slate-500">
                                       {ch[0].toLocaleString()}-
                                       {ch[2].toLocaleString()}
                                     </span>
@@ -457,7 +457,7 @@ export default function SalaryCompare() {
                                     <span className="block">
                                       {'\u20AC'} {it[1].toLocaleString()}
                                     </span>
-                                    <span className="text-slate-400 dark:text-slate-500">
+                                    <span className="text-slate-500 dark:text-slate-500">
                                       {it[0].toLocaleString()}-
                                       {it[2].toLocaleString()}
                                     </span>
@@ -636,7 +636,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <div className="flex justify-between text-xs text-slate-400 dark:text-slate-500 mt-0.5 font-mono">
+                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-500 mt-0.5 font-mono">
                             <span>{(ch[0] / 1000).toFixed(0)}k</span>
                             <span>{(ch[2] / 1000).toFixed(0)}k</span>
                           </div>
@@ -669,7 +669,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <div className="flex justify-between text-xs text-slate-400 dark:text-slate-500 mt-0.5 font-mono">
+                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-500 mt-0.5 font-mono">
                             <span>{(it[0] / 1000).toFixed(0)}k</span>
                             <span>{(it[2] / 1000).toFixed(0)}k</span>
                           </div>
@@ -737,7 +737,7 @@ export default function SalaryCompare() {
                 {t('salaryCompare.faq' + n + 'Q')}
                 <ChevronDown
                   size={16}
-                  className="text-slate-400 group-open:rotate-180 transition-transform"
+                  className="text-slate-500 group-open:rotate-180 transition-transform"
                 />
               </summary>
               <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400">

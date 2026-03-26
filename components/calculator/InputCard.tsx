@@ -358,7 +358,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
             </div>
         </div>
         {!isFocusMode && (
-          <button onClick={handleReset} className="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all" title={t('input.resetAll')}>
+          <button onClick={handleReset} className="p-2 text-slate-500 hover:text-red-500 hover:bg-red-50 dark:hover:bg-red-900/20 rounded-xl transition-all" title={t('input.resetAll')} aria-label={t('input.resetAll')}>
             <RotateCcw size={18} />
           </button>
         )}
@@ -568,7 +568,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')}>
+                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
                         <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold uppercase hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
@@ -636,7 +636,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')}>
+                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
                         <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-[10px] font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">

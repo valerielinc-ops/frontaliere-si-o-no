@@ -1492,7 +1492,7 @@ export default function BlogArticles({
                             {job.company} · {job.location}
                           </p>
                         </div>
-                        <ChevronRight size={14} className="text-slate-400 shrink-0" />
+                        <ChevronRight size={14} className="text-slate-500 shrink-0" />
                       </a>
                       );
                     })}
@@ -1659,7 +1659,7 @@ export default function BlogArticles({
                               <span className="text-xs text-orange-600 dark:text-orange-400 font-medium">
                                 {views} {t('blog.trendingThisWeek.views')}
                               </span>
-                              <span className="text-xs text-slate-400">·</span>
+                              <span className="text-xs text-slate-500">·</span>
                               <span className="text-xs text-slate-500 dark:text-slate-500">
                                 {estimateReadingMinutes(tr.id, t)} min
                               </span>

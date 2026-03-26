@@ -86,7 +86,7 @@ const FaqSection: React.FC = () => {
 
       {/* Search */}
       <div className="relative">
-        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400" />
+        <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
         <input
           type="text"
           value={searchTerm}
@@ -169,7 +169,7 @@ const FaqSection: React.FC = () => {
                 >
                   <span className="text-lg shrink-0 mt-0.5">{catInfo?.icon}</span>
                   <span className="flex-1 font-semibold text-sm text-slate-800 dark:text-slate-200">{q.question}</span>
-                  {isExpanded ? <ChevronUp size={16} className="text-slate-400 shrink-0 mt-0.5" /> : <ChevronDown size={16} className="text-slate-400 shrink-0 mt-0.5" />}
+                  {isExpanded ? <ChevronUp size={16} className="text-slate-500 shrink-0 mt-0.5" /> : <ChevronDown size={16} className="text-slate-500 shrink-0 mt-0.5" />}
                 </button>
                 {isExpanded && (
                   <div className="px-4 pb-4 ml-10 text-sm text-slate-600 dark:text-slate-400 animate-fade-in border-t border-slate-100 dark:border-slate-700 pt-3">

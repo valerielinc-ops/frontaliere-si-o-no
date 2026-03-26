@@ -156,7 +156,7 @@ const colorMap: Record<string, { bg: string; text: string; border: string; light
   blue: { bg: 'bg-blue-500', text: 'text-blue-600', border: 'border-blue-200 dark:border-blue-800', light: 'bg-blue-50 dark:bg-blue-950/30' },
   rose: { bg: 'bg-rose-500', text: 'text-rose-600', border: 'border-rose-200 dark:border-rose-800', light: 'bg-rose-50 dark:bg-rose-950/30' },
   amber: { bg: 'bg-amber-500', text: 'text-amber-600', border: 'border-amber-200 dark:border-amber-800', light: 'bg-amber-50 dark:bg-amber-950/30' },
-  indigo: { bg: 'bg-indigo-500', text: 'text-indigo-600', border: 'border-indigo-200 dark:border-indigo-800', light: 'bg-indigo-50 dark:bg-indigo-950/30' },
+  indigo: { bg: 'bg-teal-500', text: 'text-teal-600', border: 'border-teal-200 dark:border-teal-800', light: 'bg-teal-50 dark:bg-teal-950/30' },
   teal: { bg: 'bg-teal-500', text: 'text-teal-600', border: 'border-teal-200 dark:border-teal-800', light: 'bg-teal-50 dark:bg-teal-950/30' },
   orange: { bg: 'bg-orange-500', text: 'text-orange-600', border: 'border-orange-200 dark:border-orange-800', light: 'bg-orange-50 dark:bg-orange-950/30' },
 };
@@ -265,13 +265,13 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
   return (
     <div className="w-full space-y-6 animate-fade-in">
       {/* Header — Fun/Playful */}
-      <div className="bg-gradient-to-br from-violet-600 via-fuchsia-500 to-pink-500 rounded-3xl p-5 sm:p-8 text-white shadow-2xl relative overflow-hidden">
+      <div className="bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 rounded-3xl p-5 sm:p-8 text-white shadow-2xl relative overflow-hidden">
         {/* Decorative blobs */}
         <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
         <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-300/15 rounded-full blur-2xl" />
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
+            <div className="p-3 bg-white/20 rounded-2xl">
               <Sparkles size={32} className="text-yellow-300" />
             </div>
             <div className="flex-1 min-w-0">
@@ -285,7 +285,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
             </div>
           </div>
           {/* Fun hint bar */}
-          <div className="mt-4 bg-white/10 rounded-xl p-3 backdrop-blur-sm text-sm text-white/60">
+          <div className="mt-4 bg-white/15 rounded-xl p-3 text-sm text-white/60">
             <div className="flex items-center gap-2">
               <Sliders size={14} className="text-yellow-300" />
               <span>{t('whatif.terminalHint')}</span>
@@ -358,7 +358,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                       {field.label}
                     </label>
                     {isChanged && (
-                      <span className="text-xs font-bold text-violet-600 dark:text-violet-400 bg-violet-100 dark:bg-violet-900/30 px-2 py-0.5 rounded-full">
+                      <span className="text-xs font-bold text-amber-600 dark:text-amber-400 bg-amber-100 dark:bg-amber-900/30 px-2 py-0.5 rounded-full">
                         {t('whatif.modified')}
                       </span>
                     )}
@@ -373,11 +373,11 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         step={field.step}
                         value={currentVal as number}
                         onChange={(e) => handleFieldChange(field.key, Number(e.target.value))}
-                        className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none cursor-pointer accent-violet-600"
+                        className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none cursor-pointer accent-amber-500"
                       />
                       <div className="flex justify-between text-xs text-slate-500">
                         <span>{field.min?.toLocaleString('it-IT')}</span>
-                        <span className={`font-bold text-base ${isChanged ? 'text-violet-600' : 'text-slate-800 dark:text-slate-200'}`}>
+                        <span className={`font-bold text-base ${isChanged ? 'text-amber-600' : 'text-slate-800 dark:text-slate-200'}`}>
                           {field.key === 'customExchangeRate'
                             ? `1 CHF = ${(currentVal as number).toFixed(2)} EUR`
                             : (currentVal as number).toLocaleString('it-IT')}
@@ -392,7 +392,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     <select
                       value={currentVal as string}
                       onChange={(e) => handleFieldChange(field.key, e.target.value)}
-                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-violet-500"
+                      className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500"
                     >
                       {field.options?.map(opt => (
                         <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -404,7 +404,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     <button
                       onClick={() => handleFieldChange(field.key, !(currentVal as boolean))}
                       className={`relative w-14 h-7 rounded-full transition-colors ${
-                        currentVal ? 'bg-violet-600' : 'bg-slate-300 dark:bg-slate-600'
+                        currentVal ? 'bg-amber-500' : 'bg-slate-300 dark:bg-slate-600'
                       }`}
                       role="switch"
                       aria-checked={!!currentVal}
@@ -429,7 +429,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
             <div className="flex justify-end">
               <button
                 onClick={handleShare}
-                className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-violet-700 dark:text-violet-300 bg-violet-100 dark:bg-violet-900/30 hover:bg-violet-200 dark:hover:bg-violet-900/50 rounded-xl transition-all"
+                className="flex items-center gap-2 px-4 py-2 text-sm font-bold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/30 hover:bg-amber-200 dark:hover:bg-amber-900/50 rounded-xl transition-all"
                 aria-label={t('whatif.share.button')}
               >
                 {shareState === 'copied' ? <Check size={16} /> : <Share2 size={16} />}
@@ -489,7 +489,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
           {hasChanges && (
             <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm animate-fade-in">
               <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-                <Info size={20} className="text-violet-600" />
+                <Info size={20} className="text-amber-600" />
                 {t('whatif.impactDetail')}
               </h3>
               <div className="space-y-3">
@@ -587,7 +587,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     {/* IT vs CH advantage explanation */}
                     <div className="bg-white/50 dark:bg-slate-800/50 rounded-lg p-3 border border-slate-200/50 dark:border-slate-700/50">
                       <div className="flex items-center gap-2 text-sm">
-                        <ArrowLeftRight size={14} className="text-violet-600" />
+                        <ArrowLeftRight size={14} className="text-amber-600" />
                         <span className="text-slate-600 dark:text-slate-500">{t('whatif.comparisonLabel')}:</span>
                       </div>
                       <div className={`text-lg font-extrabold mt-1 ${newDifferential >= 0 ? 'text-emerald-700' : 'text-blue-600'}`}>
@@ -611,12 +611,12 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
           )}
 
           {!hasChanges && (
-            <div className="bg-gradient-to-br from-violet-50 to-pink-50 dark:from-violet-950/30 dark:to-pink-950/30 rounded-2xl border-2 border-dashed border-violet-300/60 dark:border-violet-600/40 p-5 sm:p-8 text-center">
+            <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border-2 border-dashed border-amber-300/60 dark:border-amber-600/40 p-5 sm:p-8 text-center">
               <div className="relative inline-block">
-                <Sparkles size={48} className="text-violet-400 mx-auto mb-4" />
+                <Sparkles size={48} className="text-amber-400 mx-auto mb-4" />
               </div>
               <p className="text-lg font-bold text-slate-700 dark:text-slate-300">{t('whatif.modifyParams')}</p>
-              <p className="text-sm text-violet-500/70 dark:text-violet-400/60 mt-1">{t('whatif.resultsRealtime')}</p>
+              <p className="text-sm text-amber-500/70 dark:text-amber-400/60 mt-1">{t('whatif.resultsRealtime')}</p>
               <p className="text-[10px] text-slate-500 dark:text-slate-500 mt-3 italic">{t('whatif.nerdDisclaimer')}</p>
             </div>
           )}

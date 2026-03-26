@@ -277,7 +277,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <Euro size={18} className="text-emerald-700" /> {t('renovation.result')}
           </h3>
-          {openSections.has('result') ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+          {openSections.has('result') ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
         </button>
         {openSections.has('result') && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -313,7 +313,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                     <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
                       <BarChart3 size={16} className="text-violet-600 dark:text-violet-400" /> {t('capienza.title')}
                     </h3>
-                    {openSections.has('capienza') ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+                    {openSections.has('capienza') ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
                   </button>
                   {openSections.has('capienza') && (
                     <div className="px-4 pb-4 space-y-3">
@@ -506,7 +506,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <Info size={18} className="text-blue-600" /> {t('renovation.availableBonuses')}
             </h3>
-            {openSections.has('bonuses') ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+            {openSections.has('bonuses') ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
           </button>
           {openSections.has('bonuses') && (
             <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -556,7 +556,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <Info size={18} className="text-blue-600" /> {t('renovation.swissCategories')}
             </h3>
-            {openSections.has('categories') ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+            {openSections.has('categories') ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
           </button>
           {openSections.has('categories') && (
             <div className="px-4 pb-4 space-y-3 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -602,7 +602,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
               <HelpCircle size={18} className="text-violet-600" /> {t('renovation.faqTitle')}
             </h3>
-            {openSections.has('faq') ? <ChevronUp size={18} className="text-slate-400" /> : <ChevronDown size={18} className="text-slate-400" />}
+            {openSections.has('faq') ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
           </button>
           {openSections.has('faq') && (
             <div className="px-4 pb-4 space-y-2 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -614,8 +614,8 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                   >
                     <span className="text-sm font-medium text-slate-700 dark:text-slate-300 pr-2">{t(`renovation.faq.${fk}.q`)}</span>
                     {expandedFaq === fk
-                      ? <ChevronUp size={16} className="text-slate-400 shrink-0" />
-                      : <ChevronDown size={16} className="text-slate-400 shrink-0" />}
+                      ? <ChevronUp size={16} className="text-slate-500 shrink-0" />
+                      : <ChevronDown size={16} className="text-slate-500 shrink-0" />}
                   </button>
                   {expandedFaq === fk && (
                     <div className="px-3 pb-3 text-xs text-slate-600 dark:text-slate-400 leading-relaxed border-t border-slate-100 dark:border-slate-700 pt-2">

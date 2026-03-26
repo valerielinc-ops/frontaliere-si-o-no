@@ -169,7 +169,7 @@ const SubscriptionCTA: React.FC = () => {
               return (
                 <button
                   onClick={() => openEmailProvider(email)}
-                  className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-xs font-semibold rounded-xl transition-colors"
+                  className="mt-3 inline-flex items-center gap-2 px-4 py-2 bg-amber-600 hover:bg-amber-700 text-white text-xs font-semibold rounded-xl transition-colors"
                 >
                   <Mail className="w-3.5 h-3.5" />
                   {t('newsletter.openEmailProvider', { provider: provider.name })}
@@ -191,7 +191,7 @@ const SubscriptionCTA: React.FC = () => {
                       setResendStatus('error');
                     }
                   }}
-                  className="text-xs font-medium text-indigo-600 dark:text-indigo-400 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="text-xs font-medium text-amber-600 dark:text-amber-400 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {resendStatus === 'sending' ? '...' :
                    resendStatus === 'sent' ? t('newsletter.resendConfirmationSent') :
@@ -214,11 +214,11 @@ const SubscriptionCTA: React.FC = () => {
   }
 
   return (
-    <div className="mt-6 relative bg-gradient-to-r from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-pink-900/20 border border-indigo-200 dark:border-indigo-800 rounded-2xl overflow-hidden">
+    <div className="mt-6 relative bg-gradient-to-r from-amber-50 via-orange-50 to-rose-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-rose-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl overflow-hidden">
       {/* Dismiss button */}
       <button
         onClick={handleDismiss}
-        className="absolute top-3 right-3 p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
+        className="absolute top-3 right-3 p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
         aria-label={t('newsletter.cta.postCalc.dismiss')}
       >
         <X className="w-4 h-4" />
@@ -233,8 +233,8 @@ const SubscriptionCTA: React.FC = () => {
 
         {/* Header */}
         <div className="flex items-center gap-3 mb-3">
-          <div className="relative p-2.5 bg-indigo-100 dark:bg-indigo-800 rounded-xl">
-            <Bell className="w-5 h-5 text-indigo-600 dark:text-indigo-300" />
+          <div className="relative p-2.5 bg-amber-100 dark:bg-amber-900/40 rounded-xl">
+            <Bell className="w-5 h-5 text-amber-600 dark:text-amber-300" />
             <span className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full animate-pulse" />
           </div>
           <div>
@@ -248,8 +248,8 @@ const SubscriptionCTA: React.FC = () => {
         </div>
 
         {/* This week's preview */}
-        <div className="mb-4 p-3 bg-white/70 dark:bg-slate-800/70 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
-          <p className="text-[11px] text-indigo-600 dark:text-indigo-300 font-bold uppercase tracking-wider mb-2 flex items-center gap-1">
+        <div className="mb-4 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
+          <p className="text-[11px] text-amber-600 dark:text-amber-300 font-bold uppercase tracking-wider mb-2 flex items-center gap-1">
             <Sparkles className="w-3 h-3" /> {t('newsletter.cta.thisWeek')}
           </p>
           <div className="space-y-1.5">
@@ -283,7 +283,7 @@ const SubscriptionCTA: React.FC = () => {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-xl whitespace-nowrap"
+            className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-xl whitespace-nowrap"
           >
             {status === 'loading' ? (
               <><Loader2 className="w-4 h-4 animate-spin" /> {t('newsletter.subscribing')}</>

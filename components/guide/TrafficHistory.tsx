@@ -164,7 +164,7 @@ function getColorClass(minutes: number): string {
 function getTrendIcon(current: number, previous: number) {
   if (current > previous + 2) return <TrendingUp size={14} className="text-red-500" />;
   if (current < previous - 2) return <TrendingDown size={14} className="text-emerald-500" />;
-  return <Minus size={14} className="text-slate-400 dark:text-slate-500" />;
+  return <Minus size={14} className="text-slate-500 dark:text-slate-500" />;
 }
 
 export default function TrafficHistory() {
@@ -379,7 +379,7 @@ export default function TrafficHistory() {
 
       {/* Info notice */}
       <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4 flex items-start gap-3">
-        <Info size={18} className="text-slate-400 dark:text-slate-300 shrink-0 mt-0.5" />
+        <Info size={18} className="text-slate-500 dark:text-slate-300 shrink-0 mt-0.5" />
         <p className="text-xs text-slate-500 dark:text-slate-400">
           {dataSource === 'firestore' ? t('trafficHistory.dataNoteReal') : t('trafficHistory.dataNote')}
         </p>

@@ -492,7 +492,7 @@ export default function MortgageComparison() {
           <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.totalInterest')}</div>
           <div className="text-lg font-bold text-slate-700 dark:text-slate-200">
             <span className="text-red-600 dark:text-red-400">{fmt(Math.round(chTotalInterest))}</span>
-            <span className="text-slate-400 mx-1">vs</span>
+            <span className="text-slate-500 mx-1">vs</span>
             <span className="text-green-600 dark:text-green-400">{fmt(Math.round(itTotalInterest))}</span>
           </div>
         </div>
@@ -775,7 +775,7 @@ export default function MortgageComparison() {
             <Building2 size={20} className="text-purple-600 dark:text-purple-400" />
             {t('mortgage.amortizationTable')}
           </h2>
-          {showAmortization ? <ChevronUp size={20} className="text-slate-400" /> : <ChevronDown size={20} className="text-slate-400" />}
+          {showAmortization ? <ChevronUp size={20} className="text-slate-500" /> : <ChevronDown size={20} className="text-slate-500" />}
         </button>
         {showAmortization && (
           <div className="px-4 sm:px-6 pb-4 sm:pb-6 overflow-x-auto">
@@ -829,7 +829,7 @@ export default function MortgageComparison() {
             <Info size={20} className="text-purple-600 dark:text-purple-400" />
             {t('mortgage.rulesTitle')}
           </h2>
-          {showRules ? <ChevronUp size={20} className="text-slate-400" /> : <ChevronDown size={20} className="text-slate-400" />}
+          {showRules ? <ChevronUp size={20} className="text-slate-500" /> : <ChevronDown size={20} className="text-slate-500" />}
         </button>
         {showRules && (
           <div className="px-4 sm:px-6 pb-4 sm:pb-6 space-y-4">

@@ -1528,14 +1528,13 @@ const UserProfile: React.FC = () => {
 
           <div
             id="profile-privacy-content"
+            className={`grid ${prefersReducedMotion ? '' : 'transition-[grid-template-rows,opacity] duration-300 ease-[cubic-bezier(.2,.8,.2,1)]'}`}
             style={{
-              maxHeight: privacyOpen ? 1200 : 0,
+              gridTemplateRows: privacyOpen ? '1fr' : '0fr',
               opacity: privacyOpen ? 1 : 0,
-              overflow: 'hidden',
-              transition: prefersReducedMotion ? 'none' : 'max-height 380ms cubic-bezier(.2,.8,.2,1), opacity 220ms ease',
             }}
-            className="space-y-3 mt-3"
           >
+          <div className="overflow-hidden space-y-3 mt-3">
             {/* Privacy note */}
             <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-500">
               <Shield size={14} className="flex-shrink-0" />
@@ -1596,6 +1595,7 @@ const UserProfile: React.FC = () => {
                 )}
               </div>
             )}
+          </div>
           </div>
         </div>
       </div>

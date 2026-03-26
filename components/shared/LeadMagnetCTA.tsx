@@ -83,10 +83,10 @@ const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: stri
     border: 'border-amber-200 dark:border-amber-800',
   },
   insurance: {
-    gradient: 'from-violet-50 to-purple-50 dark:from-violet-900/20 dark:to-purple-900/20',
-    iconBg: 'bg-violet-100 dark:bg-violet-800',
-    iconText: 'text-violet-600 dark:text-violet-300',
-    border: 'border-violet-200 dark:border-violet-800',
+    gradient: 'from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20',
+    iconBg: 'bg-teal-100 dark:bg-teal-800',
+    iconText: 'text-teal-600 dark:text-teal-300',
+    border: 'border-teal-200 dark:border-teal-800',
   },
   pension: {
     gradient: 'from-cyan-50 to-sky-50 dark:from-cyan-900/20 dark:to-sky-900/20',
@@ -95,10 +95,10 @@ const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: stri
     border: 'border-cyan-200 dark:border-cyan-800',
   },
   generic: {
-    gradient: 'from-indigo-50 via-purple-50 to-pink-50 dark:from-indigo-900/20 dark:via-purple-900/20 dark:to-pink-900/20',
-    iconBg: 'bg-indigo-100 dark:bg-indigo-800',
-    iconText: 'text-indigo-600 dark:text-indigo-300',
-    border: 'border-indigo-200 dark:border-indigo-800',
+    gradient: 'from-amber-50 via-orange-50 to-rose-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-rose-900/20',
+    iconBg: 'bg-amber-100 dark:bg-amber-800',
+    iconText: 'text-amber-600 dark:text-amber-300',
+    border: 'border-amber-200 dark:border-amber-800',
   },
 };
 
@@ -868,7 +868,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
       <div className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
         <button
           onClick={handleDismiss}
-          className="absolute top-2 right-2 p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors"
+          className="absolute top-2 right-2 p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors"
           aria-label={t('leadMagnet.dismiss')}
         >
           <X className="w-3.5 h-3.5" />
@@ -891,13 +891,13 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-4 py-2 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-lg hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 flex items-center gap-1.5 text-sm shadow-md whitespace-nowrap"
+            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-lg hover:from-amber-600 hover:to-orange-700 transition-all disabled:opacity-50 flex items-center gap-1.5 text-sm shadow-md whitespace-nowrap"
           >
             {status === 'loading' ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -921,7 +921,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
     <div className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
       <button
         onClick={handleDismiss}
-        className="absolute top-3 right-3 p-1 text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
+        className="absolute top-3 right-3 p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
         aria-label={t('leadMagnet.dismiss')}
       >
         <X className="w-4 h-4" />
@@ -974,13 +974,13 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-indigo-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-5 py-2.5 bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-bold rounded-xl hover:from-indigo-700 hover:to-purple-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-md whitespace-nowrap"
+            className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-md whitespace-nowrap"
           >
             {status === 'loading' ? (
               <><Loader2 className="w-4 h-4 animate-spin" /> {t('newsletter.subscribing')}</>
