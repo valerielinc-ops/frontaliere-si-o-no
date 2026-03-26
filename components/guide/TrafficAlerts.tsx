@@ -85,6 +85,14 @@ function effectiveWait(t: TrafficData): number {
   return t.totalCrossingMinutes ?? t.waitTimeMinutes;
 }
 
+/** Derive status from the value actually displayed to the user (effectiveWait). */
+function effectiveStatus(t: TrafficData): 'green' | 'yellow' | 'red' {
+  const mins = effectiveWait(t);
+  if (mins < 5) return 'green';
+  if (mins < 15) return 'yellow';
+  return 'red';
+}
+
 interface TrafficAlertsProps {
   /** Optional deep-link crossing id (slug). When provided, preselects and scrolls to the crossing. */
   initialCrossingId?: string;
@@ -300,7 +308,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
             {borderCrossings.map((crossing) => {
               const traffic = getTrafficForCrossing(crossing.name);
-              const status = traffic?.status || 'green';
+              const status = traffic ? effectiveStatus(traffic) : 'green';
               const waitTime = traffic ? effectiveWait(traffic) : 0;
 
               return (
@@ -410,9 +418,10 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
           {allCrossingsWithTraffic.map(({ crossing, traffic }) => {
             const isSelected = selectedCrossing === crossing.name;
             const crossingId = slugifyCrossingName(crossing.name);
-            const bgColor = traffic.status === 'green' ? 'bg-emerald-700' : traffic.status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500';
-            const borderColor = traffic.status === 'green' ? 'border-emerald-400' : traffic.status === 'yellow' ? 'border-yellow-400' : 'border-red-400';
-            const textColor = traffic.status === 'green' ? 'text-emerald-700' : traffic.status === 'yellow' ? 'text-yellow-600' : 'text-red-600';
+            const status = effectiveStatus(traffic);
+            const bgColor = status === 'green' ? 'bg-emerald-700' : status === 'yellow' ? 'bg-yellow-500' : 'bg-red-500';
+            const borderColor = status === 'green' ? 'border-emerald-400' : status === 'yellow' ? 'border-yellow-400' : 'border-red-400';
+            const textColor = status === 'green' ? 'text-emerald-700' : status === 'yellow' ? 'text-yellow-600' : 'text-red-600';
 
             return (
               <div
@@ -438,7 +447,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
 
                 <div className="flex items-center justify-between">
                   <span className={`text-sm font-bold ${textColor}`}>
-                    {t(STATUS_LABEL_KEYS[traffic.status])} — {effectiveWait(traffic)} min
+                    {t(STATUS_LABEL_KEYS[status])} — {effectiveWait(traffic)} min
                   </span>
                   <span className="text-xs text-slate-500">{traffic.direction}</span>
                 </div>
