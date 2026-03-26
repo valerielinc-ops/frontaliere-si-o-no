@@ -454,7 +454,14 @@ async function enrichWithDetails(jobs) {
           }
 
           if (result.text && result.text.length > 100) {
-            job.description = result.text;
+            // If the detail page content is richer than the current description, replace it.
+            // If it's shorter (thin apprenticeship pages etc.), append it to the boilerplate
+            // so we never lose context in exchange for a minimal "Deine Vorteile" blurb.
+            if (result.text.length >= job.description.length * 0.6) {
+              job.description = result.text;
+            } else {
+              job.description = `${result.text}\n\n${job.description}`;
+            }
             // Mark as enriched so merge clears stale translations
             job._enrichedFromDetail = true;
             enriched++;
@@ -557,12 +564,45 @@ function getCompanyBoilerplate(company = '') {
   ].join('\n');
 }
 
+// Per-city postal code table for Volg/LANDI/fenaco locations in GR, VS, TI.
+// Prevents applyCompanyDefaults from overwriting per-job locations with HQ (Cadenazzo).
+const CITY_POSTAL_CH = {
+  // Graubünden
+  Andeer: '7440', Arosa: '7050', Bever: '7502', Bonaduz: '7402', Chur: '7000',
+  'Davos Dorf': '7260', 'Davos Platz': '7270', 'Disentis/Mustér': '7180',
+  'Eggersriet SG': '9034', Flims: '7017', Klosters: '7250', 'Laax Signina': '7031',
+  Landquart: '7302', Lenzerheide: '7078', Malans: '7208', Maienfeld: '7304',
+  Nufenen: '6546', Pany: '7234', Pontresina: '7504', Poschiavo: '7742',
+  Saas: '7247', 'Sils Maria': '7514', Splügen: '7435', 'St. Moritz': '7500',
+  'Tenna GR': '7106', Thusis: '7430', Trimmis: '7203', Untervaz: '7204',
+  Vals: '7132', Zuoz: '7524',
+  // Valais / Wallis
+  Anniviers: '3960', Baltschieder: '3937', Bettmeralp: '3992', Binn: '3996',
+  'Brig-Glis': '3900', Bürchen: '3943', 'Collombey-Muraz': '1868',
+  Ernen: '3995', Eyholz: '3930', Founex: '1297', Grächen: '3925',
+  'Obergoms VS': '3988', Orsières: '1937', Raron: '3942', Reckingen: '3993',
+  'Saint-Maurice': '1890', Saxon: '1907', Saas: '3910',
+  'Unterbäch': '3944', Veysonnaz: '1993', Vex: '1981', Visp: '3930',
+  Visperterminen: '3932', Vissoie: '3960', 'Wiler (Lötschen)': '3918',
+  // Ticino
+  Bellinzona: '6500', Biasca: '6710', Cadenazzo: '6593', Chiasso: '6830',
+  'Giubiasco': '6512', Locarno: '6600', Lugano: '6900', Mendrisio: '6850',
+};
+
+// Canton-specific fallback postal codes when city is not in the lookup table.
+const CANTON_POSTAL_FALLBACK = { GR: '7000', VS: '3900', TI: '6900', LU: '6000' };
+
+function getPostalCode(city = '', canton = '') {
+  return CITY_POSTAL_CH[city] || CANTON_POSTAL_FALLBACK[canton] || '0000';
+}
+
 function buildJob(raw) {
   const { url, title, company, city, workload, contractTerms, canton, region } = raw;
   const { employmentType, contractType } = mapEmploymentType(workload, contractTerms);
   const slug = slugify(`${title}-${company}-${city}`);
   const sourceLang = detectLang(title, 'de');
   const today = new Date().toISOString().slice(0, 10);
+  const postalCode = getPostalCode(city, canton);
 
   const metaLine = [
     `${title} — ${company}, ${city} (${region}).`,
@@ -587,6 +627,8 @@ function buildJob(raw) {
     addressLocality: city,
     addressRegion: canton,
     addressCountry: 'CH',
+    postalCode,
+    streetAddress: '',
     canton,
     country: 'CH',
     category: mapCategory(company),
