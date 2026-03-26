@@ -119,8 +119,8 @@ const HealthInsurance: React.FC = () => {
   const [data, setData] = useState<HealthPremiumsData | null>(null);
   const [age, setAge] = useState<number>(35);
   const [canton, setCanton] = useState('TI');
-  const [commune, setCommune] = useState('');
-  const [franchise, setFranchise] = useState(300);
+  const [commune, setCommune] = useState('6823-Lugano');
+  const [franchise, setFranchise] = useState(2500);
   const [model, setModel] = useState<InsuranceModel>('standard');
   const [withAccident, setWithAccident] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
