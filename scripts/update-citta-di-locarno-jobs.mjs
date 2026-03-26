@@ -11,6 +11,10 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug } from './lib/dedicated-crawler-common.mjs';
 import { fetchLocarnoJobs, slugify, inferEmploymentType } from './lib/citta-di-locarno-job-parser.mjs';
+import {
+  buildPdfBackedDescription,
+  extractPdfJobContentFromUrl,
+} from './lib/pdf-job-content.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -52,9 +56,36 @@ async function main() {
   if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Locarno jobs found. Keeping existing.'); return; }
 
   console.log(`\ud83e\udde9 Found ${rawJobs.length} Locarno jobs.`);
-  const parsedJobs = rawJobs.map((raw) => {
-    const desc = `Concorso pubblico presso la ${COMPANY_NAME} per la posizione di ${raw.title}. Consultare il bando di concorso allegato per requisiti e modalit\u00e0 di candidatura.`;
-    return {
+  const parsedJobs = [];
+  for (const raw of rawJobs) {
+    let pdfText = '';
+    if (raw.pdfUrl) {
+      console.log(`  \ud83d\udcc4 Extracting PDF: ${raw.pdfUrl}`);
+      const pdfContent = await extractPdfJobContentFromUrl(raw.pdfUrl);
+      if (pdfContent.error) {
+        console.warn(`  \u26a0\ufe0f PDF extraction failed for "${raw.title}": ${pdfContent.error}`);
+      } else if (pdfContent.text) {
+        pdfText = pdfContent.text;
+        console.log(`  \u2705 PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
+      }
+    }
+
+    const fallbackDesc = `Concorso pubblico presso la ${COMPANY_NAME} per la posizione di ${raw.title}. Consultare il bando di concorso allegato per requisiti e modalit\u00e0 di candidatura.`;
+    const desc = buildPdfBackedDescription({
+      introLines: [
+        `## ${raw.title}`,
+        `${COMPANY_NAME} \u2014 concorso pubblico a Locarno (TI), Svizzera.`,
+      ],
+      pdfText,
+      fallbackText: fallbackDesc,
+      footerLines: [
+        `**Settore:** Pubblica Amministrazione`,
+        `**Sede:** Piazza Grande 18, 6600 Locarno, TI, Svizzera`,
+        raw.pdfUrl ? `[Bando ufficiale (PDF)](${raw.pdfUrl})` : '',
+      ].filter(Boolean),
+    });
+
+    parsedJobs.push({
       id: raw.id, slug: raw.slug, slugByLocale: { it: raw.slug, en: raw.slug, de: raw.slug, fr: raw.slug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'locarno.ch',
       title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
@@ -65,8 +96,8 @@ async function main() {
       postedDate: raw.datePosted,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
       source: 'Locarno Dedicated Parser', crawledAt: new Date().toISOString(),
-    };
-  });
+    });
+  }
 
   const published = mergeCompanyJobs(parsedJobs);
   printPublishedJobUrls(published, 'Locarno');
