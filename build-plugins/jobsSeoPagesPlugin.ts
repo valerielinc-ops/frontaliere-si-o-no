@@ -2902,13 +2902,7 @@ ${(() => {
             searchPageCount++;
           }
 
-          const itPath = withSlash(`/${sectionByLocale.it}/${searchRoutePrefix.it}-${key}`.replace(/\/+/g, '/'));
-          const alternateLinks = localeList.map((locale) => {
-            const slug = `${searchRoutePrefix[locale]}-${key}`;
-            const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
-            return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${withSlash(path)}" />`;
-          }).join('\n');
-          searchSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.55</priority>\n  </url>`);
+          // noindex pages must not appear in sitemaps — skip sitemap entry.
         }
 
         /* ── Combo search landing pages ────────────────────────────── */
@@ -3013,13 +3007,7 @@ ${(() => {
             searchPageCount++;
           }
 
-          const itPath = withSlash(`/${sectionByLocale.it}/${searchRoutePrefix.it}-${comboKey}`.replace(/\/+/g, '/'));
-          const alternateLinks = localeList.map((locale) => {
-            const slug = `${searchRoutePrefix[locale]}-${comboKey}`;
-            const path = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
-            return `    <xhtml:link rel="alternate" hreflang="${locale}" href="${BASE_URL}${withSlash(path)}" />`;
-          }).join('\n');
-          searchSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${itPath}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.5</priority>\n  </url>`);
+          // noindex pages must not appear in sitemaps — skip sitemap entry.
         };
 
         // Collect unique locations and companies from stats leaders

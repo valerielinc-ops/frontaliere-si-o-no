@@ -100,8 +100,8 @@ describe('pdf-job-content', () => {
     });
 
     expect(result.totalPages).toBe(2);
-    expect(result.warning).toBeDefined();
-    expect(result.warning).toContain('image-only/scanned PDF');
+    expect((result as any).warning).toBeDefined();
+    expect((result as any).warning).toContain('image-only/scanned PDF');
     expect(result.error).toBeUndefined();
   });
 
@@ -121,7 +121,7 @@ describe('pdf-job-content', () => {
     });
 
     expect(result.totalPages).toBe(1);
-    expect(result.warning).toBeUndefined();
+    expect((result as any).warning).toBeUndefined();
     expect(result.error).toBeUndefined();
     expect(result.text.length).toBeGreaterThan(50);
   });
