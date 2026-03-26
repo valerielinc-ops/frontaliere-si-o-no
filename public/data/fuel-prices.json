@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-26T20:03:36.133Z",
+  "generatedAt": "2026-03-26T21:04:27.599Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 233,
-      "latestObservedUpdate": "2026-03-26T19:53:25.879Z"
+      "latestObservedUpdate": "2026-03-26T20:38:27.745Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -13422,7 +13422,7 @@
             "lat": 45.9857434,
             "lng": 8.8908046,
             "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-24T17:30:01.890Z",
+            "updatedAt": "2026-03-26T20:09:07.301Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 3,
             "sp95PriceEur": 1.88,
@@ -16165,7 +16165,7 @@
             "lat": 45.9857434,
             "lng": 8.8908046,
             "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-24T17:30:01.890Z",
+            "updatedAt": "2026-03-26T20:09:07.301Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 3,
             "sp95PriceEur": 1.88,
@@ -19055,7 +19055,7 @@
             "lat": 45.9857434,
             "lng": 8.8908046,
             "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-24T17:30:01.890Z",
+            "updatedAt": "2026-03-26T20:09:07.301Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 3,
             "sp95PriceEur": 1.88,
@@ -20721,18 +20721,18 @@
             "distanceKm": 19
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.956,
-            "distanceKm": 17.9
+            "id": "BuLqgLtrkWKZWPB1oaHr",
+            "name": "BP Unbemannte Station Genestrerio",
+            "brand": "BP",
+            "address": "Via Adorna, 6852 Genestrerio",
+            "lat": 45.85708,
+            "lng": 8.96782,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-21T12:15:41.072Z",
+            "nearestMunicipality": "Bizzarone (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 1.967,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.72,
@@ -21818,20 +21818,6 @@
             "distanceKm": 16.1
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.956,
-            "distanceKm": 18.9
-          },
-          {
             "id": "BuLqgLtrkWKZWPB1oaHr",
             "name": "BP Unbemannte Station Genestrerio",
             "brand": "BP",
@@ -21857,6 +21843,20 @@
             "nearestMunicipality": "Clivio (VA)",
             "nearestMunicipalityDistanceKm": 3.9,
             "sp95PriceEur": 1.967,
+            "distanceKm": 19.8
+          },
+          {
+            "id": "xzYLeWdqylT5fHyTU1l4",
+            "name": "SOCAR / Piccadilly Mendrisio Via Franco Zorzi",
+            "brand": "PICCADILLY",
+            "address": "Via Franco Zorzi 4, 6850 Mendrisio",
+            "lat": 45.872927,
+            "lng": 8.978497,
+            "sp95PriceChf": 1.82,
+            "updatedAt": "2026-03-22T10:33:43.440Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.9,
+            "sp95PriceEur": 1.989,
             "distanceKm": 19.8
           }
         ],
@@ -25067,20 +25067,6 @@
             "distanceKm": 17
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.956,
-            "distanceKm": 19.9
-          },
-          {
             "id": "BuLqgLtrkWKZWPB1oaHr",
             "name": "BP Unbemannte Station Genestrerio",
             "brand": "BP",
@@ -25093,6 +25079,20 @@
             "nearestMunicipalityDistanceKm": 2.8,
             "sp95PriceEur": 1.967,
             "distanceKm": 19.3
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-26T20:38:27.745Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 2.011,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.72,
@@ -26141,20 +26141,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.956,
-            "distanceKm": 19.4
-          },
-          {
             "id": "BuLqgLtrkWKZWPB1oaHr",
             "name": "BP Unbemannte Station Genestrerio",
             "brand": "BP",
@@ -26181,6 +26167,20 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.011,
             "distanceKm": 19.9
+          },
+          {
+            "id": "jyoUfNzRecwgKimvcY2C",
+            "name": "Carrozzeria San Giovanni SA",
+            "brand": "AVIA",
+            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
+            "lat": 45.862217,
+            "lng": 8.972931,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-26T20:38:27.745Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.4,
+            "sp95PriceEur": 2.011,
+            "distanceKm": 19.4
           }
         ],
         "minPriceChf": 1.72,
@@ -27059,20 +27059,6 @@
             "distanceKm": 19.2
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.956,
-            "distanceKm": 18.2
-          },
-          {
             "id": "BuLqgLtrkWKZWPB1oaHr",
             "name": "BP Unbemannte Station Genestrerio",
             "brand": "BP",
@@ -27085,6 +27071,20 @@
             "nearestMunicipalityDistanceKm": 2.8,
             "sp95PriceEur": 1.967,
             "distanceKm": 17.5
+          },
+          {
+            "id": "vbEF6LPJUVx6BKRmHD5T",
+            "name": "Station Allo Svincolo",
+            "brand": "UNDEFINED",
+            "address": "Via Francesco Borromini 6, 6850 Mendrisio",
+            "lat": 45.87329729581304,
+            "lng": 8.978156929315192,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-22T10:33:04.222Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.9,
+            "sp95PriceEur": 1.967,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.72,
@@ -36879,20 +36879,6 @@
             "distanceKm": 14.3
           },
           {
-            "id": "veI3WKDGDSSOZJLLaEN3",
-            "name": "TAMOIL Bellwald",
-            "brand": "TAMOIL",
-            "address": "Fuergangen, 3997 Bellwald",
-            "lat": 46.41086,
-            "lng": 8.151533,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-20T07:47:02.339Z",
-            "nearestMunicipality": "Formazza (VB)",
-            "nearestMunicipalityDistanceKm": 18.4,
-            "sp95PriceEur": 1.978,
-            "distanceKm": 18.4
-          },
-          {
             "id": "nQS9hnOs67lshsQWElha",
             "name": "Garage Grimsel",
             "brand": "UNDEFINED",
@@ -36905,6 +36891,20 @@
             "nearestMunicipalityDistanceKm": 14.1,
             "sp95PriceEur": 2,
             "distanceKm": 14.1
+          },
+          {
+            "id": "bd3HphmEpsrrKS17HtBv",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Via Valmaggina 67, 6675 Cevio",
+            "lat": 46.317947,
+            "lng": 8.601824,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-19T12:34:55.520Z",
+            "nearestMunicipality": "Formazza (VB)",
+            "nearestMunicipalityDistanceKm": 18.2,
+            "sp95PriceEur": 2.011,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.77,
