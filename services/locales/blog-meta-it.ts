@@ -1784,6 +1784,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-carceri-ticino.title': 'Lavoro in carcere: 15 posti disponibili',
     'blog.article.lavoro-carceri-ticino.excerpt': 'Il Canton Ticino cerca guardie carcerarie. Scadenza del bando: 31 marzo 2026.',
     'blog.article.lavoro-carceri-ticino.imageAlt': 'Vista della città di Lugano',
+    'blog.article.avs-saronno-referendum.title': 'Avs Saronno: \'Ai giovani, avete fatto la differenza\'',
+    'blog.article.avs-saronno-referendum.excerpt': 'Il risultato del referendum costituzionale a Saronno: un forte segnale politico per il futuro',
+    'blog.article.avs-saronno-referendum.imageAlt': 'Persona che vota a Saronno',
 };
 
 export default blogMetaIt;

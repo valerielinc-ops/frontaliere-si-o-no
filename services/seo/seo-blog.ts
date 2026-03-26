@@ -8236,6 +8236,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-saronno-referendum': {
+    title: 'Avs Saronno: \'Ai giovani, avete fatto la differenza\' | Frontaliere Ticino',
+    description: 'Il risultato del referendum costituzionale a Saronno: un forte segnale politico per il futuro. L\'Alleanza Verdi Sinistra di Saronno invita i giovani a entrare',
+    keywords: 'frontalieri, ticino, svizzera, italia, saronno, giovani, avete, fatto',
+    ogTitle: 'Avs Saronno: \'Ai giovani, avete fatto la differenza\'',
+    ogDescription: 'Il risultato del referendum costituzionale a Saronno: un forte segnale politico per il futuro',
+    canonicalPath: '/articoli-frontaliere/avs-saronno-referendum',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Avs Saronno: 'Ai giovani, avete fatto la differenza'",
+      "description": "Il risultato del referendum costituzionale a Saronno: un forte segnale politico per il futuro. L'Alleanza Verdi Sinistra di Saronno invita i giovani a entrare",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/avs-saronno-referendum.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Persona che vota a Saronno"
+      },
+      "datePublished": "2026-03-26T10:12:25+00:00",
+      "dateModified": "2026-03-26T10:12:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/avs-saronno-referendum`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

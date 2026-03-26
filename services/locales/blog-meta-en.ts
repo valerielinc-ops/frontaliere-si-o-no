@@ -1784,6 +1784,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-carceri-ticino.title': 'Work in Prison: 15 Positions Available',
     'blog.article.lavoro-carceri-ticino.excerpt': 'The Canton of Ticino is looking for prison guards. Deadline for the call: March 31, 2026.',
     'blog.article.lavoro-carceri-ticino.imageAlt': 'View of the city of Lugano',
+    'blog.article.avs-saronno-referendum.title': 'Avs Saronno: \'To the young people, you made a difference\'',
+    'blog.article.avs-saronno-referendum.excerpt': 'The result of the constitutional referendum in Saronno: a strong political signal for the future',
+    'blog.article.avs-saronno-referendum.imageAlt': 'Person voting in Saronno',
 };
 
 export default blogMetaEn;

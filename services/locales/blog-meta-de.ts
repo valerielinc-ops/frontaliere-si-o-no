@@ -1784,6 +1784,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-carceri-ticino.title': 'Arbeit im Gefängnis: 15 Stellen verfügbar',
     'blog.article.lavoro-carceri-ticino.excerpt': 'Der Kanton Tessin sucht Gefängniswärter. Bewerbungsfrist: 31. März 2026.',
     'blog.article.lavoro-carceri-ticino.imageAlt': 'Blick auf die Stadt Lugano',
+    'blog.article.avs-saronno-referendum.title': 'Avs Saronno: \'An die jungen Menschen, ihr habt den Unterschied gemacht\'',
+    'blog.article.avs-saronno-referendum.excerpt': 'Das Ergebnis des Verfassungsreferendums in Saronno: ein starkes politisches Signal für die Zukunft',
+    'blog.article.avs-saronno-referendum.imageAlt': 'Person bei der Abstimmung in Saronno',
 };
 
 export default blogMetaDe;

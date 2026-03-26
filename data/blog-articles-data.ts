@@ -5354,4 +5354,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavoro-carceri-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'avs-saronno-referendum',
+    category: 'pratico',
+    date: '2026-03-26T10:12:25.052Z',
+    image: '/images/blog/avs-saronno-referendum.jpg',
+    hasCalculator: true,
+  },
 ];
