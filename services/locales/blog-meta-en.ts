@@ -1781,6 +1781,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fusione-valle-calanca-comuni.title': 'Val Calanca, Four Municipalities Explore a Structural Merger',
     'blog.article.fusione-valle-calanca-comuni.excerpt': 'Aggregation project in Calanca: four municipalities are considering the creation of a stronger entity to face challenges such as depopulation and staff shortages. Discover the details.',
     'blog.article.fusione-valle-calanca-comuni.imageAlt': 'Mountain landscape and villages in Val Calanca, Ticino',
+    'blog.article.lavoro-carceri-ticino.title': 'Work in Prison: 15 Positions Available',
+    'blog.article.lavoro-carceri-ticino.excerpt': 'The Canton of Ticino is looking for prison guards. Deadline for the call: March 31, 2026.',
+    'blog.article.lavoro-carceri-ticino.imageAlt': 'View of the city of Lugano',
 };
 
 export default blogMetaEn;

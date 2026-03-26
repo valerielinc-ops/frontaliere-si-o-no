@@ -1781,6 +1781,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fusione-valle-calanca-comuni.title': 'Val Calanca, quattro Comuni studiano una fusione strutturale',
     'blog.article.fusione-valle-calanca-comuni.excerpt': 'Progetto di aggregazione in Calanca: quattro Comuni valutano la creazione di un ente più forte per affrontare sfide come spopolamento e carenza di personale. Scopri i dettagli.',
     'blog.article.fusione-valle-calanca-comuni.imageAlt': 'Paesaggio montano e villaggi della Valle Calanca in Ticino',
+    'blog.article.lavoro-carceri-ticino.title': 'Lavoro in carcere: 15 posti disponibili',
+    'blog.article.lavoro-carceri-ticino.excerpt': 'Il Canton Ticino cerca guardie carcerarie. Scadenza del bando: 31 marzo 2026.',
+    'blog.article.lavoro-carceri-ticino.imageAlt': 'Vista della città di Lugano',
 };
 
 export default blogMetaIt;

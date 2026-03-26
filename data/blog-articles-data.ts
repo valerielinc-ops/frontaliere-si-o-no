@@ -5347,4 +5347,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/fusione-valle-calanca-comuni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavoro-carceri-ticino',
+    category: 'pratico',
+    date: '2026-03-26T07:27:47.273Z',
+    image: '/images/blog/lavoro-carceri-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

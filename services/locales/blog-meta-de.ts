@@ -1781,6 +1781,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fusione-valle-calanca-comuni.title': 'Val Calanca, vier Gemeinden prüfen eine strukturelle Fusion',
     'blog.article.fusione-valle-calanca-comuni.excerpt': 'Projekt zur Zusammenlegung in Calanca: Vier Gemeinden bewerten die Schaffung einer stärkeren Einheit, um Herausforderungen wie Abwanderung und Personalmangel zu bewältigen. Erfahre die Details.',
     'blog.article.fusione-valle-calanca-comuni.imageAlt': 'Berglandschaft und Dörfer im Calanca-Tal, Ticino',
+    'blog.article.lavoro-carceri-ticino.title': 'Arbeit im Gefängnis: 15 Stellen verfügbar',
+    'blog.article.lavoro-carceri-ticino.excerpt': 'Der Kanton Tessin sucht Gefängniswärter. Bewerbungsfrist: 31. März 2026.',
+    'blog.article.lavoro-carceri-ticino.imageAlt': 'Blick auf die Stadt Lugano',
 };
 
 export default blogMetaDe;
