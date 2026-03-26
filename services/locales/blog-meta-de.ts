@@ -1790,6 +1790,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-annaffiatoi.title': 'Lavena Ponte Tresa engagiert sich für Sauberkeit und Grün in der Zone',
     'blog.article.lavena-ponte-tresa-annaffiatoi.excerpt': 'Anlässlich der Pflanzung neuer Grünflächen hat die Gemeinde den anwesenden Unternehmen Gießkannen geschenkt, um die Pflege der Straßen zu fördern.',
     'blog.article.lavena-ponte-tresa-annaffiatoi.imageAlt': 'Gemeinde Lavena Ponte Tresa an der italienisch-schweizerischen Grenze sichert sich eine saubere und grüne Umgebung.',
+    'blog.article.bossi-commemorazione-bagarrata.title': 'Die Gedenkminute für Bossi entartet zu einem Sturm in der Stadtratskammer',
+    'blog.article.bossi-commemorazione-bagarrata.excerpt': 'Die Gedenkminute für den Gründer der Lega, Umberto Bossi, endete in einem Schrei- und Anschlagduell zwischen Mehrheit und Opposition.',
+    'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'gruppe von Personen in Unstimmigkeiten in einem aula, mit einer Schweizer Fahne im Hintergrund',
 };
 
 export default blogMetaDe;

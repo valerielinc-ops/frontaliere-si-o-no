@@ -1790,6 +1790,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-annaffiatoi.title': 'Lavena Ponte Tresa Commits to Cleaning and Greening the Area',
     'blog.article.lavena-ponte-tresa-annaffiatoi.excerpt': 'On the occasion of the planting of new greenery, the municipality gave away watering cans to businesses to encourage the care of the streets.',
     'blog.article.lavena-ponte-tresa-annaffiatoi.imageAlt': 'Town of Lavena Ponte Tresa on the Swiss-Italian border committed to cleanliness and greenery.',
+    'blog.article.bossi-commemorazione-bagarrata.title': 'Bossi\'s Commemoration Turns into Brawl in Council',
+    'blog.article.bossi-commemorazione-bagarrata.excerpt': 'The commemoration for the founder of the Lega Umberto Bossi ended in a brawl with shouts and accusations between the majority and opposition.',
+    'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'group of people in disaccordo in an aula, with a Swiss flag in the background',
 };
 
 export default blogMetaEn;

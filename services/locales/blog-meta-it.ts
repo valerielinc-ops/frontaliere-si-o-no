@@ -1790,6 +1790,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-annaffiatoi.title': 'Lavena Ponte Tresa si impegna per la pulizia e il verde della zona',
     'blog.article.lavena-ponte-tresa-annaffiatoi.excerpt': 'In occasione della piantumazione di nuove essenze verdi, il Comune ha regalato agli attività presenti degli annaffiatoi per incentivare la cura delle strade.',
     'blog.article.lavena-ponte-tresa-annaffiatoi.imageAlt': 'Comune di Lavena Ponte Tresa al confine con la Svizzera che si impegna per la pulizia e il verde.',
+    'blog.article.bossi-commemorazione-bagarrata.title': 'La commemorazione di Bossi diventa bagarre in aula',
+    'blog.article.bossi-commemorazione-bagarrata.excerpt': 'La commemorazione per il fondatore della Lega Umberto Bossi è finita in bagarre con urla e accuse tra maggioranza e opposizione.',
+    'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'gruppo di persone in disaccordo in un\'aula, con una bandiera svizzera sullo sfondo',
 };
 
 export default blogMetaIt;

@@ -5368,4 +5368,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavena-ponte-tresa-annaffiatoi.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'bossi-commemorazione-bagarrata',
+    category: 'pratico',
+    date: '2026-03-26T19:24:12.215Z',
+    image: '/images/blog/bossi-commemorazione-bagarrata.jpg',
+    hasCalculator: true,
+  },
 ];

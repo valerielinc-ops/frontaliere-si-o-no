@@ -1790,6 +1790,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-annaffiatoi.title': 'Lavena Ponte Tresa s\'engage pour le nettoyage et le vert de la zone',
     'blog.article.lavena-ponte-tresa-annaffiatoi.excerpt': 'À l\'occasion de la plantation de nouvelles essences vertes, la commune a offert des arroseurs aux entreprises présentes pour encourager l\'entretien des rues.',
     'blog.article.lavena-ponte-tresa-annaffiatoi.imageAlt': 'Commune de Lavena Ponte Tresa sur la frontière italo-suisse décidée à la propreté et à la verdure.',
+    'blog.article.bossi-commemorazione-bagarrata.title': 'La commemorazione di Bossi diventa bagarre en séance',
+    'blog.article.bossi-commemorazione-bagarrata.excerpt': 'La célébration du fondateur de la Ligue Umberto Bossi s\'est terminée en bagarre avec des cris et des accusations entre majorité et opposition.',
+    'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'groupe de personnes en désaccord dans une aula, avec le drapeau suisse en arrière-plan',
 };
 
 export default blogMetaFr;

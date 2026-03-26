@@ -8409,6 +8409,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bossi-commemorazione-bagarrata': {
+    title: 'La commemorazione di Bossi diventa bagarre in aula | Frontaliere Ticino',
+    description: 'La commemorazione per il fondatore della Lega Umberto Bossi è finita in bagarre con urla e accuse tra maggioranza e opposizione. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, commemorazione, bossi, diventa, bagarre',
+    ogTitle: 'La commemorazione di Bossi diventa bagarre in aula',
+    ogDescription: 'La commemorazione per il fondatore della Lega Umberto Bossi è finita in bagarre con urla e accuse tra maggioranza e opposizione.',
+    canonicalPath: '/articoli-frontaliere/bossi-commemorazione-bagarrata',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La commemorazione di Bossi diventa bagarre in aula",
+      "description": "La commemorazione per il fondatore della Lega Umberto Bossi è finita in bagarre con urla e accuse tra maggioranza e opposizione. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/bossi-commemorazione-bagarrata.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "gruppo di persone in disaccordo in un'aula, con una bandiera svizzera sullo sfondo"
+      },
+      "datePublished": "2026-03-26T19:24:12+00:00",
+      "dateModified": "2026-03-26T19:24:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bossi-commemorazione-bagarrata`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
