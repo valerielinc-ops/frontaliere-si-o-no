@@ -40,6 +40,63 @@ function stripHtml(html = '') {
     .trim();
 }
 
+/**
+ * Convert HTML to Markdown, preserving headings, lists, bold, and paragraphs.
+ * Used for job descriptions from Recruitee API which provide rich HTML.
+ */
+export function htmlToMarkdown(html = '') {
+  if (!html || !String(html).trim()) return '';
+
+  let md = String(html)
+    // Remove script/style blocks
+    .replace(/<script[^>]*>[\s\S]*?<\/script>/gi, '')
+    .replace(/<style[^>]*>[\s\S]*?<\/style>/gi, '')
+    // Headings → ## Heading
+    .replace(/<h[1-3][^>]*>([\s\S]*?)<\/h[1-3]>/gi, (_, inner) => {
+      const text = inner.replace(/<[^>]+>/g, '').trim();
+      return text ? `\n\n## ${text}\n\n` : '';
+    })
+    // <h4>, <h5>, <h6> → ## (same level, keep it simple)
+    .replace(/<h[4-6][^>]*>([\s\S]*?)<\/h[4-6]>/gi, (_, inner) => {
+      const text = inner.replace(/<[^>]+>/g, '').trim();
+      return text ? `\n\n## ${text}\n\n` : '';
+    })
+    // Bold/strong → **text**
+    .replace(/<(?:strong|b)[^>]*>([\s\S]*?)<\/(?:strong|b)>/gi, (_, inner) => {
+      const text = inner.replace(/<[^>]+>/g, '').trim();
+      return text ? `**${text}**` : '';
+    })
+    // List items → - item
+    .replace(/<li[^>]*>([\s\S]*?)<\/li>/gi, (_, inner) => {
+      const text = inner.replace(/<[^>]+>/g, '').trim();
+      return text ? `\n- ${text}` : '';
+    })
+    // Remove list wrappers
+    .replace(/<\/?(?:ul|ol)[^>]*>/gi, '\n')
+    // Paragraphs and divs → double newline
+    .replace(/<\/(?:p|div)>/gi, '\n\n')
+    .replace(/<(?:p|div)[^>]*>/gi, '')
+    // Line breaks
+    .replace(/<br\s*\/?>/gi, '\n')
+    // Remove remaining HTML tags
+    .replace(/<[^>]+>/g, '')
+    // Decode HTML entities
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    // Normalize whitespace
+    .replace(/[ \t]+\n/g, '\n')
+    .replace(/\n[ \t]+(?=\n)/g, '\n')
+    .replace(/[ \t]{2,}/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+
+  return md;
+}
+
 export function slugify(value = '', suffix = '') {
   let s = String(value || '')
     .toLowerCase()
@@ -91,13 +148,42 @@ export function isCasaleSwissOffer(offer = {}) {
 }
 
 /**
+ * Patterns that match generic/placeholder offers from Recruitee.
+ * These are not real job postings — they are "work with us" or
+ * spontaneous application placeholders.
+ */
+const GENERIC_OFFER_PATTERNS = [
+  /^work with us$/i,
+  /^spontaneous application$/i,
+  /^open application$/i,
+  /^candidatura spontanea$/i,
+  /^candidature spontanee$/i,
+  /^postuler spontan[eé]ment$/i,
+  /^initiativbewerbung$/i,
+  /^offene bewerbung$/i,
+  /^candidature spontan[eé]e$/i,
+];
+
+/**
+ * Returns true if the offer title matches a generic/placeholder pattern
+ * (e.g. "Work with us", "Spontaneous application") or is too short
+ * to be a real job title.
+ */
+export function isGenericOffer(offer = {}) {
+  const title = String(offer.title || '').trim();
+  if (title.length < 5) return true;
+  return GENERIC_OFFER_PATTERNS.some((re) => re.test(title));
+}
+
+/**
  * Parse the Recruitee API JSON response and filter to Swiss jobs.
+ * Excludes generic/placeholder offers (e.g. "Work with us").
  * @param {object} apiResponse - Raw JSON from /api/offers
  * @returns {Array<object>} Filtered offer objects
  */
 export function parseApiResponse(apiResponse = {}) {
   const offers = apiResponse?.offers || [];
-  return offers.filter(isCasaleSwissOffer);
+  return offers.filter((o) => isCasaleSwissOffer(o) && !isGenericOffer(o));
 }
 
 /**
@@ -106,7 +192,7 @@ export function parseApiResponse(apiResponse = {}) {
 export function buildJobFromApi(offer = {}) {
   const title = normalizeSpace(offer.title || '');
   const descHtml = combineDescriptionSections(offer);
-  const description = stripHtml(descHtml);
+  const description = htmlToMarkdown(descHtml);
 
   // Build location from first Swiss location
   const swissLoc = (offer.locations || []).find((l) => l.country_code === 'CH') || offer.locations?.[0] || {};

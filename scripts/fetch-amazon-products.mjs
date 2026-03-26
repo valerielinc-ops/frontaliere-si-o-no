@@ -64,41 +64,44 @@ async function ensureEnvVars() {
   }
 }
 
-// ── Curated ASINs (from creatorProductsService.ts) ───────────
-const ASINS = [
+// ── Curated ASINs with CDN image IDs (from creatorProductsService.ts) ───────────
+// imageId: the Amazon CDN image identifier from m.media-amazon.com/images/I/{imageId}
+const PRODUCTS = [
   // Fisco & Finanza
-  '8820383550',
-  '8891657401',
-  'B0BGQ7KHYH',
-  'B00004UFNR',
-  '8891425065',
-  'B0BN2YRQJL',
+  { asin: '8820396246', imageId: '61T4a87qvXL' },
+  { asin: 'B0F7DS11QM', imageId: '71EXhOHXu8L' },
+  { asin: 'B0DMVCCQVR', imageId: '51mDwIbT31L' },
+  { asin: 'B005D7H39G', imageId: '61Mhyvb0TfL' },
+  { asin: 'B0GPRG8139', imageId: '61XBQ8fh7VL' },
+  { asin: 'B07RQWZY34', imageId: '61pwfbAqa4L' },
   // Trasporto & Pendolarismo
-  'B0CF9YV5SL',
-  'B0CXKZ98QP',
-  'B0B6QFFTMR',
-  'B01M0QFWFH',
-  'B08SBR4GRG',
-  'B01M3TIVPW',
+  { asin: 'B0CVXDGNWP', imageId: '71hjyQv4u3L' },
+  { asin: 'B0FMRG6J3T', imageId: '81xjrTmX5SL' },
+  { asin: 'B0F21QKF44', imageId: '613hCCJGB3L' },
+  { asin: 'B096RRKV2Y', imageId: '71OqETd1iDL' },
+  { asin: 'B0FF4X2JB9', imageId: '61n+148j0uL' },
+  { asin: 'B01BNITJOU', imageId: '21MjMFj7JAL' },
   // Lavoro & Carriera
-  '8869875968',
-  '3038810371',
-  'B09B8DWL3S',
-  'B0C8PSQWB4',
-  'B08CKGH98Z',
-  'B0CKN3TNM3',
+  { asin: '8858345258', imageId: '51R75cc+GuL' },
+  { asin: 'B0C5BCCCVG', imageId: '71PsXIVtmXL' },
+  { asin: 'B09ZKXV1MY', imageId: '610JhJ3RWuL' },
+  { asin: 'B0F12Q56RZ', imageId: '71n1M3fhlJL' },
+  { asin: 'B08PV7XY8M', imageId: '616MA59OzuL' },
+  { asin: 'B0CCNQP9F2', imageId: '61lKZJiIyVL' },
   // Casa & Risparmio
-  'B0B9S4Y4RN',
-  '8804734019',
-  'B0BVD1B58J',
-  'B07FDFSK1Q',
-  'B09YVCSLSN',
+  { asin: 'B072QR1S3T', imageId: '71Y2r1pgBkL' },
+  { asin: 'B0GG3RXDML', imageId: '71KneLITCuL' },
+  { asin: 'B0D8KH4LNB', imageId: '51IqMiHCMQL' },
+  { asin: 'B0CH4WGRQQ', imageId: '61MFmJpKvuL' },
+  { asin: 'B0DFC7Q2GK', imageId: '71dbom9FTrL' },
   // Salute & Benessere
-  '3038811622',
-  'B071V2F8WS',
-  'B07D5HKRXS',
-  'B0716G63BQ',
+  { asin: 'B0F6NDGT7W', imageId: '61FwkENkulL' },
+  { asin: 'B0CKF3PGDV', imageId: '61NaavrxwVL' },
+  { asin: 'B0GF1RX5RK', imageId: '615TKlZZ4hL' },
+  { asin: 'B07FRPXF44', imageId: '61mSrFlJh8L' },
 ];
+const ASINS = PRODUCTS.map(p => p.asin);
+const IMAGE_BY_ASIN = Object.fromEntries(PRODUCTS.map(p => [p.asin, p.imageId]));
 
 const PARTNER_TAG = 'luigi066-21';
 const MARKETPLACE = 'www.amazon.it';
@@ -214,13 +217,12 @@ async function main() {
 }
 
 function buildStaticProducts() {
-  // Associates image widget — publicly accessible for any Amazon affiliate,
-  // no API credentials required. Returns 302 redirect to actual product image.
-  // Uses _SL250_ for Retina sharpness at 72px display size (2x = 144px needed).
-  return ASINS.map((asin) => ({
+  // Use Amazon CDN image URLs (m.media-amazon.com/images/I/) — stable, fast, no auth.
+  // _AC_UL320_ = auto-crop, 320px height (4x resolution at 72px display).
+  return PRODUCTS.map(({ asin, imageId }) => ({
     asin,
     title: '',
-    imageUrl: `https://ws-eu.amazon-adsystem.com/widgets/q?_encoding=UTF8&ASIN=${asin}&Format=_SL250_&ID=AsinImage&MarketPlace=IT&ServiceVersion=20070822&WS=1&tag=${PARTNER_TAG}`,
+    imageUrl: imageId ? `https://m.media-amazon.com/images/I/${imageId}._AC_UL320_.jpg` : '',
     price: '',
     priceAmount: 0,
     available: true,
@@ -229,9 +231,9 @@ function buildStaticProducts() {
 }
 
 function writeFallback(reason) {
-  // For API errors (credentials exist but API unavailable), still emit static
-  // products with Associates image URLs so cards render in articles.
-  const products = reason === 'credentials_missing' ? [] : buildStaticProducts();
+  // Always emit static products with CDN image URLs so cards render in articles.
+  // Even without API credentials, the hardcoded imageIds provide reliable images.
+  const products = buildStaticProducts();
   const output = {
     fetchedAt: new Date().toISOString(),
     source: 'fallback',
