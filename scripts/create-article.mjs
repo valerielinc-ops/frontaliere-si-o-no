@@ -3404,8 +3404,8 @@ function modifySeoService(data) {
       "image": {
         "@type": "ImageObject",
         "url": \`\${BASE_URL}/${imagePath}\`,
-        "width": 1344,
-        "height": 756,
+        "width": ${data._generatedImagePath ? 1200 : 1200},
+        "height": ${data._generatedImagePath ? 675 : 563},
         "caption": "${String(data.imageAlt?.it || data.seo.headline || '').replace(/"/g, '\\"')}"
       },
       "datePublished": "${publishedAt}",
@@ -3597,6 +3597,19 @@ function modifySitemapNews(data) {
   let src = read(file);
   const today = new Date().toISOString().slice(0, 10);
 
+  // Ensure xmlns:image namespace is present (for Google News image discovery)
+  if (!src.includes('xmlns:image=')) {
+    src = src.replace(
+      'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"',
+      'xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"\n        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"'
+    );
+  }
+
+  const imagePath = data._generatedImagePath
+    ? data._generatedImagePath.replace(/^\//, '')
+    : `images/places/${data.image}`;
+  const imageTitle = String(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+
   const entry = `  <url>
     <loc>${BASE_URL}/articoli-frontaliere/${data.slugs.it}/</loc>
     <news:news>
@@ -3607,6 +3620,10 @@ function modifySitemapNews(data) {
       <news:publication_date>${today}</news:publication_date>
       <news:title>${String(data.content.it.title || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</news:title>
     </news:news>
+    <image:image>
+      <image:loc>${BASE_URL}/${imagePath}</image:loc>
+      <image:title>${imageTitle}</image:title>
+    </image:image>
   </url>`;
 
   // Insert before </urlset>

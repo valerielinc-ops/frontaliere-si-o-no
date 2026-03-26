@@ -1399,6 +1399,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
     <meta property="og:title" content="${esc(seoData.ogT)}">
     <meta property="og:description" content="${esc(seoData.ogD)}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="fb:app_id" content="891036063797338">
@@ -1437,6 +1440,9 @@ ${hrefTags}
     <meta property="og:title" content="${esc(seoData.ogT)}">
     <meta property="og:description" content="${esc(seoData.ogD)}">
     <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="fb:app_id" content="891036063797338">
