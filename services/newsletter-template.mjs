@@ -254,7 +254,13 @@ function renderEditorial(locale, aiBriefing, totalJobs) {
     </td></tr>`;
 }
 
-function renderMetrics(totalJobs) {
+function renderMetrics(totalJobs, metrics) {
+  const m = metrics || {};
+  const unemploymentRate = m.unemploymentRate || '2.8%';
+  const unemploymentLabel = m.unemploymentLabel || 'Disoccupazione CH';
+  const lamalPremium = m.lamalPremium || 'CHF 467';
+  const lamalLabel = m.lamalLabel || 'Premio LAMal Lugano';
+
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:8px 28px 8px;">
       <!--[if mso]><table width="100%" cellpadding="0" cellspacing="0"><tr><td width="33%" valign="top"><![endif]-->
@@ -273,8 +279,8 @@ function renderMetrics(totalJobs) {
           <a href="${directUrl('/statistiche-frontalieri/panoramica-statistiche')}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83d\udcca</div>
-              <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">2.1%</div>
-              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">Disoccupazione TI</div>
+              <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${unemploymentRate}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${unemploymentLabel}</div>
             </div>
           </a>
         </td>
@@ -283,8 +289,8 @@ function renderMetrics(totalJobs) {
           <a href="${directUrl('/compara-servizi/confronta-casse-malati')}" style="text-decoration:none;display:block;">
             <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:12px;padding:14px 12px;text-align:center;">
               <div style="font-size:22px;margin-bottom:4px;">\ud83c\udfe5</div>
-              <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">CHF 412</div>
-              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">Premio LAMal medio</div>
+              <div style="font-size:20px;font-weight:800;color:${BRAND_DARK};">${lamalPremium}</div>
+              <div style="font-size:11px;color:${MUTED_COLOR};text-transform:uppercase;letter-spacing:0.5px;margin-top:2px;">${lamalLabel}</div>
             </div>
           </a>
         </td>
@@ -391,8 +397,8 @@ function renderArticle(article, locale) {
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 8px;">
       <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;overflow:hidden;">
-        <div style="width:100%;height:180px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:180px;">
-          <span style="font-size:42px;">${emoji}</span>
+        <div style="width:100%;height:200px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:200px;">
+          <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
         </div>
         <div style="padding:18px 20px;">
           ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(article.badge)}</span>` : ''}
@@ -472,6 +478,7 @@ function renderFooter(locale, unsubscribeUrl) {
  * @param {object}  [data.featuredTool]  — (legacy, ignored in v3 — tools grid is built-in)
  * @param {object}  [data.weeklyFact]    — { text, source }
  * @param {object}  [data.article]       — { title, excerpt, url, badge }
+ * @param {object}  [data.metrics]       — { unemploymentRate, unemploymentLabel, lamalPremium, lamalLabel }
  * @param {string}  [data.locale]        — 'it' | 'en' | 'de' | 'fr'
  * @param {string}  [data.unsubscribeUrl]
  * @param {string}  [data.resubscribeUrl]
@@ -499,7 +506,7 @@ export function buildNewsletter(data) {
   html += renderEditorial(locale, data.aiBriefing, totalJobs);
 
   // 4. Dashboard metrics
-  html += renderMetrics(totalJobs);
+  html += renderMetrics(totalJobs, data.metrics);
 
   // 5. Divider
   html += renderDivider();

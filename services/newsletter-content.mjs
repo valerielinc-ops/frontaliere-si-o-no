@@ -79,6 +79,65 @@ function loadPopularity() {
 }
 
 /**
+ * Load real-time dashboard metrics for the newsletter.
+ * Reads from existing data files (cached per process):
+ *   - public/data/switzerland-unemployment-rate.json → unemployment rate
+ *   - data/health-premiums.json → Lugano LAMal premium (standard, adult 26+, franchise 2500)
+ *
+ * Franchise 2500 adjustment: -33% from base (franchise 300) premium.
+ */
+let _metricsCache = null;
+export function loadDashboardMetrics() {
+  if (_metricsCache) return _metricsCache;
+
+  const metrics = {
+    unemploymentRate: '2.8%',
+    unemploymentLabel: 'Disoccupazione CH',
+    lamalPremium: 'CHF 467',
+    lamalLabel: 'Premio LAMal Lugano',
+  };
+
+  // ── Unemployment rate ──
+  try {
+    const unempPath = path.resolve(__dirname, '..', 'public', 'data', 'switzerland-unemployment-rate.json');
+    const unempData = JSON.parse(fs.readFileSync(unempPath, 'utf-8'));
+    if (unempData.rate && typeof unempData.rate === 'number') {
+      metrics.unemploymentRate = `${unempData.rate}%`;
+    }
+  } catch {
+    console.warn('⚠️  loadDashboardMetrics: unemployment data unavailable, using fallback');
+  }
+
+  // ── LAMal premium (Lugano, standard model, franchise 2500) ──
+  try {
+    const lamalPath = path.resolve(__dirname, '..', 'data', 'health-premiums.json');
+    const lamalData = JSON.parse(fs.readFileSync(lamalPath, 'utf-8'));
+    const lugano = lamalData.premiums['6823-Lugano'];
+    if (lugano?.insurers) {
+      let sum = 0;
+      let count = 0;
+      for (const models of Object.values(lugano.insurers)) {
+        if (models.standard && typeof models.standard === 'number') {
+          sum += models.standard;
+          count++;
+        }
+      }
+      if (count > 0) {
+        // Base is franchise 300; apply -33% for franchise 2500
+        const base = sum / count;
+        const adjusted = Math.round(base * (1 - 0.33));
+        metrics.lamalPremium = `CHF ${adjusted}`;
+      }
+    }
+  } catch {
+    console.warn('⚠️  loadDashboardMetrics: health premiums data unavailable, using fallback');
+  }
+
+  _metricsCache = metrics;
+  return metrics;
+}
+
+/**
  * Match jobs for a subscriber — popularity-first with company diversity and quality filters.
  *
  * Algorithm:

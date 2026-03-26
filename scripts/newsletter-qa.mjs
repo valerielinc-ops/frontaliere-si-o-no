@@ -20,7 +20,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { chromium } from 'playwright';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, getFallbackBriefing } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -109,6 +109,7 @@ function buildQaHtml(opts = {}) {
     article: defaultArticle,
     featuredTool,
     weeklyFact,
+    metrics: loadDashboardMetrics(),
     locale,
     unsubscribeUrl: `${BASE_URL}/?action=unsubscribe&email=qa-preview@frontaliereticino.ch`,
     resubscribeUrl: `${BASE_URL}/?action=resubscribe&email=qa-preview@frontaliereticino.ch`,

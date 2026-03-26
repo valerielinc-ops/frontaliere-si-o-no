@@ -30,7 +30,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { buildNewsletter, FEATURED_TOOLS, nlNormLocale, directUrl } from '../services/newsletter-template.mjs';
-import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing } from '../services/newsletter-content.mjs';
+import { matchJobsForSubscriber, validateJobUrls, buildBriefingPrompt, buildSubjectPrompt, FALLBACK_SUBJECT, getFallbackBriefing, loadDashboardMetrics } from '../services/newsletter-content.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -758,6 +758,7 @@ async function main() {
       article: featuredArticle,
       featuredTool,
       weeklyFact,
+      metrics: loadDashboardMetrics(),
       locale,
       unsubscribeUrl: `${BASE_URL}/?action=unsubscribe&email=preview@example.com`,
       resubscribeUrl: `${BASE_URL}/?action=resubscribe&email=preview@example.com`,
@@ -853,6 +854,7 @@ async function main() {
       article: featuredArticle,
       featuredTool,
       weeklyFact,
+      metrics: loadDashboardMetrics(),
       locale,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
