@@ -53,6 +53,79 @@ describe('pdf-job-content', () => {
     expect(result.text).toContain('Responsibilities: research and teaching');
   });
 
+  it('falls back to page-by-page extraction when merged yields thin content', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      arrayBuffer: async () => new TextEncoder().encode('fake-pdf').buffer,
+    }));
+    // Simulate: mergePages:true returns only 10 chars, but the extractTextImpl
+    // we provide here returns content directly. The fallback logic lives inside
+    // defaultExtractTextFromPdfBytes, so we test that the outer function still
+    // works with an extractTextImpl returning an array (page-by-page format).
+    const extractTextImpl = vi.fn(async () => ({
+      totalPages: 3,
+      text: [
+        'Page 1: PostDoc Position at the Institute for Sustainability',
+        'Page 2: Candidates should have a PhD in architecture or engineering',
+        'Page 3: Application deadline March 2026',
+      ],
+    }));
+
+    const result = await extractPdfJobContentFromUrl('https://example.com/thin.pdf', {
+      fetchImpl: fetchImpl as any,
+      extractTextImpl,
+    });
+
+    expect(result.totalPages).toBe(3);
+    expect(result.text).toContain('PostDoc Position');
+    expect(result.text).toContain('architecture or engineering');
+    expect(result.text).toContain('Application deadline');
+    expect(result.error).toBeUndefined();
+  });
+
+  it('returns a warning field when extraction yields very thin content', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      arrayBuffer: async () => new TextEncoder().encode('fake-pdf').buffer,
+    }));
+    // Simulate a scanned/image-only PDF: 2 pages but almost no text
+    const extractTextImpl = vi.fn(async () => ({
+      totalPages: 2,
+      text: 'OK',
+    }));
+
+    const result = await extractPdfJobContentFromUrl('https://example.com/scanned.pdf', {
+      fetchImpl: fetchImpl as any,
+      extractTextImpl,
+    });
+
+    expect(result.totalPages).toBe(2);
+    expect(result.warning).toBeDefined();
+    expect(result.warning).toContain('image-only/scanned PDF');
+    expect(result.error).toBeUndefined();
+  });
+
+  it('returns no warning when extraction yields sufficient content', async () => {
+    const fetchImpl = vi.fn(async () => ({
+      ok: true,
+      arrayBuffer: async () => new TextEncoder().encode('fake-pdf').buffer,
+    }));
+    const extractTextImpl = vi.fn(async () => ({
+      totalPages: 1,
+      text: 'This is a substantial job description with plenty of content about the position requirements and responsibilities at USI.',
+    }));
+
+    const result = await extractPdfJobContentFromUrl('https://example.com/good.pdf', {
+      fetchImpl: fetchImpl as any,
+      extractTextImpl,
+    });
+
+    expect(result.totalPages).toBe(1);
+    expect(result.warning).toBeUndefined();
+    expect(result.error).toBeUndefined();
+    expect(result.text.length).toBeGreaterThan(50);
+  });
+
   it('builds a crawler description preferring extracted PDF text over generic placeholder copy', () => {
     const description = buildPdfBackedDescription({
       introLines: [

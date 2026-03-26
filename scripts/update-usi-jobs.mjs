@@ -680,7 +680,10 @@ async function fetchUsiJobs() {
     };
 
     if (itJob.pdfUrl && pdfContent.error) {
-      console.warn(`⚠️ USI PDF extraction fallback for "${itJob.title}": ${pdfContent.error}`);
+      console.warn(`⚠️ USI PDF extraction error for "${itJob.title}": ${pdfContent.error}`);
+    }
+    if (itJob.pdfUrl && pdfContent.warning) {
+      console.warn(`⚠️ USI PDF thin content for "${itJob.title}": ${pdfContent.warning}`);
     }
     jobs.push(job);
   }
@@ -738,7 +741,10 @@ async function fetchUsiJobs() {
     };
 
     if (enJob.pdfUrl && pdfContent.error) {
-      console.warn(`⚠️ USI PDF extraction fallback for "${enJob.title}": ${pdfContent.error}`);
+      console.warn(`⚠️ USI PDF extraction error for "${enJob.title}": ${pdfContent.error}`);
+    }
+    if (enJob.pdfUrl && pdfContent.warning) {
+      console.warn(`⚠️ USI PDF thin content for "${enJob.title}": ${pdfContent.warning}`);
     }
     jobs.push(job);
   }
@@ -1061,6 +1067,12 @@ async function postProcessUsiJobs() {
     const pdfUrl = /\.pdf(?:$|[?#])/i.test(String(job.url || '')) ? job.url : '';
     if (pdfUrl) {
       const pdfContent = await extractPdfJobContentFromUrl(pdfUrl);
+      if (pdfContent.error) {
+        console.warn(`⚠️ USI post-process PDF error for "${job.title}": ${pdfContent.error}`);
+      }
+      if (pdfContent.warning) {
+        console.warn(`⚠️ USI post-process PDF thin content for "${job.title}": ${pdfContent.warning}`);
+      }
       const itDescription = buildDescription({
         organization: job.company,
         department: job.department,

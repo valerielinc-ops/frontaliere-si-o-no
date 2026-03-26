@@ -88,12 +88,48 @@ export function buildPdfBackedDescription({
   return `${joined.slice(0, Math.max(0, maxChars - 1)).trimEnd()}…`;
 }
 
+/**
+ * Minimum character threshold for merged extraction. If the merged result
+ * contains fewer characters than this despite the PDF having pages, we
+ * fall back to page-by-page extraction which handles some font-encoding
+ * and multi-column layout edge cases better.
+ */
+const MIN_MERGED_TEXT_LENGTH = 100;
+
 async function defaultExtractTextFromPdfBytes(arrayBuffer) {
   const { extractText, getDocumentProxy } = await import('unpdf');
   const pdf = await getDocumentProxy(new Uint8Array(arrayBuffer));
 
   try {
-    return await extractText(pdf, { mergePages: true });
+    // Fast path: merged extraction (single string result)
+    const merged = await extractText(pdf, { mergePages: true });
+    const mergedText = String(merged?.text || '');
+    const totalPages = Number(merged?.totalPages || 0);
+
+    if (mergedText.trim().length >= MIN_MERGED_TEXT_LENGTH) {
+      return merged;
+    }
+
+    // Fallback: page-by-page extraction.
+    // Some PDFs with unusual font encoding or multi-column layouts yield
+    // empty/partial text with mergePages:true but succeed page-by-page.
+    if (totalPages > 0) {
+      try {
+        const perPage = await extractText(pdf, { mergePages: false });
+        const pageTexts = Array.isArray(perPage?.text)
+          ? perPage.text.filter(Boolean)
+          : [];
+        const joinedLength = pageTexts.reduce((sum, t) => sum + t.length, 0);
+
+        if (joinedLength > mergedText.trim().length) {
+          return { text: pageTexts, totalPages };
+        }
+      } catch {
+        // page-by-page also failed — return whatever merged gave us
+      }
+    }
+
+    return merged;
   } finally {
     try {
       await pdf.destroy();
@@ -108,7 +144,7 @@ export async function extractPdfJobContentFromUrl(
   {
     fetchImpl = fetch,
     extractTextImpl = defaultExtractTextFromPdfBytes,
-    timeoutMs = 20000,
+    timeoutMs = 30_000,
     headers = {},
   } = {},
 ) {
@@ -138,12 +174,21 @@ export async function extractPdfJobContentFromUrl(
     const rawText = Array.isArray(extracted?.text)
       ? extracted.text.join('\n\n')
       : String(extracted?.text || '');
+    const totalPages = Number(extracted?.totalPages || 0);
+    const normalizedText = normalizePdfJobText(rawText);
+
+    // Diagnostic: detect image-only PDFs (pages exist but no text layer)
+    const thinContent = totalPages > 0 && normalizedText.length < 50;
+    const warning = thinContent
+      ? `PDF has ${totalPages} page(s) but only ${normalizedText.length} chars extracted (possible image-only/scanned PDF)`
+      : undefined;
 
     return {
-      text: normalizePdfJobText(rawText),
+      text: normalizedText,
       rawText,
-      totalPages: Number(extracted?.totalPages || 0),
+      totalPages,
       sourceUrl: pdfUrl,
+      ...(warning ? { warning } : {}),
     };
   } catch (error) {
     return {
