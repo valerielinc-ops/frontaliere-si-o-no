@@ -2768,6 +2768,29 @@ async function generateArticleImage(data) {
       writeFileSync(imgPath, rawBuffer);
       console.error(`  ✅ Immagine generata (raw fallback): public/images/blog/${data.id}.jpg (${rawKB} KB, ${providerLabel})`);
     }
+
+    // ── Post-save width enforcement ──
+    // Google News, Discover, and Open Graph require ≥1200px wide images.
+    // If the optimizer (sharp or system binaries) wasn't available, or if the
+    // AI provider returned an undersized image, the saved file may be < 1200px.
+    // Force-upscale to 1200px wide to guarantee visibility on all Google surfaces.
+    try {
+      const sharpMod = await import('sharp');
+      const shp = sharpMod.default || sharpMod;
+      const meta = await shp(imgPath).metadata();
+      if (meta.width && meta.width < 1200) {
+        const newH = Math.round((meta.height / meta.width) * 1200);
+        const buf = await shp(imgPath)
+          .resize({ width: 1200, height: newH, kernel: 'lanczos3', withoutEnlargement: false })
+          .jpeg({ quality: 82, progressive: true, mozjpeg: true, chromaSubsampling: '4:2:0' })
+          .toBuffer();
+        writeFileSync(imgPath, buf);
+        console.error(`  📐 Upscaled ${meta.width}×${meta.height} → 1200×${newH} (Google News/Discover minimum)`);
+      }
+    } catch {
+      // sharp not available — image stays as-is (acceptable in rare CI edge cases)
+    }
+
     return `/images/blog/${data.id}.jpg`;
   }
 
