@@ -1,6 +1,6 @@
 {
   "crawlerKey": "international-school-of-ticino",
-  "assembledAt": "2026-03-26T09:47:59.255Z",
+  "assembledAt": "2026-03-26T21:21:31.981Z",
   "jobs": [
     {
       "url": "https://jobs.inspirededu.com/job/Lugano-Expression-of-Interest-International-School-of-Ticino/1331830557/",
@@ -109,6 +109,7 @@
       },
       "jobReqId": "1351808857",
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
       "salaryMin": 83500,
@@ -128,8 +129,7 @@
       "postalCode": "6814",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     }
   ]
 }
