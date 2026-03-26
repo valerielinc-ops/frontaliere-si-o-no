@@ -3,6 +3,8 @@ import { createPortal } from 'react-dom';
 import { Search, X, ArrowRight, Calculator, Layers, PiggyBank, BookOpen, BarChart2, HelpCircle, ArrowRightLeft, Phone, Car, Heart, Building2, AlertTriangle, Briefcase, ShoppingCart, Euro, TrendingUp, Sparkles, MapPin, Calendar, PartyPopper, FileText, GraduationCap, Building, Compass, BriefcaseBusiness, MessageSquare, Map, Baby, Award, Scale, Home, Mail, Handshake, Video, Sunrise, User as UserIcon, Gift, Hammer, BookA, BarChart3, Wrench, Users, Clock, Newspaper, Receipt, Banknote, Coins, Star } from 'lucide-react';
 import { useTranslation, loadAllTranslations } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { ALL_GLOSSARY_TERM_IDS } from '@/services/router';
+import type { GlossaryTermId, BlogArticleId } from '@/services/router';
 
 interface SearchResult {
   id: string;
@@ -26,6 +28,15 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
   const [query, setQuery] = useState('');
   const inputRef = useRef<HTMLInputElement>(null);
   const modalRef = useRef<HTMLDivElement>(null);
+
+  // Lazy-load blog article IDs when search is opened
+  const [blogArticleIds, setBlogArticleIds] = useState<BlogArticleId[]>([]);
+  useEffect(() => {
+    if (!isOpen) return;
+    import('@/data/blog-articles-data').then(m => {
+      setBlogArticleIds(m.ARTICLES.map(a => a.id));
+    });
+  }, [isOpen]);
 
   const popularQueries = useMemo(() => [
     { label: 'Stipendio netto 80.000 CHF', tab: 'calculator', subTab: undefined },
@@ -865,6 +876,98 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
     },
   ];
 
+  // ─── Dynamic entries: glossary terms, blog articles, salary landing pages ───
+  // These are built from existing data sources and use t() for localized titles.
+  // They are computed lazily (useMemo) so they don't bloat the initial bundle.
+  const dynamicEntries: SearchResult[] = useMemo(() => {
+    const entries: SearchResult[] = [];
+
+    // ── Glossary terms (42 terms) ──
+    for (const termId of ALL_GLOSSARY_TERM_IDS) {
+      const title = t(`glossary.terms.${termId}.title`);
+      const desc = t(`glossary.terms.${termId}.desc`);
+      // Only add if translation is loaded (avoid showing raw keys)
+      if (title && !title.startsWith('glossary.terms.')) {
+        entries.push({
+          id: `glossary-${termId}`,
+          title: `${title} — Glossario`,
+          description: desc && !desc.startsWith('glossary.terms.') ? desc : `Definizione di ${title} per frontalieri`,
+          section: t('glossary.title') || 'Glossario',
+          tab: 'glossario',
+          subTab: termId,
+          icon: BookA,
+          color: 'text-teal-600',
+          keywords: [title.toLowerCase(), 'glossario', 'definizione', termId.toLowerCase().replace(/([A-Z])/g, ' $1').trim()],
+        });
+      }
+    }
+
+    // ── Blog articles (~548 articles, lazy-loaded) ──
+    for (const articleId of blogArticleIds) {
+      const title = t(`blog.article.${articleId}.title`);
+      const excerpt = t(`blog.article.${articleId}.excerpt`);
+      // Only add if translation is loaded
+      if (title && !title.startsWith('blog.article.')) {
+        entries.push({
+          id: `blog-${articleId}`,
+          title,
+          description: excerpt && !excerpt.startsWith('blog.article.') ? excerpt : title,
+          section: t('nav.blog') || 'Articoli',
+          tab: 'blog',
+          subTab: articleId,
+          icon: Newspaper,
+          color: 'text-indigo-600',
+          keywords: articleId.split('-').filter(w => w.length > 2),
+        });
+      }
+    }
+
+    // ── Salary landing pages (24 entries) ──
+    const LANDING_PAGES: Array<{ id: string; title: string; description: string; keywords: string[] }> = [
+      { id: 'landing-salary-60000', title: 'Stipendio netto frontaliere 60.000 CHF', description: 'Simulazione netto per 60.000 CHF/anno', keywords: ['60000', '60k', 'stipendio', 'netto'] },
+      { id: 'landing-salary-80000', title: 'Stipendio netto frontaliere 80.000 CHF', description: 'Simulazione netto per 80.000 CHF/anno', keywords: ['80000', '80k', 'stipendio', 'netto'] },
+      { id: 'landing-salary-100000', title: 'Stipendio netto frontaliere 100.000 CHF', description: 'Simulazione netto per 100.000 CHF/anno', keywords: ['100000', '100k', 'stipendio', 'netto'] },
+      { id: 'landing-salary-120000', title: 'Stipendio netto frontaliere 120.000 CHF', description: 'Simulazione netto per 120.000 CHF/anno', keywords: ['120000', '120k', 'stipendio', 'netto'] },
+      { id: 'landing-salary-60000-old', title: 'Netto 60.000 CHF — vecchio frontaliere', description: 'Simulazione vecchio accordo per 60.000 CHF', keywords: ['60000', 'vecchio', 'old', 'frontaliere'] },
+      { id: 'landing-salary-60000-new', title: 'Netto 60.000 CHF — nuovo frontaliere', description: 'Simulazione nuovo accordo per 60.000 CHF', keywords: ['60000', 'nuovo', 'new', 'frontaliere'] },
+      { id: 'landing-salary-80000-old', title: 'Netto 80.000 CHF — vecchio frontaliere', description: 'Simulazione vecchio accordo per 80.000 CHF', keywords: ['80000', 'vecchio', 'old', 'frontaliere'] },
+      { id: 'landing-salary-80000-new', title: 'Netto 80.000 CHF — nuovo frontaliere', description: 'Simulazione nuovo accordo per 80.000 CHF', keywords: ['80000', 'nuovo', 'new', 'frontaliere'] },
+      { id: 'landing-salary-100000-old', title: 'Netto 100.000 CHF — vecchio frontaliere', description: 'Simulazione vecchio accordo per 100.000 CHF', keywords: ['100000', 'vecchio', 'old', 'frontaliere'] },
+      { id: 'landing-salary-100000-new', title: 'Netto 100.000 CHF — nuovo frontaliere', description: 'Simulazione nuovo accordo per 100.000 CHF', keywords: ['100000', 'nuovo', 'new', 'frontaliere'] },
+      { id: 'landing-salary-60000-married-2kids', title: 'Netto 60.000 CHF — sposato con 2 figli', description: 'Simulazione per famiglia con 60.000 CHF', keywords: ['60000', 'sposato', 'figli', 'famiglia', 'married'] },
+      { id: 'landing-salary-80000-married-2kids', title: 'Netto 80.000 CHF — sposato con 2 figli', description: 'Simulazione per famiglia con 80.000 CHF', keywords: ['80000', 'sposato', 'figli', 'famiglia', 'married'] },
+      { id: 'landing-salary-100000-married-2kids', title: 'Netto 100.000 CHF — sposato con 2 figli', description: 'Simulazione per famiglia con 100.000 CHF', keywords: ['100000', 'sposato', 'figli', 'famiglia', 'married'] },
+      { id: 'landing-salary-80000-over20km', title: 'Netto 80.000 CHF — oltre 20 km', description: 'Simulazione per frontaliere oltre 20 km dal confine', keywords: ['80000', 'oltre', '20km', 'distanza'] },
+      { id: 'landing-salary-80000-within20km', title: 'Netto 80.000 CHF — entro 20 km', description: 'Simulazione per frontaliere entro 20 km dal confine', keywords: ['80000', 'entro', '20km', 'distanza'] },
+      { id: 'landing-salary-60000-over20km', title: 'Netto 60.000 CHF — oltre 20 km', description: 'Simulazione per frontaliere oltre 20 km dal confine', keywords: ['60000', 'oltre', '20km', 'distanza'] },
+      { id: 'landing-salary-60000-within20km', title: 'Netto 60.000 CHF — entro 20 km', description: 'Simulazione per frontaliere entro 20 km dal confine', keywords: ['60000', 'entro', '20km', 'distanza'] },
+      { id: 'landing-salary-100000-over20km', title: 'Netto 100.000 CHF — oltre 20 km', description: 'Simulazione per frontaliere oltre 20 km dal confine', keywords: ['100000', 'oltre', '20km', 'distanza'] },
+      { id: 'landing-salary-100000-within20km', title: 'Netto 100.000 CHF — entro 20 km', description: 'Simulazione per frontaliere entro 20 km dal confine', keywords: ['100000', 'entro', '20km', 'distanza'] },
+      { id: 'landing-new-frontier-over20km', title: 'Nuovo frontaliere oltre 20 km — tasse 2026', description: 'Simulazione tasse nuovo frontaliere oltre 20 km', keywords: ['nuovo', 'oltre', '20km', 'tasse', '2026'] },
+      { id: 'landing-net-comparison-2025-2026-within20km', title: 'Confronto netto 2025 vs 2026 — entro 20 km', description: 'Come cambia il netto da vecchio a nuovo accordo entro 20 km', keywords: ['confronto', '2025', '2026', 'entro', '20km'] },
+      { id: 'landing-net-comparison-g-vs-b-within20km', title: 'Confronto netto G vs B — entro 20 km', description: 'Permesso G vs B: quale conviene entro 20 km?', keywords: ['permesso', 'confronto', 'entro', '20km'] },
+      { id: 'landing-net-comparison-2025-2026-over20km', title: 'Confronto netto 2025 vs 2026 — oltre 20 km', description: 'Come cambia il netto da vecchio a nuovo accordo oltre 20 km', keywords: ['confronto', '2025', '2026', 'oltre', '20km'] },
+      { id: 'landing-net-comparison-g-vs-b-over20km', title: 'Confronto netto G vs B — oltre 20 km', description: 'Permesso G vs B: quale conviene oltre 20 km?', keywords: ['permesso', 'confronto', 'oltre', '20km'] },
+    ];
+    for (const lp of LANDING_PAGES) {
+      entries.push({
+        id: lp.id,
+        title: lp.title,
+        description: lp.description,
+        section: t('nav.simulator') || 'Calcolatore',
+        tab: 'calculator',
+        icon: Calculator,
+        color: 'text-blue-600',
+        keywords: [...lp.keywords, 'simulazione', 'salary', 'landing', 'calcolo'],
+      });
+    }
+
+    return entries;
+  }, [t, blogArticleIds]);
+
+  // Combined search index: static entries + dynamic entries
+  const fullSearchIndex = useMemo(() => [...searchIndex, ...dynamicEntries], [searchIndex, dynamicEntries]);
+
   // Fuzzy search function
   const searchResults = useMemo(() => {
     if (!query.trim()) return [];
@@ -872,7 +975,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
     const q = query.toLowerCase().trim();
     const words = q.split(/\s+/);
 
-    const scored = searchIndex.map(item => {
+    const scored = fullSearchIndex.map(item => {
       let score = 0;
       const titleLower = item.title.toLowerCase();
       const descLower = item.description.toLowerCase();
@@ -892,14 +995,14 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       .filter(r => r.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 8);
-  }, [query, searchIndex]);
+  }, [query, fullSearchIndex]);
 
   // Fuzzy suggestions for the "no results" guided state
   const noResultsSuggestions = useMemo(() => {
     if (searchResults.length > 0 || !query.trim()) return [];
     const q = query.toLowerCase().trim();
     const qStart = q.slice(0, Math.max(3, Math.ceil(q.length * 0.6)));
-    return searchIndex
+    return fullSearchIndex
       .map(item => {
         let score = 0;
         for (const kw of item.keywords) {
@@ -913,7 +1016,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       .filter(r => r.score > 0)
       .sort((a, b) => b.score - a.score)
       .slice(0, 4);
-  }, [query, searchIndex, searchResults]);
+  }, [query, fullSearchIndex, searchResults]);
 
   // Category quick-links for guided browsing
   const categoryLinks = useMemo(() => [

@@ -113,10 +113,12 @@ function parseLocalizedTitles(locale) {
   const src = fs.readFileSync(filePath, 'utf-8');
 
   const titles = new Map(); // articleId → title
-  const re = /'blog\.article\.([^']+)\.title':\s*'([^']+)'/g;
+  // Handle escaped single quotes (e.g. dell\'Italia) by matching \\' as part of the value
+  const re = /'blog\.article\.([^']+)\.title':\s*'((?:[^'\\]|\\.)*)'/g;
   let match;
   while ((match = re.exec(src)) !== null) {
-    titles.set(match[1], match[2]);
+    // Unescape \\' → ' so titles render correctly in RSS XML
+    titles.set(match[1], match[2].replace(/\\'/g, "'"));
   }
   return titles;
 }
@@ -127,10 +129,12 @@ function parseLocalizedExcerpts(locale) {
   const src = fs.readFileSync(filePath, 'utf-8');
 
   const excerpts = new Map();
-  const re = /'blog\.article\.([^']+)\.excerpt':\s*'([^']+)'/g;
+  // Handle escaped single quotes (e.g. l\'accordo) by matching \\' as part of the value
+  const re = /'blog\.article\.([^']+)\.excerpt':\s*'((?:[^'\\]|\\.)*)'/g;
   let match;
   while ((match = re.exec(src)) !== null) {
-    excerpts.set(match[1], match[2]);
+    // Unescape \\' → ' so excerpts render correctly in RSS XML
+    excerpts.set(match[1], match[2].replace(/\\'/g, "'"));
   }
   return excerpts;
 }

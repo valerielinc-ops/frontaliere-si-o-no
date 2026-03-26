@@ -528,7 +528,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   newFrontierTaxSim: {
     title: 'Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo IRPEF e Imposta alla Fonte',
-    description: 'Simulazione tasse per nuovi frontalieri (post 17/07/2023): calcola imposta alla fonte Ticino, IRPEF Italia con franchigia \u20AC10.000, credito d\'imposta e stipendio netto 2026.',
+    description: 'Simulazione tasse nuovi frontalieri post 2023: imposta alla fonte Ticino, IRPEF con franchigia \u20AC10.000, credito d\'imposta e netto 2026.',
     keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri',
     ogTitle: 'Simulazione Tasse Nuovi Frontalieri 2026',
     ogDescription: 'Calcola le tasse come nuovo frontaliere: imposta alla fonte CH + IRPEF Italia con franchigia \u20AC10.000 e credito d\'imposta. Simulatore gratuito.',
@@ -1401,7 +1401,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   schools: {
     title: 'Scuole in Ticino | Nido, Infanzia, Elementare, Media, Liceo',
-    description: 'Guida completa alle scuole del Canton Ticino per frontalieri: nido, scuola dell\'infanzia, elementare, media, liceo. Costi, orari, vicinanza ai valichi di frontiera e servizi complementari.',
+    description: 'Guida alle scuole del Canton Ticino per frontalieri: nido, infanzia, elementare, media, liceo. Costi, orari e vicinanza ai valichi.',
     keywords: 'scuole ticino frontalieri, nido svizzera costi, scuola infanzia ticino, scuola elementare ticino, scuola media mendrisio, liceo lugano, scuole vicino frontiera, costi scuola svizzera, asilo ticino',
     ogTitle: 'Scuole in Ticino per Frontalieri | Guida Completa per Età',
     ogDescription: '🎓 Guida alle scuole del Canton Ticino per frontalieri: tipi per età, costi, orari e scuole vicine ai valichi di frontiera.',
@@ -2443,7 +2443,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'tax-return': {
     title: 'Dichiarazione Redditi Frontalieri 2026 | Italia e Svizzera',
-    description: 'Guida alla dichiarazione dei redditi per frontalieri 2026: sezione Italia (730, Redditi PF, credito d\'imposta) e Svizzera (imposta alla fonte, rettifica, TDR, deduzioni). Passo passo con scadenze.',
+    description: 'Dichiarazione redditi frontalieri 2026: Italia (730, Redditi PF, credito d\'imposta) e Svizzera (imposta alla fonte, rettifica, TDR). Guida con scadenze.',
     keywords: 'dichiarazione redditi frontaliere, 730 frontaliere, credito imposta svizzera, quadro CE, redditi svizzeri italia, modello unico frontaliere, scadenze fiscali frontaliere, imposta alla fonte, rettifica quellensteuer, TDR frontaliere',
     ogTitle: 'Dichiarazione Redditi Frontalieri 2026 | Italia e Svizzera',
     ogDescription: 'Dichiarazione redditi frontalieri 2026: guida Italia (730, quadro CE) e Svizzera (imposta alla fonte, rettifica, TDR). Passo passo con scadenze.',
@@ -2550,7 +2550,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'tax-return-italia': {
     title: 'Dichiarazione Redditi Italia Frontalieri | 730 e Redditi PF',
-    description: 'Guida completa dichiarazione redditi in Italia per frontalieri 2026: Modello 730, Redditi PF, IRPEF con franchigia €10.000, credito d\'imposta, quadro CE e RW. Scadenze e documenti.',
+    description: 'Dichiarazione redditi Italia frontalieri 2026: Modello 730, Redditi PF, IRPEF con franchigia €10.000, credito d\'imposta, quadro CE e RW.',
     keywords: 'dichiarazione redditi frontaliere italia, 730 frontaliere, redditi PF frontaliere, credito imposta svizzera, quadro CE, quadro RW, IRPEF frontaliere, franchigia 10000, scadenze fiscali italia 2026',
     ogTitle: 'Dichiarazione Redditi Italia Frontalieri | 730 e Redditi PF',
     ogDescription: 'Guida alla dichiarazione dei redditi in Italia per frontalieri: 730, Redditi PF, IRPEF, credito d\'imposta e scadenze 2026.',

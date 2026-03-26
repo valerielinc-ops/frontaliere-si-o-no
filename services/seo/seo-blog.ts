@@ -12,7 +12,7 @@ const BASE_URL = 'https://frontaliereticino.ch';
 const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   'blog-stipendio-netto-2026': {
     title: 'Stipendio Netto Frontaliere 2026 | Calcolo Completo | Frontaliere Ticino',
-    description: 'Come calcolare lo stipendio netto da frontaliere nel 2026: deduzioni AVS, LPP, imposta alla fonte, IRPEF italiana, nuovo accordo fiscale. Guida con esempi pratici e simulatore.',
+    description: 'Calcolo stipendio netto frontaliere 2026: deduzioni AVS, LPP, imposta alla fonte, IRPEF italiana e nuovo accordo fiscale. Esempi pratici e simulatore.',
     keywords: 'stipendio netto frontaliere 2026, calcolo stipendio svizzera, deduzioni avs lpp, imposta alla fonte ticino, nuovo accordo fiscale frontalieri, stipendio lordo netto svizzera',
     ogTitle: 'Stipendio Netto Frontaliere 2026 | Calcolo Completo',
     ogDescription: 'Guida completa al calcolo dello stipendio netto per frontalieri: deduzioni svizzere, IRPEF, nuovo accordo fiscale corrente.',
@@ -1489,7 +1489,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-ristorni-lombardia-reazione': {
     title: 'Ristorni Frontalieri: la Lombardia contro il blocco | Frontaliere Ticino',
-    description: 'La mozione ticinese per bloccare i ristorni in risposta alla tassa sulla salute provoca la reazione della Lombardia. Politici e sindacati chiedono di fermare l\'escalation.',
+    description: 'La mozione ticinese per bloccare i ristorni sulla tassa salute provoca la reazione della Lombardia. Politici e sindacati contro l\'escalation.',
     keywords: 'ristorni frontalieri, tassa salute ticino, accordo fiscale italia svizzera, frontalieri ticino, tasse frontalieri, politica confine, lombardia ticino',
     ogTitle: 'Stop ai Ristorni? La Lombardia frena il Ticino: \'Scelta sbagliata\'',
     ogDescription: 'La politica ticinese vuole bloccare i ristorni come ritorsione alla tassa sulla salute, ma da oltre confine arriva un avvertimento. Ecco cosa sta succedendo.',
@@ -1573,7 +1573,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-sanita-ticino-tagli-orselina': {
     title: 'Sanità Ticino: 8 posti a rischio alla Clinica Varini | Frontaliere Ticino',
-    description: 'L\'accordo tra la Clinica Varini di Orselina e la Hildebrand di Brissago causa la perdita di 8 posti di lavoro nel team fisioterapia. Analisi dell\'impatto sul mercato sanitario ticinese per i frontalieri.',
+    description: 'L\'accordo Clinica Varini-Hildebrand causa la perdita di 8 posti nel team fisioterapia. Impatto sul mercato sanitario ticinese per i frontalieri.',
     keywords: 'frontalieri, ticino, lavoro sanità, clinica varini, clinica hildebrand, licenziamenti ticino, fisioterapia, orselina',
     ogTitle: 'Sanità Ticino: accordo tra cliniche, 8 posti a rischio',
     ogDescription: 'La collaborazione tra la Clinica Varini e la Clinica Hildebrand porterà alla chiusura del team di fisioterapia di Orselina. Otto persone perderanno il lavoro.',
@@ -2282,7 +2282,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-credito-imposta-doppia-tassazione': {
     title: 'Doppia imposizione frontaliere: guida al credito d\'imposta | Frontaliere Ticino',
-    description: 'Sei un \'nuovo frontaliere\' in Ticino? Scopri come funziona il credito d\'imposta per evitare la doppia tassazione sul tuo stipendio svizzero. Guida pratica al Quadro CE del 730 con esempi di calcolo per il 2026.',
+    description: 'Nuovo frontaliere in Ticino? Scopri il credito d\'imposta per evitare la doppia tassazione sullo stipendio svizzero. Guida al Quadro CE del 730 con esempi 2026.',
     keywords: 'frontaliere doppia imposizione, credito imposta, come funziona, tasse frontalieri ticino, quadro ce 730, nuovo accordo fiscale, dichiarazione redditi frontalieri',
     ogTitle: 'Frontalieri, stop alla doppia tassa: la guida al credito d\'imposta',
     ogDescription: 'Lavori in Ticino e temi la doppia imposizione? Ecco come funziona il credito d\'imposta e come risparmiare migliaia di euro con il Modello 730.',
@@ -2525,7 +2525,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-sicurezza-lavoro-audit-suva': {
     title: 'Sicurezza Lavoro in Svizzera: Audit Svela Falle e Conflitti | Frontaliere Ticino',
-    description: 'Un audit del Controllo federale delle finanze rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d\'interessi della SUVA. Cosa significa per i frontalieri in Ticino.',
+    description: 'Audit federale rivela lacune nei controlli sulla sicurezza sul lavoro in Svizzera e conflitto d\'interessi della SUVA. Implicazioni per i frontalieri.',
     keywords: 'sicurezza sul lavoro, frontalieri, ticino, SUVA, infortuni professionali, controlli aziende, audit federale, CFST',
     ogTitle: 'Sicurezza sul lavoro in Ticino a rischio? Un audit federale accusa la SUVA',
     ogDescription: 'Controlli inefficaci e conflitti d\'interesse: un report ufficiale svela le debolezze del sistema di protezione dei lavoratori in Svizzera. Le conseguenze per i frontalieri.',
@@ -2795,7 +2795,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-sicurezza-lavoro-controlli-svizzera': {
     title: 'Sicurezza sul Lavoro in Svizzera: Controlli Insufficienti | Frontaliere Ticino',
-    description: 'Un audit federale rivela gravi lacune nei controlli sulla sicurezza sul lavoro in Svizzera e un conflitto d\'interessi della Suva. Le implicazioni per i frontalieri in Ticino.',
+    description: 'Audit federale rivela lacune nei controlli sulla sicurezza sul lavoro in Svizzera e conflitto d\'interessi della Suva. Cosa cambia per i frontalieri.',
     keywords: 'sicurezza lavoro svizzera, suva, controlli lavoro ticino, frontalieri, infortuni professionali, cfst, audit cdf, ispettorato lavoro',
     ogTitle: 'Lavoro Sicuro in Svizzera? Un Audit Ufficiale Svela Controlli "Troppo Larghi"',
     ogDescription: 'Falle sistemiche e conflitti d\'interesse: la sicurezza dei lavoratori, inclusi i frontalieri in Ticino, è a rischio secondo un nuovo report federale.',
@@ -2849,7 +2849,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-long-covid-malattia-professionale': {
     title: 'Long Covid è Malattia Professionale: Sentenza TF | Frontaliere Ticino',
-    description: 'Il Tribunale federale svizzero stabilisce che il Long Covid è una malattia professionale per gli operatori sanitari. La Bâloise condannata a pagare la rendita. Cosa cambia per i frontalieri.',
+    description: 'Il Tribunale federale stabilisce che il Long Covid è malattia professionale per operatori sanitari. Bâloise condannata. Cosa cambia per i frontalieri.',
     keywords: 'long covid, malattia professionale, tribunale federale, frontalieri, ticino, assicurazione infortuni, la bâloise, sanità',
     ogTitle: 'Long Covid: Sentenza storica del Tribunale Federale Svizzero',
     ogDescription: 'Una vittoria per un infermiere apre la strada a tutele importanti per chi lavora in sanità. La Bâloise deve pagare. Scopri le implicazioni.',
@@ -2957,7 +2957,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-trasporti-pubblici-crescita-svizzera': {
     title: 'Trasporti Pubblici in Svizzera: Crescita Record e Impatto sui Frontalieri | Frontaliere Ticino',
-    description: 'I trasporti pubblici svizzeri registrano un fatturato record di 7,04 miliardi CHF. Scopri cosa significa questa crescita per i frontalieri in Ticino e i costi del pendolarismo.',
+    description: 'Trasporti pubblici svizzeri: fatturato record di 7,04 miliardi CHF. Cosa significa per i frontalieri in Ticino e i costi del pendolarismo.',
     keywords: 'trasporti pubblici svizzera, frontalieri ticino, abbonamento arcobaleno, pendolarismo svizzera, costo treno frontaliere, TILO, Alliance SwissPass',
     ogTitle: 'Trasporti pubblici da record: treni più cari o più affollati per i frontalieri?',
     ogDescription: 'Con un fatturato di oltre 7 miliardi, i trasporti svizzeri sono in piena salute. Analizziamo l\'impatto sui pendolari del Ticino.',
@@ -3173,7 +3173,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-accordo-ue-svizzera-impatto-frontalieri': {
     title: 'Accordo Svizzera-UE: Cosa Cambia per i Frontalieri | Frontaliere Ticino',
-    description: 'Il Consiglio UE dà il via libera al nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e referendum.',
+    description: 'Il Consiglio UE approva il pacchetto di accordi con la Svizzera. Novità per i frontalieri in Ticino: libera circolazione, salari e referendum.',
     keywords: 'accordo svizzera ue, frontalieri ticino, libera circolazione persone, protezione salari, bilaterali III, referendum svizzera, lavoro in svizzera, permesso g',
     ogTitle: 'Accordo Svizzera-UE: Cosa Significa per il Tuo Lavoro in Ticino?',
     ogDescription: 'Bruxelles dice sì al nuovo accordo. Scopri l\'impatto su libera circolazione, stipendi e perché il Ticino è preoccupato. La guida completa per i frontalieri.',
@@ -3227,7 +3227,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-bilaterali-ue-svizzera-firma': {
     title: 'Accordi Svizzera-UE: Firma Vicina, Impatto Frontalieri | Frontaliere Ticino',
-    description: 'Il Consiglio UE approva la firma del nuovo pacchetto di accordi con la Svizzera. Analisi delle novità per i frontalieri in Ticino: libera circolazione, salari e il voto del 2027.',
+    description: 'Il Consiglio UE approva la firma degli accordi bilaterali con la Svizzera. Novità per i frontalieri: libera circolazione, salari e voto 2027.',
     keywords: 'accordi bilaterali svizzera ue, frontalieri ticino, libera circolazione persone, protezione salari, accordo quadro, voto svizzera ue, Guy Parmelin',
     ogTitle: 'Accordi UE-Svizzera: Firma a un passo. Cosa cambia per te?',
     ogDescription: 'Bruxelles dà il via libera. Dalla libera circolazione alla protezione dei salari, ecco i punti chiave del nuovo accordo che decideranno il futuro dei frontalieri.',
@@ -4015,7 +4015,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-tassa-salute-scontro-ticino-berna': {
     title: 'Ticino minaccia blocco ristorni per tassa salute | Frontaliere Ticino',
-    description: 'Il Canton Ticino, tramite Norman Gobbi, minaccia di congelare i ristorni fiscali all\'Italia per il mancato indennizzo federale sulla tassa salute dei frontalieri. La tensione cresce a febbraio 2026.',
+    description: 'Il Ticino minaccia di congelare i ristorni fiscali all\'Italia per il mancato indennizzo federale sulla tassa salute dei frontalieri. La tensione cresce.',
     keywords: 'ristorni fiscali, tassa salute, frontalieri, Ticino, Berna, Italia, Norman Gobbi, accordi bilaterali, laRegione',
     ogTitle: 'Crisi Ristorni: Ticino contro Berna per la Tassa Salute Frontalieri',
     ogDescription: 'Il Canton Ticino minaccia di bloccare i ristorni fiscali all\'Italia a causa dei costi per la tassa salute dei frontalieri. Una mossa senza precedenti che scuote i rapporti con Berna.',
@@ -4069,7 +4069,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-disagi-tilo-sciopero-italia': {
     title: 'Sciopero Tilo 27-28 Febbraio: Disagi Frontalieri | Frontaliere Ticino',
-    description: 'Importante sciopero in Italia il 27-28 febbraio 2026 blocca i treni Tilo RE80, S10, S30, S40, S50 oltre confine. Informati sui servizi garantiti e bus sostitutivi per frontalieri.',
+    description: 'Sciopero Italia 27-28 febbraio 2026: treni Tilo RE80, S10, S30, S40, S50 bloccati oltre confine. Servizi garantiti e bus sostitutivi per frontalieri.',
     keywords: 'sciopero treni, tilo, frontalieri, ticino, italia, trasporti, pendolari, disagi, febbraio 2026',
     ogTitle: 'Allerta Sciopero Tilo: Cosa cambia per il tuo viaggio in Ticino?',
     ogDescription: 'Non farti trovare impreparato: scopri le linee Tilo interrotte il 27-28 febbraio e le alternative per i frontalieri!',

@@ -3,14 +3,6 @@
 /assets/*
   Cache-Control: public, max-age=31536000, immutable
 
-# Service worker — no cache
-/sw.js
-  Cache-Control: no-cache, no-store, must-revalidate
-
-# Workbox — cache for 1 year
-/workbox-*.js
-  Cache-Control: public, max-age=31536000, immutable
-
 # Icons — cache for 1 month
 /icons/*
   Cache-Control: public, max-age=2592000
@@ -68,6 +60,3 @@
   # user stuck on a blank popup.  Note: the auth.frontaliereticino.ch
   # handler page must also NOT set COOP:same-origin (Firebase controls that).
   Cross-Origin-Opener-Policy: same-origin-allow-popups
-  # CSP in report-only mode — monitors violations without blocking resources.
-  # Covers Firebase, Google Analytics, AdSense, Clarity, and CDN resources.
-  Content-Security-Policy-Report-Only: default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://*.firebaseapp.com https://*.googleapis.com https://*.google-analytics.com https://*.googletagmanager.com https://*.googlesyndication.com https://pagead2.googlesyndication.com https://*.clarity.ms; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: blob: https: http:; font-src 'self' https://fonts.gstatic.com; connect-src 'self' https://*.googleapis.com https://*.google-analytics.com https://*.analytics.google.com https://*.googletagmanager.com https://*.firebaseio.com https://*.firebaseapp.com https://*.cloudfunctions.net https://*.clarity.ms https://*.flagcdn.com https://*.clearbit.com; frame-src 'self' https://*.firebaseapp.com https://*.googlesyndication.com https://tpc.googlesyndication.com; object-src 'none'; base-uri 'self'; form-action 'self'
