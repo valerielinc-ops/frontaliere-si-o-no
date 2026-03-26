@@ -117,27 +117,76 @@ const items = rawItems
   .filter((item, index, arr) => arr.findIndex((x) => x.id === item.id) === index)
   .slice(0, MAX_RELEASE_ITEMS);
 
-const LINK_KEYWORDS = [
-  { test: /(job|lavor|annunci|offerte|crawler|azienda|company|recruit|vacanc)/i, link: { tab: 'job-board' } },
-  { test: /(salary|stipendio|busta|calculator|calcolo|ral|whatif)/i, link: { tab: 'calculator', subTab: 'calculator' } },
-  { test: /(health|lamal|assicurazione|insurance)/i, link: { tab: 'confronti', subTab: 'health' } },
-  { test: /(exchange|cambio|chf|eur)/i, link: { tab: 'confronti', subTab: 'exchange' } },
+// ── Available app routes for AI link selection ──
+const AVAILABLE_ROUTES = [
+  { tab: 'calculator', desc: 'Calcolatore stipendio netto frontaliere' },
+  { tab: 'calculator', subTab: 'calculator', desc: 'Simulatore stipendio netto' },
+  { tab: 'calculator', subTab: 'whatif', desc: 'Simulatore What-If scenario' },
+  { tab: 'calculator', subTab: 'payslip', desc: 'Analisi busta paga' },
+  { tab: 'calculator', subTab: 'ral', desc: 'Calcolatore RAL' },
+  { tab: 'calculator', subTab: 'bonus', desc: 'Calcolatore bonus/tredicesima' },
+  { tab: 'calculator', subTab: 'parental-leave', desc: 'Congedo parentale' },
+  { tab: 'calculator', subTab: 'residency', desc: 'Residenza e domicilio' },
+  { tab: 'calculator', subTab: 'salary-quiz', desc: 'Quiz stipendio' },
+  { tab: 'confronti', subTab: 'exchange', desc: 'Confronto cambio valuta CHF/EUR' },
+  { tab: 'confronti', subTab: 'banks', desc: 'Confronto banche e conti' },
+  { tab: 'confronti', subTab: 'health', desc: 'Confronto assicurazioni sanitarie LAMal' },
+  { tab: 'confronti', subTab: 'mobile', desc: 'Confronto operatori telefonici' },
+  { tab: 'confronti', subTab: 'shopping', desc: 'Confronto shopping e prezzi' },
+  { tab: 'confronti', subTab: 'cost-of-living', desc: 'Confronto costo della vita' },
+  { tab: 'confronti', subTab: 'jobs', desc: 'Confronto offerte di lavoro' },
+  { tab: 'confronti', subTab: 'renovation', desc: 'Ristrutturazione casa' },
+  { tab: 'fisco', subTab: 'tax-return', desc: 'Dichiarazione dei redditi' },
+  { tab: 'fisco', subTab: 'calendar', desc: 'Calendario fiscale scadenze' },
+  { tab: 'fisco', subTab: 'holidays', desc: 'Festività e giorni lavorativi' },
+  { tab: 'fisco', subTab: 'ristorni', desc: 'Ristorni fiscali' },
+  { tab: 'fisco', subTab: 'pension', desc: 'Pensione AVS/LPP' },
+  { tab: 'fisco', subTab: 'pillar3', desc: 'Terzo pilastro 3a' },
+  { tab: 'fisco', subTab: 'quiz', desc: 'Quiz fiscale' },
+  { tab: 'fisco', subTab: 'tax-credit', desc: 'Credito d\'imposta' },
+  { tab: 'fisco', subTab: 'withholding-rates', desc: 'Aliquote imposta alla fonte' },
+  { tab: 'fisco', subTab: 'new-frontier-tax-sim', desc: 'Simulatore nuovo accordo fiscale' },
+  { tab: 'guida', subTab: 'first-day', desc: 'Primo giorno di lavoro in Svizzera' },
+  { tab: 'guida', subTab: 'permits', desc: 'Permessi di lavoro (B/G/L)' },
+  { tab: 'guida', subTab: 'border', desc: 'Valichi di frontiera e traffico' },
+  { tab: 'guida', subTab: 'unemployment', desc: 'Disoccupazione frontaliere' },
+  { tab: 'guida', subTab: 'car-transfer', desc: 'Immatricolazione auto' },
+  { tab: 'guida', subTab: 'car-cost', desc: 'Costi auto e trasporto' },
+  { tab: 'guida', subTab: 'permit-compare', desc: 'Confronto permessi B vs G' },
+  { tab: 'guida', subTab: 'border-map', desc: 'Mappa valichi di frontiera' },
+  { tab: 'vita', subTab: 'living-ch', desc: 'Vivere in Svizzera' },
+  { tab: 'vita', subTab: 'living-it', desc: 'Vivere in Italia come frontaliere' },
+  { tab: 'vita', subTab: 'companies', desc: 'Aziende in Ticino' },
+  { tab: 'vita', subTab: 'schools', desc: 'Scuole e formazione' },
+  { tab: 'vita', subTab: 'nursery', desc: 'Asili nido' },
+  { tab: 'vita', subTab: 'places', desc: 'Luoghi e attrazioni' },
+  { tab: 'vita', subTab: 'transport', desc: 'Trasporti pubblici' },
+  { tab: 'vita', subTab: 'municipalities', desc: 'Comuni ticinesi' },
+  { tab: 'stats', subTab: 'overview', desc: 'Panoramica statistiche' },
+  { tab: 'stats', subTab: 'livability', desc: 'Indice vivibilità' },
+  { tab: 'stats', subTab: 'jobs-observatory', desc: 'Osservatorio lavoro' },
+  { tab: 'stats', subTab: 'salary-compare', desc: 'Confronto stipendi' },
+  { tab: 'stats', subTab: 'traffic-history', desc: 'Storico traffico ai valichi' },
+  { tab: 'stats', subTab: 'unemployment', desc: 'Statistiche disoccupazione' },
+  { tab: 'stats', subTab: 'mortgage', desc: 'Tassi ipotecari' },
+  { tab: 'stats', subTab: 'fuel-prices', desc: 'Prezzi carburante' },
+  { tab: 'job-board', desc: 'Bacheca lavori / Cerca lavoro' },
+  { tab: 'blog', desc: 'Blog e articoli' },
+  { tab: 'weekly-digest', desc: 'Newsletter settimanale' },
+  { tab: 'profile', desc: 'Profilo utente e impostazioni' },
+  { tab: 'glossario', desc: 'Glossario termini' },
+  { tab: 'faq', desc: 'Domande frequenti' },
+  { tab: 'permit-quiz', desc: 'Quiz permesso ideale' },
+  { tab: 'tredicesima', desc: 'Calcolatore tredicesima' },
+  { tab: 'sindacati', desc: 'Sindacati e associazioni' },
+  { tab: 'tfr-calculator', desc: 'Calcolatore TFR' },
+  { tab: 'contracts', desc: 'Contratti di lavoro CCL/CCN' },
 ];
-
-function inferLink(item) {
-  const text = `${item.scope || ''} ${item.description || ''}`.toLowerCase();
-  const match = LINK_KEYWORDS.find((rule) => rule.test.test(text));
-  return match ? { ...match.link } : null;
-}
-
-for (const item of items) {
-  item.link = inferLink(item);
-}
 
 // ── Generate i18n translations ──
 async function generateTranslations(items) {
   if (!callLLM) {
-    // Fallback: Italian-only, raw commit descriptions
+    // Fallback: Italian-only, raw commit descriptions, no links
     const result = {};
     for (const locale of ['it', 'en', 'de', 'fr']) {
       result[locale] = {};
@@ -149,10 +198,15 @@ async function generateTranslations(items) {
       for (const item of items) {
         result[locale][item.titleKeyBase] = item.description.slice(0, 50);
         result[locale][item.descKeyBase] = item.description;
+        item.link = null;
       }
     }
     return result;
   }
+
+  const routeCatalog = AVAILABLE_ROUTES.map(r =>
+    `  - tab: "${r.tab}"${r.subTab ? `, subTab: "${r.subTab}"` : ''} → ${r.desc}`
+  ).join('\n');
 
   const prompt = `Sei un editor UX per un'app web usata da persone non tecniche.
 Devi generare release note in 4 lingue: italiano (it), inglese (en), tedesco (de), francese (fr).
@@ -164,12 +218,17 @@ ${items.map(item => `- [${item.type}] ${item.description} (scope: ${item.scope |
 Per ogni cambiamento, genera:
 1. Un titolo breve (4-8 parole), comprensibile a chi non è tecnico
 2. Una descrizione (1-2 frasi) focalizzata sul beneficio reale per l'utente
+3. Un link alla pagina più pertinente dell'app (vedi catalogo sotto)
 
 Regole obbligatorie:
 - Evita gergo tecnico (es. crawler, payload, json, Firestore, pipeline, schema).
 - Non copiare il messaggio del commit.
 - Se il cambiamento riguarda una pagina/strumento, nomina esplicitamente la pagina in modo naturale.
 - Testo localizzato in ciascuna lingua (niente italiano dentro en/de/fr).
+- Per il link, scegli la pagina più specifica e pertinente dal catalogo. Se il cambiamento è infrastrutturale e non riguarda una pagina specifica, usa null.
+
+Catalogo pagine disponibili:
+${routeCatalog}
 
 Genera anche un titolo per la release complessiva.
 
@@ -180,10 +239,13 @@ Output SOLO un JSON valido con questa struttura esatta (nessun code fence, nessu
     {
       "id": "${items[0]?.id || 'example'}",
       "title": { "it": "...", "en": "...", "de": "...", "fr": "..." },
-      "desc": { "it": "...", "en": "...", "de": "...", "fr": "..." }
+      "desc": { "it": "...", "en": "...", "de": "...", "fr": "..." },
+      "link": { "tab": "...", "subTab": "..." }
     }
   ]
 }
+
+Per il campo "link": usa { "tab": "..." } o { "tab": "...", "subTab": "..." } dal catalogo, oppure null se non pertinente.
 
 IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
 
@@ -209,6 +271,24 @@ IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
         result[locale][item.descKeyBase] = aiItem.desc?.[locale] || item.description;
       }
     }
+
+    // Apply AI-chosen links to items
+    for (let i = 0; i < items.length; i++) {
+      const aiItem = data.items?.[i] || {};
+      if (aiItem.link && aiItem.link.tab) {
+        // Validate that the AI chose a route from our catalog
+        const valid = AVAILABLE_ROUTES.some(r =>
+          r.tab === aiItem.link.tab && ((!r.subTab && !aiItem.link.subTab) || r.subTab === aiItem.link.subTab)
+        );
+        items[i].link = valid ? { tab: aiItem.link.tab, ...(aiItem.link.subTab ? { subTab: aiItem.link.subTab } : {}) } : null;
+        if (!valid) {
+          console.warn(`   ⚠️  AI suggested invalid link for "${items[i].id}": tab="${aiItem.link.tab}" subTab="${aiItem.link.subTab || ''}" — ignoring`);
+        }
+      } else {
+        items[i].link = null;
+      }
+    }
+
     return result;
   } catch (err) {
     console.error(`⚠️  AI translation failed: ${err.message}`);
@@ -217,7 +297,7 @@ IDs da usare nell'ordine: ${items.map(i => `"${i.id}"`).join(', ')}`;
   }
 }
 
-// Fallback for when AI fails
+// Fallback for when AI fails — no links assigned
 generateTranslations.__fallback = function (items) {
   const result = {};
   for (const locale of ['it', 'en', 'de', 'fr']) {
@@ -226,6 +306,7 @@ generateTranslations.__fallback = function (items) {
     for (const item of items) {
       result[locale][item.titleKeyBase] = item.description.slice(0, 50);
       result[locale][item.descKeyBase] = item.description;
+      item.link = null;
     }
   }
   return result;
