@@ -6,7 +6,11 @@
  * No more 3-variant system — every subscriber gets unique content.
  */
 
+import fs from 'node:fs';
+import path from 'node:path';
+
 const BASE_URL = 'https://frontaliereticino.ch';
+const __dirname = path.dirname(new URL(import.meta.url).pathname);
 
 // ─── Job matching ───────────────────────────────────────────
 
@@ -45,16 +49,44 @@ function dedupeBy(items, keyFn) {
 }
 
 /**
- * Match jobs to a subscriber based on their location and sector interests.
- * Falls back to most recent jobs if no match.
- *
- * @param {object} subscriber — { locationInterest, sectorInterest, preferences }
- * @param {Array} jobs — Full jobs array from data/jobs.json
- * @param {number} limit — Max jobs to return (default 3)
- * @returns {Array<{ title, url, company, location }>}
+ * Quality gate: returns true if a job has enough content for the newsletter.
  */
+function passesQualityGate(job) {
+  if (!job?.title || !job?.slug || !job?.company) return false;
+  const desc = String(job.descriptionByLocale?.it || job.description || '');
+  // No thin text — at least 120 chars of real content
+  if (desc.length < 120) return false;
+  // No broken HTML as first char
+  if (desc.trim().startsWith('<')) return false;
+  return true;
+}
+
 /**
- * Match jobs for a subscriber, ensuring only jobs with valid IT slugs are returned.
+ * Load job popularity data from data/job-popularity.json.
+ * Returns a Map<slug, viewCount> or empty Map if unavailable.
+ */
+let _popularityCache = null;
+function loadPopularity() {
+  if (_popularityCache) return _popularityCache;
+  try {
+    const popPath = path.resolve(__dirname, '..', 'data', 'job-popularity.json');
+    const data = JSON.parse(fs.readFileSync(popPath, 'utf-8'));
+    _popularityCache = new Map(Object.entries(data).map(([k, v]) => [k, Number(v) || 0]));
+    return _popularityCache;
+  } catch {
+    return new Map();
+  }
+}
+
+/**
+ * Match jobs for a subscriber — popularity-first with company diversity and quality filters.
+ *
+ * Algorithm:
+ * 1. Quality filter (title, slug, company, description >= 120 chars)
+ * 2. Sort by popularity (Firestore view count), fallback to recency
+ * 3. Company diversity: max 1 job per company
+ * 4. Top `limit` jobs
+ *
  * @param {object} subscriber — { locationInterest, sectorInterest, preferences }
  * @param {object[]} jobs — Full jobs array from data/jobs.json
  * @param {number} limit — Max jobs to return (default 3)
@@ -63,36 +95,29 @@ function dedupeBy(items, keyFn) {
 export function matchJobsForSubscriber(subscriber, jobs, limit = 3) {
   if (!jobs || jobs.length === 0) return [];
 
-  const sorted = [...jobs]
-    .filter((j) => j?.title && j?.slug && j?.company)
-    .sort((a, b) => toDateValue(b) - toDateValue(a));
+  const popularity = loadPopularity();
+  const hasPopularity = popularity.size > 0;
+
+  // Quality filter for popularity ranking; fallback pool keeps all valid jobs
+  const qualityPool = jobs.filter(passesQualityGate);
+  const basicPool = jobs.filter((j) => j?.title && j?.slug && j?.company);
+  // Use quality pool when we have popularity data; otherwise basic pool (recency mode)
+  const pool = hasPopularity && qualityPool.length >= limit ? qualityPool : basicPool;
+
+  // Sort: popularity first (if available), then recency as tiebreaker
+  const sorted = [...pool].sort((a, b) => {
+    if (hasPopularity) {
+      const aViews = popularity.get(a.slug) || popularity.get(a.slugByLocale?.it) || 0;
+      const bViews = popularity.get(b.slug) || popularity.get(b.slugByLocale?.it) || 0;
+      if (bViews !== aViews) return bViews - aViews;
+    }
+    return toDateValue(b) - toDateValue(a);
+  });
 
   const location = String(subscriber?.locationInterest || '').toLowerCase().trim();
   const sector = String(subscriber?.sectorInterest || '').toLowerCase().trim();
 
   let matched = sorted;
-
-  // When no location filter, ensure canton diversity (mix TI + GR + VS)
-  if (!location && sorted.length > limit) {
-    const byCanton = {};
-    for (const j of sorted) {
-      const c = String(j.canton || j.addressRegion || '').toUpperCase() || 'OTHER';
-      if (!byCanton[c]) byCanton[c] = [];
-      byCanton[c].push(j);
-    }
-    const cantons = Object.keys(byCanton).sort((a, b) => byCanton[b].length - byCanton[a].length);
-    if (cantons.length > 1) {
-      const diverse = [];
-      let round = 0;
-      while (diverse.length < limit * 2 && round < 10) {
-        for (const c of cantons) {
-          if (byCanton[c][round]) diverse.push(byCanton[c][round]);
-        }
-        round++;
-      }
-      matched = diverse;
-    }
-  }
 
   // Filter by location if specified
   if (location) {
@@ -115,7 +140,10 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3) {
     if (sectorFiltered.length >= 1) matched = sectorFiltered;
   }
 
-  return dedupeBy(matched, (j) => `${j.company}::${j.slug}`)
+  // Company diversity: max 1 job per company (by companyKey or normalized company name)
+  const companyDiverse = dedupeBy(matched, (j) => (j.companyKey || j.company || '').toLowerCase());
+
+  return companyDiverse
     .slice(0, limit)
     .map((job) => {
       const itSlug = job.slugByLocale?.it || job.slug;

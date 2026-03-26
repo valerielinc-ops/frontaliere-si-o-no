@@ -8,6 +8,7 @@
 import React, { useCallback, useDeferredValue, useEffect, useMemo, useRef, useState, lazy, Suspense } from 'react';
 const JobAlertForm = lazy(() => import('@/components/community/JobAlertForm'));
 import { reportCaughtError } from '@/services/errorReporter';
+import { trackJobView } from '@/services/jobViewsService';
 import { calculateSimulation } from '@/services/calculationService';
 import { DEFAULT_INPUTS } from '@/constants';
 import {
@@ -3117,6 +3118,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
       if (ogUrl) ogUrl.setAttribute('content', editorialCanonicalHref);
     }
   }, [locale, selectedJob, jobs, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
+
+  // Track job page views in Firestore (for newsletter popularity ranking)
+  useEffect(() => {
+    if (!selectedJob?.slug) return;
+    trackJobView(selectedJob.slug);
+  }, [selectedJob?.slug]);
 
   useEffect(() => {
     if (!authResolved || !authGateOpen || hasAccess) return;
