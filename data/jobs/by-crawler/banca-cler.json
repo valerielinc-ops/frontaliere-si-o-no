@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-cler",
-  "assembledAt": "2026-03-26T06:26:40.220Z",
+  "assembledAt": "2026-03-26T09:28:17.374Z",
   "jobs": [
     {
       "title": "Marktgebietsleiterin Zentral (w/m)",
@@ -44,7 +44,7 @@
         "en": "regional-manager-central-f-m-banca-cler-bellinzona",
         "fr": "responsable-regional-e-centre-h-f-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-03-25T21:34:58.076Z",
+      "crawledAt": "2026-03-26T09:28:04.997Z",
       "id": "company-i7npcw",
       "contract": "full-time",
       "currency": "CHF",
@@ -52,6 +52,7 @@
       "featured": false,
       "requirementsByLocale": {},
       "previousSlugs": [],
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -109,7 +110,7 @@
         "en": "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler-bellinzona",
         "fr": "responsable-d-agence-schaffhausen-h-f-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-03-25T21:34:57.644Z",
+      "crawledAt": "2026-03-26T09:28:04.536Z",
       "id": "company-g1x21d",
       "contract": "full-time",
       "currency": "CHF",
@@ -119,6 +120,7 @@
       "previousSlugs": [
         "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler-bellinzona-g1x21d"
       ],
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -173,10 +175,10 @@
       "slugByLocale": {
         "de": "kundenberaterin-basis-basel-w-m-banca-cler",
         "it": "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona",
-        "en": "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona-vlfwqx",
-        "fr": "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona-vlfwqx"
+        "en": "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona",
+        "fr": "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-03-25T21:34:56.838Z",
+      "crawledAt": "2026-03-26T09:28:04.070Z",
       "id": "company-vlfwqx",
       "contract": "full-time",
       "currency": "CHF",
@@ -186,6 +188,7 @@
       "previousSlugs": [
         "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona-vlfwqx"
       ],
+      "needsRetranslation": true,
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
