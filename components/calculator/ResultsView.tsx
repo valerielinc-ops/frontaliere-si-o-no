@@ -70,6 +70,10 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
   const [mobileTooltipIdx, setMobileTooltipIdx] = useState<number | null>(null);
   const translateKey = (key: string): string => {
     if (!key) return '';
+    // Handle double-pipe-separated multi-key descriptions: "key1||key2||key3"
+    if (key.includes('||')) {
+      return key.split('||').map(k => translateKey(k.trim())).filter(Boolean).join('. ');
+    }
     // Handle pipe-delimited params: "calc.netIncomeDescCH|12.5|C" => translate key + append params
     const parts = key.split('|');
     const baseKey = parts[0];

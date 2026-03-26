@@ -180,9 +180,9 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
       amount: netAnnualIT_CHF_OLD,
       amountEUR: netAnnualIT_CHF_OLD * EXCHANGE_RATE,
       percentage: (netAnnualIT_CHF_OLD/grossTotalCH)*100,
-      description: notesIT.join(". ")
+      description: notesIT.join("||")
     });
-    
+
     const netSwissSalaryAnnual_OLD = grossTotalCH - totalSocialDeductions - taxWithheldInCH_CHF;
     
     return {
@@ -247,16 +247,16 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
     amount: netAnnualIT_CHF,
     amountEUR: netAnnualIT_CHF * EXCHANGE_RATE,
     percentage: (netAnnualIT_CHF/grossTotalCH)*100,
-    description: notesIT.join(". ")
+    description: notesIT.join("||")
   });
 
   return {
     chResident: chResidentResult,
-    itResident: { 
-      grossIncome: annualIncomeCHF, 
-      familyAllowance: annualFamilyAllowanceCHF, 
-      socialContributions: totalSocialDeductions, 
-      taxableIncome: annualIncomeCHF, 
+    itResident: {
+      grossIncome: annualIncomeCHF,
+      familyAllowance: annualFamilyAllowanceCHF,
+      socialContributions: totalSocialDeductions,
+      taxableIncome: annualIncomeCHF,
       taxes: totalTaxIT_CHF, 
       healthInsurance: 0, 
       customExpensesTotal: expensesTotalIT_CHF, 
