@@ -105,6 +105,10 @@
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
 
     <!-- Keep the homepage head lean: Firebase connects after interaction/consent. -->
+    <!-- Preconnect to critical third-party origins (establishes TCP+TLS early) -->
+    <link rel="preconnect" href="https://firebaseinstallations.googleapis.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
+    <!-- DNS-prefetch for non-critical origins (lightweight, broad compat) -->
     <link rel="dns-prefetch" href="https://www.google.com">
     <link rel="dns-prefetch" href="https://www.gstatic.com">
     <!-- AdSense dns-prefetch removed: ads load only on blog article pages via AdSenseBanner component -->
