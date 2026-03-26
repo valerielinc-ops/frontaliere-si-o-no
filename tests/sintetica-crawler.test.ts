@@ -145,6 +145,66 @@ describe('parseDetailPage', () => {
     expect(result.title).toBe('');
     expect(result.body).toBe('');
   });
+
+  it('falls back to main tag when no specific selectors match', () => {
+    const html = `
+      <!DOCTYPE html>
+      <html><head><title>Test Job</title></head>
+      <body>
+        <main>
+          <h1>Test Position Title</h1>
+          <p>This is a detailed job description for a position at Sintetica SA in Mendrisio, Canton Ticino.
+          The role involves managing pharmaceutical development projects, coordinating with cross-functional
+          teams, and ensuring compliance with regulatory requirements. Candidates should have experience
+          in the pharmaceutical industry.</p>
+        </main>
+      </body>
+      </html>`;
+    const result = parseDetailPage(html);
+    expect(result.title).toBe('Test Position Title');
+    expect(result.body.length).toBeGreaterThanOrEqual(MIN_DESC_LENGTH);
+    expect(result.body).toContain('pharmaceutical development');
+  });
+
+  it('extracts body from NCore-style singlePosition container', () => {
+    const html = `
+      <!DOCTYPE html>
+      <html><head><title>Lab Technician - Sintetica</title></head>
+      <body>
+        <div class="content">
+          <h1>Lab Technician</h1>
+          <div class="job-description">
+            <p>Sintetica SA cerca un Lab Technician per il nostro stabilimento di Mendrisio.</p>
+            <p><strong>Responsabilità:</strong></p>
+            <ul>
+              <li>Eseguire analisi di laboratorio secondo le GMP.</li>
+              <li>Documentare i risultati delle analisi nel sistema LIMS.</li>
+              <li>Collaborare con il team di Quality Control.</li>
+            </ul>
+            <p><strong>Requisiti:</strong></p>
+            <ul>
+              <li>Diploma in chimica o biologia.</li>
+              <li>Esperienza in laboratorio farmaceutico.</li>
+              <li>Conoscenza delle norme GMP.</li>
+            </ul>
+          </div>
+        </div>
+      </body>
+      </html>`;
+    const result = parseDetailPage(html);
+    expect(result.title).toBe('Lab Technician');
+    expect(result.body).toContain('Sintetica SA');
+    expect(result.body).toContain('GMP');
+    expect(result.sourceBodyLength).toBeGreaterThanOrEqual(MIN_DESC_LENGTH);
+  });
+
+  it('extracts requirements and responsibilities from detail', () => {
+    const result = parseDetailPage(FIXTURE_DETAIL_PAGE);
+    expect(result.body).toContain('Key Responsibilities');
+    expect(result.body).toContain('Requirements');
+    expect(result.body).toContain('MSc/PhD');
+    expect(result.body).toContain('project management');
+  });
 });
 
 // ─── Utility tests ──────────────────────────────────────────────────────────

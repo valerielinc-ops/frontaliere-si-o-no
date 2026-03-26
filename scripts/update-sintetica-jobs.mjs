@@ -12,7 +12,7 @@ import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
-import { parseListingPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/sintetica-job-parser.mjs';
+import { parseListingPage, parseDetailPage, slugify, detectCategory, detectExperienceLevel, inferEmploymentType, MIN_DESC_LENGTH } from './lib/sintetica-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -47,12 +47,35 @@ async function fetchJobs() {
   if (!html) { console.error('❌ Failed to fetch Sintetica careers page.'); return []; }
   const listings = parseListingPage(html);
   console.log(`  📋 Jobs found: ${listings.length}`);
+  if (!listings.length) return [];
 
-  return listings.map((raw) => {
+  const jobs = [];
+  for (const raw of listings) {
     const slug = slugify(raw.title, 'sintetica');
     const fallbackDesc = `${raw.title} — posizione aperta presso Sintetica SA a Mendrisio, Canton Ticino, Svizzera. Sintetica SA è un'azienda farmaceutica svizzera specializzata nella produzione di farmaci sterili iniettabili. Con sede a Mendrisio, l'azienda offre un ambiente di lavoro innovativo nel settore farmaceutico, con opportunità di crescita professionale nel cuore del Ticino.`;
-    const description = (raw.snippet && raw.snippet.length >= 220) ? raw.snippet : (raw.snippet || fallbackDesc);
-    return {
+
+    // Fetch detail page for full job description
+    let description = raw.snippet || '';
+    if (raw.url) {
+      console.log(`    🔗 Fetching detail page: ${raw.url}`);
+      const detailHtml = await fetchPage(raw.url);
+      if (detailHtml) {
+        const detail = parseDetailPage(detailHtml);
+        if (detail.body && detail.body.length >= MIN_DESC_LENGTH) {
+          description = `${raw.title} — Sintetica SA, Mendrisio (TI).\n\n${detail.body}`;
+          console.log(`    ✅ Detail description: ${detail.body.length} chars`);
+        } else {
+          console.log(`    ⚠️ Detail page description too short (${(detail.body || '').length} chars), using fallback`);
+        }
+      } else {
+        console.log(`    ⚠️ Could not fetch detail page, using fallback`);
+      }
+    }
+    if (!description || description.length < MIN_DESC_LENGTH) {
+      description = fallbackDesc;
+    }
+
+    jobs.push({
       url: raw.url, applyUrl: raw.url, title: raw.title,
       company: COMPANY_NAME, companyKey: COMPANY_KEY,
       location: 'Mendrisio', canton: 'TI', country: 'CH',
@@ -67,8 +90,9 @@ async function fetchJobs() {
       experienceLevel: detectExperienceLevel(raw.title),
       sector: 'Farmaceutica',
       _targetScope: { canton: 'TI', location: 'Mendrisio' },
-    };
-  });
+    });
+  }
+  return jobs;
 }
 
 function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); } }
