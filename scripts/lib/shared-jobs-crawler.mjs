@@ -4812,6 +4812,11 @@ async function main() {
     );
     const queue = merged.filter((job) => {
       if (!isLocalizationAllowedForJob(job)) return false;
+      // In localize-existing-only mode with scoped company keys, only translate
+      // jobs from the scoped companies. Without this restriction, the translation
+      // budget is spent on random jobs from all companies — translations land in
+      // gitignored jobs.json and never reach the target company's per-crawler file.
+      if (localizeExistingOnly && hasScopedCompanyKeysForRun && !isInScopedCompaniesForRun(job)) return false;
       const forceLocalization = shouldForceLocalizationForJob(job);
       // Respect JOBS_AI_LOCALIZATION_ENABLED=0 for non-forced companies only.
       if (!crawlerConfig.aiLocalizationEnabled && !forceLocalization) return false;
