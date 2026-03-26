@@ -1,16 +1,16 @@
 {
   "key": "has-healthcare",
   "label": "HAS Healthcare",
-  "generatedAt": "2026-03-25T21:52:07.074Z",
+  "generatedAt": "2026-03-26T09:45:23.508Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6472,
-  "avgDurationMs": 6472,
+  "durationMs": 7155,
+  "avgDurationMs": 7155,
   "durationHistory": [
-    6472
+    7155
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -95,8 +95,8 @@
       "source": "has-healthcare-crawler",
       "postedDate": "2026-03-11",
       "titleByLocale": {
-        "en": "HSE Specialist",
         "it": "HSE Specialista",
+        "en": "HSE Specialist",
         "de": "HSE Spezialist",
         "fr": "HSE Spécialiste"
       },
@@ -222,8 +222,8 @@
       "source": "has-healthcare-crawler",
       "postedDate": "2025-11-21",
       "titleByLocale": {
-        "en": "Production Manager",
         "it": "Production Manager",
+        "en": "Production Manager",
         "de": "Production Manager",
         "fr": "Production Manager"
       },
