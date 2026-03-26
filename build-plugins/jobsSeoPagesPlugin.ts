@@ -1232,7 +1232,14 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       </article>
       ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul></section>` : ''}
       <nav style="margin:24px 0 0;padding:16px 0;border-top:1px solid #e2e8f0;font-size:14px">
-        <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(localeCopy[locale].sectionName)} &rarr;</a>
+        <a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/'))}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(localeCopy[locale].sectionName)} &rarr;</a>${(() => {
+          const cSlug = canonicalCompanySlugBuild(job.company, job.companyKey);
+          if (!cSlug) return '';
+          const cPrefix = companyRoutePrefix[locale];
+          const cFullSlug = `${cPrefix}-${cSlug}`;
+          const cPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${cFullSlug}`.replace(/\/+/g, '/'));
+          return ` · <a href="${BASE_URL}${cPath}" style="color:#1e3a8a;text-decoration:none;font-weight:600">${esc(job.company)} &rarr;</a>`;
+        })()}
       </nav>
     </main>
     </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
@@ -2828,6 +2835,7 @@ ${alternates}
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
+    <meta name="robots" content="noindex,follow">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
