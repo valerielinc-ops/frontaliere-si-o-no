@@ -250,8 +250,8 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
       }
     }
 
-    // Clear needsRetranslation flag if present
-    if (crawlerJob.needsRetranslation) {
+    // Clear needsRetranslation flag only if job is now complete (all locales translated)
+    if (crawlerJob.needsRetranslation && !isIncomplete(crawlerJob)) {
       delete crawlerJob.needsRetranslation;
       changed = true;
     }
