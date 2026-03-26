@@ -57,37 +57,42 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
               Analytics.trackExternalLink(p.url, `creator_pick_${p.id}`);
               Analytics.trackSelectContent('creator_pick_click', p.id);
             }}
-            className="group flex items-start gap-3 rounded-lg border border-slate-200/70 dark:border-slate-700/70 bg-slate-50 dark:bg-slate-900/40 px-2.5 py-2.5 hover:border-indigo-300 dark:hover:border-indigo-700 hover:scale-[1.01] transition-all"
+            className="group block rounded-lg border border-slate-200/70 dark:border-slate-700/70 bg-slate-50 dark:bg-slate-900/40 px-2.5 py-2.5 hover:border-indigo-300 dark:hover:border-indigo-700 hover:scale-[1.01] transition-all"
           >
-            {showImage ? (
-              <img
-                src={p.imageUrl}
-                alt={p.title}
-                width={72}
-                height={72}
-                className="shrink-0 rounded-lg object-contain bg-white shadow-sm"
-                loading="lazy"
-                onLoad={handleImgLoad(p.id)}
-                onError={handleImgError(p.id)}
-              />
-            ) : (
-              <span className="shrink-0 text-2xl leading-none mt-0.5">{p.emoji}</span>
-            )}
-            <div className="min-w-0 flex-1">
-              <div className="text-[13px] font-semibold text-slate-700 dark:text-slate-200 leading-snug line-clamp-2">
-                {p.title}
+            {showImage && (
+              <div className="flex justify-center mb-2">
+                <img
+                  src={p.imageUrl}
+                  alt={p.title}
+                  width={96}
+                  height={96}
+                  className="rounded-lg object-contain bg-white shadow-sm"
+                  loading="lazy"
+                  onLoad={handleImgLoad(p.id)}
+                  onError={handleImgError(p.id)}
+                />
               </div>
-              {p.price ? (
-                <div className="mt-1 text-[11px] font-bold text-emerald-600 dark:text-emerald-400">
-                  {p.price}
-                </div>
-              ) : (
-                <div className="mt-1 text-[11px] text-slate-500 dark:text-slate-400">
-                  amazon.it
-                </div>
-              )}
+            )}
+            {!showImage && (
+              <span className="text-2xl leading-none mb-1 block">{p.emoji}</span>
+            )}
+            <div className="text-sm font-semibold text-slate-700 dark:text-slate-200 leading-snug">
+              {p.title}
             </div>
-            <ExternalLink size={12} className="text-slate-500 dark:text-slate-400 group-hover:text-indigo-500 shrink-0 mt-0.5" />
+            <div className="flex items-center justify-between mt-1.5">
+              {p.price ? (
+                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                  {p.price}
+                </span>
+              ) : (
+                <span className="text-xs text-slate-500 dark:text-slate-400">
+                  amazon.it
+                </span>
+              )}
+              <span className="text-[10px] font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 flex items-center gap-0.5">
+                Vedi <ExternalLink size={10} />
+              </span>
+            </div>
           </a>
         );
       })}
