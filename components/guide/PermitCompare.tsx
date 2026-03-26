@@ -6,6 +6,7 @@ import { Analytics } from '@/services/analytics';
 import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 import { Users, TrendingUp, TrendingDown, Minus, AlertTriangle, Download, Info, Sparkles, CheckSquare, ExternalLink, FileText } from 'lucide-react';
 import { useExchangeRate } from '@/services/exchangeRateService';
+import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
 
 // ── G permit type ──
 type GPermitType = 'new_within_20km' | 'new_beyond_20km' | 'old';
@@ -123,19 +124,25 @@ function compare(grossCHF: number, muni: Municipality, swissCity: typeof SWISS_C
   
   // Italian taxes depend on permit type
   const grossEUR = grossCHF * EXCHANGE_RATE;
+  const socialEUR = socialG * EXCHANGE_RATE;
   let totalItalianTax = 0;
 
   if (gType === 'old') {
     // OLD agreement: 100% taxed at source in CH, no Italian IRPEF, no franchigia
     totalItalianTax = 0;
   } else {
-    // NEW agreement 2026: franchigia €10k, IRPEF on remainder
+    // NEW agreement 2026: franchigia €10k, social deductions, detrazioni Art. 13 TUIR
     const franchigia = 10000;
-    const taxableIT = Math.max(0, grossEUR - franchigia);
-    const irpef = calcIrpef(taxableIT);
+    const taxableIT = Math.max(0, grossEUR - socialEUR - franchigia);
+    const irpefGross = calcIrpef(taxableIT);
+    const detrazioni = calculateProgressiveWorkDeduction(taxableIT);
     const addRegionale = taxableIT * 0.0173; // Lombardia
     const addComunale = taxableIT * (muni.irpefAddizionale / 100);
-    totalItalianTax = irpef + addRegionale + addComunale;
+    const irpefLiability = Math.max(0, irpefGross + addRegionale + addComunale - detrazioni);
+    // Proportional Swiss tax credit per Art. 165 c.10 TUIR
+    const paidSourceTaxEUR = swissTaxG * EXCHANGE_RATE;
+    const swissTaxCredit = calculateProportionalTaxCredit(paidSourceTaxEUR, taxableIT, grossEUR);
+    totalItalianTax = Math.max(0, irpefLiability - swissTaxCredit);
   }
 
   const rentG = muni.avgRentMonthly * 12; // EUR

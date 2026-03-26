@@ -3,6 +3,8 @@ import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Gift, Euro, Calculator, Info, TrendingUp, ChevronDown, ChevronUp, ArrowUpRight, RefreshCw } from 'lucide-react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
+import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
+import { FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // Swiss bonus types for frontalieri
 const BONUS_TYPES = [
@@ -112,18 +114,27 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
   const result = useMemo(() => {
     // --- Without bonus (base salary only) ---
     const baseSwissRate = estimateSwissWithholding(annualGross, isMarried, children);
-    const baseIncomeEUR = annualGross * exchangeRate;
-    const baseMarginalRate = calculateIrpefMarginalRate(baseIncomeEUR);
-    const baseIrpefTax = calculateIrpefTax(baseIncomeEUR);
-    const baseEffectiveIrpef = baseIncomeEUR > 0 ? baseIrpefTax / baseIncomeEUR : 0;
+    const baseGrossEUR = annualGross * exchangeRate;
+    const baseSocialCHF = annualGross * TOTAL_SOCIAL;
+    const baseSocialEUR = baseSocialCHF * exchangeRate;
+    // Italian taxable base: gross EUR - social - franchigia (Art. 1 c.175 L.147/2013)
+    const baseTaxableEUR = Math.max(0, baseGrossEUR - baseSocialEUR - FRANCHIGIA_NUOVI_FRONTALIERI);
+    const baseMarginalRate = calculateIrpefMarginalRate(baseTaxableEUR);
+    const baseDetrazioni = calculateProgressiveWorkDeduction(baseTaxableEUR);
+    const baseIrpefTax = Math.max(0, calculateIrpefTax(baseTaxableEUR) - baseDetrazioni);
+    const baseEffectiveIrpef = baseGrossEUR > 0 ? baseIrpefTax / baseGrossEUR : 0;
 
     // --- With bonus (salary + bonus in the same period) ---
     const totalAnnualGross = annualGross + bonusAmountCHF;
     const withBonusSwissRate = estimateSwissWithholding(totalAnnualGross, isMarried, children);
-    const withBonusIncomeEUR = totalAnnualGross * exchangeRate;
-    const withBonusMarginalRate = calculateIrpefMarginalRate(withBonusIncomeEUR);
-    const withBonusIrpefTax = calculateIrpefTax(withBonusIncomeEUR);
-    const withBonusEffectiveIrpef = withBonusIncomeEUR > 0 ? withBonusIrpefTax / withBonusIncomeEUR : 0;
+    const withBonusGrossEUR = totalAnnualGross * exchangeRate;
+    const withBonusSocialCHF = totalAnnualGross * TOTAL_SOCIAL;
+    const withBonusSocialEUR = withBonusSocialCHF * exchangeRate;
+    const withBonusTaxableEUR = Math.max(0, withBonusGrossEUR - withBonusSocialEUR - FRANCHIGIA_NUOVI_FRONTALIERI);
+    const withBonusMarginalRate = calculateIrpefMarginalRate(withBonusTaxableEUR);
+    const withBonusDetrazioni = calculateProgressiveWorkDeduction(withBonusTaxableEUR);
+    const withBonusIrpefTax = Math.max(0, calculateIrpefTax(withBonusTaxableEUR) - withBonusDetrazioni);
+    const withBonusEffectiveIrpef = withBonusGrossEUR > 0 ? withBonusIrpefTax / withBonusGrossEUR : 0;
 
     // --- Bonus-specific calculations ---
     const socialDeductions = bonusAmountCHF * TOTAL_SOCIAL;
@@ -132,8 +143,10 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
 
     const bonusEUR = bonusAmountCHF * exchangeRate;
     const additionalIrpef = Math.max(0, withBonusIrpefTax - baseIrpefTax);
-    // Swiss tax credit (imposta alla fonte paid in CH is credited against IRPEF)
-    const swissTaxCreditEUR = swissTax * exchangeRate;
+    // Proportional Swiss tax credit per Art. 165 c.10 TUIR
+    const swissTaxCreditEUR = calculateProportionalTaxCredit(
+      swissTax * exchangeRate, withBonusTaxableEUR, withBonusGrossEUR
+    );
     const netAdditionalIrpef = Math.max(0, additionalIrpef - swissTaxCreditEUR);
     const netBonusEUR = bonusEUR - netAdditionalIrpef;
 
@@ -172,10 +185,10 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
       irpefRateDelta,
       bracketJumped,
       extraSwissTax,
-      baseIncomeEUR: Math.round(baseIncomeEUR),
-      withBonusIncomeEUR: Math.round(withBonusIncomeEUR),
-      baseBracketLabel: getIrpefBracketLabel(baseIncomeEUR),
-      withBonusBracketLabel: getIrpefBracketLabel(withBonusIncomeEUR),
+      baseIncomeEUR: Math.round(baseGrossEUR),
+      withBonusIncomeEUR: Math.round(withBonusGrossEUR),
+      baseBracketLabel: getIrpefBracketLabel(baseTaxableEUR),
+      withBonusBracketLabel: getIrpefBracketLabel(withBonusTaxableEUR),
     };
   }, [bonusAmountCHF, annualGross, isMarried, children, exchangeRate]);
 

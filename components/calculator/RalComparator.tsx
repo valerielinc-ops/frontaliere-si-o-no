@@ -4,6 +4,7 @@ import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
+import { calculateProgressiveWorkDeduction } from '@/services/calculationService';
 
 // ─── Italian INPS Contribution Rates 2026 ────────────────────────────────
 
@@ -16,7 +17,7 @@ const IRPEF_SCAGLIONI_2026 = [
 ];
 const ADDIZIONALE_REGIONALE_AVG = 0.02; // ~2% media (varies by region)
 const ADDIZIONALE_COMUNALE_AVG = 0.008; // ~0.8% media
-const DETRAZIONI_LAVORO_DIPENDENTE = 1910; // base deduction for employment income < 28k, simplified
+// DETRAZIONI_LAVORO_DIPENDENTE: progressive per Art. 13 TUIR (via calculateProgressiveWorkDeduction)
 
 // ─── Swiss Rates (same as calculationService) ────────────────────────────
 
@@ -78,11 +79,8 @@ function calculateItalianNet(ral: number, maritalStatus: string, children: numbe
     prevMax = max;
   }
 
-  // Detrazioni
-  let detrazioni = 0;
-  if (taxableIncome <= 15000) detrazioni = 1955;
-  else if (taxableIncome <= 28000) detrazioni = 1910 + 1190 * ((28000 - taxableIncome) / 13000);
-  else if (taxableIncome <= 50000) detrazioni = 1910 * ((50000 - taxableIncome) / 22000);
+  // Progressive work deduction per Art. 13 TUIR
+  let detrazioni = calculateProgressiveWorkDeduction(taxableIncome);
   // Children bonus (ANF/assegno unico not included — separate system)
   detrazioni += children * 950;
   if (maritalStatus === 'MARRIED') detrazioni += 690;
