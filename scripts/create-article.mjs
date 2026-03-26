@@ -1831,7 +1831,7 @@ async function translateArticle(data) {
     console.error(`🤖 [${targetLabel}] Traduzione ${targetLang.toUpperCase()} tramite catena AI...`);
 
     const rules = `REGOLE DI TRADUZIONE:
-- Traduzione COMPLETA, stessa profondità e lunghezza dell'italiano (300-400 parole per body)
+- Traduzione COMPLETA, stessa profondità e lunghezza dell'italiano
 - NON riassumere — traduci tutto il contenuto
 - Mantieni la formattazione: ## per sottotitoli, - per elenchi, > per citazioni, emoji (📊💡⚠️) per box
 - Mantieni i link interni esattamente come sono: [testo tradotto](nav:azione) — traduci solo il testo visibile, NON l'azione nav:
@@ -1839,36 +1839,37 @@ async function translateArticle(data) {
 - Usa fraseologia naturale nella lingua target, non traduzione letterale
 - Apostrofi: usa sempre ' (diritto), mai virgolette curve`;
 
-    // Split into two calls to avoid output token limit (German/French expand ~30% vs Italian)
-    // Call A: short fields (title + excerpt + body1)
-    const promptA = `Traduci il seguente contenuto giornalistico da italiano a ${langName} per il sito Frontaliere Ticino.
+    // Split into 4 parallel calls — one per field group — to stay within model output limits.
+    // German/French expand ~30% vs Italian; some models cap output at ~2048-4096 tokens.
+    // Keeping each call to a single field ensures even the most limited model can complete it.
 
-CONTENUTO ITALIANO DA TRADURRE:
-- title: ${sourceContent.title}
-- excerpt: ${sourceContent.excerpt}
-- body1: ${sourceContent.body1}
+    const makePrompt = (fields, schema) =>
+      `Traduci il seguente contenuto giornalistico da italiano a ${langName} per il sito Frontaliere Ticino.\n\n${fields}\n\n${rules}\n\nRispondi con un JSON object (no markdown, no code fences):\n${schema}`;
 
-${rules}
-
-Rispondi con un JSON object (no markdown, no code fences):
-{"title": "...", "excerpt": "...", "body1": "..."}`;
-
-    // Call B: long fields (body2 + body3)
-    const promptB = `Traduci il seguente contenuto giornalistico da italiano a ${langName} per il sito Frontaliere Ticino.
-
-CONTENUTO ITALIANO DA TRADURRE:
-- body2: ${sourceContent.body2}
-- body3: ${sourceContent.body3}
-
-${rules}
-
-Rispondi con un JSON object (no markdown, no code fences):
-{"body2": "...", "body3": "..."}`;
-
-    const [partA, partB] = await Promise.all([
-      callWithRetry(promptA, 4000, `${targetLang}:A`),
-      callWithRetry(promptB, 5000, `${targetLang}:B`),
+    const [partMeta, partB1, partB2, partB3] = await Promise.all([
+      // Call 1: title + excerpt (small, ~300 tokens output)
+      callWithRetry(makePrompt(
+        `CONTENUTO ITALIANO DA TRADURRE:\n- title: ${sourceContent.title}\n- excerpt: ${sourceContent.excerpt}`,
+        '{"title": "...", "excerpt": "..."}',
+      ), 1000, `${targetLang}:meta`),
+      // Call 2: body1 (one section, ~800 tokens max)
+      callWithRetry(makePrompt(
+        `CONTENUTO ITALIANO DA TRADURRE:\n- body1: ${sourceContent.body1}`,
+        '{"body1": "..."}',
+      ), 3000, `${targetLang}:b1`),
+      // Call 3: body2 (one section, ~800 tokens max)
+      callWithRetry(makePrompt(
+        `CONTENUTO ITALIANO DA TRADURRE:\n- body2: ${sourceContent.body2}`,
+        '{"body2": "..."}',
+      ), 3000, `${targetLang}:b2`),
+      // Call 4: body3 (one section, ~800 tokens max)
+      callWithRetry(makePrompt(
+        `CONTENUTO ITALIANO DA TRADURRE:\n- body3: ${sourceContent.body3}`,
+        '{"body3": "..."}',
+      ), 3000, `${targetLang}:b3`),
     ]);
+
+    const [partA, partB] = [{ ...partMeta, ...partB1 }, { ...partB2, ...partB3 }];
 
     const parsed = { ...partA, ...partB };
     console.error(`  ✅ ${targetLang.toUpperCase()} completato`);
