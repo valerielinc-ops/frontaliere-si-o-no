@@ -117,7 +117,6 @@ services/locales/
 | PDF | jsPDF + jspdf-autotable | Client-side report generation |
 | Icons | lucide-react | Tree-shakeable |
 | Backend | Firebase (Analytics, Remote Config, App Check, Firestore) | No custom server |
-| PWA | vite-plugin-pwa + Workbox | Offline support |
 | Testing | Vitest 4 + Testing Library + jsdom | Separate `vitest.config.ts` |
 | CI/CD | GitHub Actions (117 workflows) | Deploy to GitHub Pages |
 | Task Management | Linear | Team "Frontaliere Ticino" |

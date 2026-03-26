@@ -63,7 +63,6 @@ types.ts             — SimulationInputs, SimulationResult, ExpenseItem interfa
 
 - **No build-time secrets**: All API keys (Google Maps, reCAPTCHA, Gemini, GitHub PAT) load from **Firebase Remote Config** at runtime. `.env` only has non-sensitive Firebase config. Never hardcode secrets.
 - **Inline translations**: All i18n strings are in `services/i18n.ts` (not JSON files). Each locale is a flat `Record<string, string>` with dot-notation keys.
-- **PWA**: `vite-plugin-pwa` with `registerType: 'prompt'`, `clientsClaim: true`, `skipWaiting: true`. New SWs activate immediately but pages do **not** auto-reload; updates apply on the user's next natural navigation. The `PwaUpdateBanner` component is a headless SW lifecycle manager (no UI).
 - **GitHub Pages SPA**: `public/404.html` redirects all paths to `index.html` via sessionStorage. `index.html` restores the path on load.
 
 ---
@@ -81,7 +80,6 @@ types.ts             — SimulationInputs, SimulationResult, ExpenseItem interfa
 | PDF | jsPDF + jspdf-autotable | Client-side report generation |
 | Icons | lucide-react | Tree-shakeable, import individually |
 | Backend | Firebase (Analytics, Remote Config, App Check, Firestore) | No custom backend server |
-| PWA | vite-plugin-pwa + Workbox | Service worker for offline |
 | Testing | Vitest 4 + Testing Library + jsdom | `vitest.config.ts` separate from `vite.config.ts` |
 
 ---
@@ -125,7 +123,6 @@ After any code change, always verify:
 ```
 tests/
   setup.tsx                    — Global mocks (matchMedia, localStorage, Firebase, Analytics, Leaflet)
-  __mocks__/virtual-pwa-register.ts — Mock for vite-plugin-pwa
   *.test.ts / *.test.tsx       — Test files
 ```
 
@@ -134,7 +131,6 @@ tests/
 - `globals: true` — `vi`, `describe`, `it`, `expect` available without imports
 - `environment: 'jsdom'`
 - `@/` alias resolves to project root
-- `virtual:pwa-register` aliased to mock
 
 ### What's Mocked in Setup
 
@@ -288,7 +284,6 @@ import HealthInsurance from '@/components/HealthInsurance';
 | Modify tax calculation | `services/calculationService.ts` + `constants.ts` |
 | Add analytics event | `services/analytics.ts` (add method) → component (call it) |
 | Add achievement | `components/GamificationWidget.tsx` → trigger point → i18n |
-| Change PWA behavior | `vite.config.ts` (VitePWA plugin) + `components/PwaUpdateBanner.tsx` |
 | Add test | `tests/*.test.{ts,tsx}` — follow existing patterns |
 | Mock a new service | `tests/setup.tsx` |
 | Border crossing data | `data/borderCrossings.ts` |

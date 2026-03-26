@@ -2061,9 +2061,7 @@ const App: React.FC = () => {
     document.cookie.split(';').forEach(c => {
       document.cookie = c.replace(/^ +/, '').replace(/=.*/, '=;expires=' + new Date(0).toUTCString() + ';path=/');
     });
-    // 3. Unregister service worker so the next load fetches fresh assets
-    try { const reg = await navigator.serviceWorker?.getRegistration(); if (reg) await reg.unregister(); } catch {}
-    // 4. Force-fetch latest version (cache-bust so the browser doesn't serve stale HTML)
+    // 3. Force-fetch latest version (cache-bust so the browser doesn't serve stale HTML)
     window.location.replace('/?_t=' + Date.now());
   };
 
