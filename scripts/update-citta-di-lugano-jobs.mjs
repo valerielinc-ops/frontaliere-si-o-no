@@ -42,6 +42,10 @@ import {
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/citta-di-lugano-job-parser.mjs';
+import {
+  buildPdfBackedDescription,
+  extractPdfJobContentFromUrl,
+} from './lib/pdf-job-content.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -112,10 +116,36 @@ async function fetchJobs() {
   const jobs = [];
   for (const listing of rawListings) {
     const job = buildJob(listing);
-    if (job) {
-      console.log(`  ✅ ${job.title} (${job.location})`);
-      jobs.push(job);
+    if (!job) continue;
+
+    // Enrich description with PDF content when available
+    const pdfUrl = listing.pdfUrl || job.pdfUrl || '';
+    if (pdfUrl) {
+      console.log(`  📄 Extracting PDF: ${pdfUrl}`);
+      const pdfContent = await extractPdfJobContentFromUrl(pdfUrl);
+      if (pdfContent.error) {
+        console.warn(`  ⚠️ PDF extraction failed for "${job.title}": ${pdfContent.error}`);
+      } else if (pdfContent.text) {
+        console.log(`  ✅ PDF extracted (${pdfContent.text.length} chars, ${pdfContent.totalPages} pages)`);
+        job.description = buildPdfBackedDescription({
+          introLines: [
+            `## ${job.title}`,
+            `${COMPANY_NAME} — concorso pubblico a Lugano (TI), Svizzera.`,
+          ],
+          pdfText: pdfContent.text,
+          fallbackText: job.description || '',
+          footerLines: [
+            `**Settore:** Pubblica Amministrazione`,
+            `**Sede:** Via Nizzola 5, 6900 Lugano, TI, Svizzera`,
+            `[Bando ufficiale (PDF)](${pdfUrl})`,
+          ],
+        });
+        job.descriptionByLocale = { it: job.description };
+      }
     }
+
+    console.log(`  ✅ ${job.title} (${job.location})`);
+    jobs.push(job);
   }
 
   console.log(`📋 Total unique ${COMPANY_NAME} jobs discovered: ${jobs.length}`);
