@@ -14,7 +14,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
 import { useExchangeRate } from '@/services/exchangeRateService';
-import { getTicinoTaxRate, adjustRateForChildren, calculateLombardiaRegionale } from '@/services/calculationService';
+import { getTicinoTaxRate, adjustRateForChildren, calculateLombardiaRegionale, calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
 import { DEFAULT_TECH_PARAMS, FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
 
 // ─── Constants ───────────────────────────────────────────────
@@ -150,20 +150,22 @@ const TaxCreditCalculator: React.FC = () => {
       if (totalIncome <= bracket.upTo) break;
     }
 
-    // Deductions
-    const itDeductions = itWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
+    // Progressive work deduction per Art. 13 TUIR
+    const progressiveWorkDeduction = calculateProgressiveWorkDeduction(totalIncome);
+    const itDeductions = progressiveWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
 
     // Addizionali (use real Lombardia progressive brackets for regional)
     const addizionaleRegionale = calculateLombardiaRegionale(totalIncome);
     const addizionaleComunale = totalIncome * ADDIZIONALE_COMUNALE_RATE;
     const totalItalianTax = Math.max(0, irpef + addizionaleRegionale + addizionaleComunale - itDeductions);
 
-    // Tax attributable to foreign income
+    // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017
+    // Step 1: Reduce Swiss tax proportionally (taxable base vs gross foreign income)
+    const proportionalSwissTax = calculateProportionalTaxCredit(paidSourceTaxEUR, taxableInItaly, grossEUR);
+    // Step 2: Cap at Italian tax attributable to foreign income
     const foreignIncomeRatio = totalIncome > 0 ? taxableInItaly / totalIncome : 0;
     const italianTaxOnForeignIncome = totalItalianTax * foreignIncomeRatio;
-
-    // Tax credit = MIN(Swiss tax paid in EUR, Italian tax on foreign income)
-    const taxCredit = Math.min(paidSourceTaxEUR, italianTaxOnForeignIncome);
+    const taxCredit = Math.min(proportionalSwissTax, italianTaxOnForeignIncome);
 
     // Net Italian tax after credit
     const netItalianTax = Math.max(0, totalItalianTax - taxCredit);

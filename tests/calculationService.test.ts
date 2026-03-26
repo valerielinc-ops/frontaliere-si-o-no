@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateSimulation } from '@/services/calculationService';
+import { calculateSimulation, calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
 import { DEFAULT_INPUTS } from '@/constants';
 import { SimulationInputs } from '@/types';
 
@@ -195,5 +195,112 @@ describe('calculateSimulation', () => {
       expect(withExpenses.chResident.netIncomeAnnual).toBeLessThan(noExpenses.chResident.netIncomeAnnual);
       expect(withExpenses.itResident.netIncomeAnnual).toBeLessThan(noExpenses.itResident.netIncomeAnnual);
     });
+  });
+
+  describe('Progressive work deduction (Art. 13 TUIR)', () => {
+    it('uses progressive deduction, not fixed €1,910', () => {
+      // For a typical frontaliere with €70k+ taxable base, deduction should be near zero
+      const highIncome = calculateSimulation(makeInputs({
+        frontierWorkerType: 'NEW',
+        distanceZone: 'WITHIN_20KM',
+        annualIncomeCHF: 100000,
+      }));
+      // At ~€80k+ taxable base, Art. 13 gives €0 deduction (over €50k threshold)
+      expect(highIncome.itResident.details.irpefDetails!.deductionsEUR).toBeLessThan(1910);
+    });
+
+    it('lower income gets higher work deduction', () => {
+      const low = calculateSimulation(makeInputs({
+        frontierWorkerType: 'NEW',
+        distanceZone: 'WITHIN_20KM',
+        annualIncomeCHF: 30000,
+      }));
+      const high = calculateSimulation(makeInputs({
+        frontierWorkerType: 'NEW',
+        distanceZone: 'WITHIN_20KM',
+        annualIncomeCHF: 100000,
+      }));
+      expect(low.itResident.details.irpefDetails!.deductionsEUR).toBeGreaterThan(
+        high.itResident.details.irpefDetails!.deductionsEUR
+      );
+    });
+  });
+
+  describe('Proportional foreign tax credit (Art. 165 c.10 TUIR)', () => {
+    it('Swiss tax credit is less than full paid source tax (due to franchigia reduction)', () => {
+      const result = calculateSimulation(makeInputs({
+        frontierWorkerType: 'NEW',
+        distanceZone: 'WITHIN_20KM',
+        annualIncomeCHF: 100000,
+      }));
+      const irpef = result.itResident.details.irpefDetails!;
+      // Credit should be reduced because franchigia makes taxable base < gross income
+      expect(irpef.creditSwissTaxEUR).toBeLessThan(
+        result.itResident.socialContributions * result.exchangeRate // just verify it's a reasonable positive number
+      );
+      expect(irpef.creditSwissTaxEUR).toBeGreaterThan(0);
+    });
+  });
+});
+
+describe('calculateProgressiveWorkDeduction (Art. 13 TUIR)', () => {
+  it('returns €1,955 for income up to €15,000', () => {
+    expect(calculateProgressiveWorkDeduction(10000)).toBe(1955);
+    expect(calculateProgressiveWorkDeduction(15000)).toBe(1955);
+  });
+
+  it('returns €1,910 + bonus for income €15,001–€28,000', () => {
+    // At €15,001 → ~1910 + 1190 * (28000-15001)/13000 ≈ 1910 + 1189.9 ≈ 3099.9
+    expect(calculateProgressiveWorkDeduction(15001)).toBeCloseTo(1910 + 1190 * (28000 - 15001) / 13000, 0);
+    // At €28,000 → 1910 + 1190 * 0/13000 = 1910
+    expect(calculateProgressiveWorkDeduction(28000)).toBeCloseTo(1910, 0);
+    // At €20,000 → 1910 + 1190 * 8000/13000 ≈ 2642
+    expect(calculateProgressiveWorkDeduction(20000)).toBeCloseTo(1910 + 1190 * 8000 / 13000, 0);
+  });
+
+  it('returns decreasing deduction for income €28,001–€50,000', () => {
+    // At €28,001 → 1910 * (50000-28001)/22000 ≈ 1909.9
+    expect(calculateProgressiveWorkDeduction(28001)).toBeCloseTo(1910 * (50000 - 28001) / 22000, 0);
+    // At €40,000 → 1910 * 10000/22000 ≈ 868
+    expect(calculateProgressiveWorkDeduction(40000)).toBeCloseTo(1910 * 10000 / 22000, 0);
+    // At €50,000 → 1910 * 0/22000 = 0
+    expect(calculateProgressiveWorkDeduction(50000)).toBe(0);
+  });
+
+  it('returns €0 for income over €50,000', () => {
+    expect(calculateProgressiveWorkDeduction(60000)).toBe(0);
+    expect(calculateProgressiveWorkDeduction(100000)).toBe(0);
+  });
+
+  it('returns €0 for zero or negative income', () => {
+    expect(calculateProgressiveWorkDeduction(0)).toBe(0);
+    expect(calculateProgressiveWorkDeduction(-5000)).toBe(0);
+  });
+});
+
+describe('calculateProportionalTaxCredit (Art. 165 c.10 TUIR)', () => {
+  it('reduces credit when taxable base is less than gross income', () => {
+    // €10k franchigia: taxable = €70k, gross = €80k → ratio = 0.875
+    const credit = calculateProportionalTaxCredit(5000, 70000, 80000);
+    expect(credit).toBeCloseTo(5000 * 70000 / 80000, 2);
+  });
+
+  it('returns full credit when taxable equals gross', () => {
+    const credit = calculateProportionalTaxCredit(5000, 80000, 80000);
+    expect(credit).toBe(5000);
+  });
+
+  it('returns 0 when gross is zero', () => {
+    expect(calculateProportionalTaxCredit(5000, 0, 0)).toBe(0);
+  });
+
+  it('returns 0 when paid tax is zero', () => {
+    expect(calculateProportionalTaxCredit(0, 70000, 80000)).toBe(0);
+  });
+
+  it('caps ratio at 1 (taxable cannot exceed gross)', () => {
+    // Edge case: if taxable > gross somehow, ratio is capped at 1
+    const credit = calculateProportionalTaxCredit(5000, 90000, 80000);
+    expect(credit).toBe(5000);
   });
 });

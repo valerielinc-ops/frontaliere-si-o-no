@@ -215,13 +215,16 @@ export const calculateSimulation = (inputs: SimulationInputs): SimulationResult 
     else if (italianTaxableBaseEUR <= 50000) irpefGross = (28000 * 0.23) + ((italianTaxableBaseEUR - 28000) * 0.35);
     else irpefGross = (28000 * 0.23) + (22000 * 0.35) + ((italianTaxableBaseEUR - 50000) * 0.43);
 
-    const itDeductions = itWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
+    const progressiveWorkDeduction = calculateProgressiveWorkDeduction(italianTaxableBaseEUR);
+    const itDeductions = progressiveWorkDeduction + (maritalStatus === 'MARRIED' && !spouseWorks ? 690 : 0) + (children * 950);
     const addizionali = italianTaxableBaseEUR * itAddizionaleRate;
-    const itLiability = Math.max(0, irpefGross + addizionali - itDeductions); 
-    finalItTaxEUR = Math.max(0, itLiability - paidSourceTaxEUR);
+    const itLiability = Math.max(0, irpefGross + addizionali - itDeductions);
+    // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017
+    const usableTaxCredit = calculateProportionalTaxCredit(paidSourceTaxEUR, italianTaxableBaseEUR, grossIncomeEUR + allowanceEUR);
+    finalItTaxEUR = Math.max(0, itLiability - usableTaxCredit);
     const finalItTaxCHF = finalItTaxEUR / EXCHANGE_RATE;
 
-    irpefDetails = { taxableBaseEUR: italianTaxableBaseEUR, grossTaxEUR: irpefGross, deductionsEUR: itDeductions, addizionaliEUR: addizionali, creditSwissTaxEUR: paidSourceTaxEUR, finalNetTaxEUR: finalItTaxEUR };
+    irpefDetails = { taxableBaseEUR: italianTaxableBaseEUR, grossTaxEUR: irpefGross, deductionsEUR: itDeductions, addizionaliEUR: addizionali, creditSwissTaxEUR: usableTaxCredit, finalNetTaxEUR: finalItTaxEUR };
     notesIT = ["calc.regime.newFrontier", "calc.notes.concurrentTax", "calc.notes.franchiseApplied"];
     
     itBreakdown = [
@@ -280,6 +283,40 @@ export function calculateIrpefGross(taxableBase: number): number {
   if (taxableBase <= 28000) return taxableBase * 0.23;
   if (taxableBase <= 50000) return 28000 * 0.23 + (taxableBase - 28000) * 0.35;
   return 28000 * 0.23 + 22000 * 0.35 + (taxableBase - 50000) * 0.43;
+}
+
+/**
+ * Progressive work deduction (detrazione lavoro dipendente) per Art. 13 TUIR.
+ * The deduction decreases as income increases and reaches zero above €50,000.
+ * 2024-2026 brackets (post D.Lgs. 216/2023 reform):
+ *   - Up to €15,000: €1,955
+ *   - €15,001–€28,000: €1,910 + 1,190 × (28,000 − reddito) / 13,000
+ *   - €28,001–€50,000: €1,910 × (50,000 − reddito) / 22,000
+ *   - Over €50,000: €0
+ */
+export function calculateProgressiveWorkDeduction(taxableBaseEUR: number): number {
+  if (taxableBaseEUR <= 0) return 0;
+  if (taxableBaseEUR <= 15000) return 1955;
+  if (taxableBaseEUR <= 28000) return 1910 + 1190 * (28000 - taxableBaseEUR) / 13000;
+  if (taxableBaseEUR <= 50000) return 1910 * (50000 - taxableBaseEUR) / 22000;
+  return 0;
+}
+
+/**
+ * Calculate proportional foreign tax credit per Art. 165 c.10 TUIR.
+ * When foreign income only partially contributes to the Italian taxable base
+ * (e.g. due to franchigia deduction), the usable credit must be reduced proportionally.
+ * Formula: creditUsable = paidSourceTaxEUR × (italianTaxableBase / grossForeignIncome)
+ * Ref: Risoluzione 38/E/2017 Agenzia delle Entrate
+ */
+export function calculateProportionalTaxCredit(
+  paidSourceTaxEUR: number,
+  italianTaxableBaseEUR: number,
+  grossForeignIncomeEUR: number,
+): number {
+  if (grossForeignIncomeEUR <= 0 || paidSourceTaxEUR <= 0) return 0;
+  const ratio = Math.min(1, Math.max(0, italianTaxableBaseEUR / grossForeignIncomeEUR));
+  return paidSourceTaxEUR * ratio;
 }
 
 // ─── Lightweight per-municipality IRPEF impact calculator ────────────────────
@@ -356,8 +393,8 @@ export function calculateMunicipalityTaxImpact(
   const addizionaleComunale = italianTaxableBaseEUR * (addizionaleComunalePercent / 100);
   const totalAddizionali = addizionaleRegionale + addizionaleComunale;
 
-  // Deductions (single, no children — baseline comparison)
-  const deductions = itWorkDeduction;
+  // Progressive work deduction (Art. 13 TUIR) — single, no children baseline
+  const deductions = calculateProgressiveWorkDeduction(italianTaxableBaseEUR);
 
   // IRPEF net before Swiss credit
   const irpefNet = Math.max(0, irpefGross + totalAddizionali - deductions);
@@ -370,8 +407,8 @@ export function calculateMunicipalityTaxImpact(
   const chTaxShare = distanceZone === 'WITHIN_20KM' ? 0.8 : 1.0;
   const paidSourceTaxEUR = (swissTaxCHF * chTaxShare) * exchangeRate;
 
-  // Final Italian tax = IRPEF net - Swiss tax credit (can't go below 0)
-  const swissTaxCredit = paidSourceTaxEUR;
+  // Proportional foreign tax credit per Art. 165 c.10 TUIR + Ris. 38/E/2017
+  const swissTaxCredit = calculateProportionalTaxCredit(paidSourceTaxEUR, italianTaxableBaseEUR, grossIncomeEUR);
   const finalItalianTaxEUR = Math.max(0, irpefNet - swissTaxCredit);
 
   // Total tax burden in EUR (Swiss portion paid + Italian portion)
