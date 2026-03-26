@@ -101,7 +101,7 @@ export const DEFAULT_INPUTS = {
   annualIncomeCHF: 75000,
   familyMembers: 1,
   children: 0,
-  healthInsuranceCHF: 400,
+  healthInsuranceCHF: 450,
   frontierWorkerType: 'NEW' as const,
   distanceZone: 'WITHIN_20KM' as const,
   customExchangeRate: DEFAULT_EXCHANGE_RATE,

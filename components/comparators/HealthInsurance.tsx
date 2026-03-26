@@ -1,5 +1,5 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
-import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, Star, TrendingDown, ExternalLink, Filter, Award, Search, Calculator, Globe } from 'lucide-react';
+import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
+import { Heart, Shield, AlertCircle, Info, ChevronDown, ChevronUp, TrendingDown, ExternalLink, Filter, Award, Search, Calculator, Globe, MapPin, Trophy } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
@@ -15,67 +15,33 @@ interface InsurerProfile {
   id: string;
   name: string;
   website: string;
-  color: string;
-  rating: number;
   models: InsuranceModel[];
-  serviceNote: string;
-  isLowCost?: boolean;
 }
 
-const INSURERS: InsurerProfile[] = [
-  { id: 'assura', name: 'Assura', website: 'https://www.assura.ch', color: 'from-blue-500 to-indigo-600', rating: 3.2, models: ['standard', 'hausarzt', 'telmed'], serviceNote: 'Premi tra i più bassi, servizio clienti migliorabile', isLowCost: true },
-  { id: 'css', name: 'CSS', website: 'https://www.css.ch', color: 'from-red-500 to-rose-600', rating: 4.1, models: ['standard', 'hmo', 'hausarzt', 'telmed'], serviceNote: 'App moderna, buon servizio clienti' },
-  { id: 'helsana', name: 'Helsana', website: 'https://www.helsana.ch', color: 'from-emerald-500 to-teal-600', rating: 4.0, models: ['standard', 'hmo', 'hausarzt', 'telmed'], serviceNote: 'Grande gruppo, rete capillare' },
-  { id: 'swica', name: 'SWICA', website: 'https://www.swica.ch', color: 'from-teal-500 to-cyan-600', rating: 4.5, models: ['standard', 'hmo', 'hausarzt', 'telmed'], serviceNote: 'Eccellente servizio, premiata più volte' },
-  { id: 'sanitas', name: 'Sanitas', website: 'https://www.sanitas.com', color: 'from-cyan-500 to-blue-600', rating: 3.9, models: ['standard', 'hmo', 'hausarzt', 'telmed'], serviceNote: 'Buona offerta digitale' },
-  { id: 'concordia', name: 'Concordia', website: 'https://www.concordia.ch', color: 'from-purple-500 to-violet-600', rating: 4.2, models: ['standard', 'hausarzt', 'telmed'], serviceNote: 'Buon rapporto qualità-prezzo' },
-  { id: 'visana', name: 'Visana', website: 'https://www.visana.ch', color: 'from-amber-500 to-orange-600', rating: 3.8, models: ['standard', 'hmo', 'hausarzt'], serviceNote: 'Presente soprattutto nella Svizzera tedesca' },
-  { id: 'kpt', name: 'KPT', website: 'https://www.kpt.ch', color: 'from-sky-500 to-blue-600', rating: 4.3, models: ['standard', 'hausarzt', 'telmed'], serviceNote: 'Premi competitivi, alta soddisfazione' },
-  { id: 'okk', name: 'ÖKK', website: 'https://www.oekk.ch', color: 'from-lime-500 to-green-600', rating: 4.0, models: ['standard', 'hausarzt', 'telmed'], serviceNote: 'Forte nei Grigioni, servizio personale' },
-  { id: 'groupe-mutuel', name: 'Groupe Mutuel', website: 'https://www.groupemutuel.ch', color: 'from-indigo-500 to-purple-600', rating: 3.5, models: ['standard', 'hmo', 'hausarzt', 'telmed'], serviceNote: 'Grande gruppo, molte opzioni', isLowCost: true },
-  { id: 'atupri', name: 'Atupri', website: 'https://www.atupri.ch', color: 'from-fuchsia-500 to-pink-600', rating: 3.7, models: ['standard', 'hmo', 'telmed'], serviceNote: 'Fully digital, app moderna', isLowCost: true },
-  { id: 'sympany', name: 'Sympany', website: 'https://www.sympany.ch', color: 'from-rose-500 to-red-600', rating: 3.6, models: ['standard', 'hausarzt', 'telmed'], serviceNote: 'Premi competitivi nella regione Basilea' },
-  { id: 'egk', name: 'EGK', website: 'https://www.egk.ch', color: 'from-green-600 to-emerald-700', rating: 4.1, models: ['standard', 'hausarzt', 'telmed'], serviceNote: 'Specializzata in medicina naturale' },
-  { id: 'aquilana', name: 'Aquilana', website: 'https://www.aquilana.ch', color: 'from-blue-600 to-sky-700', rating: 3.4, models: ['standard', 'hausarzt'], serviceNote: 'Premi bassi, servizio essenziale', isLowCost: true },
-];
+// ── Types for JSON data ──
+interface HealthPremiumsData {
+  fetchedAt: string;
+  year: number;
+  insurers: { id: string; name: string; website: string }[];
+  communes: Record<string, { name: string; bfsNr: number; plz: string; region: number }[]>;
+  premiums: Record<string, {
+    type?: 'canton';
+    canton: string;
+    region: number | null;
+    bfsNr?: number;
+    insurers: Record<string, Record<string, number>>;
+  }>;
+  rankings: {
+    cheapest: { municipality: string; canton: string; avgPremium: number; numInsurers: number }[];
+    mostExpensive: { municipality: string; canton: string; avgPremium: number; numInsurers: number }[];
+  };
+}
+
+// Cantons with commune-level data
+const COMMUNE_DETAIL_CANTONS = ['TI', 'GR'];
 
 const FRANCHISES = [300, 500, 1000, 1500, 2000, 2500];
 const FRANCHISES_CHILD = [0, 100, 200, 300, 400, 500, 600];
-
-const BASE_PREMIUMS: Record<string, number> = {
-  'assura-TI': 367, 'css-TI': 432, 'helsana-TI': 445, 'swica-TI': 418,
-  'sanitas-TI': 428, 'concordia-TI': 401, 'visana-TI': 440, 'kpt-TI': 395,
-  'okk-TI': 435, 'groupe-mutuel-TI': 388, 'atupri-TI': 385, 'sympany-TI': 415,
-  'egk-TI': 410, 'aquilana-TI': 372,
-  'assura-GR': 310, 'css-GR': 375, 'helsana-GR': 385, 'swica-GR': 360,
-  'sanitas-GR': 370, 'concordia-GR': 348, 'visana-GR': 380, 'kpt-GR': 342,
-  'okk-GR': 330, 'groupe-mutuel-GR': 335, 'atupri-GR': 332, 'sympany-GR': 358,
-  'egk-GR': 355, 'aquilana-GR': 318,
-  'assura-VS': 340, 'css-VS': 398, 'helsana-VS': 410, 'swica-VS': 385,
-  'sanitas-VS': 395, 'concordia-VS': 370, 'visana-VS': 405, 'kpt-VS': 365,
-  'okk-VS': 395, 'groupe-mutuel-VS': 355, 'atupri-VS': 350, 'sympany-VS': 380,
-  'egk-VS': 378, 'aquilana-VS': 345,
-  'assura-ZH': 385, 'css-ZH': 455, 'helsana-ZH': 470, 'swica-ZH': 440,
-  'sanitas-ZH': 450, 'concordia-ZH': 425, 'visana-ZH': 460, 'kpt-ZH': 420,
-  'okk-ZH': 455, 'groupe-mutuel-ZH': 410, 'atupri-ZH': 405, 'sympany-ZH': 435,
-  'egk-ZH': 430, 'aquilana-ZH': 390,
-  'assura-GE': 420, 'css-GE': 495, 'helsana-GE': 510, 'swica-GE': 480,
-  'sanitas-GE': 490, 'concordia-GE': 460, 'visana-GE': 500, 'kpt-GE': 455,
-  'okk-GE': 495, 'groupe-mutuel-GE': 445, 'atupri-GE': 440, 'sympany-GE': 475,
-  'egk-GE': 465, 'aquilana-GE': 425,
-  'assura-BE': 355, 'css-BE': 415, 'helsana-BE': 430, 'swica-BE': 405,
-  'sanitas-BE': 415, 'concordia-BE': 390, 'visana-BE': 395, 'kpt-BE': 380,
-  'okk-BE': 420, 'groupe-mutuel-BE': 375, 'atupri-BE': 370, 'sympany-BE': 400,
-  'egk-BE': 395, 'aquilana-BE': 360,
-  'assura-LU': 335, 'css-LU': 395, 'helsana-LU': 408, 'swica-LU': 385,
-  'sanitas-LU': 395, 'concordia-LU': 370, 'visana-LU': 400, 'kpt-LU': 362,
-  'okk-LU': 400, 'groupe-mutuel-LU': 355, 'atupri-LU': 352, 'sympany-LU': 382,
-  'egk-LU': 378, 'aquilana-LU': 340,
-};
-
-const MODEL_DISCOUNT: Record<InsuranceModel, number> = {
-  standard: 0, hausarzt: 0.07, hmo: 0.12, telmed: 0.10,
-};
 
 const FRANCHISE_ADJUSTMENT: Record<number, number> = {
   0: 0.08, 100: 0.05, 200: 0.02, 300: 0, 400: -0.03, 500: -0.05,
@@ -88,30 +54,49 @@ const AGE_MULTIPLIER: Record<AgeGroup, number> = {
 
 const ACCIDENT_ADDITION = 0.07;
 
-const CANTONS = [
+const ALL_CANTONS = [
   { value: 'TI', label: 'Ticino (TI)' },
   { value: 'GR', label: 'Grigioni (GR)' },
-  { value: 'VS', label: 'Vallese (VS)' },
-  { value: 'ZH', label: 'Zurigo (ZH)' },
-  { value: 'GE', label: 'Ginevra (GE)' },
+  { value: 'AG', label: 'Argovia (AG)' },
+  { value: 'AI', label: 'Appenzello Interno (AI)' },
+  { value: 'AR', label: 'Appenzello Esterno (AR)' },
   { value: 'BE', label: 'Berna (BE)' },
+  { value: 'BL', label: 'Basilea Campagna (BL)' },
+  { value: 'BS', label: 'Basilea Città (BS)' },
+  { value: 'FR', label: 'Friburgo (FR)' },
+  { value: 'GE', label: 'Ginevra (GE)' },
+  { value: 'GL', label: 'Glarona (GL)' },
+  { value: 'JU', label: 'Giura (JU)' },
   { value: 'LU', label: 'Lucerna (LU)' },
+  { value: 'NE', label: 'Neuchâtel (NE)' },
+  { value: 'NW', label: 'Nidvaldo (NW)' },
+  { value: 'OW', label: 'Obvaldo (OW)' },
+  { value: 'SG', label: 'San Gallo (SG)' },
+  { value: 'SH', label: 'Sciaffusa (SH)' },
+  { value: 'SO', label: 'Soletta (SO)' },
+  { value: 'SZ', label: 'Svitto (SZ)' },
+  { value: 'TG', label: 'Turgovia (TG)' },
+  { value: 'UR', label: 'Uri (UR)' },
+  { value: 'VD', label: 'Vaud (VD)' },
+  { value: 'VS', label: 'Vallese (VS)' },
+  { value: 'ZG', label: 'Zugo (ZG)' },
+  { value: 'ZH', label: 'Zurigo (ZH)' },
 ];
 
-function calculatePremium(
-  insurerId: string, canton: string, model: InsuranceModel,
+function calculatePremiumFromData(
+  insurerPremiums: Record<string, number> | undefined,
+  model: InsuranceModel,
   franchise: number, ageGroup: AgeGroup, withAccident: boolean
 ): number | null {
-  const base = BASE_PREMIUMS[`${insurerId}-${canton}`];
+  if (!insurerPremiums) return null;
+  const base = insurerPremiums[model] ?? insurerPremiums['standard'];
   if (base === undefined) return null;
-  const insurer = INSURERS.find(i => i.id === insurerId);
-  if (!insurer || !insurer.models.includes(model)) return null;
-  let p = base * (1 - MODEL_DISCOUNT[model]) * (1 + (FRANCHISE_ADJUSTMENT[franchise] ?? 0)) * AGE_MULTIPLIER[ageGroup];
+  let p = base * (1 + (FRANCHISE_ADJUSTMENT[franchise] ?? 0)) * AGE_MULTIPLIER[ageGroup];
   if (withAccident) p *= (1 + ACCIDENT_ADDITION);
   return Math.round(p * 100) / 100;
 }
 
-export { INSURERS, calculatePremium, FRANCHISES, FRANCHISES_CHILD, MODEL_DISCOUNT, FRANCHISE_ADJUSTMENT, CANTONS };
+export { FRANCHISES, FRANCHISES_CHILD, FRANCHISE_ADJUSTMENT, ALL_CANTONS as CANTONS };
 
 const MODEL_LABELS: Record<InsuranceModel, string> = {
   standard: 'Standard', hausarzt: 'Medico di famiglia',
@@ -131,22 +116,70 @@ interface ComputedResult {
 
 const HealthInsurance: React.FC = () => {
   const { t } = useTranslation();
+  const [data, setData] = useState<HealthPremiumsData | null>(null);
   const [age, setAge] = useState<number>(35);
   const [canton, setCanton] = useState('TI');
+  const [commune, setCommune] = useState('');
   const [franchise, setFranchise] = useState(300);
   const [model, setModel] = useState<InsuranceModel>('standard');
   const [withAccident, setWithAccident] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
   const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
+  // Load health premiums JSON
+  useEffect(() => {
+    fetch('/data/health-premiums.json')
+      .then(r => r.ok ? r.json() : null)
+      .then(d => { if (d) setData(d); })
+      .catch(() => {});
+  }, []);
+
+  // Available communes for current canton (only TI/GR)
+  const communes = useMemo(() => {
+    if (!data || !COMMUNE_DETAIL_CANTONS.includes(canton)) return [];
+    return (data.communes[canton] || []).sort((a, b) => a.name.localeCompare(b.name));
+  }, [data, canton]);
+
+  // Reset commune when canton changes
+  useEffect(() => {
+    if (!COMMUNE_DETAIL_CANTONS.includes(canton)) {
+      setCommune('');
+    } else if (communes.length > 0 && !commune) {
+      // Default to first commune alphabetically
+      const first = communes[0];
+      setCommune(`${first.plz}-${first.name}`);
+    }
+  }, [canton, communes, commune]);
+
+  // Resolve premium lookup key
+  const premiumKey = useMemo(() => {
+    if (COMMUNE_DETAIL_CANTONS.includes(canton) && commune) return commune;
+    return canton;
+  }, [canton, commune]);
+
+  // Get current premiums entry
+  const currentPremiums = data?.premiums[premiumKey]?.insurers;
+
+  // Build insurer profiles from data
+  const insurers: InsurerProfile[] = useMemo(() => {
+    if (!data || !currentPremiums) return [];
+    return data.insurers
+      .filter(ins => currentPremiums[ins.id])
+      .map(ins => {
+        const models = Object.keys(currentPremiums[ins.id] || {}) as InsuranceModel[];
+        return { id: ins.id, name: ins.name, website: ins.website, models };
+      });
+  }, [data, currentPremiums]);
+
   const ageGroup: AgeGroup = age < 19 ? '0-18' : age <= 25 ? '19-25' : '26+';
   const availableFranchises = ageGroup === '0-18' ? FRANCHISES_CHILD : FRANCHISES;
   const effectiveFranchise = availableFranchises.includes(franchise) ? franchise : availableFranchises[0];
 
   const results: ComputedResult[] = useMemo(() => {
+    if (!currentPremiums) return [];
     const computed: ComputedResult[] = [];
-    for (const insurer of INSURERS) {
-      const premium = calculatePremium(insurer.id, canton, model, effectiveFranchise, ageGroup, withAccident);
+    for (const insurer of insurers) {
+      const premium = calculatePremiumFromData(currentPremiums[insurer.id], model, effectiveFranchise, ageGroup, withAccident);
       if (premium === null) continue;
       const annualCost = premium * 12;
       computed.push({ insurer, premium, annualCost, annualTotal: annualCost + effectiveFranchise, savingsVsMax: 0, rank: 0, isBestPrice: false, isBestValue: false });
@@ -156,12 +189,10 @@ const HealthInsurance: React.FC = () => {
     computed.forEach((r, i) => { r.rank = i + 1; r.savingsVsMax = maxCost - r.annualCost; });
     if (computed.length > 0) {
       computed[0].isBestPrice = true;
-      const top5 = computed.slice(0, 5);
-      const bestVal = top5.reduce((b, c) => c.insurer.rating > b.insurer.rating ? c : b, top5[0]);
-      bestVal.isBestValue = true;
+      computed[0].isBestValue = true;
     }
     return computed;
-  }, [canton, model, effectiveFranchise, ageGroup, withAccident]);
+  }, [currentPremiums, insurers, model, effectiveFranchise, ageGroup, withAccident]);
 
   const filtered = useMemo(() => {
     if (!searchTerm.trim()) return results;
@@ -180,9 +211,9 @@ const HealthInsurance: React.FC = () => {
           <h2 className="text-2xl sm:text-3xl font-extrabold">{t('health.title')}</h2>
         </div>
         <p className="text-rose-100 text-base sm:text-lg">
-          {'Confronta i premi di ' + INSURERS.length + ' assicurazioni LAMal svizzere. Inserisci i tuoi dati per trovare l\'offerta migliore.'}
+          {'Confronta i premi di ' + (data?.insurers.length || '...') + ' assicurazioni LAMal svizzere in ' + (data ? Object.keys(data.premiums).length : '...') + ' località. Inserisci i tuoi dati per trovare l\'offerta migliore.'}
         </p>
-        <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Premi UFSP" sourceUrl="https://www.priminfo.admin.ch" variant="badge" /></div>
+        <div className="mt-3"><DataFreshness lastUpdated={data?.fetchedAt?.slice(0, 7) || '2026-01'} source="Premi UFSP" sourceUrl="https://www.priminfo.admin.ch" variant="badge" /></div>
       </div>
 
       <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
@@ -215,12 +246,23 @@ const HealthInsurance: React.FC = () => {
             </span>
           </div>
           <div>
-            <label htmlFor="hi-canton" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Cantone di lavoro</label>
-            <select id="hi-canton" value={canton} onChange={(e) => { setCanton(e.target.value); Analytics.trackHealthInsurance('filter', e.target.value); }}
+            <label htmlFor="hi-canton" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Cantone</label>
+            <select id="hi-canton" value={canton} onChange={(e) => { setCanton(e.target.value); setCommune(''); Analytics.trackHealthInsurance('filter', e.target.value); }}
               className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm">
-              {CANTONS.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
+              {ALL_CANTONS.map(c => <option key={c.value} value={c.value}>{c.label}</option>)}
             </select>
           </div>
+          {COMMUNE_DETAIL_CANTONS.includes(canton) && communes.length > 0 && (
+            <div>
+              <label htmlFor="hi-commune" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5 flex items-center gap-1">
+                <MapPin size={12} /> Comune
+              </label>
+              <select id="hi-commune" value={commune} onChange={(e) => { setCommune(e.target.value); Analytics.trackHealthInsurance('filter', `commune_${e.target.value}`); }}
+                className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm">
+                {communes.map(c => <option key={c.bfsNr} value={`${c.plz}-${c.name}`}>{c.name} ({c.plz})</option>)}
+              </select>
+            </div>
+          )}
           <div>
             <label htmlFor="hi-franchise" className="block text-xs font-bold text-slate-700 dark:text-slate-300 mb-1.5">Franchigia (CHF/anno)</label>
             <select id="hi-franchise" value={effectiveFranchise} onChange={(e) => { setFranchise(Number(e.target.value)); Analytics.trackHealthInsurance('filter', `franchise_${e.target.value}`); }}
@@ -273,7 +315,7 @@ const HealthInsurance: React.FC = () => {
               <Award size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">Miglior rapporto</span>
             </div>
-            {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{bv.premium.toFixed(2)} CHF</p><p className="text-xs text-slate-500">{bv.insurer.name} - {bv.insurer.rating}/5</p></>) : null; })()}
+            {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{bv.premium.toFixed(2)} CHF</p><p className="text-xs text-slate-500">{bv.insurer.name}</p></>) : null; })()}
           </div>
           <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-500 mb-1">
@@ -325,18 +367,9 @@ const HealthInsurance: React.FC = () => {
                         <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 text-[10px] font-bold uppercase rounded-full">Migliore prezzo</span>)}
                       {result.isBestValue && !result.isBestPrice && (
                         <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-[10px] font-bold uppercase rounded-full">Miglior rapporto</span>)}
-                      {result.insurer.isLowCost && (
-                        <span className="px-1.5 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-[10px] font-bold rounded-full">Low-cost</span>)}
                     </div>
                     <div className="flex items-center gap-3 mt-0.5">
-                      <div className="flex items-center gap-0.5">
-                        {[1,2,3,4,5].map(s => (
-                          <Star key={s} size={10}
-                            className={s <= Math.round(result.insurer.rating) ? 'text-amber-400 fill-amber-400' : 'text-slate-300 dark:text-slate-600'} />
-                        ))}
-                        <span className="text-[10px] text-slate-500 ml-1">{result.insurer.rating}</span>
-                      </div>
-                      <span className="text-[10px] text-slate-500 hidden sm:inline">{result.insurer.serviceNote}</span>
+                      <span className="text-[10px] text-slate-500">{result.insurer.models.length} modelli disponibili</span>
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
@@ -388,7 +421,7 @@ const HealthInsurance: React.FC = () => {
                       <p className="text-xs font-bold text-slate-600 dark:text-slate-500 mb-2">Confronto franchige</p>
                       <div className="space-y-1">
                         {(ageGroup === '0-18' ? FRANCHISES_CHILD : FRANCHISES).slice(0, 4).map(f => {
-                          const p = calculatePremium(result.insurer.id, canton, model, f, ageGroup, withAccident);
+                          const p = calculatePremiumFromData(currentPremiums?.[result.insurer.id], model, f, ageGroup, withAccident);
                           return p !== null ? (
                             <div key={f} className="flex items-center justify-between text-xs">
                               <span className={`text-slate-500 ${f === effectiveFranchise ? 'font-bold text-slate-800 dark:text-slate-100' : ''}`}>
@@ -400,8 +433,7 @@ const HealthInsurance: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                  <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
-                    <p className="text-xs text-slate-500">{result.insurer.serviceNote}</p>
+                  <div className="flex items-center justify-end pt-3 border-t border-slate-100 dark:border-slate-700">
                     <a href={result.insurer.website} target="_blank" rel="noopener noreferrer"
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-rose-600 hover:bg-rose-700 text-white text-xs font-bold rounded-lg transition-colors">
                       <ExternalLink size={12} /> Vai al sito</a>
@@ -443,11 +475,11 @@ const HealthInsurance: React.FC = () => {
               </thead>
               <tbody>
                 {availableFranchises.map(f => {
-                  const p = calculatePremium(cheapest.insurer.id, canton, model, f, ageGroup, withAccident);
+                  const p = calculatePremiumFromData(currentPremiums?.[cheapest.insurer.id], model, f, ageGroup, withAccident);
                   if (p === null) return null;
                   const annual = p * 12;
                   const totalMax = annual + f;
-                  const base300 = calculatePremium(cheapest.insurer.id, canton, model, availableFranchises[0], ageGroup, withAccident);
+                  const base300 = calculatePremiumFromData(currentPremiums?.[cheapest.insurer.id], model, availableFranchises[0], ageGroup, withAccident);
                   const base300Total = base300 !== null ? base300 * 12 + availableFranchises[0] : totalMax;
                   const saving = base300Total - totalMax;
                   return (
@@ -558,6 +590,48 @@ const HealthInsurance: React.FC = () => {
           ))}
         </div>
       </div>
+
+      {/* Commune Rankings */}
+      {data && data.rankings.cheapest.length > 0 && (
+        <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
+          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+            <Trophy size={16} /> Classifica comuni per premio medio
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div>
+              <h4 className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase mb-3">Top 10 più economici</h4>
+              <div className="space-y-1.5">
+                {data.rankings.cheapest.slice(0, 10).map((c, i) => (
+                  <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-emerald-50/50 dark:bg-emerald-950/20">
+                    <span className="flex items-center gap-2">
+                      <span className="w-5 h-5 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-[10px] font-bold">{i + 1}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-400">({c.canton})</span></span>
+                    </span>
+                    <span className="font-bold text-emerald-700 dark:text-emerald-400">{c.avgPremium.toFixed(0)} CHF</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+            <div>
+              <h4 className="text-xs font-bold text-red-700 dark:text-red-400 uppercase mb-3">Top 10 più cari</h4>
+              <div className="space-y-1.5">
+                {data.rankings.mostExpensive.slice(0, 10).map((c, i) => (
+                  <div key={c.municipality} className="flex items-center justify-between text-xs py-1.5 px-2 rounded-lg bg-red-50/50 dark:bg-red-950/20">
+                    <span className="flex items-center gap-2">
+                      <span className="w-5 h-5 rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 flex items-center justify-center text-[10px] font-bold">{i + 1}</span>
+                      <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')} <span className="text-slate-400">({c.canton})</span></span>
+                    </span>
+                    <span className="font-bold text-red-700 dark:text-red-400">{c.avgPremium.toFixed(0)} CHF</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+          <p className="text-[10px] text-slate-500 mt-4">
+            Premio medio mensile standard (adulti 26+, franchigia 300 CHF, senza infortuni). Dati UFSP {data.year}. Comuni TI e GR.
+          </p>
+        </div>
+      )}
 
       <PartnerRecommendations context="health" />
       <Suspense fallback={<div className="min-h-[200px]" />}>

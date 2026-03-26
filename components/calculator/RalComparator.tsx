@@ -175,7 +175,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
   const [maritalStatus, setMaritalStatus] = useState<'SINGLE' | 'MARRIED'>('SINGLE');
   const [children, setChildren] = useState(0);
   const [ageGroup, setAgeGroup] = useState('25-34');
-  const [healthInsurance, setHealthInsurance] = useState(400);
+  const [healthInsurance, setHealthInsurance] = useState(450);
   const [showDetails, setShowDetails] = useState(false);
 
   // CHF/EUR rate from API (e.g. 0.94 = 1 CHF → 0.94 EUR)

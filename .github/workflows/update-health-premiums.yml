@@ -1,0 +1,75 @@
+name: Update Health Insurance Premiums (UFSP/BAG)
+
+on:
+  schedule:
+    # Weekly on Sunday at 04:15 UTC
+    - cron: '15 4 * * 0'
+  workflow_dispatch: {}
+
+concurrency:
+  group: health-premiums
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+
+jobs:
+  update-health-premiums:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Install xlsx parser
+        run: npm install xlsx
+
+      - name: Fetch health premiums
+        run: node scripts/fetch-health-premiums.mjs
+
+      - name: Commit and push if changed
+        id: commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add data/health-premiums.json public/data/health-premiums.json
+          if git diff --cached --quiet; then
+            echo "ℹ️ No health premium changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "🏥 Auto-update health insurance premiums (UFSP/BAG)"
+            git pull --rebase origin main
+            git push origin main
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      # Trigger deploy after data push (GITHUB_TOKEN pushes don't trigger workflows)
+      - name: Prepare Firebase credentials
+        if: steps.commit.outputs.has_changes == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Install firebase-admin for Remote Config
+        if: steps.commit.outputs.has_changes == 'true'
+        run: npm install firebase-admin
+
+      - name: Load secrets from Remote Config
+        if: steps.commit.outputs.has_changes == 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Trigger deploy workflow
+        if: steps.commit.outputs.has_changes == 'true'
+        run: bash scripts/lib/trigger-deploy.sh || true

@@ -1,0 +1,401 @@
+#!/usr/bin/env node
+/**
+ * fetch-health-premiums.mjs — Download official UFSP/BAG health insurance premiums
+ * and commune-to-region mappings, producing data/health-premiums.json.
+ *
+ * Data sources:
+ *   - Praemien_CH.csv from opendata.bagnet.ch (premiums per canton/region/insurer)
+ *   - praemienregionen.xlsx from priminfo.admin.ch (commune→region mapping)
+ *
+ * Output: data/health-premiums.json + public/data/health-premiums.json
+ *
+ * Usage:
+ *   node scripts/fetch-health-premiums.mjs
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+const DATA_OUT = path.join(ROOT, 'data', 'health-premiums.json');
+const PUBLIC_OUT = path.join(ROOT, 'public', 'data', 'health-premiums.json');
+
+// ── Data source URLs ──
+const PREMIUMS_CSV_URL = 'https://opendata.bagnet.ch/?r=/download&path=L1ByYWVtaWVuL1Byw6RtaWVuX0NILmNzdg%3D%3D';
+const REGIONS_XLSX_URL = 'https://www.priminfo.admin.ch/downloads/praemienregionen.xlsx';
+
+// ── Insurer ID → name/website mapping (from BAG official list 2026) ──
+const INSURER_DIRECTORY = {
+  8: { name: 'CSS', website: 'https://www.css.ch' },
+  32: { name: 'Aquilana', website: 'https://www.aquilana.ch' },
+  134: { name: 'Einsiedler', website: 'https://www.einsiedler-krankenkasse.ch' },
+  194: { name: 'Sumiswalder', website: 'https://www.sumiswalder.ch' },
+  246: { name: 'Steffisburg', website: 'https://www.kkst.ch' },
+  290: { name: 'Concordia', website: 'https://www.concordia.ch' },
+  312: { name: 'Atupri', website: 'https://www.atupri.ch' },
+  343: { name: 'Avenir', website: 'https://www.groupemutuel.ch' },
+  360: { name: 'Luzerner Hinterland', website: 'https://www.luzernerh.ch' },
+  376: { name: 'KPT', website: 'https://www.kpt.ch' },
+  455: { name: 'ÖKK', website: 'https://www.oekk.ch' },
+  509: { name: 'Sympany', website: 'https://www.sympany.ch' },
+  780: { name: 'Glarner', website: 'https://www.glarnerkrankenkasse.ch' },
+  820: { name: 'Curaulta', website: 'https://www.curaulta.ch' },
+  881: { name: 'EGK', website: 'https://www.egk.ch' },
+  923: { name: 'SLKK', website: 'https://www.slkk.ch' },
+  941: { name: 'Sodalis', website: 'https://www.sodalis.ch' },
+  966: { name: 'Vita Surselva', website: 'https://www.vitasurselva.ch' },
+  1040: { name: 'Visperterminen', website: 'https://www.kvv-visp.ch' },
+  1113: { name: "Vallée d'Entremont", website: 'https://www.groupemutuel.ch' },
+  1318: { name: 'Wädenswil', website: 'https://www.kkwaedenswil.ch' },
+  1322: { name: 'Birchmeier', website: 'https://www.birchmeier-kk.ch' },
+  1384: { name: 'SWICA', website: 'https://www.swica.ch' },
+  1386: { name: 'Galenos', website: 'https://www.galenos.ch' },
+  1401: { name: 'Rhenusana', website: 'https://www.rhenusana.ch' },
+  1479: { name: 'Mutuel', website: 'https://www.groupemutuel.ch' },
+  1507: { name: 'AMB', website: 'https://www.groupemutuel.ch' },
+  1509: { name: 'Sanitas', website: 'https://www.sanitas.com' },
+  1535: { name: 'Philos', website: 'https://www.groupemutuel.ch' },
+  1542: { name: 'Assura', website: 'https://www.assura.ch' },
+  1555: { name: 'Visana', website: 'https://www.visana.ch' },
+  1560: { name: 'Agrisano', website: 'https://www.agrisano.ch' },
+  1562: { name: 'Helsana', website: 'https://www.helsana.ch' },
+  1568: { name: 'Sana24', website: 'https://www.sana24.ch' },
+};
+
+// Tariff type mapping
+const TARIFF_TYPE_MAP = {
+  'TAR-BASE': 'standard',
+  'TAR-HAM': 'hausarzt',
+  'TAR-HMO': 'hmo',
+  'TAR-DIV': 'telmed', // alternative models (telmed, pharmacy, etc.)
+};
+
+// Cantons with commune-level detail
+const COMMUNE_DETAIL_CANTONS = ['TI', 'GR'];
+
+// ── CSV parser (no dependencies) ──
+function parseCSV(text, separator = ',') {
+  const lines = text.split('\n');
+  // Remove BOM if present
+  if (lines[0].charCodeAt(0) === 0xFEFF) lines[0] = lines[0].slice(1);
+  const headers = lines[0].split(separator).map(h => h.trim().replace(/^"|"$/g, ''));
+  const rows = [];
+  for (let i = 1; i < lines.length; i++) {
+    const line = lines[i].trim();
+    if (!line) continue;
+    const values = line.split(separator).map(v => v.trim().replace(/^"|"$/g, ''));
+    const row = {};
+    for (let j = 0; j < headers.length; j++) {
+      row[headers[j]] = values[j] || '';
+    }
+    rows.push(row);
+  }
+  return rows;
+}
+
+// ── XLSX parser using SheetJS (installed at runtime in CI) ──
+async function parseXLSX(buffer, sheetName) {
+  let XLSX;
+  try {
+    XLSX = await import('xlsx');
+  } catch {
+    console.error('❌ xlsx package not found. Install with: npm install xlsx');
+    console.error('   In CI, this is installed automatically.');
+    process.exit(1);
+  }
+  const workbook = XLSX.read(buffer, { type: 'buffer' });
+  const sheet = workbook.Sheets[sheetName];
+  if (!sheet) {
+    const available = workbook.SheetNames.join(', ');
+    console.error(`❌ Sheet "${sheetName}" not found. Available: ${available}`);
+    process.exit(1);
+  }
+  // The priminfo XLSX has a note in row 1 and bilingual headers in row 2.
+  // We skip row 1 and use explicit column mapping based on position.
+  const raw = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+  // Find the header row (contains "BFS" or "Kanton")
+  let headerIdx = -1;
+  for (let i = 0; i < Math.min(5, raw.length); i++) {
+    const row = raw[i];
+    if (row && row.some(cell => String(cell).includes('BFS'))) { headerIdx = i; break; }
+  }
+  if (headerIdx === -1) headerIdx = 1; // default: row 2
+  // Map columns by position: BFS-Nr, Kanton, Gemeinde, Region, Bezirk, PLZ, Ort
+  const COLUMN_NAMES = ['bfsNr', 'canton', 'commune', 'region', 'district', 'plz', 'locality'];
+  const results = [];
+  for (let i = headerIdx + 1; i < raw.length; i++) {
+    const row = raw[i];
+    if (!row || !row[0]) continue;
+    const obj = {};
+    for (let j = 0; j < COLUMN_NAMES.length && j < row.length; j++) {
+      obj[COLUMN_NAMES[j]] = row[j];
+    }
+    results.push(obj);
+  }
+  return results;
+}
+
+// ── Download helper ──
+async function download(url, label) {
+  console.log(`📥 Downloading ${label}...`);
+  const res = await fetch(url);
+  if (!res.ok) throw new Error(`Failed to download ${label}: ${res.status} ${res.statusText}`);
+  return res;
+}
+
+// ── Main ──
+async function main() {
+  console.log('🏥 Fetching health insurance premiums from UFSP/BAG...\n');
+
+  // 1. Download premiums CSV
+  const premiumsRes = await download(PREMIUMS_CSV_URL, 'Praemien_CH.csv');
+  const premiumsText = await premiumsRes.text();
+  console.log(`   ✅ Downloaded premiums CSV (${(premiumsText.length / 1024 / 1024).toFixed(1)} MB)`);
+
+  // 2. Download regions XLSX
+  const regionsRes = await download(REGIONS_XLSX_URL, 'praemienregionen.xlsx');
+  const regionsBuffer = Buffer.from(await regionsRes.arrayBuffer());
+  console.log(`   ✅ Downloaded regions XLSX (${(regionsBuffer.length / 1024).toFixed(0)} KB)\n`);
+
+  // 3. Parse premiums CSV
+  console.log('📊 Parsing premiums...');
+  const allPremiums = parseCSV(premiumsText, ',');
+  console.log(`   ${allPremiums.length} total rows`);
+
+  // Filter: adults (26+), without accident (employer covers UVG), base franchise (300)
+  // We store all franchise levels and models for each insurer
+  const relevantPremiums = allPremiums.filter(row =>
+    row['Altersklasse'] === 'AKL-ERW' &&
+    row['Unfalleinschluss'] === 'OHN-UNF' &&
+    row['Hoheitsgebiet'] === 'CH'
+  );
+  console.log(`   ${relevantPremiums.length} adult premiums (without accident)`);
+
+  // 4. Parse regions XLSX — sheet A_COM has commune→region mapping
+  console.log('📊 Parsing commune regions...');
+  const communeRows = await parseXLSX(regionsBuffer, 'A_COM');
+  console.log(`   ${communeRows.length} communes found\n`);
+
+  // Build commune → region lookup for TI and GR
+  // Sheet A_COM columns vary but typically: BFS-Nr, Kanton, Gemeinde, Region, Bezirk, PLZ, Ort
+  const communeRegionMap = new Map(); // key: "canton-bfsNr" → { name, region, plz, bfsNr }
+  const communesByCanton = {}; // canton → [{ name, bfsNr, plz, region }]
+
+  for (const row of communeRows) {
+    const bfsNr = row.bfsNr;
+    const canton = String(row.canton || '');
+    const name = String(row.commune || '');
+    const region = row.region;
+    const plz = String(row.plz || '');
+    const ort = String(row.locality || name);
+
+    if (!canton || !bfsNr) continue;
+
+    // Parse region number (might be number or string like "PR-REG CH1")
+    let regionNum;
+    if (typeof region === 'string' && region.includes('CH')) {
+      regionNum = parseInt(region.replace(/.*CH/, ''), 10);
+    } else {
+      regionNum = parseInt(region, 10);
+    }
+    if (isNaN(regionNum)) regionNum = 0;
+
+    const key = `${canton}-${bfsNr}`;
+    if (!communeRegionMap.has(key)) {
+      communeRegionMap.set(key, {
+        name, bfsNr: parseInt(bfsNr, 10), canton, plz, ort, region: regionNum,
+      });
+    }
+
+    if (COMMUNE_DETAIL_CANTONS.includes(canton)) {
+      if (!communesByCanton[canton]) communesByCanton[canton] = [];
+      const existing = communesByCanton[canton].find(c => c.bfsNr === parseInt(bfsNr, 10));
+      if (!existing) {
+        communesByCanton[canton].push({
+          name, bfsNr: parseInt(bfsNr, 10), plz, region: regionNum,
+        });
+      }
+    }
+  }
+
+  console.log(`   TI communes: ${(communesByCanton['TI'] || []).length}`);
+  console.log(`   GR communes: ${(communesByCanton['GR'] || []).length}\n`);
+
+  // 5. Build premiums index
+  console.log('🔨 Building premiums index...');
+
+  // Group premiums by canton + region + insurer
+  // Structure: premiumIndex[canton][regionStr][insurerId] = { standard: X, hausarzt: Y, ... }
+  // We only store the base franchise (FRA-300 for adults) premium per model type
+  const premiumIndex = {};
+  const insurersPerCanton = {};
+
+  for (const row of relevantPremiums) {
+    const canton = row['Kanton'];
+    const regionStr = row['Region']; // e.g. "PR-REG CH1"
+    const insurerId = parseInt(row['Versicherer'], 10);
+    const tariffType = TARIFF_TYPE_MAP[row['Tariftyp']];
+    const franchise = row['Franchise'];
+    const premium = parseFloat(row['Prämie']);
+
+    if (!tariffType || isNaN(premium)) continue;
+    // Only base franchise for the index (FRA-300 for adults)
+    if (franchise !== 'FRA-300') continue;
+
+    if (!premiumIndex[canton]) premiumIndex[canton] = {};
+    if (!premiumIndex[canton][regionStr]) premiumIndex[canton][regionStr] = {};
+    if (!premiumIndex[canton][regionStr][insurerId]) premiumIndex[canton][regionStr][insurerId] = {};
+
+    // Store the cheapest premium for each model type (some insurers have multiple tariffs per type)
+    const current = premiumIndex[canton][regionStr][insurerId][tariffType];
+    if (!current || premium < current) {
+      premiumIndex[canton][regionStr][insurerId][tariffType] = Math.round(premium * 100) / 100;
+    }
+
+    // Track insurers per canton
+    if (!insurersPerCanton[canton]) insurersPerCanton[canton] = new Set();
+    insurersPerCanton[canton].add(insurerId);
+  }
+
+  // 6. Build output JSON
+  const output = {
+    fetchedAt: new Date().toISOString(),
+    year: parseInt(relevantPremiums[0]?.['Geschäftsjahr'] || new Date().getFullYear(), 10),
+    insurers: [],
+    communes: communesByCanton,
+    premiums: {},
+    rankings: { cheapest: [], mostExpensive: [] },
+  };
+
+  // Insurer list (only those found in data)
+  const allInsurerIds = new Set();
+  for (const canton of Object.keys(premiumIndex)) {
+    for (const id of (insurersPerCanton[canton] || [])) {
+      allInsurerIds.add(id);
+    }
+  }
+  for (const id of [...allInsurerIds].sort((a, b) => a - b)) {
+    const dir = INSURER_DIRECTORY[id];
+    output.insurers.push({
+      id: String(id),
+      name: dir?.name || `Insurer ${id}`,
+      website: dir?.website || '',
+    });
+  }
+  console.log(`   ${output.insurers.length} insurers discovered`);
+
+  // Commune-level premiums for TI and GR
+  for (const canton of COMMUNE_DETAIL_CANTONS) {
+    const communes = communesByCanton[canton] || [];
+    for (const commune of communes) {
+      const regionStr = `PR-REG CH${commune.region}`;
+      const regionPremiums = premiumIndex[canton]?.[regionStr];
+      if (!regionPremiums) continue;
+
+      const key = `${commune.plz}-${commune.name}`;
+      const insurerPremiums = {};
+      for (const [insurerId, models] of Object.entries(regionPremiums)) {
+        insurerPremiums[insurerId] = models;
+      }
+      output.premiums[key] = {
+        canton,
+        region: commune.region,
+        bfsNr: commune.bfsNr,
+        insurers: insurerPremiums,
+      };
+    }
+  }
+
+  // Canton-level premiums for all other cantons (average across regions)
+  for (const [canton, regions] of Object.entries(premiumIndex)) {
+    if (COMMUNE_DETAIL_CANTONS.includes(canton)) continue;
+
+    const regionEntries = Object.entries(regions);
+    const insurerAverages = {};
+
+    for (const [, regionPremiums] of regionEntries) {
+      for (const [insurerId, models] of Object.entries(regionPremiums)) {
+        if (!insurerAverages[insurerId]) insurerAverages[insurerId] = {};
+        for (const [model, premium] of Object.entries(models)) {
+          if (!insurerAverages[insurerId][model]) {
+            insurerAverages[insurerId][model] = { sum: 0, count: 0 };
+          }
+          insurerAverages[insurerId][model].sum += premium;
+          insurerAverages[insurerId][model].count += 1;
+        }
+      }
+    }
+
+    const insurerPremiums = {};
+    for (const [insurerId, models] of Object.entries(insurerAverages)) {
+      insurerPremiums[insurerId] = {};
+      for (const [model, { sum, count }] of Object.entries(models)) {
+        insurerPremiums[insurerId][model] = Math.round((sum / count) * 100) / 100;
+      }
+    }
+
+    output.premiums[canton] = {
+      type: 'canton',
+      canton,
+      region: null,
+      insurers: insurerPremiums,
+    };
+  }
+
+  // 7. Build rankings (TI + GR communes only, based on average standard premium)
+  console.log('📊 Computing rankings...');
+  const communeRankings = [];
+
+  for (const [key, data] of Object.entries(output.premiums)) {
+    if (data.type === 'canton') continue;
+    const standardPremiums = [];
+    for (const models of Object.values(data.insurers)) {
+      if (models.standard) standardPremiums.push(models.standard);
+    }
+    if (standardPremiums.length === 0) continue;
+    const avgPremium = Math.round(
+      (standardPremiums.reduce((s, p) => s + p, 0) / standardPremiums.length) * 100
+    ) / 100;
+    communeRankings.push({
+      municipality: key,
+      canton: data.canton,
+      bfsNr: data.bfsNr,
+      avgPremium,
+      numInsurers: standardPremiums.length,
+    });
+  }
+
+  communeRankings.sort((a, b) => a.avgPremium - b.avgPremium);
+  output.rankings.cheapest = communeRankings.slice(0, 20);
+  output.rankings.mostExpensive = communeRankings.slice(-20).reverse();
+
+  if (communeRankings.length > 0) {
+    console.log(`   Cheapest: ${communeRankings[0].municipality} (CHF ${communeRankings[0].avgPremium})`);
+    console.log(`   Most expensive: ${communeRankings[communeRankings.length - 1].municipality} (CHF ${communeRankings[communeRankings.length - 1].avgPremium})`);
+  }
+
+  // 8. Write output
+  const json = JSON.stringify(output, null, 2);
+  fs.writeFileSync(DATA_OUT, json);
+  console.log(`\n✅ Written ${DATA_OUT} (${(json.length / 1024).toFixed(0)} KB)`);
+
+  // Copy to public/data/ for runtime access
+  const publicDir = path.dirname(PUBLIC_OUT);
+  if (!fs.existsSync(publicDir)) fs.mkdirSync(publicDir, { recursive: true });
+  fs.writeFileSync(PUBLIC_OUT, json);
+  console.log(`✅ Written ${PUBLIC_OUT}`);
+
+  console.log(`\n📋 Summary:`);
+  console.log(`   Year: ${output.year}`);
+  console.log(`   Insurers: ${output.insurers.length}`);
+  console.log(`   Commune entries: ${Object.keys(output.premiums).filter(k => !output.premiums[k].type).length}`);
+  console.log(`   Canton entries: ${Object.keys(output.premiums).filter(k => output.premiums[k].type === 'canton').length}`);
+  console.log(`   Ranked communes: ${communeRankings.length}`);
+}
+
+main().catch(err => {
+  console.error('❌ Fatal error:', err.message);
+  process.exit(1);
+});
