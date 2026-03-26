@@ -1787,6 +1787,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.avs-saronno-referendum.title': 'Avs Saronno : \'Aux jeunes, vous avez fait la différence\'',
     'blog.article.avs-saronno-referendum.excerpt': 'Le résultat du référendum constitutionnel à Saronno : un fort signal politique pour l\'avenir',
     'blog.article.avs-saronno-referendum.imageAlt': 'Personne votant à Saronno',
+    'blog.article.lavena-ponte-tresa-annaffiatoi.title': 'Lavena Ponte Tresa s\'engage pour le nettoyage et le vert de la zone',
+    'blog.article.lavena-ponte-tresa-annaffiatoi.excerpt': 'À l\'occasion de la plantation de nouvelles essences vertes, la commune a offert des arroseurs aux entreprises présentes pour encourager l\'entretien des rues.',
+    'blog.article.lavena-ponte-tresa-annaffiatoi.imageAlt': 'Commune de Lavena Ponte Tresa sur la frontière italo-suisse décidée à la propreté et à la verdure.',
 };
 
 export default blogMetaFr;

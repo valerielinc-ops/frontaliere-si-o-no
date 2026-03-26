@@ -3171,7 +3171,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 589,
+        "numberOfItems": 590,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3758,7 +3758,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 586, "name": "Il territorio poroso tra Varese e la Svizzera: ...", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso` },
           { "@type": "ListItem", "position": 587, "name": "Fusione Comuni Calanca", "url": `${BASE_URL}/articoli-frontaliere/fusione-valle-calanca-comuni` },
           { "@type": "ListItem", "position": 588, "name": "Lavoro in carcere: 15 posti disponibili", "url": `${BASE_URL}/articoli-frontaliere/lavoro-carceri-ticino` },
-          { "@type": "ListItem", "position": 589, "name": "Avs Saronno: 'Ai giovani, avete fatto la differ...", "url": `${BASE_URL}/articoli-frontaliere/avs-saronno-referendum` }
+          { "@type": "ListItem", "position": 589, "name": "Avs Saronno: 'Ai giovani, avete fatto la differ...", "url": `${BASE_URL}/articoli-frontaliere/avs-saronno-referendum` },
+          { "@type": "ListItem", "position": 590, "name": "Comune di Lavena Ponte Tresa incentiva la cura ...", "url": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-annaffiatoi` }
         ]
       }
     ]

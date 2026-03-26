@@ -1787,6 +1787,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.avs-saronno-referendum.title': 'Avs Saronno: \'To the young people, you made a difference\'',
     'blog.article.avs-saronno-referendum.excerpt': 'The result of the constitutional referendum in Saronno: a strong political signal for the future',
     'blog.article.avs-saronno-referendum.imageAlt': 'Person voting in Saronno',
+    'blog.article.lavena-ponte-tresa-annaffiatoi.title': 'Lavena Ponte Tresa Commits to Cleaning and Greening the Area',
+    'blog.article.lavena-ponte-tresa-annaffiatoi.excerpt': 'On the occasion of the planting of new greenery, the municipality gave away watering cans to businesses to encourage the care of the streets.',
+    'blog.article.lavena-ponte-tresa-annaffiatoi.imageAlt': 'Town of Lavena Ponte Tresa on the Swiss-Italian border committed to cleanliness and greenery.',
 };
 
 export default blogMetaEn;

@@ -1735,6 +1735,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fusione-valle-calanca-comuni': { name: 'Val Calanca, quattro Comuni studiano una', path: '/articoli-frontaliere/fusione-valle-calanca-comuni', parent: 'blog' },
     'blog-lavoro-carceri-ticino': { name: 'Lavoro in carcere', path: '/articoli-frontaliere/lavoro-carceri-ticino', parent: 'blog' },
     'blog-avs-saronno-referendum': { name: 'Politica', path: '/articoli-frontaliere/avs-saronno-referendum', parent: 'blog' },
+    'blog-lavena-ponte-tresa-annaffiatoi': { name: 'Lavena Ponte Tresa', path: '/articoli-frontaliere/lavena-ponte-tresa-annaffiatoi', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -5361,4 +5361,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/avs-saronno-referendum.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavena-ponte-tresa-annaffiatoi',
+    category: 'novita',
+    date: '2026-03-26T13:53:07.230Z',
+    image: '/images/blog/lavena-ponte-tresa-annaffiatoi.jpg',
+    hasCalculator: true,
+  },
 ];

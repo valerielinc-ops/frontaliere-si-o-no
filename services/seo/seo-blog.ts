@@ -8380,6 +8380,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavena-ponte-tresa-annaffiatoi': {
+    title: 'Lavena Ponte Tresa si impegna per la pulizia e il verde della zona | Frontaliere Ticino',
+    description: 'Il Comune di Lavena Ponte Tresa ha regalato agli attività presenti degli annaffiatoi per aiutare a mantenere la zona pulita e verde. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavena, ponte, tresa, impegna',
+    ogTitle: 'Lavena Ponte Tresa si impegna per la pulizia e il verde della zona',
+    ogDescription: 'Il Comune di Lavena Ponte Tresa ha regalato agli attività presenti degli annaffiatoi per aiutare a mantenere la zona pulita e verde.',
+    canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-annaffiatoi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comune di Lavena Ponte Tresa incentiva la cura e il decoro delle strade con annaffiatoi",
+      "description": "Il Comune di Lavena Ponte Tresa ha regalato agli attività presenti degli annaffiatoi per aiutare a mantenere la zona pulita e verde. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-annaffiatoi.jpg`,
+        "width": 1344,
+        "height": 756,
+        "caption": "Comune di Lavena Ponte Tresa al confine con la Svizzera che si impegna per la pulizia e il verde."
+      },
+      "datePublished": "2026-03-26T13:53:07+00:00",
+      "dateModified": "2026-03-26T13:53:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-annaffiatoi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
