@@ -64,9 +64,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
       let seoSrc: string;
       try {
         seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog.ts'), 'utf-8');
-        try {
-          seoSrc += '\n' + fs.readFileSync(np.resolve(rootDir, 'services/seo/seo-blog-2.ts'), 'utf-8');
-        } catch { /* seo-blog-2 may not exist yet */ }
+        // Append all seo-blog-N.ts chunks (seo-blog-2.ts, seo-blog-3.ts, etc.)
+        for (let n = 2; n <= 10; n++) {
+          try {
+            seoSrc += '\n' + fs.readFileSync(np.resolve(rootDir, `services/seo/seo-blog-${n}.ts`), 'utf-8');
+          } catch { break; }
+        }
       } catch {
         try {
           seoSrc = fs.readFileSync(np.resolve(rootDir, 'services/seoService.ts'), 'utf-8');
