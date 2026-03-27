@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fart",
-  "assembledAt": "2026-03-27T05:35:02.459Z",
+  "assembledAt": "2026-03-27T09:34:04.711Z",
   "jobs": [
     {
       "title": "1 capo dipartimento dell’esercizio (f/m)",
@@ -17,7 +17,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
       "source": "fart-crawler",
-      "postedDate": "2026-03-26",
+      "postedDate": "2026-03-27",
       "titleByLocale": {
         "it": "1 capo dipartimento dell’esercizio (f/m)",
         "en": "1 capo dipartimento dell’esercizio (f/m)",
@@ -42,6 +42,7 @@
       },
       "crawledAt": "",
       "slug": "1-capo-dipartimento-dell-esercizio-f-m-fart",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -61,8 +62,7 @@
       "postalCode": "6601",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     },
     {
       "title": "1 capo movimento (100% – f/m)",
@@ -79,7 +79,7 @@
       "employmentType": "FULL_TIME",
       "experienceLevel": "SENIOR",
       "source": "fart-crawler",
-      "postedDate": "2026-03-26",
+      "postedDate": "2026-03-27",
       "titleByLocale": {
         "it": "1 capo movimento (100% – f/m)",
         "fr": "1 capo movimento (100% – f/m)",
@@ -104,6 +104,7 @@
       },
       "crawledAt": "",
       "slug": "1-capo-movimento-100-f-m-fart",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -123,8 +124,7 @@
       "postalCode": "6601",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true
+      "addressCountry": "CH"
     }
   ]
 }
