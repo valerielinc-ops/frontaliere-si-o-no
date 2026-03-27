@@ -8583,6 +8583,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nei-test-neonati-ticinesi': {
+    title: 'Test neonati, Ticino escluso dai controlli svizzeri | Frontaliere Ticino',
+    description: 'La Svizzera non ha effettuato test sui neonati ticinesi per la contaminazione nel latte: cosa fare subito. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, test, neonati, escluso, controlli',
+    ogTitle: 'Test neonati Ticino: cosa fare',
+    ogDescription: 'La Svizzera non ha effettuato screening sui lattanti ticinesi per la contaminazione: guida per i frontalieri',
+    canonicalPath: '/articoli-frontaliere/nei-test-neonati-ticinesi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Test neonati Ticino esclusi dai controlli svizzeri",
+      "description": "La Svizzera non ha effettuato test sui neonati ticinesi per la contaminazione nel latte: cosa fare subito. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nei-test-neonati-ticinesi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista mattutina di Lugano con una mamma e il passeggino sul lungolago"
+      },
+      "datePublished": "2026-03-27T19:09:09+00:00",
+      "dateModified": "2026-03-27T19:09:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nei-test-neonati-ticinesi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

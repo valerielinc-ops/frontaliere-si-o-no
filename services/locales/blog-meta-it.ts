@@ -1808,6 +1808,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.title': 'Più interventi di soccorso, ma meno vittime in montagna nel 2025',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.excerpt': 'Nel 2025, il Club Alpino Svizzero (CAS) ha registrato un aumento degli interventi di soccorso, ma una diminuzione delle vittime in montagna.',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.imageAlt': 'Panoramica della Locarno',
+    'blog.article.nei-test-neonati-ticinesi.title': 'Test neonati, Ticino escluso dai controlli svizzeri',
+    'blog.article.nei-test-neonati-ticinesi.excerpt': 'La Confederazione non ha effettuato screening sui lattanti ticinesi per la contaminazione: cosa rischia il tuo bambino e cosa fare',
+    'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Vista mattutina di Lugano con una mamma e il passeggino sul lungolago',
 };
 
 export default blogMetaIt;

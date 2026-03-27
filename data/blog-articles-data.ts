@@ -5410,4 +5410,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nei-test-neonati-ticinesi',
+    category: 'pratico',
+    date: '2026-03-27T19:09:09.534Z',
+    image: '/images/blog/nei-test-neonati-ticinesi.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1808,6 +1808,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.title': 'More rescue operations, but fewer mountain fatalities in 2025',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.excerpt': 'In 2025, the Swiss Alpine Club (CAS) recorded an increase in rescue operations, yet a decrease in mountain fatalities.',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.imageAlt': 'Panorama of Locarno',
+    'blog.article.nei-test-neonati-ticinesi.title': 'Newborn tests, Ticino left out of Swiss checks',
+    'blog.article.nei-test-neonati-ticinesi.excerpt': 'The Confederation did not screen Ticino infants for contamination: what your child faces and what to do',
+    'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Morning view of Lugano with a mother and stroller on the lake promenade',
 };
 
 export default blogMetaEn;

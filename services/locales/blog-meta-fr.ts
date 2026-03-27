@@ -1808,6 +1808,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.title': 'Plus d’interventions de secours, mais moins de victimes en montagne en 2025',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.excerpt': 'En 2025, le Club Alpin Suisse (CAS) a enregistré une augmentation des interventions de secours, mais une diminution des victimes en montagne.',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.imageAlt': 'Panorama de Locarno',
+    'blog.article.nei-test-neonati-ticinesi.title': 'Test neonati, le vallées tessinoises exclues des contrôles suisses',
+    'blog.article.nei-test-neonati-ticinesi.excerpt': 'La Confédération n\'a pas effectué d\'écran des nourrissons tessinois pour la contamination : quels risques pour votre enfant et qu\'est-ce que vous devez faire ⚠️',
+    'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Vue matinale de Lugano avec une mère et une poussette sur le front de lac',
 };
 
 export default blogMetaFr;

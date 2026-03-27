@@ -1808,6 +1808,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.title': 'Mehr Rettungseinsätze, aber weniger Todesopfer in den Bergen 2025',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.excerpt': '2025 verzeichnete der Schweizer Alpen-Club (SAC) eine Zunahme der Rettungseinsätze, aber eine Abnahme der Todesopfer in den Bergen.',
     'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.imageAlt': 'Panorama von Locarno',
+    'blog.article.nei-test-neonati-ticinesi.title': 'Neugeborenentests: Tessin von Schweizer Kontrollen ausgeschlossen',
+    'blog.article.nei-test-neonati-ticinesi.excerpt': ': Die Eidgenossenschaft führte bei Tessiner Säuglingen keine Screening-Untersuchungen auf Kontaminationen durch – was Ihr Kind riskiert und was Sie tun können',
+    'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Morgenansicht von Lugano mit Mutter und Kinderwagen am See',
 };
 
 export default blogMetaDe;

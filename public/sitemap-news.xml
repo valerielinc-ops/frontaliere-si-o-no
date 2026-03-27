@@ -168,4 +168,25 @@
       <image:title>{"@context":"https://schema.org","@type":"Article","mainEntityOfPage":{"@type":"WebPage"</image:title>
     </image:image>
   </url>
+
+  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/nei-test-neonati-ticinesi/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/nei-test-neonati-ticinesi/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/ticino-newborn-tests-switzerland/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/ticino-neugeborenen-tests-schweiz/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/tests-nouveaux-nes-tessin-suisse/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/articoli-frontaliere/nei-test-neonati-ticinesi/" />
+    <news:news>
+      <news:publication>
+        <news:name>Frontaliere Ticino</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-27</news:publication_date>
+      <news:title>Test neonati, Ticino escluso dai controlli svizzeri</news:title>
+    </news:news>
+    <image:image>
+      <image:loc>https://frontaliereticino.ch/images/blog/nei-test-neonati-ticinesi.jpg</image:loc>
+      <image:title>Test neonati Ticino esclusi dai controlli svizzeri</image:title>
+    </image:image>
+  </url>
 </urlset>
