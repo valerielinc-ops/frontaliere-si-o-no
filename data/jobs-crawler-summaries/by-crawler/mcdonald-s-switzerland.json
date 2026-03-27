@@ -1,16 +1,16 @@
 {
   "key": "mcdonald-s-switzerland",
   "label": "mcdonalds",
-  "generatedAt": "2026-03-27T09:48:56.091Z",
+  "generatedAt": "2026-03-27T21:32:47.552Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5073,
-  "avgDurationMs": 5073,
+  "durationMs": 4585,
+  "avgDurationMs": 4585,
   "durationHistory": [
-    5073
+    4585
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,7 +40,7 @@
       },
       "slug": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
       "slugByLocale": {
-        "de": "mcdonald-s-chur-city-mcdonalds",
+        "de": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur",
         "it": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
         "en": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
         "fr": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc"
@@ -61,6 +61,9 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "previousSlugs": [
+        "mcdonald-s-chur-city-mcdonalds"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -104,7 +107,7 @@
       },
       "slug": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
       "slugByLocale": {
-        "de": "mcdonald-s-chur-sud-mcdonalds",
+        "de": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur",
         "it": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
         "en": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
         "fr": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n"
@@ -125,6 +128,9 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
+      "previousSlugs": [
+        "mcdonald-s-chur-sud-mcdonalds"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -166,10 +172,10 @@
         "en": "Collaboratore/trice Lamone",
         "fr": "Collaboratore/trice Lamone"
       },
-      "slug": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
+      "slug": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
       "slugByLocale": {
         "de": "collaboratore-trice-lamone-mcdonalds",
-        "it": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
+        "it": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
         "en": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
         "fr": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk"
       },
@@ -234,7 +240,7 @@
       "slugByLocale": {
         "de": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonalds",
         "it": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj",
-        "en": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj",
+        "en": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano",
         "fr": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj"
       },
       "category": "management",
