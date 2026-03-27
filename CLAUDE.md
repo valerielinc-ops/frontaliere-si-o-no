@@ -324,6 +324,8 @@ When a job is **deleted**, the expired entry captures `slugByLocale` + `previous
 | `ogPagesPlugin` | Static OG landing pages for 524 blog articles |
 | `jobsSeoPagesPlugin` | Static SEO pages: 548 company pages, 4396 job pages, 9507 expired soft-landings |
 | `staticPagesPlugin` | Static pages for all sitemap URLs (~2431 pages) |
+
+> **Note**: `public/sitemap-jobs.xml` is a seed file with a small initial set of URLs. The complete job sitemap (4000+ URLs covering all job pages, company pages, editorial landings, and expired soft-landings) is regenerated at every build by `jobsSeoPagesPlugin`. The static file in the repo reflects only the baseline and should not be used for manual SEO audits.
 | `sitemapAliasPlugin` | Sitemap routing aliases |
 | `legacyRedirectsPlugin` | Legacy URL redirects (1270+ compat pages) |
 | `llmsTxtPlugin` | Generate llms.txt for AI crawlers |
