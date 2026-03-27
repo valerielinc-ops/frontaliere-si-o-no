@@ -271,6 +271,33 @@ Pushes made with the default `GITHUB_TOKEN` **do not trigger other workflows** (
 
 If `GITHUB_PAT` is missing, deploy is skipped gracefully. Admin can always trigger manually via `workflow_dispatch`.
 
+### GitHub Actions Step Timeout — Critical Gotcha
+
+**Never use `timeout-minutes` at the step level on steps that must be followed by cleanup/commit steps.**
+
+When a step is killed by a step-level timeout, GitHub Actions marks it as `failure`. Subsequent steps with `if: always()` are NOT executed — `always()` only overrides `failure` from the workflow context, not from a step that was killed by its own timeout.
+
+**Correct pattern**: Set `timeout-minutes` at the **job** level only. Use an internal time budget (e.g. `TIME_BUDGET_MS`) in the script itself to stop gracefully before the job timeout, leaving room for commit/deploy steps to run.
+
+```yaml
+jobs:
+  translate:
+    timeout-minutes: 350   # ← job-level only
+    steps:
+      - name: Translate pending jobs
+        # NO timeout-minutes here
+        run: node scripts/relocalize-pending-jobs.mjs  # script stops at 320min internally
+      - name: Commit and push
+        if: always()   # ← this works correctly with job-level timeout
+        run: bash scripts/lib/git-commit-data.sh ...
+```
+
+### AI Provider Retry-After Headers
+
+Some AI providers return extreme `Retry-After` values (e.g. Cerebras: `Retry-After: 86399` = 24h). Without a cap, the entire translate-pending pipeline freezes for a full day, causing a massive translation backlog.
+
+**Rule**: Always cap `Retry-After` header values to a maximum of **2 minutes** (`MAX_RETRY_AFTER_MS = 2 * 60 * 1000`) in `scripts/lib/ai-models.mjs`. The model fallback chain will naturally move to the next available provider.
+
 ---
 
 ### Workflow Categories (117 total)
@@ -386,6 +413,14 @@ After any code change, always verify:
 - `@/services/firebase`, `@/services/analytics`, `@/services/seoService`
 - `leaflet` / `react-leaflet`
 
+## Tests on Generated Data Files (`data/jobs.json`)
+
+Several tests read `data/jobs.json`, which is **gitignored** and generated locally by `assemble-jobs-dataset.mjs`. Key rules:
+
+- **Do NOT run `assemble-jobs-dataset.mjs` during a debugging session** unless you intend to update the local dataset. It changes `data/jobs.json` and can break tests that were previously passing by including newly-crawled but untranslated jobs.
+- **`needsRetranslation: true` is the semantic boundary**: jobs with this flag are in the pipeline queue and are expected to have Italian fallbacks in non-IT locale slots. They are NOT bugs. Tests that check locale correctness or completeness MUST exclude `needsRetranslation: true` jobs — counting them as failures produces false positives when the translation pipeline has a backlog.
+- **Threshold comments in tests** (e.g. "actual count 76 at 2026-03-23") reflect the state of the pipeline at that moment. If a threshold is exceeded massively (10× or more), the root cause is almost always a broken translate-pending pipeline, not a code regression.
+
 ---
 
 # SEO & Indexing
@@ -466,6 +501,22 @@ Every `Dataset` schema.org block MUST include `description` and `creator` fields
 - Each has: workflow (`update-jobs-{slug}.yml`), script (`scripts/update-{slug}-jobs.mjs`), parser (`scripts/lib/{slug}-job-parser.mjs`)
 - Shared infrastructure in `scripts/lib/dedicated-crawler-common.mjs` (~2000 lines)
 - AI translation via `scripts/lib/ai-models.mjs` with Firestore-backed scoring, 429 tracking, and multi-model fallback chain
+
+## Slug Stability — Jaccard Token Similarity
+
+**Never regenerate slugs unconditionally on every crawl run.** Minor title wording changes (e.g. "per la Ricerca" → "di ricerca") must NOT produce a new slug, as this orphans the old indexed URL and creates an endless `previousSlugs` chain.
+
+**The correct check** is `isSlugStable(existingSlug, newSlug)` exported from `dedicated-crawler-common.mjs`. It uses Jaccard token similarity (threshold 0.80) to distinguish minor wording from genuinely different roles:
+
+- Tokenizes slug into meaningful words (filters stop words: IT/EN/DE/FR connectives)
+- Computes `|intersection| / |union|` — ≥ 0.80 → keep existing slug
+- Fallback: if either slug has < 4 meaningful tokens, uses 4-token prefix match
+
+**Why not 50-char prefix?** The prefix heuristic has two failure modes:
+1. False negative: different roles that share a long common prefix get merged
+2. False positive: em-dash vs hyphen variations or reordered words produce a new slug unnecessarily
+
+Only **USI, SUPSI, LIS** had real ongoing slug churn. Other crawlers either fill-only or have their own guards. When auditing a new crawler, check whether it unconditionally regenerates slugs — it should use `isSlugStable()` instead.
 
 ## Translation Cache (SHA256)
 
