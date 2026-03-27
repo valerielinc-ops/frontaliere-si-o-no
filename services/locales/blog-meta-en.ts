@@ -1805,6 +1805,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-conveniente.title': 'Convenient Gasoline in Ticino',
     'blog.article.benzina-conveniente.excerpt': 'Ticinese motorists are looking for the most convenient gasoline in Como',
     'blog.article.benzina-conveniente.imageAlt': 'Gas station in Lugano',
+    'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.title': 'More rescue operations, but fewer mountain fatalities in 2025',
+    'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.excerpt': 'In 2025, the Swiss Alpine Club (CAS) recorded an increase in rescue operations, yet a decrease in mountain fatalities.',
+    'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.imageAlt': 'Panorama of Locarno',
 };
 
 export default blogMetaEn;

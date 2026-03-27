@@ -1805,6 +1805,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benzina-conveniente.title': 'Günstiges Benzin im Tessin',
     'blog.article.benzina-conveniente.excerpt': 'Tessiner Autofahrer suchen das günstigste Benzin in Como',
     'blog.article.benzina-conveniente.imageAlt': 'Tankstelle in Lugano',
+    'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.title': 'Mehr Rettungseinsätze, aber weniger Todesopfer in den Bergen 2025',
+    'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.excerpt': '2025 verzeichnete der Schweizer Alpen-Club (SAC) eine Zunahme der Rettungseinsätze, aber eine Abnahme der Todesopfer in den Bergen.',
+    'blog.article.piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.imageAlt': 'Panorama von Locarno',
 };
 
 export default blogMetaDe;

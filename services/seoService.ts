@@ -1741,6 +1741,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ticino-confine-droga': { name: 'Spaccio di droga', path: '/articoli-frontaliere/ticino-confine-droga', parent: 'blog' },
     'blog-franco-svizzero-minimi-euro': { name: 'Innovazioni economiche', path: '/articoli-frontaliere/franco-svizzero-minimi-euro', parent: 'blog' },
     'blog-benzina-conveniente': { name: 'Benzina conveniente', path: '/articoli-frontaliere/benzina-conveniente', parent: 'blog' },
+    'blog-piu-interventi-soccorso-meno-vittime-montagna-ticino-2025': { name: 'Più interventi di soccorso, ma meno', path: '/articoli-frontaliere/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025', parent: 'blog' },
   };
 
   const info = sectionNames[section];

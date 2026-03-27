@@ -5403,4 +5403,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/benzina-conveniente.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'piu-interventi-soccorso-meno-vittime-montagna-ticino-2025',
+    category: 'novita',
+    date: '2026-03-27T16:02:39.364Z',
+    image: '/images/blog/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.jpg',
+    hasCalculator: true,
+  },
 ];

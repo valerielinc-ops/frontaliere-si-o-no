@@ -8554,6 +8554,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-piu-interventi-soccorso-meno-vittime-montagna-ticino-2025': {
+    title: 'Più interventi di soccorso, ma meno vittime in montagna nel 2025 | Frontaliere Ticino',
+    description: 'Nel 2025, il Club Alpino Svizzero (CAS) ha registrato un aumento degli interventi di soccorso, ma una diminuzione delle vittime in montagna. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, interventi, soccorso, meno, vittime',
+    ogTitle: 'Più interventi di soccorso, ma meno vittime in montagna nel 2025',
+    ogDescription: 'Nel 2025, il Club Alpino Svizzero (CAS) ha registrato un aumento degli interventi di soccorso, ma una diminuzione delle vittime in montagna.',
+    canonicalPath: '/articoli-frontaliere/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"Article\",\"mainEntityOfPage\":{\"@type\":\"WebPage\"",
+      "description": "Nel 2025, il Club Alpino Svizzero (CAS) ha registrato un aumento degli interventi di soccorso, ma una diminuzione delle vittime in montagna. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica della Locarno"
+      },
+      "datePublished": "2026-03-27T16:02:39+00:00",
+      "dateModified": "2026-03-27T16:02:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
