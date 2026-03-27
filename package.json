@@ -102,6 +102,7 @@
     "jobs:update:tsmg": "node scripts/update-tsmg-jobs.mjs",
     "jobs:update:trumpf": "node scripts/update-trumpf-jobs.mjs",
     "jobs:update:lwphr": "node scripts/update-lwphr-jobs.mjs",
+    "jobs:update:pwc": "node scripts/update-pwc-jobs.mjs",
     "jobs:update:allianz": "node scripts/update-allianz-jobs.mjs",
     "jobs:update:alten": "node scripts/update-alten-jobs.mjs",
     "jobs:update:ariston": "node scripts/update-ariston-jobs.mjs",

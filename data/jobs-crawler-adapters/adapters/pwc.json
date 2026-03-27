@@ -1,0 +1,14 @@
+{
+  "companyKey": "pwc",
+  "companyName": "PwC Switzerland",
+  "companyHost": "www.pwc.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": ["api"],
+  "seedUrls": [
+    "https://ohws.prospective.ch/public/v1/medium/1000311/jobs?lang=en&offset=0&limit=500"
+  ],
+  "notes": "Dedicated PwC Switzerland crawler. Uses Prospective.ch API (medium 1000311). Full job data in API response, no detail page fetching needed. Crawls ALL jobs; canton filter in frontend handles geographic filtering.",
+  "updatedAt": "2026-03-27T00:00:00.000Z",
+  "seedMetaByUrl": {}
+}
