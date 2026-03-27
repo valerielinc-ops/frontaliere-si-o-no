@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-03-27T09:20:42.587Z",
+  "generatedAt": "2026-03-27T21:04:26.295Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 1071,
-  "avgDurationMs": 1071,
+  "durationMs": 1263,
+  "avgDurationMs": 1263,
   "durationHistory": [
-    1071
+    1263
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,11 +53,14 @@
       },
       "slugByLocale": {
         "it": "application-ingegnere-critical-power-centiel-lugano",
-        "en": "application-engineer-critical-power-centiel-ticino",
+        "en": "application-engineer-critical-power-centiel-lugano",
         "de": "application-ingenieur-critical-power-centiel-lugano",
         "fr": "application-ingenieur-critical-power-centiel-lugano"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "application-engineer-critical-power-centiel-ticino"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -111,11 +114,14 @@
       },
       "slugByLocale": {
         "it": "ricerca-development-ingegnere-centiel-lugano",
-        "en": "research-development-engineer-centiel-ticino",
+        "en": "research-development-engineer-centiel-lugano",
         "de": "forschung-development-ingenieur-centiel-lugano",
         "fr": "recherche-development-ingenieur-centiel-lugano"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "research-development-engineer-centiel-ticino"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -169,7 +175,7 @@
       },
       "slugByLocale": {
         "it": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
-        "en": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
+        "en": "sales-3-phase-ups-channel-partners-manager-centiel-lugano",
         "de": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
         "fr": "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
       },
@@ -227,7 +233,7 @@
       },
       "slugByLocale": {
         "it": "after-sales-technician-centiel-ticino",
-        "en": "after-sales-technician-centiel-ticino",
+        "en": "after-sales-technician-centiel-lugano",
         "de": "after-sales-techniker-centiel-lugano",
         "fr": "after-sales-technicien-centiel-lugano"
       },
