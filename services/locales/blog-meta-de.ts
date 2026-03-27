@@ -1811,6 +1811,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nei-test-neonati-ticinesi.title': 'Neugeborenentests: Tessin von Schweizer Kontrollen ausgeschlossen',
     'blog.article.nei-test-neonati-ticinesi.excerpt': ': Die Eidgenossenschaft führte bei Tessiner Säuglingen keine Screening-Untersuchungen auf Kontaminationen durch – was Ihr Kind riskiert und was Sie tun können',
     'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Morgenansicht von Lugano mit Mutter und Kinderwagen am See',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.title': 'Aggregazione Basso Mendrisiotto auf dem Prüfstand: der Schuldenberg hält Terre di Breggia zurück',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'Nach 2,5 Jahren Verhandlungen steht das Fusionprojekt zwischen Balerna, Breggia, Chiasso, Morbio und Vacallo aufgrund der Schulden von 140 Millionen Franken aus Chiasso still. Rizza (Vacallo) fordert Garantien, Arrigoni (Chiasso) entgegnet: Wir haben bereits 3 Millionen Franken pro Jahr gespart. Der Kanton bewertet die Aussetzung.',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.imageAlt': 'Rathaus von Chiasso bei Sonnenuntergang',
 };
 
 export default blogMetaDe;

@@ -1811,6 +1811,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nei-test-neonati-ticinesi.title': 'Test neonati, le vallées tessinoises exclues des contrôles suisses',
     'blog.article.nei-test-neonati-ticinesi.excerpt': 'La Confédération n\'a pas effectué d\'écran des nourrissons tessinois pour la contamination : quels risques pour votre enfant et qu\'est-ce que vous devez faire ⚠️',
     'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Vue matinale de Lugano avec une mère et une poussette sur le front de lac',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.title': 'L\'agglomération du Basso Mendrisiotto est en péril : le déficit bloque Terre di Breggia',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'Après 2,5 ans de négociations, le projet de fusion entre Balerna, Breggia, Chiasso, Morbio et Vacallo est bloqué par le déficit de 140 millions de Chiasso. Rizza (Vacallo) demande des garanties, Arrigoni (Chiasso) répond : « Nous avons déjà réduit de 3 millions par an ». Le canton évalue la suspension.',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.imageAlt': 'Mairie de Chiasso au coucher du soleil',
 };
 
 export default blogMetaFr;

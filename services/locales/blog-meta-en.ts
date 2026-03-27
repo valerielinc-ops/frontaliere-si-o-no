@@ -1811,6 +1811,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nei-test-neonati-ticinesi.title': 'Newborn tests, Ticino left out of Swiss checks',
     'blog.article.nei-test-neonati-ticinesi.excerpt': 'The Confederation did not screen Ticino infants for contamination: what your child faces and what to do',
     'blog.article.nei-test-neonati-ticinesi.imageAlt': 'Morning view of Lugano with a mother and stroller on the lake promenade',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.title': 'Low Mendrisiotto merger at risk: debt stalls Terre di Breggia',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'After 2.5 years of talks, the merger plan between Balerna, Breggia, Chiasso, Morbio and Vacallo founders on Chiasso’s 140-million debt. Rizza (Vacallo) demands guarantees, Arrigoni (Chiasso) replies: «We already cut 3 million a year». The Canton weighs suspension.',
+    'blog.article.aggregazione-rischio-basso-mendrisiotto.imageAlt': 'Chiasso town hall at sunset',
 };
 
 export default blogMetaEn;

@@ -8612,6 +8612,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aggregazione-rischio-basso-mendrisiotto': {
+    title: 'Aggregazione Basso Mendrisiotto a rischio: il debito ferma Terre di | Frontaliere Ticino',
+    description: 'La fusione tra Chiasso, Vacallo e altri 3 Comuni è in pericolo per il debito di 140 milioni. Cosa cambierebbe per i frontalieri in caso di via libera o stop.',
+    keywords: 'frontalieri, ticino, svizzera, italia, aggregazione, basso, mendrisiotto, rischio',
+    ogTitle: 'Aggregazione Basso Mendrisiotto: il debito ferma la fusione',
+    ogDescription: 'Il progetto Terre di Breggia si arena sul debito di Chiasso. Rizza chiede garanzie, Arrigoni promette tagli. Il Cantone valuta la sospensione.',
+    canonicalPath: '/articoli-frontaliere/aggregazione-rischio-basso-mendrisiotto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aggregazione Basso Mendrisiotto a rischio per il debito di Chiasso",
+      "description": "La fusione tra Chiasso, Vacallo e altri 3 Comuni è in pericolo per il debito di 140 milioni. Cosa cambierebbe per i frontalieri in caso di via libera o stop.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aggregazione-rischio-basso-mendrisiotto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Municipio di Chiasso al tramonto"
+      },
+      "datePublished": "2026-03-27T21:49:07+00:00",
+      "dateModified": "2026-03-27T21:49:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aggregazione-rischio-basso-mendrisiotto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

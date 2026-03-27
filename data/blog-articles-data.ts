@@ -5417,4 +5417,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nei-test-neonati-ticinesi.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'aggregazione-rischio-basso-mendrisiotto',
+    category: 'novita',
+    date: '2026-03-27T21:49:07.741Z',
+    image: '/images/blog/aggregazione-rischio-basso-mendrisiotto.jpg',
+    hasCalculator: true,
+  },
 ];
