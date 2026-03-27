@@ -179,6 +179,21 @@ function slugify(text = '', suffix = '') {
   return s.slice(0, 90);
 }
 
+/**
+ * Return existingSlug if it still represents the new title (minor wording change).
+ * Compares the first 50 characters of the new slug — same heuristic as
+ * hardenJobLocaleFields' slugMatchesTitle. Prevents slug churn from small
+ * upstream edits (capitalisation, preposition swaps) that create unnecessary
+ * previousSlugs entries and break indexed URLs.
+ */
+function pickStableSlug(existingSlug, newSlug) {
+  if (!existingSlug) return newSlug;
+  if (existingSlug === newSlug) return existingSlug;
+  const prefix = newSlug.slice(0, 50);
+  if (prefix.length >= 15 && existingSlug.startsWith(prefix)) return existingSlug;
+  return newSlug;
+}
+
 async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en', job = {}) {
   const source = String(text || '').trim();
   if (!source || sourceLang === targetLang) return source;
@@ -1029,9 +1044,10 @@ async function postProcessUsiJobs() {
 
       const localizedTitle = String(job.titleByLocale?.[locale] || '').trim() || sourceTitle;
       if (localizedTitle) {
-        const localizedSlug = slugify(localizedTitle, citySuffix);
-        if (localizedSlug && String(job.slugByLocale?.[locale] || '').trim() !== localizedSlug) {
-          job.slugByLocale[locale] = localizedSlug;
+        const newSlug = slugify(localizedTitle, citySuffix);
+        const stableSlug = pickStableSlug(String(job.slugByLocale?.[locale] || '').trim(), newSlug);
+        if (stableSlug && String(job.slugByLocale?.[locale] || '').trim() !== stableSlug) {
+          job.slugByLocale[locale] = stableSlug;
           fixed++;
         }
       }

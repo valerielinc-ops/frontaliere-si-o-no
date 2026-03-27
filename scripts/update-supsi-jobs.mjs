@@ -674,12 +674,19 @@ function normalizeSupsiRow(job) {
     }
   }
 
-  // Rebuild slug and slugByLocale from cleaned data
+  // Rebuild slug and slugByLocale from cleaned data.
+  // Use a prefix-stability check: if the existing slug already starts with the
+  // first 50 chars of the new slug, keep it — minor title changes (capitalisation,
+  // preposition swaps) should not generate new slugs and previousSlugs entries.
   const newSlug = slugifySupsi(`${cleanedTitle}-${SUPSI_COMPANY_NAME}-${cleanedLocation}`);
   const slugByLocale = { ...(cleanedLocaleFields.slugByLocale || {}) };
   for (const locale of SUPSI_LOCALES) {
     const localeTitle = cleanedLocaleFields.titleByLocale?.[locale] || cleanedTitle;
-    slugByLocale[locale] = slugifySupsi(`${localeTitle}-${SUPSI_COMPANY_NAME}-${cleanedLocation}`);
+    const candidate = slugifySupsi(`${localeTitle}-${SUPSI_COMPANY_NAME}-${cleanedLocation}`);
+    const existing = String(slugByLocale[locale] || '').trim();
+    const prefix = candidate.slice(0, 50);
+    const isStillValid = existing && prefix.length >= 15 && existing.startsWith(prefix);
+    if (!isStillValid) slugByLocale[locale] = candidate;
   }
   cleanedLocaleFields.slugByLocale = slugByLocale;
 
