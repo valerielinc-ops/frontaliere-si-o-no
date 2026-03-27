@@ -2936,6 +2936,25 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  healthPremiums: {
+    title: 'Premi Malattia per Comune | Confronto Cantonale Svizzera',
+    description: 'Confronta i premi della cassa malati per comune svizzero: differenze cantonali, evoluzione storica e risparmio potenziale cambiando comune di residenza.',
+    keywords: 'premi malattia svizzera comune, cassa malati confronto comune, premi LAMal 2025, differenze cantonali cassa malati, assicurazione malattia svizzera frontalieri, premi malattia ticino',
+    ogTitle: 'Premi Malattia per Comune | Frontaliere Ticino',
+    ogDescription: 'Scopri come variano i premi della cassa malati tra comuni svizzeri e quanto potresti risparmiare cambiando comune di residenza.',
+    canonicalPath: '/statistiche/premi-malattia-comuni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "Premi cassa malati per comune svizzero",
+      "url": `${BASE_URL}/statistiche/premi-malattia-comuni`,
+      "description": "Dataset dei premi LAMal per comune e cantone svizzero, con evoluzione storica e confronto tra fasce d'età.",
+      "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/health-premiums.json` }]
+    }
+  },
+
   ristorni: {
     title: 'Ristorni Fiscali Frontalieri | Statistiche Comuni Italiani',
     description: 'Statistiche sui ristorni fiscali dei frontalieri: importi per comune italiano, andamento storico, confronto tra province. Dati aggiornati sui compensi.',

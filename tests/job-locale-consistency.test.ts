@@ -9,6 +9,7 @@ const DATA_JOBS_PATH = path.resolve(__dirname, '..', 'data', 'jobs.json');
 interface Job {
   company?: string;
   slug?: string;
+  needsRetranslation?: boolean;
   descriptionByLocale?: Record<string, string>;
 }
 
@@ -19,6 +20,10 @@ describe('job-locale-consistency', () => {
     const mismatches: string[] = [];
 
     for (const job of jobs) {
+      // Skip jobs awaiting translation — they are expected to have Italian fallbacks
+      // in non-IT locales until the translate-pending pipeline processes them.
+      if (job.needsRetranslation) continue;
+
       for (const locale of LOCALES) {
         const description = String(job.descriptionByLocale?.[locale] || '').trim();
         if (description.length < 120) continue;
@@ -32,10 +37,11 @@ describe('job-locale-consistency', () => {
       }
     }
 
-    // FRO-321: tightened to 105 — actual count 103 at 2026-03-23, will decrease with more crawler runs.
+    // Jobs with needsRetranslation=true are intentionally excluded (known pipeline backlog).
+    // This threshold covers false positives in language detection for fully-translated jobs.
     expect(
       mismatches.length,
       `Descriptions stored under the wrong locale:\n${mismatches.slice(0, 20).join('\n')}`
-    ).toBeLessThanOrEqual(105);
+    ).toBeLessThanOrEqual(10);
   });
 });
