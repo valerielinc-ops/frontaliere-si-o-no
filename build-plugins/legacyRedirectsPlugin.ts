@@ -45,6 +45,34 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     '/en/cross-border-articles/cross-border-workers-ticino-decline-q4-2025-data/': '/en/cross-border-articles/cross-border-workers-ticino-data-decline-end-2025/',
     '/de/grenzgaenger-artikel/grenzgaenger-tessin-rueckgang-q4-2025-daten/': '/de/grenzgaenger-artikel/grenzgaenger-tessin-daten-rueckgang-ende-2025/',
     '/fr/articles-frontaliers/frontaliers-tessin-baisse-donnees-q4-2025/': '/fr/articles-frontaliers/frontaliers-tessin-donnees-baisse-fin-2025/',
+    // ── Bing blocked URLs (2026-03-27) — old slugs → current canonical ──
+    // IT: category or slug renames
+    '/compara-servizi/cambio-valuta/': '/compara-servizi/cambio-franco-euro/',
+    '/vivere-in-ticino/aziende-ticino/': '/vivere-in-ticino/aziende-svizzera-italiana/',
+    '/vivere-in-ticino/asili-nido-ticino/': '/vivere-in-ticino/confronta-asili-nido/',
+    '/vivere-in-ticino/dialetto-ticinese/': '/dialetto-ticinese/',
+    '/vivere-in-ticino/prezzi-benzina-confine/': '/statistiche/prezzi-benzina-confine/',
+    '/vivere-in-ticino/permessi-lavoro-svizzera/': '/guida-frontaliere/permessi-di-lavoro/',
+    '/statistiche/osservatorio-stipendi-ticino/': '/statistiche/osservatorio-stipendi-lavori-ticino/',
+    '/statistiche/panoramica-mercato-lavoro/': '/statistiche/',
+    '/statistiche/tasso-disoccupazione/': '/statistiche/disoccupazione-svizzera/',
+    '/tasse-e-pensione/aliquote-imposta-fonte/': '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026/',
+    '/tasse-e-pensione/pianificazione-pensionistica/': '/tasse-e-pensione/calcola-previdenza/',
+    '/tasse-e-pensione/calendario-fiscale/': '/tasse-e-pensione/scadenze-fiscali/',
+    '/calcola-stipendio/simulazione-busta-paga/': '/calcola-stipendio/simula-busta-paga/',
+    '/calcola-stipendio/what-if-scenario/': '/calcola-stipendio/cosa-cambia-se/',
+    '/guida-frontaliere/comuni-confine/': '/vivere-in-ticino/comuni-di-frontiera/',
+    '/contatti/': '/chi-siamo/',
+    // EN: old slugs
+    '/en/salary-calculator/': '/en/calculate-salary/',
+    '/en/job-search-ticino/': '/en/find-jobs-ticino/',
+    '/en/compare-services/health-insurance/': '/en/service-comparison/compare-health-insurance/',
+    // DE: old slugs
+    '/de/gehaltsrechner/': '/de/gehalt-berechnen/',
+    '/de/stellensuche-tessin/': '/de/jobs-im-tessin/',
+    // FR: old slugs
+    '/fr/calculateur-salaire/': '/fr/calculer-salaire/',
+
     // Job slugs migrated from German to Italian
     '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-coop-grigioni/',
     '/cerca-lavoro-ticino/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni/': '/cerca-lavoro-ticino/specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni/',
