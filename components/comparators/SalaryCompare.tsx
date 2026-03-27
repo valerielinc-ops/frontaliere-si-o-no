@@ -348,6 +348,106 @@ export default function SalaryCompare() {
           {/* ══════════════ SECTORS TAB ══════════════ */}
           {activeTab === 'sectors' && (
             <>
+              {/* ── Mobile layout (< sm) ── */}
+              <div className="block sm:hidden space-y-2">
+                {sectorTableData.map((r) => (
+                  <div
+                    key={r.id}
+                    className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden"
+                  >
+                    {/* Sector row — tappable */}
+                    <div
+                      role="button"
+                      tabIndex={0}
+                      aria-expanded={expandedSectors.has(r.id)}
+                      onClick={() => toggleSector(r.id)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter' || e.key === ' ') {
+                          e.preventDefault();
+                          toggleSector(r.id);
+                        }
+                      }}
+                      className="flex items-center gap-2 p-3 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors"
+                    >
+                      {/* Name */}
+                      <span className="w-20 text-xs font-semibold text-slate-800 dark:text-white leading-tight flex-shrink-0">
+                        {r.name}
+                      </span>
+
+                      {/* Bars + amounts */}
+                      <div className="flex-1 min-w-0 space-y-1">
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[11px] flex-shrink-0">{'\uD83C\uDDE8\uD83C\uDDED'}</span>
+                          <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-red-500 rounded-full"
+                              style={{ width: (r.chNetEUR / maxVal) * 100 + '%' }}
+                            />
+                          </div>
+                        </div>
+                        <div className="flex items-center gap-1.5">
+                          <span className="text-[11px] flex-shrink-0">{'\uD83C\uDDEE\uD83C\uDDF9'}</span>
+                          <div className="flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
+                            <div
+                              className="h-full bg-emerald-500 rounded-full"
+                              style={{ width: (r.itNet / maxVal) * 100 + '%' }}
+                            />
+                          </div>
+                        </div>
+                        <div className="flex justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400 mt-0.5">
+                          <span>CH {'\u20AC'}{r.chNetEUR.toLocaleString()}</span>
+                          <span>IT {'\u20AC'}{r.itNet.toLocaleString()}</span>
+                        </div>
+                      </div>
+
+                      {/* Delta % */}
+                      <span className="w-11 text-right text-sm font-bold text-emerald-600 dark:text-emerald-400 flex-shrink-0">
+                        {r.deltaPercent > 0 ? '+' : ''}{r.deltaPercent}%
+                      </span>
+
+                      {/* Chevron */}
+                      <span className="w-4 flex justify-center text-slate-500 dark:text-slate-400 flex-shrink-0">
+                        {expandedSectors.has(r.id) ? <ChevronUp size={12} /> : <ChevronDown size={12} />}
+                      </span>
+                    </div>
+
+                    {/* Expanded profession cards — 2-column grid */}
+                    {expandedSectors.has(r.id) && (
+                      <div className="grid grid-cols-2 gap-2 px-3 pb-3">
+                        {r.professions.map((p) => {
+                          const ch = p.ch[selectedLevel]; // [min, median, max]
+                          const it = p.it[selectedLevel]; // [min, median, max]
+                          const chNet = calcNetCH(ch[1]);
+                          const itNet = calcNetIT(it[1]);
+                          const deltaEUR = Math.round(chNet * exchangeRate) - itNet;
+                          const deltaPct = itNet > 0 ? Math.round((deltaEUR / itNet) * 100) : 0;
+                          return (
+                            <div
+                              key={p.id}
+                              className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2.5 border border-slate-100 dark:border-slate-700"
+                            >
+                              <p className="text-[11px] text-slate-600 dark:text-slate-300 mb-1.5 leading-tight">
+                                {profName(p.id)}
+                              </p>
+                              <div className="flex items-center justify-between gap-1">
+                                <span className="font-mono font-bold text-xs text-slate-800 dark:text-white">
+                                  CHF {chNet.toLocaleString()}
+                                </span>
+                                <span className="text-xs font-bold text-emerald-600 dark:text-emerald-400">
+                                  {deltaPct > 0 ? '+' : ''}{deltaPct}%
+                                </span>
+                              </div>
+                            </div>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+
+              {/* ── Desktop layout (sm+) — unchanged ── */}
+              <div className="hidden sm:block space-y-6">
               <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
                 <div className="overflow-x-auto">
                   <table className="w-full text-sm">
@@ -558,6 +658,7 @@ export default function SalaryCompare() {
                   </p>
                 </div>
               </div>
+              </div>{/* end desktop wrapper */}
             </>
           )}
 
