@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-27T10:31:16.531Z",
+  "generatedAt": "2026-03-27T11:27:02.918Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 233,
-      "latestObservedUpdate": "2026-03-27T10:22:21.059Z"
+      "latestObservedUpdate": "2026-03-27T11:18:50.838Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -9399,20 +9399,6 @@
             "distanceKm": 5.1
           },
           {
-            "id": "qAULcG7RwtmdWPH52365",
-            "name": "Euro service",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 45, 6987 Caslano",
-            "lat": 45.972068975787,
-            "lng": 8.86726121879764,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-26T10:07:45.595Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.3,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.8
-          },
-          {
             "id": "2cyTEGqZPuSVhtpjGqzf",
             "name": "Silo Shop",
             "brand": "UNDEFINED",
@@ -9425,6 +9411,20 @@
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.88,
             "distanceKm": 5.5
+          },
+          {
+            "id": "EDsfoWTW5mhInO152CPP",
+            "name": "Eni Chiasso",
+            "brand": "ENI",
+            "address": "Via Como 7, 6830 Chiasso",
+            "lat": 45.8378284,
+            "lng": 9.0340937,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:42:42.056Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.891,
+            "distanceKm": 5.8
           }
         ],
         "minPriceChf": 1.66,
@@ -23403,20 +23403,6 @@
             "distanceKm": 17.4
           },
           {
-            "id": "qAULcG7RwtmdWPH52365",
-            "name": "Euro service",
-            "brand": "UNDEFINED",
-            "address": "Via Colombera 45, 6987 Caslano",
-            "lat": 45.972068975787,
-            "lng": 8.86726121879764,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-26T10:07:45.595Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.3,
-            "sp95PriceEur": 1.88,
-            "distanceKm": 19.7
-          },
-          {
             "id": "OAxeOJb63SoYWpBeQUWy",
             "name": "GIOIA",
             "brand": "UNDEFINED",
@@ -23437,12 +23423,26 @@
             "address": "Via Cantonale 36, 6987 Caslano",
             "lat": 45.97394481908457,
             "lng": 8.869804789687063,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-26T10:07:15.454Z",
+            "sp95PriceChf": 1.78,
+            "updatedAt": "2026-03-27T10:36:20.688Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.978,
+            "sp95PriceEur": 1.945,
             "distanceKm": 19.9
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-27T10:36:59.159Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.956,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.61,
@@ -26133,6 +26133,20 @@
             "distanceKm": 18.7
           },
           {
+            "id": "C9ajQvOEOfsMQZ4JfC4l",
+            "name": "SOCAR / Piccadilly Coldrerio",
+            "brand": "PICCADILLY",
+            "address": "Via San Gottardo 37, 6877 Coldrerio",
+            "lat": 45.857751,
+            "lng": 8.98526,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-27T11:18:24.837Z",
+            "nearestMunicipality": "Ronago (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 2.011,
+            "distanceKm": 19.9
+          },
+          {
             "id": "iTdUWBWoGE0MPHwu2sN1",
             "name": "Eni Mendrisio",
             "brand": "ENI",
@@ -26145,20 +26159,6 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.011,
             "distanceKm": 19.9
-          },
-          {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-26T20:38:27.745Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 2.011,
-            "distanceKm": 19.4
           }
         ],
         "minPriceChf": 1.72,
