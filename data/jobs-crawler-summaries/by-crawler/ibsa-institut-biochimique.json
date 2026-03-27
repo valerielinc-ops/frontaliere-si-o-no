@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-03-27T09:42:24.716Z",
-  "total": 11,
+  "generatedAt": "2026-03-27T21:25:57.322Z",
+  "total": 12,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 16967,
-  "avgDurationMs": 16967,
+  "unchangedCount": 12,
+  "durationMs": 14797,
+  "avgDurationMs": 14797,
   "durationHistory": [
-    16967
+    14797
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,10 +46,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area-u6h437",
-        "en": "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area-u6h437",
+        "en": "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area",
         "de": "biochemical-laboratory-techniker-ibsa-institut-biochimique-6814-working-area-u6h437",
         "fr": "biochemical-laboratory-technicien-ibsa-institut-biochimique-6814-working-area-u6h437"
       },
@@ -122,10 +122,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area",
-        "en": "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+        "en": "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area",
         "de": "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
         "fr": "customer-business-support-specialiste-ibsa-institut-biochimique-6916-working-area-dbsgw8"
       },
@@ -153,7 +153,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area-dbsgw8"
+        "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+        "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -204,10 +205,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area",
-        "en": "sap-master-data-specialist-ibsa-institut-biochimique-6916-working-area-qjvtrm",
+        "en": "sap-master-data-specialist-ibsa-institut-biochimique-6916-working-area",
         "de": "sap-master-data-spezialist-ibsa-institut-biochimique-6916-working-area-qjvtrm",
         "fr": "sap-master-data-specialiste-ibsa-institut-biochimique-6916-working-area-qjvtrm"
       },
@@ -240,7 +241,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area-qjvtrm"
+        "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area-qjvtrm",
+        "sap-master-data-specialist-ibsa-institut-biochimique-6916-working-area-qjvtrm"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -284,10 +286,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
-        "en": "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
+        "en": "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area",
         "de": "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
         "fr": "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq"
       },
@@ -308,7 +310,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area-q2u6mq"
+        "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area-q2u6mq",
+        "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -331,7 +334,7 @@
     },
     {
       "id": "company-e3ivbg",
-      "slug": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
+      "slug": "meccatronico-ibsa-institut-biochimique-6912-working-area",
       "company": "IBSA Institut Biochimique",
       "title": "Meccatronico",
       "location": "6912 Working Area",
@@ -352,9 +355,9 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
-        "it": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
+        "it": "meccatronico-ibsa-institut-biochimique-6912-working-area",
         "en": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
         "de": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
         "fr": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg"
@@ -424,10 +427,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "application-specialista-ibsa-institut-biochimique-6926-working-area",
-        "en": "application-specialist-ibsa-institut-biochimique-6926-working-area-hkdc3x",
+        "en": "application-specialist-ibsa-institut-biochimique-6926-working-area",
         "de": "application-spezialist-ibsa-institut-biochimique-6926-working-area-hkdc3x",
         "fr": "application-specialiste-ibsa-institut-biochimique-6926-working-area-hkdc3x"
       },
@@ -460,7 +463,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "application-specialista-ibsa-institut-biochimique-6926-working-area-hkdc3x"
+        "application-specialista-ibsa-institut-biochimique-6926-working-area-hkdc3x",
+        "application-specialist-ibsa-institut-biochimique-6926-working-area-hkdc3x"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -504,12 +508,12 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
         "en": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
         "de": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
-        "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
+        "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area"
       },
       "titleByLocale": {
         "fr": "Accounting Officer (sost. maternità)",
@@ -569,10 +573,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area",
-        "en": "general-services-plant-security-coordinator-ibsa-institut-biochimique-6926-working-area-dfoci7",
+        "en": "general-services-plant-security-coordinator-ibsa-institut-biochimique-6926-working-area",
         "de": "general-services-plant-security-koordinator-ibsa-institut-biochimique-6926-working-area-dfoci7",
         "fr": "general-services-plant-security-coordinateur-ibsa-institut-biochimique-6926-working-area-dfoci7"
       },
@@ -593,7 +597,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area-dfoci7"
+        "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area-dfoci7",
+        "general-services-plant-security-coordinator-ibsa-institut-biochimique-6926-working-area-dfoci7"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -637,10 +642,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
-        "en": "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
+        "en": "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla",
         "de": "contractors-audits-spezialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
         "fr": "contractors-audits-specialiste-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02"
       },
@@ -661,7 +666,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02"
+        "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
+        "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -705,7 +711,7 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "jr-et-t-qa-specialista-ibsa-institut-biochimique-6926-working-area",
         "en": "jr-et-t-qa-specialist-ibsa-institut-biochimique-6926-working-area",
@@ -778,10 +784,10 @@
       },
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
-      "crawledAt": "2026-03-27T09:42:23.284Z",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
       "slugByLocale": {
         "it": "ot-security-specialista-ibsa-institut-biochimique-6926-working-area",
-        "en": "ot-security-specialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
+        "en": "ot-security-specialist-ibsa-institut-biochimique-6926-working-area",
         "de": "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
         "fr": "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area-2pgzo8"
       },
@@ -811,7 +817,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "ot-security-specialista-ibsa-institut-biochimique-6926-working-area-2pgzo8"
+        "ot-security-specialista-ibsa-institut-biochimique-6926-working-area-2pgzo8",
+        "ot-security-specialist-ibsa-institut-biochimique-6926-working-area-2pgzo8"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -822,6 +829,83 @@
           "@type": "QuantitativeValue",
           "minValue": 72500,
           "maxValue": 97500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via del Piano 29",
+      "postalCode": "6926",
+      "addressLocality": "Montagnola",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "company-399kaj",
+      "slug": "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-6926-working-area-399kaj",
+      "company": "IBSA Institut Biochimique",
+      "title": "Jr Drug Safety Unit Specialist",
+      "location": "6926 Working Area",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "internship",
+      "currency": "CHF",
+      "description": "La risorsa sarà inserita all’interno della Drug Safety Unit (DSU) e supporterà le attività di farmacovigilanza relative ai prodotti IBSA sia in fase post-marketing sia di sviluppo clinico. Responsabilità principali - Gestione dei casi di farmacovigilanza derivanti dall’esperienza post-marketing, inclusi: - Raccolta, registrazione e gestione di eventi avversi/reazioni avverse (AE/ADR) UE ed extra-UE provenienti da qualsiasi fonte - Download e gestione degli Individual Case Safety Reports (ICSR) da EMA (EVWEB e MLM) e da altri database nazionali - Notifica alle Autorità Competenti (EMA e NCA locali), ove applicabile - Attività di follow-up sui casi - Attività di riconciliazione con Business Partner, Service Provider e dipartimenti IBSA - Preparazione dei Periodic Benefit-Risk Evaluation Reports (PBRER) e degli ACO per i prodotti IBSA - Supporto alla gestione delle attività di farmacovigilanza nell’ambito dello sviluppo clinico, incluse: - Revisione della documentazione degli studi clinici - Monitoraggio continuo della sicurezza - Gestione dei Serious Adverse Events (SAE) provenienti da studi clinici - Preparazione e sottomissione del Development Safety Update Report (DSUR) per i medicinali sperimentali IBSA - Redazione, aggiornamento e mantenimento di SOP e Working Instructions relative alle attività di farmacovigilanza - Preparazione e gestione dei Pharmacovigilance Agreements (PVA) per lo scambio di informazioni di sicurezza all’interno del Gruppo IBSA e con terze parti - Erogazione di training di farmacovigilanza alla DSU e agli altri dipartimenti del Gruppo IBSA Requisiti - Laurea in discipline scientifiche (es. CTF, Farmacia, Biologia, Biotecnologie o affini) - Esperienza di almeno 2 anni in Farmacovigilanza - Buona conoscenza della lingua inglese, scritta e parlata - Conoscenza della legislazione e delle linee guida ICH, EMA, UK, Swissmedic, applicabili alla Farmacovigilanza. - Padronanza degli strumenti informatici",
+      "requirements": [
+        "Responsabilità principali - Gestione dei casi di farmacovigilanza derivanti dall’esperienza post-marketing, inclusi:"
+      ],
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "url": "https://career.ibsagroup.com/job/Collina-d'Oro-Jr-Drug-Safety-Unit-Specialist-TI-6926/1346980655/",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "ibsa-institut-biochimique",
+      "companyDomain": "ibsa.ch",
+      "crawledAt": "2026-03-27T21:25:56.156Z",
+      "titleByLocale": {
+        "en": "Jr Drug Safety Unit Specialist",
+        "it": "Jr Drug Safety Unit Specialista",
+        "de": "Jr Drug Safety Unit Spezialist",
+        "fr": "Jr Drug Safety Unit Spécialiste"
+      },
+      "descriptionByLocale": {
+        "it": "La risorsa sarà inserita all’interno della Drug Safety Unit (DSU) e supporterà le attività di farmacovigilanza relative ai prodotti IBSA sia in fase post-marketing sia di sviluppo clinico. Responsabilità principali - Gestione dei casi di farmacovigilanza derivanti dall’esperienza post-marketing, inclusi: - Raccolta, registrazione e gestione di eventi avversi/reazioni avverse (AE/ADR) UE ed extra-UE provenienti da qualsiasi fonte - Download e gestione degli Individual Case Safety Reports (ICSR) da EMA (EVWEB e MLM) e da altri database nazionali - Notifica alle Autorità Competenti (EMA e NCA locali), ove applicabile - Attività di follow-up sui casi - Attività di riconciliazione con Business Partner, Service Provider e dipartimenti IBSA - Preparazione dei Periodic Benefit-Risk Evaluation Reports (PBRER) e degli ACO per i prodotti IBSA - Supporto alla gestione delle attività di farmacovigilanza nell’ambito dello sviluppo clinico, incluse: - Revisione della documentazione degli studi clinici - Monitoraggio continuo della sicurezza - Gestione dei Serious Adverse Events (SAE) provenienti da studi clinici - Preparazione e sottomissione del Development Safety Update Report (DSUR) per i medicinali sperimentali IBSA - Redazione, aggiornamento e mantenimento di SOP e Working Instructions relative alle attività di farmacovigilanza - Preparazione e gestione dei Pharmacovigilance Agreements (PVA) per lo scambio di informazioni di sicurezza all’interno del Gruppo IBSA e con terze parti - Erogazione di training di farmacovigilanza alla DSU e agli altri dipartimenti del Gruppo IBSA Requisiti - Laurea in discipline scientifiche (es. CTF, Farmacia, Biologia, Biotecnologie o affini) - Esperienza di almeno 2 anni in Farmacovigilanza - Buona conoscenza della lingua inglese, scritta e parlata - Conoscenza della legislazione e delle linee guida ICH, EMA, UK, Swissmedic, applicabili alla Farmacovigilanza. - Padronanza degli strumenti informatici",
+        "en": "La risorsa sarà inserita all’interno della Drug Safety Unit (DSU) e supporterà le attività di farmacovigilanza relative ai prodotti IBSA sia in fase post-marketing sia di sviluppo clinico. Responsabilità principali - Gestione dei casi di farmacovigilanza derivanti dall’esperienza post-marketing, inclusi: - Raccolta, registrazione e gestione di eventi avversi/reazioni avverse (AE/ADR) UE ed extra-UE provenienti da qualsiasi fonte - Download e gestione degli Individual Case Safety Reports (ICSR) da EMA (EVWEB e MLM) e da altri database nazionali - Notifica alle Autorità Competenti (EMA e NCA locali), ove applicabile - Attività di follow-up sui casi - Attività di riconciliazione con Business Partner, Service Provider e dipartimenti IBSA - Preparazione dei Periodic Benefit-Risk Evaluation Reports (PBRER) e degli ACO per i prodotti IBSA - Supporto alla gestione delle attività di farmacovigilanza nell’ambito dello sviluppo clinico, incluse: - Revisione della documentazione degli studi clinici - Monitoraggio continuo della sicurezza - Gestione dei Serious Adverse Events (SAE) provenienti da studi clinici - Preparazione e sottomissione del Development Safety Update Report (DSUR) per i medicinali sperimentali IBSA - Redazione, aggiornamento e mantenimento di SOP e Working Instructions relative alle attività di farmacovigilanza - Preparazione e gestione dei Pharmacovigilance Agreements (PVA) per lo scambio di informazioni di sicurezza all’interno del Gruppo IBSA e con terze parti - Erogazione di training di farmacovigilanza alla DSU e agli altri dipartimenti del Gruppo IBSA Requisiti - Laurea in discipline scientifiche (es. CTF, Farmacia, Biologia, Biotecnologie o affini) - Esperienza di almeno 2 anni in Farmacovigilanza - Buona conoscenza della lingua inglese, scritta e parlata - Conoscenza della legislazione e delle linee guida ICH, EMA, UK, Swissmedic, applicabili alla Farmacovigilanza. - Padronanza degli strumenti informatici",
+        "de": "La risorsa sarà inserita all’interno della Drug Safety Unit (DSU) e supporterà le attività di farmacovigilanza relative ai prodotti IBSA sia in fase post-marketing sia di sviluppo clinico. Responsabilità principali - Gestione dei casi di farmacovigilanza derivanti dall’esperienza post-marketing, inclusi: - Raccolta, registrazione e gestione di eventi avversi/reazioni avverse (AE/ADR) UE ed extra-UE provenienti da qualsiasi fonte - Download e gestione degli Individual Case Safety Reports (ICSR) da EMA (EVWEB e MLM) e da altri database nazionali - Notifica alle Autorità Competenti (EMA e NCA locali), ove applicabile - Attività di follow-up sui casi - Attività di riconciliazione con Business Partner, Service Provider e dipartimenti IBSA - Preparazione dei Periodic Benefit-Risk Evaluation Reports (PBRER) e degli ACO per i prodotti IBSA - Supporto alla gestione delle attività di farmacovigilanza nell’ambito dello sviluppo clinico, incluse: - Revisione della documentazione degli studi clinici - Monitoraggio continuo della sicurezza - Gestione dei Serious Adverse Events (SAE) provenienti da studi clinici - Preparazione e sottomissione del Development Safety Update Report (DSUR) per i medicinali sperimentali IBSA - Redazione, aggiornamento e mantenimento di SOP e Working Instructions relative alle attività di farmacovigilanza - Preparazione e gestione dei Pharmacovigilance Agreements (PVA) per lo scambio di informazioni di sicurezza all’interno del Gruppo IBSA e con terze parti - Erogazione di training di farmacovigilanza alla DSU e agli altri dipartimenti del Gruppo IBSA Requisiti - Laurea in discipline scientifiche (es. CTF, Farmacia, Biologia, Biotecnologie o affini) - Esperienza di almeno 2 anni in Farmacovigilanza - Buona conoscenza della lingua inglese, scritta e parlata - Conoscenza della legislazione e delle linee guida ICH, EMA, UK, Swissmedic, applicabili alla Farmacovigilanza. - Padronanza degli strumenti informatici",
+        "fr": "La risorsa sarà inserita all’interno della Drug Safety Unit (DSU) e supporterà le attività di farmacovigilanza relative ai prodotti IBSA sia in fase post-marketing sia di sviluppo clinico. Responsabilità principali - Gestione dei casi di farmacovigilanza derivanti dall’esperienza post-marketing, inclusi: - Raccolta, registrazione e gestione di eventi avversi/reazioni avverse (AE/ADR) UE ed extra-UE provenienti da qualsiasi fonte - Download e gestione degli Individual Case Safety Reports (ICSR) da EMA (EVWEB e MLM) e da altri database nazionali - Notifica alle Autorità Competenti (EMA e NCA locali), ove applicabile - Attività di follow-up sui casi - Attività di riconciliazione con Business Partner, Service Provider e dipartimenti IBSA - Preparazione dei Periodic Benefit-Risk Evaluation Reports (PBRER) e degli ACO per i prodotti IBSA - Supporto alla gestione delle attività di farmacovigilanza nell’ambito dello sviluppo clinico, incluse: - Revisione della documentazione degli studi clinici - Monitoraggio continuo della sicurezza - Gestione dei Serious Adverse Events (SAE) provenienti da studi clinici - Preparazione e sottomissione del Development Safety Update Report (DSUR) per i medicinali sperimentali IBSA - Redazione, aggiornamento e mantenimento di SOP e Working Instructions relative alle attività di farmacovigilanza - Preparazione e gestione dei Pharmacovigilance Agreements (PVA) per lo scambio di informazioni di sicurezza all’interno del Gruppo IBSA e con terze parti - Erogazione di training di farmacovigilanza alla DSU e agli altri dipartimenti del Gruppo IBSA Requisiti - Laurea in discipline scientifiche (es. CTF, Farmacia, Biologia, Biotecnologie o affini) - Esperienza di almeno 2 anni in Farmacovigilanza - Buona conoscenza della lingua inglese, scritta e parlata - Conoscenza della legislazione e delle linee guida ICH, EMA, UK, Swissmedic, applicabili alla Farmacovigilanza. - Padronanza degli strumenti informatici"
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {
+        "it": [
+          "Responsabilità principali - Gestione dei casi di farmacovigilanza derivanti dall’esperienza post-marketing, inclusi:"
+        ],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "slugByLocale": {
+        "it": "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-6926-working-area-399kaj",
+        "en": "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-6926-working-area",
+        "de": "jr-drug-safety-unit-spezialist-ibsa-institut-biochimique-6926-working-area-399kaj",
+        "fr": "jr-drug-safety-unit-specialiste-ibsa-institut-biochimique-6926-working-area-399kaj"
+      },
+      "country": "CH",
+      "sourceLang": "it",
+      "previousSlugs": [
+        "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-6926-working-area-399kaj"
+      ],
+      "salaryMin": 61000,
+      "salaryMax": 83000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61000,
+          "maxValue": 83000,
           "unitText": "YEAR"
         }
       },
