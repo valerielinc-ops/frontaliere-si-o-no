@@ -5,91 +5,6 @@
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 
   <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/datori-lavoro-cauti/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Frontaliere Ticino</news:name>
-        <news:language>it</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-25</news:publication_date>
-      <news:title>I datori di lavoro svizzeri restano cauti</news:title>
-    </news:news>
-  </url>
-
-  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/chiasso-missione-emergenza-luci-blu/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Frontaliere Ticino</news:name>
-        <news:language>it</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-25</news:publication_date>
-      <news:title>Chiasso in Missione emergenza: enti di primo intervento a contatto con la popolazione</news:title>
-    </news:news>
-  </url>
-
-  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Frontaliere Ticino</news:name>
-        <news:language>it</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-25</news:publication_date>
-      <news:title>Aggregazione Basso Mendrisiotto: Rizza critica Chiasso</news:title>
-    </news:news>
-  </url>
-
-  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/carburanti-prezzo-rialzo-ticino/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Frontaliere Ticino</news:name>
-        <news:language>it</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-25</news:publication_date>
-      <news:title>Carburanti in rialzo: prezzo diesel oltre 2 euro in Ticino</news:title>
-    </news:news>
-  </url>
-
-  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/guida-michelin-ticino/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Frontaliere Ticino</news:name>
-        <news:language>it</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-25</news:publication_date>
-      <news:title>Anche la Svizzera italiana nella Guida Michelin dei borghi più belli</news:title>
-    </news:news>
-  </url>
-
-  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/eurospin-luino-occhio-al-cambio/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Frontaliere Ticino</news:name>
-        <news:language>it</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-25</news:publication_date>
-      <news:title>Colpo di stiletto / "Eurospin" di Luino, occhio al cambio… burbantino</news:title>
-    </news:news>
-  </url>
-
-  <url>
-    <loc>https://frontaliereticino.ch/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso/</loc>
-    <news:news>
-      <news:publication>
-        <news:name>Frontaliere Ticino</news:name>
-        <news:language>it</news:language>
-      </news:publication>
-      <news:publication_date>2026-03-25</news:publication_date>
-      <news:title>Il 3territorio poroso3 tra Varese e la Svizzera: un confine che ora unisce più che dividere</news:title>
-    </news:news>
-  </url>
-
-
-  <url>
     <loc>https://frontaliereticino.ch/articoli-frontaliere/fusione-valle-calanca-comuni/</loc>
     <news:news>
       <news:publication>
@@ -150,6 +65,28 @@
     <image:image>
       <image:loc>https://frontaliereticino.ch/images/blog/bossi-commemorazione-bagarrata.jpg</image:loc>
       <image:title>La commemorazione di Bossi diventa bagarre in aula</image:title>
+    </image:image>
+  </url>
+
+
+  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/corsi-a-b-scuola-media-ticino/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/corsi-a-b-scuola-media-ticino/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/end-courses-a-b-ticino-middle-school/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/abschaffung-kurse-a-b-tessin-mittelschule/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/fin-cours-a-b-ecole-moyenne-tessin/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/articoli-frontaliere/corsi-a-b-scuola-media-ticino/" />
+    <news:news>
+      <news:publication>
+        <news:name>Frontaliere Ticino</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-27</news:publication_date>
+      <news:title>Via i corsi A e B: la scuola media ticinese cambia dal 2026</news:title>
+    </news:news>
+    <image:image>
+      <image:loc>https://frontaliereticino.ch/images/blog/corsi-a-b-scuola-media-ticino.jpg</image:loc>
+      <image:title>Cambiamento sistema scolastico Ticino 2026</image:title>
     </image:image>
   </url>
 </urlset>

@@ -1793,6 +1793,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bossi-commemorazione-bagarrata.title': 'Die Gedenkminute für Bossi entartet zu einem Sturm in der Stadtratskammer',
     'blog.article.bossi-commemorazione-bagarrata.excerpt': 'Die Gedenkminute für den Gründer der Lega, Umberto Bossi, endete in einem Schrei- und Anschlagduell zwischen Mehrheit und Opposition.',
     'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'gruppe von Personen in Unstimmigkeiten in einem aula, mit einer Schweizer Fahne im Hintergrund',
+    'blog.article.corsi-a-b-scuola-media-ticino.title': 'Weg mit den Kursen A und B: Die Tessiner Mittelschule ändert sich ab 2026',
+    'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'Der Staatsrat hat entschieden: Ab 2026 gibt es keine Aufteilung in Leistungsniveaus mehr für Deutsch und Mathematik. Alle Mittelschulen des Kantons Tessin führen das neue System ein, nachdem es an sechs Instituten erprobt wurde.',
+    'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Moderne Klassenzimmer im Tessin mit Schülern und digitalen Tafeln',
 };
 
 export default blogMetaDe;

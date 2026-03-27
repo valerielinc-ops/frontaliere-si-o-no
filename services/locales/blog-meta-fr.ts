@@ -1793,6 +1793,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bossi-commemorazione-bagarrata.title': 'La commemorazione di Bossi diventa bagarre en séance',
     'blog.article.bossi-commemorazione-bagarrata.excerpt': 'La célébration du fondateur de la Ligue Umberto Bossi s\'est terminée en bagarre avec des cris et des accusations entre majorité et opposition.',
     'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'groupe de personnes en désaccord dans une aula, avec le drapeau suisse en arrière-plan',
+    'blog.article.corsi-a-b-scuola-media-ticino.title': 'Fin des cours A et B : le gymnase tessinois change à partir de 2026',
+    'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'Le Conseil d\'État a tranché : à partir de 2026, plus de répartition par niveaux pour l\'allemand et les mathématiques. Toutes les écoles secondaires du canton du Tessin adopteront le nouveau système après l\'expérimentation dans six établissements.',
+    'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Classe moderne au Tessin avec élèves et tableaux numériques',
 };
 
 export default blogMetaFr;

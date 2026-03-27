@@ -8438,6 +8438,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-corsi-a-b-scuola-media-ticino': {
+    title: 'Via i corsi A e B: la scuola media ticinese cambia dal 2026 | Frontaliere Ticino',
+    description: 'Il Canton Ticino elimina i corsi A e B in tedesco e matematica dal 2026. Tutte le scuole medie adotteranno il nuovo sistema inclusivo dopo la sperimentazione.',
+    keywords: 'frontalieri, ticino, svizzera, italia, corsi, scuola, media, ticinese',
+    ogTitle: 'Via i corsi A e B: la scuola media ticinese cambia dal 2026',
+    ogDescription: 'Il Consiglio di Stato ha deciso: dal 2026 niente più suddivisione in livelli per tedesco e matematica in tutte le scuole medie del Canton Ticino.',
+    canonicalPath: '/articoli-frontaliere/corsi-a-b-scuola-media-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cambiamento sistema scolastico Ticino 2026",
+      "description": "Il Canton Ticino elimina i corsi A e B in tedesco e matematica dal 2026. Tutte le scuole medie adotteranno il nuovo sistema inclusivo dopo la sperimentazione.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/corsi-a-b-scuola-media-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula scolastica moderna in Ticino con studenti e lavagne digitali"
+      },
+      "datePublished": "2026-03-27T03:25:32+00:00",
+      "dateModified": "2026-03-27T03:25:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/corsi-a-b-scuola-media-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

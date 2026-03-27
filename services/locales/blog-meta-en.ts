@@ -1793,6 +1793,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bossi-commemorazione-bagarrata.title': 'Bossi\'s Commemoration Turns into Brawl in Council',
     'blog.article.bossi-commemorazione-bagarrata.excerpt': 'The commemoration for the founder of the Lega Umberto Bossi ended in a brawl with shouts and accusations between the majority and opposition.',
     'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'group of people in disaccordo in an aula, with a Swiss flag in the background',
+    'blog.article.corsi-a-b-scuola-media-ticino.title': 'No more tracks A and B: Ticino middle school to change from 2026',
+    'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'The State Council has decided: from 2026 there will be no more ability grouping for German and maths. All lower-secondary schools in the Canton of Ticino will adopt the new system after a trial run in six institutes.',
+    'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Modern classroom interior in Ticino with students and digital whiteboards',
 };
 
 export default blogMetaEn;

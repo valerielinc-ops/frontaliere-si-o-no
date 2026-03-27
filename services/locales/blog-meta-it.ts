@@ -1793,6 +1793,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bossi-commemorazione-bagarrata.title': 'La commemorazione di Bossi diventa bagarre in aula',
     'blog.article.bossi-commemorazione-bagarrata.excerpt': 'La commemorazione per il fondatore della Lega Umberto Bossi è finita in bagarre con urla e accuse tra maggioranza e opposizione.',
     'blog.article.bossi-commemorazione-bagarrata.imageAlt': 'gruppo di persone in disaccordo in un\'aula, con una bandiera svizzera sullo sfondo',
+    'blog.article.corsi-a-b-scuola-media-ticino.title': 'Via i corsi A e B: la scuola media ticinese cambia dal 2026',
+    'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'Il Consiglio di Stato ha deciso: dal 2026 niente più suddivisione in livelli per tedesco e matematica. Tutte le scuole medie del Canton Ticino adotteranno il nuovo sistema dopo la sperimentazione in sei istituti.',
+    'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Aula scolastica moderna in Ticino con studenti e lavagne digitali',
 };
 
 export default blogMetaIt;

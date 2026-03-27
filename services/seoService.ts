@@ -1737,6 +1737,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-avs-saronno-referendum': { name: 'Politica', path: '/articoli-frontaliere/avs-saronno-referendum', parent: 'blog' },
     'blog-lavena-ponte-tresa-annaffiatoi': { name: 'Lavena Ponte Tresa', path: '/articoli-frontaliere/lavena-ponte-tresa-annaffiatoi', parent: 'blog' },
     'blog-bossi-commemorazione-bagarrata': { name: 'Ticino', path: '/articoli-frontaliere/bossi-commemorazione-bagarrata', parent: 'blog' },
+    'blog-corsi-a-b-scuola-media-ticino': { name: 'Scuola media Ticino', path: '/articoli-frontaliere/corsi-a-b-scuola-media-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

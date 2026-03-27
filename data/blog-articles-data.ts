@@ -5375,4 +5375,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/bossi-commemorazione-bagarrata.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'corsi-a-b-scuola-media-ticino',
+    category: 'novita',
+    date: '2026-03-27T03:25:32.612Z',
+    image: '/images/blog/corsi-a-b-scuola-media-ticino.jpg',
+    hasCalculator: true,
+  },
 ];
