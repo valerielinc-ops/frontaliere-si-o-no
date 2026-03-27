@@ -8467,6 +8467,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-confine-droga': {
+    title: 'Gallarate: pendolare in e-bike arrestato per spaccio di droga | Frontaliere Ticino',
+    description: 'Un uomo di 47 anni è stato arrestato a Gallarate per spaccio di droga. Utilizzava una bicicletta elettrica per spostarsi. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, gallarate, pendolare, e-bike, arrestato',
+    ogTitle: 'Gallarate: pendolare in e-bike arrestato per spaccio di droga',
+    ogDescription: 'Un uomo di 47 anni è stato arrestato a Gallarate per spaccio di droga. Utilizzava una bicicletta elettrica per spostarsi.',
+    canonicalPath: '/articoli-frontaliere/ticino-confine-droga',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Gallarate: pendolare in e-bike arrestato per spaccio di droga",
+      "description": "Un uomo di 47 anni è stato arrestato a Gallarate per spaccio di droga. Utilizzava una bicicletta elettrica per spostarsi. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-confine-droga.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bicicletta elettrica abbandonata a Lugano"
+      },
+      "datePublished": "2026-03-27T07:23:58+00:00",
+      "dateModified": "2026-03-27T07:23:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-confine-droga`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

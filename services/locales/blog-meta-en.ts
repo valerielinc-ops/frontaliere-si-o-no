@@ -1796,6 +1796,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corsi-a-b-scuola-media-ticino.title': 'No more tracks A and B: Ticino middle school to change from 2026',
     'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'The State Council has decided: from 2026 there will be no more ability grouping for German and maths. All lower-secondary schools in the Canton of Ticino will adopt the new system after a trial run in six institutes.',
     'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Modern classroom interior in Ticino with students and digital whiteboards',
+    'blog.article.ticino-confine-droga.title': 'Gallarate: commuter on e-bike arrested for drug dealing',
+    'blog.article.ticino-confine-droga.excerpt': 'A 47-year-old man has been arrested in Gallarate for drug dealing. He used an electric bicycle to get around.',
+    'blog.article.ticino-confine-droga.imageAlt': 'Abandoned e-bike in Lugano',
 };
 
 export default blogMetaEn;

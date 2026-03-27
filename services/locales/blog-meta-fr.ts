@@ -1796,6 +1796,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.corsi-a-b-scuola-media-ticino.title': 'Fin des cours A et B : le gymnase tessinois change à partir de 2026',
     'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'Le Conseil d\'État a tranché : à partir de 2026, plus de répartition par niveaux pour l\'allemand et les mathématiques. Toutes les écoles secondaires du canton du Tessin adopteront le nouveau système après l\'expérimentation dans six établissements.',
     'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Classe moderne au Tessin avec élèves et tableaux numériques',
+    'blog.article.ticino-confine-droga.title': 'Gallarate: pendolare en vélo électrique arrêté pour trafic de drogue',
+    'blog.article.ticino-confine-droga.excerpt': 'Un homme de 47 ans a été arrêté à Gallarate pour trafic de drogue. Il utilisait un vélo électrique pour se déplacer.',
+    'blog.article.ticino-confine-droga.imageAlt': 'Vélo électrique abandonné à Lugano',
 };
 
 export default blogMetaFr;

@@ -1796,6 +1796,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.corsi-a-b-scuola-media-ticino.title': 'Weg mit den Kursen A und B: Die Tessiner Mittelschule ändert sich ab 2026',
     'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'Der Staatsrat hat entschieden: Ab 2026 gibt es keine Aufteilung in Leistungsniveaus mehr für Deutsch und Mathematik. Alle Mittelschulen des Kantons Tessin führen das neue System ein, nachdem es an sechs Instituten erprobt wurde.',
     'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Moderne Klassenzimmer im Tessin mit Schülern und digitalen Tafeln',
+    'blog.article.ticino-confine-droga.title': 'Gallarate: Pendler mit E-Bike wegen Drogenhandels verhaftet',
+    'blog.article.ticino-confine-droga.excerpt': 'Ein 47-jähriger Mann wurde in Gallarate wegen Drogenhandels verhaftet. Er nutzte ein elektrisches Fahrrad, um sich fortzubewegen.',
+    'blog.article.ticino-confine-droga.imageAlt': 'Verlassenes E-Bike in Lugano',
 };
 
 export default blogMetaDe;

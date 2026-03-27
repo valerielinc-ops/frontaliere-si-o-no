@@ -5382,4 +5382,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/corsi-a-b-scuola-media-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ticino-confine-droga',
+    category: 'pratico',
+    date: '2026-03-27T07:23:58.816Z',
+    image: '/images/blog/ticino-confine-droga.jpg',
+    hasCalculator: true,
+  },
 ];

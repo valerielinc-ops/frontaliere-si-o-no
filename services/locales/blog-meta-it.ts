@@ -1796,6 +1796,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corsi-a-b-scuola-media-ticino.title': 'Via i corsi A e B: la scuola media ticinese cambia dal 2026',
     'blog.article.corsi-a-b-scuola-media-ticino.excerpt': 'Il Consiglio di Stato ha deciso: dal 2026 niente più suddivisione in livelli per tedesco e matematica. Tutte le scuole medie del Canton Ticino adotteranno il nuovo sistema dopo la sperimentazione in sei istituti.',
     'blog.article.corsi-a-b-scuola-media-ticino.imageAlt': 'Aula scolastica moderna in Ticino con studenti e lavagne digitali',
+    'blog.article.ticino-confine-droga.title': 'Gallarate: pendolare in e-bike arrestato per spaccio di droga',
+    'blog.article.ticino-confine-droga.excerpt': 'Un uomo di 47 anni è stato arrestato a Gallarate per spaccio di droga. Utilizzava una bicicletta elettrica per spostarsi.',
+    'blog.article.ticino-confine-droga.imageAlt': 'Bicicletta elettrica abbandonata a Lugano',
 };
 
 export default blogMetaIt;

@@ -1738,6 +1738,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavena-ponte-tresa-annaffiatoi': { name: 'Lavena Ponte Tresa', path: '/articoli-frontaliere/lavena-ponte-tresa-annaffiatoi', parent: 'blog' },
     'blog-bossi-commemorazione-bagarrata': { name: 'Ticino', path: '/articoli-frontaliere/bossi-commemorazione-bagarrata', parent: 'blog' },
     'blog-corsi-a-b-scuola-media-ticino': { name: 'Scuola media Ticino', path: '/articoli-frontaliere/corsi-a-b-scuola-media-ticino', parent: 'blog' },
+    'blog-ticino-confine-droga': { name: 'Spaccio di droga', path: '/articoli-frontaliere/ticino-confine-droga', parent: 'blog' },
   };
 
   const info = sectionNames[section];
