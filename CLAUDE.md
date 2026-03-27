@@ -251,6 +251,7 @@ After dispatching, **does not wait**. All crawlers run concurrently. `translate-
 | Soft-404 indicators | `validate-soft404.mjs` | No pages marked soft-404 |
 | Canonical tags | `validate-canonical.mjs` | Correct canonical URLs |
 | Content quality | `validate-content-quality.mjs` | No thin pages (<50 words) |
+| Page SEO quality | `validate-page-seo-quality.mjs` | H1 tags, lang attribute, schema validity, meta viewport |
 
 **Pipeline sequence**:
 1. Assemble jobs dataset (final merge)
@@ -471,6 +472,16 @@ The validation script `scripts/validate-jobs-rich-results-sample.mjs` enforces t
 
 ### Dataset schema (statistics pages):
 Every `Dataset` schema.org block MUST include `description` and `creator` fields. These are validated by Google and missing fields appear in Search Console as warnings. All new Dataset schemas must follow the pattern used in `jobsObservatory` and `livability` entries in `seo-pages.ts`.
+
+## Page-Level SEO Requirements (deploy-blocking)
+
+Every static HTML page MUST have:
+- **Exactly 1 `<h1>` tag** — not 0, not 2+. H1 must not be empty or inside `<noscript>`.
+- **Valid `lang` attribute** on the `<html>` tag matching the page locale (`it`, `en`, `de`, `fr`).
+- **Valid schema markup** — all `<script type="application/ld+json">` blocks must be parseable JSON with no conflicting primary schemas on the same object. BreadcrumbList is supplementary and can coexist with any primary schema.
+- **Meta viewport** — `<meta name="viewport">` must be present.
+
+These are enforced by `scripts/validate-page-seo-quality.mjs` at deploy time.
 
 ## SEO Checklist for New Pages
 
