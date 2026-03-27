@@ -1,16 +1,16 @@
 {
   "key": "international-school-of-ticino",
   "label": "International School of Ticino",
-  "generatedAt": "2026-03-27T09:42:52.189Z",
+  "generatedAt": "2026-03-27T21:26:41.008Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 3912,
-  "avgDurationMs": 3912,
+  "durationMs": 5529,
+  "avgDurationMs": 5529,
   "durationHistory": [
-    3912
+    5529
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,7 +43,7 @@
         "en": "expression-of-interest-international-school-of-ticino-international-school-of-ticino-lugano-xet5xc",
         "it": "expression-of-interest-international-school-of-ticino-ist",
         "de": "expression-of-interest-international-school-of-ticino-international-school-of-ticino-lugano-xet5xc",
-        "fr": "expression-of-interest-international-school-of-ticino-international-school-of-ticino-lugano-xet5xc"
+        "fr": "expression-of-interest-international-school-of-ticino-international-school-of-ticino-lugano"
       },
       "category": "general",
       "datePosted": "2026-03-07",
@@ -104,10 +104,10 @@
         "de": "History Teacher",
         "fr": "History Teacher"
       },
-      "slug": "history-teacher-ist",
+      "slug": "history-teacher-international-school-of-ticino-lugano",
       "slugByLocale": {
         "en": "history-teacher-international-school-of-ticino-lugano-jzfueu",
-        "it": "history-teacher-ist",
+        "it": "history-teacher-international-school-of-ticino-lugano",
         "de": "history-teacher-international-school-of-ticino-lugano-jzfueu",
         "fr": "history-teacher-international-school-of-ticino-lugano-jzfueu"
       },
@@ -126,6 +126,9 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
+      "previousSlugs": [
+        "history-teacher-ist"
+      ],
       "salaryMin": 83500,
       "salaryMax": 112500,
       "currency": "CHF",
