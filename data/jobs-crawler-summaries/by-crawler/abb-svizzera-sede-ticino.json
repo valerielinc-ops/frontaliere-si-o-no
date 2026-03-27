@@ -1,24 +1,92 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-03-26T20:42:35.376Z",
+  "generatedAt": "2026-03-27T09:04:11.819Z",
   "total": 20,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 20,
-  "durationMs": 38779,
-  "avgDurationMs": 38779,
+  "durationMs": 41628,
+  "avgDurationMs": 41628,
   "durationHistory": [
-    38779
+    41628
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "id": "company-rdvm4z",
+      "slug": "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Test Engineering Specialist (80 - 100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-03-27",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028955EXTERNALENGLOBAL/Test-Engineering-Specialist--80---100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
+      "slugByLocale": {
+        "it": "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "en": "test-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
+        "de": "test-engineering-spezialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
+        "fr": "test-engineering-specialiste-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z"
+      },
+      "titleByLocale": {
+        "en": "Test Engineering Specialist (80 - 100%)",
+        "it": "Test Engineering Specialista (80 - 100%)",
+        "de": "Test Engineering Spezialist (80 - 100%)",
+        "fr": "Test Engineering Spécialiste (80 - 100%)"
+      },
+      "descriptionByLocale": {
+        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "it": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "de": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
+        "fr": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>"
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "country": "CH",
+      "sourceLang": "en",
+      "previousSlugs": [
+        "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z"
+      ],
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 97500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
+    },
+    {
       "id": "company-o66kxn",
-      "slug": "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
+      "slug": "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino-ticino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "R&D Certification Engineer",
       "location": "Quartino, Ticino",
@@ -39,7 +107,13 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
+      "slugByLocale": {
+        "it": "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino-ticino",
+        "en": "r-d-certification-engineer-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
+        "de": "r-d-certification-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
+        "fr": "r-d-certification-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-o66kxn"
+      },
       "titleByLocale": {
         "en": "R&D Certification Engineer",
         "it": "R&D Certification Ingegnere",
@@ -54,16 +128,10 @@
       },
       "needsRetranslation": true,
       "requirementsByLocale": {},
-      "slugByLocale": {
-        "it": "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
-        "en": "r-d-certification-engineer-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
-        "de": "r-d-certification-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
-        "fr": "r-d-certification-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-o66kxn"
-      },
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "r-d-certification-engineer-abb-svizzera-sede-ticino-quartino-ticino"
+        "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino-ticino-o66kxn"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -107,7 +175,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "80-100-r-d-hw-ingegnere-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "80-100-r-d-hw-engineer-abb-svizzera-sede-ticino-quartino-ticino-l7apjs",
@@ -175,7 +243,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "80-100-r-d-engineer-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
@@ -243,7 +311,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "80-100-r-d-senior-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "80-100-r-d-senior-engineer-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-hsi9t8",
@@ -289,74 +357,6 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "id": "company-rdvm4z",
-      "slug": "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Test Engineering Specialist (80 - 100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "description": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028955EXTERNALENGLOBAL/Test-Engineering-Specialist--80---100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
-      "slugByLocale": {
-        "it": "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "en": "test-engineering-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
-        "de": "test-engineering-spezialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z",
-        "fr": "test-engineering-specialiste-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z"
-      },
-      "titleByLocale": {
-        "en": "Test Engineering Specialist (80 - 100%)",
-        "it": "Test Engineering Specialista (80 - 100%)",
-        "de": "Test Engineering Spezialist (80 - 100%)",
-        "fr": "Test Engineering Spécialiste (80 - 100%)"
-      },
-      "descriptionByLocale": {
-        "en": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "it": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "de": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>",
-        "fr": "<p>At <b>ABB</b>, we help industries run leaner and cleaner—and every person here makes that happen. You’ll be empowered to lead, supported to grow, and proud of the impact we create together. Join us and help run what runs the world.</p><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\"><b>This position reports to:</b></p>Production Engineering Manager<p style=\"text-align:inherit !important\"></p><p style=\"text-align:inherit !important\">__</p><p><b>Your role and responsibilities</b></p><p></p><div><p>In this role, you will have the opportunity to develop and maintain test infrastructures and test automations in accordance with business strategy to improve safety, efficiency, quality, and cost reduction. Each day, you will ensure existing test systems remain functional and up-to-date while designing new automated solutions for emerging products. You will also showcase your expertise by implementing innovative testing methodologies that enhance production standards and reduce costs.</p><div></div><div></div><p>The work model for the role is <span>hybrid. #LI-Hybrid</span></p><p></p><div></div><p><b>You will be mainly accountable for:</b></p><ul><li><p>Maintaining and improving existing test systems, both hardware infrastructures and software automations, ensuring they meet current operational standards.</p></li><li><p>Designing new test systems for new products in compliance with specifications and manual test procedures, implementing automation wherever possible.</p></li><li><p>Providing support for the integration and startup of test systems, defining action plans and training relevant personnel.</p></li><li><p>Identifying and recommending opportunities for improving test processes and implementing related projects, ensuring adherence to safety requirements and evaluating new technologies.</p></li></ul><p></p><p><b>Qualifications for the role</b></p><ul><li><p>You have a minimum of 3 years of experience in UPS testing or commissioning, with proven expertise in test system development and maintenance.</p></li><li><p>Highly skilled in hardware design and automation software development, with the ability to create robust and efficient testing solutions.</p></li><li><p>Possess an enhanced knowledge of electrical infrastructures design and software development in C programming language.</p></li><li><p>You are passionate about workplace safety and technical documentation, ensuring all systems comply with safety requirements and are properly documented.</p></li><li><p>Degree in Electronic Engineering, Computer Engineering, or a related field.</p></li><li><p>You are at ease communicating in English, both written and spoken.</p></li><li><p>Nice-to-have: Knowledge of programming languages such as LabVIEW, Python, and C#, experience with programming IDEs like LabWindows CVI and VSCode, and familiarity with hardware design software such as Altium.</p></li></ul></div><p></p><p><b>More about us </b></p><p></p><p><span>ABB Smart Power is a global technology leader, with products and solutions that make power supplies smart, connected, and protected. Its intelligent products and solutions make power more competitive by improving the energy efficiency, productivity, and reliability of almost any operation. </span></p><p></p><p><b><span>We value people from different backgrounds. Could this be your story? Apply today or visit www.abb.com to read more about us and learn about the impact of our solutions across the globe.</span></b></p><p><b><span>#MyABBStory </span></b></p><div></div><div></div><p style=\"text-align:inherit !important\"></p><p style=\"text-align:left !important\">Building a cleaner, smarter future takes all kinds of minds: the curious, the courageous, and the creative. That's why we welcome people from all backgrounds and experiences.</p><p style=\"text-align:left !important\"> </p><p>Ready to make an impact? </p><p></p><p>Apply today or visit <a target=\"_blank\" href=\"https://www.abb.com\"><span style=\"color:#0000ff\"><b><u>https://www.abb.com</u></b></span></a> to learn more about the impact of our solutions across the globe.</p>"
-      },
-      "needsRetranslation": true,
-      "requirementsByLocale": {},
-      "country": "CH",
-      "sourceLang": "en",
-      "previousSlugs": [
-        "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino-rdvm4z"
-      ],
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
       "id": "company-vs8x2l",
       "slug": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
       "company": "ABB Svizzera (sede Ticino)",
@@ -379,7 +379,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
         "en": "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
@@ -444,7 +444,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
         "en": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
@@ -509,7 +509,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
         "en": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
@@ -574,7 +574,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "contract-manager-abb-svizzera-sede-ticino-ticino-xulm96",
         "en": "contract-manager-abb-svizzera-sede-ticino-ticino-xulm96",
@@ -639,7 +639,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "80-100-senior-power-electronics-engineer-abb-svizzera-sede-ticino-quartino-ticino-j6oli2",
@@ -707,7 +707,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
         "en": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
@@ -772,7 +772,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "80-100-scrum-master-abb-svizzera-sede-ticino-quartino-ticino-u0g8m6",
         "en": "80-100-scrum-master-abb-svizzera-sede-ticino-quartino-ticino-u0g8m6",
@@ -837,7 +837,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
         "en": "product-trainer-abb-svizzera-sede-ticino-ticino-1dk7xe",
@@ -902,7 +902,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "technical-support-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
@@ -970,7 +970,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "r-d-senior-ingegnere-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "r-d-senior-engineer-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino-noo56s",
@@ -1038,7 +1038,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "test-engineer-80-100-abb-svizzera-sede-ticino-quartino-ticino-d6wkr3",
@@ -1106,7 +1106,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "fulfillment-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "fulfillment-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-v1649d",
@@ -1174,7 +1174,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "en": "process-quality-specialist-80-100-abb-svizzera-sede-ticino-quartino-ticino-u6aw32",
@@ -1242,7 +1242,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "customer-quality-manager-80-100-abb-svizzera-sede-ticino-quartino-ticino-4qd2bw",
         "en": "customer-quality-manager-80-100-abb-svizzera-sede-ticino-quartino-ticino-4qd2bw",
@@ -1307,7 +1307,7 @@
       },
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-26T20:42:31.143Z",
+      "crawledAt": "2026-03-27T09:04:09.244Z",
       "slugByLocale": {
         "it": "inside-sales-service-specialista-80-100-abb-svizzera-sede-ticino-ticino",
         "en": "inside-sales-service-specialist-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm",
