@@ -8496,6 +8496,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-franco-svizzero-minimi-euro': {
+    title: 'Il franco svizzero ai minimi da gennaio sull\'euro | Frontaliere Ticino',
+    description: 'Il franco svizzero ha raggiunto i minimi da gennaio sull\'euro sfiorando 0,92 franchi. Questo trend potrebbe continuare, ma è importante monitorare il cambio',
+    keywords: 'frontalieri, ticino, svizzera, italia, franco, svizzero, minimi, gennaio',
+    ogTitle: 'Il franco svizzero ai minimi da gennaio sull\'euro',
+    ogDescription: 'Il franco svizzero ha raggiunto i minimi da gennaio sull\'euro sfiorando 0,92 franchi.',
+    canonicalPath: '/articoli-frontaliere/franco-svizzero-minimi-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il franco svizzero ai minimi da gennaio sull'euro",
+      "description": "Il franco svizzero ha raggiunto i minimi da gennaio sull'euro sfiorando 0,92 franchi. Questo trend potrebbe continuare, ma è importante monitorare il cambio",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/franco-svizzero-minimi-euro.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "L'orologio delle valute di Lugano"
+      },
+      "datePublished": "2026-03-27T10:06:30+00:00",
+      "dateModified": "2026-03-27T10:06:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-svizzero-minimi-euro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

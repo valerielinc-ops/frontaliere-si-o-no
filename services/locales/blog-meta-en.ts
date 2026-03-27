@@ -1799,6 +1799,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-confine-droga.title': 'Gallarate: commuter on e-bike arrested for drug dealing',
     'blog.article.ticino-confine-droga.excerpt': 'A 47-year-old man has been arrested in Gallarate for drug dealing. He used an electric bicycle to get around.',
     'blog.article.ticino-confine-droga.imageAlt': 'Abandoned e-bike in Lugano',
+    'blog.article.franco-svizzero-minimi-euro.title': 'The Swiss Franc Hits Record Lows Against the Euro Since January',
+    'blog.article.franco-svizzero-minimi-euro.excerpt': 'The Swiss Franc has reached levels of 0.92 francs, a threshold not seen since the end of January',
+    'blog.article.franco-svizzero-minimi-euro.imageAlt': 'The time of foreign exchange of Lugano',
 };
 
 export default blogMetaEn;

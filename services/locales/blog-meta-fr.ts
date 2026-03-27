@@ -1799,6 +1799,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-confine-droga.title': 'Gallarate: pendolare en vélo électrique arrêté pour trafic de drogue',
     'blog.article.ticino-confine-droga.excerpt': 'Un homme de 47 ans a été arrêté à Gallarate pour trafic de drogue. Il utilisait un vélo électrique pour se déplacer.',
     'blog.article.ticino-confine-droga.imageAlt': 'Vélo électrique abandonné à Lugano',
+    'blog.article.franco-svizzero-minimi-euro.title': 'Le franc suisse aux plus bas depuis janvier par rapport à l\'euro',
+    'blog.article.franco-svizzero-minimi-euro.excerpt': 'Le franc suisse frôle les 0,92 francs, des niveaux qui n\'ont pas été observés depuis la fin janvier',
+    'blog.article.franco-svizzero-minimi-euro.imageAlt': 'L\'horloge des taux de change de Lugano',
 };
 
 export default blogMetaFr;

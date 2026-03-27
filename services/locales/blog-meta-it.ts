@@ -1799,6 +1799,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-confine-droga.title': 'Gallarate: pendolare in e-bike arrestato per spaccio di droga',
     'blog.article.ticino-confine-droga.excerpt': 'Un uomo di 47 anni è stato arrestato a Gallarate per spaccio di droga. Utilizzava una bicicletta elettrica per spostarsi.',
     'blog.article.ticino-confine-droga.imageAlt': 'Bicicletta elettrica abbandonata a Lugano',
+    'blog.article.franco-svizzero-minimi-euro.title': 'Il franco svizzero ai minimi da gennaio sull\'euro',
+    'blog.article.franco-svizzero-minimi-euro.excerpt': 'Il franco svizzero sfiora 0,92 franchi, livelli che non si vedevano da fine gennaio',
+    'blog.article.franco-svizzero-minimi-euro.imageAlt': 'L\'orologio delle valute di Lugano',
 };
 
 export default blogMetaIt;

@@ -5389,4 +5389,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ticino-confine-droga.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'franco-svizzero-minimi-euro',
+    category: 'novita',
+    date: '2026-03-27T10:06:30.949Z',
+    image: '/images/blog/franco-svizzero-minimi-euro.jpg',
+    hasCalculator: true,
+  },
 ];

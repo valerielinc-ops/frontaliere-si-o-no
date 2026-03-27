@@ -1799,6 +1799,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-confine-droga.title': 'Gallarate: Pendler mit E-Bike wegen Drogenhandels verhaftet',
     'blog.article.ticino-confine-droga.excerpt': 'Ein 47-jähriger Mann wurde in Gallarate wegen Drogenhandels verhaftet. Er nutzte ein elektrisches Fahrrad, um sich fortzubewegen.',
     'blog.article.ticino-confine-droga.imageAlt': 'Verlassenes E-Bike in Lugano',
+    'blog.article.franco-svizzero-minimi-euro.title': 'Der Schweizer Franken bei Tiefstständen seit Januar gegenüber dem Euro',
+    'blog.article.franco-svizzero-minimi-euro.excerpt': 'Der Schweizer Franken schwebt bei 0,92 Franken, Ebenen, die man seit Ende Januar nicht mehr gesehen hat',
+    'blog.article.franco-svizzero-minimi-euro.imageAlt': 'Das Uhrwerk der Wechselkurse von Lugano',
 };
 
 export default blogMetaDe;
