@@ -179,15 +179,22 @@ function stripHtml(html = '') {
  *   - Benefits / what we offer
  */
 function parseDetailPage(html = '') {
+  // Extract the main job content area first to avoid contamination from
+  // sidebar "other vacancies" sections that share the same page.
+  const mainAreaMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+    || html.match(/<div[^>]*class="[^"]*vacancy[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+    || html.match(/<div[^>]*class="[^"]*job[^"]*detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+
+  // Restrict search to the main area; fall back to full page only if nothing found.
+  const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
+
   const sections = [];
-
-  // Extract content from main job description area
-  // Look for common section patterns in the page
   const sectionRegex = /<h[2-4][^>]*>([\s\S]*?)<\/h[2-4]>\s*([\s\S]*?)(?=<h[2-4][^>]*>|<footer|<\/main|<\/article|$)/gi;
-  let match;
-  const skipHeadings = /cookie|privacy|navigation|menu|footer|header|breadcrumb|vacancy overview|share this/i;
+  const skipHeadings = /cookie|privacy|navigation|menu|footer|header|breadcrumb|vacancy overview|share this|andere stellen|other positions|weitere stellen|offene stellen|weitere vakanz/i;
 
-  while ((match = sectionRegex.exec(html)) !== null) {
+  let match;
+  while ((match = sectionRegex.exec(searchArea)) !== null) {
     const heading = stripHtml(match[1]).trim();
     if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
 
@@ -201,15 +208,9 @@ function parseDetailPage(html = '') {
     return sections.join('\n\n');
   }
 
-  // Fallback: extract main content area
-  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-    || html.match(/<div[^>]*class="[^"]*vacancy[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<div[^>]*class="[^"]*job[^"]*detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
-
-  if (mainMatch) {
-    const text = stripHtml(mainMatch[1]).trim();
-    // Filter out very short or boilerplate-heavy content
+  // Fallback: use the already-extracted main area text directly.
+  if (mainAreaMatch) {
+    const text = stripHtml(mainAreaMatch[1]).trim();
     if (text.length > 100) return text;
   }
 
@@ -269,7 +270,9 @@ function buildJob(raw, detailDescription = '') {
   const title = String(raw.title || '').trim();
   const { city, company } = mapLocation(raw.location);
   const { employmentType, contractType } = mapContractType(raw.contract_duration);
-  const slug = slugify(`${title}-${company}-${city}`);
+  // Include vacancy ID to prevent slug collisions when two vacancies share
+  // the same title + company + city (e.g., two "Office Employee" openings).
+  const slug = slugify(`${title}-${company}-${city}-${raw.id}`);
   const detailUrl = `https://careers.kronenhof.com/en/vacancies/${raw.id}`;
   const postedDate = raw.contract_starts_at
     ? raw.contract_starts_at.slice(0, 10)
@@ -328,6 +331,7 @@ function buildJob(raw, detailDescription = '') {
     sourceLang,
     postedDate,
     validThrough: '',
+    contract: contractType,   // canonical field expected by JobPosting schema + CLAUDE.md validation
     employmentType,
     contractType,
     description,
@@ -355,9 +359,17 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
+    // If the slug changed (e.g., due to ID suffix being added on first re-crawl),
+    // preserve the old slug in previousSlugs so existing indexed URLs don't 404.
+    const prevPreviousSlugs = prev.previousSlugs || [];
+    const previousSlugs =
+      prev.slug && prev.slug !== job.slug && !prevPreviousSlugs.includes(prev.slug)
+        ? [...prevPreviousSlugs, prev.slug]
+        : prevPreviousSlugs;
     return {
       ...prev,
       ...job,
+      previousSlugs,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
       descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),

@@ -26,7 +26,7 @@ The sectors tab (`activeTab === 'sectors'`) renders an 8-column table that is un
 
 Each sector is a tappable row:
 ```
-[ Settore name (82px fixed) ] [ CH bar + IT bar (flex) ] [ +XX% delta ] [ ▼ chevron ]
+[ Settore name (w-20 = 80px) ] [ CH bar + IT bar (flex) ] [ +XX% delta ] [ ▼ chevron ]
 ```
 
 - CH bar: red fill, proportional to `chNetEUR / maxVal`
@@ -43,8 +43,10 @@ When `expandedSectors.has(sector.id)`, render a 2-column grid below the sector r
 
 Each profession card contains:
 - Profession name (small, `text-xs`)
-- Netto CH (`CHF X.XXX`, bold monospace)
-- Delta % (emerald green, bold)
+- Netto CH (`CHF X.XXX`, bold monospace) — computed as `calcNetCH(p.ch[selectedLevel][1])` (index `[1]` = median)
+- Delta % (emerald green, bold) — computed as `Math.round((calcNetCH(p.ch[selectedLevel][1]) * exchangeRate - calcNetIT(p.it[selectedLevel][1])) / calcNetIT(p.it[selectedLevel][1]) * 100)` — same formula as `deltaPercent` in `sectorTableData` (desktop shows absolute EUR, cards show %, both are correct for their context)
+
+Note: `p.ch[selectedLevel]` and `p.it[selectedLevel]` are 3-element arrays `[min, median, max]`. Always use index `[1]` for the median in cards.
 
 Cards that don't fit evenly: last card if odd count shows "+" remaining placeholder.
 
@@ -73,12 +75,12 @@ Hidden on mobile (`hidden sm:block`) — redundant with inline bars in each sect
 2. **Add mobile list** in `<div className="block sm:hidden">…</div>` immediately before the desktop wrapper:
    - Outer container: `space-y-2`
    - Sector row: `flex items-center gap-2 bg-white dark:bg-slate-800 rounded-xl p-3 border border-slate-200 dark:border-slate-700 cursor-pointer`
-   - Name column: `w-20 text-xs font-semibold text-slate-800 dark:text-white leading-tight flex-shrink-0`
+   - Name column: `w-20 text-xs font-semibold text-slate-800 dark:text-white leading-tight flex-shrink-0` (`w-20` = 80px)
    - Bars column: `flex-1 min-w-0 space-y-1`
    - Each bar row: `flex items-center gap-1.5` with flag (12px), track (`flex-1 h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden`), fill div with dynamic width
-   - Sub-amounts: `flex justify-between text-[10px] font-mono text-slate-400 mt-0.5`
+   - Sub-amounts: `flex justify-between text-[10px] font-mono text-slate-500 dark:text-slate-400 mt-0.5` (never `text-slate-400` on light backgrounds per CLAUDE.md)
    - Delta: `w-11 text-right text-sm font-bold text-emerald-600 dark:text-emerald-400 flex-shrink-0`
-   - Chevron: `w-4 text-slate-400 text-xs flex-shrink-0`
+   - Chevron: `w-4 text-slate-500 dark:text-slate-400 text-xs flex-shrink-0`
 
 3. **Expanded profession grid** (inside same `block sm:hidden` section):
    - Condition: `expandedSectors.has(sector.id)`
@@ -93,9 +95,12 @@ Hidden on mobile (`hidden sm:block`) — redundant with inline bars in each sect
 
 ## Accessibility
 
-- Sector rows are `<div role="button" tabIndex={0}` with `onKeyDown` (Enter/Space) to toggle — same pattern as the rest of the component
-- `aria-expanded` on the row
+The mobile sector rows introduce new accessibility markup (the existing desktop table rows use plain `<tr onClick>` with no ARIA). Each mobile sector row must be:
+- `<div role="button" tabIndex={0}` with `onClick` and `onKeyDown` (Enter/Space toggle)
+- `aria-expanded={expandedSectors.has(sector.id)}`
 - Profession cards are display-only, no interactive role needed
+
+Note: `maxVal` is already computed at component scope (line ~187) and is available to both the desktop and mobile layouts without recomputation.
 
 ---
 
