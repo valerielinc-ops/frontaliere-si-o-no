@@ -1979,7 +1979,15 @@ export async function updateMetaTags(section: string): Promise<void> {
       }
       return clone;
     });
-    updateStructuredData([...localizedData, breadcrumbs]);
+    // Filter out redundant WebPage schemas when more specific types exist.
+    // Bing flags "conflicting markups" when WebPage coexists with FAQPage,
+    // WebApplication, Dataset, etc. on the same page.
+    const SPECIFIC_SD_TYPES = new Set(['FAQPage', 'WebApplication', 'Dataset', 'ItemList', 'Organization', 'Article', 'NewsArticle', 'HowTo', 'Product', 'SoftwareApplication', 'CollectionPage']);
+    const hasSpecificSdType = localizedData.some(item => SPECIFIC_SD_TYPES.has(String(item?.['@type'] || '')));
+    const filteredData = hasSpecificSdType
+      ? localizedData.filter(item => String(item?.['@type'] || '') !== 'WebPage')
+      : localizedData;
+    updateStructuredData([...filteredData, breadcrumbs]);
   } else {
     updateStructuredData(breadcrumbs);
   }

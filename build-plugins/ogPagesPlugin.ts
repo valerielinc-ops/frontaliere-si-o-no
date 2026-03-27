@@ -406,39 +406,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             ],
           }).replace(/</g, '\\u003c');
 
-          // FAQPage schema for blog articles — locale-aware generic frontaliere FAQs
-          const blogFaqsByLocale: Record<string, Array<{ q: string; a: string }>> = {
-            it: [
-              { q: 'Dove posso trovare un simulatore fiscale gratuito per frontalieri?', a: 'Su Frontaliere Ticino trovi un simulatore fiscale gratuito che calcola il netto per nuovi e vecchi frontalieri, considerando imposta alla fonte svizzera, IRPEF italiana, AVS, LPP e il nuovo accordo 2026.' },
-              { q: 'Come posso restare aggiornato sulle novità per frontalieri in Ticino?', a: 'Frontaliere Ticino pubblica articoli quotidiani su fisco, lavoro, dogane e servizi per frontalieri. Puoi anche iscriverti alla newsletter settimanale per ricevere un riepilogo delle novità più importanti.' },
-              { q: 'Quali strumenti gratuiti offre Frontaliere Ticino?', a: 'Il sito offre: simulatore fiscale, confronto cambio valuta CHF/EUR, comparatore assicurazioni LAMal, bacheca lavoro con oltre 4.000 annunci aggiornati, guida completa ai permessi G e B, e calcolatore costo pendolarismo.' },
-            ],
-            en: [
-              { q: 'Where can I find a free tax simulator for cross-border workers?', a: 'Frontaliere Ticino offers a free tax simulator that calculates net salary for new and old cross-border workers, considering Swiss withholding tax, Italian IRPEF, AVS, LPP and the 2026 agreement.' },
-              { q: 'How can I stay updated on news for cross-border workers in Ticino?', a: 'Frontaliere Ticino publishes daily articles on taxes, jobs, customs and services for cross-border workers. You can also subscribe to the weekly newsletter for a summary of the most important news.' },
-              { q: 'What free tools does Frontaliere Ticino offer?', a: 'The site offers: tax simulator, CHF/EUR exchange rate comparison, LAMal insurance comparator, job board with 4,000+ updated listings, complete guide to G and B permits, and commuting cost calculator.' },
-            ],
-            de: [
-              { q: 'Wo finde ich einen kostenlosen Steuerrechner für Grenzgänger?', a: 'Frontaliere Ticino bietet einen kostenlosen Steuerrechner, der das Nettogehalt für neue und alte Grenzgänger berechnet, unter Berücksichtigung der Schweizer Quellensteuer, der italienischen IRPEF, AHV, BVG und der Vereinbarung 2026.' },
-              { q: 'Wie bleibe ich über Neuigkeiten für Grenzgänger im Tessin informiert?', a: 'Frontaliere Ticino veröffentlicht täglich Artikel zu Steuern, Arbeit, Zoll und Dienstleistungen für Grenzgänger. Sie können auch den wöchentlichen Newsletter abonnieren.' },
-              { q: 'Welche kostenlosen Tools bietet Frontaliere Ticino?', a: 'Die Website bietet: Steuerrechner, CHF/EUR-Wechselkursvergleich, KVG-Versicherungsvergleich, Stellenbörse mit über 4.000 aktualisierten Anzeigen, Leitfaden zu G- und B-Bewilligungen und Pendlerkostenrechner.' },
-            ],
-            fr: [
-              { q: 'Où trouver un simulateur fiscal gratuit pour frontaliers ?', a: 'Frontaliere Ticino propose un simulateur fiscal gratuit qui calcule le salaire net pour les nouveaux et anciens frontaliers, en tenant compte de l\'impôt à la source suisse, de l\'IRPEF italien, de l\'AVS, de la LPP et de l\'accord 2026.' },
-              { q: 'Comment rester informé des nouveautés pour les frontaliers au Tessin ?', a: 'Frontaliere Ticino publie quotidiennement des articles sur la fiscalité, l\'emploi, les douanes et les services pour frontaliers. Vous pouvez aussi vous abonner à la newsletter hebdomadaire.' },
-              { q: 'Quels outils gratuits propose Frontaliere Ticino ?', a: 'Le site propose : simulateur fiscal, comparateur de taux de change CHF/EUR, comparateur d\'assurances LAMal, bourse d\'emploi avec plus de 4 000 annonces, guide complet des permis G et B, et calculateur de frais de pendulaire.' },
-            ],
-          };
-          const faqItems = blogFaqsByLocale[locale] || blogFaqsByLocale.it;
-          const faqLd = JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'FAQPage',
-            mainEntity: faqItems.map((f) => ({
-              '@type': 'Question',
-              name: f.q,
-              acceptedAnswer: { '@type': 'Answer', text: f.a },
-            })),
-          }).replace(/</g, '\\u003c');
+          // NOTE: Generic FAQPage schema removed from blog articles (2026-03-27).
+          // Bing flagged "conflicting markups" on every blog page because Article +
+          // FAQPage on the same page are considered competing schemas. The generic FAQs
+          // were not article-specific and added no SEO value — they confused crawlers.
+          // Article-specific FAQs should be added per-article in seo-blog.ts instead.
 
           const headTags = `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -470,7 +442,6 @@ ${href}
     <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
     <script type="application/ld+json">${ldJsonStr}</script>
     <script type="application/ld+json">${breadcrumbLd}</script>
-    <script type="application/ld+json">${faqLd}</script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
 
           const blogPreloads = [
