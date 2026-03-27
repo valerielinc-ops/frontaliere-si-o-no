@@ -25,6 +25,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  isSlugStable,
 } from './lib/dedicated-crawler-common.mjs';
 import { callLLM, flushScores, isAnyModelAvailable } from './lib/ai-models.mjs';
 import {
@@ -674,11 +675,9 @@ async function cleanLisJobs() {
     let slugChanged = false;
     if (cleanSlug.length >= 3) {
       const existingSlug = String(job.slug || '').trim();
-      // Only update when genuinely different — minor title wording changes (capitalisation,
-      // preposition swaps) should not generate new slugs and previousSlugs entries.
-      // Same 50-char prefix heuristic as hardenJobLocaleFields' slugMatchesTitle.
-      const prefix = cleanSlug.slice(0, 50);
-      if (!existingSlug || prefix.length < 10 || !existingSlug.startsWith(prefix)) {
+      // Only update when genuinely different — minor title wording changes
+      // (capitalisation, preposition swaps) should not generate new slugs.
+      if (!isSlugStable(existingSlug, cleanSlug)) {
         job.slug = cleanSlug;
         slugChanged = true;
       }

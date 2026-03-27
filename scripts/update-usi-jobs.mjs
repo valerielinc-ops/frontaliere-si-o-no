@@ -39,7 +39,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
-  ensureMinimumDescriptionWordCount,
+  ensureMinimumDescriptionWordCount, isSlugStable,
 } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { extractDrupalNodeId, extractIrsolDetailPage, MIN_IRSOL_BODY_LENGTH } from './lib/irsol-html-parser.mjs';
@@ -179,20 +179,6 @@ function slugify(text = '', suffix = '') {
   return s.slice(0, 90);
 }
 
-/**
- * Return existingSlug if it still represents the new title (minor wording change).
- * Compares the first 50 characters of the new slug — same heuristic as
- * hardenJobLocaleFields' slugMatchesTitle. Prevents slug churn from small
- * upstream edits (capitalisation, preposition swaps) that create unnecessary
- * previousSlugs entries and break indexed URLs.
- */
-function pickStableSlug(existingSlug, newSlug) {
-  if (!existingSlug) return newSlug;
-  if (existingSlug === newSlug) return existingSlug;
-  const prefix = newSlug.slice(0, 50);
-  if (prefix.length >= 15 && existingSlug.startsWith(prefix)) return existingSlug;
-  return newSlug;
-}
 
 async function translateUsiTitle(text = '', sourceLang = 'it', targetLang = 'en', job = {}) {
   const source = String(text || '').trim();
@@ -1045,9 +1031,9 @@ async function postProcessUsiJobs() {
       const localizedTitle = String(job.titleByLocale?.[locale] || '').trim() || sourceTitle;
       if (localizedTitle) {
         const newSlug = slugify(localizedTitle, citySuffix);
-        const stableSlug = pickStableSlug(String(job.slugByLocale?.[locale] || '').trim(), newSlug);
-        if (stableSlug && String(job.slugByLocale?.[locale] || '').trim() !== stableSlug) {
-          job.slugByLocale[locale] = stableSlug;
+        const existingSlug = String(job.slugByLocale?.[locale] || '').trim();
+        if (newSlug && !isSlugStable(existingSlug, newSlug)) {
+          job.slugByLocale[locale] = newSlug;
           fixed++;
         }
       }

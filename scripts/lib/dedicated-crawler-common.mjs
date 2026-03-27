@@ -696,7 +696,76 @@ function maybeRehomeLocalizedValue({
   return false;
 }
 
-/** Check if a slug plausibly matches a title (prefix or first 4 words overlap). */
+/**
+ * Stop words filtered out before computing slug token similarity.
+ * Covers IT / EN / DE / FR connectives that carry no role identity.
+ */
+const SLUG_STOP_WORDS = new Set([
+  // IT
+  'di', 'e', 'o', 'il', 'la', 'lo', 'un', 'una', 'dei', 'del', 'delle',
+  'a', 'in', 'per', 'con', 'da', 'su', 'tra', 'fra', 'al', 'dal',
+  // EN
+  'of', 'the', 'and', 'or', 'for', 'to', 'at', 'in', 'on', 'an', 'a',
+  // DE
+  'als', 'und', 'oder', 'fur', 'bei', 'mit', 'an',
+  // FR
+  'et', 'ou', 'de', 'le', 'les', 'un', 'une', 'en', 'au', 'aux',
+]);
+
+/**
+ * Tokenise a slug into meaningful words (≥3 chars, not a stop word).
+ */
+function slugTokenSet(slug) {
+  return new Set(
+    String(slug || '').split('-').filter((w) => w.length >= 3 && !SLUG_STOP_WORDS.has(w)),
+  );
+}
+
+/**
+ * Jaccard similarity between two slugs based on their meaningful tokens.
+ * Returns a value in [0, 1]: 1 = identical token sets, 0 = disjoint.
+ */
+function slugJaccard(slugA, slugB) {
+  const a = slugTokenSet(slugA);
+  const b = slugTokenSet(slugB);
+  if (a.size === 0 && b.size === 0) return 1;
+  if (a.size === 0 || b.size === 0) return 0;
+  let intersection = 0;
+  for (const t of a) if (b.has(t)) intersection++;
+  return intersection / (a.size + b.size - intersection);
+}
+
+/**
+ * Returns true when existingSlug still represents the same job as newSlug —
+ * i.e. the slug should NOT be updated because the title changed only slightly.
+ *
+ * Uses Jaccard token similarity (threshold 0.80) rather than a brittle prefix
+ * check: two slugs produced by the same job will share ≥80% of their meaningful
+ * tokens even if a few words changed wording or capitalisation, while genuinely
+ * different roles will have a lower overlap.
+ *
+ * Fallback to a 4-token prefix check for very short slugs (< 4 tokens) where
+ * Jaccard is unreliable.
+ *
+ * @param {string} existingSlug
+ * @param {string} newSlug
+ * @param {number} [threshold=0.80]
+ */
+export function isSlugStable(existingSlug, newSlug, threshold = 0.80) {
+  if (!existingSlug) return false;
+  if (existingSlug === newSlug) return true;
+  const tokensA = slugTokenSet(existingSlug);
+  const tokensB = slugTokenSet(newSlug);
+  // For very short slugs fall back to first-4-token prefix overlap
+  if (tokensA.size < 4 || tokensB.size < 4) {
+    const prefixA = [...tokensA].slice(0, 4).join('-');
+    const prefixB = [...tokensB].slice(0, 4).join('-');
+    return prefixA === prefixB && prefixA.length >= 6;
+  }
+  return slugJaccard(existingSlug, newSlug) >= threshold;
+}
+
+/** Check if a slug plausibly matches a title (Jaccard-based, or prefix for short titles). */
 function slugMatchesTitle(slug, title) {
   const slugified = title
     .toLowerCase()
@@ -704,12 +773,7 @@ function slugMatchesTitle(slug, title) {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  // Compare the first 50 chars — wider window to tolerate minor title variations
-  const prefix = slugified.slice(0, 50);
-  if (prefix.length >= 8 && slug.startsWith(prefix)) return true;
-  // Fallback: the first 4 words of the title must appear in the slug
-  const titleWords = slugified.split('-').slice(0, 4).join('-');
-  return titleWords.length >= 10 && slug.includes(titleWords);
+  return isSlugStable(slug, slugified);
 }
 
 export function hardenJobLocaleFields({ dataJobsPath }) {
