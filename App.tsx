@@ -205,7 +205,7 @@ const App: React.FC = () => {
   const [linkedInCallbackProcessing, setLinkedInCallbackProcessing] = useState(false);
   const [linkedInCallbackError, setLinkedInCallbackError] = useState<string | null>(null);
 
-  const upsertNewsletterSubscriber = async (
+  const upsertNewsletterSubscriber = useCallback(async (
     email: string,
     source: 'signup' | 'chatbot_google' | 'chatbot_facebook' | 'chatbot_email',
     displayName?: string | null,
@@ -280,7 +280,7 @@ const App: React.FC = () => {
     } catch {
       return false;
     }
-  };
+  }, [activeTab]);
 
   // Load per-page IT translations: initial tab + on tab switch
   useEffect(() => {
@@ -326,7 +326,7 @@ const App: React.FC = () => {
   // The subsequent sub-tab useEffect would otherwise push the same URL again.
   const suppressNextRouteSyncForTabRef = useRef<ActiveTab | null>(null);
 
-  const SEO_LANDING_PRESETS: Record<SeoLandingId, Partial<SimulationInputs>> = {
+  const SEO_LANDING_PRESETS = useMemo<Record<SeoLandingId, Partial<SimulationInputs>>>(() => ({
     'salary-60000': { annualIncomeCHF: 60000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
     'salary-80000': { annualIncomeCHF: 80000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 35, spouseWorks: false },
     'salary-100000': { annualIncomeCHF: 100000, maritalStatus: 'SINGLE', children: 0, familyMembers: 1, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', age: 40, spouseWorks: false },
@@ -351,7 +351,7 @@ const App: React.FC = () => {
     'net-comparison-g-vs-b-within20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'WITHIN_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
     'net-comparison-2025-2026-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
     'net-comparison-g-vs-b-over20km': { annualIncomeCHF: 80000, frontierWorkerType: 'NEW', distanceZone: 'OVER_20KM', maritalStatus: 'SINGLE', children: 0, familyMembers: 1, age: 38, spouseWorks: false },
-  };
+  }), []);
 
   const landingAppliedRef = useRef<SeoLandingId | null>(null);
 
@@ -756,8 +756,8 @@ const App: React.FC = () => {
 
   // Auto-subscribe to newsletter on sign-in (if not already subscribed)
   // Uses getAuthEmail() to also check providerData (Facebook may not set user.email)
-  const authEmail = authUser ? getAuthEmail(authUser) : null;
-  const isPrivilegedAdmin = ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? '');
+  const authEmail = useMemo(() => authUser ? getAuthEmail(authUser) : null, [authUser]);
+  const isPrivilegedAdmin = useMemo(() => ADMIN_EMAIL_WHITELIST.includes(authEmail?.toLowerCase() ?? ''), [authEmail]);
   useEffect(() => {
     if (activeTab === 'admin') eagerAuth();
   }, [activeTab]);
@@ -1180,38 +1180,37 @@ const App: React.FC = () => {
     };
   }, []);
 
-  const toggleTheme = () => {
-    const newMode = !isDarkMode;
-    setIsDarkMode(newMode);
-    Analytics.trackSettingsChange('theme', newMode ? 'dark' : 'light');
-    if (newMode) unlockAchievement('dark_mode_fan');
-    
-    if (newMode) {
-      document.documentElement.classList.add('dark');
-      localStorage.theme = 'dark';
-    } else {
-      document.documentElement.classList.remove('dark');
-      localStorage.theme = 'light';
-    }
-  };
+  const toggleTheme = useCallback(() => {
+    setIsDarkMode(prev => {
+      const newMode = !prev;
+      Analytics.trackSettingsChange('theme', newMode ? 'dark' : 'light');
+      if (newMode) unlockAchievement('dark_mode_fan');
+      if (newMode) {
+        document.documentElement.classList.add('dark');
+        localStorage.theme = 'dark';
+      } else {
+        document.documentElement.classList.remove('dark');
+        localStorage.theme = 'light';
+      }
+      return newMode;
+    });
+  }, []);
 
-  const handleTabChange = (tab: ActiveTab) => {
+  const handleTabChange = useCallback((tab: ActiveTab) => {
     enableRuntimeSeo();
-    const previousTab = activeTab;
-    setActiveTab(tab);
+    setActiveTab(prevTab => {
+      Analytics.trackTabNavigation(prevTab, tab);
+      if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: prevTab });
+      if (tab === 'guida') unlockAchievement('guide_reader');
+      if (tab === 'feedback') unlockAchievement('feedback_giver');
+      if (tab === 'stats') unlockAchievement('stats_checker');
+      if (tab === 'fisco') unlockAchievement('pension_planner');
+      return tab;
+    });
     if (tab !== 'calculator') setSeoLanding(null);
     if (tab !== 'glossario') setGlossaryTerm(null);
     if (tab !== 'job-board') setJobSlug(null);
     if (tab === 'blog') setBlogArticle(null);
-    Analytics.trackTabNavigation(previousTab, tab);
-
-    // Funnel: track comparison step
-    if (tab === 'confronti') Analytics.trackFunnelStep('compare', { from_tab: previousTab });
-    // Gamification tracking
-    if (tab === 'guida') unlockAchievement('guide_reader');
-    if (tab === 'feedback') unlockAchievement('feedback_giver');
-    if (tab === 'stats') unlockAchievement('stats_checker');
-    if (tab === 'fisco') unlockAchievement('pension_planner');
 
     // Build route and push to history
     const route: AppRoute = { activeTab: tab };
@@ -1237,9 +1236,9 @@ const App: React.FC = () => {
     const seoKey = getSeoSection(route);
     updateMetaTags(seoKey);
     trackSectionView(seoKey);
-  };
+  }, [confrontiSubTab, fiscoSubTab, taxReturnCountry, guidaSubTab, vitaSubTab, calcolatoreSubTab, seoLanding, statsSubTab, glossaryTerm, jobSlug]);
 
-  const handleCalculate = async () => {
+  const handleCalculate = useCallback(async () => {
     const { calculateSimulation } = await lazyCalculate();
     const res = calculateSimulation(inputs);
     setResult(res);
@@ -1254,7 +1253,7 @@ const App: React.FC = () => {
       inputs.hasChildren
     );
     Analytics.trackFunnelStep('calculate', { worker_type: inputs.workerType });
-  };
+  }, [inputs]);
 
   // Update SEO tags when confronti sub-tab changes
   useEffect(() => {
@@ -1457,7 +1456,7 @@ const App: React.FC = () => {
   }, [activeTab, guidaSubTab, vitaSubTab, fiscoSubTab]);
 
   // Handle search navigation
-  const handleSearchNavigate = (tab: string, subTab?: string) => {
+  const handleSearchNavigate = useCallback((tab: string, subTab?: string) => {
     enableRuntimeSeo();
     // We'll push the target route explicitly below.
     suppressNextRouteSyncForTabRef.current = tab as ActiveTab;
@@ -1500,7 +1499,7 @@ const App: React.FC = () => {
     if (!window.location.hash) {
       window.scrollTo({ top: 0, behavior: 'instant' });
     }
-  };
+  }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
   type CtaTarget =
     | { kind: 'tab'; tab: ActiveTab; subTab?: string }
@@ -1916,7 +1915,7 @@ const App: React.FC = () => {
     return [];
   };
 
-  const ctaItemsBase = getCtaItems();
+  const ctaItemsBase = useMemo(() => getCtaItems(), [activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, glossaryTerm, t]);
 
   const buildCtaItems = (baseItems: CtaItem[]): CtaItem[] => {
     const extras: CtaItem[] = [];
@@ -1970,7 +1969,7 @@ const App: React.FC = () => {
     });
   };
 
-  const ctaItems = buildCtaItems(ctaItemsBase);
+  const ctaItems = useMemo(() => buildCtaItems(ctaItemsBase), [ctaItemsBase, activeTab, t]);
 
   // Rotate the 3 CTA items when more are available (no animation; long interval to avoid test noise).
   const [ctaRotationIndex, setCtaRotationIndex] = useState(0);
@@ -2001,7 +2000,7 @@ const App: React.FC = () => {
     return () => window.clearInterval(interval);
   }, [ctaItems.length, ctaRotationKey]);
 
-  const handleCtaClick = (item: CtaItem) => {
+  const handleCtaClick = useCallback((item: CtaItem) => {
     Analytics.trackUIInteraction('cta', 'internal-link', 'click', 'navigate', item.analyticsLabel);
 
     if (item.target.kind === 'tab') {
@@ -2022,7 +2021,7 @@ const App: React.FC = () => {
     updateMetaTags(seoKey);
     trackSectionView(seoKey);
     window.scrollTo({ top: 0, behavior: 'instant' });
-  };
+  }, [handleSearchNavigate]);
 
   // --- 5-click logo easter egg: cache reset with coin explosion ---
   const logoClickCountRef = useRef(0);
@@ -2031,7 +2030,7 @@ const App: React.FC = () => {
   const [showWhatsNew, setShowWhatsNew] = useState(false);
   const CoinExplosionRef = useRef<React.ComponentType<{ onComplete: () => void }> | null>(null);
 
-  const handleLogoClick = () => {
+  const handleLogoClick = useCallback(() => {
     logoClickCountRef.current += 1;
     if (logoClickTimerRef.current) clearTimeout(logoClickTimerRef.current);
 
@@ -2048,9 +2047,9 @@ const App: React.FC = () => {
         logoClickCountRef.current = 0;
       }, 2000);
     }
-  };
+  }, []);
 
-  const handleCoinExplosionComplete = async () => {
+  const handleCoinExplosionComplete = useCallback(async () => {
     // Wait a beat so the animation ending feels smooth
     await new Promise(r => setTimeout(r, 200));
     // 1. Wipe all caches (SW + CacheStorage)
@@ -2063,7 +2062,7 @@ const App: React.FC = () => {
     });
     // 3. Force-fetch latest version (cache-bust so the browser doesn't serve stale HTML)
     window.location.replace('/?_t=' + Date.now());
-  };
+  }, []);
 
   // Track whether initial render is complete to defer first calculation
   const hasHydrated = useRef(false);
@@ -2138,7 +2137,7 @@ const App: React.FC = () => {
     }
   }, [calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab]);
 
-  const navContextValue: NavigationContextType = {
+  const navContextValue = useMemo<NavigationContextType>(() => ({
     activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab,
     guidaSubTab, vitaSubTab, statsSubTab, isDarkMode, isFocusMode,
     setActiveTab: setActiveTab as any, setCalcolatoreSubTab: setCalcolatoreSubTab as any,
@@ -2146,14 +2145,14 @@ const App: React.FC = () => {
     setGuidaSubTab: setGuidaSubTab as any, setVitaSubTab: setVitaSubTab as any,
     setStatsSubTab: setStatsSubTab as any, toggleTheme, setIsFocusMode,
     navigateTo,
-  };
+  }), [activeTab, calcolatoreSubTab, confrontiSubTab, fiscoSubTab, guidaSubTab, vitaSubTab, statsSubTab, isDarkMode, isFocusMode, toggleTheme, navigateTo]);
 
   // FRO-310: Critical IT translations are loaded synchronously (it-critical.ts, ~4KB).
   // isTranslationsReady() returns true immediately — no skeleton gate needed.
   // Full translations (it-core + it-calculator) still load lazily in background.
 
   // FRO-367: TabContentContext passes app-level state to lazy tab components.
-  const tabContentValue: TabContentState = {
+  const tabContentValue = useMemo<TabContentState>(() => ({
     inputs, setInputs, result, handleCalculate,
     showDeferredHomeWidgets, seoLanding, setSeoLanding,
     userProfile, authUser, authLoading, isPrivilegedAdmin,
@@ -2165,7 +2164,7 @@ const App: React.FC = () => {
     jobSlug, setJobSlug,
     setActiveTab: setActiveTab as any, navigateTo,
     setContactPrefill, glossaryTerm, setGlossaryTerm,
-  };
+  }), [inputs, result, handleCalculate, showDeferredHomeWidgets, seoLanding, userProfile, authUser, authLoading, isPrivilegedAdmin, googleSignIn, facebookSignIn, adminGoogleButtonReady, taxReturnCountry, borderCrossing, blogArticle, jobSlug, navigateTo, glossaryTerm]);
 
   return (
     <ErrorBoundary>
