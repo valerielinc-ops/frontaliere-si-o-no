@@ -699,11 +699,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   health: {
-    title: 'LAMal Frontaliere Costo Mensile | Confronto Casse Malati',
-    description: 'LAMal frontaliere costo mensile 2026: confronta casse malati Ticino (Helsana, CSS, Swica, Visana, Sanitas). Premi, franchigie e coperture. Trova la più.',
-    keywords: 'assicurazione sanitaria ticino, casse malati svizzera, helsana css confronto, swica visana sanitas, premi assicurazione 2026, franchigia assicurazione svizzera, cassa malati frontalieri, assicurazione obbligatoria ticino',
-    ogTitle: 'LAMal Frontaliere Costo Mensile | Confronto Casse Malati',
-    ogDescription: '🏥 LAMal frontaliere: costo mensile casse malati Ticino 2026. Premi da CHF 290, franchigie da CHF 300. Trova la più conveniente!',
+    title: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
+    description: 'Premi LAMal frontaliere 2026: confronto casse malati Ticino per frontalieri. Helsana, CSS, Swica, Visana, Sanitas — premi, franchigie e coperture a confronto.',
+    keywords: 'premi lamal frontaliere 2026, casse malati frontaliere ticino, assicurazione sanitaria ticino, premi assicurazione frontalieri, helsana css confronto, swica visana sanitas, franchigia assicurazione svizzera, cassa malati frontalieri, premi lamal ticino',
+    ogTitle: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
+    ogDescription: '🏥 Premi LAMal frontaliere Ticino 2026: confronta casse malati (Helsana, CSS, Swica). Franchigie da CHF 300. Trova la più conveniente!',
     canonicalPath: '/compara-servizi/confronta-casse-malati',
     structuredData: [
       {
@@ -2103,11 +2103,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   jobboard: {
-    title: 'Offerte di Lavoro Ticino 2026 | Frontalieri',
-    description: 'Offerte di lavoro Ticino aggiornate per frontalieri: posizioni in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende attive. Candidati gratis.',
-    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro frontalieri, lavoro svizzera frontalieri, impiego ticino, lavoro lugano, lavoro mendrisio, carriera svizzera, offerte lavoro ticino oggi',
-    ogTitle: 'Offerte di Lavoro Ticino 2026 | Frontalieri',
-    ogDescription: '💼 Offerte di lavoro Ticino aggiornate: banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende. Candidati gratis!',
+    title: 'Lavoro Frontaliere Ticino 2026 — Offerte Svizzera',
+    description: 'Lavoro frontaliere Ticino 2026: offerte aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende attive. Candidati gratis.',
+    keywords: 'lavoro frontaliere ticino, offerte di lavoro frontalieri ticino 2026, lavoro ticino, offerte lavoro frontalieri, lavoro svizzera frontalieri, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
+    ogTitle: 'Lavoro Frontaliere Ticino 2026 — Offerte Svizzera',
+    ogDescription: '💼 Lavoro frontaliere Ticino 2026: offerte aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende. Candidati gratis!',
     canonicalPath: '/cerca-lavoro-ticino',
     structuredData: [
       {

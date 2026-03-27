@@ -523,8 +523,8 @@ const translations: Record<string, string> = {
     'banks.hype.con3': 'Funzionalità avanzate solo con Premium',
 
     // --- Tax Calendar ---
-    'health.title': 'Assicurazione Sanitaria',
-    'health.subtitle': 'Confronto LAMal CH vs SSN Italia per lavoratori frontalieri',
+    'health.title': 'Premi LAMal Frontaliere 2026',
+    'health.subtitle': 'Confronto casse malati LAMal vs SSN Italia per frontalieri Ticino',
     'health.warningTitle': 'Diritto di opzione',
     'health.warningText': 'I frontalieri hanno <strong>90 giorni</strong> dall\'inizio del lavoro per scegliere tra <strong>LAMal svizzera</strong> e <strong>SSN italiano</strong>. La scelta è vincolante per 3 anni.',
     'health.age': 'Età',
