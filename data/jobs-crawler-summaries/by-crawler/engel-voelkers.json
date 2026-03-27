@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-03-27T09:32:46.356Z",
+  "generatedAt": "2026-03-27T21:16:22.513Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 19230,
-  "avgDurationMs": 19230,
+  "durationMs": 18902,
+  "avgDurationMs": 18902,
   "durationHistory": [
-    19230
+    18902
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -18,7 +18,7 @@
   "unchangedJobs": [
     {
       "title": "Stage Assistente Team (3-6 mesi) | Lugano",
-      "slug": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
+      "slug": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239",
       "company": "Ticino Premium Properties SA",
@@ -52,7 +52,7 @@
         "fr": "Ticino Premium Properties SA recrute pour le poste Stage Assistente Team (3-6 mesi) | Lugano basé à Lugano. Secteur immobilier de prestige au Tessin. Postulez via la page carrière officielle d'Engel & Völkers."
       },
       "slugByLocale": {
-        "it": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
+        "it": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano",
         "en": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
         "de": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
         "fr": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano"
@@ -112,10 +112,13 @@
       "slugByLocale": {
         "it": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
         "en": "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona",
-        "de": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
+        "de": "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona",
         "fr": "immobilienberater-in-100-ascona-ticino-premium-properties-sa-ascona"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "immobilienberater-in-100-ascona-engel-voelkers-ascona"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
