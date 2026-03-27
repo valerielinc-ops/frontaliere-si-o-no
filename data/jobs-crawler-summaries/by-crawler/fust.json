@@ -1,16 +1,16 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-03-27T09:36:06.333Z",
+  "generatedAt": "2026-03-27T21:20:07.828Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 18601,
-  "avgDurationMs": 18601,
+  "durationMs": 25757,
+  "avgDurationMs": 25757,
   "durationHistory": [
-    18601
+    25757
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -18,7 +18,7 @@
   "unchangedJobs": [
     {
       "id": "company-jqltq",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
       "company": "Fust",
       "title": "Montatore/trice di impianti sanitari per cucine & bagni",
       "location": "Bellinzona, Ticino",
@@ -39,7 +39,7 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-27T09:36:05.167Z",
+      "crawledAt": "2026-03-27T21:20:05.593Z",
       "titleByLocale": {
         "it": "Montatore/trice di impianti sanitari per cucine & bagni",
         "en": "Montatore/trice di impianti sanitari per cucine & bagni",
@@ -55,15 +55,12 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
+        "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
         "en": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
         "de": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
         "fr": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq"
       },
       "sourceLang": "it",
-      "previousSlugs": [
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
-      ],
       "salaryMin": 80000,
       "salaryMax": 108000,
       "baseSalary": {
@@ -85,7 +82,7 @@
     },
     {
       "id": "company-ie4nz4",
-      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
+      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
       "company": "Fust",
       "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
       "location": "Tenero-Contra, Ticino",
@@ -106,9 +103,9 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-27T09:36:05.167Z",
+      "crawledAt": "2026-03-27T21:20:05.593Z",
       "slugByLocale": {
-        "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
+        "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
         "en": "retail-apprenticeship-afc-creating-shopping-experiences-fust-tenero-contra-ticino",
         "de": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
         "fr": "apprentissage-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-tenero-contra-ticino"
@@ -129,6 +126,7 @@
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
+        "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
         "einzelhandelsausbildung-afc-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino"
       ],
       "salaryMin": 46500,
@@ -173,11 +171,11 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-27T09:36:05.167Z",
+      "crawledAt": "2026-03-27T21:20:05.593Z",
       "slugByLocale": {
         "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
         "en": "home-appliance-installer-fust-grigioni",
-        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-dk43lj",
+        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
         "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
       },
       "titleByLocale": {
@@ -197,6 +195,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "montatore-di-elettrodomestici-fust-grigioni",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-dk43lj",
         "technicien-ne-de-livraison-d-electromenagers-fust-grigioni"
       ],
       "salaryMin": 58000,
