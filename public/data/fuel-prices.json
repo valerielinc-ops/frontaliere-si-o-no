@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-27T09:35:39.381Z",
+  "generatedAt": "2026-03-27T10:31:16.531Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 233,
-      "latestObservedUpdate": "2026-03-27T08:50:14.899Z"
+      "latestObservedUpdate": "2026-03-27T10:22:21.059Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -19076,18 +19076,18 @@
             "distanceKm": 15.2
           },
           {
-            "id": "UaXDpxug9j7B4sRgwDcp",
-            "name": "Eni Lugano",
-            "brand": "ENI",
-            "address": "Riva Paradiso 40, 6900 Lugano",
-            "lat": 45.9888137,
-            "lng": 8.9537972,
+            "id": "7PfDJXlwoV9rwwngyicQ",
+            "name": "Coop Pronto",
+            "brand": "COOP",
+            "address": "via Cantonale 12, 6983 Magliaso",
+            "lat": 45.9853,
+            "lng": 8.89037,
             "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-01T08:16:15.795Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 2.7,
+            "updatedAt": "2026-03-27T10:16:21.990Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
             "sp95PriceEur": 1.923,
-            "distanceKm": 14.5
+            "distanceKm": 18.8
           }
         ],
         "minPriceChf": 1.66,
