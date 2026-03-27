@@ -36,16 +36,16 @@ function getWeatherEmoji(code: number, isDay: boolean): string {
 }
 
 function getWeatherMiniIcon(code: number, size = 16): React.ReactNode {
-  if (code === 0 || code === 1) return <Sun style={{ width: size, height: size, color: '#f59e0b' }} />;
-  if (code === 2) return <Cloud style={{ width: size, height: size, color: '#94a3b8' }} />;
-  if (code === 3) return <Cloud style={{ width: size, height: size, color: '#64748b' }} />;
-  if (code >= 45 && code <= 48) return <CloudFog style={{ width: size, height: size, color: '#94a3b8' }} />;
-  if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size, color: '#60a5fa' }} />;
-  if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size, color: '#3b82f6' }} />;
-  if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size, color: '#93c5fd' }} />;
-  if (code >= 80 && code <= 86) return <CloudRain style={{ width: size, height: size, color: '#2563eb' }} />;
-  if (code >= 95 && code <= 99) return <CloudLightning style={{ width: size, height: size, color: '#fbbf24' }} />;
-  return <Sun style={{ width: size, height: size, color: '#f59e0b' }} />;
+  if (code === 0 || code === 1) return <Sun style={{ width: size, height: size }} className="text-amber-500 dark:text-amber-400" />;
+  if (code === 2) return <Cloud style={{ width: size, height: size }} className="text-slate-400 dark:text-slate-500" />;
+  if (code === 3) return <Cloud style={{ width: size, height: size }} className="text-slate-500 dark:text-slate-400" />;
+  if (code >= 45 && code <= 48) return <CloudFog style={{ width: size, height: size }} className="text-slate-400 dark:text-slate-500" />;
+  if (code >= 51 && code <= 57) return <CloudDrizzle style={{ width: size, height: size }} className="text-blue-400 dark:text-blue-300" />;
+  if (code >= 61 && code <= 67) return <CloudRain style={{ width: size, height: size }} className="text-blue-500 dark:text-blue-400" />;
+  if (code >= 71 && code <= 77) return <CloudSnow style={{ width: size, height: size }} className="text-blue-300 dark:text-blue-200" />;
+  if (code >= 80 && code <= 86) return <CloudRain style={{ width: size, height: size }} className="text-blue-600 dark:text-blue-400" />;
+  if (code >= 95 && code <= 99) return <CloudLightning style={{ width: size, height: size }} className="text-amber-400 dark:text-amber-300" />;
+  return <Sun style={{ width: size, height: size }} className="text-amber-500 dark:text-amber-400" />;
 }
 
 function getTempColor(temp: number): string {

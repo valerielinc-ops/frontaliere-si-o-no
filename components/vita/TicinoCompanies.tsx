@@ -880,47 +880,34 @@ const TicinoCompanies: React.FC = () => {
               {filtered.map((company) => (
                 <Marker key={company.name} position={company.coordinates} icon={createCompanyIcon(company.sector, company.employees)}>
                   <Popup maxWidth={300}>
-                    <div style={{ padding: '4px' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                    <div className="p-1">
+                      <div className="flex items-center gap-2 mb-2">
                         {company.website ? (
                           <img src={`https://logo.clearbit.com/${new URL(company.website).hostname}`} alt="" width={28} height={28} style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
                         ) : (
-                          <span style={{ fontSize: '24px' }}>{SECTOR_ICONS[company.sector] || '🏢'}</span>
+                          <span className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</span>
                         )}
                         <div>
-                          <h3 style={{ fontWeight: 800, fontSize: '16px', margin: 0, color: '#1e293b' }}>{company.name}</h3>
-                          <span style={{ fontSize: '12px', color: SECTOR_COLORS[company.sector], fontWeight: 600 }}>{company.sector}</span>
+                          <h3 className="font-extrabold text-base m-0 text-slate-800 dark:text-slate-200">{company.name}</h3>
+                          <span className="text-xs font-semibold" style={{ color: SECTOR_COLORS[company.sector] }}>{company.sector}</span>
                         </div>
                       </div>
-                      <p style={{ fontSize: '13px', color: '#475569', margin: '0 0 8px' }}>{company.description}</p>
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '13px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span style={{ color: '#94a3b8' }}>{t('companies.totalEmployees')}</span>
-                          <span style={{ fontWeight: 700 }}>{company.employees.toLocaleString('it-IT')}</span>
+                      <p className="text-[13px] text-slate-600 dark:text-slate-400 mt-0 mb-2">{company.description}</p>
+                      <div className="flex flex-col gap-1 text-[13px]">
+                        <div className="flex justify-between">
+                          <span className="text-slate-500 dark:text-slate-400">{t('companies.totalEmployees')}</span>
+                          <span className="font-bold text-slate-800 dark:text-slate-200">{company.employees.toLocaleString('it-IT')}</span>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                          <span style={{ color: '#94a3b8' }}>{t('companies.sortCity')}</span>
-                          <span style={{ fontWeight: 700 }}>{company.city}</span>
+                        <div className="flex justify-between">
+                          <span className="text-slate-500 dark:text-slate-400">{t('companies.sortCity')}</span>
+                          <span className="font-bold text-slate-800 dark:text-slate-200">{company.city}</span>
                         </div>
                       </div>
                       {companyJobsCount(company.name) > 0 && (
                         <a
                           href={companyJobsHref(company.name)}
                           onClick={() => Analytics.trackSelectContent('companies_map_open_jobs_by_company', company.name)}
-                          style={{
-                            marginTop: '10px',
-                            display: 'inline-flex',
-                            alignItems: 'center',
-                            gap: '6px',
-                            padding: '6px 10px',
-                            borderRadius: '999px',
-                            background: '#eef2ff',
-                            border: '1px solid #c7d2fe',
-                            color: '#4338ca',
-                            fontSize: '12px',
-                            fontWeight: 700,
-                            textDecoration: 'none',
-                          }}
+                          className="mt-2.5 inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full bg-indigo-50 dark:bg-indigo-900/30 border border-indigo-200 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300 text-xs font-bold no-underline"
                         >
                           <Briefcase size={12} />
                           <span>
@@ -932,7 +919,7 @@ const TicinoCompanies: React.FC = () => {
                       )}
                       {company.website && (
                         <a href={company.website} target="_blank" rel="noopener noreferrer"
-                          style={{ marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '6px', width: '100%', padding: '8px', backgroundColor: '#7c3aed', color: 'white', borderRadius: '8px', fontSize: '13px', fontWeight: 700, textDecoration: 'none' }}>
+                          className="mt-3 flex items-center justify-center gap-1.5 w-full p-2 bg-violet-600 dark:bg-violet-500 text-white rounded-lg text-[13px] font-bold no-underline hover:bg-violet-700 dark:hover:bg-violet-400">
                           {t('companies.visitWebsite')}
                         </a>
                       )}
