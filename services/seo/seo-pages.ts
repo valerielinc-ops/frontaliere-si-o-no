@@ -832,6 +832,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "about": {
         "@type": "Dataset",
         "name": "Statistiche frontalieri e osservatorio offerte lavoro Ticino 2026",
+        "description": "Dati statistici sui frontalieri svizzeri-italiani e osservatorio del job board Ticino: numero permessi G, aziende attive, localities, trend offerte e statistiche BFS 2026.",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "license": "https://creativecommons.org/licenses/by-nc/4.0/"
       }
     }

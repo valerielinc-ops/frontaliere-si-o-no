@@ -3640,21 +3640,39 @@ ${hreflangLinks}
         // Use real expiredAt — never use Date.now() fallback which refreshes every build
         // and causes Google to see the job as "just expired" indefinitely.
         validThrough: new Date(realExpiredAt).toISOString(),
+        datePosted: (() => {
+          if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
+          if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
+          const d = new Date(realExpiredAt); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
+        })(),
+        employmentType: (() => {
+          const c = String(ejData?.contract || '').toLowerCase();
+          if (c === 'full-time' || c === 'full_time') return 'FULL_TIME';
+          if (c === 'part-time' || c === 'part_time') return 'PART_TIME';
+          if (c === 'temporary') return 'TEMPORARY';
+          if (c === 'internship' || c === 'intern') return 'INTERN';
+          if (c === 'contract' || c === 'contractor') return 'CONTRACTOR';
+          return 'OTHER';
+        })(),
         hiringOrganization: { '@type': 'Organization', name: jobCompany },
       };
       // FRO-343: Enrich jobLocation with postalCode and streetAddress
-      if (jobLocation) {
+      // Always emit jobLocation — fall back to Ticino/Lugano when data is missing
+      {
         const address: Record<string, string> = {
           '@type': 'PostalAddress',
-          addressLocality: jobLocation,
+          addressLocality: jobLocation || 'Ticino',
+          addressRegion: 'TI',
           addressCountry: 'CH',
         };
         // Try postalCode from ejData, then swiss-postal-codes lookup
         const ejPostalCode = ejData?.postalCode;
         if (ejPostalCode) {
           address.postalCode = ejPostalCode;
-        } else if (plzLookup[jobLocation]) {
+        } else if (jobLocation && plzLookup[jobLocation]) {
           address.postalCode = plzLookup[jobLocation];
+        } else {
+          address.postalCode = '6900'; // Lugano default
         }
         // Try streetAddress from ejData, then company HQ lookup
         const ejStreet = ejData?.streetAddress;
@@ -3663,11 +3681,11 @@ ${hreflangLinks}
         } else if (ejData?.companyKey && COMPANY_HQ_ADDRESSES[ejData.companyKey]) {
           const hq = COMPANY_HQ_ADDRESSES[ejData.companyKey];
           address.streetAddress = hq.streetAddress;
-          if (!address.postalCode) address.postalCode = hq.postalCode;
+          if (!address.postalCode || address.postalCode === '6900') address.postalCode = hq.postalCode;
         }
         jp.jobLocation = { '@type': 'Place', address };
       }
-      // FRO-343: Add baseSalary if available from ejData
+      // FRO-343: Add baseSalary — always present, with Ticino minimum wage fallback
       if (ejData?.salaryMin || ejData?.salaryMax) {
         const salaryValue: Record<string, unknown> = { '@type': 'QuantitativeValue' };
         if (ejData.salaryMin && ejData.salaryMax) {
@@ -3681,6 +3699,13 @@ ${hreflangLinks}
           '@type': 'MonetaryAmount',
           currency: ejData?.salaryCurrency || 'CHF',
           value: salaryValue,
+        };
+      } else {
+        // Fallback: Ticino minimum wage ~CHF 41,080/year
+        jp.baseSalary = {
+          '@type': 'MonetaryAmount',
+          currency: 'CHF',
+          value: { '@type': 'QuantitativeValue', minValue: 41080, unitText: 'YEAR' },
         };
       }
       return `<script type="application/ld+json">${JSON.stringify(jp)}</script>`;

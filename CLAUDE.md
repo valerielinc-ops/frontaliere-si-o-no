@@ -6,7 +6,7 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
 
 1. **NEVER lower quality thresholds, test tolerances, or validation criteria** as a workaround to pass a build or test. If a test fails, fix the root cause.
 2. **NEVER downgrade errors to warnings** to unblock a deploy or pipeline. If something is an error, it stays an error until the underlying problem is fixed.
-3. **All mandatory SEO parameters must always be present** on every job page in every locale: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`. If source data is missing, generate defaults — do not remove the check.
+3. **All mandatory SEO parameters must always be present** on every job page in every locale: `baseSalary`, `postalCode`, `streetAddress`, `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`, `employmentType`. If source data is missing, generate defaults — do not remove the check.
 4. **Never accept thin content** (pages with <50 words in the body) as an acceptable solution. Every indexed page must have real content.
 
 ## Problem-Solving Approach
@@ -125,31 +125,193 @@ services/locales/
 
 # CI/CD & Workflows
 
-## Deploy Pipeline
+## Job Crawler Pipeline — Full End-to-End Flow
 
-Push to `main` → `deploy.yml` → Load RC secrets → Assemble jobs dataset → Build → Validate JobPosting rich results → Deploy to GitHub Pages → Post-deploy actions (Facebook, LinkedIn, Google Indexing).
+The job board runs a **5-stage asynchronous pipeline**. Each stage is a separate GitHub Actions workflow. Understanding this pipeline is critical before touching any crawler, translation, or data file.
 
-**Critical**: The validation step (`validate-jobs-rich-results-sample.mjs`) blocks deploy if ANY job page is missing mandatory structured data. This is intentional — see Rule #3.
+```
+06:00 UTC ── cleanup-stale-jobs ──────────────────────────────────────────────────────
+            Daily: remove 60+ day old jobs + dead URLs (per-slice URL validation)
 
-## Workflow Categories (117 total)
+08:00 / 20:00 UTC ── orchestrate-crawlers ────────────────────────────────────────────
+            Discovers and volume-staggered-dispatches ~96 crawler workflows
+
+08:xx–10:xx UTC ── update-jobs-{slug} (×96, concurrent) ─────────────────────────────
+            Each crawler: crawl → write slice → scoped housekeeping → commit
+            (skip_ai_translation=1: no AI calls, marks needsRetranslation=true)
+
+12:00 UTC (or after orchestrate) ── translate-pending ────────────────────────────────
+            Assemble dataset → AI-translate all pending jobs → validate completeness
+            If validation passes: trigger deploy via GITHUB_PAT
+
+            └─► deploy.yml ───────────────────────────────────────────────────────────
+                Reassemble → validate → Vite build (~16k static pages) → validate
+                → GitHub Pages → post-deploy indexing (Google, Bing, IndexNow)
+```
+
+---
+
+### Stage 1 — Cleanup (`cleanup-stale-jobs.yml`)
+
+**Trigger**: Cron `0 6 * * *` (06:00 UTC daily, before orchestration)
+
+**What it does** — iterates ALL `data/jobs/by-crawler/*.json` slices:
+1. **Locale hardening** (`hardenJobLocaleFields`): repairs malformed slugs, removes stale hash suffixes, adds renamed slugs to `previousSlugs`
+2. **Age pruning**: removes jobs with `crawledAt` older than 60 days
+3. **URL validation**: HTTP-checks each job URL concurrently; removes definitive 404/410/gone jobs
+4. **Dedup**: within each slice, keeps newest job when two jobs share the same slug
+5. **Archive to expired**: removed jobs with unique slugs → `data/jobs/expired/by-crawler/{slug}.json` (for soft-landing pages). Archived entries include `slugByLocale` + `previousSlugs` for enriched soft-landings.
+6. Commits with `git-commit-data.sh --slice-only`; does **NOT** trigger deploy
+
+**Key behaviors**:
+- Deduped-away jobs (slug still live in kept job) are NOT archived — correct, the URL is still active
+- `hardenJobLocaleFields` may rename slugs during cleanup; old slugs go into `previousSlugs` of the surviving job
+- Does not block if individual slices fail (continues with `|| true`)
+
+---
+
+### Stage 2 — Orchestration (`orchestrate-crawlers.yml`)
+
+**Trigger**: Cron `0 8 * * *` + `0 20 * * *` (twice daily) + manual dispatch
+
+**What it does**:
+1. Discovers all `update-jobs-*.yml` workflows
+2. Reads each crawler's jobs count to classify volume:
+   - Large (>50 jobs): 120 s delay between dispatches
+   - Medium (10–50): 60 s delay
+   - Small (<10): 20 s delay
+3. Dispatches each with `skip_ai_translation=1` flag (AI translation is deferred to translate-pending)
+4. Coop Ticino is excluded — has its own dedicated cron at 06:00 UTC
+
+After dispatching, **does not wait**. All crawlers run concurrently. `translate-pending` handles the "after all crawlers" step.
+
+---
+
+### Stage 3 — Individual Crawlers (`update-jobs-{slug}.yml` ×103)
+
+**Trigger**: Dispatched by orchestrator (or manually)
+
+**Each crawler does**:
+1. Crawl company job portal (Playwright or API-based)
+2. Extract jobs — **skips AI translation** (`skip_ai_translation=1`), marks jobs `needsRetranslation: true`
+3. Write per-crawler slice: `data/jobs/by-crawler/{slug}.json`
+4. Write translation cache: `data/translation-cache/{slug}.json`
+5. Scoped housekeeping: URL-validates only this company's jobs
+6. Commit and push with `git-commit-data.sh --slice-only` (uses `GITHUB_TOKEN`)
+
+> **Important**: Commits with `GITHUB_TOKEN` do NOT trigger `deploy.yml` (GitHub anti-loop rule). Deploy is triggered only by `translate-pending` via `GITHUB_PAT`.
+
+**Files written per crawler**:
+- `data/jobs/by-crawler/{slug}.json` — active jobs (Italian only, EN/DE/FR pending)
+- `data/jobs/expired/by-crawler/{slug}.json` — jobs that failed URL validation
+- `data/jobs-crawler-summaries/by-crawler/{slug}.json` — metadata (count, timestamp)
+- `data/translation-cache/{slug}.json` — SHA256-keyed AI translation cache
+
+---
+
+### Stage 4 — Translation (`translate-pending.yml`)
+
+**Trigger**:
+- `workflow_run` on `orchestrate-crawlers` completed
+- Cron fallback: `0 12 * * *` (12:00 UTC) and `0 0 * * *` (00:00 UTC)
+- Manual dispatch with `max_jobs` (default: 100) and `dry_run` inputs
+
+**What it does**:
+1. **Assemble dataset** (`assemble-jobs-dataset.mjs`): reads all per-crawler slices → merges (last-write-wins by `assembledAt`) → outputs `data/jobs.json` + `public/data/jobs.json`
+2. **Relocalize pending** (`relocalize-pending-jobs.mjs --max-jobs N`):
+   - Finds all jobs with `needsRetranslation: true` or missing locale coverage
+   - Runs shared crawler in `LOCALIZE_EXISTING_ONLY` mode (no crawling, translation only)
+   - Uses centralized AI model chain (74 models, 10 providers, Firestore-backed scoring)
+   - **Time budget**: 90-minute internal budget (workflow timeout: 120 min)
+   - Syncs translated content back to per-crawler slices (`syncTranslationsToCrawlerFile`)
+   - When overwriting `slugByLocale` for `needsRetranslation` jobs, preserves old slugs in `previousSlugs` to prevent URL orphaning
+3. **Commit** with `git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs"`
+4. **Validate completeness** (`validate-translation-completeness.mjs`):
+   - Checks every job has 4-locale coverage (title ≥ 3 chars, description ≥ 120 chars)
+   - If any job incomplete: **skips deploy**, exits 0 — next cron run retries
+5. **Trigger deploy** (only if validation passes): `bash scripts/lib/trigger-deploy.sh` using `GITHUB_PAT`
+
+**Recovery**: If quota exhausted mid-run, validation fails, deploy is skipped. Next cron (12:00 or 00:00 UTC) retries automatically until all jobs are translated.
+
+---
+
+### Stage 5 — Deploy (`deploy.yml`)
+
+**Trigger**: Push to `main` + `workflow_dispatch` (called by `trigger-deploy.sh` via `GITHUB_PAT`)
+
+**Validation gates (all blocking — exit code 1 = deploy aborted)**:
+
+| Gate | Script | What it checks |
+|------|--------|----------------|
+| Translation completeness | `validate-translation-completeness.mjs` | Every job has 4 locales with min content |
+| JobPosting rich results | `validate-jobs-rich-results-sample.mjs` | ALL mandatory JSON-LD fields present on sampled pages |
+| Third-party secrets | `validate:third-party-secrets` | No API keys/tokens in source |
+| Job data quality | `validate:jobs-quality` | Format + locale consistency |
+| Sitemap links | `validate:sitemap-links` | All sitemap URLs exist in `dist/` |
+| Soft-404 indicators | `validate-soft404.mjs` | No pages marked soft-404 |
+| Canonical tags | `validate-canonical.mjs` | Correct canonical URLs |
+| Content quality | `validate-content-quality.mjs` | No thin pages (<50 words) |
+
+**Pipeline sequence**:
+1. Assemble jobs dataset (final merge)
+2. Global housekeeping (cross-crawler dedup + locale hardening)
+3. All validation gates above
+4. Fetch Amazon product data (continue-on-error)
+5. `npm run build:prod` → Vite + all build plugins → ~16,000 static HTML files
+6. Validate generated pages (JobPosting JSON-LD, sitemaps, canonicals, content)
+7. Deploy to GitHub Pages (`https://frontaliereticino.ch`)
+8. Post-deploy: Google Indexing API, IndexNow (Bing/Yandex), Google Search Console (all continue-on-error)
+9. If article deploy: post to Facebook + LinkedIn
+
+---
+
+### GITHUB_TOKEN Limitation
+
+Pushes made with the default `GITHUB_TOKEN` **do not trigger other workflows** (GitHub anti-loop rule). Only `translate-pending` and `article-generation` trigger deploy — they use `GITHUB_PAT` (from Firebase Remote Config) via `scripts/lib/trigger-deploy.sh`.
+
+If `GITHUB_PAT` is missing, deploy is skipped gracefully. Admin can always trigger manually via `workflow_dispatch`.
+
+---
+
+### Workflow Categories (117 total)
 
 | Category | Count | Trigger | Deploy trigger |
 |----------|-------|---------|---------------|
 | Deploy | 1 | push to main + dispatch | N/A (IS the deploy) |
 | Article generation | 1 | cron (30min) | `trigger-deploy.sh` ✅ |
-| Job crawlers | 103 | dispatch (via orchestrator) | `trigger-deploy.sh` (via `git-commit-data.sh`) ✅ |
-| Crawler orchestrator | 1 | cron (2x/day) | Dispatches individual crawlers |
-| Fuel prices | 1 | cron (hourly) | `trigger-deploy.sh` (local, needs push) |
+| Job crawlers | 103 | dispatch (via orchestrator) | **None** — translate-pending handles it |
+| Crawler orchestrator | 1 | cron (2x/day) | Dispatches crawlers |
+| Crawler translation | 1 | workflow_run + cron | `trigger-deploy.sh` ✅ |
+| Crawler cleanup | 1 | cron (daily 06:00) | None (runs before orchestration) |
+| Fuel prices | 1 | cron (hourly) | `trigger-deploy.sh` ✅ |
 | Traffic/border | 1 | cron (every 15min peak) | **MISSING** — needs implementation |
 | Unemployment rate | 1 | cron (monthly) | `trigger-deploy.sh` ✅ |
 | Newsletter | 1 | manual dispatch | No push needed |
 | Job alerts | 1 | cron (daily) | Feature-flagged |
 | Analytics/SEO | 3 | cron (weekly) | No deploy needed (internal data) |
-| Other (relocalize, cleanup, parsers) | 3 | cron/dispatch | No deploy needed |
 
-### GITHUB_TOKEN Limitation
+---
 
-Pushes made with the default `GITHUB_TOKEN` **do not trigger other workflows** (GitHub anti-loop rule). Workflows that push data and need a deploy must call `scripts/lib/trigger-deploy.sh` which uses the `GITHUB_PAT` (from Firebase Remote Config) to fire a `workflow_dispatch` event on `deploy.yml`.
+### Key Data Files
+
+| File/Directory | Written by | Purpose |
+|---|---|---|
+| `data/jobs/by-crawler/{slug}.json` | Individual crawlers + translate-pending | Per-crawler slice: active jobs |
+| `data/jobs/expired/by-crawler/{slug}.json` | Cleanup + crawlers | Expired jobs for SEO soft-landings |
+| `data/jobs.json` + `public/data/jobs.json` | Assemble step (translate-pending + deploy) | Monolithic global dataset |
+| `data/translation-cache/{slug}.json` | Crawlers + translate-pending | SHA256-keyed AI translation cache (~90% hit rate) |
+| `data/slug-registry.json` | Assemble step | Fingerprint → slug mapping for canonical URLs (immutable once written) |
+| `data/jobs-crawler-config.json` | Assemble step | Crawler configuration registry |
+
+---
+
+### Slug Lifecycle & SEO Continuity
+
+When a job's slug changes (via relocalize or hardenJobLocaleFields), the old slug is preserved in `previousSlugs[]` on the job object. The build plugin (`jobsSeoPagesPlugin`) uses `previousSlugs` to generate **bridge pages** (canonical redirect pages) so old indexed URLs don't 404.
+
+When a job is **deleted**, the expired entry captures `slugByLocale` + `previousSlugs`. The build plugin indexes both current + previous slugs from expired entries in `expiredBySlug`, ensuring all old URLs get **enriched soft-landing pages** (title, company, salary visible) rather than generic 404 pages.
+
+---
 
 ## Build Plugins (14)
 
@@ -242,13 +404,36 @@ This is a client-side SPA. Without static HTML, Google sees an empty `<div id="r
 
 ## JobPosting Structured Data — ZERO TOLERANCE
 
-Every active job page in every locale MUST have valid `JobPosting` JSON-LD with ALL fields:
-- **Required**: `title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`
-- **Mandatory (enforced as errors)**: `baseSalary`, `postalCode`, `streetAddress`
+Every active job page in every locale MUST have valid `JobPosting` JSON-LD with ALL fields. **Even "optional" fields must always be present using defaults/fallbacks — missing them is a deploy-blocking error.**
 
-The validation script `scripts/validate-jobs-rich-results-sample.mjs` enforces this at deploy time. **Do not weaken it.**
+### Required fields (Google minimum for rich results)
+`title`, `description`, `datePosted`, `hiringOrganization.name`, `jobLocation`
 
-Bridge/redirect pages for non-IT locales (detected by `__BRIDGE_TARGET_SLUG__` or `URL legacy`) are treated as warnings, not errors — but active job pages in all locales MUST have full JSON-LD.
+### Mandatory fields enforced as deploy-blocking errors
+`baseSalary`, `postalCode`, `streetAddress`, `employmentType`
+
+### Fallback rules — when source data is missing, generate defaults (never omit):
+- **`baseSalary`**: Use `minValue: 41080, currency: CHF, unitText: YEAR` (Ticino minimum wage)
+- **`postalCode`**: Use `6900` (Lugano) if lookup fails
+- **`streetAddress`**: Use `addressLocality` value as fallback
+- **`employmentType`**: Default to `OTHER` if contract type unknown
+- **`jobLocation`**: Default to `addressLocality: Ticino, addressRegion: TI, addressCountry: CH`
+- **`description`**: Use locale fallback chain (locale → Italian → raw description); skip JobPosting entirely if result < 30 chars
+
+### Applies to all page types:
+- Active job pages (all 4 locales) — validated by `validate-jobs-rich-results-sample.mjs`
+- Expired job soft-landing pages — same rules apply, generate defaults
+- Bridge pages (non-IT locale redirects, `__BRIDGE_TARGET_SLUG__`) — treated as warnings, not errors
+
+### SPA runtime schema (JobBoard.tsx):
+- The `JobBoard` component dynamically injects `JobPosting` JSON-LD via `useEffect`
+- Same rules apply: description fallback chain, baseSalary always present
+- Jobs with description < 30 chars must be excluded from the schema graph entirely
+
+The validation script `scripts/validate-jobs-rich-results-sample.mjs` enforces this at deploy time. **Do not weaken it. `employmentType` is an error, not a warning.**
+
+### Dataset schema (statistics pages):
+Every `Dataset` schema.org block MUST include `description` and `creator` fields. These are validated by Google and missing fields appear in Search Console as warnings. All new Dataset schemas must follow the pattern used in `jobsObservatory` and `livability` entries in `seo-pages.ts`.
 
 ## SEO Checklist for New Pages
 

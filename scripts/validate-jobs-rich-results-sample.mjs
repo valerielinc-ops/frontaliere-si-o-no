@@ -173,7 +173,7 @@ function validateJobPosting(jobPosting, html, job, localeCode) {
     warnings.push('url:not_internal_canonical');
   }
   if (!jobPosting?.identifier?.value) warnings.push('missing:identifier.value');
-  if (!jobPosting?.employmentType) warnings.push('missing:employmentType');
+  if (!jobPosting?.employmentType) errors.push('missing:employmentType');
   if (!jobPosting?.hiringOrganization?.logo) warnings.push('missing:hiringOrganization.logo');
   if (!jobPosting?.inLanguage) warnings.push('missing:inLanguage');
   if (jobPosting?.inLanguage && String(jobPosting.inLanguage).toLowerCase() !== localeCode) {

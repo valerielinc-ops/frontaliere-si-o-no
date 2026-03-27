@@ -2944,10 +2944,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
     };
 
     const jobsForSchema = selectedJob ? [selectedJob] : pagedJobs;
-    const jobPostings = jobsForSchema.map((job) => {
+    const jobPostings = jobsForSchema.map((job): Record<string, unknown> | null => {
       const jobPath = buildJobPath(job);
       const canonicalUrl = `${window.location.origin}${jobPath}`;
-      const description = job.descriptionByLocale?.[locale] ?? job.description;
+      const description = (
+        job.descriptionByLocale?.[locale] ||
+        job.descriptionByLocale?.['it'] ||
+        job.description ||
+        ''
+      ).trim();
       const localizedTitle = sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title);
       const isRemote = /remote|telelavor|smart[-\s]?working|home office|hybrid/i.test(
         `${localizedTitle} ${description || ''} ${job.location || ''}`
@@ -3029,9 +3034,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
             unitText: 'YEAR',
           },
         };
+      } else {
+        // Fallback: Ticino minimum wage ~CHF 41,080/year ensures baseSalary is always present
+        posting.baseSalary = {
+          '@type': 'MonetaryAmount',
+          currency: 'CHF',
+          value: {
+            '@type': 'QuantitativeValue',
+            minValue: 41080,
+            unitText: 'YEAR',
+          },
+        };
       }
+      // Skip JobPosting if no meaningful description — an empty description is worse than no schema
+      if (!description || description.length < 30) return null;
       return posting;
-    });
+    }).filter((p): p is Record<string, unknown> => p !== null);
 
     const script = document.createElement('script');
     script.type = 'application/ld+json';
