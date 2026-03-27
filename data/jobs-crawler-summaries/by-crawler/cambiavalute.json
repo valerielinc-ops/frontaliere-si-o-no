@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-03-27T09:18:49.927Z",
+  "generatedAt": "2026-03-27T21:02:31.391Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 15357,
-  "avgDurationMs": 15357,
+  "durationMs": 13381,
+  "avgDurationMs": 13381,
   "durationHistory": [
-    15357
+    13381
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,10 +39,10 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-03-27T09:18:49.612Z",
+      "crawledAt": "2026-03-27T21:02:31.159Z",
       "slugByLocale": {
         "it": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute",
-        "en": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+        "en": "senior-backend-developer-cambiavalute-ch-2025-cambiavalute",
         "de": "senior-backend-entwickler-cambiavalute-ch-2025-cambiavalute-0kbhp6",
         "fr": "senior-backend-developpeur-cambiavalute-ch-2025-cambiavalute-0kbhp6"
       },
@@ -63,7 +63,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6"
+        "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
+        "senior-backend-developer-cambiavalute-ch-2025-cambiavalute-0kbhp6"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
