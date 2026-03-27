@@ -245,6 +245,21 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
           /\*\*Last Updated\*\*:\s*.+/,
           `**Last Updated**: ${isoDate}`
         );
+        // Update trailing "last updated on <date>" text
+        content = content.replace(
+          /last updated on \w+ \d{1,2}, \d{4}/g,
+          `last updated on ${now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' })}`
+        );
+        // Update inline "Month YYYY" source date references (e.g., "March 2026")
+        content = content.replace(
+          /(?<=Source:.*?)\b(?:January|February|March|April|May|June|July|August|September|October|November|December) \d{4}\b(?=\))/g,
+          monthYear
+        );
+        // Update "verified as of Month YYYY" references
+        content = content.replace(
+          /verified as of \w+ \d{4}/g,
+          `verified as of ${monthYear}`
+        );
         // Append page index to llms-full.txt as well
         const autoGenMarker = '## Complete Page Index (Auto-Generated)';
         const markerIdx = content.indexOf(autoGenMarker);
