@@ -671,8 +671,17 @@ async function cleanLisJobs() {
 
     // ── Slug ──
     const cleanSlug = normalizeKey(job.title);
+    let slugChanged = false;
     if (cleanSlug.length >= 3) {
-      job.slug = cleanSlug;
+      const existingSlug = String(job.slug || '').trim();
+      // Only update when genuinely different — minor title wording changes (capitalisation,
+      // preposition swaps) should not generate new slugs and previousSlugs entries.
+      // Same 50-char prefix heuristic as hardenJobLocaleFields' slugMatchesTitle.
+      const prefix = cleanSlug.slice(0, 50);
+      if (!existingSlug || prefix.length < 10 || !existingSlug.startsWith(prefix)) {
+        job.slug = cleanSlug;
+        slugChanged = true;
+      }
     }
 
     // ── titleByLocale ──
@@ -682,9 +691,13 @@ async function cleanLisJobs() {
     }
 
     // ── slugByLocale ──
+    // LIS has no per-locale titles, so all locales use the same Italian slug.
+    // Fill missing locales; also propagate if slug genuinely changed.
     if (!job.slugByLocale) job.slugByLocale = {};
     for (const locale of LOCALES) {
-      job.slugByLocale[locale] = job.slug;
+      if (slugChanged || !job.slugByLocale[locale]) {
+        job.slugByLocale[locale] = job.slug;
+      }
     }
 
     // ── descriptionByLocale ──
