@@ -1,6 +1,6 @@
 {
   "crawlerKey": "baronie",
-  "assembledAt": "2026-03-27T09:15:04.263Z",
+  "assembledAt": "2026-03-27T20:58:43.742Z",
   "jobs": [
     {
       "title": "International Sales Manager",
@@ -39,7 +39,7 @@
       },
       "slugByLocale": {
         "it": "international-sales-manager-baronie-caslano",
-        "en": "international-sales-manager-baronie-caslano",
+        "en": "international-sales-manager-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
         "de": "international-sales-manager-baronie-caslano",
         "fr": "international-sales-manager-baronie-caslano"
       },
@@ -97,11 +97,14 @@
       },
       "slugByLocale": {
         "it": "sustainability-coordinatore-maternaty-leave-cover-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
-        "en": "sustainability-coordinator-maternaty-leave-cover-baronie-caslano",
+        "en": "sustainability-coordinator-maternaty-leave-cover-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
         "de": "sustainability-koordinator-maternaty-leave-cover-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
         "fr": "sustainability-coordinateur-maternaty-leave-cover-chocolat-alprose-sa-baronie-switzerland-sa-caslano"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "sustainability-coordinator-maternaty-leave-cover-baronie-caslano"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
