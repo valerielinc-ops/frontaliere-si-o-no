@@ -509,7 +509,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
            </div>
            
            <div className="flex items-center gap-4 sm:gap-6 relative z-10">
-              <div className="bg-white/20 p-3 sm:p-4 rounded-2xl backdrop-blur-md shrink-0 transition-transform group-hover:scale-110 duration-300">
+              <div className="bg-white/20 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
                 {isBetterFrontaliere ? <Trophy size={28} className="text-yellow-300" /> : <Armchair size={28} className="text-indigo-200" />}
               </div>
               <div className="min-w-0">

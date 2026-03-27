@@ -459,14 +459,14 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           </div>
 
           {/* ─── Tax Impact Section ─────────────────────────────── */}
-          <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 rounded-2xl p-6 border border-indigo-200 dark:border-indigo-800">
+          <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-6 border border-amber-200 dark:border-amber-800">
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-indigo-100 dark:bg-indigo-900/50 rounded-xl">
-                <DollarSign className="w-6 h-6 text-indigo-600 dark:text-indigo-400" />
+              <div className="p-2 bg-amber-100 dark:bg-amber-900/50 rounded-xl">
+                <DollarSign className="w-6 h-6 text-amber-600 dark:text-amber-400" />
               </div>
-              <h2 className="text-2xl font-bold text-indigo-900 dark:text-indigo-100">{t('bordermap.taxImpact')}</h2>
+              <h2 className="text-2xl font-bold text-amber-900 dark:text-amber-100">{t('bordermap.taxImpact')}</h2>
             </div>
-            <p className="text-indigo-700 dark:text-indigo-300 text-sm">{t('bordermap.taxImpactDesc')}</p>
+            <p className="text-amber-700 dark:text-amber-300 text-sm">{t('bordermap.taxImpactDesc')}</p>
           </div>
 
           {/* Salary input */}

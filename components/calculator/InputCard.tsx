@@ -345,11 +345,11 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
   };
 
   return (
-    <div className="bg-white/90 dark:bg-slate-900/90 backdrop-blur-xl rounded-[2rem] shadow-xl border border-white/60 dark:border-slate-800 h-full flex flex-col overflow-hidden transition-all duration-300">
+    <div className="bg-white/90 dark:bg-slate-900/90 rounded-[2rem] shadow-xl border border-white/60 dark:border-slate-800 h-full flex flex-col overflow-hidden transition-all duration-300">
       {/* Header */}
-      <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm z-10">
+      <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white/50 dark:bg-slate-900/50 z-10">
         <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-gradient-to-br from-indigo-500 to-violet-600 text-white rounded-xl shadow-lg shadow-indigo-500/20">
+            <div className="p-2.5 bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-xl shadow-lg shadow-teal-500/20">
               <Wand2 size={20} />
             </div>
             <div>

@@ -31,7 +31,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
       id: 'G',
       name: t('permits.g.name'),
       fullName: t('permits.g.fullName'),
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-teal-500 to-emerald-600',
       icon: '🔵',
       duration: t('permits.g.duration'),
       forWhom: t('permits.g.forWhom'),
@@ -303,14 +303,14 @@ const WorkPermitsGuide: React.FC = () => {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="bg-gradient-to-br from-cyan-600 via-blue-600 to-indigo-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+      <div className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 dark:bg-white/8 rounded-2xl backdrop-blur-sm">
+          <div className="p-3 bg-white/20 dark:bg-white/8 rounded-2xl">
             <Shield size={32} />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold">{t('permits.pageTitle')}</h1>
-            <p className="text-cyan-100 mt-1">{t('permits.pageSubtitle')}</p>
+            <p className="text-teal-100 mt-1">{t('permits.pageSubtitle')}</p>
           </div>
         </div>
       </div>

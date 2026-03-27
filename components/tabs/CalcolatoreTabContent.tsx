@@ -95,7 +95,7 @@ export default function CalcolatoreTabContent() {
                   <div className="md:col-span-13 h-full"><SkeletonNewsTicker /></div>
                   <div className="md:col-span-7 h-full"><div className="h-[34px] rounded-xl bg-slate-200 dark:bg-slate-700 animate-pulse" /></div>
                 </div>
-                <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 animate-pulse" /></div>
+                <div className="mt-2"><div className="h-12 rounded-xl bg-gradient-to-r from-slate-300 to-slate-200 dark:from-slate-700 dark:to-slate-600 animate-pulse" /></div>
               </div>
             )}
 
@@ -186,10 +186,10 @@ export default function CalcolatoreTabContent() {
             {result && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
                 {([
-                  { icon: ArrowRightLeft, label: t('nav.confronti'), desc: t('cta.confrontiDesc'), color: 'from-violet-500 to-purple-600', tab: 'confronti' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
+                  { icon: ArrowRightLeft, label: t('nav.confronti'), desc: t('cta.confrontiDesc'), color: 'from-teal-500 to-emerald-600', tab: 'confronti' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
                   { icon: Layers, label: t('cta.whatif'), desc: t('cta.whatifDesc'), color: 'from-amber-500 to-orange-600', tab: 'calculator' as ActiveTab, sub: 'whatif' as CalcolatoreSubTab },
                   { icon: Shield, label: t('nav.fisco'), desc: t('cta.fiscalDesc'), color: 'from-emerald-500 to-teal-600', tab: 'fisco' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
-                  { icon: Briefcase, label: t('nav.guida'), desc: t('cta.guidaDesc'), color: 'from-blue-500 to-indigo-600', tab: 'guida' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
+                  { icon: Briefcase, label: t('nav.guida'), desc: t('cta.guidaDesc'), color: 'from-teal-500 to-emerald-600', tab: 'guida' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
                 ]).map(({ icon: Icon, label, desc, color, tab, sub }) => (
                   <button
                     key={tab + (sub || '')}

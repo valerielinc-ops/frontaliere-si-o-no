@@ -132,7 +132,7 @@ const createCustomIcon = (L: any, type: 'new' | 'old' | 'both') => {
 
 const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
   const colorClasses = {
-    blue: "from-blue-500 to-indigo-600 border-blue-200 dark:border-blue-800",
+    blue: "from-teal-500 to-emerald-600 border-teal-200 dark:border-teal-800",
     green: "from-emerald-500 to-teal-600 border-emerald-200 dark:border-emerald-800",
     purple: "from-purple-500 to-pink-600 border-purple-200 dark:border-purple-800",
     orange: "from-orange-500 to-red-600 border-orange-200 dark:border-orange-800",
@@ -156,7 +156,7 @@ const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
 
 const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
   <div className="flex items-center gap-4 mb-6">
-    <div className="p-3 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-2xl shadow-lg">
+    <div className="p-3 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl shadow-lg">
       <Icon className="text-white" size={28} />
     </div>
     <div>
@@ -252,12 +252,12 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-600 to-blue-600 p-5 text-white">
+      <div className="bg-gradient-to-r from-teal-600 to-emerald-600 p-5 text-white">
         <div className="flex items-center gap-3">
           <BookOpen size={24} />
           <div>
             <h3 className="text-lg font-extrabold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
-            <p className="text-indigo-100 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
+            <p className="text-teal-100 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
           </div>
         </div>
       </div>
@@ -323,7 +323,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-lg">{cfg.emoji}</span>
                   <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300">{cfg.label}</h4>
-                  <span className="text-xs font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-500 px-2 py-0.5 rounded-full">{schools.length}</span>
+                  <span className="text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-500 px-2 py-0.5 rounded-full">{schools.length}</span>
                 </div>
                 <div className="space-y-1.5">
                   {schools.map((school, i) => (
@@ -944,7 +944,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             </div>
 
             {/* Time selector */}
-            <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
+            <div className="mt-4 p-4 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
               <div className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
                 💡 {t('guide.border.timeAdvice')}:
               </div>
@@ -1367,7 +1367,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   {/* Ticino progressive brackets table */}
                   <div className="mt-3 p-3 bg-white dark:bg-slate-900/50 rounded-lg border border-orange-100 dark:border-orange-900">
                     <p className="text-xs font-bold text-orange-700 dark:text-orange-300 mb-2">{t('guide.livingCH.wealthTaxBrackets')}</p>
-                    <div className="grid grid-cols-2 gap-1 text-xs">
+                    <div className="grid grid-cols-2 gap-1 text-[10px]">
                       <span className="font-semibold text-slate-700 dark:text-slate-300">{t('guide.livingCH.wealthBracketRange')}</span>
                       <span className="font-semibold text-slate-700 dark:text-slate-300">{t('guide.livingCH.wealthBracketRate')}</span>
                       <span className="text-slate-600 dark:text-slate-500">CHF 0 – 200.000</span>
@@ -1383,7 +1383,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     </div>
                   </div>
 
-                  <div className="mt-3 text-xs text-slate-500 dark:text-slate-500 space-y-1">
+                  <div className="mt-3 text-[10px] text-slate-500 dark:text-slate-500 space-y-1">
                     <p>🏠 <strong>{t('guide.livingCH.wealthTaxableAssets')}:</strong> {t('guide.livingCH.wealthTaxableAssetsDesc')}</p>
                     <p>🪪 <strong>{t('guide.livingCH.wealthPermitB')}:</strong> {t('guide.livingCH.wealthPermitBDesc')}</p>
                   </div>
@@ -1597,34 +1597,34 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             </InfoCard>
           </div>
 
-          <div className="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-950/30 dark:to-purple-950/30 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 p-6">
+          <div className="bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-950/30 dark:to-emerald-950/30 rounded-2xl border-2 border-teal-200 dark:border-teal-800 p-6">
             <div className="flex items-start gap-3">
-              <Info size={24} className="text-indigo-600 flex-shrink-0" />
-              <div className="space-y-3 text-sm text-indigo-800 dark:text-indigo-200">
+              <Info size={24} className="text-teal-600 flex-shrink-0" />
+              <div className="space-y-3 text-sm text-teal-800 dark:text-teal-200">
                 <p className="font-bold">📋 {t('guide.livingIT.checklistTitle')}</p>
                 <div className="grid sm:grid-cols-2 gap-2 text-xs">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-indigo-600" />
+                    <CheckCircle2 size={14} className="text-teal-600" />
                     <span>{t('guide.livingIT.check1')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-indigo-600" />
+                    <CheckCircle2 size={14} className="text-teal-600" />
                     <span>{t('guide.livingIT.check2')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-indigo-600" />
+                    <CheckCircle2 size={14} className="text-teal-600" />
                     <span>{t('guide.livingIT.check3')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-indigo-600" />
+                    <CheckCircle2 size={14} className="text-teal-600" />
                     <span>{t('guide.livingIT.check4')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-indigo-600" />
+                    <CheckCircle2 size={14} className="text-teal-600" />
                     <span>{t('guide.livingIT.check5')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-indigo-600" />
+                    <CheckCircle2 size={14} className="text-teal-600" />
                     <span>{t('guide.livingIT.check6')}</span>
                   </div>
                 </div>
@@ -2547,7 +2547,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <div className="bg-gradient-to-br from-indigo-600 to-purple-700 text-white rounded-2xl shadow-2xl p-4 sm:p-5 border border-indigo-400/30">
+          <div className="bg-gradient-to-br from-teal-600 to-emerald-700 text-white rounded-2xl shadow-2xl p-4 sm:p-5 border border-teal-400/30">
             <button
               onClick={dismissBanner}
               className="absolute top-2 right-2 p-2 text-white/70 hover:text-white hover:bg-white/20 rounded-full transition-colors"
@@ -2563,7 +2563,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <h3 className="text-sm sm:text-base font-bold leading-tight">
                   {t('guide.title')}
                 </h3>
-                <p className="text-xs sm:text-sm text-indigo-100 leading-relaxed">
+                <p className="text-xs sm:text-sm text-teal-100 leading-relaxed">
                   {t('guide.subtitle')}
                 </p>
               </div>
