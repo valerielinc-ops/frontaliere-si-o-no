@@ -566,11 +566,26 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             const cp = `/glossario-frontaliere/${slug}`;
             if (seoMap.has(cp)) continue;  // hand-written entry wins
             const label = titleize(termId);
+            const termDesc = `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`;
+            const termUrl = `${BASE_URL}${cp}/`;
+            const definedTermSd = JSON.stringify({
+              '@context': 'https://schema.org',
+              '@type': 'DefinedTerm',
+              name: label,
+              description: termDesc,
+              url: termUrl,
+              inDefinedTermSet: {
+                '@type': 'DefinedTermSet',
+                name: 'Glossario Frontalieri Ticino',
+                url: `${BASE_URL}/glossario-frontaliere/`,
+              },
+            });
             seoMap.set(cp, {
               title: `${label} (Glossario) | Frontaliere Ticino`,
-              desc: `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`,
+              desc: termDesc,
               ogT: `${label} (Glossario) | Frontaliere Ticino`,
-              ogD: `Definizione e spiegazione di ${label} per frontalieri (Svizzera–Italia): significato, contesto e impatto pratico.`,
+              ogD: termDesc,
+              sd: definedTermSd,
             });
           }
         }
@@ -1377,6 +1392,13 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
           }
 
+          // ── SpeakableSpecification for tool pages (calculator, comparators, guides) ──
+          const toolSlugs = [...comparatorSlugs, ...guideSlugs, ...fiscoSlugs, 'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire'];
+          const isToolPage = toolSlugs.some(s => firstSeg === s || canonicalPath.startsWith(`/${s}/`) || canonicalPath.startsWith(`/${locale}/${s}/`));
+          const speakableLd = isToolPage
+            ? `\n    <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1","h2",".description","p"]})}</script>`
+            : '';
+
           // SPA shell: loads the app directly at the correct URL (no redirect)
           if (hasSpaBundle) {
             const useBlockingHomeCss = isHomeCriticalStaticPath(canonicalPath);
@@ -1419,7 +1441,7 @@ ${hrefTags}
     <style>${skeletonAnim}</style>
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
-    <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}
+    <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
     <div id="root">${rootHtml}</div>
     <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
   </body>
@@ -1457,7 +1479,7 @@ ${hrefTags}
     <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
   </head>
   <body>
-    <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}
+    <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
     <style>${skeletonAnim}</style>
     <div id="root">${rootHtml}</div>
     <script>location.replace('/${pp.replace(/~and~/g, '&')}'+location.hash)</script>

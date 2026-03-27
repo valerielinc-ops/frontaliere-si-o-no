@@ -346,11 +346,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             // Expert Person author — AI systems give citation boost for named authors
             author: {
               '@type': 'Person',
-              name: 'Frontaliere Ticino',
-              jobTitle: 'Esperto fiscale frontalieri',
+              name: 'Redazione Frontaliere Ticino',
+              jobTitle: 'Esperti in fiscalità transfrontaliera',
               description: 'Portale di riferimento per i frontalieri ticino dal 2020. Analisi fiscali, previdenziali e pratiche basate su fonti ufficiali: ESTV, UST, INPS, Agenzia delle Entrate.',
-              url: `${BASE_URL}/chi-siamo`,
-              worksFor: { '@id': `${BASE_URL}/#organization` },
+              url: `${BASE_URL}/chi-siamo/`,
+              worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
               knowsAbout: [
                 'Imposta alla fonte Svizzera',
                 'Frontalieri Ticino',
