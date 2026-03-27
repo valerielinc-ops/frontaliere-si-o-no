@@ -1,7 +1,63 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-03-27T05:35:02.523Z",
+  "assembledAt": "2026-03-27T09:48:38.393Z",
   "jobs": [
+    {
+      "title": "Collaboratore/trice cassa (Confezione Uomo) 40%",
+      "company": "Manor AG",
+      "companyKey": "manor",
+      "url": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-cassa-%28Confezione-Uomo%29-40/1346911455/",
+      "location": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "description": "Puntualità e rispetto degli orari\nMotivazione e interesse per il lavoro\nPrecisione nello svolgere i compiti\nBuona collaborazione con il team\nConoscenza delle procedure di base\nResponsabilità e affidabilità",
+      "descriptionIt": "Puntualità e rispetto degli orari\nMotivazione e interesse per il lavoro\nPrecisione nello svolgere i compiti\nBuona collaborazione con il team\nConoscenza delle procedure di base\nResponsabilità e affidabilità",
+      "descriptionByLocale": {
+        "it": "## Collaboratore/trice cassa (Confezione Uomo) 40%\n\n**Manor AG** — Locarno (TI)\n\nPuntualità e rispetto degli orari\nMotivazione e interesse per il lavoro\nPrecisione nello svolgere i compiti\nBuona collaborazione con il team\nConoscenza delle procedure di base\nResponsabilità e affidabilità\n\nManor AG è una delle principali catene di grandi magazzini in Svizzera, con attività nei settori moda, beauty, casa, food e ristorazione Manora. Le sedi ticinesi offrono ruoli operativi e commerciali in contesti retail dinamici e orientati al servizio.\n\nOffriamo formazione sul posto, benefit aziendali, opportunità di sviluppo interno e un ambiente di lavoro strutturato a diretto contatto con la clientela.",
+        "en": "Collaboratore/trice cassa (Confezione Uomo) 40% at Manor, located in Locarno, Canton Ticino, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
+        "de": "Collaboratore/trice cassa (Confezione Uomo) 40% bei Manor, gelegen in Locarno, Kanton Tessin, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
+        "fr": "Collaboratore/trice cassa (Confezione Uomo) 40% chez Manor, situé à Locarno, Canton du Tessin, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
+      },
+      "postedDate": "2026-03-27",
+      "source": "company-website",
+      "slug": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
+      "slugByLocale": {
+        "it": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
+        "en": "collaboratore-trice-cassa-confezione-uomo-40-manor-ag-locarno-bkts4c",
+        "de": "collaboratore-trice-cassa-confezione-uomo-40-manor-ag-locarno-bkts4c",
+        "fr": "collaboratore-trice-cassa-confezione-uomo-40-manor-ag-locarno-bkts4c"
+      },
+      "titleByLocale": {
+        "it": "Collaboratore/trice cassa (Confezione Uomo) 40%",
+        "en": "Collaboratore/trice cassa (Confezione Uomo) 40%",
+        "de": "Collaboratore/trice cassa (Confezione Uomo) 40%",
+        "fr": "Collaboratore/trice cassa (Confezione Uomo) 40%"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "sourceLang": "it",
+      "salaryMin": 54000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
+    },
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
       "company": "Manor AG",
