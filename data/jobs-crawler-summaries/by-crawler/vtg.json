@@ -1,16 +1,16 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-03-27T10:12:42.745Z",
+  "generatedAt": "2026-03-27T21:55:55.954Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 7,
-  "durationMs": 73961,
-  "avgDurationMs": 73961,
+  "durationMs": 35389,
+  "avgDurationMs": 35389,
   "durationHistory": [
-    73961
+    35389
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -39,7 +39,7 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-27T10:12:39.619Z",
+      "crawledAt": "2026-03-27T21:55:54.057Z",
       "titleByLocale": {
         "de": "Netzwerk Spezialist/-in Professional",
         "it": "Netzwerk Spezialist/-in Professional",
@@ -57,76 +57,9 @@
       "slugByLocale": {
         "it": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
         "en": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
-        "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
+        "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
         "fr": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
       },
-      "sourceLang": "de",
-      "previousSlugs": [
-        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Stazione 31",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "company-pgxuq4",
-      "slug": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
-      "company": "Swiss Armed Forces (VTG)",
-      "title": "Fachspezialist/-in HR",
-      "location": "Monteceneri",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "description": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-      "requirements": [],
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "url": "https://jobs.admin.ch/offene-stellen/fachspezialist-in-hr/407fcd2d-2072-49be-a46b-c16b897f3594",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Monteceneri",
-        "canton": "TI"
-      },
-      "companyKey": "vtg",
-      "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-27T10:12:39.619Z",
-      "slugByLocale": {
-        "it": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
-        "en": "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri-pgxuq4",
-        "de": "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri",
-        "fr": "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-monteceneri-pgxuq4"
-      },
-      "titleByLocale": {
-        "de": "Fachspezialist/-in HR",
-        "it": "Fachspezialist/-in Risorse Umane",
-        "fr": "Fachspezialist/-in Ressources Humaines",
-        "en": "Fachspezialist/-in HR"
-      },
-      "descriptionByLocale": {
-        "de": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "it": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "en": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
-        "fr": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus."
-      },
-      "needsRetranslation": true,
-      "requirementsByLocale": {},
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -170,10 +103,10 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-27T10:12:39.619Z",
+      "crawledAt": "2026-03-27T21:55:54.057Z",
       "slugByLocale": {
         "it": "operatore-in-support-swiss-armed-forces-vtg-rivera",
-        "en": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
+        "en": "operator-in-support-swiss-armed-forces-vtg-rivera",
         "de": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "fr": "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       },
@@ -188,6 +121,70 @@
         "it": "Diesen Beitrag können Sie leisten Material und Fahrzeuge von der Fassung bis zur Rückführung bewirtschaften, inklusive die damit verbundenen administrativen Tätigkeiten erledigen Planung, Vorbereitung und Durchführung von Projektionen, Einrichtungen und Betrieb von Operationsbasen im In- und Ausland unterstützen Die materielle Einsatzbereitschaft sicherstellen Kurzfristige oder geplante Einsätze im In- und Ausland leisten Den Bereich Logistik und Support bei der Weiterentwicklung in den Bereichen Administration und Digitalisierung unterstützen und sich mit persönlicher Ausbildung stets auf dem neuesten Wissensstand der (Einsatz-) Logistik halten Das macht Sie einzigartig Abgeschlossene Berufslehre mit einigen Jahren Berufserfahrung im Bereich der (militärischen) Logistik Abgeschlossene Rekrutenschule und Unteroffiziers- oder Offiziersschule der Schweizer Armee (von Vorteil im Bereich Nachschub/Rückschub); die Militärdiensttauglichkeit und die medizinische Tauglichkeit für Auslandeinsätze muss gegeben sein (wird im Rahmen des Rekrutierungsprozesses geprüft) Erfahrungen im Bereich Informations- und Kommunikationstechnik mit Schwergewicht Informatik Führerschein der Kategorie B; weitere Führerscheine (C, C1, D, D1, usw.) von Vorteil Bereitschaft, kurzfristige oder geplante Einsätze im In- und Ausland zu leisten Gute mündliche und schriftliche Kenntnisse einer zweiten Amtssprache sowie gute Englischkenntnisse (mind. First Certificate) für den Einsatz im internationalen Umfeld Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
         "en": "Diesen Beitrag können Sie leisten Material und Fahrzeuge von der Fassung bis zur Rückführung bewirtschaften, inklusive die damit verbundenen administrativen Tätigkeiten erledigen Planung, Vorbereitung und Durchführung von Projektionen, Einrichtungen und Betrieb von Operationsbasen im In- und Ausland unterstützen Die materielle Einsatzbereitschaft sicherstellen Kurzfristige oder geplante Einsätze im In- und Ausland leisten Den Bereich Logistik und Support bei der Weiterentwicklung in den Bereichen Administration und Digitalisierung unterstützen und sich mit persönlicher Ausbildung stets auf dem neuesten Wissensstand der (Einsatz-) Logistik halten Das macht Sie einzigartig Abgeschlossene Berufslehre mit einigen Jahren Berufserfahrung im Bereich der (militärischen) Logistik Abgeschlossene Rekrutenschule und Unteroffiziers- oder Offiziersschule der Schweizer Armee (von Vorteil im Bereich Nachschub/Rückschub); die Militärdiensttauglichkeit und die medizinische Tauglichkeit für Auslandeinsätze muss gegeben sein (wird im Rahmen des Rekrutierungsprozesses geprüft) Erfahrungen im Bereich Informations- und Kommunikationstechnik mit Schwergewicht Informatik Führerschein der Kategorie B; weitere Führerscheine (C, C1, D, D1, usw.) von Vorteil Bereitschaft, kurzfristige oder geplante Einsätze im In- und Ausland zu leisten Gute mündliche und schriftliche Kenntnisse einer zweiten Amtssprache sowie gute Englischkenntnisse (mind. First Certificate) für den Einsatz im internationalen Umfeld Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
         "fr": "Diesen Beitrag können Sie leisten Material und Fahrzeuge von der Fassung bis zur Rückführung bewirtschaften, inklusive die damit verbundenen administrativen Tätigkeiten erledigen Planung, Vorbereitung und Durchführung von Projektionen, Einrichtungen und Betrieb von Operationsbasen im In- und Ausland unterstützen Die materielle Einsatzbereitschaft sicherstellen Kurzfristige oder geplante Einsätze im In- und Ausland leisten Den Bereich Logistik und Support bei der Weiterentwicklung in den Bereichen Administration und Digitalisierung unterstützen und sich mit persönlicher Ausbildung stets auf dem neuesten Wissensstand der (Einsatz-) Logistik halten Das macht Sie einzigartig Abgeschlossene Berufslehre mit einigen Jahren Berufserfahrung im Bereich der (militärischen) Logistik Abgeschlossene Rekrutenschule und Unteroffiziers- oder Offiziersschule der Schweizer Armee (von Vorteil im Bereich Nachschub/Rückschub); die Militärdiensttauglichkeit und die medizinische Tauglichkeit für Auslandeinsätze muss gegeben sein (wird im Rahmen des Rekrutierungsprozesses geprüft) Erfahrungen im Bereich Informations- und Kommunikationstechnik mit Schwergewicht Informatik Führerschein der Kategorie B; weitere Führerscheine (C, C1, D, D1, usw.) von Vorteil Bereitschaft, kurzfristige oder geplante Einsätze im In- und Ausland zu leisten Gute mündliche und schriftliche Kenntnisse einer zweiten Amtssprache sowie gute Englischkenntnisse (mind. First Certificate) für den Einsatz im internationalen Umfeld Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus."
+      },
+      "needsRetranslation": true,
+      "requirementsByLocale": {},
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Stazione 31",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "company-pgxuq4",
+      "slug": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
+      "company": "Swiss Armed Forces (VTG)",
+      "title": "Fachspezialist/-in HR",
+      "location": "Monteceneri",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "description": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+      "requirements": [],
+      "featured": false,
+      "postedDate": "2026-03-24",
+      "url": "https://jobs.admin.ch/offene-stellen/fachspezialist-in-hr/407fcd2d-2072-49be-a46b-c16b897f3594",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Monteceneri",
+        "canton": "TI"
+      },
+      "companyKey": "vtg",
+      "companyDomain": "vtg.admin.ch",
+      "crawledAt": "2026-03-27T21:55:54.057Z",
+      "slugByLocale": {
+        "it": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
+        "en": "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri-pgxuq4",
+        "de": "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri",
+        "fr": "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-monteceneri-pgxuq4"
+      },
+      "titleByLocale": {
+        "de": "Fachspezialist/-in HR",
+        "it": "Fachspezialist/-in Risorse Umane",
+        "fr": "Fachspezialist/-in Ressources Humaines",
+        "en": "Fachspezialist/-in HR"
+      },
+      "descriptionByLocale": {
+        "de": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+        "it": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+        "en": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus.",
+        "fr": "Diesen Beitrag können Sie leisten Administrative Unterstützung bei Personalgeschäften von Eintritt bis Austritt Den reibungslosen HRM-Geschäftsablauf zugunsten der Anspruchsgruppen auf Italienisch verantworten Enge Zusammenarbeit mit der Teamleitung und den HR-Beratern Mitarbeit in HR-Projekten und Weiterentwicklung von HR-Prozessen Aufbereitung von HR-Reportings und Listen Das macht Sie einzigartig Kaufmännische Ausbildung und Weiterbildung im Bereich HR mit einigen Jahren funktionsrelevanter Erfahrung idealerweise in der Verwaltung oder in einem bundesnahen Betrieb Vernetztes Denken, analytische und kommunikative Fähigkeiten Hohes Qualitätsbewusstsein sowie selbständige und lösungsorientierte Arbeitsweise Fundierte Office-Anwenderkenntnisse, idealerweise auch im SAP Stilsichere schriftliche und mündliche Kenntnisse einer zweiten Amtssprache Das bieten wir Arbeiten für die Schweiz Wir setzen uns für das Erfolgsmodell Schweiz ein und arbeiten zum Wohl der Bevölkerung. Gelebte Vielfalt Dank Chancengleichheit entfalten wir unsere Kompetenzen und bringen unterschiedliche Perspektiven ein. Gesund am Arbeitsplatz Wir unterstützen und beraten unsere Mitarbeitenden im Bereich der physischen und psychischen Gesundheit. Ihr Einsatz für Sicherheit und Freiheit Das Kommando Operationen (Kdo Op) ist für alle militärischen Operationen und Einsätze der Schweizer Armee verantwortlich. Zum Kdo Op gehören u. a. die Luftwaffe, das Heer, die vier Territorialdivisionen, das Kompetenzzentrum SWISSINT, das Kommando Spezialkräfte sowie die Militärpolizei. Rund 40 % der ca. 2'500 Mitarbeitenden sind zivil angestellt – von Ingenieur/-innen über Luftfahrzeugmechaniker/-innen bis hin zu Analyst/-innen. Die Schweizer Armee beschäftigt über 9'000 Mitarbeitende in vier militärischen und rund 200 zivilen Berufen – und dies an 110 Standorten schweizweit. Auch für den Nachwuchs ist gesorgt: Die Schweizer Armee bildet in über 30 Berufen Lernende aus."
       },
       "needsRetranslation": true,
       "requirementsByLocale": {},
@@ -234,11 +231,11 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-27T10:12:39.619Z",
+      "crawledAt": "2026-03-27T21:55:54.057Z",
       "slugByLocale": {
         "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
         "en": "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera",
-        "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
+        "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
         "fr": "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
@@ -257,6 +254,7 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
+        "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
         "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 72000,
@@ -301,11 +299,11 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-27T10:12:39.619Z",
+      "crawledAt": "2026-03-27T21:55:54.057Z",
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
         "en": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
-        "de": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
+        "de": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri",
         "fr": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl"
       },
       "titleByLocale": {
@@ -365,11 +363,11 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-27T10:12:39.619Z",
+      "crawledAt": "2026-03-27T21:55:54.057Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera",
         "en": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
-        "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
+        "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera",
         "fr": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
       },
       "titleByLocale": {
@@ -432,11 +430,11 @@
       },
       "companyKey": "vtg",
       "companyDomain": "vtg.admin.ch",
-      "crawledAt": "2026-03-27T10:12:39.619Z",
+      "crawledAt": "2026-03-27T21:55:54.057Z",
       "slugByLocale": {
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
         "en": "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
-        "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
+        "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti",
         "fr": "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti"
       },
       "titleByLocale": {
@@ -455,6 +453,7 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
+        "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
         "apprendista-a-in-trasporto-stradale-efz-swiss-armed-forces-vtg-claro-ti"
       ],
       "salaryMin": 46500,
