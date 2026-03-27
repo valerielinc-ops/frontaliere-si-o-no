@@ -1,16 +1,16 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-03-27T09:12:25.139Z",
+  "generatedAt": "2026-03-27T20:56:07.274Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 1632,
-  "avgDurationMs": 1632,
+  "durationMs": 1209,
+  "avgDurationMs": 1209,
   "durationHistory": [
-    1632
+    1209
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -55,11 +55,14 @@
       "slugByLocale": {
         "it": "finanzbuchhalter-in-w-m-d-axpo-group-domat-ems",
         "en": "finanzbuchhalter-in-w-m-d-axpo-group-domat-ems",
-        "de": "finanzbuchhalter-in-w-m-d-45deb004-fd77-4b6b-a901-f57752d5b311",
+        "de": "finanzbuchhalter-in-w-m-d-axpo-group-domat-ems",
         "fr": "finanzbuchhalter-in-w-m-d-axpo-group-domat-ems"
       },
-      "crawledAt": "2026-03-27T09:12:25.066Z",
+      "crawledAt": "2026-03-27T20:56:07.197Z",
       "needsRetranslation": true,
+      "previousSlugs": [
+        "finanzbuchhalter-in-w-m-d-45deb004-fd77-4b6b-a901-f57752d5b311"
+      ],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -115,10 +118,10 @@
       "slugByLocale": {
         "it": "dispatcher-in-betriebs-e-schichtdienst-axpo-group-tavanasa",
         "en": "dispatcher-in-betriebs-und-schichtdienst-5325390e-c462-4d95-91cb-b5c68f49f8f1",
-        "de": "dispatcher-in-betriebs-und-schichtdienst-5325390e-c462-4d95-91cb-b5c68f49f8f1",
+        "de": "dispatcher-in-betriebs-und-schichtdienst-axpo-group-tavanasa",
         "fr": "dispatcher-in-betriebs-und-schichtdienst-5325390e-c462-4d95-91cb-b5c68f49f8f1"
       },
-      "crawledAt": "2026-03-27T09:12:25.086Z",
+      "crawledAt": "2026-03-27T20:56:07.220Z",
       "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -175,11 +178,14 @@
       "slugByLocale": {
         "it": "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-axpo-group-domat-ems",
         "en": "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-axpo-group-domat-ems",
-        "de": "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-2101497b-3a42-43b6-8370-7835eb32af54",
+        "de": "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-axpo-group-domat-ems",
         "fr": "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-axpo-group-domat-ems"
       },
-      "crawledAt": "2026-03-27T09:12:25.097Z",
+      "crawledAt": "2026-03-27T20:56:07.231Z",
       "needsRetranslation": true,
+      "previousSlugs": [
+        "anlagenfuhrer-in-heizwerkfuhrer-in-holzheizkraftwerk-w-m-d-2101497b-3a42-43b6-8370-7835eb32af54"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
