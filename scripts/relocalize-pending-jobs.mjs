@@ -254,6 +254,14 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
         // untranslated copy of source, etc.) so any non-empty assembled value is better.
         // For normal jobs: only add where the crawler has no content.
         if (crawlerJob.needsRetranslation || !trimmedExisting) {
+          // Before overwriting a slug, preserve the old value in previousSlugs
+          // so the build plugin can generate bridge/redirect pages for SEO continuity.
+          if (field === 'slugByLocale' && trimmedExisting && trimmedValue !== trimmedExisting) {
+            if (!crawlerJob.previousSlugs) crawlerJob.previousSlugs = [];
+            if (!crawlerJob.previousSlugs.includes(trimmedExisting)) {
+              crawlerJob.previousSlugs.push(trimmedExisting);
+            }
+          }
           crawlerJob[field][locale] = value;
           changed = true;
         }
