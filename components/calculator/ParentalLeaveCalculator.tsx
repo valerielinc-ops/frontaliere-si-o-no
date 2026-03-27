@@ -200,7 +200,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
             <span className="font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
             {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500" />}
           </div>
-          <p className="text-[10px] text-slate-500 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
+          <p className="text-xs text-slate-500 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
         </div>
       </div>
 

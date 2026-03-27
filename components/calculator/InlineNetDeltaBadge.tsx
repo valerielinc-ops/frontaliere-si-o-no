@@ -26,7 +26,7 @@ const InlineNetDeltaBadge: React.FC<Props> = ({ delta, currency = 'CHF', size = 
   const isPositive = delta > 0;
   const baseClasses =
     size === 'mobile'
-      ? 'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-[10px] font-bold font-mono'
+      ? 'inline-flex items-center gap-1 rounded-full px-2 py-0.5 text-xs font-bold font-mono'
       : 'inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold font-mono pointer-events-none select-none';
   const toneClasses = isPositive
     ? 'animate-net-tick-up bg-emerald-100 text-emerald-700 dark:bg-emerald-900/50 dark:text-emerald-300'

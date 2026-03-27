@@ -358,12 +358,12 @@ const CostOfLiving: React.FC = () => {
                 </div>
                 <div className="text-center">
                   <div className="font-black text-sm">{valCH.toFixed(0)} CHF</div>
-                  <div className="text-[10px] text-slate-500">≈ € {valCH_EUR.toFixed(0)}</div>
+                  <div className="text-xs text-slate-500">≈ € {valCH_EUR.toFixed(0)}</div>
                 </div>
                 <div className="text-center">
                   <div className="font-black text-sm">€ {valIT_EUR.toFixed(0)}</div>
                   {cat.key === 'health' && valIT === 0 && (
-                    <div className="text-[10px] text-emerald-500 font-bold">SSN</div>
+                    <div className="text-xs text-emerald-500 font-bold">SSN</div>
                   )}
                 </div>
                 <div className="text-right">
@@ -383,7 +383,7 @@ const CostOfLiving: React.FC = () => {
               {/* Bar Chart */}
               <div className="mt-2 space-y-1">
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] w-4 text-center">🇨🇭</span>
+                  <span className="text-xs w-4 text-center">🇨🇭</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                     <div
                       className="bg-red-500 h-full rounded-full transition-all duration-500"
@@ -392,7 +392,7 @@ const CostOfLiving: React.FC = () => {
                   </div>
                 </div>
                 <div className="flex items-center gap-2">
-                  <span className="text-[10px] w-4 text-center">🇮🇹</span>
+                  <span className="text-xs w-4 text-center">🇮🇹</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                     <div
                       className="bg-emerald-700 h-full rounded-full transition-all duration-500"
@@ -436,7 +436,7 @@ const CostOfLiving: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-[10px] text-slate-500 mt-2">{t('costOfLiving.disclaimer')}</p>
+        <p className="text-xs text-slate-500 mt-2">{t('costOfLiving.disclaimer')}</p>
       </div>
     </div>
   );

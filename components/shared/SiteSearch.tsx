@@ -1138,7 +1138,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                   <X size={14} />
                 </button>
               )}
-              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-[10px] font-mono text-slate-500 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono text-slate-500 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
                 esc
               </kbd>
             </div>
@@ -1259,7 +1259,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
                               {result.title}
                             </span>
-                            <span className="text-[10px] uppercase tracking-wider text-slate-500 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">
+                            <span className="text-xs uppercase tracking-wider text-slate-500 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">
                               {result.section}
                             </span>
                           </div>
@@ -1276,19 +1276,19 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-[10px] text-slate-500">
+            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">↑↓</kbd>
+                  <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">↑↓</kbd>
                   {t('search.navigate') || 'naviga'}
                 </span>
                 <span className="flex items-center gap-1">
-                  <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">↵</kbd>
+                  <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">↵</kbd>
                   {t('search.select') || 'seleziona'}
                 </span>
               </div>
               <span className="hidden sm:flex items-center gap-1">
-                <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-[10px]">⌘K</kbd>
+                <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">⌘K</kbd>
                 {t('search.close') || 'chiudi'}
               </span>
             </div>

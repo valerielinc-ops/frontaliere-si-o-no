@@ -114,7 +114,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
         >
           <ChevronLeft size={14} />
         </button>
-        <span className="text-[10px] text-slate-500 dark:text-slate-500 tabular-nums w-7 text-center">{idx + 1}/{count}</span>
+        <span className="text-xs text-slate-500 dark:text-slate-500 tabular-nums w-7 text-center">{idx + 1}/{count}</span>
         <button
           onClick={() => {
             next();
@@ -133,7 +133,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
           Analytics.trackUIInteraction('newsfeed', 'ticker', 'view_all', 'open_blog');
           onNavigate('blog');
         }}
-        className="flex-shrink-0 text-[10px] font-semibold text-blue-600 dark:text-blue-400 hover:underline hidden sm:inline-flex items-center min-h-[24px] px-2"
+        className="flex-shrink-0 text-xs font-semibold text-blue-600 dark:text-blue-400 hover:underline hidden sm:inline-flex items-center min-h-[24px] px-2"
       >
         {t('newsfeed.viewAll')}
       </button>

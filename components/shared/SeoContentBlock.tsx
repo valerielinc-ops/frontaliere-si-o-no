@@ -211,11 +211,11 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
           {t(`seoContent.${context}.title`)}
         </h2>
         <div className="hidden sm:flex items-center gap-2 mr-2">
-          <span className="flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400">
+          <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
             <Star className="w-3 h-3 text-amber-500" aria-hidden="true" />
             2026
           </span>
-          <span className="flex items-center gap-1 text-[10px] text-slate-500 dark:text-slate-400">
+          <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
             <Shield className="w-3 h-3 text-emerald-500" aria-hidden="true" />
             {t('seoContent.trust.free')}
           </span>

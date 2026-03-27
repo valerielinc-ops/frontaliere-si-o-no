@@ -303,7 +303,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               </button>
             </div>
             {rateOverride !== null && (
-              <p className="text-[10px] text-amber-600 dark:text-amber-400 mt-0.5">{t('bonus.manualRate')}</p>
+              <p className="text-xs text-amber-600 dark:text-amber-400 mt-0.5">{t('bonus.manualRate')}</p>
             )}
           </div>
         </div>
@@ -378,7 +378,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               <div className="text-center font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseSwissRate * 100).toFixed(1)}%</div>
               <div className={`text-center font-semibold rounded-lg p-2 ${result.swissRateDelta > 0 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-slate-700 dark:text-slate-300 bg-orange-50 dark:bg-orange-900/20'}`}>
                 {(result.withBonusSwissRate * 100).toFixed(1)}%
-                {result.swissRateDelta > 0 && <span className="ml-1 text-[10px]">+{(result.swissRateDelta * 100).toFixed(1)}%</span>}
+                {result.swissRateDelta > 0 && <span className="ml-1 text-xs">+{(result.swissRateDelta * 100).toFixed(1)}%</span>}
               </div>
 
               {/* IRPEF bracket */}
@@ -394,7 +394,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               <div className="text-center font-semibold text-slate-700 dark:text-slate-300 bg-slate-50 dark:bg-slate-700/50 rounded-lg p-2">{(result.baseEffectiveIrpef * 100).toFixed(1)}%</div>
               <div className={`text-center font-semibold rounded-lg p-2 ${result.irpefRateDelta > 0.005 ? 'text-red-700 dark:text-red-400 bg-red-50 dark:bg-red-900/20' : 'text-slate-700 dark:text-slate-300 bg-orange-50 dark:bg-orange-900/20'}`}>
                 {(result.withBonusEffectiveIrpef * 100).toFixed(1)}%
-                {result.irpefRateDelta > 0.005 && <span className="ml-1 text-[10px]">+{(result.irpefRateDelta * 100).toFixed(1)}%</span>}
+                {result.irpefRateDelta > 0.005 && <span className="ml-1 text-xs">+{(result.irpefRateDelta * 100).toFixed(1)}%</span>}
               </div>
             </div>
 
@@ -404,7 +404,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                 <div className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-3">
                   <p className="text-xs font-bold text-amber-800 dark:text-amber-300 mb-1">{t('bonus.extraSwissTax')}</p>
                   <p className="text-lg font-bold text-amber-700 dark:text-amber-400">+ CHF {result.extraSwissTax.toLocaleString()}</p>
-                  <p className="text-[10px] text-amber-600 dark:text-amber-400 mt-1">{t('bonus.extraSwissTaxDesc')}</p>
+                  <p className="text-xs text-amber-600 dark:text-amber-400 mt-1">{t('bonus.extraSwissTaxDesc')}</p>
                 </div>
               )}
               {result.bracketJumped && (
@@ -413,7 +413,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                     <ArrowUpRight size={14} /> {t('bonus.bracketJump')}
                   </p>
                   <p className="text-lg font-bold text-red-700 dark:text-red-400">{result.baseBracketLabel} → {result.withBonusBracketLabel}</p>
-                  <p className="text-[10px] text-red-600 dark:text-red-400 mt-1">{t('bonus.bracketJumpDesc')}</p>
+                  <p className="text-xs text-red-600 dark:text-red-400 mt-1">{t('bonus.bracketJumpDesc')}</p>
                 </div>
               )}
               {result.swissRateDelta === 0 && !result.bracketJumped && (
@@ -430,7 +430,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
               <p className={`text-2xl font-bold ${result.effectiveTaxRate > 40 ? 'text-red-600 dark:text-red-400' : result.effectiveTaxRate > 25 ? 'text-amber-600 dark:text-amber-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
                 {result.effectiveTaxRate}%
               </p>
-              <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">{t('bonus.effectiveBonusRateDesc')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('bonus.effectiveBonusRateDesc')}</p>
             </div>
           </div>
         )}
@@ -451,7 +451,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                 <div className="flex items-center gap-2 mb-1">
                   <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">{t(`bonus.types.${bt.key}`)}</h4>
                   {bt.inKind && (
-                    <span className="text-[10px] font-bold bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-1.5 py-0.5 rounded-full">
+                    <span className="text-xs font-bold bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 px-1.5 py-0.5 rounded-full">
                       {t('bonus.inKind')}
                     </span>
                   )}

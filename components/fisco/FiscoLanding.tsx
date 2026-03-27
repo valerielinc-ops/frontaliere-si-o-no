@@ -126,7 +126,7 @@ const FiscoLanding: React.FC = () => {
             className="group relative flex flex-col items-start gap-2 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all text-left"
           >
             {badge && (
-              <span className={`absolute top-2.5 right-2.5 text-[10px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
+              <span className={`absolute top-2.5 right-2.5 text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${
                 badge === 'popular'
                   ? 'bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400'
                   : 'bg-blue-100 text-blue-700 dark:bg-blue-900/30 dark:text-blue-400'

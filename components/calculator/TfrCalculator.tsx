@@ -428,7 +428,7 @@ const TfrCalculator: React.FC = () => {
           <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 text-center space-y-1">
             <p className="text-xs font-medium text-red-600 dark:text-red-400">🇮🇹 {t('tfr.tfrAccumulated')}</p>
             <p className="text-xl font-bold text-red-700 dark:text-red-300">{fmtEur(result.tfrTotal)}</p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               {t('tfr.monthlyEquivalent')}: {fmtEur(result.tfrMonthlyEquivalent)}/mese
             </p>
           </div>
@@ -437,7 +437,7 @@ const TfrCalculator: React.FC = () => {
           <div className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 text-center space-y-1">
             <p className="text-xs font-medium text-blue-600 dark:text-blue-400">🇨🇭 {t('tfr.lppAccumulated')}</p>
             <p className="text-xl font-bold text-blue-700 dark:text-blue-300">{fmtEur(result.lppTotal)}</p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               {t('tfr.lppPension')}: {fmtChf(result.lppMonthlyPension)}/mese
             </p>
           </div>
@@ -448,7 +448,7 @@ const TfrCalculator: React.FC = () => {
             <p className={`text-xl font-bold ${result.difference >= 0 ? 'text-emerald-700 dark:text-emerald-300' : 'text-amber-700 dark:text-amber-300'}`}>
               {result.difference >= 0 ? '+' : ''}{fmtEur(result.difference)}
             </p>
-            <p className="text-[10px] text-slate-500 dark:text-slate-400">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               ({result.differencePercent >= 0 ? '+' : ''}{result.differencePercent}% {t('tfr.vsItalianTfr')})
             </p>
           </div>
@@ -618,7 +618,7 @@ const TfrCalculator: React.FC = () => {
 
       {/* ── Disclaimer ── */}
       <div className="bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 rounded-xl p-4">
-        <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-relaxed">
+        <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed">
           <AlertTriangle size={10} className="inline mr-1 -mt-0.5" />
           {t('tfr.disclaimer')}
         </p>

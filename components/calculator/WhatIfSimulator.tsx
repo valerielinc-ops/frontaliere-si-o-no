@@ -277,7 +277,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 flex-wrap">
                 <h1 className="text-2xl sm:text-3xl font-extrabold">{t('whatif.title')}</h1>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-[10px] font-bold uppercase tracking-wider bg-yellow-400/25 text-yellow-200 border border-yellow-300/40 rounded-full">
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-yellow-400/25 text-yellow-200 border border-yellow-300/40 rounded-full">
                   ✨ {t('whatif.experimentalBadge')}
                 </span>
               </div>
@@ -515,7 +515,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         € {Math.round(newNetIT).toLocaleString('it-IT')}
                       </div>
                       {diffIT !== 0 && (
-                        <div className={`text-[10px] font-bold ${diffIT >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
+                        <div className={`text-xs font-bold ${diffIT >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffIT >= 0 ? '↑' : '↓'} {diffIT >= 0 ? '+' : ''}{Math.round(diffIT)} €
                         </div>
                       )}
@@ -545,7 +545,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         CHF {Math.round(newNetCH).toLocaleString('it-IT')}
                       </div>
                       {diffCH !== 0 && (
-                        <div className={`text-[10px] font-bold ${diffCH >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
+                        <div className={`text-xs font-bold ${diffCH >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffCH >= 0 ? '↑' : '↓'} {diffCH >= 0 ? '+' : ''}{Math.round(diffCH)} CHF
                         </div>
                       )}
@@ -563,24 +563,24 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     {/* Show what actually happens with this scenario change */}
                     <div className="grid grid-cols-2 gap-3 mb-3">
                       <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
-                        <div className="text-[10px] font-bold text-slate-500 uppercase">{t('whatif.yourNetChange')}</div>
+                        <div className="text-xs font-bold text-slate-500 uppercase">{t('whatif.yourNetChange')}</div>
                         <div className={`text-xl font-extrabold ${diffIT >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffIT >= 0 ? '+' : ''}{Math.round(diffIT).toLocaleString('it-IT')} €/{t('common.months')}
                         </div>
-                        <div className="text-[10px] text-slate-500">
+                        <div className="text-xs text-slate-500">
                           = {diffIT >= 0 ? '+' : ''}{Math.round(diffIT * 12).toLocaleString('it-IT')} €/{t('whatif.perYear')}
                         </div>
-                        <div className="text-[10px] text-slate-500 mt-0.5">({t('whatif.asItalyFrontier')})</div>
+                        <div className="text-xs text-slate-500 mt-0.5">({t('whatif.asItalyFrontier')})</div>
                       </div>
                       <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
-                        <div className="text-[10px] font-bold text-slate-500 uppercase">{t('whatif.chComparison')}</div>
+                        <div className="text-xs font-bold text-slate-500 uppercase">{t('whatif.chComparison')}</div>
                         <div className={`text-xl font-extrabold ${diffCH >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffCH >= 0 ? '+' : ''}{Math.round(diffCH).toLocaleString('it-IT')} CHF/{t('common.months')}
                         </div>
-                        <div className="text-[10px] text-slate-500">
+                        <div className="text-xs text-slate-500">
                           = {diffCH >= 0 ? '+' : ''}{Math.round(diffCH * 12).toLocaleString('it-IT')} CHF/{t('whatif.perYear')}
                         </div>
-                        <div className="text-[10px] text-slate-500 mt-0.5">({t('whatif.asSwissResident')})</div>
+                        <div className="text-xs text-slate-500 mt-0.5">({t('whatif.asSwissResident')})</div>
                       </div>
                     </div>
 
@@ -617,7 +617,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
               </div>
               <p className="text-lg font-bold text-slate-700 dark:text-slate-300">{t('whatif.modifyParams')}</p>
               <p className="text-sm text-amber-500/70 dark:text-amber-400/60 mt-1">{t('whatif.resultsRealtime')}</p>
-              <p className="text-[10px] text-slate-500 dark:text-slate-500 mt-3 italic">{t('whatif.nerdDisclaimer')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-500 mt-3 italic">{t('whatif.nerdDisclaimer')}</p>
             </div>
           )}
         </div>

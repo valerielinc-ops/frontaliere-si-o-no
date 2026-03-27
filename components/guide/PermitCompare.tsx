@@ -759,7 +759,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                     <th className="text-left py-2 pr-4 text-slate-600 dark:text-slate-400"></th>
                     <th className="text-right py-2 px-3 text-slate-600 dark:text-slate-400 whitespace-nowrap">
                       🇮🇹 {t('permitCompare.permitG')}
-                      <div className="text-[10px] font-normal text-slate-500 dark:text-slate-500">
+                      <div className="text-xs font-normal text-slate-500 dark:text-slate-500">
                         {gType === 'new_within_20km' ? t('permitCompare.gTypeNew20Short')
                           : gType === 'new_beyond_20km' ? t('permitCompare.gTypeBeyond20Short')
                           : t('permitCompare.gTypeOldShort')}

@@ -324,7 +324,7 @@ const ContractsGuide = () => {
                             <span className="font-semibold">{sector.ch.vacationWeeks}</span>
                             <span className="text-xs text-slate-500 dark:text-slate-400"> {t('contracts.table.weeks')}</span>
                             {sector.ch.vacationWeeksYoung > sector.ch.vacationWeeks && (
-                              <div className="text-[10px] text-blue-600 dark:text-blue-400">
+                              <div className="text-xs text-blue-600 dark:text-blue-400">
                                 ({sector.ch.vacationWeeksYoung} {t('contracts.table.under20')})
                               </div>
                             )}
@@ -358,7 +358,7 @@ const ContractsGuide = () => {
                               <span className="text-red-600 dark:text-red-400">—</span>
                             )}
                             {sector.it.fourteenthMonth && (
-                              <div className="text-[10px] text-amber-600 dark:text-amber-400 font-medium mt-0.5">
+                              <div className="text-xs text-amber-600 dark:text-amber-400 font-medium mt-0.5">
                                 + {t('contracts.table.fourteenthMonth')}
                               </div>
                             )}
@@ -377,7 +377,7 @@ const ContractsGuide = () => {
                           </td>
                           <td className="py-2 px-2 text-center text-xs text-slate-900 dark:text-white">
                             <div>{sector.it.noticePeriodDaysMin}–{sector.it.noticePeriodDaysMax} {t('contracts.table.days')}</div>
-                            <div className="text-[10px] text-slate-500 dark:text-slate-400">
+                            <div className="text-xs text-slate-500 dark:text-slate-400">
                               ({t('contracts.table.byLevel')})
                             </div>
                           </td>
@@ -486,7 +486,7 @@ const ContractsGuide = () => {
                   <li>• {t('contracts.rights.sickLeaveYear2', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year2) })}</li>
                   <li>• {t('contracts.rights.sickLeaveYear3', { weeks: String(WORKER_RIGHTS_CH.sickLeave.year3Plus) })}</li>
                 </ul>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5">
                   {t('contracts.rights.sickLeaveNote')}
                 </p>
               </div>
@@ -501,7 +501,7 @@ const ContractsGuide = () => {
                   <li>• {t('contracts.rights.maternityWeeks', { weeks: String(WORKER_RIGHTS_CH.maternityWeeks) })}</li>
                   <li>• {t('contracts.rights.paternityWeeks', { weeks: String(WORKER_RIGHTS_CH.paternityWeeks) })}</li>
                 </ul>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5">
                   {t('contracts.rights.parentalNote')}
                 </p>
               </div>
@@ -515,7 +515,7 @@ const ContractsGuide = () => {
                 <p className="text-xs text-slate-700 dark:text-slate-300">
                   {t('contracts.rights.publicHolidaysText', { count: String(WORKER_RIGHTS_CH.publicHolidays) })}
                 </p>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5">
                   {t('contracts.rights.publicHolidaysNote')}
                 </p>
               </div>
@@ -529,7 +529,7 @@ const ContractsGuide = () => {
                 <p className="text-xs text-slate-700 dark:text-slate-300">
                   {t('contracts.rights.overtimeText')}
                 </p>
-                <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1.5">
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5">
                   {t('contracts.rights.overtimeNote')}
                 </p>
               </div>
@@ -594,7 +594,7 @@ const ContractsGuide = () => {
       </div>
 
       {/* Disclaimer */}
-      <div className="text-center text-[10px] text-slate-500 dark:text-slate-500 px-4">
+      <div className="text-center text-xs text-slate-500 dark:text-slate-500 px-4">
         {t('contracts.disclaimer')}
       </div>
     </div>

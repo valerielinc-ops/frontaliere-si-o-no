@@ -648,7 +648,7 @@ const ForecastStrip: React.FC<ForecastStripProps> = ({ location, flag, t }) => (
               {Math.round(day.tempMax)}° / {Math.round(day.tempMin)}°
             </div>
             {day.precipitationProbability > 0 && (
-              <div className="text-[10px] text-blue-600 dark:text-blue-400 flex items-center justify-center gap-0.5">
+              <div className="text-xs text-blue-600 dark:text-blue-400 flex items-center justify-center gap-0.5">
                 <Droplets className="w-2.5 h-2.5" />
                 {day.precipitationProbability}%
               </div>

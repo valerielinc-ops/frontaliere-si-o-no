@@ -254,7 +254,7 @@ const HealthPremiumStats: React.FC = () => {
                     <td className="py-2 px-2 text-slate-500 font-mono">{globalRank}</td>
                     <td className="py-2 px-2 text-slate-700 dark:text-slate-300 font-medium">
                       {c.municipality.replace(/^\d+-/, '')}
-                      <span className="text-slate-500 ml-1 text-[10px]">{c.municipality.match(/^\d+/)?.[0]}</span>
+                      <span className="text-slate-500 ml-1 text-xs">{c.municipality.match(/^\d+/)?.[0]}</span>
                     </td>
                     <td className="py-2 px-2 text-center text-slate-500">{c.canton}</td>
                     <td className={`py-2 px-2 text-right font-bold ${
@@ -283,7 +283,7 @@ const HealthPremiumStats: React.FC = () => {
       </div>
 
       {/* Source attribution */}
-      <div className="text-center text-[10px] text-slate-500 space-y-1">
+      <div className="text-center text-xs text-slate-500 space-y-1">
         <p>
           Dati ufficiali UFSP/BAG {data.year}. Premi standard, adulti 26+, franchigia 300 CHF, senza copertura infortuni.
         </p>

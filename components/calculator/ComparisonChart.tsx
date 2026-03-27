@@ -72,7 +72,7 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
       {payload.map((entry: any, index: number) => (
         <div key={`item-${index}`} className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color || entry.fill || entry.stroke }} />
-          <span className={`text-[10px] font-bold uppercase tracking-wide ${isDarkMode ? 'text-slate-500' : 'text-slate-600'}`}>
+          <span className={`text-xs font-bold uppercase tracking-wide ${isDarkMode ? 'text-slate-500' : 'text-slate-600'}`}>
             {entry.value}
           </span>
         </div>
@@ -85,9 +85,9 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
 const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
   <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
      <div>
-       <p className="text-[10px] font-bold uppercase text-slate-500 tracking-wider mb-1">{title}</p>
+       <p className="text-xs font-bold uppercase text-slate-500 tracking-wider mb-1">{title}</p>
        <p className={`text-xl font-mono font-bold ${colorClass}`}>{value}</p>
-       {subtext && <p className="text-[10px] text-slate-500 mt-1">{subtext}</p>}
+       {subtext && <p className="text-xs text-slate-500 mt-1">{subtext}</p>}
      </div>
      <div className={`p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm ${colorClass.replace('text-', 'text-opacity-80 text-')}`}>
        <Icon size={18} />
@@ -287,13 +287,13 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                        <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-lg">
                           <button 
                             onClick={() => setAnalysisMode('NET')}
-                            className={`px-3 py-1.5 rounded-md text-[10px] font-bold uppercase transition-all ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-600'}`}
                           >
                             {t('chart.net')}
                           </button>
                           <button 
                             onClick={() => setAnalysisMode('TAX')}
-                            className={`px-3 py-1.5 rounded-md text-[10px] font-bold uppercase transition-all ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-500 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-500 hover:text-slate-600'}`}
                           >
                             {t('chart.taxes_charges')}
                           </button>

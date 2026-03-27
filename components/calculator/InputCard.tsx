@@ -28,7 +28,7 @@ const IconsMap: Record<string, any> = {
 const InfoTooltip = ({ text }: { text: string }) => (
   <div className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
     <Info size={12} className="text-slate-500 hover:text-indigo-600 transition-colors" />
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none animate-fade-in text-center">
+    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none animate-fade-in text-center">
       {text}
       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
     </div>
@@ -58,7 +58,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
       </div>
       <div className="text-left">
         <div className={`text-sm font-bold transition-colors ${isOpen ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-500'}`}>{title}</div>
-        {subtext && <div className="text-[10px] text-slate-600 font-medium uppercase tracking-wide">{subtext}</div>}
+        {subtext && <div className="text-xs text-slate-600 font-medium uppercase tracking-wide">{subtext}</div>}
       </div>
     </div>
     <div className="flex items-center gap-2">
@@ -72,7 +72,7 @@ const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor
 
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500", tooltip, inputId }: any) => (
   <div className="space-y-2 min-w-0">
-    {label && <label htmlFor={inputId} className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4 truncate">{Icon && <Icon size={12} className={`${iconColor} shrink-0`}/>} <span className="truncate">{label}</span> {tooltip && <InfoTooltip text={tooltip} />}</label>}
+    {label && <label htmlFor={inputId} className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4 truncate">{Icon && <Icon size={12} className={`${iconColor} shrink-0`}/>} <span className="truncate">{label}</span> {tooltip && <InfoTooltip text={tooltip} />}</label>}
     <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
       <button 
         onClick={() => onChange(Math.max(min, value - 1))}
@@ -114,7 +114,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
 
 const SegmentControl = ({ options, value, onChange, label, icon: Icon, iconColor = "text-slate-500", tooltip }: any) => (
   <div className="space-y-2">
-    {label && <label className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
+    {label && <label className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
     <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl relative h-11">
       {options.map((opt: any) => (
         <button
@@ -142,7 +142,7 @@ const TechInput: React.FC<{
 
   return (
       <div className="space-y-2">
-        <label className="text-[10px] font-bold text-slate-600 uppercase tracking-wide h-4 flex items-end">{label}</label>
+        <label className="text-xs font-bold text-slate-600 uppercase tracking-wide h-4 flex items-end">{label}</label>
         <div className="relative group">
             <input
               type="number"
@@ -354,7 +354,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
             </div>
             <div>
               <h2 className="text-base font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">{isFocusMode ? t('input.summary') : t('input.title')}</h2>
-              <p className="text-[10px] text-slate-600 dark:text-slate-500 font-bold uppercase tracking-wider">{isFocusMode ? t('input.compactView') : t('input.subtitle')}</p>
+              <p className="text-xs text-slate-600 dark:text-slate-500 font-bold uppercase tracking-wider">{isFocusMode ? t('input.compactView') : t('input.subtitle')}</p>
             </div>
         </div>
         {!isFocusMode && (
@@ -369,19 +369,19 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
         <div className="flex-grow overflow-y-auto custom-scrollbar p-4 space-y-3">
           <div className="space-y-2">
             <div className="flex items-center justify-between p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-100 dark:border-amber-800/50">
-              <span className="text-[10px] font-bold text-amber-700 dark:text-amber-400 uppercase">{t('input.ral')}</span>
+              <span className="text-xs font-bold text-amber-700 dark:text-amber-400 uppercase">{t('input.ral')}</span>
               <span className="font-bold text-sm text-amber-700 dark:text-amber-300">CHF {Math.round(inputs.annualIncomeCHF).toLocaleString('it-IT')}</span>
             </div>
             <div className="flex items-center justify-between p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-100 dark:border-blue-800/50">
-              <span className="text-[10px] font-bold text-blue-600 dark:text-blue-400 uppercase">{t('input.type')}</span>
+              <span className="text-xs font-bold text-blue-600 dark:text-blue-400 uppercase">{t('input.type')}</span>
               <span className="font-bold text-xs text-blue-700 dark:text-blue-300">{inputs.frontierWorkerType === 'NEW' ? t('input.newFrontShort') : t('input.oldFrontShort')}</span>
             </div>
             <div className="flex items-center justify-between p-3 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-100 dark:border-slate-700">
-              <span className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase">{t('input.profile')}</span>
+              <span className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase">{t('input.profile')}</span>
               <span className="font-bold text-xs text-slate-700 dark:text-slate-300">{inputs.age}a, {inputs.maritalStatus === 'SINGLE' ? t('input.single') : inputs.maritalStatus === 'MARRIED' ? t('input.married') : inputs.maritalStatus === 'DIVORCED' ? t('input.divorced') : t('input.widowed')}, {inputs.children > 0 ? t('input.childrenCount', { count: inputs.children }) : t('input.noChildren')}</span>
             </div>
             <div className="flex items-center justify-between p-3 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-100 dark:border-indigo-800/50">
-              <span className="text-[10px] font-bold text-indigo-600 dark:text-indigo-400 uppercase">{t('input.exchange')}</span>
+              <span className="text-xs font-bold text-indigo-600 dark:text-indigo-400 uppercase">{t('input.exchange')}</span>
               <span className="font-bold text-xs text-indigo-700 dark:text-indigo-300">1 CHF = {inputs.customExchangeRate} EUR</span>
             </div>
           </div>
@@ -445,7 +445,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                        key={s}
                        type="button"
                        onClick={() => handleChange('annualIncomeCHF', s)}
-                       className={`shrink-0 px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                       className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
                          inputs.annualIncomeCHF === s
                            ? 'bg-blue-600 text-white shadow-sm'
                            : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-700'
@@ -462,7 +462,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                  <StepperInput inputId="input-age" label={t('input.age')} value={inputs.age} onChange={(v: number) => handleChange('age', v)} min={18} max={99} icon={User} iconColor="text-blue-500" tooltip={t('input.ageTooltip')} />
                  {/* Marital Status */}
                  <div className="space-y-1.5">
-                   <label htmlFor="maritalStatus" className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                   <label htmlFor="maritalStatus" className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
                      <Heart size={12} className="text-rose-500"/> {t('input.maritalStatus')}
                      <InfoTooltip text={t('input.maritalStatusTooltip')} />
                    </label>
@@ -486,7 +486,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
               {/* Spouse Works Toggle */}
               {inputs.maritalStatus === 'MARRIED' && (
                  <div className="flex items-center justify-between bg-indigo-50/50 dark:bg-indigo-900/10 p-3 rounded-xl border border-indigo-100 dark:border-indigo-900/30 animate-fade-in mt-2">
-                    <span className="text-[10px] font-bold text-indigo-900 dark:text-indigo-300 flex items-center gap-1.5">
+                    <span className="text-xs font-bold text-indigo-900 dark:text-indigo-300 flex items-center gap-1.5">
                       <Briefcase size={14} className="text-indigo-600"/> {t('input.spouseWorks')}
                       <InfoTooltip text={t('input.spouseWorksTooltip')} />
                     </span>
@@ -503,7 +503,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
 
         {/* SECTION 2: FRONTIER TYPE */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-4">
-           <h3 className="text-[10px] font-bold text-slate-600 uppercase tracking-widest flex items-center gap-2">
+           <h3 className="text-xs font-bold text-slate-600 uppercase tracking-widest flex items-center gap-2">
              <TrainFront size={14} className="text-emerald-500"/> {t('input.frontierType')}
              <InfoTooltip text={t('input.frontierTypeTooltip')} />
            </h3>
@@ -544,7 +544,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
 
         {/* SECTION 3: FAMILY & INSURANCE */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
-           <h3 className="text-[10px] font-bold text-slate-600 uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-purple-500"/> {t('input.familyHealth')}</h3>
+           <h3 className="text-xs font-bold text-slate-600 uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-purple-500"/> {t('input.familyHealth')}</h3>
            
            <div className="grid grid-cols-2 gap-4">
               <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-cyan-500" />
@@ -562,38 +562,38 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                 <div className="space-y-3">
                    <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <div className="text-[10px] font-bold text-indigo-600 uppercase flex items-center gap-1.5">
+                        <div className="text-xs font-bold text-indigo-600 uppercase flex items-center gap-1.5">
                           <Home size={12}/> {t('input.liveInCH')}
                           <InfoTooltip text={t('input.amountsCHF')} />
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
+                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-xs font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
-                        <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[10px] font-bold uppercase hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
+                        <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold uppercase hover:from-blue-700 hover:to-indigo-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
                           <Home size={12}/> {t('input.prefill')}
                         </button>
-                        <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
+                        <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-xs font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
                           <Plus size={14}/>
                         </button>
                       </div>
                    </div>
-                   <p className="text-[10px] text-slate-600 dark:text-slate-400 -mt-1">{t('input.expensesCHFNote')}</p>
+                   <p className="text-xs text-slate-600 dark:text-slate-400 -mt-1">{t('input.expensesCHFNote')}</p>
                    
                    {/* Smart Presets Area for CH */}
                    {showPresets === 'CH' && (
                      <div className="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 mb-2 animate-fade-in">
-                        <p className="text-[10px] text-slate-600 uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
+                        <p className="text-xs text-slate-600 uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
                         <div className="flex flex-wrap gap-2">
-                           <button onClick={() => addExpense('CH')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 hover:border-blue-400 hover:text-blue-500 transition-colors">{t('input.empty')}</button>
+                           <button onClick={() => addExpense('CH')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 hover:border-blue-400 hover:text-blue-500 transition-colors">{t('input.empty')}</button>
                            {PRESET_EXPENSES_CH.map((preset, idx) => {
                              const Icon = IconsMap[preset.icon] || Home;
                              return (
                                <button 
                                  key={idx}
                                  onClick={() => addExpense('CH', {...preset, frequency: preset.frequency as 'MONTHLY' | 'ANNUAL'})}
-                                 className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 dark:text-slate-500 hover:border-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1.5"
+                                 className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 dark:text-slate-500 hover:border-blue-400 hover:text-blue-500 transition-colors flex items-center gap-1.5"
                                >
                                   <Icon size={10} />
                                   {t(preset.label)}
@@ -612,17 +612,17 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                               type="text" 
                               value={t(exp.label)} 
                               onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
-                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
                               title={t(exp.label)}
                             />
                             {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 -m-1 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
-                     {inputs.expensesCH.length === 0 && !showPresets && <div className="text-[10px] text-slate-600 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}
+                     {inputs.expensesCH.length === 0 && !showPresets && <div className="text-xs text-slate-600 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}
                    </div>
                 </div>
                 
@@ -630,38 +630,38 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                 <div className="space-y-3">
                    <div className="flex items-center justify-between gap-2">
                       <div className="flex items-center gap-2">
-                        <div className="text-[10px] font-bold text-red-500 uppercase flex items-center gap-1.5">
+                        <div className="text-xs font-bold text-red-500 uppercase flex items-center gap-1.5">
                           <Car size={12}/> {t('input.liveInIT')}
                           <InfoTooltip text={t('input.amountsEUR')} />
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-[10px] font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
+                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-all text-xs font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
-                        <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-[10px] font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
+                        <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-xs font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-all shadow-sm hover:shadow-md flex items-center gap-1">
                           <Home size={12}/> {t('input.prefill')}
                         </button>
-                        <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-[10px] font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
+                        <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-xs font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
                           <Plus size={14}/>
                         </button>
                       </div>
                    </div>
-                   <p className="text-[10px] text-slate-600 dark:text-slate-400 -mt-1">{t('input.expensesEURNote')}</p>
+                   <p className="text-xs text-slate-600 dark:text-slate-400 -mt-1">{t('input.expensesEURNote')}</p>
 
                     {/* Smart Presets Area for IT */}
                    {showPresets === 'IT' && (
                      <div className="p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800 mb-2 animate-fade-in">
-                        <p className="text-[10px] text-slate-600 uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
+                        <p className="text-xs text-slate-600 uppercase font-bold mb-2">{t('input.quickSuggestions')}:</p>
                         <div className="flex flex-wrap gap-2">
-                           <button onClick={() => addExpense('IT')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 hover:border-red-400 hover:text-red-500 transition-colors">{t('input.empty')}</button>
+                           <button onClick={() => addExpense('IT')} className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 hover:border-red-400 hover:text-red-500 transition-colors">{t('input.empty')}</button>
                            {PRESET_EXPENSES_IT.map((preset, idx) => {
                              const Icon = IconsMap[preset.icon] || Home;
                              return (
                                <button 
                                  key={idx}
                                  onClick={() => addExpense('IT', {...preset, frequency: preset.frequency as 'MONTHLY' | 'ANNUAL'})}
-                                 className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-[10px] font-bold text-slate-600 dark:text-slate-500 hover:border-red-400 hover:text-red-500 transition-colors flex items-center gap-1.5"
+                                 className="px-2 py-1.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 text-xs font-bold text-slate-600 dark:text-slate-500 hover:border-red-400 hover:text-red-500 transition-colors flex items-center gap-1.5"
                                >
                                   <Icon size={10} />
                                   {t(preset.label)}
@@ -680,17 +680,17 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                               type="text" 
                               value={t(exp.label)} 
                               onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
-                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-[10px] font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
                               title={t(exp.label)}
                             />
                             {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-[10px] font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 -m-1 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0"><X size={14}/></button>
                         </div>
                      ))}
-                      {inputs.expensesIT.length === 0 && !showPresets && <div className="text-[10px] text-slate-600 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}
+                      {inputs.expensesIT.length === 0 && !showPresets && <div className="text-xs text-slate-600 italic text-center py-4 bg-slate-50/50 rounded-xl border border-dashed border-slate-200">{t('input.noExpenses')}</div>}
                    </div>
                 </div>
              </div>
@@ -706,7 +706,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                   <div className="grid grid-cols-2 gap-4 items-end">
                      <div className="space-y-2">
                         <div className="flex justify-between items-center h-4">
-                            <label className="text-[10px] font-bold text-slate-600 uppercase flex items-center gap-1">
+                            <label className="text-xs font-bold text-slate-600 uppercase flex items-center gap-1">
                                 <Coins size={10} className="text-yellow-500" /> {t('input.exchangeRate')}
                                 <InfoTooltip text={t('input.exchangeRateTooltip')} />
                             </label>
@@ -727,7 +727,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                   
                   {/* Cassa Malati Moved Here */}
                   <div className="space-y-2 pt-2">
-                      <label className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                      <label className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
                         <Bandage size={12} className="text-rose-500"/> {t('input.healthInsurance')}
                         <InfoTooltip text={t('input.healthInsuranceTooltip')} />
                       </label>
@@ -739,7 +739,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                   
                   {/* Wealth Tax (CH residents only) */}
                   <div className="space-y-2 pt-2">
-                      <label className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                      <label className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
                         <Landmark size={12} className="text-emerald-500"/> {t('input.netWealth')}
                         <InfoTooltip text={t('input.netWealthTooltip')} />
                       </label>
@@ -803,7 +803,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                        </div>
                        
                        <div className="flex items-center gap-2 bg-white dark:bg-slate-800 p-3 rounded-lg border border-amber-200 dark:border-amber-700">
-                          <label className="text-[10px] font-semibold text-slate-700 dark:text-slate-300 flex-1">{t('input.netIncomePercentage')}</label>
+                          <label className="text-xs font-semibold text-slate-700 dark:text-slate-300 flex-1">{t('input.netIncomePercentage')}</label>
                           <div className="flex items-center gap-1">
                              <input 
                                type="number" 
@@ -812,9 +812,9 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                                step="0.1"
                                min="0"
                                max="100"
-                               className="w-14 text-right bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-[10px] font-bold focus:outline-none focus:ring-1 focus:ring-amber-500" 
+                               className="w-14 text-right bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-amber-500" 
                              />
-                             <span className="text-[10px] font-bold text-slate-600">%</span>
+                             <span className="text-xs font-bold text-slate-600">%</span>
                           </div>
                        </div>
                        
@@ -850,7 +850,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
            {openSections.rates && (
               <div className="p-5 pt-0 space-y-4 animate-fade-in border-t border-slate-50 dark:border-slate-800/50 mt-2 pt-4">
                   <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 space-y-3">
-                      <h4 className="text-[10px] font-bold uppercase text-slate-600">{t('input.swissRates')}</h4>
+                      <h4 className="text-xs font-bold uppercase text-slate-600">{t('input.swissRates')}</h4>
                       <div className="grid grid-cols-2 gap-3">
                           <TechInput label={t('input.avsRate')} value={inputs.avsRate} onChange={(v) => handleChange('avsRate', v)} isPercentage step="0.1" />
                           <TechInput label={t('input.acRate')} value={inputs.acRate} onChange={(v) => handleChange('acRate', v)} isPercentage step="0.1" />
@@ -859,7 +859,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                       </div>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 space-y-3">
-                      <h4 className="text-[10px] font-bold uppercase text-slate-600">{t('input.lppPension')}</h4>
+                      <h4 className="text-xs font-bold uppercase text-slate-600">{t('input.lppPension')}</h4>
                       <div className="grid grid-cols-2 gap-3">
                           <TechInput label={t('input.lppAge25_34')} value={inputs.lppRate25_34} onChange={(v) => handleChange('lppRate25_34', v)} isPercentage step="0.1" />
                           <TechInput label={t('input.lppAge35_44')} value={inputs.lppRate35_44} onChange={(v) => handleChange('lppRate35_44', v)} isPercentage step="0.1" />
@@ -868,7 +868,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                       </div>
                   </div>
                   <div className="bg-slate-50 dark:bg-slate-900/30 p-4 rounded-xl border border-slate-100 dark:border-slate-800 space-y-3">
-                      <h4 className="text-[10px] font-bold uppercase text-slate-600">{t('input.italy')}</h4>
+                      <h4 className="text-xs font-bold uppercase text-slate-600">{t('input.italy')}</h4>
                       <div className="grid grid-cols-2 gap-3">
                           <TechInput label={t('input.itSurchargeRate')} value={inputs.itAddizionaleRate} onChange={(v) => handleChange('itAddizionaleRate', v)} isPercentage step="0.1" />
                           <TechInput label={t('input.itWorkDeduction')} value={inputs.itWorkDeduction} onChange={(v) => handleChange('itWorkDeduction', v)} step="10" />

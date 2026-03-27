@@ -89,7 +89,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
                   amazon.it
                 </span>
               )}
-              <span className="text-[10px] font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 flex items-center gap-0.5">
+              <span className="text-xs font-medium text-indigo-500 dark:text-indigo-400 group-hover:text-indigo-600 dark:group-hover:text-indigo-300 flex items-center gap-0.5">
                 Vedi <ExternalLink size={10} />
               </span>
             </div>
@@ -97,7 +97,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
         );
       })}
 
-      <p className="text-[10px] text-slate-500 dark:text-slate-400 leading-snug">{t('creatorPicks.disclosure')}</p>
+      <p className="text-xs text-slate-500 dark:text-slate-400 leading-snug">{t('creatorPicks.disclosure')}</p>
     </div>
   );
 };

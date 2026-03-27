@@ -135,7 +135,7 @@ const WeatherPill: React.FC<{ weather: MiniWeather; label: string; flag?: string
       {isUser ? (
         <Navigation className="w-3 h-3 text-violet-500" aria-hidden="true" />
       ) : flag ? (
-        <span className="text-[10px]" aria-hidden="true">{flag}</span>
+        <span className="text-xs" aria-hidden="true">{flag}</span>
       ) : (
         <MapPin className="w-3 h-3 text-slate-500" aria-hidden="true" />
       )}

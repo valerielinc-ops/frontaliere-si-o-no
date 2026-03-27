@@ -237,7 +237,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
                       <h4 className="font-bold text-sm text-slate-800 dark:text-slate-200">{nursery.name}</h4>
-                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                      <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         nursery.type === 'public'
                           ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
                           : nursery.type === 'aziendali'
@@ -257,15 +257,15 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                     <p className="text-lg font-bold text-emerald-700 dark:text-emerald-300">
                       CHF {estimatedCost.toLocaleString()}
                     </p>
-                    <p className="text-[10px] text-slate-500 dark:text-slate-400">{t('nursery.perMonth')}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{t('nursery.perMonth')}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-2 mt-2">
-                  <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${waitListLabel(nursery.waitList)}`}>
+                  <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${waitListLabel(nursery.waitList)}`}>
                     {t(`nursery.waitList.${nursery.waitList}`)}
                   </span>
                   {nursery.subsidized && (
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                    <span className="text-xs font-bold px-1.5 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
                       {t('nursery.subsidized')}
                     </span>
                   )}

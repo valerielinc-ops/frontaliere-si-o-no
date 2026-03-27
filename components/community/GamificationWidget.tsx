@@ -179,7 +179,7 @@ const GamificationWidget: React.FC = () => {
           <div className="bg-gradient-to-r from-amber-500 to-orange-500 text-white rounded-xl shadow-lg px-4 py-2.5 flex items-center gap-2.5 max-w-xs">
             <span className="text-xl flex-shrink-0">{ACHIEVEMENTS.find(a => a.id === toast)?.icon || '🏆'}</span>
             <div className="min-w-0">
-              <div className="text-[10px] font-bold uppercase tracking-wider opacity-80">{t('gamification.achievementUnlocked')}</div>
+              <div className="text-xs font-bold uppercase tracking-wider opacity-80">{t('gamification.achievementUnlocked')}</div>
               <div className="font-bold text-xs truncate">{t(`gamification.achievement.${toast}`)}</div>
             </div>
             <button onClick={() => setToast(null)} className="ml-1 p-0.5 hover:bg-white/20 rounded-full transition-colors flex-shrink-0" aria-label="Chiudi">
@@ -261,7 +261,7 @@ const GamificationWidget: React.FC = () => {
 
             {/* Recent achievements (last unlocked) */}
             <div className="px-3 py-2">
-              <div className="text-[10px] uppercase tracking-wider text-slate-500 font-bold mb-2 px-1">
+              <div className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-2 px-1">
                 {t('gamification.recentAchievements') || 'Ultimi sbloccati'}
               </div>
               {recentAchievements.length === 0 ? (

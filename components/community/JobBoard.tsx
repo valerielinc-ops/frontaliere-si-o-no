@@ -3311,7 +3311,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
                 {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-amber-500 fill-amber-500" />}
                 {isNewJob(job) && (
-                  <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-[10px] font-bold uppercase tracking-wide rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                  <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
                     <Sparkles className="w-2.5 h-2.5" />
                     {t('jobBoard.badge.new')}
                   </span>
@@ -5557,7 +5557,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
             {/* Keyboard shortcut hint — desktop only */}
             {!searchQuery && (
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 mr-4 px-2 py-1 text-[10px] font-medium text-slate-500 dark:text-slate-500 bg-slate-100 dark:bg-slate-700 rounded-md border border-slate-200 dark:border-slate-600 select-none">
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 mr-4 px-2 py-1 text-xs font-medium text-slate-500 dark:text-slate-500 bg-slate-100 dark:bg-slate-700 rounded-md border border-slate-200 dark:border-slate-600 select-none">
                 ⌘K
               </kbd>
             )}
@@ -5567,7 +5567,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Autocomplete suggestions */}
         {autocompleteSuggestions.length > 0 && (
           <div className="flex flex-wrap items-center gap-1.5">
-            <span className="text-[10px] text-slate-500 dark:text-slate-400 flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
+            <span className="text-xs text-slate-500 dark:text-slate-400 flex-shrink-0">{t('search.autocomplete') || 'Suggerimenti:'}</span>
             {autocompleteSuggestions.map((s) => (
               <button
                 key={s}
@@ -5634,7 +5634,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <SlidersHorizontal className="w-4 h-4" />
             {t('jobBoard.filter.filters') || 'Filtri'}
             {activeFilterCount > 0 && (
-              <span className="inline-flex items-center justify-center w-5 h-5 text-[10px] font-bold rounded-full bg-indigo-600 text-white">
+              <span className="inline-flex items-center justify-center w-5 h-5 text-xs font-bold rounded-full bg-indigo-600 text-white">
                 {activeFilterCount}
               </span>
             )}

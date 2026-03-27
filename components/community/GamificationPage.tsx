@@ -75,12 +75,12 @@ const GamificationPage: React.FC = () => {
           {/* Level + Stats row */}
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
             <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.level') || 'Livello'}</div>
+              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.level') || 'Livello'}</div>
               <div className="text-2xl sm:text-3xl font-black">{levelInfo.level}</div>
               <div className="text-xs text-amber-100 font-semibold">{levelTitle}</div>
             </div>
             <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">XP</div>
+              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">XP</div>
               <div className="text-2xl sm:text-3xl font-black">{state.xp}</div>
               <div className="w-full bg-white/20 rounded-full h-1.5 mt-2">
                 <div className="bg-white rounded-full h-1.5 transition-transform duration-500" style={{ width: '100%', transform: `scaleX(${xpProgressPct / 100})`, transformOrigin: 'left' }} />
@@ -88,7 +88,7 @@ const GamificationPage: React.FC = () => {
               <div className="text-[9px] text-amber-200 mt-1">{levelInfo.currentXp}/{levelInfo.nextLevelXp} → {t('gamification.level')} {levelInfo.level + 1}</div>
             </div>
             <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.dayStreak') || 'Streak'}</div>
+              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.dayStreak') || 'Streak'}</div>
               <div className="flex items-center gap-2">
                 <Flame size={24} className="text-orange-200" />
                 <span className="text-2xl sm:text-3xl font-black">{state.streak}</span>
@@ -96,7 +96,7 @@ const GamificationPage: React.FC = () => {
               <div className="text-xs text-amber-100">{t('gamification.daysInARow') || 'giorni consecutivi'}</div>
             </div>
             <div className="bg-white/20 rounded-xl p-4">
-              <div className="text-[10px] uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.progress') || 'Progressi'}</div>
+              <div className="text-xs uppercase tracking-wider text-amber-200 font-bold mb-1">{t('gamification.progress') || 'Progressi'}</div>
               <div className="text-2xl sm:text-3xl font-black">{unlockedCount}<span className="text-lg text-amber-200">/{totalCount}</span></div>
               <div className="text-xs text-amber-100">{progressPercent}% {t('gamification.completed') || 'completato'}</div>
             </div>
@@ -124,7 +124,7 @@ const GamificationPage: React.FC = () => {
             >
               {categoryIcons[cat]}
               <span>{t(`gamification.category.${cat}`)}</span>
-              <span className={`text-[10px] px-1.5 py-0.5 rounded-full ${selectedCategory === cat ? 'bg-white/30' : 'bg-slate-200 dark:bg-slate-700'}`}>
+              <span className={`text-xs px-1.5 py-0.5 rounded-full ${selectedCategory === cat ? 'bg-white/30' : 'bg-slate-200 dark:bg-slate-700'}`}>
                 {catUnlocked}/{catCount}
               </span>
             </button>
@@ -177,13 +177,13 @@ const GamificationPage: React.FC = () => {
                     <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
                       <div className="bg-amber-500 rounded-full h-1.5 transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${progress})`, transformOrigin: 'left' }} />
                     </div>
-                    <span className="text-[10px] text-slate-500 font-bold">{count}/{achievement.requiredCount}</span>
+                    <span className="text-xs text-slate-500 font-bold">{count}/{achievement.requiredCount}</span>
                   </div>
                 )}
 
                 {/* Unlocked date */}
                 {isUnlocked && unlockedDate && (
-                  <div className="text-[10px] text-slate-500 mt-1.5 flex items-center gap-1">
+                  <div className="text-xs text-slate-500 mt-1.5 flex items-center gap-1">
                     <CheckCircle2 size={10} />
                     {t('gamification.unlockedOn') || 'Sbloccato il'} {unlockedDate}
                   </div>
@@ -192,7 +192,7 @@ const GamificationPage: React.FC = () => {
                 {/* XP reward */}
                 <div className="flex items-center gap-1 mt-1.5">
                   <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-slate-500'} />
-                  <span className={`text-[10px] font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500'}`}>
+                  <span className={`text-xs font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500'}`}>
                     +50 XP
                   </span>
                 </div>
@@ -227,7 +227,7 @@ const GamificationPage: React.FC = () => {
                 <div className={`text-lg font-black ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-700' : 'text-slate-500'}`}>
                   {lvl}
                 </div>
-                <div className="text-[10px] font-bold text-slate-600 dark:text-slate-300 mt-0.5">{title}</div>
+                <div className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-0.5">{title}</div>
               </div>
             );
           })}

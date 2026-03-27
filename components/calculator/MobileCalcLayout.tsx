@@ -209,7 +209,7 @@ const MobileCalcLayout: React.FC<Props> = ({
       <div className="bg-white dark:bg-slate-900 rounded-2xl shadow-lg border border-slate-200/80 dark:border-slate-800 overflow-hidden">
         {/* Salary */}
         <div className="p-4 pb-3.5">
-          <label htmlFor="mc-salary" className="text-[10px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider flex items-center gap-1.5 mb-2">
+          <label htmlFor="mc-salary" className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider flex items-center gap-1.5 mb-2">
             <Coins size={12} className="text-amber-500" />
             {t('mobileCalc.salary')}
           </label>
@@ -247,7 +247,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <button
                 key={s}
                 onClick={() => handleChange('annualIncomeCHF', s)}
-                className={`shrink-0 px-2.5 py-1 rounded-lg text-[10px] font-bold transition-all ${
+                className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
                   inputs.annualIncomeCHF === s
                     ? 'bg-blue-600 text-white shadow-sm'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-500 hover:bg-slate-200'
@@ -261,7 +261,7 @@ const MobileCalcLayout: React.FC<Props> = ({
 
         {/* Frontier type toggle */}
         <div className="px-4 pb-4">
-          <label className="text-[10px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider flex items-center gap-1.5 mb-2">
+          <label className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider flex items-center gap-1.5 mb-2">
             <TrainFront size={12} className="text-emerald-600" />
             {t('input.frontierType')}
           </label>
@@ -309,7 +309,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 <button
                   key={opt.value}
                   onClick={() => handleChange('distanceZone', opt.value)}
-                  className={`flex-1 flex items-center justify-center gap-1 text-[10px] font-bold py-2 rounded-lg transition-all ${
+                  className={`flex-1 flex items-center justify-center gap-1 text-xs font-bold py-2 rounded-lg transition-all ${
                     inputs.distanceZone === opt.value
                       ? 'text-blue-700 dark:text-blue-300 bg-white dark:bg-slate-700 shadow-sm'
                       : 'text-slate-600 dark:text-slate-400'
@@ -369,7 +369,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Home size={13} className="text-blue-600 dark:text-blue-400" />
-                  <span className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase">{t('mobileCalc.liveInCH')}</span>
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase">{t('mobileCalc.liveInCH')}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
                   <div className="text-lg font-black text-slate-800 dark:text-slate-100 tracking-tight">
@@ -379,7 +379,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     <InlineNetDeltaBadge key={`ch-${chDelta.key}`} delta={chDelta.delta} size="mobile" />
                   )}
                 </div>
-                <div className="text-[10px] text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
+                <div className="text-xs text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>
 
               {/* IT Frontaliere */}
@@ -395,7 +395,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               >
                 <div className="flex items-center gap-1.5 mb-1.5">
                   <Briefcase size={13} className="text-emerald-600 dark:text-emerald-400" />
-                  <span className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase">{t('mobileCalc.crossBorderIT')}</span>
+                  <span className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase">{t('mobileCalc.crossBorderIT')}</span>
                 </div>
                 <div className="flex flex-wrap items-center gap-1.5">
                   <div className="text-lg font-black text-slate-800 dark:text-slate-100 tracking-tight">
@@ -405,7 +405,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                     <InlineNetDeltaBadge key={`it-${itDelta.key}`} delta={itDelta.delta} size="mobile" />
                   )}
                 </div>
-                <div className="text-[10px] text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
+                <div className="text-xs text-slate-500 font-semibold">{t('mobileCalc.perMonth')}</div>
               </button>
             </div>
 

@@ -293,7 +293,7 @@ export default function TrafficHistory() {
           <div className="flex gap-1 mt-1">
             {analysis.dayAverages.map(d => (
               <div key={d.day} className="flex-1 text-center">
-                <p className="text-[10px] text-blue-500 dark:text-blue-400">{d.name}</p>
+                <p className="text-xs text-blue-500 dark:text-blue-400">{d.name}</p>
                 <p className={`text-xs font-bold rounded px-1 py-0.5 ${d.avg > 15 ? 'text-red-700 dark:text-red-400' : d.avg > 8 ? 'text-orange-700 dark:text-orange-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
                   {d.avg}'
                 </p>
@@ -316,7 +316,7 @@ export default function TrafficHistory() {
           <div className="flex items-center mb-1">
             <div className="w-12 shrink-0" />
             {HOURS.filter(h => h >= 5 && h <= 21).map(h => (
-              <div key={h} className="flex-1 text-center text-[10px] text-slate-500 dark:text-slate-400 font-mono">
+              <div key={h} className="flex-1 text-center text-xs text-slate-500 dark:text-slate-400 font-mono">
                 {h}
               </div>
             ))}
@@ -331,7 +331,7 @@ export default function TrafficHistory() {
               {row.hours.filter(h => h.hour >= 5 && h.hour <= 21).map(cell => (
                 <div
                   key={cell.hour}
-                  className={`flex-1 text-center text-[10px] font-mono rounded-sm mx-px py-1 cursor-default ${getColorClass(cell.wait)}`}
+                  className={`flex-1 text-center text-xs font-mono rounded-sm mx-px py-1 cursor-default ${getColorClass(cell.wait)}`}
                   title={`${row.dayName} ${cell.hour}:00 — ${cell.wait} min`}
                 >
                   {cell.wait > 0 ? cell.wait : ''}

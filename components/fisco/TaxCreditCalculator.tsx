@@ -243,7 +243,7 @@ const TaxCreditCalculator: React.FC = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {/* Gross salary */}
           <div>
-            <label htmlFor="tc-gross" className="block text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-gross" className="block text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
               {t('taxCredit.grossSalary')}
             </label>
             <div className="relative">
@@ -261,7 +261,7 @@ const TaxCreditCalculator: React.FC = () => {
 
           {/* Age */}
           <div>
-            <label htmlFor="tc-age" className="block text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-age" className="block text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
               👤 {t('taxCredit.age')}
             </label>
             <NumberStepper
@@ -276,7 +276,7 @@ const TaxCreditCalculator: React.FC = () => {
 
           {/* Marital status */}
           <div>
-            <label htmlFor="tc-marital" className="block text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-marital" className="block text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
               <Users size={14} className="inline mr-1" />
               {t('taxCredit.maritalStatus')}
             </label>
@@ -293,7 +293,7 @@ const TaxCreditCalculator: React.FC = () => {
 
           {/* Children */}
           <div>
-            <label htmlFor="tc-children" className="block text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-children" className="block text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
               👶 {t('taxCredit.children')}
             </label>
             <NumberStepper
@@ -327,7 +327,7 @@ const TaxCreditCalculator: React.FC = () => {
 
           {/* Other Italian income */}
           <div className="sm:col-span-2">
-            <label htmlFor="tc-other" className="block text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
+            <label htmlFor="tc-other" className="block text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
               {t('taxCredit.otherIncome')}
             </label>
             <div className="relative">
@@ -347,7 +347,7 @@ const TaxCreditCalculator: React.FC = () => {
 
         {/* Distance from border selector */}
         <div className="mt-4">
-          <label htmlFor="tc-distance" className="block text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
+          <label htmlFor="tc-distance" className="block text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide mb-1">
             {t('taxCredit.distanceLabel')}
           </label>
           <select

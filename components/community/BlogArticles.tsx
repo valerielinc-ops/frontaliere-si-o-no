@@ -1224,8 +1224,8 @@ export default function BlogArticles({
               {t(partner.badgeKey)}
             </span>
           )}
-          <p className="text-[10px] text-slate-500 dark:text-slate-500 mt-1 leading-snug">{t(partner.taglineKey)}</p>
-          <span className="mt-1.5 inline-flex items-center gap-0.5 text-[10px] font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
+          <p className="text-xs text-slate-500 dark:text-slate-500 mt-1 leading-snug">{t(partner.taglineKey)}</p>
+          <span className="mt-1.5 inline-flex items-center gap-0.5 text-xs font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
             {t('affiliate.cta')} <ExternalLink size={9} />
           </span>
         </a>
@@ -1251,7 +1251,7 @@ export default function BlogArticles({
           {/* ── Left Rail (desktop only) ── */}
           <aside className="hidden xl:block">
             <div className="sticky top-6 space-y-3">
-              <p className="text-[10px] font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
                 {t('affiliate.sectionTitle')}
               </p>
               {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
@@ -1305,7 +1305,7 @@ export default function BlogArticles({
                 <span className={`px-3 py-1 rounded-full text-xs font-bold ${getCategoryColor(article.category)}`}>
                   {t(`blog.category.${article.category}`)}
                 </span>
-                <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+                <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                   article.category === 'novita'
                     ? 'bg-orange-500/80 text-white'
                     : 'bg-white/20 text-white backdrop-blur-sm'
@@ -1646,7 +1646,7 @@ export default function BlogArticles({
                               />
                             </picture>
                             {idx === 0 && (
-                              <span className="absolute -top-1.5 -left-1.5 bg-orange-500 text-white text-[10px] font-bold px-1.5 py-0.5 rounded-full leading-none">
+                              <span className="absolute -top-1.5 -left-1.5 bg-orange-500 text-white text-xs font-bold px-1.5 py-0.5 rounded-full leading-none">
                                 🔥
                               </span>
                             )}
@@ -1739,7 +1739,7 @@ export default function BlogArticles({
           {/* ── Right Rail (desktop only) ── */}
           <aside className="hidden xl:block">
             <div className="sticky top-6 space-y-3">
-              <p className="text-[10px] font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
                 {t('blog.resourcesTitle')}
               </p>
               {sidePartners.slice(2, 4).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i + 2} />)}
@@ -1763,14 +1763,14 @@ export default function BlogArticles({
               {/* Donation mini-card */}
               <div className="rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50/80 dark:bg-amber-900/20 p-3 text-center space-y-2">
                 <Coffee size={18} className="mx-auto text-amber-600 dark:text-amber-400" />
-                <p className="text-[10px] leading-snug text-slate-600 dark:text-slate-500">
+                <p className="text-xs leading-snug text-slate-600 dark:text-slate-500">
                   {t('donation.message').slice(0, 80)}…
                 </p>
                 <a
                   href="https://www.buymeacoffee.com/frontaliereticino"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-block w-full text-[10px] font-semibold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/40 hover:bg-amber-200 dark:hover:bg-amber-800/50 rounded-lg py-1.5 transition-colors"
+                  className="inline-block w-full text-xs font-semibold text-amber-700 dark:text-amber-300 bg-amber-100 dark:bg-amber-900/40 hover:bg-amber-200 dark:hover:bg-amber-800/50 rounded-lg py-1.5 transition-colors"
                 >
                   ☕ {t('donation.button')}
                 </a>
@@ -1893,7 +1893,7 @@ export default function BlogArticles({
                 <span className={`px-3 py-1 rounded-full text-xs font-bold ${getCategoryColor(pageArticles[0].category)}`}>
                   {t(`blog.category.${pageArticles[0].category}`)}
                 </span>
-                <span className={`px-2 py-0.5 rounded-full text-[10px] font-semibold ${
+                <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                   pageArticles[0].category === 'novita'
                     ? 'bg-orange-500/80 text-white'
                     : 'bg-white/20 text-white backdrop-blur-sm'
@@ -1954,7 +1954,7 @@ export default function BlogArticles({
                   );
                 })()}
                 <div className="absolute top-2 left-2 flex items-center gap-1">
-                  <span className={`px-2 py-0.5 rounded-full text-[10px] font-bold ${getCategoryColor(article.category)}`}>
+                  <span className={`px-2 py-0.5 rounded-full text-xs font-bold ${getCategoryColor(article.category)}`}>
                     {t(`blog.category.${article.category}`)}
                   </span>
                   <span className={`px-1.5 py-0.5 rounded-full text-[9px] font-semibold ${

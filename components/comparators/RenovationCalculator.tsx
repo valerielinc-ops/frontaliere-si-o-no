@@ -131,7 +131,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
           <h2 className="text-2xl font-bold">{t('renovation.title')}</h2>
         </div>
         <p className="text-orange-100 text-sm">{t('renovation.subtitle')}</p>
-        <span className="inline-block mt-2 text-[10px] font-semibold bg-white/20 rounded-full px-2.5 py-0.5">
+        <span className="inline-block mt-2 text-xs font-semibold bg-white/20 rounded-full px-2.5 py-0.5">
           {t('renovation.updated2026')}
         </span>
       </div>
@@ -257,11 +257,11 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
               placeholder="100000"
             />
             {stipendioLordo > 0 && redditoImponibile > 0 && (
-              <p className="text-[10px] text-emerald-700 dark:text-emerald-400 mt-1 font-medium">
+              <p className="text-xs text-emerald-700 dark:text-emerald-400 mt-1 font-medium">
                 {t('capienza.derivedBase', { base: redditoImponibile.toLocaleString() })}
               </p>
             )}
-            <p className="text-[10px] text-slate-500 dark:text-slate-400 mt-1">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
               {hasSimulation
                 ? t('capienza.autoPopulated')
                 : t('capienza.grossSalaryHelp')
@@ -531,7 +531,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                       <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">{t(`renovation.bonus.${b.key}`)}</h4>
                       <div className="flex items-center gap-1.5">
                         {b.secondaCasa && propertyType === 'seconda_casa' && (
-                          <span className="text-[10px] bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded-full font-medium">
+                          <span className="text-xs bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 px-1.5 py-0.5 rounded-full font-medium">
                             {t('renovation.secondaCasa')}
                           </span>
                         )}
@@ -578,7 +578,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                     <div className="flex items-center gap-2 mb-1">
                       <Icon size={16} className={cat.deductible ? 'text-emerald-700' : 'text-red-500'} />
                       <h4 className="font-semibold text-sm text-slate-800 dark:text-slate-200">{t(`renovation.cat.${cat.key}`)}</h4>
-                      <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full ${
+                      <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full ${
                         cat.deductible
                           ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
                           : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300'

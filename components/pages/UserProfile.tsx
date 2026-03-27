@@ -355,7 +355,7 @@ const FamilyMemberRow: React.FC<{
     <div className="flex flex-col sm:flex-row gap-2 p-3 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-100 dark:border-slate-800">
       <div className="flex-1 grid grid-cols-2 gap-2">
         <div>
-          <label htmlFor={`rel-${member.id}`} className="text-[10px] font-bold text-slate-500 uppercase">{t('profile.family.relationship')}</label>
+          <label htmlFor={`rel-${member.id}`} className="text-xs font-bold text-slate-500 uppercase">{t('profile.family.relationship')}</label>
           <select
             id={`rel-${member.id}`}
             value={member.relationship}
@@ -371,7 +371,7 @@ const FamilyMemberRow: React.FC<{
           </select>
         </div>
         <div>
-          <label htmlFor={`year-${member.id}`} className="text-[10px] font-bold text-slate-500 uppercase">{t('profile.family.birthYear')}</label>
+          <label htmlFor={`year-${member.id}`} className="text-xs font-bold text-slate-500 uppercase">{t('profile.family.birthYear')}</label>
           <input
             id={`year-${member.id}`}
             type="number"
@@ -386,7 +386,7 @@ const FamilyMemberRow: React.FC<{
         </div>
       </div>
       <div className="flex items-center gap-3 sm:gap-2">
-        <label className="flex items-center gap-1 text-[10px] font-medium text-slate-600 dark:text-slate-400 cursor-pointer">
+        <label className="flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-400 cursor-pointer">
           <input
             type="checkbox"
             checked={member.dependent}
@@ -396,7 +396,7 @@ const FamilyMemberRow: React.FC<{
           />
           {t('profile.family.dependent')}
         </label>
-        <label className="flex items-center gap-1 text-[10px] font-medium text-slate-600 dark:text-slate-400 cursor-pointer">
+        <label className="flex items-center gap-1 text-xs font-medium text-slate-600 dark:text-slate-400 cursor-pointer">
           <input
             type="checkbox"
             checked={member.liveTogether}
@@ -946,7 +946,7 @@ const UserProfile: React.FC = () => {
               />
             </div>
             {completeness < 100 && (
-              <p className="text-blue-200 text-[10px] mt-1">{t('profile.completeForBetter')}</p>
+              <p className="text-blue-200 text-xs mt-1">{t('profile.completeForBetter')}</p>
             )}
           </div>
         </div>
@@ -954,7 +954,7 @@ const UserProfile: React.FC = () => {
         {/* Quick actions strip */}
         <div className="px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-2 overflow-x-auto">
-            <span className="text-[10px] font-bold text-slate-500 uppercase whitespace-nowrap">{t('profile.quickActions')}</span>
+            <span className="text-xs font-bold text-slate-500 uppercase whitespace-nowrap">{t('profile.quickActions')}</span>
             {[
               { icon: Calculator, label: t('profile.action.simulate'), tab: 'calculator' },
               { icon: Sparkles, label: t('profile.action.whatif'), tab: 'calculator', subTab: 'whatif' },
@@ -986,11 +986,11 @@ const UserProfile: React.FC = () => {
                   aria-label={t('profile.widget.netSalary')}
                   className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all cursor-pointer"
                 >
-                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netCH')}</span>
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netCH')}</span>
                   <span className="text-lg font-bold text-emerald-700 dark:text-emerald-400 tabular-nums">
                     {Math.round(quickSimResult.chResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-[10px] text-slate-500">CHF/{t('profile.widget.month')}</span>
+                  <span className="text-xs text-slate-500">CHF/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* Net salary (IT) */}
@@ -1000,11 +1000,11 @@ const UserProfile: React.FC = () => {
                   aria-label={t('profile.widget.netSalary')}
                   className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all cursor-pointer"
                 >
-                  <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netIT')}</span>
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netIT')}</span>
                   <span className="text-lg font-bold text-blue-600 dark:text-blue-400 tabular-nums">
                     {Math.round(quickSimResult.itResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-[10px] text-slate-500">EUR/{t('profile.widget.month')}</span>
+                  <span className="text-xs text-slate-500">EUR/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* EUR/CHF rate */}
@@ -1013,11 +1013,11 @@ const UserProfile: React.FC = () => {
                 aria-label={t('profile.widget.fxRate')}
                 className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all cursor-pointer"
               >
-                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">EUR/CHF</span>
+                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">EUR/CHF</span>
                 <span className="text-lg font-bold text-amber-600 dark:text-amber-400 tabular-nums">
                   {fxRate.toFixed(4)}
                 </span>
-                <span className="text-[10px] text-slate-500">{t('profile.widget.live')}</span>
+                <span className="text-xs text-slate-500">{t('profile.widget.live')}</span>
               </button>
               {/* Preferred dogana / morning dashboard */}
               <button
@@ -1025,11 +1025,11 @@ const UserProfile: React.FC = () => {
                 aria-label={t('profile.widget.morning')}
                 className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-orange-300 dark:hover:border-orange-600 transition-all cursor-pointer"
               >
-                <span className="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">
+                <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                   {preferredCrossing ? preferredCrossing.name : t('profile.widget.morning')}
                 </span>
                 <span className="text-lg">☀️</span>
-                <span className="text-[10px] text-orange-600 dark:text-orange-400 font-medium">{t('profile.widget.openDashboard')}</span>
+                <span className="text-xs text-orange-600 dark:text-orange-400 font-medium">{t('profile.widget.openDashboard')}</span>
               </button>
             </div>
           </div>
@@ -1176,7 +1176,7 @@ const UserProfile: React.FC = () => {
                   min={new Date().toISOString().split('T')[0]}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
-                <p className="text-[10px] text-slate-500 dark:text-slate-500 mt-1">{t('profile.permitExpiryHint')}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">{t('profile.permitExpiryHint')}</p>
               </div>
             )}
 
@@ -1281,16 +1281,16 @@ const UserProfile: React.FC = () => {
               {/* Municipality info badges */}
               {selectedMuni && (
                 <div className="flex flex-wrap gap-2 mt-2">
-                  <span className="px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-[10px] font-bold rounded-md">
+                  <span className="px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold rounded-md">
                     {t('profile.muniDistance')}: {selectedMuni.distanceKm} km
                   </span>
-                  <span className="px-2 py-0.5 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-[10px] font-bold rounded-md">
+                  <span className="px-2 py-0.5 bg-amber-50 dark:bg-amber-900/30 text-amber-700 dark:text-amber-400 text-xs font-bold rounded-md">
                     {t('profile.muniIrpef')}: {selectedMuni.irpefAddizionale}%
                   </span>
-                  <span className="px-2 py-0.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-[10px] font-bold rounded-md">
+                  <span className="px-2 py-0.5 bg-emerald-50 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-400 text-xs font-bold rounded-md">
                     {t('profile.muniFascia')}: {selectedMuni.fascia}
                   </span>
-                  <span className="px-2 py-0.5 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-[10px] font-bold rounded-md">
+                  <span className="px-2 py-0.5 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-bold rounded-md">
                     {t('profile.muniRent')}: €{selectedMuni.avgRentMonthly}/m
                   </span>
                 </div>
@@ -1308,7 +1308,7 @@ const UserProfile: React.FC = () => {
                 <Users size={16} className="text-indigo-500" />
                 {t('profile.family.title')}
                 {(profile.familyMembersList?.length || 0) > 0 && (
-                  <span className="text-[10px] font-bold px-1.5 py-0.5 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-md">
+                  <span className="text-xs font-bold px-1.5 py-0.5 bg-indigo-100 dark:bg-indigo-900/40 text-indigo-600 dark:text-indigo-400 rounded-md">
                     {profile.familyMembersList!.length}
                   </span>
                 )}
@@ -1363,7 +1363,7 @@ const UserProfile: React.FC = () => {
 
                 {/* Detailed family members list */}
                 <div className="space-y-2">
-                  <p className="text-[10px] text-slate-500 font-medium">{t('profile.family.detailLabel')}</p>
+                  <p className="text-xs text-slate-500 font-medium">{t('profile.family.detailLabel')}</p>
                   {(profile.familyMembersList || []).map(member => (
                     <FamilyMemberRow
                       key={member.id}
@@ -1474,16 +1474,16 @@ const UserProfile: React.FC = () => {
                   };
                   return (
                     <div className="flex flex-wrap gap-2 mt-2">
-                      <span className={`px-2 py-0.5 text-[10px] font-bold rounded-md ${levelColors[bc.trafficLevel]}`}>
+                      <span className={`px-2 py-0.5 text-xs font-bold rounded-md ${levelColors[bc.trafficLevel]}`}>
                         {bc.trafficLevel === 'high' ? '🔴' : bc.trafficLevel === 'medium' ? '🟡' : '🟢'} {t('profile.doganaTraffic')}: {bc.trafficLevel}
                       </span>
-                      <span className="px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-[10px] font-bold rounded-md">
+                      <span className="px-2 py-0.5 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-400 text-xs font-bold rounded-md">
                         🌅 {t('profile.doganaMorning')}: {bc.avgWaitMorning}
                       </span>
-                      <span className="px-2 py-0.5 bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-[10px] font-bold rounded-md">
+                      <span className="px-2 py-0.5 bg-orange-50 dark:bg-orange-900/30 text-orange-700 dark:text-orange-400 text-xs font-bold rounded-md">
                         🌆 {t('profile.doganaEvening')}: {bc.avgWaitEvening}
                       </span>
-                      <span className="px-2 py-0.5 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-[10px] font-bold rounded-md">
+                      <span className="px-2 py-0.5 bg-purple-50 dark:bg-purple-900/30 text-purple-700 dark:text-purple-400 text-xs font-bold rounded-md">
                         ⏰ {t('profile.doganaPeak')}: {bc.peak}
                       </span>
                     </div>
@@ -1549,7 +1549,7 @@ const UserProfile: React.FC = () => {
               </div>
               <button
                 onClick={handleExportData}
-                className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-[10px] font-bold uppercase rounded-lg transition-colors flex-shrink-0"
+                className="px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold uppercase rounded-lg transition-colors flex-shrink-0"
               >
                 {t('profile.gdprExport')}
               </button>
@@ -1579,14 +1579,14 @@ const UserProfile: React.FC = () => {
                       <button
                         onClick={handleDeleteAccount}
                         disabled={deleting}
-                        className="flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white text-[10px] font-bold uppercase rounded-lg transition-colors"
+                        className="flex items-center gap-1.5 px-3 py-1.5 bg-red-600 hover:bg-red-700 disabled:bg-red-400 text-white text-xs font-bold uppercase rounded-lg transition-colors"
                       >
                         {deleting ? <Loader2 size={12} className="animate-spin" /> : <Trash2 size={12} />}
                         {t('profile.deleteAccountConfirmBtn')}
                       </button>
                       <button
                         onClick={() => setShowDeleteConfirm(false)}
-                        className="px-3 py-1.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-[10px] font-bold uppercase rounded-lg transition-colors hover:bg-slate-300 dark:hover:bg-slate-600"
+                        className="px-3 py-1.5 bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 text-xs font-bold uppercase rounded-lg transition-colors hover:bg-slate-300 dark:hover:bg-slate-600"
                       >
                         {t('profile.deleteAccountCancel')}
                       </button>

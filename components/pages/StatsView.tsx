@@ -120,7 +120,7 @@ export const StatsView: React.FC = () => {
         {/* KPI Row */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
             <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800 group relative">
-               <p className="text-[10px] font-bold text-blue-500 uppercase flex items-center gap-1">
+               <p className="text-xs font-bold text-blue-500 uppercase flex items-center gap-1">
                  {t('stats.totalFrontierWorkers')}
                  <Info size={12} className="text-blue-400 cursor-help" />
                </p>
@@ -137,7 +137,7 @@ export const StatsView: React.FC = () => {
                </div>
             </div>
             <div className={`p-4 rounded-2xl border group relative ${Number(qoqPercent) >= 0 ? 'bg-emerald-50/50 border-emerald-100 dark:bg-emerald-900/20 dark:border-emerald-800' : 'bg-red-50/50 border-red-100'}`}>
-               <p className={`text-[10px] font-bold uppercase flex items-center gap-1 ${Number(qoqPercent) >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
+               <p className={`text-xs font-bold uppercase flex items-center gap-1 ${Number(qoqPercent) >= 0 ? 'text-emerald-500' : 'text-red-500'}`}>
                  {t('stats.quarterlyTrend')}
                  <Info size={12} className={`cursor-help ${Number(qoqPercent) >= 0 ? 'text-emerald-400' : 'text-red-400'}`} />
                </p>
@@ -155,7 +155,7 @@ export const StatsView: React.FC = () => {
                </div>
             </div>
             <div className="bg-indigo-50/50 dark:bg-indigo-900/20 p-4 rounded-2xl border border-indigo-100 dark:border-indigo-800 group relative">
-               <p className="text-[10px] font-bold text-indigo-600 uppercase flex items-center gap-1">
+               <p className="text-xs font-bold text-indigo-600 uppercase flex items-center gap-1">
                  {t('stats.permitsEstimated')}
                  <Info size={12} className="text-indigo-400 cursor-help" />
                </p>
@@ -170,7 +170,7 @@ export const StatsView: React.FC = () => {
                </div>
             </div>
             <div className="bg-purple-50/50 dark:bg-purple-900/20 p-4 rounded-2xl border border-purple-100 dark:border-purple-800 group relative">
-               <p className="text-[10px] font-bold text-purple-500 uppercase flex items-center gap-1">
+               <p className="text-xs font-bold text-purple-500 uppercase flex items-center gap-1">
                  {t('stats.genderRatio')}
                  <Info size={12} className="text-purple-400 cursor-help" />
                </p>

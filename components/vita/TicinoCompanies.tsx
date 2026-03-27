@@ -708,11 +708,11 @@ const TicinoCompanies: React.FC = () => {
         </div>
         <div className="flex gap-3 sm:gap-4 mt-4">
           <div className="bg-white/20 backdrop-blur-sm rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
-            <div className="text-purple-100 text-[10px] sm:text-xs font-bold uppercase">{t('companies.totalCompanies') || 'Aziende'}</div>
+            <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalCompanies') || 'Aziende'}</div>
             <div className="text-xl sm:text-2xl font-extrabold">{filtered.length}</div>
           </div>
           <div className="bg-white/20 backdrop-blur-sm rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
-            <div className="text-purple-100 text-[10px] sm:text-xs font-bold uppercase">{t('companies.totalEmployees') || 'Dipendenti'}</div>
+            <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalEmployees') || 'Dipendenti'}</div>
             <div className="text-xl sm:text-2xl font-extrabold">{totalEmployees.toLocaleString('it-IT')}</div>
           </div>
         </div>
@@ -827,7 +827,7 @@ const TicinoCompanies: React.FC = () => {
                   )}
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-sm text-slate-800 dark:text-slate-100 truncate">{company.name}</h3>
-                    <span className="text-[10px] font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: `${SECTOR_COLORS[company.sector]}15`, color: SECTOR_COLORS[company.sector] }}>
+                    <span className="text-xs font-bold px-1.5 py-0.5 rounded-full" style={{ backgroundColor: `${SECTOR_COLORS[company.sector]}15`, color: SECTOR_COLORS[company.sector] }}>
                       {company.sector}
                     </span>
                   </div>

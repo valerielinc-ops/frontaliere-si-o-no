@@ -210,7 +210,7 @@ const UnemploymentStats: React.FC = () => {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
           {/* Current Rate */}
           <div className="bg-amber-50/50 dark:bg-amber-900/20 p-4 rounded-2xl border border-amber-100 dark:border-amber-800 group relative">
-            <p className="text-[10px] font-bold text-amber-600 uppercase flex items-center gap-1">
+            <p className="text-xs font-bold text-amber-600 uppercase flex items-center gap-1">
               {localeLabels.currentRate}
               <Info size={12} className="text-amber-400 cursor-help" />
             </p>
@@ -229,7 +229,7 @@ const UnemploymentStats: React.FC = () => {
 
           {/* Historic Low */}
           <div className="bg-emerald-50/50 dark:bg-emerald-900/20 p-4 rounded-2xl border border-emerald-100 dark:border-emerald-800">
-            <p className="text-[10px] font-bold text-emerald-600 uppercase">{localeLabels.minimum}</p>
+            <p className="text-xs font-bold text-emerald-600 uppercase">{localeLabels.minimum}</p>
             <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">{kpis?.min.toFixed(1)}%</p>
             {kpis?.minEntry && (
               <p className="text-[11px] text-emerald-700 dark:text-emerald-300 mt-1 capitalize">
@@ -243,7 +243,7 @@ const UnemploymentStats: React.FC = () => {
 
           {/* Historic High */}
           <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800">
-            <p className="text-[10px] font-bold text-red-600 uppercase">{localeLabels.maximum}</p>
+            <p className="text-xs font-bold text-red-600 uppercase">{localeLabels.maximum}</p>
             <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">{kpis?.max.toFixed(1)}%</p>
             {kpis?.maxEntry && (
               <p className="text-[11px] text-red-700 dark:text-red-300 mt-1 capitalize">
@@ -257,7 +257,7 @@ const UnemploymentStats: React.FC = () => {
 
           {/* Period Average */}
           <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800">
-            <p className="text-[10px] font-bold text-blue-600 uppercase">{localeLabels.average}</p>
+            <p className="text-xs font-bold text-blue-600 uppercase">{localeLabels.average}</p>
             <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">{kpis?.avg.toFixed(1)}%</p>
             <p className="text-[11px] text-blue-700 dark:text-blue-300 mt-1">2016 – 2026</p>
           </div>

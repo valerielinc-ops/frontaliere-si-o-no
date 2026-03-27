@@ -145,7 +145,7 @@ const SwissTaxReturn: React.FC = () => {
                 <div className="space-y-2">
                   {[1, 2, 3, 4, 5].map(i => (
                     <div key={i} className="flex items-start gap-2 text-xs text-violet-700 dark:text-violet-400">
-                      <span className="font-bold bg-violet-200 dark:bg-violet-800 rounded-full w-5 h-5 flex items-center justify-center shrink-0 text-[10px]">{i}</span>
+                      <span className="font-bold bg-violet-200 dark:bg-violet-800 rounded-full w-5 h-5 flex items-center justify-center shrink-0 text-xs">{i}</span>
                       <span>{t(`swissTaxReturn.overview.flow${i}`)}</span>
                     </div>
                   ))}
@@ -250,12 +250,12 @@ const SwissTaxReturn: React.FC = () => {
                 <p className="text-xs text-amber-700 dark:text-amber-400 mb-3">{t('swissTaxReturn.quellensteuer.newAgreementDesc')}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-2 border border-amber-300 dark:border-amber-700">
-                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300">{t('swissTaxReturn.quellensteuer.newAgrOld')}</span>
-                    <p className="text-[10px] text-amber-700 dark:text-amber-400 mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrOldDesc')}</p>
+                    <span className="text-xs font-bold text-amber-700 dark:text-amber-300">{t('swissTaxReturn.quellensteuer.newAgrOld')}</span>
+                    <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrOldDesc')}</p>
                   </div>
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-2 border border-amber-300 dark:border-amber-700">
-                    <span className="text-[10px] font-bold text-amber-700 dark:text-amber-300">{t('swissTaxReturn.quellensteuer.newAgrNew')}</span>
-                    <p className="text-[10px] text-amber-700 dark:text-amber-400 mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrNewDesc')}</p>
+                    <span className="text-xs font-bold text-amber-700 dark:text-amber-300">{t('swissTaxReturn.quellensteuer.newAgrNew')}</span>
+                    <p className="text-xs text-amber-700 dark:text-amber-400 mt-0.5">{t('swissTaxReturn.quellensteuer.newAgrNewDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -552,7 +552,7 @@ const SwissTaxReturn: React.FC = () => {
                         {t(`swissTaxReturn.documents.${doc.key}`)}
                       </span>
                       {doc.required && (
-                        <span className="text-[10px] font-bold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-1.5 py-0.5 rounded-full">
+                        <span className="text-xs font-bold bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 px-1.5 py-0.5 rounded-full">
                           {t('swissTaxReturn.documents.required')}
                         </span>
                       )}
@@ -594,7 +594,7 @@ const SwissTaxReturn: React.FC = () => {
                             {eventDate.toLocaleDateString('it-IT', { day: '2-digit', month: 'long', year: 'numeric' })}
                           </span>
                           {isPast && (
-                            <span className="text-[10px] bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded-full font-bold">
+                            <span className="text-xs bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 px-1.5 py-0.5 rounded-full font-bold">
                               {t('swissTaxReturn.deadlines.completed')}
                             </span>
                           )}

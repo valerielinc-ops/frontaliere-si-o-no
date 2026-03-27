@@ -350,7 +350,7 @@ export default function SalaryQuiz() {
                 <span className="font-bold text-white">CHF {result.medianGross.toLocaleString()}</span>
                 <span>CHF {result.p75Gross.toLocaleString()}</span>
               </div>
-              <div className="flex justify-between text-[10px] text-emerald-300/70">
+              <div className="flex justify-between text-xs text-emerald-300/70">
                 <span>25°</span>
                 <span>50° {t('salaryQuiz.median')}</span>
                 <span>75°</span>

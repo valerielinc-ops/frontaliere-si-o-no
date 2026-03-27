@@ -59,7 +59,7 @@ const WeeklyFact: React.FC = () => {
       <span className="font-bold text-amber-700 dark:text-amber-400 flex-shrink-0 hidden sm:inline">{t('weeklyFact.title')}:</span>
       <p className="flex-1 min-w-0 truncate text-amber-800 dark:text-amber-200">{factText}</p>
       {factSource !== `weeklyFact.sources.${weekIndex}` && (
-        <span className="text-[10px] text-amber-500 dark:text-amber-500 flex-shrink-0 hidden xl:inline">({factSource})</span>
+        <span className="text-xs text-amber-500 dark:text-amber-500 flex-shrink-0 hidden xl:inline">({factSource})</span>
       )}
       <button
         onClick={handleShare}

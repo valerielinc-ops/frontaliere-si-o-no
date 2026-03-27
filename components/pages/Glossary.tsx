@@ -231,7 +231,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
                   className="w-full flex items-center justify-between p-4 text-left"
                 >
                   <div className="flex items-center gap-3">
-                    <span className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`}>
+                    <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`}>
                       {t(`glossary.category.${entry.category}`)}
                     </span>
                     <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">

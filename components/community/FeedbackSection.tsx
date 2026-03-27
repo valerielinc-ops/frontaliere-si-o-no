@@ -236,7 +236,7 @@ export const FeedbackSection: React.FC = () => {
             </div>
 
             <div className="space-y-1">
-              <label className="text-[10px] font-bold text-slate-500 uppercase ml-1">{t('feedback.titleLabel')}</label>
+              <label className="text-xs font-bold text-slate-500 uppercase ml-1">{t('feedback.titleLabel')}</label>
               <input 
                 value={formData.title}
                 onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
@@ -246,7 +246,7 @@ export const FeedbackSection: React.FC = () => {
             </div>
 
             <div className="space-y-1 relative">
-              <label className="text-[10px] font-bold text-slate-500 uppercase ml-1">{t('feedback.detailsLabel')}</label>
+              <label className="text-xs font-bold text-slate-500 uppercase ml-1">{t('feedback.detailsLabel')}</label>
               <textarea 
                 value={formData.description}
                 onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
@@ -258,7 +258,7 @@ export const FeedbackSection: React.FC = () => {
                 type="button"
                 onClick={handleOptimize}
                 disabled={isOptimizing || !formData.description}
-                className="absolute right-3 bottom-3 p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transition-all disabled:opacity-50 disabled:shadow-none flex items-center gap-2 text-[10px] font-bold uppercase"
+                className="absolute right-3 bottom-3 p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transition-all disabled:opacity-50 disabled:shadow-none flex items-center gap-2 text-xs font-bold uppercase"
               >
                 {isOptimizing ? <Loader2 size={14} className="animate-spin" /> : <Sparkles size={14} />}
                 AI Help
@@ -281,7 +281,7 @@ export const FeedbackSection: React.FC = () => {
             </button>
             
             {!githubToken && (
-              <p className="text-[10px] text-center text-slate-500">
+              <p className="text-xs text-center text-slate-500">
                 <Lock size={10} className="inline mr-1"/>
                 {t('feedback.requiresToken')}
               </p>
@@ -295,7 +295,7 @@ export const FeedbackSection: React.FC = () => {
             <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
               <Github size={14} /> {t('feedback.recentActivity')}
             </h3>
-            <a href={`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues`} target="_blank" rel="noreferrer" className="text-[10px] bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold text-slate-500 hover:text-indigo-500 flex items-center gap-1 transition-colors">
+            <a href={`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues`} target="_blank" rel="noreferrer" className="text-xs bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold text-slate-500 hover:text-indigo-500 flex items-center gap-1 transition-colors">
               {t('feedback.viewAll')} <ExternalLink size={8} />
             </a>
           </div>

@@ -276,11 +276,11 @@ const CommunityForum: React.FC = () => {
                   {selectedQuestion.body}
                 </p>
                 <div className="flex flex-wrap items-center gap-2 mt-4">
-                  <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-[10px] font-bold ${CATEGORY_COLORS[selectedQuestion.category] || CATEGORY_COLORS.generale}`}>
+                  <span className={`inline-flex items-center gap-1 px-2 py-0.5 rounded-full text-xs font-bold ${CATEGORY_COLORS[selectedQuestion.category] || CATEGORY_COLORS.generale}`}>
                     {CATEGORY_ICONS[selectedQuestion.category]} {t(`forum.cat.${selectedQuestion.category}`)}
                   </span>
                   {selectedQuestion.tags.map(tag => (
-                    <span key={tag} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 rounded text-[10px]">
+                    <span key={tag} className="inline-flex items-center gap-0.5 px-1.5 py-0.5 bg-slate-100 dark:bg-slate-700 text-slate-500 rounded text-xs">
                       <Tag className="w-2.5 h-2.5" />{tag}
                     </span>
                   ))}
@@ -575,7 +575,7 @@ const CommunityForum: React.FC = () => {
                         {tag}
                       </span>
                     ))}
-                    <span className="flex items-center gap-1 text-[10px] text-slate-500 ml-auto">
+                    <span className="flex items-center gap-1 text-xs text-slate-500 ml-auto">
                       <MessageCircle className="w-3 h-3" /> {q.answerCount}
                       <span className="mx-1">·</span>
                       <Clock className="w-3 h-3" /> {timeAgo(q.createdAt?.toDate() || null)}

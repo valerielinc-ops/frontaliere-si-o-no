@@ -784,7 +784,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             </span>
           ))}
           {!isPast && (
-            <span className={`text-[10px] font-bold ml-auto ${days <= 7 ? 'text-red-600' : days <= 30 ? 'text-amber-600' : 'text-emerald-700'}`}>
+            <span className={`text-xs font-bold ml-auto ${days <= 7 ? 'text-red-600' : days <= 30 ? 'text-amber-600' : 'text-emerald-700'}`}>
               {days === 0 ? `⚠️ ${t('calendar.today')}` : `📅 ${days}g`}
             </span>
           )}
@@ -798,7 +798,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           <div className="mt-2">
             <div className="flex flex-wrap gap-1">
               {d.documents.map((doc, i) => (
-                <span key={i} className="px-2 py-0.5 bg-white dark:bg-slate-900 rounded text-[10px] font-medium border border-slate-200 dark:border-slate-700">
+                <span key={i} className="px-2 py-0.5 bg-white dark:bg-slate-900 rounded text-xs font-medium border border-slate-200 dark:border-slate-700">
                   📎 {doc}
                 </span>
               ))}
@@ -808,13 +808,13 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         {!compact && d.penalty && (
           <div className="flex items-start gap-1.5 p-2 bg-red-50 dark:bg-red-950/30 rounded-lg mt-2">
             <AlertTriangle size={12} className="text-red-500 flex-shrink-0 mt-0.5" />
-            <div className="text-[10px] text-red-600 dark:text-red-400">{d.penalty}</div>
+            <div className="text-xs text-red-600 dark:text-red-400">{d.penalty}</div>
           </div>
         )}
         {!compact && d.notes && (
           <div className="flex items-start gap-1.5 p-2 bg-blue-50 dark:bg-blue-950/30 rounded-lg mt-2">
             <Info size={12} className="text-blue-500 flex-shrink-0 mt-0.5" />
-            <div className="text-[10px] text-blue-700 dark:text-blue-300">{d.notes}</div>
+            <div className="text-xs text-blue-700 dark:text-blue-300">{d.notes}</div>
           </div>
         )}
       </div>
@@ -1035,7 +1035,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
                 <button key={ft}
                   onClick={() => { setFilterType(ft); Analytics.trackCalendarEvent('filter', ft); }}
-                  className={`px-2.5 py-1.5 rounded-lg text-[10px] font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
                 >
                   {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
                 </button>
@@ -1090,7 +1090,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                   >
                     {name.substring(0, 3)}
                     {monthEventCounts[i] > 0 && (
-                      <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-[10px] font-extrabold flex items-center justify-center shadow-sm ${
+                      <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-xs font-extrabold flex items-center justify-center shadow-sm ${
                         currentMonth === i ? 'bg-white text-indigo-600' : 'bg-indigo-500 text-white'
                       }`}>
                         {monthEventCounts[i]}
@@ -1209,7 +1209,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               );
                             })}
                             {events.length > 2 && (
-                              <div className="text-[10px] font-extrabold text-indigo-500 dark:text-indigo-400 text-center">+{events.length - 2}</div>
+                              <div className="text-xs font-extrabold text-indigo-500 dark:text-indigo-400 text-center">+{events.length - 2}</div>
                             )}
                           </div>
                         )}
@@ -1251,7 +1251,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                     <Calendar size={14} />
                     {MONTH_NAMES_IT[Number(monthIdx)]} 2026
                   </h3>
-                  <span className="text-[10px] font-bold text-slate-500 bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full">
+                  <span className="text-xs font-bold text-slate-500 bg-slate-200 dark:bg-slate-700 px-2 py-0.5 rounded-full">
                     {events.length}
                   </span>
                 </div>

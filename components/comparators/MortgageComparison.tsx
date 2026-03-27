@@ -481,12 +481,12 @@ export default function MortgageComparison() {
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
           <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.monthlyPayment')} 🇨🇭</div>
           <div className="text-xl font-bold text-red-600 dark:text-red-400">{fmtDec(chMonthlyPayment)}</div>
-          <div className="text-[10px] font-medium text-slate-600 dark:text-slate-400">{t('mortgage.rate')}: {fmtPct(chRate)}</div>
+          <div className="text-xs font-medium text-slate-600 dark:text-slate-400">{t('mortgage.rate')}: {fmtPct(chRate)}</div>
         </div>
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
           <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.monthlyPayment')} 🇮🇹</div>
           <div className="text-xl font-bold text-green-600 dark:text-green-400">{fmtDec(itMonthlyPayment)}</div>
-          <div className="text-[10px] font-medium text-slate-600 dark:text-slate-400">{t('mortgage.rate')}: {fmtPct(itRate)}</div>
+          <div className="text-xs font-medium text-slate-600 dark:text-slate-400">{t('mortgage.rate')}: {fmtPct(itRate)}</div>
         </div>
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-300 dark:border-slate-600 p-4 text-center shadow-sm">
           <div className="text-xs font-medium text-slate-600 dark:text-slate-400 mb-1">{t('mortgage.totalInterest')}</div>
@@ -505,7 +505,7 @@ export default function MortgageComparison() {
           <div className={`text-xl font-bold ${savings > 0 ? 'text-red-600 dark:text-red-400' : 'text-green-600 dark:text-green-400'}`}>
             {fmt(Math.round(Math.abs(savings)))}
           </div>
-          <div className="text-[10px] text-slate-600 dark:text-slate-400">{savingsLabel}</div>
+          <div className="text-xs text-slate-600 dark:text-slate-400">{savingsLabel}</div>
         </div>
       </div>
 
@@ -616,7 +616,7 @@ export default function MortgageComparison() {
                 <span className="text-slate-600 dark:text-slate-400">{t('mortgage.estimatedTaxSaving')}</span>
                 <span className="font-bold text-emerald-600 dark:text-emerald-400">~{fmt(Math.round(chTaxSavings))}</span>
               </div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-500 italic mt-1">
+              <div className="text-xs text-slate-500 dark:text-slate-500 italic mt-1">
                 {t('mortgage.chTaxNote')}
               </div>
             </div>
@@ -645,7 +645,7 @@ export default function MortgageComparison() {
                 <span className="text-slate-600 dark:text-slate-400">{t('mortgage.impostaSostitutiva')}</span>
                 <span className="font-semibold text-amber-600 dark:text-amber-400">{fmt(Math.round(itImpostaSostitutiva))}</span>
               </div>
-              <div className="text-[10px] text-slate-500 dark:text-slate-500 italic mt-1">
+              <div className="text-xs text-slate-500 dark:text-slate-500 italic mt-1">
                 {t('mortgage.itTaxNote')}
               </div>
             </div>
@@ -878,7 +878,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Data sources disclaimer */}
-      <div className="text-center text-[10px] text-slate-500 dark:text-slate-500 space-y-0.5 pb-4">
+      <div className="text-center text-xs text-slate-500 dark:text-slate-500 space-y-0.5 pb-4">
         <p>{t('mortgage.dataSource')}</p>
         <p>{t('mortgage.disclaimer')}</p>
       </div>

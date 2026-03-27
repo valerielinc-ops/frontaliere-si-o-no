@@ -188,7 +188,7 @@ const RistorniTracker: React.FC = () => {
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">{m.name}</span>
-                    <span className="text-[10px] text-slate-500 dark:text-slate-500">({m.province})</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-500">({m.province})</span>
                   </div>
                   <div className="flex gap-3 text-xs text-slate-500 dark:text-slate-500">
                     <span>{m.frontalieri.toLocaleString()} {t('ristorni.frontalieri')}</span>
@@ -199,7 +199,7 @@ const RistorniTracker: React.FC = () => {
                   <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
                     €{(m.estimatedRistorni / 1000000).toFixed(1)}M
                   </p>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-500">/{t('ristorni.year')}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-500">/{t('ristorni.year')}</p>
                 </div>
               </div>
             ))}
@@ -226,7 +226,7 @@ const RistorniTracker: React.FC = () => {
                       className="h-full bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-end pr-2"
                       style={{ width: `${Math.min(100, (rate.totalMillions / 120) * 100)}%` }}
                     >
-                      <span className="text-[10px] font-bold text-white">€{rate.totalMillions}M</span>
+                      <span className="text-xs font-bold text-white">€{rate.totalMillions}M</span>
                     </div>
                   </div>
                 </div>

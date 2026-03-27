@@ -304,25 +304,25 @@ const ShoppingCalculator: React.FC = () => {
                       <span className="text-orange-500">{product.icon}</span>
                       <div>
                         <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{product.name}</div>
-                        <div className="text-[10px] text-slate-500 dark:text-slate-400">{product.unit}</div>
+                        <div className="text-xs text-slate-500 dark:text-slate-400">{product.unit}</div>
                       </div>
                     </div>
                     {saving > 0 && (
-                      <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 text-[10px] font-black rounded-full whitespace-nowrap">
+                      <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 text-xs font-black rounded-full whitespace-nowrap">
                         -{savingPercent.toFixed(0)}%
                       </span>
                     )}
                   </div>
                   <div className="flex items-center justify-between gap-2 text-sm">
                     <div className="text-center">
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDEE\uD83C\uDDF9'} {product.storeIT}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDEE\uD83C\uDDF9'} {product.storeIT}</div>
                       <div className="font-black text-emerald-700 dark:text-emerald-400 text-lg">{'\u20AC'} {product.priceIT.toFixed(2)}</div>
                     </div>
                     <ArrowRight size={14} className="text-slate-500" />
                     <div className="text-center">
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDE8\uD83C\uDDED'} {product.storeCH}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDE8\uD83C\uDDED'} {product.storeCH}</div>
                       <div className="font-black text-red-600 dark:text-red-400 text-lg">{product.priceCH.toFixed(2)} CHF</div>
-                      <div className="text-[10px] text-slate-500 dark:text-slate-400">{'\u2248'} {'\u20AC'} {priceCHinEUR.toFixed(2)}</div>
+                      <div className="text-xs text-slate-500 dark:text-slate-400">{'\u2248'} {'\u20AC'} {priceCHinEUR.toFixed(2)}</div>
                     </div>
                   </div>
                   {isSelected && (
@@ -604,7 +604,7 @@ const ShoppingCalculator: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-[10px] text-slate-500 dark:text-slate-500 mt-2">{t('shopping.disclaimer')}</p>
+        <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">{t('shopping.disclaimer')}</p>
       </div>
     </div>
   );

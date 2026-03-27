@@ -46,7 +46,7 @@ const PartnerCard: React.FC<{ partner: AffiliatePartner; context: string }> = ({
             {partner.name}
           </span>
           {partner.badgeKey && (
-            <span className={`text-[10px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
+            <span className={`text-xs font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
               {t(partner.badgeKey)}
             </span>
           )}
@@ -77,7 +77,7 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({ context
           <PartnerCard key={partner.id} partner={partner} context={context} />
         ))}
       </div>
-      <p className="text-[10px] text-slate-500 dark:text-slate-600 mt-2 text-center">
+      <p className="text-xs text-slate-500 dark:text-slate-600 mt-2 text-center">
         {t('affiliate.disclosure')}
       </p>
     </div>

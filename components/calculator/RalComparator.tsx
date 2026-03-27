@@ -255,7 +255,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             <span className="font-bold text-slate-800 dark:text-slate-200">1 EUR = {eurChfRate.toFixed(4)} CHF</span>
             {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500" />}
           </div>
-          <p className="text-[10px] text-slate-500 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
+          <p className="text-xs text-slate-500 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
         </div>
 
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">

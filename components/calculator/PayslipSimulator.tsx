@@ -111,7 +111,7 @@ function calculatePayslip(grossAnnual: number, age: number, maritalStatus: 'sing
 const InfoTooltip = ({ text }: { text: string }) => (
   <div className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
     <Info size={12} className="text-slate-500 hover:text-indigo-500 transition-colors" />
-    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none text-center">
+    <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none text-center">
       {text}
       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
     </div>
@@ -120,7 +120,7 @@ const InfoTooltip = ({ text }: { text: string }) => (
 
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
-    {label && <label htmlFor={inputId} className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
+    {label && <label htmlFor={inputId} className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
     <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
@@ -250,7 +250,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <span>{(r.rate * 100).toFixed(1)}%</span>
             </div>
           ))}
-          <p className="mt-2 text-[10px] text-slate-500">{t('payslip.anniFiglio')}</p>
+          <p className="mt-2 text-xs text-slate-500">{t('payslip.anniFiglio')}</p>
         </div>
       )}
     </div>
@@ -333,7 +333,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <StepperInput inputId="payslip-age" label={t('payslip.age')} value={age} onChange={setAge} min={18} max={65} icon={User} iconColor="text-blue-500" tooltip={t('payslip.lppAgeRates')} />
               {/* Marital Status */}
               <div className="space-y-1.5">
-                <label htmlFor="payslip-status" className="text-[10px] font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                <label htmlFor="payslip-status" className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
                   <Heart size={12} className="text-rose-500"/> {t('payslip.maritalStatus')}
                 </label>
                 <div className="relative">
@@ -354,7 +354,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
 
           {/* Section 2: Family */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
-            <h3 className="text-[10px] font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
               <Baby size={14} className="text-pink-500"/> {t('payslip.children')}
             </h3>
             <StepperInput

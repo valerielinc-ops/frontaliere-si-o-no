@@ -498,7 +498,7 @@ const CurrencyExchange: React.FC = () => {
               {t('currency.real_market_rate')}
               <div className="group relative inline-flex items-center cursor-help">
                 <Info size={12} className="text-slate-500" />
-                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
+                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
                   {t('currency.mid_market_tooltip')}
                 </div>
               </div>
@@ -516,7 +516,7 @@ const CurrencyExchange: React.FC = () => {
                 className="w-full pl-20 pr-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-600 dark:text-slate-300 text-lg"
               />
             </div>
-            <p className="text-[10px] text-slate-500 text-right min-h-[16px]">
+            <p className="text-xs text-slate-500 text-right min-h-[16px]">
               {lastUpdate ? `${t('currency.updated')}: ${lastUpdate.toLocaleTimeString('it-IT')}` : '\u00A0'}
             </p>
           </div>
@@ -710,11 +710,11 @@ const CurrencyExchange: React.FC = () => {
 
               <div className="grid grid-cols-3 gap-2 sm:gap-4 mb-4">
                 <div className="p-2 sm:p-3 bg-slate-50 dark:bg-slate-900 rounded-lg sm:rounded-xl">
-                  <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.applied_rate')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.applied_rate')}</div>
                   <div className="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.appliedRate.toFixed(4)}
                   </div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-500">
+                  <div className="text-xs text-slate-500 dark:text-slate-500">
                     {result.appliedMarkup > 0 ? (
                       <span className="text-red-600">-{(result.appliedMarkup * 100).toFixed(2)}%</span>
                     ) : (
@@ -724,22 +724,22 @@ const CurrencyExchange: React.FC = () => {
                 </div>
 
                 <div className="p-2 sm:p-3 bg-slate-50 dark:bg-slate-900 rounded-lg sm:rounded-xl">
-                  <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.declared_commission')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.declared_commission')}</div>
                   <div className="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">
                     {result.totalCommission.toFixed(2)} €
                   </div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-500">
+                  <div className="text-xs text-slate-500 dark:text-slate-500">
                     {result.provider.commission > 0 && `CHF ${result.provider.commission}+ `}
                     {result.declaredCommissionPercent.toFixed(2)}%
                   </div>
                 </div>
 
                 <div className="p-2 sm:p-3 bg-slate-50 dark:bg-slate-900 rounded-lg sm:rounded-xl">
-                  <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.real_total_cost')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('currency.real_total_cost')}</div>
                   <div className="text-sm sm:text-lg font-bold text-slate-800 dark:text-slate-100">
                     CHF {result.totalCost.toFixed(2)}
                   </div>
-                  <div className="text-[10px] sm:text-xs text-slate-500 dark:text-slate-500">
+                  <div className="text-xs text-slate-500 dark:text-slate-500">
                     {t('currency.commissions_spread')}
                   </div>
                 </div>
@@ -750,7 +750,7 @@ const CurrencyExchange: React.FC = () => {
                   {result.provider.featureKeys.map((featureKey, fidx) => (
                     <span
                       key={fidx}
-                      className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-[10px] sm:text-xs font-medium rounded-md sm:rounded-lg"
+                      className="px-2 sm:px-2.5 py-0.5 sm:py-1 bg-slate-100 dark:bg-slate-900 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-md sm:rounded-lg"
                     >
                       {t(`currency.${featureKey}`)}
                     </span>

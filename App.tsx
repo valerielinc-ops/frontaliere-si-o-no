@@ -2285,7 +2285,7 @@ const App: React.FC = () => {
                   <span className="text-lg font-bold text-slate-800 dark:text-slate-100 leading-none tracking-tight whitespace-nowrap">
                     {t('app.title')}
                   </span>
-                  <p className="text-[10px] text-slate-500 dark:text-slate-500 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-500 font-bold uppercase tracking-widest mt-0.5">{t('nav.subtitle')}</p>
                 </div>
               </a>
               
@@ -2473,7 +2473,7 @@ const App: React.FC = () => {
                       setCalcolatoreSubTab(key);
                       Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
                       calcolatoreSubTab === key
                         ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2509,7 +2509,7 @@ const App: React.FC = () => {
                       setConfrontiSubTab(key);
                       Analytics.trackComparatorView(key as any);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
                       confrontiSubTab === key
                         ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 ring-1 ring-violet-300 dark:ring-violet-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2545,7 +2545,7 @@ const App: React.FC = () => {
                       setFiscoSubTab(key);
                       Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
                       fiscoSubTab === key
                         ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-300 dark:ring-emerald-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2581,7 +2581,7 @@ const App: React.FC = () => {
                       setGuidaSubTab(key);
                       Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
                       guidaSubTab === key
                         ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-300 dark:ring-indigo-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2617,7 +2617,7 @@ const App: React.FC = () => {
                       setVitaSubTab(key);
                       Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
                       vitaSubTab === key
                         ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 ring-1 ring-amber-300 dark:ring-amber-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2653,7 +2653,7 @@ const App: React.FC = () => {
                       setStatsSubTab(key);
                       Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[10px] sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
                       statsSubTab === key
                         ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 ring-1 ring-purple-300 dark:ring-purple-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2907,7 +2907,7 @@ const App: React.FC = () => {
                 href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[10px] font-mono text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+                className="text-xs font-mono text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
                 title="Versione del sito: commit GitHub deploy"
               >
                 <span>v</span>
@@ -3265,7 +3265,7 @@ const App: React.FC = () => {
               </div>
             </nav>
 
-            <div className="flex items-center justify-center gap-1.5 mt-3 text-[10px] text-emerald-700 dark:text-emerald-400 font-medium">
+            <div className="flex items-center justify-center gap-1.5 mt-3 text-xs text-emerald-700 dark:text-emerald-400 font-medium">
               <Shield className="w-3 h-3" />
               <span>{t('footer.securityBadge')}</span>
             </div>
@@ -3294,7 +3294,7 @@ const App: React.FC = () => {
                   }`}
                 >
                   <Icon size={20} />
-                  <span className="text-[10px] font-semibold leading-none truncate max-w-[56px]">{label}</span>
+                  <span className="text-xs font-semibold leading-none truncate max-w-[56px]">{label}</span>
                   {isActive && (
                     <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 ${barClass} rounded-full`} />
                   )}

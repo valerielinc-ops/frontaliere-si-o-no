@@ -135,7 +135,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           {/* Value Section */}
           <div className="text-right flex items-center justify-end gap-3 flex-shrink-0">
              {item.percentage !== 0 && !isNet && (
-                <div className="w-10 sm:w-12 text-[9px] sm:text-[10px] font-bold text-slate-600 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
+                <div className="w-10 sm:w-12 text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
                   {Math.abs(item.percentage).toFixed(1)}%
                 </div>
              )}
@@ -145,7 +145,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                     <div className={`text-right font-mono font-bold whitespace-nowrap ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amountEUR !== undefined && item.amountEUR !== 0 ? Math.abs(item.amountEUR) : (exchangeRate ? Math.abs(item.amount) * exchangeRate : Math.abs(item.amount))} currency="EUR" />
                     </div>
-                    <div className="text-[10px] font-mono text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap h-4">
+                    <div className="text-xs font-mono text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap h-4">
                        ≈ CHF {formatCurrency(Math.abs(item.amount))}
                     </div>
                   </>
@@ -155,7 +155,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amount} currency={currency} />
                     </div>
                     {showEUR && (
-                        <div className="text-[10px] font-mono text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap h-4">
+                        <div className="text-xs font-mono text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap h-4">
                            {item.amountEUR !== undefined && item.amountEUR !== 0 ? `≈ € ${formatCurrency(Math.abs(item.amountEUR))}` : ''}
                         </div>
                     )}
@@ -475,14 +475,14 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                     key={idx}
                     type="button"
                     onClick={() => onProfileTagClick(tag.field!)}
-                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-[10px] sm:text-xs'} font-bold uppercase tracking-wide border border-transparent transition-all active:scale-[0.98] ${tag.bg} ${tag.color} sm:cursor-default`}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-xs'} font-bold uppercase tracking-wide border border-transparent transition-all active:scale-[0.98] ${tag.bg} ${tag.color} sm:cursor-default`}
                     aria-label={tag.label}
                   >
                     <tag.icon size={12} strokeWidth={2.5} />
                     <span className={`truncate ${tag.field === 'maritalStatus' ? 'max-w-[130px] sm:max-w-none' : 'max-w-[150px] sm:max-w-none'}`}>{tag.label}</span>
                   </button>
                 ) : (
-                  <div key={idx} className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-[10px] sm:text-xs'} font-bold uppercase tracking-wide border border-transparent ${tag.bg} ${tag.color}`}>
+                  <div key={idx} className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-xs'} font-bold uppercase tracking-wide border border-transparent ${tag.bg} ${tag.color}`}>
                     <tag.icon size={12} strokeWidth={2.5} />
                     <span className={`truncate ${tag.field === 'maritalStatus' ? 'max-w-[130px] sm:max-w-none' : 'max-w-[150px] sm:max-w-none'}`}>{tag.label}</span>
                   </div>
@@ -556,7 +556,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
             <div className="absolute top-0 left-0 w-1 h-full bg-blue-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-[10px] font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
+                 <div className="text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.switzerland')}</div>
                </div>
                <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" width={32} height={21} />
@@ -564,7 +564,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
 
             <div className="space-y-4">
               <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800/50">
-                <div className="text-[10px] text-blue-700 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
+                <div className="text-xs text-blue-700 dark:text-blue-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="flex items-center gap-2 flex-wrap">
                   {showEUR ? (
                     <div className="text-2xl font-bold text-blue-700 dark:text-blue-300">
@@ -588,7 +588,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                   <BreakdownTable data={chResident.breakdown} currency="CHF" showEUR={showEUR} exchangeRate={exchangeRate} />
                   {chResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-[10px] font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
+                        <p className="text-xs font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
                         <ul className="text-xs text-slate-500 dark:text-slate-500 list-disc list-inside">
                             {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
@@ -612,7 +612,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
             <div className="absolute top-0 left-0 w-1 h-full bg-red-500"></div>
             <div className="flex justify-between items-start mb-6">
                <div>
-                 <div className="text-[10px] font-bold text-red-700 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div>
+                 <div className="text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.italy')}</div>
                </div>
                <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} />
@@ -620,7 +620,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
 
             <div className="space-y-4">
               <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800/50">
-                <div className="text-[10px] text-red-700 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
+                <div className="text-xs text-red-700 dark:text-red-400 font-bold uppercase mb-1">{t('results.netMonthlyResidual')}</div>
                 <div className="flex items-center gap-2 flex-wrap">
                   {showEUR ? (
                     <div className="text-2xl font-bold text-red-700 dark:text-red-300">
@@ -647,7 +647,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                   {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */}
                   {itResident.swissNetIncomeMonthlyCHF && (
                     <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden">
-                       <div className="text-[10px] text-slate-500 dark:text-slate-500 font-bold uppercase mb-1 relative z-10">
+                       <div className="text-xs text-slate-500 dark:text-slate-500 font-bold uppercase mb-1 relative z-10">
                           {t('results.swissPayslipNet')}
                        </div>
                        <div className="text-xl font-bold text-slate-700 dark:text-slate-200 relative z-10">
@@ -656,13 +656,13 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                        <ul className="mt-3 space-y-1.5 relative z-10">
                           {itResident.details.regime === "calc.regime.newFrontier" ? (
                               <>
-                                <li className="text-[10px] text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
+                                <li className="text-xs text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
                                 {itResident.details.franchigiaEUR ? (
-                                  <li className="text-[10px] text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
+                                  <li className="text-xs text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
                                 ) : null}
                               </>
                           ) : (
-                              <li className="text-[10px] text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
+                              <li className="text-xs text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
                           )}
                        </ul>
                     </div>
@@ -670,7 +670,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
 
                   {itResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
-                        <p className="text-[10px] font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
+                        <p className="text-xs font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
                         <ul className="text-xs text-slate-500 dark:text-slate-500 list-disc list-inside">
                             {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
@@ -721,7 +721,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
            {/* Critical Warning */}
            <div className="mt-6 p-4 bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-2xl flex gap-3">
               <AlertCircle size={20} className="text-amber-500 shrink-0" />
-              <div className="text-[10px] text-amber-700 dark:text-amber-400 leading-relaxed font-medium">
+              <div className="text-xs text-amber-700 dark:text-amber-400 leading-relaxed font-medium">
                  <b>{t('results.notaBene')}</b> {t('results.disclaimer.housing')}
               </div>
            </div>

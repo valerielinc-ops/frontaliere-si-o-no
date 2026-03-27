@@ -229,7 +229,7 @@ function LocationAutocomplete({
           )}
           {itFiltered.length > 0 && (
             <>
-              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-[10px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">
                 {'\u{1F1EE}\u{1F1F9}'} Italia ({itFiltered.length})
               </div>
               {itFiltered.map((loc, i) => (
@@ -244,7 +244,7 @@ function LocationAutocomplete({
                   aria-selected={value?.id === loc.id}
                 >
                   <span className="truncate">{loc.name} {loc.province ? `(${loc.province})` : ''}</span>
-                  <span className="text-[10px] text-slate-500 ml-2 shrink-0">
+                  <span className="text-xs text-slate-500 ml-2 shrink-0">
                     {loc.distanceToBorderKm != null ? `${loc.distanceToBorderKm} km` : ''}
                   </span>
                 </button>
@@ -253,7 +253,7 @@ function LocationAutocomplete({
           )}
           {chFiltered.length > 0 && (
             <>
-              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-[10px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">
                 {'\u{1F1E8}\u{1F1ED}'} Svizzera ({chFiltered.length})
               </div>
               {chFiltered.map((loc, j) => (
@@ -269,7 +269,7 @@ function LocationAutocomplete({
                 >
                   <span className="truncate">{loc.name}</span>
                   {loc.population && (
-                    <span className="text-[10px] text-slate-500 ml-2 shrink-0">
+                    <span className="text-xs text-slate-500 ml-2 shrink-0">
                       {loc.population.toLocaleString('it-IT')} ab.
                     </span>
                   )}
@@ -428,7 +428,7 @@ const ResidencySimulator: React.FC = () => {
               <span className="text-sm font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
               {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-500" />}
             </div>
-            <p className="text-[10px] text-slate-500 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
+            <p className="text-xs text-slate-500 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
           </div>
         </div>
       </div>
@@ -672,7 +672,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
         {showFilters && (
           <div className="flex flex-wrap gap-3 p-3 bg-white/60 dark:bg-slate-800/60 rounded-lg border border-slate-200 dark:border-slate-700">
             <div>
-              <label className="block text-[10px] font-bold text-slate-500 mb-1">{t('residency.bestMunicipality.province') || 'Provincia'}</label>
+              <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.bestMunicipality.province') || 'Provincia'}</label>
               <select
                 value={filterProvince}
                 onChange={(e) => setFilterProvince(e.target.value)}
@@ -686,7 +686,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
               </select>
             </div>
             <div>
-              <label className="block text-[10px] font-bold text-slate-500 mb-1">{t('residency.bestMunicipality.fascia') || 'Fascia'}</label>
+              <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.bestMunicipality.fascia') || 'Fascia'}</label>
               <select
                 value={filterFascia}
                 onChange={(e) => setFilterFascia(e.target.value)}
@@ -723,19 +723,19 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div>
-              <p className="text-[10px] text-slate-500">{t('residency.bestMunicipality.monthlyTotal')}</p>
+              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.monthlyTotal')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">€{best.totalMonthlyCost.toLocaleString()}</p>
             </div>
             <div>
-              <p className="text-[10px] text-slate-500">{t('residency.bestMunicipality.irpef')}</p>
+              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.irpef')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.irpefComunale}%</p>
             </div>
             <div>
-              <p className="text-[10px] text-slate-500">{t('residency.bestMunicipality.distance')}</p>
+              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.distance')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.distanceToBorderKm} km</p>
             </div>
             <div>
-              <p className="text-[10px] text-slate-500">{t('residency.bestMunicipality.queue')}</p>
+              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.queue')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.avgQueueMinutes}' {t('residency.bestMunicipality.avg')}</p>
             </div>
           </div>
@@ -765,7 +765,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
                 {loc.name} {loc.province ? <span className="text-slate-500 font-normal">({loc.province})</span> : ''}
                 {loc.fascia && <span className="ml-1.5 text-[9px] px-1.5 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 rounded-full font-medium">F{loc.fascia}</span>}
               </p>
-              <div className="flex items-center gap-3 text-[10px] text-slate-500">
+              <div className="flex items-center gap-3 text-xs text-slate-500">
                 <span className="flex items-center gap-0.5"><Navigation size={8} /> {loc.nearestCrossing}</span>
                 <span className="flex items-center gap-0.5"><Car size={8} /> {loc.distanceToBorderKm} km</span>
                 <span className="flex items-center gap-0.5"><Clock size={8} /> {loc.avgQueueMinutes}'</span>
@@ -773,7 +773,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             </div>
             <div className="text-right shrink-0">
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">€{loc.totalMonthlyCost.toLocaleString()}/m</p>
-              <p className="text-[10px] text-slate-500">IRPEF com. {loc.irpefComunale}%</p>
+              <p className="text-xs text-slate-500">IRPEF com. {loc.irpefComunale}%</p>
             </div>
           </div>
         ))}
