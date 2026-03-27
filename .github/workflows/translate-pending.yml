@@ -11,7 +11,7 @@ on:
     inputs:
       max_jobs:
         description: 'Max jobs to translate'
-        default: '200'
+        default: '100'
       dry_run:
         description: 'Dry run (no commit)'
         type: boolean
@@ -63,10 +63,11 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Translate pending jobs
-        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '200' }}
+        timeout-minutes: 100
+        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
 
       - name: Commit and push
-        if: success() && inputs.dry_run != true
+        if: (success() || cancelled()) && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json
 
       - name: Trigger deploy

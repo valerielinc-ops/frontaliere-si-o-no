@@ -55,6 +55,11 @@ function parseMaxJobs() {
 
 const MAX_JOBS = parseMaxJobs();
 
+// Time budget: stop starting new companies when this many ms have elapsed.
+// The workflow has timeout-minutes:100 for this step (plus 20min for the commit step).
+// We stop at 90min to leave a comfortable margin for the commit to run.
+const TIME_BUDGET_MS = 90 * 60 * 1000;
+
 function readJson(filePath) {
   try {
     return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
@@ -341,10 +346,22 @@ async function main() {
   // Process each company separately with intermediate saves
   let totalFixed = 0;
   let totalProcessed = 0;
+  const startTime = Date.now();
 
   for (const key of companyKeys) {
     const companyJobCount = companyJobCounts.get(key) || 0;
-    console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${key} (${companyJobCount} jobs)...`);
+
+    // Time budget: stop before starting a new company if we're close to the limit.
+    // This lets the workflow commit step run before the GitHub Actions timeout kills it.
+    const elapsedMs = Date.now() - startTime;
+    if (elapsedMs > TIME_BUDGET_MS) {
+      const elapsedMin = Math.round(elapsedMs / 60_000);
+      console.log(`\n⏰ Time budget reached (${elapsedMin}min elapsed) — stopping to allow commit step to run.`);
+      console.log(`   ${totalFixed} jobs translated so far; ${companyKeys.length - companyKeys.indexOf(key)} companies remaining.`);
+      break;
+    }
+
+    console.log(`\n🔄 [${totalProcessed + companyJobCount}/${effectiveMax}] Translating ${key} (${companyJobCount} jobs) — ${Math.round(elapsedMs / 60_000)}min elapsed...`);
 
     try {
       await runSharedCrawler([key], companyJobCount);
