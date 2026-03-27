@@ -1,16 +1,16 @@
 {
   "key": "boggi-milano",
   "label": "Boggi Milano",
-  "generatedAt": "2026-03-27T09:15:33.515Z",
+  "generatedAt": "2026-03-27T20:59:13.071Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 3841,
-  "avgDurationMs": 3841,
+  "durationMs": 5429,
+  "avgDurationMs": 5429,
   "durationHistory": [
-    3841
+    5429
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,11 +53,14 @@
       },
       "slugByLocale": {
         "it": "sales-consulente-pt-aubonne-boggi-milano-aubonne",
-        "en": "sales-advisor-pt-aubonne-boggi-milano-aubonne-vaud",
+        "en": "sales-advisor-pt-aubonne-boggi-milano-aubonne",
         "de": "sales-berater-pt-aubonne-boggi-milano-aubonne",
         "fr": "sales-conseiller-pt-aubonne-boggi-milano-aubonne"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "sales-advisor-pt-aubonne-boggi-milano-aubonne-vaud"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -111,11 +114,14 @@
       },
       "slugByLocale": {
         "it": "treasury-coordinatore-boggi-milano-mendrisio",
-        "en": "treasury-coordinator-boggi-milano-mendrisio-ticino",
+        "en": "treasury-coordinator-boggi-milano-mendrisio",
         "de": "treasury-koordinator-boggi-milano-mendrisio",
         "fr": "treasury-coordinateur-boggi-milano-mendrisio"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "treasury-coordinator-boggi-milano-mendrisio-ticino"
+      ],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -169,11 +175,14 @@
       },
       "slugByLocale": {
         "it": "retail-risorse-umane-specialista-boggi-milano-mendrisio",
-        "en": "retail-hr-specialist-boggi-milano-mendrisio-ticino",
+        "en": "retail-hr-specialist-boggi-milano-mendrisio",
         "de": "retail-personalwesen-spezialist-boggi-milano-mendrisio",
         "fr": "retail-ressources-humaines-specialiste-boggi-milano-mendrisio"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "retail-hr-specialist-boggi-milano-mendrisio-ticino"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -227,11 +236,14 @@
       },
       "slugByLocale": {
         "it": "sales-consulente-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
-        "en": "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte",
+        "en": "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
         "de": "sales-berater-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
         "fr": "sales-conseiller-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -285,11 +297,14 @@
       },
       "slugByLocale": {
         "it": "senior-sales-consulente-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como",
-        "en": "senior-sales-advisor-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como-lombardia",
+        "en": "senior-sales-advisor-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como",
         "de": "senior-sales-berater-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como",
         "fr": "senior-sales-conseiller-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como"
       },
       "needsRetranslation": true,
+      "previousSlugs": [
+        "senior-sales-advisor-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como-lombardia"
+      ],
       "salaryMin": 66000,
       "salaryMax": 89000,
       "currency": "CHF",
@@ -343,7 +358,7 @@
       },
       "slugByLocale": {
         "it": "apac-import-support-stage-boggi-milano-mendrisio-ticino",
-        "en": "apac-import-support-stage-boggi-milano-mendrisio-ticino",
+        "en": "apac-import-support-stage-boggi-milano-mendrisio",
         "de": "apac-import-support-stage-boggi-milano-mendrisio-ticino",
         "fr": "apac-import-support-stage-boggi-milano-mendrisio-ticino"
       },
