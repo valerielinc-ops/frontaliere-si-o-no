@@ -518,6 +518,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         'goline-sa':                                 { streetAddress: 'Via Industria 5',          postalCode: '6855', addressLocality: 'Stabio' },
         'avaloq':                                    { streetAddress: 'Via Cantonale 10',         postalCode: '6900', addressLocality: 'Lugano' },
         'lidl-svizzera':                             { streetAddress: 'Via Industria 6',          postalCode: '6593', addressLocality: 'Cadenazzo' },
+        // Generic company keys used in expired job data (no region suffix)
+        'coop':                                      { streetAddress: 'Via Vedeggio 4',           postalCode: '6805', addressLocality: 'Mezzovico' },
+        'galenica':                                  { streetAddress: 'Untermattweg 8',           postalCode: '3027', addressLocality: 'Bern' },
       };
 
       /** Does the value look like an actual street address (not just a city/region name)? */
