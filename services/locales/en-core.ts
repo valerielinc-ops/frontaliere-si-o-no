@@ -655,6 +655,7 @@ const enCore: Record<string, string> = {
     'search.navigate': 'navigate',
     'search.select': 'select',
     'search.close': 'close',
+    'search.clear': 'clear search',
     'chart.switzerland': 'Switzerland',
     'chart.frontier_worker': 'Cross-Border Worker',
     'chart.resident': 'Resident',

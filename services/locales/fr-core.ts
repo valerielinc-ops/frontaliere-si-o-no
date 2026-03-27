@@ -655,6 +655,7 @@ const frCore: Record<string, string> = {
     'search.navigate': 'naviguer',
     'search.select': 'sélectionner',
     'search.close': 'fermer',
+    'search.clear': 'effacer la recherche',
     'chart.switzerland': 'Suisse',
     'chart.frontier_worker': 'Frontalier',
     'chart.resident': 'Résident',

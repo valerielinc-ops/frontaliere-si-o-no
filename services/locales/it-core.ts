@@ -697,6 +697,7 @@ const translations: Record<string, string> = {
     'search.navigate': 'naviga',
     'search.select': 'seleziona',
     'search.close': 'chiudi',
+    'search.clear': 'cancella ricerca',
 
     // Frontier Guide
     'chart.switzerland': 'Svizzera',

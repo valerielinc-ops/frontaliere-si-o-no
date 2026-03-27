@@ -1477,7 +1477,10 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     AI_CACHE_RAW_SENTINEL, callLLM, isAnyModelAvailable,
     isLowQualityLocalizedTitle, normalizeSpace: ns,
   } = ctx;
-  const cleanTitle = (ns || normalize)(title || '');
+  // Normalize gender-inclusive colon notation before any translation step.
+  // "Lokführer:in" → "Lokführer/in", "Mitarbeiter:innen" → "Mitarbeiter/innen"
+  // The colon-before-suffix pattern confuses AI models and causes truncated output.
+  const cleanTitle = (ns || normalize)(title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
   if (!cleanTitle || locale === sourceLang) return cleanTitle;
 
   // Local pipeline first

@@ -655,6 +655,7 @@ const deCore: Record<string, string> = {
     'search.navigate': 'navigieren',
     'search.select': 'auswählen',
     'search.close': 'schließen',
+    'search.clear': 'Suche leeren',
     'chart.switzerland': 'Schweiz',
     'chart.frontier_worker': 'Grenzgänger',
     'chart.resident': 'Einwohner',
