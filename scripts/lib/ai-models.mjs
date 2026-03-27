@@ -205,7 +205,7 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_GEMMA_3_27B,     // 26. Gemma 3 27B instruct   (OpenRouter free)
   // CB_LLAMA_3_1_70B removed — Cerebras 404 (model deprecated 2026-03)
   AI_MODELS.COHERE_CMD_R,       // 29. Cohere Command R       (GitHub Models)
-  AI_MODELS.GROQ_LLAMA_3_1_70B, // 30. Llama 3.1 70B          (Groq)
+  // GROQ_LLAMA_3_1_70B removed — decommissioned 2026-03 (HTTP 422 from Groq)
   AI_MODELS.DEEPSEEK_R1_0528,   // 31. DeepSeek R1 0528       (GitHub Models)
   AI_MODELS.DEEPSEEK_R1,        // 32. DeepSeek R1 reasoning  (GitHub Models)
   AI_MODELS.GROQ_LLAMA_4_SCT,   // 33. Llama 4 Scout          (Groq)

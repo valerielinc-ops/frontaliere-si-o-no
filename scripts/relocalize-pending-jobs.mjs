@@ -246,9 +246,14 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
       for (const [locale, value] of Object.entries(assembled[field])) {
         const existing = crawlerJob[field][locale];
         const trimmedValue = String(value || '').trim();
-        // Only update if assembled has a non-empty value AND crawler doesn't.
-        // NEVER overwrite existing crawler data with empty assembled values.
-        if (trimmedValue && !String(existing || '').trim()) {
+        const trimmedExisting = String(existing || '').trim();
+        // NEVER write empty assembled values (safety guard: AI may have failed).
+        if (!trimmedValue) continue;
+        // For needsRetranslation jobs: always overwrite with assembled value.
+        // The existing content was explicitly flagged as bad quality (wrong language,
+        // untranslated copy of source, etc.) so any non-empty assembled value is better.
+        // For normal jobs: only add where the crawler has no content.
+        if (crawlerJob.needsRetranslation || !trimmedExisting) {
           crawlerJob[field][locale] = value;
           changed = true;
         }
