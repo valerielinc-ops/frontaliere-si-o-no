@@ -701,6 +701,196 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
   // Note: Individual crossings like /guida-frontaliere/tempi-attesa-dogana/lanzo-d-intelvi-arogno
   // match /guida-frontaliere/tempi-attesa-dogana which is already defined above.
 
+  // ───── Articles hub ──────────────────────────────────────────
+  '/articoli-frontaliere/': {
+    en: [
+      'The cross-border worker articles section is an editorially curated hub covering the key topics that matter to those who work in Ticino and live in Italy: taxation under the New 2026 Agreement, LAMal vs Italian NHS health insurance, pension planning across two countries, and practical administrative procedures.',
+      'Each article includes concrete scenarios with real numbers, links to the relevant calculators, and references to current Swiss and Italian legislation so you can immediately verify how the information applies to your situation.',
+      'Articles are categorised by topic — fiscal, practical, news, pension — and updated whenever the law changes or new official data is published. The collection covers both new cross-border workers navigating the system for the first time and experienced workers optimising their financial position.',
+    ],
+    de: [
+      'Der Grenzgänger-Artikelbereich ist ein redaktionell kuratierter Hub, der die wichtigsten Themen für Personen abdeckt, die im Tessin arbeiten und in Italien leben: Besteuerung nach dem Neuen Abkommen 2026, KVG- vs. italienisches NHS-Krankenversicherung, grenzüberschreitende Altersvorsorge und praktische Verwaltungsverfahren.',
+      'Jeder Artikel enthält konkrete Szenarien mit echten Zahlen, Links zu den relevanten Rechnern und Verweise auf aktuelle Schweizer und italienische Gesetzgebung, damit Sie sofort überprüfen können, wie die Informationen auf Ihre Situation zutreffen.',
+      'Artikel sind nach Thema kategorisiert — Steuer, Praktisch, Aktuell, Vorsorge — und werden aktualisiert, wenn sich Gesetze ändern oder neue offizielle Daten veröffentlicht werden.',
+    ],
+    fr: [
+      'La section articles frontaliers est un hub éditorial couvrant les sujets clés pour ceux qui travaillent au Tessin et vivent en Italie : fiscalité selon le Nouvel Accord 2026, assurance maladie LAMal vs SSN italien, prévoyance retraite transfrontalière et procédures administratives pratiques.',
+      'Chaque article inclut des scénarios concrets avec de vrais chiffres, des liens vers les calculateurs pertinents et des références à la législation suisse et italienne en vigueur pour vérifier immédiatement comment l\'information s\'applique à votre situation.',
+      'Les articles sont catégorisés par thème — fiscal, pratique, actualité, retraite — et mis à jour à chaque changement législatif ou publication de nouvelles données officielles.',
+    ],
+  },
+
+  // ───── Ticino public holidays ────────────────────────────────
+  '/tasse-e-pensione/festivita-ticino': {
+    en: [
+      'Canton Ticino observes 15 public holidays per year — the 9 federal Swiss holidays plus 6 cantonal holidays specific to Ticino. For cross-border workers, these dates directly affect overtime calculations, pay for days worked on holidays (at least 1.25× rate), and whether the employer must pay for the holiday even if the worker is absent.',
+      'Public holidays that fall on weekdays reduce the number of working days in that month, which can affect prorated salary calculations for workers on monthly pay, holiday entitlement accrual, and the distribution of the 13th month payment across the calendar year.',
+      'Cross-border workers should also note that Italian public holidays do not automatically apply in Switzerland: if you are working in Ticino, Swiss holidays govern your schedule. However, Swiss law allows workers to take Italian national holidays as vacation days if agreed with the employer in writing.',
+    ],
+    de: [
+      'Der Kanton Tessin feiert 15 Feiertage pro Jahr — die 9 nationalen Schweizer Feiertage plus 6 kantonale Feiertage, die speziell für das Tessin gelten. Für Grenzgänger wirken sich diese Daten direkt auf die Überstundenberechnung, die Vergütung für an Feiertagen geleistete Arbeit (mindestens 1,25-fach) und die Lohnfortzahlungspflicht aus.',
+      'Feiertage, die auf Werktage fallen, reduzieren die Anzahl der Arbeitstage im jeweiligen Monat und können anteilige Gehaltsberechnungen, die Urlaubsrückstellungsrate und die Verteilung des 13. Monatslohns beeinflussen.',
+      'Grenzgänger sollten auch beachten, dass italienische Feiertage in der Schweiz nicht automatisch gelten. In Ticino arbeitende Grenzgänger unterliegen dem Schweizer Feiertagskalender, können aber mit schriftlicher Arbeitgebervereinbarung italienische Nationalfeiertage als Urlaubstage nehmen.',
+    ],
+    fr: [
+      'Le Canton du Tessin observe 15 jours fériés par an — les 9 jours fériés fédéraux suisses plus 6 jours fériés cantonaux spécifiques au Tessin. Pour les frontaliers, ces dates impactent directement le calcul des heures supplémentaires, la rémunération des jours travaillés en jours fériés (minimum 1,25×) et l\'obligation de l\'employeur de payer ces jours.',
+      'Les jours fériés tombant en semaine réduisent le nombre de jours ouvrables du mois, ce qui peut affecter les calculs de salaire au prorata, l\'accumulation des droits aux congés et la répartition du 13e mois sur l\'année civile.',
+      'Les frontaliers doivent aussi noter que les jours fériés italiens ne s\'appliquent pas automatiquement en Suisse : ceux qui travaillent au Tessin sont soumis au calendrier suisse, mais peuvent prendre les jours fériés italiens en congés payés sur accord écrit de l\'employeur.',
+    ],
+  },
+
+  // ───── Grocery price comparison ─────────────────────────────
+  '/compara-servizi/confronta-prezzi-spesa': {
+    en: [
+      'The grocery price comparator benchmarks a standard weekly shopping basket across Swiss supermarkets (Migros, Coop, Denner, Aldi Suisse) and Italian equivalents (Esselunga, Lidl, Eurospin, Conad), applying the current CHF-EUR exchange rate to show real cost in a single currency.',
+      'The comparison covers over 50 product categories: fresh produce, dairy, meat, packaged goods, beverages, and personal care items. On average, identical branded products cost 35-55% more in Ticino than in the Italian border regions, making cross-border grocery shopping a significant monthly saving for many frontalieri families.',
+      'Beyond the basket total, the tool shows which product categories offer the greatest savings in Italy (meat, cheese, wine, fresh pasta) versus products where Swiss quality or local availability makes Swiss supermarkets competitive (fresh bakery, Swiss chocolate, specialty dairy). Results update monthly as scanner price data is refreshed.',
+    ],
+    de: [
+      'Der Lebensmittelpreisvergleich bewertet einen standardisierten Wocheneinkauf in Schweizer Supermärkten (Migros, Coop, Denner, Aldi Suisse) und italienischen Pendants (Esselunga, Lidl, Eurospin, Conad) und wendet den aktuellen CHF-EUR-Wechselkurs an.',
+      'Der Vergleich umfasst über 50 Produktkategorien: Frischprodukte, Milchprodukte, Fleisch, Fertigprodukte, Getränke und Körperpflegeartikel. Im Durchschnitt kosten identische Markenprodukte im Tessin 35-55 % mehr als in den italienischen Grenzregionen.',
+      'Das Tool zeigt auch, welche Kategorien in Italien am meisten sparen (Fleisch, Käse, Wein, frische Pasta) versus Produkte, bei denen Schweizer Qualität oder lokale Verfügbarkeit die Schweizer Supermärkte wettbewerbsfähig macht. Ergebnisse werden monatlich aktualisiert.',
+    ],
+    fr: [
+      'Le comparateur de prix alimentaires compare un panier de courses hebdomadaire standard dans les supermarchés suisses (Migros, Coop, Denner, Aldi Suisse) et italiens (Esselunga, Lidl, Eurospin, Conad), en appliquant le taux de change CHF-EUR actuel.',
+      'La comparaison couvre plus de 50 catégories de produits. En moyenne, les produits de marque identiques coûtent 35 à 55 % plus cher au Tessin que dans les régions frontalières italiennes, faisant des courses en Italie une économie mensuelle significative pour de nombreuses familles frontalières.',
+      'L\'outil indique aussi quelles catégories offrent les plus grandes économies en Italie (viande, fromage, vin, pâtes fraîches) versus les produits où la qualité suisse ou la disponibilité locale rend les supermarchés suisses compétitifs. Les résultats sont mis à jour mensuellement.',
+    ],
+  },
+
+  // ───── Mobile operator comparison ───────────────────────────
+  '/compara-servizi/confronta-operatori-mobili': {
+    en: [
+      'The mobile operator comparator evaluates plans from Swiss operators (Swisscom, Salt, Sunrise, Yallo, Aldi Talk CH) and Italian operators (TIM, Vodafone IT, WindTre, Iliad IT) specifically for cross-border workers who need reliable coverage in both countries without excessive roaming charges.',
+      'Key criteria for frontalieri: daily cross-border usage (EU roaming is included in most Italian plans under EU regulation, while Swiss operators are not EU-bound), data allowances for border zone reception gaps, calling between Swiss and Italian numbers, and international transfer costs when sending CHF earnings to an Italian bank account.',
+      'The comparison is structured around three typical cross-border usage profiles: commuter (high data, daily crossing), remote-first (occasional border crossing, video calls priority), and family plan (multiple SIMs, children in Italian schools). Select your profile to see the most relevant operator ranking.',
+    ],
+    de: [
+      'Der Mobilfunkanbieter-Vergleich bewertet Tarife von Schweizer Anbietern (Swisscom, Salt, Sunrise, Yallo) und italienischen Anbietern (TIM, Vodafone IT, WindTre, Iliad IT) speziell für Grenzgänger, die in beiden Ländern eine zuverlässige Abdeckung ohne übermässige Roaming-Kosten benötigen.',
+      'Wesentliche Kriterien: tägliche grenzüberschreitende Nutzung (EU-Roaming ist in den meisten italienischen Tarifen enthalten, während Schweizer Anbieter nicht EU-gebunden sind), Datenkontingente für Empfangslücken in der Grenzzone und Anrufkosten zwischen Schweizer und italienischen Nummern.',
+      'Der Vergleich ist nach drei typischen Grenzgänger-Nutzungsprofilen strukturiert: Pendler (hohe Datenmenge, tägliches Überqueren), Remote-First (gelegentliches Grenzüberschreiten, Videokonferenzen) und Familienplan (mehrere SIM-Karten). Wählen Sie Ihr Profil für das relevanteste Anbieterranking.',
+    ],
+    fr: [
+      'Le comparateur d\'opérateurs mobiles évalue les forfaits des opérateurs suisses (Swisscom, Salt, Sunrise, Yallo) et italiens (TIM, Vodafone IT, WindTre, Iliad IT) spécifiquement pour les frontaliers ayant besoin d\'une couverture fiable dans les deux pays sans frais d\'itinérance excessifs.',
+      'Critères clés : utilisation transfrontalière quotidienne (le roaming UE est inclus dans la plupart des forfaits italiens selon la réglementation UE, les opérateurs suisses n\'étant pas soumis à l\'UE), quotas de données et coûts d\'appel entre numéros suisses et italiens.',
+      'La comparaison est structurée autour de trois profils d\'utilisation frontalière typiques : pendulaire (données élevées, traversée quotidienne), remote-first (traversée occasionnelle, priorité visioconférence) et forfait famille (plusieurs SIM). Sélectionnez votre profil pour le classement le plus pertinent.',
+    ],
+  },
+
+  // ───── Renovation bonus calculator ──────────────────────────
+  '/compara-servizi/calcola-bonus-ristrutturazione': {
+    en: [
+      'The renovation bonus calculator helps cross-border workers who own property in Italy estimate the net cost of home improvement works after applying Italian fiscal incentives: the 50% renovation deduction (Bonus Ristrutturazione), the 65% Ecobonus for energy efficiency upgrades, the Superbonus for qualifying thermal envelope improvements, and the 36% furniture bonus for new appliances purchased after renovation.',
+      'The tool calculates the deduction spread (the bonus is recovered over 10 equal annual IRPEF deductions), the total fiscal saving over the full recovery period, and the effective net cost of the works. It accounts for the EUR 10,000 franchise applicable to new cross-border workers under the 2026 Agreement when calculating how much of the Italian tax liability can absorb the deduction.',
+      'For cross-border workers, coordination between Swiss withholding tax paid and Italian IRPEF is critical: the deduction is only valuable if you have Italian tax liability to offset. The calculator shows the breakeven point and recommends whether maximising the deduction is optimal or whether alternative investments offer better after-tax returns given your specific Swiss-Italian tax position.',
+    ],
+    de: [
+      'Der Renovierungsbonus-Rechner hilft Grenzgängern, die in Italien Immobilien besitzen, die Nettokosten von Renovierungsarbeiten nach Anwendung italienischer Steueranreize zu schätzen: 50% Renovierungsabzug, 65% Ökobonus für Energieeffizienz-Upgrades, Superbonus und 36% Möbelbonus.',
+      'Das Tool berechnet die Abzugsverteilung (der Bonus wird über 10 gleiche jährliche IRPEF-Abzüge zurückgewonnen), die gesamte Steuereinsparung über die gesamte Rückgewinnungsperiode und die effektiven Nettokosten. Es berücksichtigt die EUR 10.000-Franchise für neue Grenzgänger nach dem Abkommen 2026.',
+      'Für Grenzgänger ist die Koordination zwischen der in der Schweiz gezahlten Quellensteuer und der italienischen IRPEF entscheidend: Der Abzug ist nur dann wertvoll, wenn Sie eine ausreichende italienische Steuerschuld haben. Der Rechner zeigt den Breakeven-Punkt.',
+    ],
+    fr: [
+      'Le calculateur de bonus rénovation aide les frontaliers propriétaires en Italie à estimer le coût net des travaux après application des incitations fiscales italiennes : déduction rénovation 50%, Écobonus 65% pour travaux d\'efficacité énergétique, Superbonus et bonus mobilier 36%.',
+      'L\'outil calcule l\'étalement de la déduction (le bonus est récupéré en 10 tranches annuelles égales de déduction IRPEF), l\'économie fiscale totale sur la période de récupération et le coût net effectif. Il tient compte de la franchise de 10 000 EUR pour les nouveaux frontaliers selon l\'Accord 2026.',
+      'Pour les frontaliers, la coordination entre l\'impôt à la source suisse payé et l\'IRPEF italienne est critique : la déduction n\'est utile que si vous avez une charge fiscale italienne suffisante. Le calculateur montre le point d\'équilibre et recommande la stratégie optimale selon votre position fiscale suisse-italienne.',
+    ],
+  },
+
+  // ───── Living in Italy ───────────────────────────────────────
+  '/vivere-in-ticino/vivere-in-italia': {
+    en: [
+      'This section covers the practical realities of living in Italy while working in Swiss Canton Ticino — the daily life of around 70,000 frontalieri who make this choice. Topics covered include Italian border regions (Como, Varese, Verbano-Cusio-Ossola, Novara provinces), commute times to the main border crossings, and the administrative consequences of Italian tax residence.',
+      'Italian residence means paying IRPEF and regional/municipal surcharges on your worldwide income, maintaining AIRE registration if moving abroad, and potentially accessing Italian public services (healthcare via Italian NHS, Italian public schools for children, Italian state pension contributions from INPS). The guide maps out all these obligations and entitlements clearly.',
+      'For families with children, living in Italy gives access to Italian schooling at a fraction of Swiss tuition, Italian public healthcare without LAMal premiums (for G permit workers who opt for Italian NHS), and a cost of living that is typically 30-45% lower than equivalent accommodation in Lugano or Bellinzona. The section helps you calculate the real net advantage of Italian residence versus Swiss residency with a B permit.',
+    ],
+    de: [
+      'Dieser Bereich deckt die praktischen Realitäten des Lebens in Italien bei der Arbeit im Schweizer Kanton Tessin ab — den Alltag von rund 70.000 Grenzgängern, die diese Wahl treffen. Behandelte Themen: italienische Grenzregionen (Como, Varese, Verbano-Cusio-Ossola, Novara), Pendelzeiten und administrative Konsequenzen des italienischen Steuerwohnsitzes.',
+      'Italienischer Wohnsitz bedeutet IRPEF- und Regional-/Kommunalzuschlagszahlungen auf das Welteinkommen, AIRE-Registrierung und potenziellen Zugang zu italienischen öffentlichen Diensten (NHS, Schulen, INPS-Rentenversicherung). Der Leitfaden zeigt alle Pflichten und Ansprüche klar auf.',
+      'Für Familien mit Kindern bietet das Leben in Italien Zugang zu günstigerer Schulbildung und öffentlicher Gesundheitsversorgung ohne LAMal-Prämien (für G-Bewilligungsinhaber, die den italienischen NHS wählen), bei Lebenshaltungskosten, die typischerweise 30-45 % niedriger sind als im Tessin.',
+    ],
+    fr: [
+      'Cette section couvre les réalités pratiques de la vie en Italie tout en travaillant dans le Canton suisse du Tessin — le quotidien d\'environ 70 000 frontaliers qui font ce choix. Sujets traités : régions frontalières italiennes (provinces de Côme, Varese, Verbano-Cusio-Ossola, Novare), temps de trajet et conséquences administratives de la résidence fiscale italienne.',
+      'La résidence italienne implique le paiement de l\'IRPEF et des surtaxes régionales/communales sur les revenus mondiaux, l\'inscription AIRE et l\'accès potentiel aux services publics italiens (SSN, écoles publiques italiennes, cotisations retraite INPS). Le guide présente clairement toutes ces obligations et droits.',
+      'Pour les familles avec enfants, vivre en Italie donne accès à une scolarité moins coûteuse, aux soins de santé publics sans primes LAMal (pour les titulaires de permis G qui optent pour le SSN italien), avec un coût de la vie généralement 30-45% inférieur à celui de Lugano ou Bellinzona.',
+    ],
+  },
+
+  // ───── Border municipalities ─────────────────────────────────
+  '/vivere-in-ticino/comuni-di-frontiera': {
+    en: [
+      'The border municipalities guide covers the Italian comuni within 20 km of the Swiss-Ticino border — the geographic threshold that determines the fiscal regime for cross-border workers under the 2026 New Agreement. Frontalieri residing in these municipalities benefit from the transitional regime where Switzerland returns approximately 40% of withholding tax to the Italian municipalities of origin.',
+      'Practical information includes: distance from each comune to the nearest border crossing, commute time estimates to major Ticino employment centres (Lugano, Bellinzona, Locarno, Mendrisio), local public transport links (FerrovieNord, TILO regional rail, FlixBus routes), and rental market data showing average monthly rents versus Ticino equivalents.',
+      'The guide also covers the administrative process for certifying residence in a border municipality for Swiss permit purposes, how to document the 20 km distance requirement, and what happens if you move to a comune outside the 20 km zone while keeping your Swiss job — including the fiscal implications of shifting to the new frontalieri regime with full Swiss withholding tax.',
+    ],
+    de: [
+      'Der Leitfaden zu den Grenzgemeinden behandelt die italienischen Comuni innerhalb von 20 km von der Schweizer-Tessiner Grenze — die geografische Schwelle, die das Steuerregime für Grenzgänger nach dem Neuen Abkommen 2026 bestimmt. In diesen Gemeinden wohnhafte Grenzgänger profitieren vom Übergangsregime, bei dem die Schweiz ca. 40 % der Quellensteuer an die italienischen Herkunftsgemeinden zurückgibt.',
+      'Praktische Informationen: Entfernung jeder Gemeinde zum nächsten Grenzübergang, Pendelzeitschätzungen zu wichtigen Tessiner Beschäftigungszentren (Lugano, Bellinzona, Locarno, Mendrisio), ÖPNV-Verbindungen und Mietmarktdaten.',
+      'Der Leitfaden behandelt auch das administrative Verfahren zur Bescheinigung des Wohnsitzes in einer Grenzgemeinde für Schweizer Bewilligungszwecke und die steuerlichen Folgen eines Umzugs ausserhalb der 20-km-Zone.',
+    ],
+    fr: [
+      'Le guide des communes frontalières couvre les comuni italiens dans un rayon de 20 km de la frontière suisse-tessinoise — le seuil géographique déterminant le régime fiscal pour les frontaliers selon le Nouvel Accord 2026. Les frontaliers résidant dans ces communes bénéficient du régime transitoire où la Suisse reverse environ 40% de l\'impôt à la source aux communes italiennes d\'origine.',
+      'Informations pratiques : distance de chaque commune au poste frontière le plus proche, estimations des temps de trajet vers les principaux centres d\'emploi tessinois (Lugano, Bellinzone, Locarno, Mendrisio), liaisons de transport public et données du marché locatif.',
+      'Le guide couvre aussi la procédure administrative pour certifier la résidence dans une commune frontalière pour les besoins du permis suisse et les implications fiscales d\'un déménagement hors de la zone de 20 km tout en conservant l\'emploi en Suisse.',
+    ],
+  },
+
+  // ───── Italian-speaking Swiss schools ───────────────────────
+  '/vivere-in-ticino/scuole-svizzera-italiana': {
+    en: [
+      'The Italian-speaking Swiss schools guide covers the education system in Canton Ticino and the bilingual border areas of Graubünden (Grigioni) for cross-border families considering schooling options in Switzerland. The Ticino system follows the Swiss model: scuola dell\'infanzia (3-6 years), scuola elementare (6-11), scuola media (11-15), and liceo/scuola professionale (15-18).',
+      'For cross-border workers with children, enrolling in Ticino schools involves residency status checks — typically B permit holders can enrol children easily, while G permit holders face varying cantonal rules. The guide maps out school zones, lists the main public and private institutions, and explains the Ticino school calendar and holiday schedule.',
+      'A cost comparison is included: Ticino public schools are free (with small material fees), while private schools range from CHF 15,000 to CHF 35,000 per year. Italian public schools in the border provinces offer a cheaper alternative for families living in Italy, with the guide providing commute time estimates and information on Italian-Swiss bilingual school programmes.',
+    ],
+    de: [
+      'Der Schulführer für die italienischsprachige Schweiz deckt das Bildungssystem im Kanton Tessin und den zweisprachigen Grenzgebieten Graubündens für grenzüberschreitende Familien ab: Scuola dell\'Infanzia (3-6 Jahre), Scuola Elementare (6-11), Scuola Media (11-15) und Liceo/Scuola Professionale (15-18).',
+      'Für Grenzgänger mit Kindern beinhaltet die Einschulung im Tessin Wohnsitzprüfungen — B-Bewilligungsinhaber können Kinder in der Regel problemlos anmelden, während G-Bewilligungsinhaber unterschiedlichen Kantonsregeln gegenüberstehen. Der Leitfaden listet Schulzonen, Hauptinstitutionen und erklärt den Tessiner Schulkalender.',
+      'Ein Kostenvergleich ist enthalten: Öffentliche Schulen im Tessin sind kostenlos, private Schulen kosten 15.000-35.000 CHF pro Jahr. Italienische öffentliche Schulen in den Grenzprovinzen bieten eine günstigere Alternative für in Italien lebende Familien.',
+    ],
+    fr: [
+      'Le guide des écoles de Suisse italophone couvre le système éducatif du Canton du Tessin et des zones frontalières bilingues des Grisons pour les familles transfrontalières : scuola dell\'infanzia (3-6 ans), scuola elementare (6-11), scuola media (11-15) et lycée/école professionnelle (15-18).',
+      'Pour les frontaliers avec enfants, l\'inscription dans les écoles du Tessin implique des vérifications de statut de résidence — les titulaires de permis B peuvent généralement inscrire leurs enfants facilement, tandis que les titulaires de permis G font face à des règles cantonales variables.',
+      'Une comparaison des coûts est incluse : les écoles publiques au Tessin sont gratuites, les écoles privées coûtent de CHF 15 000 à CHF 35 000 par an. Les écoles publiques italiennes dans les provinces frontalières offrent une alternative moins coûteuse pour les familles vivant en Italie.',
+    ],
+  },
+
+  // ───── Border crossing traffic history ───────────────────────
+  '/statistiche/storico-traffico-dogane': {
+    en: [
+      'The border crossing traffic history section presents time-series data on the volume and timing of frontalieri crossings at all major Ticino-Italy border points: Chiasso, Como-Monte Olimpino, Ponte Tresa, Stabio, Gaggiolo, Balerna, and the smaller secondary crossings. Data covers monthly vehicle counts, seasonal trends, and peak hour distributions.',
+      'For cross-border workers planning their commute, the historical data reveals actionable patterns: which months have the heaviest congestion (September, October, and January when school terms restart), which crossings have improved most with recent infrastructure investments, and how total frontalieri traffic has trended since the 2020 pandemic disruption through to 2026.',
+      'The dataset is sourced from the Swiss Federal Customs Administration (BAZG) and the Italian Guardia di Finanza crossing records. Charts are fully interactive — filter by crossing, time period, and traffic type (car, bus, truck) to identify the optimal commute window for your specific crossing point.',
+    ],
+    de: [
+      'Der historische Grenzübergangsverkehr präsentiert Zeitreihendaten zum Volumen und Timing der Grenzgänger-Überquerungen an allen wichtigen Tessin-Italien-Grenzübergängen: Chiasso, Como-Monte Olimpino, Ponte Tresa, Stabio, Gaggiolo, Balerna und kleinere Nebenübergänge.',
+      'Für Grenzgänger bei der Pendelplanung zeigen die historischen Daten umsetzbare Muster: welche Monate die stärkste Überlastung haben (September, Oktober, Januar bei Schuljahresbeginn), welche Übergänge sich mit Infrastrukturinvestitionen am meisten verbessert haben und wie sich der Gesamtverkehr seit 2020 entwickelt hat.',
+      'Der Datensatz stammt von der Schweizerischen Eidgenössischen Zollverwaltung (BAZG) und den italienischen Guardia-di-Finanza-Grenzaufzeichnungen. Diagramme sind vollständig interaktiv: Filtern Sie nach Übergang, Zeitraum und Verkehrstyp.',
+    ],
+    fr: [
+      'La section historique du trafic frontalier présente des données de séries temporelles sur le volume et le calendrier des passages de frontaliers à tous les principaux postes frontaliers Tessin-Italie : Chiasso, Como-Monte Olimpino, Ponte Tresa, Stabio, Gaggiolo, Balerna et les passages secondaires.',
+      'Pour les frontaliers planifiant leur trajet, les données historiques révèlent des patterns exploitables : quels mois ont la congestion la plus forte (septembre, octobre, janvier lors de la rentrée scolaire), quels postes se sont le plus améliorés avec les investissements d\'infrastructure.',
+      'Le jeu de données provient de l\'Administration fédérale des douanes suisses (BAZG) et des enregistrements de la Guardia di Finanza italienne. Les graphiques sont entièrement interactifs — filtrez par poste, période et type de trafic pour identifier la fenêtre de trajet optimale.',
+    ],
+  },
+
+  // ───── Salary statistics comparison ─────────────────────────
+  '/statistiche/confronta-stipendi': {
+    en: [
+      'The salary statistics section compares median and average gross wages across 24 industry sectors in Canton Ticino (CHF) versus the equivalent Italian provinces of Como, Varese, and Verbano-Cusio-Ossola (EUR), converted at current exchange rates to enable direct comparison of purchasing power.',
+      'Data is sourced from the Swiss Federal Statistical Office (FSO/BFS) annual wage survey, ISTAT Italian employment statistics, and the SECO Cantonal Labour Market Monitor, providing a statistically robust picture of the cross-border salary differential by role, experience level, and contract type for 2026.',
+      'The comparison is designed to support real negotiation decisions: if you are applying for a role in Ticino or planning to renegotiate, knowing the median salary for your sector and experience level in Switzerland versus Italy gives you objective data to back your position. The tool also calculates the net advantage after Swiss social contributions and cantonal withholding tax versus the Italian equivalent after IRPEF.',
+    ],
+    de: [
+      'Die Gehaltsstatistik vergleicht Median- und Durchschnittsbruttogehälter in 24 Branchen im Kanton Tessin (CHF) mit den äquivalenten italienischen Provinzen Como, Varese und Verbano-Cusio-Ossola (EUR), umgerechnet zu aktuellen Wechselkursen für einen direkten Kaufkraftvergleich.',
+      'Daten stammen aus der jährlichen BFS-Lohnerhebung, ISTAT-Beschäftigungsstatistiken und dem SECO-Kantonsarbeitsmarktmonitor — eine statistisch robuste Darstellung des grenzüberschreitenden Gehaltsgefälles nach Branche, Erfahrungsstufe und Vertragstyp für 2026.',
+      'Der Vergleich unterstützt echte Verhandlungsentscheidungen: Kenntnis des Mediangehalts für Ihren Sektor und Ihre Erfahrungsstufe in der Schweiz versus Italien gibt Ihnen objektive Daten für Gehaltsverhandlungen. Das Tool berechnet auch den Nettovorteil nach Schweizer Sozialabgaben und kantonaler Quellensteuer.',
+    ],
+    fr: [
+      'La section statistiques salariales compare les salaires bruts médians et moyens dans 24 secteurs d\'activité du Canton du Tessin (CHF) versus les provinces italiennes équivalentes de Côme, Varèse et Verbano-Cusio-Ossola (EUR), convertis au taux de change actuel pour une comparaison directe du pouvoir d\'achat.',
+      'Les données proviennent de l\'enquête annuelle sur les salaires de l\'OFS, des statistiques d\'emploi ISTAT et du Moniteur du Marché du Travail Cantonal SECO — une image statistiquement robuste du différentiel salarial transfrontalier par rôle, niveau d\'expérience et type de contrat pour 2026.',
+      'La comparaison est conçue pour soutenir de vraies décisions de négociation : connaître le salaire médian pour votre secteur en Suisse versus Italie vous donne des données objectives. L\'outil calcule aussi l\'avantage net après cotisations sociales suisses et impôt à la source cantonal.',
+    ],
+  },
+
   // ───── Salary landing pages (for all /calcola-stipendio/stipendio-netto-* pages) ──
   '/calcola-stipendio/stipendio-netto': {
     en: [

@@ -329,7 +329,13 @@ describe('SEO Completeness — every page has proper SEO setup', () => {
 // ── Sitemap Coverage ─────────────────────────────────────────────────────────
 
 describe('Sitemap — every IT canonical URL is in sitemap.xml', () => {
+  // Utility/legal pages intentionally excluded from sitemap (noindex — thin content by design)
+  const NOINDEX_ROUTES = new Set(['contact', 'partners', 'consulting', 'privacy', 'api-status']);
+
   for (const { route, label } of ALL_ROUTES) {
+    const activeTab = (route as { activeTab: string }).activeTab;
+    if (NOINDEX_ROUTES.has(activeTab)) continue;
+
     it(`${label} → sitemap has ${buildPath(route, 'it')}`, () => {
       const itPath = buildPath(route, 'it');
       const fullUrl = `${BASE_URL}${itPath}`;
@@ -381,8 +387,14 @@ describe('IndexNow — submit-indexnow.js reads sitemap and submits to Bing', ()
     expect(indexNowContent).toContain('hreflang');
   });
 
-  // Verify every route is in the sitemap (which IndexNow now reads from)
+  // Verify every indexable route is in the sitemap (which IndexNow now reads from)
+  // Utility/legal pages intentionally excluded from sitemap (noindex — thin content by design)
+  const NOINDEX_ROUTES_INDEXNOW = new Set(['contact', 'partners', 'consulting', 'privacy', 'api-status']);
+
   for (const { route, label } of ALL_ROUTES) {
+    const activeTab = (route as { activeTab: string }).activeTab;
+    if (NOINDEX_ROUTES_INDEXNOW.has(activeTab)) continue;
+
     it(`${label} → sitemap contains ${buildPath(route, 'it')} (indexed via IndexNow)`, () => {
       const itPath = buildPath(route, 'it');
       expect(
@@ -429,7 +441,14 @@ describe('llms.txt — content-rich pages are listed for AI crawlers', () => {
 describe('Sitemap URLs match router buildPath for all locales', () => {
   const locales = ['it', 'en', 'de', 'fr'] as const;
 
+  // Utility/legal pages intentionally excluded from sitemap (noindex — thin content by design).
+  // Removed from sitemap to fix Bing "insufficient content" audit warnings.
+  const NOINDEX_ROUTES = new Set(['contact', 'partners', 'consulting', 'privacy', 'api-status']);
+
   for (const { route, label } of ALL_ROUTES) {
+    const activeTab = (route as { activeTab: string }).activeTab;
+    if (NOINDEX_ROUTES.has(activeTab)) continue;
+
     for (const locale of locales) {
       it(`${label} [${locale}] → sitemap hreflang URL matches buildPath`, () => {
         const path = buildPath(route, locale);
