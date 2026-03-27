@@ -31,7 +31,10 @@ export function flatContentPlugin(): Plugin {
       let skipped = 0;
 
       const walk = (dir: string) => {
-        for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+        let entries: import('node:fs').Dirent[];
+        try { entries = fs.readdirSync(dir, { withFileTypes: true }); }
+        catch { return; /* directory may have been removed by another plugin */ }
+        for (const entry of entries) {
           if (entry.isDirectory()) {
             walk(path.join(dir, entry.name));
             continue;
