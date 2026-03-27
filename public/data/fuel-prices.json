@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-27T11:27:02.918Z",
+  "generatedAt": "2026-03-27T12:07:59.399Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 233,
-      "latestObservedUpdate": "2026-03-27T11:18:50.838Z"
+      "latestObservedUpdate": "2026-03-27T12:00:03.588Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -10421,18 +10421,18 @@
             "distanceKm": 19.2
           },
           {
-            "id": "SMWpqRkzxJsVEEzPyGOj",
-            "name": "Agrola Ponte Capriasca",
-            "brand": "AGROLA",
-            "address": "Via Arch A Da Ponte, 6946 Ponte Capriasca",
-            "lat": 46.060186,
-            "lng": 8.945836,
-            "sp95PriceChf": 1.81,
-            "updatedAt": "2026-03-24T06:42:16.601Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 8.3,
-            "sp95PriceEur": 1.978,
-            "distanceKm": 18.9
+            "id": "5LTmgyzdQyG1u08UnDu1",
+            "name": "Euro Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 12, 6814 Cadempino",
+            "lat": 46.03291417576174,
+            "lng": 8.934531588842782,
+            "sp95PriceChf": 1.82,
+            "updatedAt": "2026-03-21T09:46:58.726Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 7.7,
+            "sp95PriceEur": 1.989,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.66,
@@ -13037,11 +13037,11 @@
             "address": "Via Maestri Comacini 10, 6830 Chiasso",
             "lat": 45.83465592,
             "lng": 9.035368517,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-24T11:40:41.358Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T11:59:36.066Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.3,
-            "sp95PriceEur": 1.945,
+            "sp95PriceEur": 2,
             "distanceKm": 20
           }
         ],
@@ -18818,34 +18818,6 @@
             "distanceKm": 20
           },
           {
-            "id": "JSwIQAHxBJkmBFEgWvIF",
-            "name": "Piccadilly SA - Socar, Coop",
-            "brand": "SOCAR",
-            "address": "Via Maestri Comacini 10, 6830 Chiasso",
-            "lat": 45.83465592,
-            "lng": 9.035368517,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-24T11:40:41.358Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.3,
-            "sp95PriceEur": 1.945,
-            "distanceKm": 19.6
-          },
-          {
-            "id": "gJijYgru8FOot7x1ovvk",
-            "name": "BP Service Chiasso",
-            "brand": "BP",
-            "address": "Via Maestri Comacini 5, 6830 Chiasso",
-            "lat": 45.835437,
-            "lng": 9.035372,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-24T11:41:21.997Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.2,
-            "sp95PriceEur": 1.945,
-            "distanceKm": 19.7
-          },
-          {
             "id": "eE9A2ZlqOyqZPsUGQjdj",
             "name": "Pemoil",
             "brand": "UNDEFINED",
@@ -18858,6 +18830,34 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.978,
             "distanceKm": 19.8
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T11:59:36.066Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 2,
+            "distanceKm": 19.6
+          },
+          {
+            "id": "gJijYgru8FOot7x1ovvk",
+            "name": "BP Service Chiasso",
+            "brand": "BP",
+            "address": "Via Maestri Comacini 5, 6830 Chiasso",
+            "lat": 45.835437,
+            "lng": 9.035372,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T12:00:03.588Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 2,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.72,
@@ -51033,34 +51033,6 @@
             "distanceKm": 19.8
           },
           {
-            "id": "JSwIQAHxBJkmBFEgWvIF",
-            "name": "Piccadilly SA - Socar, Coop",
-            "brand": "SOCAR",
-            "address": "Via Maestri Comacini 10, 6830 Chiasso",
-            "lat": 45.83465592,
-            "lng": 9.035368517,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-24T11:40:41.358Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.3,
-            "sp95PriceEur": 1.945,
-            "distanceKm": 19.4
-          },
-          {
-            "id": "gJijYgru8FOot7x1ovvk",
-            "name": "BP Service Chiasso",
-            "brand": "BP",
-            "address": "Via Maestri Comacini 5, 6830 Chiasso",
-            "lat": 45.835437,
-            "lng": 9.035372,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-24T11:41:21.997Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.2,
-            "sp95PriceEur": 1.945,
-            "distanceKm": 19.5
-          },
-          {
             "id": "eE9A2ZlqOyqZPsUGQjdj",
             "name": "Pemoil",
             "brand": "UNDEFINED",
@@ -51073,6 +51045,34 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.978,
             "distanceKm": 19.9
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T11:59:36.066Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 2,
+            "distanceKm": 19.4
+          },
+          {
+            "id": "gJijYgru8FOot7x1ovvk",
+            "name": "BP Service Chiasso",
+            "brand": "BP",
+            "address": "Via Maestri Comacini 5, 6830 Chiasso",
+            "lat": 45.835437,
+            "lng": 9.035372,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T12:00:03.588Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 2,
+            "distanceKm": 19.5
           }
         ],
         "minPriceChf": 1.72,
