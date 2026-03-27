@@ -1802,6 +1802,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.franco-svizzero-minimi-euro.title': 'The Swiss Franc Hits Record Lows Against the Euro Since January',
     'blog.article.franco-svizzero-minimi-euro.excerpt': 'The Swiss Franc has reached levels of 0.92 francs, a threshold not seen since the end of January',
     'blog.article.franco-svizzero-minimi-euro.imageAlt': 'The time of foreign exchange of Lugano',
+    'blog.article.benzina-conveniente.title': 'Convenient Gasoline in Ticino',
+    'blog.article.benzina-conveniente.excerpt': 'Ticinese motorists are looking for the most convenient gasoline in Como',
+    'blog.article.benzina-conveniente.imageAlt': 'Gas station in Lugano',
 };
 
 export default blogMetaEn;

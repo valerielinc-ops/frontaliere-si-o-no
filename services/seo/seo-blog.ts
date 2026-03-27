@@ -8525,6 +8525,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-conveniente': {
+    title: 'Benzina conveniente in Ticino | Frontaliere Ticino',
+    description: 'Gli automobilisti ticinesi cercano la benzina più conveniente a Como. Scopri come risparmiare sulla benzina in Ticino. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, benzina, conveniente, automobilisti, ticinesi',
+    ogTitle: 'Benzina conveniente in Ticino',
+    ogDescription: 'Gli automobilisti ticinesi cercano la benzina più conveniente a Como. Scopri come risparmiare sulla benzina in Ticino.',
+    canonicalPath: '/articoli-frontaliere/benzina-conveniente',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina conveniente in Ticino",
+      "description": "Gli automobilisti ticinesi cercano la benzina più conveniente a Como. Scopri come risparmiare sulla benzina in Ticino. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benzina-conveniente.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione di servizio a Lugano"
+      },
+      "datePublished": "2026-03-27T13:48:53+00:00",
+      "dateModified": "2026-03-27T13:48:53+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-conveniente`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1740,6 +1740,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-corsi-a-b-scuola-media-ticino': { name: 'Scuola media Ticino', path: '/articoli-frontaliere/corsi-a-b-scuola-media-ticino', parent: 'blog' },
     'blog-ticino-confine-droga': { name: 'Spaccio di droga', path: '/articoli-frontaliere/ticino-confine-droga', parent: 'blog' },
     'blog-franco-svizzero-minimi-euro': { name: 'Innovazioni economiche', path: '/articoli-frontaliere/franco-svizzero-minimi-euro', parent: 'blog' },
+    'blog-benzina-conveniente': { name: 'Benzina conveniente', path: '/articoli-frontaliere/benzina-conveniente', parent: 'blog' },
   };
 
   const info = sectionNames[section];

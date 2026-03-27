@@ -1802,6 +1802,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.franco-svizzero-minimi-euro.title': 'Der Schweizer Franken bei Tiefstständen seit Januar gegenüber dem Euro',
     'blog.article.franco-svizzero-minimi-euro.excerpt': 'Der Schweizer Franken schwebt bei 0,92 Franken, Ebenen, die man seit Ende Januar nicht mehr gesehen hat',
     'blog.article.franco-svizzero-minimi-euro.imageAlt': 'Das Uhrwerk der Wechselkurse von Lugano',
+    'blog.article.benzina-conveniente.title': 'Günstiges Benzin im Tessin',
+    'blog.article.benzina-conveniente.excerpt': 'Tessiner Autofahrer suchen das günstigste Benzin in Como',
+    'blog.article.benzina-conveniente.imageAlt': 'Tankstelle in Lugano',
 };
 
 export default blogMetaDe;

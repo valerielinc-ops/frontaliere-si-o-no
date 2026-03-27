@@ -5396,4 +5396,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/franco-svizzero-minimi-euro.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'benzina-conveniente',
+    category: 'pratico',
+    date: '2026-03-27T13:48:53.380Z',
+    image: '/images/blog/benzina-conveniente.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1802,6 +1802,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.franco-svizzero-minimi-euro.title': 'Il franco svizzero ai minimi da gennaio sull\'euro',
     'blog.article.franco-svizzero-minimi-euro.excerpt': 'Il franco svizzero sfiora 0,92 franchi, livelli che non si vedevano da fine gennaio',
     'blog.article.franco-svizzero-minimi-euro.imageAlt': 'L\'orologio delle valute di Lugano',
+    'blog.article.benzina-conveniente.title': 'Benzina conveniente in Ticino',
+    'blog.article.benzina-conveniente.excerpt': 'Gli automobilisti ticinesi cercano la benzina più conveniente a Como',
+    'blog.article.benzina-conveniente.imageAlt': 'Stazione di servizio a Lugano',
 };
 
 export default blogMetaIt;

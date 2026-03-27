@@ -3196,7 +3196,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 594,
+        "numberOfItems": 595,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3788,7 +3788,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 591, "name": "La commemorazione di Bossi diventa bagarre in aula", "url": `${BASE_URL}/articoli-frontaliere/bossi-commemorazione-bagarrata` },
           { "@type": "ListItem", "position": 592, "name": "Cambiamento sistema scolastico Ticino 2026", "url": `${BASE_URL}/articoli-frontaliere/corsi-a-b-scuola-media-ticino` },
           { "@type": "ListItem", "position": 593, "name": "Gallarate: pendolare in e-bike arrestato per sp...", "url": `${BASE_URL}/articoli-frontaliere/ticino-confine-droga` },
-          { "@type": "ListItem", "position": 594, "name": "Il franco svizzero ai minimi da gennaio sull'euro", "url": `${BASE_URL}/articoli-frontaliere/franco-svizzero-minimi-euro` }
+          { "@type": "ListItem", "position": 594, "name": "Il franco svizzero ai minimi da gennaio sull'euro", "url": `${BASE_URL}/articoli-frontaliere/franco-svizzero-minimi-euro` },
+          { "@type": "ListItem", "position": 595, "name": "Benzina conveniente in Ticino", "url": `${BASE_URL}/articoli-frontaliere/benzina-conveniente` }
         ]
       }
     ]

@@ -1802,6 +1802,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.franco-svizzero-minimi-euro.title': 'Le franc suisse aux plus bas depuis janvier par rapport à l\'euro',
     'blog.article.franco-svizzero-minimi-euro.excerpt': 'Le franc suisse frôle les 0,92 francs, des niveaux qui n\'ont pas été observés depuis la fin janvier',
     'blog.article.franco-svizzero-minimi-euro.imageAlt': 'L\'horloge des taux de change de Lugano',
+    'blog.article.benzina-conveniente.title': 'Essence à prix avantageux au Tessin',
+    'blog.article.benzina-conveniente.excerpt': 'Les automobilistes tessinois recherchent l\'essence la plus avantageuse à Come',
+    'blog.article.benzina-conveniente.imageAlt': 'Station-service à Lugano',
 };
 
 export default blogMetaFr;
