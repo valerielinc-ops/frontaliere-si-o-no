@@ -95,7 +95,6 @@ const translations: Record<string, string> = {
     'pillar3.totalAccumulated': 'Totale accumulato',
     
     // Newsletter
-    // PWA Install
     'pillar3.investmentComparison': 'Come Investire il 3° Pilastro',
     'pillar3.investmentDesc': 'Il 3° pilastro può essere investito in diverse modalità. Ecco un confronto.',
     'pillar3.topProviders': 'Migliori Fornitori 3a Digitali (2026)',

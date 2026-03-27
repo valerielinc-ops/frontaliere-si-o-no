@@ -1,6 +1,6 @@
 /// <reference types="vite/client" />
 
-/** Build timestamp injected by Vite define — used to detect stale PWA caches. */
+/** Build timestamp injected by Vite define — used to detect stale caches. */
 declare const __BUILD_ID__: string;
 /** Full commit hash injected by Vite define — used for versioning and debugging. */
 declare const __COMMIT_HASH__: string;

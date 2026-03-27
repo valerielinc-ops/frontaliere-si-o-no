@@ -45,7 +45,7 @@ describe('ACHIEVEMENTS', () => {
       'first_visit', 'guide_reader', 'comparator_curious',
       'first_simulation', 'what_if_dreamer',
       'school_finder', 'map_explorer', 'tax_calendar_user',
-      'newsletter_sub', 'pwa_installer', 'dark_mode_fan',
+      'newsletter_sub', 'app_shortcut', 'dark_mode_fan',
       'feedback_giver', 'health_researcher', 'currency_watcher',
       'forum_first_question', 'forum_first_answer',
     ];

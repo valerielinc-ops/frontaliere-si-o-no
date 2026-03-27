@@ -35,7 +35,7 @@ export const ACHIEVEMENTS: Achievement[] = [
   { id: 'feedback_giver', icon: '💬', category: 'social', requiredCount: 1 },
   { id: 'stats_checker', icon: '📈', category: 'social', requiredCount: 1 },
   { id: 'newsletter_sub', icon: '📧', category: 'social', requiredCount: 1 },
-  { id: 'pwa_installer', icon: '📱', category: 'social', requiredCount: 1 },
+  { id: 'app_shortcut', icon: '📱', category: 'social', requiredCount: 1 },
   { id: 'social_login', icon: '🔑', category: 'social', requiredCount: 1 },
   { id: 'profile_complete', icon: '👤', category: 'social', requiredCount: 1 },
   { id: 'quiz_completed', icon: '🧠', category: 'expert', requiredCount: 1 },

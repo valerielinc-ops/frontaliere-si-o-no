@@ -699,7 +699,6 @@ export const Analytics = {
         (navigator as any).connection?.effectiveType || 'unknown',
         20
       ),
-      sw_active: Boolean(navigator.serviceWorker?.controller),
       screen_width: window.innerWidth || 0,
       screen_height: window.innerHeight || 0,
       error_fingerprint: info.errorFingerprint || '',
@@ -909,7 +908,6 @@ export const Analytics = {
       was_blocked: info.blocked ?? false,
       user_agent: truncate(navigator.userAgent || '', 150),
       connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
-      sw_active: Boolean(navigator.serviceWorker?.controller),
       screen_width: window.innerWidth || 0,
       screen_height: window.innerHeight || 0,
       timestamp: new Date().toISOString(),
@@ -944,7 +942,6 @@ export const Analytics = {
       ad_blocker: info.blockedByAdBlocker ?? false,
       user_agent: truncate(navigator.userAgent || '', 150),
       connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
-      sw_active: Boolean(navigator.serviceWorker?.controller),
       screen_width: window.innerWidth || 0,
       timestamp: new Date().toISOString(),
     });
@@ -996,7 +993,6 @@ export const Analytics = {
       page_path: truncate(info.pagePath || window.location.pathname, 180),
       user_agent: truncate(navigator.userAgent || '', 150),
       connection_type: truncate((navigator as any).connection?.effectiveType || 'unknown', 20),
-      sw_active: Boolean(navigator.serviceWorker?.controller),
       timestamp: new Date().toISOString(),
     });
   },

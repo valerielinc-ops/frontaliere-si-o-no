@@ -320,7 +320,7 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
 - **URL**: ${BASE_URL}/${locale}/
 - **Name**: Frontaliere Ticino
 - **Language**: ${header.lang} (this file) — also available in Italian (primary), ${otherLocales.filter(l => l !== 'it').map(l => l === 'en' ? 'English' : l === 'de' ? 'German' : 'French').join(', ')}
-- **Type**: Free Progressive Web App (PWA), no registration required, works offline
+- **Type**: Free web application, no registration required
 - **Last Updated**: ${monthYear}
 - **Audience**: ${header.audience}
 - **Content Authority**: Original, factual content based on official Swiss and Italian tax regulations, BFS/UST statistics, and UFSP/BAG health insurance data

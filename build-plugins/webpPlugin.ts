@@ -6,7 +6,7 @@
  * are available (originals kept as fallback for older browsers, structured
  * data, and OG meta tags that require PNG/JPG).
  *
- * PWA icon files (public/icons/) are excluded because iOS/Android manifests
+ * Icon files (public/icons/) are excluded because iOS/Android manifests
  * require PNG.
  *
  * Quality: 82 (visually lossless for photographs, good compression).
@@ -40,7 +40,7 @@ export function webpPlugin(rootDir: string): Plugin {
       }
 
       const WEBP_QUALITY = 82;
-      const SKIP_DIRS = new Set(['icons']); // PWA icons must stay PNG
+      const SKIP_DIRS = new Set(['icons']); // Icons must stay PNG
 
       /** Recursively find PNG/JPG files, skipping excluded directories. */
       function findImages(dir: string): string[] {

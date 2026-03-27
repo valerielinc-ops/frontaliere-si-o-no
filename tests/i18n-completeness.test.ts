@@ -97,7 +97,7 @@ function extractDynamicTranslationKeys(files: string[]): Set<string> {
     'map_explorer', 'school_finder', 'first_simulation', 'pension_planner',
     'what_if_dreamer', 'simulation_pro', 'currency_watcher',
     'tax_calendar_user', 'health_researcher', 'dark_mode_fan',
-    'feedback_giver', 'stats_checker', 'newsletter_sub', 'pwa_installer',
+    'feedback_giver', 'stats_checker', 'newsletter_sub', 'app_shortcut',
     'social_login', 'profile_complete',
     'quiz_completed', 'quiz_perfect', 'survey_participant',
     'salary_quiz', 'social_sharer',

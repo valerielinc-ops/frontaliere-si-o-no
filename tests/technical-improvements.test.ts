@@ -205,9 +205,9 @@ describe('GDPR data export', () => {
   });
 });
 
-// ─── Offline Cache (PWA config) ──────────────────────────────────────────────
+// ─── API URL Pattern Validation ──────────────────────────────────────────────
 
-describe('Offline cache — runtime caching patterns', () => {
+describe('API URL pattern validation', () => {
   // We verify that the expected URL patterns are reasonable
 
   it('exchange rate API URL matches pattern', () => {

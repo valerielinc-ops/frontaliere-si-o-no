@@ -2,7 +2,7 @@
  * Shared constants for Vite build plugins.
  *
  * BUILD_ID:  timestamp injected as __BUILD_ID__ — used by BlogArticles
- *            to detect stale PWA caches.
+ *            to detect stale caches.
  * COMMIT_HASH / SHORT_COMMIT_HASH: injected as __COMMIT_HASH__ /
  *            __SHORT_COMMIT_HASH__ for the version badge and GitHub link.
  * BASE_URL:  canonical site origin used across all static-page generators.

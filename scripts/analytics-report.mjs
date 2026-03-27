@@ -3211,7 +3211,7 @@ async function reportGA4(token) {
           recommendations.push({
             severity: 'medium',
             area: 'retention',
-            message: `Retention rate ${retentionRate.toFixed(1)}% — buono ma migliorabile con newsletter settimanale e notifiche PWA`,
+            message: `Retention rate ${retentionRate.toFixed(1)}% — buono ma migliorabile con newsletter settimanale e notifiche push`,
           });
         }
       }

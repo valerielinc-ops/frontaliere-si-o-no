@@ -428,8 +428,6 @@ const translations: Record<string, string> = {
     'newsletter.success': 'Iscrizione confermata! Riceverai la prima newsletter lunedì.',
     'newsletter.privacy': 'I tuoi dati sono protetti. Puoi disiscriverti in qualsiasi momento.',
     
-    // PWA
-
     // Version checker
     'version.updateAvailable': 'Nuova versione disponibile!',
     'version.updateNow': 'Aggiorna',
