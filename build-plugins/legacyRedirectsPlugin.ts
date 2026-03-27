@@ -108,7 +108,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
         description: `URL legacy o non piu disponibile collegata a ${to}.`,
         body: `Questa URL ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : 'dell annuncio'} non e piu la versione corretta. Abbiamo mantenuto una pagina compatibile per evitare un errore e aiutare Google a consolidare la canonical.`,
         ctaLabel: 'Apri la pagina corretta',
-        noindex: true,
+        noindex: false,
       });
 
       for (const [fromRaw, toRaw] of Object.entries(redirects)) {
@@ -140,7 +140,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pagina spostata | Frontaliere Ticino</title>
     <meta name="description" content="Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.">
-    <meta name="robots" content="noindex,follow">
+    <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://frontaliereticino.ch${to}">
     <script type="application/ld+json">${redirectLd}</script>
     ${SPA_ACTION_REDIRECT_SCRIPT}

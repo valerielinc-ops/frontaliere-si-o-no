@@ -10,9 +10,16 @@
  * 48-56% of all URLs to be invisible on Bing Search.
  *
  * Fix: This plugin runs AFTER all other build plugins (using `sequential: true`
- * on the `closeBundle` hook) and replaces every flat redirect file with a copy
- * of the corresponding `path/index.html`.  Both URLs now serve identical content
- * with the same `<link rel="canonical">` pointing to the trailing-slash version.
+ * on the `closeBundle` hook) and replaces every flat .html file that has a
+ * matching `path/index.html` with a copy of that index.html.  Both URLs now
+ * serve identical content with the same `<link rel="canonical">` pointing to
+ * the trailing-slash version.
+ *
+ * Strategy: replace ALL flat files that have a matching directory index.html,
+ * EXCEPT those that are intentionally different (legacy redirects, bridge pages
+ * with __BRIDGE_TARGET_SLUG__, archived soft-landing pages). This ensures no
+ * flat alias file accidentally serves noindex/redirect content that search
+ * engines classify as "Blocked".
  *
  * CRITICAL: `closeBundle` is a PARALLEL hook in Rollup/Vite. Without
  * `sequential: true`, this plugin races with jobsSeoPagesPlugin and
@@ -58,33 +65,44 @@ export function flatContentPlugin(): Plugin {
             ) continue;
 
             const flatPath = path.join(dir, entry.name);
-            let content: string;
-            try { content = fs.readFileSync(flatPath, 'utf-8'); }
-            catch { continue; /* file removed between readdir and read */ }
-
-            // Replace files that contain our redirect markers:
-            // - Old pattern: location.replace() JS redirect
-            // - Current pattern: "Versione canonica" bridge page
-            // - Also catch any flat file with noindex that has a matching index.html
-            const isRedirect =
-              content.includes('location.replace(') ||
-              content.includes('Versione canonica disponibile');
-
-            if (!isRedirect) {
-              skipped++;
-              continue;
-            }
 
             // Find the corresponding directory index.html
             const baseName = entry.name.replace(/\.html$/, '');
             const indexPath = path.join(dir, baseName, 'index.html');
 
-            if (fs.existsSync(indexPath)) {
-              fs.copyFileSync(indexPath, flatPath);
-              replaced++;
-            } else {
-              noIndexHtml++;
+            // If there's no matching index.html, skip — this flat file IS the
+            // canonical (e.g. legacy redirect pages that only exist as flat files)
+            if (!fs.existsSync(indexPath)) {
+              skipped++;
+              continue;
             }
+
+            // Read flat file to check if it should be preserved as-is
+            let content: string;
+            try { content = fs.readFileSync(flatPath, 'utf-8'); }
+            catch { continue; /* file removed between readdir and read */ }
+
+            // Preserve intentionally different flat files:
+            // - Bridge pages with __BRIDGE_TARGET_SLUG__ (old slug → current slug redirects)
+            // - Legacy redirect pages ("Pagina spostata" / "Page moved")
+            // - Archived/expired soft-landing pages with unique content
+            // These are generated as flat files WITH a matching index.html that has
+            // different content, so we must not overwrite them.
+            const isBridgePage = content.includes('__BRIDGE_TARGET_SLUG__');
+            const isLegacyRedirect =
+              content.includes('Pagina spostata') ||
+              content.includes('Page moved') ||
+              content.includes('Seite verschoben') ||
+              content.includes('Page déplacée');
+
+            if (isBridgePage || isLegacyRedirect) {
+              skipped++;
+              continue;
+            }
+
+            // Replace flat file with the directory index.html content
+            fs.copyFileSync(indexPath, flatPath);
+            replaced++;
           }
         };
 

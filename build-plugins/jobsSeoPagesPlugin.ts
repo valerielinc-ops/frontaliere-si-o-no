@@ -1291,7 +1291,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
               body: `Questa URL legacy dell annuncio non e la versione principale. Usa la pagina canonica per contenuto e metadati aggiornati.`,
               ctaLabel: String(localizedTitle || 'Apri annuncio'),
               lang: locale,
-              noindex: true,
+              noindex: false,
             });
             const legacyDir = np.join(distDir, legacyRel);
             if (!fs.existsSync(np.join(legacyDir, 'index.html'))) {
@@ -1562,7 +1562,7 @@ ${(() => {
               body: `Questa URL azienda non e la variante canonica. Apri la pagina principale dell azienda per gli annunci aggiornati.`,
               ctaLabel: String(companyName || 'Apri azienda'),
               lang: locale,
-              noindex: true,
+              noindex: false,
             });
             const rawDir = np.join(distDir, rawRelPath);
             if (!fs.existsSync(np.join(rawDir, 'index.html'))) {
@@ -3841,7 +3841,7 @@ ${hreflangLinks}
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>${pageTitle}</title>
     <meta name="description" content="${esc(localizedTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}.">
-    <meta name="robots" content="noindex,follow">
+    <meta name="robots" content="index,follow">
     <link rel="canonical" href="${canonicalUrl}">
     <script type="application/ld+json">${JSON.stringify({
       '@context': 'https://schema.org',

@@ -63,23 +63,26 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('expiredRobotsTag');
     });
 
-    it('legacy slug bridge pages use noindex', () => {
+    it('legacy slug bridge pages use index,follow (canonicalized, not noindex)', () => {
       const start = source.indexOf('// Legacy redirect: if non-IT locale and Italian slug differs');
       const end = source.indexOf('const legacyFlat', start);
       const block = source.slice(start, end);
       expect(block).toContain('buildCanonicalBridgePage');
-      expect(block).toContain('noindex: true');
+      // Bridge pages use index,follow with a canonical tag pointing to the correct URL.
+      // Bing classifies noindex pages as "Blocked" — using canonical + index,follow
+      // lets search engines consolidate without blocking.
+      expect(block).toContain('noindex: false');
     });
 
-    it('company slug alias pages use noindex', () => {
+    it('company slug alias pages use index,follow (canonicalized, not noindex)', () => {
       const start = source.indexOf('// Redirect pages for raw slugs that differ from canonical');
       const end = source.indexOf('const rawFlat', start);
       const block = source.slice(start, end);
       expect(block).toContain('buildCanonicalBridgePage');
-      expect(block).toContain('noindex: true');
+      expect(block).toContain('noindex: false');
     });
 
-    it('legacy redirect pages use noindex', () => {
+    it('legacy redirect pages use index,follow (canonicalized, not noindex)', () => {
       const legacySource = readFileSync(
         path.resolve(__dirname, '..', 'build-plugins', 'legacyRedirectsPlugin.ts'),
         'utf-8',
@@ -88,7 +91,7 @@ describe('SEO builder noindex guards', () => {
       const end = legacySource.indexOf('for (const [fromRaw', start);
       const block = legacySource.slice(start, end);
       expect(block).toContain('buildCanonicalBridgePage');
-      expect(block).toContain('noindex: true');
+      expect(block).toContain('noindex: false');
     });
   });
 });
