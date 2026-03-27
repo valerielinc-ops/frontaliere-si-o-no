@@ -3007,19 +3007,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
           '@type': 'Country',
           name: 'CH',
         },
-        jobLocation: isRemote
-          ? undefined
-          : {
-              '@type': 'Place',
-              address: {
-              '@type': 'PostalAddress',
-                addressLocality,
-                addressRegion,
-                addressCountry,
-                ...(postalCode ? { postalCode } : {}),
-                ...(streetAddress ? { streetAddress } : {}),
-              },
-            },
+        jobLocation: {
+          '@type': 'Place',
+          address: {
+            '@type': 'PostalAddress',
+            addressLocality: isRemote ? 'Switzerland' : addressLocality,
+            addressRegion: isRemote ? 'CH' : addressRegion,
+            addressCountry,
+            postalCode: postalCode || '6900',
+            streetAddress: streetAddress || addressLocality || 'Ticino',
+          },
+        },
         directApply: Boolean(job.url),
         url: canonicalUrl,
       };

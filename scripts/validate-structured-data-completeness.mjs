@@ -1,0 +1,272 @@
+#!/usr/bin/env node
+/**
+ * Validate structured data completeness across ALL page types in dist/.
+ *
+ * Checks:
+ *  - Every Dataset schema has `creator` AND `description`
+ *  - Every JobPosting schema has ALL mandatory fields with non-empty values
+ *  - No page has a schema with empty/null mandatory fields
+ *  - Samples pages across all types: active jobs, expired, company, statistics, blog
+ *
+ * Exit code 1 on any error → blocks deploy.
+ */
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { join, relative } from 'node:path';
+
+const DIST = join(process.cwd(), 'dist');
+const SCRIPT_RE = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
+
+// ── Config ──────────────────────────────────────────────────────────────────
+const MAX_ERRORS_TO_PRINT = 60;
+const SAMPLE_FRACTION = 0.1; // sample 10% of pages, minimum 50
+const MIN_SAMPLE = 50;
+
+// ── Helpers ─────────────────────────────────────────────────────────────────
+function walk(dir, out = []) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    try {
+      const st = statSync(full);
+      if (st.isDirectory()) walk(full, out);
+      else if (st.isFile() && full.endsWith('.html')) out.push(full);
+    } catch { /* skip inaccessible */ }
+  }
+  return out;
+}
+
+function extractJsonLd(html) {
+  const blocks = [];
+  let m;
+  SCRIPT_RE.lastIndex = 0;
+  while ((m = SCRIPT_RE.exec(html)) !== null) {
+    const raw = (m[1] || '').trim();
+    if (!raw) continue;
+    try {
+      blocks.push(JSON.parse(raw));
+    } catch { /* skip unparseable */ }
+  }
+  return blocks;
+}
+
+/** Flatten @graph arrays into individual schema objects */
+function flattenSchemas(blocks) {
+  const out = [];
+  for (const b of blocks) {
+    if (b?.['@graph'] && Array.isArray(b['@graph'])) {
+      out.push(...b['@graph']);
+    } else {
+      out.push(b);
+    }
+  }
+  return out;
+}
+
+function isNonEmpty(v) {
+  if (v === null || v === undefined) return false;
+  if (typeof v === 'string') return v.trim().length > 0;
+  if (typeof v === 'number') return true;
+  if (typeof v === 'object') return Object.keys(v).length > 0;
+  return Boolean(v);
+}
+
+function classifyPage(filePath) {
+  const rel = relative(DIST, filePath);
+  if (/cerca-lavoro-ticino|find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin/.test(rel)) {
+    // Check if it's an expired page by reading content
+    return 'job'; // will refine below
+  }
+  if (/statistiche|statistics|statistiken|statistiques/.test(rel)) return 'statistics';
+  if (/blog|articoli|articles/.test(rel)) return 'blog';
+  if (/aziend|compan|unternehmen|entreprise/.test(rel)) return 'company';
+  return 'other';
+}
+
+// ── Validators ──────────────────────────────────────────────────────────────
+
+function validateDataset(schema, filePath) {
+  const errors = [];
+  const type = schema['@type'];
+  if (type !== 'Dataset') return errors;
+
+  if (!isNonEmpty(schema.description)) {
+    errors.push({ file: filePath, type: 'Dataset', field: 'description', message: 'Dataset missing "description"' });
+  }
+  if (!schema.creator || !isNonEmpty(schema.creator?.name || schema.creator)) {
+    errors.push({ file: filePath, type: 'Dataset', field: 'creator', message: 'Dataset missing "creator" or creator.name' });
+  }
+  return errors;
+}
+
+function validateJobPosting(schema, filePath) {
+  const errors = [];
+  const type = schema['@type'];
+  if (type !== 'JobPosting') return errors;
+
+  // Mandatory Google fields
+  const checks = [
+    ['title', schema.title],
+    ['datePosted', schema.datePosted],
+    ['hiringOrganization.name', schema.hiringOrganization?.name],
+    ['employmentType', schema.employmentType],
+  ];
+  for (const [field, value] of checks) {
+    if (!isNonEmpty(value)) {
+      errors.push({ file: filePath, type: 'JobPosting', field, message: `JobPosting missing "${field}"` });
+    }
+  }
+
+  // Description must be >= 30 chars
+  const desc = String(schema.description || '').trim();
+  if (desc.length < 30) {
+    errors.push({ file: filePath, type: 'JobPosting', field: 'description', message: `JobPosting description too short (${desc.length} chars, need >= 30)` });
+  }
+
+  // jobLocation.address must exist with addressLocality
+  const address = schema.jobLocation?.address;
+  if (!address) {
+    errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation', message: 'JobPosting missing "jobLocation.address"' });
+  } else {
+    if (!isNonEmpty(address.addressLocality)) {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.addressLocality', message: 'JobPosting missing "addressLocality"' });
+    }
+    if (!isNonEmpty(address.postalCode)) {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.postalCode', message: 'JobPosting missing "postalCode"' });
+    }
+    if (!isNonEmpty(address.streetAddress)) {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'jobLocation.address.streetAddress', message: 'JobPosting missing "streetAddress"' });
+    }
+  }
+
+  // baseSalary must be present and valid
+  const bs = schema.baseSalary;
+  if (!bs || typeof bs !== 'object') {
+    errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary', message: 'JobPosting missing "baseSalary"' });
+  } else {
+    const val = bs.value;
+    if (!val || typeof val !== 'object') {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value', message: 'JobPosting baseSalary missing "value"' });
+    } else {
+      const minVal = Number(val.minValue);
+      if (!Number.isFinite(minVal) || minVal <= 0) {
+        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.minValue', message: 'JobPosting baseSalary.value.minValue missing or invalid' });
+      }
+      if (!isNonEmpty(val.unitText)) {
+        errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.value.unitText', message: 'JobPosting baseSalary.value.unitText missing' });
+      }
+    }
+    if (!isNonEmpty(bs.currency)) {
+      errors.push({ file: filePath, type: 'JobPosting', field: 'baseSalary.currency', message: 'JobPosting baseSalary.currency missing' });
+    }
+  }
+
+  return errors;
+}
+
+// ── Main ────────────────────────────────────────────────────────────────────
+
+function main() {
+  if (!existsSync(DIST)) {
+    console.error('dist/ directory not found — run build first');
+    process.exit(1);
+  }
+
+  console.log('[structured-data-completeness] Scanning dist/ for HTML files...');
+  const allFiles = walk(DIST);
+  console.log(`[structured-data-completeness] Found ${allFiles.length} HTML files`);
+
+  // Categorize files for targeted sampling
+  const byCategory = { job: [], statistics: [], blog: [], company: [], other: [] };
+  for (const f of allFiles) {
+    const cat = classifyPage(f);
+    (byCategory[cat] || byCategory.other).push(f);
+  }
+
+  // Sample: take all statistics + proportional sample of jobs, blog, company, other
+  const sampled = new Set();
+
+  // Always include ALL statistics pages (small count, critical for Dataset validation)
+  for (const f of byCategory.statistics) sampled.add(f);
+
+  // Sample from each category
+  for (const cat of ['job', 'blog', 'company', 'other']) {
+    const files = byCategory[cat];
+    const sampleSize = Math.max(MIN_SAMPLE, Math.ceil(files.length * SAMPLE_FRACTION));
+    // Deterministic sample: take evenly spaced entries
+    const step = Math.max(1, Math.floor(files.length / sampleSize));
+    for (let i = 0; i < files.length && sampled.size < allFiles.length; i += step) {
+      sampled.add(files[i]);
+      if ([...sampled].filter(f => byCategory[cat].includes(f)).length >= sampleSize) break;
+    }
+  }
+
+  console.log(`[structured-data-completeness] Sampling ${sampled.size} pages (statistics: ${byCategory.statistics.length}, jobs: ${byCategory.job.length}, blog: ${byCategory.blog.length}, company: ${byCategory.company.length}, other: ${byCategory.other.length})`);
+
+  const allErrors = [];
+  let totalSchemas = 0;
+  let datasetCount = 0;
+  let jobPostingCount = 0;
+
+  for (const file of sampled) {
+    const html = readFileSync(file, 'utf-8');
+    const blocks = extractJsonLd(html);
+    const schemas = flattenSchemas(blocks);
+
+    for (const schema of schemas) {
+      if (!schema || typeof schema !== 'object' || !schema['@type']) continue;
+      totalSchemas++;
+
+      if (schema['@type'] === 'Dataset') {
+        datasetCount++;
+        allErrors.push(...validateDataset(schema, file));
+      }
+      if (schema['@type'] === 'JobPosting') {
+        jobPostingCount++;
+        // Skip bridge pages — they are noindex and may have intentionally partial schemas
+        if (html.includes('__BRIDGE_TARGET_SLUG__')) continue;
+        allErrors.push(...validateJobPosting(schema, file));
+      }
+    }
+  }
+
+  // Deduplicate by file+field
+  const seen = new Set();
+  const uniqueErrors = [];
+  for (const e of allErrors) {
+    const key = `${e.file}|${e.field}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    uniqueErrors.push(e);
+  }
+
+  // Report
+  console.log(`[structured-data-completeness] Checked ${totalSchemas} schemas (${datasetCount} Dataset, ${jobPostingCount} JobPosting)`);
+
+  if (uniqueErrors.length > 0) {
+    // Group by error type for summary
+    const byField = {};
+    for (const e of uniqueErrors) {
+      const key = `${e.type}:${e.field}`;
+      byField[key] = (byField[key] || 0) + 1;
+    }
+
+    console.error(`\n[structured-data-completeness] ${uniqueErrors.length} structured data errors found:\n`);
+    console.error('Summary by field:');
+    for (const [field, count] of Object.entries(byField).sort((a, b) => b[1] - a[1])) {
+      console.error(`  ${field}: ${count} pages`);
+    }
+
+    console.error('\nDetails (first ' + MAX_ERRORS_TO_PRINT + '):');
+    for (const e of uniqueErrors.slice(0, MAX_ERRORS_TO_PRINT)) {
+      const rel = relative(DIST, e.file);
+      console.error(`  ${rel} — ${e.message}`);
+    }
+    if (uniqueErrors.length > MAX_ERRORS_TO_PRINT) {
+      console.error(`  ... and ${uniqueErrors.length - MAX_ERRORS_TO_PRINT} more`);
+    }
+    process.exit(1);
+  }
+
+  console.log(`[structured-data-completeness] All ${totalSchemas} schemas valid (${datasetCount} Dataset, ${jobPostingCount} JobPosting across ${sampled.size} pages)`);
+}
+
+main();

@@ -123,6 +123,9 @@ jobs:
       - name: Validate sitemap content quality (blocking)
         run: node scripts/validate-content-quality.mjs
 
+      - name: Validate structured data completeness (blocking)
+        run: node scripts/validate-structured-data-completeness.mjs
+
       - name: Build size summary
         run: |
           echo "=== Build size summary ==="

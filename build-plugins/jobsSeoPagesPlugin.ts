@@ -3880,12 +3880,21 @@ ${hreflangLinks}
                   description: htmlDesc,
                   datePosted: toIsoDateTime(job.postedDate),
                   validThrough: toValidThrough(job.postedDate, job.crawledAt),
+                  employmentType: (() => {
+                    const c = String((job as any).contract || '').toLowerCase();
+                    if (c === 'full-time' || c === 'full_time') return 'FULL_TIME';
+                    if (c === 'part-time' || c === 'part_time') return 'PART_TIME';
+                    if (c === 'temporary') return 'TEMPORARY';
+                    if (c === 'internship' || c === 'intern') return 'INTERN';
+                    if (c === 'contract' || c === 'contractor') return 'CONTRACTOR';
+                    return 'OTHER';
+                  })(),
                   hiringOrganization: { '@type': 'Organization', name: jobCompany },
                   jobLocation: { '@type': 'Place', address: {
                     '@type': 'PostalAddress',
-                    streetAddress: sa,
-                    addressLocality: jobLocation || undefined,
-                    ...(ar ? { addressRegion: ar } : {}),
+                    streetAddress: sa || jobLocation || 'Ticino',
+                    addressLocality: jobLocation || 'Ticino',
+                    ...(ar ? { addressRegion: ar } : { addressRegion: 'TI' }),
                     addressCountry: ac,
                     postalCode: pc,
                   }},

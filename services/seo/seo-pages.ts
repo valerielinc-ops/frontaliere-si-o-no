@@ -823,20 +823,24 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     ogTitle: 'Statistiche Frontalieri e Lavoro Ticino | BFS e Job Board',
     ogDescription: '📈 BFS + job board: offerte attive in Ticino, aziende più attive, località con più annunci e trend giornalieri del cerca lavoro.',
     canonicalPath: '/statistiche',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "WebPage",
-      "name": "Statistiche frontalieri e osservatorio lavoro Ticino 2026",
-      "url": `${BASE_URL}/statistiche`,
-      "description": "Dati statistici sui frontalieri e osservatorio del job board Ticino con aziende, località e trend delle offerte",
-      "about": {
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Statistiche frontalieri e osservatorio lavoro Ticino 2026",
+        "url": `${BASE_URL}/statistiche`,
+        "description": "Dati statistici sui frontalieri e osservatorio del job board Ticino con aziende, località e trend delle offerte"
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "Dataset",
         "name": "Statistiche frontalieri e osservatorio offerte lavoro Ticino 2026",
         "description": "Dati statistici sui frontalieri svizzeri-italiani e osservatorio del job board Ticino: numero permessi G, aziende attive, localities, trend offerte e statistiche BFS 2026.",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
-        "license": "https://creativecommons.org/licenses/by-nc/4.0/"
+        "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche` }]
       }
-    }
+    ]
   },
 
   feedback: {

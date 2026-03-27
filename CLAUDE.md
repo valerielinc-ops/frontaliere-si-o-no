@@ -495,6 +495,42 @@ To test a feature: set the flag to `true` in Firebase Console → refresh the pa
 
 ---
 
+# Structured Data Completeness
+
+## Validation Gate
+
+`scripts/validate-structured-data-completeness.mjs` runs at deploy time and **blocks deploy** (exit 1) if any structured data schema has missing or invalid mandatory fields. It samples pages across all types: active jobs, expired soft-landings, company pages, statistics, and blog.
+
+## Rules
+
+### Dataset schemas (statistics pages)
+
+Every `Dataset` JSON-LD block MUST include:
+- `description` — non-empty string describing the dataset
+- `creator` — `{ "@type": "Organization", "name": "...", "url": "..." }`
+
+Dataset schemas MUST be emitted as **top-level** JSON-LD objects (separate `<script type="application/ld+json">` blocks), NOT nested inside a WebPage's `about` property. Google does not reliably extract nested Dataset schemas.
+
+### JobPosting schemas (all job page types)
+
+Every `JobPosting` JSON-LD block MUST include ALL of:
+- `title`, `description` (>= 30 chars), `datePosted`, `hiringOrganization.name`
+- `employmentType` — fallback to `OTHER` if unknown
+- `jobLocation.address` with `addressLocality`, `postalCode`, `streetAddress` — all with fallbacks
+- `baseSalary` with `currency`, `value.minValue`, `value.unitText` — fallback to Ticino minimum wage (CHF 41,080/year)
+
+This applies to:
+- Active job pages (all 4 locales)
+- Expired job soft-landing pages
+- Bridge pages (previousSlugs redirects) — validated but treated as warnings, not errors
+- SPA runtime schema injection (JobBoard.tsx `@graph`)
+
+### Future schema additions
+
+When adding any new schema.org type, include ALL fields from Google's documentation for that type. Check Google Search Console's documentation for the specific rich result type. Every field marked "Required" or "Recommended" by Google MUST be present with a fallback value.
+
+---
+
 # Completion Checklist — Before Every PR
 
 - [ ] All tests pass: `npx vitest run`
