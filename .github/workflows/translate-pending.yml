@@ -67,11 +67,11 @@ jobs:
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
 
       - name: Commit and push
-        if: (success() || cancelled()) && inputs.dry_run != true
+        if: always() && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json
 
       - name: Trigger deploy
-        if: success() && inputs.dry_run != true
+        if: always() && inputs.dry_run != true
         run: |
           # Only trigger deploy when ALL translations are complete (validate passes).
           # If quota was exhausted mid-run, skip deploy — the midnight cron will retry
