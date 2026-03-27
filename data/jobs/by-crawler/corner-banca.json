@@ -1,74 +1,7 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-03-27T09:27:29.278Z",
+  "assembledAt": "2026-03-27T21:11:11.773Z",
   "jobs": [
-    {
-      "id": "corner-banca-422277a6cd4c",
-      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "en": "it-card-management-analyst-specialist-corner-banca-lugano-331bdu",
-        "de": "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
-        "fr": "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "IT Card Management Analyst / Specialist",
-      "titleByLocale": {
-        "it": "IT Card Management Analista / Specialista",
-        "en": "IT Card Management Analyst / Specialist",
-        "de": "IT Card Management Analyst / Spezialist",
-        "fr": "IT Card Management Analyste / Spécialiste"
-      },
-      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-      "descriptionByLocale": {
-        "it": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-        "de": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
-        "fr": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement."
-      },
-      "requirements": [],
-      "requirementsByLocale": {
-        "it": [],
-        "en": [],
-        "de": [],
-        "fr": []
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-03",
-      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-27T09:27:27.762Z",
-      "needsRetranslation": true,
-      "sourceLang": "en",
-      "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano"
-      ],
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 97500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
     {
       "id": "corner-banca-f803e5cc9fe2",
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
@@ -121,7 +54,7 @@
       "postedDate": "2025-10-02",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-27T09:27:27.762Z",
+      "crawledAt": "2026-03-27T21:11:10.113Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 61000,
@@ -142,92 +75,11 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "id": "corner-banca-fe61b84a0935",
-      "slug": "employee-card-onboarding-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "employee-card-onboarding-corner-banca-lugano",
-        "en": "employee-card-onboarding-corner-banca-lugano-a3j84m",
-        "de": "employee-card-onboarding-corner-banca-lugano-a3j84m",
-        "fr": "employee-card-onboarding-corner-banca-lugano-a3j84m"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Employee Card Onboarding",
-      "titleByLocale": {
-        "it": "Employee Card Onboarding",
-        "en": "Employee Card Onboarding",
-        "de": "Employee Card Onboarding",
-        "fr": "Employee Card Onboarding"
-      },
-      "description": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
-        "en": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
-        "de": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
-        "fr": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate"
-      },
-      "requirements": [
-        "Administrative background",
-        "Privious experience in similar position",
-        "Good knowledge of Office package/ PC use",
-        "Languages: Italian / German native proficiency / Basic French / Basic English",
-        "Customer orientation and ability to work in team",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [],
-        "en": [
-          "Administrative background",
-          "Privious experience in similar position",
-          "Good knowledge of Office package/ PC use",
-          "Languages: Italian / German native proficiency / Basic French / Basic English",
-          "Customer orientation and ability to work in team",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "de": [],
-        "fr": []
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "url": "https://jobs.corner.ch/o/employee-card-onboarding",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-27T09:27:27.761Z",
-      "needsRetranslation": true,
-      "sourceLang": "en",
-      "previousSlugs": [
-        "addetto-all-emission-carte-cliente-corner-banca-lugano"
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
       "id": "corner-banca-1d94a13bc883",
       "slug": "customer-advisor-100-corner-banca-lugano",
       "slugByLocale": {
         "it": "customer-advisor-100-corner-banca-lugano",
-        "en": "customer-advisor-100-corner-banca-lugano-ilhvni",
+        "en": "customer-advisor-100-corner-banca-lugano",
         "de": "customer-berater-100-corner-banca-lugano-ilhvni",
         "fr": "customer-conseiller-100-corner-banca-lugano-ilhvni"
       },
@@ -296,11 +148,12 @@
       "postedDate": "2026-02-26",
       "url": "https://jobs.corner.ch/o/customer-advisor-100",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-27T09:27:27.761Z",
+      "crawledAt": "2026-03-27T21:11:10.112Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "consulente-clienti-100-corner-banca-lugano"
+        "consulente-clienti-100-corner-banca-lugano",
+        "customer-advisor-100-corner-banca-lugano-ilhvni"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -320,100 +173,65 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "id": "corner-banca-b9d1611cce63",
-      "slug": "compliance-officer-senior-corner-banca-lugano",
+      "id": "corner-banca-422277a6cd4c",
+      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
       "slugByLocale": {
-        "it": "compliance-officer-senior-corner-banca-lugano",
-        "en": "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-        "de": "compliance-officer-senior-corner-banca-lugano-nnfx9o",
-        "fr": "compliance-officer-senior-corner-banca-lugano-nnfx9o"
+        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "en": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "de": "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+        "fr": "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Compliance Officer Senior",
+      "title": "IT Card Management Analyst / Specialist",
       "titleByLocale": {
-        "it": "Compliance Officer Senior",
-        "en": "Compliance Officer Senior",
-        "de": "Compliance Officer Senior",
-        "fr": "Compliance Officer Senior"
+        "it": "IT Card Management Analista / Specialista",
+        "en": "IT Card Management Analyst / Specialist",
+        "de": "IT Card Management Analyst / Spezialist",
+        "fr": "IT Card Management Analyste / Spécialiste"
       },
-      "description": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
+      "description": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
       "descriptionByLocale": {
-        "it": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
-        "en": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
-        "de": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
-        "fr": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate"
+        "it": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
+        "en": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
+        "de": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement.",
+        "fr": "The candidate will join the IT Card Management Centre of Excellence, with cross-functional responsibilities for credit and debit card management systems.\n\nThe systems operate on cloud-native architectures in Google Cloud Platform (GCP) and support key payment processes in a highly regulated banking environment.\n\nThe role involves actively contributing to functional and technical analysis activities, supporting the evolution of application solutions and integration with core banking, payment circuits and external platforms.\n\n \n\nKey Responsibilities\n\nFunctional and Process Analysis\n\n•    Analyse and understand Card Management processes: card issuance, lifecycle management, authorisations, clearing & settlement, fraud and chargebacks.\n\n•    Collect, analyse and formalise business requirements, translating them into functional and technical specifications.\n\n•    Support the business in defining IT solutions consistent with the bank's operational, regulatory and compliance models.\n\n•    Collaborate with internal stakeholders (Operations, Compliance, Risk, Security).\n\nTechnical and IT Analysis\n\n•    Draft functional and technical documentation (application specifications, integration flows, data mapping).\n\n•    Support the design and evolution of microservice architectures in a cloud environment.\n\n•    Collaborate with internal and external development teams during the development, testing and release phases.\n\n•    Support the analysis and management of application incidents and production issues.\n\nDevOps and Technologies\n\n•    Operate in a DevOps environment, actively collaborating with development teams.\n\n•    Support and understand continuous integration and continuous delivery (CI/CD) pipelines, using automation tools (e.g. Jenkins).\n\n•    Use code versioning systems (Git, Bitbucket) for application configuration management.\n\n•    Provide support in application and infrastructure troubleshooting in cloud-native and distributed environments.\n\n•    Contribute to the stability, quality and scalability of solutions, collaborating on monitoring, logging and performance issues.\n\n•    Have a basic knowledge of Java and event-driven microservice architectures.\n\nMust Have\n\n•    Experience in functional and technical analysis in IT.\n\n•    Knowledge of credit and debit card payment systems.\n\n•    Ability to understand and analyse complex and distributed application architectures.\n\n•    Experience, even non-specialist, in cloud environments, preferably Google Cloud Platform (GCP).\n\n•   Resident in Ticino or willing to relocate.\n\nBasic knowledge of:\n\n•   DevOps models and CI/CD pipelines\n\n•   Git / GitHub\n\n•   Microservice architectures\n\n•   Kafka or messaging / event streaming systems\n\n•   Change Data Capture\n\n•    PostgreSQL (PGSQL)\n\n•    Java\n\n•   Monitoring and logging tools (e.g. Splunk, Dynatrace)\n\nNice to Have\n\n•    Experience in banking or financial contexts.\n\n•    Knowledge of major payment circuits (e.g. Visa, Mastercard).\n\n•    Familiarity with GCP services supporting cloud-native architectures (containers, logging, monitoring).\n\n•    Knowledge of application security and compliance issues (e.g. PCI DSS, data protection).\n\n•    Basic knowledge of Kubernetes and oauth2 application authorisation standards\n\n________________________________________\n\nSoft Skills\n\n•    Strong analytical approach and solution orientation.\n\n•    Ability to operate in complex and regulated environments.\n\n•    Aptitude for working in multidisciplinary teams.\n\n•    Ability to communicate effectively with technical and business stakeholders.\n\n•    Proactivity and focus on continuous improvement."
       },
-      "requirements": [
-        "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
-        "Apply a critical and proactive approach in identifying new solutions",
-        "Work independently",
-        "Manage a high volume of cases efficiently",
-        "At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects",
-        "Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset",
-        "Experience in Compliance related to FATCA and CRS is considered a plus",
-        "Languages: Italian / English native proficiency / French / German is a plus.",
-        "Resident in Ticino or willing to relocate"
-      ],
+      "requirements": [],
       "requirementsByLocale": {
         "it": [],
-        "en": [
-          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
-          "Apply a critical and proactive approach in identifying new solutions",
-          "Work independently",
-          "Manage a high volume of cases efficiently",
-          "At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects",
-          "Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset",
-          "Experience in Compliance related to FATCA and CRS is considered a plus",
-          "Languages: Italian / English native proficiency / French / German is a plus.",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "de": [
-          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
-          "Apply a critical and proactive approach in identifying new solutions",
-          "Work independently",
-          "Manage a high volume of cases efficiently",
-          "Experience in Compliance related to FATCA and CRS is considered a plus",
-          "Languages: Italian / English native proficiency / French / German is a plus.",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "fr": [
-          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
-          "Apply a critical and proactive approach in identifying new solutions",
-          "Work independently",
-          "Manage a high volume of cases efficiently",
-          "Experience in Compliance related to FATCA and CRS is considered a plus",
-          "Languages: Italian / English native proficiency / French / German is a plus.",
-          "Resident in Ticino or willing to relocate"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "location": "Lugano",
       "canton": "TI",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
-      "category": "finance",
+      "category": "tech",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.corner.ch/o/compliance-officer-senior",
+      "postedDate": "2026-02-03",
+      "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-27T09:27:27.760Z",
+      "crawledAt": "2026-03-27T21:11:10.112Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "responsabile-compliance-senior-corner-banca-lugano"
+        "analista-specialista-gestione-carte-it-corner-banca-lugano",
+        "it-card-management-analyst-specialist-corner-banca-lugano-331bdu"
       ],
-      "salaryMin": 109000,
-      "salaryMax": 147000,
+      "salaryMin": 72500,
+      "salaryMax": 97500,
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 147000,
+          "minValue": 72500,
+          "maxValue": 97500,
           "unitText": "YEAR"
         }
       },
@@ -427,7 +245,7 @@
       "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
       "slugByLocale": {
         "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
+        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
         "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
         "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
       },
@@ -490,7 +308,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-27T09:27:27.760Z",
+      "crawledAt": "2026-03-27T21:11:10.111Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
@@ -593,7 +411,7 @@
       "postedDate": "2026-03-09",
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-03-27T09:27:27.760Z",
+      "crawledAt": "2026-03-27T21:11:10.111Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -605,6 +423,298 @@
           "@type": "QuantitativeValue",
           "minValue": 58000,
           "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-fe61b84a0935",
+      "slug": "employee-card-onboarding-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "employee-card-onboarding-corner-banca-lugano",
+        "en": "employee-card-onboarding-corner-banca-lugano",
+        "de": "employee-card-onboarding-corner-banca-lugano-a3j84m",
+        "fr": "employee-card-onboarding-corner-banca-lugano-a3j84m"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Employee Card Onboarding",
+      "titleByLocale": {
+        "it": "Employee Card Onboarding",
+        "en": "Employee Card Onboarding",
+        "de": "Employee Card Onboarding",
+        "fr": "Employee Card Onboarding"
+      },
+      "description": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
+        "en": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
+        "de": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate",
+        "fr": "The candidate will be responsible for implementing the payment card issuing process for corporate customers, analysing and evaluating requests, setting spending limits and activating complementary services.\n\nThe role involves direct contact with potential customers, including by telephone, in order to gather information, clarify requirements and support the customer throughout the entire process.\n\nKey responsibilities: \n\nAnswer incoming calls and handling inquiries from customers and business partners in German, French, Italian and English\n\nManage payment card issuance requests for corporate customers\n\nAnalyse and evaluate the validity of the request, verifying the customer's profile and consistency with company policies\n\nRequest and verify the necessary documentation (e.g. corporate, financial and identification documents)\n\nDefine the most appropriate spending limit based on customer analysis and risk level\n\nEnter and configure complementary services associated with the card (e.g. insurance, reporting, digital services, spending controls)\n\nContact potential customers by telephone to discuss their requests in detail, provide clarification and commercial support\n\nCollaborate with internal teams (credit risk, operations) to ensure a smooth and effective process\n\nEnsure compliance with current regulations and internal procedures (KYC, AML, credit policy)\n\nWhat do we offer?\n\nFlexibility in working from home and the management of working hours in order to guarantee a healthy work-life balance\n\nNumerous benefits and incentives\n\nWell-being, motivational and team-building activities\n\nFor the job opening, we are looking for candidates who meet the following requirements:\n\nAdministrative background\n\nPrivious experience in similar position\n\nGood knowledge of Office package/ PC use\n\nLanguages: Italian / German native proficiency / Basic French / Basic English\n\nCustomer orientation and ability to work in team\n\nResident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Administrative background",
+        "Privious experience in similar position",
+        "Good knowledge of Office package/ PC use",
+        "Languages: Italian / German native proficiency / Basic French / Basic English",
+        "Customer orientation and ability to work in team",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [
+          "Administrative background",
+          "Privious experience in similar position",
+          "Good knowledge of Office package/ PC use",
+          "Languages: Italian / German native proficiency / Basic French / Basic English",
+          "Customer orientation and ability to work in team",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "admin",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-02-26",
+      "url": "https://jobs.corner.ch/o/employee-card-onboarding",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "crawledAt": "2026-03-27T21:11:10.111Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "previousSlugs": [
+        "addetto-all-emission-carte-cliente-corner-banca-lugano"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-363ccb9527a5",
+      "slug": "credit-client-consulente-m-f-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "credit-client-consulente-m-f-corner-banca-lugano",
+        "en": "credit-client-advisor-m-f-corner-banca-lugano",
+        "de": "credit-client-berater-m-f-corner-banca-lugano-8cp3r5",
+        "fr": "credit-client-conseiller-m-f-corner-banca-lugano-8cp3r5"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Credit & Client Advisor (m/f)",
+      "titleByLocale": {
+        "it": "Credit & Client Consulente (m/f)",
+        "en": "Credit & Client Advisor (m/f)",
+        "de": "Credit & Client Berater (m/f)",
+        "fr": "Credit & Client Conseiller (m/f)"
+      },
+      "description": "To strengthen our team, we are looking for a dynamic, motivated and customer-oriented professional.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+      "descriptionByLocale": {
+        "it": "To strengthen our team, we are looking for a dynamic, motivated and customer-oriented professional.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+        "en": "To strengthen our team, we are looking for a dynamic, motivated and customer-oriented professional.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+        "de": "To strengthen our team, we are looking for a dynamic, motivated and customer-oriented professional.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+        "fr": "To strengthen our team, we are looking for a dynamic, motivated and customer-oriented professional.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner"
+      },
+      "requirements": [
+        "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+        "Commercial training or equivalent qualification",
+        "Strong communication skills and active listening abilities",
+        "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+        "Analytical mindset and accuracy in risk assessment",
+        "Team spirit, reliability, and sense of responsibility",
+        "Good IT skills, including proficiency with spreadsheets\n\nIdeal Profile:",
+        "Young, curious individual with a strong willingness to learn",
+        "Professional and customer-oriented approach",
+        "Ability to work in a structured and organized manner"
+      ],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets\n\nIdeal Profile:",
+          "Young, curious individual with a strong willingness to learn",
+          "Professional and customer-oriented approach",
+          "Ability to work in a structured and organized manner"
+        ],
+        "de": [
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets Ideal Profile:",
+          "Young, curious individual with a strong willingness to learn"
+        ],
+        "fr": [
+          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
+          "Commercial training or equivalent qualification",
+          "Strong communication skills and active listening abilities",
+          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
+          "Analytical mindset and accuracy in risk assessment",
+          "Team spirit, reliability, and sense of responsibility",
+          "Good IT skills, including proficiency with spreadsheets Ideal Profile:",
+          "Young, curious individual with a strong willingness to learn"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "sales",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-24",
+      "url": "https://jobs.corner.ch/o/credit-client-advisor-mf",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "crawledAt": "2026-03-27T21:11:10.110Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "previousSlugs": [
+        "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "credit-client-advisor-m-f-corner-banca-lugano-8cp3r5"
+      ],
+      "salaryMin": 54000,
+      "salaryMax": 73000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 54000,
+          "maxValue": 73000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-b9d1611cce63",
+      "slug": "compliance-officer-senior-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "compliance-officer-senior-corner-banca-lugano",
+        "en": "compliance-officer-senior-corner-banca-lugano-nnfx9o",
+        "de": "compliance-officer-senior-corner-banca-lugano-nnfx9o",
+        "fr": "compliance-officer-senior-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Compliance Officer Senior",
+      "titleByLocale": {
+        "it": "Compliance Officer Senior",
+        "en": "Compliance Officer Senior",
+        "de": "Compliance Officer Senior",
+        "fr": "Compliance Officer Senior"
+      },
+      "description": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
+        "en": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
+        "de": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate",
+        "fr": "We are seeking a highly motivated and detail-oriented Compliance professional to join our team. The ideal candidate will have solid experience in regulatory matters, particularly in AML, cross-border activities and sanctions, and will be able to provide clear guidance and practical solutions to the business. This role requires strong analytical skills, sound judgment, and the ability to manage complex cases in a dynamic and evolving regulatory environment. The candidate will play a key role in ensuring adherence to applicable regulations, supporting business initiatives, and contributing to the ongoing development of the Compliance framework.\n\nKey Responsibilities:\n\nAnalysis, review and handling of cases related to AML, cross-border activities and sanctions, including the preparation of assessments and formal positions for the business\n\nOpportunity to analyze cases related to market abuse and product suitability, as well as FATCA and CRS matter\n\nDefinition of Compliance requirements and supervision of their implementation within projects aimed at developing new products or services\n\nDrafting and review of internal policies and procedures in the Compliance area (e.g. AML, cross-border and sanctions)\n\nCollection of data and information for Compliance reporting addressed to senior management, as well as for periodic Compliance risk assessments\n\nPreparation and delivery of Compliance training\n\nMonitoring of regulatory developments in the Compliance area and analysis of their impact\n\nHandling requests from External and Internal Audit\n\nExecution of consolidated supervision activities in the Compliance area\n\nAbility to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)\n\nApply a critical and proactive approach in identifying new solutions\n\nWork independently\n\nManage a high volume of cases efficiently\n\nAt least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects\n\nExperience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset\n\nExperience in Compliance related to FATCA and CRS is considered a plus\n\nLanguages: Italian / English native proficiency / French / German is a plus.\n\nResident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
+        "Apply a critical and proactive approach in identifying new solutions",
+        "Work independently",
+        "Manage a high volume of cases efficiently",
+        "At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects",
+        "Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset",
+        "Experience in Compliance related to FATCA and CRS is considered a plus",
+        "Languages: Italian / English native proficiency / French / German is a plus.",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [
+          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
+          "Apply a critical and proactive approach in identifying new solutions",
+          "Work independently",
+          "Manage a high volume of cases efficiently",
+          "At least 5 years of experience in the banking sector in a similar role (Compliance Officer), preferably not limited to AML but also covering broader regulatory Compliance and advisory activities (cross-border, sanctions, reporting, Compliance risk assessment, consolidated supervision), as well as experience in overseeing Compliance-related projects",
+          "Experience in Compliance related to market conduct (e.g. monitoring of market abuse, product suitability reviews, etc.) is considered a strong asset",
+          "Experience in Compliance related to FATCA and CRS is considered a plus",
+          "Languages: Italian / English native proficiency / French / German is a plus.",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [
+          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
+          "Apply a critical and proactive approach in identifying new solutions",
+          "Work independently",
+          "Manage a high volume of cases efficiently",
+          "Experience in Compliance related to FATCA and CRS is considered a plus",
+          "Languages: Italian / English native proficiency / French / German is a plus.",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "fr": [
+          "Ability to interact effectively with colleagues from different departments (e.g. Business, Operations, IT)",
+          "Apply a critical and proactive approach in identifying new solutions",
+          "Work independently",
+          "Manage a high volume of cases efficiently",
+          "Experience in Compliance related to FATCA and CRS is considered a plus",
+          "Languages: Italian / English native proficiency / French / German is a plus.",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.corner.ch/o/compliance-officer-senior",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "crawledAt": "2026-03-27T21:11:10.110Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "previousSlugs": [
+        "responsabile-compliance-senior-corner-banca-lugano"
+      ],
+      "salaryMin": 109000,
+      "salaryMax": 147000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 109000,
+          "maxValue": 147000,
           "unitText": "YEAR"
         }
       },
