@@ -211,6 +211,13 @@ function stripHtml(html = '') {
  * @returns {{ description: string }}
  */
 export function parseAgieCharmillesDetailPage(html = '') {
+  // Narrow to main content area first to avoid sidebar "other positions" contamination.
+  const mainAreaMatch = html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+    || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<div[^>]*class="[^"]*job-?detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+    || html.match(/<div[^>]*class="[^"]*vacancy[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
+
   const sections = [];
 
   // Strategy 1: Extract sections by heading + content
@@ -218,7 +225,7 @@ export function parseAgieCharmillesDetailPage(html = '') {
   let match;
   const skipHeadings = /cookie|datenschutz|privacy|navigation|menu|footer|header|breadcrumb|teilen|share|drucken|print|kontakt|contact|weitere\s+stellen|standort|arbeitgeber|unternehmen|firma|employer/i;
 
-  while ((match = sectionRegex.exec(html)) !== null) {
+  while ((match = sectionRegex.exec(searchArea)) !== null) {
     const heading = stripHtml(match[1]).trim();
     if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
 

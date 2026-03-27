@@ -201,13 +201,20 @@ function parseListingPage(html) {
 // ─────────────────────────────────────────────────────────────
 
 function parseDetailPage(html) {
+  // Narrow to main content area first to avoid sidebar contamination.
+  const mainAreaMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+    || html.match(/<div[^>]*class="[^"]*node[^"]*job[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+    || html.match(/<div[^>]*class="[^"]*job[^"]*content[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
+
   const sections = {};
 
   // Extract sections by <h2> headers: Info azienda, Competenze richieste,
   // Saranno richiesti i seguenti compiti, Che cosa offriamo
   const sectionRegex = /<h2>(.*?)<\/h2>([\s\S]*?)(?=<h2>|<\/div>\s*<\/div>)/gi;
   let m;
-  while ((m = sectionRegex.exec(html)) !== null) {
+  while ((m = sectionRegex.exec(searchArea)) !== null) {
     const header = stripHtml(m[1]).replace(/\.\s*$/, '').trim();
     const content = stripHtml(m[2]).trim();
     if (content.length > 20) {

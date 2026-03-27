@@ -134,13 +134,20 @@ export function parseAfryDetailPage(html = '') {
  * @returns {string} Extracted description text
  */
 export function parseSmartRecruitersPage(html = '') {
+  // Narrow to main content area first to avoid sidebar "similar jobs" contamination.
+  const mainAreaMatch = html.match(/<div[^>]*class="[^"]*job-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+    || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
+    || html.match(/<section[^>]*class="[^"]*job[^"]*"[^>]*>([\s\S]*?)<\/section>/i);
+  const searchArea = mainAreaMatch ? mainAreaMatch[1] : html;
+
   // Strategy 1: Extract section-by-section using h2 headings
   const sections = [];
   const sectionRegex = /<h2>([\s\S]*?)<\/h2>([\s\S]*?)(?=<h2>|<footer|<div[^>]*class="[^"]*footer|$)/gi;
   let match;
   const skipHeadings = /apply|candidat|share|condivid|teilen|partag|similar|simil/i;
 
-  while ((match = sectionRegex.exec(html)) !== null) {
+  while ((match = sectionRegex.exec(searchArea)) !== null) {
     const heading = stripHtml(match[1]).trim();
     if (!heading || heading.length > 100 || skipHeadings.test(heading)) continue;
 
