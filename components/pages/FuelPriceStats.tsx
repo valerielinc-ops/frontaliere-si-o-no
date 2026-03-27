@@ -644,7 +644,7 @@ export default function FuelPriceStats() {
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
                           <div className="text-base font-black text-slate-900 dark:text-slate-100">{municipalityLabel(row)}</div>
-                          <span className={`inline-flex rounded-full border px-2 py-1 text-[11px] font-semibold ${recommendationTone(row)}`}>
+                          <span className={`inline-flex rounded-full border px-2 py-1 text-xs font-semibold ${recommendationTone(row)}`}>
                             {tt(`fuelPrices.recommendation.${row.comparison.cheaperCountry.toLowerCase()}`, recommendationLabel(row.comparison.cheaperCountry))}
                           </span>
                         </div>
@@ -659,20 +659,20 @@ export default function FuelPriceStats() {
 
                       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:min-w-[520px]">
                         <div>
-                          <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableItaly', 'Italia')}</div>
+                          <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableItaly', 'Italia')}</div>
                           <div className="mt-1 font-black text-slate-900 dark:text-slate-100">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</div>
                         </div>
                         <div>
-                          <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableSwiss', 'Svizzera')}</div>
+                          <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableSwiss', 'Svizzera')}</div>
                           <div className="mt-1 font-black text-slate-900 dark:text-slate-100">
                             {row.swiss.minPriceChf != null ? formatMoney(row.swiss.minPriceChf, 'CHF', locale) : '—'}
                           </div>
-                          <div className="text-[11px] text-slate-500">
+                          <div className="text-xs text-slate-500">
                             {row.swiss.minPriceEur != null ? formatMoney(row.swiss.minPriceEur, 'EUR', locale) : '—'}
                           </div>
                         </div>
                         <div>
-                          <div className="text-[11px] font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableSaving', 'Risparmio 50L')}</div>
+                          <div className="text-xs font-semibold uppercase tracking-wide text-slate-500">{tt('fuelPrices.tableSaving', 'Risparmio 50L')}</div>
                           <div className="mt-1 font-black text-slate-900 dark:text-slate-100">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
                         </div>
                         <div className="flex items-center justify-end lg:justify-start">

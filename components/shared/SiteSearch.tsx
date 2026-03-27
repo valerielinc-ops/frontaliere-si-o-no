@@ -1103,7 +1103,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       {/* Search trigger — compact icon button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2 rounded-xl text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors"
+        className="p-2 rounded-xl text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
         aria-label={t('search.placeholder') || 'Cerca'}
       >
@@ -1186,7 +1186,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                   {/* Fuzzy suggestions */}
                   {noResultsSuggestions.length > 0 && (
                     <div>
-                      <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
                         {t('search.noResults.maybeMeant') || 'Forse cercavi'}
                       </p>
                       <div className="space-y-1">
@@ -1215,7 +1215,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
                   {/* Browse by category */}
                   <div>
-                    <p className="text-[11px] font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
                       {t('search.noResults.browseCategories') || 'Esplora per categoria'}
                     </p>
                     <div className="grid grid-cols-3 gap-2">
@@ -1230,7 +1230,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             <div className={`p-2 rounded-lg bg-slate-100 dark:bg-slate-800 ${cat.color}`}>
                               <CatIcon size={16} />
                             </div>
-                            <span className="text-[11px] font-medium text-slate-600 dark:text-slate-400 text-center leading-tight">{cat.label}</span>
+                            <span className="text-xs font-medium text-slate-600 dark:text-slate-400 text-center leading-tight">{cat.label}</span>
                           </button>
                         );
                       })}

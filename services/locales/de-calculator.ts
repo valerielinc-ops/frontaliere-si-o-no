@@ -315,6 +315,7 @@ const deCalculator: Record<string, string> = {
     'input.childrenTooltip': 'Steuerlich abhängige Kinder (Einkommen < 2.840,51€ oder < 4.000€ wenn unter 24)',
     'input.newExpense': 'Neue Ausgabe',
     'input.noExpenses': 'Keine Ausgaben hinzugefügt',
+    'input.removeExpense': 'Ausgabe entfernen',
     'input.amountsCHF': 'Beträge in Schweizer Franken (CHF)',
     'input.amountsEUR': 'Beträge in Euro (EUR)',
     'input.expensesCHFNote': 'Monatliche Ausgaben in CHF für Personen mit Wohnsitz in der Schweiz — vom CH-Netto abgezogen',

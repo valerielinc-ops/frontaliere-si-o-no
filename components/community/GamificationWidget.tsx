@@ -229,7 +229,7 @@ const GamificationWidget: React.FC = () => {
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">{levelTitle}</div>
-                  <div className="text-[11px] text-slate-500 dark:text-slate-500">{state.xp} XP</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-500">{state.xp} XP</div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {state.streak > 0 && (
@@ -278,7 +278,7 @@ const GamificationWidget: React.FC = () => {
                       <span className="text-lg flex-shrink-0">{achievement.icon}</span>
                       <div className="flex-1 min-w-0">
                         <div className="flex items-center gap-1">
-                          <span className="text-[11px] font-bold truncate text-amber-700 dark:text-amber-400">
+                          <span className="text-xs font-bold truncate text-amber-700 dark:text-amber-400">
                             {t(`gamification.achievement.${achievement.id}`)}
                           </span>
                           <CheckCircle2 size={10} className="text-emerald-500 flex-shrink-0" />

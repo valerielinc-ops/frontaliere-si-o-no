@@ -246,7 +246,7 @@ function formatDate(isoString: string, locale: Locale): string {
 function KpiCard(props: { label: string; value: number; accent: string }) {
   return (
     <div className={`rounded-2xl border p-4 ${props.accent}`}>
-      <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">{props.label}</div>
+      <div className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">{props.label}</div>
       <div className="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">{props.value.toLocaleString('it-IT')}</div>
     </div>
   );
@@ -273,7 +273,7 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
               onClick={(e) => navigateLeader(e, item, props.locale)}
             >
               <div className="min-w-0">
-                <div className="text-[11px] font-bold text-slate-500 dark:text-slate-500">#{index + 1}</div>
+                <div className="text-xs font-bold text-slate-500 dark:text-slate-500">#{index + 1}</div>
                 <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">{item.name}</div>
               </div>
               <div className="shrink-0 text-sm font-extrabold text-indigo-600 dark:text-indigo-300">
@@ -351,7 +351,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
 
             <div className="mt-5 space-y-4">
               <div className="rounded-2xl border border-indigo-100 bg-indigo-50/60 p-4 dark:border-indigo-900/50 dark:bg-indigo-950/20">
-                <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-indigo-700 dark:text-indigo-300">
+                <div className="text-xs font-bold uppercase tracking-[0.16em] text-indigo-700 dark:text-indigo-300">
                   {copy.intro2Prefix}
                 </div>
                 <a
@@ -368,7 +368,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
                   {copy.allJobs}
                 </a>
                 <div className="mt-4 border-t border-indigo-200/70 pt-4 dark:border-indigo-800/60">
-                  <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-indigo-700 dark:text-indigo-300">
+                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-indigo-700 dark:text-indigo-300">
                     {copy.todayLandingEyebrow}
                   </div>
                   <a
@@ -387,7 +387,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
                 </div>
 
                 <div className="mt-4 border-t border-indigo-200/70 pt-4 dark:border-indigo-800/60">
-                  <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-indigo-700 dark:text-indigo-300">
+                  <div className="text-xs font-bold uppercase tracking-[0.16em] text-indigo-700 dark:text-indigo-300">
                     {copy.observatoryEyebrow}
                   </div>
                   <a
@@ -410,7 +410,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
                 <div className="grid gap-3 md:grid-cols-2">
                   {topCompaniesForSeo.length > 0 ? (
                     <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-                      <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                         {copy.companiesLabel}
                       </div>
                       <div className="mt-3 flex flex-wrap gap-2">
@@ -421,7 +421,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
 
                   {topLocationsForSeo.length > 0 ? (
                     <div className="rounded-2xl border border-slate-200/80 bg-slate-50/70 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-                      <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+                      <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                         {copy.locationsLabel}
                       </div>
                       <div className="mt-3 flex flex-wrap gap-2">
@@ -435,7 +435,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
           </div>
 
           <div className="flex flex-col items-start gap-3 self-start rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-            <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
               {copy.updatedAt}
             </div>
             <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 whitespace-nowrap">

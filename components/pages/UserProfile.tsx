@@ -1096,7 +1096,7 @@ const UserProfile: React.FC = () => {
                     )}
                   </div>
                   {/* Contextual tips */}
-                  <p className={`text-[11px] mt-2 ${textColor}`}>
+                  <p className={`text-xs mt-2 ${textColor}`}>
                     {isExpired ? t('profile.permit.tipExpired')
                       : isUrgent ? t('profile.permit.tipUrgent')
                       : isSoon ? t('profile.permit.tipSoon')

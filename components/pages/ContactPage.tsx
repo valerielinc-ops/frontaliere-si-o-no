@@ -269,10 +269,10 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
         </button>
 
         {/* reCAPTCHA notice */}
-        <p className="text-[11px] text-center text-slate-500 dark:text-slate-500">
+        <p className="text-xs text-center text-slate-500 dark:text-slate-500">
           {t('contact.recaptchaNotice')}
         </p>
-        <div className="flex items-center justify-center gap-1.5 text-[11px] text-emerald-700 dark:text-emerald-400">
+        <div className="flex items-center justify-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
           <Shield className="w-3 h-3" />
           <span>{t('contact.dataPrivacy')}</span>
         </div>

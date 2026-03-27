@@ -929,7 +929,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
       <div className="p-5 sm:p-6">
         {/* Badge */}
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-[11px] font-bold uppercase tracking-wider rounded-full mb-3">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
           <Gift className="w-3 h-3" />
           {t('leadMagnet.badge')}
         </div>
@@ -1004,11 +1004,11 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
         {/* Footer: social proof + privacy */}
         <div className="flex items-center justify-between mt-3">
-          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-500">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-500">
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span>{t('leadMagnet.socialProof')}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-[11px] text-emerald-700 dark:text-emerald-400">
+          <div className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
             <Shield className="w-3 h-3" />
             <span>{t('newsletter.dataPrivacy')}</span>
           </div>

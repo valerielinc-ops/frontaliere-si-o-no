@@ -698,7 +698,7 @@ const CurrencyExchange: React.FC = () => {
                     € {result.netAmount.toFixed(2)}
                   </div>
                   <div className="flex sm:flex-col items-center sm:items-end gap-1.5 sm:gap-0">
-                    <div className="text-[11px] sm:text-xs text-slate-500 dark:text-slate-500 hidden sm:block">
+                    <div className="text-xs text-slate-500 dark:text-slate-500 hidden sm:block">
                       {t('currency.net_after_fees')}
                     </div>
                     <div className={`text-xs sm:text-sm font-bold ${isBest ? 'text-emerald-700' : isWorst ? 'text-red-600' : 'text-slate-600 dark:text-slate-500'}`}>

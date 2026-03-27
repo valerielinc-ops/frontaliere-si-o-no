@@ -537,7 +537,7 @@ export default function WithholdingRatesHub() {
             <a
               key={cta.title}
               href={buildPath(cta.route, locale)}
-              className="inline-flex items-center gap-2 rounded-2xl bg-white px-4 py-3 text-sm font-bold text-emerald-800 no-underline transition hover:-translate-y-0.5 hover:bg-emerald-50"
+              className="inline-flex items-center gap-2 rounded-2xl bg-white dark:bg-slate-800 px-4 py-3 text-sm font-bold text-emerald-800 dark:text-emerald-300 no-underline transition hover:-translate-y-0.5 hover:bg-emerald-50 dark:hover:bg-slate-700"
             >
               {cta.title}
               <ArrowRight className="h-4 w-4" />

@@ -556,7 +556,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
               <div className="text-xs text-white/70">{t('currency.on_1000chf_period')}</div>
             </div>
           </div>
-          <p className="text-[11px] text-white/60 text-center mt-1">
+          <p className="text-xs text-white/60 text-center mt-1">
             {t('currency.on_5000chf_annual')} <strong>€ {(5000 * volatility.range * 12).toFixed(0)}</strong>!
           </p>
         </div>
@@ -720,7 +720,7 @@ const WeightedAverageStats: React.FC<{
           </div>
         </div>
         {stats.annualTrend !== 0 && (
-          <p className="text-[11px] text-white/60 text-center">
+          <p className="text-xs text-white/60 text-center">
             {t('currency.avg_trend')}: {stats.annualTrend >= 0 ? '+' : ''}{stats.annualTrend.toFixed(3)}% {t('currency.annual')}
             {stats.annualTrend > 0 ? ` (${t('currency.eur_strengthens')})` : ` (${t('currency.chf_strengthens')})`}
           </p>

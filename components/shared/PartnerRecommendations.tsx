@@ -69,7 +69,7 @@ const PartnerRecommendations: React.FC<PartnerRecommendationsProps> = ({ context
 
   return (
     <div className="mt-4">
-      <p className="text-[11px] font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+      <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
         {t('affiliate.sectionTitle')}
       </p>
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">

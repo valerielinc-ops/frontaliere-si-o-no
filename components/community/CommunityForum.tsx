@@ -340,7 +340,7 @@ const CommunityForum: React.FC = () => {
                       <p className="text-sm text-slate-700 dark:text-slate-300 whitespace-pre-wrap leading-relaxed">
                         {answer.body}
                       </p>
-                      <div className="flex items-center gap-2 mt-2 text-[11px] text-slate-500">
+                      <div className="flex items-center gap-2 mt-2 text-xs text-slate-500">
                         {answer.authorPhoto ? (
                           <img src={answer.authorPhoto} alt="Author avatar" className="w-4 h-4 rounded-full" referrerPolicy="no-referrer" width={16} height={16} />
                         ) : (

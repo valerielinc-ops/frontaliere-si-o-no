@@ -140,7 +140,7 @@ const UnionCard: FC<{ union: UnionInfo; country: 'ch' | 'it' }> = ({ union, coun
           </div>
         ))}
       </div>
-      <div className="flex flex-wrap gap-2 text-[11px]">
+      <div className="flex flex-wrap gap-2 text-xs">
         <span className="inline-flex items-center gap-1 px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
           💰 {union.monthlyFee}
         </span>

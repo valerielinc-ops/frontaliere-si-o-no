@@ -63,7 +63,7 @@ export const StatsView: React.FC = () => {
   const malePercent = genderData.find(g => g.name === 'Uomini')?.pct || "0";
 
   return (
-    <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl shadow-xl border border-white/60 dark:border-slate-800 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
+    <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sm:backdrop-blur-xl rounded-3xl shadow-xl border border-white/60 dark:border-slate-800 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
        {/* Header */}
        <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center sticky top-0 z-10 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md rounded-t-3xl">
           <div>

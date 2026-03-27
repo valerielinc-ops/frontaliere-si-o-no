@@ -209,7 +209,7 @@ export const FeedbackSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {/* Form Section */}
-        <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl p-4 sm:p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-slate-950/50">
+        <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm sm:backdrop-blur-xl p-4 sm:p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-slate-950/50">
           <div className="flex items-center gap-3 mb-6">
             <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl">
               <MessageSquare size={20} />

@@ -342,7 +342,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
                             {school.phone && <span className="flex items-center gap-1">📞 {school.phone}</span>}
                           </div>
                           {school.notes && (
-                            <p className="text-[11px] text-indigo-600 dark:text-indigo-400 mt-1 font-medium">💡 {school.notes}</p>
+                            <p className="text-xs text-indigo-600 dark:text-indigo-400 mt-1 font-medium">💡 {school.notes}</p>
                           )}
                         </div>
                         <div className="flex items-center gap-2 shrink-0">

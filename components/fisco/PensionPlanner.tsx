@@ -629,7 +629,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <li>• {t('pension.disclaimer5')}</li>
                 </ul>
               </div>
-              <div className="flex items-center gap-1.5 mt-3 text-[11px] text-emerald-700 dark:text-emerald-400">
+              <div className="flex items-center gap-1.5 mt-3 text-xs text-emerald-700 dark:text-emerald-400">
                 <Shield size={12} className="flex-shrink-0" />
                 <span>{t('pension.dataPrivacy')}</span>
               </div>

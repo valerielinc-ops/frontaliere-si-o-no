@@ -847,7 +847,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
               <button
                 onClick={handleSend}
                 disabled={loading || !input.trim()}
-                className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-600 text-white transition-colors"
+                className="p-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 disabled:bg-slate-300 dark:disabled:bg-slate-600 text-white transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                 aria-label={t('chatbot.sendLabel')}
               >
                 <Send size={16} />
@@ -877,7 +877,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 <p className="text-xs font-medium text-blue-600 dark:text-blue-400 text-center">frontaliereticino.ch</p>
                 <p className="text-xs text-slate-600 dark:text-slate-400 text-center mt-1 mb-3">{t('chatbot.authSubtitle')}</p>
 
-                <div className="text-[11px] text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-2 mb-3">
+                <div className="text-xs text-blue-700 dark:text-blue-300 bg-blue-50 dark:bg-blue-950/30 border border-blue-200 dark:border-blue-800 rounded-lg p-2 mb-3">
                   <span className="font-semibold">{t('chatbot.authContinueQuestion')}:</span> {pendingQuestion}
                 </div>
 
@@ -913,7 +913,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                   </button>
                 )}
 
-                <p className="flex items-center justify-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-400 mb-1">
+                <p className="flex items-center justify-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-1">
                   <Shield size={11} className="text-emerald-600 dark:text-emerald-400 flex-shrink-0" />
                   {t('jobBoard.gate.googleRedirectNote')}
                 </p>

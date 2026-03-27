@@ -123,7 +123,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
               {!isTotal && item.description && (
                 <div className="group/tooltip relative inline-flex items-center flex-shrink-0">
                   <Info size={12} className="text-slate-500 dark:text-slate-400 cursor-help group-hover/tooltip:text-indigo-500 transition-colors" />
-                  <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-slate-900 dark:bg-slate-800 text-white text-[11px] font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700`}>
+                  <div className={`absolute bottom-full left-0 mb-2 ${showMobileTooltip ? 'block' : 'hidden'} group-hover/tooltip:block w-56 p-3 bg-slate-900 dark:bg-slate-800 text-white text-xs font-medium rounded-xl shadow-2xl z-50 animate-fade-in border border-slate-700`}>
                     {translateKey(item.description)}
                     <div className="absolute top-full left-2 -translate-x-1/2 border-8 border-transparent border-t-slate-900 dark:border-t-slate-800"></div>
                   </div>
@@ -414,7 +414,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
   };
 
   return (
-    <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-xl rounded-3xl shadow-xl shadow-slate-200/50 border border-white/60 dark:border-slate-800 overflow-hidden flex flex-col h-full animate-fade-in-up transition-colors duration-300">
+    <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sm:backdrop-blur-xl rounded-3xl shadow-xl shadow-slate-200/50 border border-white/60 dark:border-slate-800 overflow-hidden flex flex-col h-full animate-fade-in-up transition-colors duration-300">
       <div className="p-5 bg-white/50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start sm:items-center sticky top-0 z-10 backdrop-blur-md gap-4 flex-col sm:flex-row">
         <div className="flex-1 w-full">
            <div className="flex justify-between items-center mb-2">
@@ -450,7 +450,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                )}
                <button 
                  onClick={exportPDF} 
-                 className="p-2 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex-shrink-0" 
+                 className="p-2 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex-shrink-0 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                  title={t('results.downloadPDF')}
                  aria-label={t('results.downloadPDF')}
                >

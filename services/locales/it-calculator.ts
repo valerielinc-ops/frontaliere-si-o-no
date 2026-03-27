@@ -325,6 +325,7 @@ const translations: Record<string, string> = {
     'input.childrenTooltip': 'Figli fiscalmente a carico (reddito < 2.840,51€ o < 4.000€ se under 24)',
     'input.newExpense': 'Nuova spesa',
     'input.noExpenses': 'Nessuna spesa aggiunta',
+    'input.removeExpense': 'Rimuovi spesa',
     'input.amountsCHF': 'Importi in Franchi Svizzeri (CHF)',
     'input.amountsEUR': 'Importi in Euro (EUR)',
     'input.expensesCHFNote': 'Spese mensili in CHF per chi vive in Svizzera — sottratte dal netto CH',

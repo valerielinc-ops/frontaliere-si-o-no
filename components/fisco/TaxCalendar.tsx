@@ -952,11 +952,11 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 {reminderSignupLoading ? '...' : 'Iscriviti'}
               </button>
             </form>
-            <div className="text-[11px] text-slate-600 dark:text-slate-400">
+            <div className="text-xs text-slate-600 dark:text-slate-400">
               {t('newsletter.doubleOptIn.description')} {t('newsletter.doubleOptIn.spamHint')}
             </div>
             {reminderSignupError && (
-              <div className="text-[11px] font-semibold text-red-600 dark:text-red-300">
+              <div className="text-xs font-semibold text-red-600 dark:text-red-300">
                 {reminderSignupError}
               </div>
             )}
@@ -968,7 +968,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             <button
               key={profile}
               onClick={() => setChecklistProfile(profile)}
-              className={`px-2.5 py-1.5 rounded-lg text-[11px] font-bold ${checklistProfile === profile ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${checklistProfile === profile ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
             >
               {profile === 'tutti' ? t('calendar.filterAll') : profile === 'vecchio' ? t('calendar.filterOld') : t('calendar.filterNew')}
             </button>
@@ -1201,7 +1201,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               return (
                                 <div
                                   key={i}
-                                  className={`px-1.5 py-1 rounded-lg text-[11px] sm:text-xs font-extrabold leading-snug bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-800 dark:text-${cfg?.color || 'indigo'}-200 border border-${cfg?.color || 'indigo'}-300 dark:border-${cfg?.color || 'indigo'}-700 shadow-sm`}
+                                  className={`px-1.5 py-1 rounded-lg text-xs font-extrabold leading-snug bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-800 dark:text-${cfg?.color || 'indigo'}-200 border border-${cfg?.color || 'indigo'}-300 dark:border-${cfg?.color || 'indigo'}-700 shadow-sm`}
                                   title={e.title}
                                 >
                                   <span className="line-clamp-2">{e.title}</span>

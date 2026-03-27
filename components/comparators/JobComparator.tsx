@@ -164,7 +164,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 placeholder={t('jobs.companyName')}
               />
               {offers.length > 2 && (
-                <button onClick={() => removeOffer(offer.id)} className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors">
+                <button onClick={() => removeOffer(offer.id)} className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
                   <Trash2 size={16} />
                 </button>
               )}

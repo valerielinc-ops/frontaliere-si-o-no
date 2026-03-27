@@ -1218,7 +1218,7 @@ export default function BlogArticles({
           className="group block p-3 bg-white/70 dark:bg-slate-800/70 rounded-xl border border-slate-200/60 dark:border-slate-700/60 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-all text-center"
         >
           <span className="text-xl block mb-1">{partner.emoji}</span>
-          <span className="text-[11px] font-semibold text-slate-700 dark:text-slate-200 block leading-tight">{partner.name}</span>
+          <span className="text-xs font-semibold text-slate-700 dark:text-slate-200 block leading-tight">{partner.name}</span>
           {partner.badgeKey && (
             <span className={`mt-1 inline-block text-[9px] font-bold px-1.5 py-0.5 rounded-full bg-gradient-to-r ${partner.color} text-white`}>
               {t(partner.badgeKey)}

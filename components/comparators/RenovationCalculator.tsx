@@ -232,7 +232,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
               </button>
             </div>
             {propertyType === 'seconda_casa' && rawBonus.secondaCasa && (
-              <p className="text-[11px] text-amber-600 dark:text-amber-400 mt-1.5 flex items-center gap-1">
+              <p className="text-xs text-amber-600 dark:text-amber-400 mt-1.5 flex items-center gap-1">
                 <AlertTriangle size={12} />
                 {t('renovation.secondaCasaNote')}
               </p>

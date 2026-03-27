@@ -40,7 +40,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
 
   return (
     <div className={`overflow-visible rounded-xl border border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-3 space-y-2.5 ${className}`}>
-      <div className="flex items-center gap-1.5 text-[11px] font-semibold tracking-normal text-slate-600 dark:text-slate-300">
+      <div className="flex items-center gap-1.5 text-xs font-semibold tracking-normal text-slate-600 dark:text-slate-300">
         <Sparkles size={13} className="text-amber-500" />
         <span>{t('creatorPicks.title')}</span>
       </div>
@@ -66,7 +66,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
                   alt={p.title}
                   width={96}
                   height={96}
-                  className="rounded-lg object-contain bg-white shadow-sm"
+                  className="rounded-lg object-contain bg-white dark:bg-slate-700 shadow-sm"
                   loading="lazy"
                   onLoad={handleImgLoad(p.id)}
                   onError={handleImgError(p.id)}

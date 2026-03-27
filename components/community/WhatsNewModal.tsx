@@ -1862,7 +1862,7 @@ export default function WhatsNewModal({ open, onClose }: WhatsNewModalProps) {
 
         {/* Footer */}
         <div className="px-6 py-3 border-t border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50">
-          <p className="text-[11px] text-slate-500 dark:text-slate-400 text-center">
+          <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
             {t('whatsNew.footer')}
           </p>
         </div>

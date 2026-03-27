@@ -205,7 +205,7 @@ function ActionLink(props: { label: string; route: Parameters<typeof buildPath>[
 function Kpi(props: { label: string; value: string; accent: string }) {
   return (
     <div className={`rounded-2xl border p-4 ${props.accent}`}>
-      <div className="text-[11px] font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">{props.label}</div>
+      <div className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">{props.label}</div>
       <div className="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">{props.value}</div>
     </div>
   );
@@ -242,7 +242,7 @@ function LeaderBlock(props: {
               }}
             >
               <div className="min-w-0">
-                <div className="text-[11px] font-bold text-slate-500 dark:text-slate-500">#{index + 1}</div>
+                <div className="text-xs font-bold text-slate-500 dark:text-slate-500">#{index + 1}</div>
                 <div className="truncate text-sm font-semibold text-slate-800 dark:text-slate-100">{item.name}</div>
               </div>
               <div className="shrink-0 text-right text-sm font-extrabold text-indigo-600 dark:text-indigo-300">
@@ -322,7 +322,7 @@ export const JobsSalaryObservatory: React.FC = () => {
             </div>
           </div>
           <div className="rounded-2xl border border-slate-200/80 bg-slate-50/80 p-4 dark:border-slate-700 dark:bg-slate-900/40">
-            <div className="text-[11px] font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{copy.updated}</div>
+            <div className="text-xs font-bold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">{copy.updated}</div>
             <div className="mt-2 text-sm font-semibold text-slate-800 dark:text-slate-100">{formatDate(data.generatedAt, locale)}</div>
             <button
               type="button"

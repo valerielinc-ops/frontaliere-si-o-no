@@ -301,7 +301,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-6">
             {/* Income Input — Prominent (matching InputCard) */}
             <div className="space-y-2">
-              <label className="text-[11px] font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5">
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5">
                 <Coins size={14} className="text-amber-500"/> {t('payslip.grossSalary')}
                 <InfoTooltip text={t('payslip.grossMonthly') + ': CHF ' + fmt(grossAnnual / 12)} />
               </label>
@@ -322,7 +322,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                 />
               </div>
               {salaryError && (
-                <p className="text-[11px] text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
+                <p className="text-xs text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
                   <AlertTriangle size={12} /> {salaryError}
                 </p>
               )}
@@ -341,7 +341,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     id="payslip-status"
                     value={maritalStatus}
                     onChange={e => setMaritalStatus(e.target.value as 'single' | 'married')}
-                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-[11px] sm:text-xs font-semibold sm:font-bold appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all cursor-pointer text-slate-700 dark:text-slate-200"
+                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all cursor-pointer text-slate-700 dark:text-slate-200"
                   >
                     <option value="single">{t('payslip.single')}</option>
                     <option value="married">{t('payslip.married')}</option>
@@ -468,7 +468,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <p className="text-xs text-slate-500 dark:text-slate-500 mt-4 leading-relaxed">
             ⚠️ {t('payslip.disclaimer')}
           </p>
-          <div className="flex items-center gap-1.5 mt-2 text-[11px] text-emerald-700 dark:text-emerald-400">
+          <div className="flex items-center gap-1.5 mt-2 text-xs text-emerald-700 dark:text-emerald-400">
             <Shield size={12} className="flex-shrink-0" />
             <span>{t('payslip.dataPrivacy')}</span>
           </div>

@@ -315,6 +315,7 @@ const frCalculator: Record<string, string> = {
     'input.childrenTooltip': 'Enfants fiscalement à charge (revenu < 2 840,51€ ou < 4 000€ si moins de 24 ans)',
     'input.newExpense': 'Nouvelle dépense',
     'input.noExpenses': 'Aucune dépense ajoutée',
+    'input.removeExpense': 'Supprimer la dépense',
     'input.amountsCHF': 'Montants en Francs Suisses (CHF)',
     'input.amountsEUR': 'Montants en Euro (EUR)',
     'input.expensesCHFNote': 'Dépenses mensuelles en CHF pour les résidents en Suisse — déduites du net CH',

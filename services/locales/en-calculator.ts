@@ -315,6 +315,7 @@ const enCalculator: Record<string, string> = {
     'input.childrenTooltip': 'Tax-dependent children (income < €2,840.51 or < €4,000 if under 24)',
     'input.newExpense': 'New expense',
     'input.noExpenses': 'No expenses added',
+    'input.removeExpense': 'Remove expense',
     'input.amountsCHF': 'Amounts in Swiss Francs (CHF)',
     'input.amountsEUR': 'Amounts in Euro (EUR)',
     'input.expensesCHFNote': 'Monthly expenses in CHF for those living in Switzerland — subtracted from CH net',

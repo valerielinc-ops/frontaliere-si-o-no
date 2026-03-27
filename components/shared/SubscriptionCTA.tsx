@@ -226,7 +226,7 @@ const SubscriptionCTA: React.FC = () => {
 
       <div className="p-5 sm:p-6">
         {/* Urgency badge - next send countdown */}
-        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-[11px] font-bold uppercase tracking-wider rounded-full mb-3">
+        <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-300 text-xs font-bold uppercase tracking-wider rounded-full mb-3">
           <Clock className="w-3 h-3" />
           {t('newsletter.cta.nextSend', { days: String(daysUntilNextMonday()) })}
         </div>
@@ -249,7 +249,7 @@ const SubscriptionCTA: React.FC = () => {
 
         {/* This week's preview */}
         <div className="mb-4 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200/60 dark:border-slate-700/60">
-          <p className="text-[11px] text-amber-600 dark:text-amber-300 font-bold uppercase tracking-wider mb-2 flex items-center gap-1">
+          <p className="text-xs text-amber-600 dark:text-amber-300 font-bold uppercase tracking-wider mb-2 flex items-center gap-1">
             <Sparkles className="w-3 h-3" /> {t('newsletter.cta.thisWeek')}
           </p>
           <div className="space-y-1.5">
@@ -307,11 +307,11 @@ const SubscriptionCTA: React.FC = () => {
 
         {/* Footer: social proof + privacy */}
         <div className="flex items-center justify-between mt-3">
-          <div className="flex items-center gap-1.5 text-[11px] text-slate-500 dark:text-slate-500">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-500">
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span>{t('newsletter.cta.subscriberCount')}</span>
           </div>
-          <div className="flex items-center gap-1.5 text-[11px] text-emerald-700 dark:text-emerald-400">
+          <div className="flex items-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">
             <Shield className="w-3 h-3" />
             <span>{t('newsletter.dataPrivacy')}</span>
           </div>

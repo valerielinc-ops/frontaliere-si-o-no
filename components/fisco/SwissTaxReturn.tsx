@@ -172,11 +172,11 @@ const SwissTaxReturn: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-amber-300 dark:border-amber-700">
                     <h5 className="font-bold text-xs text-amber-700 dark:text-amber-300 mb-1">{t('swissTaxReturn.overview.oldFrontalier')}</h5>
-                    <p className="text-[11px] text-amber-700 dark:text-amber-400">{t('swissTaxReturn.overview.oldFrontalierDesc')}</p>
+                    <p className="text-xs text-amber-700 dark:text-amber-400">{t('swissTaxReturn.overview.oldFrontalierDesc')}</p>
                   </div>
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-amber-300 dark:border-amber-700">
                     <h5 className="font-bold text-xs text-amber-700 dark:text-amber-300 mb-1">{t('swissTaxReturn.overview.newFrontalier')}</h5>
-                    <p className="text-[11px] text-amber-700 dark:text-amber-400">{t('swissTaxReturn.overview.newFrontalierDesc')}</p>
+                    <p className="text-xs text-amber-700 dark:text-amber-400">{t('swissTaxReturn.overview.newFrontalierDesc')}</p>
                   </div>
                 </div>
               </div>
@@ -304,7 +304,7 @@ const SwissTaxReturn: React.FC = () => {
                     <h4 className="font-bold text-blue-700 dark:text-blue-300 text-sm">{t('swissTaxReturn.correction.request1')}</h4>
                   </div>
                   <p className="text-xs text-blue-700 dark:text-blue-400 mb-2">{t('swissTaxReturn.correction.request1Desc')}</p>
-                  <ul className="list-disc list-inside space-y-1 text-[11px] text-blue-700 dark:text-blue-400">
+                  <ul className="list-disc list-inside space-y-1 text-xs text-blue-700 dark:text-blue-400">
                     <li>{t('swissTaxReturn.correction.request1Ex1')}</li>
                     <li>{t('swissTaxReturn.correction.request1Ex2')}</li>
                     <li>{t('swissTaxReturn.correction.request1Ex3')}</li>
@@ -316,7 +316,7 @@ const SwissTaxReturn: React.FC = () => {
                     <h4 className="font-bold text-violet-700 dark:text-violet-300 text-sm">{t('swissTaxReturn.correction.request2')}</h4>
                   </div>
                   <p className="text-xs text-violet-700 dark:text-violet-400 mb-2">{t('swissTaxReturn.correction.request2Desc')}</p>
-                  <ul className="list-disc list-inside space-y-1 text-[11px] text-violet-700 dark:text-violet-400">
+                  <ul className="list-disc list-inside space-y-1 text-xs text-violet-700 dark:text-violet-400">
                     <li>{t('swissTaxReturn.correction.request2Ex1')}</li>
                     <li>{t('swissTaxReturn.correction.request2Ex2')}</li>
                     <li>{t('swissTaxReturn.correction.request2Ex3')}</li>
@@ -417,8 +417,8 @@ const SwissTaxReturn: React.FC = () => {
                   <p className="text-xs font-bold text-blue-700 dark:text-blue-300">{t('swissTaxReturn.tdr.quasiResidentRule')}</p>
                 </div>
                 <div className="mt-2 bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-300 dark:border-blue-700">
-                  <p className="text-[11px] font-bold text-blue-700 dark:text-blue-300 mb-1">{t('swissTaxReturn.tdr.quasiResidentExample')}</p>
-                  <p className="text-[11px] text-blue-700 dark:text-blue-400">{t('swissTaxReturn.tdr.quasiResidentExampleDesc')}</p>
+                  <p className="text-xs font-bold text-blue-700 dark:text-blue-300 mb-1">{t('swissTaxReturn.tdr.quasiResidentExample')}</p>
+                  <p className="text-xs text-blue-700 dark:text-blue-400">{t('swissTaxReturn.tdr.quasiResidentExampleDesc')}</p>
                 </div>
               </div>
 
@@ -439,7 +439,7 @@ const SwissTaxReturn: React.FC = () => {
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-violet-300 dark:border-violet-700">
                     <h5 className="font-bold text-xs text-violet-700 dark:text-violet-300 mb-2">{t('swissTaxReturn.tdr.compRettifica')}</h5>
-                    <ul className="list-disc list-inside space-y-1 text-[11px] text-violet-700 dark:text-violet-400">
+                    <ul className="list-disc list-inside space-y-1 text-xs text-violet-700 dark:text-violet-400">
                       <li>{t('swissTaxReturn.tdr.compRettifica1')}</li>
                       <li>{t('swissTaxReturn.tdr.compRettifica2')}</li>
                       <li>{t('swissTaxReturn.tdr.compRettifica3')}</li>
@@ -447,7 +447,7 @@ const SwissTaxReturn: React.FC = () => {
                   </div>
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-violet-300 dark:border-violet-700">
                     <h5 className="font-bold text-xs text-violet-700 dark:text-violet-300 mb-2">{t('swissTaxReturn.tdr.compTDR')}</h5>
-                    <ul className="list-disc list-inside space-y-1 text-[11px] text-violet-700 dark:text-violet-400">
+                    <ul className="list-disc list-inside space-y-1 text-xs text-violet-700 dark:text-violet-400">
                       <li>{t('swissTaxReturn.tdr.compTDR1')}</li>
                       <li>{t('swissTaxReturn.tdr.compTDR2')}</li>
                       <li>{t('swissTaxReturn.tdr.compTDR3')}</li>
