@@ -56,9 +56,9 @@ function parseMaxJobs() {
 const MAX_JOBS = parseMaxJobs();
 
 // Time budget: stop starting new companies when this many ms have elapsed.
-// The workflow has timeout-minutes:100 for this step (plus 20min for the commit step).
-// We stop at 90min to leave a comfortable margin for the commit to run.
-const TIME_BUDGET_MS = 90 * 60 * 1000;
+// The workflow job has timeout-minutes:350; we stop at 320min to leave a
+// comfortable margin for the commit/deploy steps to run.
+const TIME_BUDGET_MS = 320 * 60 * 1000;
 
 function readJson(filePath) {
   try {

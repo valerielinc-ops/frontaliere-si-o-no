@@ -27,7 +27,7 @@ permissions:
 jobs:
   translate:
     runs-on: ubuntu-latest
-    timeout-minutes: 120
+    timeout-minutes: 350
 
     steps:
       - name: Checkout
@@ -63,7 +63,6 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Translate pending jobs
-        timeout-minutes: 100
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
 
       - name: Commit and push

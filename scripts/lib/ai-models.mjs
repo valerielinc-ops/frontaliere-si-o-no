@@ -999,8 +999,12 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
             _stats.providerCooldowns++;
           }
           // Respect Retry-After header if present (seconds or HTTP-date)
+          // Cap at 2 minutes — some providers (e.g. Cerebras) return Retry-After: 86399 (24h)
+          // which would freeze the entire translation pipeline.
+          const MAX_RETRY_AFTER_MS = 2 * 60 * 1000;
           const retryAfterHeader = res.headers?.get?.('retry-after');
-          const retryAfterMs = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
+          const retryAfterRaw = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
+          const retryAfterMs = Math.min(retryAfterRaw, MAX_RETRY_AFTER_MS);
           const baseWaitMs = is429
             ? attempt * opts.backoffMs * 3   // Triple backoff for rate limits
             : attempt * opts.backoffMs;
@@ -1237,9 +1241,11 @@ async function _callGeminiRaw(model, messages, opts) {
             cooldownProvider(PROVIDER.GEMINI);
             _stats.providerCooldowns++;
           }
-          // Respect Retry-After header if present
+          // Respect Retry-After header if present (capped at 2 minutes)
+          const MAX_RETRY_AFTER_MS_GEMINI = 2 * 60 * 1000;
           const retryAfterHeader = res.headers?.get?.('retry-after');
-          const retryAfterMs = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
+          const retryAfterRaw = retryAfterHeader ? (Number(retryAfterHeader) > 0 ? Number(retryAfterHeader) * 1000 : 0) : 0;
+          const retryAfterMs = Math.min(retryAfterRaw, MAX_RETRY_AFTER_MS_GEMINI);
           const waitMs = Math.max(attempt * opts.backoffMs, retryAfterMs);
           console.warn(`⚠️  [${model}] ${res.status} retry ${attempt}/${opts.maxRetriesPerModel} — wait ${waitMs}ms`);
           await sleep(waitMs);
