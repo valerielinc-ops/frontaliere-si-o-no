@@ -309,6 +309,15 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
           const localizedTitle = localizedMeta?.title || en.ogT;
           const localizedDesc = localizedMeta?.excerpt || en.ogD;
+          // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
+          const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
+            en: ' Practical guide and free tools for cross-border workers (frontalieri) between Switzerland and Italy. Frontaliere Ticino.',
+            de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
+            fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
+          };
+          const metaDesc = (localeForMeta && localizedDesc.length < 150)
+            ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
+            : localizedDesc;
           const localizedPageTitle = localizedMeta?.title ? `${localizedMeta.title} | Frontaliere Ticino` : en.title;
           const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
           const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
@@ -415,7 +424,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           const headTags = `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>${esc(localizedPageTitle)}</title>
-    <meta name="description" content="${esc(localizedDesc)}">
+    <meta name="description" content="${esc(metaDesc)}">
     <link rel="canonical" href="${full}">
     <meta property="og:type" content="article">
     <meta property="og:url" content="${full}">

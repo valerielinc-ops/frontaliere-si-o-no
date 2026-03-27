@@ -781,9 +781,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
         const title = `${readableTitle} | Frontaliere Ticino`;
 
         const GENERIC_DESC: Record<string, (t: string) => string> = {
-          en: (t: string) => `${t} — tools and information for cross-border workers Switzerland-Italy. Updated 2026.`,
-          de: (t: string) => `${t} — Tools und Informationen für Grenzgänger Schweiz-Italien. Aktualisiert 2026.`,
-          fr: (t: string) => `${t} — outils et informations pour travailleurs frontaliers Suisse-Italie. Mis à jour 2026.`,
+          en: (t: string) => `${t} — free tools and expert guides for cross-border workers (frontalieri) between Switzerland and Italy. Compare salaries, tax, LAMal health insurance, pensions, and cost of living in Ticino. Updated 2026.`,
+          de: (t: string) => `${t} — kostenlose Tools und Expertenratgeber für Grenzgänger zwischen der Schweiz und Italien. Gehalt, Steuern, KVG-Krankenversicherung, Rente und Lebenshaltungskosten im Tessin vergleichen. Aktualisiert 2026.`,
+          fr: (t: string) => `${t} — outils gratuits et guides experts pour travailleurs frontaliers entre la Suisse et l'Italie. Comparez salaires, impôts, assurance LAMal, retraite et coût de la vie au Tessin. Mis à jour 2026.`,
         };
         const desc = (GENERIC_DESC[locale]?.(readableTitle)) || italianSeo.desc;
 

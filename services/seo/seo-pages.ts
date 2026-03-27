@@ -2110,7 +2110,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   jobboard: {
     title: 'Lavoro Frontaliere Ticino 2026 — Offerte Svizzera',
-    description: 'Lavoro frontaliere Ticino 2026: offerte aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende attive. Candidati gratis.',
+    description: 'Lavoro frontaliere Ticino 2026: offerte aggiornate ogni giorno in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende attive. Candidati gratis.',
     keywords: 'lavoro frontaliere ticino, offerte di lavoro frontalieri ticino 2026, lavoro ticino, offerte lavoro frontalieri, lavoro svizzera frontalieri, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
     ogTitle: 'Lavoro Frontaliere Ticino 2026 — Offerte Svizzera',
     ogDescription: '💼 Lavoro frontaliere Ticino 2026: offerte aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende. Candidati gratis!',
@@ -2759,7 +2759,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   renovation: {
     title: 'Bonus Ristrutturazione Casa | Detrazioni Frontalieri Italia',
-    description: 'Guida ai bonus ristrutturazione casa per frontalieri residenti in Italia: superbonus, ecobonus, bonus mobili, bonus facciate. Calcola le detrazioni.',
+    description: 'Guida ai bonus ristrutturazione casa per frontalieri residenti in Italia: superbonus, ecobonus, bonus mobili, bonus facciate. Calcola subito le detrazioni.',
     keywords: 'bonus ristrutturazione frontaliere, detrazioni casa frontaliere, superbonus frontaliere, ecobonus italia, bonus mobili, ristrutturazione casa italia',
     ogTitle: 'Bonus Ristrutturazione Casa per Frontalieri',
     ogDescription: '🏗️ Calcola le detrazioni per ristrutturazione casa disponibili per frontalieri residenti in Italia.',

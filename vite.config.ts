@@ -55,12 +55,16 @@ export default defineConfig(({ mode }) => {
         staticPagesPlugin(__dirname),
         sitemapAliasPlugin(__dirname),
         legacyRedirectsPlugin(__dirname),
-        flatContentPlugin(),
         llmsTxtPlugin(__dirname),
         adminDataPlugin(__dirname),
         crawlerRegistryPlugin(__dirname),
         localeJobsSplitPlugin(__dirname),
         webpPlugin(__dirname),
+        // flatContentPlugin MUST be last — it replaces noindex flat .html redirect
+        // stubs with copies of the real index.html content. It must run after ALL
+        // other plugins (especially jobsSeoPagesPlugin and staticPagesPlugin) have
+        // flushed their batch writes to disk.
+        flatContentPlugin(),
       ],
       define: {
         // No secrets injected at build time — all sensitive keys come from Firebase Remote Config at runtime
