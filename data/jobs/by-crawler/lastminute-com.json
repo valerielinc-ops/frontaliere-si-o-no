@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-03-27T09:46:10.583Z",
+  "assembledAt": "2026-03-27T21:30:10.163Z",
   "jobs": [
     {
       "id": "company-grwdno",
@@ -32,10 +32,10 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-27T09:46:09.382Z",
+      "crawledAt": "2026-03-27T21:30:08.160Z",
       "slugByLocale": {
         "it": "data-ingegnere-chiasso",
-        "en": "data-engineer-chiasso",
+        "en": "data-engineer-lastminute-com-chiasso",
         "de": "data-ingenieur-chiasso",
         "fr": "data-ingenieur-chiasso"
       },
@@ -68,6 +68,9 @@
       "addressLocality": "Chiasso",
       "country": "CH",
       "sourceLang": "en",
+      "previousSlugs": [
+        "data-engineer-chiasso"
+      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "baseSalary": {
@@ -113,10 +116,10 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-27T09:46:09.382Z",
+      "crawledAt": "2026-03-27T21:30:08.160Z",
       "slugByLocale": {
         "it": "client-affiliation-partner-chiasso",
-        "en": "client-affiliation-partner-chiasso",
+        "en": "client-affiliation-partner-lastminute-com-chiasso",
         "de": "client-affiliation-partner-chiasso",
         "fr": "client-affiliation-partner-chiasso"
       },
@@ -192,7 +195,7 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-27T09:46:09.382Z",
+      "crawledAt": "2026-03-27T21:30:08.160Z",
       "slugByLocale": {
         "it": "senior-frontend-software-ingegnere-chiasso",
         "en": "senior-frontend-software-engineer-chiasso",
@@ -271,7 +274,7 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-27T09:46:09.382Z",
+      "crawledAt": "2026-03-27T21:30:08.160Z",
       "slugByLocale": {
         "it": "global-payroll-risorse-umane-systems-manager-chiasso",
         "en": "global-payroll-hr-systems-manager-chiasso",
@@ -349,7 +352,7 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-27T09:46:09.382Z",
+      "crawledAt": "2026-03-27T21:30:08.160Z",
       "slugByLocale": {
         "it": "responsabile-data-platform-engineering-chiasso",
         "en": "head-of-data-platform-engineering-chiasso",
@@ -427,7 +430,7 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-27T09:46:09.382Z",
+      "crawledAt": "2026-03-27T21:30:08.160Z",
       "slugByLocale": {
         "it": "software-ingegnere-etls-microservices-chiasso",
         "en": "software-engineer-etls-microservices-chiasso",
@@ -505,7 +508,7 @@
       },
       "companyKey": "lastminute-com",
       "companyDomain": "lastminute.com",
-      "crawledAt": "2026-03-27T09:46:09.382Z",
+      "crawledAt": "2026-03-27T21:30:08.160Z",
       "slugByLocale": {
         "it": "microsoft-business-central-specialista-chiasso",
         "en": "microsoft-business-central-specialist-chiasso",
