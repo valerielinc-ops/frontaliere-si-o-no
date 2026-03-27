@@ -3309,6 +3309,12 @@ ${(() => {
       const expiredBySlug = new Map<string, any>();
       for (const ej of expiredJobsData) {
         if (ej.slug) expiredBySlug.set(ej.slug, ej);
+        // Also index previousSlugs so renamed-then-deleted jobs get enriched soft-landing pages
+        if (Array.isArray(ej.previousSlugs)) {
+          for (const ps of ej.previousSlugs) {
+            if (ps && !expiredBySlug.has(ps)) expiredBySlug.set(ps, ej);
+          }
+        }
       }
 
       // FRO-343: Load swiss-postal-codes for postalCode enrichment of soft-landing pages

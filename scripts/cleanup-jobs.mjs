@@ -119,6 +119,11 @@ function buildExpiredEntry(job) {
     slugByLocale: job.slugByLocale || {},
     sector: job.sector || '',
     expiredAt: new Date().toISOString(),
+    // Preserve old slug aliases so the build plugin can generate enriched
+    // soft-landing pages for URLs that were renamed before expiry.
+    previousSlugs: Array.isArray(job.previousSlugs) && job.previousSlugs.length > 0
+      ? [...job.previousSlugs]
+      : undefined,
     // FRO-343: preserve address + salary data for rich soft-landing pages
     postalCode: job.postalCode || '',
     streetAddress: job.streetAddress || '',
