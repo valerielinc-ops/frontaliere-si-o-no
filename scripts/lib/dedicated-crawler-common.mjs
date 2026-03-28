@@ -762,6 +762,11 @@ export function isSlugStable(existingSlug, newSlug, threshold = 0.80) {
     const prefixB = [...tokensB].slice(0, 4).join('-');
     return prefixA === prefixB && prefixA.length >= 6;
   }
+  // Containment check: if the existing slug's tokens are all present in the new slug
+  // (or vice versa), the new slug is just an extension of the existing one (e.g. adding
+  // company/location suffix). Treat as stable to avoid unnecessary URL churn.
+  if (tokensA.size >= 4 && [...tokensA].every((t) => tokensB.has(t))) return true;
+  if (tokensB.size >= 4 && [...tokensB].every((t) => tokensA.has(t))) return true;
   return slugJaccard(existingSlug, newSlug) >= threshold;
 }
 
