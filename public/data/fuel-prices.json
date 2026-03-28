@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T15:58:45.628Z",
+  "generatedAt": "2026-03-28T17:03:21.282Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 237,
-      "latestObservedUpdate": "2026-03-28T15:05:30.176Z"
+      "stationCount": 238,
+      "latestObservedUpdate": "2026-03-28T17:03:04.275Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -1158,7 +1158,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1306,7 +1306,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1421,7 +1421,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 53,
+        "optionCount": 54,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -1536,7 +1536,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1651,7 +1651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -1788,7 +1788,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -1925,7 +1925,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -2073,7 +2073,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -2188,7 +2188,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 88,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -2910,7 +2910,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3025,7 +3025,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 35,
+        "optionCount": 36,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3140,7 +3140,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 74,
+        "optionCount": 75,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3255,7 +3255,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 93,
+        "optionCount": 94,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3370,7 +3370,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3540,7 +3540,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3688,7 +3688,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 17,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -3803,7 +3803,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 67,
+        "optionCount": 68,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -3918,7 +3918,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -4033,7 +4033,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -4289,7 +4289,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -4404,7 +4404,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -4519,7 +4519,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -4854,7 +4854,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5139,7 +5139,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5254,7 +5254,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 61,
+        "optionCount": 62,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -5369,7 +5369,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5484,7 +5484,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5862,7 +5862,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 23,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -5977,7 +5977,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6092,7 +6092,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6240,7 +6240,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6355,7 +6355,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -6585,7 +6585,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 96,
+        "optionCount": 97,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -6700,7 +6700,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -6892,7 +6892,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -7007,7 +7007,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 49,
+        "optionCount": 50,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7122,7 +7122,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -7237,7 +7237,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 109,
+        "optionCount": 110,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7352,7 +7352,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 72,
+        "optionCount": 73,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7467,7 +7467,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -7857,7 +7857,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -8140,7 +8140,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -8370,7 +8370,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -8995,7 +8995,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 20,
+        "optionCount": 21,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -9110,7 +9110,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -9225,7 +9225,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 34,
+        "optionCount": 35,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -9340,7 +9340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 46,
+        "optionCount": 47,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -9510,7 +9510,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -9658,7 +9658,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -9850,7 +9850,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -10211,7 +10211,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -10673,7 +10673,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -10980,7 +10980,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 48,
+        "optionCount": 49,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -11095,7 +11095,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 100,
+        "optionCount": 101,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -11462,7 +11462,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -11577,7 +11577,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 27,
+        "optionCount": 28,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -11725,7 +11725,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -11988,7 +11988,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12180,7 +12180,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12295,7 +12295,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12432,7 +12432,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12569,7 +12569,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12684,7 +12684,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -12843,7 +12843,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -13342,7 +13342,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 63,
+        "optionCount": 64,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -13599,7 +13599,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 13,
+        "optionCount": 14,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -13714,7 +13714,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -13829,7 +13829,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -13944,7 +13944,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -14146,7 +14146,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -14338,7 +14338,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -14568,7 +14568,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 59,
+        "optionCount": 60,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -14738,7 +14738,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -14908,7 +14908,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15023,7 +15023,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -15171,7 +15171,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -15502,7 +15502,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15718,7 +15718,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15833,7 +15833,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -15948,7 +15948,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -16200,7 +16200,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -16430,7 +16430,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -16545,7 +16545,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 65,
+        "optionCount": 66,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -16660,7 +16660,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 69,
+        "optionCount": 70,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -16808,7 +16808,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -16976,7 +16976,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 62,
+        "optionCount": 63,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17239,7 +17239,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17500,7 +17500,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17615,7 +17615,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -17763,7 +17763,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 43,
+        "optionCount": 44,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -17984,7 +17984,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -18214,7 +18214,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -18351,7 +18351,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 45,
+        "optionCount": 46,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -18888,7 +18888,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 64,
+        "optionCount": 65,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19149,7 +19149,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 61,
+        "optionCount": 62,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19379,7 +19379,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 34,
+        "optionCount": 35,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -19516,7 +19516,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -19790,7 +19790,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -19938,7 +19938,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -20053,7 +20053,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 35,
+        "optionCount": 36,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -20453,7 +20453,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 86,
+        "optionCount": 87,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -20676,7 +20676,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 17,
         "cheapestStation": {
           "id": "UelxZq99s1BipDu4DdXY",
           "name": "TAMOIL San Pietro di Stabio",
@@ -20928,7 +20928,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 36,
+        "optionCount": 37,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -21191,7 +21191,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 82,
+        "optionCount": 83,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -21306,7 +21306,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 93,
+        "optionCount": 94,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -21737,7 +21737,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -22371,7 +22371,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -22601,7 +22601,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -22716,7 +22716,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -22875,7 +22875,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -22990,7 +22990,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -23350,7 +23350,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 64,
+        "optionCount": 65,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -23613,7 +23613,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 24,
+        "optionCount": 25,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -23761,7 +23761,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -24106,7 +24106,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -24631,7 +24631,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -24883,7 +24883,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -25053,7 +25053,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 25,
+        "optionCount": 26,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -25723,7 +25723,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 89,
+        "optionCount": 90,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -26505,7 +26505,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 94,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -26620,7 +26620,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 88,
+        "optionCount": 89,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -26757,7 +26757,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 85,
+        "optionCount": 86,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -27294,7 +27294,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 15,
+        "optionCount": 16,
         "cheapestStation": {
           "id": "UelxZq99s1BipDu4DdXY",
           "name": "TAMOIL San Pietro di Stabio",
@@ -28240,7 +28240,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 18,
         "cheapestStation": {
           "id": "baRP3zSblDp9fNo3lsUL",
           "name": "Eni",
@@ -28624,7 +28624,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -29277,7 +29277,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -29622,7 +29622,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 75,
+        "optionCount": 76,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -29874,7 +29874,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 102,
+        "optionCount": 103,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -30212,7 +30212,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 26,
+        "optionCount": 27,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -30327,7 +30327,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -30579,7 +30579,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 44,
+        "optionCount": 45,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -30875,7 +30875,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 44,
+        "optionCount": 45,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -31023,7 +31023,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 96,
+        "optionCount": 97,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -31138,7 +31138,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 97,
+        "optionCount": 98,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -31253,7 +31253,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 77,
+        "optionCount": 78,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -31743,7 +31743,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -32225,7 +32225,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 94,
+        "optionCount": 95,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -32603,7 +32603,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -33731,7 +33731,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -34086,7 +34086,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 91,
+        "optionCount": 92,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -34775,7 +34775,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 54,
+        "optionCount": 55,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -34890,7 +34890,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 32,
+        "optionCount": 33,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -35049,7 +35049,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 30,
+        "optionCount": 31,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -35164,7 +35164,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
@@ -35420,7 +35420,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 90,
+        "optionCount": 91,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -51152,7 +51152,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 14,
+        "optionCount": 15,
         "cheapestStation": {
           "id": "pXVgLf2jUOKzOewFCsnj",
           "name": "Migrol Service",
