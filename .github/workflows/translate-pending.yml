@@ -7,6 +7,8 @@ on:
   schedule:
     - cron: '0 12 * * *'   # Fallback: 12:00 UTC (after 08:00 orchestration)
     - cron: '0 0 * * *'    # Fallback: 00:00 UTC (after 20:00 orchestration)
+    - cron: '20 0 * * *'   # Nightly retry: after quota reset, clean up backlog
+    - cron: '20 3 * * *'   # Backup nightly retry
   workflow_dispatch:
     inputs:
       max_jobs:
@@ -63,7 +65,12 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Translate pending jobs
+        env:
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
+
+      - name: Scatter changes back to per-crawler slices
+        run: node scripts/scatter-jobs-to-slices.mjs
 
       - name: Commit and push
         if: always() && inputs.dry_run != true
