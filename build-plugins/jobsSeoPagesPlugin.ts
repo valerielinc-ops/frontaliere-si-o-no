@@ -522,6 +522,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         'coop':                                      { streetAddress: 'Via Vedeggio 4',           postalCode: '6805', addressLocality: 'Mezzovico' },
         'galenica':                                  { streetAddress: 'Untermattweg 8',           postalCode: '3027', addressLocality: 'Bern' },
         'fnz':                                       { streetAddress: 'Via Cantonale 19',          postalCode: '6900', addressLocality: 'Lugano' },
+        'fust':                                      { streetAddress: 'Zürcherstrasse 22',         postalCode: '9246', addressLocality: 'Niederbüren' },
       };
 
       /** Does the value look like an actual street address (not just a city/region name)? */
