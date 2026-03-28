@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T11:01:56.320Z",
+  "generatedAt": "2026-03-28T11:56:13.739Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 237,
-      "latestObservedUpdate": "2026-03-28T10:55:23.805Z"
+      "latestObservedUpdate": "2026-03-28T11:46:04.677Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -2381,18 +2381,18 @@
             "distanceKm": 19
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
+            "id": "eE9A2ZlqOyqZPsUGQjdj",
+            "name": "Pemoil",
+            "brand": "UNDEFINED",
+            "address": "Corso San Gottardo 100, Chiasso",
+            "lat": 45.8376195,
+            "lng": 9.0232244,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-25T16:11:27.890Z",
             "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.3
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.972,
+            "distanceKm": 19.6
           },
           {
             "id": "3hsmBa5kOR1pQmHsrbIT",
@@ -2401,11 +2401,11 @@
             "address": "Via del Breggia 19, 6833 Vacallo",
             "lat": 45.84384,
             "lng": 9.03793,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:32.130Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:43:56.236Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.7,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.3
           },
           {
@@ -2415,11 +2415,11 @@
             "address": "Via Del Breggia 2, 6833 Vacallo",
             "lat": 45.8426409,
             "lng": 9.037505,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:57.516Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:44:23.308Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.2
           }
         ],
@@ -2644,31 +2644,17 @@
             "distanceKm": 19.7
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.2
-          },
-          {
             "id": "3hsmBa5kOR1pQmHsrbIT",
             "name": "BP Service Vacallo",
             "brand": "BP",
             "address": "Via del Breggia 19, 6833 Vacallo",
             "lat": 45.84384,
             "lng": 9.03793,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:32.130Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:43:56.236Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.7,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.1
           },
           {
@@ -2678,12 +2664,26 @@
             "address": "Via Del Breggia 2, 6833 Vacallo",
             "lat": 45.8426409,
             "lng": 9.037505,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:57.516Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:44:23.308Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.2
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T11:59:36.066Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.994,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.72,
@@ -5097,18 +5097,18 @@
             "distanceKm": 19.8
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
+            "id": "eE9A2ZlqOyqZPsUGQjdj",
+            "name": "Pemoil",
+            "brand": "UNDEFINED",
+            "address": "Corso San Gottardo 100, Chiasso",
+            "lat": 45.8376195,
+            "lng": 9.0232244,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-25T16:11:27.890Z",
             "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 18.4
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.972,
+            "distanceKm": 19.5
           }
         ],
         "minPriceChf": 1.66,
@@ -5806,18 +5806,18 @@
             "distanceKm": 20
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
+            "id": "eE9A2ZlqOyqZPsUGQjdj",
+            "name": "Pemoil",
+            "brand": "UNDEFINED",
+            "address": "Corso San Gottardo 100, Chiasso",
+            "lat": 45.8376195,
+            "lng": 9.0232244,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-25T16:11:27.890Z",
             "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.3
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.972,
+            "distanceKm": 19.5
           },
           {
             "id": "3hsmBa5kOR1pQmHsrbIT",
@@ -5826,11 +5826,11 @@
             "address": "Via del Breggia 19, 6833 Vacallo",
             "lat": 45.84384,
             "lng": 9.03793,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:32.130Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:43:56.236Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.7,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.3
           }
         ],
@@ -12989,31 +12989,17 @@
             "distanceKm": 19.9
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.4
-          },
-          {
             "id": "3hsmBa5kOR1pQmHsrbIT",
             "name": "BP Service Vacallo",
             "brand": "BP",
             "address": "Via del Breggia 19, 6833 Vacallo",
             "lat": 45.84384,
             "lng": 9.03793,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:32.130Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:43:56.236Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.7,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.3
           },
           {
@@ -13023,11 +13009,11 @@
             "address": "Via Del Breggia 2, 6833 Vacallo",
             "lat": 45.8426409,
             "lng": 9.037505,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:57.516Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:44:23.308Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.4
           },
           {
@@ -13043,6 +13029,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.994,
             "distanceKm": 20
+          },
+          {
+            "id": "gJijYgru8FOot7x1ovvk",
+            "name": "BP Service Chiasso",
+            "brand": "BP",
+            "address": "Via Maestri Comacini 5, 6830 Chiasso",
+            "lat": 45.835437,
+            "lng": 9.035372,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T12:00:03.588Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.2,
+            "sp95PriceEur": 1.994,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.73,
@@ -13286,18 +13286,18 @@
             "distanceKm": 19.9
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
+            "id": "eE9A2ZlqOyqZPsUGQjdj",
+            "name": "Pemoil",
+            "brand": "UNDEFINED",
+            "address": "Corso San Gottardo 100, Chiasso",
+            "lat": 45.8376195,
+            "lng": 9.0232244,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-25T16:11:27.890Z",
             "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.3
+            "nearestMunicipalityDistanceKm": 1.9,
+            "sp95PriceEur": 1.972,
+            "distanceKm": 19.4
           },
           {
             "id": "3hsmBa5kOR1pQmHsrbIT",
@@ -13306,11 +13306,11 @@
             "address": "Via del Breggia 19, 6833 Vacallo",
             "lat": 45.84384,
             "lng": 9.03793,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:32.130Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:43:56.236Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.7,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.3
           }
         ],
@@ -16360,31 +16360,17 @@
             "distanceKm": 19.4
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.2
-          },
-          {
             "id": "3hsmBa5kOR1pQmHsrbIT",
             "name": "BP Service Vacallo",
             "brand": "BP",
             "address": "Via del Breggia 19, 6833 Vacallo",
             "lat": 45.84384,
             "lng": 9.03793,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:32.130Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:43:56.236Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.7,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.2
           },
           {
@@ -16394,11 +16380,25 @@
             "address": "Via Del Breggia 2, 6833 Vacallo",
             "lat": 45.8426409,
             "lng": 9.037505,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:57.516Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:44:23.308Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
+            "distanceKm": 19.2
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T11:59:36.066Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.2
           }
         ],
@@ -18541,20 +18541,6 @@
             "distanceKm": 15.1
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.6
-          },
-          {
             "id": "UaXDpxug9j7B4sRgwDcp",
             "name": "Eni Lugano",
             "brand": "ENI",
@@ -18595,6 +18581,20 @@
             "nearestMunicipalityDistanceKm": 4.6,
             "sp95PriceEur": 1.929,
             "distanceKm": 19.6
+          },
+          {
+            "id": "wzPgEs0c2X33mB8NPi1X",
+            "name": "Eni Savosa",
+            "brand": "ENI",
+            "address": "Via San Gottardo 146, 6942 Savosa",
+            "lat": 46.016059,
+            "lng": 8.9412766,
+            "sp95PriceChf": 1.78,
+            "updatedAt": "2026-03-18T23:59:47.333Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 5.8,
+            "sp95PriceEur": 1.939,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.66,
@@ -19083,7 +19083,7 @@
             "lat": 45.9853,
             "lng": 8.89037,
             "sp95PriceChf": 1.76,
-            "updatedAt": "2026-03-27T10:16:21.990Z",
+            "updatedAt": "2026-03-28T11:07:06.073Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 3,
             "sp95PriceEur": 1.918,
@@ -23529,20 +23529,6 @@
             "distanceKm": 18.8
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-27T10:36:20.688Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.939,
-            "distanceKm": 19.9
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -23555,6 +23541,20 @@
             "nearestMunicipalityDistanceKm": 1.3,
             "sp95PriceEur": 1.95,
             "distanceKm": 19.7
+          },
+          {
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-26T10:07:15.454Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.972,
+            "distanceKm": 19.9
           },
           {
             "id": "XvZ2uK1yjPiKAlU6fNtM",
@@ -25681,18 +25681,18 @@
             "distanceKm": 17.2
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-27T10:36:20.688Z",
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-27T10:36:59.159Z",
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.939,
-            "distanceKm": 18.5
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.95,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.71,
@@ -45032,31 +45032,17 @@
             "distanceKm": 19.6
           },
           {
-            "id": "3tylGHcPsorvwOkbCCP8",
-            "name": "ENI Vacallo",
-            "brand": "ENI",
-            "address": "Via del Breggia 15, 6833 Vacallo",
-            "lat": 45.84348408,
-            "lng": 9.037555849,
-            "sp95PriceChf": 1.7300000000000002,
-            "updatedAt": "2026-03-20T08:32:15.700Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.885,
-            "distanceKm": 19.5
-          },
-          {
             "id": "3hsmBa5kOR1pQmHsrbIT",
             "name": "BP Service Vacallo",
             "brand": "BP",
             "address": "Via del Breggia 19, 6833 Vacallo",
             "lat": 45.84384,
             "lng": 9.03793,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:32.130Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:43:56.236Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.7,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.5
           },
           {
@@ -45066,12 +45052,26 @@
             "address": "Via Del Breggia 2, 6833 Vacallo",
             "lat": 45.8426409,
             "lng": 9.037505,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-20T08:31:57.516Z",
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-28T11:44:23.308Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 0.8,
-            "sp95PriceEur": 1.939,
+            "sp95PriceEur": 1.994,
             "distanceKm": 19.5
+          },
+          {
+            "id": "JSwIQAHxBJkmBFEgWvIF",
+            "name": "Piccadilly SA - Socar, Coop",
+            "brand": "SOCAR",
+            "address": "Via Maestri Comacini 10, 6830 Chiasso",
+            "lat": 45.83465592,
+            "lng": 9.035368517,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T11:59:36.066Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.994,
+            "distanceKm": 19.4
           }
         ],
         "minPriceChf": 1.72,
