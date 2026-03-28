@@ -365,6 +365,33 @@ async function main() {
     return;
   }
 
+  // Fast-path: clear flags for jobs that are already complete (no AI call needed).
+  // This handles the case where crawlers re-flag jobs that were already translated
+  // (e.g. jobs with English titles identical across locales that triggered titleNeedsLocalization).
+  const preCleared = clearRetranslationFlags(jobs);
+  if (preCleared > 0) {
+    fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(jobs, null, 2) + '\n', 'utf-8');
+    console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs (no AI needed)\n`);
+    // Re-filter pending after pre-clear
+    const stillPendingJobs = jobs.filter(needsTranslation);
+    if (stillPendingJobs.length === 0) {
+      console.log('✅ All jobs complete after pre-clear. Nothing left to translate.');
+      // Sync cleared flags back to per-crawler files
+      const companiesCleared = [...new Set(jobs
+        .filter(j => !j.needsRetranslation)
+        .map(j => normalizeCompanyKey(j.companyKey || j.company || ''))
+        .filter(Boolean))];
+      for (const key of companiesCleared) {
+        const synced = syncTranslationsToCrawlerFile(key, jobs);
+        if (synced > 0) console.log(`   📁 ${key}: ${synced} jobs synced`);
+      }
+      return;
+    }
+    // Update pending count
+    pending.length = 0;
+    for (const j of stillPendingJobs) pending.push(j);
+  }
+
   // Build ordered list of (companyKey, jobCount) pairs from priority-sorted pending jobs, capped at MAX_JOBS
   const effectiveMax = Math.min(MAX_JOBS, pending.length);
   const cappedPending = pending.slice(0, effectiveMax);

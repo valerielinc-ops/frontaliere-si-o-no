@@ -1836,7 +1836,20 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     .some((locale) => {
       const localizedTitle = nsFn(titleByLocale[locale] || '');
       if (!localizedTitle) return true;
-      return sourceTitle && localizedTitle.toLowerCase() === sourceTitle.toLowerCase();
+      if (sourceTitle && localizedTitle.toLowerCase() === sourceTitle.toLowerCase()) {
+        // Cross-locale guard: if at least one other non-source locale has a title that
+        // differs from the source, the job title is genuinely multilingual (e.g. an English
+        // job title that stays English across IT/DE/FR). Don't flag as needing re-translation.
+        const otherLocalesDiffer = locales.some(
+          (l) =>
+            l !== locale &&
+            l !== titleSourceLang &&
+            nsFn(titleByLocale[l] || '').toLowerCase() !== sourceTitle.toLowerCase(),
+        );
+        if (otherLocalesDiffer) return false;
+        return true;
+      }
+      return false;
     });
 
   const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
