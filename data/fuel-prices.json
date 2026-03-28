@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T13:36:17.331Z",
+  "generatedAt": "2026-03-28T14:19:05.643Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 237,
-      "latestObservedUpdate": "2026-03-28T13:34:06.531Z"
+      "latestObservedUpdate": "2026-03-28T14:15:35.451Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -10038,18 +10038,18 @@
             "distanceKm": 18.5
           },
           {
-            "id": "CU8XdIj9j59yePVpcIsv",
-            "name": "Eni - City Carburoil",
-            "brand": "ENI",
-            "address": "Via Pobbia 2, 6514 Sementina",
-            "lat": 46.177170681350034,
-            "lng": 8.997278791234466,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-21T14:55:08.266Z",
+            "id": "BAeXvILCMXTPY8rFgqlE",
+            "name": "Euro Service",
+            "brand": "UNDEFINED",
+            "address": "Via Monte Ceneri 11, 6512 Giubiasco",
+            "lat": 46.17041385506623,
+            "lng": 9.007676464656148,
+            "sp95PriceChf": 1.92,
+            "updatedAt": "2026-03-28T12:48:03.757Z",
             "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 13.1,
-            "sp95PriceEur": 2.059,
-            "distanceKm": 19.9
+            "nearestMunicipalityDistanceKm": 12,
+            "sp95PriceEur": 2.092,
+            "distanceKm": 19
           }
         ],
         "minPriceChf": 1.73,
@@ -39543,7 +39543,7 @@
             "lat": 46.3290252012447,
             "lng": 8.01189248217558,
             "sp95PriceChf": 1.85,
-            "updatedAt": "2026-03-27T14:24:20.470Z",
+            "updatedAt": "2026-03-28T14:10:47.621Z",
             "nearestMunicipality": "Trasquera (VB)",
             "nearestMunicipalityDistanceKm": 19.3,
             "sp95PriceEur": 2.016,
