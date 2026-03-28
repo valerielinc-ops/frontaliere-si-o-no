@@ -1808,19 +1808,34 @@ async function translateArticle(data) {
     } catch (parseErr) {
       console.error(`  ⚠️  JSON parse error (${label}): ${parseErr.message}`);
       console.error(`     Raw (last 200 chars): ...${raw.slice(-200)}`);
-      // Retry with higher maxTokens
-      console.error(`  🔄 Retry ${label} con maxTokens=${maxTokens + 4000}...`);
+      // Detect truncation (model hit output cap): use 3× tokens on retry
+      const isTruncation = parseErr.message.includes('Unterminated') || parseErr.message.includes('Unexpected end');
+      const retry1Tokens = isTruncation ? Math.max(maxTokens * 3, 12000) : maxTokens + 4000;
+      console.error(`  🔄 Retry ${label} con maxTokens=${retry1Tokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
       const raw2 = await callLLM(
         [{ role: 'user', content: prompt }],
-        { temperature: 0.5, maxTokens: maxTokens + 4000, jsonMode: true },
+        { temperature: 0.5, maxTokens: retry1Tokens, jsonMode: true },
       );
       try {
         const result = JSON.parse(repairJson(raw2));
         console.error(`  ✅ Retry riuscito per ${label}`);
         return result;
       } catch (retryErr) {
-        console.error(`  ❌ Retry fallito (${label}): ${retryErr.message}`);
-        throw new Error(`JSON non valido dalla traduzione ${label}: ${retryErr.message}`);
+        console.error(`  ⚠️  Retry 1 fallito (${label}): ${retryErr.message} — tentativo 2...`);
+        // Third attempt with maximum tokens
+        const retry2Tokens = 16000;
+        const raw3 = await callLLM(
+          [{ role: 'user', content: prompt }],
+          { temperature: 0.3, maxTokens: retry2Tokens, jsonMode: true },
+        );
+        try {
+          const result3 = JSON.parse(repairJson(raw3));
+          console.error(`  ✅ Retry 2 riuscito per ${label}`);
+          return result3;
+        } catch (retry2Err) {
+          console.error(`  ❌ Retry 2 fallito (${label}): ${retry2Err.message}`);
+          throw new Error(`JSON non valido dalla traduzione ${label}: ${retry2Err.message}`);
+        }
       }
     }
   }
@@ -1856,17 +1871,17 @@ async function translateArticle(data) {
       callWithRetry(makePrompt(
         `CONTENUTO ITALIANO DA TRADURRE:\n- body1: ${sourceContent.body1}`,
         '{"body1": "..."}',
-      ), 3000, `${targetLang}:b1`),
+      ), 5000, `${targetLang}:b1`),
       // Call 3: body2 (one section, ~800 tokens max)
       callWithRetry(makePrompt(
         `CONTENUTO ITALIANO DA TRADURRE:\n- body2: ${sourceContent.body2}`,
         '{"body2": "..."}',
-      ), 3000, `${targetLang}:b2`),
+      ), 5000, `${targetLang}:b2`),
       // Call 4: body3 (one section, ~800 tokens max)
       callWithRetry(makePrompt(
         `CONTENUTO ITALIANO DA TRADURRE:\n- body3: ${sourceContent.body3}`,
         '{"body3": "..."}',
-      ), 3000, `${targetLang}:b3`),
+      ), 5000, `${targetLang}:b3`),
     ]);
 
     const [partA, partB] = [{ ...partMeta, ...partB1 }, { ...partB2, ...partB3 }];
