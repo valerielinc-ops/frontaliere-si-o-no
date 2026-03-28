@@ -102,12 +102,28 @@ for (const file of sliceFiles) {
       const mergedTitle = mergeLocaleMap(sliceJob.titleByLocale, assembled.titleByLocale);
       const mergedDesc = mergeLocaleMap(sliceJob.descriptionByLocale, assembled.descriptionByLocale);
       const mergedSlug = mergeLocaleMap(sliceJob.slugByLocale, assembled.slugByLocale);
-      return {
-        ...sliceJob,
-        titleByLocale: mergedTitle,
-        descriptionByLocale: mergedDesc,
-        slugByLocale: mergedSlug,
-      };
+
+      // Track slug changes: preserve old slug values in previousSlugs so the build
+      // plugin can generate bridge/redirect pages for SEO continuity (prevents 404s
+      // for URLs that Google/Bing may have already indexed).
+      const oldSlugs = sliceJob.slugByLocale && typeof sliceJob.slugByLocale === 'object'
+        ? sliceJob.slugByLocale : {};
+      const newSlugs = mergedSlug && typeof mergedSlug === 'object' ? mergedSlug : {};
+      const newSlugValues = new Set(Object.values(newSlugs).map((s) => String(s || '').trim()).filter(Boolean));
+      const lostSlugs = Object.values(oldSlugs)
+        .map((s) => String(s || '').trim())
+        .filter((s) => s && !newSlugValues.has(s));
+
+      let updatedJob = { ...sliceJob, titleByLocale: mergedTitle, descriptionByLocale: mergedDesc, slugByLocale: mergedSlug };
+      if (lostSlugs.length > 0) {
+        const existing = new Set(Array.isArray(sliceJob.previousSlugs) ? sliceJob.previousSlugs : []);
+        // Also exclude any slug that is still current
+        for (const s of newSlugValues) existing.delete(s);
+        for (const s of lostSlugs) existing.add(s);
+        updatedJob.previousSlugs = [...existing];
+      }
+
+      return updatedJob;
     }
     return sliceJob;
   });
