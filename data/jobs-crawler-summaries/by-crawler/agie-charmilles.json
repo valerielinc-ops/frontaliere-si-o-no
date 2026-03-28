@@ -1,16 +1,16 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-03-28T08:53:19.529Z",
+  "generatedAt": "2026-03-28T20:39:55.278Z",
   "total": 8,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 8,
-  "durationMs": 13587,
-  "avgDurationMs": 13587,
+  "durationMs": 12616,
+  "avgDurationMs": 12616,
   "durationHistory": [
-    13587
+    12616
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -183,6 +183,7 @@
         "fr": "metrology-technicien-agie-charmilles-sa-losone"
       },
       "needsRetranslation": true,
+      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -237,14 +238,12 @@
       },
       "slugByLocale": {
         "it": "sap-abap-fiori-sviluppatore-agie-charmilles-sa-biel-bienne",
-        "en": "sap-abap-fiori-developer-agie-charmilles-sa-biel-bienne",
+        "en": "sap-abap-fiori-developer-agie-charmilles-biel-bienne",
         "de": "sap-abap-fiori-entwickler-agie-charmilles-sa-biel-bienne",
         "fr": "sap-abap-fiori-developpeur-agie-charmilles-sa-biel-bienne"
       },
       "needsRetranslation": true,
-      "previousSlugs": [
-        "sap-abap-fiori-developer-agie-charmilles-biel-bienne"
-      ],
+      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -361,14 +360,12 @@
       },
       "slugByLocale": {
         "it": "risorse-umane-it-business-partner-sap-hcm-other-agie-charmilles-sa-biel-bienne",
-        "en": "hr-it-business-partner-sap-hcm-other-agie-charmilles-sa-biel-bienne",
+        "en": "hr-it-business-partner-sap-hcm-other-agie-charmilles-biel-bienne",
         "de": "personalwesen-it-business-partner-sap-hcm-other-agie-charmilles-sa-biel-bienne",
         "fr": "ressources-humaines-it-business-partner-sap-hcm-other-agie-charmilles-sa-biel-bienne"
       },
       "needsRetranslation": true,
-      "previousSlugs": [
-        "hr-it-business-partner-sap-hcm-other-agie-charmilles-biel-bienne"
-      ],
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -490,6 +487,7 @@
         "fr": "impiegato-in-logistica-di-magazzino-agie-charmilles-losone"
       },
       "needsRetranslation": true,
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
