@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T06:37:15.658Z",
+  "generatedAt": "2026-03-28T07:34:15.934Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 235,
-      "latestObservedUpdate": "2026-03-28T05:26:44.296Z"
+      "stationCount": 236,
+      "latestObservedUpdate": "2026-03-28T07:34:06.619Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -667,6 +667,29 @@
         }
       },
       {
+        "municipality": "Druogno",
+        "province": "VB",
+        "cheaperCountry": "IT",
+        "saving50LEur": 17.75,
+        "italyPriceEur": 1.759,
+        "swissPriceEur": 2.114,
+        "swissPriceChf": 1.94,
+        "swissStation": {
+          "id": "Db1xQM4kPEiZBYpCEL6R",
+          "name": "Stazione di servizio Migrol",
+          "brand": "MIGROL",
+          "address": "Nucleo, 6659 Camedo",
+          "lat": 46.154172,
+          "lng": 8.604674,
+          "sp95PriceChf": 1.94,
+          "updatedAt": "2026-03-28T07:10:02.290Z",
+          "nearestMunicipality": "Re (VB)",
+          "nearestMunicipalityDistanceKm": 5.3,
+          "sp95PriceEur": 2.114,
+          "distanceKm": 13.3
+        }
+      },
+      {
         "municipality": "Besozzo",
         "province": "VA",
         "cheaperCountry": "IT",
@@ -874,6 +897,29 @@
         }
       },
       {
+        "municipality": "Malesco",
+        "province": "VB",
+        "cheaperCountry": "IT",
+        "saving50LEur": 12.85,
+        "italyPriceEur": 1.759,
+        "swissPriceEur": 2.016,
+        "swissPriceChf": 1.85,
+        "swissStation": {
+          "id": "h2ZwaUkIyFGomzNQ4HBF",
+          "name": "Eni Brissago",
+          "brand": "ENI",
+          "address": "Via Leoncavallo 46, 6614 Brissago",
+          "lat": 46.1170824,
+          "lng": 8.7084943,
+          "sp95PriceChf": 1.85,
+          "updatedAt": "2026-03-10T16:07:10.136Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 3.7,
+          "sp95PriceEur": 2.016,
+          "distanceKm": 16
+        }
+      },
+      {
         "municipality": "Fagnano Olona",
         "province": "VA",
         "cheaperCountry": "IT",
@@ -917,6 +963,29 @@
           "nearestMunicipalityDistanceKm": 5.8,
           "sp95PriceEur": 1.929,
           "distanceKm": 17.3
+        }
+      },
+      {
+        "municipality": "Santa Maria Maggiore",
+        "province": "VB",
+        "cheaperCountry": "IT",
+        "saving50LEur": 12.35,
+        "italyPriceEur": 1.769,
+        "swissPriceEur": 2.016,
+        "swissPriceChf": 1.85,
+        "swissStation": {
+          "id": "h2ZwaUkIyFGomzNQ4HBF",
+          "name": "Eni Brissago",
+          "brand": "ENI",
+          "address": "Via Leoncavallo 46, 6614 Brissago",
+          "lat": 46.1170824,
+          "lng": 8.7084943,
+          "sp95PriceChf": 1.85,
+          "updatedAt": "2026-03-10T16:07:10.136Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 3.7,
+          "sp95PriceEur": 2.016,
+          "distanceKm": 18.7
         }
       },
       {
@@ -1032,75 +1101,6 @@
           "nearestMunicipalityDistanceKm": 5.8,
           "sp95PriceEur": 1.929,
           "distanceKm": 17.1
-        }
-      },
-      {
-        "municipality": "Gorla Maggiore",
-        "province": "VA",
-        "cheaperCountry": "IT",
-        "saving50LEur": 9.75,
-        "italyPriceEur": 1.799,
-        "swissPriceEur": 1.994,
-        "swissPriceChf": 1.83,
-        "swissStation": {
-          "id": "KaZuveGET29ToR6TUTpH",
-          "name": "Eni Stabio",
-          "brand": "ENI",
-          "address": "Via Gaggiolo 44, 6855 Stabio",
-          "lat": 45.843037,
-          "lng": 8.9192241,
-          "sp95PriceChf": 1.83,
-          "updatedAt": "2026-03-27T19:24:50.472Z",
-          "nearestMunicipality": "Rodero (CO)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.994,
-          "distanceKm": 20
-        }
-      },
-      {
-        "municipality": "Mariano Comense",
-        "province": "CO",
-        "cheaperCountry": "IT",
-        "saving50LEur": 9.7,
-        "italyPriceEur": 1.68,
-        "swissPriceEur": 1.874,
-        "swissPriceChf": 1.72,
-        "swissStation": {
-          "id": "2cyTEGqZPuSVhtpjGqzf",
-          "name": "Silo Shop",
-          "brand": "UNDEFINED",
-          "address": "Via Emilio Bossi 19, 6830 Chiasso",
-          "lat": 45.83496780148789,
-          "lng": 9.03111642498091,
-          "sp95PriceChf": 1.7200000000000002,
-          "updatedAt": "2026-03-27T14:22:32.110Z",
-          "nearestMunicipality": "Maslianico (CO)",
-          "nearestMunicipalityDistanceKm": 1.5,
-          "sp95PriceEur": 1.874,
-          "distanceKm": 18.8
-        }
-      },
-      {
-        "municipality": "Gemonio",
-        "province": "VA",
-        "cheaperCountry": "IT",
-        "saving50LEur": 9.7,
-        "italyPriceEur": 1.669,
-        "swissPriceEur": 1.863,
-        "swissPriceChf": 1.71,
-        "swissStation": {
-          "id": "LP7oYktKWhoncV2qvpHG",
-          "name": "ECSA Energy SA - Caslano",
-          "brand": "UNDEFINED",
-          "address": "Via Colombera 10, 6987 Caslano",
-          "lat": 45.97698951091755,
-          "lng": 8.874521781054243,
-          "sp95PriceChf": 1.71,
-          "updatedAt": "2026-03-26T10:06:13.525Z",
-          "nearestMunicipality": "Brusimpiano (VA)",
-          "nearestMunicipalityDistanceKm": 1.9,
-          "sp95PriceEur": 1.863,
-          "distanceKm": 18.9
         }
       }
     ]
@@ -20168,7 +20168,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 106,
+        "optionCount": 107,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -26836,7 +26836,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 113,
+        "optionCount": 114,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -30658,7 +30658,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 107,
+        "optionCount": 108,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -33902,7 +33902,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 101,
+        "optionCount": 102,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -35673,7 +35673,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 5,
+        "optionCount": 6,
         "cheapestStation": {
           "id": "OAxeOJb63SoYWpBeQUWy",
           "name": "GIOIA",
@@ -35702,20 +35702,6 @@
             "nearestMunicipalityDistanceKm": 2.1,
             "sp95PriceEur": 1.907,
             "distanceKm": 19.8
-          },
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 17.3
           },
           {
             "id": "XvZ2uK1yjPiKAlU6fNtM",
@@ -35758,6 +35744,20 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 16.1
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.75,
@@ -36310,7 +36310,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 37,
+        "optionCount": 38,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -36458,7 +36458,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 68,
+        "optionCount": 69,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -36573,36 +36573,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 3,
+        "optionCount": 4,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
-          "distanceKm": 19.4
+          "id": "XvZ2uK1yjPiKAlU6fNtM",
+          "name": "SOCAR Fornasette",
+          "brand": "SOCAR",
+          "address": "Via Cantonale 113, 6998 Monteggio",
+          "lat": 45.992119,
+          "lng": 8.789518,
+          "sp95PriceChf": 1.83,
+          "updatedAt": "2026-03-25T13:34:45.079Z",
+          "nearestMunicipality": "Cremenaga (VA)",
+          "nearestMunicipalityDistanceKm": 1,
+          "sp95PriceEur": 1.994,
+          "distanceKm": 17.6
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 19.4
-          },
           {
             "id": "XvZ2uK1yjPiKAlU6fNtM",
             "name": "SOCAR Fornasette",
@@ -36630,10 +36616,38 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 18.8
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 19.4
+          },
+          {
+            "id": "eTc5d7VcDRKkTVxxdrMR",
+            "name": "Eni Camedo",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 6659 Camedo",
+            "lat": 46.154331700176805,
+            "lng": 8.605023161787898,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:09:18.052Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.4,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 19.4
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.83,
+        "minPriceEur": 1.994
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -36764,36 +36778,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
-          "distanceKm": 8.9
+          "id": "h2ZwaUkIyFGomzNQ4HBF",
+          "name": "Eni Brissago",
+          "brand": "ENI",
+          "address": "Via Leoncavallo 46, 6614 Brissago",
+          "lat": 46.1170824,
+          "lng": 8.7084943,
+          "sp95PriceChf": 1.85,
+          "updatedAt": "2026-03-10T16:07:10.136Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 3.7,
+          "sp95PriceEur": 2.016,
+          "distanceKm": 17
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 8.9
-          },
           {
             "id": "h2ZwaUkIyFGomzNQ4HBF",
             "name": "Eni Brissago",
@@ -36807,10 +36807,38 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 17
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 8.9
+          },
+          {
+            "id": "eTc5d7VcDRKkTVxxdrMR",
+            "name": "Eni Camedo",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 6659 Camedo",
+            "lat": 46.154331700176805,
+            "lng": 8.605023161787898,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:09:18.052Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.4,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 8.9
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.85,
+        "minPriceEur": 2.016
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -37243,7 +37271,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 1,
+        "optionCount": 2,
         "cheapestStation": {
           "id": "Db1xQM4kPEiZBYpCEL6R",
           "name": "Stazione di servizio Migrol",
@@ -37251,11 +37279,11 @@
           "address": "Nucleo, 6659 Camedo",
           "lat": 46.154172,
           "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
+          "sp95PriceChf": 1.94,
+          "updatedAt": "2026-03-28T07:10:02.290Z",
           "nearestMunicipality": "Re (VB)",
           "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
+          "sp95PriceEur": 2.114,
           "distanceKm": 13.3
         },
         "nearbyStations": [
@@ -37266,21 +37294,35 @@
             "address": "Nucleo, 6659 Camedo",
             "lat": 46.154172,
             "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
             "nearestMunicipality": "Re (VB)",
             "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 13.3
+          },
+          {
+            "id": "eTc5d7VcDRKkTVxxdrMR",
+            "name": "Eni Camedo",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 6659 Camedo",
+            "lat": 46.154331700176805,
+            "lng": 8.605023161787898,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:09:18.052Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.4,
+            "sp95PriceEur": 2.114,
             "distanceKm": 13.3
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.94,
+        "minPriceEur": 2.114
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.191,
-        "saving50LEur": 9.55
+        "priceDeltaEur": 0.355,
+        "saving50LEur": 17.75
       }
     },
     {
@@ -37504,36 +37546,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 17,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
-          "distanceKm": 8.1
+          "id": "XvZ2uK1yjPiKAlU6fNtM",
+          "name": "SOCAR Fornasette",
+          "brand": "SOCAR",
+          "address": "Via Cantonale 113, 6998 Monteggio",
+          "lat": 45.992119,
+          "lng": 8.789518,
+          "sp95PriceChf": 1.83,
+          "updatedAt": "2026-03-25T13:34:45.079Z",
+          "nearestMunicipality": "Cremenaga (VA)",
+          "nearestMunicipalityDistanceKm": 1,
+          "sp95PriceEur": 1.994,
+          "distanceKm": 19.9
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 8.1
-          },
           {
             "id": "XvZ2uK1yjPiKAlU6fNtM",
             "name": "SOCAR Fornasette",
@@ -37589,10 +37617,24 @@
             "nearestMunicipalityDistanceKm": 9.8,
             "sp95PriceEur": 2.07,
             "distanceKm": 19
+          },
+          {
+            "id": "9l48jJJGCguh94kN3FdA",
+            "name": "Eni Locarno",
+            "brand": "ENI",
+            "address": "Via Luini 21, 6600 Locarno",
+            "lat": 46.1677012,
+            "lng": 8.7955087,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-27T05:52:15.540Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 10,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 19.6
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.83,
+        "minPriceEur": 1.994
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -37619,36 +37661,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 4,
+        "optionCount": 5,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
-          "distanceKm": 18
+          "id": "XvZ2uK1yjPiKAlU6fNtM",
+          "name": "SOCAR Fornasette",
+          "brand": "SOCAR",
+          "address": "Via Cantonale 113, 6998 Monteggio",
+          "lat": 45.992119,
+          "lng": 8.789518,
+          "sp95PriceChf": 1.83,
+          "updatedAt": "2026-03-25T13:34:45.079Z",
+          "nearestMunicipality": "Cremenaga (VA)",
+          "nearestMunicipalityDistanceKm": 1,
+          "sp95PriceEur": 1.994,
+          "distanceKm": 16.7
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 18
-          },
           {
             "id": "XvZ2uK1yjPiKAlU6fNtM",
             "name": "SOCAR Fornasette",
@@ -37690,10 +37718,38 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 17.2
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 18
+          },
+          {
+            "id": "eTc5d7VcDRKkTVxxdrMR",
+            "name": "Eni Camedo",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 6659 Camedo",
+            "lat": 46.154331700176805,
+            "lng": 8.605023161787898,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:09:18.052Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.4,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 18
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.83,
+        "minPriceEur": 1.994
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -37873,36 +37929,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
-          "distanceKm": 8.6
+          "id": "h2ZwaUkIyFGomzNQ4HBF",
+          "name": "Eni Brissago",
+          "brand": "ENI",
+          "address": "Via Leoncavallo 46, 6614 Brissago",
+          "lat": 46.1170824,
+          "lng": 8.7084943,
+          "sp95PriceChf": 1.85,
+          "updatedAt": "2026-03-10T16:07:10.136Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 3.7,
+          "sp95PriceEur": 2.016,
+          "distanceKm": 16
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 8.6
-          },
           {
             "id": "h2ZwaUkIyFGomzNQ4HBF",
             "name": "Eni Brissago",
@@ -37916,15 +37958,43 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 16
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 8.6
+          },
+          {
+            "id": "eTc5d7VcDRKkTVxxdrMR",
+            "name": "Eni Camedo",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 6659 Camedo",
+            "lat": 46.154331700176805,
+            "lng": 8.605023161787898,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:09:18.052Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.4,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 8.6
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.85,
+        "minPriceEur": 2.016
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.191,
-        "saving50LEur": 9.55
+        "priceDeltaEur": 0.257,
+        "saving50LEur": 12.85
       }
     },
     {
@@ -38282,7 +38352,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 16,
+        "optionCount": 17,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -38587,7 +38657,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 5,
+        "optionCount": 6,
         "cheapestStation": {
           "id": "OAxeOJb63SoYWpBeQUWy",
           "name": "GIOIA",
@@ -38616,20 +38686,6 @@
             "nearestMunicipalityDistanceKm": 2.1,
             "sp95PriceEur": 1.907,
             "distanceKm": 19.1
-          },
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 19.6
           },
           {
             "id": "XvZ2uK1yjPiKAlU6fNtM",
@@ -38672,6 +38728,20 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 17.7
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 19.6
           }
         ],
         "minPriceChf": 1.75,
@@ -38828,36 +38898,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 18,
+        "optionCount": 19,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
+          "id": "bnzfTHD73LIv2jCkqLTT",
+          "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
+          "brand": "UNDEFINED",
+          "address": "Via Cantonale 1, 6678 Giumaglio",
+          "lat": 46.271764887254335,
+          "lng": 8.682101847720066,
           "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
+          "updatedAt": "2026-03-19T12:46:31.226Z",
           "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
+          "nearestMunicipalityDistanceKm": 18.9,
           "sp95PriceEur": 1.95,
-          "distanceKm": 5.3
+          "distanceKm": 18.9
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 5.3
-          },
           {
             "id": "bnzfTHD73LIv2jCkqLTT",
             "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
@@ -38913,6 +38969,20 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 12.7
+          },
+          {
+            "id": "lnhYWC6Xrf86qJugciav",
+            "name": "Antrobio Stazione Di Servizio",
+            "brand": "UNDEFINED",
+            "address": "La Cantonál 3, 6677 Maggia",
+            "lat": 46.2376262300978,
+            "lng": 8.71793567146583,
+            "sp95PriceChf": 1.86,
+            "updatedAt": "2026-03-18T15:16:41.723Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 16.6,
+            "sp95PriceEur": 2.027,
+            "distanceKm": 17.9
           }
         ],
         "minPriceChf": 1.79,
@@ -38996,36 +39066,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
-          "distanceKm": 10.8
+          "id": "h2ZwaUkIyFGomzNQ4HBF",
+          "name": "Eni Brissago",
+          "brand": "ENI",
+          "address": "Via Leoncavallo 46, 6614 Brissago",
+          "lat": 46.1170824,
+          "lng": 8.7084943,
+          "sp95PriceChf": 1.85,
+          "updatedAt": "2026-03-10T16:07:10.136Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 3.7,
+          "sp95PriceEur": 2.016,
+          "distanceKm": 18.7
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 10.8
-          },
           {
             "id": "h2ZwaUkIyFGomzNQ4HBF",
             "name": "Eni Brissago",
@@ -39039,15 +39095,43 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 18.7
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 10.8
+          },
+          {
+            "id": "eTc5d7VcDRKkTVxxdrMR",
+            "name": "Eni Camedo",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 6659 Camedo",
+            "lat": 46.154331700176805,
+            "lng": 8.605023161787898,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:09:18.052Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.4,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 10.8
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.85,
+        "minPriceEur": 2.016
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.181,
-        "saving50LEur": 9.05
+        "priceDeltaEur": 0.247,
+        "saving50LEur": 12.35
       }
     },
     {
@@ -39155,36 +39239,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
-          "sp95PriceEur": 1.95,
-          "distanceKm": 10.7
+          "id": "h2ZwaUkIyFGomzNQ4HBF",
+          "name": "Eni Brissago",
+          "brand": "ENI",
+          "address": "Via Leoncavallo 46, 6614 Brissago",
+          "lat": 46.1170824,
+          "lng": 8.7084943,
+          "sp95PriceChf": 1.85,
+          "updatedAt": "2026-03-10T16:07:10.136Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 3.7,
+          "sp95PriceEur": 2.016,
+          "distanceKm": 18.9
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 10.7
-          },
           {
             "id": "h2ZwaUkIyFGomzNQ4HBF",
             "name": "Eni Brissago",
@@ -39198,10 +39268,38 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 18.9
+          },
+          {
+            "id": "Db1xQM4kPEiZBYpCEL6R",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Nucleo, 6659 Camedo",
+            "lat": 46.154172,
+            "lng": 8.604674,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:10:02.290Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.3,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 10.7
+          },
+          {
+            "id": "eTc5d7VcDRKkTVxxdrMR",
+            "name": "Eni Camedo",
+            "brand": "ENI",
+            "address": "Strada Cantonale, 6659 Camedo",
+            "lat": 46.154331700176805,
+            "lng": 8.605023161787898,
+            "sp95PriceChf": 1.94,
+            "updatedAt": "2026-03-28T07:09:18.052Z",
+            "nearestMunicipality": "Re (VB)",
+            "nearestMunicipalityDistanceKm": 5.4,
+            "sp95PriceEur": 2.114,
+            "distanceKm": 10.7
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.95
+        "minPriceChf": 1.85,
+        "minPriceEur": 2.016
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -39228,7 +39326,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 29,
+        "optionCount": 30,
         "cheapestStation": {
           "id": "LP7oYktKWhoncV2qvpHG",
           "name": "ECSA Energy SA - Caslano",
@@ -39539,36 +39637,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 22,
+        "optionCount": 23,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
+          "id": "bnzfTHD73LIv2jCkqLTT",
+          "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
+          "brand": "UNDEFINED",
+          "address": "Via Cantonale 1, 6678 Giumaglio",
+          "lat": 46.271764887254335,
+          "lng": 8.682101847720066,
           "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
+          "updatedAt": "2026-03-19T12:46:31.226Z",
           "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
+          "nearestMunicipalityDistanceKm": 18.9,
           "sp95PriceEur": 1.95,
-          "distanceKm": 5.7
+          "distanceKm": 19.8
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 5.7
-          },
           {
             "id": "bnzfTHD73LIv2jCkqLTT",
             "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
@@ -39624,6 +39708,20 @@
             "nearestMunicipalityDistanceKm": 12.2,
             "sp95PriceEur": 2.005,
             "distanceKm": 15.7
+          },
+          {
+            "id": "jkMR6Jpz20Ho3Mk3rq2y",
+            "name": "Eni Minusio",
+            "brand": "ENI",
+            "address": "Via San Gottardo 131, 6648 Minusio",
+            "lat": 46.17826120000001,
+            "lng": 8.8166608,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-25T10:51:36.194Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 11.8,
+            "sp95PriceEur": 2.005,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.79,
@@ -40321,36 +40419,22 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 17,
+        "optionCount": 18,
         "cheapestStation": {
-          "id": "Db1xQM4kPEiZBYpCEL6R",
-          "name": "Stazione di servizio Migrol",
-          "brand": "MIGROL",
-          "address": "Nucleo, 6659 Camedo",
-          "lat": 46.154172,
-          "lng": 8.604674,
+          "id": "bnzfTHD73LIv2jCkqLTT",
+          "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
+          "brand": "UNDEFINED",
+          "address": "Via Cantonale 1, 6678 Giumaglio",
+          "lat": 46.271764887254335,
+          "lng": 8.682101847720066,
           "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-03T15:28:34.301Z",
+          "updatedAt": "2026-03-19T12:46:31.226Z",
           "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 5.3,
+          "nearestMunicipalityDistanceKm": 18.9,
           "sp95PriceEur": 1.95,
-          "distanceKm": 5.9
+          "distanceKm": 19.2
         },
         "nearbyStations": [
-          {
-            "id": "Db1xQM4kPEiZBYpCEL6R",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Nucleo, 6659 Camedo",
-            "lat": 46.154172,
-            "lng": 8.604674,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-03T15:28:34.301Z",
-            "nearestMunicipality": "Re (VB)",
-            "nearestMunicipalityDistanceKm": 5.3,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 5.9
-          },
           {
             "id": "bnzfTHD73LIv2jCkqLTT",
             "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
@@ -40406,6 +40490,20 @@
             "nearestMunicipalityDistanceKm": 3.7,
             "sp95PriceEur": 2.016,
             "distanceKm": 13.5
+          },
+          {
+            "id": "lnhYWC6Xrf86qJugciav",
+            "name": "Antrobio Stazione Di Servizio",
+            "brand": "UNDEFINED",
+            "address": "La Cantonál 3, 6677 Maggia",
+            "lat": 46.2376262300978,
+            "lng": 8.71793567146583,
+            "sp95PriceChf": 1.86,
+            "updatedAt": "2026-03-18T15:16:41.723Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 16.6,
+            "sp95PriceEur": 2.027,
+            "distanceKm": 18.3
           }
         ],
         "minPriceChf": 1.79,
