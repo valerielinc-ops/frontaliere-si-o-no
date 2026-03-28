@@ -1817,6 +1817,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.congresso-svizzera-italia-varese-2026.title': 'Congrès Suisse-Italie à Varese : mises à jour fiscales pour les frontaliers tessinois',
     'blog.article.congresso-svizzera-italia-varese-2026.excerpt': 'Le 16 avril 2026 à Villa Andrea, des experts et des institutions présenteront les nouvelles dispositions fiscales, prévues et normatives pour ceux qui vivent et travaillent entre Italie et Suisse.',
     'blog.article.congresso-svizzera-italia-varese-2026.imageAlt': 'Villa Andrea à Varese, lieu du Congrès Suisse‑Italie 2026, au coucher du soleil avec vue sur la frontière italo‑suisse.',
+    'blog.article.processo-mendrisio-19-capit.title': 'Procès à Mendrisio : 19 chefs d\'accusation pour une \'entité criminelle\'',
+    'blog.article.processo-mendrisio-19-capit.excerpt': 'Un trentenaire risque l\'expulsion après avoir comparu devant la Cour d\'Assises pénale du Mendrisiotto pour 19 chefs d\'accusation allant de la complicité de vol à la rixe',
+    'blog.article.processo-mendrisio-19-capit.imageAlt': 'Tribunal pénal de Mendrisio à l\'aube avec drapeau suisse',
 };
 
 export default blogMetaFr;

@@ -8670,6 +8670,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-processo-mendrisio-19-capit': {
+    title: 'Processo a Mendrisio: 19 capi d\'imputazione per una \'entità criminale\' | Frontaliere Ticino',
+    description: 'Un 37enne rischia l\'espulsione dopo processo con 19 capi d\'imputazione a Mendrisio. Cosa rischiano i frontalieri e come proteggersi legalmente. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, processo, mendrisio, capi, imputazione',
+    ogTitle: 'Processo Mendrisio: 19 capi d\'imputazione e espulsione',
+    ogDescription: 'Il caso del 37enne condannato con espulsione dopo 19 capi d\'imputazione. Guida pratica per i frontalieri su rischi e protezione legale.',
+    canonicalPath: '/articoli-frontaliere/processo-mendrisio-19-capit',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Processo Mendrisio: 19 capi d'imputazione portano all'espulsione",
+      "description": "Un 37enne rischia l'espulsione dopo processo con 19 capi d'imputazione a Mendrisio. Cosa rischiano i frontalieri e come proteggersi legalmente. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/processo-mendrisio-19-capit.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tribunale penale di Mendrisio all'alba, bandiera svizzera che sventola"
+      },
+      "datePublished": "2026-03-28T05:03:13+00:00",
+      "dateModified": "2026-03-28T05:03:13+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/processo-mendrisio-19-capit`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

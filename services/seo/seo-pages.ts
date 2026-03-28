@@ -3196,7 +3196,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 599,
+        "numberOfItems": 600,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3793,7 +3793,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 596, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"Artic...", "url": `${BASE_URL}/articoli-frontaliere/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025` },
           { "@type": "ListItem", "position": 597, "name": "Test neonati Ticino esclusi dai controlli svizzeri", "url": `${BASE_URL}/articoli-frontaliere/nei-test-neonati-ticinesi` },
           { "@type": "ListItem", "position": 598, "name": "Aggregazione Basso Mendrisiotto a rischio per i...", "url": `${BASE_URL}/articoli-frontaliere/aggregazione-rischio-basso-mendrisiotto` },
-          { "@type": "ListItem", "position": 599, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/congresso-svizzera-italia-varese-2026` }
+          { "@type": "ListItem", "position": 599, "name": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsA...", "url": `${BASE_URL}/articoli-frontaliere/congresso-svizzera-italia-varese-2026` },
+          { "@type": "ListItem", "position": 600, "name": "Processo Mendrisio: 19 capi d'imputazione porta...", "url": `${BASE_URL}/articoli-frontaliere/processo-mendrisio-19-capit` }
         ]
       }
     ]

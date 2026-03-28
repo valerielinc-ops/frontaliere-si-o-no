@@ -151,4 +151,25 @@
       <image:title>{"@context":"https://schema.org","@type":"NewsArticle","headline":"Congresso Svizzera‑Italia a</image:title>
     </image:image>
   </url>
+
+  <url>
+    <loc>https://frontaliereticino.ch/articoli-frontaliere/processo-mendrisio-19-capit/</loc>
+    <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/articoli-frontaliere/processo-mendrisio-19-capit/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/cross-border-articles/mendrisio-trial-19-counts-indictment/" />
+    <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/grenzgaenger-artikel/mendrisio-prozess-19-anklagepunkte/" />
+    <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/articles-frontalier/mendrisio-proces-19-chefs-daccusation/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/articoli-frontaliere/processo-mendrisio-19-capit/" />
+    <news:news>
+      <news:publication>
+        <news:name>Frontaliere Ticino</news:name>
+        <news:language>it</news:language>
+      </news:publication>
+      <news:publication_date>2026-03-28</news:publication_date>
+      <news:title>Processo a Mendrisio: 19 capi d'imputazione per una 'entità criminale'</news:title>
+    </news:news>
+    <image:image>
+      <image:loc>https://frontaliereticino.ch/images/blog/processo-mendrisio-19-capit.jpg</image:loc>
+      <image:title>Processo Mendrisio: 19 capi d'imputazione portano all'espulsione</image:title>
+    </image:image>
+  </url>
 </urlset>

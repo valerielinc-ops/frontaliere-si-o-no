@@ -1745,6 +1745,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nei-test-neonati-ticinesi': { name: 'Test neonati', path: '/articoli-frontaliere/nei-test-neonati-ticinesi', parent: 'blog' },
     'blog-aggregazione-rischio-basso-mendrisiotto': { name: 'Aggregazione a rischio', path: '/articoli-frontaliere/aggregazione-rischio-basso-mendrisiotto', parent: 'blog' },
     'blog-congresso-svizzera-italia-varese-2026': { name: 'Congresso 2026', path: '/articoli-frontaliere/congresso-svizzera-italia-varese-2026', parent: 'blog' },
+    'blog-processo-mendrisio-19-capit': { name: 'Processo Mendrisio', path: '/articoli-frontaliere/processo-mendrisio-19-capit', parent: 'blog' },
   };
 
   const info = sectionNames[section];

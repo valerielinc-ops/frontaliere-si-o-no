@@ -5431,4 +5431,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/congresso-svizzera-italia-varese-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'processo-mendrisio-19-capit',
+    category: 'pratico',
+    date: '2026-03-28T05:03:13.606Z',
+    image: '/images/blog/processo-mendrisio-19-capit.jpg',
+    hasCalculator: true,
+  },
 ];

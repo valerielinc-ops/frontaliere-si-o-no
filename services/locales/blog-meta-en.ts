@@ -1817,6 +1817,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congresso-svizzera-italia-varese-2026.title': 'Switzerland-Italy Congress in Varese: tax updates for Ticino cross-border workers',
     'blog.article.congresso-svizzera-italia-varese-2026.excerpt': 'On 16 April 2026 at Villa Andrea, experts and institutions will present the latest tax, pension and regulatory developments for those who live and work between Italy and Switzerland.',
     'blog.article.congresso-svizzera-italia-varese-2026.imageAlt': 'Villa Andrea in Varese, venue of the 2026 Swiss‑Italy Congress, at sunset with a view of the Italian‑Swiss border.',
+    'blog.article.processo-mendrisio-19-capit.title': 'Mendrisio trial: 19 charges for a \'criminal entity\'',
+    'blog.article.processo-mendrisio-19-capit.excerpt': 'A 37-year-old man faces deportation after appearing before the Mendrisio Criminal Court on 19 counts ranging from complicity in embezzlement to brawling',
+    'blog.article.processo-mendrisio-19-capit.imageAlt': 'Mendrisio criminal court at dawn with Swiss flag flying',
 };
 
 export default blogMetaEn;
