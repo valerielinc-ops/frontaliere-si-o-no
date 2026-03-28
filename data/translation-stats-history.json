@@ -1,0 +1,114 @@
+[
+  {
+    "timestamp": "2026-03-28T21:48:27.940Z",
+    "label": "before",
+    "total": 1502,
+    "needsRetranslation": 1082,
+    "incomplete": 1436,
+    "complete": 66,
+    "missingByLocale": {
+      "it": 844,
+      "en": 1006,
+      "de": 739,
+      "fr": 1247
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 161
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 118
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 95
+      },
+      {
+        "company": "VOLG",
+        "pending": 51
+      },
+      {
+        "company": "PEMSA",
+        "pending": 43
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 30
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 29
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 25
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-28T22:26:13.414Z",
+    "label": "after",
+    "total": 1502,
+    "needsRetranslation": 1054,
+    "incomplete": 1408,
+    "complete": 94,
+    "missingByLocale": {
+      "it": 827,
+      "en": 987,
+      "de": 719,
+      "fr": 1219
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 161
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 118
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 95
+      },
+      {
+        "company": "PEMSA",
+        "pending": 43
+      },
+      {
+        "company": "VOLG",
+        "pending": 43
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 29
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 25
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 25
+      }
+    ]
+  }
+]
