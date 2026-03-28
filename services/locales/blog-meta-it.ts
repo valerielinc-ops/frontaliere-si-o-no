@@ -1820,6 +1820,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.processo-mendrisio-19-capit.title': 'Processo a Mendrisio: 19 capi d\'imputazione per una \'entità criminale\'',
     'blog.article.processo-mendrisio-19-capit.excerpt': 'Un 37enne rischia l\'espulsione dopo essere comparso davanti alla Corte delle Assise criminali del Mendrisiotto per 19 capi d\'imputazione che vanno dalla complicità in appropriazione indebita alla rissa',
     'blog.article.processo-mendrisio-19-capit.imageAlt': 'Tribunale penale di Mendrisio all\'alba, bandiera svizzera che sventola',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.title': 'L\'Europa corre ai ripari: la Spagna riduce i prezzi del carburante di 30 centesimi al litro',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.excerpt': 'La Spagna è il primo paese europeo a ridurre i prezzi del carburante dopo la crescita dei prezzi energetici.',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.imageAlt': 'Panoramica del lago di Lugano con la città di Lugano.',
 };
 
 export default blogMetaIt;

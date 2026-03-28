@@ -1820,6 +1820,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.processo-mendrisio-19-capit.title': 'Mendrisio trial: 19 charges for a \'criminal entity\'',
     'blog.article.processo-mendrisio-19-capit.excerpt': 'A 37-year-old man faces deportation after appearing before the Mendrisio Criminal Court on 19 counts ranging from complicity in embezzlement to brawling',
     'blog.article.processo-mendrisio-19-capit.imageAlt': 'Mendrisio criminal court at dawn with Swiss flag flying',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.title': 'Europe Takes Action: Spain Cuts Fuel Prices by 30 Cents per Litre',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.excerpt': 'Spain Becomes First European Country to Cut Fuel Prices Amid Rising Energy Costs.',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.imageAlt': 'Panoramic view of Lake Lugano with the city of Lugano.',
 };
 
 export default blogMetaEn;

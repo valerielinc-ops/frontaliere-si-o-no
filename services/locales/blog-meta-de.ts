@@ -1820,6 +1820,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.processo-mendrisio-19-capit.title': 'Prozess in Mendrisio: 19 Anklagepunkte gegen eine \'kriminelle Vereinigung\'',
     'blog.article.processo-mendrisio-19-capit.excerpt': 'Ein 37-Jähriger droht die Ausweisung, nachdem er wegen 19 Anklagepunkten – von Beihilfe zur unterschlagenden Untreue bis zur Raufhandlung – vor dem Strafgericht des Mendrisiotto erschienen ist',
     'blog.article.processo-mendrisio-19-capit.imageAlt': 'Strafgericht Mendrisio bei Morgengrauen mit Schweizer Fahne',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.title': 'Die Europäische Union reagiert: Spanien senkt die Kraftstoffpreise um 30 Cent pro Liter',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.excerpt': 'Spanien ist der erste europäische Land, das die Kraftstoffpreise nach dem Anstieg der Energiepreise senkt.',
+    'blog.article.prezzi-carburanti-ticino-marzo-2026.imageAlt': 'Panoramablick auf das Luganer See mit der Stadt Lugano.',
 };
 
 export default blogMetaDe;

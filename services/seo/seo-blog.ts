@@ -8699,6 +8699,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-carburanti-ticino-marzo-2026': {
+    title: 'L\'Europa corre ai ripari: la Spagna riduce i prezzi del carburante di 30 | Frontaliere Ticino',
+    description: 'La Spagna è stato il primo paese europeo a ridurre i prezzi del carburante dopo la crescita dei prezzi energetici. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, europa, corre, ripari, spagna',
+    ogTitle: 'La Spagna riduce i prezzi del carburante di 30 centesimi al litro',
+    ogDescription: 'La Spagna è stato il primo paese europeo a ridurre i prezzi del carburante dopo la crescita dei prezzi energetici.',
+    canonicalPath: '/articoli-frontaliere/prezzi-carburanti-ticino-marzo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Spagna riduce i prezzi del carburante di 30 centesimi al litro",
+      "description": "La Spagna è stato il primo paese europeo a ridurre i prezzi del carburante dopo la crescita dei prezzi energetici. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prezzi-carburanti-ticino-marzo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panoramica del lago di Lugano con la città di Lugano."
+      },
+      "datePublished": "2026-03-28T07:12:30+00:00",
+      "dateModified": "2026-03-28T07:12:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prezzi-carburanti-ticino-marzo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

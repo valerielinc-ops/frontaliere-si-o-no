@@ -5438,4 +5438,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/processo-mendrisio-19-capit.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'prezzi-carburanti-ticino-marzo-2026',
+    category: 'novita',
+    date: '2026-03-28T07:12:30.467Z',
+    image: '/images/blog/prezzi-carburanti-ticino-marzo-2026.jpg',
+    hasCalculator: true,
+  },
 ];
