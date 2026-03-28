@@ -1,16 +1,16 @@
 {
   "key": "boggi-milano",
   "label": "Boggi Milano",
-  "generatedAt": "2026-03-28T09:04:24.560Z",
+  "generatedAt": "2026-03-28T20:51:08.768Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 6196,
-  "avgDurationMs": 6196,
+  "durationMs": 3989,
+  "avgDurationMs": 3989,
   "durationHistory": [
-    6196
+    3989
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -236,14 +236,12 @@
       },
       "slugByLocale": {
         "it": "sales-consulente-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
-        "en": "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
+        "en": "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte",
         "de": "sales-berater-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
         "fr": "sales-conseiller-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet"
       },
       "needsRetranslation": true,
-      "previousSlugs": [
-        "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte"
-      ],
+      "previousSlugs": [],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -297,14 +295,12 @@
       },
       "slugByLocale": {
         "it": "senior-sales-consulente-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como",
-        "en": "senior-sales-advisor-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como",
+        "en": "senior-sales-advisor-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como-lombardia",
         "de": "senior-sales-berater-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como",
         "fr": "senior-sales-conseiller-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como"
       },
       "needsRetranslation": true,
-      "previousSlugs": [
-        "senior-sales-advisor-ft-como-stagionale-dal-1-maggio-al-30-settembre-32h-boggi-milano-como-lombardia"
-      ],
+      "previousSlugs": [],
       "salaryMin": 66000,
       "salaryMax": 89000,
       "currency": "CHF",
@@ -358,7 +354,7 @@
       },
       "slugByLocale": {
         "it": "apac-import-support-stage-boggi-milano-mendrisio-ticino",
-        "en": "apac-import-support-stage-boggi-milano-mendrisio",
+        "en": "apac-import-support-stage-boggi-milano-mendrisio-ticino",
         "de": "apac-import-support-stage-boggi-milano-mendrisio-ticino",
         "fr": "apac-import-support-stage-boggi-milano-mendrisio-ticino"
       },
