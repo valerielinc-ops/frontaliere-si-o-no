@@ -1,16 +1,16 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-03-28T09:06:44.519Z",
+  "generatedAt": "2026-03-28T20:53:33.839Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2645,
-  "avgDurationMs": 2645,
+  "durationMs": 3268,
+  "avgDurationMs": 3268,
   "durationHistory": [
-    2645
+    3268
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -40,10 +40,10 @@
       },
       "slug": "manufacturing-technicien-production-sterile-h-f-bracco-suisse",
       "slugByLocale": {
-        "en": "manufacturing-technicien-production-sterile-h-f-bracco-suisse-s-a-plan-les-ouates-pnuuwo",
+        "en": "manufacturing-technicien-production-sterile-h-f-bracco-suisse",
         "it": "manufacturing-technicien-production-sterile-h-f-bracco-suisse",
         "de": "manufacturing-technicien-production-sterile-h-f-bracco-suisse-s-a-plan-les-ouates-pnuuwo",
-        "fr": "manufacturing-technicien-production-sterile-h-f-bracco-suisse-s-a-plan-les-ouates"
+        "fr": "manufacturing-technicien-production-sterile-h-f-bracco-suisse-s-a-plan-les-ouates-pnuuwo"
       },
       "category": "production",
       "datePosted": "2026-03-03",
@@ -122,6 +122,7 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
+      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
