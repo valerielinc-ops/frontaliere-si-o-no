@@ -646,7 +646,18 @@ NODE
 node scripts/validate-crawler-summaries.mjs
 fi  # end SLICE_ONLY=false validation block
 
-git add "${ALL_FILES[@]}"
+# Filter out gitignored paths before staging (e.g. data/jobs.json is in .gitignore)
+STAGEABLE_FILES=()
+for _sf in "${ALL_FILES[@]}"; do
+  if git check-ignore -q "$_sf" 2>/dev/null; then
+    echo "ℹ️ Skipping gitignored path: $_sf"
+  else
+    STAGEABLE_FILES+=("$_sf")
+  fi
+done
+if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then
+  git add "${STAGEABLE_FILES[@]}"
+fi
 
 # After merge/rebase the diff might be empty (remote already had the same data)
 if git diff --cached --quiet; then
@@ -674,7 +685,17 @@ if ! git rebase origin/main 2>/dev/null; then
     "  🔀 Resolving stash-pop conflict after last-moment rebase..."
   cleanup_rebase_snapshot "$LAST_MOMENT_SNAPSHOT_DIR"
 
-  git add "${ALL_FILES[@]}"
+  STAGEABLE_FILES=()
+  for _sf in "${ALL_FILES[@]}"; do
+    if git check-ignore -q "$_sf" 2>/dev/null; then
+      echo "ℹ️ Skipping gitignored path: $_sf"
+    else
+      STAGEABLE_FILES+=("$_sf")
+    fi
+  done
+  if [ "${#STAGEABLE_FILES[@]}" -gt 0 ]; then
+    git add "${STAGEABLE_FILES[@]}"
+  fi
   if git diff --cached --quiet; then
     echo "ℹ️ No effective changes after last-moment sync — already up to date"
     exit 0
