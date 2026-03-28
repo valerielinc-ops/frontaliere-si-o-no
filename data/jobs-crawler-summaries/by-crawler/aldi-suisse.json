@@ -1,16 +1,16 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-03-28T08:54:37.694Z",
+  "generatedAt": "2026-03-28T20:41:42.693Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4737,
-  "avgDurationMs": 4737,
+  "durationMs": 7150,
+  "avgDurationMs": 7150,
   "durationHistory": [
-    4737
+    7150
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -106,7 +106,7 @@
       "postedDate": "2026-03-28",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-03-28T08:54:35.381Z",
+      "crawledAt": "2026-03-28T20:41:39.492Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
@@ -212,9 +212,10 @@
       "postedDate": "2026-03-28",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-03-28T08:54:35.380Z",
+      "crawledAt": "2026-03-28T20:41:39.490Z",
       "needsRetranslation": true,
       "sourceLang": "de",
+      "previousSlugs": [],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-03-28T13:41:18.990Z",
+  "assembledAt": "2026-03-28T20:41:42.693Z",
   "jobs": [
     {
       "id": "aldi-suisse-2b7849368ea3",
@@ -92,7 +92,8 @@
       "postedDate": "2026-03-28",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-03-28T08:54:35.381Z",
+      "crawledAt": "2026-03-28T20:41:39.492Z",
+      "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
         "addetto-vendite-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -197,8 +198,10 @@
       "postedDate": "2026-03-28",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-03-28T08:54:35.380Z",
+      "crawledAt": "2026-03-28T20:41:39.490Z",
+      "needsRetranslation": true,
       "sourceLang": "de",
+      "previousSlugs": [],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
