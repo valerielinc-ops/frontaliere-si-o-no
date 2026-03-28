@@ -1826,6 +1826,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.via-francisca-cammino.title': 'Cammino Via Francisca, da Lavena Ponte Tresa',
     'blog.article.via-francisca-cammino.excerpt': 'Il cammino per i 10 anni del percorso della Via Francisca del Lucomagno è partito da Lavena Ponte Tresa',
     'blog.article.via-francisca-cammino.imageAlt': 'Camminatore sulla Via Francisca del Lucomagno',
+    'blog.article.lavoro-sommerso-varesotto.title': 'Lavoro ‘sommerso’ nel Varesotto, 46 casi scovati in pochi mesi',
+    'blog.article.lavoro-sommerso-varesotto.excerpt': '46 casi di lavoro ‘sommerso’ scovati in pochi mesi nel Varesotto',
+    'blog.article.lavoro-sommerso-varesotto.imageAlt': 'Foto di un valico montano in Ticino con una strada secondaria scura e tortuosa',
 };
 
 export default blogMetaIt;

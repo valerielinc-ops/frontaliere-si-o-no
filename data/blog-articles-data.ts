@@ -5452,4 +5452,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/via-francisca-cammino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavoro-sommerso-varesotto',
+    category: 'novita',
+    date: '2026-03-28T15:41:57.319Z',
+    image: '/images/blog/lavoro-sommerso-varesotto.jpg',
+    hasCalculator: true,
+  },
 ];

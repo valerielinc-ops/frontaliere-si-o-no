@@ -8757,6 +8757,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-sommerso-varesotto': {
+    title: 'Lavoro ‘sommerso’ nel Varesotto, 46 casi scovati in pochi mesi | Frontaliere Ticino',
+    description: 'Il lavoro ‘sommerso’ è un fenomeno che sta diventando sempre più evidente nel Varesotto. Secondo quanto riportato da Il Giornale del Ticino, in pochi mesi sono',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, sommerso, varesotto, casi',
+    ogTitle: 'Lavoro ‘sommerso’ nel Varesotto, 46 casi scovati in pochi mesi',
+    ogDescription: 'Il lavoro ‘sommerso’ è un fenomeno che sta diventando sempre più evidente nel Varesotto.',
+    canonicalPath: '/articoli-frontaliere/lavoro-sommerso-varesotto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro ‘sommerso’ nel Varesotto, 46 casi scovati in pochi mesi",
+      "description": "Il lavoro ‘sommerso’ è un fenomeno che sta diventando sempre più evidente nel Varesotto. Secondo quanto riportato da Il Giornale del Ticino, in pochi mesi sono",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-sommerso-varesotto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Foto di un valico montano in Ticino con una strada secondaria scura e tortuosa"
+      },
+      "datePublished": "2026-03-28T15:41:57+00:00",
+      "dateModified": "2026-03-28T15:41:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-sommerso-varesotto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

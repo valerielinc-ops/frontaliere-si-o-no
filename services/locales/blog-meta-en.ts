@@ -1826,6 +1826,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.via-francisca-cammino.title': 'Francisca Trail, from Lavena Ponte Tresa',
     'blog.article.via-francisca-cammino.excerpt': 'The walk for the 10th anniversary of the Francisca del Lucomagno trail has started from Lavena Ponte Tresa',
     'blog.article.via-francisca-cammino.imageAlt': 'Hiker on the Via Francisca del Lucomagno',
+    'blog.article.lavoro-sommerso-varesotto.title': 'Underground Work in Varesotto, 46 Cases Discovered in a Few Months',
+    'blog.article.lavoro-sommerso-varesotto.excerpt': '46 Cases of Underground Work Discovered in a Few Months in Varesotto',
+    'blog.article.lavoro-sommerso-varesotto.imageAlt': 'Photo of a mountain pass in Ticino with a dark and winding secondary road',
 };
 
 export default blogMetaEn;
