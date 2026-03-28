@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T23:00:47.488Z",
+  "generatedAt": "2026-03-28T23:58:39.880Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -21944,20 +21944,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 18.9
-          },
-          {
             "id": "vbEF6LPJUVx6BKRmHD5T",
             "name": "Station Allo Svincolo",
             "brand": "UNDEFINED",
@@ -21969,6 +21955,20 @@
             "nearestMunicipality": "Clivio (VA)",
             "nearestMunicipalityDistanceKm": 3.9,
             "sp95PriceEur": 1.961,
+            "distanceKm": 19.8
+          },
+          {
+            "id": "xzYLeWdqylT5fHyTU1l4",
+            "name": "SOCAR / Piccadilly Mendrisio Via Franco Zorzi",
+            "brand": "PICCADILLY",
+            "address": "Via Franco Zorzi 4, 6850 Mendrisio",
+            "lat": 45.872927,
+            "lng": 8.978497,
+            "sp95PriceChf": 1.82,
+            "updatedAt": "2026-03-22T10:33:43.440Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 3.9,
+            "sp95PriceEur": 1.983,
             "distanceKm": 19.8
           }
         ],
@@ -25347,20 +25347,6 @@
             "distanceKm": 16.2
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 19.9
-          },
-          {
             "id": "KaZuveGET29ToR6TUTpH",
             "name": "Eni Stabio",
             "brand": "ENI",
@@ -25373,6 +25359,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.994,
             "distanceKm": 15.3
+          },
+          {
+            "id": "XzUIExyMaYkcSPZWegw1",
+            "name": "Eni Novazzano",
+            "brand": "ENI",
+            "address": "Via Marcetto 33, 6883 Novazzano",
+            "lat": 45.8373734,
+            "lng": 8.9827593,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-28T10:50:19.344Z",
+            "nearestMunicipality": "Ronago (CO)",
+            "nearestMunicipalityDistanceKm": 0.6,
+            "sp95PriceEur": 2.005,
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.75,
@@ -26449,20 +26449,6 @@
             "distanceKm": 15.7
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
-            "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 19.4
-          },
-          {
             "id": "KaZuveGET29ToR6TUTpH",
             "name": "Eni Stabio",
             "brand": "ENI",
@@ -26475,6 +26461,20 @@
             "nearestMunicipalityDistanceKm": 1.9,
             "sp95PriceEur": 1.994,
             "distanceKm": 14.8
+          },
+          {
+            "id": "C9ajQvOEOfsMQZ4JfC4l",
+            "name": "SOCAR / Piccadilly Coldrerio",
+            "brand": "PICCADILLY",
+            "address": "Via San Gottardo 37, 6877 Coldrerio",
+            "lat": 45.857751,
+            "lng": 8.98526,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-28T07:54:49.500Z",
+            "nearestMunicipality": "Ronago (CO)",
+            "nearestMunicipalityDistanceKm": 2.8,
+            "sp95PriceEur": 2.005,
+            "distanceKm": 19.9
           }
         ],
         "minPriceChf": 1.75,
@@ -27367,18 +27367,18 @@
             "distanceKm": 19.2
           },
           {
-            "id": "jyoUfNzRecwgKimvcY2C",
-            "name": "Carrozzeria San Giovanni SA",
-            "brand": "AVIA",
-            "address": "Via Campagna Adorna 13, 6850 Mendrisio",
-            "lat": 45.862217,
-            "lng": 8.972931,
-            "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-22T13:26:43.328Z",
+            "id": "vbEF6LPJUVx6BKRmHD5T",
+            "name": "Station Allo Svincolo",
+            "brand": "UNDEFINED",
+            "address": "Via Francesco Borromini 6, 6850 Mendrisio",
+            "lat": 45.87329729581304,
+            "lng": 8.978156929315192,
+            "sp95PriceChf": 1.8,
+            "updatedAt": "2026-03-22T10:33:04.222Z",
             "nearestMunicipality": "Clivio (VA)",
-            "nearestMunicipalityDistanceKm": 3.4,
-            "sp95PriceEur": 1.95,
-            "distanceKm": 18.2
+            "nearestMunicipalityDistanceKm": 3.9,
+            "sp95PriceEur": 1.961,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.75,
