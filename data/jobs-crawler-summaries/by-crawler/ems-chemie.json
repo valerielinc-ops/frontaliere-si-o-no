@@ -1,16 +1,16 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-03-28T09:20:53.029Z",
+  "generatedAt": "2026-03-28T21:07:34.182Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 2547,
-  "avgDurationMs": 2547,
+  "durationMs": 2774,
+  "avgDurationMs": 2774,
   "durationHistory": [
-    2547
+    2774
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -57,6 +57,7 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -112,6 +113,7 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -203,7 +205,7 @@
       "slugByLocale": {
         "it": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
         "en": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
-        "de": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
+        "de": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-domat-ems",
         "fr": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems"
       },
       "titleByLocale": {
@@ -222,9 +224,7 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
-      "previousSlugs": [
-        "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-domat-ems"
-      ],
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -567,6 +567,7 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
