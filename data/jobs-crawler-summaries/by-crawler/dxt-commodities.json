@@ -1,16 +1,16 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-03-28T09:20:09.655Z",
+  "generatedAt": "2026-03-28T21:06:55.838Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3687,
-  "avgDurationMs": 3687,
+  "durationMs": 2708,
+  "avgDurationMs": 2708,
   "durationHistory": [
-    3687
+    2708
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -58,6 +58,7 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [],
       "sourceLang": "en",
       "salaryMin": 61000,
       "salaryMax": 83000,
