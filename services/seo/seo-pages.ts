@@ -218,7 +218,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   comparatori: {
-    title: 'Comparatori Servizi CH-IT',
+    title: 'Comparatori Servizi CH-IT | Frontaliere Ticino',
     description: 'Confronta servizi tra Svizzera e Italia: tassi di cambio CHF/EUR in tempo reale (Wise, Revolut), operatori mobili con roaming, trasporti frontalieri.',
     keywords: 'cambio chf eur, cambio valuta svizzera, wise revolut confronto, operatori mobili svizzera, roaming svizzera italia, trasporti frontalieri, assicurazione sanitaria ticino, banche svizzera italia, traffico valichi doganali',
     ogTitle: 'Comparatori Servizi Frontalieri',
@@ -649,7 +649,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   mobile: {
-    title: 'Operatori Mobili Svizzera',
+    title: 'Operatori Mobili Svizzera | Frontaliere Ticino',
     description: 'Confronta operatori mobili svizzeri per frontalieri: Swisscom, Salt, Sunrise, Yallo, Wingo, Aldi Mobile. Costi mensili reali con roaming illimitato in.',
     keywords: 'operatori mobili svizzera, roaming svizzera italia, swisscom frontalieri, salt mobile costi, sunrise abbonamenti, yallo wingo confronto, aldi mobile svizzera, roaming illimitato italia',
     ogTitle: 'Operatori Mobili Svizzera | Confronto con Roaming',
@@ -817,7 +817,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   stats: {
-    title: 'Statistiche Frontalieri e Lavoro Ticino',
+    title: 'Statistiche Frontalieri e Lavoro Ticino | Frontaliere Ticino',
     description: 'Statistiche frontalieri Svizzera-Italia e osservatorio lavoro Ticino: trend BFS, numero offerte attive, annunci aggiunti o rimossi, aziende più attive e.',
     keywords: 'statistiche frontalieri, lavoro ticino, offerte lavoro ticino, aziende che assumono ticino, trend offerte lavoro, bfs frontalieri, annunci lavoro svizzera italiana, statistiche lavoro ticino 2026',
     ogTitle: 'Statistiche Frontalieri e Lavoro Ticino | BFS e Job Board',
@@ -1229,7 +1229,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   livingIT: {
-    title: 'Vivere in Italia come Frontaliere',
+    title: 'Vivere in Italia come Frontaliere | Frontaliere Ticino',
     description: 'Vantaggi e svantaggi di vivere in Italia lavorando in Svizzera: costi più bassi, detrazioni fiscali, sanità SSN, scuole italiane, qualità della vita nelle.',
     keywords: 'vivere in italia frontaliere, residenza italia vantaggi, como varese frontalieri, costi vivere italia, detrazioni frontalieri italia, sanità ssn frontalieri, province frontiera',
     ogTitle: 'Vivere in Italia come Frontaliere | Vantaggi e Svantaggi',
@@ -1281,7 +1281,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'car-cost': {
-    title: 'Costi Pendolarismo Frontaliere',
+    title: 'Costi Pendolarismo Frontaliere | Frontaliere Ticino',
     description: 'Calcola i costi reali del pendolarismo come frontaliere: benzina, autostrada, usura auto, parcheggio, abbonamenti treno e bus transfrontalieri. Confronta.',
     keywords: 'costi pendolarismo frontaliere, spese viaggio frontaliere, benzina frontaliere, autostrada svizzera costi, parcheggio dogana, treno frontalieri, bus transfrontaliero',
     ogTitle: 'Costi Pendolarismo Frontaliere | Calcolo Spese Viaggio',
@@ -1300,7 +1300,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   companies: {
-    title: 'Aziende che Assumono in Ticino',
+    title: 'Aziende che Assumono in Ticino | Frontaliere Ticino',
     description: 'Scopri le principali aziende che assumono frontalieri nel Canton Ticino: settori tecnologia, finanza, farmaceutico, industria e servizi. Link diretti alle.',
     keywords: 'aziende ticino lavoro, aziende che assumono svizzera, lavoro canton ticino, settori lavoro ticino, opportunità lavoro frontalieri, carriere svizzera, stipendi ticino',
     ogTitle: 'Aziende che Assumono in Ticino | Opportunità per Frontalieri',
@@ -1351,7 +1351,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   municipalities: {
-    title: 'Comuni di Frontiera Italia-Svizzera',
+    title: 'Comuni di Frontiera Italia-Svizzera | Frontaliere Ticino',
     description: 'Mappa interattiva dei comuni italiani nella fascia di 20 km dal confine svizzero: distanze dai valichi, popolazione, servizi e trasporti per frontalieri.',
     keywords: 'comuni di frontiera, comuni frontalieri italia svizzera, mappa comuni frontiera, comuni vicino svizzera, comuni como varese frontiera, distanza valichi frontiera, comuni 20 km confine svizzera',
     ogTitle: 'Comuni di Frontiera Italia-Svizzera | Mappa e Distanze',
@@ -1450,7 +1450,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   unemployment: {
-    title: 'Disoccupazione Frontalieri',
+    title: 'Disoccupazione Frontalieri | Frontaliere Ticino',
     description: 'Guida completa alla disoccupazione per frontalieri: come richiedere NASpI in Italia e AD/ALV in Svizzera. Importi, durata, procedure passo per passo.',
     keywords: 'disoccupazione frontalieri, naspi frontalieri svizzera, disoccupazione svizzera ALV, PD U1 formulario, indennità disoccupazione frontaliere, naspi italia procedura, assicurazione disoccupazione svizzera, URC ticino, cassa disoccupazione',
     ogTitle: 'Disoccupazione per Frontalieri | NASpI e AD Svizzera',
@@ -1607,7 +1607,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   morning: {
-    title: 'Buongiorno Frontaliere',
+    title: 'Buongiorno Frontaliere | Frontaliere Ticino',
     description: 'Dashboard mattutino per frontalieri: meteo in tempo reale Lugano/Como, traffico ai valichi di frontiera, tasso di cambio CHF-EUR aggiornato e previsioni 3.',
     keywords: 'meteo frontaliere, traffico valichi mattino, cambio chf eur oggi, previsioni meteo lugano como, buongiorno frontaliere, tempo reale frontiera, dashboard pendolare',
     ogTitle: 'Buongiorno Frontaliere | Meteo + Traffico + Cambio',
@@ -1675,7 +1675,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   carTransfer: {
-    title: 'Trasferire Auto in Svizzera',
+    title: 'Trasferire Auto in Svizzera | Frontaliere Ticino',
     description: 'Guida completa per immatricolare la tua auto in Svizzera: sdoganamento BAZG, collaudo MFK, targhe svizzere, cambio patente e assicurazione RC obbligatoria.',
     keywords: 'trasferire auto svizzera, immatricolare auto ticino, targhe svizzere, cambio patente svizzera, dogana veicolo, MFK collaudo, assicurazione auto svizzera, PRA radiazione',
     ogTitle: 'Trasferire Auto in Svizzera | Guida Completa',
@@ -1746,7 +1746,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   residency: {
-    title: 'Simulatore Cambio Residenza',
+    title: 'Simulatore Cambio Residenza | Frontaliere Ticino',
     description: 'Simula il costo del cambio residenza tra Italia e Svizzera. Confronto costi mensili (affitto, spesa, assicurazione), costi una tantum, break-even point per.',
     keywords: 'cambio residenza frontaliere, trasferimento italia svizzera costi, vivere in svizzera costi, traslocare ticino, permesso B svizzera costi, break-even residenza',
     ogTitle: 'Simulatore Cambio Residenza Italia ↔ Svizzera',
@@ -1765,7 +1765,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   salaryQuiz: {
-    title: 'Quiz Stipendio Svizzera',
+    title: 'Quiz Stipendio Svizzera | Frontaliere Ticino',
     description: 'Quiz interattivo per scoprire quanto guadagneresti come frontaliere in Svizzera: stima stipendio netto in base a professione, esperienza e settore.',
     keywords: 'quiz stipendio svizzera, quanto guadagnerei in svizzera, stipendio frontaliere per professione, stima stipendio ticino, lavoro svizzera stipendio netto, quanto si guadagna in svizzera',
     ogTitle: 'Quiz Stipendio Svizzera | Quanto Guadagneresti?',
@@ -1803,7 +1803,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'permit-compare': {
-    title: 'Confronto Permesso G vs B Costo Vita',
+    title: 'Confronto Permesso G vs B Costo Vita | Frontaliere Ticino',
     description: 'Confronto permesso G vs B costo vita: tasse, contributi e vantaggi Svizzera vs Italia. Simulazione fiscale frontalieri 2026 con calcolo netto e spese.',
     keywords: 'permesso G vs B, confronto permesso frontaliere dimora, tasse permesso G, tasse permesso B svizzera, conviene trasferirsi svizzera, frontaliere vs residente',
     ogTitle: 'Confronto Permesso G vs B Costo Vita | Conviene Trasferirsi?',
@@ -1870,7 +1870,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   firstDay: {
-    title: 'Primo Giorno da Frontaliere',
+    title: 'Primo Giorno da Frontaliere | Frontaliere Ticino',
     description: 'Guida interattiva per il primo giorno da frontaliere: checklist gamificata con tutti i passaggi necessari. Permesso G, AIRE, conto bancario svizzero.',
     keywords: 'primo giorno frontaliere, checklist frontaliere, guida frontaliere passo passo, permesso G procedura, AIRE iscrizione, conto bancario svizzero, assicurazione LAMal',
     ogTitle: 'Primo Giorno da Frontaliere | Checklist Interattiva',
@@ -2406,7 +2406,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   // ─── Weekly Digest ───────────────────────────────────────────────────,
 
   'weekly-digest': {
-    title: 'Digest Settimanale Frontaliere',
+    title: 'Digest Settimanale Frontaliere | Frontaliere Ticino',
     description: 'Ricevi ogni lunedì il digest settimanale per frontalieri: tasso di cambio CHF/EUR aggiornato, articoli selezionati, strumento della settimana e offerte di.',
     keywords: 'digest settimanale frontaliere, newsletter frontalieri, tasso cambio settimanale, news frontaliere ticino, offerte lavoro ticino, aggiornamenti frontalieri',
     ogTitle: 'Digest Settimanale per Frontalieri',
@@ -2699,7 +2699,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   nursery: {
-    title: 'Asili Nido Ticino vs Italia',
+    title: 'Asili Nido Ticino vs Italia | Frontaliere Ticino',
     description: 'Confronta asili nido tra Ticino e Italia: costi mensili, orari, criteri di ammissione, sussidi disponibili. Calcola il costo reale della custodia per.',
     keywords: 'asili nido ticino, asili nido como, costi asilo svizzera, asili frontalieri, custodia bambini ticino, confronto asili nido, sussidi asilo svizzera italia',
     ogTitle: 'Asili Nido Ticino vs Italia | Confronto per Frontalieri',
@@ -2918,7 +2918,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   fuelPrices: {
-    title: 'Prezzi Benzina Italia-Svizzera',
+    title: 'Prezzi Benzina Italia-Svizzera | Frontaliere Ticino',
     description: 'Confronto prezzi benzina tra comuni di confine italiani e stazioni svizzere vicine: dati ufficiali Italia, confronto IT-CH, ranking e risparmio stimato su.',
     keywords: 'prezzi benzina italia svizzera, dove conviene fare benzina ticino, prezzo benzina como svizzera, prezzo benzina varese ticino, carburanti confine, confronto benzina italia svizzera, mrprezzi confine',
     ogTitle: 'Prezzi Benzina Italia-Svizzera | Dove Conviene Oggi',
@@ -5183,7 +5183,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'chi-siamo': {
-    title: 'Chi Siamo',
+    title: 'Chi Siamo | Frontaliere Ticino',
     description: 'Scopri chi siamo: Frontaliere Ticino è la piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Svizzera. Tassazione, permessi.',
     keywords: 'frontaliere ticino, chi siamo, piattaforma frontalieri, lavoratori transfrontalieri svizzera italia',
     ogTitle: 'Chi Siamo — Frontaliere Ticino',
