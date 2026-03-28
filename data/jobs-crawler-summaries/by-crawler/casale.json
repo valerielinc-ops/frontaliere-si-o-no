@@ -1,16 +1,16 @@
 {
   "key": "casale",
   "label": "Casale SA",
-  "generatedAt": "2026-03-28T09:08:05.266Z",
+  "generatedAt": "2026-03-28T20:54:54.510Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 1368,
-  "avgDurationMs": 1368,
+  "durationMs": 1445,
+  "avgDurationMs": 1445,
   "durationHistory": [
-    1368
+    1445
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -128,6 +128,7 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [],
       "sourceLang": "en",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -172,7 +173,7 @@
       },
       "slug": "junior-technical-visual-designer-casale-lugano",
       "slugByLocale": {
-        "en": "junior-technical-visual-designer-casale-sa-lugano",
+        "en": "junior-technical-visual-designer-casale-lugano",
         "it": "junior-technical-visual-designer-casale-lugano",
         "de": "junior-technical-visual-designer-casale-sa-lugano-ticino-d8306p",
         "fr": "junior-technical-visual-designer-casale-sa-lugano-ticino-d8306p"
@@ -432,7 +433,7 @@
       },
       "slug": "home-office-construction-engineer-casale-lugano",
       "slugByLocale": {
-        "en": "home-office-construction-engineer-casale-sa-lugano",
+        "en": "home-office-construction-engineer-casale-lugano",
         "it": "home-office-construction-engineer-casale-lugano",
         "de": "home-office-construction-ingenieur-casale-sa-lugano-ticino-gpc4qj",
         "fr": "home-office-construction-ingenieur-casale-sa-lugano-ticino-gpc4qj"
@@ -497,7 +498,7 @@
       },
       "slug": "technology-engineer-liquid-and-solid-technologies-casale-lugano",
       "slugByLocale": {
-        "en": "technology-engineer-liquid-and-solid-technologies-casale-sa-lugano",
+        "en": "technology-engineer-liquid-and-solid-technologies-casale-lugano",
         "it": "technology-engineer-liquid-and-solid-technologies-casale-lugano",
         "de": "technology-ingenieur-liquid-and-solid-technologies-casale-sa-lugano-ticino-8ldlhq",
         "fr": "technology-ingenieur-liquid-and-solid-technologies-casale-sa-lugano-ticino-8ldlhq"
