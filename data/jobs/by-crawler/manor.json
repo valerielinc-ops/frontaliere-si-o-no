@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-03-28T13:41:19.158Z",
+  "assembledAt": "2026-03-28T21:23:58.878Z",
   "jobs": [
     {
       "title": "Collaboratore/trice cassa (Confezione Uomo) 40%",
@@ -35,6 +35,7 @@
         "fr": "Collaboratore/trice cassa (Confezione Uomo) 40%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 54000,
@@ -90,6 +91,7 @@
         "fr": "Collaboratore/trice servizio (Manora) 50%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 57500,
@@ -145,6 +147,7 @@
         "fr": "Collaborateur/trice service (Manora) 50%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 57500,
@@ -200,6 +203,7 @@
         "fr": "Apprendista Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 46500,
@@ -255,8 +259,10 @@
         "fr": "Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
