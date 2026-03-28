@@ -1,16 +1,16 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-03-27T21:39:52.845Z",
+  "generatedAt": "2026-03-28T09:44:40.952Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 18993,
-  "avgDurationMs": 18993,
+  "durationMs": 22548,
+  "avgDurationMs": 22548,
   "durationHistory": [
-    18993
+    22548
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -18,7 +18,7 @@
   "unchangedJobs": [
     {
       "id": "company-q14jnx",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata individuale",
       "location": "Gravesano, Ticino",
@@ -39,7 +39,7 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-27T21:39:51.811Z",
+      "crawledAt": "2026-03-28T09:44:39.938Z",
       "titleByLocale": {
         "it": "Consulente clientela privata individuale",
         "en": "Consulente clientela privata individuale",
@@ -55,12 +55,15 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
+        "it": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
         "en": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
         "de": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
         "fr": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx"
       },
       "sourceLang": "it",
+      "previousSlugs": [
+        "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino"
+      ],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -82,7 +85,7 @@
     },
     {
       "id": "company-yifl2t",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata individuale",
       "location": "Rivera, Ticino",
@@ -103,7 +106,7 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-27T21:39:51.811Z",
+      "crawledAt": "2026-03-28T09:44:39.938Z",
       "titleByLocale": {
         "it": "Consulente clientela privata individuale",
         "en": "Consulente clientela privata individuale",
@@ -119,12 +122,15 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino",
+        "it": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
         "en": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
         "de": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
         "fr": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t"
       },
       "sourceLang": "it",
+      "previousSlugs": [
+        "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino"
+      ],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -169,7 +175,7 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-27T21:39:51.811Z",
+      "crawledAt": "2026-03-28T09:44:39.938Z",
       "titleByLocale": {
         "it": "Consulente Clientela Affluent",
         "en": "Consulente Clientela Affluent",
@@ -242,7 +248,7 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-27T21:39:51.811Z",
+      "crawledAt": "2026-03-28T09:44:39.938Z",
       "slugByLocale": {
         "it": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano",
         "en": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano-fnlwh1",
