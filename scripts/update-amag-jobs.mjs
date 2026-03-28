@@ -205,6 +205,24 @@ async function enrichWithDetails(listings) {
       const html = await fetchText(item.detailUrl);
       const detail = parseAmagDetailPage(html, item.title);
 
+      // If Italian page has no description, fall back to German detail URL
+      if (!detail.description) {
+        const deUrl = item.detailUrl.replace(/-it-j(\d+)\.html$/, '-de-j$1.html');
+        if (deUrl !== item.detailUrl) {
+          try {
+            await sleep(DETAIL_DELAY_MS);
+            const htmlDe = await fetchText(deUrl);
+            const detailDe = parseAmagDetailPage(htmlDe, item.title);
+            if (detailDe.description) {
+              console.log(`  🔄 [${i + 1}/${toFetch.length}] ${item.jobId}: Using German description fallback`);
+              detail.description = detailDe.description;
+            }
+          } catch (err) {
+            console.log(`  ⚠️ German fallback failed for ${item.jobId}: ${err.message}`);
+          }
+        }
+      }
+
       const location = detail.location || item.location || '';
       const region = detail.region || '';
 
