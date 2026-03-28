@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-03-28T08:55:01.380Z",
+  "generatedAt": "2026-03-28T20:42:02.205Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 11627,
-  "avgDurationMs": 11627,
+  "durationMs": 11653,
+  "avgDurationMs": 11653,
   "durationHistory": [
-    11627
+    11653
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -348,6 +348,7 @@
         "fr": "allianz-bewerbermanagement-allianz-suisse-region-graubunden"
       },
       "needsRetranslation": true,
+      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
