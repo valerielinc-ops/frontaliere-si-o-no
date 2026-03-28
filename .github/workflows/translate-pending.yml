@@ -64,17 +64,24 @@ jobs:
       - name: Assemble dataset
         run: node scripts/assemble-jobs-dataset.mjs
 
+      - name: Log translation stats (before)
+        run: node scripts/log-translation-stats.mjs before
+
       - name: Translate pending jobs
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
         run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
+
+      - name: Log translation stats (after)
+        if: always()
+        run: node scripts/log-translation-stats.mjs after
 
       - name: Scatter changes back to per-crawler slices
         run: node scripts/scatter-jobs-to-slices.mjs
 
       - name: Commit and push
         if: always() && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
       - name: Trigger deploy
         if: always() && inputs.dry_run != true
