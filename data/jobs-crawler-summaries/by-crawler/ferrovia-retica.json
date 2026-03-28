@@ -1,16 +1,16 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-03-28T09:23:14.978Z",
+  "generatedAt": "2026-03-28T21:10:08.621Z",
   "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 22285,
-  "avgDurationMs": 22285,
+  "durationMs": 25525,
+  "avgDurationMs": 25525,
   "durationHistory": [
-    22285
+    25525
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -35,7 +35,7 @@
       "slugByLocale": {
         "it": "teamleiter-in-sicherungsanlagen-sud-80-100-ferrovia-retica-rhb-samedan",
         "en": "teamleiter-in-sicherungsanlagen-sud-80-100-ferrovia-retica-rhb-samedan",
-        "de": "teamleiter-in-sicherungsanlagen-sud-80-100-ferrovia-retica-rhb-samedan",
+        "de": "teamleiter-in-sicherungsanlagen-sud-80-100-rhaetische-bahn-samedan",
         "fr": "teamleiter-in-sicherungsanlagen-sud-80-100-ferrovia-retica-rhb-samedan"
       },
       "titleByLocale": {
@@ -58,7 +58,6 @@
       "previousSlugs": [
         "teamleiter-in-sicherungsanlagen-sud-80-100-ferrovia-retica-samedan",
         "teamleiter-in-sicherungsanlagen-sud-80-100-rhaetian-railway-samedan",
-        "teamleiter-in-sicherungsanlagen-sud-80-100-rhaetische-bahn-samedan",
         "teamleiter-in-sicherungsanlagen-sud-80-100-chemin-de-fer-rhetique-samedan"
       ],
       "salaryMin": 72000,
@@ -153,7 +152,7 @@
       "slugByLocale": {
         "it": "quereinsteiger-innen-zugbegleitung-standort-chur-100-ferrovia-retica-pontresina",
         "en": "quereinsteiger-innen-zugbegleitung-standort-chur-100-rhaetian-railway-pontresina",
-        "de": "quereinsteiger-innen-zugbegleitung-standort-chur-100-ferrovia-retica-rhb-pontresina",
+        "de": "quereinsteiger-innen-zugbegleitung-standort-chur-100-rhaetische-bahn-pontresina",
         "fr": "quereinsteiger-innen-zugbegleitung-standort-chur-100-chemin-de-fer-rhetique-pontresina"
       },
       "titleByLocale": {
@@ -174,8 +173,7 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
-        "apprendista-trasversale-accompagnamento-treno-sede-di-coira-100-ferrovia-retica-rhb-pontresina",
-        "quereinsteiger-innen-zugbegleitung-standort-chur-100-rhaetische-bahn-pontresina"
+        "apprendista-trasversale-accompagnamento-treno-sede-di-coira-100-ferrovia-retica-rhb-pontresina"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -210,7 +208,7 @@
       "slugByLocale": {
         "it": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-ferrovia-retica-pontresina",
         "en": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-rhaetian-railway-pontresina",
-        "de": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-ferrovia-retica-rhb-pontresina",
+        "de": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-rhaetische-bahn-pontresina",
         "fr": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-chemin-de-fer-rhetique-pontresina"
       },
       "titleByLocale": {
@@ -231,8 +229,7 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
-        "apprendista-trasversale-accompagnamento-treno-sede-di-samedan-100-ferrovia-retica-rhb-pontresina",
-        "quereinsteiger-innen-zugbegleitung-standort-samedan-100-rhaetische-bahn-pontresina"
+        "apprendista-trasversale-accompagnamento-treno-sede-di-samedan-100-ferrovia-retica-rhb-pontresina"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -564,7 +561,7 @@
       "slugByLocale": {
         "it": "responsabile-di-progetto-magazzino-e-logistik-50-100-ferrovia-retica-rhb-chur",
         "en": "projektleiter-in-lager-und-logistik-50-100-rhaetian-railway-chur",
-        "de": "projektleiter-in-lager-und-logistik-50-100-ferrovia-retica-rhb-chur",
+        "de": "projektleiter-in-lager-und-logistik-50-100-rhaetische-bahn-chur",
         "fr": "projektleiter-in-lager-und-logistik-50-100-chemin-de-fer-rhetique-chur"
       },
       "titleByLocale": {
@@ -586,8 +583,7 @@
       "sourceLang": "de",
       "previousSlugs": [
         "responsabile-di-progetto-magazzino-e-logistica-50-100-ferrovia-retica-rhb-chur",
-        "projektleiter-in-lager-und-logistik-50-100-ferrovia-retica-chur",
-        "projektleiter-in-lager-und-logistik-50-100-rhaetische-bahn-chur"
+        "projektleiter-in-lager-und-logistik-50-100-ferrovia-retica-chur"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
