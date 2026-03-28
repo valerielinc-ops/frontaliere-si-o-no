@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-03-27T21:31:19.667Z",
+  "generatedAt": "2026-03-28T09:35:54.799Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 25056,
-  "avgDurationMs": 25056,
+  "durationMs": 21977,
+  "avgDurationMs": 21977,
   "durationHistory": [
-    25056
+    21977
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -75,7 +75,7 @@
         "textHash": "a8b626f84a33e5762181",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.622Z"
+        "extractedAt": "2026-03-28T09:35:54.754Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -145,7 +145,7 @@
         "textHash": "f56dd83696112341f6c6",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.622Z"
+        "extractedAt": "2026-03-28T09:35:54.754Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -215,7 +215,7 @@
         "textHash": "4ad83b1c1daa214f3437",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.623Z"
+        "extractedAt": "2026-03-28T09:35:54.755Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -282,7 +282,7 @@
         "textHash": "772ab97c4b0f2c3acd83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.623Z"
+        "extractedAt": "2026-03-28T09:35:54.755Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -349,7 +349,7 @@
         "textHash": "13c4160633476a4d7c8a",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.624Z"
+        "extractedAt": "2026-03-28T09:35:54.756Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -416,7 +416,7 @@
         "textHash": "fc5cfea38eafafc6aae8",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.624Z"
+        "extractedAt": "2026-03-28T09:35:54.756Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -483,7 +483,7 @@
         "textHash": "8dfb968aba7683134c88",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.625Z"
+        "extractedAt": "2026-03-28T09:35:54.757Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -550,7 +550,7 @@
         "textHash": "5f929653a61e9b5afe83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.625Z"
+        "extractedAt": "2026-03-28T09:35:54.757Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -617,7 +617,7 @@
         "textHash": "7c5289c47057ec4c7cba",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.626Z"
+        "extractedAt": "2026-03-28T09:35:54.758Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -687,7 +687,7 @@
         "textHash": "48db8b9a76cda91ce3a9",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.626Z"
+        "extractedAt": "2026-03-28T09:35:54.758Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -754,7 +754,7 @@
         "textHash": "94e7e7ea024d4b010a4f",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.627Z"
+        "extractedAt": "2026-03-28T09:35:54.759Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -821,7 +821,7 @@
         "textHash": "13cd63461b8e80fab971",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.627Z"
+        "extractedAt": "2026-03-28T09:35:54.759Z"
       },
       "sourceLang": "it",
       "previousSlugs": [
@@ -858,9 +858,9 @@
       },
       "slugByLocale": {
         "it": "addetti-servizi-alla-casa",
-        "en": "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona-9qdgvs",
-        "de": "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona-9qdgvs",
-        "fr": "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona-9qdgvs"
+        "en": "addetti-servizi-alla-casa",
+        "de": "addetti-servizi-alla-casa",
+        "fr": "addetti-servizi-alla-casa"
       },
       "descriptionByLocale": {
         "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di addetti servizi alla casa alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso. Il Consiglio di Amministrazione può prevedere l'attribuzione di nomine (art. 5 e ss. ROCIS) e incarichi per funzione stabile (art. 11 e ss. ROCIS) interni. Le posizioni sono aperte sia a candidature femminili che maschili. Il presente concorso resta aperto anche in assenza di un effettivo fabbisogno di personale. Requisiti di ordine generale, quelli previsti dal ROCIS e in particolare: - cittadinanza svizzera o stranieri con permesso di lavoro; - condotta ineccepibile; - costituzione fisica e psichica sana; - idoneità alla funzione. Requisiti di ordine particolare: - attestato federale di capacità quale impiegato/a di economia domestica, titolo equivalente, comprovata esperienza; Mansioni generali di riferimento per la funzione di addetti servizi alla casa: Eseguire lavori di pulizia e/o di supporto al personale curante e al personale addetto alla cucina, all'interno delle strutture dell'ente autonomo Lugano Istituti Sociali sulla base dei programmi di lavoro, delle necessità contingenti e delle priorità definite dai superiori, secondo la formazione conseguita e l'esperienza Mansioni generali di riferimento per la funzione di addetti servizi alla casa - lavanderia: Eseguire lavori all'interno del servizio di lavanderia centralizzata LIS situata ad Agno. Può inoltre essere chiamato a svolgere lavori di pulizia e/o di supporto al personale curante e al personale addetto alla cucina, all'interno delle strutture dell'ente autonomo Lugano Istituti Sociali sulla base dei programmi di lavoro, delle necessità contingenti e delle priorità definite dai superiori. Stipendio annuo - IV (addetti servizi alla casa), classi 5-6-7 classe 5: min. CHF 53'518.55 / max. CHF 63'151.95 classe 6: min. CHF 55'301.35 / max. CHF 65'255.75 classe 7: min. CHF 57'393.95 / max. CHF 67'724.85 Nell'ambito delle anzidette possibilità di retribuzione può essere riconosciuta l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio. Le offerte devono essere corredate dai seguenti documenti: - lettera di presentazione - curriculum vitae - fotografia recente - certificati di studio e di lavoro - questionario sullo stato di salute - autocertificazione casellario giudiziale Oltre ai documenti da allegare inizialmente, in un secondo momento potrà essere richiesto di presentare l'estratto del casellario giudiziale per privati. Condizioni di presentazione delle candidature Le candidature devono essere inoltrate in forma elettronica tramite lo sportello online seguendo la procedura indicata sul sito internet dell'Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ entro le ore 23:59 di domenica 13 dicembre 2026 L'Ufficio Risorse Umane resta a cortese disposizione (t. 058 866 34 11) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, ecc) tramite il quale candidarsi. Lugano Istituti Sociali non potrà, in nessun caso, considerare candidature e allegati trasmessi tramite alti canali (forma cartacea, email, fax, ecc.). LUGANO ISTITUTI SOCIALI IL CONSIGLIO DI AMMINISTRAZIONE Capitolato di concorso Questionario sullo stato di salute Questionario relativo al casellario giudiziale",
@@ -891,7 +891,7 @@
         "textHash": "61df459007751ba06ccf",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-27T21:31:19.628Z"
+        "extractedAt": "2026-03-28T09:35:54.760Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
