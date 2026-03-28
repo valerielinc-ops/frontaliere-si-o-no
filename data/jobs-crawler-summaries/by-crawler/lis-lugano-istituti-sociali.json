@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-03-28T09:35:54.799Z",
+  "generatedAt": "2026-03-28T21:22:46.016Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 13,
-  "durationMs": 21977,
-  "avgDurationMs": 21977,
+  "durationMs": 21600,
+  "avgDurationMs": 21600,
   "durationHistory": [
-    21977
+    21600
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -59,6 +59,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "capireparto"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -75,12 +78,9 @@
         "textHash": "a8b626f84a33e5762181",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.754Z"
+        "extractedAt": "2026-03-28T21:22:45.970Z"
       },
       "sourceLang": "it",
-      "previousSlugs": [
-        "capireparto"
-      ],
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -129,6 +129,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "infermieri"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -145,12 +148,9 @@
         "textHash": "f56dd83696112341f6c6",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.754Z"
+        "extractedAt": "2026-03-28T21:22:45.970Z"
       },
       "sourceLang": "it",
-      "previousSlugs": [
-        "infermieri"
-      ],
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -199,6 +199,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "operatori-sociosanitari"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -215,7 +218,7 @@
         "textHash": "4ad83b1c1daa214f3437",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.755Z"
+        "extractedAt": "2026-03-28T21:22:45.971Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -266,6 +269,7 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -282,7 +286,7 @@
         "textHash": "772ab97c4b0f2c3acd83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.755Z"
+        "extractedAt": "2026-03-28T21:22:45.971Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -333,6 +337,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "collaboratori-sanitari"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -349,7 +356,7 @@
         "textHash": "13c4160633476a4d7c8a",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.756Z"
+        "extractedAt": "2026-03-28T21:22:45.972Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -400,6 +407,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "operatori-settore-animazione"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -416,7 +426,7 @@
         "textHash": "fc5cfea38eafafc6aae8",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.756Z"
+        "extractedAt": "2026-03-28T21:22:45.972Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -467,6 +477,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "fisioterapisti-ergoterapisti"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -483,7 +496,7 @@
         "textHash": "8dfb968aba7683134c88",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.757Z"
+        "extractedAt": "2026-03-28T21:22:45.973Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -534,6 +547,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "educatori-sociali"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -550,7 +566,7 @@
         "textHash": "5f929653a61e9b5afe83",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.757Z"
+        "extractedAt": "2026-03-28T21:22:45.973Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -601,6 +617,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -617,12 +636,9 @@
         "textHash": "7c5289c47057ec4c7cba",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.758Z"
+        "extractedAt": "2026-03-28T21:22:45.974Z"
       },
       "sourceLang": "it",
-      "previousSlugs": [
-        "operatori-socioassistenziali-infanza-lis-lugano-istituti-sociali-pregassona-5xg3s1"
-      ],
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -671,6 +687,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "educatori-dell-infanzia"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -687,7 +706,7 @@
         "textHash": "48db8b9a76cda91ce3a9",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.758Z"
+        "extractedAt": "2026-03-28T21:22:45.974Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -738,6 +757,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "capisquadra-chef-di-cucina"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -754,7 +776,7 @@
         "textHash": "94e7e7ea024d4b010a4f",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.759Z"
+        "extractedAt": "2026-03-28T21:22:45.975Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -805,6 +827,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "cuochi"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -821,12 +846,9 @@
         "textHash": "13cd63461b8e80fab971",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.759Z"
+        "extractedAt": "2026-03-28T21:22:45.975Z"
       },
       "sourceLang": "it",
-      "previousSlugs": [
-        "cuochi"
-      ],
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -891,7 +913,7 @@
         "textHash": "61df459007751ba06ccf",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-28T09:35:54.760Z"
+        "extractedAt": "2026-03-28T21:22:45.976Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
