@@ -1829,6 +1829,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-sommerso-varesotto.title': 'Travail \'souterré\' dans le Varesotto, 46 cas découverts en quelques mois',
     'blog.article.lavoro-sommerso-varesotto.excerpt': '46 cas de travail \'souterré\' découverts en quelques mois dans le Varesotto',
     'blog.article.lavoro-sommerso-varesotto.imageAlt': 'Photo d\'un col de montagne en Tessin avec une route secondaire sombre et sinueuse',
+    'blog.article.rissa-lavena-ponte-tres.title': 'Bagarre nocturne à Lavena Ponte Tresa, deux étrangers à l\'hôpital',
+    'blog.article.rissa-lavena-ponte-tres.excerpt': 'Une bagarre nocturne à Lavena Ponte Tresa a laissé deux étrangers à l\'hôpital. La police est sur place pour enquêter.',
+    'blog.article.rissa-lavena-ponte-tres.imageAlt': 'La police enquête sur une bagarre nocturne à Lavena Ponte Tresa',
 };
 
 export default blogMetaFr;

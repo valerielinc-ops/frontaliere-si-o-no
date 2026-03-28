@@ -1829,6 +1829,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavoro-sommerso-varesotto.title': 'Arbeit ‘versteckt’ im Varesotto, 46 Fälle entdeckt in wenigen Monaten',
     'blog.article.lavoro-sommerso-varesotto.excerpt': '46 Fälle von versteckter Arbeit wurden in wenigen Monaten im Varesotto entdeckt',
     'blog.article.lavoro-sommerso-varesotto.imageAlt': 'Foto eines Bergpasses in Ticino mit einer dunklen und windigen zweiten Straße',
+    'blog.article.rissa-lavena-ponte-tres.title': 'Schlägerei in der Nacht in Lavena Ponte Tresa, zwei Ausländer im Krankenhaus',
+    'blog.article.rissa-lavena-ponte-tres.excerpt': 'Eine nächtliche Schlägerei in Lavena Ponte Tresa hat zwei Ausländer ins Krankenhaus gebracht. Die Polizei ist vor Ort, um Ermittlungen durchzuführen.',
+    'blog.article.rissa-lavena-ponte-tres.imageAlt': 'Polizei ermittelt nach nächtlicher Schlägerei in Lavena Ponte Tresa',
 };
 
 export default blogMetaDe;

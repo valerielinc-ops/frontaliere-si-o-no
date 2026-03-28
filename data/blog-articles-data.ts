@@ -5459,4 +5459,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavoro-sommerso-varesotto.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'rissa-lavena-ponte-tres',
+    category: 'novita',
+    date: '2026-03-28T21:46:20.358Z',
+    image: '/images/blog/rissa-lavena-ponte-tres.jpg',
+    hasCalculator: false,
+  },
 ];

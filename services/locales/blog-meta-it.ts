@@ -1829,6 +1829,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-sommerso-varesotto.title': 'Lavoro ‘sommerso’ nel Varesotto, 46 casi scovati in pochi mesi',
     'blog.article.lavoro-sommerso-varesotto.excerpt': '46 casi di lavoro ‘sommerso’ scovati in pochi mesi nel Varesotto',
     'blog.article.lavoro-sommerso-varesotto.imageAlt': 'Foto di un valico montano in Ticino con una strada secondaria scura e tortuosa',
+    'blog.article.rissa-lavena-ponte-tres.title': 'Rissa nella notte a Lavena Ponte Tresa, due stranieri in ospedale',
+    'blog.article.rissa-lavena-ponte-tres.excerpt': 'Una rissa notturna a Lavena Ponte Tresa ha lasciato due stranieri in ospedale. La polizia è sul posto per indagare.',
+    'blog.article.rissa-lavena-ponte-tres.imageAlt': 'La polizia indaga sulla rissa notturna a Lavena Ponte Tresa',
 };
 
 export default blogMetaIt;

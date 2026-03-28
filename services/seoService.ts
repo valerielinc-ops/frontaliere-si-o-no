@@ -1749,6 +1749,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-prezzi-carburanti-ticino-marzo-2026': { name: 'Prezzi del carburante in Europa', path: '/articoli-frontaliere/prezzi-carburanti-ticino-marzo-2026', parent: 'blog' },
     'blog-via-francisca-cammino': { name: 'Via Francisca del Lucomagno', path: '/articoli-frontaliere/via-francisca-cammino', parent: 'blog' },
     'blog-lavoro-sommerso-varesotto': { name: 'Lavoro ‘sommerso’', path: '/articoli-frontaliere/lavoro-sommerso-varesotto', parent: 'blog' },
+    'blog-rissa-lavena-ponte-tres': { name: 'Sicurezza', path: '/articoli-frontaliere/rissa-lavena-ponte-tres', parent: 'blog' },
   };
 
   const info = sectionNames[section];

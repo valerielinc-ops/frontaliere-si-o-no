@@ -1829,6 +1829,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-sommerso-varesotto.title': 'Underground Work in Varesotto, 46 Cases Discovered in a Few Months',
     'blog.article.lavoro-sommerso-varesotto.excerpt': '46 Cases of Underground Work Discovered in a Few Months in Varesotto',
     'blog.article.lavoro-sommerso-varesotto.imageAlt': 'Photo of a mountain pass in Ticino with a dark and winding secondary road',
+    'blog.article.rissa-lavena-ponte-tres.title': 'Brawl in the night in Lavena Ponte Tresa, two foreigners in hospital',
+    'blog.article.rissa-lavena-ponte-tres.excerpt': 'A night-time brawl in Lavena Ponte Tresa has left two foreigners in hospital. The police are on the scene to investigate.',
+    'blog.article.rissa-lavena-ponte-tres.imageAlt': 'Police investigate a night brawl in Lavena Ponte Tresa',
 };
 
 export default blogMetaEn;
