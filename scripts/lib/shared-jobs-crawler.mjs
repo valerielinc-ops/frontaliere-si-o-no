@@ -1763,10 +1763,18 @@ function ensureLocaleFields(job) {
     // When shouldRegenerateLocalizedSlug fires but the derived slug is essentially the same as
     // the current one (e.g. an English job title that produces identical IT and EN slugs), skip
     // regeneration to avoid unnecessary URL churn and the appended hash suffix.
-    const cleanCurrentSlug =
+    const willDiscardSlug =
       isLowQualityLocalizedSlug(currentSlug) ||
-      (shouldRegenerateLocalizedSlug && !isSlugStable(currentSlug, derivedSlug))
-        ? '' : currentSlug;
+      (shouldRegenerateLocalizedSlug && !isSlugStable(currentSlug, derivedSlug));
+    // Save old locale slug before discarding so the build plugin can generate bridge/redirect
+    // pages for previously-indexed locale URLs (prevents SEO 404s on locale-specific paths).
+    if (willDiscardSlug && currentSlug) {
+      if (!Array.isArray(out.previousSlugs)) out.previousSlugs = [];
+      if (!out.previousSlugs.includes(currentSlug)) {
+        out.previousSlugs.push(currentSlug);
+      }
+    }
+    const cleanCurrentSlug = willDiscardSlug ? '' : currentSlug;
     // Append stable fingerprint hash to new slugs for URL-identified jobs
     const localizedSlug =
       cleanCurrentSlug ||

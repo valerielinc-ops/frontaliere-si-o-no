@@ -279,6 +279,23 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
       }
     }
 
+    // Sync previousSlugs from assembled dataset to per-crawler file so bridge pages
+    // are generated even when slug changes happened in the assembled pipeline.
+    if (assembled.previousSlugs && Array.isArray(assembled.previousSlugs)) {
+      if (!crawlerJob.previousSlugs) crawlerJob.previousSlugs = [];
+      const currentSlugs = new Set(
+        Object.values(crawlerJob.slugByLocale || {})
+          .map((s) => String(s).trim())
+          .filter(Boolean)
+      );
+      for (const s of assembled.previousSlugs) {
+        if (s && !crawlerJob.previousSlugs.includes(s) && !currentSlugs.has(s)) {
+          crawlerJob.previousSlugs.push(s);
+          changed = true;
+        }
+      }
+    }
+
     // Clear needsRetranslation flag only if job is now complete (all locales translated)
     if (crawlerJob.needsRetranslation && !isIncomplete(crawlerJob)) {
       delete crawlerJob.needsRetranslation;

@@ -800,12 +800,20 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   for (const job of raw) {
     let jobChanged = false;
 
-    // Snapshot all current slugs before hardening so we can detect renames
+    // Snapshot all current slugs before hardening so we can detect renames.
+    // slugsBefore: Set for detecting globally-lost slugs (e.g. job.slug rename).
+    // slugsByLocaleBefore: per-locale map for detecting locale-specific slug changes
+    // even when the old slug value is still present in a different locale (e.g. EN==IT before).
     const slugsBefore = new Set();
     if (job.slug) slugsBefore.add(String(job.slug).trim());
+    const slugsByLocaleBefore = {};
     if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-      for (const s of Object.values(job.slugByLocale)) {
-        if (s) slugsBefore.add(String(s).trim());
+      for (const [locale, s] of Object.entries(job.slugByLocale)) {
+        if (s) {
+          const trimmed = String(s).trim();
+          slugsBefore.add(trimmed);
+          slugsByLocaleBefore[locale] = trimmed;
+        }
       }
     }
 
@@ -1105,8 +1113,20 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           if (s) slugsAfter.add(String(s).trim());
         }
       }
-      // Any slug that existed before but is no longer current → preserve as alias
-      const lost = [...slugsBefore].filter((s) => s && !slugsAfter.has(s));
+      // Any slug that existed before but is no longer current → preserve as alias.
+      // Global check: slug completely gone from all locales.
+      const lostGlobal = [...slugsBefore].filter((s) => s && !slugsAfter.has(s));
+      // Per-locale check: a locale's slug changed even if the old value still appears
+      // in a different locale (e.g. EN was == IT before, now IT kept the slug but EN changed).
+      const lostPerLocale = new Set();
+      for (const [locale, oldSlug] of Object.entries(slugsByLocaleBefore)) {
+        const newSlug = job.slugByLocale?.[locale];
+        const newSlugTrimmed = newSlug ? String(newSlug).trim() : '';
+        if (newSlugTrimmed !== oldSlug) {
+          lostPerLocale.add(oldSlug);
+        }
+      }
+      const lost = [...new Set([...lostGlobal, ...lostPerLocale])];
       if (lost.length > 0) {
         if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
         const existing = new Set(job.previousSlugs);
