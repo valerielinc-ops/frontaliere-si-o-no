@@ -1,6 +1,6 @@
 {
   "crawlerKey": "has-healthcare",
-  "assembledAt": "2026-03-28T13:41:19.128Z",
+  "assembledAt": "2026-03-28T21:15:52.325Z",
   "jobs": [
     {
       "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
@@ -31,7 +31,7 @@
         "fr": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Tecnica/o diplomata/o SSS costruzioni meccaniche.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Scuole superiori\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera"
       },
       "slugByLocale": {
-        "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca",
+        "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
         "en": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
         "de": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
         "fr": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
@@ -41,12 +41,10 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca",
+      "slug": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
-      "previousSlugs": [
-        "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare"
-      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -106,6 +104,7 @@
       },
       "crawledAt": "",
       "slug": "hse-specialista-has-healthcare-advanced-synthesis-biasca",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
@@ -171,6 +170,7 @@
       },
       "crawledAt": "",
       "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
@@ -235,8 +235,10 @@
       },
       "crawledAt": "",
       "slug": "production-manager-has-healthcare",
+      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
+      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",

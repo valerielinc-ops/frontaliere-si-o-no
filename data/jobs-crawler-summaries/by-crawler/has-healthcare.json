@@ -1,16 +1,16 @@
 {
   "key": "has-healthcare",
   "label": "HAS Healthcare",
-  "generatedAt": "2026-03-28T09:29:06.204Z",
+  "generatedAt": "2026-03-28T21:15:52.325Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6648,
-  "avgDurationMs": 6648,
+  "durationMs": 6577,
+  "avgDurationMs": 6577,
   "durationHistory": [
-    6648
+    6577
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -45,7 +45,7 @@
         "fr": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Tecnica/o diplomata/o SSS costruzioni meccaniche.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Scuole superiori\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera"
       },
       "slugByLocale": {
-        "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca",
+        "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
         "en": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
         "de": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
         "fr": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
@@ -55,13 +55,10 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca",
+      "slug": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
-      "previousSlugs": [
-        "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare"
-      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -255,6 +252,7 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
+      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
