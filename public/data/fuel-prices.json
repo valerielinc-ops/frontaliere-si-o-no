@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-28T15:01:58.269Z",
+  "generatedAt": "2026-03-28T15:58:45.628Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 237,
-      "latestObservedUpdate": "2026-03-28T14:50:36.548Z"
+      "latestObservedUpdate": "2026-03-28T15:05:30.176Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -15669,7 +15669,7 @@
             "lat": 46.02229342203902,
             "lng": 8.975975510092448,
             "sp95PriceChf": 1.86,
-            "updatedAt": "2026-03-25T17:27:15.263Z",
+            "updatedAt": "2026-03-28T15:05:30.176Z",
             "nearestMunicipality": "Valsolda (CO)",
             "nearestMunicipalityDistanceKm": 5.3,
             "sp95PriceEur": 2.027,
