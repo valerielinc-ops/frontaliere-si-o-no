@@ -1823,6 +1823,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prezzi-carburanti-ticino-marzo-2026.title': 'Europe Takes Action: Spain Cuts Fuel Prices by 30 Cents per Litre',
     'blog.article.prezzi-carburanti-ticino-marzo-2026.excerpt': 'Spain Becomes First European Country to Cut Fuel Prices Amid Rising Energy Costs.',
     'blog.article.prezzi-carburanti-ticino-marzo-2026.imageAlt': 'Panoramic view of Lake Lugano with the city of Lugano.',
+    'blog.article.via-francisca-cammino.title': 'Francisca Trail, from Lavena Ponte Tresa',
+    'blog.article.via-francisca-cammino.excerpt': 'The walk for the 10th anniversary of the Francisca del Lucomagno trail has started from Lavena Ponte Tresa',
+    'blog.article.via-francisca-cammino.imageAlt': 'Hiker on the Via Francisca del Lucomagno',
 };
 
 export default blogMetaEn;

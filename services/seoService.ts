@@ -1747,6 +1747,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congresso-svizzera-italia-varese-2026': { name: 'Congresso 2026', path: '/articoli-frontaliere/congresso-svizzera-italia-varese-2026', parent: 'blog' },
     'blog-processo-mendrisio-19-capit': { name: 'Processo Mendrisio', path: '/articoli-frontaliere/processo-mendrisio-19-capit', parent: 'blog' },
     'blog-prezzi-carburanti-ticino-marzo-2026': { name: 'Prezzi del carburante in Europa', path: '/articoli-frontaliere/prezzi-carburanti-ticino-marzo-2026', parent: 'blog' },
+    'blog-via-francisca-cammino': { name: 'Via Francisca del Lucomagno', path: '/articoli-frontaliere/via-francisca-cammino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

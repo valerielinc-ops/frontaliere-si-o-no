@@ -1823,6 +1823,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prezzi-carburanti-ticino-marzo-2026.title': 'L\'Europa corre ai ripari: la Spagna riduce i prezzi del carburante di 30 centesimi al litro',
     'blog.article.prezzi-carburanti-ticino-marzo-2026.excerpt': 'La Spagna è il primo paese europeo a ridurre i prezzi del carburante dopo la crescita dei prezzi energetici.',
     'blog.article.prezzi-carburanti-ticino-marzo-2026.imageAlt': 'Panoramica del lago di Lugano con la città di Lugano.',
+    'blog.article.via-francisca-cammino.title': 'Cammino Via Francisca, da Lavena Ponte Tresa',
+    'blog.article.via-francisca-cammino.excerpt': 'Il cammino per i 10 anni del percorso della Via Francisca del Lucomagno è partito da Lavena Ponte Tresa',
+    'blog.article.via-francisca-cammino.imageAlt': 'Camminatore sulla Via Francisca del Lucomagno',
 };
 
 export default blogMetaIt;

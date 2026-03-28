@@ -8728,6 +8728,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-via-francisca-cammino': {
+    title: 'Cammino Via Francisca, da Lavena Ponte Tresa | Frontaliere Ticino',
+    description: 'Il cammino della Via Francisca del Lucomagno è partito da Lavena Ponte Tresa per celebrare i 10 anni del percorso. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, cammino, francisca, lavena, ponte',
+    ogTitle: 'Cammino Via Francisca del Lucomagno',
+    ogDescription: 'Il cammino della Via Francisca del Lucomagno è partito da Lavena Ponte Tresa',
+    canonicalPath: '/articoli-frontaliere/via-francisca-cammino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cammino Via Francisca del Lucomagno",
+      "description": "Il cammino della Via Francisca del Lucomagno è partito da Lavena Ponte Tresa per celebrare i 10 anni del percorso. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/via-francisca-cammino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camminatore sulla Via Francisca del Lucomagno"
+      },
+      "datePublished": "2026-03-28T09:50:39+00:00",
+      "dateModified": "2026-03-28T09:50:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/via-francisca-cammino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

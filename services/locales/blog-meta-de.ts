@@ -1823,6 +1823,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prezzi-carburanti-ticino-marzo-2026.title': 'Die Europäische Union reagiert: Spanien senkt die Kraftstoffpreise um 30 Cent pro Liter',
     'blog.article.prezzi-carburanti-ticino-marzo-2026.excerpt': 'Spanien ist der erste europäische Land, das die Kraftstoffpreise nach dem Anstieg der Energiepreise senkt.',
     'blog.article.prezzi-carburanti-ticino-marzo-2026.imageAlt': 'Panoramablick auf das Luganer See mit der Stadt Lugano.',
+    'blog.article.via-francisca-cammino.title': 'Wanderweg Via Francisca, von Lavena Ponte Tresa',
+    'blog.article.via-francisca-cammino.excerpt': 'Der Wanderweg zum 10-jährigen Jubiläum des Via Francisca del Lucomagno-Wegs ist in Lavena Ponte Tresa gestartet',
+    'blog.article.via-francisca-cammino.imageAlt': 'Wanderer auf der Via Francisca del Lucomagno',
 };
 
 export default blogMetaDe;
