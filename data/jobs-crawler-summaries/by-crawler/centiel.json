@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-03-28T09:09:27.563Z",
+  "generatedAt": "2026-03-28T20:56:16.378Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 1225,
-  "avgDurationMs": 1225,
+  "durationMs": 1241,
+  "avgDurationMs": 1241,
   "durationHistory": [
-    1225
+    1241
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,14 +53,12 @@
       },
       "slugByLocale": {
         "it": "application-ingegnere-critical-power-centiel-lugano",
-        "en": "application-engineer-critical-power-centiel-lugano",
+        "en": "application-engineer-critical-power-centiel-ticino",
         "de": "application-ingenieur-critical-power-centiel-lugano",
         "fr": "application-ingenieur-critical-power-centiel-lugano"
       },
       "needsRetranslation": true,
-      "previousSlugs": [
-        "application-engineer-critical-power-centiel-ticino"
-      ],
+      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -175,7 +173,7 @@
       },
       "slugByLocale": {
         "it": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
-        "en": "sales-3-phase-ups-channel-partners-manager-centiel-lugano",
+        "en": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
         "de": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
         "fr": "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
       },
@@ -238,6 +236,7 @@
         "fr": "after-sales-technicien-centiel-lugano"
       },
       "needsRetranslation": true,
+      "previousSlugs": [],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
