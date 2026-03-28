@@ -81,7 +81,7 @@ function needsTranslation(job) {
  * Check if a job has incomplete locale coverage.
  * Returns true if any locale is missing an adequate title or description.
  */
-function isIncomplete(job) {
+export function isIncomplete(job) {
   const dbl = job.descriptionByLocale || {};
   const tbl = job.titleByLocale || {};
   const sourceTitle = (job.title || '').trim().toLowerCase();
@@ -94,8 +94,19 @@ function isIncomplete(job) {
     // Missing or too short
     if (title.length < MIN_TITLE_CHARS || desc.length < MIN_DESC_CHARS) return true;
 
-    // Untranslated (title identical to source in a different language)
-    if (title.toLowerCase() === sourceTitle && locale !== (job.sourceLang || 'it')) return true;
+    // Untranslated (title identical to source in a different language).
+    // Cross-locale guard: if at least one other non-source locale has a different title,
+    // the source content is genuinely multilingual (e.g. English title stays English)
+    // and this locale is NOT a false positive.
+    if (title.toLowerCase() === sourceTitle && locale !== (job.sourceLang || 'it')) {
+      const otherLocalesTranslated = LOCALES.some(
+        (l) =>
+          l !== locale &&
+          l !== (job.sourceLang || 'it') &&
+          (tbl[l] || '').trim().toLowerCase() !== sourceTitle,
+      );
+      if (!otherLocalesTranslated) return true;
+    }
 
     // Description identical to source (not translated)
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
