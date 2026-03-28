@@ -43,6 +43,7 @@ import {
   dedupHeuristicKey as _dedupHeuristicKey,
   ensureJobSlug as _ensureJobSlug,
   stableSlugHash as _stableSlugHash,
+  isSlugStable as _isSlugStable,
   buildStableId as _buildStableId,
   loadSlugRegistry as _loadSlugRegistry,
   saveSlugRegistry as _saveSlugRegistry,
@@ -130,6 +131,7 @@ const fingerprintJob = _fingerprintJob;
 const dedupHeuristicKey = _dedupHeuristicKey;
 const ensureJobSlug = _ensureJobSlug;
 const stableSlugHash = _stableSlugHash;
+const isSlugStable = _isSlugStable;
 const buildStableId = _buildStableId;
 const loadSlugRegistry = _loadSlugRegistry;
 const saveSlugRegistry = _saveSlugRegistry;
@@ -1750,15 +1752,21 @@ function ensureLocaleFields(job) {
       currentSlug &&
       baseItSlug &&
       currentSlug === baseItSlug;
-    const cleanCurrentSlug =
-      isLowQualityLocalizedSlug(currentSlug) || shouldRegenerateLocalizedSlug ? '' : currentSlug;
     // Use heuristic (deterministic) translation for slug derivation, not AI title
+    // Computed before cleanCurrentSlug so it can be used in the stability check below.
     const slugSourceTitle = heuristicTranslateJobTitle(out.title, locale) || localizedTitle;
     const hashSuffix = stableSlugHash(out);
     const derivedSlug =
       slugify(`${slugSourceTitle}-${out.company || ''}-${out.location || ''}`) ||
       slugify(slugSourceTitle) ||
       normalizeSpace(out.slug || '');
+    // When shouldRegenerateLocalizedSlug fires but the derived slug is essentially the same as
+    // the current one (e.g. an English job title that produces identical IT and EN slugs), skip
+    // regeneration to avoid unnecessary URL churn and the appended hash suffix.
+    const cleanCurrentSlug =
+      isLowQualityLocalizedSlug(currentSlug) ||
+      (shouldRegenerateLocalizedSlug && !isSlugStable(currentSlug, derivedSlug))
+        ? '' : currentSlug;
     // Append stable fingerprint hash to new slugs for URL-identified jobs
     const localizedSlug =
       cleanCurrentSlug ||
