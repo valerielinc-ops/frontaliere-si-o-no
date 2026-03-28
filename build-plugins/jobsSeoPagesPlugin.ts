@@ -1310,6 +1310,12 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       }
 
       /* ── Company landing pages ────────────────────────────────── */
+      // Truncate title to ≤65 chars at the last word boundary (Bing display limit)
+      const truncTitle = (s: string, max = 65): string => {
+        if (s.length <= max) return s;
+        const cut = s.lastIndexOf(' ', max - 1);
+        return (cut > 0 ? s.substring(0, cut) : s.substring(0, max - 1)) + '…';
+      };
       const companyCopy: Record<'it' | 'en' | 'de' | 'fr', {
         title: (companyName: string) => string;
         description: (companyName: string, count: number) => string;
@@ -1319,7 +1325,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
         editorial: string;
       }> = {
         it: {
-          title: (companyName: string) => `Offerte di lavoro ${companyName} in Ticino | Frontaliere Ticino`,
+          title: (companyName: string) => truncTitle(`Offerte di lavoro ${companyName} in Ticino | Frontaliere Ticino`),
           description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in Ticino. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
           heading: (companyName: string) => `${companyName} - offerte di lavoro in Ticino`,
           viewAll: 'Vedi tutte le offerte',
@@ -1327,7 +1333,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l\'azienda potrebbe non avere ruoli aperti in Ticino al momento — salva la pagina per ricevere aggiornamenti.',
         },
         en: {
-          title: (companyName: string) => `${companyName} jobs in Ticino | Frontaliere Ticino`,
+          title: (companyName: string) => truncTitle(`${companyName} jobs in Ticino | Frontaliere Ticino`),
           description: (companyName: string, count: number) => `Browse ${count} open roles at ${companyName} in Ticino. Review active listings, locations and official application links.`,
           heading: (companyName: string) => `${companyName} jobs in Ticino`,
           viewAll: 'View all jobs',
@@ -1335,7 +1341,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'This page lists positions published directly on the company\'s career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in Ticino right now — bookmark this page to stay updated.',
         },
         de: {
-          title: (companyName: string) => `${companyName} Jobs im Tessin | Frontaliere Ticino`,
+          title: (companyName: string) => truncTitle(`${companyName} Jobs im Tessin | Frontaliere Ticino`),
           description: (companyName: string, count: number) => `Entdecke ${count} offene Stellen bei ${companyName} im Tessin. Sieh aktive Jobs, Standorte und offizielle Bewerbungslinks.`,
           heading: (companyName: string) => `${companyName} Jobs im Tessin`,
           viewAll: 'Alle Stellen ansehen',
@@ -1343,7 +1349,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen im Tessin.',
         },
         fr: {
-          title: (companyName: string) => `Offres d'emploi ${companyName} au Tessin | Frontaliere Ticino`,
+          title: (companyName: string) => truncTitle(`Offres d'emploi ${companyName} au Tessin | Frontaliere Ticino`),
           description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} au Tessin. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
           heading: (companyName: string) => `${companyName} - offres d'emploi au Tessin`,
           viewAll: 'Voir toutes les offres',
@@ -1444,6 +1450,10 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
     <meta property="og:title" content="${esc(title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(title)}">
     <meta name="twitter:description" content="${esc(description)}">
@@ -1706,6 +1716,10 @@ ${(() => {
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -1860,6 +1874,10 @@ ${alternates}
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -2001,6 +2019,10 @@ ${alternates}
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -2144,6 +2166,10 @@ ${alternates}
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -2286,6 +2312,10 @@ ${alternates}
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -2427,6 +2457,10 @@ ${alternates}
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -2572,6 +2606,10 @@ ${alternates}
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -2716,6 +2754,10 @@ ${alternates}
     <meta property="og:title" content="${esc(model.title)}">
     <meta property="og:description" content="${esc(model.description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="${esc(model.title)}">
     <meta name="twitter:description" content="${esc(model.description)}">
@@ -2969,6 +3011,10 @@ ${(() => {
     <meta property="og:title" content="${esc(copy.title)}">
     <meta property="og:description" content="${esc(description)}">
     <meta property="og:url" content="${canonicalUrl}">
+    <meta property="og:image" content="${BASE_URL}/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:type" content="image/png">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
   </head>

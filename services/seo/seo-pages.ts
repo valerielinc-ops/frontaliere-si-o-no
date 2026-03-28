@@ -1589,7 +1589,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'border-map': {
     title: 'Mappa Comuni di Frontiera | Addizionali IRPEF e Costi',
-    description: 'Mappa interattiva dei comuni italiani di frontiera vicini alla Svizzera. Confronta addizionali IRPEF, distanza dal confine, costo affitti e popolazione per ogni comune.',
+    description: 'Mappa interattiva dei comuni italiani di frontiera con la Svizzera. Confronta addizionali IRPEF, distanza dal confine, affitti e popolazione per ogni comune.',
     keywords: 'comuni frontiera svizzera, mappa comuni frontalieri, addizionale irpef comuni confine, dove vivere frontaliere, comuni como varese frontalieri, affitti comuni frontiera',
     ogTitle: 'Mappa Interattiva Comuni di Frontiera',
     ogDescription: '🗺️ Mappa dei comuni italiani vicini al confine svizzero: addizionali IRPEF, affitti, distanza dal confine.',

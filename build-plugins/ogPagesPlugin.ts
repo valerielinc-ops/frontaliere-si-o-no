@@ -315,10 +315,18 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             de: ' Praxisratgeber und kostenlose Tools für Grenzgänger zwischen der Schweiz und Italien. Frontaliere Ticino.',
             fr: " Guide pratique et outils gratuits pour travailleurs frontaliers entre la Suisse et l'Italie. Frontaliere Ticino.",
           };
-          const metaDesc = (localeForMeta && localizedDesc.length < 150)
+          const metaDescRaw = (localeForMeta && localizedDesc.length < 150)
             ? localizedDesc + (LOCALE_DESC_CONTEXT[localeForMeta] ?? '')
             : localizedDesc;
+          // Truncate to ≤155 chars for Bing/Google snippet display
+          const metaDesc = metaDescRaw.length > 155
+            ? metaDescRaw.substring(0, 152) + '…'
+            : metaDescRaw;
           const localizedPageTitle = localizedMeta?.title ? `${localizedMeta.title} | Frontaliere Ticino` : en.title;
+          // Truncate to ≤65 chars for HTML <title> (Bing display limit); OG title keeps full value
+          const htmlPageTitle = localizedPageTitle.length > 65
+            ? localizedPageTitle.substring(0, 64) + '…'
+            : localizedPageTitle;
           const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
           const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
           const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
@@ -423,7 +431,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
           const headTags = `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${esc(localizedPageTitle)}</title>
+    <title>${esc(htmlPageTitle)}</title>
     <meta name="description" content="${esc(metaDesc)}">
     <link rel="canonical" href="${full}">
     <meta property="og:type" content="article">
