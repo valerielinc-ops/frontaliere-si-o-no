@@ -1814,6 +1814,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aggregazione-rischio-basso-mendrisiotto.title': 'Aggregazione Basso Mendrisiotto auf dem Prüfstand: der Schuldenberg hält Terre di Breggia zurück',
     'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'Nach 2,5 Jahren Verhandlungen steht das Fusionprojekt zwischen Balerna, Breggia, Chiasso, Morbio und Vacallo aufgrund der Schulden von 140 Millionen Franken aus Chiasso still. Rizza (Vacallo) fordert Garantien, Arrigoni (Chiasso) entgegnet: Wir haben bereits 3 Millionen Franken pro Jahr gespart. Der Kanton bewertet die Aussetzung.',
     'blog.article.aggregazione-rischio-basso-mendrisiotto.imageAlt': 'Rathaus von Chiasso bei Sonnenuntergang',
+    'blog.article.congresso-svizzera-italia-varese-2026.title': 'Schweiz-Italien-Kongress in Varese: Steuer-Updates für Tessiner Grenzgänger',
+    'blog.article.congresso-svizzera-italia-varese-2026.excerpt': 'Am 16. April 2026 in Villa Andrea informieren Expertinnen und Institutionen über steuerliche, soziale und rechtliche Neuerungen für Menschen, die zwischen Italien und der Schweiz leben und arbeiten.',
+    'blog.article.congresso-svizzera-italia-varese-2026.imageAlt': 'Villa Andrea in Varese, Veranstaltungsort des Schweizer‑Italienischen Kongresses 2026, bei Sonnenuntergang mit Blick auf die Grenze.',
 };
 
 export default blogMetaDe;

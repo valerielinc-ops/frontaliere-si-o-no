@@ -1814,6 +1814,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aggregazione-rischio-basso-mendrisiotto.title': 'Low Mendrisiotto merger at risk: debt stalls Terre di Breggia',
     'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'After 2.5 years of talks, the merger plan between Balerna, Breggia, Chiasso, Morbio and Vacallo founders on Chiasso’s 140-million debt. Rizza (Vacallo) demands guarantees, Arrigoni (Chiasso) replies: «We already cut 3 million a year». The Canton weighs suspension.',
     'blog.article.aggregazione-rischio-basso-mendrisiotto.imageAlt': 'Chiasso town hall at sunset',
+    'blog.article.congresso-svizzera-italia-varese-2026.title': 'Switzerland-Italy Congress in Varese: tax updates for Ticino cross-border workers',
+    'blog.article.congresso-svizzera-italia-varese-2026.excerpt': 'On 16 April 2026 at Villa Andrea, experts and institutions will present the latest tax, pension and regulatory developments for those who live and work between Italy and Switzerland.',
+    'blog.article.congresso-svizzera-italia-varese-2026.imageAlt': 'Villa Andrea in Varese, venue of the 2026 Swiss‑Italy Congress, at sunset with a view of the Italian‑Swiss border.',
 };
 
 export default blogMetaEn;

@@ -5424,4 +5424,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/aggregazione-rischio-basso-mendrisiotto.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'congresso-svizzera-italia-varese-2026',
+    category: 'fiscale',
+    date: '2026-03-28T02:56:51.896Z',
+    image: '/images/blog/congresso-svizzera-italia-varese-2026.jpg',
+    hasCalculator: true,
+  },
 ];

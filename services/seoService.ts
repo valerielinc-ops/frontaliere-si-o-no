@@ -1744,6 +1744,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-piu-interventi-soccorso-meno-vittime-montagna-ticino-2025': { name: 'Più interventi di soccorso, ma meno', path: '/articoli-frontaliere/piu-interventi-soccorso-meno-vittime-montagna-ticino-2025', parent: 'blog' },
     'blog-nei-test-neonati-ticinesi': { name: 'Test neonati', path: '/articoli-frontaliere/nei-test-neonati-ticinesi', parent: 'blog' },
     'blog-aggregazione-rischio-basso-mendrisiotto': { name: 'Aggregazione a rischio', path: '/articoli-frontaliere/aggregazione-rischio-basso-mendrisiotto', parent: 'blog' },
+    'blog-congresso-svizzera-italia-varese-2026': { name: 'Congresso 2026', path: '/articoli-frontaliere/congresso-svizzera-italia-varese-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

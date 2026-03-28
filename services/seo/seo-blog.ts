@@ -8641,6 +8641,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congresso-svizzera-italia-varese-2026': {
+    title: 'Congresso Svizzera‑Italia a Varese: aggiornamenti fiscali per i | Frontaliere Ticino',
+    description: 'Scopri le novità fiscali, previdenziali e normative presentate il 16 aprile 2026 a Varese, pensate per i frontalieri tra Italia e Svizzera. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, congresso, varese, aggiornamenti, fiscali',
+    ogTitle: 'Congresso Svizzera‑Italia a Varese: aggiornamenti per i frontalieri ticinesi',
+    ogDescription: 'Il 16 aprile 2026 a Villa Andrea, esperti illustrano le evoluzioni fiscali e previdenziali per chi vive e lavora tra Italia e Svizzera.',
+    canonicalPath: '/articoli-frontaliere/congresso-svizzera-italia-varese-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\":\"https://schema.org\",\"@type\":\"NewsArticle\",\"headline\":\"Congresso Svizzera‑Italia a",
+      "description": "Scopri le novità fiscali, previdenziali e normative presentate il 16 aprile 2026 a Varese, pensate per i frontalieri tra Italia e Svizzera. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/congresso-svizzera-italia-varese-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Villa Andrea a Varese, sede del Congresso Svizzera‑Italia 2026, al tramonto con vista sul confine italo‑svizzero."
+      },
+      "datePublished": "2026-03-28T02:56:51+00:00",
+      "dateModified": "2026-03-28T02:56:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congresso-svizzera-italia-varese-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

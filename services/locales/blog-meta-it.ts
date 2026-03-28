@@ -1814,6 +1814,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aggregazione-rischio-basso-mendrisiotto.title': 'Aggregazione Basso Mendrisiotto a rischio: il debito ferma Terre di Breggia',
     'blog.article.aggregazione-rischio-basso-mendrisiotto.excerpt': 'Dopo 2,5 anni di trattative, il progetto di fusione tra Balerna, Breggia, Chiasso, Morbio e Vacallo si arena sul debito di 140 milioni di Chiasso. Rizza (Vacallo) chiede garanzie, Arrigoni (Chiasso) replica: «Abbiamo già tagliato 3 milioni l’anno». Il Canton valuta la sospensione.',
     'blog.article.aggregazione-rischio-basso-mendrisiotto.imageAlt': 'Municipio di Chiasso al tramonto',
+    'blog.article.congresso-svizzera-italia-varese-2026.title': 'Congresso Svizzera‑Italia a Varese: aggiornamenti fiscali per i frontalieri ticinesi',
+    'blog.article.congresso-svizzera-italia-varese-2026.excerpt': 'Il 16 aprile 2026 a Villa Andrea, esperti e istituzioni illustreranno le novità fiscali, previdenziali e normative per chi vive e lavora tra Italia e Svizzera.',
+    'blog.article.congresso-svizzera-italia-varese-2026.imageAlt': 'Villa Andrea a Varese, sede del Congresso Svizzera‑Italia 2026, al tramonto con vista sul confine italo‑svizzero.',
 };
 
 export default blogMetaIt;
