@@ -1838,6 +1838,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.cassa-malati-leghista-applicata-subito.title': 'Health Insurance Fund: Let\'s Apply the Lega dei Ticinesi Initiative Immediately',
     'blog.article.cassa-malati-leghista-applicata-subito.excerpt': 'The Lega dei Ticinesi is calling for the full tax deductibility of health insurance premiums. The Federal Council has announced its plan: partial application of the initiatives and implementation conditional on financial coverage. ⚠️',
     'blog.article.cassa-malati-leghista-applicata-subito.imageAlt': 'A man receives a sickness benefit in Lugano',
+    'blog.article.ronte-tresa-rissa.title': 'Brawl in Ponte Tresa',
+    'blog.article.ronte-tresa-rissa.excerpt': 'Two people were hospitalized after a violent brawl in Ponte Tresa overnight.',
+    'blog.article.ronte-tresa-rissa.imageAlt': 'Ponte Tresa after a brawl',
 };
 
 export default blogMetaEn;

@@ -1838,6 +1838,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cassa-malati-leghista-applicata-subito.title': 'Kassenprämien: Die Lega-Ticinesi-Initiative soll sofort umgesetzt werden',
     'blog.article.cassa-malati-leghista-applicata-subito.excerpt': 'Die Lega der Ticinesi fordert die vollständige steuerliche Abzugsfähigkeit der Kassenprämien. Der Staaterrat kündigt seinen Plan an: Teilumsetzung der Initiativen und Verbindlichkeit an die Finanzdeckung.',
     'blog.article.cassa-malati-leghista-applicata-subito.imageAlt': 'Ein Mann erhält eine Krankengeld in Lugano',
+    'blog.article.ronte-tresa-rissa.title': 'Schlägerei in Ponte Tresa',
+    'blog.article.ronte-tresa-rissa.excerpt': 'Zwei Personen sind nach einer heftigen Schlägerei in der Nacht in Ponte Tresa ins Krankenhaus eingeliefert worden.',
+    'blog.article.ronte-tresa-rissa.imageAlt': 'Ponte Tresa nach einer Schlägerei',
 };
 
 export default blogMetaDe;

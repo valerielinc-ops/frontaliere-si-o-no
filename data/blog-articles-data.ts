@@ -5480,4 +5480,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/cassa-malati-leghista-applicata-subito.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ronte-tresa-rissa',
+    category: 'pratico',
+    date: '2026-03-29T09:51:18.167Z',
+    image: '/images/blog/ronte-tresa-rissa.jpg',
+    hasCalculator: true,
+  },
 ];
