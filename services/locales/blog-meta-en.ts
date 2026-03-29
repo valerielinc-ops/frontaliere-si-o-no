@@ -1832,6 +1832,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rissa-lavena-ponte-tres.title': 'Brawl in the night in Lavena Ponte Tresa, two foreigners in hospital',
     'blog.article.rissa-lavena-ponte-tres.excerpt': 'A night-time brawl in Lavena Ponte Tresa has left two foreigners in hospital. The police are on the scene to investigate.',
     'blog.article.rissa-lavena-ponte-tres.imageAlt': 'Police investigate a night brawl in Lavena Ponte Tresa',
+    'blog.article.magliaso-zona-educativa-ripresa.title': 'Construction Work on Magliaso\'s New Primary School Has Begun',
+    'blog.article.magliaso-zona-educativa-ripresa.excerpt': 'The new primary school in Magliaso will be ready for the 2028/2029 academic year',
+    'blog.article.magliaso-zona-educativa-ripresa.imageAlt': 'Elementary school in Magliaso during outdoor activities',
 };
 
 export default blogMetaEn;

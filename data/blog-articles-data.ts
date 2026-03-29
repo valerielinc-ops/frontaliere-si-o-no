@@ -5466,4 +5466,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/rissa-lavena-ponte-tres.jpg',
     hasCalculator: false,
   },
+  {
+    id: 'magliaso-zona-educativa-ripresa',
+    category: 'novita',
+    date: '2026-03-29T03:33:28.161Z',
+    image: '/images/blog/magliaso-zona-educativa-ripresa.jpg',
+    hasCalculator: true,
+  },
 ];

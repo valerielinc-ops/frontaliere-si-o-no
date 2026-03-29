@@ -1832,6 +1832,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rissa-lavena-ponte-tres.title': 'Rissa nella notte a Lavena Ponte Tresa, due stranieri in ospedale',
     'blog.article.rissa-lavena-ponte-tres.excerpt': 'Una rissa notturna a Lavena Ponte Tresa ha lasciato due stranieri in ospedale. La polizia è sul posto per indagare.',
     'blog.article.rissa-lavena-ponte-tres.imageAlt': 'La polizia indaga sulla rissa notturna a Lavena Ponte Tresa',
+    'blog.article.magliaso-zona-educativa-ripresa.title': 'I lavori per la nuova scuola elementare di Magliaso sono stati avviati',
+    'blog.article.magliaso-zona-educativa-ripresa.excerpt': 'La nuova scuola elementare di Magliaso sarà pronta per l\'anno scolastico 2028/2029',
+    'blog.article.magliaso-zona-educativa-ripresa.imageAlt': 'Scuola elementare di Magliaso durante l\'ora di attività all\'aperto',
 };
 
 export default blogMetaIt;

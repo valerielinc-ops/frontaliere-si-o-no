@@ -8815,6 +8815,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-magliaso-zona-educativa-ripresa': {
+    title: 'I lavori per la nuova scuola elementare di Magliaso sono stati avviati | Frontaliere Ticino',
+    description: 'La comunità locale di Magliaso è entusiasta della nuova scuola elementare, che promette di offrire un ambiente educativo moderno e funzionale per gli studenti.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, nuova, scuola, elementare',
+    ogTitle: 'La nuova scuola elementare di Magliaso',
+    ogDescription: 'La comunità locale di Magliaso è entusiasta della nuova scuola elementare, che promette di offrire un ambiente educativo moderno e funzionale per gli studenti.',
+    canonicalPath: '/articoli-frontaliere/magliaso-zona-educativa-ripresa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La nuova scuola elementare di Magliaso: un investimento per il futuro",
+      "description": "La comunità locale di Magliaso è entusiasta della nuova scuola elementare, che promette di offrire un ambiente educativo moderno e funzionale per gli studenti.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/magliaso-zona-educativa-ripresa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola elementare di Magliaso durante l'ora di attività all'aperto"
+      },
+      "datePublished": "2026-03-29T03:33:28+00:00",
+      "dateModified": "2026-03-29T03:33:28+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/magliaso-zona-educativa-ripresa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
