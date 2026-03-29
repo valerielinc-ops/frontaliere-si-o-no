@@ -97,7 +97,9 @@ export function parseAplusListings(html = '') {
         card.querySelector('.subtitle__informations[title="Location"]') ||
         card.querySelector('.subtitle__informations');
 
-      const location = normalizeSpace(locationSpan?.textContent || '');
+      const rawLoc = normalizeSpace(locationSpan?.textContent || '');
+      // Strip country suffixes (e.g. "Chiasso Svizzera" → "Chiasso")
+      const location = rawLoc.replace(/\s+(?:svizzera|suisse|schweiz|switzerland|italia|italy|italien|italie)\s*$/i, '').trim() || rawLoc;
       const teaser = normalizeSpace(card.querySelector('.vacancy__description')?.textContent || '');
 
       return { href, title, location, teaser };
@@ -122,7 +124,10 @@ export function parseAplusJobDetail(html = '', pageUrl = '') {
     );
     // If the locality is purely numeric (a postal code, not a city name),
     // discard it — the crawler will fall back to listing location or HQ default.
-    const addressLocality = /^\d+$/.test(rawLocality) ? '' : rawLocality;
+    // Also strip country suffixes (e.g. "Chiasso Svizzera" → "Chiasso").
+    const cleaned = rawLocality
+      .replace(/\s+(?:svizzera|suisse|schweiz|switzerland|italia|italy|italien|italie)\s*$/i, '').trim();
+    const addressLocality = /^\d+$/.test(cleaned) ? '' : cleaned;
     const description = typeof jsonLd.description === 'string'
       ? htmlFragmentToMarkdown(jsonLd.description)
       : '';

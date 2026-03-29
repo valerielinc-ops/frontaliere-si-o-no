@@ -5,7 +5,7 @@ export const DEFAULT_JOB_LOCALES = ['it', 'en', 'de', 'fr'];
 const TITLE_HINTS = {
   en: [
     /\b(engineer|specialist|manager|coordinator|developer|scientist|designer|analyst|quality|project|customer|backend|frontend|software|full[\s-]?stack|intern|internship|associate|banking|all[\s-]?rounder|technician|process|operations?|sales|marketing|support|advisor|consultant|lead|head|product|application|supply chain|research|fellowship|student|position|coach|allocator|librarian|paid media|seo|life science)\b/gi,
-    /\b(jr|sr)\b/gi,
+    // Note: "jr"/"sr" removed from EN-only hints — they are used across IT/EN/DE/FR job titles
   ],
   de: [
     /\b(mitarbeiter|fachspezialist|fachfrau|fachmann|oberarzt|arzt|pflege|leiter|logistik|spital|praktikant|qualitat|qualität|ingenieur|techniker|verantwortliche|verantwortlicher|diatkoch|diätkoch|apotheker|systemgastronomie|systemgastronomiefachfrau|systemgastronomiefachmann|sekretär|sekretärin|onkologie|hämatologie|rayonleiter|metzger|detailhandelsfachfrau|detailhandelsfachmann|medizinische|berufsbildner|assistenzarzt|pflegefach|chefarzt)\b/gi,

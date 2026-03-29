@@ -1747,13 +1747,7 @@ function ensureLocaleFields(job) {
       : localizedTitleRaw;
     const currentSlug = normalizeSpace(slugByLocale[locale] || '');
     const baseItSlug = normalizeSpace(slugByLocale.it || out.slug || '');
-    const shouldRegenerateLocalizedSlug =
-      locale !== 'it' &&
-      currentSlug &&
-      baseItSlug &&
-      currentSlug === baseItSlug;
     // Use heuristic (deterministic) translation for slug derivation, not AI title.
-    // Computed before cleanCurrentSlug so it can be used in the stability check below.
     // heuristicTranslateJobTitle may return the input unchanged when no pattern matches —
     // in that case, prefer the AI-translated title from titleByLocale[locale] for the slug.
     const sourceTitle = normalizeSpace(out.title || '');
@@ -1769,6 +1763,17 @@ function ensureLocaleFields(job) {
       slugify(`${slugSourceTitle}-${out.company || ''}-${out.location || ''}`) ||
       slugify(slugSourceTitle) ||
       normalizeSpace(out.slug || '');
+    const shouldRegenerateLocalizedSlug =
+      locale !== 'it' &&
+      currentSlug &&
+      baseItSlug &&
+      (
+        // Case 1: slug is a direct copy of the current IT slug
+        currentSlug === baseItSlug ||
+        // Case 2: locale has a translated title but slug doesn't reflect it
+        // (catches stale copies of a *previous* IT slug after IT was renamed)
+        (localeHasTranslatedTitle && !isSlugStable(currentSlug, derivedSlug))
+      );
     // When shouldRegenerateLocalizedSlug fires but the derived slug is essentially the same as
     // the current one (e.g. an English job title that produces identical IT and EN slugs), skip
     // regeneration to avoid unnecessary URL churn and the appended hash suffix.
