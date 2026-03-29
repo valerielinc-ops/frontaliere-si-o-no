@@ -426,9 +426,15 @@ async function main() {
       }
       return;
     }
-    // Update pending count
+    // Update pending count, re-applying company filter if active
     pending.length = 0;
-    for (const j of stillPendingJobs) pending.push(j);
+    const filtered = COMPANY_KEY_FILTER
+      ? stillPendingJobs.filter(j => normalizeCompanyKey(j.companyKey || j.company || '') === COMPANY_KEY_FILTER)
+      : stillPendingJobs;
+    for (const j of filtered) pending.push(j);
+    if (COMPANY_KEY_FILTER) {
+      console.log(`🎯 Company filter re-applied after pre-clear: ${pending.length} jobs for ${COMPANY_KEY_FILTER}\n`);
+    }
   }
 
   // Build ordered list of (companyKey, jobCount) pairs from priority-sorted pending jobs, capped at MAX_JOBS
