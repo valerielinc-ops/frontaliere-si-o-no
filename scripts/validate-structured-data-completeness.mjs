@@ -94,6 +94,9 @@ function validateDataset(schema, filePath) {
   if (!schema.creator || !isNonEmpty(schema.creator?.name || schema.creator)) {
     errors.push({ file: filePath, type: 'Dataset', field: 'creator', message: 'Dataset missing "creator" or creator.name' });
   }
+  if (!isNonEmpty(schema.license)) {
+    errors.push({ file: filePath, type: 'Dataset', field: 'license', message: 'Dataset missing "license"' });
+  }
   return errors;
 }
 
