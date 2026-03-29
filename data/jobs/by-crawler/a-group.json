@@ -29,7 +29,6 @@
       "description": "Descrizione del ruolo:\n\nSiamo alla ricerca di una/un Ingegnere Edile Junior per il nostro dipartimento Construction. La risorsa, oltre ad operare all’interno dell’ufficio, si recherà regolarmente in cantiere per attività di ispezione sull’avanzamento dei lavori e meeting di coordinamento, supportando i colleghi senior. Il ruolo è fondamentale per garantire la velocità di consegna delle soluzioni tecniche richieste dal Project Manager, mantenendo sempre elevati standard qualitativi.\n\nPrincipali responsabilità:\n\n- Assistenza nella preparazione di richieste dettagliate per l’acquisto di materiali.\n- Revisione delle presentazioni dei disegni dei fornitori e analisi delle offerte tecniche.\n- Supporto nella preparazione di specifiche, schede tecniche e altri documenti di costruzione.\n- Gestione dell’archiviazione dei documenti tecnici.\n- Produzione di report tecnici e di cantiere.",
       "titleByLocale": {
         "it": "Ingegnere edile Jr.",
-        "en": "Ingegnere Edile",
         "de": "Bauingenieur",
         "fr": "Ingénieur du génie civil."
       },
@@ -41,9 +40,9 @@
       },
       "slugByLocale": {
         "it": "ingegnere-edile-jr-a-group-massagno",
-        "en": "ingegnere-edile-jr-a-plus-plus-group-massagno",
-        "de": "ingegnere-edile-jr-a-plus-plus-group-massagno",
-        "fr": "ingegnere-edile-jr-a-plus-plus-group-massagno"
+        "en": "ingegnere-edile-jr-a-group-massagno",
+        "de": "ingegnere-edile-jr-a-group-massagno",
+        "fr": "ingegnere-edile-jr-a-group-massagno"
       },
       "previousSlugs": [],
       "salaryMin": 55500,
@@ -58,7 +57,8 @@
           "maxValue": 75500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Receptionist 100%",
@@ -99,9 +99,9 @@
       },
       "slugByLocale": {
         "it": "receptionist-100-a-group-chiasso",
-        "en": "receptionist-100-a-plus-plus-group-massagno",
-        "de": "receptionist-100-a-plus-plus-group-massagno",
-        "fr": "receptionist-100-a-plus-plus-group-massagno"
+        "en": "receptionist-100-a-group-chiasso",
+        "de": "receptionist-100-a-group-chiasso",
+        "fr": "receptionist-100-a-group-chiasso"
       },
       "previousSlugs": [],
       "salaryMin": 58000,
@@ -116,7 +116,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
