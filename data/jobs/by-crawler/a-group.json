@@ -42,10 +42,12 @@
       "slugByLocale": {
         "it": "ingegnere-edile-jr-a-plus-plus-group-massagno",
         "en": "ingegnere-edile-jr-a-plus-plus-group-massagno",
-        "de": "ingegnere-edile-jr-a-plus-plus-group-massagno",
-        "fr": "ingegnere-edile-jr-a-plus-plus-group-massagno"
+        "de": "junior-bauingenieur-a-group-massagno-s9epo4",
+        "fr": "ingenieur-civil-junior-a-group-massagno-s9epo4"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "ingegnere-edile-jr-a-plus-plus-group-massagno"
+      ],
       "salaryMin": 55500,
       "salaryMax": 75500,
       "currency": "CHF",
@@ -58,8 +60,7 @@
           "maxValue": 75500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Receptionist 100%",
@@ -159,9 +160,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno",
-        "en": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno",
-        "de": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno",
-        "fr": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno"
+        "en": "site-technician-civil-engineer-or-surveyor-a-group-massagno-0k8y3e",
+        "de": "bauingenieur-oder-geometer-bautechniker-a-group-massagno-0k8y3e",
+        "fr": "technicien-de-chantier-ingenieur-civil-ou-geometre-a-group-massagno-0k8y3e"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -176,8 +177,9 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": [],
-      "needsRetranslation": true
+      "previousSlugs": [
+        "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno"
+      ]
     }
   ]
 }
