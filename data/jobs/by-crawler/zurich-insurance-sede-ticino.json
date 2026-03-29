@@ -67,9 +67,9 @@
       "crawledAt": "2026-03-01T09:35:42.148Z",
       "slugByLocale": {
         "it": "apprendistato-di-commercio-afc-lugano-zurich-insurance-sede-ticino-lugano",
-        "en": "commercial-apprenticeship-efz-lugano-zurich-insurance-sede-ticino-lugano",
-        "de": "kaufmannische-lehre-efz-lugano-zurich-insurance-sede-ticino-lugano",
-        "fr": "apprentissage-d-employe-de-commerce-cfc-lugano-zurich-insurance-sede-ticino-lugano"
+        "en": "commercial-apprentice-afc-lugano-zurich-insurance-sede-ticino-lugano-exgf75",
+        "de": "commercial-apprentice-afc-lugano-zurich-insurance-sede-ticino-lugano-exgf75",
+        "fr": "apprenti-commercial-afc-lugano-zurich-insurance-sede-ticino-lugano-exgf75"
       },
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -442,7 +442,12 @@
         }
       },
       "sourceLang": "it",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "commercial-apprenticeship-efz-lugano-zurich-insurance-sede-ticino-lugano",
+        "kaufmannische-lehre-efz-lugano-zurich-insurance-sede-ticino-lugano",
+        "apprentissage-d-employe-de-commerce-cfc-lugano-zurich-insurance-sede-ticino-lugano"
+      ]
     },
     {
       "id": "company-7lqa80",

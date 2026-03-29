@@ -32,9 +32,9 @@
       },
       "slugByLocale": {
         "it": "1-capo-dipartimento-dell-esercizio-f-m-fart",
-        "en": "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-shwwy7",
-        "de": "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-shwwy7",
-        "fr": "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-shwwy7"
+        "en": "1-head-of-operation-department-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-shwwy7",
+        "de": "1-leiter-der-betriebsabteilung-w-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-shwwy7",
+        "fr": "1-chef-du-departement-des-operations-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-shwwy7"
       },
       "_targetScope": {
         "canton": "TI",
@@ -62,7 +62,10 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-shwwy7"
+      ]
     },
     {
       "title": "1 capo movimento (100% – f/m)",

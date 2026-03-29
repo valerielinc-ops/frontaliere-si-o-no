@@ -1813,11 +1813,13 @@
       "slugByLocale": {
         "it": "assistant-manager-audit-asset-management-pwc-geneva",
         "en": "assistant-manager-audit-asset-management-pwc-switzerland-geneve-2z283b",
-        "de": "assistent-manager-audit-asset-management-pwc-switzerland-geneva",
+        "de": "assistent-manager-audit-asset-management-pwc-switzerland-geneve-2z283b",
         "fr": "assistant-manager-audit-asset-management-pwc-switzerland-geneve-2z283b"
       },
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "assistent-manager-audit-asset-management-pwc-switzerland-geneva"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -5408,7 +5410,7 @@
       },
       "slugByLocale": {
         "it": "karriereeinstieg-in-la-steuerberatung-zentralschweiz-pwc-switzerland-luzern",
-        "en": "karriereeinstieg-in-die-steuerberatung-zentralschweiz-pwc-switzerland-luzern",
+        "en": "career-entry-in-tax-consulting-central-switzerland-pwc-switzerland-luzern-ljipsv",
         "de": "karriereeinstieg-in-die-steuerberatung-zentralschweiz-pwc-luzern",
         "fr": "karriereeinstieg-in-die-steuerberatung-zentralschweiz-pwc-switzerland-luzern"
       },
@@ -5696,10 +5698,12 @@
         "it": "senior-cyber-security-architetto-manager-senior-manager-pwc-switzerland-zurich",
         "en": "senior-cyber-security-architect-manager-senior-manager-pwc-zurich",
         "de": "senior-cyber-security-architect-manager-senior-manager-pwc-zurich",
-        "fr": "senior-cyber-security-architecte-manager-senior-manager-pwc-switzerland-zurich"
+        "fr": "senior-cyber-security-architecte-manager-senior-manager-pwc-switzerland-geneve-8bzrry"
       },
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "senior-cyber-security-architecte-manager-senior-manager-pwc-switzerland-zurich"
+      ],
       "salaryMin": 100500,
       "salaryMax": 136500,
       "currency": "CHF",

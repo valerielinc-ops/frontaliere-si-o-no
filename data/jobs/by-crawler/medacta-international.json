@@ -71,8 +71,8 @@
       "slugByLocale": {
         "it": "thesis-r-d-orthopedics-medacta-international-sa-castel-san-pietro",
         "en": "thesis-r-d-orthopedics-medacta-international-sa-rancate",
-        "de": "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate",
-        "fr": "these-r-d-orthopedie-medacta-international-sa-rancate"
+        "de": "thesis-r-d-orthopadie-medacta-international-sa-rancate-b5sfyt",
+        "fr": "thesis-r-d-orthopedie-medacta-international-sa-rancate-b5sfyt"
       },
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -361,7 +361,9 @@
       },
       "previousSlugs": [
         "ricerca-e-sviluppo-tesi-ortopedica-medacta-international-sa-castel-san-pietro",
-        "tesi-r-s-ortopedia-medacta-international-sa-castel-san-pietro"
+        "tesi-r-s-ortopedia-medacta-international-sa-castel-san-pietro",
+        "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate",
+        "these-r-d-orthopedie-medacta-international-sa-rancate"
       ],
       "needsRetranslation": true
     },
@@ -434,7 +436,7 @@
       "slugByLocale": {
         "it": "operatore-pre-post-coating-medacta-international-sa-castel-san-pietro",
         "en": "pre-post-coating-operator-medacta-international-sa-castel-san-pietro",
-        "de": "bediener-vor-und-nach-der-beschichtung-medacta-international-sa-castel-san-pietro",
+        "de": "pre-post-coating-operator-medacta-international-sa-castel-san-pietro-yt360b",
         "fr": "operateur-pre-post-revetement-medacta-international-sa-castel-san-pietro"
       },
       "addressLocality": "Castel San Pietro",
@@ -722,7 +724,10 @@
           }
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "bediener-vor-und-nach-der-beschichtung-medacta-international-sa-castel-san-pietro"
+      ]
     },
     {
       "id": "medacta-96190",
@@ -792,8 +797,8 @@
       "crawledAt": "2026-03-16T05:45:47.673Z",
       "slugByLocale": {
         "it": "tornitore-medacta-international-sa-castel-san-pietro",
-        "en": "turner-medacta-international-sa-castel-san-pietro-rancate",
-        "de": "turner-medacta-international-sa-castel-san-pietro-rancate",
+        "en": "lathe-operator-medacta-international-sa-castel-san-pietro-rancate-kl7c9g",
+        "de": "dreher-medacta-international-sa-castel-san-pietro-rancate-kl7c9g",
         "fr": "tourneur-medacta-international-sa-castel-san-pietro-rancate"
       },
       "addressLocality": "Castel San Pietro",
@@ -1085,7 +1090,10 @@
           }
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "turner-medacta-international-sa-castel-san-pietro-rancate"
+      ]
     },
     {
       "id": "medacta-96189",
@@ -1155,9 +1163,9 @@
       "crawledAt": "2026-03-16T05:45:47.451Z",
       "slugByLocale": {
         "it": "fresatore-medacta-international-sa-castel-san-pietro",
-        "en": "milling-machine-medacta-international-sa-castel-san-pietro-rancate",
-        "de": "frasmaschine-medacta-international-sa-castel-san-pietro-rancate",
-        "fr": "fraiseuse-medacta-international-sa-castel-san-pietro-rancate"
+        "en": "milling-operator-medacta-international-sa-castel-san-pietro-rancate-2jfmhi",
+        "de": "fraser-medacta-international-sa-castel-san-pietro-rancate-2jfmhi",
+        "fr": "fraiseur-medacta-international-sa-castel-san-pietro-rancate-2jfmhi"
       },
       "addressLocality": "Castel San Pietro",
       "addressCountry": "CH",
@@ -1448,7 +1456,12 @@
           }
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "milling-machine-medacta-international-sa-castel-san-pietro-rancate",
+        "frasmaschine-medacta-international-sa-castel-san-pietro-rancate",
+        "fraiseuse-medacta-international-sa-castel-san-pietro-rancate"
+      ]
     },
     {
       "id": "medacta-97004",
@@ -1519,7 +1532,7 @@
       "slugByLocale": {
         "it": "operatore-smerigliatura-e-lucidatura-3-turni-medacta-international-sa-castel-san-pietro",
         "en": "grinding-and-polishing-operator-3-shifts-medacta-international-sa-castel-san-pietro",
-        "de": "schleif-und-polierarbeiter-3-schichten-medacta-international-sa-castel-san-pietro",
+        "de": "operator-schleif-und-polierarbeit-3-shifts-medacta-international-sa-castel-san-pietro-i86ygn",
         "fr": "operateur-de-meulage-et-polissage-3-equipes-medacta-international-sa-castel-san-pietro"
       },
       "addressLocality": "Castel San Pietro",
@@ -1807,7 +1820,10 @@
           }
         }
       },
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "schleif-und-polierarbeiter-3-schichten-medacta-international-sa-castel-san-pietro"
+      ]
     }
   ]
 }

@@ -31,7 +31,7 @@
         "en": "sales-assistant-native-german-speaker-mikron-group-agno-aaibc9",
         "it": "assistente-alla-vendita-madrelingua-tedesca-sales-assistant-mikron",
         "de": "assistente-alla-vendita-madrelingua-tedesca-sales-assistent-mikron-group-agno-aaibc9",
-        "fr": "assistente-alla-vendita-madrelingua-tedesca-sales-assistant-mikron-group-agno-aaibc9"
+        "fr": "assistant-commercial-locuteur-natif-allemand-mikron-group-agno-aaibc9"
       },
       "category": "sales",
       "datePosted": "2026-03-29",
@@ -57,7 +57,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "assistente-alla-vendita-madrelingua-tedesca-sales-assistant-mikron-group-agno-aaibc9"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/manufacturing-methodology-engineer",
@@ -144,7 +147,7 @@
       "slugByLocale": {
         "en": "customer-deliveries-analyst-mikron",
         "it": "customer-deliveries-analyst-mikron",
-        "de": "customer-deliveries-analyst-mikron-group-agno-0schrr",
+        "de": "kundenlieferungsanalyst-mikron-group-agno-0schrr",
         "fr": "customer-deliveries-analyste-mikron-group-agno-0schrr"
       },
       "category": "general",
@@ -171,7 +174,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "customer-deliveries-analyst-mikron-group-agno-0schrr"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes",
@@ -201,7 +207,7 @@
       "slugByLocale": {
         "en": "industrial-it-technician-dual-60-collaborator-40-student-at-cpne-3-positions-available-school-year-2026-mikron-group-agno-xto3ay",
         "it": "technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes-",
-        "de": "technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes-a-repourvoir-annee-scolaire-2026-mikron-group-agno-xto3ay",
+        "de": "industrieller-it-techniker-dual-60-mitarbeiter-40-student-am-cpne-3-offene-stellen-schuljahr-2026-mikron-group-agno-xto3ay",
         "fr": "technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes-a-repourvoir-annee-scolaire-2026-mikron-group-agno-xto3ay"
       },
       "category": "production",
@@ -258,7 +264,7 @@
       "slugByLocale": {
         "en": "industrial-systems-technician-dual-60-collaborator-40-student-at-cpne-5-positions-available-school-year-2026-mikron-group-agno-9w6ihd",
         "it": "technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-a-re",
-        "de": "technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-a-repourvoir-annee-scolaire-2026-mikron-group-agno-9w6ihd",
+        "de": "techniker-fur-industrielle-systeme-dual-60-mitarbeiter-40-student-am-cpne-5-offene-stellen-schuljahr-2026-mikron-group-agno-9w6ihd",
         "fr": "technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-a-repourvoir-annee-scolaire-2026-mikron-group-agno-9w6ihd"
       },
       "category": "production",
@@ -315,8 +321,8 @@
       "slugByLocale": {
         "en": "internal-machining-manager-m-w-d-mikron",
         "it": "internal-machining-manager-m-w-d-mikron",
-        "de": "internal-machining-manager-m-w-d-mikron-group-agno-lula68",
-        "fr": "internal-machining-manager-m-w-d-mikron-group-agno-lula68"
+        "de": "leiter-der-internen-bearbeitung-m-w-d-mikron-group-agno-lula68",
+        "fr": "responsable-de-l-usinage-interne-m-w-d-mikron-group-agno-lula68"
       },
       "category": "production",
       "datePosted": "2026-03-29",
@@ -342,7 +348,10 @@
           "maxValue": 125000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "internal-machining-manager-m-w-d-mikron-group-agno-lula68"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/quality-technician-specialist-mfd",
@@ -427,10 +436,10 @@
       },
       "slug": "apprendisti-m-f-d-mikron",
       "slugByLocale": {
-        "en": "apprendisti-m-f-d-mikron-group-agno-3l34ew",
+        "en": "apprentices-m-f-d-mikron-group-agno-3l34ew",
         "it": "apprendisti-m-f-d-mikron",
-        "de": "apprendisti-m-f-d-mikron-group-agno-3l34ew",
-        "fr": "apprendisti-m-f-d-mikron-group-agno-3l34ew"
+        "de": "auszubildende-m-w-d-mikron-group-agno-3l34ew",
+        "fr": "apprentis-m-f-d-mikron-group-agno-3l34ew"
       },
       "category": "apprenticeship",
       "datePosted": "2026-03-29",
@@ -445,7 +454,7 @@
       "crawledAt": "",
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprendisti-m-f-d-mikron"
+        "apprendisti-m-f-d-mikron-group-agno-3l34ew"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -489,7 +498,7 @@
       "slugByLocale": {
         "en": "apprentice-trainer-for-polymecanicists-mikron-group-agno-7wsa9s",
         "it": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
-        "de": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron-group-agno-7wsa9s",
+        "de": "ausbilder-fur-polymekanik-mikron-group-agno-7wsa9s",
         "fr": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron-group-agno-7wsa9s"
       },
       "category": "hr",

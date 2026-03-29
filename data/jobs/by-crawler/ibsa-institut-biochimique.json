@@ -408,8 +408,8 @@
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
         "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
-        "en": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
-        "de": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
+        "en": "accounting-officer-maternity-leave-replacement-ibsa-institut-biochimique-6926-working-area-toyw1a",
+        "de": "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-6926-working-area-toyw1a",
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
       },
       "titleByLocale": {
@@ -610,8 +610,8 @@
       "slugByLocale": {
         "it": "jr-et-t-qa-specialista-ibsa-institut-biochimique-6926-working-area",
         "en": "jr-et-t-qa-specialist-ibsa-institut-biochimique-6926-working-area",
-        "de": "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
-        "fr": "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9"
+        "de": "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area-u9trv9",
+        "fr": "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area-u9trv9"
       },
       "titleByLocale": {
         "en": "Jr ET&T QA Specialist",
@@ -631,7 +631,9 @@
       "sourceLang": "it",
       "previousSlugs": [
         "jr-it-qa-specialista-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9",
-        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9"
+        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+        "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+        "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
