@@ -1801,15 +1801,13 @@ function ensureLocaleFields(job) {
     out.slug = normalizeSpace(slugByLocale.it);
   }
 
-  // Post-processing quality gate: if any non-IT title still contains common Italian
-  // words, keep needsRetranslation=true so the next translate-pending run will retry.
-  // Uses the same IT_TITLE_WORDS set from dedicated-crawler-common.mjs.
+  // Post-processing quality gate: if any non-IT title OR slug still contains common
+  // Italian words, keep needsRetranslation=true so the next translate-pending run retries.
   const IT_JOB_WORDS = new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,falegname,muratore,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice,specialista'.split(','));
+  const _hasITwords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 4).some(w => IT_JOB_WORDS.has(w));
   for (const locale of LOCALES) {
     if (locale === 'it') continue;
-    const title = normalizeSpace(out.titleByLocale?.[locale] || '');
-    const words = title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 4);
-    if (words.some(w => IT_JOB_WORDS.has(w))) {
+    if (_hasITwords(out.titleByLocale?.[locale]) || _hasITwords((out.slugByLocale?.[locale] || '').replace(/-/g, ' '))) {
       out.needsRetranslation = true;
       break;
     }
