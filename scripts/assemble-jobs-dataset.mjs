@@ -150,9 +150,27 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
     throw new TypeError('writeSummaryCrawlerSlice: summaryEntry.key must be a non-empty string');
   }
 
+  // Strip heavy locale/description data from job lists — summaries should only
+  // contain metadata (title, slug, company, url) for monitoring, not full translations.
+  const HEAVY_FIELDS = ['descriptionByLocale', 'titleByLocale', 'slugByLocale', 'description', 'baseSalary', 'previousSlugs', 'requirementsByLocale', 'requirements'];
+  const stripJob = (job) => {
+    if (!job || typeof job !== 'object') return job;
+    const slim = {};
+    for (const [k, v] of Object.entries(job)) {
+      if (!HEAVY_FIELDS.includes(k)) slim[k] = v;
+    }
+    return slim;
+  };
+  const stripped = { ...summaryEntry };
+  for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
+    if (Array.isArray(stripped[listKey])) {
+      stripped[listKey] = stripped[listKey].map(stripJob);
+    }
+  }
+
   fs.mkdirSync(SUMMARIES_SLICES_DIR, { recursive: true });
   const slicePath = path.join(SUMMARIES_SLICES_DIR, `${summaryEntry.key}.json`);
-  writeJson(slicePath, summaryEntry);
+  writeJson(slicePath, stripped);
   console.log(`📂 Wrote summary slice: data/jobs-crawler-summaries/by-crawler/${summaryEntry.key}.json`);
 }
 
