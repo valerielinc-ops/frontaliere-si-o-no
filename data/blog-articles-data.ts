@@ -5473,4 +5473,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/magliaso-zona-educativa-ripresa.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cassa-malati-leghista-applicata-subito',
+    category: 'novita',
+    date: '2026-03-29T07:20:23.594Z',
+    image: '/images/blog/cassa-malati-leghista-applicata-subito.jpg',
+    hasCalculator: true,
+  },
 ];

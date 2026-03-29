@@ -3196,7 +3196,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 605,
+        "numberOfItems": 606,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3799,7 +3799,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 602, "name": "Cammino Via Francisca del Lucomagno", "url": `${BASE_URL}/articoli-frontaliere/via-francisca-cammino` },
           { "@type": "ListItem", "position": 603, "name": "Lavoro ‘sommerso’ nel Varesotto, 46 casi scovat...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-sommerso-varesotto` },
           { "@type": "ListItem", "position": 604, "name": "Rissa nella notte a Lavena Ponte Tresa, due str...", "url": `${BASE_URL}/articoli-frontaliere/rissa-lavena-ponte-tres` },
-          { "@type": "ListItem", "position": 605, "name": "La nuova scuola elementare di Magliaso: un inve...", "url": `${BASE_URL}/articoli-frontaliere/magliaso-zona-educativa-ripresa` }
+          { "@type": "ListItem", "position": 605, "name": "La nuova scuola elementare di Magliaso: un inve...", "url": `${BASE_URL}/articoli-frontaliere/magliaso-zona-educativa-ripresa` },
+          { "@type": "ListItem", "position": 606, "name": "Cassa malati: l'iniziativa leghista va applicat...", "url": `${BASE_URL}/articoli-frontaliere/cassa-malati-leghista-applicata-subito` }
         ]
       }
     ]

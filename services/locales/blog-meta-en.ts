@@ -1835,6 +1835,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.magliaso-zona-educativa-ripresa.title': 'Construction Work on Magliaso\'s New Primary School Has Begun',
     'blog.article.magliaso-zona-educativa-ripresa.excerpt': 'The new primary school in Magliaso will be ready for the 2028/2029 academic year',
     'blog.article.magliaso-zona-educativa-ripresa.imageAlt': 'Elementary school in Magliaso during outdoor activities',
+    'blog.article.cassa-malati-leghista-applicata-subito.title': 'Health Insurance Fund: Let\'s Apply the Lega dei Ticinesi Initiative Immediately',
+    'blog.article.cassa-malati-leghista-applicata-subito.excerpt': 'The Lega dei Ticinesi is calling for the full tax deductibility of health insurance premiums. The Federal Council has announced its plan: partial application of the initiatives and implementation conditional on financial coverage. ⚠️',
+    'blog.article.cassa-malati-leghista-applicata-subito.imageAlt': 'A man receives a sickness benefit in Lugano',
 };
 
 export default blogMetaEn;
