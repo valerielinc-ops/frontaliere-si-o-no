@@ -3196,7 +3196,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 610,
+        "numberOfItems": 611,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3804,7 +3804,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 607, "name": "Rissa a Ponte Tresa", "url": `${BASE_URL}/articoli-frontaliere/ronte-tresa-rissa` },
           { "@type": "ListItem", "position": 608, "name": "Autostrada A9: nuove chiusure tra Chiasso e Com...", "url": `${BASE_URL}/articoli-frontaliere/a9-chiasso-como-chiusure-frontalieri` },
           { "@type": "ListItem", "position": 609, "name": "Code al San Gottardo", "url": `${BASE_URL}/articoli-frontaliere/code-nord-san-gottardo` },
-          { "@type": "ListItem", "position": 610, "name": "Trattative commercio Usa Svizzera: oltre 31 marzo", "url": `${BASE_URL}/articoli-frontaliere/trattative-acordo-usa-oltre-31-marzo` }
+          { "@type": "ListItem", "position": 610, "name": "Trattative commercio Usa Svizzera: oltre 31 marzo", "url": `${BASE_URL}/articoli-frontaliere/trattative-acordo-usa-oltre-31-marzo` },
+          { "@type": "ListItem", "position": 611, "name": "Innovazione ticinese: occhiali intelligenti per...", "url": `${BASE_URL}/articoli-frontaliere/occhiali-intelligenti-ticino-innovazione` }
         ]
       }
     ]

@@ -1850,6 +1850,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trattative-acordo-usa-oltre-31-marzo.title': 'Parmelin: negotiations with the US beyond March 31 for the commercial agreement',
     'blog.article.trattative-acordo-usa-oltre-31-marzo.excerpt': 'The deadline set for the end of the month is no longer valid due to the decision of the Supreme Court of the United States.',
     'blog.article.trattative-acordo-usa-oltre-31-marzo.imageAlt': 'Two people discuss in a government office. Locarno, Ticino.',
+    'blog.article.occhiali-intelligenti-ticino-innovazione.title': 'Ticino innovates with smart glasses for the visually impaired',
+    'blog.article.occhiali-intelligenti-ticino-innovazione.excerpt': 'The startup Lighthouse Tech presents TAMI, glasses with radar that vibrate to signal obstacles. Positive tests from people with low vision and winner of the Unitas Innovation Award.',
+    'blog.article.occhiali-intelligenti-ticino-innovazione.imageAlt': 'Person wearing TAMI smart glasses in Lugano with lake view',
 };
 
 export default blogMetaEn;

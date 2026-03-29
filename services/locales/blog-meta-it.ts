@@ -1850,6 +1850,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trattative-acordo-usa-oltre-31-marzo.title': 'Parmelin: trattative con Usa oltre il 31 marzo per l\'accordo commerciale',
     'blog.article.trattative-acordo-usa-oltre-31-marzo.excerpt': 'La scadenza fissata a fine mese non è più valida a causa della decisione della Corte Suprema degli Usa.',
     'blog.article.trattative-acordo-usa-oltre-31-marzo.imageAlt': 'Due persone discutono in un ufficio governativo. Locarno, Ticino.',
+    'blog.article.occhiali-intelligenti-ticino-innovazione.title': 'Ticino innova con occhiali intelligenti per non vedenti',
+    'blog.article.occhiali-intelligenti-ticino-innovazione.excerpt': 'La startup Lighthouse Tech presenta TAMI, occhiali con radar che vibrano per segnalare ostacoli. Test positivi da ipovedenti e vittoria Premio Innovazione Unitas.',
+    'blog.article.occhiali-intelligenti-ticino-innovazione.imageAlt': 'Persona che indossa occhiali intelligenti TAMI a Lugano con vista sul lago',
 };
 
 export default blogMetaIt;

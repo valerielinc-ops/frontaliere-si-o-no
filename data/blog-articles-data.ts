@@ -5508,4 +5508,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/trattative-acordo-usa-oltre-31-marzo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'occhiali-intelligenti-ticino-innovazione',
+    category: 'novita',
+    date: '2026-03-29T21:49:32.590Z',
+    image: '/images/blog/occhiali-intelligenti-ticino-innovazione.jpg',
+    hasCalculator: true,
+  },
 ];
