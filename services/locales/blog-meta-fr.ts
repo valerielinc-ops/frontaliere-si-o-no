@@ -1841,6 +1841,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ronte-tresa-rissa.title': 'Rixe à Ponte Tresa',
     'blog.article.ronte-tresa-rissa.excerpt': 'Deux personnes ont été hospitalisées après une violente rixe dans la nuit à Ponte Tresa',
     'blog.article.ronte-tresa-rissa.imageAlt': 'Ponte Tresa après une rixe',
+    'blog.article.a9-chiasso-como-chiusure-frontalieri.title': 'A9: fermetures entre Chiasso et Côme, impact sur les frontaliers',
+    'blog.article.a9-chiasso-como-chiusure-frontalieri.excerpt': 'Nouvelles fermetures sur l\'autoroute A9 entre Chiasso et Côme du 30 mars au 2 avril 2026. Voici les alternatives pour les frontaliers.',
+    'blog.article.a9-chiasso-como-chiusure-frontalieri.imageAlt': 'Poste-frontière de Chiasso avec trafic intense aux heures de pointe',
 };
 
 export default blogMetaFr;

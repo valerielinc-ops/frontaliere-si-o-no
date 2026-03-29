@@ -1841,6 +1841,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ronte-tresa-rissa.title': 'Brawl in Ponte Tresa',
     'blog.article.ronte-tresa-rissa.excerpt': 'Two people were hospitalized after a violent brawl in Ponte Tresa overnight.',
     'blog.article.ronte-tresa-rissa.imageAlt': 'Ponte Tresa after a brawl',
+    'blog.article.a9-chiasso-como-chiusure-frontalieri.title': 'A9: closures between Chiasso and Como, impact on cross-border commuters',
+    'blog.article.a9-chiasso-como-chiusure-frontalieri.excerpt': 'New closures on the A9 highway between Chiasso and Como from March 30 to April 2, 2026. Here are the alternatives for cross-border commuters.',
+    'blog.article.a9-chiasso-como-chiusure-frontalieri.imageAlt': 'Chiasso border crossing with heavy traffic during rush hour',
 };
 
 export default blogMetaEn;

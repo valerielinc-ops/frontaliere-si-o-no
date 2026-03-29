@@ -5487,4 +5487,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ronte-tresa-rissa.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'a9-chiasso-como-chiusure-frontalieri',
+    category: 'pratico',
+    date: '2026-03-29T13:24:43.039Z',
+    image: '/images/blog/a9-chiasso-como-chiusure-frontalieri.jpg',
+    hasCalculator: true,
+  },
 ];

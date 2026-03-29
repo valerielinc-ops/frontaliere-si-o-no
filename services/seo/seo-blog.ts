@@ -8902,6 +8902,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-a9-chiasso-como-chiusure-frontalieri': {
+    title: 'A9: chiusure tra Chiasso e Como, impatto sui frontalieri | Frontaliere Ticino',
+    description: 'Tutte le info sulle chiusure programmate sull\'A9 tra Chiasso e Como dal 30 marzo al 2 aprile 2026 e le alternative per i frontalieri ticinesi. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, chiasso, como, impatto',
+    ogTitle: 'Chiusure A9 Chiasso-Como: impatto sui frontalieri',
+    ogDescription: 'Guida pratica alle chiusure A9 marzo 2026 per chi lavora tra Ticino e Lombardia',
+    canonicalPath: '/articoli-frontaliere/a9-chiasso-como-chiusure-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Autostrada A9: nuove chiusure tra Chiasso e Como impattano i frontalieri ticinesi",
+      "description": "Tutte le info sulle chiusure programmate sull'A9 tra Chiasso e Como dal 30 marzo al 2 aprile 2026 e le alternative per i frontalieri ticinesi. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/a9-chiasso-como-chiusure-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Confine di Chiasso con traffico intenso durante le ore di punta"
+      },
+      "datePublished": "2026-03-29T13:24:43+00:00",
+      "dateModified": "2026-03-29T13:24:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a9-chiasso-como-chiusure-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
