@@ -1835,6 +1835,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.magliaso-zona-educativa-ripresa.title': 'Die Arbeiten für die neue Grundschule in Magliaso sind begonnen',
     'blog.article.magliaso-zona-educativa-ripresa.excerpt': 'Die neue Grundschule in Magliaso wird für das Schuljahr 2028/2029 fertig sein',
     'blog.article.magliaso-zona-educativa-ripresa.imageAlt': 'Grundschule Magliaso während der Freiarbeit',
+    'blog.article.cassa-malati-leghista-applicata-subito.title': 'Kassenprämien: Die Lega-Ticinesi-Initiative soll sofort umgesetzt werden',
+    'blog.article.cassa-malati-leghista-applicata-subito.excerpt': 'Die Lega der Ticinesi fordert die vollständige steuerliche Abzugsfähigkeit der Kassenprämien. Der Staaterrat kündigt seinen Plan an: Teilumsetzung der Initiativen und Verbindlichkeit an die Finanzdeckung.',
+    'blog.article.cassa-malati-leghista-applicata-subito.imageAlt': 'Ein Mann erhält eine Krankengeld in Lugano',
+    'blog.article.ronte-tresa-rissa.title': 'Schlägerei in Ponte Tresa',
+    'blog.article.ronte-tresa-rissa.excerpt': 'Zwei Personen sind nach einer heftigen Schlägerei in der Nacht in Ponte Tresa ins Krankenhaus eingeliefert worden.',
+    'blog.article.ronte-tresa-rissa.imageAlt': 'Ponte Tresa nach einer Schlägerei',
 };
 
 export default blogMetaDe;

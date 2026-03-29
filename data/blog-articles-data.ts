@@ -5473,4 +5473,18 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/magliaso-zona-educativa-ripresa.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'cassa-malati-leghista-applicata-subito',
+    category: 'novita',
+    date: '2026-03-29T07:20:23.594Z',
+    image: '/images/blog/cassa-malati-leghista-applicata-subito.jpg',
+    hasCalculator: true,
+  },
+  {
+    id: 'ronte-tresa-rissa',
+    category: 'pratico',
+    date: '2026-03-29T09:51:18.167Z',
+    image: '/images/blog/ronte-tresa-rissa.jpg',
+    hasCalculator: true,
+  },
 ];

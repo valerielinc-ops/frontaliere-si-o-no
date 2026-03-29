@@ -1835,6 +1835,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.magliaso-zona-educativa-ripresa.title': 'I lavori per la nuova scuola elementare di Magliaso sono stati avviati',
     'blog.article.magliaso-zona-educativa-ripresa.excerpt': 'La nuova scuola elementare di Magliaso sarà pronta per l\'anno scolastico 2028/2029',
     'blog.article.magliaso-zona-educativa-ripresa.imageAlt': 'Scuola elementare di Magliaso durante l\'ora di attività all\'aperto',
+    'blog.article.cassa-malati-leghista-applicata-subito.title': 'Cassa malati: l\'iniziativa leghista va applicata subito',
+    'blog.article.cassa-malati-leghista-applicata-subito.excerpt': 'La Lega dei Ticinesi chiede la deducibilità fiscale integrale dei premi di cassa malati. Il Consiglio di Stato annuncia il proprio piano: applicazione parziale delle iniziative e attuazione vincolata alla copertura finanziaria.',
+    'blog.article.cassa-malati-leghista-applicata-subito.imageAlt': 'Un uomo riceve un premio di cassa malati a Lugano',
+    'blog.article.ronte-tresa-rissa.title': 'Rissa a Ponte Tresa',
+    'blog.article.ronte-tresa-rissa.excerpt': 'Due persone sono state ricoverate in ospedale dopo una violenta rissa nella notte a Ponte Tresa.',
+    'blog.article.ronte-tresa-rissa.imageAlt': 'Ponte Tresa dopo una rissa',
 };
 
 export default blogMetaIt;

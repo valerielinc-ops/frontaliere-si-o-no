@@ -8844,6 +8844,64 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cassa-malati-leghista-applicata-subito': {
+    title: 'Cassa malati: l\'iniziativa leghista va applicata subito | Frontaliere Ticino',
+    description: 'La Lega dei Ticinesi chiede la deducibilità fiscale integrale dei premi di cassa malati. Il Consiglio di Stato annuncia il proprio piano: applicazione parziale',
+    keywords: 'frontalieri, ticino, svizzera, italia, cassa, malati, iniziativa, leghista',
+    ogTitle: 'Cassa malati: l\'iniziativa leghista va applicata subito',
+    ogDescription: 'La Lega dei Ticinesi chiede la deducibilità fiscale integrale dei premi di cassa malati. Il Consiglio di Stato annuncia il proprio piano: applicazione parziale',
+    canonicalPath: '/articoli-frontaliere/cassa-malati-leghista-applicata-subito',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cassa malati: l'iniziativa leghista va applicata subito",
+      "description": "La Lega dei Ticinesi chiede la deducibilità fiscale integrale dei premi di cassa malati. Il Consiglio di Stato annuncia il proprio piano: applicazione parziale",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/cassa-malati-leghista-applicata-subito.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un uomo riceve un premio di cassa malati a Lugano"
+      },
+      "datePublished": "2026-03-29T07:20:23+00:00",
+      "dateModified": "2026-03-29T07:20:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-malati-leghista-applicata-subito`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ronte-tresa-rissa': {
+    title: 'Rissa a Ponte Tresa | Frontaliere Ticino',
+    description: 'Due persone sono state ricoverate in ospedale dopo una rissa nella notte a Ponte Tresa. Leggi la notizia su Frontaliere Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, rissa, ponte, tresa, persone',
+    ogTitle: 'Rissa a Ponte Tresa',
+    ogDescription: 'Due persone sono state ricoverate in ospedale dopo una rissa nella notte a Ponte Tresa.',
+    canonicalPath: '/articoli-frontaliere/ronte-tresa-rissa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rissa a Ponte Tresa",
+      "description": "Due persone sono state ricoverate in ospedale dopo una rissa nella notte a Ponte Tresa. Leggi la notizia su Frontaliere Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ronte-tresa-rissa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ponte Tresa dopo una rissa"
+      },
+      "datePublished": "2026-03-29T09:51:18+00:00",
+      "dateModified": "2026-03-29T09:51:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ronte-tresa-rissa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

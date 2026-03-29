@@ -1751,6 +1751,8 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-sommerso-varesotto': { name: 'Lavoro ‘sommerso’', path: '/articoli-frontaliere/lavoro-sommerso-varesotto', parent: 'blog' },
     'blog-rissa-lavena-ponte-tres': { name: 'Sicurezza', path: '/articoli-frontaliere/rissa-lavena-ponte-tres', parent: 'blog' },
     'blog-magliaso-zona-educativa-ripresa': { name: 'Scuola elementare Magliaso', path: '/articoli-frontaliere/magliaso-zona-educativa-ripresa', parent: 'blog' },
+    'blog-cassa-malati-leghista-applicata-subito': { name: 'Cassa malati', path: '/articoli-frontaliere/cassa-malati-leghista-applicata-subito', parent: 'blog' },
+    'blog-ronte-tresa-rissa': { name: 'Ponte Tresa', path: '/articoli-frontaliere/ronte-tresa-rissa', parent: 'blog' },
   };
 
   const info = sectionNames[section];

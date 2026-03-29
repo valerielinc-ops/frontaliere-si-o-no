@@ -1835,6 +1835,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.magliaso-zona-educativa-ripresa.title': 'Les travaux pour la nouvelle école primaire de Magliaso sont entamés',
     'blog.article.magliaso-zona-educativa-ripresa.excerpt': 'La nouvelle école primaire de Magliaso sera prête pour l\'année scolaire 2028/2029',
     'blog.article.magliaso-zona-educativa-ripresa.imageAlt': 'École élémentaire de Magliaso pendant les activités à l\'extérieur',
+    'blog.article.cassa-malati-leghista-applicata-subito.title': 'Cassa malati: l\'iniziativa leghista va applicata subito',
+    'blog.article.cassa-malati-leghista-applicata-subito.excerpt': 'La Lega dei Ticinesi réclame la déductibilité fiscale intégrale des primes de caisse malade. Le Conseil d\'État annonce son plan : application partielle des initiatives et mise en œuvre conditionnée à la couverture financière. L\'institution a décidé de ne pas donner suite à toutes les demandes présentées, mais a prévu d\'appliquer certaines mesures en attendant une évaluation financière plus approfondie. La Lega dei Ticinesi avait proposé une réforme complète, mais le Conseil d\'État a jugé qu\'il était plus prudent de prendre des mesures plus limitées pour éviter tout dérapage financier.',
+    'blog.article.cassa-malati-leghista-applicata-subito.imageAlt': 'Un homme reçoit un congé de maladie à Lugano',
+    'blog.article.ronte-tresa-rissa.title': 'Rixe à Ponte Tresa',
+    'blog.article.ronte-tresa-rissa.excerpt': 'Deux personnes ont été hospitalisées après une violente rixe dans la nuit à Ponte Tresa',
+    'blog.article.ronte-tresa-rissa.imageAlt': 'Ponte Tresa après une rixe',
 };
 
 export default blogMetaFr;
