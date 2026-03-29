@@ -311,15 +311,13 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
 
     // Sync previousSlugs from assembled dataset to per-crawler file so bridge pages
     // are generated even when slug changes happened in the assembled pipeline.
+    // Note: do NOT filter out slugs that are still active in some locale. A slug like
+    // "ingegnere-edile-jr-company-city" may still be slugByLocale.it but was previously
+    // used for EN/DE/FR. Those locale-specific URLs need bridge pages too.
     if (assembled.previousSlugs && Array.isArray(assembled.previousSlugs)) {
       if (!crawlerJob.previousSlugs) crawlerJob.previousSlugs = [];
-      const currentSlugs = new Set(
-        Object.values(crawlerJob.slugByLocale || {})
-          .map((s) => String(s).trim())
-          .filter(Boolean)
-      );
       for (const s of assembled.previousSlugs) {
-        if (s && !crawlerJob.previousSlugs.includes(s) && !currentSlugs.has(s)) {
+        if (s && !crawlerJob.previousSlugs.includes(s)) {
           crawlerJob.previousSlugs.push(s);
           changed = true;
         }
