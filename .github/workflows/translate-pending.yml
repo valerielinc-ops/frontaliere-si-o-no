@@ -14,6 +14,9 @@ on:
       max_jobs:
         description: 'Max jobs to translate'
         default: '100'
+      company_key:
+        description: 'Single company key to translate (e.g. a-group). Leave empty for all.'
+        default: ''
       dry_run:
         description: 'Dry run (no commit)'
         type: boolean
@@ -70,7 +73,7 @@ jobs:
       - name: Translate pending jobs
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
-        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }}
+        run: node scripts/relocalize-pending-jobs.mjs --max-jobs ${{ inputs.max_jobs || '100' }} ${{ inputs.company_key && format('--company-key {0}', inputs.company_key) || '' }}
 
       - name: Log translation stats (after)
         if: always()

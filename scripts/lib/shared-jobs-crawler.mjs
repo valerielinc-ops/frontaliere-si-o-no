@@ -1752,9 +1752,18 @@ function ensureLocaleFields(job) {
       currentSlug &&
       baseItSlug &&
       currentSlug === baseItSlug;
-    // Use heuristic (deterministic) translation for slug derivation, not AI title
+    // Use heuristic (deterministic) translation for slug derivation, not AI title.
     // Computed before cleanCurrentSlug so it can be used in the stability check below.
-    const slugSourceTitle = heuristicTranslateJobTitle(out.title, locale) || localizedTitle;
+    // heuristicTranslateJobTitle may return the input unchanged when no pattern matches —
+    // in that case, prefer the AI-translated title from titleByLocale[locale] for the slug.
+    const sourceTitle = normalizeSpace(out.title || '');
+    const heuristicTitle = heuristicTranslateJobTitle(sourceTitle, locale);
+    const heuristicActuallyTranslated = heuristicTitle && heuristicTitle.toLowerCase() !== sourceTitle.toLowerCase();
+    const rawLocaleTitle = normalizeSpace(titleByLocale[locale] || '');
+    const localeHasTranslatedTitle = rawLocaleTitle && rawLocaleTitle.toLowerCase() !== sourceTitle.toLowerCase();
+    const slugSourceTitle = heuristicActuallyTranslated
+      ? heuristicTitle
+      : (localeHasTranslatedTitle ? rawLocaleTitle : localizedTitle);
     const hashSuffix = stableSlugHash(out);
     const derivedSlug =
       slugify(`${slugSourceTitle}-${out.company || ''}-${out.location || ''}`) ||

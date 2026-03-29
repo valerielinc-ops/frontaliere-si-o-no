@@ -55,6 +55,18 @@ function parseMaxJobs() {
 
 const MAX_JOBS = parseMaxJobs();
 
+// Parse --company-key from CLI args (filter to a single company)
+function parseCompanyKey() {
+  const args = process.argv.slice(2);
+  const idx = args.indexOf('--company-key');
+  if (idx !== -1 && args[idx + 1]) {
+    return args[idx + 1].trim().toLowerCase();
+  }
+  return process.env.RELOCALIZE_COMPANY_KEY || '';
+}
+
+const COMPANY_KEY_FILTER = parseCompanyKey();
+
 // Time budget: stop starting new companies when this many ms have elapsed.
 // The workflow job has timeout-minutes:350; we stop at 320min to leave a
 // comfortable margin for the commit/deploy steps to run.
@@ -274,6 +286,9 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
           trimmedExisting &&
           trimmedExisting === masterSlug &&
           trimmedValue !== trimmedExisting;
+        if (isUnlocalizedSlug) {
+          console.log(`     🔗 SLUG [${locale}] unlocalized → adopting: ${trimmedExisting.slice(0, 50)} → ${trimmedValue.slice(0, 50)}`);
+        }
         // For needsRetranslation jobs: always overwrite with assembled value.
         // The existing content was explicitly flagged as bad quality (wrong language,
         // untranslated copy of source, etc.) so any non-empty assembled value is better.
@@ -282,6 +297,7 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
           // Before overwriting a slug, preserve the old value in previousSlugs
           // so the build plugin can generate bridge/redirect pages for SEO continuity.
           if (field === 'slugByLocale' && trimmedExisting && trimmedValue !== trimmedExisting) {
+            console.log(`     📌 previousSlugs: preserving ${trimmedExisting.slice(0, 60)}`);
             if (!crawlerJob.previousSlugs) crawlerJob.previousSlugs = [];
             if (!crawlerJob.previousSlugs.includes(trimmedExisting)) {
               crawlerJob.previousSlugs.push(trimmedExisting);
@@ -312,6 +328,7 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
 
     // Clear needsRetranslation flag only if job is now complete (all locales translated)
     if (crawlerJob.needsRetranslation && !isIncomplete(crawlerJob)) {
+      console.log(`     ✅ Cleared needsRetranslation for: ${crawlerJob.slug?.slice(0, 60)}`);
       delete crawlerJob.needsRetranslation;
       changed = true;
     }
@@ -341,7 +358,15 @@ async function main() {
   }
 
   // Find all jobs needing translation (flagged or incomplete)
-  const pending = jobs.filter(needsTranslation);
+  let pending = jobs.filter(needsTranslation);
+
+  // Filter to a single company if --company-key is specified
+  if (COMPANY_KEY_FILTER) {
+    const before = pending.length;
+    pending = pending.filter(j => normalizeCompanyKey(j.companyKey || j.company || '') === COMPANY_KEY_FILTER);
+    console.log(`🎯 Company filter: ${COMPANY_KEY_FILTER} — ${pending.length}/${before} pending jobs match\n`);
+  }
+
   const flaggedCount = pending.filter(j => j.needsRetranslation).length;
   const incompleteCount = pending.length - flaggedCount;
 
