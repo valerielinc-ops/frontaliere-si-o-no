@@ -1754,6 +1754,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-cassa-malati-leghista-applicata-subito': { name: 'Cassa malati', path: '/articoli-frontaliere/cassa-malati-leghista-applicata-subito', parent: 'blog' },
     'blog-ronte-tresa-rissa': { name: 'Ponte Tresa', path: '/articoli-frontaliere/ronte-tresa-rissa', parent: 'blog' },
     'blog-a9-chiasso-como-chiusure-frontalieri': { name: 'Chiusure A9', path: '/articoli-frontaliere/a9-chiasso-como-chiusure-frontalieri', parent: 'blog' },
+    'blog-code-nord-san-gottardo': { name: 'Code al San Gottardo', path: '/articoli-frontaliere/code-nord-san-gottardo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

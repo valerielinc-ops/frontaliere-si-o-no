@@ -1844,6 +1844,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.a9-chiasso-como-chiusure-frontalieri.title': 'A9: Sperrungen zwischen Chiasso und Como, Auswirkungen auf die Grenzgänger',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.excerpt': 'Neue Sperrungen auf der Autobahn A9 zwischen Chiasso und Como vom 30. März bis 2. April 2026. Hier sind die Alternativen für die Grenzgänger.',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.imageAlt': 'Grenzübergang Chiasso mit starkem Verkehr zur Stoßzeit',
+    'blog.article.code-nord-san-gottardo.title': 'Code am San Gottardo',
+    'blog.article.code-nord-san-gottardo.excerpt': 'Zehn Kilometer Stau am Nordportal des San Gottardo, Wartezeiten von bis zu einer Stunde und dreißig Minuten',
+    'blog.article.code-nord-san-gottardo.imageAlt': 'Autoschlange am Gotthard-Tunnel',
 };
 
 export default blogMetaDe;

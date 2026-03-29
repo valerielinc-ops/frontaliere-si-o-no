@@ -5494,4 +5494,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/a9-chiasso-como-chiusure-frontalieri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'code-nord-san-gottardo',
+    category: 'pratico',
+    date: '2026-03-29T15:45:09.712Z',
+    image: '/images/blog/code-nord-san-gottardo.jpg',
+    hasCalculator: true,
+  },
 ];

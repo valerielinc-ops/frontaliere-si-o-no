@@ -8931,6 +8931,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-code-nord-san-gottardo': {
+    title: 'Code al San Gottardo | Frontaliere Ticino',
+    description: 'Dieci chilometri di coda al portale nord del San Gottardo, tempi di attesa fino a un\'ora e trenta minuti. Scopri come pianificare il tuo viaggio e ridurre i',
+    keywords: 'frontalieri, ticino, svizzera, italia, code, gottardo, dieci, chilometri',
+    ogTitle: 'Code al San Gottardo',
+    ogDescription: 'Dieci chilometri di coda al portale nord del San Gottardo, tempi di attesa fino a un\'ora e trenta minuti',
+    canonicalPath: '/articoli-frontaliere/code-nord-san-gottardo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Code al San Gottardo",
+      "description": "Dieci chilometri di coda al portale nord del San Gottardo, tempi di attesa fino a un'ora e trenta minuti. Scopri come pianificare il tuo viaggio e ridurre i",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/code-nord-san-gottardo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda di auto al tunnel del San Gottardo"
+      },
+      "datePublished": "2026-03-29T15:45:09+00:00",
+      "dateModified": "2026-03-29T15:45:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/code-nord-san-gottardo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

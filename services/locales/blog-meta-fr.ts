@@ -1844,6 +1844,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.a9-chiasso-como-chiusure-frontalieri.title': 'A9: fermetures entre Chiasso et Côme, impact sur les frontaliers',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.excerpt': 'Nouvelles fermetures sur l\'autoroute A9 entre Chiasso et Côme du 30 mars au 2 avril 2026. Voici les alternatives pour les frontaliers.',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.imageAlt': 'Poste-frontière de Chiasso avec trafic intense aux heures de pointe',
+    'blog.article.code-nord-san-gottardo.title': 'Code al San Gottardo',
+    'blog.article.code-nord-san-gottardo.excerpt': 'Dieci chilometri di coda al portale nord del San Gottardo, tempi di attesa fino a un\'ora e trenta minuti',
+    'blog.article.code-nord-san-gottardo.imageAlt': 'File de voitures au tunnel du Saint-Gothard',
 };
 
 export default blogMetaFr;

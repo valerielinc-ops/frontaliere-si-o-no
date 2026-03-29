@@ -1844,6 +1844,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.a9-chiasso-como-chiusure-frontalieri.title': 'A9: chiusure tra Chiasso e Como, impatto sui frontalieri',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.excerpt': 'Nuove chiusure sull\'autostrada A9 tra Chiasso e Como dal 30 marzo al 2 aprile 2026. Ecco le alternative per i frontalieri.',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.imageAlt': 'Confine di Chiasso con traffico intenso durante le ore di punta',
+    'blog.article.code-nord-san-gottardo.title': 'Code al San Gottardo',
+    'blog.article.code-nord-san-gottardo.excerpt': 'Dieci chilometri di coda al portale nord del San Gottardo, tempi di attesa fino a un\'ora e trenta minuti',
+    'blog.article.code-nord-san-gottardo.imageAlt': 'Coda di auto al tunnel del San Gottardo',
 };
 
 export default blogMetaIt;

@@ -1844,6 +1844,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.a9-chiasso-como-chiusure-frontalieri.title': 'A9: closures between Chiasso and Como, impact on cross-border commuters',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.excerpt': 'New closures on the A9 highway between Chiasso and Como from March 30 to April 2, 2026. Here are the alternatives for cross-border commuters.',
     'blog.article.a9-chiasso-como-chiusure-frontalieri.imageAlt': 'Chiasso border crossing with heavy traffic during rush hour',
+    'blog.article.code-nord-san-gottardo.title': 'Code at the San Gottardo',
+    'blog.article.code-nord-san-gottardo.excerpt': 'Ten kilometres of queue at the north portal of the San Gottardo, waiting times up to one hour and thirty minutes',
+    'blog.article.code-nord-san-gottardo.imageAlt': 'Queue of cars at the San Gottardo tunnel',
 };
 
 export default blogMetaEn;
