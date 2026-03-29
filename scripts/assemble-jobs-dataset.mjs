@@ -124,22 +124,40 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     throw new TypeError('writeJobsCrawlerSlice: jobs must be an array');
   }
 
-  // Quality gate: flag jobs where non-IT titles or slugs contain Italian words.
-  // These need retranslation — the AI may have been exhausted or mistranslated.
-  const IT_JOB_WORDS = new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,falegname,muratore,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice,specialista'.split(','));
-  const _hasITwords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 4).some(w => IT_JOB_WORDS.has(w));
+  // Quality gate: flag jobs where any locale has content in the wrong language.
+  // Checks: (1) wrong-language words in titles/slugs, (2) cross-locale title duplicates.
+  const _LANG_WORDS = {
+    it: new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,falegname,muratore,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice,specialista,descrizione,mansioni,requisiti,candidato,principali'.split(',')),
+    de: new Set('mitarbeiter,mitarbeitende,aufgaben,bewerbung,bewerben,arbeitsort,anfallenden,unternehmen,lernender,lehrjahr,detailhandel,kassieren,filiale,filialen,qualifikationsverfahren,ferien,ausbildung,angebot,beschreibung,stellenangebot,verantwortungsvolles,einsatzbereitschaft,teamgeist,karriere,arbeitsbeginn,pensum,vollzeit,teilzeit,berufserfahrung,anforderungen,voraussetzungen,leistung,entlohnung,schulung,weiterbildung,pflegefachfrau,pflegefachmann,systemgastronomie,diatkoch'.split(',')),
+    fr: new Set('responsable,candidature,postuler,emploi,salaire,formation,recrutement,disponibilite,competences,qualifications,experience,horaires,contrat,entreprise,taches,principales,description,auxiliaire'.split(',')),
+  };
+  const _getWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 5);
+  const _hasWrongLangWords = (text, locale) => {
+    const words = _getWords(text);
+    for (const [lang, wordSet] of Object.entries(_LANG_WORDS)) {
+      if (lang === locale) continue;
+      if (words.filter(w => wordSet.has(w)).length >= 2) return true;
+    }
+    return false;
+  };
   let flagged = 0;
   for (const job of jobs) {
     if (job.needsRetranslation) continue;
-    for (const locale of ['en', 'de', 'fr']) {
-      if (_hasITwords(job.titleByLocale?.[locale]) || _hasITwords((job.slugByLocale?.[locale] || '').replace(/-/g, ' '))) {
-        job.needsRetranslation = true;
-        flagged++;
-        break;
-      }
+    const sl = job.sourceLang || 'it';
+    const titles = job.titleByLocale || {};
+    let needsFlag = false;
+    for (const locale of ['it', 'en', 'de', 'fr']) {
+      if (!titles[locale]) continue;
+      // Cross-locale duplicate: title identical to source-language title
+      if (locale !== sl && titles[locale] === titles[sl]) { needsFlag = true; break; }
+      // Wrong-language words in title
+      if (_hasWrongLangWords(titles[locale], locale)) { needsFlag = true; break; }
+      // Wrong-language words in slug
+      if (locale !== 'it' && _hasWrongLangWords((job.slugByLocale?.[locale] || '').replace(/-/g, ' '), locale)) { needsFlag = true; break; }
     }
+    if (needsFlag) { job.needsRetranslation = true; flagged++; }
   }
-  if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with Italian words in non-IT titles/slugs`);
+  if (flagged > 0) console.log(`🔍 Quality gate: flagged ${flagged} jobs with wrong-language content`);
 
   const hardened = hardenJobsWithStructuredSalary(jobs);
   fs.mkdirSync(JOBS_SLICES_DIR, { recursive: true });

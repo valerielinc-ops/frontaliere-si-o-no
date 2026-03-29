@@ -1801,15 +1801,34 @@ function ensureLocaleFields(job) {
     out.slug = normalizeSpace(slugByLocale.it);
   }
 
-  // Post-processing quality gate: if any non-IT title OR slug still contains common
-  // Italian words, keep needsRetranslation=true so the next translate-pending run retries.
-  const IT_JOB_WORDS = new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,falegname,muratore,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice,specialista'.split(','));
-  const _hasITwords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 4).some(w => IT_JOB_WORDS.has(w));
-  for (const locale of LOCALES) {
-    if (locale === 'it') continue;
-    if (_hasITwords(out.titleByLocale?.[locale]) || _hasITwords((out.slugByLocale?.[locale] || '').replace(/-/g, ' '))) {
-      out.needsRetranslation = true;
-      break;
+  // Post-processing quality gate: flag if any locale has wrong-language content.
+  // Checks wrong-language words in titles/slugs AND cross-locale title duplicates.
+  const _LANG_WORDS = {
+    it: new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,falegname,muratore,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice,specialista,descrizione,mansioni,requisiti,candidato,principali'.split(',')),
+    de: new Set('mitarbeiter,mitarbeitende,aufgaben,bewerbung,bewerben,arbeitsort,anfallenden,unternehmen,lernender,lehrjahr,detailhandel,kassieren,filiale,filialen,qualifikationsverfahren,ferien,ausbildung,angebot,beschreibung,stellenangebot,verantwortungsvolles,einsatzbereitschaft,teamgeist,karriere,arbeitsbeginn,pensum,vollzeit,teilzeit,berufserfahrung,anforderungen,voraussetzungen,leistung,entlohnung,schulung,weiterbildung,pflegefachfrau,pflegefachmann,systemgastronomie,diatkoch'.split(',')),
+    fr: new Set('responsable,candidature,postuler,emploi,salaire,formation,recrutement,disponibilite,competences,qualifications,experience,horaires,contrat,entreprise,taches,principales,description,auxiliaire'.split(',')),
+  };
+  const _getWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 5);
+  const _hasWrongLang = (text, locale) => {
+    const words = _getWords(text);
+    for (const [lang, wordSet] of Object.entries(_LANG_WORDS)) {
+      if (lang === locale) continue;
+      if (words.filter(w => wordSet.has(w)).length >= 2) return true;
+    }
+    return false;
+  };
+  {
+    const srcLang = out.sourceLang || 'it';
+    const srcTitle = normalizeSpace(out.titleByLocale?.[srcLang] || '');
+    for (const locale of LOCALES) {
+      const title = normalizeSpace(out.titleByLocale?.[locale] || '');
+      if (!title) continue;
+      // Cross-locale title duplicate = not translated
+      if (locale !== srcLang && title === srcTitle) { out.needsRetranslation = true; break; }
+      // Wrong-language words in title or slug
+      if (_hasWrongLang(title, locale) || _hasWrongLang((out.slugByLocale?.[locale] || '').replace(/-/g, ' '), locale)) {
+        out.needsRetranslation = true; break;
+      }
     }
   }
 
