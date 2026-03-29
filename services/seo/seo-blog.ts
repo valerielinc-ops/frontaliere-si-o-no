@@ -8960,6 +8960,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trattative-acordo-usa-oltre-31-marzo': {
+    title: 'Parmelin: trattative con Usa oltre il 31 marzo per l\'accordo commerciale | Frontaliere Ticino',
+    description: 'La Svizzera continuerà a negoziare un accordo commerciale con gli Stati Uniti anche dopo il termine previsto del 31 marzo. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, parmelin, trattative, oltre, marzo',
+    ogTitle: 'Trattative commercio Usa Svizzera: oltre 31 marzo - Frontaliere Ticino',
+    ogDescription: 'La Svizzera continuerà a negoziare un accordo commerciale con gli Stati Uniti anche dopo il termine previsto del 31 marzo.',
+    canonicalPath: '/articoli-frontaliere/trattative-acordo-usa-oltre-31-marzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trattative commercio Usa Svizzera: oltre 31 marzo",
+      "description": "La Svizzera continuerà a negoziare un accordo commerciale con gli Stati Uniti anche dopo il termine previsto del 31 marzo. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trattative-acordo-usa-oltre-31-marzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Due persone discutono in un ufficio governativo. Locarno, Ticino."
+      },
+      "datePublished": "2026-03-29T19:06:41+00:00",
+      "dateModified": "2026-03-29T19:06:41+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trattative-acordo-usa-oltre-31-marzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

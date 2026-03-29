@@ -1847,6 +1847,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.code-nord-san-gottardo.title': 'Code al San Gottardo',
     'blog.article.code-nord-san-gottardo.excerpt': 'Dieci chilometri di coda al portale nord del San Gottardo, tempi di attesa fino a un\'ora e trenta minuti',
     'blog.article.code-nord-san-gottardo.imageAlt': 'File de voitures au tunnel du Saint-Gothard',
+    'blog.article.trattative-acordo-usa-oltre-31-marzo.title': 'Parmelin : les négociations avec les États-Unis se poursuivront au-delà du 31 mars pour l\'accord commercial',
+    'blog.article.trattative-acordo-usa-oltre-31-marzo.excerpt': 'La date limite fixée à la fin du mois n\'est plus valable en raison de la décision de la Cour suprême des États-Unis',
+    'blog.article.trattative-acordo-usa-oltre-31-marzo.imageAlt': 'Deux personnes discutent dans un bureau gouvernemental. Locarno, Tessin.',
 };
 
 export default blogMetaFr;

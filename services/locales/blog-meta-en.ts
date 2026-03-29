@@ -1847,6 +1847,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.code-nord-san-gottardo.title': 'Code at the San Gottardo',
     'blog.article.code-nord-san-gottardo.excerpt': 'Ten kilometres of queue at the north portal of the San Gottardo, waiting times up to one hour and thirty minutes',
     'blog.article.code-nord-san-gottardo.imageAlt': 'Queue of cars at the San Gottardo tunnel',
+    'blog.article.trattative-acordo-usa-oltre-31-marzo.title': 'Parmelin: negotiations with the US beyond March 31 for the commercial agreement',
+    'blog.article.trattative-acordo-usa-oltre-31-marzo.excerpt': 'The deadline set for the end of the month is no longer valid due to the decision of the Supreme Court of the United States.',
+    'blog.article.trattative-acordo-usa-oltre-31-marzo.imageAlt': 'Two people discuss in a government office. Locarno, Ticino.',
 };
 
 export default blogMetaEn;

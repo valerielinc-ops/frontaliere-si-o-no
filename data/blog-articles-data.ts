@@ -5501,4 +5501,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/code-nord-san-gottardo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'trattative-acordo-usa-oltre-31-marzo',
+    category: 'novita',
+    date: '2026-03-29T19:06:40.989Z',
+    image: '/images/blog/trattative-acordo-usa-oltre-31-marzo.jpg',
+    hasCalculator: true,
+  },
 ];
