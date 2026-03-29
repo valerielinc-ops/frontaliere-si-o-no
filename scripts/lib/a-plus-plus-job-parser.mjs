@@ -115,16 +115,20 @@ export function parseAplusListings(html = '') {
 export function parseAplusJobDetail(html = '', pageUrl = '') {
   const jsonLd = extractJobPostingJsonLd(html);
   if (jsonLd?.title) {
-    const addressLocality =
+    const rawLocality = normalizeSpace(
       jsonLd.jobLocation?.address?.addressLocality ||
       jsonLd.jobLocation?.address?.addressRegion ||
-      '';
+      ''
+    );
+    // If the locality is purely numeric (a postal code, not a city name),
+    // discard it — the crawler will fall back to listing location or HQ default.
+    const addressLocality = /^\d+$/.test(rawLocality) ? '' : rawLocality;
     const description = typeof jsonLd.description === 'string'
       ? htmlFragmentToMarkdown(jsonLd.description)
       : '';
     return {
       title: normalizeSpace(jsonLd.title),
-      location: normalizeSpace(addressLocality),
+      location: addressLocality,
       description,
       shareUrl: jsonLd.url || pageUrl,
     };

@@ -181,7 +181,10 @@ async function buildAplusJob(listing) {
   if (!detail.title) {
     throw new Error(`Missing title while parsing ${detailUrl}`);
   }
-  const rawLocation = detail.location || listing.location || 'Massagno';
+  // Discard purely numeric locations (postal codes, not city names)
+  const detailLoc = /^\d+$/.test(String(detail.location || '').trim()) ? '' : (detail.location || '');
+  const listingLoc = /^\d+$/.test(String(listing.location || '').trim()) ? '' : (listing.location || '');
+  const rawLocation = detailLoc || listingLoc || 'Massagno';
   const canton = inferAplusCanton(rawLocation);
   const postalCode = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? '6942' : '6900';
   const streetAddress = rawLocation.toLowerCase().includes('massagno') || !rawLocation ? 'Via Molinazzo 4' : '';
