@@ -1560,6 +1560,16 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   return (simple && simple.length >= floor) ? simple : '';
 }
 
+// Common Italian job-title words that should NOT appear in non-IT translations.
+// Used as a post-translation quality gate to catch untranslated fragments.
+const IT_TITLE_WORDS = new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,carrozziere,falegname,muratore,carpentiere,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice'.split(','));
+
+function titleHasItalianWords(text, targetLocale) {
+  if (targetLocale === 'it') return false;
+  const words = String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 4);
+  return words.some(w => IT_TITLE_WORDS.has(w));
+}
+
 export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' }, ctx = {}) {
   const {
     buildAiCacheKey, getCachedAiResponse, setCachedAiResponse,
@@ -1591,26 +1601,46 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       }
       return cleanTitle;
     }
-    // DeepL first
+    // DeepL / free-translate first
     const deepl = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-    if (deepl && deepl.length >= 2 && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(deepl))) {
+    if (deepl && deepl.length >= 2 &&
+        !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(deepl)) &&
+        !titleHasItalianWords(deepl, locale)) {
       setCachedAiResponse(cacheKey, deepl);
       return deepl;
     }
+    // If DeepL result has Italian remnants, fall through to LLM
     // LLM fallback
     if (isAnyModelAvailable && isAnyModelAvailable()) {
       if (ctx.incrDeeplFallbackToLlm) ctx.incrDeeplFallbackToLlm();
       const prompt = [
-        `Translate this job title from ${sourceLang} to ${locale}.`,
+        `Translate this job title to ${locale}.`,
         'Rules:',
-        '- Keep brand names/acronyms unchanged.',
-        '- Translate role words naturally for the target locale.',
+        '- Translate ALL words to the target language — the title may contain words from multiple languages (e.g. Italian + English mix). Every word must be in the target language.',
+        '- Keep brand names, company names, and acronyms (e.g. IPU, R&D, SAP) unchanged.',
+        '- Translate role/function words naturally for the target locale.',
         '- Return only the translated title, no quotes, no extra text.',
         `Title: ${cleanTitle}`,
       ].join('\n');
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
-        const translated = (ns || normalize)(String(text || '').replace(/^["']|["']$/g, ''));
+        let translated = (ns || normalize)(String(text || '').replace(/^["']|["']$/g, ''));
+        // Post-check: if result still has Italian words in a non-IT locale, retry with explicit instruction
+        if (translated && titleHasItalianWords(translated, locale) && callLLM) {
+          const retryPrompt = [
+            `The translation still contains Italian words. Translate this job title COMPLETELY to ${locale}.`,
+            `Italian words like "${translated.split(/[^a-zA-ZàèéìòùüäöüÄÖÜß]+/).filter(w => IT_TITLE_WORDS.has(w.toLowerCase())).join('", "')}" must be translated.`,
+            `Title: ${translated}`,
+            'Return ONLY the fully translated title.',
+          ].join('\n');
+          try {
+            const retry = await callLLM([{ role: 'user', content: retryPrompt }], { temperature: 0.2, maxTokens: 80, jsonMode: false });
+            const retryClean = (ns || normalize)(String(retry || '').replace(/^["']|["']$/g, ''));
+            if (retryClean && !titleHasItalianWords(retryClean, locale) && retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
+              translated = retryClean;
+            }
+          } catch { /* keep first translation */ }
+        }
         if (translated && translated.toLowerCase() !== cleanTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
           setCachedAiResponse(cacheKey, translated);
@@ -2038,6 +2068,17 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   out.titleByLocale = titleByLocale;
   out.descriptionByLocale = currentByLocale;
   out.requirementsByLocale = reqByLocale;
+
+  // Post-translation quality gate: if any non-IT title still contains Italian words,
+  // keep needsRetranslation=true so the next pipeline run will retry with fresh quotas.
+  for (const locale of locales) {
+    if (locale === 'it') continue;
+    if (titleHasItalianWords(titleByLocale[locale], locale)) {
+      out.needsRetranslation = true;
+      break;
+    }
+  }
+
   return out;
 }
 
