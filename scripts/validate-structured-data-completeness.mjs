@@ -3,7 +3,7 @@
  * Validate structured data completeness across ALL page types in dist/.
  *
  * Checks:
- *  - Every Dataset schema has `creator` AND `description`
+ *  - Every Dataset schema has `creator`, `description`, AND `license`
  *  - Every JobPosting schema has ALL mandatory fields with non-empty values
  *  - No page has a schema with empty/null mandatory fields
  *  - Samples pages across all types: active jobs, expired, company, statistics, blog
@@ -48,16 +48,30 @@ function extractJsonLd(html) {
   return blocks;
 }
 
-/** Flatten @graph arrays into individual schema objects */
+/** Flatten @graph arrays and recursively discover nested schemas (e.g. Dataset inside isBasedOn) */
 function flattenSchemas(blocks) {
   const out = [];
-  for (const b of blocks) {
-    if (b?.['@graph'] && Array.isArray(b['@graph'])) {
-      out.push(...b['@graph']);
-    } else {
-      out.push(b);
+  const seen = new WeakSet();
+
+  function collect(obj) {
+    if (!obj || typeof obj !== 'object' || seen.has(obj)) return;
+    seen.add(obj);
+
+    if (Array.isArray(obj)) {
+      for (const item of obj) collect(item);
+      return;
+    }
+
+    // Any object with @type is a schema worth validating
+    if (obj['@type']) out.push(obj);
+
+    // Recurse into @graph and all properties to find nested schemas
+    for (const val of Object.values(obj)) {
+      if (val && typeof val === 'object') collect(val);
     }
   }
+
+  for (const b of blocks) collect(b);
   return out;
 }
 
