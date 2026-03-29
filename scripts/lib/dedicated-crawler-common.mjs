@@ -1853,7 +1853,21 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     });
 
   const localeDescFloor = crawlerConfig?.minDescriptionChars || 120;
-  const coverage = locales.filter((l) => nsFn(currentByLocale[l] || '').length >= localeDescFloor).length;
+  // Count locale coverage: a locale is "covered" if it has an adequate description
+  // that is NOT an untranslated copy of the source. Italian copies in EN/DE/FR slots
+  // should NOT count as translated content.
+  const cleanSourceDesc = cleanFn(out.description || '');
+  const sourceDescLower = cleanSourceDesc.toLowerCase();
+  const coverage = locales.filter((l) => {
+    const text = nsFn(currentByLocale[l] || '');
+    if (text.length < localeDescFloor) return false;
+    // Source-language slot is always considered covered
+    if (l === sourceLang) return true;
+    // Check if the locale description is just a copy of the source (untranslated)
+    const cleanLocale = cleanFn(currentByLocale[l] || '');
+    if (cleanLocale.toLowerCase() === sourceDescLower) return false;
+    return true;
+  }).length;
   const hasBudget = (ctx.getAiLocalizationCalls ? ctx.getAiLocalizationCalls() : 0) < (crawlerConfig?.aiLocalizationMaxJobsPerRun || 0) || forceLocalization;
   const canUseAi = isAnyModelAvailable ? isAnyModelAvailable() : false;
   const localizationEnabled = Boolean(crawlerConfig?.aiLocalizationEnabled) || forceLocalization;

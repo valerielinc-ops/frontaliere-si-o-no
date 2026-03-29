@@ -129,7 +129,12 @@ for (const file of sliceFiles) {
   });
 
   if (sliceChanged) {
-    const envelope = { ...slice, jobs: updatedSliceJobs, assembledAt: new Date().toISOString() };
+    // Preserve the original assembledAt timestamp from the crawler.
+    // Scatter only propagates locale changes from the assembled dataset — it
+    // does not represent a new crawl run, so bumping assembledAt would cause
+    // unnecessary git churn across 90+ files when only a single company was
+    // actually translated.
+    const envelope = { ...slice, jobs: updatedSliceJobs };
     writeJson(slicePath, envelope);
     updatedSlices++;
   }

@@ -231,12 +231,28 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
     return 0;
   }
 
-  // Build a slug -> assembled job lookup for this company
+  // Build a slug -> assembled job lookup for this company.
+  // ensureLocaleFields() may regenerate the main slug (e.g. IT slug updated),
+  // so we also index by slugByLocale values and previousSlugs to catch
+  // slug-mismatch cases where the crawler file still has the old slug.
   const assembledBySlug = new Map();
   for (const job of assembledJobs) {
     const jobKey = normalizeCompanyKey(job.companyKey || job.company || '');
-    if (jobKey === companyKey && job.slug) {
-      assembledBySlug.set(job.slug, job);
+    if (jobKey !== companyKey) continue;
+    if (job.slug) assembledBySlug.set(job.slug, job);
+    // Index by all locale slugs so crawler jobs with old slugs can still match
+    if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+      for (const localeSlug of Object.values(job.slugByLocale)) {
+        const s = String(localeSlug || '').trim();
+        if (s && !assembledBySlug.has(s)) assembledBySlug.set(s, job);
+      }
+    }
+    // Index by previousSlugs — the assembled job may have renamed its main slug
+    // and the crawler file still references the old one
+    if (Array.isArray(job.previousSlugs)) {
+      for (const s of job.previousSlugs) {
+        if (s && !assembledBySlug.has(s)) assembledBySlug.set(s, job);
+      }
     }
   }
 
