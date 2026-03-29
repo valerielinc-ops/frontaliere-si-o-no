@@ -260,11 +260,25 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
         const trimmedExisting = String(existing || '').trim();
         // NEVER write empty assembled values (safety guard: AI may have failed).
         if (!trimmedValue) continue;
+        // For slugByLocale: also overwrite when a locale's slug is still identical
+        // to the master slug (= never localized). The assembled pipeline
+        // (ensureLocaleFields) derives locale-specific slugs from translated titles,
+        // but if the needsRetranslation flag was cleared before sync, those slugs
+        // would be lost. The master slug is job.slug (source language), not
+        // hardcoded to IT — jobs may be crawled in EN, DE, or FR.
+        const sourceLang = crawlerJob.sourceLang || 'it';
+        const masterSlug = String(crawlerJob.slug || '').trim();
+        const isUnlocalizedSlug =
+          field === 'slugByLocale' &&
+          locale !== sourceLang &&
+          trimmedExisting &&
+          trimmedExisting === masterSlug &&
+          trimmedValue !== trimmedExisting;
         // For needsRetranslation jobs: always overwrite with assembled value.
         // The existing content was explicitly flagged as bad quality (wrong language,
         // untranslated copy of source, etc.) so any non-empty assembled value is better.
-        // For normal jobs: only add where the crawler has no content.
-        if (crawlerJob.needsRetranslation || !trimmedExisting) {
+        // For normal jobs: only add where the crawler has no content, or adopt localized slugs.
+        if (crawlerJob.needsRetranslation || !trimmedExisting || isUnlocalizedSlug) {
           // Before overwriting a slug, preserve the old value in previousSlugs
           // so the build plugin can generate bridge/redirect pages for SEO continuity.
           if (field === 'slugByLocale' && trimmedExisting && trimmedValue !== trimmedExisting) {
