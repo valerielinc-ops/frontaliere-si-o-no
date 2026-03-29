@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-29T19:58:14.406Z",
+  "generatedAt": "2026-03-29T21:01:48.353Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -23529,20 +23529,6 @@
             "distanceKm": 18.8
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-28T17:48:13.950Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.939,
-            "distanceKm": 19.9
-          },
-          {
             "id": "qAULcG7RwtmdWPH52365",
             "name": "Euro service",
             "brand": "UNDEFINED",
@@ -23568,6 +23554,20 @@
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.5,
             "sp95PriceEur": 1.961,
+            "distanceKm": 19.9
+          },
+          {
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.81,
+            "updatedAt": "2026-03-26T10:07:15.454Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.972,
             "distanceKm": 19.9
           },
           {
@@ -25667,20 +25667,6 @@
             "distanceKm": 19.2
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-28T17:48:13.950Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.939,
-            "distanceKm": 18.5
-          },
-          {
             "id": "gyZYYvcytMmf7B92Ix1w",
             "name": "Euro Service",
             "brand": "UNDEFINED",
@@ -25693,6 +25679,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.95,
             "distanceKm": 19.4
+          },
+          {
+            "id": "qAULcG7RwtmdWPH52365",
+            "name": "Euro service",
+            "brand": "UNDEFINED",
+            "address": "Via Colombera 45, 6987 Caslano",
+            "lat": 45.972068975787,
+            "lng": 8.86726121879764,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-29T15:08:31.087Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.3,
+            "sp95PriceEur": 1.95,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.74,
@@ -28845,18 +28845,18 @@
             "distanceKm": 20
           },
           {
-            "id": "TyVGrppSLdVuEl3mGLQi",
-            "name": "Eni",
-            "brand": "ENI",
-            "address": "Via Cantonale 36, 6987 Caslano",
-            "lat": 45.97394481908457,
-            "lng": 8.869804789687063,
-            "sp95PriceChf": 1.78,
-            "updatedAt": "2026-03-28T17:48:13.950Z",
-            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
-            "nearestMunicipalityDistanceKm": 1.6,
-            "sp95PriceEur": 1.939,
-            "distanceKm": 18.4
+            "id": "gyZYYvcytMmf7B92Ix1w",
+            "name": "Euro Service",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 18, 6987 Caslano",
+            "lat": 45.98019132146254,
+            "lng": 8.877659257998385,
+            "sp95PriceChf": 1.79,
+            "updatedAt": "2026-03-29T15:10:37.022Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.95,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.74,
