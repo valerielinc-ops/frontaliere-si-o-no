@@ -1,16 +1,16 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-03-29T09:10:27.021Z",
+  "generatedAt": "2026-03-30T20:09:43.975Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 1457,
-  "avgDurationMs": 1457,
+  "durationMs": 1377,
+  "avgDurationMs": 1377,
   "durationHistory": [
-    1457
+    1377
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -18,7 +18,7 @@
   "unchangedJobs": [
     {
       "title": "Application Engineer – critical power",
-      "slug": "application-ingegnere-critical-power-centiel-lugano",
+      "slug": "ingegnere-applicativo-potenza-critica-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/02/2026.02-JD-EG-ApplicationEngineer.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -38,46 +38,22 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "description": "We are looking for a motivated and technically strong Application Engineer for critical power systems. In this role, you\n\nwill support our Sales team by designing and configuring UPS and power protection solutions, providing technical\n\nguidance to customers, and coordinating closely with internal teams throughout the project lifecycle from tender to\n\nimplementation.\n\nYou will be involved from early pre-sales discussions through quotation, project execution, and post-sales support,\n\ncontributing directly to customer satisfaction and the growth of Centiel’s global Data Center business.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: VP Data Center Solutions – Critical Power",
-      "titleByLocale": {
-        "en": "Application Engineer – critical power",
-        "it": "Application Ingegnere – critical power",
-        "de": "Application Ingenieur – critical power",
-        "fr": "Application Ingénieur – critical power"
-      },
-      "descriptionByLocale": {
-        "en": "We are looking for a motivated and technically strong Application Engineer for critical power systems. In this role, you\n\nwill support our Sales team by designing and configuring UPS and power protection solutions, providing technical\n\nguidance to customers, and coordinating closely with internal teams throughout the project lifecycle from tender to\n\nimplementation.\n\nYou will be involved from early pre-sales discussions through quotation, project execution, and post-sales support,\n\ncontributing directly to customer satisfaction and the growth of Centiel’s global Data Center business.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: VP Data Center Solutions – Critical Power",
-        "it": "We are looking for a motivated and technically strong Application Engineer for critical power systems. In this role, you\n\nwill support our Sales team by designing and configuring UPS and power protection solutions, providing technical\n\nguidance to customers, and coordinating closely with internal teams throughout the project lifecycle from tender to\n\nimplementation.\n\nYou will be involved from early pre-sales discussions through quotation, project execution, and post-sales support,\n\ncontributing directly to customer satisfaction and the growth of Centiel’s global Data Center business.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: VP Data Center Solutions – Critical Power",
-        "de": "We are looking for a motivated and technically strong Application Engineer for critical power systems. In this role, you\n\nwill support our Sales team by designing and configuring UPS and power protection solutions, providing technical\n\nguidance to customers, and coordinating closely with internal teams throughout the project lifecycle from tender to\n\nimplementation.\n\nYou will be involved from early pre-sales discussions through quotation, project execution, and post-sales support,\n\ncontributing directly to customer satisfaction and the growth of Centiel’s global Data Center business.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: VP Data Center Solutions – Critical Power",
-        "fr": "We are looking for a motivated and technically strong Application Engineer for critical power systems. In this role, you\n\nwill support our Sales team by designing and configuring UPS and power protection solutions, providing technical\n\nguidance to customers, and coordinating closely with internal teams throughout the project lifecycle from tender to\n\nimplementation.\n\nYou will be involved from early pre-sales discussions through quotation, project execution, and post-sales support,\n\ncontributing directly to customer satisfaction and the growth of Centiel’s global Data Center business.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: VP Data Center Solutions – Critical Power"
-      },
-      "slugByLocale": {
-        "it": "application-ingegnere-critical-power-centiel-lugano",
-        "en": "application-engineer-critical-power-centiel-ticino",
-        "de": "application-ingenieur-critical-power-centiel-lugano",
-        "fr": "application-ingenieur-critical-power-centiel-lugano"
-      },
-      "needsRetranslation": true,
-      "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
       "streetAddress": "Via Luserte 11",
-      "postalCode": "6572"
+      "postalCode": "6572",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Research & Development Engineer",
-      "slug": "ricerca-development-ingegnere-centiel-lugano",
+      "slug": "ingegnere-di-ricerca-e-sviluppo-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -97,48 +73,22 @@
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
-      "description": "To strengthen our product innovation, we are seeking a Research & Development Engineer with solid expertise in power electronics control and embedded systems for high-reliability industrial products (UPS or similar).\n\nYou are a hands-on engineer with strong analytical skills and lab practice, able to design, implement, and validate control algorithms and embedded firmware/hardware, collaborating closely with Production, Quality, and After-Sales to deliver robust features to market.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: Head of R&D\n\nWorking rate: 100%",
-      "titleByLocale": {
-        "en": "Research & Development Engineer",
-        "it": "Ricerca & Development Ingegnere",
-        "de": "Forschung & Development Ingenieur",
-        "fr": "Recherche & Development Ingénieur"
-      },
-      "descriptionByLocale": {
-        "en": "To strengthen our product innovation, we are seeking a Research & Development Engineer with solid expertise in power electronics control and embedded systems for high-reliability industrial products (UPS or similar).\n\nYou are a hands-on engineer with strong analytical skills and lab practice, able to design, implement, and validate control algorithms and embedded firmware/hardware, collaborating closely with Production, Quality, and After-Sales to deliver robust features to market.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: Head of R&D\n\nWorking rate: 100%",
-        "it": "To strengthen our product innovation, we are seeking a Research & Development Engineer with solid expertise in power electronics control and embedded systems for high-reliability industrial products (UPS or similar).\n\nYou are a hands-on engineer with strong analytical skills and lab practice, able to design, implement, and validate control algorithms and embedded firmware/hardware, collaborating closely with Production, Quality, and After-Sales to deliver robust features to market.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: Head of R&D\n\nWorking rate: 100%",
-        "de": "To strengthen our product innovation, we are seeking a Research & Development Engineer with solid expertise in power electronics control and embedded systems for high-reliability industrial products (UPS or similar).\n\nYou are a hands-on engineer with strong analytical skills and lab practice, able to design, implement, and validate control algorithms and embedded firmware/hardware, collaborating closely with Production, Quality, and After-Sales to deliver robust features to market.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: Head of R&D\n\nWorking rate: 100%",
-        "fr": "To strengthen our product innovation, we are seeking a Research & Development Engineer with solid expertise in power electronics control and embedded systems for high-reliability industrial products (UPS or similar).\n\nYou are a hands-on engineer with strong analytical skills and lab practice, able to design, implement, and validate control algorithms and embedded firmware/hardware, collaborating closely with Production, Quality, and After-Sales to deliver robust features to market.\n\nWorkplace: Cadro (Lugano), with occasional travel\n\nReporting to: Head of R&D\n\nWorking rate: 100%"
-      },
-      "slugByLocale": {
-        "it": "ricerca-development-ingegnere-centiel-lugano",
-        "en": "research-development-engineer-centiel-lugano",
-        "de": "forschung-development-ingenieur-centiel-lugano",
-        "fr": "recherche-development-ingenieur-centiel-lugano"
-      },
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "research-development-engineer-centiel-ticino"
-      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
       "streetAddress": "Via Luserte 11",
-      "postalCode": "6572"
+      "postalCode": "6572",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Sales – 3-phase UPS Channel Partners Manager",
-      "slug": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
+      "slug": "vendite-responsabile-dei-partner-di-canale-ups-trifase-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/10/2025.10-JD-EG-Sales-Manager-Channel-Partners.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -158,45 +108,22 @@
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
-      "description": "To support our global expansion, we are seeking a Sales– 3-phase UPS Channel Partners Manager with a proven background in B2B channel management and a strong understanding of the 3-phase UPS and power protection market. The ideal candidate combines commercial acumen, relationship-building skills, and technical insight to drive growth through our international network of distributors and resellers.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: Global Sales Director\n\nWorking rate: 100%",
-      "titleByLocale": {
-        "en": "Sales – 3-phase UPS Channel Partners Manager",
-        "it": "Sales – 3-phase UPS Channel Partners Manager",
-        "de": "Sales – 3-phase UPS Channel Partners Manager",
-        "fr": "Sales – 3-phase UPS Channel Partners Manager"
-      },
-      "descriptionByLocale": {
-        "en": "To support our global expansion, we are seeking a Sales– 3-phase UPS Channel Partners Manager with a proven background in B2B channel management and a strong understanding of the 3-phase UPS and power protection market. The ideal candidate combines commercial acumen, relationship-building skills, and technical insight to drive growth through our international network of distributors and resellers.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: Global Sales Director\n\nWorking rate: 100%",
-        "it": "To support our global expansion, we are seeking a Sales– 3-phase UPS Channel Partners Manager with a proven background in B2B channel management and a strong understanding of the 3-phase UPS and power protection market. The ideal candidate combines commercial acumen, relationship-building skills, and technical insight to drive growth through our international network of distributors and resellers.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: Global Sales Director\n\nWorking rate: 100%",
-        "de": "To support our global expansion, we are seeking a Sales– 3-phase UPS Channel Partners Manager with a proven background in B2B channel management and a strong understanding of the 3-phase UPS and power protection market. The ideal candidate combines commercial acumen, relationship-building skills, and technical insight to drive growth through our international network of distributors and resellers.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: Global Sales Director\n\nWorking rate: 100%",
-        "fr": "To support our global expansion, we are seeking a Sales– 3-phase UPS Channel Partners Manager with a proven background in B2B channel management and a strong understanding of the 3-phase UPS and power protection market. The ideal candidate combines commercial acumen, relationship-building skills, and technical insight to drive growth through our international network of distributors and resellers.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: Global Sales Director\n\nWorking rate: 100%"
-      },
-      "slugByLocale": {
-        "it": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
-        "en": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
-        "de": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
-        "fr": "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
-      },
-      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 89000,
       "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 66000,
-          "maxValue": 89000,
-          "unitText": "YEAR"
-        }
-      },
       "streetAddress": "Via Luserte 11",
-      "postalCode": "6572"
+      "postalCode": "6572",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "After-Sales Technician",
-      "slug": "after-sales-technician-centiel-ticino",
+      "slug": "tecnico-post-vendita-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/05/Job_profile_After_Sales_Technician.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -216,42 +143,18 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "description": "After-Sales Technician — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.\nReporting to: After Sales Manager.\n\nTo support our growth and strengthen our After-Sales\n\ndepartment, we are seeking a motivated and skilled\n\nafter-sales technician with a strong technical background\n\nand a customer-centric mindset.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: After Sales Manager\n\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.\n\nWorkplace: Cadro (Lugano), Switzerland, Via alla Stampa 15, CH-6965.\nApply via: https://www.centiel.com/careers/",
-      "titleByLocale": {
-        "en": "After-Sales Technician",
-        "it": "After-Sales Technician",
-        "de": "After-Sales Techniker",
-        "fr": "After-Sales Technicien"
-      },
-      "descriptionByLocale": {
-        "en": "After-Sales Technician — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.\nReporting to: After Sales Manager.\n\nTo support our growth and strengthen our After-Sales\n\ndepartment, we are seeking a motivated and skilled\n\nafter-sales technician with a strong technical background\n\nand a customer-centric mindset.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: After Sales Manager\n\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.\n\nWorkplace: Cadro (Lugano), Switzerland, Via alla Stampa 15, CH-6965.\nApply via: https://www.centiel.com/careers/",
-        "it": "After-Sales Technician — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.\nReporting to: After Sales Manager.\n\nTo support our growth and strengthen our After-Sales\n\ndepartment, we are seeking a motivated and skilled\n\nafter-sales technician with a strong technical background\n\nand a customer-centric mindset.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: After Sales Manager\n\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.\n\nWorkplace: Cadro (Lugano), Switzerland, Via alla Stampa 15, CH-6965.\nApply via: https://www.centiel.com/careers/",
-        "de": "After-Sales Technician — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.\nReporting to: After Sales Manager.\n\nTo support our growth and strengthen our After-Sales\n\ndepartment, we are seeking a motivated and skilled\n\nafter-sales technician with a strong technical background\n\nand a customer-centric mindset.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: After Sales Manager\n\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.\n\nWorkplace: Cadro (Lugano), Switzerland, Via alla Stampa 15, CH-6965.\nApply via: https://www.centiel.com/careers/",
-        "fr": "After-Sales Technician — Centiel, Cadro (Lugano), Canton Ticino, Switzerland.\nReporting to: After Sales Manager.\n\nTo support our growth and strengthen our After-Sales\n\ndepartment, we are seeking a motivated and skilled\n\nafter-sales technician with a strong technical background\n\nand a customer-centric mindset.\n\nWorkplace: Cadro (Lugano), Switzerland\n\nReporting to: After Sales Manager\n\nCentiel is a Swiss company headquartered in Cadro (Lugano), specializing in the design and manufacture of uninterruptible power supply (UPS) systems and power protection solutions. The company develops innovative three-phase modular UPS technology for mission-critical applications including data centers, hospitals, industrial facilities, and telecommunications infrastructure. Centiel's products are known for their high efficiency, reliability, and scalability, serving clients across Europe and globally.\n\nWorkplace: Cadro (Lugano), Switzerland, Via alla Stampa 15, CH-6965.\nApply via: https://www.centiel.com/careers/"
-      },
-      "slugByLocale": {
-        "it": "after-sales-technician-centiel-ticino",
-        "en": "after-sales-technician-centiel-lugano",
-        "de": "after-sales-techniker-centiel-lugano",
-        "fr": "after-sales-technicien-centiel-lugano"
-      },
-      "needsRetranslation": true,
-      "previousSlugs": [],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 54000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
       "streetAddress": "Via Luserte 11",
-      "postalCode": "6572"
+      "postalCode": "6572",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ]
 }
