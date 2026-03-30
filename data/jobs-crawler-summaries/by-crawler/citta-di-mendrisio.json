@@ -1,16 +1,16 @@
 {
   "key": "citta-di-mendrisio",
   "label": "Città di Mendrisio",
-  "generatedAt": "2026-03-30T20:39:02.268Z",
+  "generatedAt": "2026-03-30T21:49:30.847Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 18941,
-  "avgDurationMs": 18941,
+  "durationMs": 19974,
+  "avgDurationMs": 19974,
   "durationHistory": [
-    18941
+    19974
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,6 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -48,11 +47,11 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -78,7 +77,6 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -88,11 +86,11 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -118,7 +116,6 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -128,11 +125,11 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -158,7 +155,6 @@
         "location": "Mendrisio"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 83500,
       "salaryMax": 112500,
@@ -168,11 +164,12 @@
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 81,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }

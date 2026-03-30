@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-mendrisio",
-  "assembledAt": "2026-03-30T20:39:02.267Z",
+  "assembledAt": "2026-03-30T21:49:30.846Z",
   "jobs": [
     {
       "url": "https://mendrisio.ch/downloadConcorsiPdf?uuid=3aa51dfd-3faf-4682-84aa-02e9d092da0a",
@@ -258,7 +258,8 @@
       "postalCode": "6850",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     }
   ]
 }
