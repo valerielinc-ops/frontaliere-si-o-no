@@ -495,52 +495,37 @@ async function main() {
   // Fast-path: clear flags for jobs that are already complete (no AI call needed).
   // This handles the case where crawlers re-flag jobs that were already translated
   // (e.g. jobs with English titles identical across locales that triggered titleNeedsLocalization).
+  // Scan per-crawler files DIRECTLY for orphaned needsRetranslation flags.
+  // Some crawler files have jobs that don't make it into the assembled dataset
+  // (e.g. failed quality gate). This runs unconditionally — even when the assembled
+  // dataset has 0 flags, per-crawler files may still have stale ones.
+  let directCleared = 0;
+  if (fs.existsSync(BY_CRAWLER_DIR)) {
+    for (const file of fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache'))) {
+      const filePath = path.join(BY_CRAWLER_DIR, file);
+      const crawlerData = readJson(filePath);
+      if (!crawlerData?.jobs || !Array.isArray(crawlerData.jobs)) continue;
+      let fileChanged = false;
+      for (const job of crawlerData.jobs) {
+        if (job.needsRetranslation && !isIncomplete(job)) {
+          delete job.needsRetranslation;
+          directCleared++;
+          fileChanged = true;
+        }
+      }
+      if (fileChanged) {
+        fs.writeFileSync(filePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+      }
+    }
+  }
+  if (directCleared > 0) {
+    console.log(`⚡ Cleared ${directCleared} stale needsRetranslation flags from per-crawler files`);
+  }
+
   const preCleared = clearRetranslationFlags(jobs);
   if (preCleared > 0) {
     fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(jobs, null, 2) + '\n', 'utf-8');
-    console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs (no AI needed)`);
-
-    // ALWAYS sync pre-cleared flags back to per-crawler files (source of truth).
-    // Without this, log-translation-stats.mjs (which reads per-crawler files) keeps
-    // showing stale needsRetranslation counts even after flags are cleared.
-    const companiesCleared = [...new Set(jobs
-      .filter(j => !j.needsRetranslation)
-      .map(j => normalizeCompanyKey(j.companyKey || j.company || ''))
-      .filter(Boolean))];
-    let totalSynced = 0;
-    for (const key of companiesCleared) {
-      const synced = syncTranslationsToCrawlerFile(key, jobs);
-      if (synced > 0) totalSynced += synced;
-    }
-    if (totalSynced > 0) {
-      console.log(`   📁 Synced ${totalSynced} pre-cleared flags to per-crawler files (via assembly)`);
-    }
-
-    // Also scan per-crawler files DIRECTLY for orphaned needsRetranslation flags.
-    // Some crawler files have jobs that don't make it into the assembled dataset
-    // (e.g. failed quality gate). The assembly-based sync above can't reach those.
-    let directCleared = 0;
-    if (fs.existsSync(BY_CRAWLER_DIR)) {
-      for (const file of fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache'))) {
-        const filePath = path.join(BY_CRAWLER_DIR, file);
-        const crawlerData = readJson(filePath);
-        if (!crawlerData?.jobs || !Array.isArray(crawlerData.jobs)) continue;
-        let fileChanged = false;
-        for (const job of crawlerData.jobs) {
-          if (job.needsRetranslation && !isIncomplete(job)) {
-            delete job.needsRetranslation;
-            directCleared++;
-            fileChanged = true;
-          }
-        }
-        if (fileChanged) {
-          fs.writeFileSync(filePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
-        }
-      }
-    }
-    if (directCleared > 0) {
-      console.log(`   📁 Cleared ${directCleared} orphaned flags directly from per-crawler files`);
-    }
+    console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs in assembled dataset`);
     console.log('');
 
     // Re-filter pending after pre-clear
