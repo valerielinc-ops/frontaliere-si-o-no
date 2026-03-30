@@ -41,7 +41,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
-import { computeCrawlerQualityAggregate } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -187,9 +187,17 @@ export function writeSummaryCrawlerSlice(summaryEntry) {
 
   // Strip heavy locale/description data from job lists — summaries should only
   // contain metadata (title, slug, company, url) for monitoring, not full translations.
+  // Compute per-job quality score BEFORE stripping (needs description/locale fields).
   const HEAVY_FIELDS = ['descriptionByLocale', 'titleByLocale', 'slugByLocale', 'description', 'baseSalary', 'previousSlugs', 'requirementsByLocale', 'requirements'];
   const stripJob = (job) => {
     if (!job || typeof job !== 'object') return job;
+    // Compute quality score while full data is still available
+    if (computeJobQualityScore) {
+      try {
+        const qs = computeJobQualityScore(job);
+        job = { ...job, _qualityScore: qs.total, _qualityBreakdown: qs.breakdown };
+      } catch { /* skip quality on error */ }
+    }
     const slim = {};
     for (const [k, v] of Object.entries(job)) {
       if (!HEAVY_FIELDS.includes(k)) slim[k] = v;

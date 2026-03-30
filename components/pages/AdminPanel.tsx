@@ -69,6 +69,8 @@ interface CrawlerSummaryLinkRow {
   location: string;
   url: string;
   slug: string;
+  _qualityScore?: number;
+  _qualityBreakdown?: { cleanliness: number; richness: number; translation: number; completeness: number };
 }
 
 interface CrawlerQualityScore {
@@ -1507,9 +1509,29 @@ export default function AdminPanel() {
                         ? (job._status === 'new' ? 'border-l-emerald-500' : job._status === 'updated' ? 'border-l-blue-500' : 'border-l-amber-400')
                         : '';
                       const siteUrl = jobSiteUrl(job.slug);
+                      const qs = job._qualityScore;
+                      const qsBadge = qs != null ? (() => {
+                        const color = qs >= 75
+                          ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300'
+                          : qs >= 50
+                            ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300'
+                            : 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300';
+                        const bd = job._qualityBreakdown;
+                        const tip = bd
+                          ? `Pulizia: ${bd.cleanliness}/25\nRicchezza: ${bd.richness}/25\nTraduzione: ${bd.translation}/25\nCompletezza: ${bd.completeness}/25`
+                          : `Quality: ${qs}/100`;
+                        return (
+                          <span className={`inline-flex items-center px-1.5 py-0.5 rounded-full text-[9px] font-bold ${color} cursor-help`} title={tip}>
+                            {qs}
+                          </span>
+                        );
+                      })() : null;
                       return (
                         <div key={`${job.slug || idx}`} className={`rounded-md border px-2 py-1.5 ${rowStyle} ${borderColor ? `border-l-2 ${borderColor}` : ''}`}>
-                          <div className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</div>
+                          <div className="flex items-center gap-1.5">
+                            <span className="text-xs font-medium text-slate-800 dark:text-slate-100">{job.title || 'Job senza titolo'}</span>
+                            {qsBadge}
+                          </div>
                           <div className="text-[11px] text-slate-500 dark:text-slate-400">
                             {job.company || 'Azienda n/d'}{job.location ? ` \u00B7 ${job.location}` : ''}
                           </div>
