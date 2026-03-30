@@ -30,6 +30,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
+import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -107,12 +108,13 @@ export function isIncomplete(job) {
     if (title.length < MIN_TITLE_CHARS || desc.length < MIN_DESC_CHARS) return true;
 
     // Untranslated (title identical to source in a different language).
-    // Cross-locale guard: only skip flagging if the source language is EN and the
-    // title looks like an international term (short, no diacritics, common patterns).
-    // For non-EN source languages (DE, FR), a copy is almost always a translation bug.
+    // Cross-locale guard: skip flagging if the title itself looks like an international
+    // English term (short, no diacritics). This applies regardless of sourceLang —
+    // an IT-source job can have an English title (e.g. "Front Desk & Office Support").
     if (title.toLowerCase() === sourceTitle && locale !== (job.sourceLang || 'it')) {
       const srcLang = job.sourceLang || 'it';
-      const isInternationalTitle = srcLang === 'en' && title.length < 40 && !/[àèéìòùüäöüß]/i.test(title);
+      const titleLooksEnglish = title.length < 40 && !/[àèéìòùüäöüß]/i.test(title);
+      const isInternationalTitle = (srcLang === 'en' || titleLooksEnglish) && title.length < 40;
       if (!isInternationalTitle) return true;
       // For international EN titles, only flag if no other locale translated it either
       const otherLocalesTranslated = LOCALES.some(
@@ -123,6 +125,17 @@ export function isIncomplete(job) {
 
     // Description identical to source (not translated)
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
+
+    // Cross-locale contamination: title detected as SOURCE language in a non-source slot.
+    // Catches partial translations (e.g. German words in IT slot for a DE-source job,
+    // or Italian text in FR slot for an IT-source job) that exact-copy check misses.
+    // Only flags when detected language matches source — avoids false positives from
+    // international terms (English-base titles used across locales).
+    if (locale !== (job.sourceLang || 'it') && title.length >= 8) {
+      const detected = detectJobTitleLocaleDetails(title, locale);
+      const srcLang = job.sourceLang || 'it';
+      if (detected.confidence >= 0.65 && detected.lang === srcLang) return true;
+    }
   }
 
   // Slug check: non-source slugs identical to the master slug are unlocalized
@@ -324,6 +337,14 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
           trimmedValue !== trimmedExisting;
         if (isUnlocalizedSlug) {
           console.log(`     🔗 SLUG [${locale}] unlocalized → adopting: ${trimmedExisting.slice(0, 50)} → ${trimmedValue.slice(0, 50)}`);
+        }
+        // CRITICAL: Never overwrite the source-lang title with assembled data.
+        // The crawler-extracted title (crawlerJob.title) is the canonical source.
+        // AI can hallucinate source-lang titles (e.g. "Console Assicuravo" for "Consulente Assicurativo"),
+        // and once synced here, the original is permanently destroyed.
+        if (field === 'titleByLocale' && locale === sourceLang && crawlerJob.needsRetranslation) {
+          // Preserve the canonical crawler title — skip this overwrite
+          continue;
         }
         // For needsRetranslation jobs: always overwrite with assembled value.
         // The existing content was explicitly flagged as bad quality (wrong language,

@@ -2086,7 +2086,11 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     for (const locale of locales) {
       const localized = aiLocalized[locale];
       if (!localized) continue;
-      if (localized.title && localized.title.length >= 4 && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(localized.title))) {
+      // CRITICAL: Never overwrite the source-lang title with AI output.
+      // The canonical title comes from the crawler (out.title) and must be preserved.
+      // AI can hallucinate the source-lang title (e.g. "Console Assicuravo" instead of "Consulente Assicurativo").
+      if (localized.title && localized.title.length >= 4 && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(localized.title))
+          && locale !== titleSourceLang) {
         titleByLocale[locale] = localized.title;
       }
       if (localized.description && localized.description.length >= localeDescFloor) {
