@@ -1,6 +1,6 @@
 {
   "crawlerKey": "has-healthcare",
-  "assembledAt": "2026-03-30T08:42:57.468Z",
+  "assembledAt": "2026-03-30T19:12:08.857Z",
   "jobs": [
     {
       "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
@@ -11,7 +11,7 @@
       "country": "CH",
       "url": "https://e-lavoro.ch/node/287",
       "applyUrl": "https://e-lavoro.ch/node/287",
-      "description": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Tecnica/o diplomata/o SSS costruzioni meccaniche.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Scuole superiori\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
+      "description": "## Descrizione\nHAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Tecnica/o diplomata/o SSS costruzioni meccaniche.\n\n## Requisiti\n- Lingue richieste: Inglese professionale\n- Titolo di studio: Scuole superiori\n\n## Settore e Sede\n- Settore: Farmaceutico / API (Active Pharmaceutical Ingredients)\n- Sede: Via Industria 24, Biasca (TI), Svizzera",
       "category": "engineering",
       "sector": "Farmaceutico / Healthcare",
       "employmentType": "FULL_TIME",
@@ -32,9 +32,9 @@
       },
       "slugByLocale": {
         "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
-        "en": "mechanical-construction-diploma-holder-has-healthcare-advanced-synthesis-biasca",
-        "de": "mechanische-konstruktion-diplomierter-has-healthcare-advanced-synthesis-biasca",
-        "fr": "titulaire-d-un-diplome-de-construction-mecanique-has-healthcare-advanced-synthesis-biasca"
+        "en": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
+        "de": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
+        "fr": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
       },
       "_targetScope": {
         "canton": "TI",
@@ -42,7 +42,20 @@
       },
       "crawledAt": "",
       "slug": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
-      "requirementsByLocale": {},
+      "requirementsByLocale": {
+        "en": [
+          "Professional English",
+          "Higher Secondary Education"
+        ],
+        "de": [
+          "Professionelles Englisch",
+          "Höhere Sekundarstufe"
+        ],
+        "fr": [
+          "Anglais professionnel",
+          "Enseignement secondaire supérieur"
+        ]
+      },
       "sourceLang": "it",
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -61,10 +74,7 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH",
-      "previousSlugs": [
-        "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
-      ]
+      "addressCountry": "CH"
     },
     {
       "title": "HSE Specialist",
@@ -75,7 +85,7 @@
       "country": "CH",
       "url": "https://e-lavoro.ch/node/286",
       "applyUrl": "https://e-lavoro.ch/node/286",
-      "description": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: HSE Specialist.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Scuola Universitaria Professionale\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
+      "description": "## Descrizione\nHAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: HSE Specialist.\n\n## Requisiti\n- Lingue richieste: Inglese professionale\n- Titolo di studio: Scuola Universitaria Professionale\n\n## Informazioni Generali\n- Settore: Farmaceutico / API (Active Pharmaceutical Ingredients)\n- Sede: Via Industria 24, Biasca (TI), Svizzera",
       "category": "general",
       "sector": "Farmaceutico / Healthcare",
       "employmentType": "FULL_TIME",
@@ -83,7 +93,7 @@
       "source": "has-healthcare-crawler",
       "postedDate": "2026-03-11",
       "titleByLocale": {
-        "it": "HSE Specialista",
+        "it": "Specialista HSE",
         "en": "HSE Specialist",
         "de": "HSE Spezialist",
         "fr": "Spécialiste HSE"
@@ -95,8 +105,8 @@
         "fr": "Description HAS Healthcare Advanced Synthesis, basée à Biasca (TI), recherche: Spécialiste HSE. ## Exigences - Langues requises: Anglais professionnel - Titre de formation: École universitaire professionnelle ## Informations générales - Secteur: Pharmaceutique / API (Ingrédients pharmaceutiques actifs) - Siège: Via Industria 24, Biasca (TI), Suisse"
       },
       "slugByLocale": {
-        "it": "hse-specialista-has-healthcare-advanced-synthesis-lugano",
-        "en": "hse-specialist-has-healthcare-advanced-synthesis-lugano",
+        "it": "specialista-hse-has-healthcare-advanced-synthesis-biasca",
+        "en": "hse-specialist-has-healthcare-advanced-synthesis-biasca",
         "de": "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
         "fr": "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa"
       },
@@ -105,14 +115,25 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "hse-specialista-has-healthcare-advanced-synthesis-lugano",
-      "requirementsByLocale": {},
+      "slug": "specialista-hse-has-healthcare-advanced-synthesis-biasca",
+      "requirementsByLocale": {
+        "en": [
+          "Professional English",
+          "Professional University School"
+        ],
+        "de": [
+          "Professionelles Englisch",
+          "Fachhochschule"
+        ],
+        "fr": [
+          "Anglais professionnel",
+          "École universitaire professionnelle"
+        ]
+      },
       "sourceLang": "it",
       "previousSlugs": [
         "hse-specialist-has-healthcare",
-        "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-        "hse-specialista-has-healthcare-advanced-synthesis-biasca",
-        "hse-specialist-has-healthcare-advanced-synthesis-biasca"
+        "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -142,7 +163,7 @@
       "country": "CH",
       "url": "https://e-lavoro.ch/node/276",
       "applyUrl": "https://e-lavoro.ch/node/276",
-      "description": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Assistente di Produzione.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
+      "description": "## Descrizione\n- HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Assistente di Produzione.\n- 🗣️ Lingue richieste: Inglese professionale\n- 🎓 Titolo di studio: Università\n- Settore: Farmaceutico / API (Active Pharmaceutical Ingredients)\n- Sede: Via Industria 24, Biasca (TI), Svizzera",
       "category": "manufacturing",
       "sector": "Farmaceutico / Healthcare",
       "employmentType": "FULL_TIME",
@@ -153,32 +174,30 @@
         "it": "Assistente di Produzione",
         "en": "Assistente di Production",
         "de": "Assistente di Produktion",
-        "fr": "Assistente di Production"
+        "fr": "Assistant de Production"
       },
       "descriptionByLocale": {
-        "it": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Assistente di Produzione.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
-        "en": "HAS Healthcare Advanced Synthesis, based in Biasca (TI), is looking for: Production Assistant. : Languages required: Professional English di Study Title: University Sector: Pharmaceutical / API (Active Pharmaceutical Ingredients) Location: Via Industria 24, Biasca (TI), Switzerland",
-        "de": "HAS Healthcare Advanced Synthesis mit Sitz in Biasca (TI) sucht nach: Production Assistant. : Sprachen erforderlich: Professional English di Study Title: University Sector: Pharmaceutical / API (Active Pharmaceutical Ingredients) Ort: Via Industria 24, Biasca (TI), Schweiz",
-        "fr": "HAS Healthcare Advanced Synthesis, basé à Biasca (TI), est à la recherche de: Assistant de production. : Langues requises: Anglais professionnel di Study Titre: Université Secteur: Pharmaceutique / API (Ingrédients pharmaceutiques actifs) Lieu: Via Industrie 24, Biasca (TI), Suisse"
+        "it": "Descrizione - HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Assistente di Produzione. - 🗣️ Lingue richieste: Inglese professionale - 🎓 Titolo di studio: Università - Settore: Farmaceutico / API (Active Pharmaceutical Ingredients) - Sede: Via Industria 24, Biasca (TI), Svizzera",
+        "en": "Description - HAS Healthcare Advanced Synthesis, headquartered in Biasca (TI), is looking for: Production Assistant. - 🗣️ Required languages: Professional English - 🎓 Education: University - Sector: Pharmaceutical / API (Active Pharmaceutical Ingredients) - Location: Via Industria 24, Biasca (TI), Switzerland",
+        "de": "Beschreibung - HAS Healthcare Advanced Synthesis, mit Sitz in Biasca (TI), sucht: Produktionsassistent. - 🗣️ Erforderliche Sprachen: Professionelles Englisch - 🎓 Ausbildung: Universität - Branche: Pharmazeutisch / API (Active Pharmaceutical Ingredients) - Standort: Via Industria 24, Biasca (TI), Schweiz",
+        "fr": "Description - HAS Healthcare Advanced Synthesis, basée à Biasca (TI), recherche : Assistant de Production. - 🗣️ Langues requises : Anglais professionnel - 🎓 Diplôme : Université - Secteur : Pharmaceutique / API (Active Pharmaceutical Ingredients) - Lieu : Via Industria 24, Biasca (TI), Suisse"
       },
       "slugByLocale": {
-        "it": "assistente-di-produzione-has-healthcare-advanced-synthesis-lugano",
-        "en": "assistente-di-production-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "de": "assistente-di-produktion-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "fr": "assistente-di-production-has-healthcare-advanced-synthesis-biasca-068qb5"
+        "it": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+        "en": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+        "de": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+        "fr": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
       },
       "_targetScope": {
         "canton": "TI",
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-lugano",
+      "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
-        "assistente-di-produzione-has-healthcare",
-        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca"
+        "assistente-di-produzione-has-healthcare"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -190,71 +209,6 @@
           "@type": "QuantitativeValue",
           "minValue": 58000,
           "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Motta 4",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH"
-    },
-    {
-      "title": "Production Manager",
-      "company": "HAS Healthcare Advanced Synthesis",
-      "companyKey": "has-healthcare",
-      "location": "Biasca",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://e-lavoro.ch/node/264",
-      "applyUrl": "https://e-lavoro.ch/node/264",
-      "description": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Production Manager.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
-      "category": "manufacturing",
-      "sector": "Farmaceutico / Healthcare",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "source": "has-healthcare-crawler",
-      "postedDate": "2025-11-21",
-      "titleByLocale": {
-        "it": "Responsabile della produzione",
-        "en": "Production Manager",
-        "de": "Production Manager",
-        "fr": "Production Manager"
-      },
-      "descriptionByLocale": {
-        "it": "HAS Healthcare Advanced Sintesi, con sede a Biasca (TI), è alla ricerca di: Production Manager. 🗣️ Lingue richieste: Inglese professionale 🎓 Titolo di studio: Università Settore: Farmaceutico / API (Active Pharmaceutical Ingredients) Sede: Via Industria 24, Biasca (TI), Svizzera",
-        "en": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Production Manager. 🗣️ Lingue richieste: Inglese professionale 🎓 Titolo di studio: Università Settore: Farmaceutico / API (Active Pharmaceutical Ingredients) Sede: Via Industria 24, Biasca (TI), Svizzera",
-        "de": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è allareirca di: Production Manager. 🗣️ Lingue richieste: Inglese professionale 🎓 Titolo di studio: Università Settore: Farmaceutico / API (Active Pharmaceutical Ingredients) Sede: Via Industria 24, Biasca (TI), Svizzera",
-        "fr": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Directeur de la production. Lingue riche: Inglese professionale Titolo di studio: Università Settore: Farmaceutico / API (Ingrédients pharmaceutiques actifs) Sede: Via Industria 24, Biasca (TI), Svizzera"
-      },
-      "slugByLocale": {
-        "it": "responsabile-della-produzione-has-healthcare-advanced-synthesis-biasca",
-        "en": "production-manager-has-healthcare-advanced-synthesis-lugano",
-        "de": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2",
-        "fr": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2"
-      },
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Biasca"
-      },
-      "crawledAt": "",
-      "slug": "production-manager-has-healthcare",
-      "requirementsByLocale": {},
-      "sourceLang": "en",
-      "previousSlugs": [
-        "production-manager-has-healthcare-advanced-synthesis-biasca",
-        "production-manager-has-healthcare"
-      ],
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
           "unitText": "YEAR"
         }
       },
