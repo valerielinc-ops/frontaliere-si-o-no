@@ -4659,7 +4659,14 @@ async function main() {
   const crawlerConfig = loadCrawlerConfig(mergeCrawlerConfig(localCfg, firestoreCfg));
   crawlerConfigGlobal = crawlerConfig;
   companyAdaptersGlobal = loadCompanyAdapters();
-  writeJson(CRAWLER_CONFIG_PATH, crawlerConfig);
+  // Only persist config when running as a real crawler, not as LOCALIZE_EXISTING_ONLY.
+  // The translate-pending pipeline sets ephemeral env overrides (JOBS_AI_MAX_JOBS_PER_RUN)
+  // that would corrupt the on-disk config if written back (e.g., maxJobsPerRun=1 for a
+  // single-company batch overwrites the real value of 9).
+  const isLocalizeOnly = String(process.env.JOBS_CRAWLER_LOCALIZE_EXISTING_ONLY || '') === '1';
+  if (!isLocalizeOnly) {
+    writeJson(CRAWLER_CONFIG_PATH, crawlerConfig);
+  }
   console.log('💼 Ticino company careers crawler');
   console.log(`ℹ️  timeout=${REQUEST_TIMEOUT_MS}ms companies<=${MAX_COMPANIES} concurrency=${MAX_CONCURRENCY}`);
   console.log(`ℹ️  qualityGate score>=${crawlerConfig.minQualityScore} desc>=${crawlerConfig.minDescriptionChars} chars`);
