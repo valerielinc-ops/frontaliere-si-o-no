@@ -24,15 +24,15 @@
       "slug": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
       "slugByLocale": {
         "it": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
-        "en": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
-        "de": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
-        "fr": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno"
+        "en": "collaborator-crate-shredder-men-s-packaging-40-manor-ag-locarno-bkts4c",
+        "de": "mitarbeiter-in-kasse-herrenverpackung-40-manor-ag-locarno-bkts4c",
+        "fr": "collaborateur-trice-caisse-emballage-homme-40-manor-ag-locarno-bkts4c"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice cassa (Confezione Uomo) 40%",
-        "en": "Collaboratore/trice cassa (Confezione Uomo) 40%",
-        "de": "Collaboratore/trice cassa (Confezione Uomo) 40%",
-        "fr": "Collaboratore/trice cassa (Confezione Uomo) 40%"
+        "en": "Collaborator/crate shredder (Men's Packaging) 40%",
+        "de": "Mitarbeiter/in Kasse (Herrenverpackung) 40%",
+        "fr": "Collaborateur/trice caisse (Emballage Homme) 40 %"
       },
       "crawledAt": "",
       "needsRetranslation": true,
@@ -56,7 +56,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno"
+      ]
     },
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
@@ -203,7 +206,6 @@
         "fr": "Apprenti/e Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 46500,
