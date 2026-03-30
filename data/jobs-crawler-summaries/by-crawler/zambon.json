@@ -1,16 +1,16 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-03-30T21:01:16.025Z",
+  "generatedAt": "2026-03-30T22:11:44.319Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 1578,
-  "avgDurationMs": 1578,
+  "durationMs": 1340,
+  "avgDurationMs": 1340,
   "durationHistory": [
-    1578
+    1340
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,11 +43,11 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 64,
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 3,
-        "translation": 16,
+        "translation": 23,
         "completeness": 20
       }
     }
