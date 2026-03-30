@@ -1865,6 +1865,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-mensa-asilo-chiasso.title': 'Mahlzeitsteuer für die Kinderkrippe in Chiasso',
     'blog.article.tassa-mensa-asilo-chiasso.excerpt': 'Das Gemeindeamt von Chiasso einführt eine Mahlzeitsteuer für die Schüler der Kinderkrippe.',
     'blog.article.tassa-mensa-asilo-chiasso.imageAlt': 'Grundschule in Chiasso',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.title': 'Gewerkschaften im Tessin: \'Bei der Änderung des Auftrags in Leonardo Cascina Costa soll Artikel 42 angewendet werden\'',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.excerpt': 'Die Gewerkschaften von Filt Cgil, Fit Cisl und Uiltrasporti fordern einen Tisch in der Präfektur, um die Streitigkeit zu diskutieren.',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.imageAlt': 'Arbeiter bei Leonardo Cascina Costa in Tessin protestieren gegen die Änderung der Geschäftsleitung',
 };
 
 export default blogMetaDe;

@@ -3203,7 +3203,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 615,
+        "numberOfItems": 616,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3816,7 +3816,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 612, "name": "Trattative sui dazi: \"Il termine del 31 marzo n...", "url": `${BASE_URL}/articoli-frontaliere/trattative-dazi-non-valido-31-marzo` },
           { "@type": "ListItem", "position": 613, "name": "Fermato con della trippa di troppo", "url": `${BASE_URL}/articoli-frontaliere/trippa-dogana-novazzano` },
           { "@type": "ListItem", "position": 614, "name": "Lavori sulla rete ferroviaria italiana, ecco co...", "url": `${BASE_URL}/articoli-frontaliere/lavori-rete-ferroviaria-tilo` },
-          { "@type": "ListItem", "position": 615, "name": "Tassa mensa asilo a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/tassa-mensa-asilo-chiasso` }
+          { "@type": "ListItem", "position": 615, "name": "Tassa mensa asilo a Chiasso", "url": `${BASE_URL}/articoli-frontaliere/tassa-mensa-asilo-chiasso` },
+          { "@type": "ListItem", "position": 616, "name": "Sindacati in Ticino: \"Sul cambio d'appalto a Le...", "url": `${BASE_URL}/articoli-frontaliere/sindacati-ticino-leonardo-cascina-costa` }
         ]
       }
     ]

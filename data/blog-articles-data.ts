@@ -5543,4 +5543,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-mensa-asilo-chiasso.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sindacati-ticino-leonardo-cascina-costa',
+    category: 'novita',
+    date: '2026-03-30T19:15:02.146Z',
+    image: '/images/blog/sindacati-ticino-leonardo-cascina-costa.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1865,6 +1865,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-mensa-asilo-chiasso.title': 'Tassa mensa asilo a Chiasso',
     'blog.article.tassa-mensa-asilo-chiasso.excerpt': 'Il Comune di Chiasso introduce una tassa sulla mensa scolastica per gli alunni dell\'asilo',
     'blog.article.tassa-mensa-asilo-chiasso.imageAlt': 'Scuola elementare a Chiasso',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.title': 'Sindacati in Ticino: "Sul cambio d\'appalto a Leonardo Cascina Costa va applicato l\'articolo 42"',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.excerpt': 'I sindacati di Filt Cgil, Fit Cisl e Uiltrasporti chiedono un tavolo in Prefettura per discutere la vertenza.',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.imageAlt': 'Lavoratori a Leonardo Cascina Costa in Ticino in protesta contro il cambio di gestione',
 };
 
 export default blogMetaIt;

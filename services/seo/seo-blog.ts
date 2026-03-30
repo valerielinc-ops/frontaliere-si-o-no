@@ -9134,6 +9134,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sindacati-ticino-leonardo-cascina-costa': {
+    title: 'Sindacati in Ticino: "Sul cambio d\'appalto a Leonardo Cascina Costa va | Frontaliere Ticino',
+    description: 'I sindacati di Filt Cgil, Fit Cisl e Uiltrasporti chiedono un tavolo in Prefettura per discutere la vertenza. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sindacati, cambio, appalto, leonardo',
+    ogTitle: 'Sindacati in Ticino: "Sul cambio d\'appalto a Leonardo Cas',
+    ogDescription: 'I sindacati di Filt Cgil, Fit Cisl e Uiltrasporti chiedono un tavolo in Prefettura per discutere la vertenza.',
+    canonicalPath: '/articoli-frontaliere/sindacati-ticino-leonardo-cascina-costa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sindacati in Ticino: \"Sul cambio d'appalto a Leonardo Cas",
+      "description": "I sindacati di Filt Cgil, Fit Cisl e Uiltrasporti chiedono un tavolo in Prefettura per discutere la vertenza. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sindacati-ticino-leonardo-cascina-costa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavoratori a Leonardo Cascina Costa in Ticino in protesta contro il cambio di gestione"
+      },
+      "datePublished": "2026-03-30T19:15:02+00:00",
+      "dateModified": "2026-03-30T19:15:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sindacati-ticino-leonardo-cascina-costa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

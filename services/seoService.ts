@@ -1761,6 +1761,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trippa-dogana-novazzano': { name: 'Dogana e Frontiere', path: '/articoli-frontaliere/trippa-dogana-novazzano', parent: 'blog' },
     'blog-lavori-rete-ferroviaria-tilo': { name: 'Lavori sulla rete ferroviaria italiana,', path: '/articoli-frontaliere/lavori-rete-ferroviaria-tilo', parent: 'blog' },
     'blog-tassa-mensa-asilo-chiasso': { name: 'Tasse scolastiche', path: '/articoli-frontaliere/tassa-mensa-asilo-chiasso', parent: 'blog' },
+    'blog-sindacati-ticino-leonardo-cascina-costa': { name: 'Sindacati in Ticino', path: '/articoli-frontaliere/sindacati-ticino-leonardo-cascina-costa', parent: 'blog' },
   };
 
   const info = sectionNames[section];

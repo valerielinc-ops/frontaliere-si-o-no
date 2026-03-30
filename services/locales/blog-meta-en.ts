@@ -1865,6 +1865,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-mensa-asilo-chiasso.title': 'School Meal Tax Introduced in Chiasso Asylum',
     'blog.article.tassa-mensa-asilo-chiasso.excerpt': 'The municipality of Chiasso has introduced a tax on school meals for nursery school students.',
     'blog.article.tassa-mensa-asilo-chiasso.imageAlt': 'Elementary school in Chiasso',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.title': 'Trade Unions in Ticino: \'Article 42 Should Be Applied in the Leonardo Cascina Costa Contract Change\'',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.excerpt': 'Trade unions from Filt Cgil, Fit Cisl and Uiltrasporti are calling for a meeting at the Prefecture to discuss the dispute.',
+    'blog.article.sindacati-ticino-leonardo-cascina-costa.imageAlt': 'Workers at Leonardo Cascina Costa in Ticino protest against the change in management',
 };
 
 export default blogMetaEn;
