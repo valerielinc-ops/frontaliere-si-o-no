@@ -6550,5 +6550,117 @@
         "pending": 9
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T13:00:51.842Z",
+    "label": "before",
+    "total": 1318,
+    "needsRetranslation": 740,
+    "incomplete": 513,
+    "complete": 805,
+    "missingByLocale": {
+      "it": 192,
+      "en": 376,
+      "de": 208,
+      "fr": 440
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 78
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 49
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 26
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Casale SA",
+        "pending": 10
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 10
+      },
+      {
+        "company": "Colin&Cie Wealth Management",
+        "pending": 9
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T13:05:34.057Z",
+    "label": "after",
+    "total": 1318,
+    "needsRetranslation": 734,
+    "incomplete": 495,
+    "complete": 823,
+    "missingByLocale": {
+      "it": 190,
+      "en": 365,
+      "de": 200,
+      "fr": 425
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 93
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 78
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 34
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 26
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Casale SA",
+        "pending": 10
+      },
+      {
+        "company": "Colin&Cie Wealth Management",
+        "pending": 9
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 9
+      }
+    ]
   }
 ]
