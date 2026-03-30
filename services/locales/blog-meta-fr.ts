@@ -1853,6 +1853,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.occhiali-intelligenti-ticino-innovazione.title': 'Le Tessin innove avec des lunettes intelligentes pour les non-voyants',
     'blog.article.occhiali-intelligenti-ticino-innovazione.excerpt': 'La start-up Lighthouse Tech présente TAMI, des lunettes avec radar qui vibrent pour signaler les obstacles. Des tests positifs auprès de personnes malvoyantes et une victoire au Prix de l\'Innovation Unitas.',
     'blog.article.occhiali-intelligenti-ticino-innovazione.imageAlt': 'Personne portant des lunettes intelligentes TAMI à Lugano avec vue sur le lac',
+    'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Negoziati sulle tariffe: \'La scadenza del 31 marzo non è più valida\'',
+    'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'Cosi\' ha dichiarato il presidente della Confederazione Guy Parmelin, secondo cui è ancora utile continuare a negoziare per raggiungere un accordo tra la Svizzera e gli Stati Uniti sulle tariffe.',
+    'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografie d\'un col suisse à midi',
 };
 
 export default blogMetaFr;

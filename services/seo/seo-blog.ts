@@ -9018,6 +9018,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trattative-dazi-non-valido-31-marzo': {
+    title: 'Trattative sui dazi: "Il termine del 31 marzo non è più valido" | Frontaliere Ticino',
+    description: 'La Confederazione svizzera ha annunciato che il termine del 31 marzo per trovare un accordo sui dazi tra la Svizzera e gli Stati Uniti non è più valido. Lo ha',
+    keywords: 'frontalieri, ticino, svizzera, italia, trattative, dazi, termine, marzo',
+    ogTitle: 'Trattative sui dazi: "Il termine del 31 marzo non è più valido" | Frontaliere Ticino',
+    ogDescription: 'La Confederazione svizzera ha annunciato che il termine del 31 marzo per trovare un accordo sui dazi tra la Svizzera e gli Stati Uniti non è più valido. Lo ha',
+    canonicalPath: '/articoli-frontaliere/trattative-dazi-non-valido-31-marzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trattative sui dazi: \"Il termine del 31 marzo non è più valido\" | Frontaliere Ticino",
+      "description": "La Confederazione svizzera ha annunciato che il termine del 31 marzo per trovare un accordo sui dazi tra la Svizzera e gli Stati Uniti non è più valido. Lo ha",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trattative-dazi-non-valido-31-marzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un valico svizzero a mezzogiorno"
+      },
+      "datePublished": "2026-03-30T03:33:59+00:00",
+      "dateModified": "2026-03-30T03:33:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trattative-dazi-non-valido-31-marzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

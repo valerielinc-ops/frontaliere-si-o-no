@@ -1757,6 +1757,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-code-nord-san-gottardo': { name: 'Code al San Gottardo', path: '/articoli-frontaliere/code-nord-san-gottardo', parent: 'blog' },
     'blog-trattative-acordo-usa-oltre-31-marzo': { name: 'Trattative commercio Usa Svizzera', path: '/articoli-frontaliere/trattative-acordo-usa-oltre-31-marzo', parent: 'blog' },
     'blog-occhiali-intelligenti-ticino-innovazione': { name: 'Innovazione Ticino', path: '/articoli-frontaliere/occhiali-intelligenti-ticino-innovazione', parent: 'blog' },
+    'blog-trattative-dazi-non-valido-31-marzo': { name: 'Trattative sui dazi', path: '/articoli-frontaliere/trattative-dazi-non-valido-31-marzo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

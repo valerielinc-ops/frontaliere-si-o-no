@@ -5515,4 +5515,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/occhiali-intelligenti-ticino-innovazione.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'trattative-dazi-non-valido-31-marzo',
+    category: 'novita',
+    date: '2026-03-30T03:33:59.827Z',
+    image: '/images/blog/trattative-dazi-non-valido-31-marzo.jpg',
+    hasCalculator: true,
+  },
 ];

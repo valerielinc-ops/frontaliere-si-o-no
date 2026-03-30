@@ -1853,6 +1853,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.occhiali-intelligenti-ticino-innovazione.title': 'Ticino innoviert mit intelligenten Brillengläsern für Blinde',
     'blog.article.occhiali-intelligenti-ticino-innovazione.excerpt': 'Das Startup Lighthouse Tech stellt TAMI vor, Brillengläser mit Radar, die durch Vibrationen auf Hindernisse hinweisen. Positive Tests von Menschen mit Sehbehinderung und Sieg beim Innovationspreis Unitas.',
     'blog.article.occhiali-intelligenti-ticino-innovazione.imageAlt': 'Person mit TAMI-Smartbrille in Lugano mit Seeblick',
+    'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Verhandlungen über Zölle: \'Die Frist vom 31. März ist nicht mehr gültig\'',
+    'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'Dies wurde vom Präsidenten der Schweizerischen Eidgenossenschaft, Guy Parmelin, bestätigt, der betonte, dass es sich lohne, weiterhin zu verhandeln, um eine Einigung zwischen der Schweiz und den Vereinigten Staaten über Zölle zu erzielen.',
+    'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografie eines schweizerischen Passes am Nachmittag',
 };
 
 export default blogMetaDe;

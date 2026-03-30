@@ -1853,6 +1853,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.occhiali-intelligenti-ticino-innovazione.title': 'Ticino innova con occhiali intelligenti per non vedenti',
     'blog.article.occhiali-intelligenti-ticino-innovazione.excerpt': 'La startup Lighthouse Tech presenta TAMI, occhiali con radar che vibrano per segnalare ostacoli. Test positivi da ipovedenti e vittoria Premio Innovazione Unitas.',
     'blog.article.occhiali-intelligenti-ticino-innovazione.imageAlt': 'Persona che indossa occhiali intelligenti TAMI a Lugano con vista sul lago',
+    'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Trattative sui dazi: "Il termine del 31 marzo non è più valido"',
+    'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'Lo ha confermato il presidente della Confederazione Guy Parmelin, secondo cui vale la pena continuare a negoziare per raggiungere un accordo tra la Svizzera e gli Stati Uniti sui dazi.',
+    'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografia di un valico svizzero a mezzogiorno',
 };
 
 export default blogMetaIt;

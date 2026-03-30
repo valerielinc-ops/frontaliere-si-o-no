@@ -1853,6 +1853,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.occhiali-intelligenti-ticino-innovazione.title': 'Ticino innovates with smart glasses for the visually impaired',
     'blog.article.occhiali-intelligenti-ticino-innovazione.excerpt': 'The startup Lighthouse Tech presents TAMI, glasses with radar that vibrate to signal obstacles. Positive tests from people with low vision and winner of the Unitas Innovation Award.',
     'blog.article.occhiali-intelligenti-ticino-innovazione.imageAlt': 'Person wearing TAMI smart glasses in Lugano with lake view',
+    'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Tariff Negotiations: \'The March 31 Deadline Is No Longer Valid\'',
+    'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'This was confirmed by the President of the Confederation, Guy Parmelin, who stated that it is worth continuing negotiations to reach an agreement between Switzerland and the United States on tariffs.',
+    'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografia di un valico svizzero a mezzogiorno',
 };
 
 export default blogMetaEn;
