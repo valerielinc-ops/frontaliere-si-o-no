@@ -1688,28 +1688,30 @@ function ensureLocaleFields(job) {
         if (sourceTitle) titleByLocale[locale] = sourceTitle;
       }
     } else if (currentTitle) {
-      const detectedTitleLocale = detectJobTitleLocaleDetails(currentTitle, titleSourceLang);
+      // STABILITY: Do not overwrite existing titles that are already in a non-source locale.
+      // The old logic detected "wrong language" and replaced with heuristic translations,
+      // but this caused "Hebamme" (correct DE) → "Ostetrica/o" (wrong IT in DE slot),
+      // and "Organizational Specialist" (correct EN) → "Specialista Organizzativo" (IT in EN).
+      // If a title exists and the locale has other translated locales, leave it alone.
+      // The translate pipeline (Phase 2) handles real contamination cases.
       const copiedSourceTitle = sourceTitle && currentTitle.toLowerCase() === sourceTitle.toLowerCase();
-      if (copiedSourceTitle || (detectedTitleLocale.confidence >= 0.6 && detectedTitleLocale.lang !== locale)) {
-        // Try to recover by moving to detected language slot if empty
-        if (
-          detectedTitleLocale.lang !== locale &&
-          detectedTitleLocale.lang !== titleSourceLang &&
-          !normalizeSpace(titleByLocale[detectedTitleLocale.lang] || '')
-        ) {
-          titleByLocale[detectedTitleLocale.lang] = currentTitle;
+      if (copiedSourceTitle) {
+        // Title is a copy of source — check if other locales are translated (international guard)
+        const othersDiffer = LOCALES.some(
+          (l) => l !== locale && l !== titleSourceLang && normalizeSpace(titleByLocale[l] || '').toLowerCase() !== sourceTitle.toLowerCase(),
+        );
+        if (!othersDiffer) {
+          // Genuinely untranslated — try heuristic
+          const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
+          if (heuristicReplacement &&
+              heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
+              !isLowQualityLocalizedTitle(heuristicReplacement)) {
+            titleByLocale[locale] = heuristicReplacement;
+          }
         }
-        // Try heuristic translation BEFORE deleting — never leave locale empty
-        const heuristicReplacement = heuristicTranslateJobTitle(sourceTitle, locale);
-        if (heuristicReplacement &&
-            heuristicReplacement.toLowerCase() !== sourceTitle.toLowerCase() &&
-            !isLowQualityLocalizedTitle(heuristicReplacement)) {
-          titleByLocale[locale] = heuristicReplacement;
-        }
-        // If no heuristic replacement available, KEEP the untranslated copy
-        // rather than leaving the locale empty. Source-language text is better
-        // than nothing (empty content blocks deploy validation).
+        // If other locales differ, this is an international title — leave as-is
       }
+      // Non-source-copy titles: leave them alone. The translate pipeline handles fixes.
     } else if (!currentTitle && locale !== titleSourceLang && sourceTitle) {
       // Locale slot was already empty — try heuristic fill
       const translated = heuristicTranslateJobTitle(sourceTitle, locale);
@@ -1844,14 +1846,18 @@ function ensureLocaleFields(job) {
       if (locale === srcLang) continue; // Never clear or flag the source language
       const title = normalizeSpace(out.titleByLocale?.[locale] || '');
       if (!title) continue;
-      // Cross-locale title duplicate = not translated
-      if (title === srcTitle) { out.needsRetranslation = true; continue; }
-      // Wrong-language words in title or slug
-      if (_hasWrongLang(title, locale) || _hasWrongLang((out.slugByLocale?.[locale] || '').replace(/-/g, ' '), locale)) {
-        // Clear the corrupted locale content so AI retranslates from scratch
-        if (out.titleByLocale) delete out.titleByLocale[locale];
-        if (out.descriptionByLocale) delete out.descriptionByLocale[locale];
-        if (out.slugByLocale) delete out.slugByLocale[locale];
+      // Cross-locale title duplicate = not translated.
+      // BUT: skip if other locales have different titles (international/corporate title).
+      if (title === srcTitle) {
+        const othersDiffer = LOCALES.some(
+          (l) => l !== locale && l !== srcLang && normalizeSpace(out.titleByLocale?.[l] || '') !== srcTitle,
+        );
+        if (!othersDiffer) { out.needsRetranslation = true; }
+        continue;
+      }
+      // Wrong-language words in title — only flag if genuinely contaminated,
+      // don't clear locale content (clearing destroys good descriptions for a title issue).
+      if (_hasWrongLang(title, locale)) {
         out.needsRetranslation = true;
         continue;
       }
