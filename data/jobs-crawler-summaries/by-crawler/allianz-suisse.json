@@ -1,16 +1,16 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-03-30T04:31:53.475Z",
+  "generatedAt": "2026-03-30T19:55:22.898Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 6,
-  "durationMs": 33085,
-  "avgDurationMs": 33085,
+  "durationMs": 11713,
+  "avgDurationMs": 11713,
   "durationHistory": [
-    33085
+    11713
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,12 +38,18 @@
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
-      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 89000,
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Consulente assicurativo (m/f/d) al 100%, Agenzia generale Sopraceneri",
@@ -71,7 +77,14 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Consulente alla clientela in ambito assicurativo (m/f/d) al 100%",
@@ -99,7 +112,14 @@
       "salaryMax": 73000,
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Consulente previdenziale nel servizio esterno (m/f/d), 100%",
@@ -127,7 +147,14 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Consulente previdenziale per l’agenzia generale Chur, 100%",
@@ -155,7 +182,14 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "| Allianz | Bewerbermanagement",
@@ -183,7 +217,14 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ]
 }
