@@ -567,14 +567,16 @@ async function main() {
           fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(currentJobs, null, 2) + '\n', 'utf-8');
           totalFixed += cleared;
           console.log(`   ✅ ${key}: ${cleared} jobs translated, progress saved`);
+
+          // Only sync to per-crawler files when translations were actually completed.
+          // If no flags were cleared, the shared crawler didn't improve anything —
+          // syncing would overwrite good per-crawler data with unimproved assembled data.
+          const synced = syncTranslationsToCrawlerFile(key, currentJobs);
+          if (synced > 0) {
+            console.log(`   📁 ${key}: ${synced} jobs synced to per-crawler file`);
+          }
         } else {
           console.log(`   ℹ️  ${key}: no new translations completed`);
-        }
-
-        // Sync translations back to per-crawler file so git-commit-data --slice-only picks them up
-        const synced = syncTranslationsToCrawlerFile(key, currentJobs);
-        if (synced > 0) {
-          console.log(`   📁 ${key}: ${synced} jobs synced to per-crawler file`);
         }
       }
 
