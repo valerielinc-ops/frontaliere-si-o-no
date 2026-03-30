@@ -5086,10 +5086,20 @@ async function main() {
 
   // IMPORTANT: keep crawler output raw (sanitize/strip only).
   // Salary/address enrichment must run only in scripts/re-enrich-jobs.mjs (single source of truth).
+  let strippedCount = 0;
   const mergedEnriched = merged
     .map(sanitizeJobStrings)
-    .map(stripCopyPasteLocales)
+    .map((job) => {
+      const before = JSON.stringify(job.titleByLocale || {}) + JSON.stringify(job.descriptionByLocale || {});
+      const out = stripCopyPasteLocales(job);
+      const after = JSON.stringify(out.titleByLocale || {}) + JSON.stringify(out.descriptionByLocale || {});
+      if (before !== after) strippedCount++;
+      return out;
+    })
     .map(stripCrawlerInternalFields);
+  if (strippedCount > 0) {
+    console.log(`⚠️  stripCopyPasteLocales modified ${strippedCount}/${merged.length} jobs (titles/descriptions blanked)`);
+  }
   writeJson(DATA_JOBS, mergedEnriched);
   writeJson(PUBLIC_JOBS, mergedEnriched);
   updateMeta({ totalJobs: merged.length, companiesCrawled, extracted, inserted, refreshed, startedAt });

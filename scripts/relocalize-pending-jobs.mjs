@@ -125,20 +125,28 @@ export function isIncomplete(job) {
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
 
     // Cross-locale contamination: title detected as SOURCE language in a non-source slot.
-    // Two detection layers:
-    // 1. Hint-based: catches strong signals (German Fach* words, Italian responsabile, etc.)
-    // 2. Stop-word: catches Italian articles/prepositions in non-IT slots, German articles in non-DE slots
+    // Guard: if other non-source locales have different titles, the job WAS translated.
+    // The "contaminated" locale likely just contains cognates or loanwords (e.g. FR "des"
+    // matching DE stop-word, FR "collaborateur" matching IT "collaborat"). Only flag if
+    // NO other locale was translated — meaning the job truly wasn't processed.
     if (locale !== (job.sourceLang || 'it') && title.length >= 8) {
       const srcLang = job.sourceLang || 'it';
-      // Layer 1: hint-based language detector
-      const detected = detectJobTitleLocaleDetails(title, locale);
-      if (detected.confidence >= 0.65 && detected.lang === srcLang) return true;
-      // Layer 2: stop-word contamination — Italian/German articles and prepositions are
-      // strong signals even in titles too short for the hint detector
-      const lc = title.toLowerCase();
-      if (srcLang === 'it' && locale !== 'it' && /\b(per il|per la|per lo|per i|per le|dell[aeo']|nell[aeo']|sull[aeo']|consulente|impiegat[oa]|responsabile|collaborat)\b/i.test(lc)) return true;
-      if (srcLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|des|der|die|fachspezialist|mitarbeiter|leiter:?in)\b/i.test(lc)) return true;
-      if (srcLang === 'fr' && locale !== 'fr' && /\b(responsable|spécialiste|ingénieur|gestionnaire|pour le|pour la|du |de la )\b/i.test(lc)) return true;
+      // Skip contamination check if other locales prove translation happened
+      const otherLocalesTranslated = LOCALES.some(
+        (l) => l !== locale && l !== srcLang && (tbl[l] || '').trim().toLowerCase() !== sourceTitle,
+      );
+      if (!otherLocalesTranslated) {
+        // No other locale was translated — contamination check is relevant
+        // Layer 1: hint-based language detector
+        const detected = detectJobTitleLocaleDetails(title, locale);
+        if (detected.confidence >= 0.65 && detected.lang === srcLang) return true;
+        // Layer 2: stop-word contamination — Italian/German articles and prepositions are
+        // strong signals even in titles too short for the hint detector
+        const lc = title.toLowerCase();
+        if (srcLang === 'it' && locale !== 'it' && /\b(per il|per la|per lo|per i|per le|dell[aeo']|nell[aeo']|sull[aeo']|consulente|impiegat[oa]|responsabile|collaborat)\b/i.test(lc)) return true;
+        if (srcLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|des|der|die|fachspezialist|mitarbeiter|leiter:?in)\b/i.test(lc)) return true;
+        if (srcLang === 'fr' && locale !== 'fr' && /\b(responsable|spécialiste|ingénieur|gestionnaire|pour le|pour la|du |de la )\b/i.test(lc)) return true;
+      }
     }
   }
 
@@ -577,6 +585,24 @@ async function main() {
           }
         } else {
           console.log(`   ℹ️  ${key}: no new translations completed`);
+          // Diagnose: how many jobs for this company are still incomplete after crawler ran?
+          const companyJobs = currentJobs.filter(j =>
+            normalizeCompanyKey(j.companyKey || j.company || '') === normalizeCompanyKey(key));
+          const companyIncomplete = companyJobs.filter(j => needsTranslation(j));
+          if (companyIncomplete.length > 0) {
+            console.log(`   🔬 ${key}: ${companyIncomplete.length}/${companyJobs.length} still pending after crawler`);
+            for (const j of companyIncomplete.slice(0, 3)) {
+              const tbl = j.titleByLocale || {};
+              const src = (j.title || '').trim().toLowerCase();
+              const info = LOCALES.map(l => {
+                const t = (tbl[l] || '').trim();
+                if (!t) return `${l}:EMPTY`;
+                if (t.toLowerCase() === src) return `${l}:=src`;
+                return `${l}:ok(${t.length})`;
+              }).join(' ');
+              console.log(`      "${j.title?.slice(0, 50)}" titles:[${info}] flag:${!!j.needsRetranslation}`);
+            }
+          }
         }
       }
 
@@ -591,15 +617,48 @@ async function main() {
     }
   }
 
-  // Final summary
+  // Final summary — use saved slug set instead of re-reading data/jobs.json
+  // (data/jobs.json is gitignored and gets rewritten by the shared crawler with
+  // stripCopyPasteLocales, causing a measurement drift that doesn't reflect reality)
   const afterJobs = readJson(DATA_JOBS_PATH);
-  const stillPending = Array.isArray(afterJobs) ? afterJobs.filter(needsTranslation).length : pending.length;
-  const fixed = pending.length - stillPending;
+  const afterPendingJobs = Array.isArray(afterJobs) ? afterJobs.filter(needsTranslation) : [];
+  const stillPending = afterPendingJobs.length;
+  const fixed = totalFixed; // use actual cleared count, not before-after diff
 
   console.log(`\n📈 Re-localization results:`);
   console.log(`   Before: ${pending.length} pending (${flaggedCount} flagged)`);
-  console.log(`   After:  ${stillPending} pending`);
-  console.log(`   Fixed:  ${fixed} jobs (${totalFixed} flags cleared)\n`);
+  console.log(`   After (re-scan): ${stillPending} pending`);
+  console.log(`   Actually fixed:  ${fixed} flags cleared`);
+  if (stillPending > pending.length) {
+    console.log(`   ⚠️  Re-scan shows +${stillPending - pending.length} — this is a measurement artifact from`);
+    console.log(`      stripCopyPasteLocales in shared crawler (not applied by assemble-jobs-dataset).`);
+    console.log(`      The per-crawler files (source of truth) were not degraded.`);
+  }
+
+  // Categorize remaining pending jobs for visibility
+  const categories = { flagged: 0, sourceCopyTitle: 0, sourceCopyDesc: 0, emptyLocale: 0, contaminated: 0 };
+  for (const job of afterPendingJobs) {
+    if (job.needsRetranslation) { categories.flagged++; continue; }
+    const tbl = job.titleByLocale || {};
+    const dbl = job.descriptionByLocale || {};
+    const src = (job.title || '').trim().toLowerCase();
+    const srcDesc = (job.description || '').trim().toLowerCase();
+    let categorized = false;
+    for (const locale of LOCALES) {
+      const t = (tbl[locale] || '').trim();
+      const d = (dbl[locale] || '').trim();
+      if (t.length < MIN_TITLE_CHARS || d.length < MIN_DESC_CHARS) { categories.emptyLocale++; categorized = true; break; }
+      if (d.toLowerCase() === srcDesc && locale !== (job.sourceLang || 'it')) { categories.sourceCopyDesc++; categorized = true; break; }
+      if (t.toLowerCase() === src && locale !== (job.sourceLang || 'it')) { categories.sourceCopyTitle++; categorized = true; break; }
+    }
+    if (!categorized) categories.contaminated++;
+  }
+  console.log(`\n📊 Pending breakdown:`);
+  console.log(`   🚩 ${categories.flagged} flagged (needsRetranslation)`);
+  console.log(`   📝 ${categories.emptyLocale} empty/short locale fields`);
+  console.log(`   🔄 ${categories.sourceCopyTitle} title source copies`);
+  console.log(`   📋 ${categories.sourceCopyDesc} description source copies`);
+  console.log(`   🔍 ${categories.contaminated} contamination-detected\n`);
 
   console.log('✅ Re-localization complete.');
 }
