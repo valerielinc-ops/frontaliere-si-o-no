@@ -248,34 +248,37 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
     return 0;
   }
 
-  // Build a slug -> assembled job lookup for this company.
-  // ensureLocaleFields() may regenerate the main slug (e.g. IT slug updated),
-  // so we also index by slugByLocale values and previousSlugs to catch
-  // slug-mismatch cases where the crawler file still has the old slug.
-  const assembledBySlug = new Map();
+  // Build a multi-key lookup for assembled jobs.
+  // Index by slug, locale slugs, previousSlugs, AND URL to handle all slug-mismatch cases.
+  const assembledByKey = new Map();
+  const _addKey = (key, job) => { if (key && !assembledByKey.has(key)) assembledByKey.set(key, job); };
   for (const job of assembledJobs) {
     const jobKey = normalizeCompanyKey(job.companyKey || job.company || '');
     if (jobKey !== companyKey) continue;
-    if (job.slug) assembledBySlug.set(job.slug, job);
+    _addKey(job.slug, job);
+    // Index by URL (most stable identifier — never changes)
+    if (job.url) _addKey(String(job.url).trim().toLowerCase(), job);
     // Index by all locale slugs so crawler jobs with old slugs can still match
     if (job.slugByLocale && typeof job.slugByLocale === 'object') {
       for (const localeSlug of Object.values(job.slugByLocale)) {
         const s = String(localeSlug || '').trim();
-        if (s && !assembledBySlug.has(s)) assembledBySlug.set(s, job);
+        if (s && !assembledByKey.has(s)) assembledByKey.set(s, job);
       }
     }
     // Index by previousSlugs — the assembled job may have renamed its main slug
     // and the crawler file still references the old one
     if (Array.isArray(job.previousSlugs)) {
       for (const s of job.previousSlugs) {
-        if (s && !assembledBySlug.has(s)) assembledBySlug.set(s, job);
+        if (s && !assembledByKey.has(s)) assembledByKey.set(s, job);
       }
     }
   }
 
   let updated = 0;
   for (const crawlerJob of crawlerData.jobs) {
-    const assembled = assembledBySlug.get(crawlerJob.slug);
+    const assembled = assembledByKey.get(crawlerJob.slug)
+      || (crawlerJob.url && assembledByKey.get(String(crawlerJob.url).trim().toLowerCase()))
+      || null;
     if (!assembled) continue;
 
     let changed = false;
