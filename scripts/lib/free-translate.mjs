@@ -171,6 +171,46 @@ function normalizeSpace(s) {
   return String(s || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
+/**
+ * Split text into chunks ≤ maxChars at sentence boundaries.
+ * Splits at: paragraph breaks (\n\n), newlines (\n), sentence-ending punctuation (. ! ?),
+ * markdown headers (##), and list items (- *).
+ * Falls back to word boundaries if a single sentence exceeds maxChars.
+ */
+function _chunkAtSentences(text, maxChars = 480) {
+  // Split into sentences at natural boundaries
+  const segments = text.split(/(?<=\.\s)|(?<=\n)|(?<=\?\s)|(?<=!\s)|(?=##\s)|(?=[-*]\s)/).filter(Boolean);
+  const chunks = [];
+  let current = '';
+
+  for (const seg of segments) {
+    const trimmed = seg.trim();
+    if (!trimmed) continue;
+    if (current.length + trimmed.length + 1 <= maxChars) {
+      current = current ? `${current} ${trimmed}` : trimmed;
+    } else {
+      if (current) chunks.push(current.trim());
+      // If single segment exceeds maxChars, split at word boundaries
+      if (trimmed.length > maxChars) {
+        const words = trimmed.split(/\s+/);
+        current = '';
+        for (const word of words) {
+          if (current.length + word.length + 1 <= maxChars) {
+            current = current ? `${current} ${word}` : word;
+          } else {
+            if (current) chunks.push(current.trim());
+            current = word;
+          }
+        }
+      } else {
+        current = trimmed;
+      }
+    }
+  }
+  if (current.trim()) chunks.push(current.trim());
+  return chunks;
+}
+
 // ── DeepL Free (multi-key with automatic rotation) ──────────────────────────
 // Each Free API key: 500K chars/month. With 2 keys: 1M chars/month.
 // On 456 (quota exceeded) or 429 (rate limit): rotate to next key.
@@ -561,16 +601,28 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
   if (t1) return t1;
 
-  // Tier 2: MyMemory (PROMOTED for short text — best EU language quality, ≤500 chars)
-  // Moved before SimplyTranslate: higher quality for titles, uses only ~3% of daily quota
-  if (clean.length <= 500) {
-    const t2 = await tryTier('myMemory', async () => {
+  // Tier 2: MyMemory (best EU language quality, chunked for long text)
+  // Short text (≤500 chars): single call. Long text: chunk at sentence boundaries.
+  const t2 = await tryTier('myMemory', async () => {
+    if (clean.length <= 500) {
       const mm = await translateWithMyMemory(clean, sourceLang, targetLang);
       if (mm && normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) return normalizeSpace(mm);
       return '';
-    });
-    if (t3) return t3;
-  }
+    }
+    // Chunk long text at sentence/paragraph boundaries
+    const chunks = _chunkAtSentences(clean, 480);
+    if (chunks.length === 0) return '';
+    const parts = [];
+    for (const chunk of chunks) {
+      const mm = await translateWithMyMemory(chunk, sourceLang, targetLang);
+      if (!mm || mm.includes('MYMEMORY WARNING')) return ''; // quota hit mid-chunk, abort
+      parts.push(mm);
+    }
+    const joined = normalizeSpace(parts.join(' '));
+    if (joined && joined.toLowerCase() !== clean.toLowerCase()) return joined;
+    return '';
+  });
+  if (t2) return t2;
 
   // Tier 4: LibreTranslate (3 instances raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));

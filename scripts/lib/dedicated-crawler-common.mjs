@@ -2116,53 +2116,71 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     }
   }
   if (shouldRunTitleLocalization) {
-    for (const locale of locales) {
-      if (locale === titleSourceLang) continue;
-      const localizedTitle = nsFn(titleByLocale[locale] || '');
-      if (localizedTitle && localizedTitle.toLowerCase() !== sourceTitle.toLowerCase() &&
-          !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(localizedTitle))) continue;
-      const forced = await aiTranslateJobTitleDCC({ title: sourceTitle, locale, sourceLang: titleSourceLang }, ctx);
-      if (forced && forced.toLowerCase() !== sourceTitle.toLowerCase() &&
-          !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(forced))) {
-        titleByLocale[locale] = forced;
-        continue;
-      }
-      const fallback = heuristicTranslateJobTitle(sourceTitle, locale);
-      if (fallback && fallback.toLowerCase() !== sourceTitle.toLowerCase() &&
-          !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
-        titleByLocale[locale] = fallback;
+    // Parallelize per-locale title translations (IT→EN + IT→DE + IT→FR concurrently)
+    const titleJobs = locales
+      .filter((locale) => {
+        if (locale === titleSourceLang) return false;
+        const localizedTitle = nsFn(titleByLocale[locale] || '');
+        if (localizedTitle && localizedTitle.toLowerCase() !== sourceTitle.toLowerCase() &&
+            !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(localizedTitle))) return false;
+        return true;
+      })
+      .map(async (locale) => {
+        const forced = await aiTranslateJobTitleDCC({ title: sourceTitle, locale, sourceLang: titleSourceLang }, ctx);
+        if (forced && forced.toLowerCase() !== sourceTitle.toLowerCase() &&
+            !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(forced))) {
+          return { locale, title: forced };
+        }
+        const fallback = heuristicTranslateJobTitle(sourceTitle, locale);
+        if (fallback && fallback.toLowerCase() !== sourceTitle.toLowerCase() &&
+            !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(fallback))) {
+          return { locale, title: fallback };
+        }
+        return null;
+      });
+    const titleResults = await Promise.allSettled(titleJobs);
+    for (const result of titleResults) {
+      if (result.status === 'fulfilled' && result.value) {
+        titleByLocale[result.value.locale] = result.value.title;
       }
     }
   }
 
-  // Strict fallback for forced companies
+  // Strict fallback for forced companies — parallelize per-locale
   if (forceLocalization) {
-    for (const locale of locales) {
-      const curDesc = cleanFn(currentByLocale[locale] || '');
-      const sourceDesc = cleanFn(out.description || '');
-      const needsDesc =
-        locale !== sourceLang &&
-        (!curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase());
-      if (needsDesc) {
-        // eslint-disable-next-line no-await-in-loop
-        const translatedDesc = await aiTranslateJobDescriptionDCC({
-          description: out.description || '', locale, sourceLang, minChars: localeDescFloor,
-        }, ctx);
-        if (translatedDesc) {
-          currentByLocale[locale] = translatedDesc;
-          const mergedReq = mrFn(reqByLocale[locale] || [], exReqFn(translatedDesc));
-          if (mergedReq.length > 0) reqByLocale[locale] = mergedReq;
+    const sourceDesc = cleanFn(out.description || '');
+    const forceJobs = locales
+      .filter((locale) => locale !== sourceLang)
+      .map(async (locale) => {
+        const curDesc = cleanFn(currentByLocale[locale] || '');
+        const needsDesc = !curDesc || curDesc.length < localeDescFloor || curDesc.toLowerCase() === sourceDesc.toLowerCase();
+        let desc = null;
+        if (needsDesc) {
+          desc = await aiTranslateJobDescriptionDCC({
+            description: out.description || '', locale, sourceLang, minChars: localeDescFloor,
+          }, ctx);
         }
-      }
-      const currentTitle = nsFn(titleByLocale[locale] || '');
-      if (locale !== titleSourceLang && (!currentTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase())) {
-        // eslint-disable-next-line no-await-in-loop
-        const translatedTitle = await aiTranslateJobTitleDCC({ title: sourceTitle, locale, sourceLang: titleSourceLang }, ctx);
-        if (translatedTitle && translatedTitle.toLowerCase() !== sourceTitle.toLowerCase() &&
-            !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translatedTitle))) {
-          titleByLocale[locale] = translatedTitle;
+        const currentTitle = nsFn(titleByLocale[locale] || '');
+        let title = null;
+        if (locale !== titleSourceLang && (!currentTitle || currentTitle.toLowerCase() === sourceTitle.toLowerCase())) {
+          const translated = await aiTranslateJobTitleDCC({ title: sourceTitle, locale, sourceLang: titleSourceLang }, ctx);
+          if (translated && translated.toLowerCase() !== sourceTitle.toLowerCase() &&
+              !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
+            title = translated;
+          }
         }
+        return { locale, desc, title };
+      });
+    const forceResults = await Promise.allSettled(forceJobs);
+    for (const result of forceResults) {
+      if (result.status !== 'fulfilled' || !result.value) continue;
+      const { locale, desc, title } = result.value;
+      if (desc) {
+        currentByLocale[locale] = desc;
+        const mergedReq = mrFn(reqByLocale[locale] || [], exReqFn(desc));
+        if (mergedReq.length > 0) reqByLocale[locale] = mergedReq;
       }
+      if (title) titleByLocale[locale] = title;
     }
   }
 
