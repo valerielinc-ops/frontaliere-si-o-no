@@ -1868,6 +1868,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sindacati-ticino-leonardo-cascina-costa.title': 'Sindacati en Tessin : «L\'article 42 doit être appliqué au changement de contrat à Leonardo Cascina Costa »',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.excerpt': 'Les syndicats de Filt Cgil, Fit Cisl et Uiltrasporti demandent une réunion en Préfecture pour discuter de la contestation.',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.imageAlt': 'Travailleurs à Leonardo Cascina Costa en Suisse protestent contre les changements de gestion',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso ne eviterà l\'introduction de la taxe de réfection à l\'école maternelle',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'Le Conseil municipal de Chiasso a rejeté la proposition d\'introduire la taxe de réfection à l\'école maternelle.',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Enfant qui mange dans une école maternelle à Mendrisio, Tessin.',
 };
 
 export default blogMetaFr;

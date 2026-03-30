@@ -1868,6 +1868,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sindacati-ticino-leonardo-cascina-costa.title': 'Gewerkschaften im Tessin: \'Bei der Änderung des Auftrags in Leonardo Cascina Costa soll Artikel 42 angewendet werden\'',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.excerpt': 'Die Gewerkschaften von Filt Cgil, Fit Cisl und Uiltrasporti fordern einen Tisch in der Präfektur, um die Streitigkeit zu diskutieren.',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.imageAlt': 'Arbeiter bei Leonardo Cascina Costa in Tessin protestieren gegen die Änderung der Geschäftsleitung',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso wird keine Mahlzeitsteuer an die Kindertagesstätten einführen',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'Der Gemeinderat von Chiasso hat die Vorschlag zur Einführung der Mahlzeitsteuer an die Kindertagesstätten abgelehnt.',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Kindergartenkind in Mendrisio, Tessin.',
 };
 
 export default blogMetaDe;

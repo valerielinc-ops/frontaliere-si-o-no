@@ -9163,6 +9163,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-tassa-refezione-scuola-infanzia': {
+    title: 'Chiasso non introdurrà la tassa di refezione alla scuola dell\'infanzia | Frontaliere Ticino',
+    description: 'Il Consiglio comunale di Chiasso ha bocciato la proposta di introdurre la tassa di refezione alla scuola dell\'infanzia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, introdurrà, tassa, refezione',
+    ogTitle: 'Chiasso non introdurrà la tassa di refezione alla scuola dell\'infanzia',
+    ogDescription: 'Il Consiglio comunale di Chiasso ha bocciato la proposta di introdurre la tassa di refezione alla scuola dell\'infanzia.',
+    canonicalPath: '/articoli-frontaliere/chiasso-tassa-refezione-scuola-infanzia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso non introdurrà la tassa di refezione alla scuola dell'infanzia",
+      "description": "Il Consiglio comunale di Chiasso ha bocciato la proposta di introdurre la tassa di refezione alla scuola dell'infanzia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-tassa-refezione-scuola-infanzia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bambino che mangia in scuola dell'infanzia a Mendrisio, Ticino."
+      },
+      "datePublished": "2026-03-30T21:53:29+00:00",
+      "dateModified": "2026-03-30T21:53:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-tassa-refezione-scuola-infanzia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

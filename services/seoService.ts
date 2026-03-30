@@ -1762,6 +1762,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-rete-ferroviaria-tilo': { name: 'Lavori sulla rete ferroviaria italiana,', path: '/articoli-frontaliere/lavori-rete-ferroviaria-tilo', parent: 'blog' },
     'blog-tassa-mensa-asilo-chiasso': { name: 'Tasse scolastiche', path: '/articoli-frontaliere/tassa-mensa-asilo-chiasso', parent: 'blog' },
     'blog-sindacati-ticino-leonardo-cascina-costa': { name: 'Sindacati in Ticino', path: '/articoli-frontaliere/sindacati-ticino-leonardo-cascina-costa', parent: 'blog' },
+    'blog-chiasso-tassa-refezione-scuola-infanzia': { name: 'Notizie Ticino', path: '/articoli-frontaliere/chiasso-tassa-refezione-scuola-infanzia', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -1868,6 +1868,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sindacati-ticino-leonardo-cascina-costa.title': 'Sindacati in Ticino: "Sul cambio d\'appalto a Leonardo Cascina Costa va applicato l\'articolo 42"',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.excerpt': 'I sindacati di Filt Cgil, Fit Cisl e Uiltrasporti chiedono un tavolo in Prefettura per discutere la vertenza.',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.imageAlt': 'Lavoratori a Leonardo Cascina Costa in Ticino in protesta contro il cambio di gestione',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso non introdurrà la tassa di refezione alla scuola dell\'infanzia',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'Il Consiglio comunale di Chiasso ha bocciato la proposta di introdurre la tassa di refezione alla scuola dell\'infanzia.',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Bambino che mangia in scuola dell\'infanzia a Mendrisio, Ticino.',
 };
 
 export default blogMetaIt;

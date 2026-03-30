@@ -5550,4 +5550,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sindacati-ticino-leonardo-cascina-costa.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiasso-tassa-refezione-scuola-infanzia',
+    category: 'novita',
+    date: '2026-03-30T21:53:29.148Z',
+    image: '/images/blog/chiasso-tassa-refezione-scuola-infanzia.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -1868,6 +1868,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sindacati-ticino-leonardo-cascina-costa.title': 'Trade Unions in Ticino: \'Article 42 Should Be Applied in the Leonardo Cascina Costa Contract Change\'',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.excerpt': 'Trade unions from Filt Cgil, Fit Cisl and Uiltrasporti are calling for a meeting at the Prefecture to discuss the dispute.',
     'blog.article.sindacati-ticino-leonardo-cascina-costa.imageAlt': 'Workers at Leonardo Cascina Costa in Ticino protest against the change in management',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso Will Not Introduce Meal Tax to Preschool',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'The Chiasso Municipal Council has rejected the proposal to introduce a meal tax to preschool.',
+    'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Child eating in kindergarten in Mendrisio, Ticino.',
 };
 
 export default blogMetaEn;
