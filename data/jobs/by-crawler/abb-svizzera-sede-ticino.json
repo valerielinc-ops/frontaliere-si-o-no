@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-03-30T09:19:48.699Z",
+  "assembledAt": "2026-03-30T20:00:37.106Z",
   "jobs": [
     {
       "id": "company-vs8x2l",
@@ -105,7 +105,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-qt8s1o",
@@ -1600,7 +1601,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2jc587",
@@ -1900,7 +1902,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }

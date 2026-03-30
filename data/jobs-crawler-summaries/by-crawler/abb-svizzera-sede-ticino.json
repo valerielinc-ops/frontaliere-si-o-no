@@ -1,16 +1,16 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-03-29T20:34:27.135Z",
-  "total": 20,
+  "generatedAt": "2026-03-30T20:00:37.109Z",
+  "total": 21,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 20,
-  "durationMs": 511869,
-  "avgDurationMs": 511869,
+  "unchangedCount": 21,
+  "durationMs": 153174,
+  "avgDurationMs": 153174,
   "durationHistory": [
-    511869
+    153174
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -18,7 +18,7 @@
   "unchangedJobs": [
     {
       "id": "company-vs8x2l",
-      "slug": "capo-turno-assemblaggio-imballaggio-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "leader-di-turno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Shift leader Assemblaggio / Imballo (80-100%)",
       "location": "Quartino, Ticino",
@@ -38,7 +38,6 @@
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
       "crawledAt": "2026-03-29T20:26:36.887Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 72000,
@@ -48,11 +47,19 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-qt8s1o",
-      "slug": "ingegnere-r-d-sistemi-di-accumulo-di-energia-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "ingegnere-r-d-sistemi-di-accumulo-di-energia-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(80 - 100%) R&D Engineer (Energy Storage Systems)",
       "location": "Quartino, Ticino",
@@ -81,45 +88,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "company-2jc587",
-      "slug": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Shift Leader Collaudo IPU Modular (80-100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-28",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028637EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Modular--80-100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-29T20:26:36.887Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-hsi9t8",
-      "slug": "ingegnere-senior-r-d-sistemi-di-accumulo-energetico-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "ingegnere-senior-r-d-sistemi-di-accumulo-energetico-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(80 -100%) R&D Senior Engineer (Energy Storage Systems)",
       "location": "Quartino, Ticino",
@@ -148,11 +128,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-rdvm4z",
-      "slug": "specialista-in-ingegneria-dei-test-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "test-engineering-specialista-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Test Engineering Specialist (80 - 100%)",
       "location": "Quartino, Ticino",
@@ -181,11 +168,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-o66kxn",
-      "slug": "ingegnere-certificazione-r-d-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "ingegnere-certificazione-r-d-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "R&D Certification Engineer",
       "location": "Quartino, Ticino",
@@ -214,11 +208,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-l7apjs",
-      "slug": "80-100-ingegnere-hw-ricerca-e-sviluppo-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "80-100-ingegnere-hw-ricerca-e-sviluppo-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(80 -100%) R&D HW Engineer",
       "location": "Quartino, Ticino",
@@ -247,7 +248,14 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-n0py3i",
@@ -280,44 +288,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "company-xulm96",
-      "slug": "responsabile-gestione-appalto-abb-svizzera-sede-ticino-ticino",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Contract Manager",
-      "location": "Ticino",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-22",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028947EXTERNALENGLOBAL/Contract-Manager_JR00028947-1",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-29T20:26:36.887Z",
-      "country": "CH",
-      "sourceLang": "en",
-      "salaryMin": 109000,
-      "salaryMax": 147000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-j6oli2",
-      "slug": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "80-100-senior-power-electronics-ingegnere-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(80 - 100%) Senior Power Electronics Engineer",
       "location": "Quartino, Ticino",
@@ -346,45 +328,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "company-6a4mil",
-      "slug": "tecnico-della-qualita-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-      "company": "ABB Svizzera (sede Ticino)",
-      "title": "Quality Technician (80-100%)",
-      "location": "Quartino, Ticino",
-      "canton": "TI",
-      "category": "engineering",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-12",
-      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00027039EXTERNALENGLOBAL/Quality-Technician--80-100",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Quartino, Ticino, Switzerland",
-        "canton": "TI"
-      },
-      "companyKey": "abb-svizzera-sede-ticino",
-      "companyDomain": "abb.ch",
-      "crawledAt": "2026-03-29T20:26:36.887Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "needsRetranslation": true,
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "streetAddress": "Via Luserte Sud 9",
-      "postalCode": "6572",
-      "addressLocality": "Quartino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-u0g8m6",
-      "slug": "scrum-master-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "scrum-master-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "(80 - 100 %) Scrum Master",
       "location": "Quartino, Ticino",
@@ -413,11 +368,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-1dk7xe",
-      "slug": "formatore-del-prodotto-abb-svizzera-sede-ticino-ticino",
+      "slug": "formatore-del-prodotto-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Product Trainer",
       "location": "Ticino",
@@ -446,11 +408,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-tooege",
-      "slug": "tecnico-dell-assistenza-tecnica-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "tecnico-dell-assistenza-tecnica-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Technical Support Engineer (80-100%)",
       "location": "Quartino, Ticino",
@@ -479,11 +448,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-noo56s",
-      "slug": "senior-ingegnere-di-ricerca-firmware-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "senior-ingegnere-di-ricerca-firmware-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "R&D Senior Engineer Firmware (80 -100%)",
       "location": "Quartino, Ticino",
@@ -512,11 +488,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-d6wkr3",
-      "slug": "ingegnere-di-prova-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "ingegnere-di-prova-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Test Engineer (80 - 100%)",
       "location": "Quartino, Ticino",
@@ -545,11 +528,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-v1649d",
-      "slug": "specialista-di-evasione-ordini-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "specialista-di-evasione-ordini-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Fulfillment Specialist (80-100%)",
       "location": "Quartino, Ticino",
@@ -578,11 +568,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-u6aw32",
-      "slug": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "process-quality-specialista-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Process Quality Specialist (80-100%)",
       "location": "Quartino, Ticino",
@@ -611,11 +608,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-4qd2bw",
-      "slug": "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+      "slug": "quality-manager-per-il-cliente-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Customer Quality Manager (80% - 100%)",
       "location": "Quartino, Ticino",
@@ -637,7 +641,6 @@
       "crawledAt": "2026-03-29T20:26:36.887Z",
       "country": "CH",
       "sourceLang": "en",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 147000,
       "streetAddress": "Via Luserte Sud 9",
@@ -645,11 +648,18 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "id": "company-b9qjfm",
-      "slug": "specialista-servizi-di-vendita-interna-80-100-abb-svizzera-sede-ticino-ticino",
+      "slug": "specialista-servizi-di-vendita-interna-80-100-abb-svizzera-sede-ticino-quartino",
       "company": "ABB Svizzera (sede Ticino)",
       "title": "Inside Sales Service Specialist (80-100%)",
       "location": "Ticino",
@@ -678,7 +688,176 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-vs8x2l",
+      "slug": "leader-di-turno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Shift leader Assemblaggio / Imballo (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-29",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028630EXTERNALENGLOBAL/Shift-leader-Assemblaggio---Imballo--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-03-29T20:26:36.887Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-2jc587",
+      "slug": "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Shift Leader Collaudo IPU Modular (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-28",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028637EXTERNALENGLOBAL/Shift-Leader-Collaudo-IPU-Modular--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-03-29T20:26:36.887Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-6a4mil",
+      "slug": "tecnico-della-qualita-80-100-abb-svizzera-sede-ticino-quartino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Quality Technician (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-12",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00027039EXTERNALENGLOBAL/Quality-Technician--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-03-29T20:26:36.887Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-vs8x2l",
+      "slug": "leader-di-turno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino",
+      "company": "ABB Svizzera (sede Ticino)",
+      "title": "Shift leader Assemblaggio / Imballo (80-100%)",
+      "location": "Quartino, Ticino",
+      "canton": "TI",
+      "category": "engineering",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-29",
+      "url": "https://careers.abb/global/en/job/ABB1GLOBALJR00028630EXTERNALENGLOBAL/Shift-leader-Assemblaggio---Imballo--80-100",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Quartino, Ticino, Switzerland",
+        "canton": "TI"
+      },
+      "companyKey": "abb-svizzera-sede-ticino",
+      "companyDomain": "abb.ch",
+      "crawledAt": "2026-03-29T20:26:36.887Z",
+      "country": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "streetAddress": "Via Luserte Sud 9",
+      "postalCode": "6572",
+      "addressLocality": "Quartino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ]
 }
