@@ -302,6 +302,10 @@ let aiPageValidationCalls = 0;
 let deeplFallbackToLlm = 0;
 let companyAdaptersGlobal = new Map();
 
+// ── Noise reduction: suppress repeated output in LOCALIZE_EXISTING_ONLY mode ──
+let _bannerPrintedOnce = false;
+let _lastPrintedAiCallCount = -1;
+
 const AI_CACHE_MAX_ENTRIES = clampNum(process.env.JOBS_AI_CACHE_MAX_ENTRIES, 200, 30000, 8000);
 const AI_CACHE_DISK_MAX_ENTRIES = clampNum(process.env.JOBS_AI_CACHE_DISK_MAX_ENTRIES, 200, 100000, 30000);
 const AI_CACHE_RAW_SENTINEL = '__RAW__';
@@ -4667,19 +4671,23 @@ async function main() {
   if (!isLocalizeOnly) {
     writeJson(CRAWLER_CONFIG_PATH, crawlerConfig);
   }
-  console.log('💼 Ticino company careers crawler');
-  console.log(`ℹ️  timeout=${REQUEST_TIMEOUT_MS}ms companies<=${MAX_COMPANIES} concurrency=${MAX_CONCURRENCY}`);
-  console.log(`ℹ️  qualityGate score>=${crawlerConfig.minQualityScore} desc>=${crawlerConfig.minDescriptionChars} chars`);
-  console.log(`ℹ️  aiLocalization=${crawlerConfig.aiLocalizationEnabled ? 'on' : 'off'} maxJobs=${crawlerConfig.aiLocalizationMaxJobsPerRun}`);
-  console.log(
-    `ℹ️  contentReuse=${crawlerConfig.contentReuse?.enabled ? 'on' : 'off'} similarity>=${crawlerConfig.contentReuse?.similarityThreshold}`
-    + ` minChars>=${crawlerConfig.contentReuse?.minSourceChars} maxDelta<=${crawlerConfig.contentReuse?.maxLengthDeltaRatio}`
-  );
-  console.log(`ℹ️  aiPageValidation=${crawlerConfig.aiPageValidationEnabled ? 'on' : 'off'} maxPages=${crawlerConfig.aiPageValidationMaxPagesPerRun}`);
-  console.log(`ℹ️  webDiscovery=${crawlerConfig.webDiscoveryEnabled ? 'on' : 'off'} maxQueries/company=${WEB_DISCOVERY_MAX_QUERIES_PER_COMPANY}`);
-  console.log(`ℹ️  browserFallback=${BROWSER_FALLBACK_ENABLED ? 'on' : 'off'} timeout=${BROWSER_FALLBACK_TIMEOUT_MS}ms`);
-  console.log(`ℹ️  aiCacheDisk=${AI_CACHE_PERSIST_ENABLED ? 'on' : 'off'} loadedEntries=${loadedAiCacheEntries}`);
-  console.log(`ℹ️  companyAdapters=${companyAdaptersGlobal.size}`);
+  // Suppress the full config banner on repeat calls in LOCALIZE_EXISTING_ONLY mode
+  if (!isLocalizeOnly || !_bannerPrintedOnce) {
+    console.log('💼 Ticino company careers crawler');
+    console.log(`ℹ️  timeout=${REQUEST_TIMEOUT_MS}ms companies<=${MAX_COMPANIES} concurrency=${MAX_CONCURRENCY}`);
+    console.log(`ℹ️  qualityGate score>=${crawlerConfig.minQualityScore} desc>=${crawlerConfig.minDescriptionChars} chars`);
+    console.log(`ℹ️  aiLocalization=${crawlerConfig.aiLocalizationEnabled ? 'on' : 'off'} maxJobs=${crawlerConfig.aiLocalizationMaxJobsPerRun}`);
+    console.log(
+      `ℹ️  contentReuse=${crawlerConfig.contentReuse?.enabled ? 'on' : 'off'} similarity>=${crawlerConfig.contentReuse?.similarityThreshold}`
+      + ` minChars>=${crawlerConfig.contentReuse?.minSourceChars} maxDelta<=${crawlerConfig.contentReuse?.maxLengthDeltaRatio}`
+    );
+    console.log(`ℹ️  aiPageValidation=${crawlerConfig.aiPageValidationEnabled ? 'on' : 'off'} maxPages=${crawlerConfig.aiPageValidationMaxPagesPerRun}`);
+    console.log(`ℹ️  webDiscovery=${crawlerConfig.webDiscoveryEnabled ? 'on' : 'off'} maxQueries/company=${WEB_DISCOVERY_MAX_QUERIES_PER_COMPANY}`);
+    console.log(`ℹ️  browserFallback=${BROWSER_FALLBACK_ENABLED ? 'on' : 'off'} timeout=${BROWSER_FALLBACK_TIMEOUT_MS}ms`);
+    console.log(`ℹ️  aiCacheDisk=${AI_CACHE_PERSIST_ENABLED ? 'on' : 'off'} loadedEntries=${loadedAiCacheEntries}`);
+    console.log(`ℹ️  companyAdapters=${companyAdaptersGlobal.size}`);
+    if (isLocalizeOnly) _bannerPrintedOnce = true;
+  }
 
   if (!fs.existsSync(COMPANIES_TSX)) {
     throw new Error(`Missing companies source: ${COMPANIES_TSX}`);
@@ -4719,7 +4727,14 @@ async function main() {
     const missingRequested = [...requestedSet].filter((k) => !companiesToCrawl.some((c) => c.key === k));
     console.log(`🧷 Company key filter active: requested=${requestedSet.size} resolved=${companiesToCrawl.length}`);
     if (missingRequested.length > 0) {
-      console.warn(`⚠️  Missing company keys: ${missingRequested.join(', ')}`);
+      if (isLocalizeOnly) {
+        // In LOCALIZE_EXISTING_ONLY mode, company keys from per-crawler slices
+        // may not exist in TicinoCompanies.tsx or extra companies. This is fine:
+        // translation uses the job's companyKey directly, not the company census.
+        console.log(`ℹ️  Company keys not in census (OK in localize-only mode): ${missingRequested.join(', ')}`);
+      } else {
+        console.warn(`⚠️  Missing company keys: ${missingRequested.join(', ')}`);
+      }
     }
   }
   if (excludedSet.size > 0) {
@@ -4756,7 +4771,7 @@ async function main() {
   let browserFallbackHitsTotal = 0;
 
   if (localizeExistingOnly) {
-    console.log('🧭 Localization-only mode: skipping crawl/discovery, processing existing jobs only.');
+    // Only log on first invocation — message is identical every time
   } else {
     // Pre-load known job URLs to skip re-crawling detail pages already in data/jobs.json
     const _preloadedJobs = readJson(DATA_JOBS, []);
@@ -4864,8 +4879,8 @@ async function main() {
   if (!skipStalePrune && prunedStaleCrawlerJobs > 0) {
     console.log(`🧽 Pruned stale crawler jobs from active domains: ${prunedStaleCrawlerJobs}`);
   }
-  if (skipStalePrune) {
-    console.log('🛡️ Stale prune skipped (localization-only or JOBS_CRAWLER_SKIP_STALE_PRUNE=1).');
+  if (skipStalePrune && !localizeExistingOnly) {
+    console.log('🛡️ Stale prune skipped (JOBS_CRAWLER_SKIP_STALE_PRUNE=1).');
   }
 
   const mergeResult = mergeAndDeduplicate(prunedExisting, incomingJobs, {
@@ -5010,8 +5025,8 @@ async function main() {
         console.log(`🗺️  Geocoding filter: removed ${geoResult.removedCount} jobs (${beforeGeoCount} → ${merged.length})`);
       }
     }
-  } else {
-    console.log(`🗺️  Geocoding filter: SKIPPED (${localizeExistingOnly ? 'localization-only mode' : 'JOBS_SKIP_GEOCODING=1'})`);
+  } else if (!localizeExistingOnly) {
+    console.log(`🗺️  Geocoding filter: SKIPPED (JOBS_SKIP_GEOCODING=1)`);
   }
 
   // ── URL validation: verify source URLs are still live ──────────────────
@@ -5144,59 +5159,71 @@ async function main() {
   };
   writeAuditLog(audit);
 
-  console.log(`🧩 Merged jobs total: ${merged.length} (inserted=${inserted}, refreshed=${refreshed}, duplicateIncoming=${duplicateIncoming}, duplicateExisting=${duplicateExisting})`);
-  if (mergeExcludedJobs > 0) {
-    const ordered = Object.entries(mergeExclusionByReason || {})
-      .sort((a, b) => b[1] - a[1])
-      .map(([reason, count]) => `${reason}=${count}`)
-      .join(', ');
-    console.log(`🚫 Excluded at merge: ${mergeExcludedJobs}${ordered ? ` (${ordered})` : ''}`);
+  if (!localizeExistingOnly) {
+    console.log(`🧩 Merged jobs total: ${merged.length} (inserted=${inserted}, refreshed=${refreshed}, duplicateIncoming=${duplicateIncoming}, duplicateExisting=${duplicateExisting})`);
+    if (mergeExcludedJobs > 0) {
+      const ordered = Object.entries(mergeExclusionByReason || {})
+        .sort((a, b) => b[1] - a[1])
+        .map(([reason, count]) => `${reason}=${count}`)
+        .join(', ');
+      console.log(`🚫 Excluded at merge: ${mergeExcludedJobs}${ordered ? ` (${ordered})` : ''}`);
+    }
+    console.log(`🧾 Audit written: ${path.relative(ROOT, AUDIT_PATH)}`);
   }
-  console.log(`🧾 Audit written: ${path.relative(ROOT, AUDIT_PATH)}`);
   const shouldSkipHousekeeping =
     process.env.JOBS_SKIP_HOUSEKEEPING === '1' ||
     localizeExistingOnly ||
     hasScopedCompanyKeysForRun;
   if (shouldSkipHousekeeping) {
-    const reasons = [];
-    if (process.env.JOBS_SKIP_HOUSEKEEPING === '1') reasons.push('JOBS_SKIP_HOUSEKEEPING=1');
-    if (localizeExistingOnly) reasons.push('localization-only');
-    if (hasScopedCompanyKeysForRun) reasons.push('scoped-company-run');
-    console.log(`⏭️  Skipping jobs housekeeping (${reasons.join(', ')})`);
+    // Only log the skip reason when NOT in localize-only mode (where it's always skipped)
+    if (!localizeExistingOnly) {
+      const reasons = [];
+      if (process.env.JOBS_SKIP_HOUSEKEEPING === '1') reasons.push('JOBS_SKIP_HOUSEKEEPING=1');
+      if (hasScopedCompanyKeysForRun) reasons.push('scoped-company-run');
+      console.log(`⏭️  Skipping jobs housekeeping (${reasons.join(', ')})`);
+    }
   } else {
     console.log('🧹 Running jobs housekeeping...');
     await runHousekeeping();
   }
 
-  // Log AI model stats & scoreboard
+  // Log AI model stats & scoreboard — suppress when stats haven't changed since last print
   const aiStats = getAiStats();
-  console.log(`\n🤖 AI Model Stats: ${aiStats.calls} calls, ${aiStats.successes} successes, ${aiStats.retries} retries, ${aiStats.fallbacks} fallbacks, ${aiStats.exhausted} exhausted (store: ${aiStats.storeBackend})`);
-  console.log(`🈯 Free translate fallback_to_llm=${deeplFallbackToLlm}`);
-  logCascadeSummary();
-  const mmStats = getMyMemoryStats();
-  console.log(`🌐 MyMemory Stats: chars_used=${mmStats.dailyChars}/${mmStats.limit}`);
-  const localLocalizationStats = getJobLocalizationPipelineStats();
-  console.log(
-    `🏠 Local localization: memory_hits=${localLocalizationStats.memoryHits}, memory_misses=${localLocalizationStats.memoryMisses}, ` +
-    `entries=${localLocalizationStats.memoryEntries}, providers=` +
-    `nllb:${localLocalizationStats.providersConfigured.nllb ? 'on' : 'off'}/` +
-    `libre:${localLocalizationStats.providersConfigured.libretranslate ? 'on' : 'off'}/` +
-    `ollama:${localLocalizationStats.providersConfigured.ollama ? 'on' : 'off'}`
-  );
-  if (aiStats.scoreBoard.length > 0) {
-    console.log('📊 Model Scoreboard (top 10):');
-    aiStats.scoreBoard.slice(0, 10).forEach(({ model, score, successes, failures }, i) =>
-      console.log(`   ${i + 1}. ${model}: ${score >= 0 ? '+' : ''}${score} (✓${successes || 0} ✗${failures || 0})`)
+  const currentAiCallCount = aiStats.calls;
+  const statsChanged = currentAiCallCount !== _lastPrintedAiCallCount;
+
+  if (statsChanged || !localizeExistingOnly) {
+    console.log(`\n🤖 AI Model Stats: ${aiStats.calls} calls, ${aiStats.successes} successes, ${aiStats.retries} retries, ${aiStats.fallbacks} fallbacks, ${aiStats.exhausted} exhausted (store: ${aiStats.storeBackend})`);
+    console.log(`🈯 Free translate fallback_to_llm=${deeplFallbackToLlm}`);
+    logCascadeSummary();
+    const mmStats = getMyMemoryStats();
+    console.log(`🌐 MyMemory Stats: chars_used=${mmStats.dailyChars}/${mmStats.limit}`);
+    const localLocalizationStats = getJobLocalizationPipelineStats();
+    console.log(
+      `🏠 Local localization: memory_hits=${localLocalizationStats.memoryHits}, memory_misses=${localLocalizationStats.memoryMisses}, ` +
+      `entries=${localLocalizationStats.memoryEntries}, providers=` +
+      `nllb:${localLocalizationStats.providersConfigured.nllb ? 'on' : 'off'}/` +
+      `libre:${localLocalizationStats.providersConfigured.libretranslate ? 'on' : 'off'}/` +
+      `ollama:${localLocalizationStats.providersConfigured.ollama ? 'on' : 'off'}`
     );
-  }
-  if (aiStats.exhaustedModels.length > 0) {
-    console.log(`🚫 Exhausted: ${aiStats.exhaustedModels.join(', ')}`);
+    if (aiStats.scoreBoard.length > 0) {
+      console.log('📊 Model Scoreboard (top 10):');
+      aiStats.scoreBoard.slice(0, 10).forEach(({ model, score, successes, failures }, i) =>
+        console.log(`   ${i + 1}. ${model}: ${score >= 0 ? '+' : ''}${score} (✓${successes || 0} ✗${failures || 0})`)
+      );
+    }
+    if (aiStats.exhaustedModels.length > 0) {
+      console.log(`🚫 Exhausted: ${aiStats.exhaustedModels.join(', ')}`);
+    }
+    _lastPrintedAiCallCount = currentAiCallCount;
   }
 
   // Flush persistent scores to Firestore before exit
   await flushScores();
   persistAiCacheToDisk();
-  console.log(`💾 AI cache stats: hits=${aiCacheHits}, misses=${aiCacheMisses}, entries=${aiResponseCache.size}`);
+  if (statsChanged || !localizeExistingOnly) {
+    console.log(`💾 AI cache stats: hits=${aiCacheHits}, misses=${aiCacheMisses}, entries=${aiResponseCache.size}`);
+  }
 
   
   // Print crawl change summary (new/updated/removed)
@@ -5207,7 +5234,7 @@ async function main() {
     const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
     printCrawlChangeSummary(crawlDiff, 'Generic Crawler');
     writeCrawlChangeSummaryToGH(crawlDiff, 'Generic Crawler');
-  } else {
+  } else if (!localizeExistingOnly) {
     console.log('⏭️  Crawl change summary skipped (JOBS_SKIP_CRAWL_CHANGE_SUMMARY=1).');
   }
 

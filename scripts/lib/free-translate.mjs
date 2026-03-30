@@ -66,13 +66,17 @@ const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 
 // ── Instance Health Tracking ────────────────────────────────────────────────
 // Track which instances have failed recently to skip them on subsequent calls.
-// After HEALTH_RECOVERY_MS, an instance is retried.
-const HEALTH_RECOVERY_MS = 10 * 60 * 1000; // 10 minutes
+// An instance is only marked unhealthy after HEALTH_FAILURE_THRESHOLD consecutive
+// failures (not on the first failure). After HEALTH_RECOVERY_MS, it's retried.
+const HEALTH_RECOVERY_MS = 2 * 60 * 1000; // 2 minutes (was 10 min — too aggressive)
+const HEALTH_FAILURE_THRESHOLD = 3; // require 3+ failures before marking unhealthy
 const instanceHealth = new Map(); // url → { failedAt: number, failures: number }
 
 function isInstanceHealthy(url) {
   const entry = instanceHealth.get(url);
   if (!entry) return true;
+  // Under threshold: still considered healthy (transient errors)
+  if (entry.failures < HEALTH_FAILURE_THRESHOLD) return true;
   if (Date.now() - entry.failedAt > HEALTH_RECOVERY_MS) {
     instanceHealth.delete(url);
     return true;
@@ -139,9 +143,14 @@ export function logCascadeSummary() {
     console.log('   Tier errors: ' + errs.map(([k, v]) => `${k}=${v}`).join(', '));
   }
   const health = getInstanceHealthStats();
-  const down = Object.entries(health);
+  const down = Object.entries(health).filter(([, h]) => h.failures >= HEALTH_FAILURE_THRESHOLD);
+  const degraded = Object.entries(health).filter(([, h]) => h.failures > 0 && h.failures < HEALTH_FAILURE_THRESHOLD);
+  if (degraded.length) {
+    console.log(`   ⚡ ${degraded.length} instances degraded (below threshold ${HEALTH_FAILURE_THRESHOLD}):`);
+    degraded.forEach(([url, h]) => console.log(`      ⚠️  ${url} (${h.failures}/${HEALTH_FAILURE_THRESHOLD} failures)`));
+  }
   if (down.length) {
-    console.log(`   ⚠️  ${down.length} instances currently marked unhealthy:`);
+    console.log(`   ⚠️  ${down.length} instances currently marked unhealthy (>=${HEALTH_FAILURE_THRESHOLD} failures):`);
     down.forEach(([url, h]) => console.log(`      ❌ ${url} (${h.failures} failures)`));
   }
 }
