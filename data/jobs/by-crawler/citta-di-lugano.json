@@ -149,15 +149,15 @@
       "slug": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
       "slugByLocale": {
         "it": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
-        "en": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-city-of-lugano",
-        "de": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-stadt-lugano",
-        "fr": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-ville-de-lugano"
+        "en": "un-a-architetto-a-o-engineer-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano-lugano-c7hh9n",
+        "de": "un-a-architetto-a-o-ingenieur-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano-lugano-c7hh9n",
+        "fr": "un-a-architetto-a-o-ingenieur-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano-lugano-c7hh9n"
       },
       "titleByLocale": {
         "it": "un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica",
-        "en": "un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica",
-        "de": "un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica",
-        "fr": "un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica"
+        "en": "un/a architetto/a o Engineer/a capoprogetto presso la Divisione edilizia pubblica",
+        "de": "un/a architetto/a o Ingenieur/a capoprogetto presso la Divisione edilizia pubblica",
+        "fr": "un/a architetto/a o Ingénieur/a capoprogetto presso la Divisione edilizia pubblica"
       },
       "deadline": "",
       "_targetScope": {
@@ -186,7 +186,12 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-city-of-lugano",
+        "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-stadt-lugano",
+        "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-ville-de-lugano"
+      ]
     },
     {
       "title": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani",
@@ -209,15 +214,15 @@
       "slug": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano",
       "slugByLocale": {
         "it": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano",
-        "en": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-city-of-lugano",
-        "de": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-stadt-lugano",
-        "fr": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-ville-de-lugano"
+        "en": "un-a-associate-maintenance-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano-lugano-lt1pq8",
+        "de": "un-a-mitarbeiter-in-wartung-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano-lugano-lt1pq8",
+        "fr": "un-a-prepose-e-maintenance-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano-lugano-lt1pq8"
       },
       "titleByLocale": {
         "it": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani",
-        "en": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani",
-        "de": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani",
-        "fr": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani"
+        "en": "un/a Associate Maintenance interrati presso i Servizi tecnici della Divisione spazi urbani",
+        "de": "un/a Mitarbeiter/in Wartung interrati presso i Servizi tecnici della Divisione spazi urbani",
+        "fr": "un/a Préposé/e Maintenance interrati presso i Servizi tecnici della Divisione spazi urbani"
       },
       "deadline": "",
       "_targetScope": {
@@ -246,7 +251,12 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-city-of-lugano",
+        "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-stadt-lugano",
+        "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-ville-de-lugano"
+      ]
     },
     {
       "title": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
