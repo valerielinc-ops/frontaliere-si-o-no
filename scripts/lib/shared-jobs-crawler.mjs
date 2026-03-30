@@ -4857,6 +4857,7 @@ async function main() {
   }, {
     scopeCompanyKeys: requestedCompanyKeys,
     contentReuse: crawlerConfig.contentReuse,
+    localizeExistingOnly: localizeExistingOnly,
   });
   let merged = mergeResult.merged;
   const {

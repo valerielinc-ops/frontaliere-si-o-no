@@ -4024,7 +4024,16 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
   const mergeExclusionSamples = [];
   let mergeExcludedJobs = 0;
   const acceptedInScopeJobs = [];
+  // In localizeExistingOnly mode, skip the quality-gate exclusion for existing jobs.
+  // Existing jobs already passed the admission gate on a previous crawl run — re-applying
+  // it here would block localization for jobs whose URL patterns are not in our allow-list
+  // (e.g. job portals with non-standard URL structures like jobs.amag-group.ch).
+  const skipExclusionForExisting = options.localizeExistingOnly === true;
   for (const job of inScopeJobs) {
+    if (skipExclusionForExisting) {
+      acceptedInScopeJobs.push(job);
+      continue;
+    }
     const reasons = getMergeExclusionReasons(job, qualityCfg);
     if (reasons.length === 0) {
       acceptedInScopeJobs.push(job);
