@@ -53,6 +53,8 @@ const RC_TO_ENV = {
   SERVER_GSC_REFRESH_TOKEN:       ['GSC_REFRESH_TOKEN'],
   DEEPL_API_KEY:                  ['DEEPL_API_KEY'],
   DEEPL_API_KEY_2:                ['DEEPL_API_KEY_2'],
+  AZURE_TRANSLATOR_KEY:           ['AZURE_TRANSLATOR_KEY'],
+  AZURE_TRANSLATOR_KEY_2:         ['AZURE_TRANSLATOR_KEY_2'],
   SERVER_PIXABAY_API_KEY:         ['PIXABAY_API_KEY'],
 
   // Microsoft Clarity (UX analytics)

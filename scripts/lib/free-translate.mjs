@@ -31,6 +31,15 @@ const DEEPL_API_KEYS = [
 ].filter(Boolean);
 let _deeplKeyIndex = 0;
 let _deeplExhaustedKeys = new Set();
+// Azure Translator (F0 Free tier: 2M chars/month, excellent quality)
+const AZURE_TRANSLATOR_KEYS = [
+  (process.env.AZURE_TRANSLATOR_KEY || '').trim(),
+  (process.env.AZURE_TRANSLATOR_KEY_2 || '').trim(),
+].filter(Boolean);
+const AZURE_REGION = 'westeurope';
+let _azureKeyIndex = 0;
+let _azureExhaustedKeys = new Set();
+
 // Hugging Face OPUS-MT (Helsinki-NLP open-source translation models)
 const HF_TOKEN = (process.env.HF_TOKEN || process.env.HUGGINGFACE_API_KEY || '').trim();
 const HF_OPUS_MT_MODELS = {
@@ -118,8 +127,8 @@ const _cascadeStats = {
   calls: 0,
   successes: 0,
   failures: 0,
-  tierHits: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
-  tierErrors: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierHits: { deepl: 0, azure: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierErrors: { deepl: 0, azure: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
 };
 
 /**
@@ -171,10 +180,14 @@ export function logCascadeSummary() {
     console.log(`   ⚠️  ${down.length} instances currently marked unhealthy (>=${HEALTH_FAILURE_THRESHOLD} failures):`);
     down.forEach(([url, h]) => console.log(`      ❌ ${url} (${h.failures} failures)`));
   }
-  // DeepL key status
+  // Key status
   if (DEEPL_API_KEYS.length > 0) {
     const active = DEEPL_API_KEYS.length - _deeplExhaustedKeys.size;
     console.log(`   🔑 DeepL: ${active}/${DEEPL_API_KEYS.length} keys active${_deeplExhaustedKeys.size > 0 ? ` (${_deeplExhaustedKeys.size} exhausted)` : ''}`);
+  }
+  if (AZURE_TRANSLATOR_KEYS.length > 0) {
+    const active = AZURE_TRANSLATOR_KEYS.length - _azureExhaustedKeys.size;
+    console.log(`   🔑 Azure: ${active}/${AZURE_TRANSLATOR_KEYS.length} keys active${_azureExhaustedKeys.size > 0 ? ` (${_azureExhaustedKeys.size} exhausted)` : ''}`);
   }
 }
 
@@ -489,6 +502,62 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
   });
 }
 
+// ── Azure Translator (F0 Free — 2M chars/month, near-DeepL quality) ────────
+async function translateWithAzure(text, sourceLang, targetLang) {
+  if (AZURE_TRANSLATOR_KEYS.length === 0) return '';
+  const clean = normalizeSpace(text);
+  if (!clean || sourceLang === targetLang) return '';
+
+  // Azure supports up to 50K chars per request, but we chunk at 5K for safety
+  const MAX_CHUNK = 5000;
+  const chunks = clean.length <= MAX_CHUNK ? [clean] : chunkText(clean, MAX_CHUNK);
+
+  for (let attempt = 0; attempt < AZURE_TRANSLATOR_KEYS.length; attempt++) {
+    const idx = (_azureKeyIndex + attempt) % AZURE_TRANSLATOR_KEYS.length;
+    const key = AZURE_TRANSLATOR_KEYS[idx];
+    if (_azureExhaustedKeys.has(key)) continue;
+
+    try {
+      const translated = [];
+      for (const chunk of chunks) {
+        const url = `https://api.cognitive.microsofttranslator.com/translate?api-version=3.0&from=${sourceLang}&to=${targetLang}`;
+        const res = await fetch(url, {
+          method: 'POST',
+          headers: {
+            'Ocp-Apim-Subscription-Key': key,
+            'Ocp-Apim-Subscription-Region': AZURE_REGION,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify([{ Text: chunk }]),
+          signal: AbortSignal.timeout(TIMEOUT_MS),
+        });
+        if (res.status === 403 || res.status === 429) {
+          _azureExhaustedKeys.add(key);
+          _cascadeStats.tierErrors.azure = (_cascadeStats.tierErrors.azure || 0) + 1;
+          console.log(`🔑 Azure key #${idx + 1} quota exhausted — rotating`);
+          throw Object.assign(new Error('Azure quota'), { quotaExhausted: true });
+        }
+        if (!res.ok) return '';
+        const data = await res.json();
+        const t = data?.[0]?.translations?.[0]?.text || '';
+        if (!t) return '';
+        translated.push(t);
+        if (chunks.length > 1) await delay(100);
+      }
+      const result = normalizeSpace(translated.join('\n\n'));
+      if (result && result.toLowerCase() !== clean.toLowerCase()) {
+        _azureKeyIndex = idx;
+        return result;
+      }
+      return '';
+    } catch (err) {
+      if (err?.quotaExhausted) continue;
+      return '';
+    }
+  }
+  return '';
+}
+
 // ── Hugging Face OPUS-MT (Helsinki-NLP open-source models) ─────────────────
 async function translateWithHuggingFace(text, sourceLang, targetLang) {
   if (!HF_TOKEN) return '';
@@ -647,7 +716,11 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
   if (t1) return t1;
 
-  // Tier 2: MyMemory (best EU language quality, 50K chars/day with email param)
+  // Tier 2: Azure Translator (F0 Free — 2M chars/month, near-DeepL quality)
+  const t1b = await tryTier('azure', () => translateWithAzure(clean, sourceLang, targetLang));
+  if (t1b) return t1b;
+
+  // Tier 3: MyMemory (best EU language quality, 50K chars/day with email param)
   // Short text (≤5000 chars): single call. Long text: chunk at sentence boundaries.
   const t2 = await tryTier('myMemory', async () => {
     if (clean.length <= 5000) {
