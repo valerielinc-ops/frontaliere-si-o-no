@@ -31,6 +31,17 @@ const DEEPL_API_KEYS = [
 ].filter(Boolean);
 let _deeplKeyIndex = 0;
 let _deeplExhaustedKeys = new Set();
+// Hugging Face OPUS-MT (Helsinki-NLP open-source translation models)
+const HF_TOKEN = (process.env.HF_TOKEN || process.env.HUGGINGFACE_API_KEY || '').trim();
+const HF_OPUS_MT_MODELS = {
+  'it-en': 'Helsinki-NLP/opus-mt-it-en', 'en-it': 'Helsinki-NLP/opus-mt-en-it',
+  'it-de': 'Helsinki-NLP/opus-mt-it-de', 'de-it': 'Helsinki-NLP/opus-mt-de-it',
+  'it-fr': 'Helsinki-NLP/opus-mt-it-fr', 'fr-it': 'Helsinki-NLP/opus-mt-fr-it',
+  'de-en': 'Helsinki-NLP/opus-mt-de-en', 'en-de': 'Helsinki-NLP/opus-mt-en-de',
+  'de-fr': 'Helsinki-NLP/opus-mt-de-fr', 'fr-de': 'Helsinki-NLP/opus-mt-fr-de',
+  'fr-en': 'Helsinki-NLP/opus-mt-fr-en', 'en-fr': 'Helsinki-NLP/opus-mt-en-fr',
+};
+
 const GOOGLE_TRANSLATE_ENDPOINTS = [
   'https://translate.googleapis.com/translate_a/single',
   'https://clients5.google.com/translate_a/t',
@@ -107,8 +118,8 @@ const _cascadeStats = {
   calls: 0,
   successes: 0,
   failures: 0,
-  tierHits: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
-  tierErrors: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierHits: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierErrors: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
 };
 
 /**
@@ -478,6 +489,41 @@ async function translateWithMozhiEngine(text, sourceLang, targetLang, engine = '
   });
 }
 
+// ── Hugging Face OPUS-MT (Helsinki-NLP open-source models) ─────────────────
+async function translateWithHuggingFace(text, sourceLang, targetLang) {
+  if (!HF_TOKEN) return '';
+  const clean = normalizeSpace(text);
+  if (!clean || sourceLang === targetLang) return '';
+
+  const modelKey = `${sourceLang}-${targetLang}`;
+  const model = HF_OPUS_MT_MODELS[modelKey];
+  if (!model) return '';
+
+  // OPUS-MT models work best with shorter texts (< 512 tokens ≈ ~2000 chars)
+  const truncated = clean.slice(0, 2000);
+
+  try {
+    const res = await fetch(`https://router.huggingface.co/hf-inference/models/${model}`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${HF_TOKEN}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ inputs: truncated }),
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+    if (!res.ok) return '';
+    const data = await res.json();
+    const translated = normalizeSpace(
+      Array.isArray(data) ? data[0]?.translation_text || '' : data?.translation_text || ''
+    );
+    if (translated && translated.toLowerCase() !== clean.toLowerCase()) return translated;
+    return '';
+  } catch {
+    return '';
+  }
+}
+
 async function translateWithGoogle(text, sourceLang, targetLang) {
   const clean = normalizeSpace(text);
   if (!clean || sourceLang === targetLang) return '';
@@ -601,16 +647,16 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
   if (t1) return t1;
 
-  // Tier 2: MyMemory (best EU language quality, chunked for long text)
-  // Short text (≤500 chars): single call. Long text: chunk at sentence boundaries.
+  // Tier 2: MyMemory (best EU language quality, 50K chars/day with email param)
+  // Short text (≤5000 chars): single call. Long text: chunk at sentence boundaries.
   const t2 = await tryTier('myMemory', async () => {
-    if (clean.length <= 500) {
+    if (clean.length <= 5000) {
       const mm = await translateWithMyMemory(clean, sourceLang, targetLang);
       if (mm && normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) return normalizeSpace(mm);
       return '';
     }
     // Chunk long text at sentence/paragraph boundaries
-    const chunks = _chunkAtSentences(clean, 480);
+    const chunks = _chunkAtSentences(clean, 4800);
     if (chunks.length === 0) return '';
     const parts = [];
     for (const chunk of chunks) {
@@ -628,9 +674,13 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
   if (t4) return t4;
 
-  // Tier 5: Mozhi+DuckDuckGo (Bing via Mozhi proxy — works sometimes from CI)
-  const t5 = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
+  // Tier 5: Hugging Face OPUS-MT (Helsinki-NLP open-source, good for short text)
+  const t5 = await tryTier('huggingFace', () => translateWithHuggingFace(clean, sourceLang, targetLang));
   if (t5) return t5;
+
+  // Tier 6: Mozhi+DuckDuckGo (Bing via Mozhi proxy — works sometimes from CI)
+  const t6b = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
+  if (t6b) return t6b;
 
   // ── LOCAL/DEV TIERS (blocked from GitHub Actions IPs, work locally) ───────
 

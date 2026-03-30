@@ -21,7 +21,10 @@ const LANG_MAP = {
 
 let lastCallMs = 0;
 let dailyChars = 0;
-const DAILY_CHAR_LIMIT = 4500; // conservative limit (leave headroom)
+// With email param: 50K chars/day. Without: 5K chars/day.
+// Default email for the project — gives 10x quota boost for free.
+const MYMEMORY_EMAIL = (process.env.MYMEMORY_EMAIL || 'info@frontaliereticino.ch').trim();
+const DAILY_CHAR_LIMIT = MYMEMORY_EMAIL ? 45000 : 4500;
 
 /**
  * Translate text using MyMemory free API.
@@ -53,13 +56,12 @@ export async function translateWithMyMemory(text, sourceLang, targetLang) {
 
   try {
     const params = new URLSearchParams({
-      q: text.slice(0, 500), // API handles up to ~500 chars well
+      q: text.slice(0, 5000), // API supports up to 5000 chars per call
       langpair: `${srcCode}|${tgtCode}`,
     });
-    // Add email for higher quota if available
-    const email = process.env.MYMEMORY_EMAIL;
-    if (email) {
-      params.set('de', email);
+    // Email param unlocks 50K chars/day (vs 5K anonymous)
+    if (MYMEMORY_EMAIL) {
+      params.set('de', MYMEMORY_EMAIL);
     }
 
     const url = `${MYMEMORY_API}?${params.toString()}`;
