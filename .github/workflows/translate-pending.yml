@@ -136,6 +136,17 @@ jobs:
         if: always() && inputs.skip_translate != true && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
+      # ── Phase 2b: Fix remaining source-copy titles via free cascade ────────
+      # The AI pipeline may leave some titles untranslated (source copies).
+      # This step uses DeepL/MyMemory (no AI quota needed) to translate them.
+      - name: "Phase 2b: Fix untranslated titles (free cascade)"
+        if: always() && inputs.dry_run != true
+        run: node scripts/fix-untranslated-titles.mjs
+
+      - name: Commit title fixes
+        if: always() && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
+
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       # Safe replacement for hardenJobLocaleFields (which was destructive:
       # re-translated titles, contaminated EN/DE/FR with Italian, set needsRetranslation).
