@@ -1,21 +1,57 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-03-30T03:55:07.958Z",
-  "total": 2,
+  "generatedAt": "2026-03-30T19:58:57.924Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4688,
-  "avgDurationMs": 4688,
+  "unchangedCount": 4,
+  "durationMs": 4499,
+  "avgDurationMs": 4499,
   "durationHistory": [
-    4688
+    4499
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "aldi-suisse-c84740c470c4",
+      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Stellvertretender Filialleiter (m/w/d)",
+      "location": "en in elf Ländern weltweit. Seit dem",
+      "postalCode": "6928",
+      "canton": "TI",
+      "addressLocality": "en in elf Ländern weltweit. Seit dem",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "streetAddress": "Centro Monda 8",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://www.jobs.aldi.ch/job/1287177101",
+      "source": "ALDI Suisse Dedicated Parser",
+      "crawledAt": "2026-03-30T19:58:55.975Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 54000,
+      "salaryMax": 73000,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 16,
+        "completeness": 25
+      }
+    },
     {
       "id": "aldi-suisse-2b7849368ea3",
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -39,15 +75,22 @@
       "postedDate": "2026-03-30",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-03-30T03:55:06.023Z",
+      "crawledAt": "2026-03-30T19:58:55.420Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 54000,
-      "salaryMax": 73000
+      "salaryMax": 73000,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 25
+      }
     },
     {
       "id": "aldi-suisse-95f4c78eeb47",
-      "slug": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
       "companyDomain": "aldi.ch",
@@ -68,11 +111,54 @@
       "postedDate": "2026-03-30",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-03-30T03:55:06.022Z",
+      "crawledAt": "2026-03-30T19:58:55.419Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 43000,
-      "salaryMax": 58000
+      "salaryMax": 58000,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "aldi-suisse-5a780c2f7ee0",
+      "slug": "area-manager-genf-lausanne-aldi-suisse",
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Area Manager - Genf / Lausanne",
+      "location": "en in elf Ländern weltweit. Seit dem",
+      "postalCode": "6928",
+      "canton": "TI",
+      "addressLocality": "en in elf Ländern weltweit. Seit dem",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "streetAddress": "Centro Monda 8",
+      "employmentType": "FULL_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://www.jobs.aldi.ch/job/1007064001",
+      "source": "ALDI Suisse Dedicated Parser",
+      "crawledAt": "2026-03-30T19:58:55.418Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 66000,
+      "salaryMax": 89000,
+      "_qualityScore": 87,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 16,
+        "completeness": 25
+      }
     }
   ]
 }
