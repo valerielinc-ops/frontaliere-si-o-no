@@ -40,8 +40,8 @@
       },
       "slugByLocale": {
         "it": "apprendista-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-lugano",
-        "en": "apprentice-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-communications-ag-lugano-3u965h",
-        "de": "lernende-r-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-communications-ag-lugano-3u965h",
+        "en": "retail-trade-apprentice-lugano-sunrise-communications-ag-lugano",
+        "de": "detailhandels-lehrling-lugano-sunrise-communications-ag-lugano",
         "fr": "apprenti-e-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-communications-ag-lugano-3u965h"
       },
       "salaryMin": 46500,
@@ -57,7 +57,11 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 7"
+      "streetAddress": "Via Industria 7",
+      "previousSlugs": [
+        "apprentice-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-communications-ag-lugano-3u965h",
+        "lernende-r-gestore-del-commercio-al-dettaglio-afc-lugano-sunrise-communications-ag-lugano-3u965h"
+      ]
     }
   ]
 }

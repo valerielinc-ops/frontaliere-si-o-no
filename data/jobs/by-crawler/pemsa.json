@@ -221,7 +221,7 @@
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-bellinzona",
         "en": "construction-carpenter-pemsa-bellinzona-s5255a",
-        "de": "bautischlerei-pemsa-bellinzona",
+        "de": "bauzimmerer-pemsa-bellinzona",
         "fr": "macon-constructeur-pemsa-bellinzona-s5255a"
       },
       "salaryMin": 58000,
@@ -240,7 +240,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "carpentiere-edile-pemsa-bellinzona"
+        "carpentiere-edile-pemsa-bellinzona",
+        "bautischlerei-pemsa-bellinzona"
       ]
     },
     {
@@ -2320,8 +2321,8 @@
       "slugByLocale": {
         "it": "ferraiolo-pemsa-bellinzona",
         "en": "ferraiolo-pemsa-bellinzona",
-        "de": "ferraiolo-pemsa-bellinzona",
-        "fr": "ferraiolo-pemsa-bellinzona"
+        "de": "bauschlosser-pemsa-bellinzona",
+        "fr": "ferrailleur-pemsa-bellinzona"
       },
       "needsRetranslation": true,
       "salaryMin": 58000,
@@ -2338,7 +2339,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "ferraiolo-pemsa-bellinzona"
+      ]
     },
     {
       "title": "Cartongessista &amp;#8211; Gessatore",
