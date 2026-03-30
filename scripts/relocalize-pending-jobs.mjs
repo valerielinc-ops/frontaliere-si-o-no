@@ -127,14 +127,20 @@ export function isIncomplete(job) {
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
 
     // Cross-locale contamination: title detected as SOURCE language in a non-source slot.
-    // Catches partial translations (e.g. German words in IT slot for a DE-source job,
-    // or Italian text in FR slot for an IT-source job) that exact-copy check misses.
-    // Only flags when detected language matches source — avoids false positives from
-    // international terms (English-base titles used across locales).
+    // Two detection layers:
+    // 1. Hint-based: catches strong signals (German Fach* words, Italian responsabile, etc.)
+    // 2. Stop-word: catches Italian articles/prepositions in non-IT slots, German articles in non-DE slots
     if (locale !== (job.sourceLang || 'it') && title.length >= 8) {
-      const detected = detectJobTitleLocaleDetails(title, locale);
       const srcLang = job.sourceLang || 'it';
+      // Layer 1: hint-based language detector
+      const detected = detectJobTitleLocaleDetails(title, locale);
       if (detected.confidence >= 0.65 && detected.lang === srcLang) return true;
+      // Layer 2: stop-word contamination — Italian/German articles and prepositions are
+      // strong signals even in titles too short for the hint detector
+      const lc = title.toLowerCase();
+      if (srcLang === 'it' && locale !== 'it' && /\b(per il|per la|per lo|per i|per le|dell[aeo']|nell[aeo']|sull[aeo']|consulente|impiegat[oa]|responsabile|collaborat)\b/i.test(lc)) return true;
+      if (srcLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|des|der|die|fachspezialist|mitarbeiter|leiter:?in)\b/i.test(lc)) return true;
+      if (srcLang === 'fr' && locale !== 'fr' && /\b(responsable|spécialiste|ingénieur|gestionnaire|pour le|pour la|du |de la )\b/i.test(lc)) return true;
     }
   }
 
