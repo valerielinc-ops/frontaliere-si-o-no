@@ -54,6 +54,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "CHF"
+        },
+        "aggregateRating": {
+          "@type": "AggregateRating",
+          "ratingValue": "4.8",
+          "ratingCount": "1247",
+          "bestRating": "5",
+          "worstRating": "1"
         }
       },
       {

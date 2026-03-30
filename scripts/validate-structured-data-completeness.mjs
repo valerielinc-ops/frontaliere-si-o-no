@@ -179,6 +179,40 @@ function validateJobPosting(schema, filePath) {
   return errors;
 }
 
+function validateWebApplication(schema, filePath) {
+  const errors = [];
+  const type = schema['@type'];
+  // Match both single string and array types
+  const types = Array.isArray(type) ? type : [type];
+  const isWebApp = types.includes('WebApplication') || types.includes('SoftwareApplication');
+  if (!isWebApp) return errors;
+
+  // aggregateRating is mandatory on the homepage WebApplication/SoftwareApplication
+  const rel = relative(DIST, filePath);
+  const isHomepage = rel === 'index.html' || rel === 'en/index.html' || rel === 'de/index.html' || rel === 'fr/index.html';
+  if (isHomepage) {
+    const rating = schema.aggregateRating;
+    if (!rating || typeof rating !== 'object') {
+      errors.push({ file: filePath, type: 'WebApplication', field: 'aggregateRating', message: 'WebApplication/SoftwareApplication on homepage missing "aggregateRating"' });
+    } else {
+      if (!isNonEmpty(rating.ratingValue)) {
+        errors.push({ file: filePath, type: 'WebApplication', field: 'aggregateRating.ratingValue', message: 'aggregateRating missing "ratingValue"' });
+      }
+      if (!isNonEmpty(rating.ratingCount)) {
+        errors.push({ file: filePath, type: 'WebApplication', field: 'aggregateRating.ratingCount', message: 'aggregateRating missing "ratingCount"' });
+      }
+      if (!isNonEmpty(rating.bestRating)) {
+        errors.push({ file: filePath, type: 'WebApplication', field: 'aggregateRating.bestRating', message: 'aggregateRating missing "bestRating"' });
+      }
+      if (!isNonEmpty(rating.worstRating)) {
+        errors.push({ file: filePath, type: 'WebApplication', field: 'aggregateRating.worstRating', message: 'aggregateRating missing "worstRating"' });
+      }
+    }
+  }
+
+  return errors;
+}
+
 // ── Main ────────────────────────────────────────────────────────────────────
 
 function main() {
@@ -203,6 +237,13 @@ function main() {
 
   // Always include ALL statistics pages (small count, critical for Dataset validation)
   for (const f of byCategory.statistics) sampled.add(f);
+
+  // Always include homepage files (critical for WebApplication/SoftwareApplication aggregateRating)
+  const homepageFiles = ['index.html', 'en/index.html', 'de/index.html', 'fr/index.html'];
+  for (const hp of homepageFiles) {
+    const full = join(DIST, hp);
+    if (existsSync(full)) sampled.add(full);
+  }
 
   // Sample from each category
   for (const cat of ['job', 'blog', 'company', 'other']) {
@@ -241,6 +282,11 @@ function main() {
         // Skip bridge pages — they are noindex and may have intentionally partial schemas
         if (html.includes('__BRIDGE_TARGET_SLUG__')) continue;
         allErrors.push(...validateJobPosting(schema, file));
+      }
+      // WebApplication / SoftwareApplication — validate aggregateRating on homepage
+      const schemaTypes = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
+      if (schemaTypes.includes('WebApplication') || schemaTypes.includes('SoftwareApplication')) {
+        allErrors.push(...validateWebApplication(schema, file));
       }
     }
   }
