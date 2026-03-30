@@ -53,6 +53,9 @@ describe('job-locale-completeness', () => {
   it('every job has slugByLocale for all 4 locales', () => {
     const missing: string[] = [];
     for (const job of jobs) {
+      // Skip jobs awaiting translation — they intentionally lack locale fields
+      // until the translate-pending pipeline processes them.
+      if (job.needsRetranslation) continue;
       for (const locale of LOCALES) {
         const val = (job.slugByLocale?.[locale] || '').trim();
         if (!val) {

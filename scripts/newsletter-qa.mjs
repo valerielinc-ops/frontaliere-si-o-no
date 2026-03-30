@@ -254,8 +254,8 @@ async function takeScreenshots(html, prefix) {
       const screenshotPath = path.join(QA_DIR, `${prefix}-${label}.png`);
       await page.screenshot({ path: screenshotPath, fullPage: true });
       await page.close();
-      screenshots[label] = screenshotPath;
-      console.log(`  📸 Screenshot saved: ${path.relative(ROOT, screenshotPath)}`);
+      screenshots[label] = path.relative(ROOT, screenshotPath);
+      console.log(`  📸 Screenshot saved: ${screenshots[label]}`);
     }
   } finally {
     await browser.close();

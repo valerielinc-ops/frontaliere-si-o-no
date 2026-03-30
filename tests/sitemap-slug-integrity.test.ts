@@ -23,7 +23,7 @@ function readProjectFile(p: string): string {
 const blogSitemap = readProjectFile('public/sitemap-blog.xml');
 
 // Jobs data (source of truth for build-time sitemap-jobs.xml generation)
-const jobs: { id: string; slug: string; slugByLocale?: Record<string, string>; title: string; company: string; location: string; description: string }[] =
+const jobs: { id: string; slug: string; slugByLocale?: Record<string, string>; needsRetranslation?: boolean; title: string; company: string; location: string; description: string }[] =
   JSON.parse(readProjectFile('data/jobs.json'));
 
 // Extract all Italian <loc> slugs from the blog sitemap
@@ -151,6 +151,9 @@ describe('Job data slug integrity (source for build-time sitemap-jobs.xml)', () 
   it('every job with slugByLocale has all 4 locale entries', () => {
     const broken = validJobs.filter(j => {
       if (!j.slugByLocale) return false; // optional, plugin falls back to slug
+      // Skip jobs awaiting translation — they intentionally lack locale fields
+      // until the translate-pending pipeline processes them.
+      if (j.needsRetranslation) return false;
       return !j.slugByLocale.it || !j.slugByLocale.en || !j.slugByLocale.de || !j.slugByLocale.fr;
     });
     expect(

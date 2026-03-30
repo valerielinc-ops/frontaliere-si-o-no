@@ -98,8 +98,7 @@ export function parseAplusListings(html = '') {
         card.querySelector('.subtitle__informations');
 
       const rawLoc = normalizeSpace(locationSpan?.textContent || '');
-      // Strip country suffixes (e.g. "Chiasso Svizzera" → "Chiasso")
-      const location = rawLoc.replace(/\s+(?:svizzera|suisse|schweiz|switzerland|italia|italy|italien|italie)\s*$/i, '').trim() || rawLoc;
+      const location = rawLoc;
       const teaser = normalizeSpace(card.querySelector('.vacancy__description')?.textContent || '');
 
       return { href, title, location, teaser };
