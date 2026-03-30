@@ -517,20 +517,16 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   }
 
   // ── CI-PROVEN TIERS (work from GitHub Actions) ─────────────────────────────
-  // Order optimized based on real CI data from 2026-03-30:
-  //   simplyTranslate=183, myMemory=115, libreTranslate=27, mozhiDdg=3
+  // Order: best quality first for short text (titles), then volume handlers for long text (descriptions)
 
   // Tier 1: DeepL Free API (best quality, if API key set)
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
   if (t1) return t1;
 
-  // Tier 2: SimplyTranslate (PROMOTED — #1 CI workhorse, handles descriptions)
-  const t2 = await tryTier('simplyTranslate', () => translateWithSimplyTranslate(clean, sourceLang, targetLang));
-  if (t2) return t2;
-
-  // Tier 3: MyMemory (good for EU languages, ≤500 chars = titles only)
+  // Tier 2: MyMemory (PROMOTED for short text — best EU language quality, ≤500 chars)
+  // Moved before SimplyTranslate: higher quality for titles, uses only ~3% of daily quota
   if (clean.length <= 500) {
-    const t3 = await tryTier('myMemory', async () => {
+    const t2 = await tryTier('myMemory', async () => {
       const mm = await translateWithMyMemory(clean, sourceLang, targetLang);
       if (mm && normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) return normalizeSpace(mm);
       return '';
@@ -538,7 +534,7 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     if (t3) return t3;
   }
 
-  // Tier 4: LibreTranslate (PROMOTED — reliable from CI)
+  // Tier 4: LibreTranslate (3 instances raced in parallel — reliable from CI)
   const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
   if (t4) return t4;
 
@@ -546,7 +542,7 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t5 = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
   if (t5) return t5;
 
-  // ── LOCAL/DEV TIERS (blocked from GH Actions IPs, work locally) ───────────
+  // ── LOCAL/DEV TIERS (blocked from GitHub Actions IPs, work locally) ───────
 
   // Tier 6: Lingva (Google Translate proxy — works locally, blocked in CI)
   const t6 = await tryTier('lingva', () => translateWithLingva(clean, sourceLang, targetLang));
