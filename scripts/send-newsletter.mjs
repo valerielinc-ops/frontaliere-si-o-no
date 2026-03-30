@@ -335,6 +335,22 @@ async function fetchTopArticles() {
 }
 
 /**
+ * Resolve an article ID to its localized Italian slug from routerBlogData.ts.
+ * Falls back to the article ID itself if the slug map can't be read.
+ */
+function getItalianBlogSlug(articleId) {
+  try {
+    const rdPath = new URL('../services/routerBlogData.ts', import.meta.url);
+    const raw = fs.readFileSync(rdPath, 'utf8');
+    const regex = new RegExp(`'${articleId.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}':\\s*\\{\\s*it:\\s*'([^']*)'`);
+    const match = raw.match(regex);
+    return match ? match[1] : articleId;
+  } catch {
+    return articleId;
+  }
+}
+
+/**
  * Load Italian blog metadata for a given article ID.
  * Returns { title, excerpt } or null if not found.
  */
@@ -365,7 +381,7 @@ async function pickFeaturedArticle() {
   const DEFAULT_ARTICLE = {
     title: 'I 10 migliori comuni per frontalieri',
     excerpt: 'Classifica dei comuni italiani di frontiera: affitti, IRPEF comunale, distanza dal confine.',
-    url: '/articoli-frontaliere/comuni-migliori-frontalieri',
+    url: `/articoli-frontaliere/${getItalianBlogSlug('comuni-migliori-frontalieri')}`,
     badge: '🔥 Più letto',
   };
 
@@ -392,7 +408,7 @@ async function pickFeaturedArticle() {
     return {
       title: meta.title,
       excerpt: meta.excerpt,
-      url: `/articoli-frontaliere/${best.id}`,
+      url: `/articoli-frontaliere/${getItalianBlogSlug(best.id)}`,
       badge: '\ud83d\udd25 Più letto',
     };
   } catch (e) {
@@ -747,7 +763,7 @@ async function main() {
     const featuredArticle = db ? await pickFeaturedArticle() : {
       title: 'I 10 migliori comuni per frontalieri',
       excerpt: 'Classifica dei comuni italiani di frontiera: affitti, IRPEF comunale, distanza dal confine.',
-      url: '/articoli-frontaliere/comuni-migliori-frontalieri',
+      url: `/articoli-frontaliere/${getItalianBlogSlug('comuni-migliori-frontalieri')}`,
       badge: '🔥 Più letto',
     };
     const html = buildNewsletter({

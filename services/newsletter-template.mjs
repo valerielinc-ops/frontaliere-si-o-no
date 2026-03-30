@@ -396,17 +396,19 @@ function renderArticle(article, locale) {
   const emoji = deriveArticleEmoji(article);
   return `
     <tr><td class="section-pad" style="background:${WHITE};padding:0 28px 8px;">
-      <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;overflow:hidden;">
-        <div style="width:100%;height:200px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:200px;">
-          <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
+      <a href="${directUrl(article.url)}" style="text-decoration:none;display:block;">
+        <div style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:14px;overflow:hidden;">
+          <div style="width:100%;height:200px;background:linear-gradient(135deg,#1e293b 0%,${BRAND_DARK} 50%,${BRAND_ORANGE} 100%);text-align:center;line-height:200px;">
+            <span style="font-size:56px;letter-spacing:8px;">${emoji}</span>
+          </div>
+          <div style="padding:18px 20px;">
+            ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(article.badge)}</span>` : ''}
+            <div style="font-size:17px;font-weight:800;color:${BRAND_DARK};margin:0 0 8px;line-height:1.3;">${escapeHtml(article.title)}</div>
+            <div style="font-size:13px;color:#475569;line-height:1.55;margin:0 0 14px;">${escapeHtml(article.excerpt)}</div>
+            <span style="display:inline-block;background:${BRAND_DARK};color:#fff;font-weight:700;font-size:13px;padding:10px 22px;border-radius:8px;">Leggi l\u2019analisi completa \u2192</span>
+          </div>
         </div>
-        <div style="padding:18px 20px;">
-          ${article.badge ? `<span style="display:inline-block;background:#fef3c7;color:#92400e;font-size:10px;font-weight:700;padding:3px 10px;border-radius:6px;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px;">${escapeHtml(article.badge)}</span>` : ''}
-          <div style="font-size:17px;font-weight:800;color:${BRAND_DARK};margin:0 0 8px;line-height:1.3;">${escapeHtml(article.title)}</div>
-          <div style="font-size:13px;color:#475569;line-height:1.55;margin:0 0 14px;">${escapeHtml(article.excerpt)}</div>
-          <a href="${directUrl(article.url)}" style="display:inline-block;background:${BRAND_DARK};color:#fff;font-weight:700;font-size:13px;text-decoration:none;padding:10px 22px;border-radius:8px;">Leggi l\u2019analisi completa \u2192</a>
-        </div>
-      </div>
+      </a>
     </td></tr>`;
 }
 
