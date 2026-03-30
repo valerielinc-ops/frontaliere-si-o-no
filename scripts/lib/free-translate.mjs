@@ -40,6 +40,12 @@ const AZURE_REGION = 'westeurope';
 let _azureKeyIndex = 0;
 let _azureExhaustedKeys = new Set();
 
+// Google Cloud Translation (official API, free tier: 500K chars/month)
+// Hard-capped at 16K chars/day in code to match GCP quota setting and avoid billing
+const GOOGLE_CLOUD_TRANSLATE_KEY = (process.env.GOOGLE_CLOUD_TRANSLATE_KEY || process.env.GEMINI_API_KEY || '').trim();
+let _googleCloudDailyChars = 0;
+const GOOGLE_CLOUD_DAILY_LIMIT = 16000;
+
 // Hugging Face OPUS-MT (Helsinki-NLP open-source translation models)
 const HF_TOKEN = (process.env.HF_TOKEN || process.env.HUGGINGFACE_API_KEY || '').trim();
 const HF_OPUS_MT_MODELS = {
@@ -127,8 +133,8 @@ const _cascadeStats = {
   calls: 0,
   successes: 0,
   failures: 0,
-  tierHits: { deepl: 0, azure: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
-  tierErrors: { deepl: 0, azure: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierHits: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierErrors: { deepl: 0, azure: 0, googleCloud: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, huggingFace: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
 };
 
 /**
@@ -558,6 +564,35 @@ async function translateWithAzure(text, sourceLang, targetLang) {
   return '';
 }
 
+// ── Google Cloud Translation (official API, 500K free/month) ───────────────
+async function translateWithGoogleCloud(text, sourceLang, targetLang) {
+  if (!GOOGLE_CLOUD_TRANSLATE_KEY) return '';
+  const clean = normalizeSpace(text);
+  if (!clean || sourceLang === targetLang) return '';
+  if (_googleCloudDailyChars + clean.length > GOOGLE_CLOUD_DAILY_LIMIT) return '';
+
+  try {
+    const url = `https://translation.googleapis.com/language/translate/v2?key=${GOOGLE_CLOUD_TRANSLATE_KEY}`;
+    const res = await fetch(url, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ q: clean, source: sourceLang, target: targetLang, format: 'text' }),
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+    if (res.status === 403 || res.status === 429) return ''; // quota exceeded
+    if (!res.ok) return '';
+    const data = await res.json();
+    const translated = normalizeSpace(data?.data?.translations?.[0]?.translatedText || '');
+    if (translated && translated.toLowerCase() !== clean.toLowerCase()) {
+      _googleCloudDailyChars += clean.length;
+      return translated;
+    }
+    return '';
+  } catch {
+    return '';
+  }
+}
+
 // ── Hugging Face OPUS-MT (Helsinki-NLP open-source models) ─────────────────
 async function translateWithHuggingFace(text, sourceLang, targetLang) {
   if (!HF_TOKEN) return '';
@@ -720,7 +755,11 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   const t1b = await tryTier('azure', () => translateWithAzure(clean, sourceLang, targetLang));
   if (t1b) return t1b;
 
-  // Tier 3: MyMemory (best EU language quality, 50K chars/day with email param)
+  // Tier 3: Google Cloud Translation (official API, 500K free/month, hard-capped 16K/day)
+  const t2c = await tryTier('googleCloud', () => translateWithGoogleCloud(clean, sourceLang, targetLang));
+  if (t2c) return t2c;
+
+  // Tier 4: MyMemory (best EU language quality, 50K chars/day with email param)
   // Short text (≤5000 chars): single call. Long text: chunk at sentence boundaries.
   const t2 = await tryTier('myMemory', async () => {
     if (clean.length <= 5000) {
