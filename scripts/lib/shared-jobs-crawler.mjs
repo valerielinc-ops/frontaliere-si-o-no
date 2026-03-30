@@ -5000,7 +5000,15 @@ async function main() {
       }
     }
   }
-  merged = merged.map((job) => ensureLocaleFields(job));
+  // ensureLocaleFields normalizes locale slots for newly crawled jobs.
+  // In LOCALIZE_EXISTING_ONLY mode (translate-pending), skip it entirely —
+  // existing jobs already have correct locale fields. Running ensureLocaleFields
+  // on them DESTROYS correct translations by overwriting with heuristic translations
+  // (e.g. "Hebamme" → "Ostetrica/o", "Organizational Specialist" → "Specialista Organizzativo")
+  // and re-flags 140+ complete jobs with needsRetranslation every run.
+  if (!localizeExistingOnly) {
+    merged = merged.map((job) => ensureLocaleFields(job));
+  }
 
   // ── Geocoding verification: verify locations via Google Maps ───────────
   // Centralized check that ALL crawler types benefit from.
