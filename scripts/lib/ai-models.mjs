@@ -991,8 +991,15 @@ async function _callOpenAICompatible(apiModel, messages, opts, { endpoint, apiKe
         }
         // Retryable error — wait and retry (use double backoff for 429 rate limits)
         if (isRetryableError(res.status, raw) && attempt < opts.maxRetriesPerModel) {
-          _stats.retries++;
           const is429 = res.status === 429;
+          // FAST PATH: daily quota exceeded → mark exhausted immediately, don't waste 2 min retrying.
+          // These errors won't resolve until the quota resets (typically midnight).
+          const isDailyQuota = is429 && /tokens?\s*per\s*day|daily.*limit|quota_exceeded|daily.*quota/i.test(raw);
+          if (isDailyQuota) {
+            console.log(`🚫 [${displayModel}] Daily quota exhausted — skipping retries`);
+            throw Object.assign(new Error(`[${displayModel}] Daily quota: ${raw.slice(0, 150)}`), { exhausted: true });
+          }
+          _stats.retries++;
           // On 429: cool down the entire provider so sibling models are skipped
           if (is429) {
             cooldownProvider(getProvider(modelForTracking));
