@@ -5522,4 +5522,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/trattative-dazi-non-valido-31-marzo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'trippa-dogana-novazzano',
+    category: 'pratico',
+    date: '2026-03-30T10:31:31.856Z',
+    image: '/images/blog/trippa-dogana-novazzano.jpg',
+    hasCalculator: true,
+  },
 ];

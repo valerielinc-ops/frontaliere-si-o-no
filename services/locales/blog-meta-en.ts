@@ -1856,6 +1856,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Tariff Negotiations: \'The March 31 Deadline Is No Longer Valid\'',
     'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'This was confirmed by the President of the Confederation, Guy Parmelin, who stated that it is worth continuing negotiations to reach an agreement between Switzerland and the United States on tariffs.',
     'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografia di un valico svizzero a mezzogiorno',
+    'blog.article.trippa-dogana-novazzano.title': 'Stopped with too much tripe',
+    'blog.article.trippa-dogana-novazzano.excerpt': 'A 50-year-old man from the Mendrisiotto region was stopped and fined for exceeding the limit of transportable meat.',
+    'blog.article.trippa-dogana-novazzano.imageAlt': 'Image of a border crossing in Ticino',
 };
 
 export default blogMetaEn;

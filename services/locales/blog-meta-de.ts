@@ -1856,6 +1856,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Verhandlungen über Zölle: \'Die Frist vom 31. März ist nicht mehr gültig\'',
     'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'Dies wurde vom Präsidenten der Schweizerischen Eidgenossenschaft, Guy Parmelin, bestätigt, der betonte, dass es sich lohne, weiterhin zu verhandeln, um eine Einigung zwischen der Schweiz und den Vereinigten Staaten über Zölle zu erzielen.',
     'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografie eines schweizerischen Passes am Nachmittag',
+    'blog.article.trippa-dogana-novazzano.title': 'Mit zu viel Trippel angehalten',
+    'blog.article.trippa-dogana-novazzano.excerpt': 'Ein 50-jähriger aus Mendrisiotto wurde angehalten und mit einer Geldstrafe belegt, weil er die zulässige Menge an transportierbarem Fleisch überschritten hat.',
+    'blog.article.trippa-dogana-novazzano.imageAlt': 'Bild eines Grenzübergangs in Tessin',
 };
 
 export default blogMetaDe;

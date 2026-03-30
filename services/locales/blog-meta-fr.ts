@@ -1856,6 +1856,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Negoziati sulle tariffe: \'La scadenza del 31 marzo non è più valida\'',
     'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'Cosi\' ha dichiarato il presidente della Confederazione Guy Parmelin, secondo cui è ancora utile continuare a negoziare per raggiungere un accordo tra la Svizzera e gli Stati Uniti sulle tariffe.',
     'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografie d\'un col suisse à midi',
+    'blog.article.trippa-dogana-novazzano.title': 'Arrêté avec trop de tripe',
+    'blog.article.trippa-dogana-novazzano.excerpt': 'Un sexagénaire du Mendrisiotto a été arrêté et sanctionné pour avoir dépassé la limite de viande transportable',
+    'blog.article.trippa-dogana-novazzano.imageAlt': 'Image d\'un poste frontalier en Tessin',
 };
 
 export default blogMetaFr;

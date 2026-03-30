@@ -1856,6 +1856,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trattative-dazi-non-valido-31-marzo.title': 'Trattative sui dazi: "Il termine del 31 marzo non è più valido"',
     'blog.article.trattative-dazi-non-valido-31-marzo.excerpt': 'Lo ha confermato il presidente della Confederazione Guy Parmelin, secondo cui vale la pena continuare a negoziare per raggiungere un accordo tra la Svizzera e gli Stati Uniti sui dazi.',
     'blog.article.trattative-dazi-non-valido-31-marzo.imageAlt': 'Fotografia di un valico svizzero a mezzogiorno',
+    'blog.article.trippa-dogana-novazzano.title': 'Fermato con della trippa di troppo',
+    'blog.article.trippa-dogana-novazzano.excerpt': 'Un 50enne del Mendrisiotto è stato fermato e multato per aver superato il limite di carne trasportabile.',
+    'blog.article.trippa-dogana-novazzano.imageAlt': 'Immagine di un valico di frontiera in Ticino',
 };
 
 export default blogMetaIt;

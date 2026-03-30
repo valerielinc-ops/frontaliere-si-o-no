@@ -9047,6 +9047,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trippa-dogana-novazzano': {
+    title: 'Fermato con della trippa di troppo | Frontaliere Ticino',
+    description: 'Un 50enne del Mendrisiotto è stato fermato e multato per aver superato il limite di carne trasportabile. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fermato, trippa, troppo, 50enne',
+    ogTitle: 'Fermato con della trippa di troppo',
+    ogDescription: 'Un 50enne del Mendrisiotto è stato fermato e multato per aver superato il limite di carne trasportabile.',
+    canonicalPath: '/articoli-frontaliere/trippa-dogana-novazzano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fermato con della trippa di troppo",
+      "description": "Un 50enne del Mendrisiotto è stato fermato e multato per aver superato il limite di carne trasportabile. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trippa-dogana-novazzano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un valico di frontiera in Ticino"
+      },
+      "datePublished": "2026-03-30T10:31:31+00:00",
+      "dateModified": "2026-03-30T10:31:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trippa-dogana-novazzano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
