@@ -5430,5 +5430,117 @@
         "pending": 15
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T06:45:06.821Z",
+    "label": "before",
+    "total": 1500,
+    "needsRetranslation": 886,
+    "incomplete": 822,
+    "complete": 678,
+    "missingByLocale": {
+      "it": 378,
+      "en": 576,
+      "de": 313,
+      "fr": 693
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 103
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "PEMSA",
+        "pending": 40
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 26
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 25
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 15
+      },
+      {
+        "company": "Sintetica SA",
+        "pending": 15
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T06:51:00.713Z",
+    "label": "after",
+    "total": 1500,
+    "needsRetranslation": 854,
+    "incomplete": 819,
+    "complete": 681,
+    "missingByLocale": {
+      "it": 376,
+      "en": 575,
+      "de": 310,
+      "fr": 690
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 103
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "PEMSA",
+        "pending": 40
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 26
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 25
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 15
+      },
+      {
+        "company": "Sintetica SA",
+        "pending": 15
+      }
+    ]
   }
 ]
