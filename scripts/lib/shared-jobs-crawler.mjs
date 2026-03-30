@@ -84,6 +84,7 @@ import {
   stripCodeFenceJson as _stripCodeFenceJsonDCC,
   extractRequirementsFromText as _extractRequirementsFromText,
   htmlToStructuredTextDCC as _htmlToStructuredTextDCC,
+  sanitizeAiOutput as _sanitizeAiOutput,
 } from './dedicated-crawler-common.mjs';
 import {
   getJobLocalizationPipelineStats,
@@ -1081,8 +1082,8 @@ ${rawText}`;
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
       return rawText;
     }
-    // Strip code fences if the model wrapped output
-    const cleaned = result.replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
+    // Strip code fences if the model wrapped output; sanitize control chars
+    const cleaned = _sanitizeAiOutput(result).replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
     // Validate: output should be at least 70% of input length (guard against truncation)
     if (cleaned.length >= rawText.length * 0.7) {
       setCachedAiResponse(cacheKey, cleaned);
@@ -1210,7 +1211,7 @@ ${contextParts.join('\n\n')}`;
       setCachedAiResponse(cacheKey, AI_CACHE_RAW_SENTINEL);
       return job.description;
     }
-    const cleaned = result.replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
+    const cleaned = _sanitizeAiOutput(result).replace(/^```(?:markdown)?\s*\n?/i, '').replace(/\n?```\s*$/, '').trim();
     // Must be at least as long as original and reasonably sized
     if (cleaned.length >= desc.length && cleaned.length >= 200) {
       setCachedAiResponse(cacheKey, cleaned);

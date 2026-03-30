@@ -62,6 +62,41 @@ export function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
 }
 
+/**
+ * Sanitize text produced by an AI model before storing it.
+ *
+ * AI models occasionally output:
+ *   - C0 control characters (U+0001–U+001F) — especially ETX (U+0003) which
+ *     appears as a garbled Unicode-escape artefact like "\u00034a" where the
+ *     model was attempting to write an accented character (e.g. "à" U+00E0).
+ *     When a C0 control char is followed by 1–2 hex digits, those trailing
+ *     hex chars are the remnants of a broken escape sequence and must also be
+ *     removed; keeping them leaves garbage like "contabilit4a" in the output.
+ *   - Decomposed Unicode sequences that NFC canonicalisation can fix into their
+ *     precomposed forms (e.g. "a" + combining grave → "à").
+ *
+ * Strategy:
+ *   1. NFC-normalise — merges combining characters into precomposed forms.
+ *   2. Strip C0 control chars (U+0001–U+001F, excluding \t U+0009, \n U+000A,
+ *      \r U+000D) together with up to 2 immediately-following hex digits.
+ *   3. Strip NUL (U+0000) and DEL (U+007F).
+ *
+ * After sanitisation the text may be slightly shorter/incomplete (e.g.
+ * "contabilit" instead of "contabilità"), but the quality gate will detect the
+ * incompleteness and queue the job for retranslation via the free cascade.
+ */
+export function sanitizeAiOutput(text) {
+  if (!text) return text;
+  let s = String(text);
+  // Step 1 — NFC: "a\u0300" (a + combining grave) → "à"
+  try { s = s.normalize('NFC'); } catch { /* older engines without normalize */ }
+  // Step 2 — strip C0 control chars (+ up to 2 trailing hex artifact digits)
+  s = s.replace(/[\u0001-\u0008\u000b\u000c\u000e-\u001f][0-9a-fA-F]{0,2}/g, '');
+  // Step 3 — strip NUL and DEL
+  s = s.replace(/[\u0000\u007f]/g, '');
+  return s;
+}
+
 export function normalizeKey(value = '') {
   return String(value || '')
     .trim()
@@ -1623,7 +1658,7 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
       if (ctx.incrDeeplFallbackToLlm) ctx.incrDeeplFallbackToLlm();
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 8192, jsonMode: false });
-        const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(String(text || '')));
+        const translated = (clean || cleanDescriptionDCC)((scfj || stripCodeFenceJson)(sanitizeAiOutput(String(text || ''))));
         if (translated.length >= floor && translated.toLowerCase() !== cleanDesc.toLowerCase()) {
           setCachedAiResponse(cacheKey, translated);
           return translated;
@@ -1708,7 +1743,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
       ].join('\n');
       try {
         const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.1, maxTokens: 80, jsonMode: false });
-        let translated = (ns || normalize)(String(text || '').replace(/^["']|["']$/g, ''));
+        let translated = (ns || normalize)(sanitizeAiOutput(String(text || '')).replace(/^["']|["']$/g, ''));
         // Post-check: if result still has Italian words in a non-IT locale, retry with explicit instruction
         if (translated && titleHasItalianWords(translated, locale) && callLLM) {
           const retryPrompt = [
@@ -1719,7 +1754,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
           ].join('\n');
           try {
             const retry = await callLLM([{ role: 'user', content: retryPrompt }], { temperature: 0.2, maxTokens: 80, jsonMode: false });
-            const retryClean = (ns || normalize)(String(retry || '').replace(/^["']|["']$/g, ''));
+            const retryClean = (ns || normalize)(sanitizeAiOutput(String(retry || '')).replace(/^["']|["']$/g, ''));
             if (retryClean && !titleHasItalianWords(retryClean, locale) && retryClean.toLowerCase() !== cleanTitle.toLowerCase()) {
               translated = retryClean;
             }
@@ -1851,7 +1886,7 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
 
   try {
     const text = await callLLM([{ role: 'user', content: prompt }], { temperature: 0.2, maxTokens: 16384, jsonMode: true });
-    const parsed = JSON.parse(scfjFn(text));
+    const parsed = JSON.parse(scfjFn(sanitizeAiOutput(text)));
     const out = {};
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length >= floor) {
@@ -1864,8 +1899,8 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     for (const locale of targetLocales) {
       const item = parsed?.[locale];
       if (!item || typeof item !== 'object') continue;
-      const localizedTitle = nsFn(item.title || '');
-      const desc = cleanFn(item.description || '');
+      const localizedTitle = nsFn(sanitizeAiOutput(item.title || ''));
+      const desc = cleanFn(sanitizeAiOutput(item.description || ''));
       const req = Array.isArray(item.requirements)
         ? item.requirements.map((x) => nsFn(String(x))).filter(Boolean).slice(0, 8)
         : [];
