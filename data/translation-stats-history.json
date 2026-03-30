@@ -7318,5 +7318,45 @@
         "pending": 107
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T18:26:07.853Z",
+    "label": "before",
+    "total": 1317,
+    "needsRetranslation": 107,
+    "incomplete": 107,
+    "complete": 1210,
+    "missingByLocale": {
+      "it": 71,
+      "en": 107,
+      "de": 36,
+      "fr": 107
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T18:26:08.234Z",
+    "label": "after",
+    "total": 1317,
+    "needsRetranslation": 107,
+    "incomplete": 107,
+    "complete": 1210,
+    "missingByLocale": {
+      "it": 71,
+      "en": 107,
+      "de": 36,
+      "fr": 107
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      }
+    ]
   }
 ]
