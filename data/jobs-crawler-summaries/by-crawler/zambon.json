@@ -1,19 +1,55 @@
 {
   "key": "zambon",
   "label": "Zambon Svizzera SA",
-  "generatedAt": "2026-03-29T10:01:16.308Z",
-  "total": 0,
+  "generatedAt": "2026-03-30T21:01:16.025Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 1745,
-  "avgDurationMs": 1745,
+  "unchangedCount": 1,
+  "durationMs": 1578,
+  "avgDurationMs": 1578,
   "durationHistory": [
-    1745
+    1578
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "url": "https://www.zambon.com",
+      "applyUrl": "https://www.zambon.com",
+      "title": "Zambon Open Positions",
+      "company": "Zambon Svizzera SA",
+      "companyKey": "zambon",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6814",
+      "streetAddress": "Via Industria 13",
+      "slug": "zambon-open-positions-zambon",
+      "category": "general",
+      "datePosted": "2026-03-30",
+      "source": "zambon-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 16,
+        "completeness": 20
+      }
+    }
+  ]
 }
