@@ -496,7 +496,7 @@ ${href}
   <head>
 ${headTags}
     ${blogPreloads}
-    <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark')</script>
+    <script>if(localStorage.theme==='dark')document.documentElement.classList.add('dark');window.__ARTICLE_TITLE__=${JSON.stringify(localizedTitle)}</script>
     <style>${criticalCSS}</style>
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="print" onload="this.media='all'" data-clarity-unmask="true">

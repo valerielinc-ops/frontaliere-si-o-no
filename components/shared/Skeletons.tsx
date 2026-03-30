@@ -151,21 +151,59 @@ export const SkeletonStats: React.FC = () => (
   </div>
 );
 
-export const SkeletonBlog: React.FC = () => (
-  <div className="min-h-[80vh] space-y-6">
-    {/* Real heading for early LCP */}
-    <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Articoli e Notizie per Frontalieri</h2>
-    <p className="text-sm text-slate-600 dark:text-slate-400">Approfondimenti su tassazione, permessi, vita quotidiana e normative 2026</p>
-    {/* Hero article card — matches BlogArticles hero h-64/h-80 */}
-    <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
-    {/* Article grid — 6 cards matching real grid reveal count */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-      {Array.from({ length: 6 }).map((_, i) => (
-        <div key={i} className={`${pulse} h-[280px] rounded-xl`} />
-      ))}
+/** Read article title seeded by ogPagesPlugin for immediate H1 on article pages. */
+const getSeededArticleTitle = (): string | null => {
+  try {
+    const t = (window as unknown as Record<string, unknown>).__ARTICLE_TITLE__;
+    if (typeof t === 'string' && t.length > 0) return t;
+  } catch { /* SSR or missing */ }
+  return null;
+};
+
+/** True when the URL is a specific article page (not the blog listing). */
+const isArticlePage = (): boolean => {
+  const segs = window.location.pathname.replace(/^\/+|\/+$/g, '').split('/');
+  // Italian: articoli-frontaliere/{slug}, EN/DE/FR: {lang}/cross-border-articles/{slug}
+  return segs.length >= 2 && segs.some(s =>
+    s === 'articoli-frontaliere' || s === 'cross-border-articles' ||
+    s === 'grenzgaenger-artikel' || s === 'articles-frontalier'
+  );
+};
+
+export const SkeletonBlog: React.FC = () => {
+  const articleTitle = isArticlePage() ? getSeededArticleTitle() : null;
+
+  if (articleTitle) {
+    // Article-specific skeleton: H1 from seeded data + article body placeholder
+    return (
+      <div className="min-h-[80vh] space-y-6 max-w-3xl mx-auto">
+        <h1 className="text-2xl font-bold text-slate-900 dark:text-slate-100">{articleTitle}</h1>
+        <div className={`${pulse} h-5 w-48`} />
+        <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
+        <div className="space-y-3">
+          <div className={`${pulse} h-4 w-full`} />
+          <div className={`${pulse} h-4 w-11/12`} />
+          <div className={`${pulse} h-4 w-10/12`} />
+          <div className={`${pulse} h-4 w-full`} />
+        </div>
+      </div>
+    );
+  }
+
+  // Blog listing skeleton
+  return (
+    <div className="min-h-[80vh] space-y-6">
+      <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Articoli e Notizie per Frontalieri</h2>
+      <p className="text-sm text-slate-600 dark:text-slate-400">Approfondimenti su tassazione, permessi, vita quotidiana e normative 2026</p>
+      <div className={`${pulse} h-64 sm:h-80 rounded-2xl`} />
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        {Array.from({ length: 6 }).map((_, i) => (
+          <div key={i} className={`${pulse} h-[280px] rounded-xl`} />
+        ))}
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 export const SkeletonVita: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">

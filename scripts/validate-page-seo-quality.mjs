@@ -9,6 +9,10 @@
  *  2. Schema markup: all ld+json blocks must be valid JSON with no conflicting primary schemas
  *  3. HTML lang attribute: <html> must have correct lang for the page locale
  *  4. Meta viewport: must be present
+ *  5. Title tag: must be present and non-empty
+ *  6. Meta description: must be present and non-empty
+ *  7. Meta robots: must NOT contain "noindex" (except 404.html)
+ *  8. Meta refresh: must NOT exist (indicates redirect shell, not real content)
  *
  * Sampling strategy (16K+ pages):
  *  - ALL pages in key SEO directories (FAQ, jobs, articles, glossary)
@@ -228,6 +232,33 @@ function hasMetaViewport(html) {
   return /<meta[^>]*name\s*=\s*["']viewport["']/i.test(html);
 }
 
+// Extract <title> tag content
+function extractTitle(html) {
+  const match = html.match(/<title[^>]*>([\s\S]*?)<\/title>/i);
+  return match ? match[1].trim() : '';
+}
+
+// Extract <meta name="description"> content
+function extractMetaDescription(html) {
+  const match = html.match(/<meta[^>]*name\s*=\s*["']description["'][^>]*content\s*=\s*["']([^"']*)["']/i)
+    || html.match(/<meta[^>]*content\s*=\s*["']([^"']*)["'][^>]*name\s*=\s*["']description["']/i);
+  return match ? match[1].trim() : '';
+}
+
+// Check if <meta name="robots"> contains "noindex"
+function hasNoindex(html) {
+  const match = html.match(/<meta[^>]*name\s*=\s*["']robots["'][^>]*content\s*=\s*["']([^"']*)["']/i)
+    || html.match(/<meta[^>]*content\s*=\s*["']([^"']*)["'][^>]*name\s*=\s*["']robots["']/i);
+  if (!match) return false;
+  return match[1].toLowerCase().includes('noindex');
+}
+
+// Check for <meta http-equiv="refresh"> (not inside <noscript>)
+function hasMetaRefresh(html) {
+  const withoutNoscript = html.replace(/<noscript[^>]*>[\s\S]*?<\/noscript>/gi, '');
+  return /<meta[^>]*http-equiv\s*=\s*["']refresh["']/i.test(withoutNoscript);
+}
+
 function main() {
   if (!existsSync(DIST)) {
     console.error(`[validate-page-seo] dist/ directory not found. Run 'npx vite build' first.`);
@@ -269,6 +300,10 @@ function main() {
     missingLang: [],
     wrongLang: [],
     missingViewport: [],
+    missingTitle: [],
+    missingDescription: [],
+    hasNoindex: [],
+    hasMetaRefresh: [],
   };
   let warningCount = 0;
   let errorCount = 0;
@@ -319,6 +354,31 @@ function main() {
       errors.missingViewport.push(page.pagePath || '/');
       errorCount++;
     }
+
+    // 5. Title tag
+    if (!extractTitle(html)) {
+      errors.missingTitle.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 6. Meta description
+    if (!extractMetaDescription(html)) {
+      errors.missingDescription.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 7. Meta robots noindex (skip 404.html and search/combo landing pages which are intentionally noindex)
+    const isSearchPage = /\/(ricerca-|suche-|search-|recherche-)/.test('/' + page.pagePath);
+    if (page.pagePath !== '404.html' && !isSearchPage && hasNoindex(html)) {
+      errors.hasNoindex.push(page.pagePath || '/');
+      errorCount++;
+    }
+
+    // 8. Meta refresh (outside noscript)
+    if (hasMetaRefresh(html)) {
+      errors.hasMetaRefresh.push(page.pagePath || '/');
+      errorCount++;
+    }
   }
 
   // Print results
@@ -331,6 +391,10 @@ function main() {
     ...errors.missingLang,
     ...errors.wrongLang.map(e => e.path),
     ...errors.missingViewport,
+    ...errors.missingTitle,
+    ...errors.missingDescription,
+    ...errors.hasNoindex,
+    ...errors.hasMetaRefresh,
   ]).size;
 
   console.log('='.repeat(60));
@@ -385,6 +449,18 @@ function main() {
   }
   if (errors.missingViewport.length > 0) {
     printErrorGroup('Missing meta viewport', errors.missingViewport, 20);
+  }
+  if (errors.missingTitle.length > 0) {
+    printErrorGroup('Missing <title> tag', errors.missingTitle, 20);
+  }
+  if (errors.missingDescription.length > 0) {
+    printErrorGroup('Missing <meta name="description">', errors.missingDescription, 20);
+  }
+  if (errors.hasNoindex.length > 0) {
+    printErrorGroup('Contains noindex robots directive', errors.hasNoindex, 20);
+  }
+  if (errors.hasMetaRefresh.length > 0) {
+    printErrorGroup('Contains <meta http-equiv="refresh"> (redirect shell)', errors.hasMetaRefresh, 20);
   }
 
   if (errorCount > 0) {
