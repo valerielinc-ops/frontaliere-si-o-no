@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pwc",
-  "assembledAt": "2026-03-30T08:42:58.054Z",
+  "assembledAt": "2026-03-30T20:44:35.232Z",
   "jobs": [
     {
       "title": "Manager Risk Consulting TIS",
@@ -1528,7 +1528,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "(Senior) Manager Deals Tax",
@@ -1878,7 +1879,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Manager en Regulatory Risk & Compliance",
@@ -1938,7 +1940,8 @@
         "manager-en-regulatory-risk-compliance-pwc-geneva",
         "manager-in-regulatory-risk-compliance-pwc-switzerland-geneva",
         "manager-en-regulatory-risk-compliance-pwc-switzerland-geneve-ih462g"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit - Career Start nel settore Trade, Industries & Services - Autunno 2026",
@@ -2224,7 +2227,8 @@
         }
       },
       "postalCode": "1201",
-      "previousSlugs": []
+      "previousSlugs": [],
+      "needsRetranslation": true
     },
     {
       "title": "Manager in Audit Trade, Industries & Services - US GAAP",
@@ -2515,7 +2519,8 @@
       "postalCode": "8001",
       "previousSlugs": [
         "associate-strategy-business-transformation-settore-pubblico-pwc-switzerland-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Cloud, Data & AI (CD&AI) - Manager - Cloud & Data Platform Architect",
@@ -4220,7 +4225,8 @@
       "postalCode": "6003",
       "previousSlugs": [
         "corporate-tax-manager-zentralschweiz-pwc-luzern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Regulatory Risk and Compliance",
@@ -4277,7 +4283,8 @@
         }
       },
       "postalCode": "1201",
-      "previousSlugs": []
+      "previousSlugs": [],
+      "needsRetranslation": true
     },
     {
       "title": "U.S. Tax Manager – Private Clients",
@@ -4864,7 +4871,8 @@
       "postalCode": "1003",
       "previousSlugs": [
         "career-start-in-audit-trade-industries-and-services-lausanne-sion-october-2026-pwc-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Kauffrau/Kaufmann EFZ Treuhand",
@@ -5278,7 +5286,8 @@
         }
       },
       "postalCode": "8001",
-      "previousSlugs": []
+      "previousSlugs": [],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Auditor - Treasury and Commodity Trading",
@@ -6339,7 +6348,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager - Cloud, Data & AI (CD&AI) - Data Engineering",
@@ -6456,7 +6466,8 @@
       },
       "previousSlugs": [
         "cyber-cloud-security-lead-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit (Assistant) Manager - eingeschränkte Revisionen - 70%-100%",
