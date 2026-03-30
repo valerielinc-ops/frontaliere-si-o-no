@@ -144,35 +144,12 @@ export function isIncomplete(job) {
     }
   }
 
-  // Slug check: detect non-source slugs that haven't been localized.
-  // Two patterns to catch:
-  //   A) localeSlug === masterSlug (master may be in a different lang than sourceLang)
-  //   B) localeSlug === sourceSlug (slug still in source language after title was translated)
-  // Both indicate the slug wasn't updated to match the translated title.
-  const masterSlug = (job.slug || '').trim();
-  if (masterSlug) {
-    const sbl = job.slugByLocale || {};
-    const sourceLang = job.sourceLang || 'it';
-    const sourceSlug = (sbl[sourceLang] || '').trim();
-    for (const locale of LOCALES) {
-      if (locale === sourceLang) continue;
-      const localeSlug = (sbl[locale] || '').trim();
-      const localeTitle = (tbl[locale] || '').trim().toLowerCase();
-      if (!localeSlug || !localeTitle) continue;
-
-      // Pattern A: slug equals master slug but title is translated
-      if (localeSlug === masterSlug && localeTitle !== sourceTitle) {
-        const slugFromTitle = localeTitle.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
-        if (masterSlug.startsWith(slugFromTitle.slice(0, 20))) continue;
-        return true;
-      }
-      // Pattern B: slug equals source-lang slug but title is translated
-      // E.g., FR-source job: EN slug is still "vendeuse-vendeur-..." while EN title is "Sales Associate"
-      if (sourceSlug && localeSlug === sourceSlug && localeTitle !== sourceTitle) {
-        return true;
-      }
-    }
-  }
+  // NOTE: Slug localization is NOT checked here anymore.
+  // Slugs are a cosmetic concern handled by Phase 3 (regenerate-slugs-by-locale.mjs).
+  // Previously, slug checks here caused an infinite loop:
+  //   isIncomplete() flags for slug → clearRetranslationFlags can't clear →
+  //   translate pipeline re-processes job → no translation needed → flag stays → repeat
+  // 342 jobs were stuck in this loop. Slugs are now decoupled from translation completeness.
 
   return false;
 }
