@@ -2032,15 +2032,15 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     localizationEnabled && sourceTitle.length >= 3 && (titleNeedsLocalization || forceLocalization);
 
   if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) {
-    // Log why localization was skipped — helps diagnose pipeline stalls
-    if (!localizationEnabled) {
-      // aiLocalizationEnabled=false — crawlers won't translate
-    } else if (!hasBudget) {
-      console.log(`⏭️  [${(out.slug || out.title || '').slice(0, 40)}] Budget exhausted — marking for retranslation`);
-      out.needsRetranslation = true;
-    } else if (!canUseAi && !forceLocalization && coverage < locales.length) {
-      console.log(`⏭️  [${(out.slug || out.title || '').slice(0, 40)}] AI unavailable — marking for retranslation`);
-      out.needsRetranslation = true;
+    // Only re-flag if the job genuinely has missing locales AND was skipped due to
+    // budget/AI exhaustion. Do NOT re-flag jobs that are already complete — this was
+    // causing 140+ complete jobs to be re-flagged every run (infinite loop).
+    if (coverage < locales.length || titleNeedsLocalization) {
+      if (!hasBudget) {
+        out.needsRetranslation = true;
+      } else if (!canUseAi && !forceLocalization) {
+        out.needsRetranslation = true;
+      }
     }
     return out;
   }
