@@ -375,12 +375,13 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
           // Check if existing title is in the wrong language (source-lang contamination)
           const detected = detectJobTitleLocaleDetails(trimmedExisting, locale);
           const isWrongLanguage = detected.confidence >= 0.6 && detected.lang === sourceLang && locale !== sourceLang;
-          // Also check Italian stop-words in non-IT slots, German in non-DE slots
+          // Also check source-language words in wrong locale slots.
+          // IMPORTANT: only match words from the ACTUAL source language, not words
+          // that happen to appear in mixed-language titles.
           const lc = trimmedExisting.toLowerCase();
           const hasSourceWords =
             (sourceLang === 'it' && locale !== 'it' && /\b(per il|per la|assemblaggio|imballo|collaudo|responsabile|impiegat)\b/i.test(lc)) ||
-            (sourceLang === 'de' && locale !== 'de' && /\b(und|für|mit|der|die|fachspezialist)\b/i.test(lc)) ||
-            (sourceLang === 'en' && locale !== 'en' && /\b(assemblaggio|imballo|collaudo|gestione)\b/i.test(lc));
+            (sourceLang === 'de' && locale !== 'de' && /\b(und|für|mit fokus|der|die|fachspezialist)\b/i.test(lc));
           if (!isSourceCopy && !isWrongLanguage && !hasSourceWords) {
             // Title is correctly translated — keep it stable
             continue;
