@@ -54,9 +54,13 @@ const MOZHI_INSTANCES = [
 ];
 
 // LibreTranslate public instances (open-source, no API key)
-// Verified 2026-03-22
+// Verified 2026-03-30 from local + CI — all work from GitHub Actions IPs
+// Note: Argos Translate model has known issues translating TO Italian
+// (e.g., "Consulente Assicuravo" instead of "Assicurativo"). Fine for IT→EN/DE/FR.
 const LIBRETRANSLATE_PUBLIC = [
-  'https://translate.cutie.dating',        // ✅ 4.7s
+  'https://translate.adminforge.de',        // ✅ 300ms, NO rate limit, verified 2026-03-30
+  'https://translate.fedilab.app',          // ✅ 200ms, 1 req/burst rate limit, verified 2026-03-30
+  'https://translate.cutie.dating',         // ✅ 4.7s slower but reliable, verified 2026-03-30
 ];
 const DEEPL_LANG_MAP = { it: 'IT', en: 'EN', de: 'DE', fr: 'FR' };
 
