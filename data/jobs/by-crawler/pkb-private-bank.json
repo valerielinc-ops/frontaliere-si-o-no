@@ -18,15 +18,15 @@
       "titleByLocale": {
         "it": "Disclaimer",
         "en": "Disclaimer",
-        "de": "Disclaimer",
-        "fr": "Disclaimer"
+        "de": "Haftungsausschluss",
+        "fr": "Avertissement"
       },
       "description": "Posizione aperta presso PKB Private Bank SA a Lugano (TI). PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale.",
       "descriptionByLocale": {
-        "it": "Posizione aperta presso PKB Private Bank SA a Lugano (TI). PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale.",
-        "en": "Posizione aperta presso PKB Private Bank SA a Lugano (TI). PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale.",
-        "de": "Posizione aperta presso PKB Private Bank SA a Lugano (TI). PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale.",
-        "fr": "Posizione aperta presso PKB Private Bank SA a Lugano (TI). PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale."
+        "it": "Descrizione - Posizione aperta presso PKB Private Bank SA a Lugano (TI). - PKB è una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. - Candidati tramite il portale ufficiale.",
+        "en": "Description - Open position at PKB Private Bank SA in Lugano (TI). - PKB is an independent Swiss private bank founded in 1958, specialized in wealth management and private banking. - Apply through the official portal.",
+        "de": "Beschreibung - Offene Stelle bei PKB Private Bank SA in Lugano (TI). - PKB ist eine unabhängige Schweizer Privatbank, gegründet 1958, spezialisiert auf Vermögensverwaltung und Private Banking. - Bewerben Sie sich über das offizielle Portal.",
+        "fr": "Description - Poste ouvert chez PKB Private Bank SA à Lugano (TI). - PKB est une banque privée suisse indépendante fondée en 1958, spécialisée dans la gestion de patrimoine et le private banking. - Postulez via le portail officiel."
       },
       "requirements": [],
       "requirementsByLocale": {
@@ -51,7 +51,6 @@
       "url": "https://careers.pkb.ch/jobs.php?source=&lan=en&language=en",
       "source": "PKB Dedicated Parser",
       "crawledAt": "2026-03-30T20:43:55.437Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,

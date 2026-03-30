@@ -7488,5 +7488,89 @@
       "fr": 0
     },
     "topPending": []
+  },
+  {
+    "timestamp": "2026-03-30T21:02:35.907Z",
+    "label": "before",
+    "total": 1253,
+    "needsRetranslation": 90,
+    "incomplete": 50,
+    "complete": 1203,
+    "missingByLocale": {
+      "it": 33,
+      "en": 47,
+      "de": 29,
+      "fr": 49
+    },
+    "topPending": [
+      {
+        "company": "Denner",
+        "pending": 14
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 12
+      },
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 8
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 4
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Alpiq",
+        "pending": 2
+      },
+      {
+        "company": "Città di Locarno",
+        "pending": 2
+      },
+      {
+        "company": "Città di Bellinzona",
+        "pending": 1
+      },
+      {
+        "company": "Impresa Pizzarotti & C. S.p.A.",
+        "pending": 1
+      },
+      {
+        "company": "PKB Private Bank",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T21:10:42.319Z",
+    "label": "after",
+    "total": 1253,
+    "needsRetranslation": 10,
+    "incomplete": 10,
+    "complete": 1243,
+    "missingByLocale": {
+      "it": 9,
+      "en": 9,
+      "de": 10,
+      "fr": 10
+    },
+    "topPending": [
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 8
+      },
+      {
+        "company": "Denner",
+        "pending": 1
+      },
+      {
+        "company": "Zambon Svizzera SA",
+        "pending": 1
+      }
+    ]
   }
 ]
