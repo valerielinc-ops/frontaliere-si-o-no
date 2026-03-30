@@ -5094,5 +5094,117 @@
         "pending": 17
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T05:44:46.046Z",
+    "label": "before",
+    "total": 1500,
+    "needsRetranslation": 1127,
+    "incomplete": 1006,
+    "complete": 494,
+    "missingByLocale": {
+      "it": 474,
+      "en": 692,
+      "de": 434,
+      "fr": 850
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 103
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "PEMSA",
+        "pending": 40
+      },
+      {
+        "company": "VOLG",
+        "pending": 31
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 28
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 25
+      },
+      {
+        "company": "Grand Hotel des Bains Kempinski St. Moritz",
+        "pending": 17
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T05:45:14.521Z",
+    "label": "after",
+    "total": 1500,
+    "needsRetranslation": 1127,
+    "incomplete": 1002,
+    "complete": 498,
+    "missingByLocale": {
+      "it": 470,
+      "en": 691,
+      "de": 433,
+      "fr": 849
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 175
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 103
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 89
+      },
+      {
+        "company": "PEMSA",
+        "pending": 40
+      },
+      {
+        "company": "VOLG",
+        "pending": 31
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 28
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 25
+      },
+      {
+        "company": "Grand Hotel des Bains Kempinski St. Moritz",
+        "pending": 17
+      }
+    ]
   }
 ]
