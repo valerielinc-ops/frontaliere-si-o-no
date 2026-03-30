@@ -125,6 +125,22 @@ export function isIncomplete(job) {
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
   }
 
+  // Slug check: non-source slugs identical to the master slug are unlocalized
+  const masterSlug = (job.slug || '').trim();
+  if (masterSlug) {
+    const sbl = job.slugByLocale || {};
+    const sourceLang = job.sourceLang || 'it';
+    for (const locale of LOCALES) {
+      if (locale === sourceLang) continue;
+      const localeSlug = (sbl[locale] || '').trim();
+      // Only flag if the locale has a translated title (meaning slug should differ)
+      const localeTitle = (tbl[locale] || '').trim().toLowerCase();
+      if (localeSlug && localeSlug === masterSlug && localeTitle && localeTitle !== sourceTitle) {
+        return true;
+      }
+    }
+  }
+
   return false;
 }
 
