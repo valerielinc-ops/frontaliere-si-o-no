@@ -5529,4 +5529,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/trippa-dogana-novazzano.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavori-rete-ferroviaria-tilo',
+    category: 'novita',
+    date: '2026-03-30T13:56:29.417Z',
+    image: '/images/blog/lavori-rete-ferroviaria-tilo.jpg',
+    hasCalculator: true,
+  },
 ];

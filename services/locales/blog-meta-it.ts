@@ -1859,6 +1859,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trippa-dogana-novazzano.title': 'Fermato con della trippa di troppo',
     'blog.article.trippa-dogana-novazzano.excerpt': 'Un 50enne del Mendrisiotto è stato fermato e multato per aver superato il limite di carne trasportabile.',
     'blog.article.trippa-dogana-novazzano.imageAlt': 'Immagine di un valico di frontiera in Ticino',
+    'blog.article.lavori-rete-ferroviaria-tilo.title': 'Lavori sulla rete ferroviaria italiana, ecco cosa cambia per i TILO',
+    'blog.article.lavori-rete-ferroviaria-tilo.excerpt': 'Dal 3 aprile i collegamenti TILO S30 subiscono importanti modifiche alla circolazione a causa di lavori infrastrutturali alla linea ferroviaria tra Pino Tronzano e Luino.',
+    'blog.article.lavori-rete-ferroviaria-tilo.imageAlt': 'Stazione ferroviaria di Lugano con un treno TILO',
 };
 
 export default blogMetaIt;

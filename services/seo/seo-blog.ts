@@ -9076,6 +9076,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-rete-ferroviaria-tilo': {
+    title: 'Lavori sulla rete ferroviaria italiana, ecco cosa cambia per i TILO | Frontaliere Ticino',
+    description: 'Dal 3 aprile i collegamenti TILO S30 subiscono importanti modifiche alla circolazione a causa di lavori infrastrutturali alla linea ferroviaria tra Pino Tronzan',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, sulla, rete, ferroviaria',
+    ogTitle: 'Lavori sulla rete ferroviaria italiana, ecco cosa cambia',
+    ogDescription: 'Dal 3 aprile i collegamenti TILO S30 subiscono importanti modifiche alla circolazione a causa di lavori infrastrutturali alla linea ferroviaria tra Pino Tronzan',
+    canonicalPath: '/articoli-frontaliere/lavori-rete-ferroviaria-tilo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori sulla rete ferroviaria italiana, ecco cosa cambia",
+      "description": "Dal 3 aprile i collegamenti TILO S30 subiscono importanti modifiche alla circolazione a causa di lavori infrastrutturali alla linea ferroviaria tra Pino Tronzan",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-rete-ferroviaria-tilo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stazione ferroviaria di Lugano con un treno TILO"
+      },
+      "datePublished": "2026-03-30T13:56:29+00:00",
+      "dateModified": "2026-03-30T13:56:29+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-rete-ferroviaria-tilo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

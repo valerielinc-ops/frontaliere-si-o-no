@@ -1859,6 +1859,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trippa-dogana-novazzano.title': 'Mit zu viel Trippel angehalten',
     'blog.article.trippa-dogana-novazzano.excerpt': 'Ein 50-jähriger aus Mendrisiotto wurde angehalten und mit einer Geldstrafe belegt, weil er die zulässige Menge an transportierbarem Fleisch überschritten hat.',
     'blog.article.trippa-dogana-novazzano.imageAlt': 'Bild eines Grenzübergangs in Tessin',
+    'blog.article.lavori-rete-ferroviaria-tilo.title': 'Arbeiten an italienischem Eisenbahnnetz: Das ändert sich für die TILO',
+    'blog.article.lavori-rete-ferroviaria-tilo.excerpt': 'Ab dem 3. April werden die TILO-Verbindungen S30 aufgrund von Infrastrukturarbeiten an der Eisenbahnlinie zwischen Pino Tronzano und Luino wichtigen Änderungen im Verkehr unterzogen.',
+    'blog.article.lavori-rete-ferroviaria-tilo.imageAlt': 'Bahnhof Lugano mit einem TILO-Zug',
 };
 
 export default blogMetaDe;

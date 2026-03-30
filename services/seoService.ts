@@ -1759,6 +1759,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-occhiali-intelligenti-ticino-innovazione': { name: 'Innovazione Ticino', path: '/articoli-frontaliere/occhiali-intelligenti-ticino-innovazione', parent: 'blog' },
     'blog-trattative-dazi-non-valido-31-marzo': { name: 'Trattative sui dazi', path: '/articoli-frontaliere/trattative-dazi-non-valido-31-marzo', parent: 'blog' },
     'blog-trippa-dogana-novazzano': { name: 'Dogana e Frontiere', path: '/articoli-frontaliere/trippa-dogana-novazzano', parent: 'blog' },
+    'blog-lavori-rete-ferroviaria-tilo': { name: 'Lavori sulla rete ferroviaria italiana,', path: '/articoli-frontaliere/lavori-rete-ferroviaria-tilo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

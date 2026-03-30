@@ -1859,6 +1859,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trippa-dogana-novazzano.title': 'Arrêté avec trop de tripe',
     'blog.article.trippa-dogana-novazzano.excerpt': 'Un sexagénaire du Mendrisiotto a été arrêté et sanctionné pour avoir dépassé la limite de viande transportable',
     'blog.article.trippa-dogana-novazzano.imageAlt': 'Image d\'un poste frontalier en Tessin',
+    'blog.article.lavori-rete-ferroviaria-tilo.title': 'Travaux sur le réseau ferroviaire italien, voici ce qui change pour les TILO',
+    'blog.article.lavori-rete-ferroviaria-tilo.excerpt': 'Dès le 3 avril, les liaisons TILO S30 subiront d\'importantes modifications de circulation en raison de travaux infrastructurels sur la ligne ferroviaire entre Pino Tronzano et Luino.',
+    'blog.article.lavori-rete-ferroviaria-tilo.imageAlt': 'Gare de Lugano avec un train TILO',
 };
 
 export default blogMetaFr;
