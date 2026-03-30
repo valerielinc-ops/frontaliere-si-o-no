@@ -1,6 +1,6 @@
 {
   "crawlerKey": "usi-universita-della-svizzera-italiana",
-  "assembledAt": "2026-03-30T08:42:58.341Z",
+  "assembledAt": "2026-03-30T21:02:08.794Z",
   "jobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
@@ -1124,7 +1124,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-startup-coach-life-science-2026.pdf",
@@ -1187,7 +1188,8 @@
       "addressCountry": "CH",
       "previousSlugs": [
         "life-science-startup-coach-usi"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
@@ -1578,7 +1580,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/logistica-lugano/logistica-lugano-apprendista-operatore-edifici-infrastrutture.pdf",
