@@ -75,9 +75,26 @@ jobs:
 
       # ── Phase 1: Housekeeping (prune expired, validate URLs, dedup) ──────
       # Runs BEFORE translations so we don't waste AI quota on dead jobs.
+      # Determine if this is the daily housekeeping run (06:00 UTC cron).
+      # Other triggers (12:00, 00:00, workflow_run, manual) skip housekeeping
+      # to go straight to translations — saves ~8 min of URL validation.
+      - name: Check if housekeeping should run
+        id: hk
+        run: |
+          if [ "${{ github.event.schedule }}" = "0 6 * * *" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+            echo "🧹 Daily 06:00 UTC — housekeeping enabled"
+          elif [ "${{ inputs.skip_housekeeping }}" = "true" ]; then
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️  Housekeeping skipped (user input)"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+            echo "⏭️  Housekeeping skipped (not daily cron)"
+          fi
+
       # Slug hardening is SKIPPED here — it runs AFTER translations in Phase 3.
       - name: "Phase 1: Housekeeping"
-        if: inputs.skip_housekeeping != true
+        if: steps.hk.outputs.run == 'true'
         env:
           JOBS_SKIP_LOCALE_HARDENING: '1'
         run: |
@@ -89,7 +106,7 @@ jobs:
           echo "✅ Housekeeping complete"
 
       - name: Commit housekeeping
-        if: always() && inputs.skip_housekeeping != true && inputs.dry_run != true
+        if: always() && steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🧹 Housekeeping — prune expired + validate URLs"
 
       # ── Phase 2: Translate pending jobs ──────────────────────────────────
