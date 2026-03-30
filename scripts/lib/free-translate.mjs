@@ -23,7 +23,14 @@
 import { translateWithMyMemory } from './mymemory-translate.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
-const DEEPL_API_KEY = (process.env.DEEPL_API_KEY || '').trim();
+// DeepL: support multiple API keys with automatic rotation on quota exhaustion.
+// Each Free API key gives 500K chars/month. With 2 keys = 1M chars/month.
+const DEEPL_API_KEYS = [
+  (process.env.DEEPL_API_KEY || '').trim(),
+  (process.env.DEEPL_API_KEY_2 || '').trim(),
+].filter(Boolean);
+let _deeplKeyIndex = 0;
+let _deeplExhaustedKeys = new Set();
 const GOOGLE_TRANSLATE_ENDPOINTS = [
   'https://translate.googleapis.com/translate_a/single',
   'https://clients5.google.com/translate_a/t',
@@ -153,23 +160,23 @@ export function logCascadeSummary() {
     console.log(`   ⚠️  ${down.length} instances currently marked unhealthy (>=${HEALTH_FAILURE_THRESHOLD} failures):`);
     down.forEach(([url, h]) => console.log(`      ❌ ${url} (${h.failures} failures)`));
   }
+  // DeepL key status
+  if (DEEPL_API_KEYS.length > 0) {
+    const active = DEEPL_API_KEYS.length - _deeplExhaustedKeys.size;
+    console.log(`   🔑 DeepL: ${active}/${DEEPL_API_KEYS.length} keys active${_deeplExhaustedKeys.size > 0 ? ` (${_deeplExhaustedKeys.size} exhausted)` : ''}`);
+  }
 }
 
 function normalizeSpace(s) {
   return String(s || '').replace(/\u00a0/g, ' ').replace(/\s+/g, ' ').trim();
 }
 
-// ── DeepL Free ──────────────────────────────────────────────────────────────
-async function translateWithDeepL(text, sourceLang, targetLang) {
-  if (!DEEPL_API_KEY) return '';
-  const clean = normalizeSpace(text);
-  if (!clean || sourceLang === targetLang) return '';
-
-  const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';
-  const tgtCode = DEEPL_LANG_MAP[targetLang] || targetLang?.toUpperCase() || '';
-  if (!tgtCode) return '';
-
+// ── DeepL Free (multi-key with automatic rotation) ──────────────────────────
+// Each Free API key: 500K chars/month. With 2 keys: 1M chars/month.
+// On 456 (quota exceeded) or 429 (rate limit): rotate to next key.
+async function _callDeepLWithKey(apiKey, text, srcCode, tgtCode) {
   const MAX_CHUNK = 5000;
+  const clean = normalizeSpace(text);
   const chunks = clean.length <= MAX_CHUNK ? [clean] : chunkText(clean, MAX_CHUNK);
   const translated = [];
 
@@ -179,30 +186,61 @@ async function translateWithDeepL(text, sourceLang, targetLang) {
     if (srcCode) body.append('source_lang', srcCode);
     body.append('target_lang', tgtCode);
 
-    try {
-      const res = await fetch('https://api-free.deepl.com/v2/translate', {
-        method: 'POST',
-        headers: {
-          'Authorization': `DeepL-Auth-Key ${DEEPL_API_KEY}`,
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: body.toString(),
-        signal: AbortSignal.timeout(TIMEOUT_MS),
-      });
-      if (!res.ok) return '';
-      const data = await res.json();
-      const t = data?.translations?.[0]?.text || '';
-      if (!t) return '';
-      translated.push(t);
-    } catch {
-      return '';
+    const res = await fetch('https://api-free.deepl.com/v2/translate', {
+      method: 'POST',
+      headers: {
+        'Authorization': `DeepL-Auth-Key ${apiKey}`,
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: body.toString(),
+      signal: AbortSignal.timeout(TIMEOUT_MS),
+    });
+    if (res.status === 456 || res.status === 429) {
+      throw Object.assign(new Error(`DeepL ${res.status}`), { quotaExhausted: true });
     }
+    if (!res.ok) return '';
+    const data = await res.json();
+    const t = data?.translations?.[0]?.text || '';
+    if (!t) return '';
+    translated.push(t);
     if (chunks.length > 1) await delay(200);
   }
 
-  const result = normalizeSpace(translated.join('\n\n'));
-  if (!result || result.toLowerCase() === clean.toLowerCase()) return '';
-  return result;
+  return normalizeSpace(translated.join('\n\n'));
+}
+
+async function translateWithDeepL(text, sourceLang, targetLang) {
+  if (DEEPL_API_KEYS.length === 0) return '';
+  const clean = normalizeSpace(text);
+  if (!clean || sourceLang === targetLang) return '';
+
+  const srcCode = DEEPL_LANG_MAP[sourceLang] || sourceLang?.toUpperCase() || '';
+  const tgtCode = DEEPL_LANG_MAP[targetLang] || targetLang?.toUpperCase() || '';
+  if (!tgtCode) return '';
+
+  // Try each non-exhausted key, rotating on quota errors
+  for (let attempt = 0; attempt < DEEPL_API_KEYS.length; attempt++) {
+    const idx = (_deeplKeyIndex + attempt) % DEEPL_API_KEYS.length;
+    const key = DEEPL_API_KEYS[idx];
+    if (_deeplExhaustedKeys.has(key)) continue;
+
+    try {
+      const result = await _callDeepLWithKey(key, clean, srcCode, tgtCode);
+      if (result && result.toLowerCase() !== clean.toLowerCase()) {
+        _deeplKeyIndex = idx; // stick with working key
+        return result;
+      }
+    } catch (err) {
+      if (err?.quotaExhausted) {
+        _deeplExhaustedKeys.add(key);
+        _cascadeStats.tierErrors.deepl = (_cascadeStats.tierErrors.deepl || 0) + 1;
+        console.log(`🔑 DeepL key #${idx + 1} quota exhausted — rotating to next key`);
+        continue;
+      }
+      return ''; // network error, don't retry with other keys
+    }
+  }
+  return ''; // all keys exhausted
 }
 
 // ── Google Translate (unofficial free, multi-endpoint) ──────────────────────
