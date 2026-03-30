@@ -460,8 +460,7 @@ function renderFooter(locale, unsubscribeUrl) {
   return `
     <tr><td class="footer-pad" style="background:${BRAND_DARK};padding:28px;text-align:center;">
       <div style="margin-bottom:12px;">
-        <a href="https://www.facebook.com/frontaliereticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
-        <a href="https://www.instagram.com/frontaliereticino" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcf8</a>
+        <a href="https://www.facebook.com/profile.php?id=61588174947294" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83d\udcd8</a>
         <a href="${BASE_URL}" style="display:inline-block;margin:0 6px;font-size:18px;text-decoration:none;">\ud83c\udf10</a>
       </div>
       <div style="font-size:12px;color:${MUTED_COLOR};margin:4px 0;">${nlT(locale, 'footerReason')} <a href="${BASE_URL}" style="color:${BRAND_ORANGE};text-decoration:underline;">frontaliereticino.ch</a></div>
