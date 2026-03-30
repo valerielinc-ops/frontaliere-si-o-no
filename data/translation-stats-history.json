@@ -6886,5 +6886,61 @@
         "pending": 7
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T15:43:30.070Z",
+    "label": "before",
+    "total": 1318,
+    "needsRetranslation": 634,
+    "incomplete": 114,
+    "complete": 1204,
+    "missingByLocale": {
+      "it": 71,
+      "en": 113,
+      "de": 40,
+      "fr": 111
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 5
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 1
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T15:47:40.645Z",
+    "label": "after",
+    "total": 1318,
+    "needsRetranslation": 525,
+    "incomplete": 108,
+    "complete": 1210,
+    "missingByLocale": {
+      "it": 71,
+      "en": 108,
+      "de": 36,
+      "fr": 107
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 1
+      }
+    ]
   }
 ]
