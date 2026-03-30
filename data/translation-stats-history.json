@@ -7398,5 +7398,35 @@
         "pending": 107
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T19:08:32.789Z",
+    "label": "before",
+    "total": 1210,
+    "needsRetranslation": 0,
+    "incomplete": 0,
+    "complete": 1210,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 0
+    },
+    "topPending": []
+  },
+  {
+    "timestamp": "2026-03-30T19:08:33.240Z",
+    "label": "after",
+    "total": 1210,
+    "needsRetranslation": 0,
+    "incomplete": 0,
+    "complete": 1210,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 0
+    },
+    "topPending": []
   }
 ]
