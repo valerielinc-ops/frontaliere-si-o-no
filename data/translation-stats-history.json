@@ -7230,5 +7230,53 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T18:11:25.755Z",
+    "label": "before",
+    "total": 1317,
+    "needsRetranslation": 146,
+    "incomplete": 108,
+    "complete": 1209,
+    "missingByLocale": {
+      "it": 71,
+      "en": 108,
+      "de": 36,
+      "fr": 107
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T18:12:07.333Z",
+    "label": "after",
+    "total": 1317,
+    "needsRetranslation": 107,
+    "incomplete": 108,
+    "complete": 1209,
+    "missingByLocale": {
+      "it": 71,
+      "en": 108,
+      "de": 36,
+      "fr": 107
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 1
+      }
+    ]
   }
 ]
