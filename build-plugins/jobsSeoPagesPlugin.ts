@@ -3727,7 +3727,7 @@ ${hreflangLinks}
         } else {
           address.postalCode = '6900'; // Lugano default
         }
-        // Try streetAddress from ejData, then company HQ lookup
+        // Try streetAddress from ejData, then company HQ, then addressLocality fallback
         const ejStreet = ejData?.streetAddress;
         if (ejStreet) {
           address.streetAddress = ejStreet;
@@ -3735,6 +3735,9 @@ ${hreflangLinks}
           const hq = COMPANY_HQ_ADDRESSES[ejData.companyKey];
           address.streetAddress = hq.streetAddress;
           if (!address.postalCode || address.postalCode === '6900') address.postalCode = hq.postalCode;
+        } else {
+          // Final fallback: use addressLocality (per CLAUDE.md SEO rules)
+          address.streetAddress = address.addressLocality || 'Ticino';
         }
         jp.jobLocation = { '@type': 'Place', address };
       }
