@@ -1,16 +1,16 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-03-30T20:43:36.821Z",
+  "generatedAt": "2026-03-30T21:53:59.811Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 1841,
-  "avgDurationMs": 1841,
+  "durationMs": 2301,
+  "avgDurationMs": 2301,
   "durationHistory": [
-    1841
+    2301
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,16 +38,15 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
       "postalCode": "6500",
-      "_qualityScore": 82,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
