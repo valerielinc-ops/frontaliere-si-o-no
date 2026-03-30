@@ -179,6 +179,9 @@ restore_stashed_changes_with_safe_merge() {
         data/jobs.json|public/data/jobs.json)
           key_hint="url"
           ;;
+        data/jobs/by-crawler/*.json|data/jobs/expired/by-crawler/*.json)
+          key_hint="url"
+          ;;
         data/jobs-crawler-summaries.json)
           key_hint="key"
           ;;
@@ -271,24 +274,34 @@ function detectArrayKey(arrays, forcedKey = '') {
     if (!candidates.includes(key)) candidates.push(key);
   }
 
-  const objectItems = arrays.flat().filter((item) => isPlainObject(item));
-  if (objectItems.length === 0) return '';
+  // Check uniqueness per-array independently, not across the flattened set.
+  // In a 3-way merge, the same items appear in base/remote/local, so flat()
+  // makes every key appear 3x and uniqueness drops to ~33%, always failing.
+  // The correct check: if a key is unique WITHIN each individual array, it's
+  // a valid primary key for merging.
+  const nonEmptyArrays = arrays.filter((arr) => Array.isArray(arr) && arr.length > 0);
+  if (nonEmptyArrays.length === 0) return '';
 
   for (const candidate of candidates) {
-    let present = 0;
-    const seen = new Set();
-    let duplicate = 0;
-    for (const item of objectItems) {
-      const key = primitiveKey(item[candidate]);
-      if (!key) continue;
-      present += 1;
-      const full = `${candidate}:${key}`;
-      if (seen.has(full)) duplicate += 1;
-      seen.add(full);
+    let allPass = true;
+    for (const arr of nonEmptyArrays) {
+      const objectItems = arr.filter((item) => isPlainObject(item));
+      if (objectItems.length === 0) continue;
+      let present = 0;
+      const seen = new Set();
+      let duplicate = 0;
+      for (const item of objectItems) {
+        const key = primitiveKey(item[candidate]);
+        if (!key) continue;
+        present += 1;
+        if (seen.has(key)) duplicate += 1;
+        seen.add(key);
+      }
+      const coverage = present / objectItems.length;
+      const uniqueness = present > 0 ? (present - duplicate) / present : 0;
+      if (coverage < 0.6 || uniqueness < 0.85) { allPass = false; break; }
     }
-    const coverage = present / objectItems.length;
-    const uniqueness = present > 0 ? (present - duplicate) / present : 0;
-    if (coverage >= 0.6 && uniqueness >= 0.85) return candidate;
+    if (allPass) return candidate;
   }
 
   return '';

@@ -1111,9 +1111,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         const localizedTitle = String(job.titleByLocale[locale] || '').trim();
         const isSourceLocale = locale === titleSourceLang;
         // FRO-284: Detect foreign words in slug (e.g. German compound words in IT slug)
-        // German compound words are typically 15+ chars without hyphens
+        // German compound words are typically 15+ chars without hyphens.
+        // IMPORTANT: Only flag when the LOCALE doesn't match the word's language.
+        // German compound words (einzelhandelsausbildung, versicherungsberater) are
+        // EXPECTED in DE slugs — not foreign. Only flag them in IT/EN/FR slugs.
         const FOREIGN_WORD_PATTERN = /(?:^|-)([a-z]{15,})(?:-|$)/;
-        const hasForeignWord = !isSourceLocale && existingSlug && FOREIGN_WORD_PATTERN.test(existingSlug);
+        const hasForeignWord = !isSourceLocale && locale !== 'de' && existingSlug && FOREIGN_WORD_PATTERN.test(existingSlug);
         const isStaleSlug = isSourceLocale
           // Source locale: re-derive if slug doesn't start with a slug-ified prefix of current title
           ? existingSlug && localizedTitle && !slugMatchesTitle(existingSlug, localizedTitle)
