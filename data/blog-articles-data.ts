@@ -5536,4 +5536,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavori-rete-ferroviaria-tilo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-mensa-asilo-chiasso',
+    category: 'fiscale',
+    date: '2026-03-30T16:13:03.827Z',
+    image: '/images/blog/tassa-mensa-asilo-chiasso.jpg',
+    hasCalculator: true,
+  },
 ];

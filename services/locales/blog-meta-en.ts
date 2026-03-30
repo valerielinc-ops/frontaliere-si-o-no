@@ -1862,6 +1862,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-rete-ferroviaria-tilo.title': 'Works on the Italian railway network: here\'s what changes for TILO',
     'blog.article.lavori-rete-ferroviaria-tilo.excerpt': 'From April 3rd, TILO S30 connections will undergo significant changes in circulation due to infrastructure works on the railway line between Pino Tronzano and Luino.',
     'blog.article.lavori-rete-ferroviaria-tilo.imageAlt': 'Lugano railway station with a TILO train',
+    'blog.article.tassa-mensa-asilo-chiasso.title': 'School Meal Tax Introduced in Chiasso Asylum',
+    'blog.article.tassa-mensa-asilo-chiasso.excerpt': 'The municipality of Chiasso has introduced a tax on school meals for nursery school students.',
+    'blog.article.tassa-mensa-asilo-chiasso.imageAlt': 'Elementary school in Chiasso',
 };
 
 export default blogMetaEn;

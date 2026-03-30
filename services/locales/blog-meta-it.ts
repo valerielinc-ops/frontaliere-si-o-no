@@ -1862,6 +1862,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-rete-ferroviaria-tilo.title': 'Lavori sulla rete ferroviaria italiana, ecco cosa cambia per i TILO',
     'blog.article.lavori-rete-ferroviaria-tilo.excerpt': 'Dal 3 aprile i collegamenti TILO S30 subiscono importanti modifiche alla circolazione a causa di lavori infrastrutturali alla linea ferroviaria tra Pino Tronzano e Luino.',
     'blog.article.lavori-rete-ferroviaria-tilo.imageAlt': 'Stazione ferroviaria di Lugano con un treno TILO',
+    'blog.article.tassa-mensa-asilo-chiasso.title': 'Tassa mensa asilo a Chiasso',
+    'blog.article.tassa-mensa-asilo-chiasso.excerpt': 'Il Comune di Chiasso introduce una tassa sulla mensa scolastica per gli alunni dell\'asilo',
+    'blog.article.tassa-mensa-asilo-chiasso.imageAlt': 'Scuola elementare a Chiasso',
 };
 
 export default blogMetaIt;

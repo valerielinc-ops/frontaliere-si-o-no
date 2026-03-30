@@ -1862,6 +1862,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-rete-ferroviaria-tilo.title': 'Travaux sur le réseau ferroviaire italien, voici ce qui change pour les TILO',
     'blog.article.lavori-rete-ferroviaria-tilo.excerpt': 'Dès le 3 avril, les liaisons TILO S30 subiront d\'importantes modifications de circulation en raison de travaux infrastructurels sur la ligne ferroviaire entre Pino Tronzano et Luino.',
     'blog.article.lavori-rete-ferroviaria-tilo.imageAlt': 'Gare de Lugano avec un train TILO',
+    'blog.article.tassa-mensa-asilo-chiasso.title': 'Tassa mensa asilo a Chiasso',
+    'blog.article.tassa-mensa-asilo-chiasso.excerpt': 'Le autorités de la commune de Chiasso introduisent une taxe sur la cantine scolaire pour les élèves de l\'école maternelle',
+    'blog.article.tassa-mensa-asilo-chiasso.imageAlt': 'École primaire à Chiasso',
 };
 
 export default blogMetaFr;

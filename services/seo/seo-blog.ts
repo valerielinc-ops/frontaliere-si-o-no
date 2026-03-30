@@ -9105,6 +9105,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-mensa-asilo-chiasso': {
+    title: 'Tassa mensa asilo a Chiasso | Frontaliere Ticino',
+    description: 'Il Comune di Chiasso introduce una tassa sulla mensa scolastica per gli alunni dell\'asilo. Scopri di più sulla proposta e sul suo impatto sulle famiglie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, mensa, asilo, chiasso',
+    ogTitle: 'Tassa mensa asilo a Chiasso',
+    ogDescription: 'Il Comune di Chiasso introduce una tassa sulla mensa scolastica per gli alunni dell\'asilo. Scopri di più sulla proposta e sul suo impatto sulle famiglie.',
+    canonicalPath: '/articoli-frontaliere/tassa-mensa-asilo-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa mensa asilo a Chiasso",
+      "description": "Il Comune di Chiasso introduce una tassa sulla mensa scolastica per gli alunni dell'asilo. Scopri di più sulla proposta e sul suo impatto sulle famiglie.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-mensa-asilo-chiasso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scuola elementare a Chiasso"
+      },
+      "datePublished": "2026-03-30T16:13:03+00:00",
+      "dateModified": "2026-03-30T16:13:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-mensa-asilo-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
