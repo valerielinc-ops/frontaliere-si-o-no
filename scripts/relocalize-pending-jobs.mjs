@@ -363,8 +363,19 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
         // AI can hallucinate source-lang titles (e.g. "Console Assicuravo" for "Consulente Assicurativo"),
         // and once synced here, the original is permanently destroyed.
         if (field === 'titleByLocale' && locale === sourceLang && crawlerJob.needsRetranslation) {
-          // Preserve the canonical crawler title — skip this overwrite
           continue;
+        }
+        // STABILITY: For titles that are already translated (non-empty, different from source),
+        // don't overwrite with a new AI translation. AI generates inconsistent translations
+        // across runs (e.g. "Capo turno" → "Leader di Turno" → "Responsabile Shift"),
+        // causing slug churn and previousSlugs to grow indefinitely (90+ jobs affected).
+        // Only overwrite titles that are still source-language copies (genuinely untranslated).
+        if (field === 'titleByLocale' && crawlerJob.needsRetranslation && trimmedExisting) {
+          const sourceTitle = String(crawlerJob.title || '').trim().toLowerCase();
+          if (trimmedExisting.toLowerCase() !== sourceTitle) {
+            // Title is already translated — keep it stable, don't overwrite
+            continue;
+          }
         }
         // For needsRetranslation jobs: always overwrite with assembled value.
         // The existing content was explicitly flagged as bad quality (wrong language,
