@@ -144,24 +144,31 @@ export function isIncomplete(job) {
     }
   }
 
-  // Slug check: non-source slugs identical to the master slug are unlocalized.
-  // IMPORTANT: the master slug may be in a DIFFERENT language than sourceLang.
-  // E.g., a DE-source job can have an Italian master slug ("consulente-immobiliare-...").
-  // Only flag when the locale's slug matches the master AND the slug content doesn't
-  // correspond to the locale's own title (i.e., the slug wasn't derived from this locale's title).
+  // Slug check: detect non-source slugs that haven't been localized.
+  // Two patterns to catch:
+  //   A) localeSlug === masterSlug (master may be in a different lang than sourceLang)
+  //   B) localeSlug === sourceSlug (slug still in source language after title was translated)
+  // Both indicate the slug wasn't updated to match the translated title.
   const masterSlug = (job.slug || '').trim();
   if (masterSlug) {
     const sbl = job.slugByLocale || {};
     const sourceLang = job.sourceLang || 'it';
+    const sourceSlug = (sbl[sourceLang] || '').trim();
     for (const locale of LOCALES) {
       if (locale === sourceLang) continue;
       const localeSlug = (sbl[locale] || '').trim();
       const localeTitle = (tbl[locale] || '').trim().toLowerCase();
-      if (localeSlug && localeSlug === masterSlug && localeTitle && localeTitle !== sourceTitle) {
-        // Check: does the master slug actually correspond to THIS locale's title?
-        // If so, the slug is already correct for this locale — not unlocalized.
+      if (!localeSlug || !localeTitle) continue;
+
+      // Pattern A: slug equals master slug but title is translated
+      if (localeSlug === masterSlug && localeTitle !== sourceTitle) {
         const slugFromTitle = localeTitle.replace(/[^a-z0-9]+/gi, '-').replace(/^-|-$/g, '').toLowerCase();
-        if (masterSlug.startsWith(slugFromTitle.slice(0, 20))) continue; // slug matches locale title
+        if (masterSlug.startsWith(slugFromTitle.slice(0, 20))) continue;
+        return true;
+      }
+      // Pattern B: slug equals source-lang slug but title is translated
+      // E.g., FR-source job: EN slug is still "vendeuse-vendeur-..." while EN title is "Sales Associate"
+      if (sourceSlug && localeSlug === sourceSlug && localeTitle !== sourceTitle) {
         return true;
       }
     }
