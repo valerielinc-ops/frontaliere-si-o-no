@@ -1829,17 +1829,26 @@ function ensureLocaleFields(job) {
   }
 
   // Post-processing quality gate: flag if any locale has wrong-language content.
+  // When wrong-language content is detected, CLEAR the affected locale so that the
+  // next AI translation attempt starts with a blank slate instead of being confused
+  // by the corrupted previous translation (e.g. IT words in a DE title).
   {
     const srcLang = out.sourceLang || 'it';
     const srcTitle = normalizeSpace(out.titleByLocale?.[srcLang] || '');
     for (const locale of LOCALES) {
+      if (locale === srcLang) continue; // Never clear or flag the source language
       const title = normalizeSpace(out.titleByLocale?.[locale] || '');
       if (!title) continue;
       // Cross-locale title duplicate = not translated
-      if (locale !== srcLang && title === srcTitle) { out.needsRetranslation = true; break; }
+      if (title === srcTitle) { out.needsRetranslation = true; continue; }
       // Wrong-language words in title or slug
       if (_hasWrongLang(title, locale) || _hasWrongLang((out.slugByLocale?.[locale] || '').replace(/-/g, ' '), locale)) {
-        out.needsRetranslation = true; break;
+        // Clear the corrupted locale content so AI retranslates from scratch
+        if (out.titleByLocale) delete out.titleByLocale[locale];
+        if (out.descriptionByLocale) delete out.descriptionByLocale[locale];
+        if (out.slugByLocale) delete out.slugByLocale[locale];
+        out.needsRetranslation = true;
+        continue;
       }
     }
   }

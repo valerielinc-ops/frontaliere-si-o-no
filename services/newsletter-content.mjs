@@ -10,7 +10,12 @@ import fs from 'node:fs';
 import path from 'node:path';
 
 const BASE_URL = 'https://frontaliereticino.ch';
-const __dirname = path.dirname(new URL(import.meta.url).pathname);
+let __dirname = '';
+try {
+  __dirname = path.dirname(new URL(import.meta.url).pathname);
+} catch {
+  // Browser environment — Node path module not available
+}
 
 // ─── Job matching ───────────────────────────────────────────
 
