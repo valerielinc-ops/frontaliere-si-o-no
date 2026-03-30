@@ -1752,17 +1752,27 @@ function ensureLocaleFields(job) {
     // in that case, prefer the AI-translated title from titleByLocale[locale] for the slug.
     const sourceTitle = normalizeSpace(out.title || '');
     const heuristicTitle = heuristicTranslateJobTitle(sourceTitle, locale);
-    const heuristicActuallyTranslated = heuristicTitle && heuristicTitle.toLowerCase() !== sourceTitle.toLowerCase();
     const rawLocaleTitle = normalizeSpace(titleByLocale[locale] || '');
     const localeHasTranslatedTitle = rawLocaleTitle && rawLocaleTitle.toLowerCase() !== sourceTitle.toLowerCase();
-    const slugSourceTitle = heuristicActuallyTranslated
-      ? heuristicTitle
-      : (localeHasTranslatedTitle ? rawLocaleTitle : localizedTitle);
+    // For slug derivation, prefer the AI-translated title over heuristic.
+    // Heuristic may only partially translate (e.g. "Ingegnere" → "Engineer" but
+    // leaves "edile" untranslated), producing worse slugs than AI titles.
+    // Only use heuristic when there's no AI-translated title available.
+    const slugSourceTitle = localeHasTranslatedTitle ? rawLocaleTitle : localizedTitle;
     const hashSuffix = stableSlugHash(out);
     const derivedSlug =
       slugify(`${slugSourceTitle}-${out.company || ''}-${out.location || ''}`) ||
       slugify(slugSourceTitle) ||
       normalizeSpace(out.slug || '');
+    // Check if the current slug has wrong-language words
+    const _slugHasWrongLang = (() => {
+      const words = currentSlug.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 5);
+      for (const [lang, wordSet] of Object.entries(_LANG_WORDS)) {
+        if (lang === locale) continue;
+        if (words.filter(w => wordSet.has(w)).length >= 2) return true;
+      }
+      return false;
+    })();
     const shouldRegenerateLocalizedSlug =
       locale !== 'it' &&
       currentSlug &&
@@ -1770,9 +1780,10 @@ function ensureLocaleFields(job) {
       (
         // Case 1: slug is a direct copy of the current IT slug
         currentSlug === baseItSlug ||
-        // Case 2: locale has a translated title but slug doesn't reflect it
-        // (catches stale copies of a *previous* IT slug after IT was renamed)
-        (localeHasTranslatedTitle && !isSlugStable(currentSlug, derivedSlug))
+        // Case 2: slug contains wrong-language words (e.g. IT words in EN slug)
+        // Only regenerate if the slug actually has quality issues, not just because
+        // a new translation produced a slightly different result
+        _slugHasWrongLang
       );
     // When shouldRegenerateLocalizedSlug fires but the derived slug is essentially the same as
     // the current one (e.g. an English job title that produces identical IT and EN slugs), skip
