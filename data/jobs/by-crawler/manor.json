@@ -230,7 +230,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Polydesigner 3D AFC 100%",
@@ -251,11 +252,11 @@
       },
       "postedDate": "2026-03-07",
       "source": "company-website",
-      "slug": "manor-polydesigner-3d-afc-100-lugano",
+      "slug": "polidesigner-3d-afc-100-manor-ag-lugano",
       "slugByLocale": {
-        "it": "manor-polydesigner-3d-afc-100-lugano",
-        "en": "manor-polydesigner-3d-afc-100-lugano",
-        "de": "manor-polydesigner-3d-afc-100-lugano",
+        "it": "polidesigner-3d-afc-100-manor-ag-lugano",
+        "en": "3d-polydesigner-afc-100-manor-ag-lugano",
+        "de": "3d-polydesigner-afc-100-manor-ag-lugano",
         "fr": "polydesigner-3d-afc-100-manor-ag-lugano"
       },
       "titleByLocale": {
@@ -268,7 +269,9 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "manor-polydesigner-3d-afc-100-lugano"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
