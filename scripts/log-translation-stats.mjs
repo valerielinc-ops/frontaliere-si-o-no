@@ -44,7 +44,7 @@ function isIncomplete(job) {
 }
 
 const files = fs.existsSync(CRAWLERS_DIR)
-  ? fs.readdirSync(CRAWLERS_DIR).filter(f => f.endsWith('.json'))
+  ? fs.readdirSync(CRAWLERS_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache'))
   : [];
 
 let total = 0;
