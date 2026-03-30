@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-03-30T20:10:24.970Z",
+  "generatedAt": "2026-03-30T21:20:56.450Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2818,
-  "avgDurationMs": 2818,
+  "durationMs": 2504,
+  "avgDurationMs": 2504,
   "durationHistory": [
-    2818
+    2504
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -41,15 +41,14 @@
       "applyUrl": null,
       "source": "Bellinzona Dedicated Parser",
       "crawledAt": "2026-03-30T20:10:23.185Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
-      "_qualityScore": 95,
+      "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
