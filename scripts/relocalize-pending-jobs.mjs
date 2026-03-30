@@ -362,9 +362,18 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
             continue;
           }
         }
-        // For needsRetranslation jobs: always overwrite with assembled value.
-        // The existing content was explicitly flagged as bad quality (wrong language,
-        // untranslated copy of source, etc.) so any non-empty assembled value is better.
+        // GUARD: never overwrite a translated title with a source copy from the assembled data.
+        // The shared crawler may produce source-copy titles for jobs it couldn't translate.
+        if (field === 'titleByLocale' && trimmedExisting && trimmedValue && locale !== sourceLang) {
+          const srcTitle = String(crawlerJob.title || '').trim().toLowerCase();
+          const assembledIsCopy = trimmedValue.toLowerCase() === srcTitle;
+          const existingIsCopy = trimmedExisting.toLowerCase() === srcTitle;
+          if (assembledIsCopy && !existingIsCopy) {
+            // Assembled is WORSE (source copy), existing is better (translated) — skip
+            continue;
+          }
+        }
+        // For needsRetranslation jobs: overwrite with assembled value if it's an improvement.
         // For normal jobs: only add where the crawler has no content, or adopt localized slugs.
         if (crawlerJob.needsRetranslation || !trimmedExisting || isUnlocalizedSlug) {
           // Before overwriting a slug, preserve the old value in previousSlugs
