@@ -1,5 +1,481 @@
 {
   "crawlerKey": "rapelli",
-  "assembledAt": "2026-03-29T09:45:33.191Z",
-  "jobs": []
+  "assembledAt": "2026-03-30T20:45:33.534Z",
+  "jobs": [
+    {
+      "id": "rapelli-e814dcbd9214",
+      "slug": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
+        "en": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
+        "de": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
+        "fr": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Collaboratore / Collaboratrice Vendita Interna - Front Office, 100%",
+      "titleByLocale": {
+        "it": "Collaboratore / Collaboratrice Vendita Interna - Front Office, 100%",
+        "en": "Collaboratore / Collaboratrice Sales Interna - Front Office, 100%",
+        "de": "Collaboratore / Collaboratrice Verkauf Interna - Front Office, 100%",
+        "fr": "Collaboratore / Collaboratrice Vente Interna - Front Office, 100%"
+      },
+      "description": "Jetzt bewerben »",
+      "descriptionByLocale": {
+        "it": "Jetzt bewerben »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Collaboratrice-Vendita-Interna-Front-Office%2C-100-TI/1368995433/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:31.663Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-9c40095d008f",
+      "slug": "product-category-specialist-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "product-category-specialist-100-rapelli-stabio",
+        "en": "product-category-specialist-100-rapelli-stabio",
+        "de": "product-category-specialist-100-rapelli-stabio",
+        "fr": "product-category-specialist-100-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Product & Category Specialist, 100%",
+      "titleByLocale": {
+        "it": "Product & Category Specialista, 100%",
+        "en": "Product & Category Specialist, 100%",
+        "de": "Product & Category Spezialist, 100%",
+        "fr": "Product & Category Spécialiste, 100%"
+      },
+      "description": "Jetzt bewerben »",
+      "descriptionByLocale": {
+        "it": "Jetzt bewerben »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-Product-&-Category-Specialist%2C-100-TI/1370388533/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:31.344Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-eef49fb6a6c9",
+      "slug": "controller-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "controller-100-rapelli-stabio",
+        "en": "controller-100-rapelli-stabio",
+        "de": "controller-100-rapelli-stabio",
+        "fr": "controller-100-rapelli-orior-food-ag-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Controller, 100%",
+      "titleByLocale": {
+        "it": "Controller, 100%",
+        "en": "Controller, 100%",
+        "de": "Controller, 100%",
+        "fr": "Controller, 100%"
+      },
+      "description": "Jetzt bewerben »",
+      "descriptionByLocale": {
+        "it": "Jetzt bewerben »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-Controller%2C-100-TI/1373974233/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:30.742Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "previousSlugs": [],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-8201a0349335",
+      "slug": "buyer-ingredienti-trade-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "buyer-ingredienti-trade-100-rapelli-stabio",
+        "en": "buyer-ingredienti-trade-100-rapelli-stabio",
+        "de": "buyer-ingredienti-trade-100-rapelli-stabio",
+        "fr": "buyer-ingredienti-trade-100-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Buyer ingredienti & trade, 100%",
+      "titleByLocale": {
+        "it": "Buyer ingredienti & trade, 100%",
+        "en": "Buyer ingredienti & trade, 100%",
+        "de": "Buyer ingredienti & trade, 100%",
+        "fr": "Buyer ingredienti & trade, 100%"
+      },
+      "description": "Candidati ora »",
+      "descriptionByLocale": {
+        "it": "Candidati ora »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-Buyer-ingredienti-&-trade%2C-100-TI/1375846633/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:30.349Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-59c1bdb72841",
+      "slug": "supply-chain-planner-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "supply-chain-planner-100-rapelli-stabio",
+        "en": "supply-chain-planner-100-rapelli-stabio",
+        "de": "supply-chain-planner-100-rapelli-stabio",
+        "fr": "supply-chain-planner-100-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Supply Chain Planner, 100%",
+      "titleByLocale": {
+        "it": "Supply Chain Planner, 100%",
+        "en": "Supply Chain Planner, 100%",
+        "de": "Lieferkette Planner, 100%",
+        "fr": "Chaîne d'approvisionnement Planner, 100%"
+      },
+      "description": "Candidati ora »",
+      "descriptionByLocale": {
+        "it": "Candidati ora »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-Supply-Chain-Planner%2C-100-TI/1375868733/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:29.622Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-bdc3322ac1f6",
+      "slug": "manutentore-maintenance-technician-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "manutentore-maintenance-technician-100-rapelli-stabio",
+        "en": "manutentore-maintenance-technician-100-rapelli-stabio",
+        "de": "manutentore-maintenance-technician-100-rapelli-stabio",
+        "fr": "manutentore-maintenance-technician-100-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Manutentore/Maintenance Technician, 100%",
+      "titleByLocale": {
+        "it": "Manutentore/Maintenance Technician, 100%",
+        "en": "Manutentore/Maintenance Technician, 100%",
+        "de": "Manutentore/Maintenance Techniker, 100%",
+        "fr": "Manutentore/Maintenance Technicien, 100%"
+      },
+      "description": "Candidati ora »",
+      "descriptionByLocale": {
+        "it": "Candidati ora »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-ManutentoreMaintenance-Technician%2C-100-TI/1375847133/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:29.227Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-1c1bde834f0d",
+      "slug": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
+      "slugByLocale": {
+        "it": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
+        "en": "collaboratore-pulizia-100-rapelli-stabio",
+        "de": "collaboratore-pulizia-100-rapelli-stabio",
+        "fr": "collaboratore-pulizia-100-rapelli-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Collaboratore Pulizia, 100%",
+      "titleByLocale": {
+        "it": "Collaboratore Pulizia, 100%",
+        "en": "Collaboratore Pulizia, 100%",
+        "de": "Collaboratore Pulizia, 100%",
+        "fr": "Collaboratore Pulizia, 100%"
+      },
+      "description": "Candidati ora »",
+      "descriptionByLocale": {
+        "it": "Candidati ora »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-Collaboratore-Pulizia%2C-100-TI/1375847433/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:28.464Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "previousSlugs": [],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    },
+    {
+      "id": "rapelli-9f442deed99b",
+      "slug": "tecnologo-alimentare-100-rapelli-stabio",
+      "slugByLocale": {
+        "it": "tecnologo-alimentare-100-rapelli-stabio",
+        "en": "tecnologo-alimentare-100-rapelli-stabio",
+        "de": "tecnologo-alimentare-100-rapelli-stabio",
+        "fr": "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
+      },
+      "company": "Rapelli - ORIOR Food AG",
+      "companyKey": "rapelli",
+      "companyDomain": "rapelli.ch",
+      "title": "Tecnologo Alimentare, 100%",
+      "titleByLocale": {
+        "it": "Tecnologo Alimentare, 100%",
+        "en": "Tecnologo Alimentare, 100%",
+        "de": "Tecnologo Alimentare, 100%",
+        "fr": "Tecnologo Alimentare, 100%"
+      },
+      "description": "Candidati ora »",
+      "descriptionByLocale": {
+        "it": "Candidati ora »"
+      },
+      "requirements": [],
+      "requirementsByLocale": {
+        "it": [],
+        "en": [],
+        "de": [],
+        "fr": []
+      },
+      "location": "Stabio",
+      "canton": "TI",
+      "addressLocality": "Stabio",
+      "addressCountry": "CH",
+      "category": "manufacturing",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-30",
+      "url": "https://careers.orior.ch/job/Stabio-Tecnologo-Alimentare%2C-100-TI/1375846933/",
+      "source": "Rapelli Dedicated Parser (ORIOR Careers)",
+      "crawledAt": "2026-03-30T20:45:27.995Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "previousSlugs": [],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6855"
+    }
+  ]
 }
