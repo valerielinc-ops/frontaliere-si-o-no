@@ -108,19 +108,17 @@ export function isIncomplete(job) {
     if (title.length < MIN_TITLE_CHARS || desc.length < MIN_DESC_CHARS) return true;
 
     // Untranslated (title identical to source in a different language).
-    // Cross-locale guard: skip flagging if the title itself looks like an international
-    // English term (short, no diacritics). This applies regardless of sourceLang —
-    // an IT-source job can have an English title (e.g. "Front Desk & Office Support").
+    // Guard: if at least one OTHER non-source locale has a different title, the job
+    // has been translated — this locale just happens to match the source because it's
+    // an international/corporate title (e.g. "Sales Assistant", "Senior Associate in
+    // Digital Assurance"). Don't flag it.
     if (title.toLowerCase() === sourceTitle && locale !== (job.sourceLang || 'it')) {
       const srcLang = job.sourceLang || 'it';
-      const titleLooksEnglish = title.length < 40 && !/[àèéìòùüäöüß]/i.test(title);
-      const isInternationalTitle = (srcLang === 'en' || titleLooksEnglish) && title.length < 40;
-      if (!isInternationalTitle) return true;
-      // For international EN titles, only flag if no other locale translated it either
       const otherLocalesTranslated = LOCALES.some(
         (l) => l !== locale && l !== srcLang && (tbl[l] || '').trim().toLowerCase() !== sourceTitle,
       );
       if (!otherLocalesTranslated) return true;
+      // At least one other locale was translated → this is an international title, skip
     }
 
     // Description identical to source (not translated)

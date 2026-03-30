@@ -57,14 +57,11 @@ async function main() {
         // Only fix exact source copies
         if (existing.toLowerCase() !== sourceTitle.toLowerCase()) continue;
 
-        // Skip international English titles (Manager, Engineer, etc.)
-        const looksEnglish = existing.length < 50 && !/[àèéìòùüäöüß]/i.test(existing);
-        const hasIntl = /\b(manager|engineer|developer|scrum|master|lead|head|specialist|analyst|coordinator|consultant|architect|designer|director|officer|intern|trainee|scientist)\b/i.test(existing);
-        if (looksEnglish && hasIntl) {
-          // Check if OTHER locales have different titles (meaning this is genuinely international)
-          const othersDiffer = LOCALES.some(l => l !== locale && l !== sl && (tbl[l] || '').trim().toLowerCase() !== sourceTitle.toLowerCase());
-          if (othersDiffer) { totalSkipped++; continue; }
-        }
+        // Skip if at least one OTHER non-source locale has a different title.
+        // This means the job was translated — this locale just matches the source
+        // because it's an international/corporate title. No translation needed.
+        const othersDiffer = LOCALES.some(l => l !== locale && l !== sl && (tbl[l] || '').trim().toLowerCase() !== sourceTitle.toLowerCase());
+        if (othersDiffer) { totalSkipped++; continue; }
 
         // Translate using free cascade
         const translated = await freeTranslateWithRetry({
