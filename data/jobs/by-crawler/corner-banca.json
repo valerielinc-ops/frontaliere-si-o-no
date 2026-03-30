@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-03-30T08:42:56.620Z",
+  "assembledAt": "2026-03-30T20:16:33.143Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -632,7 +632,8 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "corner-banca-0454316cb6c7",
