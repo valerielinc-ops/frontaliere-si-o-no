@@ -513,7 +513,33 @@ async function main() {
       if (synced > 0) totalSynced += synced;
     }
     if (totalSynced > 0) {
-      console.log(`   📁 Synced ${totalSynced} pre-cleared flags to per-crawler files`);
+      console.log(`   📁 Synced ${totalSynced} pre-cleared flags to per-crawler files (via assembly)`);
+    }
+
+    // Also scan per-crawler files DIRECTLY for orphaned needsRetranslation flags.
+    // Some crawler files have jobs that don't make it into the assembled dataset
+    // (e.g. failed quality gate). The assembly-based sync above can't reach those.
+    let directCleared = 0;
+    if (fs.existsSync(BY_CRAWLER_DIR)) {
+      for (const file of fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json') && !f.includes('-locale-cache'))) {
+        const filePath = path.join(BY_CRAWLER_DIR, file);
+        const crawlerData = readJson(filePath);
+        if (!crawlerData?.jobs || !Array.isArray(crawlerData.jobs)) continue;
+        let fileChanged = false;
+        for (const job of crawlerData.jobs) {
+          if (job.needsRetranslation && !isIncomplete(job)) {
+            delete job.needsRetranslation;
+            directCleared++;
+            fileChanged = true;
+          }
+        }
+        if (fileChanged) {
+          fs.writeFileSync(filePath, JSON.stringify(crawlerData, null, 2) + '\n', 'utf-8');
+        }
+      }
+    }
+    if (directCleared > 0) {
+      console.log(`   📁 Cleared ${directCleared} orphaned flags directly from per-crawler files`);
     }
     console.log('');
 
