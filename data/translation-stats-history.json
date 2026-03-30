@@ -7428,5 +7428,35 @@
       "fr": 0
     },
     "topPending": []
+  },
+  {
+    "timestamp": "2026-03-30T19:23:35.913Z",
+    "label": "before",
+    "total": 1207,
+    "needsRetranslation": 2,
+    "incomplete": 0,
+    "complete": 1207,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 0
+    },
+    "topPending": []
+  },
+  {
+    "timestamp": "2026-03-30T19:23:36.509Z",
+    "label": "after",
+    "total": 1207,
+    "needsRetranslation": 0,
+    "incomplete": 0,
+    "complete": 1207,
+    "missingByLocale": {
+      "it": 0,
+      "en": 0,
+      "de": 0,
+      "fr": 0
+    },
+    "topPending": []
   }
 ]
