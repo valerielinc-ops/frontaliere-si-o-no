@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-03-29T09:03:11.920Z",
+  "generatedAt": "2026-03-30T20:02:26.554Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 3587,
-  "avgDurationMs": 3587,
+  "durationMs": 4827,
+  "avgDurationMs": 4827,
   "durationHistory": [
-    3587
+    4827
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -25,52 +25,28 @@
       "canton": "TI",
       "country": "CH",
       "category": "finance",
-      "description": "Global Wealth Management – Consulente alla Clientela / Private Banker at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte del nostro team di Global Wealth Management, siamo alla ricerca di un/a Private Banker con una visione internazionale, in grado di gestire clienti con esigenze globali e di offrire soluzioni finanziarie personalizzate. La persona che cerchiamo si occuperà di acquisire e…",
       "descriptionIt": "Global Wealth Management – Consulente alla Clientela / Private Banker presso Banca del Sempione, banca privata svizzera con sede a Lugano (Ticino). Il ruolo: Come parte del nostro team di Global Wealth Management, siamo alla ricerca di un/a Private Banker con una visione internazionale, in grado di gestire clienti con esigenze globali e di offrire soluzioni finanziarie personalizzate. La persona che cerchiamo si occuperà di acquisire e…",
       "postedDate": "2025-04-09",
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
-      "slugByLocale": {
-        "it": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
-        "en": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
-        "de": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
-        "fr": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker"
-      },
-      "titleByLocale": {
-        "it": "Global Wealth Management – Consulente alla Clientela / Private Banker",
-        "en": "Global Wealth Management – Consulente alla Clientela / Private Banker",
-        "de": "Global Wealth Management – Consulente alla Clientela / Private Banker",
-        "fr": "Global Wealth Management – Consulente alla Clientela / Private Banker"
-      },
       "crawledAt": "",
-      "descriptionByLocale": {
-        "it": "Global Wealth Management – Consulente alla Clientela / Private Banker at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte del nostro team di Global Wealth Management, siamo alla ricerca di un/a Private Banker con una visione internazionale, in grado di gestire clienti con esigenze globali e di offrire soluzioni finanziarie personalizzate. La persona che cerchiamo si occuperà di acquisire e…",
-        "en": "Global Wealth Management – Consulente alla Clientela / Private Banker at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte del nostro team di Global Wealth Management, siamo alla ricerca di un/a Private Banker con una visione internazionale, in grado di gestire clienti con esigenze globali e di offrire soluzioni finanziarie personalizzate. La persona che cerchiamo si occuperà di acquisire e…",
-        "de": "Global Wealth Management – Consulente alla Clientela / Private Banker at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte del nostro team di Global Wealth Management, siamo alla ricerca di un/a Private Banker con una visione internazionale, in grado di gestire clienti con esigenze globali e di offrire soluzioni finanziarie personalizzate. La persona che cerchiamo si occuperà di acquisire e…",
-        "fr": "Global Wealth Management – Consulente alla Clientela / Private Banker at Banca del Sempione, a Swiss private bank headquartered in Lugano (Ticino). Il ruolo: Come parte del nostro team di Global Wealth Management, siamo alla ricerca di un/a Private Banker con una visione internazionale, in grado di gestire clienti con esigenze globali e di offrire soluzioni finanziarie personalizzate. La persona che cerchiamo si occuperà di acquisire e…"
-      },
-      "needsRetranslation": true,
-      "requirementsByLocale": {},
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
       "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 82500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
       "streetAddress": "Via P. Peri 2",
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 86,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 22
+      }
     }
   ]
 }
