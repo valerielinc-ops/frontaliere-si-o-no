@@ -970,14 +970,14 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "tecnico-elettromeccanico-in-azienda-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
-        "en": "technician-elettromeccanico-in-azienda-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
+        "en": "industrial-electromechanical-technician-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
         "de": "techniker-elettromeccanico-in-azienda-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
-        "fr": "technicien-elettromeccanico-in-azienda-m-f-d-marche-restaurants-schweiz-ag-dietlikon"
+        "fr": "technicien-electromecanicien-en-entreprise-h-f-i-marche-restaurants-schweiz-ag-dietlikon"
       },
       "titleByLocale": {
         "it": "Tecnico elettromeccanico in azienda (m/f/d)",
         "en": "Industrial Electromechanical Technician (m/f/d)",
-        "de": "Industriemechaniker/in Elektrotechnik (m/w/d)",
+        "de": "Techniker elettromeccanico in azienda (m/f/d)",
         "fr": "Technicien électromécanicien en entreprise (h/f/i)"
       },
       "descriptionByLocale": {
@@ -991,7 +991,9 @@
         "tecnico-elettromeccanico-in-azienda-m-f-d-marche-dietlikon-6eaayb",
         "technician-elettromeccanico-in-azienda-m-f-d-marche-dietlikon-6eaayb",
         "elektromechanischer-techniker-m-w-d-marche-dietlikon",
-        "technicien-electromecanique-m-f-d-marche-dietlikon"
+        "technicien-electromecanique-m-f-d-marche-dietlikon",
+        "technician-elettromeccanico-in-azienda-m-f-d-marche-restaurants-schweiz-ag-dietlikon",
+        "technicien-elettromeccanico-in-azienda-m-f-d-marche-restaurants-schweiz-ag-dietlikon"
       ],
       "addressLocality": "Dietlikon",
       "salaryMin": 58000,
@@ -1353,7 +1355,7 @@
     },
     {
       "id": "company-l6wxbs",
-      "slug": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+      "slug": "venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Frischprodukte",
       "location": "Ilanz/Glion",
@@ -1378,7 +1380,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
-        "it": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+        "it": "venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
         "en": "verkaufer-in-frischprodukte-coop-genossenschaft-ilanz-glion-l6wxbs",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-ilanz-glion",
         "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-ilanz-glion-l6wxbs"
@@ -1418,11 +1420,13 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": []
+      "previousSlugs": [
+        "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs"
+      ]
     },
     {
       "id": "company-l1gprk",
-      "slug": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+      "slug": "venditore-a-cassa-service-coop-genossenschaft-klosters-serneus",
       "company": "Coop Genossenschaft",
       "title": "Verkäufer:in Kassen/Services",
       "location": "Klosters-Serneus",
@@ -1448,7 +1452,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+        "it": "venditore-a-cassa-service-coop-genossenschaft-klosters-serneus",
         "en": "verkaufer-in-kassen-services-coop-genossenschaft-klosters-serneus-l1gprk",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-klosters-serneus",
         "fr": "verkaufer-in-kassen-services-coop-genossenschaft-klosters-serneus-l1gprk"
@@ -1489,11 +1493,13 @@
           "unitText": "YEAR"
         }
       },
-      "previousSlugs": []
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk"
+      ]
     },
     {
       "id": "company-67of9l",
-      "slug": "consulente-vendite-do-it-jumbo-chur-graubunden",
+      "slug": "consulente-vendite-do-it-jumbo-division-der-coop-genossenschaft-chur",
       "company": "Jumbo, Division der Coop Genossenschaft",
       "title": "Verkaufsberater:in Do-it",
       "location": "Chur",
@@ -1518,7 +1524,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
-        "it": "consulente-vendite-do-it-jumbo-chur-graubunden",
+        "it": "consulente-vendite-do-it-jumbo-division-der-coop-genossenschaft-chur",
         "en": "sales-consultant-do-it-jumbo-chur-graubunden",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-chur",
         "fr": "conseiller-e-en-vente-do-it-jumbo-chur-graubunden"
@@ -1558,12 +1564,13 @@
         }
       },
       "previousSlugs": [
-        "verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l"
+        "verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
+        "consulente-vendite-do-it-jumbo-chur-graubunden"
       ]
     },
     {
       "id": "company-50rt90",
-      "slug": "vice-direttore-coop-sankt-moritz-graubunden",
+      "slug": "vice-direttore-trice-generale-coop-genossenschaft-sankt-moritz",
       "company": "Coop Genossenschaft",
       "title": "Stv. Geschäftsführer:in",
       "location": "Sankt Moritz",
@@ -1588,7 +1595,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
-        "it": "vice-direttore-coop-sankt-moritz-graubunden",
+        "it": "vice-direttore-trice-generale-coop-genossenschaft-sankt-moritz",
         "en": "deputy-managing-director-coop-sankt-moritz-graubunden",
         "de": "stv-geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz",
         "fr": "directeur-adjoint-coop-sankt-moritz-graubunden"
@@ -1629,12 +1636,13 @@
         }
       },
       "previousSlugs": [
-        "stv-geschaftsfuhrer-in-coop-sankt-moritz-graubunden-50rt90"
+        "stv-geschaftsfuhrer-in-coop-sankt-moritz-graubunden-50rt90",
+        "vice-direttore-coop-sankt-moritz-graubunden"
       ]
     },
     {
       "id": "company-z5k5f",
-      "slug": "direttore-direttrice-christ-orologi-gioielli-chur-graubunden",
+      "slug": "direttore-direttrice-christ-uhren-schmuck-ag-chur",
       "company": "CHRIST Uhren & Schmuck AG",
       "title": "Geschäftsführer:in",
       "location": "Chur",
@@ -1659,7 +1667,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
-        "it": "direttore-direttrice-christ-orologi-gioielli-chur-graubunden",
+        "it": "direttore-direttrice-christ-uhren-schmuck-ag-chur",
         "en": "store-manager-christ-orologi-gioielli-chur-graubunden",
         "de": "geschaftsfuhrer-in-christ-uhren-schmuck-ag-chur",
         "fr": "directeur-directrice-christ-orologi-gioielli-chur-graubunden"
@@ -1699,7 +1707,8 @@
         }
       },
       "previousSlugs": [
-        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f"
+        "geschaftsfuhrer-in-christ-orologi-gioielli-chur-graubunden-0z5k5f",
+        "direttore-direttrice-christ-orologi-gioielli-chur-graubunden"
       ]
     },
     {
