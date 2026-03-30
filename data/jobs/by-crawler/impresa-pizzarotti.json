@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
-        "en": "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
-        "de": "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
-        "fr": "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera"
+        "en": "estimator-switzerland-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
+        "de": "kostenplaner-schweiz-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
+        "fr": "estimateur-suisse-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera"
       },
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -56,7 +56,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera"
+      ]
     }
   ]
 }

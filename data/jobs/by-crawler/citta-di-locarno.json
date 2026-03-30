@@ -7,9 +7,9 @@
       "slug": "maestro-a-della-musica-cittadina-e-responsabile-delle-formazioni-giovanili-15-locarno",
       "slugByLocale": {
         "it": "maestro-a-della-musica-cittadina-e-responsabile-delle-formazioni-giovanili-15-locarno",
-        "en": "maestro-a-della-musica-cittadina-e-responsabile-delle-formazioni-giovanili-15-locarno",
-        "de": "maestro-a-della-musica-cittadina-e-responsabile-delle-formazioni-giovanili-15-locarno",
-        "fr": "maestro-a-della-musica-cittadina-e-responsabile-delle-formazioni-giovanili-15-locarno"
+        "en": "master-of-city-music-and-responsible-for-youth-training-15-citta-di-locarno-locarno",
+        "de": "lehrer-in-fur-stadtmusik-und-jugendtrainingsleiter-in-15-citta-di-locarno-locarno",
+        "fr": "enseignant-de-cittadina-music-et-responsable-de-la-formation-des-jeunes-15-citta-di-locarno-locarno"
       },
       "company": "Città di Locarno",
       "companyKey": "citta-di-locarno",
@@ -65,15 +65,18 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "maestro-a-della-musica-cittadina-e-responsabile-delle-formazioni-giovanili-15-locarno"
+      ]
     },
     {
       "id": "citta-di-locarno-direttrice-direttore-30-locarno",
       "slug": "direttrice-direttore-30-locarno",
       "slugByLocale": {
         "it": "direttrice-direttore-30-locarno",
-        "en": "direttrice-direttore-30-locarno",
-        "de": "direttrice-direttore-30-locarno",
+        "en": "director-30-citta-di-locarno-locarno",
+        "de": "leiterin-leiter-30-citta-di-locarno-locarno",
         "fr": "direttrice-direttore-30-citta-di-locarno-locarno"
       },
       "company": "Città di Locarno",
@@ -119,7 +122,9 @@
       "source": "Locarno Dedicated Parser",
       "crawledAt": "2026-03-30T20:10:42.854Z",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "direttrice-direttore-30-locarno"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {

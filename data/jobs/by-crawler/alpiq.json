@@ -73,7 +73,7 @@
         "it": "risk-technology-manager-all-80-100-alpiq-olten",
         "en": "risk-technology-manager-all-80-100-alpiq-olten",
         "de": "risk-technology-manager-all-80-100-alpiq-olten",
-        "fr": "risk-technology-manager-all-80-100-alpiq-olten"
+        "fr": "responsable-de-la-technologie-des-risques-tous-80-100-alpiq-olten"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -128,7 +128,10 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "risk-technology-manager-all-80-100-alpiq-olten"
+      ]
     }
   ]
 }

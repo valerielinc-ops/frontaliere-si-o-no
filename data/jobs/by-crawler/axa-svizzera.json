@@ -40,8 +40,8 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo-per-il-luganese",
-        "en": "consulente-assicurativo-per-il-luganese",
-        "de": "consulente-assicurativo-per-il-luganese",
+        "en": "insurance-consultant-for-the-lugano-region-axa-svizzera",
+        "de": "versicherungskonsultant-fur-die-region-luganese-axa-svizzera",
         "fr": "consulente-assicurativo-per-il-luganese"
       },
       "salaryMin": 58000,
@@ -58,7 +58,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "consulente-assicurativo-per-il-luganese"
+      ]
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -98,9 +101,9 @@
       },
       "slugByLocale": {
         "it": "collaboratore-collaboratrice-servizio-interno",
-        "en": "collaboratore-collaboratrice-servizio-interno",
-        "de": "collaboratore-collaboratrice-servizio-interno",
-        "fr": "collaboratore-collaboratrice-servizio-interno"
+        "en": "internal-service-associate-axa-svizzera-agenzia-generale-lugano",
+        "de": "interner-servicekollege-axa-svizzera-agenzia-generale-lugano",
+        "fr": "collaborateur-service-interne-axa-svizzera-agenzia-generale-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -116,7 +119,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "collaboratore-collaboratrice-servizio-interno"
+      ]
     },
     {
       "title": "Responsabile Servizio Trasporti (Underwriting e Sinistri)",
@@ -156,11 +162,15 @@
       },
       "slugByLocale": {
         "it": "responsabile-servizio-trasporti-underwriting-e-sinistri",
-        "en": "manager-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni",
-        "de": "verantwortlicher-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni",
-        "fr": "responsable-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni"
+        "en": "transport-service-underwriting-and-claims-manager-axa-svizzera-lugano-smart-working",
+        "de": "transportdienstleistungsmanager-underwriting-und-schaden-axa-svizzera-lugano-smart-working",
+        "fr": "gestionnaire-des-services-de-transport-underwriting-et-sinistres-axa-svizzera-lugano-smart-working"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "manager-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni",
+        "verantwortlicher-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni",
+        "responsable-servizio-trasporti-underwriting-e-sinistri-axa-svizzera-axa-assicurazioni"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -273,8 +283,8 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo",
-        "en": "consulente-assicurativo",
-        "de": "consulente-assicurativo",
+        "en": "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
+        "de": "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
         "fr": "consulente-assicurativo"
       },
       "salaryMin": 58000,
@@ -291,7 +301,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "consulente-assicurativo"
+      ]
     },
     {
       "title": "Consulente Assicurativo",
@@ -331,8 +344,8 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo",
-        "en": "consulente-assicurativo",
-        "de": "consulente-assicurativo",
+        "en": "insurance-consultant-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
+        "de": "versicherungsberater-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
         "fr": "consulente-assicurativo"
       },
       "salaryMin": 58000,
@@ -349,7 +362,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "consulente-assicurativo"
+      ]
     },
     {
       "title": "Consulente Assicurativo per il Mendrisiotto",
@@ -389,8 +405,8 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo-per-il-mendrisiotto",
-        "en": "consulente-assicurativo-per-il-mendrisiotto",
-        "de": "consulente-assicurativo-per-il-mendrisiotto",
+        "en": "insurance-consultant-for-the-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello",
+        "de": "versicherungskonsultant-fur-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello",
         "fr": "consulente-assicurativo-per-il-mendrisiotto"
       },
       "salaryMin": 58000,
@@ -407,7 +423,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "consulente-assicurativo-per-il-mendrisiotto"
+      ]
     },
     {
       "title": "(Senior) Specialist Rechtsdienst mit Schwerpunkt Mobilität (all genders)",
@@ -623,9 +642,9 @@
       },
       "slugByLocale": {
         "de": "jusist-in-rechtsdienst-mit-fokus-haftpflicht-und-sozialversicherungsrecht-all-genders",
-        "it": "jusist-in-rechtsdienst-con-fokus-haftpflicht-e-sozialversicherungsrecht-all-genders-axa-svizzera-ernst-nobs-platz-7",
-        "en": "jusist-in-rechtsdienst-mit-fokus-haftpflicht-und-sozialversicherungsrecht-all-genders-axa-svizzera-ernst-nobs-platz-7",
-        "fr": "jusist-in-rechtsdienst-mit-fokus-haftpflicht-und-sozialversicherungsrecht-all-genders-axa-svizzera-ernst-nobs-platz-7"
+        "it": "servizio-legale-con-un-focus-su-diritto-della-responsabilita-civile-e-della-sicurezza-sociale-tutti-i-generi-axa-svizzer",
+        "en": "legal-service-with-a-focus-on-liability-and-social-security-law-all-genders-axa-svizzera-zurich-city-smart-working",
+        "fr": "service-juridique-avec-un-accent-sur-la-responsabilite-et-le-droit-de-la-securite-sociale-tous-genres-axa-svizzera-zuric"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -641,7 +660,11 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "jusist-in-rechtsdienst-con-fokus-haftpflicht-e-sozialversicherungsrecht-all-genders-axa-svizzera-ernst-nobs-platz-7",
+        "jusist-in-rechtsdienst-mit-fokus-haftpflicht-und-sozialversicherungsrecht-all-genders-axa-svizzera-ernst-nobs-platz-7"
+      ]
     },
     {
       "title": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
@@ -682,8 +705,8 @@
       "slugByLocale": {
         "de": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur",
         "it": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-axa",
-        "en": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur",
-        "fr": "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur"
+        "en": "internal-manager-for-general-agency-pensions-and-wealth-chur-axa-svizzera-arbeitsort-chur",
+        "fr": "responsable-interieur-pour-l-agence-generale-prevoyance-et-patrimoine-chur-axa-svizzera-arbeitsort-chur"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -699,7 +722,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur"
+      ]
     }
   ]
 }

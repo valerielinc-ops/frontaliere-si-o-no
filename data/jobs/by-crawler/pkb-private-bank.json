@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "disclaimer-pkb-private-bank-lugano",
         "en": "disclaimer-pkb-private-bank-lugano",
-        "de": "disclaimer-pkb-private-bank-lugano",
-        "fr": "disclaimer-pkb-private-bank-lugano"
+        "de": "haftungsausschluss-pkb-private-bank-lugano",
+        "fr": "avertissement-pkb-private-bank-lugano"
       },
       "company": "PKB Private Bank",
       "companyKey": "pkb-private-bank",
@@ -63,7 +63,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "disclaimer-pkb-private-bank-lugano"
+      ]
     }
   ]
 }

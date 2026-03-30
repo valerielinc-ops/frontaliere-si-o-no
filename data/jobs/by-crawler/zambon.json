@@ -32,8 +32,8 @@
       "slug": "zambon-open-positions-zambon",
       "slugByLocale": {
         "en": "zambon-open-positions-zambon",
-        "it": "zambon-open-positions-zambon",
-        "de": "zambon-open-positions-zambon",
+        "it": "zambon-posizioni-aperte-zambon-svizzera-sa-cadempino",
+        "de": "zambon-offene-positionen-zambon-svizzera-sa-cadempino",
         "fr": "zambon-open-positions-zambon"
       },
       "category": "general",
@@ -57,7 +57,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "zambon-open-positions-zambon"
+      ]
     }
   ]
 }

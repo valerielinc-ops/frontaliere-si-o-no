@@ -7,9 +7,9 @@
       "slug": "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigionamento-e-vendita-infocentro-cit",
       "slugByLocale": {
         "it": "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigionamento-e-vendita-infocentro-cit",
-        "en": "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona",
-        "de": "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona",
-        "fr": "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona"
+        "en": "city-of-bellinzona-customer-assistant-for-procurement-and-sales-department-infocentre-citta-di-bellinzona-bellinzona",
+        "de": "stadt-bellinzona-kundenbetreuer-in-fur-den-bereich-beschaffung-und-verkauf-infocentre-citta-di-bellinzona-bellinzona",
+        "fr": "ville-de-bellinzona-assistant-e-client-pour-le-departement-approvisionnement-et-vente-infocentre-citta-di-bellinzona-bel"
       },
       "company": "Città di Bellinzona",
       "companyKey": "citta-di-bellinzona",
@@ -54,7 +54,9 @@
       "source": "Bellinzona Dedicated Parser",
       "crawledAt": "2026-03-30T20:10:23.185Z",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
