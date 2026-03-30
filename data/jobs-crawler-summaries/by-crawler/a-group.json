@@ -1,16 +1,16 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-03-29T19:27:55.607Z",
+  "generatedAt": "2026-03-30T19:51:56.928Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 15962,
-  "avgDurationMs": 15962,
+  "durationMs": 2093,
+  "avgDurationMs": 2093,
   "durationHistory": [
-    15962
+    2093
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -42,7 +42,14 @@
       "validThrough": "",
       "salaryMin": 55500,
       "salaryMax": 75500,
-      "currency": "CHF"
+      "currency": "CHF",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Receptionist 100%",
@@ -70,7 +77,14 @@
       "validThrough": "",
       "salaryMin": 58000,
       "salaryMax": 78000,
-      "currency": "CHF"
+      "currency": "CHF",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 14,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
@@ -98,7 +112,14 @@
       "validThrough": "",
       "salaryMin": 58000,
       "salaryMax": 78000,
-      "currency": "CHF"
+      "currency": "CHF",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ]
 }
