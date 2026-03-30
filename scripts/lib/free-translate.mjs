@@ -31,20 +31,18 @@ const GOOGLE_TRANSLATE_ENDPOINTS = [
 const TIMEOUT_MS = 15000;
 
 // Lingva Translate instances (free Google Translate proxy)
-// Verified 2026-03-22 — only instances that returned valid translations
+// Verified 2026-03-30 — only 2 alive; works locally but BLOCKED from GitHub Actions IPs
 const LINGVA_INSTANCES = [
-  'https://translate.plausibility.cloud',  // ✅ verified
-  'https://lingva.ml',                    // official
-  'https://lingva.lunar.icu',             // community
-  'https://translate.projectsegfau.lt',   // community
-  'https://lingva.garudalinux.org',       // community
-  'https://translate.jae.fi',             // community
+  'https://translate.plausibility.cloud',  // ✅ verified 2026-03-30
+  'https://lingva.ml',                    // ✅ verified 2026-03-30
+  // REMOVED: lingva.lunar.icu (DNS failure), projectsegfau.lt (404),
+  //   garudalinux.org (403), translate.jae.fi (DNS failure)
 ];
 
-// SimplyTranslate instances (another free proxy)
-// Verified 2026-03-22
+// SimplyTranslate instances — the #1 workhorse in CI (183/329 hits = 55%)
+// Verified 2026-03-30
 const SIMPLYTRANSLATE_INSTANCES = [
-  'https://simplytranslate.org',           // ✅ 1.3s
+  'https://simplytranslate.org',           // ✅ primary
 ];
 
 // Mozhi instances (open-source translation proxy supporting multiple engines)
@@ -139,7 +137,8 @@ export function logCascadeSummary() {
   const health = getInstanceHealthStats();
   const down = Object.entries(health);
   if (down.length) {
-    console.log(`   ⚠️  ${down.length} instances currently marked unhealthy`);
+    console.log(`   ⚠️  ${down.length} instances currently marked unhealthy:`);
+    down.forEach(([url, h]) => console.log(`      ❌ ${url} (${h.failures} failures)`));
   }
 }
 
@@ -504,15 +503,19 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     return '';
   }
 
+  // ── CI-PROVEN TIERS (work from GitHub Actions) ─────────────────────────────
+  // Order optimized based on real CI data from 2026-03-30:
+  //   simplyTranslate=183, myMemory=115, libreTranslate=27, mozhiDdg=3
+
   // Tier 1: DeepL Free API (best quality, if API key set)
   const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
   if (t1) return t1;
 
-  // Tier 2: Mozhi+DeepL (DeepL via proxy — no API key needed!)
-  const t2 = await tryTier('mozhiDeepL', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'deepl'));
+  // Tier 2: SimplyTranslate (PROMOTED — #1 CI workhorse, handles descriptions)
+  const t2 = await tryTier('simplyTranslate', () => translateWithSimplyTranslate(clean, sourceLang, targetLang));
   if (t2) return t2;
 
-  // Tier 3: MyMemory (good quality for EU languages, limited to 500 chars)
+  // Tier 3: MyMemory (good for EU languages, ≤500 chars = titles only)
   if (clean.length <= 500) {
     const t3 = await tryTier('myMemory', async () => {
       const mm = await translateWithMyMemory(clean, sourceLang, targetLang);
@@ -522,31 +525,33 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
     if (t3) return t3;
   }
 
-  // Tier 4: Lingva (free Google Translate proxy)
-  const t4 = await tryTier('lingva', () => translateWithLingva(clean, sourceLang, targetLang));
+  // Tier 4: LibreTranslate (PROMOTED — reliable from CI)
+  const t4 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
   if (t4) return t4;
 
-  // Tier 5: SimplyTranslate (another free proxy)
-  const t5 = await tryTier('simplyTranslate', () => translateWithSimplyTranslate(clean, sourceLang, targetLang));
+  // Tier 5: Mozhi+DuckDuckGo (Bing via Mozhi proxy — works sometimes from CI)
+  const t5 = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
   if (t5) return t5;
 
-  // Tier 6: Mozhi+DuckDuckGo (Bing translation via Mozhi proxy)
-  const t6 = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
+  // ── LOCAL/DEV TIERS (blocked from GH Actions IPs, work locally) ───────────
+
+  // Tier 6: Lingva (Google Translate proxy — works locally, blocked in CI)
+  const t6 = await tryTier('lingva', () => translateWithLingva(clean, sourceLang, targetLang));
   if (t6) return t6;
 
-  // Tier 7: LibreTranslate (open-source)
-  const t7 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
+  // Tier 7: Mozhi+Google (Google via Mozhi — works locally, blocked in CI)
+  const t7 = await tryTier('mozhiGoogle', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'google'));
   if (t7) return t7;
 
-  // Tier 8: Mozhi+Google (Google Translate via Mozhi proxy)
-  const t8 = await tryTier('mozhiGoogle', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'google'));
+  // Tier 8: Google Translate (unofficial direct endpoint — often blocked)
+  const t8 = await tryTier('google', () => translateWithGoogle(clean, sourceLang, targetLang));
   if (t8) return t8;
 
-  // Tier 9: Google Translate (unofficial direct endpoint, chunked)
-  const t9 = await tryTier('google', () => translateWithGoogle(clean, sourceLang, targetLang));
+  // Tier 9: Mozhi+DeepL (DeepL engine returns empty via proxy — broken since 2026-03)
+  const t9 = await tryTier('mozhiDeepL', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'deepl'));
   if (t9) return t9;
 
-  // Tier 10: Mozhi+Yandex (slow but reliable last resort)
+  // Tier 10: Mozhi+Yandex (slow last resort)
   const t10 = await tryTier('mozhiYandex', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'yandex'));
   if (t10) return t10;
 
