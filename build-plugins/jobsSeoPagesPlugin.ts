@@ -3015,7 +3015,6 @@ ${(() => {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
-    <meta name="robots" content="noindex,follow">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
   </head>
@@ -3073,7 +3072,8 @@ ${(() => {
             searchPageCount++;
           }
 
-          // noindex pages must not appear in sitemaps — skip sitemap entry.
+          // Combo search pages are indexable but excluded from sitemaps (low priority, discovered via internal links).
+          // Expired combos get soft-landing pages via orphan-indexed-job-slugs.json.
         };
 
         // Collect unique locations and companies from stats leaders
