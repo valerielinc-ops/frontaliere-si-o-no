@@ -83,15 +83,15 @@
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "slugByLocale": {
         "it": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "en": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "de": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "fr": "manor-collaboratore-trice-servizio-manora-50-locarno"
+        "en": "service-collaborator-manora-50-manor-ag-locarno-u1kfzs",
+        "de": "servicemitarbeiter-manora-50-manor-ag-locarno-u1kfzs",
+        "fr": "collaborateur-de-service-manora-50-manor-ag-locarno-u1kfzs"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice servizio (Manora) 50%",
-        "en": "Collaboratore/trice servizio (Manora) 50%",
-        "de": "Collaboratore/trice servizio (Manora) 50%",
-        "fr": "Collaboratore/trice servizio (Manora) 50%"
+        "en": "Service collaborator (Manora) 50%",
+        "de": "Servicemitarbeiter (Manora) 50 %",
+        "fr": "Collaborateur de service (Manora) 50%"
       },
       "crawledAt": "",
       "needsRetranslation": true,
@@ -115,7 +115,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaboratore-trice-servizio-manora-50-locarno"
+      ]
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -227,8 +230,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Polydesigner 3D AFC 100%",
