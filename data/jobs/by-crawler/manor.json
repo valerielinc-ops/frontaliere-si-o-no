@@ -140,14 +140,14 @@
       "slugByLocale": {
         "it": "manor-collaborateur-trice-service-manora-50-locarno",
         "en": "manor-collaborateur-trice-service-manora-50-locarno",
-        "de": "manor-collaborateur-trice-service-manora-50-locarno",
+        "de": "kollaborateur-trice-service-manora-50-manor-ag-locarno-ue7l6x",
         "fr": "manor-collaborateur-trice-service-manora-50-locarno"
       },
       "titleByLocale": {
         "it": "Collaborateur/trice service (Manora) 50%",
-        "en": "Collaborateur/trice service (Manora) 50%",
-        "de": "Collaborateur/trice service (Manora) 50%",
-        "fr": "Collaborateur/trice service (Manora) 50%"
+        "en": "Collaborateur/trice service (Manor) 50%",
+        "de": "Kollaborateur/Trice Service (Manora) 50 %",
+        "fr": "Collaborateur/trice service (Manora) 50 %"
       },
       "crawledAt": "",
       "needsRetranslation": true,
@@ -171,7 +171,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaborateur-trice-service-manora-50-locarno"
+      ]
     },
     {
       "title": "Apprendista Polydesigner 3D AFC 100%",
