@@ -158,12 +158,14 @@
       },
       "slugByLocale": {
         "it": "it-business-intelligence-sviluppatore-microsoft-ecosystem-damiani-group-mendrisio",
-        "en": "it-business-intelligence-developer-microsoft-ecosystem-damiani-group-mendrisio",
+        "en": "en-business-intelligence-developer-microsoft-ecosystem-damiani-group-mendrisio",
         "de": "it-business-intelligence-entwickler-microsoft-ecosystem-damiani-group-mendrisio",
         "fr": "it-business-intelligence-developpeur-microsoft-ecosystem-damiani-group-mendrisio"
       },
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "it-business-intelligence-developer-microsoft-ecosystem-damiani-group-mendrisio"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
