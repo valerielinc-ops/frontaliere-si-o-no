@@ -365,15 +365,24 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
         if (field === 'titleByLocale' && locale === sourceLang && crawlerJob.needsRetranslation) {
           continue;
         }
-        // STABILITY: For titles that are already translated (non-empty, different from source),
-        // don't overwrite with a new AI translation. AI generates inconsistent translations
-        // across runs (e.g. "Capo turno" → "Leader di Turno" → "Responsabile Shift"),
-        // causing slug churn and previousSlugs to grow indefinitely (90+ jobs affected).
-        // Only overwrite titles that are still source-language copies (genuinely untranslated).
-        if (field === 'titleByLocale' && crawlerJob.needsRetranslation && trimmedExisting) {
+        // STABILITY: For titles that are already CORRECTLY translated, don't overwrite
+        // with a new AI translation (AI generates inconsistent translations across runs).
+        // BUT: allow overwrite when the existing title is in the WRONG language
+        // (e.g., Italian text "Assemblaggio / Imballo" sitting in the DE slot).
+        if (field === 'titleByLocale' && crawlerJob.needsRetranslation && trimmedExisting && trimmedValue) {
           const sourceTitle = String(crawlerJob.title || '').trim().toLowerCase();
-          if (trimmedExisting.toLowerCase() !== sourceTitle) {
-            // Title is already translated — keep it stable, don't overwrite
+          const isSourceCopy = trimmedExisting.toLowerCase() === sourceTitle;
+          // Check if existing title is in the wrong language (source-lang contamination)
+          const detected = detectJobTitleLocaleDetails(trimmedExisting, locale);
+          const isWrongLanguage = detected.confidence >= 0.6 && detected.lang === sourceLang && locale !== sourceLang;
+          // Also check Italian stop-words in non-IT slots, German in non-DE slots
+          const lc = trimmedExisting.toLowerCase();
+          const hasSourceWords =
+            (sourceLang === 'it' && locale !== 'it' && /\b(per il|per la|assemblaggio|imballo|collaudo|responsabile|impiegat)\b/i.test(lc)) ||
+            (sourceLang === 'de' && locale !== 'de' && /\b(und|für|mit|der|die|fachspezialist)\b/i.test(lc)) ||
+            (sourceLang === 'en' && locale !== 'en' && /\b(assemblaggio|imballo|collaudo|gestione)\b/i.test(lc));
+          if (!isSourceCopy && !isWrongLanguage && !hasSourceWords) {
+            // Title is correctly translated — keep it stable
             continue;
           }
         }
