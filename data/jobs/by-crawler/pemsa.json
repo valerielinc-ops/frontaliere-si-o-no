@@ -209,7 +209,7 @@
       "titleByLocale": {
         "it": "Carpentière Edile",
         "en": "Construction Carpenter",
-        "de": "Bautischlerei",
+        "de": "Carpentiere Edile",
         "fr": "Maçon-constructeur"
       },
       "descriptionByLocale": {
@@ -927,7 +927,7 @@
       "validThrough": "2026-04-08",
       "description": "Pemsa est une agence de placement leader en Suisse, reconnue pour son expertise pointue dans les secteurs de la construction, du génie civil, de l'électricité, de la technique du bâtiment et de l'industrie. Forte d’une connaissance approfondie du marché suisse, Pemsa s’engage à proposer des profils hautement qualifiés et adaptés aux besoins spécifiques de ses clients. Notre approche repose sur un accompagnement personnalisé et une compréhension fine des compétences techniques, garantissant ainsi une adéquation parfaite entre candidats et entreprises. En collaborant avec Pemsa, vous bénéficiez d’un réseau dynamique, d’un savoir-faire éprouvé et d’une confiance réciproque entre professionnels du métier. Nous veillons également au respect des normes locales et à la promotion de la mobilité professionnelle en Suisse.\n\n## Missione:\nIncarico tramite agenzia con scopo assunzione fissa Gestione magazzino Carico e scarico merci, stoccaggio Gestione merci Produzione di materiale\n\n## Profilo:\n- Comprovata esperienza nella logistica\n- Patente muletto SUVA\n- Disponibilità immediata\n- Automunito",
       "titleByLocale": {
-        "it": "Impiegato nella logistica AFC",
+        "it": "Impiegato in logistica AFC",
         "en": "Employee in Logistics AFC",
         "de": "Logistikmitarbeiter AFC",
         "fr": "Employé in Logistique AFC"
@@ -2025,7 +2025,6 @@
         "de": "bruckenbau-pemsa-bellinzona",
         "fr": "montage-des-ponts-pemsa-bellinzona"
       },
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2200,11 +2199,10 @@
       },
       "slugByLocale": {
         "it": "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona",
-        "en": "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona",
-        "de": "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona",
-        "fr": "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona"
+        "en": "carpentiere-lattoniere-with-certificate-works-in-quota-and-use-of-3-cat-pemsa-bellinzona-okeeah",
+        "de": "carpentiere-lattoniere-mit-zertifikatswerken-in-quota-und-verwendung-von-3-katze-pemsa-bellinzona-okeeah",
+        "fr": "carpentiere-lattoniere-avec-certificat-travaux-en-contingent-et-utilisation-de-3-cat-pemsa-bellinzona-okeeah"
       },
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2219,7 +2217,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona"
+      ]
     },
     {
       "title": "Giardiniere",
@@ -2262,7 +2263,6 @@
         "de": "garten-pemsa-bellinzona",
         "fr": "jardins-pemsa-bellinzona"
       },
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2442,7 +2442,6 @@
         "de": "elektrizitat-pemsa-lugano",
         "fr": "electricite-pemsa-lugano"
       },
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -2503,7 +2502,6 @@
         "de": "wand-zimmer-pemsa-bellinzona",
         "fr": "carrosserie-pemsa-bellinzona"
       },
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
