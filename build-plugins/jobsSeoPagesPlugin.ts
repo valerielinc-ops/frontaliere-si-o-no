@@ -1233,6 +1233,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
     </style>
 ${hreflangHtml}
 ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
   <body>
     <div id="root">
