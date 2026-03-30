@@ -1,16 +1,16 @@
 {
   "key": "artisa-group",
   "label": "Artisa Group",
-  "generatedAt": "2026-03-30T04:36:54.118Z",
+  "generatedAt": "2026-03-30T19:59:37.508Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 11686,
-  "avgDurationMs": 11686,
+  "durationMs": 2334,
+  "avgDurationMs": 2334,
   "durationHistory": [
-    11686
+    2334
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -42,7 +42,14 @@
       "salaryMax": 89000,
       "currency": "CHF",
       "streetAddress": "Via Nassa 5",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Real Estate Sales Manager",
@@ -70,7 +77,14 @@
       "salaryMax": 89000,
       "currency": "CHF",
       "streetAddress": "Via Nassa 5",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Architetto qualificato lingua francese",
@@ -98,7 +112,14 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "streetAddress": "Via Nassa 5",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     },
     {
       "title": "Architetto qualificato",
@@ -126,7 +147,14 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "streetAddress": "Via Nassa 5",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
     }
   ]
 }
