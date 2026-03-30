@@ -67,15 +67,9 @@
   },
   "minQualityScore": 4,
   "minDescriptionChars": 80,
-<<<<<<< Updated upstream
-  "aiLocalizationEnabled": true,
-  "aiLocalizationMaxJobsPerRun": 9,
-  "aiPageValidationEnabled": true,
-=======
   "aiLocalizationEnabled": false,
   "aiLocalizationMaxJobsPerRun": 25,
   "aiPageValidationEnabled": false,
->>>>>>> Stashed changes
   "aiPageValidationMaxPagesPerRun": 40,
   "webDiscoveryEnabled": false,
   "contentReuse": {
