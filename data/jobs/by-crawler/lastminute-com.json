@@ -1,10 +1,10 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-03-29T17:40:25.168Z",
+  "assembledAt": "2026-03-30T08:27:20.238Z",
   "jobs": [
     {
       "id": "company-grwdno",
-      "slug": "data-ingegnere-chiasso",
+      "slug": "ingegnere-dei-dati-lastminute-com-chiasso",
       "company": "lastminute.com",
       "title": "Data Engineer",
       "location": "Chiasso",
@@ -34,7 +34,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-29T09:35:59.520Z",
       "slugByLocale": {
-        "it": "data-ingegnere-chiasso",
+        "it": "ingegnere-dei-dati-lastminute-com-chiasso",
         "en": "data-engineer-lastminute-com-chiasso",
         "de": "data-ingenieur-lastminute-com-chiasso-grwdno",
         "fr": "data-ingenieur-lastminute-com-chiasso-grwdno"
@@ -69,7 +69,8 @@
       "sourceLang": "en",
       "previousSlugs": [
         "data-engineer-chiasso",
-        "data-ingenieur-chiasso"
+        "data-ingenieur-chiasso",
+        "data-ingegnere-chiasso"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -120,7 +121,7 @@
       "slugByLocale": {
         "it": "client-affiliation-partner-chiasso",
         "en": "client-affiliation-partner-lastminute-com-chiasso",
-        "de": "partner-fur-kundenaffiliation-lastminute-com-chiasso-us91lh",
+        "de": "partner-fur-kundenaffiliation-lastminute-com-chiasso",
         "fr": "partenaire-d-affiliation-client-lastminute-com-chiasso-us91lh"
       },
       "titleByLocale": {
@@ -148,7 +149,9 @@
       "addressLocality": "Chiasso",
       "country": "CH",
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "partner-fur-kundenaffiliation-lastminute-com-chiasso-us91lh"
+      ],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -165,11 +168,12 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-oltbp7",
-      "slug": "senior-frontend-software-ingegnere-chiasso",
+      "slug": "senior-frontend-software-ingegnere-lastminute-com-chiasso",
       "company": "lastminute.com",
       "title": "Senior Frontend Software Engineer",
       "location": "Chiasso",
@@ -197,7 +201,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-29T09:35:59.520Z",
       "slugByLocale": {
-        "it": "senior-frontend-software-ingegnere-chiasso",
+        "it": "senior-frontend-software-ingegnere-lastminute-com-chiasso",
         "en": "senior-frontend-software-engineer-chiasso",
         "de": "senior-frontend-software-ingenieur-chiasso",
         "fr": "senior-frontend-software-ingenieur-chiasso"
@@ -244,11 +248,14 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "senior-frontend-software-ingegnere-chiasso"
+      ]
     },
     {
       "id": "company-2oxpfe",
-      "slug": "global-payroll-risorse-umane-systems-manager-chiasso",
+      "slug": "responsabile-globale-di-payroll-e-sistemi-hr-lastminute-com-chiasso",
       "company": "lastminute.com",
       "title": "Global Payroll & HR Systems Manager",
       "location": "Chiasso",
@@ -275,7 +282,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-29T09:35:59.520Z",
       "slugByLocale": {
-        "it": "global-payroll-risorse-umane-systems-manager-chiasso",
+        "it": "responsabile-globale-di-payroll-e-sistemi-hr-lastminute-com-chiasso",
         "en": "global-payroll-hr-systems-manager-chiasso",
         "de": "global-payroll-personalwesen-systems-manager-chiasso",
         "fr": "global-payroll-ressources-humaines-systems-manager-chiasso"
@@ -321,11 +328,14 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "global-payroll-risorse-umane-systems-manager-chiasso"
+      ]
     },
     {
       "id": "company-o2ikw3",
-      "slug": "responsabile-data-platform-engineering-chiasso",
+      "slug": "responsabile-della-piattaforma-dati-lastminute-com-chiasso",
       "company": "lastminute.com",
       "title": "Head of Data Platform Engineering",
       "location": "Chiasso",
@@ -352,7 +362,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-29T09:35:59.520Z",
       "slugByLocale": {
-        "it": "responsabile-data-platform-engineering-chiasso",
+        "it": "responsabile-della-piattaforma-dati-lastminute-com-chiasso",
         "en": "head-of-data-platform-engineering-chiasso",
         "de": "leiter-data-platform-engineering-chiasso",
         "fr": "responsable-data-platform-engineering-chiasso"
@@ -398,11 +408,14 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "responsabile-data-platform-engineering-chiasso"
+      ]
     },
     {
       "id": "company-7h8fyq",
-      "slug": "software-ingegnere-etls-microservices-chiasso",
+      "slug": "ingegnere-del-software-etl-e-microservizi-lastminute-com-chiasso",
       "company": "lastminute.com",
       "title": "Software Engineer – ETLs & Microservices",
       "location": "Chiasso",
@@ -429,7 +442,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-29T09:35:59.520Z",
       "slugByLocale": {
-        "it": "software-ingegnere-etls-microservices-chiasso",
+        "it": "ingegnere-del-software-etl-e-microservizi-lastminute-com-chiasso",
         "en": "software-engineer-etls-microservices-chiasso",
         "de": "software-ingenieur-etls-microservices-chiasso",
         "fr": "software-ingenieur-etls-microservices-chiasso"
@@ -437,7 +450,7 @@
       "titleByLocale": {
         "en": "Software Engineer – ETLs & Microservices",
         "it": "Ingegnere del Software – ETL e Microservizi",
-        "de": "Softwareentwickler – ETLs & Microservices",
+        "de": "Software Ingenieur – ETLs & Microservices",
         "fr": "Ingénieur Logiciel – ETLs & Microservices"
       },
       "descriptionByLocale": {
@@ -475,11 +488,14 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "software-ingegnere-etls-microservices-chiasso"
+      ]
     },
     {
       "id": "company-u4v6wj",
-      "slug": "microsoft-business-central-specialista-chiasso",
+      "slug": "specialista-microsoft-business-central-lastminute-com-chiasso",
       "company": "lastminute.com",
       "title": "Microsoft Business Central Specialist",
       "location": "Chiasso",
@@ -506,7 +522,7 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-29T09:35:59.520Z",
       "slugByLocale": {
-        "it": "microsoft-business-central-specialista-chiasso",
+        "it": "specialista-microsoft-business-central-lastminute-com-chiasso",
         "en": "microsoft-business-central-specialist-chiasso",
         "de": "microsoft-business-central-spezialist-chiasso",
         "fr": "microsoft-business-central-specialiste-chiasso"
@@ -552,7 +568,10 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "microsoft-business-central-specialista-chiasso"
+      ]
     }
   ]
 }

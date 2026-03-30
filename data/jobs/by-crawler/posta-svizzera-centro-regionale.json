@@ -1,6 +1,6 @@
 {
   "crawlerKey": "posta-svizzera-centro-regionale",
-  "assembledAt": "2026-03-29T17:40:25.201Z",
+  "assembledAt": "2026-03-30T08:27:20.522Z",
   "jobs": [
     {
       "url": "https://job.post.ch/v2/job-vacancies/lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete/1fd4c0e6-d303-40dd-b365-6e59b3a1b2f7",
@@ -24,9 +24,9 @@
         "en": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)",
         "fr": "Lehre als Logistiker:in EFZ Distribution gemischte Zustellung (Briefe und Pakete)"
       },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-bellinz",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-bellinz",
         "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-ch-ag-davos-3xs4rq",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-ch-ag-davos-3xs4rq",
         "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-ch-ag-davos-3xs4rq"
@@ -65,7 +65,10 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "previousSlugs": [
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-post-ch-ag-davos"
+      ]
     },
     {
       "url": "https://job.post.ch/v2/job-vacancies/apprendistato-come-impiegata-impiegato-in-logistica-afc-distribuzione-recapito-pacchi/07a2d131-bd81-4d36-b1fd-e9cdd146665e",

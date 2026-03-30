@@ -1,10 +1,10 @@
 {
   "crawlerKey": "ibsa-institut-biochimique",
-  "assembledAt": "2026-03-29T17:40:25.163Z",
+  "assembledAt": "2026-03-30T08:27:20.189Z",
   "jobs": [
     {
       "id": "company-u6h437",
-      "slug": "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area-u6h437",
+      "slug": "tecnico-di-laboratorio-biochimico-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Biochemical Laboratory Technician",
       "location": "6814 Working Area",
@@ -34,8 +34,8 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area-u6h437",
-        "en": "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area",
+        "it": "tecnico-di-laboratorio-biochimico-ibsa-institut-biochimique-montagnola",
+        "en": "biochemical-laboratory-technician-ibsa-institut-biochimique-montagnola",
         "de": "biochemical-laboratory-techniker-ibsa-institut-biochimique-6814-working-area-u6h437",
         "fr": "biochemical-laboratory-technicien-ibsa-institut-biochimique-6814-working-area-u6h437"
       },
@@ -63,7 +63,10 @@
       },
       "country": "CH",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area-u6h437",
+        "biochemical-laboratory-technician-ibsa-institut-biochimique-6814-working-area"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -85,7 +88,7 @@
     },
     {
       "id": "company-dbsgw8",
-      "slug": "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area",
+      "slug": "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Customer & Business Support Specialist",
       "location": "6916 Working Area",
@@ -110,7 +113,7 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area",
+        "it": "specialista-supporto-clienti-e-business-ibsa-institut-biochimique-montagnola",
         "en": "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
         "de": "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
         "fr": "customer-business-support-specialiste-ibsa-institut-biochimique-6916-working-area-dbsgw8"
@@ -138,7 +141,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area-dbsgw8"
+        "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+        "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -161,7 +165,7 @@
     },
     {
       "id": "company-qjvtrm",
-      "slug": "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area",
+      "slug": "sap-master-data-specialista-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "SAP Master Data Specialist",
       "location": "6916 Working Area",
@@ -191,7 +195,7 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area",
+        "it": "sap-master-data-specialista-ibsa-institut-biochimique-montagnola",
         "en": "sap-master-data-specialist-ibsa-institut-biochimique-6916-working-area-qjvtrm",
         "de": "sap-master-data-spezialist-ibsa-institut-biochimique-6916-working-area-qjvtrm",
         "fr": "sap-master-data-specialiste-ibsa-institut-biochimique-6916-working-area-qjvtrm"
@@ -224,7 +228,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area-qjvtrm"
+        "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area-qjvtrm",
+        "sap-master-data-specialista-ibsa-institut-biochimique-6916-working-area"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -247,7 +252,7 @@
     },
     {
       "id": "company-q2u6mq",
-      "slug": "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
+      "slug": "specialista-categoria-acquisti-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Procurement Category Specialist",
       "location": "6916 Working Area",
@@ -270,8 +275,8 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
-        "en": "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area",
+        "it": "specialista-categoria-acquisti-ibsa-institut-biochimique-montagnola",
+        "en": "procurement-category-specialist-ibsa-institut-biochimique-montagnola",
         "de": "procurement-category-spezialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
         "fr": "procurement-category-specialiste-ibsa-institut-biochimique-6916-working-area-q2u6mq"
       },
@@ -292,7 +297,9 @@
       "sourceLang": "en",
       "previousSlugs": [
         "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area-q2u6mq",
-        "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq"
+        "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area-q2u6mq",
+        "procurement-category-specialista-ibsa-institut-biochimique-6916-working-area",
+        "procurement-category-specialist-ibsa-institut-biochimique-6916-working-area"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -315,7 +322,7 @@
     },
     {
       "id": "company-e3ivbg",
-      "slug": "meccatronico-ibsa-institut-biochimique-6912-working-area",
+      "slug": "meccatronico-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Meccatronico",
       "location": "6912 Working Area",
@@ -338,7 +345,7 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "meccatronico-ibsa-institut-biochimique-6912-working-area",
+        "it": "meccatronico-ibsa-institut-biochimique-montagnola",
         "en": "mechatronics-technician-ibsa-institut-biochimique-6912-working-area-e3ivbg",
         "de": "mechatroniker-ibsa-institut-biochimique-6912-working-area-e3ivbg",
         "fr": "technicien-en-mecatronique-ibsa-institut-biochimique-6912-working-area-e3ivbg"
@@ -359,7 +366,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg"
+        "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
+        "meccatronico-ibsa-institut-biochimique-6912-working-area"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -382,7 +390,7 @@
     },
     {
       "id": "company-toyw1a",
-      "slug": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
+      "slug": "ragioniere-maternita-sost-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Accounting Officer (sost. maternità)",
       "location": "6926 Working Area",
@@ -405,9 +413,9 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
+        "it": "ragioniere-maternita-sost-ibsa-institut-biochimique-montagnola",
         "en": "accounting-officer-maternity-leave-replacement-ibsa-institut-biochimique-6926-working-area-toyw1a",
-        "de": "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-6926-working-area-toyw1a",
+        "de": "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-montagnola",
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
       },
       "titleByLocale": {
@@ -442,11 +450,15 @@
       "addressLocality": "Montagnola",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
+        "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-6926-working-area-toyw1a"
+      ]
     },
     {
       "id": "company-dfoci7",
-      "slug": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area",
+      "slug": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "General Services & Plant Security Coordinator",
       "location": "6926 Working Area",
@@ -469,7 +481,7 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area",
+        "it": "general-services-plant-security-coordinatore-ibsa-institut-biochimique-montagnola",
         "en": "general-services-plant-security-coordinator-ibsa-institut-biochimique-6926-working-area-dfoci7",
         "de": "general-services-plant-security-koordinator-ibsa-institut-biochimique-6926-working-area-dfoci7",
         "fr": "general-services-plant-security-coordinateur-ibsa-institut-biochimique-6926-working-area-dfoci7"
@@ -491,7 +503,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area-dfoci7"
+        "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area-dfoci7",
+        "general-services-plant-security-coordinatore-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -514,7 +527,7 @@
     },
     {
       "id": "company-cohd02",
-      "slug": "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
+      "slug": "contractors-audits-specialista-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Contractors & Audits Specialist",
       "location": "13484 ecc) Ottima conoscenza della lingua inglese scritta e parlata Ottima conos",
@@ -537,8 +550,8 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
-        "en": "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla",
+        "it": "contractors-audits-specialista-ibsa-institut-biochimique-montagnola",
+        "en": "contractors-audits-specialist-ibsa-institut-biochimique-montagnola",
         "de": "contractors-audits-spezialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
         "fr": "contractors-audits-specialiste-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02"
       },
@@ -559,7 +572,9 @@
       "sourceLang": "it",
       "previousSlugs": [
         "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
-        "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02"
+        "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parlata-ottima-conos-cohd02",
+        "contractors-audits-specialista-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parl",
+        "contractors-audits-specialist-ibsa-institut-biochimique-13484-ecc-ottima-conoscenza-della-lingua-inglese-scritta-e-parla"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -582,7 +597,7 @@
     },
     {
       "id": "company-u9trv9",
-      "slug": "jr-et-t-qa-specialista-ibsa-institut-biochimique-6926-working-area",
+      "slug": "jr-et-t-qa-specialista-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Jr ET&T QA Specialist",
       "location": "6926 Working Area",
@@ -605,8 +620,8 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "jr-et-t-qa-specialista-ibsa-institut-biochimique-6926-working-area",
-        "en": "jr-et-t-qa-specialist-ibsa-institut-biochimique-6926-working-area",
+        "it": "jr-et-t-qa-specialista-ibsa-institut-biochimique-montagnola",
+        "en": "jr-et-t-qa-specialist-ibsa-institut-biochimique-montagnola",
         "de": "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area-u9trv9",
         "fr": "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area-u9trv9"
       },
@@ -629,7 +644,9 @@
         "jr-it-qa-specialista-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9",
         "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
         "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
-        "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9"
+        "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9",
+        "jr-et-t-qa-specialista-ibsa-institut-biochimique-6926-working-area",
+        "jr-et-t-qa-specialist-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
@@ -652,7 +669,7 @@
     },
     {
       "id": "company-2pgzo8",
-      "slug": "ot-security-specialista-ibsa-institut-biochimique-6926-working-area",
+      "slug": "ot-security-specialista-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "OT Security Specialist",
       "location": "6926 Working Area",
@@ -679,8 +696,8 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "ot-security-specialista-ibsa-institut-biochimique-6926-working-area",
-        "en": "ot-security-specialist-ibsa-institut-biochimique-6926-working-area",
+        "it": "ot-security-specialista-ibsa-institut-biochimique-montagnola",
+        "en": "ot-security-specialist-ibsa-institut-biochimique-montagnola",
         "de": "ot-security-spezialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
         "fr": "ot-security-specialiste-ibsa-institut-biochimique-6926-working-area-2pgzo8"
       },
@@ -710,7 +727,9 @@
       "sourceLang": "it",
       "previousSlugs": [
         "ot-security-specialista-ibsa-institut-biochimique-6926-working-area-2pgzo8",
-        "ot-security-specialist-ibsa-institut-biochimique-6926-working-area-2pgzo8"
+        "ot-security-specialist-ibsa-institut-biochimique-6926-working-area-2pgzo8",
+        "ot-security-specialista-ibsa-institut-biochimique-6926-working-area",
+        "ot-security-specialist-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -733,7 +752,7 @@
     },
     {
       "id": "company-399kaj",
-      "slug": "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-6926-working-area",
+      "slug": "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Jr Drug Safety Unit Specialist",
       "location": "6926 Working Area",
@@ -758,7 +777,7 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-6926-working-area",
+        "it": "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-montagnola",
         "en": "jr-drug-safety-unit-specialist-ibsa-institut-biochimique-6926-working-area-399kaj",
         "de": "jr-drug-safety-unit-spezialist-ibsa-institut-biochimique-6926-working-area-399kaj",
         "fr": "jr-drug-safety-unit-specialiste-ibsa-institut-biochimique-6926-working-area-399kaj"
@@ -786,7 +805,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-6926-working-area-399kaj"
+        "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-6926-working-area-399kaj",
+        "jr-drug-safety-unit-specialista-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 61000,
       "salaryMax": 83000,
@@ -809,7 +829,7 @@
     },
     {
       "id": "company-hkdc3x",
-      "slug": "application-specialista-ibsa-institut-biochimique-6926-working-area",
+      "slug": "application-specialista-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Application Specialist",
       "location": "6926 Working Area",
@@ -839,8 +859,8 @@
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-29T09:31:54.374Z",
       "slugByLocale": {
-        "it": "application-specialista-ibsa-institut-biochimique-6926-working-area",
-        "en": "application-specialist-ibsa-institut-biochimique-6926-working-area",
+        "it": "application-specialista-ibsa-institut-biochimique-montagnola",
+        "en": "application-specialist-ibsa-institut-biochimique-montagnola",
         "de": "application-spezialist-ibsa-institut-biochimique-6926-working-area-hkdc3x",
         "fr": "application-specialiste-ibsa-institut-biochimique-6926-working-area-hkdc3x"
       },
@@ -873,7 +893,9 @@
       "sourceLang": "it",
       "previousSlugs": [
         "application-specialista-ibsa-institut-biochimique-6926-working-area-hkdc3x",
-        "application-specialist-ibsa-institut-biochimique-6926-working-area-hkdc3x"
+        "application-specialist-ibsa-institut-biochimique-6926-working-area-hkdc3x",
+        "application-specialista-ibsa-institut-biochimique-6926-working-area",
+        "application-specialist-ibsa-institut-biochimique-6926-working-area"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,

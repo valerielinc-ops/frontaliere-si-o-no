@@ -1,10 +1,10 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-03-29T17:40:25.176Z",
+  "assembledAt": "2026-03-30T08:27:20.305Z",
   "jobs": [
     {
       "id": "company-komp69",
-      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
+      "slug": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-cadenazzo",
       "company": "Lidl Svizzera",
       "title": "Verkäufer / Verkäuferin mit Schichtverantwortung (m/w/d) 60-80%",
       "location": "St. Moritz",
@@ -27,9 +27,9 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
+        "it": "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-cadenazzo",
         "en": "sales-associate-with-shift-responsibility-m-f-d-60-80-lidl-svizzera-st-moritz",
-        "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
+        "de": "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-cadenazzo",
         "fr": "vendeur-vendeuse-avec-responsabilite-de-poste-h-f-d-60-80-lidl-svizzera-st-moritz"
       },
       "titleByLocale": {
@@ -50,7 +50,9 @@
       "sourceLang": "de",
       "previousSlugs": [
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz-komp69",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz-komp69"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz-komp69",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -98,7 +100,7 @@
       "slugByLocale": {
         "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-ancoue",
         "en": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-ancoue",
-        "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
+        "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-cadenazzo",
         "fr": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-ancoue"
       },
       "titleByLocale": {
@@ -117,7 +119,9 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -164,7 +168,7 @@
       "slugByLocale": {
         "it": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jc631q",
         "en": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jc631q",
-        "de": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
+        "de": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-cadenazzo",
         "fr": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jc631q"
       },
       "titleByLocale": {
@@ -183,7 +187,9 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {

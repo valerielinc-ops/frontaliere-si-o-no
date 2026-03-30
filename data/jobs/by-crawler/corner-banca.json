@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-03-29T17:40:25.086Z",
+  "assembledAt": "2026-03-30T08:27:19.335Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-lehre-corner-banca-switzerland",
+        "de": "selbststandige-bewerbung-fur-ein-lehrstellenangebot-corner-banca-switzerland",
         "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
@@ -71,15 +71,18 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland"
+      ]
     },
     {
       "id": "corner-banca-fe61b84a0935",
-      "slug": "employee-card-onboarding-corner-banca-lugano",
+      "slug": "onboarding-delle-carte-di-pagamento-corner-banca-lugano",
       "slugByLocale": {
-        "it": "employee-card-onboarding-corner-banca-lugano",
+        "it": "onboarding-delle-carte-di-pagamento-corner-banca-lugano",
         "en": "employee-card-onboarding-corner-banca-lugano",
-        "de": "onboarding-von-mitarbeiterkarten-corner-banca-lugano-a3j84m",
+        "de": "onboarding-von-mitarbeiterkarten-corner-banca-lugano",
         "fr": "onboarding-des-cartes-de-paiement-corner-banca-lugano-a3j84m"
       },
       "company": "Cornèr Banca",
@@ -136,7 +139,7 @@
       "sourceLang": "en",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano",
-        "employee-card-onboarding-corner-banca-lugano"
+        "onboarding-von-mitarbeiterkarten-corner-banca-lugano-a3j84m"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -157,9 +160,9 @@
     },
     {
       "id": "corner-banca-1d94a13bc883",
-      "slug": "customer-advisor-100-corner-banca-lugano",
+      "slug": "consulente-clienti-100-corner-banca-lugano",
       "slugByLocale": {
-        "it": "customer-advisor-100-corner-banca-lugano",
+        "it": "consulente-clienti-100-corner-banca-lugano",
         "en": "customer-advisor-100-corner-banca-lugano",
         "de": "customer-berater-100-corner-banca-lugano-ilhvni",
         "fr": "customer-conseiller-100-corner-banca-lugano-ilhvni"
@@ -169,7 +172,7 @@
       "companyDomain": "corner.ch",
       "title": "Customer Advisor 100%",
       "titleByLocale": {
-        "it": "Consulente clienti 100%",
+        "it": "Customer Consulente 100%",
         "en": "Customer Advisor 100%",
         "de": "Kundenberater 100%",
         "fr": "Conseiller clientèle 100%"
@@ -231,9 +234,7 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "crawledAt": "2026-03-29T09:17:16.333Z",
       "needsRetranslation": true,
-      "previousSlugs": [
-        "consulente-clienti-100-corner-banca-lugano"
-      ],
+      "previousSlugs": [],
       "sourceLang": "en",
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -254,9 +255,9 @@
     },
     {
       "id": "corner-banca-422277a6cd4c",
-      "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
+      "slug": "it-card-management-analista-specialista-corner-banca-lugano",
       "slugByLocale": {
-        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "it": "it-card-management-analista-specialista-corner-banca-lugano",
         "en": "it-card-management-analyst-specialist-corner-banca-lugano",
         "de": "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
         "fr": "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu"

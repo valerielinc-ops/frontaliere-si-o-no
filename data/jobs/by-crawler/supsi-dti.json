@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-03-29T17:40:25.226Z",
+  "assembledAt": "2026-03-30T08:27:20.879Z",
   "jobs": [
     {
       "id": "company-1r5lvl",
@@ -167,7 +167,7 @@
       "slugByLocale": {
         "it": "ricercatore-ricercatrice-con-phd-nell-area-di-ricerca-sistemi-intelligenti-supsi-dti-viganello",
         "en": "researcher-with-phd-in-the-research-area-of-intelligent-systems-supsi-dti-viganello",
-        "de": "forscher-mit-doktortitel-im-forschungsbereich-intelligente-systeme-supsi-dti-viganello-l4u52o",
+        "de": "forscher-mit-doktortitel-im-forschungsbereich-intelligente-systeme-supsi-dti-manno",
         "fr": "chercheur-titulaire-d-un-doctorat-dans-le-domaine-de-la-recherche-sur-les-systemes-intelligents-supsi-dti-viganello-l4u52o"
       },
       "titleByLocale": {
@@ -305,7 +305,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "ricercatore-ricercatrice-con-phd-nell-area-di-ricerca-sistemi-intelligenti-supsi-dti-viganello-l4u52o"
+        "ricercatore-ricercatrice-con-phd-nell-area-di-ricerca-sistemi-intelligenti-supsi-dti-viganello-l4u52o",
+        "forscher-mit-doktortitel-im-forschungsbereich-intelligente-systeme-supsi-dti-viganello-l4u52o"
       ]
     },
     {
@@ -461,7 +462,7 @@
       "slugByLocale": {
         "it": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il",
         "en": "department-collaborator-it-technician-or-it-collaborator-supsi-dti-locarno-entrata-in-servizio-il-l4ti31",
-        "de": "abteilungsmitarbeiter-it-techniker-oder-it-mitarbeiter-supsi-dti-locarno-entrata-in-servizio-il-l4ti31",
+        "de": "abteilungsmitarbeiter-it-techniker-oder-it-mitarbeiter-supsi-dti-manno",
         "fr": "collaborateur-de-service-technicien-informatique-ou-collaborateur-informatique-supsi-dti-locarno-entrata-in-servizio-il-l4ti31"
       },
       "titleByLocale": {
@@ -551,12 +552,13 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il-l4ti31"
+        "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il-l4ti31",
+        "abteilungsmitarbeiter-it-techniker-oder-it-mitarbeiter-supsi-dti-locarno-entrata-in-servizio-il-l4ti31"
       ]
     },
     {
       "id": "company-l4rl4k",
-      "slug": "assistente-con-master-in-idrologia-supsi-dti-mendrisio",
+      "slug": "assistente-con-master-in-idrologia-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Assistente con Master in idrologia",
       "location": "Mendrisio",
@@ -637,7 +639,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "assistente-con-master-in-idrologia-supsi-dti-mendrisio",
+        "it": "assistente-con-master-in-idrologia-supsi-dti-manno",
         "en": "assistant-with-master-s-degree-in-hydrology-supsi-dti-mendrisio-l4rl4k",
         "de": "assistent-mit-master-abschluss-in-hydrologie-supsi-dti-mendrisio-l4rl4k",
         "fr": "assistante-de-master-en-hydrologie-supsi-dti-mendrisio-l4rl4k"
@@ -668,7 +670,7 @@
     },
     {
       "id": "company-l4rl4l",
-      "slug": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
+      "slug": "dottorando-dottoranda-in-dinamica-dei-materiali-compositi-avanzati-per-droni-translation-dottoranda-dottorando-phd-stude",
       "company": "SUPSI / DTI",
       "title": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
       "location": "Mendrisio. Grado d",
@@ -767,16 +769,17 @@
         ]
       },
       "slugByLocale": {
-        "it": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
+        "it": "dottorando-dottoranda-in-dinamica-dei-materiali-compositi-avanzati-per-droni-translation-dottoranda-dottorando-phd-stude",
         "en": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
-        "de": "dottoranda-dottorando-in-dinamica-der-zusammengesetzten-materialien-fur-drohnen-supsi-dti-mendrisio-grado-d-l4rl4l",
+        "de": "dottoranda-dottorando-in-dinamica-der-zusammengesetzten-materialien-fur-drohnen-supsi-dti-manno",
         "fr": "dottoranda-dottorando-in-dinamica-dei-materials-compositi-avanzati-per-dronei-supsi-dti-mendrisio-grado-d-l4rl4l"
       },
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
         "phd-student-in-dynamic-of-advanced-composite-materials-for-drones-supsi-dti-mendrisio-grado-d",
-        "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
+        "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
+        "dottoranda-dottorando-in-dinamica-der-zusammengesetzten-materialien-fur-drohnen-supsi-dti-mendrisio-grado-d-l4rl4l"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -831,12 +834,12 @@
       "slugByLocale": {
         "it": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
         "en": "apprentice-social-educator-afc-address-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
-        "de": "ausbildung-in-der-sozialpadagogik-afc-adresse-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
+        "de": "ausbildung-in-der-sozialpadagogik-afc-adresse-infanzia-supsi-dti-manno",
         "fr": "apprenti-educateur-social-afc-adresse-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj"
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
-        "en": "Apprentice Social Educator AFC, Address Infanzia",
+        "en": "Apprentice Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
         "de": "Ausbildung in der Sozialpädagogik AFC, Adresse Infanzia",
         "fr": "Apprenti éducateur social AFC, adresse Infanzia"
       },
@@ -887,7 +890,8 @@
         "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-vig",
         "apprentice-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
         "lernende-r-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
-        "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj"
+        "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
+        "ausbildung-in-der-sozialpadagogik-afc-adresse-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj"
       ],
       "salaryMin": 61000,
       "salaryMax": 83000,
@@ -910,7 +914,7 @@
     },
     {
       "id": "company-l4u53f",
-      "slug": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano",
+      "slug": "dottorando-dottorando-nella-modellistica-molecolare-dei-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Dottoranda / Dottorando in modellazione molecolare di materiali per l’energia e la sostenibilità",
       "location": "Lugano",
@@ -942,7 +946,7 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-03-29T09:55:00.510Z",
       "slugByLocale": {
-        "it": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano",
+        "it": "dottorando-dottorando-nella-modellistica-molecolare-dei-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-manno",
         "en": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f",
         "de": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f",
         "fr": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f"
@@ -1021,7 +1025,10 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano"
+      ]
     },
     {
       "id": "company-hm5vuy",
@@ -1062,7 +1069,7 @@
       "slugByLocale": {
         "it": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
         "en": "manager-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy",
-        "de": "verantwortlicher-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy",
+        "de": "verantwortlicher-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno",
         "fr": "responsable-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
       },
       "titleByLocale": {
@@ -1152,7 +1159,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
+        "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy",
+        "verantwortlicher-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
       ]
     },
     {
@@ -1194,8 +1202,8 @@
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
-        "en": "Apprentice IT Operator AFC",
-        "de": "Auszubildende IT-Operatorin/Auszubildender IT-Operator AFC",
+        "en": "Apprentice Operatrice Informatica / Operatore Informatico AFC",
+        "de": "Lernende/r Operatrice Informatica / Operatore Informatico AFC",
         "fr": "Apprenti Opérateur IT AFC"
       },
       "descriptionByLocale": {

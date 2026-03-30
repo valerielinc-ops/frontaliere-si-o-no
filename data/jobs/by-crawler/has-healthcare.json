@@ -1,6 +1,6 @@
 {
   "crawlerKey": "has-healthcare",
-  "assembledAt": "2026-03-29T17:40:25.159Z",
+  "assembledAt": "2026-03-30T08:27:20.137Z",
   "jobs": [
     {
       "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
@@ -93,8 +93,8 @@
         "fr": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: HSE Specialist.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Scuola Universitaria Professionale\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera"
       },
       "slugByLocale": {
-        "it": "hse-specialista-has-healthcare-advanced-synthesis-biasca",
-        "en": "hse-specialist-has-healthcare-advanced-synthesis-biasca",
+        "it": "hse-specialista-has-healthcare-advanced-synthesis-lugano",
+        "en": "hse-specialist-has-healthcare-advanced-synthesis-lugano",
         "de": "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
         "fr": "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa"
       },
@@ -103,13 +103,15 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "hse-specialista-has-healthcare-advanced-synthesis-biasca",
+      "slug": "hse-specialista-has-healthcare-advanced-synthesis-lugano",
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
         "hse-specialist-has-healthcare",
-        "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa"
+        "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa",
+        "hse-specialista-has-healthcare-advanced-synthesis-biasca",
+        "hse-specialist-has-healthcare-advanced-synthesis-biasca"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -159,7 +161,7 @@
         "fr": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Assistente di Produzione.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera"
       },
       "slugByLocale": {
-        "it": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+        "it": "assistente-di-produzione-has-healthcare-advanced-synthesis-lugano",
         "en": "assistente-di-production-has-healthcare-advanced-synthesis-biasca-068qb5",
         "de": "assistente-di-produktion-has-healthcare-advanced-synthesis-biasca-068qb5",
         "fr": "assistente-di-production-has-healthcare-advanced-synthesis-biasca-068qb5"
@@ -169,13 +171,14 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+      "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-lugano",
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
         "assistente-di-produzione-has-healthcare",
-        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
+        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -226,7 +229,7 @@
       },
       "slugByLocale": {
         "it": "production-manager-has-healthcare",
-        "en": "production-manager-has-healthcare-advanced-synthesis-biasca",
+        "en": "production-manager-has-healthcare-advanced-synthesis-lugano",
         "de": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2",
         "fr": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2"
       },
@@ -239,7 +242,9 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "production-manager-has-healthcare-advanced-synthesis-biasca"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",

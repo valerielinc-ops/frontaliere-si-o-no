@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-03-29T17:40:25.260Z",
+  "assembledAt": "2026-03-30T08:27:21.215Z",
   "jobs": [
     {
       "id": "company-84ss1r",
@@ -42,13 +42,12 @@
       "slugByLocale": {
         "it": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
         "en": "network-specialist-professional-swiss-armed-forces-vtg-locarno-84ss1r",
-        "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
+        "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-bellinzona",
         "fr": "specialiste-specialiste-de-reseau-professionnel-swiss-armed-forces-vtg-locarno-84ss1r"
       },
       "sourceLang": "de",
       "previousSlugs": [
-        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
+        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -67,11 +66,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-h0fllu",
-      "slug": "operatore-in-support-swiss-armed-forces-vtg-rivera",
+      "slug": "operatore-operatrice-supporto-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Operator/-in Support",
       "location": "Rivera",
@@ -94,15 +94,15 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
-        "it": "operatore-in-support-swiss-armed-forces-vtg-rivera",
-        "en": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
+        "it": "operatore-operatrice-supporto-swiss-armed-forces-vtg-bellinzona",
+        "en": "operator-in-support-swiss-armed-forces-vtg-bellinzona",
         "de": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "fr": "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       },
       "titleByLocale": {
         "en": "Operator/-in Support",
         "it": "Operatore/Operatrice Supporto",
-        "fr": "Opérateur/Opératrice Support",
+        "fr": "Opérateur/-in Support",
         "de": "Operator/-in Support"
       },
       "descriptionByLocale": {
@@ -115,7 +115,8 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
-        "operator-in-support-swiss-armed-forces-vtg-rivera"
+        "operator-in-support-swiss-armed-forces-vtg-rivera",
+        "operatore-in-support-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -138,7 +139,7 @@
     },
     {
       "id": "company-pgxuq4",
-      "slug": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
+      "slug": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Fachspezialist/-in HR",
       "location": "Monteceneri",
@@ -161,9 +162,9 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
-        "it": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
+        "it": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bellinzona",
         "en": "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri-pgxuq4",
-        "de": "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri",
+        "de": "fachspezialist-in-hr-swiss-armed-forces-vtg-bellinzona",
         "fr": "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-monteceneri-pgxuq4"
       },
       "titleByLocale": {
@@ -198,11 +199,15 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
+        "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri"
+      ]
     },
     {
       "id": "company-cbcaem",
-      "slug": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
+      "slug": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Leiter/-in Führungs- und Informationssysteme",
       "location": "Rivera",
@@ -225,9 +230,9 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
-        "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
+        "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-bellinzona",
         "en": "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera",
-        "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
+        "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-bellinzona",
         "fr": "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
@@ -248,7 +253,8 @@
       "previousSlugs": [
         "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
         "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera",
-        "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera"
+        "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
+        "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -271,7 +277,7 @@
     },
     {
       "id": "company-d62hnl",
-      "slug": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
+      "slug": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
       "location": "Ambrì",
@@ -294,7 +300,7 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
-        "it": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
+        "it": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
         "en": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
         "de": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
         "fr": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl"
@@ -331,11 +337,14 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri"
+      ]
     },
     {
       "id": "company-cn6k0h",
-      "slug": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera",
+      "slug": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
       "location": "Rivera",
@@ -358,7 +367,7 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
-        "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera",
+        "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-bellinzona",
         "en": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
         "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
         "fr": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
@@ -381,7 +390,8 @@
       "previousSlugs": [
         "apprendista-meccatronico-automobilistico-efz-settore-veicoli-personali-swiss-armed-forces-vtg-rivera",
         "apprentice-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
-        "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
+        "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
+        "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -404,7 +414,7 @@
     },
     {
       "id": "company-pm28ek",
-      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
+      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-bellinzona",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
       "location": "Claro (TI)",
@@ -427,7 +437,7 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
-        "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
+        "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-bellinzona",
         "en": "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
         "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
         "fr": "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti"
@@ -449,10 +459,9 @@
       "sourceLang": "de",
       "previousSlugs": [
         "apprendista-a-in-trasporto-stradale-efz-swiss-armed-forces-vtg-claro-ti",
-        "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
-        "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti",
         "apprentice-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
-        "apprenti-e-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
+        "apprenti-e-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
+        "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,

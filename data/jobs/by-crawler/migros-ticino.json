@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-03-29T17:40:25.193Z",
+  "assembledAt": "2026-03-30T08:27:20.405Z",
   "jobs": [
     {
       "id": "company-nlbz63",
@@ -246,7 +246,7 @@
       "slugByLocale": {
         "it": "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w",
         "en": "private-client-consultant-all-genders-banca-migros-lugano-cewp3w",
-        "de": "privatkundenberater-alle-geschlechter-banca-migros-lugano-cewp3w",
+        "de": "privatkundenberater-alle-geschlechter-banca-migros-bellinzona",
         "fr": "conseiller-clients-prives-tous-genres-banca-migros-lugano-cewp3w"
       },
       "titleByLocale": {
@@ -296,7 +296,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
+        "privatkundenberater-alle-geschlechter-banca-migros-lugano-cewp3w"
       ]
     },
     {
@@ -496,7 +496,7 @@
     },
     {
       "id": "company-f777jb",
-      "slug": "gerente-denner-sa-biasca",
+      "slug": "gerente-denner-sa-bellinzona",
       "company": "Denner SA",
       "title": "Gerente",
       "location": "Biasca",
@@ -542,7 +542,7 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-03-29T09:39:37.856Z",
       "slugByLocale": {
-        "it": "gerente-denner-sa-biasca",
+        "it": "gerente-denner-sa-bellinzona",
         "en": "gerente-denner-sa-biasca-f777jb",
         "de": "gerente-denner-sa-biasca-f777jb",
         "fr": "gerente-denner-sa-biasca-f777jb"
@@ -589,7 +589,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "gerente-denner-sa-biasca"
+      ]
     }
   ]
 }

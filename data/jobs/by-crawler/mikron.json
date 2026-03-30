@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-03-29T17:31:30.034Z",
+  "assembledAt": "2026-03-30T08:27:20.434Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/assistente-alla-vendita-madrelingua-tedesca-sales-assistant",
@@ -21,7 +21,7 @@
         "fr": "Description Apply Division Tool Function Sales/Marketing Related location Suisse, Agno More than Tools Mikron Tool est leader international dans le développement et la production d'outils de découpe de métal. Nous sommes une entreprise suisse en croissance continue, enthousiaste à l'égard de l'innovation et de la technologie. Nous nous spécialisons dans la production d'outils de haute performance de petite et moyenne taille pour le traitement de matériaux difficiles tels que l'acier inoxydable, les alliages résistants à la chaleur et le titane. Dans l'un des centres technologiques les plus modernes pour la micromécanique, des processus de traitement globaux sont également développés - y compris dans le cadre de projets clients. Grâce à notre savoir-faire, nous développons des solutions de traitement durables, efficaces et un peu \"folles\" avec une valeur ajoutée élevée pour les clients. Pour notre siège d'Agno, canton du Tessin, nous recherchons un assistant commercial locuteur natif allemand (Sales Assistant) ## Tâches - Fournir un service rapide et de haute qualité aux clients d'outils de découpe de précision - Service d'information et de support pour les clients, les représentants et les distributeurs. - Traiter les commandes, les confirmer et les facturer via le système SAP - Initier et traiter les documents d'expédition nationaux et internationaux - Assister à la maintenance du système CRM - Assister au processus de collecte de paiement en collaboration avec le département comptabilité - Traiter les demandes de matériel de marketing - Commander des fournitures de bureau et gérer les stocks - Assister le personnel commercial et technique dans la planification des voyages - Assister à la traduction et à la révision de textes en allemand ## Exigences - Diplôme commercial AFC ou titre équivalent - Résidence dans le canton du Tessin est une qualification préférée - Locuteur natif allemand et excellente maîtrise de l'italien et de l'anglais, à la fois écrit et parlé - Connaissance des systèmes de gestion, de préférence SAP, CRM et autres - Intérêt et inclination pour les sujets techniques avec d'excellentes compétences en communication - Capacité à travailler de manière autonome et bonnes compétences en organisation ## Ce que nous offrons - Partie d'un groupe suisse fort avec orientation internationale - Culture d'entreprise positive avec esprit d'équipe fort - Lieu de travail orienté vers l'avenir avec des tâches variées et stimulantes - Introduction complète et ciblée avec un feedback continu - Possibilité de participer activement aux optimisations opérationnelles - Rémunération intéressante et excellentes prestations sociales ## Contact"
       },
       "titleByLocale": {
-        "en": "Sales Assistant Native German Speaker",
+        "en": "Assistente alla Sales madrelingua tedesca (Sales Assistant)",
         "it": "Assistente alla vendita madrelingua tedesca (Sales Assistant)",
         "de": "Vertriebsassistent Muttersprache Deutsch",
         "fr": "Assistant Commercial Locuteur Natif Allemand"
@@ -63,7 +63,8 @@
         "sales-assistant-native-german-speaker-mikron-group-agno-aaibc9",
         "assistente-alla-vendita-madrelingua-tedesca-sales-assistent-mikron-group-agno-aaibc9",
         "assistant-commercial-locuteur-natif-allemand-mikron-group-agno-aaibc9"
-      ]
+      ],
+      "sourceLang": "it"
     },
     {
       "url": "https://www.mikron.com/en/manufacturing-methodology-engineer",
@@ -89,10 +90,10 @@
         "de": "Fertigungsmethodik-Ingenieur",
         "fr": "Manufacturing Methodology Ingénieur"
       },
-      "slug": "manufacturing-methodology-engineer-mikron",
+      "slug": "ingegnere-di-metodologia-di-manifattura-mikron-group-agno",
       "slugByLocale": {
-        "en": "manufacturing-methodology-engineer-mikron-group-agno-3tvznr",
-        "it": "manufacturing-methodology-engineer-mikron",
+        "en": "manufacturing-methodology-engineer-mikron-group-agno",
+        "it": "ingegnere-di-metodologia-di-manifattura-mikron-group-agno",
         "de": "manufacturing-methodology-ingenieur-mikron-group-agno-3tvznr",
         "fr": "manufacturing-methodology-ingenieur-mikron-group-agno-3tvznr"
       },
@@ -122,8 +123,10 @@
         }
       },
       "previousSlugs": [
-        "manufacturing-methodology-engineer-mikron"
-      ]
+        "manufacturing-methodology-engineer-mikron",
+        "manufacturing-methodology-engineer-mikron-group-agno-3tvznr"
+      ],
+      "sourceLang": "fr"
     },
     {
       "url": "https://www.mikron.com/en/customer-deliveries-analyst",
@@ -145,15 +148,15 @@
       },
       "titleByLocale": {
         "en": "Customer Deliveries Analyst",
-        "it": "Analista Consegne Clienti",
+        "it": "Customer Deliveries Analista",
         "fr": "Analyste des livraisons clients",
         "de": "Kundenlieferungsanalyst"
       },
-      "slug": "customer-deliveries-analyst-mikron",
+      "slug": "analista-consegne-clienti-mikron-group-agno",
       "slugByLocale": {
-        "en": "customer-deliveries-analyst-mikron-group-agno-0schrr",
-        "it": "customer-deliveries-analyst-mikron",
-        "de": "kundenlieferungsanalyst-mikron-group-agno-0schrr",
+        "en": "customer-deliveries-analyst-mikron-group-agno",
+        "it": "analista-consegne-clienti-mikron-group-agno",
+        "de": "kundenlieferungsanalyst-mikron-group-agno",
         "fr": "customer-deliveries-analyste-mikron-group-agno-0schrr"
       },
       "category": "general",
@@ -183,8 +186,10 @@
       },
       "previousSlugs": [
         "customer-deliveries-analyst-mikron-group-agno-0schrr",
-        "customer-deliveries-analyst-mikron"
-      ]
+        "customer-deliveries-analyst-mikron",
+        "kundenlieferungsanalyst-mikron-group-agno-0schrr"
+      ],
+      "sourceLang": "fr"
     },
     {
       "url": "https://www.mikron.com/en/technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes",
@@ -210,10 +215,10 @@
         "it": "Tecnico informatico industriale DUAL 60% collaboratore e 40% studente al CPNE (3 posti disponibili, anno scolastico 2026)",
         "de": "Industrieller IT-Techniker DUAL 60% Mitarbeiter & 40% Student am CPNE (3 offene Stellen, Schuljahr 2026)"
       },
-      "slug": "technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes-",
+      "slug": "tecnico-informatico-industriale-dual-60-collaboratore-e-40-studente-al-cpne-3-posti-disponibili-anno-scolastico-2026-mik",
       "slugByLocale": {
         "en": "industrial-it-technician-dual-60-collaborator-40-student-at-cpne-3-positions-available-school-year-2026-mikron-group-agno-xto3ay",
-        "it": "technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes-",
+        "it": "tecnico-informatico-industriale-dual-60-collaboratore-e-40-studente-al-cpne-3-posti-disponibili-anno-scolastico-2026-mik",
         "de": "industrieller-it-techniker-dual-60-mitarbeiter-40-student-am-cpne-3-offene-stellen-schuljahr-2026-mikron-group-agno-xto3ay",
         "fr": "technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes-a-repourvoir-annee-scolaire-2026-mikron-group-agno-xto3ay"
       },
@@ -241,7 +246,11 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceLang": "fr",
+      "previousSlugs": [
+        "technicien-en-informatique-industriels-dual-60-collaborateur-40-etudiant-au-cpne-3-postes-"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-repourvoir",
@@ -267,10 +276,10 @@
         "it": "Tecnico di sistemi industriali DUAL 60% collaboratore e 40% studente al CPNE (5 posti disponibili, anno scolastico 2026)",
         "de": "Techniker für industrielle Systeme DUAL 60% Mitarbeiter & 40% Student am CPNE (5 offene Stellen, Schuljahr 2026)"
       },
-      "slug": "technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-a-re",
+      "slug": "tecnico-di-sistemi-industriali-dual-60-collaboratore-e-40-studente-al-cpne-5-posti-disponibili-anno-scolastico-2026-mikr",
       "slugByLocale": {
         "en": "industrial-systems-technician-dual-60-collaborator-40-student-at-cpne-5-positions-available-school-year-2026-mikron-group-agno-9w6ihd",
-        "it": "technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-a-re",
+        "it": "tecnico-di-sistemi-industriali-dual-60-collaboratore-e-40-studente-al-cpne-5-posti-disponibili-anno-scolastico-2026-mikr",
         "de": "techniker-fur-industrielle-systeme-dual-60-mitarbeiter-40-student-am-cpne-5-offene-stellen-schuljahr-2026-mikron-group-agno-9w6ihd",
         "fr": "technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-a-repourvoir-annee-scolaire-2026-mikron-group-agno-9w6ihd"
       },
@@ -298,7 +307,11 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceLang": "fr",
+      "previousSlugs": [
+        "technicien-en-systemes-industriels-dual-60-collaborateur-40-etudiant-au-cpne-5-postes-a-re"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/internal-machining-manager-mwd",
@@ -324,10 +337,10 @@
         "de": "Leiter der internen Bearbeitung (m/w/d)",
         "fr": "Responsable de l'usinage interne (m/w/d)"
       },
-      "slug": "internal-machining-manager-m-w-d-mikron",
+      "slug": "responsabile-della-lavorazione-interna-m-w-d-mikron-group-agno",
       "slugByLocale": {
-        "en": "internal-machining-manager-m-w-d-mikron-group-agno-lula68",
-        "it": "internal-machining-manager-m-w-d-mikron",
+        "en": "internal-machining-manager-m-w-d-mikron-group-agno",
+        "it": "responsabile-della-lavorazione-interna-m-w-d-mikron-group-agno",
         "de": "leiter-der-internen-bearbeitung-m-w-d-mikron-group-agno-lula68",
         "fr": "responsable-de-l-usinage-interne-m-w-d-mikron-group-agno-lula68"
       },
@@ -359,7 +372,8 @@
       "previousSlugs": [
         "internal-machining-manager-m-w-d-mikron-group-agno-lula68",
         "internal-machining-manager-m-w-d-mikron"
-      ]
+      ],
+      "sourceLang": "en"
     },
     {
       "url": "https://www.mikron.com/en/quality-technician-specialist-mfd",
@@ -385,10 +399,10 @@
         "de": "Qualitätstechniker Spezialist (m/w/d)",
         "fr": "Qualité Technicien Spécialiste (m/f/d)"
       },
-      "slug": "quality-technician-specialist-m-f-d-mikron",
+      "slug": "specialista-tecnico-qualita-m-f-mikron-group-agno",
       "slugByLocale": {
-        "en": "quality-technician-specialist-m-f-d-mikron-group-agno-z8zhnv",
-        "it": "quality-technician-specialist-m-f-d-mikron",
+        "en": "quality-technician-specialist-m-f-d-mikron-group-agno",
+        "it": "specialista-tecnico-qualita-m-f-mikron-group-agno",
         "de": "qualitat-techniker-spezialist-m-f-d-mikron-group-agno-z8zhnv",
         "fr": "qualite-technicien-specialiste-m-f-d-mikron-group-agno-z8zhnv"
       },
@@ -418,8 +432,11 @@
         }
       },
       "previousSlugs": [
-        "quality-technician-specialist-m-f-d-mikron"
-      ]
+        "quality-technician-specialist-m-f-d-mikron",
+        "quality-technician-specialist-m-f-d-mikron-group-agno-z8zhnv"
+      ],
+      "sourceLang": "fr",
+      "needsRetranslation": true
     },
     {
       "url": "https://www.mikron.com/en/apprendisti-mfd",
@@ -445,10 +462,10 @@
         "de": "Auszubildende (m/w/d)",
         "fr": "Apprentis (m/f/d)"
       },
-      "slug": "apprendisti-m-f-d-mikron",
+      "slug": "apprendisti-m-f-d-mikron-group-agno",
       "slugByLocale": {
         "en": "apprentices-m-f-d-mikron-group-agno-3l34ew",
-        "it": "apprendisti-m-f-d-mikron",
+        "it": "apprendisti-m-f-d-mikron-group-agno",
         "de": "auszubildende-m-w-d-mikron-group-agno-3l34ew",
         "fr": "apprentis-m-f-d-mikron-group-agno-3l34ew"
       },
@@ -465,7 +482,8 @@
       "crawledAt": "",
       "requirementsByLocale": {},
       "previousSlugs": [
-        "apprendisti-m-f-d-mikron-group-agno-3l34ew"
+        "apprendisti-m-f-d-mikron-group-agno-3l34ew",
+        "apprendisti-m-f-d-mikron"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -479,7 +497,8 @@
           "maxValue": 62500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceLang": "it"
     },
     {
       "url": "https://www.mikron.com/en/formateur-dapprentissage-pour-former-les-apprentis-polymecaniciens",
@@ -505,10 +524,10 @@
         "it": "Formatore di apprendistato per polimecanicisti",
         "de": "Ausbilder für Polymekanik"
       },
-      "slug": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
+      "slug": "formatore-di-apprendistato-per-polimecanicisti-mikron-group-agno",
       "slugByLocale": {
-        "en": "apprentice-trainer-for-polymecanicists-mikron-group-agno-7wsa9s",
-        "it": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
+        "en": "apprentice-trainer-for-polymecanicists-mikron-group-agno",
+        "it": "formatore-di-apprendistato-per-polimecanicisti-mikron-group-agno",
         "de": "ausbilder-fur-polymekanik-mikron-group-agno-7wsa9s",
         "fr": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron-group-agno-7wsa9s"
       },
@@ -536,7 +555,12 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceLang": "fr",
+      "previousSlugs": [
+        "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
+        "apprentice-trainer-for-polymecanicists-mikron-group-agno-7wsa9s"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/motion-control-software-engineer-mfd",
@@ -559,13 +583,13 @@
       "titleByLocale": {
         "en": "Motion Control Software Engineer (m/f/d)",
         "it": "Ingegnere del software di controllo del movimento (m/f/d)",
-        "de": "Motion Control Software-Ingenieur (m/f/d)",
+        "de": "Motion Control Software Ingenieur (m/f/d)",
         "fr": "Ingénieur logiciel de contrôle de mouvement (m/f/d)"
       },
-      "slug": "motion-control-software-engineer-m-f-d-mikron",
+      "slug": "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
       "slugByLocale": {
         "en": "motion-control-software-engineer-m-f-d-mikron-group-agno-y9v6ol",
-        "it": "motion-control-software-engineer-m-f-d-mikron",
+        "it": "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
         "de": "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol",
         "fr": "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol"
       },
@@ -596,7 +620,8 @@
       },
       "previousSlugs": [
         "motion-control-software-engineer-m-f-d-mikron"
-      ]
+      ],
+      "sourceLang": "en"
     }
   ]
 }

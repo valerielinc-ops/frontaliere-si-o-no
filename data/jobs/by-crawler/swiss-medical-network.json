@@ -1,6 +1,6 @@
 {
   "crawlerKey": "swiss-medical-network",
-  "assembledAt": "2026-03-29T17:31:30.070Z",
+  "assembledAt": "2026-03-30T08:27:20.889Z",
   "jobs": [
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116962250-tecnico-di-sala-operatoria",
@@ -23,13 +23,13 @@
       "titleByLocale": {
         "en": "Operating Room Technician",
         "it": "Tecnico di sala operatoria",
-        "de": "Operationstechniker",
+        "de": "Techniker di sala operatoria",
         "fr": "Technicien de salle d'opération"
       },
-      "slug": "tecnico-di-sala-operatoria-swiss-medical-network",
+      "slug": "tecnico-di-sala-operatoria-swiss-medical-network-sorengo",
       "slugByLocale": {
         "en": "technician-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz",
-        "it": "tecnico-di-sala-operatoria-swiss-medical-network",
+        "it": "tecnico-di-sala-operatoria-swiss-medical-network-sorengo",
         "de": "techniker-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz",
         "fr": "technicien-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz"
       },
@@ -62,8 +62,10 @@
         "tecnico-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz",
         "operating-room-technician-swiss-medical-network-sorengo-yvycgz",
         "operationstechniker-swiss-medical-network-sorengo-yvycgz",
-        "technicien-de-salle-d-operation-swiss-medical-network-sorengo-yvycgz"
-      ]
+        "technicien-de-salle-d-operation-swiss-medical-network-sorengo-yvycgz",
+        "tecnico-di-sala-operatoria-swiss-medical-network"
+      ],
+      "sourceLang": "it"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116579987-medico-assistente-in-formazione-in-chirurgia",
@@ -93,7 +95,7 @@
       "slugByLocale": {
         "en": "surgical-assistant-in-training-swiss-medical-network-sorengo-nlgzvp",
         "it": "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network",
-        "de": "assistenzarzt-in-chirurgieausbildung-swiss-medical-network-sorengo-nlgzvp",
+        "de": "assistenzarzt-in-chirurgieausbildung-swiss-medical-network-sorengo",
         "fr": "assistant-medical-en-formation-en-chirurgie-swiss-medical-network-sorengo-nlgzvp"
       },
       "category": "medical",
@@ -122,8 +124,10 @@
         }
       },
       "previousSlugs": [
-        "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network-sorengo-nlgzvp"
-      ]
+        "medico-assistente-in-formazione-in-chirurgia-swiss-medical-network-sorengo-nlgzvp",
+        "assistenzarzt-in-chirurgieausbildung-swiss-medical-network-sorengo-nlgzvp"
+      ],
+      "sourceLang": "it"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000116187012-medico-ospedaliero",
@@ -149,11 +153,11 @@
         "de": "Krankenhausarzt",
         "fr": "Médecin Hospitalier"
       },
-      "slug": "medico-ospedaliero-swiss-medical-network",
+      "slug": "medico-ospedaliero-swiss-medical-network-sorengo",
       "slugByLocale": {
         "en": "hospital-doctor-swiss-medical-network-sorengo-soxdzh",
-        "it": "medico-ospedaliero-swiss-medical-network",
-        "de": "krankenhausarzt-swiss-medical-network-sorengo-soxdzh",
+        "it": "medico-ospedaliero-swiss-medical-network-sorengo",
+        "de": "krankenhausarzt-swiss-medical-network-sorengo",
         "fr": "medecin-hospitalier-swiss-medical-network-sorengo-soxdzh"
       },
       "category": "medical",
@@ -182,8 +186,11 @@
         }
       },
       "previousSlugs": [
-        "medico-ospedaliero-swiss-medical-network-sorengo-soxdzh"
-      ]
+        "medico-ospedaliero-swiss-medical-network-sorengo-soxdzh",
+        "medico-ospedaliero-swiss-medical-network",
+        "krankenhausarzt-swiss-medical-network-sorengo-soxdzh"
+      ],
+      "sourceLang": "it"
     },
     {
       "url": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000113431836-collaboratore-hr",
@@ -207,12 +214,12 @@
         "en": "HR Collaborator",
         "it": "Collaboratore HR",
         "de": "HR-Mitarbeiter",
-        "fr": "Collaborateur RH"
+        "fr": "Collaboratore Ressources Humaines"
       },
-      "slug": "collaboratore-hr-swiss-medical-network",
+      "slug": "collaboratore-hr-swiss-medical-network-lugano",
       "slugByLocale": {
         "en": "hr-collaborator-swiss-medical-network-lugano-gca7b9",
-        "it": "collaboratore-hr-swiss-medical-network",
+        "it": "collaboratore-hr-swiss-medical-network-lugano",
         "de": "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9",
         "fr": "collaboratore-ressources-humaines-swiss-medical-network-lugano-gca7b9"
       },
@@ -240,7 +247,11 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceLang": "it",
+      "previousSlugs": [
+        "collaboratore-hr-swiss-medical-network"
+      ]
     }
   ]
 }

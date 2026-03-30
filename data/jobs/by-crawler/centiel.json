@@ -1,10 +1,10 @@
 {
   "crawlerKey": "centiel",
-  "assembledAt": "2026-03-29T17:40:25.051Z",
+  "assembledAt": "2026-03-30T08:27:18.791Z",
   "jobs": [
     {
       "title": "Application Engineer – critical power",
-      "slug": "application-ingegnere-critical-power-centiel-lugano",
+      "slug": "ingegnere-applicativo-potenza-critica-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2026/02/2026.02-JD-EG-ApplicationEngineer.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -38,13 +38,15 @@
         "fr": "Nous recherchons un ingénieur d'application motivé et techniquement solide pour les systèmes électriques critiques. Dans ce rôle, vous soutiendrez notre équipe commerciale en concevant et en configurant des solutions d'onduleurs et de protection électrique, en fournissant des conseils techniques aux clients et en vous coordonnant étroitement avec les équipes internes tout au long du cycle de vie du projet, de l'appel d'offres à la mise en œuvre. Vous serez impliqué dès les premières discussions avant-vente jusqu’au devis, à l’exécution du projet et au support après-vente, contribuant directement à la satisfaction du client et à la croissance de l’activité mondiale des centres de données de Centiel. Lieu de travail : Cadro (Lugano), avec déplacements occasionnels Relevant de : VP Data Center Solutions – Critical Power"
       },
       "slugByLocale": {
-        "it": "application-ingegnere-critical-power-centiel-lugano",
+        "it": "ingegnere-applicativo-potenza-critica-centiel-lugano",
         "en": "application-engineer-critical-power-centiel-ticino",
         "de": "application-ingenieur-critical-power-centiel-lugano",
         "fr": "application-ingenieur-critical-power-centiel-lugano"
       },
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "application-ingegnere-critical-power-centiel-lugano"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -63,7 +65,7 @@
     },
     {
       "title": "Research & Development Engineer",
-      "slug": "ricerca-development-ingegnere-centiel-lugano",
+      "slug": "ingegnere-di-ricerca-e-sviluppo-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -97,14 +99,15 @@
         "fr": "Pour renforcer l'innovation de nos produits, nous recherchons un Ingnieur de Recherche et Dveloppement avec des expertises solides en contrle lectronique de puissance et systmes embarqus pour des produits industriels hauts rendements (UPS ou similaires). Vous tes un ingnieur pratique avec des aptitudes analytiques fortes et une pratique de laboratoire, capable de concevoir, d'implmenter et de valider des algorithmes de contrle et du firmware/hardware embarqu, en travaillant en tanche avec la Production, la Qualit et les Services Aprs-Vente pour livrer des fonctionnalits robustes sur le march. Lieu de travail : Cadro (Lugano), avec des voyages occasionnels Rfrence : Head of R&D Heure de travail : 100%"
       },
       "slugByLocale": {
-        "it": "ricerca-development-ingegnere-centiel-lugano",
+        "it": "ingegnere-di-ricerca-e-sviluppo-centiel-lugano",
         "en": "research-development-engineer-centiel-lugano",
         "de": "forschung-development-ingenieur-centiel-lugano",
         "fr": "recherche-development-ingenieur-centiel-lugano"
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "research-development-engineer-centiel-ticino"
+        "research-development-engineer-centiel-ticino",
+        "ricerca-development-ingegnere-centiel-lugano"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -124,7 +127,7 @@
     },
     {
       "title": "Sales – 3-phase UPS Channel Partners Manager",
-      "slug": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
+      "slug": "vendite-responsabile-dei-partner-di-canale-ups-trifase-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/10/2025.10-JD-EG-Sales-Manager-Channel-Partners.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -158,7 +161,7 @@
         "fr": "Pour soutenir notre expansion mondiale, nous recherchons un responsable des ventes – UPS Channel Partners Manager avec une expérience avérée dans la gestion des canaux B2B et une solide compréhension du marché des UPS triphasés et de la protection électrique. Le candidat idéal combine un sens commercial, des compétences en matière d'établissement de relations et des connaissances techniques pour stimuler la croissance grâce à notre réseau international de distributeurs et de revendeurs. Lieu de travail : Cadro (Lugano), Suisse Relève du : Directeur des ventes mondiales Taux de travail : 100 %"
       },
       "slugByLocale": {
-        "it": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
+        "it": "vendite-responsabile-dei-partner-di-canale-ups-trifase-centiel-lugano",
         "en": "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57",
         "de": "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57",
         "fr": "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57"
@@ -178,11 +181,14 @@
         }
       },
       "streetAddress": "Via Luserte 11",
-      "postalCode": "6572"
+      "postalCode": "6572",
+      "previousSlugs": [
+        "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
+      ]
     },
     {
       "title": "After-Sales Technician",
-      "slug": "after-sales-technician-centiel-ticino",
+      "slug": "tecnico-post-vendita-centiel-lugano",
       "url": "https://www.centiel.com/wp-content/uploads/2025/05/Job_profile_After_Sales_Technician.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -206,7 +212,7 @@
       "titleByLocale": {
         "en": "After-Sales Technician",
         "it": "Tecnico Post Vendita",
-        "de": "After-Sales-Techniker",
+        "de": "After-Sales Techniker",
         "fr": "Technicien SAV"
       },
       "descriptionByLocale": {
@@ -216,13 +222,15 @@
         "fr": "Technicien après-vente — Centiel, Cadro (Lugano), Canton du Tessin, Suisse. Rattaché à : Responsable Après-Vente. Pour accompagner notre croissance et renforcer notre service après-vente, nous recherchons un technicien après-vente motivé et compétent, doté d'une solide formation technique et d'un état d'esprit centré sur le client. Lieu de travail : Cadro (Lugano), Suisse Relevant de : Responsable après-vente Centiel est une société suisse dont le siège est à Cadro (Lugano), spécialisée dans la conception et la fabrication de systèmes d'alimentation sans coupure (UPS) et de solutions de protection électrique. La société développe une technologie UPS modulaire triphasée innovante pour les applications critiques, notamment les centres de données, les hôpitaux, les installations industrielles et les infrastructures de télécommunications. Les produits Centiel sont connus pour leur haute efficacité, leur fiabilité et leur évolutivité, au service de clients dans toute l'Europe et dans le monde. Lieu de travail : Cadro (Lugano), Suisse, Via alla Stampa 15, CH-6965. Postulez via : https://www.centiel.com/careers/"
       },
       "slugByLocale": {
-        "it": "after-sales-technician-centiel-ticino",
+        "it": "tecnico-post-vendita-centiel-lugano",
         "en": "after-sales-technician-centiel-lugano",
         "de": "after-sales-techniker-centiel-lugano",
         "fr": "after-sales-technicien-centiel-lugano"
       },
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "after-sales-technician-centiel-ticino"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
