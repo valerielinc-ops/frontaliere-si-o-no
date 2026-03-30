@@ -11,6 +11,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 
@@ -178,9 +179,7 @@ async function main() {
 
   // Write per-crawler slices for each Swatch sub-company and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _allJobsRaw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const _allJobsRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const _allJobs = Array.isArray(_allJobsRaw) ? _allJobsRaw : [];
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);

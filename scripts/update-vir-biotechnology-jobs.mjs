@@ -19,7 +19,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
+import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset, readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseGreenhouseJobs, slugify, normalizeSpace, GREENHOUSE_API, inferEmploymentType } from './lib/vir-biotechnology-job-parser.mjs';
@@ -134,7 +135,7 @@ function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$
 function filterEmpty(obj = {}) { if (!obj || typeof obj !== 'object') return {}; const out = {}; for (const [k, v] of Object.entries(obj)) { if (v && String(v).trim()) out[k] = v; } return out; }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isVirJob(j));
   const existingByUrl = new Map();

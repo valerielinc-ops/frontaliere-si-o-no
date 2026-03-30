@@ -36,6 +36,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -438,9 +439,7 @@ function jobMatchKey(job) {
 }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonTargetJobs = allJobs.filter((j) => !isTargetJob(j));
@@ -708,9 +707,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTargetJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

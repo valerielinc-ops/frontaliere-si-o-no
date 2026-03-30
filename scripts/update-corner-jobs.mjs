@@ -25,6 +25,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -275,9 +276,7 @@ function writeJobsFiles(jobs) {
 }
 
 function mergeParsedCornerJobs(parsedJobs) {
-  const existing = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonCorner = allJobs.filter((job) => !isCornerJob(job));
 
@@ -386,9 +385,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCornerJob) : [];
   writeJobsCrawlerSlice(CORNER_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

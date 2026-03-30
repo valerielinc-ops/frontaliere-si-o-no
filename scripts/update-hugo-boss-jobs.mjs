@@ -19,7 +19,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
+import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset, readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSearchPage, isHugoBossTargetLocation, buildDetailUrl, detectCategory, detectExperienceLevel, inferEmploymentType } from './lib/hugo-boss-job-parser.mjs';
@@ -118,7 +119,7 @@ async function fetchJobs() {
 function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); } }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isCompanyJob(j));
   const existingByUrl = new Map();
@@ -165,13 +166,13 @@ async function main() {
 
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_HUGO_BOSS_STRICT', label: COMPANY_NAME, dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_hugoboss_domain', failWhenNoJobs: false });
 
-  const afterSnapshot = snapshotJobSlugs((fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : []).filter(isCompanyJob));
+  const afterSnapshot = snapshotJobSlugs((readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob));
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, COMPANY_NAME);
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
 
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceJobs = (fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : []).filter(isCompanyJob);
+  const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: _sliceJobs.length, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: _sliceJobs.slice(0, 30) });
   await assembleJobsDataset();

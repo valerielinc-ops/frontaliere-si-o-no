@@ -26,6 +26,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { parseRivopharmJobs, slugify, normalizeSpace, htmlToText } from './lib/rivopharm-job-parser.mjs';
@@ -224,9 +225,7 @@ function filterEmpty(obj = {}) {
 }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isRivopharmJob(j));
   const existingCompanyJobs = allJobs.filter(isRivopharmJob);
@@ -428,7 +427,7 @@ async function main() {
   console.log('\n✅ Rivopharm SA crawler complete.');
 
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isRivopharmJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

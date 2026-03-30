@@ -40,6 +40,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { parseTichDetailPage, titleOverlap, MIN_TICH_DESC_LENGTH } from './lib/tich-job-parser.mjs';
@@ -737,9 +738,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTichJob) : [];
   writeJobsCrawlerSlice(TICH_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

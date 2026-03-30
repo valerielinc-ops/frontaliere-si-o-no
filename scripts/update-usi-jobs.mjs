@@ -36,6 +36,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
@@ -778,9 +779,7 @@ function canonicalizeUrl(url = '') {
  * - Removes stale USI jobs no longer on the listing page
  */
 async function mergeUsiJobs(discoveredJobs) {
-  const existing = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   // Separate USI jobs from other companies
@@ -1336,9 +1335,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS)
-    ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'))
-    : [];
+  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isUsiJob) : [];
   writeJobsCrawlerSlice(USI_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

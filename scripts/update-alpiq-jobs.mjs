@@ -11,7 +11,8 @@ import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
+import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset, readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug } from './lib/dedicated-crawler-common.mjs';
 import { fetchAlpiqListingPages, slugify, inferEmploymentType } from './lib/alpiq-job-parser.mjs';
 
@@ -42,7 +43,7 @@ function writeJobsFiles(jobs) {
 }
 
 function mergeCompanyJobs(parsedJobs) {
-  const existing = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
   const byUrl = new Map();
@@ -98,7 +99,7 @@ async function main() {
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_ALPIQ_STRICT', label: 'Alpiq', dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, failOnMissingJobsFile: true, failWhenNoJobs: true, noJobsMessage: 'No Alpiq jobs found.', detectSourceLang: (t) => detectLang(t, 'en'), deriveSlug: deriveLocalizedSlug });
 
   const dur = getCrawlerElapsedMs();
-  const sr = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const sr = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const sj = Array.isArray(sr) ? sr.filter(isCompanyJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, sj);
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Alpiq', generatedAt: new Date().toISOString(), total: sj.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: sj.length, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: sj.slice(0, 30) });

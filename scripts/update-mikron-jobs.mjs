@@ -13,7 +13,8 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
-import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset } from './assemble-jobs-dataset.mjs';
+import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice, assembleJobsDataset, readExistingCrawlerJobs,
+} from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseMikronJobs, parseMikronJobDetail, slugify, normalizeSpace, htmlToText, MIKRON_AGNO_URL, MIKRON_HOST } from './lib/mikron-job-parser.mjs';
@@ -163,7 +164,7 @@ function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$
 function filterEmpty(obj = {}) { if (!obj || typeof obj !== 'object') return {}; const out = {}; for (const [k, v] of Object.entries(obj)) { if (v && String(v).trim()) out[k] = v; } return out; }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCompanyJobs = allJobs.filter((j) => !isMikronJob(j));
   const existingByUrl = new Map();
@@ -225,7 +226,7 @@ async function main() {
     if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); }
   }
 
-  const finalJobs = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isMikronJob);
   console.log(`\n📊 Mikron Agno jobs: ${companyJobs.length}`);
   printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs)), 'Mikron');

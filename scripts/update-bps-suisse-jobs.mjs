@@ -30,6 +30,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -378,7 +379,7 @@ async function main() {
   console.log(`✅ ${BPS_COMPANY_NAME} crawler complete.`);
 
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
+  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isBpsJob) : [];
   writeJobsCrawlerSlice(BPS_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
