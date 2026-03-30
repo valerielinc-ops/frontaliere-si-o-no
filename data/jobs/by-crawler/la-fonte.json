@@ -33,9 +33,9 @@
       },
       "slugByLocale": {
         "it": "un-a-infermiere-a-50-60-a-fonte-3-fondazione-la-fonte-lugano",
-        "en": "un-a-infermiere-a-50-60-a-fonte-3-fondazione-la-fonte-neggio-xkmz1p",
-        "de": "un-a-infermiere-a-50-60-a-fonte-3-fondazione-la-fonte-neggio-xkmz1p",
-        "fr": "un-a-infermiere-a-50-60-a-fonte-3-fondazione-la-fonte-neggio-xkmz1p"
+        "en": "nurse-50-60-at-fonte-3-fondazione-la-fonte-neggio",
+        "de": "pflegefachfrau-pflegefachmann-50-60-bei-fonte-3-fondazione-la-fonte-neggio",
+        "fr": "infirmiere-infirmier-50-60-a-fonte-3-fondazione-la-fonte-neggio"
       },
       "_targetScope": {
         "canton": "TI",
@@ -46,7 +46,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "un-a-infermiere-a-50-60-a-fonte-3-la-fonte-neggio",
-        "un-a-infermiere-a-50-60-a-fonte-3-fondazione-la-fonte-neggio"
+        "un-a-infermiere-a-50-60-a-fonte-3-fondazione-la-fonte-neggio",
+        "un-a-infermiere-a-50-60-a-fonte-3-fondazione-la-fonte-neggio-xkmz1p"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -98,9 +99,9 @@
       },
       "slugByLocale": {
         "it": "un-a-operatore-trice-socioassistenziale-60-a-fonte-6-la-fonte-agno",
-        "en": "social-assistance-worker-60-at-fonte-6-fondazione-la-fonte-agno",
-        "de": "sozialarbeiter-in-60-in-fonte-6-fondazione-la-fonte-agno",
-        "fr": "assistant-e-socio-educatif-ve-60-a-fonte-6-fondazione-la-fonte-agno"
+        "en": "social-care-worker-60-at-fonte-6-fondazione-la-fonte-agno",
+        "de": "sozialhelfer-in-60-bei-fonte-6-fondazione-la-fonte-agno",
+        "fr": "travailleur-trice-de-soins-sociaux-60-a-fonte-6-fondazione-la-fonte-agno"
       },
       "_targetScope": {
         "canton": "TI",
@@ -126,7 +127,12 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "previousSlugs": [
+        "social-assistance-worker-60-at-fonte-6-fondazione-la-fonte-agno",
+        "sozialarbeiter-in-60-in-fonte-6-fondazione-la-fonte-agno",
+        "assistant-e-socio-educatif-ve-60-a-fonte-6-fondazione-la-fonte-agno"
+      ]
     },
     {
       "title": "Stagiaire",
@@ -159,8 +165,8 @@
       },
       "slugByLocale": {
         "it": "apprendistato-fondazione-la-fonte-lugano",
-        "en": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
-        "de": "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss",
+        "en": "intern-fondazione-la-fonte-luganese-malcantone",
+        "de": "praktikant-fondazione-la-fonte-luganese-malcantone",
         "fr": "stagiaire-fondazione-la-fonte-lugano"
       },
       "_targetScope": {
@@ -173,7 +179,8 @@
       "previousSlugs": [
         "apprendistato-fondazione-la-fonte-luganese-malcantone",
         "stagiaire-la-fonte-luganese-malcantone",
-        "stagiaire-fondazione-la-fonte-luganese-malcantone"
+        "stagiaire-fondazione-la-fonte-luganese-malcantone",
+        "stagiaire-fondazione-la-fonte-luganese-malcantone-v4gbss"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -225,7 +232,7 @@
       },
       "slugByLocale": {
         "it": "apprendisti-e-operatori-trici-socioassistenziali-afc-la-fonte-lugano-neggio",
-        "en": "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio",
+        "en": "apprentices-social-care-assistants-afc-fondazione-la-fonte-lugano-neggio",
         "de": "ausbildungsplatz-sozialpfleger-in-afc-fondazione-la-fonte-lugano",
         "fr": "apprenti-e-operateur-trice-socio-assistanciale-afc-fondazione-la-fonte-lugano-neggio"
       },
@@ -238,7 +245,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "ausbildung-zum-zur-sozialassistenzfachmann-frau-afc-fondazione-la-fonte-lugano-neggio",
-        "apprendisti-e-operatori-trici-socioassistenziali-afc-fondazione-la-fonte-lugano-neggio"
+        "apprendisti-e-operatori-trici-socioassistenziali-afc-fondazione-la-fonte-lugano-neggio",
+        "apprentice-socio-assistential-worker-afc-fondazione-la-fonte-lugano-neggio"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,

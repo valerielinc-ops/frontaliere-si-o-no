@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
-        "en": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano-4vyc5f",
-        "de": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano-4vyc5f",
-        "fr": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano-4vyc5f"
+        "en": "team-assistant-internship-3-6-months-lugano-ticino-premium-properties-sa-lugano",
+        "de": "praktikum-als-teamassistent-3-6-monate-lugano-ticino-premium-properties-sa-lugano",
+        "fr": "stage-d-assistant-d-equipe-3-6-mois-lugano-ticino-premium-properties-sa-lugano"
       },
       "salaryMin": 48000,
       "salaryMax": 65000,
@@ -57,7 +57,10 @@
         }
       },
       "streetAddress": "Via Nassa 17",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "previousSlugs": [
+        "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano-4vyc5f"
+      ]
     },
     {
       "title": "Immobilienberater/in 100 % | Ascona",

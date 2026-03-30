@@ -32,9 +32,9 @@
       },
       "slugByLocale": {
         "it": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-gottardo",
-        "en": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-dimostrativo-del-gottardo-sa-airolo-t918b2",
-        "de": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-dimostrativo-del-gottardo-sa-airolo-t918b2",
-        "fr": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-dimostrativo-del-gottardo-sa-airolo-t918b2"
+        "en": "apprentices-for-dairy-technologist-training-afc-caseificio-dimostrativo-del-gottardo-sa-airolo",
+        "de": "ausbildungsstellen-fur-die-ausbildung-zum-milchtechnologen-afc-caseificio-dimostrativo-del-gottardo-sa-airolo",
+        "fr": "apprentis-pour-la-formation-de-technologue-du-lait-afc-caseificio-dimostrativo-del-gottardo-sa-airolo"
       },
       "_targetScope": {
         "canton": "TI",
@@ -61,7 +61,10 @@
       "postalCode": "6780",
       "addressLocality": "Airolo",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "previousSlugs": [
+        "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-dimostrativo-del-gottardo-sa-airolo-t918b2"
+      ]
     },
     {
       "title": "Offerta di impiego quale Aiuto tecnologo del latte / Aiuto Casaro",
@@ -93,9 +96,9 @@
       },
       "slugByLocale": {
         "it": "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-gottardo",
-        "en": "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-dimostrativo-del-gottardo-sa-airolo-e85xoh",
-        "de": "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-dimostrativo-del-gottardo-sa-airolo-e85xoh",
-        "fr": "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-dimostrativo-del-gottardo-sa-airolo-e85xoh"
+        "en": "milk-technology-assistant-cheese-assistant-caseificio-dimostrativo-del-gottardo-sa-airolo",
+        "de": "molkereitechnologe-hilfskasemeister-caseificio-dimostrativo-del-gottardo-sa-airolo",
+        "fr": "technologue-lait-assistant-fromager-caseificio-dimostrativo-del-gottardo-sa-airolo"
       },
       "_targetScope": {
         "canton": "TI",
@@ -122,7 +125,10 @@
       "postalCode": "6780",
       "addressLocality": "Airolo",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "previousSlugs": [
+        "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-dimostrativo-del-gottardo-sa-airolo-e85xoh"
+      ]
     }
   ]
 }

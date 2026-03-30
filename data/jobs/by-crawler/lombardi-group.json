@@ -99,12 +99,14 @@
       },
       "slugByLocale": {
         "it": "progettista-tecnico-rvcs-m-f-x-lombardi-group-giubiasco",
-        "en": "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
+        "en": "rvcs-designer-technician-lombardi-group-giubiasco",
         "de": "progettista-techniker-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
-        "fr": "progettista-technicien-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy"
+        "fr": "conceptionneur-technicien-rvcs-lombardi-group-giubiasco"
       },
       "previousSlugs": [
-        "progettista-tecnico-rvcs-m-f-x-lombardi-giubiasco"
+        "progettista-tecnico-rvcs-m-f-x-lombardi-giubiasco",
+        "progettista-technician-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy",
+        "progettista-technicien-rvcs-m-f-x-lombardi-group-giubiasco-22ucgy"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -160,8 +162,8 @@
       },
       "slugByLocale": {
         "it": "ingegnere-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-giubiasco",
-        "en": "engineer-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-group-giubiasco-22rlvg",
-        "de": "ingenieur-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-group-giubiasco-22rlvg",
+        "en": "hydro-mechanical-engineer-power-sector-lombardi-group-giubiasco",
+        "de": "hydro-mechaniker-stromsektor-lombardi-group-giubiasco",
         "fr": "ingenieur-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-group-giubiasco-22rlvg"
       },
       "salaryMin": 72000,
@@ -179,7 +181,11 @@
       },
       "streetAddress": "Via Arch. Frizzi 15",
       "postalCode": "6648",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "engineer-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-group-giubiasco-22rlvg",
+        "ingenieur-idromeccanico-settore-idroelettrico-luogo-di-lavoro-italia-milano-o-roma-o-torino-lombardi-group-giubiasco-22rlvg"
+      ]
     },
     {
       "title": "Apprendista Disegnatore ingegneria civile AFC (M/F/X)",
@@ -219,7 +225,7 @@
       "slugByLocale": {
         "it": "apprendista-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-giubiasco",
         "en": "apprentice-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-group-giubiasco-22qcpn",
-        "de": "lernende-r-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-group-giubiasco-22qcpn",
+        "de": "praktikant-fur-ingenieurbauzeichnung-afc-m-f-x-lombardi-group-giubiasco",
         "fr": "apprenti-e-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-group-giubiasco-22qcpn"
       },
       "salaryMin": 46500,
@@ -236,7 +242,10 @@
         }
       },
       "streetAddress": "Via Arch. Frizzi 15",
-      "postalCode": "6648"
+      "postalCode": "6648",
+      "previousSlugs": [
+        "lernende-r-disegnatore-ingegneria-civile-afc-m-f-x-lombardi-group-giubiasco-22qcpn"
+      ]
     },
     {
       "title": "Ingegnere di progetto (M/F/X)",
@@ -275,12 +284,14 @@
       },
       "slugByLocale": {
         "it": "ingegnere-di-progetto-m-f-x-lombardi-group-giubiasco",
-        "en": "engineer-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq",
-        "de": "ingenieur-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq",
+        "en": "project-engineer-m-f-x-lombardi-group-giubiasco",
+        "de": "projekt-ingenieur-m-f-x-lombardi-group-giubiasco",
         "fr": "ingenieur-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq"
       },
       "previousSlugs": [
-        "ingegnere-di-progetto-m-f-x-lombardi-giubiasco"
+        "ingegnere-di-progetto-m-f-x-lombardi-giubiasco",
+        "engineer-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq",
+        "ingenieur-di-progetto-m-f-x-lombardi-group-giubiasco-pdpprq"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -396,11 +407,13 @@
       },
       "slugByLocale": {
         "it": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-group-giubiasco",
-        "en": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco",
-        "de": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco",
-        "fr": "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco"
+        "en": "civil-engineering-designer-m-f-x-lombardi-group-giubiasco",
+        "de": "bauzeichner-m-f-x-lombardi-group-giubiasco",
+        "fr": "dessinateur-en-genie-civil-m-f-x-lombardi-group-giubiasco"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "disegnatore-di-ingegneria-civile-m-f-x-lombardi-giubiasco"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -454,8 +467,8 @@
       },
       "slugByLocale": {
         "it": "ingegnere-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-giubiasco",
-        "en": "engineer-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco-lfqhcy",
-        "de": "ingenieur-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco-lfqhcy",
+        "en": "chief-project-engineer-in-the-safety-and-operation-section-m-f-x-lombardi-group-giubiasco",
+        "de": "projektleiter-im-bereich-sicherheit-und-betrieb-m-f-x-lombardi-group-giubiasco",
         "fr": "ingenieur-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco-lfqhcy"
       },
       "salaryMin": 72000,
@@ -472,7 +485,11 @@
         }
       },
       "streetAddress": "Via Arch. Frizzi 15",
-      "postalCode": "6648"
+      "postalCode": "6648",
+      "previousSlugs": [
+        "engineer-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco-lfqhcy",
+        "ingenieur-capo-progetto-nella-sezione-sicurezza-ed-esercizio-m-f-x-lombardi-group-giubiasco-lfqhcy"
+      ]
     }
   ]
 }

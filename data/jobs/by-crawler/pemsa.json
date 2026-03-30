@@ -939,7 +939,7 @@
       "slugByLocale": {
         "it": "impiegato-in-logistica-afc-pemsa-castione",
         "en": "employee-in-logistics-afc-pemsa-castione-ux0jiu",
-        "de": "angestellter-in-logistik-afc-pemsa-castione-ux0jiu",
+        "de": "logistikmitarbeiter-afc-pemsa-castione",
         "fr": "employe-in-logistique-afc-pemsa-castione-ux0jiu"
       },
       "salaryMin": 58000,
@@ -956,7 +956,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "angestellter-in-logistik-afc-pemsa-castione-ux0jiu"
+      ]
     },
     {
       "title": "Macchinista",

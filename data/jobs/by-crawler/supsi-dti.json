@@ -37,9 +37,9 @@
       "crawledAt": "2026-03-29T09:55:00.510Z",
       "slugByLocale": {
         "it": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-mendrisio",
-        "en": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-mendrisio-1r5lvl",
+        "en": "assistant-with-bachelor-or-master-for-the-degree-course-in-architecture-supsi-dti-mendrisio",
         "de": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-mendrisio-1r5lvl",
-        "fr": "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-mendrisio-1r5lvl"
+        "fr": "assistant-en-licence-ou-en-master-pour-le-cursus-diplomant-en-architecture-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Bachelor o Master per il Corso di laurea in Architettura",
@@ -114,7 +114,10 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-dti-mendrisio-1r5lvl"
+      ]
     },
     {
       "id": "company-l4u52o",
@@ -834,8 +837,8 @@
       "slugByLocale": {
         "it": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
         "en": "apprentice-social-care-worker-afc-early-childhood-address-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
-        "de": "ausbildung-in-der-sozialpadagogik-afc-adresse-infanzia-supsi-dti-manno",
-        "fr": "apprenti-educateur-social-afc-adresse-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj"
+        "de": "praktikantin-praktikant-fur-sozialpflege-afc-fruhkindliche-anschrift-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
+        "fr": "apprentie-apprenti-pour-le-travail-social-afc-adresse-de-l-enfance-supsi-dti-usi-supsinido-del-campus-est-di-viganello"
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
@@ -892,7 +895,9 @@
         "lernende-r-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
         "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
         "ausbildung-in-der-sozialpadagogik-afc-adresse-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
-        "apprentice-social-educator-afc-address-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj"
+        "apprentice-social-educator-afc-address-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
+        "ausbildung-in-der-sozialpadagogik-afc-adresse-infanzia-supsi-dti-manno",
+        "apprenti-educateur-social-afc-adresse-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj"
       ],
       "salaryMin": 61000,
       "salaryMax": 83000,
@@ -1311,9 +1316,9 @@
       "crawledAt": "2026-03-29T09:55:00.510Z",
       "slugByLocale": {
         "it": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino",
-        "en": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z",
-        "de": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z",
-        "fr": "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z"
+        "en": "general-competition-educational-staff-early-childhood-service-2026-supsi-dti-ticino",
+        "de": "allgemeiner-wettbewerb-padagogisches-personal-fruhpadagogischer-dienst-2026-supsi-dti-ticino",
+        "fr": "concours-general-personnel-educatif-service-petite-enfance-2026-supsi-dti-ticino"
       },
       "titleByLocale": {
         "it": "Concorso generale / Personale educativo Servizio prima infanzia 2026",
@@ -1388,7 +1393,10 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "concorso-generale-personale-educativo-servizio-prima-infanzia-2026-supsi-dti-ticino-l4ti2z"
+      ]
     }
   ]
 }

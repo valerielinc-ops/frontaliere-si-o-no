@@ -7,9 +7,9 @@
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "en": "spontaneous-application-for-apprenticeship-corner-banca-switzerland",
         "de": "selbststandige-bewerbung-fur-ein-lehrstellenangebot-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "fr": "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -73,7 +73,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland"
+        "initiativbewerbung-lehre-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland"
       ]
     },
     {
@@ -163,7 +164,7 @@
       "slugByLocale": {
         "it": "customer-consulente-100-corner-banca-lugano",
         "en": "customer-advisor-100-corner-banca-lugano",
-        "de": "customer-berater-100-corner-banca-lugano-ilhvni",
+        "de": "kundenberater-100-corner-banca-lugano",
         "fr": "customer-conseiller-100-corner-banca-lugano-ilhvni"
       },
       "company": "Cornèr Banca",
@@ -234,7 +235,8 @@
       "crawledAt": "2026-03-29T09:17:16.333Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "consulente-clienti-100-corner-banca-lugano"
+        "consulente-clienti-100-corner-banca-lugano",
+        "customer-berater-100-corner-banca-lugano-ilhvni"
       ],
       "sourceLang": "en",
       "salaryMin": 54000,
@@ -260,7 +262,7 @@
       "slugByLocale": {
         "it": "analista-specialista-it-per-la-gestione-delle-carte-corner-banca-lugano",
         "en": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "de": "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu",
+        "de": "it-kartenverwaltungsanalyst-spezialist-corner-banca-lugano",
         "fr": "it-card-management-analyste-specialiste-corner-banca-lugano-331bdu"
       },
       "company": "Cornèr Banca",
@@ -301,7 +303,8 @@
       "crawledAt": "2026-03-29T09:17:16.333Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
-        "it-card-management-analista-specialista-corner-banca-lugano"
+        "it-card-management-analista-specialista-corner-banca-lugano",
+        "it-card-management-analyst-spezialist-corner-banca-lugano-331bdu"
       ],
       "sourceLang": "en",
       "salaryMin": 72500,
@@ -327,8 +330,8 @@
       "slugByLocale": {
         "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
         "en": "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano-h1bnmt",
-        "de": "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano-h1bnmt",
-        "fr": "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano-h1bnmt"
+        "de": "assistent-fur-logistikdienstleistungen-technisches-buro-corner-banca-lugano",
+        "fr": "assistant-e-des-services-logistiques-bureau-technique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -419,7 +422,11 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano-h1bnmt",
+        "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano-h1bnmt"
+      ]
     },
     {
       "id": "corner-banca-363ccb9527a5",

@@ -29,8 +29,8 @@
       "slugByLocale": {
         "it": "responsabile-service-center-ticino-f-m-d-coop-castione-ticino-45zfce",
         "en": "responsabile-service-center-ticino-f-m-d-coop-genossenschaft-castione-45zfce",
-        "de": "responsabile-service-center-ticino-f-m-d-coop-genossenschaft-castione-45zfce",
-        "fr": "responsabile-service-center-ticino-f-m-d-coop-genossenschaft-castione-45zfce"
+        "de": "leiter-service-center-tessin-m-w-d-coop-genossenschaft-castione",
+        "fr": "responsable-service-center-tessin-f-m-j-coop-genossenschaft-castione"
       },
       "titleByLocale": {
         "it": "Responsabile Service Center Ticino (f/m/d)",
@@ -60,7 +60,8 @@
       },
       "sourceLang": "it",
       "previousSlugs": [
-        "responsabile-service-center-ticino-f-m-d-coop-castione-ticino"
+        "responsabile-service-center-ticino-f-m-d-coop-castione-ticino",
+        "responsabile-service-center-ticino-f-m-d-coop-genossenschaft-castione-45zfce"
       ]
     },
     {
@@ -103,9 +104,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
-        "en": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-0jqltq",
-        "de": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-0jqltq",
-        "fr": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-0jqltq"
+        "en": "fitter-trice-of-sanitary-facilities-for-kitchens-bathrooms-fust-swiss-household-services-ag-bellinzona",
+        "de": "installateur-in-von-sanitaranlagen-fur-kuchen-bader-fust-swiss-household-services-ag-bellinzona",
+        "fr": "monteur-trice-d-installations-sanitaires-pour-cuisines-et-salles-de-bains-fust-swiss-household-services-ag-bellinzona"
       },
       "addressLocality": "Bellinzona",
       "salaryMin": 80000,
@@ -121,7 +122,8 @@
         }
       },
       "previousSlugs": [
-        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino"
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino",
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-swiss-household-services-ag-bellinzona-0jqltq"
       ],
       "sourceLang": "it"
     },
@@ -288,9 +290,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-a-prodotti-freschi-frutta-verdura-coop-genossenschaft-ilanz-glion",
-        "en": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-ilanz-glion-h7g6s6",
+        "en": "salesperson-fresh-produce-fruit-vegetable-coop-genossenschaft-ilanz-glion",
         "de": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-ilanz-glion-h7g6s6",
-        "fr": "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-ilanz-glion-h7g6s6"
+        "fr": "vendeur-vendeuse-produits-frais-fruits-legumes-coop-genossenschaft-ilanz-glion"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Frischprodukte Früchte & Gemüse",
@@ -329,7 +331,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-frischprodukte-fruchte-gemuse-coop-ilanz-glion-graubunden",
-        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-ilanz-glion-graubunden-h7g6s6"
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-ilanz-glion-graubunden-h7g6s6",
+        "verkaufer-in-frischprodukte-fruchte-gemuse-coop-genossenschaft-ilanz-glion-h7g6s6"
       ]
     },
     {
@@ -431,9 +434,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-a-food-coop-genossenschaft-chur",
-        "en": "verkaufer-in-food-coop-genossenschaft-chur-8tzaj8",
+        "en": "food-salesperson-coop-genossenschaft-chur",
         "de": "verkaufer-in-food-coop-genossenschaft-chur",
-        "fr": "verkaufer-in-food-coop-genossenschaft-chur-8tzaj8"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-chur"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -471,7 +474,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-city-chur-graubunden",
-        "verkaufer-in-food-coop-city-chur-graubunden-8tzaj8"
+        "verkaufer-in-food-coop-city-chur-graubunden-8tzaj8",
+        "verkaufer-in-food-coop-genossenschaft-chur-8tzaj8"
       ]
     },
     {
@@ -502,9 +506,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-food-coop-genossenschaft-schiers",
-        "en": "verkaufer-in-food-coop-genossenschaft-schiers-bv1qsy",
+        "en": "food-salesperson-coop-genossenschaft-schiers",
         "de": "verkaufer-in-food-coop-genossenschaft-schiers",
-        "fr": "verkaufer-in-food-coop-genossenschaft-schiers-bv1qsy"
+        "fr": "vendeur-se-food-coop-genossenschaft-schiers"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -542,7 +546,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-schiers-graubunden",
-        "verkaufer-in-food-coop-schiers-graubunden-bv1qsy"
+        "verkaufer-in-food-coop-schiers-graubunden-bv1qsy",
+        "verkaufer-in-food-coop-genossenschaft-schiers-bv1qsy"
       ]
     },
     {
@@ -573,9 +578,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-food-pane-fresco-coop-genossenschaft-churwalden",
-        "en": "verkaufer-in-food-brot-frische-coop-genossenschaft-churwalden-tcv189",
+        "en": "salesperson-food-bread-fresh-coop-genossenschaft-churwalden",
         "de": "verkaufer-in-food-brot-frische-coop-genossenschaft-churwalden-tcv189",
-        "fr": "verkaufer-in-food-brot-frische-coop-genossenschaft-churwalden-tcv189"
+        "fr": "vendeur-food-pain-frais-coop-genossenschaft-churwalden"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food (Brot / Frische)",
@@ -614,7 +619,8 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-brot-frische-coop-churwalden-graubunden",
-        "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-tcv189"
+        "verkaufer-in-food-brot-frische-coop-churwalden-graubunden-tcv189",
+        "verkaufer-in-food-brot-frische-coop-genossenschaft-churwalden-tcv189"
       ]
     },
     {
@@ -645,7 +651,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "cucina-cucinatore-w-m-d-coop-genossenschaft-chur",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
+        "en": "chef-chef-w-m-d-coop-genossenschaft-chur",
         "de": "kochin-koch-w-m-d-coop-genossenschaft-chur",
         "fr": "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj"
       },
@@ -686,7 +692,8 @@
       "previousSlugs": [
         "kochin-koch-w-m-d-coop-chur-graubunden",
         "cuoco-cuoca-m-f-o-coop-genossenschaft-chur",
-        "kochin-koch-w-m-d-coop-chur-graubunden-46pqaj"
+        "kochin-koch-w-m-d-coop-chur-graubunden-46pqaj",
+        "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj"
       ]
     },
     {
@@ -715,9 +722,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-castione-mm4mox",
-        "en": "impiegata-employee-di-gastronomia-standardizzata-afc-coop-ristorante-castione-mm4mox",
-        "de": "impiegata-angestellter-di-gastronomia-standardizzata-afc-coop-ristorante-castione-mm4mox",
-        "fr": "impiegata-employe-di-gastronomia-standardizzata-afc-coop-ristorante-castione-mm4mox"
+        "en": "standardized-gastronomy-employee-with-federal-vet-diploma-coop-ristorante-castione",
+        "de": "fachangestellte-r-fur-standardisierte-gastronomie-mit-efz-coop-ristorante-castione",
+        "fr": "employe-e-de-gastronomie-standardisee-cfc-coop-ristorante-castione"
       },
       "titleByLocale": {
         "it": "Impiegata / Impiegato di gastronomia standardizzata AFC",
@@ -733,7 +740,10 @@
       },
       "requirementsByLocale": {},
       "previousSlugs": [
-        "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-castione"
+        "impiegata-impiegato-di-gastronomia-standardizzata-afc-coop-ristorante-castione",
+        "impiegata-employee-di-gastronomia-standardizzata-afc-coop-ristorante-castione-mm4mox",
+        "impiegata-angestellter-di-gastronomia-standardizzata-afc-coop-ristorante-castione-mm4mox",
+        "impiegata-employe-di-gastronomia-standardizzata-afc-coop-ristorante-castione-mm4mox"
       ],
       "addressLocality": "Castione",
       "salaryMin": 58000,
@@ -778,9 +788,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "magazinista-a-vendita-coop-genossenschaft-schiers",
-        "en": "magaziner-in-verkauf-coop-schiers-graubunden-ayfofo",
+        "en": "sales-assistant-coop-genossenschaft-schiers",
         "de": "magaziner-in-verkauf-coop-genossenschaft-schiers",
-        "fr": "magaziner-in-verkauf-coop-schiers-graubunden-ayfofo"
+        "fr": "vendeur-vendeuse-de-magasin-coop-genossenschaft-schiers"
       },
       "titleByLocale": {
         "de": "Magaziner:in Verkauf",
@@ -818,7 +828,8 @@
       },
       "previousSlugs": [
         "magazziniere-venditore-coop-schiers-graubunden",
-        "magaziner-in-vendita-coop-genossenschaft-schiers"
+        "magaziner-in-vendita-coop-genossenschaft-schiers",
+        "magaziner-in-verkauf-coop-schiers-graubunden-ayfofo"
       ]
     },
     {
@@ -847,9 +858,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "macellaio-specialista-della-carne-coop-genossenschaft-chur",
-        "en": "butcher-coop-chur-graubunden",
+        "en": "butcher-meat-specialist-coop-genossenschaft-chur",
         "de": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-chur",
-        "fr": "boucher-coop-chur-graubunden"
+        "fr": "boucher-specialiste-de-la-viande-coop-genossenschaft-chur"
       },
       "titleByLocale": {
         "de": "Metzger:in (Fleischfachfrau / Fleischfachmann)",
@@ -880,7 +891,9 @@
       },
       "previousSlugs": [
         "metzger-in-fleischfachfrau-fleischfachmann-coop-chur-graubunden-0ndjhs",
-        "macellaio-a-coop-chur-graubunden"
+        "macellaio-a-coop-chur-graubunden",
+        "butcher-coop-chur-graubunden",
+        "boucher-coop-chur-graubunden"
       ]
     },
     {
@@ -909,9 +922,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
-        "en": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-riazzino-3c36xg",
-        "de": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-riazzino-3c36xg",
-        "fr": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-riazzino-3c36xg"
+        "en": "butcher-deli-clerk-f-m-d-coop-genossenschaft-riazzino",
+        "de": "fleischer-in-wurstwarenverkaufer-in-f-m-d-coop-genossenschaft-riazzino",
+        "fr": "boucher-bouchere-vendeur-vendeuse-de-charcuterie-f-m-d-coop-genossenschaft-riazzino"
       },
       "titleByLocale": {
         "it": "Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)",
@@ -940,7 +953,8 @@
         }
       },
       "previousSlugs": [
-        "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg"
+        "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-riazzino-ticino-3c36xg",
+        "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-genossenschaft-riazzino-3c36xg"
       ],
       "sourceLang": "it"
     },
@@ -1036,7 +1050,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "meccanico-industriale-marche-restaurants-schweiz-ag-dietlikon",
-        "en": "operating-mechanic-m-w-d-marche-dietlikon",
+        "en": "industrial-mechanic-marche-restaurants-schweiz-ag-dietlikon",
         "de": "betriebsmechaniker-w-m-d-marche-restaurants-schweiz-ag-dietlikon",
         "fr": "mecanicien-operationnel-h-f-d-marche-dietlikon"
       },
@@ -1069,7 +1083,8 @@
       },
       "previousSlugs": [
         "betriebsmechaniker-w-m-d-marche-dietlikon-0fguj4",
-        "meccanico-operativo-uomo-donna-marche-dietlikon"
+        "meccanico-operativo-uomo-donna-marche-dietlikon",
+        "operating-mechanic-m-w-d-marche-dietlikon"
       ]
     },
     {
@@ -1100,9 +1115,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-a-food-coop-genossenschaft-zernez",
-        "en": "verkaufer-in-food-coop-genossenschaft-zernez-63izi7",
+        "en": "food-sales-associate-coop-genossenschaft-zernez",
         "de": "verkaufer-in-food-coop-genossenschaft-zernez",
-        "fr": "verkaufer-in-food-coop-genossenschaft-zernez-63izi7"
+        "fr": "vendeur-ere-alimentaire-coop-genossenschaft-zernez"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -1139,7 +1154,8 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-zernez-graubunden-63izi7"
+        "verkaufer-in-food-coop-zernez-graubunden-63izi7",
+        "verkaufer-in-food-coop-genossenschaft-zernez-63izi7"
       ]
     },
     {
@@ -1170,9 +1186,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "responsabile-reparto-frutta-verdura-coop-genossenschaft-davos",
-        "en": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-davos-vn56hi",
+        "en": "department-manager-fruits-vegetables-coop-genossenschaft-davos",
         "de": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-davos",
-        "fr": "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-davos-vn56hi"
+        "fr": "responsable-rayon-fruits-legumes-coop-genossenschaft-davos"
       },
       "titleByLocale": {
         "de": "Rayonleiter:in Früchte / Gemüse",
@@ -1209,7 +1225,8 @@
         }
       },
       "previousSlugs": [
-        "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi"
+        "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
+        "rayonleiter-in-fruchte-gemuse-coop-genossenschaft-davos-vn56hi"
       ]
     },
     {
@@ -1240,9 +1257,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-a-food-coop-genossenschaft-sankt-moritz",
-        "en": "verkaufer-in-food-coop-genossenschaft-sankt-moritz-29vdmd",
+        "en": "food-sales-associate-coop-genossenschaft-sankt-moritz",
         "de": "verkaufer-in-food-coop-genossenschaft-sankt-moritz",
-        "fr": "verkaufer-in-food-coop-genossenschaft-sankt-moritz-29vdmd"
+        "fr": "vendeur-vendeuse-food-coop-genossenschaft-sankt-moritz"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food",
@@ -1279,7 +1296,8 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd"
+        "verkaufer-in-food-coop-sankt-moritz-graubunden-29vdmd",
+        "verkaufer-in-food-coop-genossenschaft-sankt-moritz-29vdmd"
       ]
     },
     {
@@ -1310,9 +1328,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "addetto-a-vendite-food-freschezza-coop-genossenschaft-davos",
-        "en": "verkaufer-in-food-frische-insel-coop-genossenschaft-davos-33l5v6",
+        "en": "sales-associate-food-freshness-island-coop-genossenschaft-davos",
         "de": "verkaufer-in-food-frische-insel-coop-genossenschaft-davos-33l5v6",
-        "fr": "verkaufer-in-food-frische-insel-coop-genossenschaft-davos-33l5v6"
+        "fr": "vendeur-vendeuse-food-ile-fraicheur-coop-genossenschaft-davos"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Food Frische-Insel",
@@ -1350,7 +1368,8 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6"
+        "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
+        "verkaufer-in-food-frische-insel-coop-genossenschaft-davos-33l5v6"
       ]
     },
     {
@@ -1381,9 +1400,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-a-prodotti-freschi-coop-genossenschaft-ilanz-glion",
-        "en": "verkaufer-in-frischprodukte-coop-genossenschaft-ilanz-glion-l6wxbs",
+        "en": "fresh-products-salesperson-coop-genossenschaft-ilanz-glion",
         "de": "verkaufer-in-frischprodukte-coop-genossenschaft-ilanz-glion",
-        "fr": "verkaufer-in-frischprodukte-coop-genossenschaft-ilanz-glion-l6wxbs"
+        "fr": "vendeur-vendeuse-produits-fraiches-coop-genossenschaft-ilanz-glion"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Frischprodukte",
@@ -1421,7 +1440,8 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs"
+        "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+        "verkaufer-in-frischprodukte-coop-genossenschaft-ilanz-glion-l6wxbs"
       ]
     },
     {
@@ -1453,9 +1473,9 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "venditore-a-cassa-service-coop-genossenschaft-klosters-serneus",
-        "en": "verkaufer-in-kassen-services-coop-genossenschaft-klosters-serneus-l1gprk",
+        "en": "cashier-service-sales-coop-genossenschaft-klosters-serneus",
         "de": "verkaufer-in-kassen-services-coop-genossenschaft-klosters-serneus",
-        "fr": "verkaufer-in-kassen-services-coop-genossenschaft-klosters-serneus-l1gprk"
+        "fr": "vendeur-vendeuse-caisse-service-coop-genossenschaft-klosters-serneus"
       },
       "titleByLocale": {
         "de": "Verkäufer:in Kassen/Services",
@@ -1494,7 +1514,8 @@
         }
       },
       "previousSlugs": [
-        "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk"
+        "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+        "verkaufer-in-kassen-services-coop-genossenschaft-klosters-serneus-l1gprk"
       ]
     },
     {
@@ -1525,7 +1546,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "consulente-vendite-do-it-jumbo-division-der-coop-genossenschaft-chur",
-        "en": "sales-consultant-do-it-jumbo-chur-graubunden",
+        "en": "sales-advisor-do-it-jumbo-division-der-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-do-it-jumbo-division-der-coop-genossenschaft-chur",
         "fr": "conseiller-e-en-vente-do-it-jumbo-chur-graubunden"
       },
@@ -1565,7 +1586,8 @@
       },
       "previousSlugs": [
         "verkaufsberater-in-do-it-jumbo-chur-graubunden-67of9l",
-        "consulente-vendite-do-it-jumbo-chur-graubunden"
+        "consulente-vendite-do-it-jumbo-chur-graubunden",
+        "sales-consultant-do-it-jumbo-chur-graubunden"
       ]
     },
     {
@@ -1596,7 +1618,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "vice-direttore-trice-generale-coop-genossenschaft-sankt-moritz",
-        "en": "deputy-managing-director-coop-sankt-moritz-graubunden",
+        "en": "deputy-general-manager-coop-genossenschaft-sankt-moritz",
         "de": "stv-geschaftsfuhrer-in-coop-genossenschaft-sankt-moritz",
         "fr": "directeur-adjoint-coop-sankt-moritz-graubunden"
       },
@@ -1637,7 +1659,8 @@
       },
       "previousSlugs": [
         "stv-geschaftsfuhrer-in-coop-sankt-moritz-graubunden-50rt90",
-        "vice-direttore-coop-sankt-moritz-graubunden"
+        "vice-direttore-coop-sankt-moritz-graubunden",
+        "deputy-managing-director-coop-sankt-moritz-graubunden"
       ]
     },
     {
@@ -1808,7 +1831,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "rayonleiter-in-do-it-e-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-chur",
-        "en": "department-manager-do-it-and-deco-with-deputy-management-jumbo-chur-graubunden",
+        "en": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-division-der-coop-genossenschaft-chur",
         "de": "rayonleiter-in-do-it-und-deco-inkl-stellvertretung-der-geschaftsfuhrung-jumbo-chur-graubunden-mgvzb9",
         "fr": "responsable-de-rayon-do-it-et-deco-avec-remplacement-de-la-direction-jumbo-chur-graubunden"
       },
@@ -1841,7 +1864,8 @@
         }
       },
       "previousSlugs": [
-        "responsabile-reparto-do-it-e-deco-con-sostituzione-della-direzione-jumbo-chur-graubunden"
+        "responsabile-reparto-do-it-e-deco-con-sostituzione-della-direzione-jumbo-chur-graubunden",
+        "department-manager-do-it-and-deco-with-deputy-management-jumbo-chur-graubunden"
       ]
     },
     {
@@ -2073,7 +2097,7 @@
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
         "en": "retail-apprenticeship-afc-creating-shopping-experiences-fust-tenero-contra-ticino",
-        "de": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-cadenazzo",
+        "de": "einzelhandelsausbildung-afc-erstellung-von-einkaufserlebnissen-fust-swiss-household-services-ag-tenero-contra",
         "fr": "apprentissage-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-tenero-contra-ticino"
       },
       "titleByLocale": {
@@ -2106,7 +2130,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "einzelhandelsausbildung-afc-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino",
-        "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-swiss-household-services-ag-tenero-cont"
+        "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-swiss-household-services-ag-tenero-cont",
+        "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-cadenazzo"
       ]
     },
     {
@@ -3147,7 +3172,7 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
-        "it": "inizio-di-carriera-cuoco-cuoca-in-gastronomia-di-sistema-m-f-d-coop-ristorante-graubunden",
+        "it": "quereinstieg-koch-kochin-in-der-systemgastronomie-f-m-d-coop-genossenschaft-graubunden",
         "en": "entry-level-chef-in-system-gastronomy-m-f-d-coop-ristorante-graubunden",
         "de": "quereinstieg-koch-kochin-in-der-systemgastronomie-f-m-d-coop-ristorante-graubunden-dmiw8r",
         "fr": "debut-de-carriere-chef-en-gastronomie-systematique-m-f-d-coop-ristorante-graubunden"
@@ -3186,7 +3211,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "inizio-di-carriera-cuoco-cuoca-in-gastronomia-di-sistema-m-f-d-coop-ristorante-graubunden"
+      ]
     },
     {
       "id": "company-3jfhc8",
@@ -4275,7 +4303,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-gossau",
-        "en": "retail-specialist-efz-shaping-shopping-experiences-coop-grigioni",
+        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-gossau",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-grigioni-o29xz6",
         "fr": "specialiste-du-detail-efz-creation-d-experiences-d-achat-coop-grigioni"
       },
@@ -4308,7 +4336,8 @@
         }
       },
       "previousSlugs": [
-        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-coop-grigioni"
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-coop-grigioni",
+        "retail-specialist-efz-shaping-shopping-experiences-coop-grigioni"
       ]
     },
     {
@@ -5755,7 +5784,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
-        "en": "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni",
+        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-jegensdorf",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-2kwafk",
         "fr": "specialiste-de-vente-au-detail-efz-creer-des-experiences-d-achat-interdiscount-grigioni"
       },
@@ -5788,7 +5817,8 @@
         }
       },
       "previousSlugs": [
-        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni"
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-interdiscount-grigioni",
+        "retail-sales-specialist-efz-shaping-shopping-experiences-interdiscount-grigioni"
       ]
     },
     {
@@ -5879,7 +5909,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-livique-dietlikon",
-        "en": "retail-specialist-efz-for-shaping-shopping-experiences-livique-grigioni",
+        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-livique-dietlikon",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-livique-grigioni-86rxeu",
         "fr": "specialiste-de-la-vente-efz-pour-la-creation-d-experiences-d-achat-livique-grigioni"
       },
@@ -5912,7 +5942,8 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-livique-grigioni"
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-livique-grigioni",
+        "retail-specialist-efz-for-shaping-shopping-experiences-livique-grigioni"
       ]
     },
     {
@@ -5941,7 +5972,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
-        "en": "retail-specialist-efz-for-coop-city-coop-city-grigioni",
+        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-dietlikon",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-coop-city-grigioni-hm4hme",
         "fr": "specialiste-du-retail-efz-pour-coop-city-coop-city-grigioni"
       },
@@ -5974,7 +6005,8 @@
         }
       },
       "previousSlugs": [
-        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-grigioni"
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-coop-city-grigioni",
+        "retail-specialist-efz-for-coop-city-coop-city-grigioni"
       ]
     },
     {
@@ -6441,7 +6473,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-jumbo-dietlikon",
-        "en": "retail-specialist-efz-for-shaping-shopping-experiences-jumbo-grigioni",
+        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-dietlikon",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-jumbo-grigioni-lc95ys",
         "fr": "specialiste-du-retail-efz-pour-la-creation-d-experiences-d-achat-jumbo-grigioni"
       },
@@ -6474,7 +6506,8 @@
         }
       },
       "previousSlugs": [
-        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni"
+        "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-di-acquisto-jumbo-grigioni",
+        "retail-specialist-efz-for-shaping-shopping-experiences-jumbo-grigioni"
       ]
     },
     {
@@ -6755,7 +6788,7 @@
       "crawledAt": "2026-03-30T07:45:46.277Z",
       "slugByLocale": {
         "it": "cucina-cucinatore-w-m-d-coop-genossenschaft-chur",
-        "en": "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj",
+        "en": "chef-chef-w-m-d-coop-genossenschaft-chur",
         "de": "kochin-koch-w-m-d-coop-genossenschaft-chur",
         "fr": "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj"
       },
@@ -6795,7 +6828,8 @@
       },
       "previousSlugs": [
         "kochin-koch-w-m-d-coop-chur-graubunden",
-        "kochin-koch-w-m-d-coop-chur-graubunden-46pqaj"
+        "kochin-koch-w-m-d-coop-chur-graubunden-46pqaj",
+        "kochin-koch-w-m-d-coop-genossenschaft-chur-46pqaj"
       ]
     }
   ]

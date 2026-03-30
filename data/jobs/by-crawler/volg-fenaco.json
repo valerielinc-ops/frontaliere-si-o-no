@@ -1654,8 +1654,8 @@
       },
       "slugByLocale": {
         "it": "caissiere-vendeuse-caissier-vendeur-topshop-f-m-d-landi-rhone-lavaux-sa-saint-maurice",
-        "en": "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
-        "de": "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+        "en": "cashier-seller-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
+        "de": "kassiererin-verkauferin-kassierer-verkaufer-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice",
         "fr": "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice"
       },
       "crawledAt": "2026-03-29T09:59:59.585Z",
@@ -1672,7 +1672,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "caissiere-vendeuse-caissier-vendeur-topshop-f-h-d-landi-rhone-lavaux-sa-saint-maurice"
+      ]
     },
     {
       "title": "Verkäuferin / Verkäufer TopShop w/m/d",
@@ -1772,8 +1775,8 @@
       },
       "slugByLocale": {
         "it": "assistente-alle-vendite-etudiant-e-f-m-d-landi-rhone-lavaux-sa-saxon",
-        "en": "auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon",
-        "de": "auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon",
+        "en": "sales-assistant-student-man-woman-other-landi-rhone-lavaux-sa-saxon",
+        "de": "verkaufsassistent-student-mann-frau-divers-landi-rhone-lavaux-sa-saxon",
         "fr": "auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon"
       },
       "crawledAt": "2026-03-29T09:59:59.586Z",
@@ -1789,7 +1792,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "auxiliaire-de-vente-etudiant-e-f-h-d-landi-rhone-lavaux-sa-saxon"
+      ]
     },
     {
       "title": "vendeuse / vendeur (h/f/d)",
@@ -1830,8 +1836,8 @@
       },
       "slugByLocale": {
         "it": "venditrice-venditore-f-m-d-volg-vissoie",
-        "en": "vendeuse-vendeur-h-f-d-volg-vissoie",
-        "de": "vendeuse-vendeur-h-f-d-volg-vissoie",
+        "en": "sales-associate-h-f-d-volg-vissoie",
+        "de": "verkaufer-in-h-f-d-volg-vissoie",
         "fr": "vendeuse-vendeur-h-f-d-volg-vissoie"
       },
       "crawledAt": "2026-03-29T09:59:59.587Z",
@@ -1847,7 +1853,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "vendeuse-vendeur-h-f-d-volg-vissoie"
+      ]
     },
     {
       "title": "Ladenleitung Stellvertretung m/w/d",
@@ -2070,8 +2079,8 @@
       },
       "slugByLocale": {
         "it": "vicegerente-gerente-aggiunto-a-f-m-d-volg-anniviers",
-        "en": "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers",
-        "de": "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers",
+        "en": "assistant-store-manager-h-f-d-volg-anniviers",
+        "de": "assistenz-store-leiter-h-f-d-volg-anniviers",
         "fr": "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers"
       },
       "crawledAt": "2026-03-29T09:59:59.587Z",
@@ -2087,7 +2096,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "gerante-adjointe-gerant-adjoint-h-f-d-volg-anniviers"
+      ]
     },
     {
       "title": "Verkäuferin, Verkäufer",

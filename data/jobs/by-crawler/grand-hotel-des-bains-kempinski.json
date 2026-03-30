@@ -291,7 +291,7 @@
         "it": "responsabile-gruppi-eventi-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "groups-events-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "de": "groups-events-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-5pombh",
-        "fr": "groups-events-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-5pombh"
+        "fr": "gestionnaire-de-groupes-et-d-evenements-f-h-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:33:25.506Z",
       "needsRetranslation": true,
@@ -311,7 +311,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "previousSlugs": [
-        "groups-events-manager-f-m-d-450309"
+        "groups-events-manager-f-m-d-450309",
+        "groups-events-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-5pombh"
       ]
     },
     {
@@ -353,8 +354,8 @@
       "slugByLocale": {
         "it": "responsabile-vendite-cluster-m-w-kempinski-palace-engelberg-engelberg",
         "en": "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg",
-        "de": "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg-h509ep",
-        "fr": "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg-h509ep"
+        "de": "cluster-vertriebsleiter-m-w-kempinski-palace-engelberg-engelberg",
+        "fr": "responsable-des-ventes-du-cluster-h-w-kempinski-palace-engelberg-engelberg"
       },
       "crawledAt": "2026-03-29T09:33:25.506Z",
       "salaryMin": 72000,
@@ -373,7 +374,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "previousSlugs": [
-        "cluster-sales-manager-m-w-451348"
+        "cluster-sales-manager-m-w-451348",
+        "cluster-sales-manager-m-w-kempinski-palace-engelberg-engelberg-h509ep"
       ]
     },
     {
@@ -478,8 +480,8 @@
       "slugByLocale": {
         "it": "pizza-chef-f-m-d-456455",
         "en": "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "de": "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-xff7xt",
-        "fr": "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-xff7xt"
+        "de": "pizzabacker-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "fr": "pizzaiolo-m-f-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:33:25.508Z",
       "salaryMin": 58000,
@@ -497,7 +499,10 @@
       },
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "pizza-chef-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-xff7xt"
+      ]
     },
     {
       "title": "Demi Chef de Partie (f/m/d)",
@@ -538,7 +543,7 @@
       "slugByLocale": {
         "it": "mezzo-capo-parte-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "demi-chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-yb2n58",
-        "de": "demi-chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-yb2n58",
+        "de": "halber-chef-de-partie-w-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "demi-chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:33:25.508Z",
@@ -559,7 +564,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "previousSlugs": [
-        "demi-chef-de-partie-f-m-d-458519"
+        "demi-chef-de-partie-f-m-d-458519",
+        "demi-chef-de-partie-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-yb2n58"
       ]
     },
     {
@@ -726,12 +732,13 @@
       "slugByLocale": {
         "it": "room-service-supervisore-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "room-service-supervisor-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "de": "room-service-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "de": "zimmerdienstleiter-m-w-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "room-service-superviseur-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:33:25.510Z",
       "previousSlugs": [
-        "room-service-supervisor-f-m-d-461567"
+        "room-service-supervisor-f-m-d-461567",
+        "room-service-vorgesetzter-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -789,7 +796,7 @@
         "it": "night-manager-f-m-g-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "night-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "de": "night-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-r4r24y",
-        "fr": "night-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-r4r24y"
+        "fr": "gestionnaire-de-nuit-f-h-j-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:33:25.510Z",
       "needsRetranslation": true,
@@ -809,7 +816,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "previousSlugs": [
-        "night-manager-f-m-d-462087"
+        "night-manager-f-m-d-462087",
+        "night-manager-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-r4r24y"
       ]
     },
     {
@@ -977,7 +985,7 @@
       "slugByLocale": {
         "it": "demi-chef-de-partita-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-pu3i2q",
-        "de": "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-pu3i2q",
+        "de": "halber-chef-de-partie-w-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "fr": "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-pu3i2q"
       },
       "crawledAt": "2026-03-29T09:33:25.512Z",
@@ -998,7 +1006,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "previousSlugs": [
-        "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-470754"
+        "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-470754",
+        "demi-chef-de-partie-f-m-d-patisserie-neora-restaurant-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-pu3i2q"
       ]
     },
     {
@@ -1040,8 +1049,8 @@
       "slugByLocale": {
         "it": "terapeuta-del-benessere-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
         "en": "spa-therapist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
-        "de": "spa-therapist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-c0yrco",
-        "fr": "spa-therapist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-c0yrco"
+        "de": "schonheits-und-wellness-therapeut-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz",
+        "fr": "therapeute-de-beaute-et-de-bien-etre-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:33:25.513Z",
       "salaryMin": 58000,
@@ -1060,7 +1069,8 @@
       "streetAddress": "Via Mezdi 27",
       "postalCode": "7500",
       "previousSlugs": [
-        "spa-therapist-f-m-d-480798"
+        "spa-therapist-f-m-d-480798",
+        "spa-therapist-f-m-d-grand-hotel-des-bains-kempinski-st-moritz-st-moritz-c0yrco"
       ]
     }
   ]

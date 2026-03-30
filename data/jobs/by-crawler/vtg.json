@@ -162,9 +162,9 @@
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
         "it": "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-bellinzona",
-        "en": "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri-pgxuq4",
+        "en": "hr-specialist-swiss-armed-forces-vtg-monteceneri",
         "de": "fachspezialist-in-hr-swiss-armed-forces-vtg-bellinzona",
-        "fr": "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-monteceneri-pgxuq4"
+        "fr": "specialiste-rh-swiss-armed-forces-vtg-monteceneri"
       },
       "titleByLocale": {
         "de": "Fachspezialist/-in HR",
@@ -201,7 +201,9 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "fachspezialist-in-risorse-umane-swiss-armed-forces-vtg-monteceneri",
-        "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri"
+        "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri",
+        "fachspezialist-in-hr-swiss-armed-forces-vtg-monteceneri-pgxuq4",
+        "fachspezialist-in-ressources-humaines-swiss-armed-forces-vtg-monteceneri-pgxuq4"
       ]
     },
     {
@@ -230,7 +232,7 @@
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
         "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-bellinzona",
-        "en": "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera",
+        "en": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
         "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-bellinzona",
         "fr": "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
       },
@@ -253,7 +255,8 @@
         "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
         "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera",
         "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
-        "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera"
+        "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
+        "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -367,9 +370,9 @@
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-bellinzona",
-        "en": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
+        "en": "apprentice-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera",
         "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
-        "fr": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
+        "fr": "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
         "de": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
@@ -390,7 +393,8 @@
         "apprendista-meccatronico-automobilistico-efz-settore-veicoli-personali-swiss-armed-forces-vtg-rivera",
         "apprentice-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
         "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
-        "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera"
+        "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera",
+        "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,

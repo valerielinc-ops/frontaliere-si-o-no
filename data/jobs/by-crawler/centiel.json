@@ -100,12 +100,14 @@
       "slugByLocale": {
         "it": "ingegnere-di-ricerca-e-sviluppo-centiel-lugano",
         "en": "research-development-engineer-centiel-lugano",
-        "de": "forschung-development-ingenieur-centiel-lugano",
-        "fr": "recherche-development-ingenieur-centiel-lugano"
+        "de": "forschungs-und-entwicklungsingenieur-centiel-cadro-lugano",
+        "fr": "ingnieur-de-recherche-et-dveloppement-centiel-cadro-lugano"
       },
       "previousSlugs": [
         "research-development-engineer-centiel-ticino",
-        "ricerca-development-ingegnere-centiel-lugano"
+        "ricerca-development-ingegnere-centiel-lugano",
+        "forschung-development-ingenieur-centiel-lugano",
+        "recherche-development-ingenieur-centiel-lugano"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -161,8 +163,8 @@
       "slugByLocale": {
         "it": "vendite-responsabile-dei-partner-di-canale-ups-trifase-centiel-lugano",
         "en": "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57",
-        "de": "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57",
-        "fr": "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57"
+        "de": "vertrieb-3-phasiger-ups-channel-partners-manager-centiel-cadro-lugano",
+        "fr": "ventes-responsable-des-partenaires-de-distribution-ups-triphase-centiel-cadro-lugano"
       },
       "needsRetranslation": true,
       "salaryMin": 66000,
@@ -181,7 +183,8 @@
       "streetAddress": "Via Luserte 11",
       "postalCode": "6572",
       "previousSlugs": [
-        "sales-3-phase-ups-channel-partners-manager-centiel-ticino"
+        "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
+        "sales-3-phase-ups-channel-partners-manager-centiel-cadro-lugano-00fj57"
       ]
     },
     {

@@ -41,14 +41,15 @@
       "slugByLocale": {
         "it": "team-assistant-concierge-and-guest-services-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "team-assistant-concierge-and-guest-services-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "team-assistent-concierge-and-guest-services-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "teamassistent-concierge-und-gasteservice-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "team-assistant-concierge-and-guest-services-m-w-d-kulm-hotel-st-moritz-st-moritz-635"
       },
       "crawledAt": "2026-03-29T09:35:24.716Z",
       "needsRetranslation": true,
       "previousSlugs": [
         "team-assistant-concierge-e-servizio-clienti-m-p-g-kulm-hotel-st-moritz-st-moritz",
-        "team-assistant-concierge-and-guest-services-m-w-d-translates-to-team-assistant-concierge-and-guest-services-m-f-d-kulm-h"
+        "team-assistant-concierge-and-guest-services-m-w-d-translates-to-team-assistant-concierge-and-guest-services-m-f-d-kulm-h",
+        "team-assistent-concierge-and-guest-services-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -105,12 +106,13 @@
       "slugByLocale": {
         "it": "assistant-event-manager-m-p-g-kulm-hotel-st-moritz-st-moritz",
         "en": "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "assistent-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "assistenz-eventmanager-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "assistant-event-manager-h-w-d-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:35:24.717Z",
       "previousSlugs": [
-        "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-588"
+        "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-588",
+        "assistent-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -167,13 +169,14 @@
       "slugByLocale": {
         "it": "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "assistent-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "assistenz-reservierungsmanager-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "assistant-responsable-des-reservations-h-w-j-grand-hotel-kronenhof-pontresina-ymxh45"
       },
       "crawledAt": "2026-03-29T09:35:24.717Z",
       "previousSlugs": [
         "assistant-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina-665",
-        "assistant-reservations-manager-m-p-g-grand-hotel-kronenhof-pontresina"
+        "assistant-reservations-manager-m-p-g-grand-hotel-kronenhof-pontresina",
+        "assistent-reservations-manager-m-w-d-grand-hotel-kronenhof-pontresina"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -290,7 +293,7 @@
       "slugByLocale": {
         "it": "chef-de-partie-kulm-country-club-m-f-d-kulm-hotel-st-moritz-st-moritz",
         "en": "head-of-party-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8d",
-        "de": "head-of-party-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8d",
+        "de": "chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "chef-de-partie-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-618"
       },
       "crawledAt": "2026-03-29T09:35:24.718Z",
@@ -310,7 +313,9 @@
       },
       "streetAddress": "Via Maistra",
       "postalCode": "7504",
-      "previousSlugs": []
+      "previousSlugs": [
+        "head-of-party-kulm-country-club-m-w-d-kulm-hotel-st-moritz-st-moritz-ymxh8d"
+      ]
     },
     {
       "title": "Chef de Partie Mitarbeiterrestaurant/ Personalkoch (m/w/d)",
@@ -719,11 +724,13 @@
       "slugByLocale": {
         "it": "food-and-beverage-assistant-m-p-g-kulm-hotel-st-moritz-st-moritz",
         "en": "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz-608",
-        "de": "food-and-beverage-assistent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "lebensmittel-und-getrankeassistent-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "food-and-beverage-assistant-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:35:24.720Z",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "food-and-beverage-assistent-m-w-d-kulm-hotel-st-moritz-st-moritz"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -779,13 +786,14 @@
       "slugByLocale": {
         "it": "direttore-food-beverage-m-w-d-grand-hotel-kronenhof-pontresina",
         "en": "food-and-beverage-director-m-w-d-grand-hotel-kronenhof-pontresina",
-        "de": "food-and-beverage-direktor-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "leiter-food-beverage-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "food-and-beverage-directeur-m-w-d-grand-hotel-kronenhof-pontresina"
       },
       "crawledAt": "2026-03-29T09:35:24.720Z",
       "previousSlugs": [
         "food-and-beverage-director-m-w-d-grand-hotel-kronenhof-pontresina-609",
-        "food-and-beverage-direttore-m-w-d-grand-hotel-kronenhof-pontresina"
+        "food-and-beverage-direttore-m-w-d-grand-hotel-kronenhof-pontresina",
+        "food-and-beverage-direktor-m-w-d-grand-hotel-kronenhof-pontresina"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -904,13 +912,14 @@
       "slugByLocale": {
         "it": "dipendente-biancheria-part-time-50-m-p-g-grand-hotel-kronenhof-pontresina",
         "en": "part-time-linen-worker-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s",
-        "de": "linen-employee-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina",
+        "de": "mitarbeiter-wasche-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina",
         "fr": "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina"
       },
       "crawledAt": "2026-03-29T09:35:24.720Z",
       "previousSlugs": [
         "linen-employee-part-time-50-m-w-d-grand-hotel-kronenhof-pontresina-648",
-        "linen-employee-temps-partiel-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s"
+        "linen-employee-temps-partiel-50-m-w-d-grand-hotel-kronenhof-pontresina-ymxh5s",
+        "linen-employee-teilzeit-50-m-w-d-grand-hotel-kronenhof-pontresina"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1399,13 +1408,14 @@
       "slugByLocale": {
         "it": "supervisore-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "en": "supervisor-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "vorgesetzter-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "leiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "superviseur-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:35:24.722Z",
       "previousSlugs": [
         "supervisor-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz-653",
-        "supervisore-stewarding-m-f-d-kulm-hotel-st-moritz-st-moritz"
+        "supervisore-stewarding-m-f-d-kulm-hotel-st-moritz-st-moritz",
+        "vorgesetzter-stewarding-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1586,12 +1596,13 @@
       "slugByLocale": {
         "it": "assistant-event-manager-m-p-g-kulm-hotel-st-moritz-st-moritz",
         "en": "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "de": "assistent-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "de": "assistenz-eventmanager-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "fr": "assistant-event-manager-h-w-d-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-03-29T09:35:24.717Z",
       "previousSlugs": [
-        "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-588"
+        "assistant-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-588",
+        "assistent-event-manager-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,

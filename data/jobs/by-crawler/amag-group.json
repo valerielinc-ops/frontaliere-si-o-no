@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "autista-su-chiamata",
-        "en": "autista-su-chiamata-amag-group-bellinzona-fjuhr3",
-        "de": "autista-su-chiamata-amag-group-bellinzona-fjuhr3",
-        "fr": "autista-su-chiamata-amag-group-bellinzona-fjuhr3"
+        "en": "on-demand-driver-amag-group-bellinzona",
+        "de": "fahrer-auf-abruf-amag-group-bellinzona",
+        "fr": "conducteur-a-la-demande-amag-group-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -57,7 +57,10 @@
         }
       },
       "streetAddress": "Via Industria 1",
-      "postalCode": "6934"
+      "postalCode": "6934",
+      "previousSlugs": [
+        "autista-su-chiamata-amag-group-bellinzona-fjuhr3"
+      ]
     }
   ]
 }

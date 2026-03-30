@@ -81,7 +81,7 @@
         "it": "elettroinstallatore-a-efz-50-100-ferrovia-retica-rhb-samedan",
         "en": "electrical-installer-efz-50-100-ferrovia-retica-rhb-samedan",
         "de": "elektroinstallateur-in-efz-50-100-ferrovia-retica-rhb-samedan",
-        "fr": "installateur-trice-electricien-ne-efz-50-100-ferrovia-retica-rhb-samedan"
+        "fr": "technicien-d-installation-electrique-efz-50-100-ferrovia-retica-rhb-samedan"
       },
       "titleByLocale": {
         "it": "Elettroinstallatore/a EFZ (50-100%)",
@@ -104,7 +104,8 @@
         "elektroinstallateur-in-efz-50-100-rhaetian-railway-samedan",
         "elektroinstallateur-in-efz-50-100-rhaetische-bahn-samedan",
         "elektroinstallateur-in-efz-50-100-chemin-de-fer-rhetique-samedan",
-        "installatore-trice-elettrico-a-in-cfc-50-100-ferrovia-retica-rhb-samedan"
+        "installatore-trice-elettrico-a-in-cfc-50-100-ferrovia-retica-rhb-samedan",
+        "installateur-trice-electricien-ne-efz-50-100-ferrovia-retica-rhb-samedan"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -139,9 +140,9 @@
       "slug": "tirocinanti-accompagnatori-ferroviari-localita-di-coira-100-ferrovia-retica-rhb-pontresina",
       "slugByLocale": {
         "it": "tirocinanti-accompagnatori-ferroviari-localita-di-coira-100-ferrovia-retica-rhb-pontresina",
-        "en": "quereinsteiger-innen-zugbegleitung-standort-chur-100-rhaetian-railway-pontresina",
+        "en": "train-escort-trainees-chur-location-100-ferrovia-retica-rhb-pontresina",
         "de": "quereinsteiger-innen-zugbegleitung-standort-chur-100-rhaetische-bahn-pontresina",
-        "fr": "quereinsteiger-innen-zugbegleitung-standort-chur-100-chemin-de-fer-rhetique-pontresina"
+        "fr": "stagiaires-accompagnateurs-de-train-site-de-coire-100-ferrovia-retica-rhb-pontresina"
       },
       "titleByLocale": {
         "it": "Tirocinanti accompagnatori ferroviari, località di Coira (100%)",
@@ -161,7 +162,9 @@
       "sourceLang": "de",
       "previousSlugs": [
         "apprendista-trasversale-accompagnamento-treno-sede-di-coira-100-ferrovia-retica-rhb-pontresina",
-        "quereinsteiger-innen-zugbegleitung-standort-chur-100-ferrovia-retica-pontresina"
+        "quereinsteiger-innen-zugbegleitung-standort-chur-100-ferrovia-retica-pontresina",
+        "quereinsteiger-innen-zugbegleitung-standort-chur-100-rhaetian-railway-pontresina",
+        "quereinsteiger-innen-zugbegleitung-standort-chur-100-chemin-de-fer-rhetique-pontresina"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -195,9 +198,9 @@
       "slug": "nuovi-arrivati-nell-accompagnamento-ferroviario-localita-di-samedan-100-ferrovia-retica-rhb-pontresina",
       "slugByLocale": {
         "it": "nuovi-arrivati-nell-accompagnamento-ferroviario-localita-di-samedan-100-ferrovia-retica-rhb-pontresina",
-        "en": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-rhaetian-railway-pontresina",
+        "en": "trainee-train-conductor-samedan-100-ferrovia-retica-rhb-pontresina",
         "de": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-rhaetische-bahn-pontresina",
-        "fr": "quereinsteiger-innen-zugbegleitung-standort-samedan-100-chemin-de-fer-rhetique-pontresina"
+        "fr": "trainee-conducteur-de-train-samedan-100-ferrovia-retica-rhb-pontresina"
       },
       "titleByLocale": {
         "it": "Nuovi arrivati ​​nell'accompagnamento ferroviario, località di Samedan (100%)",
@@ -217,7 +220,9 @@
       "sourceLang": "de",
       "previousSlugs": [
         "apprendista-trasversale-accompagnamento-treno-sede-di-samedan-100-ferrovia-retica-rhb-pontresina",
-        "quereinsteiger-innen-zugbegleitung-standort-samedan-100-ferrovia-retica-pontresina"
+        "quereinsteiger-innen-zugbegleitung-standort-samedan-100-ferrovia-retica-pontresina",
+        "quereinsteiger-innen-zugbegleitung-standort-samedan-100-rhaetian-railway-pontresina",
+        "quereinsteiger-innen-zugbegleitung-standort-samedan-100-chemin-de-fer-rhetique-pontresina"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -252,9 +257,9 @@
       "slug": "responsabile-del-controllo-remoto-50-100-ferrovia-retica-rhb-chur",
       "slugByLocale": {
         "it": "responsabile-del-controllo-remoto-50-100-ferrovia-retica-rhb-chur",
-        "en": "leiter-in-fernsteuerung-50-100-rhaetian-railway-chur",
+        "en": "head-of-remote-control-50-100-ferrovia-retica-rhb-chur",
         "de": "leiter-in-fernsteuerung-50-100-ferrovia-retica-rhb-chur",
-        "fr": "leiter-in-fernsteuerung-50-100-chemin-de-fer-rhetique-chur"
+        "fr": "responsable-du-controle-a-distance-50-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
         "it": "Responsabile del controllo remoto (50-100%)",
@@ -276,7 +281,9 @@
         "conduttore-trice-telecomando-50-100-ferrovia-retica-rhb-chur",
         "leiter-in-fernsteuerung-50-100-ferrovia-retica-chur",
         "leiter-in-fernsteuerung-50-100-rhaetische-bahn-chur",
-        "responsabile-fernsteuerung-50-100-ferrovia-retica-rhb-chur"
+        "responsabile-fernsteuerung-50-100-ferrovia-retica-rhb-chur",
+        "leiter-in-fernsteuerung-50-100-rhaetian-railway-chur",
+        "leiter-in-fernsteuerung-50-100-chemin-de-fer-rhetique-chur"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -550,7 +557,7 @@
         "it": "responsabile-di-progetto-magazzino-e-logistik-50-100-ferrovia-retica-rhb-chur",
         "en": "project-manager-lager-und-logistik-50-100-ferrovia-retica-rhb-chur-yhofyd",
         "de": "projektleiter-in-lager-und-logistik-50-100-rhaetische-bahn-chur",
-        "fr": "chef-de-projet-lager-und-logistik-50-100-ferrovia-retica-rhb-chur-yhofyd"
+        "fr": "responsable-de-projet-entrepot-et-logistique-50-100-ferrovia-retica-rhb-chur"
       },
       "titleByLocale": {
         "it": "Responsabile di progetto magazzino e Logistik (50-100%)",
@@ -572,7 +579,8 @@
         "responsabile-di-progetto-magazzino-e-logistica-50-100-ferrovia-retica-rhb-chur",
         "projektleiter-in-lager-und-logistik-50-100-ferrovia-retica-chur",
         "projektleiter-in-lager-und-logistik-50-100-rhaetian-railway-chur",
-        "projektleiter-in-lager-und-logistik-50-100-chemin-de-fer-rhetique-chur"
+        "projektleiter-in-lager-und-logistik-50-100-chemin-de-fer-rhetique-chur",
+        "chef-de-projet-lager-und-logistik-50-100-ferrovia-retica-rhb-chur-yhofyd"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,

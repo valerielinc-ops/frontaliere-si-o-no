@@ -167,7 +167,7 @@
         "it": "collaboratore-trice-gestione-crediti-bps-suisse-lugano",
         "en": "collaboratore-trice-management-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm",
         "de": "collaboratore-trice-verwaltung-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm",
-        "fr": "collaboratore-trice-gestion-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm"
+        "fr": "assistant-gestion-des-credits-bps-banca-popolare-di-sondrio-suisse-lugano"
       },
       "titleByLocale": {
         "it": "Collaboratore Trice Gestione Crediti",
@@ -209,7 +209,10 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "collaboratore-trice-gestion-crediti-bps-banca-popolare-di-sondrio-suisse-lugano-z7abgm"
+      ]
     },
     {
       "id": "bps-suisse-54648af8fe2f",
@@ -233,8 +236,8 @@
       "slugByLocale": {
         "it": "consulente-clientela-individuale-bps-banca-popolare-di-sondrio-suisse-lugano",
         "en": "consulente-clientela-individuale-bps-suisse-lugano",
-        "de": "consulente-clientela-individuale-bps-suisse-lugano",
-        "fr": "consulente-clientela-individuale-bps-suisse-lugano"
+        "de": "kundendienstberater-in-bps-banca-popolare-di-sondrio-suisse-lugano",
+        "fr": "conseiller-clientele-individuelle-bps-banca-popolare-di-sondrio-suisse-lugano"
       },
       "titleByLocale": {
         "it": "Consulente Clientela Individuale",
@@ -265,7 +268,9 @@
         "location": "Lugano"
       },
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "consulente-clientela-individuale-bps-suisse-lugano"
+      ],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {

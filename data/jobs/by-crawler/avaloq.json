@@ -42,11 +42,12 @@
         "it": "responsabile-dei-progetti-hr-e-della-gestione-aziendale-avaloq-bioggio",
         "en": "hr-projects-business-management-lead-avaloq-bioggio",
         "de": "personalwesen-projects-business-management-lead-avaloq-bioggio",
-        "fr": "ressources-humaines-projects-business-management-lead-avaloq-bioggio"
+        "fr": "responsable-des-projets-rh-et-de-la-gestion-d-entreprise-avaloq-bioggio"
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "risorse-umane-projects-business-management-lead-avaloq-bioggio"
+        "risorse-umane-projects-business-management-lead-avaloq-bioggio",
+        "ressources-humaines-projects-business-management-lead-avaloq-bioggio"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -222,10 +223,11 @@
         "it": "ingegnere-di-gestione-delle-identit-avaloq-bioggio",
         "en": "one-identity-manager-engineer-avaloq-bioggio",
         "de": "one-identity-manager-ingenieur-avaloq-bioggio",
-        "fr": "one-identity-manager-ingenieur-avaloq-bioggio"
+        "fr": "ingnieur-de-gestion-des-identits-avaloq-bioggio"
       },
       "previousSlugs": [
-        "one-identity-manager-ingegnere-avaloq-bioggio"
+        "one-identity-manager-ingegnere-avaloq-bioggio",
+        "one-identity-manager-ingenieur-avaloq-bioggio"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -581,8 +583,8 @@
       },
       "slugByLocale": {
         "it": "apprendista-di-commercio-afc-con-maturita-avaloq-bioggio",
-        "en": "apprentice-di-commercio-afc-con-maturita-avaloq-bioggio-kdpowx",
-        "de": "lernende-r-di-commercio-afc-con-maturita-avaloq-bioggio-kdpowx",
+        "en": "afc-apprentice-with-maturity-avaloq-bioggio",
+        "de": "afc-praktikant-mit-matura-avaloq-bioggio",
         "fr": "apprenti-e-di-commercio-afc-con-maturita-avaloq-bioggio-kdpowx"
       },
       "salaryMin": 55500,
@@ -598,7 +600,11 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 1"
+      "streetAddress": "Via Industria 1",
+      "previousSlugs": [
+        "apprentice-di-commercio-afc-con-maturita-avaloq-bioggio-kdpowx",
+        "lernende-r-di-commercio-afc-con-maturita-avaloq-bioggio-kdpowx"
+      ]
     },
     {
       "title": "Internship in Banking Operations in Trade Processing CH (6-month fixed-term contract)",

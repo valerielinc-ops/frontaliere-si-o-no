@@ -32,9 +32,9 @@
       },
       "slugByLocale": {
         "it": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare",
-        "en": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
-        "de": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9",
-        "fr": "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+        "en": "mechanical-construction-diploma-holder-has-healthcare-advanced-synthesis-biasca",
+        "de": "mechanische-konstruktion-diplomierter-has-healthcare-advanced-synthesis-biasca",
+        "fr": "titulaire-d-un-diplome-de-construction-mecanique-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -61,7 +61,10 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "previousSlugs": [
+        "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
+      ]
     },
     {
       "title": "HSE Specialist",

@@ -136,19 +136,18 @@ jobs:
         if: always() && inputs.skip_translate != true && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
-      # ── Phase 3: DISABLED — hardenJobLocaleFields is destructive ─────────
-      # hardenJobLocaleFields does NOT just fix slugs — it also:
-      #   1. Re-translates titles using its own heuristic (different from AI)
-      #   2. Puts Italian words in EN/DE/FR slots (e.g. "Collaudo" in EN title)
-      #   3. Sets needsRetranslation=true on previously-clean jobs
-      # This creates an infinite loop: translate→harden→translate→harden
-      # DO NOT RE-ENABLE until hardenJobLocaleFields is rewritten to ONLY fix slugs.
-      # - name: "Phase 3: Harden slugs"
-      #   if: always() && inputs.dry_run != true
-      #   run: node scripts/harden-job-slugs.mjs
-      # - name: Commit slug hardening
-      #   if: always() && inputs.dry_run != true
-      #   run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Harden job slugs (post-translation)"
+      # ── Phase 3: Regenerate slugs from translated titles ──────────────────
+      # Safe replacement for hardenJobLocaleFields (which was destructive:
+      # re-translated titles, contaminated EN/DE/FR with Italian, set needsRetranslation).
+      # This script ONLY regenerates slugByLocale from existing titleByLocale.
+      # It NEVER modifies titles, descriptions, or needsRetranslation.
+      - name: "Phase 3: Regenerate locale slugs"
+        if: always() && inputs.dry_run != true
+        run: node scripts/regenerate-slugs-by-locale.mjs
+
+      - name: Commit slug regeneration
+        if: always() && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy

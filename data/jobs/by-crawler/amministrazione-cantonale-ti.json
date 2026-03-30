@@ -215,8 +215,8 @@
       "slugByLocale": {
         "it": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-",
         "en": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv",
-        "de": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv",
-        "fr": "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv"
+        "de": "allgemeine-ausschreibung-2026-verwaltungsmitarbeiter-innen-und-verwandte-positionen-kantonsverwaltung-amministrazione-ca",
+        "fr": "concours-general-2026-collaborateurs-trices-administratifs-ves-et-postes-associes-administration-cantonale-amministrazio"
       },
       "titleByLocale": {
         "it": "Concorso generale 2026 Collaboratori/trici amministrativi/e, addetti/e al servizio accoglienza, addetti/e agli assicurati III, consulenti telefonici/che, esattori/trici, gestori/trici fallimentari, segretari/e, segretari/e aggiunti/e, tassatori/trici e Responsabile amministrativo presso l’Amministrazione cantonale",
@@ -232,7 +232,9 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "concorso-generale-2026-collaboratori-trici-amministrativi-e-addetti-e-al-servizio-accoglienza-addetti-e-agli-assicurati-iii-consulenti-telef-213zbv"
+      ],
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
@@ -1303,7 +1305,7 @@
         "it": "operaio-a-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-manutenzione-centro-di-manutenzione-mendrisio-cmmen-mendrisio-orario-di-lav-213iea",
         "en": "worker-full-time-100-at-the-operations-and-maintenance-area-mendrisio-maintenance-centre-cmmen-mendrisio-amministrazione",
         "de": "arbeiter-in-vollzeit-100-im-bereich-betrieb-und-unterhalt-unterhaltszentrum-mendrisio-cmmen-mendrisio-amministrazione-ca",
-        "fr": "ouvrier-iere-a-temps-plein-100-aupres-du-secteur-de-l-exploitation-et-de-la-maintenance-centre-de-maintenance-mendrisio-cmmen-mendrisio-ammi-213iea"
+        "fr": "operaio-a-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-maintenance-centro-di-maintenance-mendrisio-cmmen-mendr"
       },
       "titleByLocale": {
         "it": "Operaio/a a tempo pieno (100%), presso l’Area dell’esercizio e della manutenzione, Centro di manutenzione Mendrisio (CMMen), Mendrisio",
@@ -1340,7 +1342,8 @@
         "operaio-a-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-maintenance-centro-di-maintenance-mendrisio-cmmen-mendrisio-amministrazione-213iea",
         "operaio-a-a-tempo-pieno-100-presso-l-area-dell-esercizio-e-della-wartung-centro-di-wartung-mendrisio-cmmen-mendrisio-amministrazione-cantona-213iea",
         "worker-full-time-100-at-the-operations-and-maintenance-area-mendrisio-maintenance-centre-cmmen-mendrisio-amministrazione-cantonale-ticino-me-213iea",
-        "arbeiter-in-vollzeit-100-im-bereich-betrieb-und-unterhalt-unterhaltszentrum-mendrisio-cmmen-mendrisio-amministrazione-cantonale-ticino-mendr-213iea"
+        "arbeiter-in-vollzeit-100-im-bereich-betrieb-und-unterhalt-unterhaltszentrum-mendrisio-cmmen-mendrisio-amministrazione-cantonale-ticino-mendr-213iea",
+        "ouvrier-iere-a-temps-plein-100-aupres-du-secteur-de-l-exploitation-et-de-la-maintenance-centre-de-maintenance-mendrisio-cmmen-mendrisio-ammi-213iea"
       ]
     },
     {

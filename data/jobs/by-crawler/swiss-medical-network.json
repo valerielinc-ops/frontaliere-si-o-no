@@ -28,7 +28,7 @@
       },
       "slug": "tecnico-di-sala-operatoria-swiss-medical-network-sorengo",
       "slugByLocale": {
-        "en": "technician-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz",
+        "en": "operating-room-technician-swiss-medical-network-sorengo",
         "it": "tecnico-di-sala-operatoria-swiss-medical-network-sorengo",
         "de": "techniker-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz",
         "fr": "technicien-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz"
@@ -63,7 +63,8 @@
         "operating-room-technician-swiss-medical-network-sorengo-yvycgz",
         "operationstechniker-swiss-medical-network-sorengo-yvycgz",
         "technicien-de-salle-d-operation-swiss-medical-network-sorengo-yvycgz",
-        "tecnico-di-sala-operatoria-swiss-medical-network"
+        "tecnico-di-sala-operatoria-swiss-medical-network",
+        "technician-di-sala-operatoria-swiss-medical-network-sorengo-yvycgz"
       ],
       "sourceLang": "it"
     },
@@ -220,7 +221,7 @@
       "slugByLocale": {
         "en": "hr-collaborator-swiss-medical-network-lugano-gca7b9",
         "it": "collaboratore-hr-swiss-medical-network-lugano",
-        "de": "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9",
+        "de": "hr-mitarbeiter-swiss-medical-network-lugano",
         "fr": "collaboratore-ressources-humaines-swiss-medical-network-lugano-gca7b9"
       },
       "category": "technical",
@@ -250,7 +251,8 @@
       },
       "sourceLang": "it",
       "previousSlugs": [
-        "collaboratore-hr-swiss-medical-network"
+        "collaboratore-hr-swiss-medical-network",
+        "collaboratore-personalwesen-swiss-medical-network-lugano-gca7b9"
       ]
     }
   ]
