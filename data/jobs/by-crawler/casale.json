@@ -98,9 +98,9 @@
       "slug": "expediter-casale-lugano",
       "slugByLocale": {
         "en": "expediter-casale-sa-lugano",
-        "it": "expediter-casale-lugano",
-        "de": "expediter-casale-sa-lugano-ticino-qj6jpx",
-        "fr": "expediter-casale-sa-lugano-ticino-qj6jpx"
+        "it": "spedizione-casale-sa-lugano-ticino",
+        "de": "beschleuniger-casale-sa-lugano-ticino",
+        "fr": "expediteur-casale-sa-lugano-ticino"
       },
       "category": "logistics",
       "datePosted": "2026-01-27",
@@ -115,7 +115,10 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
-      "previousSlugs": [],
+      "previousSlugs": [
+        "expediter-casale-lugano",
+        "expediter-casale-sa-lugano-ticino-qj6jpx"
+      ],
       "sourceLang": "en",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -161,7 +164,7 @@
       "slug": "junior-technical-visual-designer-casale-lugano",
       "slugByLocale": {
         "en": "junior-technical-visual-designer-casale-sa-lugano-ticino-d8306p",
-        "it": "junior-technical-visual-designer-casale-lugano",
+        "it": "tecnico-visual-designer-junior-casale-sa-lugano-ticino",
         "de": "junior-technical-visual-designer-casale-sa-lugano-ticino-d8306p",
         "fr": "junior-technical-visual-designer-casale-sa-lugano-ticino-d8306p"
       },
@@ -559,9 +562,9 @@
       "slug": "work-with-us-casale-lugano",
       "slugByLocale": {
         "en": "work-with-us-casale-sa-lugano",
-        "it": "work-with-us-casale-lugano",
-        "de": "work-with-us-casale-sa-lugano-ticino-m65zo7",
-        "fr": "work-with-us-casale-sa-lugano-ticino-m65zo7"
+        "it": "lavora-con-noi-casale-sa-lugano-ticino",
+        "de": "arbeite-mit-uns-casale-sa-lugano-ticino",
+        "fr": "travaillez-avec-nous-casale-sa-lugano-ticino"
       },
       "category": "engineering",
       "datePosted": "2025-05-26",
@@ -578,7 +581,9 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "lavora-con-noi-casale-sa-lugano"
+        "lavora-con-noi-casale-sa-lugano",
+        "work-with-us-casale-lugano",
+        "work-with-us-casale-sa-lugano-ticino-m65zo7"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -624,7 +629,7 @@
       "slug": "proposal-manager-casale-lugano",
       "slugByLocale": {
         "en": "proposal-manager-casale-sa-lugano",
-        "it": "proposal-manager-casale-lugano",
+        "it": "responsabile-della-proposta-casale-sa-lugano-ticino",
         "de": "proposal-manager-casale-sa-lugano-ticino-slm01t",
         "fr": "proposal-manager-casale-sa-lugano-ticino-slm01t"
       },
@@ -643,7 +648,8 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "responsabile-delle-proposte-casale-sa-lugano"
+        "responsabile-delle-proposte-casale-sa-lugano",
+        "proposal-manager-casale-lugano"
       ],
       "salaryMin": 66000,
       "salaryMax": 89000,

@@ -27,7 +27,7 @@
       "slug": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
       "slugByLocale": {
         "de": "mcdonald-s-chur-city-mcdonald-s-switzerland-chiasso",
-        "it": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
+        "it": "la-citta-di-mcdonald-mcdonald-s-switzerland-chur",
         "en": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
         "fr": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc"
       },
@@ -49,7 +49,8 @@
       "sourceLang": "de",
       "previousSlugs": [
         "mcdonald-s-chur-city-mcdonalds",
-        "mcdonald-s-chur-city-mcdonald-s-switzerland-chur"
+        "mcdonald-s-chur-city-mcdonald-s-switzerland-chur",
+        "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -162,10 +163,10 @@
       },
       "slug": "collaboratore-trice-lamone-mcdonald-s-switzerland-chiasso",
       "slugByLocale": {
-        "de": "collaboratore-trice-lamone-mcdonalds",
+        "de": "lamone-mitarbeiter-mcdonald-s-switzerland-lugano",
         "it": "collaboratore-trice-lamone-mcdonald-s-switzerland-chiasso",
-        "en": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
-        "fr": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk"
+        "en": "lamone-co-operator-mcdonald-s-switzerland-lugano",
+        "fr": "cooperateur-lamone-mcdonald-s-switzerland-lugano"
       },
       "category": "gastronomy",
       "datePosted": "2026-03-03",
@@ -184,7 +185,9 @@
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
-        "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano"
+        "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
+        "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
+        "collaboratore-trice-lamone-mcdonalds"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -229,10 +232,10 @@
       },
       "slug": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj",
       "slugByLocale": {
-        "de": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonalds",
+        "de": "managertraining-weg-zum-restaurantdirektor-mcdonald-s-switzerland-lugano",
         "it": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj",
-        "en": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj",
-        "fr": "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj"
+        "en": "manager-training-route-to-director-of-restaurant-mcdonald-s-switzerland-lugano",
+        "fr": "formation-des-gestionnaires-route-vers-le-directeur-du-restaurant-mcdonald-s-switzerland-lugano"
       },
       "category": "management",
       "datePosted": "2026-02-24",
@@ -267,7 +270,11 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "previousSlugs": [
+        "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonald-s-switzerland-lugano-j6oktj",
+        "manager-in-formazione-percorso-verso-direttore-di-ristorante-mcdonalds"
+      ]
     }
   ]
 }

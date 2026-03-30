@@ -444,9 +444,9 @@
       "crawledAt": "2026-03-29T09:39:37.856Z",
       "slugByLocale": {
         "it": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7",
-        "en": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7",
-        "de": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7",
-        "fr": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7"
+        "en": "german-teacher-f-m-d-school-club-bellinzona-scuola-club-migros-bellinzona",
+        "de": "deutscher-lehrer-w-m-d-schulclub-bellinzona-scuola-club-migros-bellinzona",
+        "fr": "professeur-allemand-f-m-d-club-scolaire-bellinzona-scuola-club-migros-bellinzona"
       },
       "titleByLocale": {
         "it": "Insegnante Tedesco – (f/m/d) – Scuola Club Bellinzona",
@@ -494,7 +494,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7"
+      ]
     },
     {
       "id": "company-f777jb",
@@ -545,9 +548,9 @@
       "crawledAt": "2026-03-29T09:39:37.856Z",
       "slugByLocale": {
         "it": "gerente-denner-sa-bellinzona",
-        "en": "gerente-denner-sa-biasca-f777jb",
-        "de": "gerente-denner-sa-biasca-f777jb",
-        "fr": "gerente-denner-sa-biasca-f777jb"
+        "en": "article-denner-sa-biasca",
+        "de": "artikel-2-denner-sa-biasca",
+        "fr": "le-president-denner-sa-biasca"
       },
       "titleByLocale": {
         "it": "Gerente",
@@ -593,7 +596,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "gerente-denner-sa-biasca"
+        "gerente-denner-sa-biasca",
+        "gerente-denner-sa-biasca-f777jb"
       ]
     }
   ]

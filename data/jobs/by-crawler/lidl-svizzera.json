@@ -99,7 +99,7 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
-        "it": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-ancoue",
+        "it": "venditore-venditrice-m-f-d-20-40-lidl-svizzera-st-moritz",
         "en": "salesperson-m-f-d-20-40-lidl-svizzera-st-moritz-ancoue",
         "de": "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-cadenazzo",
         "fr": "vendeur-vendeuse-m-f-d-20-40-lidl-svizzera-st-moritz-ancoue"
@@ -168,10 +168,10 @@
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
-        "it": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jc631q",
-        "en": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jc631q",
+        "it": "consulente-senior-m-w-d-80-100-lidl-svizzera-st-moritz",
+        "en": "senior-consultant-m-w-d-80-100-lidl-svizzera-st-moritz",
         "de": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-cadenazzo",
-        "fr": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jc631q"
+        "fr": "consultant-principal-m-m-j-80-100-lidl-svizzera-st-moritz"
       },
       "titleByLocale": {
         "de": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
@@ -190,7 +190,8 @@
       "country": "CH",
       "sourceLang": "de",
       "previousSlugs": [
-        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz"
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jc631q"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -237,9 +238,9 @@
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
-        "en": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
-        "de": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6"
+        "en": "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-locarno",
+        "de": "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-locarno",
+        "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-locarno"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -274,7 +275,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6"
+      ]
     },
     {
       "id": "company-tyv50x",
@@ -302,9 +306,9 @@
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
-        "en": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
-        "de": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x"
+        "en": "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-minusio",
+        "de": "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-minusio",
+        "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-minusio"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -339,7 +343,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x"
+      ]
     },
     {
       "id": "company-3t5gz5",
@@ -497,9 +504,9 @@
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo",
-        "en": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo",
-        "de": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo"
+        "en": "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-arbedo-castione",
+        "de": "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-arbedo-castione",
+        "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-arbedo-castione"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -534,7 +541,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-arbedo-castione-zdpsyo"
+      ]
     },
     {
       "id": "company-1zdp8x",
@@ -562,9 +572,9 @@
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-1zdp8x",
-        "en": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-1zdp8x",
-        "de": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-1zdp8x",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-1zdp8x"
+        "en": "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-gravesano",
+        "de": "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-gravesano",
+        "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-gravesano"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -599,7 +609,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-gravesano-1zdp8x"
+      ]
     },
     {
       "id": "company-ethzl9",
@@ -627,9 +640,9 @@
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-lugano-ethzl9",
-        "en": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-lugano-ethzl9",
-        "de": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-lugano-ethzl9",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-lugano-ethzl9"
+        "en": "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-lugano",
+        "de": "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-lugano",
+        "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-lugano"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -664,7 +677,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-lugano-ethzl9"
+      ]
     },
     {
       "id": "company-kp8dxh",
@@ -692,9 +708,9 @@
       "crawledAt": "2026-03-29T09:36:13.331Z",
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
-        "en": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
-        "de": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh"
+        "en": "learned-in-retail-cfp-or-afc-start-2026-lidl-svizzera-sant-antonino",
+        "de": "lernen-im-einzelhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
+        "fr": "apprentis-dans-le-commerce-de-detail-pfc-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -729,7 +745,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh"
+      ]
     }
   ]
 }

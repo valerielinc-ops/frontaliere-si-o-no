@@ -182,10 +182,10 @@
       "id": "denner-c81d819efe2a",
       "slug": "stv-filialleiter-in-in-ausbildung-denner",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-in-ausbildung-denner",
-        "en": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+        "it": "stv-branch-manager-in-formazione-denner-chur",
+        "en": "stv-branch-manager-in-in-training-denner-chur",
         "de": "stv-filialleiter-in-in-ausbildung-denner-chur",
-        "fr": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        "fr": "directeur-de-la-branche-stv-en-formation-denner-chur"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -254,7 +254,9 @@
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
-        "vice-responsabile-di-filiale-in-formazione-denner-chur"
+        "vice-responsabile-di-filiale-in-formazione-denner-chur",
+        "stv-filialleiter-in-in-ausbildung-denner",
+        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -274,9 +276,9 @@
       "slug": "gerente-denner-biasca",
       "slugByLocale": {
         "it": "gerente-denner-biasca",
-        "en": "gerente-denner-sa-biasca-f777jb",
-        "de": "gerente-denner-sa-biasca-f777jb",
-        "fr": "gerente-denner-sa-biasca-f777jb"
+        "en": "manager-denner-biasca",
+        "de": "artikel-2-denner-biasca",
+        "fr": "le-president-denner-biasca"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -354,7 +356,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "gerente-denner-sa-biasca",
-        "gerente-denner"
+        "gerente-denner",
+        "gerente-denner-sa-biasca-f777jb"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

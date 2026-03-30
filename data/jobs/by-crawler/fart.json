@@ -98,9 +98,9 @@
       },
       "slugByLocale": {
         "it": "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "en": "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-n33ctb",
+        "en": "1-movement-leader-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "de": "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-n33ctb",
-        "fr": "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
+        "fr": "1-chef-de-mouvement-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
       },
       "_targetScope": {
         "canton": "TI",
@@ -130,7 +130,9 @@
       "addressCountry": "CH",
       "needsRetranslation": true,
       "previousSlugs": [
-        "1-capo-movimento-100-f-m-fart"
+        "1-capo-movimento-100-f-m-fart",
+        "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno-n33ctb",
+        "1-capo-movimento-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
       ]
     }
   ]

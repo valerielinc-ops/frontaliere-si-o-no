@@ -504,7 +504,7 @@
       },
       "slugByLocale": {
         "it": "consulente-esperto-senior-program-project-manager-relewant-chiasso",
-        "en": "consulente-expert-senior-program-project-manager-relewant-chiasso",
+        "en": "expert-advisor-senior-program-project-manager-relewant-chiasso",
         "de": "senior-programm-und-projektmanager-relewant-chiasso-tnf8rg",
         "fr": "responsable-de-programmes-et-de-projets-senior-relewant-chiasso-tnf8rg"
       },
@@ -524,7 +524,9 @@
       },
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
-      "previousSlugs": []
+      "previousSlugs": [
+        "consulente-expert-senior-program-project-manager-relewant-chiasso"
+      ]
     },
     {
       "title": "Senior IT Security Architect",

@@ -162,12 +162,14 @@
       },
       "slugByLocale": {
         "de": "netzwerk-spezialist-in-professional-confederazione-svizzera-locarno",
-        "it": "netzwerk-spezialist-in-professional-confederazione-locarno",
-        "en": "netzwerk-spezialist-in-professional-confederazione-locarno",
-        "fr": "netzwerk-spezialist-in-professional-confederazione-locarno"
+        "it": "network-specialist-in-professional-confederazione-svizzera-locarno",
+        "en": "network-specialist-professional-confederazione-svizzera-locarno",
+        "fr": "specialiste-du-reseau-professionnel-confederazione-svizzera-locarno"
       },
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "netzwerk-spezialist-in-professional-confederazione-locarno"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -402,11 +404,13 @@
       "slugByLocale": {
         "de": "fachspezialist-in-hr-confederazione-svizzera-monteceneri",
         "it": "fachspezialist-in-risorse-umane-confederazione-svizzera-monteceneri",
-        "en": "fachspezialist-in-hr-confederazione-monteceneri",
+        "en": "specialist-hr-confederazione-svizzera-monteceneri",
         "fr": "fachspezialist-in-ressources-humaines-confederazione-svizzera-monteceneri"
       },
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "fachspezialist-in-hr-confederazione-monteceneri"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -461,12 +465,13 @@
       "slugByLocale": {
         "de": "leiter-in-fuhrungs-und-informationssysteme-confederazione-svizzera-rivera",
         "it": "responsabile-fuhrungs-e-informationssysteme-confederazione-svizzera-rivera",
-        "en": "leiter-in-fuhrungs-und-informationssysteme-confederazione-svizzera-rivera",
-        "fr": "leiter-in-fuhrungs-und-informationssysteme-confederazione-svizzera-rivera"
+        "en": "head-of-leadership-and-information-systems-confederazione-svizzera-rivera",
+        "fr": "responsable-des-systemes-de-gestion-et-d-information-confederazione-svizzera-rivera"
       },
       "needsRetranslation": true,
       "previousSlugs": [
-        "leiter-in-fuhrungs-und-informationssysteme-confederazione-rivera"
+        "leiter-in-fuhrungs-und-informationssysteme-confederazione-rivera",
+        "leiter-in-fuhrungs-und-informationssysteme-confederazione-svizzera-rivera"
       ],
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -522,8 +527,8 @@
       "slugByLocale": {
         "de": "logistiker-in-lager-ambri-andermatt-confederazione-ambri",
         "it": "impiegato-a-in-logistica-magazzino-ambri-andermatt-confederazione-svizzera-ambri",
-        "en": "logistiker-in-lager-ambri-andermatt-confederazione-ambri",
-        "fr": "logistiker-in-lager-ambri-andermatt-confederazione-ambri"
+        "en": "logistics-specialist-ambri-andermatt-warehouse-confederazione-svizzera-ambri",
+        "fr": "logisticien-ne-entrepot-ambri-andermatt-confederazione-svizzera-ambri"
       },
       "needsRetranslation": true,
       "salaryMin": 58000,
@@ -540,7 +545,10 @@
         }
       },
       "streetAddress": "Piazza Governo",
-      "postalCode": "6501"
+      "postalCode": "6501",
+      "previousSlugs": [
+        "logistiker-in-lager-ambri-andermatt-confederazione-ambri"
+      ]
     },
     {
       "title": "Hochschulpraktikant/in",
@@ -579,7 +587,7 @@
       },
       "slugByLocale": {
         "de": "hochschulpraktikant-in-confederazione-svizzera-bern",
-        "it": "hochschulpraktikant-in-confederazione-svizzera-bern",
+        "it": "tirocinante-universitario-confederazione-svizzera-bern",
         "en": "university-trainee-confederazione-svizzera-bern-jbzns7",
         "fr": "stagiaire-universitaire-confederazione-svizzera-bern-jbzns7"
       },

@@ -105,7 +105,7 @@
       "id": "sbb-f4d78cef9cf1",
       "slug": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
       "slugByLocale": {
-        "it": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
+        "it": "specialista-rangier-in-ffs-officine-ferrovie-federali-landquart",
         "en": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
         "de": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
         "fr": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart"
@@ -193,13 +193,16 @@
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart"
+      ]
     },
     {
       "id": "sbb-bb290aa934e2",
       "slug": "quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur",
       "slugByLocale": {
-        "it": "quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur",
+        "it": "supporto-del-cliente-in-parttime-ffs-officine-ferrovie-federali-chur",
         "en": "quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur",
         "de": "quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur",
         "fr": "quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur"
@@ -273,7 +276,8 @@
       "crawledAt": "2026-03-29T09:50:14.272Z",
       "needsRetranslation": true,
       "previousSlugs": [
-        "kundenbegleiter-in-teilzeitbeschaftigte-ffs-officine-ferrovie-federali-chur"
+        "kundenbegleiter-in-teilzeitbeschaftigte-ffs-officine-ferrovie-federali-chur",
+        "quereinstieg-kundenbegleiter-in-teilzeit-ffs-officine-ferrovie-federali-chur"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -296,7 +300,7 @@
       "id": "sbb-a1f86d50ca96",
       "slug": "quereinstieg-lokfuhrer-in-personenverkehr-12-2026-ffs-officine-ferrovie-federali-chur",
       "slugByLocale": {
-        "it": "quereinstieg-lokfuhrer-in-personenverkehr-12-2026-ffs-officine-ferrovie-federali-chur",
+        "it": "conducente-a-croce-nel-trasporto-passeggeri-12-2026-ffs-officine-ferrovie-federali-chur",
         "en": "quereinstieg-lokfhr-ffs-officine-ferrovie-federali-chur",
         "de": "quereinstieg-lokfuhrer-im-personenverkehr-12-2026-ffs-officine-ferrovie-federali-chur",
         "fr": "quereinstieg-lokfuhrer-in-personenverkehr-12-2026-ffs-officine-ferrovie-federali-chur"
@@ -384,7 +388,10 @@
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "quereinstieg-lokfuhrer-in-personenverkehr-12-2026-ffs-officine-ferrovie-federali-chur"
+      ]
     }
   ]
 }
