@@ -25,6 +25,7 @@ import {
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseArtisaCareerPage,
+  parseSmartsheetFormPage,
   buildArtisaLocalizedContent,
 } from './lib/artisa-job-parser.mjs';
 
@@ -109,14 +110,41 @@ function inferCategory(title = '') {
   return 'other';
 }
 
+async function fetchSmartsheetDetail(applyUrl) {
+  if (!applyUrl || !applyUrl.includes('app.smartsheet.com/b/form/')) return null;
+  try {
+    const html = await fetchText(applyUrl);
+    return parseSmartsheetFormPage(html);
+  } catch (err) {
+    console.warn(`  ⚠️  Failed to fetch detail from ${applyUrl}: ${err.message}`);
+    return null;
+  }
+}
+
 async function fetchListings() {
   console.log('🔍 Fetching Artisa Group jobs from careers page...');
   const html = await fetchText(CAREERS_URL);
   const rows = parseArtisaCareerPage(html);
   console.log(`📋 Ticino rows: ${rows.length}`);
+
+  // Fetch detail pages from Smartsheet forms (sequential to be polite)
   for (const row of rows) {
     console.log(`  📄 ${row.title} (${row.location})`);
+    const detail = await fetchSmartsheetDetail(row.applyUrl);
+    if (detail) {
+      // Use the more specific title from the form if available
+      if (detail.title && detail.title.length > row.title.length) {
+        row.detailTitle = detail.title;
+      }
+      if (detail.description) {
+        row.detailDescription = detail.description;
+        console.log(`     ✅ Rich description from Smartsheet (${detail.description.length} chars)`);
+      }
+    } else if (row.applyUrl?.includes('smartsheet.com')) {
+      console.log(`     ⚠️  No detail extracted from form`);
+    }
   }
+
   if (rows.length < 3) {
     throw new Error(`Expected at least 3 Artisa jobs, found ${rows.length}`);
   }
