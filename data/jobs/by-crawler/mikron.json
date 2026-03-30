@@ -91,7 +91,7 @@
       },
       "slug": "manufacturing-methodology-engineer-mikron",
       "slugByLocale": {
-        "en": "manufacturing-methodology-engineer-mikron",
+        "en": "manufacturing-methodology-engineer-mikron-group-agno-3tvznr",
         "it": "manufacturing-methodology-engineer-mikron",
         "de": "manufacturing-methodology-ingenieur-mikron-group-agno-3tvznr",
         "fr": "manufacturing-methodology-ingenieur-mikron-group-agno-3tvznr"
@@ -120,7 +120,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "manufacturing-methodology-engineer-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/customer-deliveries-analyst",
@@ -148,7 +151,7 @@
       },
       "slug": "customer-deliveries-analyst-mikron",
       "slugByLocale": {
-        "en": "customer-deliveries-analyst-mikron",
+        "en": "customer-deliveries-analyst-mikron-group-agno-0schrr",
         "it": "customer-deliveries-analyst-mikron",
         "de": "kundenlieferungsanalyst-mikron-group-agno-0schrr",
         "fr": "customer-deliveries-analyste-mikron-group-agno-0schrr"
@@ -179,7 +182,8 @@
         }
       },
       "previousSlugs": [
-        "customer-deliveries-analyst-mikron-group-agno-0schrr"
+        "customer-deliveries-analyst-mikron-group-agno-0schrr",
+        "customer-deliveries-analyst-mikron"
       ]
     },
     {
@@ -322,7 +326,7 @@
       },
       "slug": "internal-machining-manager-m-w-d-mikron",
       "slugByLocale": {
-        "en": "internal-machining-manager-m-w-d-mikron",
+        "en": "internal-machining-manager-m-w-d-mikron-group-agno-lula68",
         "it": "internal-machining-manager-m-w-d-mikron",
         "de": "leiter-der-internen-bearbeitung-m-w-d-mikron-group-agno-lula68",
         "fr": "responsable-de-l-usinage-interne-m-w-d-mikron-group-agno-lula68"
@@ -353,7 +357,8 @@
         }
       },
       "previousSlugs": [
-        "internal-machining-manager-m-w-d-mikron-group-agno-lula68"
+        "internal-machining-manager-m-w-d-mikron-group-agno-lula68",
+        "internal-machining-manager-m-w-d-mikron"
       ]
     },
     {
@@ -382,7 +387,7 @@
       },
       "slug": "quality-technician-specialist-m-f-d-mikron",
       "slugByLocale": {
-        "en": "quality-technician-specialist-m-f-d-mikron",
+        "en": "quality-technician-specialist-m-f-d-mikron-group-agno-z8zhnv",
         "it": "quality-technician-specialist-m-f-d-mikron",
         "de": "qualitat-techniker-spezialist-m-f-d-mikron-group-agno-z8zhnv",
         "fr": "qualite-technicien-specialiste-m-f-d-mikron-group-agno-z8zhnv"
@@ -411,7 +416,10 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "quality-technician-specialist-m-f-d-mikron"
+      ]
     },
     {
       "url": "https://www.mikron.com/en/apprendisti-mfd",
@@ -556,7 +564,7 @@
       },
       "slug": "motion-control-software-engineer-m-f-d-mikron",
       "slugByLocale": {
-        "en": "motion-control-software-engineer-m-f-d-mikron",
+        "en": "motion-control-software-engineer-m-f-d-mikron-group-agno-y9v6ol",
         "it": "motion-control-software-engineer-m-f-d-mikron",
         "de": "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol",
         "fr": "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol"
@@ -585,7 +593,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "motion-control-software-engineer-m-f-d-mikron"
+      ]
     }
   ]
 }

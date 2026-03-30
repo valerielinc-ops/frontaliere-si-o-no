@@ -43,11 +43,13 @@
       "slugByLocale": {
         "it": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
         "en": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
-        "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
+        "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
         "fr": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
       },
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -93,7 +95,7 @@
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
         "it": "operatore-in-support-swiss-armed-forces-vtg-rivera",
-        "en": "operator-in-support-swiss-armed-forces-vtg-rivera",
+        "en": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "de": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "fr": "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
       },
@@ -112,7 +114,9 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "operator-in-support-swiss-armed-forces-vtg-rivera"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -223,7 +227,7 @@
       "slugByLocale": {
         "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
         "en": "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera",
-        "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
+        "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
         "fr": "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
@@ -243,7 +247,8 @@
       "sourceLang": "de",
       "previousSlugs": [
         "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
-        "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera"
+        "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera",
+        "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -354,9 +359,9 @@
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-rivera",
-        "en": "apprentice-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
+        "en": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
         "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
-        "fr": "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
+        "fr": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
       },
       "titleByLocale": {
         "de": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
@@ -374,7 +379,9 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
-        "apprendista-meccatronico-automobilistico-efz-settore-veicoli-personali-swiss-armed-forces-vtg-rivera"
+        "apprendista-meccatronico-automobilistico-efz-settore-veicoli-personali-swiss-armed-forces-vtg-rivera",
+        "apprentice-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
+        "apprenti-e-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -421,9 +428,9 @@
       "crawledAt": "2026-03-29T10:01:43.148Z",
       "slugByLocale": {
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
-        "en": "apprentice-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
+        "en": "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
         "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
-        "fr": "apprenti-e-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
+        "fr": "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti"
       },
       "titleByLocale": {
         "de": "Lernende/-r Strassentransportfachmann/-frau EFZ",
@@ -443,7 +450,9 @@
       "previousSlugs": [
         "apprendista-a-in-trasporto-stradale-efz-swiss-armed-forces-vtg-claro-ti",
         "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
-        "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti"
+        "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti",
+        "apprentice-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
+        "apprenti-e-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,

@@ -239,7 +239,7 @@
       "slugByLocale": {
         "it": "assistenti-di-cura",
         "en": "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
-        "de": "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
+        "de": "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr",
         "fr": "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona-d2blfr"
       },
       "descriptionByLocale": {
@@ -255,7 +255,10 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "requirementsByLocale": {},
-      "previousSlugs": [],
+      "previousSlugs": [
+        "assistenti-di-cura-lis-lugano-istituti-sociali-pregassona",
+        "assistenti-di-cura"
+      ],
       "currency": "CHF",
       "baseSalary": {
         "@type": "MonetaryAmount",

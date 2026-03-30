@@ -26,7 +26,7 @@
       },
       "slug": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
       "slugByLocale": {
-        "de": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur",
+        "de": "mcdonald-s-chur-city-mcdonalds",
         "it": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
         "en": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
         "fr": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc"
@@ -48,7 +48,8 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
-        "mcdonald-s-chur-city-mcdonalds"
+        "mcdonald-s-chur-city-mcdonalds",
+        "mcdonald-s-chur-city-mcdonald-s-switzerland-chur"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -93,7 +94,7 @@
       },
       "slug": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
       "slugByLocale": {
-        "de": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur",
+        "de": "mcdonald-s-chur-sud-mcdonalds",
         "it": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
         "en": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
         "fr": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n"
@@ -115,7 +116,8 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
-        "mcdonald-s-chur-sud-mcdonalds"
+        "mcdonald-s-chur-sud-mcdonalds",
+        "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -161,7 +163,7 @@
       "slug": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
       "slugByLocale": {
         "de": "collaboratore-trice-lamone-mcdonalds",
-        "it": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
+        "it": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
         "en": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
         "fr": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk"
       },
@@ -181,7 +183,9 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
