@@ -16,6 +16,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
@@ -151,7 +152,7 @@ function buildJob({ title, pdfUrl, pdfText }) {
 }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const existingTarget = existing.filter(isTargetJob);
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));

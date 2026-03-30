@@ -16,6 +16,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   translateMissingJobLocales,
@@ -189,7 +190,7 @@ function buildJob(role) {
 }
 
 function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
@@ -260,7 +261,7 @@ async function main() {
     html = await fetchPage(CAREERS_URL);
   } catch (fetchErr) {
     // Check if existing Goline jobs are already in the data
-    const allJobs = readJson(DATA_JOBS, []);
+    const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
     const existing = allJobs.filter(isTargetJob);
     if (existing.length > 0) {
       console.log(`⚠️  Could not reach Goline website (${fetchErr.message}).`);

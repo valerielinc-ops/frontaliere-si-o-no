@@ -26,6 +26,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   translateMissingJobLocales,
@@ -148,7 +149,7 @@ function jobMatchKey(job = {}) {
 }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
@@ -303,7 +304,7 @@ async function main() {
 
   // Write the per-crawler slice AFTER translation so the slice contains fully
   // localized content. Then re-assemble the global dataset from slices.
-  const translatedJobs = readJson(DATA_JOBS, []).filter(isTargetJob);
+  const translatedJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob);
   writeJobsCrawlerSlice(COMPANY_KEY, translatedJobs);
   const summaryEntry = {
     key: COMPANY_KEY,

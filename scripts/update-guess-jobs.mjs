@@ -30,6 +30,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   translateMissingJobLocales,
@@ -251,7 +252,7 @@ function jobMatchKey(job = {}) {
 }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonTargetJobs = allJobs.filter((job) => !isTargetJob(job));
   const existingTargetJobs = allJobs.filter(isTargetJob);
@@ -327,7 +328,7 @@ function updateAdapterConfig(discoveredJobs) {
 }
 
 function postProcessJobs() {
-  const raw = readJson(DATA_JOBS, []);
+  const raw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const jobs = Array.isArray(raw) ? raw : [];
   let fixed = 0;
   for (const job of jobs) {
@@ -365,7 +366,7 @@ function postProcessJobs() {
 }
 
 function logStats(beforeSnapshot = new Map()) {
-  const allJobs = readJson(DATA_JOBS, []);
+  const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const targetJobs = Array.isArray(allJobs) ? allJobs.filter(isTargetJob) : [];
 
   console.log('\n📊 === Guess Europe Sagl Job Stats ===');
@@ -410,7 +411,7 @@ async function main() {
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
   let beforeSnapshot = new Map();
-  const pre = readJson(DATA_JOBS, []);
+  const pre = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   if (Array.isArray(pre)) beforeSnapshot = snapshotJobSlugs(pre.filter(isTargetJob));
 
   const listings = await fetchGuessListings();

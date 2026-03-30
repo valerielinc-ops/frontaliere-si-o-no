@@ -45,6 +45,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   translateMissingJobLocales,
@@ -441,7 +442,7 @@ function buildJob(row) {
 /* ── Merge ─────────────────────────────────────────────────── */
 
 function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
 
   // Collect viewkeys already covered by VTG / Agroscope
   const coveredViewkeys = new Set();

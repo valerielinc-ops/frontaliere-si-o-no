@@ -39,6 +39,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   translateMissingJobLocales,
@@ -319,7 +320,7 @@ function buildJob(listing, detail) {
 
 /* ── Merge ─────────────────────────────────────────────────── */
 function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
@@ -359,7 +360,7 @@ function mergeJobs(discoveredJobs) {
 
 /* ── Stats & Validation ────────────────────────────────────── */
 function logStats() {
-  const allJobs = readJson(DATA_JOBS, []);
+  const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const jobs = allJobs.filter(isTargetJob);
 
   const byLocation = {};

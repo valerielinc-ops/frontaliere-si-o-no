@@ -36,6 +36,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   translateMissingJobLocales,
@@ -649,7 +650,7 @@ function buildJob(raw) {
 
 /* ── Merge ─────────────────────────────────────────────────── */
 function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
@@ -698,7 +699,7 @@ function mergeJobs(discoveredJobs) {
 
 /* ── Stats & Validation ────────────────────────────────────── */
 function logStats() {
-  const allJobs = readJson(DATA_JOBS, []);
+  const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const jobs = allJobs.filter(isTargetJob);
   const gr = jobs.filter((j) => normalize(j.canton) === 'gr');
   const ti = jobs.filter((j) => normalize(j.canton) === 'ti');
@@ -783,7 +784,7 @@ async function main() {
   });
 
   // Step 4b: Ensure no thin descriptions (< 50 words)
-  const allJobsForPatch = readJson(DATA_JOBS, []);
+  const allJobsForPatch = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const volgJobs = allJobsForPatch.filter(isTargetJob);
   const patchedCount = ensureMinimumDescriptionWordCount(volgJobs, 50);
   if (patchedCount > 0) {

@@ -16,6 +16,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   validateDedicatedLocaleCoverage,
@@ -257,7 +258,7 @@ function jobMatchKey(job = {}) {
 }
 
 function mergeJobs(discoveredJobs) {
-  const jobs = readJson(DATA_JOBS, []);
+  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   if (!Array.isArray(jobs)) return { total: 0, added: 0, updated: 0 };
   const nonTargetJobs = jobs.filter((job) => !isTargetJob(job));
   const targetExisting = jobs.filter(isTargetJob);
@@ -303,7 +304,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Listing source: ${LISTING_URLS[0]}\n`);
 
-  const beforeJobs = readJson(DATA_JOBS, []);
+  const beforeJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter((job) => isTargetJob(job)) : [];
   const beforeSlugs = snapshotJobSlugs(beforeTargetJobs);
 
@@ -330,7 +331,7 @@ async function main() {
     noJobsMessage: 'No RUAG jobs found after dedicated crawl.',
   });
 
-  const allJobs = readJson(DATA_JOBS, []);
+  const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const targetJobs = Array.isArray(allJobs) ? allJobs.filter((job) => isTargetJob(job)) : [];
   writeJobsSummary(targetJobs, 'RUAG');
   printPublishedJobUrls(targetJobs.slice(0, 20), 'RUAG');

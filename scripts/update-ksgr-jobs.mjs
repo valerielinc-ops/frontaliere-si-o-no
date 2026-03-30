@@ -22,6 +22,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import { parseKsgrJobsPage } from './lib/ksgr-job-parser.mjs';
@@ -166,7 +167,7 @@ function ensureAdapter(discoveredJobs) {
 }
 
 function postProcessKsgrJobs(discoveredJobs) {
-  const jobs = readJson(DATA_JOBS, []);
+  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   if (!Array.isArray(jobs)) return { updated: 0, total: 0 };
 
   const metaByUrl = new Map(
@@ -204,7 +205,7 @@ function postProcessKsgrJobs(discoveredJobs) {
 async function main() {
   setCrawlerStartTime();
   console.log('🏥 Running dedicated KSGR jobs crawler (Prospective API)...');
-  const beforeJobs = readJson(DATA_JOBS, []);
+  const beforeJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter((job) => isKsgrJob(job)) : [];
   const beforeSlugs = snapshotJobSlugs(beforeTargetJobs);
   const discoveredJobs = await fetchAllKsgrJobs();
@@ -238,7 +239,7 @@ async function main() {
     noJobsMessage: 'No KSGR jobs found after dedicated crawl.',
   });
 
-  const allJobs = readJson(DATA_JOBS, []);
+  const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const targetJobs = Array.isArray(allJobs) ? allJobs.filter((job) => isKsgrJob(job)) : [];
   writeJobsSummary(targetJobs, 'KSGR');
   printPublishedJobUrls(targetJobs.slice(0, 20), 'KSGR');

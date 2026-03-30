@@ -105,7 +105,33 @@ function listSliceFiles(dir) {
     .sort(); // lexicographic — deterministic order
 }
 
-/* ── Per-crawler slice writers (used by migrated crawlers) ────────────── */
+/* ── Per-crawler slice readers/writers (used by migrated crawlers) ────── */
+
+/**
+ * Read existing jobs for a company from the per-crawler slice file.
+ *
+ * Dedicated crawlers use this to find existing jobs for deduplication and
+ * locale preservation. Falls back to data/jobs.json if the per-crawler
+ * file doesn't exist (legacy path), then to an empty array.
+ *
+ * @param {string} crawlerKey - Normalised company key (e.g. 'dot-life', 'axpo-group')
+ * @param {string} [dataJobsPath] - Optional fallback path to data/jobs.json
+ * @returns {object[]} Array of existing job objects
+ */
+export function readExistingCrawlerJobs(crawlerKey, dataJobsPath) {
+  const slicePath = path.join(JOBS_SLICES_DIR, `${crawlerKey}.json`);
+  if (fs.existsSync(slicePath)) {
+    const data = readJson(slicePath);
+    const jobs = data?.jobs || (Array.isArray(data) ? data : []);
+    if (jobs.length > 0) return jobs;
+  }
+  // Fallback: data/jobs.json (gitignored, only available locally)
+  if (dataJobsPath && fs.existsSync(dataJobsPath)) {
+    const all = readJson(dataJobsPath);
+    return Array.isArray(all) ? all : [];
+  }
+  return [];
+}
 
 /**
  * Write a per-crawler jobs slice.

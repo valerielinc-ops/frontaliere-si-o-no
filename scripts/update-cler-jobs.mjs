@@ -21,6 +21,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   runDedicatedBaseCrawler,
@@ -285,7 +286,7 @@ async function fetchClerJobs() {
 // ─────────────────────────────────────────────────────────────
 
 function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((j) => !isTargetJob(j));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
@@ -399,7 +400,7 @@ async function main() {
   let beforeSnapshot = new Map();
   if (fs.existsSync(DATA_JOBS)) {
     try {
-      const pre = readJson(DATA_JOBS, []);
+      const pre = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
       beforeSnapshot = snapshotJobSlugs(
         Array.isArray(pre) ? pre.filter(isTargetJob) : []
       );
@@ -435,7 +436,7 @@ async function main() {
 
   // Phase 5: Summary
   {
-    const raw = readJson(DATA_JOBS, []);
+    const raw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
     const jobs = (Array.isArray(raw) ? raw : []).filter(isTargetJob);
     printPublishedJobUrls(jobs);
     writeJobsSummary(COMPANY_KEY, { total: stats.total, targetCount: stats.targetCount });

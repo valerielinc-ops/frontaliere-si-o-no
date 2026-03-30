@@ -16,6 +16,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import {
   translateMissingJobLocales,
@@ -175,7 +176,7 @@ function jobMatchKey(job = {}) {
 }
 
 function mergeJobs(discoveredJobs) {
-  const existing = readJson(DATA_JOBS, []);
+  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const nonTargetJobs = existing.filter((job) => !isTargetJob(job));
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
@@ -271,7 +272,7 @@ async function main() {
     isTargetJob,
     maxJobs: jobs.length,
   });
-  const allJobs = readJson(DATA_JOBS, []);
+  const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   writeJson(PUBLIC_JOBS, allJobs);
   validateLocales();
   console.log(`\n🏭 Total Ariston Group jobs: ${merged.total}`);
