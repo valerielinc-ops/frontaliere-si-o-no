@@ -3015,6 +3015,7 @@ ${(() => {
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
     <meta property="og:image:type" content="image/png">
+    <meta name="robots" content="noindex,follow">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
   </head>
