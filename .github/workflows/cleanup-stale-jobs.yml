@@ -1,9 +1,10 @@
-name: Cleanup Stale Job Listings
+name: Cleanup Stale Job Listings (Manual Only)
 
+# Cron disabled — housekeeping is now Phase 1 of the translate-pending pipeline.
+# Keep this workflow for manual emergency cleanup via workflow_dispatch.
 on:
-  schedule:
-    # Run daily at 06:00 UTC — after all crawlers have finished
-    - cron: '0 6 * * *'
+  # schedule:
+  #   - cron: '0 6 * * *'  # DISABLED: now part of translate-pending.yml Phase 1
   workflow_dispatch:
     inputs:
       stale_days:

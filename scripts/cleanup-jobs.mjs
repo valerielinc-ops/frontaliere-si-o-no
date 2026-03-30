@@ -264,12 +264,16 @@ async function main() {
       return;
     }
 
-    // Run locale hardening on the slice
+    // Run locale hardening on the slice (skip if JOBS_SKIP_LOCALE_HARDENING=1,
+    // e.g. when slug hardening is deferred to after translations in the combined pipeline)
+    const skipHardening = process.env.JOBS_SKIP_LOCALE_HARDENING === '1';
     const tempPath = slicePath + '.cleanup-tmp.json';
     writeJson(tempPath, sliceJobs);
     try {
-      const lh = hardenJobLocaleFields({ dataJobsPath: tempPath });
-      if (lh.changed) console.log(`🛡️ Locale hardening: repaired ${lh.repaired}/${lh.total} jobs in slice.`);
+      if (!skipHardening) {
+        const lh = hardenJobLocaleFields({ dataJobsPath: tempPath });
+        if (lh.changed) console.log(`🛡️ Locale hardening: repaired ${lh.repaired}/${lh.total} jobs in slice.`);
+      }
       const hardenedJobs = readJson(tempPath);
 
       // Age-based pruning
