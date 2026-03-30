@@ -136,27 +136,19 @@ jobs:
         if: always() && inputs.skip_translate != true && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
-      # ── Phase 2b: Fix remaining source-copy titles via free cascade ────────
-      # The AI pipeline may leave some titles untranslated (source copies).
-      # This step uses DeepL/MyMemory (no AI quota needed) to translate them.
+      # ── Phase 2b: Fix source-copy titles (daily 06:00 only) ──────────────
+      # Only runs on the daily cron — no point retrying the same 30 failed titles
+      # every run. New jobs from crawlers will have source-copy titles that 2b fixes.
       - name: "Phase 2b: Fix untranslated titles (free cascade)"
-        if: always() && inputs.dry_run != true
+        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: node scripts/fix-untranslated-titles.mjs
 
       - name: Commit title fixes
-        if: always() && inputs.dry_run != true
+        if: steps.hk.outputs.run == 'true' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
 
-      # ── Phase 2c: Fix remaining source-copy descriptions via free cascade ──
-      # Descriptions that are still copies of the source language after Phase 2.
-      # Uses DeepL/SimplyTranslate/LibreTranslate (no AI quota needed).
-      - name: "Phase 2c: Fix untranslated descriptions (free cascade)"
-        if: always() && inputs.dry_run != true
-        run: node scripts/fix-untranslated-descriptions.mjs
-
-      - name: Commit description fixes
-        if: always() && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
+      # Phase 2c REMOVED — descriptions are at 0 source copies.
+      # If new crawlers add untranslated descriptions, Phase 2 (AI) handles them.
 
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       # Safe replacement for hardenJobLocaleFields (which was destructive:
