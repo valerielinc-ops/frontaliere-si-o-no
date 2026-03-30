@@ -5990,5 +5990,117 @@
         "pending": 10
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-30T10:24:11.392Z",
+    "label": "before",
+    "total": 1318,
+    "needsRetranslation": 841,
+    "incomplete": 591,
+    "complete": 727,
+    "missingByLocale": {
+      "it": 230,
+      "en": 423,
+      "de": 242,
+      "fr": 501
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 84
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 79
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 26
+      },
+      {
+        "company": "Hamilton Bonaduz AG",
+        "pending": 13
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 11
+      },
+      {
+        "company": "Casale SA",
+        "pending": 10
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-30T10:44:12.298Z",
+    "label": "after",
+    "total": 1318,
+    "needsRetranslation": 785,
+    "incomplete": 576,
+    "complete": 742,
+    "missingByLocale": {
+      "it": 218,
+      "en": 414,
+      "de": 238,
+      "fr": 488
+    },
+    "topPending": [
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 107
+      },
+      {
+        "company": "Caotec SA",
+        "pending": 94
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 84
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 78
+      },
+      {
+        "company": "USI – Università della Svizzera italiana",
+        "pending": 28
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 26
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 11
+      },
+      {
+        "company": "Casale SA",
+        "pending": 10
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 10
+      }
+    ]
   }
 ]
