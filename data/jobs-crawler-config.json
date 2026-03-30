@@ -67,9 +67,9 @@
   },
   "minQualityScore": 4,
   "minDescriptionChars": 80,
-  "aiLocalizationEnabled": false,
-  "aiLocalizationMaxJobsPerRun": 25,
-  "aiPageValidationEnabled": false,
+  "aiLocalizationEnabled": true,
+  "aiLocalizationMaxJobsPerRun": 9,
+  "aiPageValidationEnabled": true,
   "aiPageValidationMaxPagesPerRun": 40,
   "webDiscoveryEnabled": false,
   "contentReuse": {
