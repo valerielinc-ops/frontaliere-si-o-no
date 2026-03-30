@@ -149,157 +149,7 @@ The job board runs a **5-stage asynchronous pipeline**. Each stage is a separate
                 → GitHub Pages → post-deploy indexing (Google, Bing, IndexNow)
 ```
 
----
-
-### Stage 1 — Cleanup (`cleanup-stale-jobs.yml`)
-
-**Trigger**: Cron `0 6 * * *` (06:00 UTC daily, before orchestration)
-
-**What it does** — iterates ALL `data/jobs/by-crawler/*.json` slices:
-1. **Locale hardening** (`hardenJobLocaleFields`): repairs malformed slugs, removes stale hash suffixes, adds renamed slugs to `previousSlugs`
-2. **Age pruning**: removes jobs with `crawledAt` older than 60 days
-3. **URL validation**: HTTP-checks each job URL concurrently; removes definitive 404/410/gone jobs
-4. **Dedup**: within each slice, keeps newest job when two jobs share the same slug
-5. **Archive to expired**: removed jobs with unique slugs → `data/jobs/expired/by-crawler/{slug}.json` (for soft-landing pages). Archived entries include `slugByLocale` + `previousSlugs` for enriched soft-landings.
-6. Commits with `git-commit-data.sh --slice-only`; does **NOT** trigger deploy
-
-**Key behaviors**:
-- Deduped-away jobs (slug still live in kept job) are NOT archived — correct, the URL is still active
-- `hardenJobLocaleFields` may rename slugs during cleanup; old slugs go into `previousSlugs` of the surviving job
-- Does not block if individual slices fail (continues with `|| true`)
-
----
-
-### Stage 2 — Orchestration (`orchestrate-crawlers.yml`)
-
-**Trigger**: Cron `0 8 * * *` + `0 20 * * *` (twice daily) + manual dispatch
-
-**What it does**:
-1. Discovers all `update-jobs-*.yml` workflows
-2. Reads each crawler's jobs count to classify volume:
-   - Large (>50 jobs): 120 s delay between dispatches
-   - Medium (10–50): 60 s delay
-   - Small (<10): 20 s delay
-3. Dispatches each with `skip_ai_translation=1` flag (AI translation is deferred to translate-pending)
-4. Coop Ticino is excluded — has its own dedicated cron at 06:00 UTC
-
-After dispatching, **does not wait**. All crawlers run concurrently. `translate-pending` handles the "after all crawlers" step.
-
----
-
-### Stage 3 — Individual Crawlers (`update-jobs-{slug}.yml` ×103)
-
-**Trigger**: Dispatched by orchestrator (or manually)
-
-**Each crawler does**:
-1. Crawl company job portal (Playwright or API-based)
-2. Extract jobs — **skips AI translation** (`skip_ai_translation=1`), marks jobs `needsRetranslation: true`
-3. Write per-crawler slice: `data/jobs/by-crawler/{slug}.json`
-4. Write translation cache: `data/translation-cache/{slug}.json`
-5. Scoped housekeeping: URL-validates only this company's jobs
-6. Commit and push with `git-commit-data.sh --slice-only` (uses `GITHUB_TOKEN`)
-
-> **Important**: Commits with `GITHUB_TOKEN` do NOT trigger `deploy.yml` (GitHub anti-loop rule). Deploy is triggered only by `translate-pending` via `GITHUB_PAT`.
-
-**Files written per crawler**:
-- `data/jobs/by-crawler/{slug}.json` — active jobs (Italian only, EN/DE/FR pending)
-- `data/jobs/expired/by-crawler/{slug}.json` — jobs that failed URL validation
-- `data/jobs-crawler-summaries/by-crawler/{slug}.json` — metadata (count, timestamp)
-- `data/translation-cache/{slug}.json` — SHA256-keyed AI translation cache
-
----
-
-### Stage 4 — Translation (`translate-pending.yml`)
-
-**Trigger**:
-- `workflow_run` on `orchestrate-crawlers` completed
-- Cron fallback: `0 12 * * *` (12:00 UTC) and `0 0 * * *` (00:00 UTC)
-- Manual dispatch with `max_jobs` (default: 100) and `dry_run` inputs
-
-**What it does**:
-1. **Assemble dataset** (`assemble-jobs-dataset.mjs`): reads all per-crawler slices → merges (last-write-wins by `assembledAt`) → outputs `data/jobs.json` + `public/data/jobs.json`
-2. **Relocalize pending** (`relocalize-pending-jobs.mjs --max-jobs N`):
-   - Finds all jobs with `needsRetranslation: true` or missing locale coverage
-   - Runs shared crawler in `LOCALIZE_EXISTING_ONLY` mode (no crawling, translation only)
-   - Uses centralized AI model chain (74 models, 10 providers, Firestore-backed scoring)
-   - **Time budget**: 90-minute internal budget (workflow timeout: 120 min)
-   - Syncs translated content back to per-crawler slices (`syncTranslationsToCrawlerFile`)
-   - When overwriting `slugByLocale` for `needsRetranslation` jobs, preserves old slugs in `previousSlugs` to prevent URL orphaning
-3. **Commit** with `git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs"`
-4. **Validate completeness** (`validate-translation-completeness.mjs`):
-   - Checks every job has 4-locale coverage (title ≥ 3 chars, description ≥ 120 chars)
-   - If any job incomplete: **skips deploy**, exits 0 — next cron run retries
-5. **Trigger deploy** (only if validation passes): `bash scripts/lib/trigger-deploy.sh` using `GITHUB_PAT`
-
-**Recovery**: If quota exhausted mid-run, validation fails, deploy is skipped. Next cron (12:00 or 00:00 UTC) retries automatically until all jobs are translated.
-
----
-
-### Stage 5 — Deploy (`deploy.yml`)
-
-**Trigger**: Push to `main` + `workflow_dispatch` (called by `trigger-deploy.sh` via `GITHUB_PAT`)
-
-**Validation gates (all blocking — exit code 1 = deploy aborted)**:
-
-| Gate | Script | What it checks |
-|------|--------|----------------|
-| Translation completeness | `validate-translation-completeness.mjs` | Every job has 4 locales with min content |
-| JobPosting rich results | `validate-jobs-rich-results-sample.mjs` | ALL mandatory JSON-LD fields present on sampled pages |
-| Third-party secrets | `validate:third-party-secrets` | No API keys/tokens in source |
-| Job data quality | `validate:jobs-quality` | Format + locale consistency |
-| Sitemap links | `validate:sitemap-links` | All sitemap URLs exist in `dist/` |
-| Soft-404 indicators | `validate-soft404.mjs` | No pages marked soft-404 |
-| Canonical tags | `validate-canonical.mjs` | Correct canonical URLs |
-| Content quality | `validate-content-quality.mjs` | No thin pages (<50 words) |
-| Page SEO quality | `validate-page-seo-quality.mjs` | H1 tags, lang attribute, schema validity, meta viewport |
-
-**Pipeline sequence**:
-1. Assemble jobs dataset (final merge)
-2. Global housekeeping (cross-crawler dedup + locale hardening)
-3. All validation gates above
-4. Fetch Amazon product data (continue-on-error)
-5. `npm run build:prod` → Vite + all build plugins → ~16,000 static HTML files
-6. Validate generated pages (JobPosting JSON-LD, sitemaps, canonicals, content)
-7. Deploy to GitHub Pages (`https://frontaliereticino.ch`)
-8. Post-deploy: Google Indexing API, IndexNow (Bing/Yandex), Google Search Console (all continue-on-error)
-9. If article deploy: post to Facebook + LinkedIn
-
----
-
-### GITHUB_TOKEN Limitation
-
-Pushes made with the default `GITHUB_TOKEN` **do not trigger other workflows** (GitHub anti-loop rule). Only `translate-pending` and `article-generation` trigger deploy — they use `GITHUB_PAT` (from Firebase Remote Config) via `scripts/lib/trigger-deploy.sh`.
-
-If `GITHUB_PAT` is missing, deploy is skipped gracefully. Admin can always trigger manually via `workflow_dispatch`.
-
-### GitHub Actions Step Timeout — Critical Gotcha
-
-**Never use `timeout-minutes` at the step level on steps that must be followed by cleanup/commit steps.**
-
-When a step is killed by a step-level timeout, GitHub Actions marks it as `failure`. Subsequent steps with `if: always()` are NOT executed — `always()` only overrides `failure` from the workflow context, not from a step that was killed by its own timeout.
-
-**Correct pattern**: Set `timeout-minutes` at the **job** level only. Use an internal time budget (e.g. `TIME_BUDGET_MS`) in the script itself to stop gracefully before the job timeout, leaving room for commit/deploy steps to run.
-
-```yaml
-jobs:
-  translate:
-    timeout-minutes: 350   # ← job-level only
-    steps:
-      - name: Translate pending jobs
-        # NO timeout-minutes here
-        run: node scripts/relocalize-pending-jobs.mjs  # script stops at 320min internally
-      - name: Commit and push
-        if: always()   # ← this works correctly with job-level timeout
-        run: bash scripts/lib/git-commit-data.sh ...
-```
-
-### AI Provider Retry-After Headers
-
-Some AI providers return extreme `Retry-After` values (e.g. Cerebras: `Retry-After: 86399` = 24h). Without a cap, the entire translate-pending pipeline freezes for a full day, causing a massive translation backlog.
-
-**Rule**: Always cap `Retry-After` header values to a maximum of **2 minutes** (`MAX_RETRY_AFTER_MS = 2 * 60 * 1000`) in `scripts/lib/ai-models.mjs`. The model fallback chain will naturally move to the next available provider.
-
----
+For detailed pipeline stage documentation (Stages 1-5, GITHUB_TOKEN rules, step timeouts, Retry-After caps), see [docs/CI-CD-PIPELINE.md](docs/CI-CD-PIPELINE.md).
 
 ### Workflow Categories (117 total)
 
@@ -526,6 +376,162 @@ These are enforced by `scripts/validate-page-seo-quality.mjs` at deploy time.
 **Why not 50-char prefix?** The prefix heuristic has two failure modes:
 1. False negative: different roles that share a long common prefix get merged
 2. False positive: em-dash vs hyphen variations or reordered words produce a new slug unnecessarily
+
+Only **USI, SUPSI, LIS** had real ongoing slug churn. Other crawlers either fill-only or have their own guards. When auditing a new crawler, check whether it unconditionally regenerates slugs — it should use `isSlugStable()` instead.
+
+## Translation Cache (SHA256)
+
+- `data/translation-cache/{company-slug}.json` stores translated titles/descriptions
+- Hash-based skip: if `SHA256(title|description)` matches cache and <30 days old, skip AI call
+- ~90% cache hit rate after first run
+- Jobs with `needsRetranslation: true` flag bypass cache and get priority
+
+## Crawler Orchestration
+
+`orchestrate-crawlers.yml` dispatches all 103 crawlers with volume-based staggering:
+- Large (>50 jobs): 300s delay
+- Medium (10-50 jobs): 60s delay
+- Small (<10 jobs): 30s delay
+
+---
+
+# Feature Flags (Firebase Remote Config)
+
+New features are gated by boolean parameters in Firebase Remote Config:
+
+| Flag | Purpose | Default |
+|------|---------|---------|
+| `ENABLE_JOB_ALERTS` | Job Alert Form UI + email sending | `false` |
+
+To test a feature: set the flag to `true` in Firebase Console → refresh the page. To disable: set back to `false`. No deploy needed.
+
+---
+
+# Structured Data Completeness
+
+## Validation Gate
+
+`scripts/validate-structured-data-completeness.mjs` runs at deploy time and **blocks deploy** (exit 1) if any structured data schema has missing or invalid mandatory fields. It samples pages across all types: active jobs, expired soft-landings, company pages, statistics, and blog.
+
+## Rules
+
+### Dataset schemas (statistics pages)
+
+Every `Dataset` JSON-LD block MUST include:
+- `description` — non-empty string describing the dataset
+- `creator` — `{ "@type": "Organization", "name": "...", "url": "..." }`
+
+Dataset schemas MUST be emitted as **top-level** JSON-LD objects (separate `<script type="application/ld+json">` blocks), NOT nested inside a WebPage's `about` property. Google does not reliably extract nested Dataset schemas.
+
+### JobPosting schemas (all job page types)
+
+Every `JobPosting` JSON-LD block MUST include ALL of:
+- `title`, `description` (>= 30 chars), `datePosted`, `hiringOrganization.name`
+- `employmentType` — fallback to `OTHER` if unknown
+- `jobLocation.address` with `addressLocality`, `postalCode`, `streetAddress` — all with fallbacks
+- `baseSalary` with `currency`, `value.minValue`, `value.unitText` — fallback to Ticino minimum wage (CHF 41,080/year)
+
+This applies to:
+- Active job pages (all 4 locales)
+- Expired job soft-landing pages
+- Bridge pages (previousSlugs redirects) — validated but treated as warnings, not errors
+- SPA runtime schema injection (JobBoard.tsx `@graph`)
+
+### Future schema additions
+
+When adding any new schema.org type, include ALL fields from Google's documentation for that type. Check Google Search Console's documentation for the specific rich result type. Every field marked "Required" or "Recommended" by Google MUST be present with a fallback value.
+
+---
+
+# Completion Checklist — Before Every PR
+
+- [ ] All tests pass: `npx vitest run`
+- [ ] Build succeeds: `npx vite build`
+- [ ] If `t()` keys were added, all 4 locales have the translation
+- [ ] No secrets in source code
+- [ ] Accessibility rules followed (contrast, aria-labels, image dimensions)
+- [ ] New pages have SEO metadata + sitemap entry + static HTML generated
+- [ ] Dark mode variants included
+- [ ] If user-facing feature, new release entry in `WhatsNewModal.tsx`
+
+## Auto-push Rule
+
+**Every time a task is completed successfully** (tests pass + build succeeds), **automatically commit and push to the remote repository** (`git push`). Do not wait for explicit user confirmation. If the push fails for a non-network reason, report the error.
+
+---
+
+# Superpowers Skills (`.agents/skills/`)
+
+This project uses the **Superpowers** skill system. 103 skills are available in `.agents/skills/`. Skills are invoked via the `Skill` tool in Claude Code — never read skill files directly with the Read tool.
+
+**If there is even a 1% chance a skill applies, invoke it before acting.**
+
+## Key Skills for This Project
+
+| Skill | When to use |
+|-------|-------------|
+| `brainstorm` | **Before any creative work** — creating features, building components, modifying behavior |
+| `tdd` | **Before writing implementation code** — write failing test first |
+| `write-plan` | When you have specs/requirements for a multi-step task |
+| `execute-plan` | When executing a written implementation plan |
+| `verify` | **Before claiming work is complete** — run verification commands, confirm output |
+| `review` | When completing tasks or before merging — verify work meets requirements |
+| `receive-review` | When receiving code review feedback — technical rigor before implementing suggestions |
+| `investigate` | When tests fail — systematic root cause analysis |
+| `finish-branch` | When implementation is complete and tests pass — decide merge/PR/cleanup |
+| `dispatch-agents` | When facing 2+ independent tasks that can run in parallel |
+| `worktree` | When starting feature work that needs isolation from current workspace |
+| `subagent-dev` | When executing plans with independent tasks in the current session |
+| `search-first` | When exploring the codebase — search before acting |
+| `write-skill` | When creating or editing skills |
+| `security-review` | When reviewing code for security issues |
+| `e2e-testing` | When writing end-to-end tests |
+
+## Marketing & SEO Skills (for content/SEO tasks)
+
+`seo-audit`, `ai-seo`, `schema-markup`, `programmatic-seo`, `content-strategy`, `page-cro`, `analytics-tracking`, `site-architecture`, `copywriting`, `article-writing`
+
+## Skill Priority
+
+1. **Process skills first** (brainstorm, investigate, tdd) — determine HOW to approach
+2. **Implementation skills second** (frontend-patterns, e2e-testing) — guide execution
+
+"Build X" → brainstorm first, then implementation skills.
+"Fix this bug" → investigate first, then domain-specific skills.
+
+---
+
+# Design Context
+
+## Users
+A mix of three overlapping audiences:
+- **Stressed decision-makers**: People facing a major life/career decision (move to Switzerland vs. commute from Italy). High stakes, need clarity, confidence, and trust in the numbers.
+- **Curious researchers**: Casually exploring options, not yet committed. Need to be engaged and informed without overwhelm.
+- **Daily tool users**: Frontalieri who already decided and use the app as a recurring reference for calculations, exchange rates, and job hunting.
+
+All three need: clear information hierarchy, trustworthy data presentation, and a sense that this tool was built for *them* specifically.
+
+## Brand Personality
+**Smart companion** — modern fintech energy (helpful, friendly, slightly playful) meets domain credibility. Think Revolut meets a Swiss tax consultant. Not corporate cold, not community-forum casual — confidently approachable.
+
+Three-word personality: **Precise. Warm. Trustworthy.**
+
+## Aesthetic Direction
+**Mediterranean warmth** — lean into the Italian side of the Swiss-Italian identity. Push toward:
+- Warmer neutral tones (not pure slate/gray — subtle warm undertones)
+- Friendlier, more expressive typography (custom fonts, not system defaults)
+- Breathing room and progressive disclosure to combat density
+- Richer visual hierarchy so longer pages feel navigable, not overwhelming
+
+**Anti-references**: Avoid pure "Swiss banking" coldness, avoid AI slop (cyan-on-dark, purple gradients, hero metric cards, identical card grids).
+
+## Design Principles
+1. **Clarity first** — Every page should have one clear job. When content is dense, use progressive disclosure, not compression.
+2. **Warm precision** — Numbers and data deserve clean structure; the surrounding chrome should feel human, not clinical.
+3. **Legible hierarchy** — Font size range should be wider; `text-xs` should be reserved for metadata, not primary content.
+4. **Breathe** — Generous spacing between sections; tighter grouping within them. Rhythm > uniformity.
+5. **Italian warmth, Swiss rigor** — The brand lives at the intersection. Neither purely cold nor purely expressive.
+ vs hyphen variations or reordered words produce a new slug unnecessarily
 
 Only **USI, SUPSI, LIS** had real ongoing slug churn. Other crawlers either fill-only or have their own guards. When auditing a new crawler, check whether it unconditionally regenerates slugs — it should use `isSlugStable()` instead.
 
