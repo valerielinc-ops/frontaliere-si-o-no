@@ -20,7 +20,7 @@ on:
         type: string
 
 concurrency:
-  group: jobs-cleanup
+  group: jobs-data-pipeline
   cancel-in-progress: false
 
 permissions:

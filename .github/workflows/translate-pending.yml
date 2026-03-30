@@ -23,8 +23,8 @@ on:
         default: false
 
 concurrency:
-  group: translate-pending
-  cancel-in-progress: true
+  group: jobs-data-pipeline
+  cancel-in-progress: false
 
 permissions:
   contents: write
