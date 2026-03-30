@@ -89,6 +89,15 @@ function markInstanceHealthy(url) {
   instanceHealth.delete(url);
 }
 
+// ── Cascade Metrics ────────────────────────────────────────────────────────
+const _cascadeStats = {
+  calls: 0,
+  successes: 0,
+  failures: 0,
+  tierHits: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+  tierErrors: { deepl: 0, mozhiDeepL: 0, myMemory: 0, lingva: 0, simplyTranslate: 0, mozhiDdg: 0, libreTranslate: 0, mozhiGoogle: 0, google: 0, mozhiYandex: 0 },
+};
+
 /**
  * Get current health stats for all tracked instances.
  */
@@ -102,6 +111,36 @@ export function getInstanceHealthStats() {
     };
   }
   return stats;
+}
+
+/**
+ * Get cascade performance stats (calls, successes, per-tier hit rates).
+ */
+export function getCascadeStats() {
+  return { ..._cascadeStats };
+}
+
+/**
+ * Log a summary of cascade performance to console.
+ */
+export function logCascadeSummary() {
+  const s = _cascadeStats;
+  if (s.calls === 0) return;
+  const rate = s.calls > 0 ? ((s.successes / s.calls) * 100).toFixed(1) : '0';
+  console.log(`\n📊 Free-translate cascade: ${s.successes}/${s.calls} succeeded (${rate}%)`);
+  const hits = Object.entries(s.tierHits).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  if (hits.length) {
+    console.log('   Tier hits: ' + hits.map(([k, v]) => `${k}=${v}`).join(', '));
+  }
+  const errs = Object.entries(s.tierErrors).filter(([, v]) => v > 0).sort((a, b) => b[1] - a[1]);
+  if (errs.length) {
+    console.log('   Tier errors: ' + errs.map(([k, v]) => `${k}=${v}`).join(', '));
+  }
+  const health = getInstanceHealthStats();
+  const down = Object.entries(health);
+  if (down.length) {
+    console.log(`   ⚠️  ${down.length} instances currently marked unhealthy`);
+  }
 }
 
 function normalizeSpace(s) {
@@ -448,70 +487,70 @@ export async function freeTranslate({ text, sourceLang, targetLang }) {
   if (!clean) return '';
   if (sourceLang === targetLang) return clean;
 
+  _cascadeStats.calls++;
+
+  /** Try a tier: track success/error, return result or '' */
+  async function tryTier(tierName, fn) {
+    try {
+      const result = await fn();
+      if (result) {
+        _cascadeStats.tierHits[tierName] = (_cascadeStats.tierHits[tierName] || 0) + 1;
+        _cascadeStats.successes++;
+        return result;
+      }
+    } catch (err) {
+      _cascadeStats.tierErrors[tierName] = (_cascadeStats.tierErrors[tierName] || 0) + 1;
+    }
+    return '';
+  }
+
   // Tier 1: DeepL Free API (best quality, if API key set)
-  try {
-    const deepl = await translateWithDeepL(clean, sourceLang, targetLang);
-    if (deepl) return deepl;
-  } catch { /* continue */ }
+  const t1 = await tryTier('deepl', () => translateWithDeepL(clean, sourceLang, targetLang));
+  if (t1) return t1;
 
   // Tier 2: Mozhi+DeepL (DeepL via proxy — no API key needed!)
-  try {
-    const mozhiDeepL = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'deepl');
-    if (mozhiDeepL) return mozhiDeepL;
-  } catch { /* continue */ }
+  const t2 = await tryTier('mozhiDeepL', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'deepl'));
+  if (t2) return t2;
 
   // Tier 3: MyMemory (good quality for EU languages, limited to 500 chars)
   if (clean.length <= 500) {
-    try {
+    const t3 = await tryTier('myMemory', async () => {
       const mm = await translateWithMyMemory(clean, sourceLang, targetLang);
-      if (mm && normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) {
-        return normalizeSpace(mm);
-      }
-    } catch { /* continue */ }
+      if (mm && normalizeSpace(mm).toLowerCase() !== clean.toLowerCase()) return normalizeSpace(mm);
+      return '';
+    });
+    if (t3) return t3;
   }
 
   // Tier 4: Lingva (free Google Translate proxy)
-  try {
-    const lingva = await translateWithLingva(clean, sourceLang, targetLang);
-    if (lingva) return lingva;
-  } catch { /* continue */ }
+  const t4 = await tryTier('lingva', () => translateWithLingva(clean, sourceLang, targetLang));
+  if (t4) return t4;
 
   // Tier 5: SimplyTranslate (another free proxy)
-  try {
-    const simply = await translateWithSimplyTranslate(clean, sourceLang, targetLang);
-    if (simply) return simply;
-  } catch { /* continue */ }
+  const t5 = await tryTier('simplyTranslate', () => translateWithSimplyTranslate(clean, sourceLang, targetLang));
+  if (t5) return t5;
 
   // Tier 6: Mozhi+DuckDuckGo (Bing translation via Mozhi proxy)
-  try {
-    const mozhiDdg = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo');
-    if (mozhiDdg) return mozhiDdg;
-  } catch { /* continue */ }
+  const t6 = await tryTier('mozhiDdg', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'duckduckgo'));
+  if (t6) return t6;
 
   // Tier 7: LibreTranslate (open-source)
-  try {
-    const libre = await translateWithLibreTranslate(clean, sourceLang, targetLang);
-    if (libre) return libre;
-  } catch { /* continue */ }
+  const t7 = await tryTier('libreTranslate', () => translateWithLibreTranslate(clean, sourceLang, targetLang));
+  if (t7) return t7;
 
   // Tier 8: Mozhi+Google (Google Translate via Mozhi proxy)
-  try {
-    const mozhiGoogle = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'google');
-    if (mozhiGoogle) return mozhiGoogle;
-  } catch { /* continue */ }
+  const t8 = await tryTier('mozhiGoogle', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'google'));
+  if (t8) return t8;
 
   // Tier 9: Google Translate (unofficial direct endpoint, chunked)
-  try {
-    const google = await translateWithGoogle(clean, sourceLang, targetLang);
-    if (google) return google;
-  } catch { /* continue */ }
+  const t9 = await tryTier('google', () => translateWithGoogle(clean, sourceLang, targetLang));
+  if (t9) return t9;
 
   // Tier 10: Mozhi+Yandex (slow but reliable last resort)
-  try {
-    const mozhiYandex = await translateWithMozhiEngine(clean, sourceLang, targetLang, 'yandex');
-    if (mozhiYandex) return mozhiYandex;
-  } catch { /* continue */ }
+  const t10 = await tryTier('mozhiYandex', () => translateWithMozhiEngine(clean, sourceLang, targetLang, 'yandex'));
+  if (t10) return t10;
 
+  _cascadeStats.failures++;
   return '';
 }
 

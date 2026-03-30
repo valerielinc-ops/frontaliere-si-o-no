@@ -47,7 +47,7 @@ import { buildPath, registerJobSlugMap } from '@/services/router';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import { SkeletonJobDetail } from '@/components/shared/Skeletons';
-import { useExpiredJob } from '@/hooks/useExpiredJob';
+import { useExpiredJob, hasSeededExpiredData } from '@/hooks/useExpiredJob';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
 import JobBridgeView from '@/components/community/JobBridgeView';
@@ -2862,8 +2862,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
       .map((x) => x.job);
   }, [selectedJob, sortedJobs]);
 
-  // Expired/orphan/bridge cascade: fetch expired-jobs.json only when needed
-  const notFoundSlug = !jobsLoading && initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter && !bridgeTargetSlug
+  // Expired/orphan/bridge cascade: fetch expired-jobs.json only when needed.
+  // When build-time seeded data exists (window.__EXPIRED_JOB_DATA__), pass the slug
+  // eagerly — even while jobs.json is still loading — so the hook can return the
+  // seeded data synchronously and we render JobExpiredView instead of a spinner.
+  const seeded = useMemo(() => hasSeededExpiredData(), []);
+  const notFoundSlug = initialJobSlug && !companySlugFilter && !searchSlugFilter && !bridgeTargetSlug
+    && (seeded || (!jobsLoading && !selectedJob))
     ? initialJobSlug
     : undefined;
   const { expiredJob, loading: expiredJobLoading } = useExpiredJob(notFoundSlug);
@@ -3903,6 +3908,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
   ) : null;
 
   if (jobsLoading) {
+    // Expired job pages with seeded data: render the expired view immediately
+    // instead of a spinner. Google's WRS executes JS and would otherwise see
+    // a blank loading state, making all 4k+ soft-landing pages useless for SEO.
+    if (expiredJob && initialJobSlug && !companySlugFilter && !searchSlugFilter) {
+      return (
+        <JobExpiredView
+          job={expiredJob}
+          relatedJobs={[]}
+          onBack={backToList}
+        />
+      );
+    }
     return (
       <div className="flex items-center justify-center py-20">
         <Loader2 className="w-9 h-9 text-indigo-500 animate-spin" />

@@ -71,6 +71,18 @@ function getSeededExpiredJob(): ExpiredJob | null {
   return null;
 }
 
+/**
+ * Returns true when the build plugin injected expired job data into this page.
+ * Callable from outside the hook (e.g. to short-circuit a loading spinner).
+ */
+export function hasSeededExpiredData(): boolean {
+  try {
+    const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    return !!(raw && typeof raw === 'object' && 'slug' in (raw as Record<string, unknown>) &&
+      (raw as Record<string, string>).title?.trim());
+  } catch { return false; }
+}
+
 export function useExpiredJob(slug: string | undefined): {
   expiredJob: ExpiredJob | null;
   loading: boolean;
@@ -104,6 +116,16 @@ export function useExpiredJob(slug: string | undefined): {
     });
     return () => { cancelled = true; };
   }, [slug]);
+
+  // Synchronous override: return seeded data during render even before the
+  // effect fires. This prevents an intermediate render frame (loading=false,
+  // expiredJob=null) that would flash <JobOrphanView> before the effect sets state.
+  if (slug) {
+    const seeded = getSeededExpiredJob();
+    if (seeded && matchExpiredSlug(seeded, slug)) {
+      return { expiredJob: seeded, loading: false };
+    }
+  }
 
   return { expiredJob, loading };
 }

@@ -92,7 +92,7 @@ import {
   translateTextWithLocalPipeline,
 } from './job-localization-pipeline.mjs';
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
-import { freeTranslateWithRetry } from './free-translate.mjs';
+import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
 import {
   extractMigrosStructuredData,
@@ -5165,6 +5165,7 @@ async function main() {
   const aiStats = getAiStats();
   console.log(`\n🤖 AI Model Stats: ${aiStats.calls} calls, ${aiStats.successes} successes, ${aiStats.retries} retries, ${aiStats.fallbacks} fallbacks, ${aiStats.exhausted} exhausted (store: ${aiStats.storeBackend})`);
   console.log(`🈯 Free translate fallback_to_llm=${deeplFallbackToLlm}`);
+  logCascadeSummary();
   const mmStats = getMyMemoryStats();
   console.log(`🌐 MyMemory Stats: chars_used=${mmStats.dailyChars}/${mmStats.limit}`);
   const localLocalizationStats = getJobLocalizationPipelineStats();

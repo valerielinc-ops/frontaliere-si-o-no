@@ -2028,7 +2028,19 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   const shouldRunTitleLocalization =
     localizationEnabled && sourceTitle.length >= 3 && (titleNeedsLocalization || forceLocalization);
 
-  if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) return out;
+  if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) {
+    // Log why localization was skipped — helps diagnose pipeline stalls
+    if (!localizationEnabled) {
+      // aiLocalizationEnabled=false — crawlers won't translate
+    } else if (!hasBudget) {
+      console.log(`⏭️  [${(out.slug || out.title || '').slice(0, 40)}] Budget exhausted — marking for retranslation`);
+      out.needsRetranslation = true;
+    } else if (!canUseAi && !forceLocalization && coverage < locales.length) {
+      console.log(`⏭️  [${(out.slug || out.title || '').slice(0, 40)}] AI unavailable — marking for retranslation`);
+      out.needsRetranslation = true;
+    }
+    return out;
+  }
 
   // ── SKIP_AI_TRANSLATION: skip AI enrichment, mark for later translation ──
   if (process.env.SKIP_AI_TRANSLATION === '1') {
