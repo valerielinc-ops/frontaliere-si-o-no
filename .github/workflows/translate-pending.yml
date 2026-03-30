@@ -147,6 +147,17 @@ jobs:
         if: always() && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)"
 
+      # ── Phase 2c: Fix remaining source-copy descriptions via free cascade ──
+      # Descriptions that are still copies of the source language after Phase 2.
+      # Uses DeepL/SimplyTranslate/LibreTranslate (no AI quota needed).
+      - name: "Phase 2c: Fix untranslated descriptions (free cascade)"
+        if: always() && inputs.dry_run != true
+        run: node scripts/fix-untranslated-descriptions.mjs
+
+      - name: Commit description fixes
+        if: always() && inputs.dry_run != true
+        run: bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
+
       # ── Phase 3: Regenerate slugs from translated titles ──────────────────
       # Safe replacement for hardenJobLocaleFields (which was destructive:
       # re-translated titles, contaminated EN/DE/FR with Italian, set needsRetranslation).
