@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-03-30T08:27:19.335Z",
+  "assembledAt": "2026-03-30T08:42:56.620Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -160,9 +160,9 @@
     },
     {
       "id": "corner-banca-1d94a13bc883",
-      "slug": "consulente-clienti-100-corner-banca-lugano",
+      "slug": "customer-consulente-100-corner-banca-lugano",
       "slugByLocale": {
-        "it": "consulente-clienti-100-corner-banca-lugano",
+        "it": "customer-consulente-100-corner-banca-lugano",
         "en": "customer-advisor-100-corner-banca-lugano",
         "de": "customer-berater-100-corner-banca-lugano-ilhvni",
         "fr": "customer-conseiller-100-corner-banca-lugano-ilhvni"
@@ -234,7 +234,9 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "crawledAt": "2026-03-29T09:17:16.333Z",
       "needsRetranslation": true,
-      "previousSlugs": [],
+      "previousSlugs": [
+        "consulente-clienti-100-corner-banca-lugano"
+      ],
       "sourceLang": "en",
       "salaryMin": 54000,
       "salaryMax": 73000,

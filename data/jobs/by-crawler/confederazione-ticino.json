@@ -1,6 +1,6 @@
 {
   "crawlerKey": "confederazione-ticino",
-  "assembledAt": "2026-03-30T08:27:18.885Z",
+  "assembledAt": "2026-03-30T08:42:56.111Z",
   "jobs": [
     {
       "title": "Hochschulpraktikant/in für die Entwicklung von IT-Tools zur Unterstützung des Prognosedienstes (m/w)",
@@ -823,8 +823,8 @@
       "slugByLocale": {
         "de": "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro",
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-claro",
-        "en": "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro",
-        "fr": "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro"
+        "en": "apprentice-strassentransportfachmann-frau-efz-confederazione-svizzera-claro",
+        "fr": "apprenti-e-strassentransportfachmann-frau-efz-confederazione-svizzera-claro"
       },
       "needsRetranslation": true,
       "salaryMin": 46500,
@@ -841,7 +841,10 @@
         }
       },
       "streetAddress": "Piazza Governo",
-      "postalCode": "6501"
+      "postalCode": "6501",
+      "previousSlugs": [
+        "lernende-r-strassentransportfachmann-frau-efz-confederazione-svizzera-claro"
+      ]
     },
     {
       "title": "Asyl-Dolmetscher/-in",
