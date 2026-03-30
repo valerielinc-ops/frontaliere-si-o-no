@@ -338,10 +338,12 @@
       "slugByLocale": {
         "en": "it-security-architect-lwp-ledermann-wieting-partners-lugano",
         "it": "it-security-architetto-lwp-ledermann-wieting-partners-lugano",
-        "de": "it-security-architect-lwp-ledermann-wieting-partners-lugano",
+        "de": "it-sicherheitsarchitekt-lwp-ledermann-wieting-partners-lugano",
         "fr": "it-security-architecte-lwp-ledermann-wieting-partners-lugano"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "it-security-architect-lwp-ledermann-wieting-partners-lugano"
+      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
