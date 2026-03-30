@@ -498,20 +498,29 @@ async function main() {
   const preCleared = clearRetranslationFlags(jobs);
   if (preCleared > 0) {
     fs.writeFileSync(DATA_JOBS_PATH, JSON.stringify(jobs, null, 2) + '\n', 'utf-8');
-    console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs (no AI needed)\n`);
+    console.log(`⚡ Pre-cleared ${preCleared} flags for already-complete jobs (no AI needed)`);
+
+    // ALWAYS sync pre-cleared flags back to per-crawler files (source of truth).
+    // Without this, log-translation-stats.mjs (which reads per-crawler files) keeps
+    // showing stale needsRetranslation counts even after flags are cleared.
+    const companiesCleared = [...new Set(jobs
+      .filter(j => !j.needsRetranslation)
+      .map(j => normalizeCompanyKey(j.companyKey || j.company || ''))
+      .filter(Boolean))];
+    let totalSynced = 0;
+    for (const key of companiesCleared) {
+      const synced = syncTranslationsToCrawlerFile(key, jobs);
+      if (synced > 0) totalSynced += synced;
+    }
+    if (totalSynced > 0) {
+      console.log(`   📁 Synced ${totalSynced} pre-cleared flags to per-crawler files`);
+    }
+    console.log('');
+
     // Re-filter pending after pre-clear
     const stillPendingJobs = jobs.filter(needsTranslation);
     if (stillPendingJobs.length === 0) {
       console.log('✅ All jobs complete after pre-clear. Nothing left to translate.');
-      // Sync cleared flags back to per-crawler files
-      const companiesCleared = [...new Set(jobs
-        .filter(j => !j.needsRetranslation)
-        .map(j => normalizeCompanyKey(j.companyKey || j.company || ''))
-        .filter(Boolean))];
-      for (const key of companiesCleared) {
-        const synced = syncTranslationsToCrawlerFile(key, jobs);
-        if (synced > 0) console.log(`   📁 ${key}: ${synced} jobs synced`);
-      }
       return;
     }
     // Update pending count, re-applying company filter if active
