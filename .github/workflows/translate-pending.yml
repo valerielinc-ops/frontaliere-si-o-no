@@ -119,16 +119,18 @@ jobs:
         if: always() && inputs.skip_translate != true && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
-      # ── Phase 3: Harden slugs (AFTER translations) ──────────────────────
-      # Slugs are derived from FINAL translated titles, not intermediate ones.
-      # This eliminates the infinite rename loop between cleanup and translate.
-      - name: "Phase 3: Harden slugs"
-        if: always() && inputs.dry_run != true
-        run: node scripts/harden-job-slugs.mjs
-
-      - name: Commit slug hardening
-        if: always() && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Harden job slugs (post-translation)"
+      # ── Phase 3: Harden slugs — DISABLED ──────────────────────────────
+      # hardenJobLocaleFields generates slugs from the WRONG title for non-source
+      # locales (uses Italian title for DE/FR/EN slug). This causes correct German
+      # slugs to be replaced with Italian ones. Disabled until the function is fixed
+      # to derive slugs from each locale's own title.
+      # TODO: fix hardenJobLocaleFields slug derivation per-locale, then re-enable
+      # - name: "Phase 3: Harden slugs"
+      #   if: always() && inputs.dry_run != true
+      #   run: node scripts/harden-job-slugs.mjs
+      # - name: Commit slug hardening
+      #   if: always() && inputs.dry_run != true
+      #   run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Harden job slugs (post-translation)"
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy

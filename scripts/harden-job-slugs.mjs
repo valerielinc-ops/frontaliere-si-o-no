@@ -57,10 +57,10 @@ async function main() {
         slicesChanged++;
         console.log(`  ✅ ${file.replace('.json', '')}: ${result.repaired}/${result.total} jobs repaired`);
 
-        // Write hardened jobs back to slice (preserve envelope)
+        // Write hardened jobs back to slice (preserve envelope, do NOT bump assembledAt)
         const hardened = readJson(tempPath);
         const envelope = (sliceData && typeof sliceData === 'object' && !Array.isArray(sliceData))
-          ? { ...sliceData, jobs: hardened, assembledAt: new Date().toISOString() }
+          ? { ...sliceData, jobs: hardened }
           : hardened;
         writeJson(slicePath, envelope);
       }
