@@ -429,7 +429,7 @@ function filterEmptyArraysMap(obj = {}) {
 }
 
 async function mergeSwisscomJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonSwisscomJobs = allJobs.filter((j) => !isSwisscomJob(j));
@@ -701,7 +701,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isSwisscomJob) : [];
   writeJobsCrawlerSlice(SWISSCOM_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

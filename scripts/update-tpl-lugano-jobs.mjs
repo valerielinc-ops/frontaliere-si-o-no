@@ -251,7 +251,7 @@ async function main() {
   validateLocaleCoverage();
 
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(TPL_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isTplJob) : [];
   writeJobsCrawlerSlice(TPL_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

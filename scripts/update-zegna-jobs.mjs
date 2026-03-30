@@ -425,7 +425,7 @@ function filterEmpty(obj = {}) {
 }
 
 async function mergeZegnaJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(ZEGNA_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonZegnaJobs = allJobs.filter((j) => !isZegnaJob(j));
@@ -721,7 +721,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(ZEGNA_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isZegnaJob) : [];
   writeJobsCrawlerSlice(ZEGNA_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

@@ -567,7 +567,7 @@ function filterEmpty(obj = {}) {
 }
 
 async function mergeMendrisioJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(MENDRISIO_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonMendrisioJobs = allJobs.filter((j) => !isMendrisioJob(j));
@@ -862,7 +862,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(MENDRISIO_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isMendrisioJob) : [];
   writeJobsCrawlerSlice(MENDRISIO_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

@@ -405,7 +405,7 @@ function filterEmpty(obj = {}) {
 }
 
 async function mergeIstJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(IST_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
 
   const nonIstJobs = allJobs.filter((j) => !isIstJob(j));
@@ -657,7 +657,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(IST_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isIstJob) : [];
   writeJobsCrawlerSlice(IST_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

@@ -1125,7 +1125,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(MEDACTA_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isMedactaJob) : [];
   writeJobsCrawlerSlice(MEDACTA_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

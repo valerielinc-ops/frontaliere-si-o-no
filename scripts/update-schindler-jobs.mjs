@@ -393,7 +393,7 @@ function writeJobsFiles(jobs) {
 }
 
 function mergeSchindlerJobs(parsedJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(SCHINDLER_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonSchindler = allJobs.filter((job) => !isSchindlerJob(job));
 
@@ -526,7 +526,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(SCHINDLER_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isSchindlerJob) : [];
   writeJobsCrawlerSlice(SCHINDLER_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

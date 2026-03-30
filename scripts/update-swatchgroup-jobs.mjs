@@ -179,7 +179,9 @@ async function main() {
 
   // Write per-crawler slices for each Swatch sub-company and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _allJobsRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  // Swatchgroup is a multi-company crawler — read from assembled data/jobs.json
+  // (not a single per-crawler slice) to get all sub-company jobs for slicing.
+  const _allJobsRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _allJobs = Array.isArray(_allJobsRaw) ? _allJobsRaw : [];
   for (const ck of companyKeys) {
     const _ckNorm = normalizeKey(ck);

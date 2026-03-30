@@ -381,7 +381,7 @@ function filterEmpty(obj = {}) {
 }
 
 async function mergeJobs(discoveredJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? [...existing] : [];
   const nonCapriJobs = allJobs.filter((j) => !isCapriJob(j));
   const existingByUrl = new Map();
@@ -585,7 +585,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCapriJob) : [];
   writeJobsCrawlerSlice(CAPRI_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

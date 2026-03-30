@@ -276,7 +276,7 @@ function writeJobsFiles(jobs) {
 }
 
 function mergeParsedCornerJobs(parsedJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(CORNER_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonCorner = allJobs.filter((job) => !isCornerJob(job));
 
@@ -385,7 +385,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(CORNER_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCornerJob) : [];
   writeJobsCrawlerSlice(CORNER_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

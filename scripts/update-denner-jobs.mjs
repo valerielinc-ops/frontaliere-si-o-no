@@ -111,7 +111,7 @@ function writeJobsFiles(jobs) {
 }
 
 function mergeCompanyJobs(parsedJobs) {
-  const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const existing = readExistingCrawlerJobs(DENNER_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isDennerJob(j));
   const byUrl = new Map();

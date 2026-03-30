@@ -476,7 +476,7 @@ function ensureAdapterSeedUrls(seedUrls) {
  * Returns the number of jobs injected/updated.
  */
 function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
-  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const jobs = readExistingCrawlerJobs(EFG_KEY, DATA_JOBS);
   if (!Array.isArray(jobs)) return 0;
 
   // Index existing jobs by URL for quick lookup
@@ -1078,7 +1078,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(EFG_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isEfgJob) : [];
   writeJobsCrawlerSlice(EFG_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({

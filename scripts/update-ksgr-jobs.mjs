@@ -167,7 +167,7 @@ function ensureAdapter(discoveredJobs) {
 }
 
 function postProcessKsgrJobs(discoveredJobs) {
-  const jobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const jobs = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
   if (!Array.isArray(jobs)) return { updated: 0, total: 0 };
 
   const metaByUrl = new Map(
@@ -205,7 +205,7 @@ function postProcessKsgrJobs(discoveredJobs) {
 async function main() {
   setCrawlerStartTime();
   console.log('🏥 Running dedicated KSGR jobs crawler (Prospective API)...');
-  const beforeJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const beforeJobs = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
   const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter((job) => isKsgrJob(job)) : [];
   const beforeSlugs = snapshotJobSlugs(beforeTargetJobs);
   const discoveredJobs = await fetchAllKsgrJobs();
@@ -239,7 +239,7 @@ async function main() {
     noJobsMessage: 'No KSGR jobs found after dedicated crawl.',
   });
 
-  const allJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const allJobs = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
   const targetJobs = Array.isArray(allJobs) ? allJobs.filter((job) => isKsgrJob(job)) : [];
   writeJobsSummary(targetJobs, 'KSGR');
   printPublishedJobUrls(targetJobs.slice(0, 20), 'KSGR');
@@ -253,7 +253,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
+  const _sliceRaw = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isKsgrJob) : [];
   writeJobsCrawlerSlice(KSGR_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
