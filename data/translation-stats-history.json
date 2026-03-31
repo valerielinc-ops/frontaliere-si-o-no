@@ -8508,5 +8508,117 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-31T21:54:35.478Z",
+    "label": "before",
+    "total": 1352,
+    "needsRetranslation": 1025,
+    "incomplete": 550,
+    "complete": 802,
+    "missingByLocale": {
+      "it": 177,
+      "en": 386,
+      "de": 350,
+      "fr": 440
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 160
+      },
+      {
+        "company": "VOLG",
+        "pending": 46
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 36
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 24
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 23
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 21
+      },
+      {
+        "company": "PEMSA",
+        "pending": 20
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 18
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 15
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-31T21:56:10.266Z",
+    "label": "after",
+    "total": 1352,
+    "needsRetranslation": 453,
+    "incomplete": 453,
+    "complete": 899,
+    "missingByLocale": {
+      "it": 114,
+      "en": 303,
+      "de": 300,
+      "fr": 352
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 160
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 36
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 24
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 23
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 21
+      },
+      {
+        "company": "PEMSA",
+        "pending": 20
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 14
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 14
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 11
+      }
+    ]
   }
 ]
