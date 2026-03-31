@@ -7896,5 +7896,57 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-31T07:49:12.521Z",
+    "label": "before",
+    "total": 1322,
+    "needsRetranslation": 180,
+    "incomplete": 180,
+    "complete": 1142,
+    "missingByLocale": {
+      "it": 133,
+      "en": 180,
+      "de": 47,
+      "fr": 180
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 178
+      },
+      {
+        "company": "Denner",
+        "pending": 1
+      },
+      {
+        "company": "Zambon Svizzera SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-31T07:55:17.732Z",
+    "label": "after",
+    "total": 1322,
+    "needsRetranslation": 81,
+    "incomplete": 81,
+    "complete": 1241,
+    "missingByLocale": {
+      "it": 63,
+      "en": 81,
+      "de": 18,
+      "fr": 81
+    },
+    "topPending": [
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 80
+      },
+      {
+        "company": "Denner",
+        "pending": 1
+      }
+    ]
   }
 ]
