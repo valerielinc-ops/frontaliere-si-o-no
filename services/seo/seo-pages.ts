@@ -620,6 +620,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 7, "name": "Confronta Asili Nido", "url": `${BASE_URL}/vivere-in-ticino/confronta-asili-nido` },
           { "@type": "ListItem", "position": 8, "name": "Comuni di Frontiera", "url": `${BASE_URL}/vivere-in-ticino/comuni-di-frontiera` }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Conviene vivere in Svizzera o in Italia come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dalle priorità: vivere in Svizzera (Permesso B) offre zero pendolarismo, servizi svizzeri e nessuna doppia tassazione, ma costi di vita 40-60% più alti. Vivere in Italia (Permesso G) riduce i costi fissi del 30-45%, mantiene il sistema sanitario SSN e permette di accedere a scuole pubbliche italiane, ma aggiunge 1-2 ore di pendolarismo giornaliero e la complessità fiscale del Nuovo Accordo 2026." } },
+          { "@type": "Question", "name": "Quali sono i migliori comuni italiani per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I comuni più scelti dai frontalieri sono quelli entro 20 km dal confine svizzero nelle province di Como, Varese e Verbano-Cusio-Ossola. Comuni come Cantù, Olgiate Comasco, Luino, Lavena Ponte Tresa e Ponte Tresa offrono buoni collegamenti, costi contenuti e servizi per famiglie. La classifica varia in base al valico di riferimento e al luogo di lavoro in Ticino." } },
+          { "@type": "Question", "name": "Quanto costa il pendolarismo da frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il costo medio del pendolarismo varia da CHF 200-400/mese in auto (carburante + autostrada + parcheggio) a CHF 100-250/mese con trasporto pubblico (abbonamento TILO/FerrovieNord). Il tempo medio di percorrenza è 45-90 minuti per tratta, con picchi nelle ore di punta ai valichi principali (Chiasso, Stabio, Gaggiolo)." } },
+          { "@type": "Question", "name": "Come funziona l'assicurazione sanitaria per i frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I frontalieri con Permesso G hanno il diritto d'opzione: possono scegliere la LAMal svizzera (premi da CHF 300-500/mese) o il SSN italiano (contributi INPS molto inferiori). La scelta va fatta entro 3 mesi dall'inizio del lavoro ed è generalmente irrevocabile. Il SSN è più conveniente ma copre solo in Italia; la LAMal copre in tutta la Svizzera." } }
+        ]
       }
     ]
   },
@@ -847,6 +857,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche` }]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone con la più alta concentrazione di frontalieri, circa il 30% della forza lavoro cantonale." } },
+          { "@type": "Question", "name": "Quali settori offrono più lavoro in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con più offerte attive nel job board sono: IT e sviluppo software, ingegneria meccanica ed elettrotecnica, sanità e pharma, finanza e banking, e costruzioni. Il settore IT ha visto la crescita maggiore negli ultimi 12 mesi." } },
+          { "@type": "Question", "name": "Come vengono calcolate le statistiche degli stipendi?", "acceptedAnswer": { "@type": "Answer", "text": "Le statistiche salariali combinano i dati ufficiali BFS (Indagine svizzera sulla struttura dei salari) con i salary range pubblicati negli annunci del job board. Le mediane e i range sono calcolati per settore, ruolo e livello di esperienza." } },
+          { "@type": "Question", "name": "Con quale frequenza vengono aggiornati i dati?", "acceptedAnswer": { "@type": "Answer", "text": "L'osservatorio del job board viene aggiornato due volte al giorno con i nuovi annunci. I dati BFS sui frontalieri vengono aggiornati trimestralmente. I prezzi benzina sono aggiornati ogni ora. Il tasso di disoccupazione SECO è aggiornato mensilmente." } }
+        ]
       }
     ]
   },
