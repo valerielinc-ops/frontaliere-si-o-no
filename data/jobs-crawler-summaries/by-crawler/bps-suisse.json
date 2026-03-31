@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-03-30T21:17:07.581Z",
+  "generatedAt": "2026-03-31T09:05:46.399Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 5629,
-  "avgDurationMs": 5629,
+  "durationMs": 6409,
+  "avgDurationMs": 6409,
   "durationHistory": [
-    5629
+    6409
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -33,25 +33,26 @@
       "postalCode": "6900",
       "streetAddress": "Via Giacomo Bentina 5",
       "employmentType": "FULL_TIME",
-      "slug": "seniorkundenberater-con-f-uuml-hrungserfahrung-bps-banca-popolare-di-sondrio-suisse-lugano",
+      "slug": "seniorkundenberater-mit-f-uuml-hrungserfahrung-bps-banca-popolare-di-sondrio-suisse-lugano",
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-03-29T09:07:12.154Z",
+      "crawledAt": "2026-03-31T09:05:44.556Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
+      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 82500,
       "salaryMax": 111500,
-      "_qualityScore": 95,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 23,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -76,21 +77,22 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-03-29T09:07:11.882Z",
+      "crawledAt": "2026-03-31T09:05:44.161Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
-      "_qualityScore": 97,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -115,21 +117,22 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-03-29T09:07:11.077Z",
+      "crawledAt": "2026-03-31T09:05:42.890Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
-      "_qualityScore": 97,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -154,21 +157,22 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-03-29T09:07:09.977Z",
+      "crawledAt": "2026-03-31T09:05:41.627Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
-      "_qualityScore": 97,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     }
