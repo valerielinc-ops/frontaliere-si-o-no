@@ -1,16 +1,16 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-03-30T21:32:18.857Z",
+  "generatedAt": "2026-03-31T09:20:46.817Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 19466,
-  "avgDurationMs": 19466,
+  "durationMs": 18222,
+  "avgDurationMs": 18222,
   "durationHistory": [
-    19466
+    18222
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -34,7 +34,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "employmentType": "internship",
       "contractType": "internship",
       "validThrough": "",
@@ -69,7 +69,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -78,6 +78,7 @@
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
