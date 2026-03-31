@@ -968,6 +968,576 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'Après la simulation, utilisez l\'outil « Et si » pour voir instantanément comment la modification d\'un paramètre (mariage, enfant, temps partiel) affecte votre salaire net.',
     ],
   },
+
+  // ───── Calculator: new cross-border workers beyond 20 km ────
+  '/calcola-stipendio/nuovi-frontalieri-oltre-20-km': {
+    en: [
+      'This page is for cross-border workers who started employment in Switzerland after 17 July 2023 and reside in an Italian municipality more than 20 km from the border. Under these conditions, Swiss withholding tax is retained at 100% of the Canton Ticino rate, without the 80%/20% split that applies to workers within the 20 km zone.',
+      'The hub compares practical scenarios at three income levels, placing the beyond-20 km case side by side with an identical profile within 20 km. This lets you immediately see whether the real difference lies in monthly net pay, the Italian tax settlement, or the operational simplicity of your annual tax filing.',
+      'Related tools are linked directly: net salary simulator, 2025 vs 2026 comparison, income tax return guide, and the 2026 Canton Ticino withholding tax rate tables. The goal is to turn an abstract fiscal rule into a concrete decision about your personal situation.',
+    ],
+    de: [
+      'Diese Seite richtet sich an Grenzgänger, die ihre Beschäftigung in der Schweiz nach dem 17. Juli 2023 aufgenommen haben und in einer italienischen Gemeinde wohnen, die mehr als 20 km von der Grenze entfernt liegt. Unter diesen Bedingungen wird die Schweizer Quellensteuer zu 100 % des Tessiner Satzes einbehalten, ohne die 80/20-Aufteilung, die für Arbeitnehmer innerhalb der 20-km-Zone gilt.',
+      'Der Hub vergleicht praxisnahe Szenarien auf drei Einkommensstufen und stellt den Fall jenseits von 20 km einem identischen Profil innerhalb von 20 km gegenüber. So sehen Sie sofort, ob der Unterschied im monatlichen Netto, in der italienischen Steuerabrechnung oder in der operativen Einfachheit der Steuererklärung liegt.',
+      'Verknüpfte Tools: Nettosimulator, Vergleich 2025 vs. 2026, Leitfaden zur Steuererklärung und Tessiner Quellensteuertabellen 2026. Ziel ist es, eine abstrakte Steuerregel in eine konkrete Entscheidung für Ihre persönliche Situation zu übersetzen.',
+    ],
+    fr: [
+      'Cette page s\'adresse aux frontaliers ayant commencé leur emploi en Suisse après le 17 juillet 2023 et résidant dans une commune italienne à plus de 20 km de la frontière. Dans ces conditions, l\'impôt à la source suisse est retenu à 100 % du taux tessinois, sans la répartition 80/20 applicable aux travailleurs dans la zone des 20 km.',
+      'Le hub compare des scénarios pratiques à trois niveaux de revenus, plaçant le cas au-delà de 20 km en regard d\'un profil identique en deçà de 20 km. Vous voyez immédiatement si la différence réelle porte sur le net mensuel, le solde fiscal en Italie ou la simplicité opérationnelle de la déclaration de revenus.',
+      'Les outils associés sont directement liés : simulateur de salaire net, comparaison 2025 vs 2026, guide de la déclaration de revenus et barèmes de l\'impôt à la source du Tessin 2026. L\'objectif est de transformer une règle fiscale abstraite en une décision concrète concernant votre situation personnelle.',
+    ],
+  },
+
+  // ───── Calculator: RAL vs net salary comparison ─────────────
+  '/calcola-stipendio/confronta-retribuzione-ral': {
+    en: [
+      'The RAL vs net salary comparator converts a gross annual salary (RAL) stated in a Swiss job offer into the actual monthly net pay a cross-border worker receives after all Swiss deductions: AVS/AHV (5.3%), unemployment insurance (1.1%), non-occupational accident insurance, daily sickness benefits, LPP pension, and cantonal withholding tax.',
+      'This tool is especially useful during salary negotiations: a RAL of CHF 80,000 can translate into very different monthly net amounts depending on marital status, number of children, canton, and age bracket for LPP contributions. Knowing the expected net before signing lets you make realistic comparisons with equivalent Italian salaries.',
+      'The result includes CHF-EUR conversion at the current exchange rate and a side-by-side comparison with the net salary of an equivalent role in Lombardy or Piedmont, factoring in Italian IRPEF, INPS contributions, and regional surcharges, so you can concretely assess the economic advantage of working in Switzerland.',
+    ],
+    de: [
+      'Der RAL-Netto-Vergleicher rechnet ein in einem Schweizer Stellenangebot genanntes Bruttojahresgehalt (RAL) in das tatsächliche monatliche Nettogehalt eines Grenzgängers um, nach allen Schweizer Abzügen: AHV/IV/EO (5,3 %), Arbeitslosenversicherung (1,1 %), Nichtberufsunfallversicherung, Krankentaggeld, BVG-Beiträge und kantonale Quellensteuer.',
+      'Dieses Tool ist besonders nützlich bei Gehaltsverhandlungen: Eine RAL von CHF 80.000 kann je nach Familienstand, Kinderzahl, Kanton und Altersgruppe für die BVG-Beiträge zu sehr unterschiedlichen monatlichen Nettobeträgen führen. Das erwartete Netto vor Vertragsunterzeichnung zu kennen, ermöglicht realistische Vergleiche mit italienischen Gehältern.',
+      'Das Ergebnis enthält die CHF-EUR-Umrechnung zum aktuellen Wechselkurs und einen direkten Vergleich mit dem Nettogehalt einer gleichwertigen Stelle in der Lombardei oder im Piemont unter Berücksichtigung der italienischen IRPEF, INPS-Beiträge und Regionalzuschläge.',
+    ],
+    fr: [
+      'Le comparateur RAL vs net convertit un salaire brut annuel (RAL) mentionné dans une offre d\'emploi suisse en salaire net mensuel réel perçu par un frontalier après toutes les déductions suisses : AVS/AI/APG (5,3 %), assurance chômage (1,1 %), assurance accidents non professionnels, indemnités journalières maladie, LPP et impôt à la source cantonal.',
+      'Cet outil est particulièrement utile lors des négociations salariales : une RAL de CHF 80 000 peut donner des nets mensuels très différents selon l\'état civil, le nombre d\'enfants, le canton et la tranche d\'âge pour la LPP. Connaître le net attendu avant de signer permet des comparaisons réalistes avec les salaires italiens.',
+      'Le résultat inclut la conversion CHF-EUR au taux de change actuel et une comparaison directe avec le salaire net d\'un poste équivalent en Lombardie ou au Piémont, tenant compte de l\'IRPEF italienne, des cotisations INPS et des surtaxes régionales.',
+    ],
+  },
+
+  // ───── Calculator: cross-border worker bonus estimate ───────
+  '/calcola-stipendio/stima-bonus-frontaliere': {
+    en: [
+      'The cross-border worker bonus estimator calculates the additional benefits available under Italian and Swiss law: family allowances (assegni familiari), child deductions from withholding tax, and Italian bonus figli under the Assegno Unico e Universale (AUU) programme introduced in 2022.',
+      'For frontalieri, bonus eligibility depends on the country of residence and the type of benefit: Swiss family allowances are paid by the Swiss employer regardless of Italian residence, while Italian AUU is means-tested using ISEE and requires a separate INPS application.',
+      'The estimator shows the combined monthly and annual value of all applicable bonuses and deductions, helping families optimise their fiscal position across both countries.',
+    ],
+    de: [
+      'Der Grenzgänger-Bonus-Rechner berechnet die zusätzlichen Leistungen nach italienischem und schweizerischem Recht: Familienzulagen, Kinderabzüge bei der Quellensteuer und den italienischen Bonus Figli im Rahmen des Programms Assegno Unico e Universale (AUU), das 2022 eingeführt wurde.',
+      'Für Grenzgänger hängt der Bonusanspruch vom Wohnsitzland und der Art der Leistung ab: Schweizer Familienzulagen werden unabhängig vom italienischen Wohnsitz vom Schweizer Arbeitgeber gezahlt, während der italienische AUU einkommensabhängig (ISEE) ist und einen separaten INPS-Antrag erfordert.',
+      'Der Rechner zeigt den kombinierten monatlichen und jährlichen Wert aller anwendbaren Boni und Abzüge und hilft Familien, ihre steuerliche Position in beiden Ländern zu optimieren.',
+    ],
+    fr: [
+      'L\'estimateur de bonus frontalier calcule les prestations supplémentaires disponibles en droit italien et suisse : allocations familiales, déductions pour enfants de l\'impôt à la source et le bonus figli italien dans le cadre du programme Assegno Unico e Universale (AUU) introduit en 2022.',
+      'Pour les frontaliers, l\'éligibilité aux bonus dépend du pays de résidence et du type de prestation : les allocations familiales suisses sont versées par l\'employeur suisse indépendamment de la résidence italienne, tandis que l\'AUU italien est soumis à conditions de ressources (ISEE) et nécessite une demande INPS séparée.',
+      'L\'estimateur affiche la valeur mensuelle et annuelle combinée de tous les bonus et déductions applicables, aidant les familles à optimiser leur position fiscale dans les deux pays.',
+    ],
+  },
+
+  // ───── Calculator: parental leave check ─────────────────────
+  '/calcola-stipendio/verifica-congedo-parentale': {
+    en: [
+      'The parental leave checker helps cross-border workers understand their entitlements under both Swiss and Italian law. Switzerland provides 14 weeks of maternity leave at 80% salary (APG/EO insurance) and 2 weeks of paternity leave. Italy offers additional protections: 5 months of mandatory maternity leave (INPS) and optional parental leave up to 11 months per family.',
+      'For cross-border workers, the coordination between Swiss and Italian social security systems determines which country pays the benefit: if you are employed in Switzerland and reside in Italy, Swiss APG covers the mandatory period, while additional Italian parental leave (congedo parentale) may be available through INPS under bilateral coordination rules.',
+      'The tool clarifies deadlines, required documentation, and the financial impact of each leave option on your Swiss payslip and Italian tax return.',
+    ],
+    de: [
+      'Der Elternurlaub-Checker hilft Grenzgängern, ihre Ansprüche nach schweizerischem und italienischem Recht zu verstehen. Die Schweiz gewährt 14 Wochen Mutterschaftsurlaub bei 80 % Lohn (EO-Versicherung) und 2 Wochen Vaterschaftsurlaub. Italien bietet zusätzlichen Schutz: 5 Monate obligatorischen Mutterschaftsurlaub (INPS) und fakultativen Elternurlaub bis zu 11 Monate pro Familie.',
+      'Für Grenzgänger bestimmt die Koordination zwischen den schweizerischen und italienischen Sozialversicherungssystemen, welches Land die Leistung zahlt: Bei Beschäftigung in der Schweiz und Wohnsitz in Italien deckt die Schweizer EO die Pflichtzeit ab, während zusätzlicher italienischer Elternurlaub über INPS verfügbar sein kann.',
+      'Das Tool klärt Fristen, erforderliche Dokumente und die finanziellen Auswirkungen jeder Urlaubsoption auf Ihre Schweizer Lohnabrechnung und italienische Steuererklärung.',
+    ],
+    fr: [
+      'Le vérificateur de congé parental aide les frontaliers à comprendre leurs droits selon le droit suisse et italien. La Suisse accorde 14 semaines de congé maternité à 80 % du salaire (assurance APG/allocations perte de gain) et 2 semaines de congé paternité. L\'Italie offre des protections supplémentaires : 5 mois de congé maternité obligatoire (INPS) et un congé parental facultatif jusqu\'à 11 mois par famille.',
+      'Pour les frontaliers, la coordination entre les systèmes de sécurité sociale suisse et italien détermine quel pays verse la prestation : en cas d\'emploi en Suisse et de résidence en Italie, l\'APG suisse couvre la période obligatoire, tandis que le congé parental italien supplémentaire peut être disponible via l\'INPS.',
+      'L\'outil précise les délais, les documents requis et l\'impact financier de chaque option de congé sur votre fiche de paie suisse et votre déclaration fiscale italienne.',
+    ],
+  },
+
+  // ───── Calculator: residence change simulation ──────────────
+  '/calcola-stipendio/simula-cambio-residenza': {
+    en: [
+      'The residence change simulator models the financial impact of moving between Italian municipalities or from Italy to Switzerland (switching from G permit to B permit). It recalculates net salary, taxation, municipal surcharges, and social contribution obligations under each scenario.',
+      'Key variables include the 20 km border zone threshold (determining old vs new frontaliere tax regime), Italian municipal and regional IRPEF surcharges (which vary significantly between provinces), and the full cost-of-living differential between Italian and Swiss residence.',
+      'The simulator helps you answer the critical question: does moving closer to or further from the border, or relocating to Switzerland entirely, result in a net financial gain after accounting for rent, taxes, commute costs, and healthcare expenses?',
+    ],
+    de: [
+      'Der Wohnsitzwechsel-Simulator modelliert die finanziellen Auswirkungen eines Umzugs zwischen italienischen Gemeinden oder von Italien in die Schweiz (Wechsel von Ausweis G zu Ausweis B). Er berechnet Nettogehalt, Besteuerung, Gemeindezuschläge und Sozialversicherungspflichten für jedes Szenario neu.',
+      'Schlüsselvariablen umfassen die 20-km-Grenzzone (Alt- vs. Neu-Grenzgänger-Steuerregime), italienische Gemeinde- und Regional-IRPEF-Zuschläge (die zwischen Provinzen erheblich variieren) und das Lebenshaltungskostengefälle zwischen italienischem und schweizerischem Wohnsitz.',
+      'Der Simulator beantwortet die entscheidende Frage: Führt ein Umzug näher an die oder weiter weg von der Grenze — oder der vollständige Umzug in die Schweiz — nach Berücksichtigung von Miete, Steuern, Pendelkosten und Gesundheitsausgaben zu einem finanziellen Nettovorteil?',
+    ],
+    fr: [
+      'Le simulateur de changement de résidence modélise l\'impact financier d\'un déménagement entre communes italiennes ou d\'Italie vers la Suisse (passage du permis G au permis B). Il recalcule le salaire net, la fiscalité, les surtaxes communales et les obligations de cotisation sociale pour chaque scénario.',
+      'Les variables clés incluent le seuil de la zone frontalière de 20 km (régime fiscal ancien vs nouveau), les surtaxes IRPEF communales et régionales italiennes (qui varient significativement entre provinces) et le différentiel complet du coût de la vie entre résidence italienne et suisse.',
+      'Le simulateur répond à la question cruciale : un déménagement plus proche ou plus loin de la frontière — ou une relocalisation complète en Suisse — aboutit-il à un gain financier net après prise en compte du loyer, des impôts, des frais de trajet et des dépenses de santé ?',
+    ],
+  },
+
+  // ───── Calculator: what would you earn in Switzerland ────────
+  '/calcola-stipendio/quanto-guadagneresti-in-svizzera': {
+    en: [
+      'This tool estimates what your current Italian salary would translate to if you took an equivalent role in Swiss Canton Ticino. It uses sector-specific salary data from the Federal Statistical Office (BFS) and applies the full Swiss deduction chain: AVS/AHV, unemployment, accident insurance, LPP pension, and Canton Ticino withholding tax.',
+      'The estimate accounts for the cross-border context: if you would commute from Italy, the G permit withholding tax regime applies; if you would relocate to Switzerland, the B permit ordinary taxation applies. Both scenarios are shown side by side.',
+      'Use this tool before job interviews or salary negotiations to establish a realistic expectation of Swiss net pay in your sector and at your experience level, converted to euros for direct comparison with your current Italian compensation.',
+    ],
+    de: [
+      'Dieses Tool schätzt, was Ihr aktuelles italienisches Gehalt bedeuten würde, wenn Sie eine gleichwertige Stelle im Schweizer Kanton Tessin annehmen würden. Es verwendet branchenspezifische Gehaltsdaten des Bundesamts für Statistik (BFS) und wendet die vollständige Schweizer Abzugskette an: AHV/IV/EO, Arbeitslosenversicherung, Unfallversicherung, BVG und Tessiner Quellensteuer.',
+      'Die Schätzung berücksichtigt den Grenzgängerkontext: Bei Pendeln aus Italien gilt das Quellensteuerregime des Ausweises G; bei Umzug in die Schweiz die ordentliche Besteuerung des Ausweises B. Beide Szenarien werden nebeneinander dargestellt.',
+      'Nutzen Sie dieses Tool vor Vorstellungsgesprächen oder Gehaltsverhandlungen, um eine realistische Erwartung an das Schweizer Nettogehalt in Ihrem Sektor zu ermitteln — umgerechnet in Euro zum direkten Vergleich mit Ihrer aktuellen italienischen Vergütung.',
+    ],
+    fr: [
+      'Cet outil estime ce que votre salaire italien actuel représenterait si vous acceptiez un poste équivalent dans le Canton du Tessin. Il utilise des données salariales sectorielles de l\'Office fédéral de la statistique (OFS) et applique la chaîne complète de déductions suisses : AVS/AI/APG, chômage, assurance accidents, LPP et impôt à la source tessinois.',
+      'L\'estimation tient compte du contexte frontalier : en cas de pendularité depuis l\'Italie, le régime d\'impôt à la source du permis G s\'applique ; en cas de relocalisation en Suisse, la taxation ordinaire du permis B s\'applique. Les deux scénarios sont présentés côte à côte.',
+      'Utilisez cet outil avant les entretiens ou négociations salariales pour établir une attente réaliste du salaire net suisse dans votre secteur, converti en euros pour une comparaison directe avec votre rémunération italienne actuelle.',
+    ],
+  },
+
+  // ───── Calculator: 2025 vs 2026 net salary comparison ───────
+  '/calcola-stipendio/confronto-netto-2025-2026': {
+    en: [
+      'The 2025 vs 2026 net salary comparison shows how the transitional phase of the New Fiscal Agreement between Switzerland and Italy affects your take-home pay. As Italy progressively assumes concurrent taxation, the withholding tax share retained by Switzerland changes, altering the net calculation for cross-border workers.',
+      'The comparison covers both the within-20 km and beyond-20 km scenarios, highlighting the specific rate changes and franchise adjustments that differ between the two zones. Each scenario shows month-by-month net differences to help you plan household budgets.',
+      'Use this tool to understand whether your net salary will increase or decrease in 2026 and by how much, so you can proactively adjust financial planning, savings contributions, and tax return strategy.',
+    ],
+    de: [
+      'Der Nettovergleich 2025 vs. 2026 zeigt, wie die Übergangsphase des Neuen Steuerabkommens zwischen der Schweiz und Italien Ihr Nettogehalt beeinflusst. Da Italien schrittweise die konkurrierende Besteuerung übernimmt, ändert sich der von der Schweiz einbehaltene Quellensteueranteil.',
+      'Der Vergleich deckt sowohl Szenarien innerhalb als auch jenseits der 20-km-Zone ab und hebt die spezifischen Satzänderungen und Franchise-Anpassungen hervor. Jedes Szenario zeigt monatliche Nettodifferenzen zur Haushaltsplanung.',
+      'Nutzen Sie dieses Tool, um zu verstehen, ob Ihr Nettogehalt 2026 steigt oder sinkt und um wie viel — damit Sie Finanzplanung, Spareinlagen und Steuerstrategie proaktiv anpassen können.',
+    ],
+    fr: [
+      'La comparaison du salaire net 2025 vs 2026 montre comment la phase transitoire du Nouvel Accord Fiscal entre la Suisse et l\'Italie affecte votre salaire net. À mesure que l\'Italie assume progressivement la taxation concurrente, la part d\'impôt à la source retenue par la Suisse change.',
+      'La comparaison couvre les scénarios en deçà et au-delà de 20 km, mettant en évidence les changements de taux et ajustements de franchise spécifiques à chaque zone. Chaque scénario montre les différences nettes mois par mois pour la planification budgétaire.',
+      'Utilisez cet outil pour comprendre si votre salaire net augmentera ou diminuera en 2026 et de combien, afin d\'ajuster proactivement votre planification financière et votre stratégie de déclaration fiscale.',
+    ],
+  },
+
+  // ───── Calculator: G permit vs B permit comparison ──────────
+  '/calcola-stipendio/confronto-permesso-g-vs-b': {
+    en: [
+      'The G permit vs B permit comparison calculates the total financial impact of choosing cross-border commuter status (permit G, residence in Italy) versus Swiss residence (permit B). The analysis goes beyond net salary to include rent, healthcare premiums, commute costs, Italian municipal taxes, and Swiss ordinary taxation.',
+      'For permit G workers, the calculation includes Swiss withholding tax, Italian IRPEF with the EUR 10,000 franchise, cost of living in Italian border towns, and daily commute expenses. For permit B, it includes Swiss ordinary taxation, higher Swiss rents and living costs, but eliminates commute time and border crossing delays.',
+      'The tool models scenarios at different salary levels and family configurations, highlighting the break-even salary at which moving to Switzerland becomes financially advantageous despite higher living costs.',
+    ],
+    de: [
+      'Der Vergleich Ausweis G vs. Ausweis B berechnet die gesamten finanziellen Auswirkungen der Wahl zwischen Grenzgängerstatus (Ausweis G, Wohnsitz in Italien) und Schweizer Wohnsitz (Ausweis B). Die Analyse geht über das Nettogehalt hinaus und berücksichtigt Miete, Krankenkassenprämien, Pendelkosten, italienische Gemeindesteuern und Schweizer ordentliche Besteuerung.',
+      'Für Ausweis-G-Arbeitnehmer umfasst die Berechnung Quellensteuer, italienische IRPEF mit EUR 10.000 Franchise, Lebenshaltungskosten in italienischen Grenzorten und tägliche Pendelkosten. Für Ausweis B die ordentliche Schweizer Besteuerung, höhere Schweizer Mieten, aber keine Pendelzeit und keine Grenzwarteschlangen.',
+      'Das Tool modelliert Szenarien bei verschiedenen Gehaltsstufen und Familienkonstellationen und zeigt das Breakeven-Gehalt, ab dem der Umzug in die Schweiz trotz höherer Lebenshaltungskosten finanziell vorteilhaft wird.',
+    ],
+    fr: [
+      'La comparaison permis G vs permis B calcule l\'impact financier total du choix entre le statut de frontalier (permis G, résidence en Italie) et la résidence suisse (permis B). L\'analyse va au-delà du salaire net pour inclure le loyer, les primes d\'assurance maladie, les frais de trajet, les impôts communaux italiens et la taxation ordinaire suisse.',
+      'Pour les titulaires du permis G, le calcul inclut l\'impôt à la source suisse, l\'IRPEF italienne avec franchise de 10 000 EUR, le coût de la vie dans les villes frontalières italiennes et les frais de trajet quotidiens. Pour le permis B, la taxation ordinaire suisse, des loyers plus élevés, mais sans temps de trajet ni attentes à la frontière.',
+      'L\'outil modélise des scénarios à différents niveaux de salaire et configurations familiales, indiquant le salaire d\'équilibre à partir duquel le déménagement en Suisse devient financièrement avantageux malgré un coût de la vie plus élevé.',
+    ],
+  },
+
+  // ───── Guide: cross-border unemployment ─────────────────────
+  '/guida-frontaliere/disoccupazione-transfrontaliera': {
+    en: [
+      'Cross-border unemployment insurance is a complex area where Swiss and Italian regulations intersect. If you lose your job in Switzerland, unemployment benefits are generally paid by Italy (your country of residence), not Switzerland. However, the benefit amount is calculated based on Italian rules and your Italian contribution history, not your Swiss salary.',
+      'There is a critical exception: if you had at least 12 months of Swiss employment, you can request Switzerland to transfer your contribution record to Italian INPS via the U1 form (formerly E301). This allows INPS to factor your Swiss employment period into the Italian NASPI unemployment benefit calculation.',
+      'The guide covers the step-by-step procedure: obtaining the U1 attestation from the Swiss cantonal employment office (Ufficio del lavoro), filing the NASPI application with INPS within 68 days of job loss, and understanding the benefit duration and amount based on your combined Swiss-Italian contribution history.',
+    ],
+    de: [
+      'Die grenzüberschreitende Arbeitslosenversicherung ist ein komplexer Bereich, in dem schweizerische und italienische Regelungen aufeinandertreffen. Bei Arbeitsplatzverlust in der Schweiz werden Arbeitslosenleistungen grundsätzlich von Italien (dem Wohnsitzland) gezahlt, nicht von der Schweiz. Die Höhe richtet sich nach italienischen Regeln und Ihrer italienischen Beitragsgeschichte.',
+      'Es gibt eine wichtige Ausnahme: Bei mindestens 12 Monaten Schweizer Beschäftigung können Sie die Übertragung Ihrer Beitragszeiten an die italienische INPS über das Formular U1 (ehemals E301) beantragen. Dies ermöglicht der INPS, Ihre Schweizer Beschäftigungszeit in die Berechnung des italienischen NASPI einzubeziehen.',
+      'Der Leitfaden behandelt das Verfahren Schritt für Schritt: Beschaffung der U1-Bescheinigung vom kantonalen Arbeitsamt, NASPI-Antrag bei der INPS innerhalb von 68 Tagen nach Arbeitsplatzverlust und Verständnis der Leistungsdauer basierend auf der kombinierten Beitragsgeschichte.',
+    ],
+    fr: [
+      'L\'assurance chômage transfrontalière est un domaine complexe où les réglementations suisse et italienne s\'entrecroisent. En cas de perte d\'emploi en Suisse, les prestations de chômage sont généralement versées par l\'Italie (pays de résidence), pas par la Suisse. Le montant est calculé selon les règles italiennes et votre historique de cotisations italiennes.',
+      'Il existe une exception critique : avec au moins 12 mois d\'emploi en Suisse, vous pouvez demander le transfert de vos périodes de cotisation à l\'INPS italienne via le formulaire U1 (anciennement E301). Cela permet à l\'INPS d\'intégrer votre période d\'emploi suisse dans le calcul de la NASPI italienne.',
+      'Le guide couvre la procédure étape par étape : obtention de l\'attestation U1 auprès de l\'office cantonal de l\'emploi suisse, dépôt de la demande NASPI auprès de l\'INPS dans les 68 jours suivant la perte d\'emploi, et compréhension de la durée et du montant des prestations.',
+    ],
+  },
+
+  // ───── Guide: G vs B permit comparison ──────────────────────
+  '/guida-frontaliere/confronta-permesso-g-vs-b': {
+    en: [
+      'This guide compares the practical differences between the G permit (cross-border worker, residence in Italy) and the B permit (residence in Switzerland). Key distinctions include taxation method, healthcare access, pension accrual, family member rights, and implications for daily life quality.',
+      'The G permit requires returning to Italy at least weekly and limits access to Swiss social services, but allows the cost-of-living advantage of Italian residence. The B permit grants full Swiss residency with ordinary taxation, access to Swiss healthcare and education, but at significantly higher living costs.',
+      'Decision factors covered: salary threshold where B permit becomes advantageous, family configuration impact, commute time savings, children\'s education options, and the long-term pension implications of each permit type under the bilateral social security agreement.',
+    ],
+    de: [
+      'Dieser Leitfaden vergleicht die praktischen Unterschiede zwischen dem Ausweis G (Grenzgänger, Wohnsitz in Italien) und dem Ausweis B (Wohnsitz in der Schweiz). Hauptunterschiede: Besteuerungsmethode, Zugang zur Gesundheitsversorgung, Vorsorgeaufbau, Rechte der Familienangehörigen und Auswirkungen auf die Lebensqualität.',
+      'Der Ausweis G erfordert die wöchentliche Rückkehr nach Italien und schränkt den Zugang zu Schweizer Sozialdiensten ein, ermöglicht aber den Lebenshaltungskostenvorteil des italienischen Wohnsitzes. Der Ausweis B gewährt vollständigen Schweizer Wohnsitz mit ordentlicher Besteuerung, aber zu erheblich höheren Lebenshaltungskosten.',
+      'Behandelte Entscheidungsfaktoren: Gehaltsschwelle, ab der Ausweis B vorteilhaft wird, Einfluss der Familienkonstellation, eingesparte Pendelzeit, Bildungsoptionen für Kinder und langfristige Vorsorgeauswirkungen jedes Bewilligungstyps.',
+    ],
+    fr: [
+      'Ce guide compare les différences pratiques entre le permis G (frontalier, résidence en Italie) et le permis B (résidence en Suisse). Les distinctions clés incluent la méthode de taxation, l\'accès aux soins de santé, l\'accumulation de la prévoyance, les droits des membres de la famille et les implications sur la qualité de vie.',
+      'Le permis G exige un retour en Italie au moins hebdomadaire et limite l\'accès aux services sociaux suisses, mais permet l\'avantage du coût de la vie italien. Le permis B accorde la pleine résidence suisse avec taxation ordinaire, mais à des coûts de vie nettement plus élevés.',
+      'Facteurs de décision couverts : seuil salarial où le permis B devient avantageux, impact de la configuration familiale, économies de temps de trajet, options éducatives pour les enfants et implications de prévoyance à long terme de chaque type de permis.',
+    ],
+  },
+
+  // ───── Guide: border map ────────────────────────────────────
+  '/guida-frontaliere/mappa-confine': {
+    en: [
+      'The interactive border map shows the complete Swiss-Italian frontier in the Ticino region, marking all border crossings, customs offices, and key infrastructure. The map highlights the 20 km zone from the border — the threshold that determines which fiscal regime applies to cross-border workers under the 2026 New Agreement.',
+      'Each crossing is annotated with opening hours, traffic type (pedestrian, vehicle, commercial), and links to real-time webcam feeds where available. The map also shows major transport corridors: the A2 motorway (Chiasso-Gotthard), regional rail lines (TILO), and bus routes connecting Italian border towns to Ticino employment centres.',
+      'For workers choosing a residence municipality, the map provides distance measurements to the nearest border crossing and commute time estimates to Lugano, Bellinzona, Locarno, and Mendrisio — essential data for the G permit vs B permit decision.',
+    ],
+    de: [
+      'Die interaktive Grenzkarte zeigt die komplette schweizerisch-italienische Grenze in der Tessiner Region mit allen Grenzübergängen, Zollämtern und wichtiger Infrastruktur. Die Karte hebt die 20-km-Zone von der Grenze hervor — der Schwellenwert, der das Steuerregime für Grenzgänger nach dem Neuen Abkommen 2026 bestimmt.',
+      'Jeder Übergang ist mit Öffnungszeiten, Verkehrstyp (Fussgänger, Fahrzeug, Gewerbe) und Links zu Echtzeit-Webcams annotiert. Die Karte zeigt auch die Hauptverkehrskorridore: Autobahn A2 (Chiasso-Gotthard), Regionalbahnlinien (TILO) und Busverbindungen zwischen italienischen Grenzorten und Tessiner Beschäftigungszentren.',
+      'Für Arbeitnehmer bei der Wohnsitzwahl bietet die Karte Entfernungsmessungen zum nächsten Grenzübergang und Pendlerzeitschätzungen nach Lugano, Bellinzona, Locarno und Mendrisio — wesentliche Daten für die Entscheidung zwischen Ausweis G und B.',
+    ],
+    fr: [
+      'La carte interactive de la frontière montre l\'intégralité de la frontière suisse-italienne dans la région du Tessin, marquant tous les postes frontières, bureaux de douane et infrastructures clés. La carte met en évidence la zone des 20 km — le seuil déterminant le régime fiscal des frontaliers selon le Nouvel Accord 2026.',
+      'Chaque poste est annoté avec les horaires d\'ouverture, le type de trafic (piéton, véhicule, commercial) et des liens vers les webcams en temps réel disponibles. La carte montre aussi les corridors de transport principaux : autoroute A2 (Chiasso-Gothard), lignes ferroviaires régionales (TILO) et bus reliant les villes frontalières italiennes aux centres d\'emploi tessinois.',
+      'Pour les travailleurs choisissant une commune de résidence, la carte fournit les distances au poste frontière le plus proche et les estimations de temps de trajet vers Lugano, Bellinzone, Locarno et Mendrisio — des données essentielles pour la décision permis G vs B.',
+    ],
+  },
+
+  // ───── Tax: Italian tax return ──────────────────────────────
+  '/tasse-e-pensione/dichiarazione-redditi-italia': {
+    en: [
+      'The Italian tax return guide for cross-border workers covers the Modello 730 and Redditi PF filings required for those who work in Switzerland and are tax residents in Italy. Swiss employment income must be declared in section RC, converted from CHF to EUR using the official UIC exchange rate for the fiscal year.',
+      'Under the 2024 New Agreement, new cross-border workers benefit from a EUR 10,000 franchise on Swiss employment income for IRPEF calculation. The foreign tax credit (Art. 165 TUIR) for Swiss withholding tax already paid is claimed in section CE/CR, preventing double taxation.',
+      'The guide walks through each form section with examples: how to fill in the CU (Certificazione Unica) data from your Swiss employer, where to enter additional deductions (mortgage interest, medical expenses, renovation bonuses), and the deadlines — 30 September for the 730, 30 November for the Redditi PF.',
+    ],
+    de: [
+      'Der Leitfaden zur italienischen Steuererklärung für Grenzgänger behandelt die Formulare Modello 730 und Redditi PF, die für Personen erforderlich sind, die in der Schweiz arbeiten und in Italien steuerlich ansässig sind. Das Schweizer Arbeitseinkommen muss in Abschnitt RC angegeben werden, umgerechnet von CHF in EUR zum offiziellen UIC-Wechselkurs.',
+      'Nach dem Neuen Abkommen 2024 profitieren neue Grenzgänger von einer Franchise von EUR 10.000 auf das Schweizer Arbeitseinkommen für die IRPEF-Berechnung. Die Steuergutschrift (Art. 165 TUIR) für bereits gezahlte Schweizer Quellensteuer wird in Abschnitt CE/CR geltend gemacht.',
+      'Der Leitfaden führt mit Beispielen durch jeden Formularteil: Eingabe der CU-Daten (Certificazione Unica) des Schweizer Arbeitgebers, zusätzliche Abzüge (Hypothekenzinsen, Arztkosten, Renovierungsbonus) und Fristen — 30. September für den 730, 30. November für den Redditi PF.',
+    ],
+    fr: [
+      'Le guide de la déclaration fiscale italienne pour frontaliers couvre les formulaires Modello 730 et Redditi PF requis pour les personnes travaillant en Suisse et fiscalement résidentes en Italie. Le revenu d\'emploi suisse doit être déclaré dans la section RC, converti de CHF en EUR au taux de change officiel UIC.',
+      'Selon le Nouvel Accord 2024, les nouveaux frontaliers bénéficient d\'une franchise de 10 000 EUR sur le revenu d\'emploi suisse pour le calcul de l\'IRPEF. Le crédit d\'impôt étranger (Art. 165 TUIR) pour l\'impôt à la source suisse déjà payé est demandé dans la section CE/CR.',
+      'Le guide accompagne chaque section du formulaire avec des exemples : renseignement des données CU (Certificazione Unica) de l\'employeur suisse, déductions supplémentaires (intérêts hypothécaires, frais médicaux, bonus rénovation) et échéances — 30 septembre pour le 730, 30 novembre pour le Redditi PF.',
+    ],
+  },
+
+  // ───── Tax: Swiss tax return ────────────────────────────────
+  '/tasse-e-pensione/dichiarazione-redditi-svizzera': {
+    en: [
+      'The Swiss tax return guide covers the withholding tax rectification procedure (Tarifkorrektur/TDR) available to cross-border workers in Canton Ticino. By filing before 31 March of the following year, you can claim additional deductions not automatically included in withholding tax: pillar 3a contributions, actual transport costs, continuing education, and childcare expenses.',
+      'For cross-border workers earning above CHF 120,000, supplementary ordinary taxation (TOU) is mandatory. The guide explains how to file via eTax Ticino, what supporting documents are required, and how the quasi-resident status can provide access to the same deductions available to Swiss residents.',
+      'Key deadlines and procedures: filing the TDR application with the Ufficio delle Imposte (DFE), gathering Swiss and Italian documentation, and understanding how the Swiss tax rectification interacts with your Italian IRPEF return and the foreign tax credit mechanism.',
+    ],
+    de: [
+      'Der Leitfaden zur Schweizer Steuererklärung behandelt das Quellensteuerberichtigungsverfahren (Tarifkorrektur/TDR) für Grenzgänger im Kanton Tessin. Durch Einreichung bis 31. März des Folgejahres können zusätzliche Abzüge geltend gemacht werden: Säule-3a-Beiträge, tatsächliche Transportkosten, Weiterbildung und Kinderbetreuungskosten.',
+      'Für Grenzgänger mit einem Einkommen über CHF 120.000 ist die nachträgliche ordentliche Veranlagung (NOV) obligatorisch. Der Leitfaden erklärt die Einreichung über eTax Ticino, erforderliche Belege und wie der Quasi-Ansässigen-Status Zugang zu denselben Abzügen wie Schweizer Einwohner gewährt.',
+      'Wichtige Fristen und Verfahren: TDR-Antrag beim Steueramt (DFE), Beschaffung schweizerischer und italienischer Dokumentation sowie das Zusammenspiel der Schweizer Steuerberichtigung mit der italienischen IRPEF-Erklärung und der Steuergutschrift.',
+    ],
+    fr: [
+      'Le guide de la déclaration fiscale suisse couvre la procédure de rectification de l\'impôt à la source (correction du barème/TDR) disponible pour les frontaliers du Canton du Tessin. En déposant avant le 31 mars de l\'année suivante, vous pouvez réclamer des déductions supplémentaires : contributions pilier 3a, frais de transport effectifs, formation continue et frais de garde d\'enfants.',
+      'Pour les frontaliers gagnant plus de CHF 120 000, la taxation ordinaire complémentaire (TOU) est obligatoire. Le guide explique comment déposer via eTax Ticino, les documents justificatifs requis et comment le statut de quasi-résident donne accès aux mêmes déductions que les résidents suisses.',
+      'Échéances et procédures clés : dépôt de la demande TDR auprès de l\'office des impôts (DFE), rassemblement de la documentation suisse et italienne, et compréhension de l\'interaction entre la rectification suisse et la déclaration IRPEF italienne.',
+    ],
+  },
+
+  // ───── Tax: 2026 withholding tax rates ──────────────────────
+  '/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026': {
+    en: [
+      'The 2026 Canton Ticino withholding tax rate tables show the exact percentages applied to cross-border worker salaries, broken down by tax table (A for single, B for single with children, C for married, H for single parent), income bracket, number of children, and religious affiliation.',
+      'For new cross-border workers under the 2024 New Agreement, the withholding rate is reduced to 80% of the ordinary table rate for residents within 20 km of the border. Workers beyond 20 km pay the full 100% rate. The tables on this page reflect these adjustments.',
+      'Understanding your exact withholding rate is essential for salary negotiations and financial planning. The tables can be cross-referenced with the payslip simulator to verify that your employer is applying the correct deduction to your monthly salary.',
+    ],
+    de: [
+      'Die Quellensteuertabellen 2026 des Kantons Tessin zeigen die genauen Prozentsätze für Grenzgängergehälter, aufgeschlüsselt nach Steuertabelle (A für Alleinstehende, B für Alleinstehende mit Kindern, C für Verheiratete, H für Alleinerziehende), Einkommensstufe, Kinderzahl und Konfession.',
+      'Für neue Grenzgänger nach dem Neuen Abkommen 2024 wird der Quellensteuersatz auf 80 % des ordentlichen Tabellensatzes für Einwohner innerhalb von 20 km der Grenze reduziert. Arbeitnehmer jenseits von 20 km zahlen den vollen 100-%-Satz.',
+      'Die Kenntnis des genauen Quellensteuersatzes ist wesentlich für Gehaltsverhandlungen und Finanzplanung. Die Tabellen können mit dem Lohnabrechnungssimulator abgeglichen werden, um zu prüfen, ob der Arbeitgeber den korrekten Abzug auf das Monatsgehalt anwendet.',
+    ],
+    fr: [
+      'Les barèmes 2026 de l\'impôt à la source du Canton du Tessin montrent les pourcentages exacts appliqués aux salaires des frontaliers, ventilés par barème (A pour célibataire, B pour célibataire avec enfants, C pour marié, H pour famille monoparentale), tranche de revenu, nombre d\'enfants et appartenance religieuse.',
+      'Pour les nouveaux frontaliers selon le Nouvel Accord 2024, le taux de retenue est réduit à 80 % du taux ordinaire pour les résidents dans un rayon de 20 km de la frontière. Les travailleurs au-delà de 20 km paient le taux plein de 100 %.',
+      'Connaître votre taux exact de retenue est essentiel pour les négociations salariales et la planification financière. Les barèmes peuvent être croisés avec le simulateur de fiche de paie pour vérifier que votre employeur applique la déduction correcte.',
+    ],
+  },
+
+  // ───── Tax: ristorni tracking ───────────────────────────────
+  '/tasse-e-pensione/ristorni-fiscali': {
+    en: [
+      'Ristorni are the fiscal compensations that Canton Ticino pays to Italian border municipalities to offset the costs of hosting cross-border worker residents. Under the original 1974 agreement, approximately 40% of withholding tax collected from cross-border workers was returned to Italian municipalities within 20 km of the border.',
+      'The 2024 New Agreement changes the ristorni framework: as Italy introduces concurrent taxation on new cross-border workers, the share of tax revenue flowing back to Italian municipalities will progressively decrease through the transitional period ending in 2033.',
+      'This page tracks ristorni payments by municipality and year, showing historical trends and projected future changes. For cross-border workers, ristorni indirectly affect your community: municipalities receiving significant ristorni can maintain lower local tax rates and better public services.',
+    ],
+    de: [
+      'Ristorni sind die Finanzkompensationen, die der Kanton Tessin an italienische Grenzgemeinden zahlt, um die Kosten der ansässigen Grenzgänger auszugleichen. Nach dem ursprünglichen Abkommen von 1974 wurden etwa 40 % der von Grenzgängern erhobenen Quellensteuer an italienische Gemeinden innerhalb von 20 km zurückerstattet.',
+      'Das Neue Abkommen 2024 ändert den Ristorni-Rahmen: Mit der Einführung der konkurrierenden Besteuerung neuer Grenzgänger durch Italien wird der Anteil der an italienische Gemeinden zurückfliessenden Steuereinnahmen bis zum Ende der Übergangsphase 2033 schrittweise sinken.',
+      'Diese Seite verfolgt Ristorni-Zahlungen nach Gemeinde und Jahr mit historischen Trends und prognostizierten Änderungen. Ristorni betreffen Ihre Gemeinde indirekt: Gemeinden mit hohen Ristorni können niedrigere lokale Steuersätze und bessere öffentliche Dienstleistungen aufrechterhalten.',
+    ],
+    fr: [
+      'Les ristorni sont les compensations fiscales que le Canton du Tessin verse aux communes frontalières italiennes pour compenser les coûts liés aux frontaliers résidents. Selon l\'accord original de 1974, environ 40 % de l\'impôt à la source prélevé sur les frontaliers était restitué aux communes italiennes dans un rayon de 20 km.',
+      'Le Nouvel Accord 2024 modifie le cadre des ristorni : avec l\'introduction de la taxation concurrente des nouveaux frontaliers par l\'Italie, la part des recettes fiscales retournant aux communes italiennes diminuera progressivement pendant la période transitoire jusqu\'en 2033.',
+      'Cette page suit les versements de ristorni par commune et par année, montrant les tendances historiques et les changements futurs projetés. Les ristorni affectent indirectement votre communauté : les communes recevant des ristorni importants peuvent maintenir des taux d\'imposition locaux plus bas et de meilleurs services publics.',
+    ],
+  },
+
+  // ───── Vita: nursery comparison ─────────────────────────────
+  '/vivere-in-ticino/confronta-asili-nido': {
+    en: [
+      'The nursery comparison tool provides a detailed side-by-side analysis of childcare options in Swiss Canton Ticino and the Italian border provinces (Como, Varese, VCO). It compares monthly fees, opening hours, inclusion criteria, and available subsidies on both sides of the border.',
+      'In Ticino, nursery costs range from CHF 1,500 to CHF 2,500 per month depending on the municipality and income bracket, with cantonal subsidies available for lower incomes. In Italy, municipal nurseries charge EUR 300-600 per month, and the national Bonus Asilo Nido provides up to EUR 3,000/year for eligible families.',
+      'For cross-border families, the choice between Italian and Swiss childcare involves trade-offs: Italian nurseries are cheaper but may require Italian work schedule flexibility, while Ticino nurseries are closer to the workplace but significantly more expensive.',
+    ],
+    de: [
+      'Das Kita-Vergleichstool bietet eine detaillierte Gegenüberstellung von Kinderbetreuungsoptionen im Schweizer Kanton Tessin und den italienischen Grenzprovinzen (Como, Varese, VCO). Es vergleicht Monatsgebühren, Öffnungszeiten, Aufnahmekriterien und verfügbare Zuschüsse beiderseits der Grenze.',
+      'Im Tessin liegen die Kita-Kosten bei CHF 1.500 bis CHF 2.500 pro Monat je nach Gemeinde und Einkommensstufe, mit kantonalen Subventionen für tiefere Einkommen. In Italien berechnen kommunale Kitas EUR 300-600 pro Monat, und der nationale Bonus Asilo Nido gewährt bis zu EUR 3.000/Jahr für berechtigte Familien.',
+      'Für Grenzgängerfamilien beinhaltet die Wahl zwischen italienischer und Schweizer Kinderbetreuung Abwägungen: Italienische Kitas sind günstiger, erfordern aber möglicherweise Flexibilität bei italienischen Arbeitszeiten, während Tessiner Kitas näher am Arbeitsplatz, aber deutlich teurer sind.',
+    ],
+    fr: [
+      'L\'outil de comparaison des crèches fournit une analyse détaillée côte à côte des options de garde d\'enfants au Canton du Tessin et dans les provinces frontalières italiennes (Côme, Varèse, VCO). Il compare les tarifs mensuels, les horaires d\'ouverture, les critères d\'admission et les subventions disponibles des deux côtés de la frontière.',
+      'Au Tessin, les frais de crèche vont de CHF 1 500 à CHF 2 500 par mois selon la commune et la tranche de revenus, avec des subventions cantonales pour les revenus plus modestes. En Italie, les crèches municipales facturent 300-600 EUR/mois, et le Bonus Asilo Nido national fournit jusqu\'à 3 000 EUR/an pour les familles éligibles.',
+      'Pour les familles frontalières, le choix entre garde italienne et suisse implique des compromis : les crèches italiennes sont moins chères mais peuvent nécessiter une flexibilité d\'horaires italiens, tandis que les crèches tessinoises sont plus proches du lieu de travail mais nettement plus coûteuses.',
+    ],
+  },
+
+  // ───── Vita: attractions in Italian-speaking Switzerland ────
+  '/vivere-in-ticino/attrazioni-svizzera-italiana': {
+    en: [
+      'Italian-speaking Switzerland offers a unique blend of Swiss efficiency and Mediterranean lifestyle. Canton Ticino and the Grigioni Italiane feature lakeside towns (Lugano, Locarno, Ascona), UNESCO heritage sites (Bellinzona castles, Monte San Giorgio), and world-class cultural events (Locarno Film Festival, Lugano Estival Jazz).',
+      'For cross-border workers, understanding Ticino\'s cultural and leisure landscape helps with the residence decision: proximity to the Lake Lugano shores, hiking trails in the Valle Verzasca, and vibrant restaurant culture are quality-of-life factors that complement the financial analysis of permit G vs B.',
+      'The guide covers seasonal highlights, family-friendly activities, public transport accessibility from Italian border towns, and practical tips for making the most of evenings and weekends in Ticino without a Swiss residence permit.',
+    ],
+    de: [
+      'Die italienischsprachige Schweiz bietet eine einzigartige Mischung aus Schweizer Effizienz und mediterranem Lebensgefühl. Der Kanton Tessin und das Grigioni Italiano bieten Seestädte (Lugano, Locarno, Ascona), UNESCO-Welterbestätten (Burgen von Bellinzona, Monte San Giorgio) und erstklassige Kulturveranstaltungen (Filmfestival Locarno, Estival Jazz Lugano).',
+      'Für Grenzgänger hilft das Verständnis der Tessiner Kultur- und Freizeitlandschaft bei der Wohnsitzentscheidung: Nähe zum Luganersee, Wanderwege im Val Verzasca und die lebendige Restaurantkultur sind Lebensqualitätsfaktoren, die die finanzielle Analyse von Ausweis G vs. B ergänzen.',
+      'Der Leitfaden behandelt saisonale Highlights, familienfreundliche Aktivitäten, ÖV-Erreichbarkeit von italienischen Grenzorten und praktische Tipps für Abende und Wochenenden im Tessin ohne Schweizer Aufenthaltsbewilligung.',
+    ],
+    fr: [
+      'La Suisse italophone offre un mélange unique d\'efficacité suisse et de style de vie méditerranéen. Le Canton du Tessin et les Grisons italiens proposent des villes lacustres (Lugano, Locarno, Ascona), des sites UNESCO (châteaux de Bellinzone, Monte San Giorgio) et des événements culturels de premier plan (Festival du Film de Locarno, Estival Jazz Lugano).',
+      'Pour les frontaliers, comprendre le paysage culturel et de loisirs tessinois aide à la décision de résidence : la proximité du lac de Lugano, les sentiers de randonnée du Val Verzasca et la culture gastronomique animée sont des facteurs de qualité de vie qui complètent l\'analyse financière du permis G vs B.',
+      'Le guide couvre les temps forts saisonniers, les activités familiales, l\'accessibilité en transports publics depuis les villes frontalières italiennes et des conseils pratiques pour profiter des soirées et week-ends au Tessin sans permis de résidence suisse.',
+    ],
+  },
+
+  // ───── Vita: cross-border transport ─────────────────────────
+  '/vivere-in-ticino/trasporti-frontalieri': {
+    en: [
+      'The cross-border transport guide covers all commuting options between Italy and Swiss Canton Ticino: car via major border crossings, TILO regional trains (Lombardy-Ticino integration), FlixBus and regional bus services, car-sharing platforms, and cycling routes for border-adjacent municipalities.',
+      'For daily commuters, the cost comparison is critical: a monthly TILO Arcobaleno pass costs CHF 150-280 depending on zones, while driving costs EUR 300-500/month including fuel, tolls, parking, and vehicle wear. The guide breaks down each option with realistic monthly costs.',
+      'Time-saving strategies include staggered departure times (avoiding the 7:00-8:00 peak at Chiasso), alternative border crossings for different Ticino destinations, and the combination of Italian park-and-ride facilities with Swiss regional transit for the final leg.',
+    ],
+    de: [
+      'Der Grenzgänger-Transportführer deckt alle Pendleroptionen zwischen Italien und dem Schweizer Kanton Tessin ab: Auto über die Hauptgrenzübergänge, TILO-Regionalzüge (Lombardei-Tessin-Integration), FlixBus und regionale Busdienste, Fahrgemeinschaftsplattformen und Fahrradrouten für grenznahe Gemeinden.',
+      'Für tägliche Pendler ist der Kostenvergleich entscheidend: Ein TILO-Arcobaleno-Monatsabonnement kostet CHF 150-280 je nach Zone, während Autofahren EUR 300-500/Monat kostet inkl. Kraftstoff, Maut, Parkplatz und Fahrzeugverschleiss. Der Leitfaden schlüsselt jede Option mit realistischen Monatskosten auf.',
+      'Zeitspartipps umfassen gestaffelte Abfahrtszeiten (Vermeidung der Spitze 7:00-8:00 bei Chiasso), alternative Grenzübergänge für verschiedene Tessiner Ziele und die Kombination italienischer Park-and-Ride-Anlagen mit dem Schweizer Regionalverkehr.',
+    ],
+    fr: [
+      'Le guide des transports transfrontaliers couvre toutes les options de pendularité entre l\'Italie et le Canton du Tessin : voiture via les principaux postes frontières, trains régionaux TILO (intégration Lombardie-Tessin), FlixBus et services de bus régionaux, plateformes de covoiturage et itinéraires cyclables pour les communes proches de la frontière.',
+      'Pour les pendulaires quotidiens, la comparaison des coûts est critique : un abonnement mensuel TILO Arcobaleno coûte CHF 150-280 selon les zones, tandis que la voiture coûte EUR 300-500/mois incluant carburant, péages, parking et usure du véhicule.',
+      'Les stratégies de gain de temps incluent des départs décalés (éviter le pic 7h00-8h00 à Chiasso), des postes frontières alternatifs selon la destination au Tessin, et la combinaison de parkings relais italiens avec le transport régional suisse pour le dernier tronçon.',
+    ],
+  },
+
+  // ───── Statistics: best border municipalities ───────────────
+  '/statistiche/migliori-comuni-frontiera': {
+    en: [
+      'The best border municipalities ranking evaluates Italian comuni within 20 km of the Swiss-Ticino border across multiple criteria relevant to cross-border workers: commute time to major Ticino employers, rental costs, municipal tax rates (addizionale comunale IRPEF), public transport connections, school quality, and access to services.',
+      'The ranking uses a composite livability score that weights financial factors (rent, taxes, commute cost) alongside quality-of-life indicators (green spaces, services density, crime rates). Each municipality is profiled with population data, distance to the nearest border crossing, and average property prices.',
+      'For cross-border workers choosing where to live in Italy, this ranking provides objective data to complement personal preferences. Filter by province (Como, Varese, VCO), distance from border, or specific criteria to find the municipality that best matches your priorities.',
+    ],
+    de: [
+      'Das Ranking der besten Grenzgemeinden bewertet italienische Comuni innerhalb von 20 km der schweizerisch-tessinischen Grenze nach mehreren Kriterien: Pendelzeit zu den grössten Tessiner Arbeitgebern, Mietkosten, kommunale Steuersätze (Addizionale Comunale IRPEF), ÖV-Anbindung, Schulqualität und Zugang zu Dienstleistungen.',
+      'Das Ranking verwendet einen zusammengesetzten Lebensqualitätswert, der finanzielle Faktoren (Miete, Steuern, Pendelkosten) mit Lebensqualitätsindikatoren (Grünflächen, Dienstleistungsdichte, Kriminalitätsraten) gewichtet. Jede Gemeinde wird mit Bevölkerungsdaten, Entfernung zum nächsten Grenzübergang und durchschnittlichen Immobilienpreisen profiliert.',
+      'Für Grenzgänger bei der Wohnsitzwahl in Italien bietet dieses Ranking objektive Daten. Filtern Sie nach Provinz (Como, Varese, VCO), Grenzentfernung oder spezifischen Kriterien, um die Gemeinde zu finden, die am besten zu Ihren Prioritäten passt.',
+    ],
+    fr: [
+      'Le classement des meilleures communes frontalières évalue les comuni italiens dans un rayon de 20 km de la frontière suisse-tessinoise selon plusieurs critères : temps de trajet vers les principaux employeurs tessinois, coûts de location, taux d\'imposition communaux (addizionale comunale IRPEF), liaisons de transport public, qualité scolaire et accès aux services.',
+      'Le classement utilise un score de qualité de vie composite pondérant les facteurs financiers (loyer, impôts, coûts de trajet) et les indicateurs de qualité de vie (espaces verts, densité de services, taux de criminalité). Chaque commune est profilée avec données démographiques, distance au poste frontière le plus proche et prix immobiliers moyens.',
+      'Pour les frontaliers choisissant où vivre en Italie, ce classement fournit des données objectives. Filtrez par province (Côme, Varèse, VCO), distance de la frontière ou critères spécifiques pour trouver la commune correspondant le mieux à vos priorités.',
+    ],
+  },
+
+  // ───── Statistics: Ticino salary observatory ────────────────
+  '/statistiche/osservatorio-stipendi-lavori-ticino': {
+    en: [
+      'The Ticino salary observatory tracks median and average wages by sector, role, and experience level across Canton Ticino, using data from the Swiss Federal Statistical Office (BFS) wage survey and employer-reported figures. The observatory covers 24 industry sectors, from banking and pharmaceuticals to construction and hospitality.',
+      'For cross-border workers, the observatory provides essential benchmarking data for salary negotiations: knowing the median salary for your sector and seniority level in Ticino helps you assess whether an offer is competitive. The data includes gross salary ranges, 25th and 75th percentile brackets, and year-over-year trends.',
+      'Interactive charts let you filter by sector, job category (management, professional, technical, operative), and compare Ticino salaries against Swiss national averages and Italian equivalents in the border provinces.',
+    ],
+    de: [
+      'Das Tessiner Gehalts-Observatorium verfolgt Median- und Durchschnittsgehälter nach Branche, Rolle und Erfahrungsstufe im Kanton Tessin, basierend auf der BFS-Lohnerhebung und Arbeitgeberdaten. Das Observatorium deckt 24 Branchen ab, von Banken und Pharma bis Bau und Gastgewerbe.',
+      'Für Grenzgänger liefert das Observatorium wesentliche Benchmarking-Daten für Gehaltsverhandlungen: Die Kenntnis des Mediangehalts für Ihren Sektor und Ihre Erfahrungsstufe im Tessin hilft zu beurteilen, ob ein Angebot wettbewerbsfähig ist. Die Daten umfassen Bruttolohnspannen, 25. und 75. Perzentil sowie Jahresvergleiche.',
+      'Interaktive Diagramme ermöglichen Filterung nach Branche, Berufskategorie (Management, Fachkräfte, Technik, Operativ) und Vergleich mit dem Schweizer Landesdurchschnitt und italienischen Äquivalenten in den Grenzprovinzen.',
+    ],
+    fr: [
+      'L\'observatoire des salaires tessinois suit les salaires médians et moyens par secteur, poste et niveau d\'expérience au Canton du Tessin, à partir de l\'enquête salariale de l\'OFS et des données d\'employeurs. L\'observatoire couvre 24 secteurs, de la banque et pharmacie à la construction et l\'hôtellerie.',
+      'Pour les frontaliers, l\'observatoire fournit des données de benchmarking essentielles pour les négociations salariales : connaître le salaire médian pour votre secteur et niveau d\'ancienneté au Tessin permet d\'évaluer la compétitivité d\'une offre. Les données incluent les fourchettes de salaires bruts et les tendances annuelles.',
+      'Les graphiques interactifs permettent de filtrer par secteur, catégorie professionnelle (management, spécialistes, technique, opératif) et de comparer les salaires tessinois avec les moyennes nationales suisses et les équivalents italiens dans les provinces frontalières.',
+    ],
+  },
+
+  // ───── Statistics: Swiss unemployment ───────────────────────
+  '/statistiche/disoccupazione-svizzera': {
+    en: [
+      'The Swiss unemployment statistics page tracks cantonal and national unemployment rates using SECO data, with a focus on Canton Ticino and its implications for cross-border workers. Ticino historically has one of the highest unemployment rates among Swiss cantons, typically 1-2 percentage points above the national average.',
+      'For cross-border workers, Swiss unemployment figures signal labour market conditions: sectors with rising unemployment may indicate slower hiring, while low unemployment sectors present stronger negotiating positions. The data is broken down by sector, nationality, age group, and duration of unemployment.',
+      'The page also covers the relationship between frontaliere employment and Swiss unemployment — a politically sensitive topic in Ticino. Charts show the correlation between cross-border worker numbers and cantonal unemployment over time, providing factual context for public debate.',
+    ],
+    de: [
+      'Die Schweizer Arbeitslosenstatistik verfolgt kantonale und nationale Arbeitslosenquoten anhand von SECO-Daten, mit Fokus auf den Kanton Tessin und dessen Auswirkungen für Grenzgänger. Das Tessin hat historisch eine der höchsten Arbeitslosenquoten unter den Schweizer Kantonen, typischerweise 1-2 Prozentpunkte über dem nationalen Durchschnitt.',
+      'Für Grenzgänger signalisieren Schweizer Arbeitslosenzahlen die Arbeitsmarktlage: Sektoren mit steigender Arbeitslosigkeit können langsamere Einstellungen anzeigen, während Sektoren mit niedriger Arbeitslosigkeit stärkere Verhandlungspositionen bieten. Die Daten sind nach Branche, Nationalität, Altersgruppe und Dauer aufgeschlüsselt.',
+      'Die Seite beleuchtet auch die Beziehung zwischen Grenzgängerbeschäftigung und Schweizer Arbeitslosigkeit — ein politisch heikles Thema im Tessin. Grafiken zeigen die Korrelation zwischen Grenzgängerzahlen und kantonaler Arbeitslosigkeit über die Zeit.',
+    ],
+    fr: [
+      'La page des statistiques du chômage suisse suit les taux de chômage cantonaux et nationaux à partir des données SECO, avec un focus sur le Canton du Tessin et ses implications pour les frontaliers. Le Tessin a historiquement l\'un des taux de chômage les plus élevés parmi les cantons suisses, typiquement 1-2 points au-dessus de la moyenne nationale.',
+      'Pour les frontaliers, les chiffres du chômage suisse signalent les conditions du marché du travail : les secteurs avec un chômage en hausse peuvent indiquer un ralentissement des embauches, tandis que les secteurs à faible chômage offrent de meilleures positions de négociation.',
+      'La page couvre aussi la relation entre l\'emploi frontalier et le chômage suisse — un sujet politiquement sensible au Tessin. Les graphiques montrent la corrélation entre le nombre de frontaliers et le chômage cantonal au fil du temps, fournissant un contexte factuel au débat public.',
+    ],
+  },
+
+  // ───── Statistics: mortgage comparison ──────────────────────
+  '/statistiche/confronto-mutui': {
+    en: [
+      'The mortgage comparison page analyses interest rates and conditions for home loans in Switzerland and Italy, relevant for cross-border workers who own or plan to buy property on either side of the border. Swiss mortgage rates (typically 1.5-3% for fixed rate) are compared with Italian rates (typically 2.5-4.5%).',
+      'For cross-border workers, the mortgage decision involves currency considerations: a Swiss mortgage on an Italian property exposes you to CHF-EUR exchange rate risk, while an Italian mortgage may offer higher rates but eliminates currency mismatch. The comparison shows total interest paid over 15, 20, and 25-year terms under different rate scenarios.',
+      'The tool also covers Swiss cantonal lending rules (typically 20% down payment, 33% income-to-debt ratio), Italian banking requirements for non-residents, and the impact of declaring Swiss income on Italian mortgage eligibility.',
+    ],
+    de: [
+      'Die Hypothekenvergleichsseite analysiert Zinssätze und Konditionen für Wohnkredite in der Schweiz und Italien, relevant für Grenzgänger, die Immobilien auf beiden Seiten der Grenze besitzen oder erwerben möchten. Schweizer Hypothekenzinsen (typisch 1,5-3 % für Festzins) werden mit italienischen Zinsen (typisch 2,5-4,5 %) verglichen.',
+      'Für Grenzgänger beinhaltet die Hypothekenentscheidung Währungsüberlegungen: Eine Schweizer Hypothek auf eine italienische Immobilie setzt Sie dem CHF-EUR-Wechselkursrisiko aus, während eine italienische Hypothek höhere Zinsen, aber kein Währungsrisiko birgt.',
+      'Das Tool behandelt auch Schweizer kantonale Kreditregeln (typisch 20 % Eigenkapital, 33 % Einkommens-Schulden-Verhältnis), italienische Bankanforderungen für Nicht-Ansässige und die Auswirkungen der Deklaration von Schweizer Einkommen auf die italienische Hypothekenwürdigkeit.',
+    ],
+    fr: [
+      'La page de comparaison des hypothèques analyse les taux d\'intérêt et conditions des prêts immobiliers en Suisse et en Italie, pertinents pour les frontaliers possédant ou prévoyant d\'acheter un bien de part et d\'autre de la frontière. Les taux hypothécaires suisses (typiquement 1,5-3 % à taux fixe) sont comparés aux taux italiens (typiquement 2,5-4,5 %).',
+      'Pour les frontaliers, la décision hypothécaire implique des considérations de change : une hypothèque suisse sur un bien italien expose au risque de change CHF-EUR, tandis qu\'une hypothèque italienne offre des taux plus élevés mais élimine le décalage monétaire.',
+      'L\'outil couvre aussi les règles de prêt cantonales suisses (typiquement 20 % d\'apport, ratio revenus-dettes de 33 %), les exigences bancaires italiennes pour les non-résidents et l\'impact de la déclaration de revenus suisses sur l\'éligibilité hypothécaire italienne.',
+    ],
+  },
+
+  // ───── Statistics: border fuel prices ───────────────────────
+  '/statistiche/prezzi-benzina-confine': {
+    en: [
+      'The border fuel price tracker monitors petrol and diesel prices at service stations on both sides of the Swiss-Italian border, updated hourly from official sources. The price differential between Swiss and Italian fuel is a significant daily cost factor for cross-border commuters.',
+      'On average, fuel in Italy is 15-25% cheaper than in Ticino, but the gap fluctuates with international oil prices, national excise taxes, and seasonal demand. The tracker shows current prices at stations near major border crossings (Chiasso, Stabio, Ponte Tresa), helping you decide where to fill up each day.',
+      'Annual savings from consistently fuelling in Italy can reach EUR 800-1,200 for a daily 50 km round trip commute. The tool also factors in the time cost of detouring to Italian stations and Swiss customs rules on fuel quantity limits when crossing the border.',
+    ],
+    de: [
+      'Der Benzinpreis-Tracker an der Grenze überwacht Benzin- und Dieselpreise an Tankstellen beiderseits der schweizerisch-italienischen Grenze, stündlich aktualisiert aus offiziellen Quellen. Das Preisgefälle zwischen Schweizer und italienischem Kraftstoff ist ein erheblicher täglicher Kostenfaktor für Grenzpendler.',
+      'Im Durchschnitt ist Kraftstoff in Italien 15-25 % günstiger als im Tessin, aber die Differenz schwankt mit internationalen Ölpreisen, nationalen Verbrauchssteuern und saisonaler Nachfrage. Der Tracker zeigt aktuelle Preise an Tankstellen nahe den Hauptgrenzübergängen (Chiasso, Stabio, Ponte Tresa).',
+      'Die jährlichen Einsparungen durch konsequentes Tanken in Italien können EUR 800-1.200 für einen täglichen 50-km-Rundweg-Pendel erreichen. Das Tool berücksichtigt auch den Zeitaufwand für Umwege und Schweizer Zollregeln zur Kraftstoffmengenbeschränkung beim Grenzübertritt.',
+    ],
+    fr: [
+      'Le tracker des prix du carburant à la frontière surveille les prix de l\'essence et du diesel aux stations-service des deux côtés de la frontière suisse-italienne, mis à jour toutes les heures à partir de sources officielles. L\'écart de prix entre le carburant suisse et italien est un facteur de coût quotidien significatif pour les pendulaires.',
+      'En moyenne, le carburant en Italie est 15-25 % moins cher qu\'au Tessin, mais l\'écart fluctue avec les prix internationaux du pétrole, les accises nationales et la demande saisonnière. Le tracker affiche les prix actuels aux stations proches des principaux postes frontières (Chiasso, Stabio, Ponte Tresa).',
+      'Les économies annuelles en faisant le plein systématiquement en Italie peuvent atteindre 800-1 200 EUR pour un trajet quotidien de 50 km aller-retour. L\'outil prend aussi en compte le coût en temps du détour et les règles douanières suisses sur les limites de quantité de carburant.',
+    ],
+  },
+
+  // ───── Statistics: health insurance premiums by municipality ─
+  '/statistiche/premi-malattia-comuni': {
+    en: [
+      'The health insurance premium map shows LAMal (mandatory Swiss health insurance) monthly premiums by municipality and insurer in Canton Ticino and surrounding cantons. Premiums vary significantly: from CHF 270 in the cheapest combination to over CHF 560 in the most expensive, depending on insurer, model (standard, HMO, telmed), deductible, and accident coverage inclusion.',
+      'For cross-border workers who opt for Swiss LAMal instead of the Italian National Health Service, premium comparison is essential. The choice is irrevocable for the entire duration of employment, making it one of the most consequential financial decisions a new frontaliere faces in the first 90 days.',
+      'The tool also shows the premium evolution over the last 5 years and forecasts for the coming year, helping you anticipate annual cost increases. Filter by canton, insurer, and coverage model to find the optimal combination for your health profile and budget.',
+    ],
+    de: [
+      'Die Krankenkassenprämien-Karte zeigt monatliche KVG-Prämien (obligatorische Schweizer Krankenversicherung) nach Gemeinde und Versicherer im Kanton Tessin und umliegenden Kantonen. Die Prämien variieren erheblich: von CHF 270 in der günstigsten Kombination bis über CHF 560 in der teuersten, je nach Versicherer, Modell (Standard, HMO, Telmed), Franchise und Unfalldeckung.',
+      'Für Grenzgänger, die sich für die Schweizer KVG statt den italienischen Nationalen Gesundheitsdienst entscheiden, ist der Prämienvergleich entscheidend. Die Wahl ist für die gesamte Beschäftigungsdauer unwiderruflich — eine der folgenreichsten Finanzentscheidungen in den ersten 90 Tagen.',
+      'Das Tool zeigt auch die Prämienentwicklung der letzten 5 Jahre und Prognosen für das kommende Jahr. Filtern Sie nach Kanton, Versicherer und Deckungsmodell, um die optimale Kombination für Ihr Gesundheitsprofil und Budget zu finden.',
+    ],
+    fr: [
+      'La carte des primes d\'assurance maladie montre les primes mensuelles LAMal (assurance maladie obligatoire suisse) par commune et assureur au Canton du Tessin et cantons environnants. Les primes varient considérablement : de CHF 270 dans la combinaison la moins chère à plus de CHF 560 dans la plus onéreuse, selon l\'assureur, le modèle (standard, HMO, télémédecine), la franchise et la couverture accidents.',
+      'Pour les frontaliers qui optent pour la LAMal suisse plutôt que le Service National de Santé italien, la comparaison des primes est essentielle. Le choix est irrévocable pour toute la durée de l\'emploi — l\'une des décisions financières les plus lourdes de conséquences dans les 90 premiers jours.',
+      'L\'outil montre aussi l\'évolution des primes sur les 5 dernières années et les prévisions pour l\'année à venir. Filtrez par canton, assureur et modèle de couverture pour trouver la combinaison optimale pour votre profil de santé et budget.',
+    ],
+  },
+
+  // ───── Job board ────────────────────────────────────────────
+  '/cerca-lavoro-ticino': {
+    en: [
+      'The Ticino job board aggregates positions from over 100 employers in Canton Ticino, including multinational corporations, public institutions (USI, SUPSI, EOC), banking and insurance groups, pharmaceutical companies, and IT firms. Listings are sourced directly from company HR portals and updated daily by dedicated crawlers.',
+      'Each listing includes normalised data: job title, company, location, contract type, publication date, and a direct link to apply on the employer\'s original website. Jobs are translated into all four supported languages (Italian, English, German, French) to help non-Italian-speaking candidates discover opportunities.',
+      'Use the search and filter tools to narrow results by sector, location, contract type, or company. For cross-border workers, the board is designed to complement salary comparison tools — after finding a role, use the net salary simulator to estimate take-home pay under both the G permit and B permit tax regimes.',
+    ],
+    de: [
+      'Die Tessiner Stellenbörse aggregiert Positionen von über 100 Arbeitgebern im Kanton Tessin, darunter multinationale Konzerne, öffentliche Institutionen (USI, SUPSI, EOC), Banken- und Versicherungsgruppen, Pharmaunternehmen und IT-Firmen. Die Angebote stammen direkt von den HR-Portalen der Unternehmen und werden täglich aktualisiert.',
+      'Jedes Inserat enthält normalisierte Daten: Stellenbezeichnung, Unternehmen, Standort, Vertragsart, Veröffentlichungsdatum und einen Direktlink zur Bewerbung auf der Originalwebsite des Arbeitgebers. Stellen werden in alle vier unterstützten Sprachen übersetzt.',
+      'Nutzen Sie die Such- und Filtertools, um Ergebnisse nach Branche, Standort, Vertragsart oder Unternehmen einzugrenzen. Für Grenzgänger ist die Börse als Ergänzung zu den Gehaltsvergleichstools konzipiert — nach dem Finden einer Stelle können Sie den Nettosimulator nutzen.',
+    ],
+    fr: [
+      'Le tableau d\'emploi tessinois agrège les postes de plus de 100 employeurs du Canton du Tessin, incluant des multinationales, des institutions publiques (USI, SUPSI, EOC), des groupes bancaires et d\'assurance, des entreprises pharmaceutiques et des sociétés IT. Les offres proviennent directement des portails RH des entreprises et sont mises à jour quotidiennement.',
+      'Chaque offre inclut des données normalisées : intitulé du poste, entreprise, lieu, type de contrat, date de publication et lien direct pour postuler sur le site original de l\'employeur. Les postes sont traduits dans les quatre langues supportées.',
+      'Utilisez les outils de recherche et de filtrage pour affiner les résultats par secteur, lieu, type de contrat ou entreprise. Pour les frontaliers, le tableau est conçu pour compléter les outils de comparaison salariale — après avoir trouvé un poste, utilisez le simulateur de salaire net.',
+    ],
+  },
+
+  // ───── Swiss employment contracts guide ─────────────────────
+  '/contratti-lavoro-svizzera': {
+    en: [
+      'The Swiss employment contracts guide explains the main contract types used in Canton Ticino: unlimited-term (CDI), fixed-term (CDD), temporary (staffing/interinale), and on-call contracts. For cross-border workers, understanding contract type is essential because it affects G permit duration, unemployment benefit eligibility, and notice period obligations.',
+      'Swiss employment law provides strong protections compared to Italian norms: minimum notice periods scale from 1 month in the first year to 3 months after 9 years, the 13th month salary is standard practice (though not legally mandatory in all sectors), and trial periods are limited to 1-3 months.',
+      'The guide also covers collective labour agreements (CCL/GAV) that apply in major Ticino sectors, minimum wage provisions (CHF 19.75/hour in 2026), overtime compensation rules, and the documentation you should verify before signing a Swiss employment contract.',
+    ],
+    de: [
+      'Der Leitfaden zu Schweizer Arbeitsverträgen erklärt die Hauptvertragsarten im Kanton Tessin: unbefristet (CDI), befristet (CDD), temporär (Personalverleih/Interinale) und Arbeit auf Abruf. Für Grenzgänger ist das Verständnis der Vertragsart wesentlich, da sie Ausweis-G-Dauer, Arbeitslosengeldanspruch und Kündigungsfristen beeinflusst.',
+      'Das Schweizer Arbeitsrecht bietet im Vergleich zu italienischen Normen starke Schutzrechte: Mindestkündigungsfristen skalieren von 1 Monat im ersten Jahr auf 3 Monate nach 9 Jahren, der 13. Monatslohn ist gängige Praxis, und Probezeiten sind auf 1-3 Monate begrenzt.',
+      'Der Leitfaden behandelt auch Gesamtarbeitsverträge (GAV), die in wichtigen Tessiner Branchen gelten, Mindestlohnbestimmungen (CHF 19,75/Stunde 2026), Überstundenregelungen und die Dokumentation, die Sie vor Unterzeichnung eines Schweizer Arbeitsvertrags prüfen sollten.',
+    ],
+    fr: [
+      'Le guide des contrats de travail suisses explique les principaux types de contrats utilisés au Canton du Tessin : durée indéterminée (CDI), durée déterminée (CDD), temporaire (intérim) et sur appel. Pour les frontaliers, comprendre le type de contrat est essentiel car il affecte la durée du permis G, l\'éligibilité aux allocations chômage et les obligations de préavis.',
+      'Le droit du travail suisse offre des protections solides par rapport aux normes italiennes : les préavis minimaux vont de 1 mois la première année à 3 mois après 9 ans, le 13e mois est la pratique standard, et les périodes d\'essai sont limitées à 1-3 mois.',
+      'Le guide couvre aussi les conventions collectives de travail (CCT) applicables dans les grands secteurs tessinois, les dispositions sur le salaire minimum (CHF 19,75/heure en 2026), les règles de compensation des heures supplémentaires et les documents à vérifier avant de signer un contrat suisse.',
+    ],
+  },
+
+  // ───── TFR/severance for cross-border workers ───────────────
+  '/tfr-liquidazione-frontaliere': {
+    en: [
+      'The TFR (Trattamento di Fine Rapporto) and severance guide clarifies what happens at the end of a Swiss employment relationship for cross-border workers. Unlike Italian law where TFR accrues automatically, Swiss law does not provide an equivalent: there is no end-of-service payment in Switzerland. However, the second pillar (LPP/BVG) serves a similar function.',
+      'When leaving Swiss employment, cross-border workers can withdraw their LPP pension capital as a lump sum (if leaving Switzerland permanently) or transfer it to a vested benefits account (Freizügigkeitskonto). The withdrawal is subject to Swiss capital withdrawal tax, which varies by canton — in Ticino, typically 5-8% depending on the amount.',
+      'The guide covers the step-by-step process: notifying your pension fund, choosing between lump sum and transfer, tax implications in both Switzerland and Italy, and the interaction with Italian TFR if you had previous Italian employment. For workers returning to Italy, declaring the Swiss pension withdrawal on Italian tax returns is mandatory.',
+    ],
+    de: [
+      'Der Leitfaden zu TFR (Trattamento di Fine Rapporto) und Abfindung klärt, was bei Beendigung eines Schweizer Arbeitsverhältnisses für Grenzgänger passiert. Anders als im italienischen Recht, wo TFR automatisch anfällt, gibt es im Schweizer Recht kein Äquivalent. Die zweite Säule (BVG) übernimmt jedoch eine ähnliche Funktion.',
+      'Beim Austritt aus einer Schweizer Beschäftigung können Grenzgänger ihr BVG-Vorsorgekapital als Einmalbetrag beziehen (bei endgültigem Verlassen der Schweiz) oder auf ein Freizügigkeitskonto übertragen. Der Bezug unterliegt der Schweizer Kapitalabzugssteuer, die im Tessin typischerweise 5-8 % beträgt.',
+      'Der Leitfaden behandelt den Ablauf: Benachrichtigung der Pensionskasse, Wahl zwischen Kapitalbezug und Übertragung, steuerliche Auswirkungen in beiden Ländern und das Zusammenspiel mit dem italienischen TFR bei früherer italienischer Beschäftigung.',
+    ],
+    fr: [
+      'Le guide du TFR (Trattamento di Fine Rapporto) et des indemnités de départ clarifie ce qui se passe à la fin d\'une relation de travail suisse pour les frontaliers. Contrairement au droit italien où le TFR s\'accumule automatiquement, le droit suisse ne prévoit pas d\'équivalent. Cependant, le deuxième pilier (LPP) remplit une fonction similaire.',
+      'En quittant un emploi suisse, les frontaliers peuvent retirer leur capital de prévoyance LPP en une fois (en cas de départ définitif de Suisse) ou le transférer sur un compte de libre passage. Le retrait est soumis à l\'impôt suisse sur le retrait en capital, qui au Tessin est typiquement de 5-8 %.',
+      'Le guide couvre le processus étape par étape : notification de la caisse de pension, choix entre retrait en capital et transfert, implications fiscales dans les deux pays et interaction avec le TFR italien en cas d\'emploi antérieur en Italie.',
+    ],
+  },
+
+  // ───── G vs B permit quiz ───────────────────────────────────
+  '/quiz-permesso-b-o-g': {
+    en: [
+      'The G vs B permit quiz helps you determine which Swiss work permit is best suited to your situation through a series of practical questions about your employment, family configuration, commute preferences, and financial priorities. The quiz is not a legal determination — it provides a personalised recommendation based on common cross-border worker profiles.',
+      'Questions cover key decision factors: gross salary level (the breakeven point where B permit becomes financially advantageous is typically around CHF 90,000-110,000 for a family), children\'s ages and schooling preferences, daily commute tolerance, and long-term residency plans.',
+      'After completing the quiz, you receive a personalised analysis linking to the relevant calculators: net salary under each permit type, cost of living comparison, healthcare premium comparison, and the residence change simulator to model the financial impact of switching permits.',
+    ],
+    de: [
+      'Das G-vs-B-Ausweis-Quiz hilft Ihnen, anhand praktischer Fragen zu Beschäftigung, Familienkonstellation, Pendlerpräferenzen und finanziellen Prioritäten zu bestimmen, welche Schweizer Arbeitsbewilligung am besten zu Ihrer Situation passt.',
+      'Die Fragen decken zentrale Entscheidungsfaktoren ab: Bruttogehaltsstufe (der Breakeven-Punkt, ab dem Ausweis B finanziell vorteilhaft wird, liegt typischerweise bei CHF 90.000-110.000 für eine Familie), Alter der Kinder und Schulpräferenzen, tägliche Pendeltoleranz und langfristige Aufenthaltspläne.',
+      'Nach Abschluss des Quiz erhalten Sie eine personalisierte Analyse mit Links zu den relevanten Rechnern: Nettogehalt je Bewilligungstyp, Lebenshaltungskostenvergleich, Krankenkassenprämienvergleich und der Wohnsitzwechsel-Simulator.',
+    ],
+    fr: [
+      'Le quiz permis G vs B vous aide à déterminer quel permis de travail suisse convient le mieux à votre situation à travers une série de questions pratiques sur votre emploi, votre configuration familiale, vos préférences de trajet et vos priorités financières.',
+      'Les questions couvrent les facteurs de décision clés : niveau de salaire brut (le point d\'équilibre où le permis B devient financièrement avantageux se situe typiquement autour de CHF 90 000-110 000 pour une famille), âge des enfants, tolérance au trajet quotidien et projets de résidence à long terme.',
+      'Après le quiz, vous recevez une analyse personnalisée avec liens vers les calculateurs pertinents : salaire net par type de permis, comparaison du coût de la vie, comparaison des primes d\'assurance maladie et simulateur de changement de résidence.',
+    ],
+  },
+
+  // ───── 13th month salary calculator ─────────────────────────
+  '/calcolo-tredicesima-frontaliere': {
+    en: [
+      'The 13th month salary calculator determines how the "tredicesima" (13th month payment) works for cross-border workers in Switzerland. In Swiss employment, the 13th month salary is a contractual provision rather than a legal obligation, but it is standard practice in most Ticino sectors and covered by collective labour agreements (CCL/GAV).',
+      'The calculator shows how the 13th month is distributed: typically paid in December as a full monthly gross salary, subject to the same social deductions (AVS, unemployment, LPP) and withholding tax as regular monthly pay. This means the net 13th month may be lower than expected if your marginal tax bracket is higher.',
+      'For Italian tax purposes, the 13th month is part of your total Swiss employment income and must be included in the annual IRPEF calculation. The guide clarifies the timing: Swiss CU documentation reflects 13 monthly payments, while Italian tax rules require annualised income reporting.',
+    ],
+    de: [
+      'Der Rechner für den 13. Monatslohn erklärt, wie die „Tredicesima" (13. Monatsgehalt) für Grenzgänger in der Schweiz funktioniert. Im Schweizer Arbeitsrecht ist der 13. Monatslohn eine vertragliche Vereinbarung, aber in den meisten Tessiner Branchen Standardpraxis und durch Gesamtarbeitsverträge (GAV) abgedeckt.',
+      'Der Rechner zeigt die Verteilung: typischerweise im Dezember als volles Bruttomonatsgehalt ausgezahlt, mit denselben Sozialabzügen (AHV, ALV, BVG) und Quellensteuer wie das reguläre Monatsgehalt. Das Netto des 13. Monatslohns kann daher niedriger als erwartet ausfallen.',
+      'Für die italienische Steuer ist der 13. Monatslohn Teil des gesamten Schweizer Arbeitseinkommens und muss in die IRPEF-Jahresberechnung einbezogen werden. Die Schweizer CU-Dokumentation weist 13 Monatsgehälter aus, während italienische Steuerregeln eine annualisierte Einkommensmeldung erfordern.',
+    ],
+    fr: [
+      'Le calculateur du 13e mois explique comment la « tredicesima » (13e mois de salaire) fonctionne pour les frontaliers en Suisse. En droit du travail suisse, le 13e mois est une disposition contractuelle plutôt qu\'une obligation légale, mais c\'est la pratique standard dans la plupart des secteurs tessinois, couverte par les conventions collectives (CCT/GAV).',
+      'Le calculateur montre la distribution : typiquement versé en décembre comme un salaire mensuel brut complet, soumis aux mêmes déductions sociales (AVS, chômage, LPP) et impôt à la source que le salaire mensuel régulier. Le net du 13e mois peut donc être inférieur aux attentes.',
+      'Pour l\'impôt italien, le 13e mois fait partie du revenu total d\'emploi suisse et doit être inclus dans le calcul annuel de l\'IRPEF. La documentation CU suisse reflète 13 mensualités, tandis que les règles fiscales italiennes exigent une déclaration de revenu annualisé.',
+    ],
+  },
+
+  // ───── About us ─────────────────────────────────────────────
+  '/chi-siamo': {
+    en: [
+      'Frontaliere Ticino is an independent information platform for cross-border workers between Switzerland (Canton Ticino) and Italy. The platform provides free calculators, comparison tools, practical guides, and job listings — all maintained with data from official Swiss and Italian sources.',
+      'The project started from the direct experience of cross-border workers who found it difficult to navigate the complex fiscal, administrative, and practical landscape of working in one country and living in another. Every tool is designed to answer real questions with verifiable data.',
+      'Content is updated continuously to reflect legislative changes, new tax rates, and evolving bilateral agreements. The platform operates independently of any financial institution, insurance provider, or employer, ensuring unbiased information for all users.',
+    ],
+    de: [
+      'Frontaliere Ticino ist eine unabhängige Informationsplattform für Grenzgänger zwischen der Schweiz (Kanton Tessin) und Italien. Die Plattform bietet kostenlose Rechner, Vergleichstools, praktische Leitfäden und Stellenangebote — alle mit Daten aus offiziellen schweizerischen und italienischen Quellen gepflegt.',
+      'Das Projekt entstand aus der direkten Erfahrung von Grenzgängern, die es schwierig fanden, die komplexe steuerliche, administrative und praktische Landschaft der Arbeit in einem Land bei Wohnsitz in einem anderen zu navigieren. Jedes Tool beantwortet echte Fragen mit überprüfbaren Daten.',
+      'Inhalte werden kontinuierlich aktualisiert, um Gesetzesänderungen, neue Steuersätze und sich weiterentwickelnde bilaterale Abkommen widerzuspiegeln. Die Plattform arbeitet unabhängig von Finanzinstituten, Versicherungsanbietern oder Arbeitgebern.',
+    ],
+    fr: [
+      'Frontaliere Ticino est une plateforme d\'information indépendante pour les travailleurs frontaliers entre la Suisse (Canton du Tessin) et l\'Italie. La plateforme offre des calculateurs gratuits, des outils de comparaison, des guides pratiques et des offres d\'emploi — le tout alimenté par des données de sources officielles suisses et italiennes.',
+      'Le projet est né de l\'expérience directe de frontaliers qui trouvaient difficile de naviguer dans le paysage fiscal, administratif et pratique complexe du travail dans un pays avec résidence dans un autre. Chaque outil répond à de vraies questions avec des données vérifiables.',
+      'Le contenu est mis à jour en continu pour refléter les changements législatifs, les nouveaux taux d\'imposition et l\'évolution des accords bilatéraux. La plateforme fonctionne indépendamment de toute institution financière, assureur ou employeur.',
+    ],
+  },
 };
 
 /**
