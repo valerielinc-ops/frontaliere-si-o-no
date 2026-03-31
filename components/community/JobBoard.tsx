@@ -3103,7 +3103,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   };
 
   useEffect(() => {
-    const canonicalHref = `${window.location.origin}${buildJobPath(selectedJob)}`;
+    // For company/search pages, use initialJobSlug to build the canonical so it
+    // self-references the current page instead of falling back to the listing page.
+    const canonicalSlugSource = selectedJob
+      ? selectedJob
+      : (companySlugFilter || searchSlugFilter) && initialJobSlug
+        ? initialJobSlug
+        : selectedJob;
+    const canonicalHref = `${window.location.origin}${buildJobPath(canonicalSlugSource)}`;
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
       canonical = document.createElement('link');
@@ -3125,6 +3132,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
       return;
     }
 
+    // Company page: canonical already set to self-referencing URL via canonicalSlugSource above
+    if (companySlugFilter && initialJobSlug) {
+      const ogUrl = document.querySelector('meta[property="og:url"]');
+      if (ogUrl) ogUrl.setAttribute('content', canonicalHref);
+      return;
+    }
+
     const editorialLandingModel = editorialOfficialGazetteLanding || editorialJobTodayLanding || editorialLocationLanding || editorialLocationTypeLanding || editorialLocationSectorLanding || editorialNursesHubLanding || editorialPartTimeLanding || editorialCareVariantLanding;
     if (editorialLandingModel) {
       const canonicalPath = buildPath({ activeTab: 'job-board', jobSlug: editorialLandingModel.slug }, locale);
@@ -3138,7 +3152,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) ogUrl.setAttribute('content', editorialCanonicalHref);
     }
-  }, [locale, selectedJob, jobs, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
+  }, [locale, selectedJob, jobs, companySlugFilter, searchSlugFilter, initialJobSlug, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
 
   // Track job page views in Firestore (for newsletter popularity ranking)
   useEffect(() => {
