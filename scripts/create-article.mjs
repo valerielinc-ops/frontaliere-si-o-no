@@ -1964,8 +1964,23 @@ function validate(data) {
   }
 
   for (const locale of ['it']) {
-    if (!data.slugs[locale]) throw new Error(`Slug mancante per ${locale}`);
     if (!data.content[locale]) throw new Error(`Contenuto mancante per ${locale}`);
+    // Auto-generate missing slug from title before failing
+    if (!data.slugs[locale]) {
+      const title = String(data.content[locale]?.title || '');
+      if (title) {
+        const generated = title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+          .replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80);
+        if (generated) {
+          data.slugs[locale] = generated;
+          console.warn(`  ⚠️  Slug ${locale} mancante, generato dal titolo: "${generated}"`);
+        } else {
+          throw new Error(`Slug mancante per ${locale} e titolo non utilizzabile per fallback`);
+        }
+      } else {
+        throw new Error(`Slug mancante per ${locale}`);
+      }
+    }
     for (const field of ['title', 'excerpt', 'body1', 'body2', 'body3']) {
       if (!data.content[locale][field]) throw new Error(`Campo ${field} mancante per ${locale}`);
     }
@@ -1989,8 +2004,22 @@ function validate(data) {
   }
 
   // Slug validation for translated locales (slugs come from IT generation call)
+  // If the AI model omitted translated slugs, derive them from the IT slug.
   for (const locale of ['en', 'de', 'fr']) {
-    if (!data.slugs[locale]) throw new Error(`Slug mancante per ${locale}`);
+    if (!data.slugs[locale]) {
+      // Fallback: use the translated title if available, otherwise the IT slug
+      const title = String(data.content[locale]?.title || data.content.it?.title || '');
+      const fallback = title
+        ? title.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+            .replace(/[^a-z0-9]+/g, '-').replace(/-+/g, '-').replace(/^-|-$/g, '').slice(0, 80)
+        : data.slugs.it;
+      if (fallback) {
+        data.slugs[locale] = fallback;
+        console.warn(`  ⚠️  Slug ${locale} mancante, generato come fallback: "${fallback}"`);
+      } else {
+        throw new Error(`Slug mancante per ${locale}`);
+      }
+    }
   }
   if (!CATEGORIES.includes(data.category)) {
     const mapped = CATEGORY_MAP[data.category.toLowerCase()];
@@ -2102,7 +2131,7 @@ function sanitizeBoldFormatting(data) {
   for (const locale of ['it', 'en', 'de', 'fr']) {
     if (!data.content[locale]) continue; // translations may not exist yet
     for (const field of ['body1', 'body2', 'body3']) {
-      let text = data.content[locale][field] || '';
+      let text = String(data.content[locale][field] || '');
       const boldMatches = [...text.matchAll(/\*\*([^*]+)\*\*/g)];
       if (boldMatches.length === 0) continue;
 
@@ -2219,9 +2248,9 @@ function enforceStrongInternalLinks(data) {
   for (const locale of ['it', 'en', 'de', 'fr']) {
     if (!data.content[locale]) continue;
 
-    const body1 = data.content[locale].body1 || '';
-    const body2 = data.content[locale].body2 || '';
-    const body3 = data.content[locale].body3 || '';
+    const body1 = String(data.content[locale].body1 || '');
+    const body2 = String(data.content[locale].body2 || '');
+    const body3 = String(data.content[locale].body3 || '');
     const context = `${data.id} ${data.content[locale].title || ''} ${data.content[locale].excerpt || ''} ${body1} ${body2} ${body3}`;
 
     const cluster =
@@ -2548,13 +2577,14 @@ function checkForDuplicates(data) {
   // These are strong duplicate signals (e.g. both articles cite "411.000" and "-1,0%")
   function extractKeyEntities(text) {
     const entities = new Set();
+    const s = String(text || '');
     // Normalize: keep digits, dots, commas, %, +/-
     // Numbers like 411.000, 78'809, 411000
-    for (const m of text.matchAll(/\d[\d.'',]*\d/g)) {
+    for (const m of s.matchAll(/\d[\d.'',]*\d/g)) {
       entities.add(m[0].replace(/[.''',]/g, '')); // normalize to plain digits
     }
     // Standalone single digits with context (e.g. "Q4", "1%")
-    for (const m of text.matchAll(/\b(\d+)[.,]?(\d*)\s*%/g)) {
+    for (const m of s.matchAll(/\b(\d+)[.,]?(\d*)\s*%/g)) {
       entities.add(`${m[1]}${m[2]}%`);
     }
     return [...entities];
@@ -4000,7 +4030,16 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     }
 
     // Step 3: Validate (works on IT-only data)
-    data = validate(rawData);
+    try {
+      data = validate(rawData);
+    } catch (validationErr) {
+      console.error(`  ⚠️  Validazione fallita: ${validationErr.message}`);
+      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+        console.error(`  🔄 Rigenero contenuto per errore di validazione (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+        continue;
+      }
+      throw validationErr;
+    }
     optimizeSeoMetadata(data);
 
     // Step 3a.0: Sanitize bold on IT content
