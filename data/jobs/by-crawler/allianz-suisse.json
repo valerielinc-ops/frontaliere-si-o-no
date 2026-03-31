@@ -276,11 +276,13 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-per-l-agenzia-generale-chur-100",
-        "en": "consulente-previdenziale-per-l-agenzia-generale-chur-100",
-        "de": "consulente-previdenziale-per-l-agenzia-generale-chur-100",
-        "fr": "consulente-previdenziale-per-l-agenzia-generale-chur-100"
+        "en": "pension-advisor-for-general-agency-chur-100-allianz-suisse-chur",
+        "de": "rentenberater-fur-general-agency-chur-100-allianz-suisse-chur",
+        "fr": "conseiller-en-retraite-pour-la-chir-de-l-agence-generale-100-allianz-suisse-chur"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "consulente-previdenziale-per-l-agenzia-generale-chur-100"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",

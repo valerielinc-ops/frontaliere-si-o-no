@@ -1680,8 +1680,8 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca",
-        "en": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
-        "de": "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca",
+        "en": "pension-advisor-for-retirement-3a-side-entry-permanent-convit-holding-gmbh-biasca",
+        "de": "rentenberater-fur-den-ruhestand-3a-side-entry-festanstellung-convit-holding-gmbh-biasca",
         "fr": "conseiller-en-prevoyance-vieillesse-3a-entree-laterale-duree-indeterminee-convit-holding-gmbh-biasca-hohte2"
       },
       "salaryMin": 54000,
@@ -1701,7 +1701,9 @@
       "postalCode": "6900",
       "previousSlugs": [
         "vorsorgeberater-fur-alter-3-nebeneintritt-unbefristet-convit-holding-gmbh-biasca-hohte2",
-        "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca-hohte2"
+        "social-security-consultant-for-old-age-3a-lateral-entry-indefinite-time-convit-holding-gmbh-biasca-hohte2",
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-biasca",
+        "consulente-previdenziale-per-la-vecchiaia-3a-entrata-laterale-tempo-indeterminato-convit-biasca"
       ]
     },
     {
@@ -1803,9 +1805,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
-        "en": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
-        "de": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
-        "fr": "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1"
+        "en": "pension-advisor-m-f-d-entry-without-training-ote-up-to-7-500-chf-convit-holding-gmbh-biasca",
+        "de": "rentenberater-m-w-d-einstieg-ohne-ausbildung-ote-bis-zu-7-500-chf-convit-holding-gmbh-biasca",
+        "fr": "entree-d-un-conseiller-en-retraite-m-f-d-sans-formation-ote-jusqu-a-7-500-chf-convit-holding-gmbh-biasca"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1824,7 +1826,10 @@
       "postalCode": "6900",
       "previousSlugs": [
         "vorsorgeberater-m-w-d-eintritt-ohne-ausbildung-ote-bis-7-500-chf-convit-holding-gmbh-biasca-hohte1",
-        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca-hohte1"
+        "social-security-advisor-m-f-d-untrained-entry-ote-up-to-chf-7-500-convit-holding-gmbh-biasca-hohte1",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-holding-gmbh-biasca",
+        "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7-500-chf-convit-biasca",
+        "conseiller-en-prevoyance-m-f-j-entree-sans-formation-ote-jusqu-a-chf-7-500-convit-holding-gmbh-biasca-hohte1"
       ]
     },
     {
