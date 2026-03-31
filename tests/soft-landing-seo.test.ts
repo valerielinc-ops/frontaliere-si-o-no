@@ -7,6 +7,14 @@ const pluginSource = fs.readFileSync(
   path.resolve(root, 'build-plugins/jobsSeoPagesPlugin.ts'),
   'utf-8'
 );
+const seoServiceSource = fs.readFileSync(
+  path.resolve(root, 'services/seoService.ts'),
+  'utf-8'
+);
+const jobBoardSource = fs.readFileSync(
+  path.resolve(root, 'components/community/JobBoard.tsx'),
+  'utf-8'
+);
 
 describe('Soft-landing SEO pages for expired jobs', () => {
   it('uses noindex only for expired pages WITHOUT rich content (thin-content orphans)', () => {
@@ -45,5 +53,35 @@ describe('Soft-landing SEO pages for expired jobs', () => {
 
   it('includes expired jobs in sitemap at low priority', () => {
     expect(pluginSource).toContain('sitemap-jobs-expired.xml');
+  });
+});
+
+describe('SPA does not override static HTML metadata for expired job pages', () => {
+  it('seoService.ts skips metadata update when __EXPIRED_JOB_DATA__ is present', () => {
+    // The updateMetaTags function must detect expired job pages via the build-plugin-seeded
+    // window.__EXPIRED_JOB_DATA__ and bail out before overwriting static HTML metadata
+    expect(seoServiceSource).toContain('__EXPIRED_JOB_DATA__');
+    // The guard must check isJobDetailPage && !jobSeo (job not in active dataset)
+    expect(seoServiceSource).toContain('isJobDetailPage && !jobSeo');
+  });
+
+  it('JobBoard.tsx preserves metadata when expiredJob is detected', () => {
+    // The canonical/title useEffect and schema useEffect must skip updates for expired jobs.
+    // The guard checks initialJobSlug && !selectedJob && (expiredJob || hasSeededExpiredData())
+    expect(jobBoardSource).toContain('initialJobSlug && !selectedJob && (expiredJob || hasSeededExpiredData())');
+  });
+
+  it('JobBoard.tsx skips dynamic JobPosting schema injection for expired jobs', () => {
+    // The structured data useEffect (identified by jobposting-structured-data ID) must
+    // include the expired job guard before generating listing-page schemas.
+    // The guard is placed near the top of the useEffect that builds JobPosting schemas,
+    // which is in the section containing CONTRACT_MAP and jobposting-structured-data.
+    const schemaEffectStart = jobBoardSource.indexOf("const CONTRACT_MAP: Record<string, string>");
+    const schemaEffectEnd = jobBoardSource.indexOf('jobposting-structured-data');
+    const schemaSection = jobBoardSource.slice(
+      Math.max(0, schemaEffectStart - 500),
+      schemaEffectEnd
+    );
+    expect(schemaSection).toContain('hasSeededExpiredData');
   });
 });

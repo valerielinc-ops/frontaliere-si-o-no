@@ -2924,6 +2924,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   useEffect(() => {
     if (jobs.length === 0) return;
+    // FRO: Skip dynamic schema injection for expired job pages — the build plugin
+    // already injected a static JobPosting JSON-LD with correct validThrough date.
+    // Overwriting it with listing-page schemas would destroy the expired job schema.
+    if (initialJobSlug && !selectedJob && (expiredJob || hasSeededExpiredData())) {
+      return;
+    }
 
     const CONTRACT_MAP: Record<string, string> = {
       'full-time': 'FULL_TIME',
@@ -3070,7 +3076,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const el = document.getElementById('jobposting-structured-data');
       if (el) el.remove();
     };
-  }, [jobs, pagedJobs, locale, selectedJob]);
+  }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob]);
 
   const formatSalary = (job: JobListing) => {
     if (!job.salaryMin) return null;
@@ -3103,6 +3109,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
   };
 
   useEffect(() => {
+    // FRO: Expired job soft-landing pages — preserve static HTML metadata.
+    // When we're on an expired job URL (initialJobSlug set, no selectedJob in
+    // active dataset, and expiredJob resolved), the build plugin already injected
+    // correct title, canonical, meta description, and structured data into the
+    // static HTML. Skip all dynamic metadata updates to prevent overwriting.
+    if (initialJobSlug && !selectedJob && (expiredJob || hasSeededExpiredData())) {
+      return;
+    }
+
     // For company/search pages, use initialJobSlug to build the canonical so it
     // self-references the current page instead of falling back to the listing page.
     const canonicalSlugSource = selectedJob
@@ -3152,7 +3167,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) ogUrl.setAttribute('content', editorialCanonicalHref);
     }
-  }, [locale, selectedJob, jobs, companySlugFilter, searchSlugFilter, initialJobSlug, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
+  }, [locale, selectedJob, expiredJob, initialJobSlug, jobs, companySlugFilter, searchSlugFilter, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
 
   // Track job page views in Firestore (for newsletter popularity ranking)
   useEffect(() => {

@@ -1825,6 +1825,21 @@ export async function updateMetaTags(section: string): Promise<void> {
     : null;
   if (window.location.pathname !== pathnameSnapshot) return;
 
+  // FRO: Expired job soft-landing pages — preserve static HTML metadata.
+  // When the SPA loads on an expired job URL, the build plugin already injected
+  // correct title, meta description, canonical, and JobPosting JSON-LD into the
+  // static HTML. If the job is NOT in the active dataset (jobSeo === null) and
+  // the build plugin seeded expired job data, skip all dynamic metadata updates
+  // to prevent overwriting with generic listing-page defaults.
+  if (isJobDetailPage && !jobSeo) {
+    try {
+      const expiredData = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+      if (expiredData && typeof expiredData === 'object' && 'slug' in (expiredData as Record<string, unknown>)) {
+        return; // Preserve static HTML metadata for expired job pages
+      }
+    } catch { /* SSR or missing — continue with dynamic metadata */ }
+  }
+
   const localizedTitle = isBlogArticle ? t(`blog.article.${blogArticleId}.title`) : '';
   const localizedExcerpt = isBlogArticle ? t(`blog.article.${blogArticleId}.excerpt`) : '';
   const localizedImageAlt = isBlogArticle ? t(`blog.article.${blogArticleId}.imageAlt`) : '';
