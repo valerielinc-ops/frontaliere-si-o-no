@@ -207,7 +207,7 @@ const App: React.FC = () => {
 
   const upsertNewsletterSubscriber = useCallback(async (
     email: string,
-    source: 'signup' | 'chatbot_google' | 'chatbot_facebook' | 'chatbot_email',
+    source: 'signup' | 'signup_linkedin' | 'chatbot_google' | 'chatbot_facebook' | 'chatbot_email',
     displayName?: string | null,
   ): Promise<boolean> => {
     const deactivateLegacyDuplicates = async (
@@ -261,11 +261,13 @@ const App: React.FC = () => {
         sourceChannel:
           source === 'signup'
             ? 'auth_google'
-            : source === 'chatbot_google'
-              ? 'auth_google'
-              : source === 'chatbot_facebook'
-                ? 'auth_facebook'
-                : 'chatbot',
+            : source === 'signup_linkedin'
+              ? 'auth_linkedin'
+              : source === 'chatbot_google'
+                ? 'auth_google'
+                : source === 'chatbot_facebook'
+                  ? 'auth_facebook'
+                  : 'chatbot',
         sourcePage: window.location.pathname,
         sourceCta: source,
         sourceComponent: source.startsWith('chatbot') ? 'chatbot_auth' : 'app_auth',
@@ -496,8 +498,20 @@ const App: React.FC = () => {
 
         const user = await signInWithCustomAuthToken(customToken);
         Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
-        // Best-effort: save/update user profile in Firestore for personalization
-        if (user) saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
+
+        if (user) {
+          // Best-effort: save/update user profile in Firestore for personalization
+          saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
+
+          // Subscribe to newsletter BEFORE navigating away — the auto-subscribe
+          // effect won't fire because location.replace destroys React before re-render.
+          const email = getAuthEmail(user);
+          if (email) {
+            try {
+              await upsertNewsletterSubscriber(email, 'signup_linkedin', user.displayName || null);
+            } catch { /* best-effort: auto-subscribe on next page load will retry */ }
+          }
+        }
 
         if (cancelled) return;
 
