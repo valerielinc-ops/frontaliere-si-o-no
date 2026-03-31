@@ -5236,6 +5236,154 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  guidaCompleta: {
+    title: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026 | Frontaliere Ticino',
+    description: 'Guida definitiva al lavoro frontaliere Svizzera-Italia 2026: permesso G, tassazione nuovo accordo, AVS/LPP, LAMal, pendolarismo e dichiarazione redditi.',
+    keywords: 'lavoro frontaliere svizzera 2026, guida completa frontaliere, permesso G svizzera, nuovo accordo frontalieri, imposta alla fonte ticino, frontaliere italia svizzera, lavorare in svizzera dall italia, tassazione frontalieri 2026, assicurazione LAMal frontalieri, pendolare svizzera italia',
+    ogTitle: 'Guida Completa al Lavoro Frontaliere in Svizzera 2026',
+    ogDescription: 'La guida definitiva per frontalieri Svizzera-Italia: permessi, tasse, previdenza, sanità, trasporti e dichiarazione dei redditi. Aggiornata 2026.',
+    canonicalPath: '/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026',
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "Guida Completa al Lavoro Frontaliere in Svizzera 2026",
+        "description": "La guida definitiva per lavoratori frontalieri Italia-Svizzera: permesso G, regime fiscale nuovo accordo, contributi sociali AVS/LPP, assicurazione LAMal, pendolarismo e dichiarazione dei redditi. Aggiornata al 2026.",
+        "url": `${BASE_URL}/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026`,
+        "datePublished": "2026-03-31T08:00:00+02:00",
+        "dateModified": BUILD_DATE_ISO,
+        "inLanguage": "it",
+        "author": { "@id": "https://frontaliereticino.ch/#organization" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+        "mainEntityOfPage": `${BASE_URL}/guida-frontaliere/guida-completa-lavoro-frontaliere-svizzera-2026`,
+        "image": {
+          "@type": "ImageObject",
+          "url": `${BASE_URL}/og-guida-frontaliere.png`,
+          "width": 1200,
+          "height": 630
+        },
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+        "isAccessibleForFree": true,
+        "wordCount": 3500,
+        "about": [
+          { "@type": "Thing", "name": "Lavoro frontaliere", "sameAs": "https://it.wikipedia.org/wiki/Lavoratore_frontaliero" },
+          { "@type": "Thing", "name": "Canton Ticino", "sameAs": "https://it.wikipedia.org/wiki/Canton_Ticino" },
+          { "@type": "Thing", "name": "Imposta alla fonte", "sameAs": "https://it.wikipedia.org/wiki/Imposta_alla_fonte" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quali sono i requisiti per lavorare come frontaliere in Svizzera nel 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Per lavorare come frontaliere in Svizzera serve: cittadinanza UE/AELS, residenza in un comune italiano (preferibilmente entro 20 km dal confine per il regime transitorio), un contratto di lavoro con datore svizzero, e il permesso G rilasciato dal Cantone. Il permesso G ha validità 5 anni per contratti a tempo indeterminato e viene rilasciato in 5-10 giorni lavorativi dalla richiesta."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come funziona la tassazione dei frontalieri con il nuovo accordo 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I nuovi frontalieri (assunti dal 17 luglio 2023) pagano l'imposta alla fonte in Svizzera all'80% dell'aliquota ordinaria e l'IRPEF in Italia sul reddito svizzero, con una franchigia di 10.000 EUR e un credito d'imposta per le tasse pagate in Svizzera. I vecchi frontalieri (ante luglio 2023, entro 20 km) pagano solo l'imposta alla fonte svizzera al 100% fino al 2033."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanto costa l'assicurazione sanitaria LAMal per i frontalieri?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I premi LAMal per frontalieri in Canton Ticino variano da 270 a 560 CHF/mese nel 2026, in base all'assicuratore e al modello scelto. Le opzioni piu economiche sono Assura e Agrisano con modello Telmed (circa 270-300 CHF/mese). I frontalieri hanno 3 mesi dall'inizio del lavoro per scegliere tra LAMal svizzera e SSN italiano (diritto d'opzione irrevocabile)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I nuovi frontalieri (dal 17 luglio 2023) devono obbligatoriamente presentare la dichiarazione italiana (Modello 730 o Redditi PF) per dichiarare il reddito svizzero e richiedere il credito d'imposta. I vecchi frontalieri (ante 2023, entro 20 km) sono generalmente esenti per il reddito da lavoro svizzero. La scadenza per il 730 e il 30 settembre, per il Modello Redditi PF il 30 novembre."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Quanti frontalieri lavorano in Canton Ticino e quanto guadagnano?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Circa 79.000 frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (BFS 2025), rappresentando circa il 30% della forza lavoro cantonale. Il salario mediano lordo in Ticino e di circa CHF 5.200/mese (CHF 62.400/anno). I settori principali sono manifattura, costruzioni, finanza, sanita, ospitalita e IT. Il numero cresce del 2-3% annuo."
+            }
+          }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Come diventare frontaliere: guida passo-passo",
+        "description": "Tutti i passaggi necessari per iniziare a lavorare come frontaliere in Svizzera dall'Italia, dal contratto al primo stipendio.",
+        "totalTime": "P60D",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Trovare un lavoro in Svizzera",
+            "text": "Cerca offerte di lavoro in Canton Ticino su portali specializzati (jobs.ch, jobscout24.ch, LinkedIn). Il Ticino offre circa 79.000 posizioni frontaliere nei settori manifattura, finanza, IT, sanita e costruzioni.",
+            "url": `${BASE_URL}/cerca-lavoro-ticino`
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Firmare il contratto di lavoro",
+            "text": "Firma il contratto con il datore di lavoro svizzero. Verifica che includa: salario lordo annuo, percentuale di impiego, data di inizio, contributi LPP e assicurazioni. Il datore avvia la richiesta del permesso G."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Ottenere il permesso G",
+            "text": "Il datore di lavoro richiede il permesso G presso l'ufficio della migrazione cantonale. Per cittadini UE il rilascio avviene in 5-10 giorni lavorativi. Si puo iniziare a lavorare con la ricevuta della richiesta.",
+            "url": `${BASE_URL}/guida-frontaliere/permessi-di-lavoro`
+          },
+          {
+            "@type": "HowToStep",
+            "position": 4,
+            "name": "Scegliere l'assicurazione sanitaria",
+            "text": "Entro 3 mesi dall'inizio del lavoro, scegli tra LAMal svizzera (270-560 CHF/mese) e SSN italiano (gratuito). La scelta e irrevocabile. Confronta i premi su frontaliereticino.ch.",
+            "url": `${BASE_URL}/compara-servizi/confronta-casse-malati`
+          },
+          {
+            "@type": "HowToStep",
+            "position": 5,
+            "name": "Aprire un conto bancario svizzero",
+            "text": "Apri un conto in Svizzera (PostFinance, Raiffeisen, UBS) per ricevere lo stipendio in CHF. Servono permesso G, contratto di lavoro e documento d'identita.",
+            "url": `${BASE_URL}/compara-servizi/confronta-banche`
+          },
+          {
+            "@type": "HowToStep",
+            "position": 6,
+            "name": "Organizzare il pendolarismo",
+            "text": "Pianifica il tragitto casa-lavoro: auto (costo medio 300-500 EUR/mese), treno TILO, o combinazione. Verifica i tempi ai valichi di confine nelle ore di punta (6:30-8:30 e 17:00-18:30).",
+            "url": `${BASE_URL}/guida-frontaliere/costo-auto-pendolare`
+          },
+          {
+            "@type": "HowToStep",
+            "position": 7,
+            "name": "Comprendere il regime fiscale",
+            "text": "Informati sul regime fiscale applicabile: vecchio o nuovo accordo, imposta alla fonte svizzera, eventuale IRPEF italiana, franchigia 10.000 EUR e credito d'imposta. Usa il simulatore gratuito per calcolare il tuo netto.",
+            "url": `${BASE_URL}/calcola-stipendio`
+          },
+          {
+            "@type": "HowToStep",
+            "position": 8,
+            "name": "Presentare la dichiarazione dei redditi",
+            "text": "I nuovi frontalieri presentano il Modello 730 o Redditi PF in Italia (scadenza 30/09 o 30/11). In Svizzera si puo richiedere la rettifica (TDR) entro il 31 marzo dell'anno successivo per deduzioni aggiuntive.",
+            "url": `${BASE_URL}/tasse-e-pensione/dichiarazione-redditi`
+          }
+        ]
+      }
+    ]
+  },
+
   'chi-siamo': {
     title: 'Chi Siamo | Frontaliere Ticino',
     description: 'Scopri chi siamo: Frontaliere Ticino è la piattaforma informativa di riferimento per i lavoratori frontalieri italiani in Svizzera. Tassazione, permessi.',

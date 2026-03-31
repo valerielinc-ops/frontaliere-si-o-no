@@ -557,6 +557,8 @@ interface SlugTable {
   chiSiamo: string;
   // Trade unions guide
   sindacati: string;
+  // Definitive guide page (SEO pillar content)
+  guidaCompleta: string;
   // legacy slugs (for backward compat parsing)
   costs: string;
   salarySurvey: string;
@@ -647,6 +649,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     sitemap: 'mappa-del-sito',
     contracts: 'contratti-lavoro-svizzera',
     sindacati: 'sindacati-frontalieri',
+    guidaCompleta: 'guida-completa-lavoro-frontaliere-svizzera-2026',
     tfrCalculator: 'tfr-liquidazione-frontaliere',
     permitQuiz: 'quiz-permesso-b-o-g',
     tredicesima: 'calcolo-tredicesima-frontaliere',
@@ -750,6 +753,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     admin: 'gestione-contenuti-xk9mp2q',
     chiSiamo: 'about-us',
     sindacati: 'trade-unions-cross-border-workers',
+    guidaCompleta: 'complete-guide-cross-border-work-switzerland-2026',
     costs: 'commuting-costs',
     salarySurvey: 'salary-survey',
     comparatori: 'comparators',
@@ -845,6 +849,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     admin: 'gestione-contenuti-xk9mp2q',
     chiSiamo: 'ueber-uns',
     sindacati: 'gewerkschaften-grenzgaenger',
+    guidaCompleta: 'komplettanleitung-grenzgaenger-arbeit-schweiz-2026',
     costs: 'pendelkosten',
     salarySurvey: 'gehaltsumfrage',
     comparatori: 'vergleiche',
@@ -940,6 +945,7 @@ const SLUG_TABLES: Record<Locale, SlugTable> = {
     admin: 'gestione-contenuti-xk9mp2q',
     chiSiamo: 'a-propos',
     sindacati: 'syndicats-frontaliers',
+    guidaCompleta: 'guide-complet-travail-frontalier-suisse-2026',
     costs: 'couts-pendulaire',
     salarySurvey: 'sondage-salaires',
     comparatori: 'comparateurs',
