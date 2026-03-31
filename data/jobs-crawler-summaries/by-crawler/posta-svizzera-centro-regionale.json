@@ -1,16 +1,16 @@
 {
   "key": "posta-svizzera-centro-regionale",
   "label": "Post.ch",
-  "generatedAt": "2026-03-31T09:43:41.522Z",
-  "total": 4,
+  "generatedAt": "2026-03-31T21:36:47.858Z",
+  "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 27493,
-  "avgDurationMs": 27493,
+  "unchangedCount": 3,
+  "durationMs": 15647,
+  "avgDurationMs": 15647,
   "durationHistory": [
-    27493
+    15647
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -59,48 +59,6 @@
       }
     },
     {
-      "url": "https://job.post.ch/v2/job-vacancies/apprendistato-come-impiegata-impiegato-in-logistica-afc-distribuzione-recapito-pacchi/07a2d131-bd81-4d36-b1fd-e9cdd146665e",
-      "applyUrl": "https://job.post.ch/v2/job-vacancies/apprendistato-come-impiegata-impiegato-in-logistica-afc-distribuzione-recapito-pacchi/07a2d131-bd81-4d36-b1fd-e9cdd146665e",
-      "title": "Apprendistato come impiegata/impiegato in logistica AFC Distribuzione Recapito pacchi",
-      "company": "Post CH AG",
-      "companyKey": "posta-svizzera-centro-regionale",
-      "location": "Cadenazzo",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-afc-distribuzione-recapito-pacchi-post",
-      "department": "Logistica",
-      "category": "Logistica",
-      "datePosted": "2025-10-07",
-      "validThrough": "2026-07-31",
-      "source": "postch-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Logistica",
-      "workload": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Cadenazzo"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Via la Santa 1",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
       "url": "https://job.post.ch/v2/job-vacancies/lehre-als-detailhandelsfachmann-frau-efz/caaa8343-8b2b-47a4-bce7-0976d2ca9982",
       "applyUrl": "https://job.post.ch/v2/job-vacancies/lehre-als-detailhandelsfachmann-frau-efz/caaa8343-8b2b-47a4-bce7-0976d2ca9982",
       "title": "Lehre als Detailhandelsfachmann:frau EFZ",
@@ -109,7 +67,7 @@
       "location": "Ilanz",
       "canton": "TI",
       "country": "CH",
-      "slug": "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-ilanz",
+      "slug": "apprendistato-come-detailhandelsfachmann-frau-cfc-post-ch-ag-bellinzona",
       "department": "Einzel-/Detailhandel",
       "category": "Einzel-/Detailhandel",
       "datePosted": "2025-07-29",
@@ -124,7 +82,6 @@
         "location": "Ilanz"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -134,11 +91,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 82,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 20
       }
     },
