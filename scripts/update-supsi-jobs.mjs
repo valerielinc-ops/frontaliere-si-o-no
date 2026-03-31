@@ -922,7 +922,7 @@ async function main() {
 
   // Write per-crawler slice and reassemble global dataset
   const _durationMs = getCrawlerElapsedMs();
-  const _sliceRaw = readExistingCrawlerJobs(SUPSI_KEY, DATA_JOBS);
+  const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isSupsiJob) : [];
   writeJobsCrawlerSlice(SUPSI_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
