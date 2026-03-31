@@ -1,16 +1,16 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-03-30T21:24:45.501Z",
-  "total": 15,
+  "generatedAt": "2026-03-31T09:13:14.693Z",
+  "total": 14,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 15,
-  "durationMs": 1847,
-  "avgDurationMs": 1847,
+  "unchangedCount": 14,
+  "durationMs": 1530,
+  "avgDurationMs": 1530,
   "durationHistory": [
-    1847
+    1530
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,6 +43,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,6 +79,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -88,7 +90,7 @@
     },
     {
       "title": "Netzwerk Spezialist/-in Professional",
-      "slug": "netzwerk-spezialist-in-professional-confederazione-locarno",
+      "slug": "network-specialist-in-professional-confederazione-svizzera-locarno",
       "url": "https://jobs.admin.ch/posti-vacanti/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18159",
       "company": "Confederazione Svizzera",
@@ -113,45 +115,11 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Spezialist/in Verwaltung und Finanzen/Controlling",
-      "slug": "esperto-a-in-amministrazione-e-finanza-controlling-confederazione-svizzera-bern",
-      "url": "https://jobs.admin.ch/posti-vacanti/spezialist-in-verwaltung-und-finanzen-controlling/1b383652-1a43-46fc-8e86-9a006833002f",
-      "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18186",
-      "company": "Confederazione Svizzera",
-      "companyKey": "confederazione-ticino",
-      "companyDomain": "admin.ch",
-      "location": "Bern",
-      "addressLocality": "Bern",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "public-administration",
-      "sector": "Pubblica amministrazione",
-      "source": "confederazione-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-03-20",
-      "validThrough": "2028-03-18",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Piazza Governo",
-      "postalCode": "6501",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 25,
         "completeness": 25
       }
@@ -183,6 +151,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -218,6 +187,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -253,6 +223,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -333,7 +304,7 @@
     },
     {
       "title": "Hochschulpraktikant/in",
-      "slug": "hochschulpraktikant-in-confederazione-svizzera-bern",
+      "slug": "tirocinante-universitario-confederazione-svizzera-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/d9606c79-e062-423d-9473-3490ad81d760",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17548",
       "company": "Confederazione Svizzera",
@@ -358,6 +329,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -393,6 +365,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -428,6 +401,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -533,6 +507,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
