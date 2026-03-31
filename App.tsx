@@ -2672,7 +2672,7 @@ const App: React.FC = () => {
 
         {/* Main Content */}
         <main className={`flex-grow mx-auto py-6 transition-all duration-500 relative z-10 ${
-          activeTab === 'admin' ? 'w-full px-3 sm:px-6' : 'max-w-[2400px] w-[95%] px-2 sm:px-4'
+          activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-2 sm:px-4'
         }`}>
          <Suspense fallback={<LazyFallback />}>
           {notFoundPath ? (

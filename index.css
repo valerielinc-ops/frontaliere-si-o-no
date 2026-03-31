@@ -5,6 +5,10 @@
 /* Prevent scrollbar appearance from causing layout shift (CLS) */
 html { scrollbar-gutter: stable; }
 
+/* Prevent Google AdSense side-rail auto-ads from overriding page layout.
+   AdSense injects display:grid + max-width:1120px on <main> for side-rail ads. */
+main { display: block !important; }
+
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
