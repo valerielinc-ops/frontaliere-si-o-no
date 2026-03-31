@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-03-31T09:29:42.025Z",
+  "generatedAt": "2026-03-31T21:23:07.537Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 12125,
-  "avgDurationMs": 12125,
+  "durationMs": 12680,
+  "avgDurationMs": 12680,
   "durationHistory": [
-    12125
+    12680
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -44,11 +44,11 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -80,11 +80,11 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -116,11 +116,11 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     }
