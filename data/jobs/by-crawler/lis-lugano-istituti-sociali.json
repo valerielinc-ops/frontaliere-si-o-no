@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lis-lugano-istituti-sociali",
-  "assembledAt": "2026-03-31T09:35:30.732Z",
+  "assembledAt": "2026-03-31T21:28:58.842Z",
   "jobs": [
     {
       "title": "Capireparto",
@@ -22,14 +22,14 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Capireparto",
-        "en": "Department Head",
-        "de": "Abteilungsleiter",
+        "en": "Capireparto",
+        "de": "Capireparto",
         "fr": "Capireparto"
       },
       "slugByLocale": {
         "it": "capireparto-lis-lugano-istituti-sociali-lugano",
-        "en": "department-head-lis-lugano-istituti-sociali-pregassona",
-        "de": "abteilungsleiter-lis-lugano-istituti-sociali-pregassona",
+        "en": "capireparto-lis-lugano-istituti-sociali-lugano",
+        "de": "capireparto-lis-lugano-istituti-sociali-lugano",
         "fr": "capireparto-lis-lugano-istituti-sociali-lugano"
       },
       "descriptionByLocale": {
@@ -48,8 +48,7 @@
         "capireparto",
         "capireparto-lis-lugano-istituti-sociali-pregassona",
         "chapitre-lis-lugano-istituti-sociali-pregassona",
-        "chef-de-service-lis-lugano-istituti-sociali-pregassona",
-        "capireparto-lis-lugano-istituti-sociali-lugano"
+        "chef-de-service-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -73,7 +72,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Infermieri",
@@ -95,15 +95,15 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Infermieri",
-        "en": "Nurses",
-        "de": "Krankenschwestern",
-        "fr": "Infirmières"
+        "en": "Infermieri",
+        "de": "Infermieri",
+        "fr": "Infermieri"
       },
       "slugByLocale": {
         "it": "infermieri-lis-lugano-istituti-sociali-lugano",
-        "en": "nurses-lis-lugano-istituti-sociali-pregassona",
-        "de": "krankenschwestern-lis-lugano-istituti-sociali-pregassona",
-        "fr": "infirmieres-lis-lugano-istituti-sociali-pregassona"
+        "en": "infermieri-lis-lugano-istituti-sociali-lugano",
+        "de": "infermieri-lis-lugano-istituti-sociali-lugano",
+        "fr": "infermieri-lis-lugano-istituti-sociali-lugano"
       },
       "descriptionByLocale": {
         "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di infermieri alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso. Il Consiglio di Amministrazione può prevedere l'attribuzione di nomine (art. 5 e ss. ROCIS) e incarichi per funzione stabile (art. 11 e ss. ROCIS) interni. Le posizioni sono aperte sia a candidature femminili che maschili. Il presente concorso resta aperto anche in assenza di un effettivo fabbisogno di personale. Requisiti di ordine generale, quelli previsti dal ROCIS e in particolare: - cittadinanza svizzera o stranieri con permesso di lavoro; - condotta ineccepibile; - costituzione fisica e psichica sana; - idoneità alla funzione. Requisiti di ordine particolare: - diploma di infermiere in cure generali SSSCI o SUP o titolo equivalente; - sensibilità nell'approccio relazionale con la persona anziana; - facilità di comunicazione interpersonale e spiccate doti relazionali; - conoscenza dello strumento gestionale RAI. Mansioni generali di riferimento per il settore sociosanitario: Gestire, partecipare e/o provvedere personalmente alle cure degli ospiti delle Case per anziani e del Centro Diurno Terapeutico dell'Ente autonomo Lugano Istituti Sociali sulla base dei programmi di lavoro, delle necessità contingenti e delle priorità definite dai superiori, secondo la formazione conseguita e la funzione attribuita. Stipendio annuo - Fascia XII (infermieri), classi 13-14-15 classe 13: min CHF 77'526.15 / max CHF 91'481.05 classe 14: min CHF 82'372.30 / max CHF 97'199.35 classe 15: min CHF 86'927.80 / max CHF 102'574.80 Nell'ambito delle anzidette possibilità di retribuzione può essere riconosciuta l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio. Le offerte devono essere corredate dai seguenti documenti: - lettera di presentazione - curriculum vitae - fotografia recente - certificati di studio e di lavoro - questionario sullo stato di salute - autocertificazione casellario giudiziale Oltre ai documenti da allegare inizialmente, in un secondo momento potrà essere richiesto di presentare l'estratto del casellario giudiziale per privati. Condizioni di presentazione delle candidature Le candidature devono essere inoltrate in forma elettronica tramite lo sportello online seguendo la procedura indicata sul sito internet dell'Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ entro le ore 23:59 di domenica 13 dicembre 2026 L'Ufficio Risorse Umane resta a cortese disposizione (t. 058 866 34 11) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, ecc) tramite il quale candidarsi. Lugano Istituti Sociali non potrà, in nessun caso, considerare candidature e allegati trasmessi tramite alti canali (forma cartacea, email, fax, ecc.). LUGANO ISTITUTI SOCIALI IL CONSIGLIO DI AMMINISTRAZIONE Capitolato di concorso Questionario sullo stato di salute Questionario relativo al casellario giudiziale",
@@ -119,8 +119,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "infermieri",
-        "infermieri-lis-lugano-istituti-sociali-pregassona",
-        "infermieri-lis-lugano-istituti-sociali-lugano"
+        "infermieri-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -144,7 +143,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori Sociosanitari",
@@ -166,9 +166,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori Sociosanitari",
-        "en": "Social and health workers",
-        "de": "Sozial- und Gesundheitsarbeiter",
-        "fr": "Travailleurs sociaux et de santé"
+        "en": "Operatori Sociosanitari",
+        "de": "Operatori Sociosanitari",
+        "fr": "Operatori Sociosanitari"
       },
       "slugByLocale": {
         "it": "operatori-sociosanitari",
@@ -218,7 +218,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Assistenti di cura",
@@ -239,10 +240,10 @@
       "role": "Medicina/Salute",
       "source": "arca24",
       "titleByLocale": {
-        "it": "Assistente di cura",
-        "en": "Assistant di cura",
+        "it": "Assistenti di cura",
+        "en": "Assistenti di cura",
         "de": "Assistenti di cura",
-        "fr": "Assistants de cours"
+        "fr": "Assistenti di cura"
       },
       "slugByLocale": {
         "it": "assistenti-di-cura",
@@ -291,7 +292,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratori sanitari",
@@ -313,9 +315,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Collaboratori sanitari",
-        "en": "Healthcare Workers",
-        "de": "Gesundheitsfachkräfte",
-        "fr": "Travailleurs de la santé"
+        "en": "Collaboratori sanitari",
+        "de": "Collaboratori sanitari",
+        "fr": "Collaboratori sanitari"
       },
       "slugByLocale": {
         "it": "collaboratori-sanitari",
@@ -364,7 +366,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori settore animazione",
@@ -386,9 +389,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori settore animazione",
-        "en": "Operators in the entertainment sector",
-        "de": "Betreiber im Unterhaltungssektor",
-        "fr": "Opérateurs du secteur du divertissement"
+        "en": "Operatori settore animazione",
+        "de": "Operatori settore animazione",
+        "fr": "Operatori settore animazione"
       },
       "slugByLocale": {
         "it": "operatori-settore-animazione",
@@ -436,7 +439,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Fisioterapisti / Ergoterapisti",
@@ -458,15 +462,15 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Fisioterapisti / Ergoterapisti",
-        "en": "Physiotherapists / Occupational therapists",
-        "de": "Physiotherapeuten / Ergotherapeuten",
-        "fr": "Kinésithérapeutes / Ergothérapeutes"
+        "en": "Fisioterapisti / Ergoterapisti",
+        "de": "Fisioterapisti / Ergoterapisti",
+        "fr": "Fisioterapisti / Ergoterapisti"
       },
       "slugByLocale": {
         "it": "fisioterapisti-ergoterapisti",
-        "en": "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
+        "en": "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-lugano",
         "de": "physiotherapeuten-ergotherapeuten-lis-lugano-istituti-sociali-pregassona",
-        "fr": "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona"
+        "fr": "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-lugano"
       },
       "descriptionByLocale": {
         "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di fisioterapisti / ergoterapisti alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso. Il Consiglio di Amministrazione può prevedere l'attribuzione di nomine (art. 5 e ss. ROCIS) e incarichi per funzione stabile (art. 11 e ss. ROCIS) interni. Le posizioni sono aperte sia a candidature femminili che maschili. Il presente concorso resta aperto anche in assenza di un effettivo fabbisogno di personale. Requisiti di ordine generale, quelli previsti dal ROCIS e in particolare: - cittadinanza svizzera o stranieri con permesso di lavoro; - condotta ineccepibile; - costituzione fisica e psichica sana; - idoneità alla funzione. Requisiti di ordine particolare: - diploma SUP quale fisioterapista o titolo equivalente; - diploma SUP quale ergoterapista o titolo equivalente; - sensibilità nell'approccio relazionale con la persona anziana; - facilità di comunicazione interpersonale e spiccate doti relazionali; - conoscenza dello strumento gestionale RAI. Mansioni generali di riferimento per il settore sociosanitario: Gestire, partecipare e/o provvedere personalmente alle cure degli ospiti delle Case per anziani e del Centro Diurno Terapeutico dell'Ente autonomo Lugano Istituti Sociali sulla base dei programmi di lavoro, delle necessità contingenti e delle priorità definite dai superiori, secondo la formazione conseguita e la funzione attribuita. Stipendio annuo - Fascia XII (fisioterapisti, ergoterapisti), classi 13-14-15 classe 13: min CHF 77'526.15 / max CHF 91'481.05 classe 14: min CHF 82'372.30 / max CHF 97'199.35 classe 15: min CHF 86'927.80 / max CHF 102'574.80 Nell'ambito delle anzidette possibilità di retribuzione può essere riconosciuta l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio. Le offerte devono essere corredate dai seguenti documenti: - lettera di presentazione - curriculum vitae - fotografia recente - certificati di studio e di lavoro - questionario sullo stato di salute - autocertificazione casellario giudiziale Oltre ai documenti da allegare inizialmente, in un secondo momento potrà essere richiesto di presentare l'estratto del casellario giudiziale per privati. Condizioni di presentazione delle candidature Le candidature devono essere inoltrate in forma elettronica tramite lo sportello online seguendo la procedura indicata sul sito internet dell'Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ entro le ore 23:59 di domenica 13 dicembre 2026 L'Ufficio Risorse Umane resta a cortese disposizione (t. 058 866 34 11) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, ecc) tramite il quale candidarsi. Lugano Istituti Sociali non potrà, in nessun caso, considerare candidature e allegati trasmessi tramite alti canali (forma cartacea, email, fax, ecc.). LUGANO ISTITUTI SOCIALI IL CONSIGLIO DI AMMINISTRAZIONE Capitolato di concorso Questionario sullo stato di salute Questionario relativo al casellario giudiziale",
@@ -485,8 +489,9 @@
         "physiotherapists-ergotherapists-lis-lugano-istituti-sociali-pregassona",
         "physiotherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona",
         "physiotherapeuten-ergotherapisten-lis-lugano-istituti-sociali-pregassona",
-        "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-lugano",
-        "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona"
+        "fisioterapisti-ergoterapisti-lis-lugano-istituti-sociali-pregassona",
+        "physiotherapists-occupational-therapists-lis-lugano-istituti-sociali-pregassona",
+        "kinesitherapeutes-ergotherapeutes-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -510,7 +515,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Educatori sociali",
@@ -532,9 +538,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Educatori sociali",
-        "en": "Social educators",
-        "de": "Sozialpädagogen",
-        "fr": "Éducateurs sociaux"
+        "en": "Educatori sociali",
+        "de": "Educatori sociali",
+        "fr": "Educatori sociali"
       },
       "slugByLocale": {
         "it": "educatori-sociali",
@@ -544,7 +550,7 @@
       },
       "descriptionByLocale": {
         "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di educatori sociali alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso. Il Consiglio di Amministrazione può prevedere l'attribuzione di nomine (art. 5 e ss. ROCIS) e incarichi per funzione stabile (art. 11 e ss. ROCIS) interni. Le posizioni sono aperte sia a candidature femminili che maschili. Il presente concorso resta aperto anche in assenza di un effettivo fabbisogno di personale. Requisiti di ordine generale, quelli previsti dal ROCIS e in particolare: - cittadinanza svizzera o stranieri con permesso di lavoro; - condotta ineccepibile; - costituzione fisica e psichica sana; - idoneità alla funzione. Requisiti di ordine particolare: - formazione conclusa quale educatore/trice SUP oppure universitaria in ambito sociale o titolo equivalente; - facilità di comunicazione interpersonale e spiccate doti relazionali; Mansioni generali di riferimento per il settore socioeducativo: Gestire, partecipare e/o provvedere personalmente ai bisogno degli utenti delle strutture per minorenni dell'ente autonomo Lugano Istituti Sociali sulla base dei programmi i lavoro, delle necessità contingenti e delle priorità definitte dai superiori, secondo la formazione conseguita e la funzione attribuita. Stipendio annuo - XII (educatori sociali), classi 13-14-15 classe 13: min CHF 77'526.15 / max CHF 91'481.05 classe 14: min CHF 82'372.30 / max CHF 97'199.35 classe 15: min CHF 86'927.80 / max CHF 102'574.80 Nell'ambito delle anzidette possibilità di retribuzione può essere riconosciuta l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio. Le offerte devono essere corredate dai seguenti documenti: - lettera di presentazione - curriculum vitae - fotografia recente - certificati di studio e di lavoro - questionario sullo stato di salute - autocertificazione casellario giudiziale Oltre ai documenti da allegare inizialmente, in un secondo momento potrà essere richiesto di presentare l'estratto del casellario giudiziale per privati e l'estratto specifico per privati. Partecipando al concorso la/il candidata/o autorizza l'Ente a sottoporre all'UFAG il nominativo per il controllo sulla base della Legge e Ordinanza federale sul casellario giudiziale informatizzato VOSTRA (LCaGI e OCaGI). Condizioni di presentazione delle candidature Le candidature devono essere inoltrate in forma elettronica tramite lo sportello online seguendo la procedura indicata sul sito internet dell'Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ entro le ore 23:59 di domenica 13 dicembre 2026 L'Ufficio Risorse Umane resta a cortese disposizione (t. 058 866 34 11) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, ecc) tramite il quale candidarsi. Lugano Istituti Sociali non potrà, in nessun caso, considerare candidature e allegati trasmessi tramite alti canali (forma cartacea, email, fax, ecc.). LUGANO ISTITUTI SOCIALI IL CONSIGLIO DI AMMINISTRAZIONE Capitolato di concorso Questionario sullo stato di salute Questionario relativo al casellario giudiziale",
-        "en": "The Board of Directors of the Ente Autonomo Lugano Istituti Sociali opens the public competition (valid for the year 2026) for the recruitment of social educators under the conditions of the Organic Regulations of Collaborators (ROCIS) of the Ente Autonomo Lugano Istituti Sociali (LIS) and the competition specifications. The Board of Directors may provide for the assignment of internal appointments (art. 5 et seq. ROCIS) and permanent positions (art. 11 et seq. ROCIS). The positions are open to both female and male candidates. This competition remains open even in the absence of an actual need for personnel. General requirements, those provided for by ROCIS and in particular: - Swiss citizenship or foreigners with a work permit; - Irreproachable conduct; - healthy physical and mental constitution; - suitability for the function. Special requirements: - completed training as a SUP or university educator in the social field or equivalent qualification; - ease of interpersonal communication and strong interpersonal skills; General tasks of reference for the socio-educational sector: To manage, participate in and/or personally provide for the needs of the users of the facilities for minors of the autonomous body Lugano Social Institutes on the basis of the work programs, contingent needs and priorities defined by superiors, according to the training achieved and the function assigned. Annual salary - XII (social educators), classes 13-14-15 class 13: min CHF 77'526.15 / max CHF 91'481.05 class 14: min CHF 82'372.30 / max CHF 97'199.35 class 15: min CHF 86'927.80 / max CHF 102'574.80 Within the scope of the aforementioned remuneration possibilities, the activity carried out previously may be recognized, if it complies with these specifications, by assigning one or more years of service. Offers must be accompanied by the following documents: - cover letter - curriculum vitae - recent photograph - study and work certificates - health questionnaire - self-certification of criminal records In addition to the documents to be attached initially, at a later date it may be required to submit the extract from the criminal record for individuals and the specific extract for individuals. By participating in the competition, the candidate authorises the institution to submit the name to the FOAG for inspection on the basis of the Federal Act and Ordinance on the Electronic Criminal Records (TUA and OCaGI). Conditions for submitting applications Applications must be submitted electronically through the online desk following the procedure indicated on the website of the Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ by 11:59 p.m. on Sunday 13 December 2026 The Human Resources Office remains at the courtesy disposal (t. 058 866 34 11) of those who do not own a device (PC, tablet, smartphone, etc.) through which to apply. Lugano Istituti Sociali will not, under any circumstances, be able to consider applications and attachments transmitted through other channels (paper form, email, fax, etc.). LUGANO SOCIAL INSTITUTES THE BOARD OF DIRECTORS Competition specifications Questionnaire on the state of health Questionnaire on the criminal record",
+        "en": "🏢 Settore: To manage, participate in and/or personally provide for the needs of the users of the facilities for minors of the autonomous body Lugano Social Institutes on the basis of the work programs, contingent needs and priorities defined by superiors, according to the training achieved and the function assigned. Annual salary - XII (social educators), classes 13-14-15 class 13: min CHF 77'526.15 / max CHF 91'481.05 class 14: min CHF 82'372.30 / max CHF 97'199.35 class 15: min CHF 86'927.80 / max CHF 102'574.80 Within the scope of the aforementioned remuneration possibilities, the activity carried out previously may be recognized, if it complies with these specifications, by assigning one or more years of service. Offers must be accompanied by the following documents: - cover letter - curriculum vitae - recent photograph - study and work certificates - health questionnaire - self-certification of criminal records In addition to the documents to be attached initially, at a later\n\nThe Board of Directors of the Ente Autonomo Lugano Istituti Sociali opens the public competition (valid for the year 2026) for the recruitment of social educators under the conditions of the Organic Regulations of Collaborators (ROCIS) of the Ente Autonomo Lugano Istituti Sociali (LIS) and the competition specifications. The Board of Directors may provide for the assignment of internal appointments (art. 5 et seq. ROCIS) and permanent positions (art. 11 et seq. ROCIS). The positions are open to both female and male candidates. This competition remains open even in the absence of an actual need for personnel. General requirements, those provided for by ROCIS and in particular: - Swiss citizenship or foreigners with a work permit; - Irreproachable conduct; - healthy physical and mental constitution; - suitability for the function. Special requirements: - completed training as a SUP or university educator in the social field or equivalent qualification; - ease of interpersonal communication and strong interpersonal skills; General tasks of reference for the socio-educational sector: To manage, participate in and/or personally provide for the needs of the users of the facilities for minors of the autonomous body Lugano Social Institutes on the basis of the work programs, contingent needs and priorities defined by superiors, according to the training achieved and the function assigned. Annual salary - XII (social educators), classes 13-14-15 class 13: min CHF 77'526.15 / max CHF 91'481.05 class 14: min CHF 82'372.30 / max CHF 97'199.35 class 15: min CHF 86'927.80 / max CHF 102'574.80 Within the scope of the aforementioned remuneration possibilities, the activity carried out previously may be recognized, if it complies with these specifications, by assigning one or more years of service. Offers must be accompanied by the following documents: - cover letter - curriculum vitae - recent photograph - study and work certificates - health questionnaire - self-certification of criminal records In addition to the documents to be attached initially, at a later date it may be required to submit the extract from the criminal record for individuals and the specific extract for individuals. By participating in the competition, the candidate authorises the institution to submit the name to the FOAG for inspection on the basis of the Federal Act and Ordinance on the Electronic Criminal Records (TUA and OCaGI). Conditions for submitting applications Applications must be submitted electronically through the online desk following the procedure indicated on the website of the Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ by 11:59 p.m. on Sunday 13 December 2026 The Human Resources Office remains at the courtesy disposal (t. 058 866 34 11) of those who do not own a device (PC, tablet, smartphone, etc.) through which to apply. Lugano Istituti Sociali will not, under any circumstances, be able to consider applications and attachments transmitted through other channels (paper form, email, fax, etc.). LUGANO SOCIAL INSTITUTES THE BOARD OF DIRECTORS Competition specifications Questionnaire on the state of health Questionnaire on the criminal record",
         "de": "Der Vorstand des Ente Autonomo Lugano Istituti Sociali eröffnet den öffentlichen Wettbewerb (gültig für das Jahr 2026) zur Einstellung von Sozialpädagogen unter den Bedingungen des Organischen Mitarbeiterreglements (ROCIS) des Ente Autonomo Lugano Istituti Sociali (LIS) und den Wettbewerbsbestimmungen. Der Verwaltungsrat kann die Zuweisung von internen Ernennungen (Art. 5 ff. ROCIS) und Positionen für stabile Funktionen (Art. 11 ff. ROCIS) vorsehen. Die Stellen stehen sowohl weiblichen als auch männlichen Bewerbern offen. Dieser Wettbewerb bleibt auch dann offen, wenn kein tatsächlicher Personalbedarf besteht. Allgemeine Anforderungen, die im ROCIS vorgesehen sind, insbesondere: - Schweizer Staatsbürgerschaft oder Ausländer mit einer Arbeitserlaubnis; - einwandfreies Verhalten; - gesunde körperliche und geistige Verfassung; - Eignung zur Funktion. Besondere Voraussetzungen: - abgeschlossene Ausbildung zum SUP-Pädagogen oder Hochschullehrer im sozialen Bereich oder gleichwertige Qualifikation; - Leichtigkeit der zwischenmenschlichen Kommunikation und starke Beziehungsfähigkeiten; Allgemeine Referenzaufgaben für den sozialpädagogischen Bereich: Verwaltung, Teilnahme und/oder persönliche Betreuung der Bedürfnisse der Nutzer der Einrichtungen für Minderjährige der Autonomen Körperschaft Lugano Istituti Sociali auf der Grundlage von Arbeitsprogrammen, Eventualbedarfen und Prioritäten, die von den Vorgesetzten entsprechend der erworbenen Ausbildung und der zugewiesenen Rolle festgelegt werden. Jahreslohn - XII (Sozialpädagogen), Klassen 13-14-15 Klasse 13: min. CHF 77'526.15 / max. CHF 91'481.05 Klasse 14: min. CHF 82'372.30 / max. CHF 97'199.35 Klasse 15: min. CHF 86'927.80 / max. CHF 102'574.80 Im Rahmen Von den vorgenannten Vergütungsmöglichkeiten kann die bisher ausgeübte Tätigkeit bei Einhaltung dieser Vorgaben durch die Zuordnung eines oder mehrerer Dienstjahre anerkannt werden. Dem Angebot sind folgende Unterlagen beizufügen: - Anschreiben - Lebenslauf - aktuelles Foto - Studien- und Arbeitszeugnisse - Gesundheitsfragebogen - Strafregisterauszug Zusätzlich zu den zunächst beizufügenden Unterlagen kann es sein, dass Sie zu einem späteren Zeitpunkt aufgefordert werden, den Strafregisterauszug für Privatpersonen und den spezifischen Auszug für Privatpersonen vorzulegen. Mit der Teilnahme am Wettbewerb ermächtigt der Kandidat die Organisation, den Namen dem BLW zur Überprüfung auf der Grundlage des Bundesgesetzes und der Verordnung über das EDV-Strafregister VOSTRA (LCaGI und OCaGI) vorzulegen. Bedingungen für die Einreichung von Bewerbungen Bewerbungen müssen in elektronischer Form über den Online-Schalter gemäß dem auf der Website des Ente Lugano Istituti Sociali https://lugano-lis.ch/lavoro-con-noi/opportunitalavoro/ angegebenen Verfahren bis Sonntag, 13. Dezember 2026, 23.59 Uhr eingereicht werden. Das Personalbüro steht denjenigen, die über kein Gerät verfügen, weiterhin zur Verfügung (Tel. 058 866 34 11). (PC, Tablet, Smartphone usw.), über das Sie sich bewerben können. Das Lugano Istituti Sociali kann unter keinen Umständen Bewerbungen und Anhänge berücksichtigen, die über andere Kanäle (Papierform, E-Mail, Fax usw.) gesendet werden. LUGANO SOCIAL INSTITUTS DER VERWALTUNGSRAT Wettbewerbsvorgaben Gesundheitsfragebogen Fragebogen zum Strafregister",
         "fr": "Le Conseil d'Administration de l'Ente Autonomo Lugano Istituti Sociali ouvre le concours public (valable pour l'année 2026) pour l'embauche d'éducateurs sociaux dans les conditions du Règlement Organique des Collaborateurs (ROCIS) de l'Ente Autonomo Lugano Istituti Sociali (LIS) et du cahier des charges. Le conseil d'administration peut prévoir l'attribution de nominations internes (art. 5 et suivants du ROCIS) et de postes à fonctions stables (art. 11 et suivants du ROCIS). Les postes sont ouverts aux candidats féminins et masculins. Ce concours reste ouvert même en l'absence d'un réel besoin en effectifs. Exigences générales, celles prévues par le ROCIS et notamment : - nationalité suisse ou étrangère avec permis de travail ; - une conduite irréprochable ; - une constitution physique et mentale saine ; - aptitude à la fonction. Exigences particulières : - formation accomplie d'éducateur SUP ou d'enseignant universitaire dans le domaine social ou qualification équivalente ; - facilité de communication interpersonnelle et solides compétences relationnelles ; Tâches générales de référence pour le secteur socio-éducatif : Gérer, participer et/ou subvenir personnellement aux besoins des utilisateurs des installations pour mineurs de l'organisme autonome Lugano Istituti Sociali sur la base de programmes de travail, de besoins contingents et de priorités définies par les supérieurs, en fonction de la formation obtenue et du rôle assigné. Salaire annuel - XII (éducateurs sociaux), classes 13-14-15 classe 13 : min CHF 77'526.15 / max CHF 91'481.05 classe 14 : min CHF 82'372.30 / max CHF 97'199.35 classe 15 : min CHF 86'927.80 / max CHF 102'574.80 Dans le cadre de la rémunération susvisée possibilités, l'activité exercée précédemment peut être reconnue, si elle est conforme au présent cahier des charges, par l'attribution d'une ou plusieurs années de service. Les offres doivent être accompagnées des documents suivants : - lettre de motivation - curriculum vitae - photographie récente - attestations d'études et de travail - questionnaire de santé - autocertification de casier judiciaire En plus des documents à joindre initialement, il pourra vous être demandé ultérieurement de présenter l'extrait de casier judiciaire pour les particuliers et l'extrait spécifique pour les particuliers. En participant au concours, le candidat autorise l'Organisation à soumettre son nom à l'OFAG pour vérification sur la base de la loi et de l'ordonnance fédérales sur le casier judiciaire informatisé VOSTRA (LCaGI et OCaGI). Conditions de dépôt des candidatures Les candidatures doivent être déposées sous forme électronique via le bureau en ligne selon la procédure indiquée sur le site Internet de l'Ente Lugano Istituti Sociali https://lugano-lis.ch/lavoro-con-noi/opportunitalavoro/ au plus tard le dimanche 13 décembre 2026 à 23h59. Le Bureau des Ressources Humaines reste à l'aimable disposition (t. 058 866 34 11) de ceux qui ne disposent pas d'appareil. (PC, tablette, smartphone, etc.) via lequel postuler. Lugano Istituti Sociali ne pourra en aucun cas prendre en compte les candidatures et pièces jointes envoyées via d'autres canaux (formulaire papier, email, fax, etc.). INSTITUTS SOCIAUX DE LUGANO LE CONSEIL D'ADMINISTRATION Spécifications du concours Questionnaire de santé Questionnaire relatif au casier judiciaire"
       },
@@ -583,7 +589,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -605,9 +612,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori socioassistenziali (infanza)",
-        "en": "Social care workers (infanza)",
-        "de": "Sozialarbeiter (infanza)",
-        "fr": "Travailleurs sociaux (infanza)"
+        "en": "Operatori socioassistenziali (infanza)",
+        "de": "Operatori socioassistenziali (infanza)",
+        "fr": "Operatori socioassistenziali (infanza)"
       },
       "slugByLocale": {
         "it": "operatori-socioassistenziali-infanza",
@@ -655,7 +662,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Educatori dell'infanzia",
@@ -677,9 +685,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Educatori dell'infanzia",
-        "en": "Early childhood educators",
-        "de": "Frühkindliche Pädagogen",
-        "fr": "Éducateurs de la petite enfance"
+        "en": "Educatori dell'infanzia",
+        "de": "Educatori dell'infanzia",
+        "fr": "Educatori dell'infanzia"
       },
       "slugByLocale": {
         "it": "educatori-dell-infanzia",
@@ -728,7 +736,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Capisquadra - chef di cucina",
@@ -750,9 +759,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Capisquadra - chef di cucina",
-        "en": "Team Leaders - Kitchen Chef",
-        "de": "Teamleiter – Küchenkoch",
-        "fr": "Chefs d’équipe - Chef de cuisine"
+        "en": "Capisquadra - chef di cucina",
+        "de": "Capisquadra - chef di cucina",
+        "fr": "Capisquadra - chef di cucina"
       },
       "slugByLocale": {
         "it": "capisquadra-chef-di-cucina",
@@ -798,7 +807,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Cuochi",
@@ -820,15 +830,15 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Cuochi",
-        "en": "Cooks",
-        "de": "Köche",
-        "fr": "Cuisiniers"
+        "en": "Cuochi",
+        "de": "Cuochi",
+        "fr": "Cuochi"
       },
       "slugByLocale": {
         "it": "cuochi-lis-lugano-istituti-sociali-lugano",
-        "en": "cooks-lis-lugano-istituti-sociali-pregassona",
-        "de": "koche-lis-lugano-istituti-sociali-pregassona",
-        "fr": "cuisiniers-lis-lugano-istituti-sociali-pregassona"
+        "en": "cuochi-lis-lugano-istituti-sociali-lugano",
+        "de": "cuochi-lis-lugano-istituti-sociali-lugano",
+        "fr": "cuochi-lis-lugano-istituti-sociali-lugano"
       },
       "descriptionByLocale": {
         "it": "Il Consiglio di Amministrazione dell'Ente Autonomo Lugano Istituti Sociali apre il concorso pubblico (valido per l'anno 2026) per l'assunzione di cuochi alle condizioni del Regolamento Organico dei Collaboratori (ROCIS) dell'Ente Autonomo Lugano Istituti Sociali (LIS) e del capitolato di concorso. Il Consiglio di Amministrazione può prevedere l'attribuzione di nomine (art. 5 e ss. ROCIS) e incarichi per funzione stabile (art. 11 e ss. ROCIS) interni. Le posizioni sono aperte sia a candidature femminili che maschili. Il presente concorso resta aperto anche in assenza di un effettivo fabbisogno di personale. Requisiti di ordine generale, quelli previsti dal ROCIS e in particolare: - cittadinanza svizzera o stranieri con permesso di lavoro; - condotta ineccepibile; - costituzione fisica e psichica sana; - idoneità alla funzione. Requisiti di ordine particolare: - attestato federale nella professionale di cuoco o titolo equivalente, comprovata esperienza; Mansioni generali di riferimento per la funzione di cuoco: Sulla base dei programmi di lavoro, delle necessità di servizio, delle normative vigenti e delle indicazioni dei responsabili, garantisce la preparazione dei pasti. Stipendio annuo - VII (cuochi), classi 8-9-10 classe 8: min CHF 59'808.05 / max CHF 70'573.50 classe 9: min CHF 62'560.85 / max CHF 73'821.70 classe 10: min CHF 65'679.90 / max CHF 77'502.35 Nell'ambito delle anzidette possibilità di retribuzione può essere riconosciuta l'attività svolta precedentemente, se conforme al presente capitolato, assegnando una o più annualità di servizio. Le offerte devono essere corredate dai seguenti documenti: - lettera di presentazione - curriculum vitae - fotografia recente - certificati di studio e di lavoro - questionario sullo stato di salute - autocertificazione casellario giudiziale Oltre ai documenti da allegare inizialmente, in un secondo momento potrà essere richiesto di presentare l'estratto del casellario giudiziale per privati. Condizioni di presentazione delle candidature Le candidature devono essere inoltrate in forma elettronica tramite lo sportello online seguendo la procedura indicata sul sito internet dell'Ente Lugano Istituti Sociali https://lugano-lis.ch/lavora-con-noi/opportunitaimpiego/ entro le ore 23:59 di domenica 13 dicembre 2026 L'Ufficio Risorse Umane resta a cortese disposizione (t. 058 866 34 11) di coloro che non possiedono un dispositivo (PC, tablet, smartphone, ecc) tramite il quale candidarsi. Lugano Istituti Sociali non potrà, in nessun caso, considerare candidature e allegati trasmessi tramite alti canali (forma cartacea, email, fax, ecc.). LUGANO ISTITUTI SOCIALI IL CONSIGLIO DI AMMINISTRAZIONE Capitolato di concorso Questionario sullo stato di salute Questionario relativo al casellario giudiziale",
@@ -844,8 +854,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "cuochi",
-        "cuochi-lis-lugano-istituti-sociali-pregassona",
-        "cuochi-lis-lugano-istituti-sociali-lugano"
+        "cuochi-lis-lugano-istituti-sociali-pregassona"
       ],
       "currency": "CHF",
       "baseSalary": {
@@ -869,7 +878,8 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Addetti servizi alla casa",
@@ -891,9 +901,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Addetti servizi alla casa",
-        "en": "Household service workers",
-        "de": "Haushaltsdienstmitarbeiter",
-        "fr": "Travailleurs des services ménagers"
+        "en": "Addetti servizi alla casa",
+        "de": "Addetti servizi alla casa",
+        "fr": "Addetti servizi alla casa"
       },
       "slugByLocale": {
         "it": "addetti-servizi-alla-casa",
@@ -942,7 +952,8 @@
         "addetti-servizi-alla-casa-lis-lugano-istituti-sociali-pregassona",
         "erganzungen-zum-haus-lis-lugano-istituti-sociali-pregassona",
         "ajouts-a-la-maison-lis-lugano-istituti-sociali-pregassona"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
