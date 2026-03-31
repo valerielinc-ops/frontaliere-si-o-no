@@ -1,16 +1,16 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-03-30T21:41:13.433Z",
+  "generatedAt": "2026-03-31T09:29:42.025Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 13390,
-  "avgDurationMs": 13390,
+  "durationMs": 12125,
+  "avgDurationMs": 12125,
   "durationHistory": [
-    13390
+    12125
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -34,7 +34,7 @@
       "sector": "Amministrazione",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -43,11 +43,12 @@
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -69,7 +70,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -78,11 +79,12 @@
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -104,7 +106,7 @@
       "sector": "Assistenza Tecnica",
       "source": "hoval-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -113,11 +115,12 @@
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
-      "_qualityScore": 95,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     }
