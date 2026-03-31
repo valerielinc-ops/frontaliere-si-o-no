@@ -1,16 +1,16 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-03-30T21:14:28.590Z",
+  "generatedAt": "2026-03-31T09:03:10.222Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 14012,
-  "avgDurationMs": 14012,
+  "durationMs": 18264,
+  "avgDurationMs": 18264,
   "durationHistory": [
-    14012
+    18264
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -34,7 +34,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -43,17 +43,18 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale",
       "postalCode": "6613",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     },
     {
       "title": "Sustainability Coordinator - Maternaty Leave Cover",
-      "slug": "responsabile-sostenibilita-copertura-maternita-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
+      "slug": "sustainability-coordinatore-maternaty-leave-cover-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
       "url": "https://www.baronie.com/en/jobs/sustainability-coordinator-maternaty-leave-cover",
       "applyUrl": "https://www.baronie.com/en/jobs/sustainability-coordinator-maternaty-leave-cover",
       "company": "Chocolat Alprose SA / Baronie Switzerland SA",
@@ -69,7 +70,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -78,11 +79,12 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale",
       "postalCode": "6613",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 21,
         "completeness": 25
       }
     }
