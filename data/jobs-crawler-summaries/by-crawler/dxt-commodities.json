@@ -1,16 +1,16 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-03-30T21:31:02.201Z",
+  "generatedAt": "2026-03-31T09:19:38.578Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 2843,
-  "avgDurationMs": 2843,
+  "durationMs": 3808,
+  "avgDurationMs": 3808,
   "durationHistory": [
-    2843
+    3808
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -25,7 +25,7 @@
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "junior-legal-dxt",
+      "slug": "junior-legale-dxt-commodities-s-a-lugano",
       "category": "legal",
       "datePosted": "2026-03-29",
       "source": "dxt-careers-crawler",
@@ -46,6 +46,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
