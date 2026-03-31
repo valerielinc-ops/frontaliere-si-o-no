@@ -1,16 +1,16 @@
 {
   "key": "has-healthcare",
   "label": "HAS Healthcare",
-  "generatedAt": "2026-03-30T21:40:06.053Z",
+  "generatedAt": "2026-03-31T09:28:31.677Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 5664,
-  "avgDurationMs": 5664,
+  "durationMs": 5406,
+  "avgDurationMs": 5406,
   "durationHistory": [
-    5664
+    5406
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,6 +46,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -84,6 +85,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -112,7 +114,7 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+      "slug": "assistente-di-produzione-has-healthcare-advanced-synthesis-lugano",
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
