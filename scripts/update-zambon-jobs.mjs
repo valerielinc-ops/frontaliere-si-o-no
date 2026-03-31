@@ -30,6 +30,7 @@ const COMPANY_KEY = 'zambon';
 const COMPANY_NAME = 'Zambon Svizzera SA';
 const COMPANY_HOST = 'www.zambon.com';
 const CAREERS_URL = 'https://www.zambon.com/en/open-positions';
+const CAREERS_API = 'https://www.zambon.com/it/api/careers-api?visibility=external';
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(v = '') { return String(v || '').trim().toLowerCase(); }
@@ -48,11 +49,64 @@ async function fetchPage(url, timeoutMs = 20000) {
 }
 
 async function fetchJobs() {
-  console.log(`🔍 Fetching Zambon jobs from ${CAREERS_URL}`);
+  // Primary: use the JSON API (Vue.js frontend loads from this)
+  console.log(`🔍 Fetching Zambon jobs from API: ${CAREERS_API}`);
+  try {
+    const controller = new AbortController();
+    const timer = setTimeout(() => controller.abort(), 20000);
+    const res = await fetch(CAREERS_API, {
+      signal: controller.signal,
+      headers: {
+        Accept: 'application/json',
+        'X-Requested-With': 'XMLHttpRequest',
+        'User-Agent': 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
+      },
+    });
+    clearTimeout(timer);
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const body = await res.json();
+    const allJobs = body.data || body;
+    if (!Array.isArray(allJobs)) throw new Error('API response is not an array');
+
+    // Filter to Switzerland only
+    const swissJobs = allJobs.filter(j => j.country === 'CH' || (j.country_label || '').toLowerCase().includes('switz'));
+    console.log(`  📋 API returned ${allJobs.length} total positions, ${swissJobs.length} in Switzerland`);
+
+    return swissJobs.map((raw) => {
+      const title = (raw.title || '').trim();
+      const slug = slugify(title, 'zambon');
+      const detailUrl = raw.web_url || `https://app.ncoreplat.com/jobposition/${raw.id}`;
+      return {
+        id: `zambon-${raw.id}`,
+        url: detailUrl, applyUrl: detailUrl, title,
+        company: COMPANY_NAME, companyKey: COMPANY_KEY,
+        location: 'Cadempino', canton: 'TI', country: 'CH',
+        addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
+        postalCode: '6814', streetAddress: 'Via Industria 13',
+        // Placeholder description — the shared crawler will fetch the real one from the detail page
+        description: `${title} — posizione presso ${COMPANY_NAME} a Cadempino (TI). Zambon è un'azienda farmaceutica internazionale specializzata in malattie respiratorie e rare. Area: ${raw.job_family || 'General'}. Contratto: ${raw.contract_type_3 || 'Full Time'}.`,
+        titleByLocale: { it: title }, descriptionByLocale: {},
+        slug, slugByLocale: { it: slug },
+        category: detectCategory(title),
+        datePosted: raw.opening_date ? parseZambonDate(raw.opening_date) : new Date().toISOString().split('T')[0],
+        source: 'zambon-ncoreplat-api',
+        employmentType: inferEmploymentType(title, raw.contract_type_3 || ''),
+        experienceLevel: detectExperienceLevel(title),
+        sector: 'Farmaceutica',
+        department: raw.job_family || '',
+        seniority: raw.seniority || '',
+      };
+    });
+  } catch (err) {
+    console.warn(`⚠️ API fetch failed: ${err.message} — falling back to HTML parsing`);
+  }
+
+  // Fallback: HTML parsing (unlikely to work for Vue.js rendered pages)
+  console.log(`🔍 Fallback: Fetching Zambon jobs from ${CAREERS_URL}`);
   const html = await fetchPage(CAREERS_URL, 25000);
   if (!html) { console.error('❌ Failed to fetch Zambon careers page.'); return []; }
   const listings = parseListingPage(html);
-  console.log(`  📋 Jobs found: ${listings.length}`);
+  console.log(`  📋 HTML fallback found: ${listings.length} jobs`);
 
   return listings.map((raw) => {
     const slug = slugify(raw.title, 'zambon');
@@ -62,7 +116,7 @@ async function fetchJobs() {
       location: raw.location || 'Cadempino', canton: 'TI', country: 'CH',
       addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6814', streetAddress: 'Via Industria 13',
-      description: `${raw.title} position at Zambon Svizzera SA in Cadempino, Ticino. Zambon is an international pharmaceutical company focused on respiratory and rare diseases.`,
+      description: `${raw.title} — posizione presso ${COMPANY_NAME} a Cadempino (TI).`,
       titleByLocale: { en: raw.title }, descriptionByLocale: {},
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(raw.title),
@@ -72,6 +126,15 @@ async function fetchJobs() {
       sector: 'Farmaceutica',
     };
   });
+}
+
+/** Parse "27 Mar 2026" → "2026-03-27" */
+function parseZambonDate(dateStr) {
+  try {
+    const d = new Date(dateStr);
+    if (!isNaN(d.getTime())) return d.toISOString().split('T')[0];
+  } catch {}
+  return new Date().toISOString().split('T')[0];
 }
 
 function canonicalizeUrl(url = '') { try { return new URL(url).href.replace(/\/$/, '').toLowerCase(); } catch { return normalize(url); } }
