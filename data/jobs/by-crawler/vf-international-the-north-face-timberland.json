@@ -501,7 +501,7 @@
       "slugByLocale": {
         "it": "associato-operazioni-di-merchandising-timberland-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf",
         "en": "associate-merchandising-operations-timberland-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-5vq0xm",
-        "de": "associate-merchandising-operations-timberland-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-5vq0xm",
+        "de": "mitarbeiterin-merchandising-operations-timberland-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-v",
         "fr": "associe-operations-de-marchandisage-timberland-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       },
       "sourceLang": "en",
@@ -522,7 +522,10 @@
       "addressLocality": "Stabio",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "associate-merchandising-operations-timberland-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-5vq0xm"
+      ]
     },
     {
       "id": "company-c8jm5m",
@@ -661,11 +664,13 @@
       "slugByLocale": {
         "it": "analista-fp-a-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "en": "analyst-fp-a-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
-        "de": "analyst-fp-a-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-0eg4mv",
+        "de": "analyst-finanzplanung-und-analyse-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "fr": "analyste-fp-a-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-0eg4mv"
       },
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "analyst-fp-a-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-0eg4mv"
+      ],
       "salaryMin": 72500,
       "salaryMax": 97500,
       "baseSalary": {
@@ -1006,13 +1011,14 @@
       "slugByLocale": {
         "it": "product-merchandising-tirocinante-emea-programma-di-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-",
         "en": "product-merchandising-intern-emea-internship-program-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-9hwamd",
-        "de": "product-merchandising-praktikant-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-9hwamd",
+        "de": "produkt-merchandising-praktikant-in-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-v",
         "fr": "product-merchandising-stagiaire-emea-programme-de-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-9hwamd"
       },
       "sourceLang": "en",
       "previousSlugs": [
         "product-merchandising-tirocinante-emea-programma-di-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-9hwamd",
-        "intern-di-merchandising-prodotti-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-"
+        "intern-di-merchandising-prodotti-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-",
+        "product-merchandising-praktikant-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-9hwamd"
       ],
       "salaryMin": 61000,
       "salaryMax": 83000,
@@ -1548,12 +1554,13 @@
         "it": "legal-tirocinante-emea-programma-di-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
         "en": "legal-intern-emea-internship-program-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-mi2dlx",
         "de": "legal-praktikant-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-mi2dlx",
-        "fr": "legal-stagiaire-emea-programme-de-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-mi2dlx"
+        "fr": "stage-juridique-programme-de-stage-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       },
       "sourceLang": "en",
       "previousSlugs": [
         "stagista-legale-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
-        "tirocinante-legale-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
+        "tirocinante-legale-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1",
+        "legal-stagiaire-emea-programme-de-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-mi2dlx"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -1870,11 +1877,12 @@
         "it": "data-science-tirocinante-emea-programma-di-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf",
         "en": "data-science-intern-emea-internship-program-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-d5aber",
         "de": "data-science-praktikant-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-d5aber",
-        "fr": "data-science-stagiaire-emea-programme-de-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-d5aber"
+        "fr": "stage-en-data-science-programme-de-stage-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1"
       },
       "sourceLang": "en",
       "previousSlugs": [
-        "data-science-intern-programma-di-internship-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf"
+        "data-science-intern-programma-di-internship-emea-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf",
+        "data-science-stagiaire-emea-programme-de-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-d5aber"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
@@ -1957,12 +1965,13 @@
         "it": "digital-retail-technology-gen-ai-tirocinante-emea-programma-di-stage-vf-international-the-north-face-timberland-emea-che",
         "en": "digital-retail-technology-gen-ai-intern-emea-internship-program-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-wu63sp",
         "de": "digital-retail-technology-gen-ai-praktikant-emea-praktikumsprogramm-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-wu63sp",
-        "fr": "digital-retail-technology-gen-ai-stagiaire-emea-programme-de-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-wu63sp"
+        "fr": "stage-en-technologie-de-vente-au-detail-numerique-et-intelligence-artificielle-programme-de-stage-emea-vf-international-"
       },
       "sourceLang": "en",
       "previousSlugs": [
         "tirocinio-tecnologia-retail-digitale-e-gen-ai-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-eme",
-        "digital-retail-technology-gen-ai-intern-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-"
+        "digital-retail-technology-gen-ai-intern-programma-di-tirocinio-emea-vf-international-the-north-face-timberland-emea-che-",
+        "digital-retail-technology-gen-ai-stagiaire-emea-programme-de-stage-vf-international-the-north-face-timberland-emea-che-stabio-vf-campus-vf1-wu63sp"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
