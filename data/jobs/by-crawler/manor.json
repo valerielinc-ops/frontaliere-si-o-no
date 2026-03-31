@@ -189,9 +189,9 @@
       "slug": "manor-apprendista-polydesigner-3d-afc-100-lugano",
       "slugByLocale": {
         "it": "manor-apprendista-polydesigner-3d-afc-100-lugano",
-        "en": "manor-apprendista-polydesigner-3d-afc-100-lugano",
-        "de": "manor-apprendista-polydesigner-3d-afc-100-lugano",
-        "fr": "manor-apprendista-polydesigner-3d-afc-100-lugano"
+        "en": "apprentice-polydesigner-3d-afc-100-manor-ag-lugano",
+        "de": "lernende-r-polydesigner-3d-afc-100-manor-ag-lugano",
+        "fr": "apprenti-e-polydesigner-3d-afc-100-manor-ag-lugano"
       },
       "titleByLocale": {
         "it": "Apprendista Polydesigner 3D AFC 100%",
@@ -219,7 +219,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-apprendista-polydesigner-3d-afc-100-lugano"
+      ]
     },
     {
       "title": "Polydesigner 3D AFC 100%",

@@ -1153,9 +1153,9 @@
       },
       "crawledAt": "2026-03-31T09:19:59.998Z",
       "slugByLocale": {
-        "it": "ai-engineer-efg-geneve",
+        "it": "ai-ingegnere-efg-international-ag-geneve",
         "en": "ai-engineer-efg-international-ag-geneve",
-        "de": "ai-engineer-efg-geneve",
+        "de": "ai-ingenieur-efg-international-ag-geneve",
         "fr": "ai-engineer-efg-geneve"
       },
       "addressLocality": "Geneve",
@@ -1178,7 +1178,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "ai-engineer-efg-geneve"
+      ]
     },
     {
       "id": "efg-6066",

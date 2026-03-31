@@ -110,9 +110,9 @@
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8",
+        "en": "sales-associate-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -188,7 +188,8 @@
       "sourceLang": "de",
       "previousSlugs": [
         "addetto-vendite-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -207,10 +208,10 @@
       "id": "aldi-suisse-95f4c78eeb47",
       "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
       "slugByLocale": {
-        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
-        "en": "lernender-detailhandel-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-2zsseh",
+        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+        "en": "retail-apprentice-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-        "fr": "lernender-detailhandel-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-2zsseh"
+        "fr": "apprenti-e-commerce-de-detail-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -280,7 +281,10 @@
       "crawledAt": "2026-03-31T08:53:57.296Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "lernender-detailhandel-m-w-d-aldi-suisse",
+        "lernender-detailhandel-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-2zsseh"
+      ],
       "salaryMin": 43000,
       "salaryMax": 58000,
       "baseSalary": {

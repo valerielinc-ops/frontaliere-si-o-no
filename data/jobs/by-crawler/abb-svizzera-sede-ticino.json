@@ -97,8 +97,8 @@
       "slugByLocale": {
         "it": "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
         "en": "shift-leader-testing-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
-        "de": "shift-leader-prufung-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
-        "fr": "shift-leader-essai-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i"
+        "de": "schichtleiter-collaudo-ipu-einzelstand-80-100-abb-svizzera-sede-ticino-quartino-ticino",
+        "fr": "chef-de-poste-collaudo-ipu-autonome-80-100-abb-svizzera-sede-ticino-quartino-ticino"
       },
       "titleByLocale": {
         "it": "Shift Leader Collaudo IPU Standalone (80-100%)",
@@ -114,7 +114,9 @@
       },
       "requirementsByLocale": {},
       "previousSlugs": [
-        "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i"
+        "shift-leader-collaudo-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
+        "shift-leader-prufung-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i",
+        "shift-leader-essai-ipu-standalone-80-100-abb-svizzera-sede-ticino-quartino-ticino-n0py3i"
       ],
       "country": "CH",
       "sourceLang": "en",

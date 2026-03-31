@@ -282,10 +282,12 @@
       "slugByLocale": {
         "it": "sales-consulente-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet",
         "en": "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte",
-        "de": "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte",
+        "de": "sales-berater-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte",
         "fr": "sales-conseiller-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "sales-advisor-categorie-protette-l-68-99-serravalle-boggi-milano-serravalle-designer-outlet-piemonte"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",

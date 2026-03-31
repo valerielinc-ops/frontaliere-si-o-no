@@ -805,8 +805,8 @@
       "slugByLocale": {
         "en": "senior-product-developer-fixed-term-contract-guess-europe-sagl-stabio-ticino-switzerland",
         "it": "senior-product-sviluppatore-fixed-term-contract-guess-europe-sagl-stabio",
-        "de": "senior-product-entwickler-fixed-term-contract-guess-europe-sagl-stabio",
-        "fr": "senior-product-developpeur-fixed-term-contract-guess-europe-sagl-stabio"
+        "de": "senior-produktentwickler-befristeter-vertrag-guess-europe-sagl-stabio",
+        "fr": "senior-developpeur-de-produits-contrat-a-duree-determinee-guess-europe-sagl-stabio"
       },
       "requirements": [
         "At least 5-6 years of relevant work experience in a similar role",
@@ -843,7 +843,10 @@
         "Training & Development platform and paths",
         "Discount on our products both online and in stores"
       ],
-      "previousSlugs": [],
+      "previousSlugs": [
+        "senior-product-entwickler-fixed-term-contract-guess-europe-sagl-stabio",
+        "senior-product-developpeur-fixed-term-contract-guess-europe-sagl-stabio"
+      ],
       "salaryMin": 92000,
       "salaryMax": 125000,
       "currency": "CHF",

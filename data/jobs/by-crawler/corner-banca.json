@@ -555,10 +555,10 @@
       "id": "corner-banca-363ccb9527a5",
       "slug": "credit-e-client-advisor-m-f-corner-banca-lugano",
       "slugByLocale": {
-        "it": "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "it": "credit-client-consulente-m-f-corner-banca-lugano",
         "en": "credit-client-advisor-m-f-corner-banca-lugano",
-        "de": "credit-e-client-advisor-m-f-corner-banca-lugano",
-        "fr": "credit-e-client-advisor-m-f-corner-banca-lugano"
+        "de": "credit-client-berater-m-f-corner-banca-lugano",
+        "fr": "credit-client-conseiller-m-f-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -621,7 +621,8 @@
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "credit-client-consulente-m-f-corner-banca-lugano"
+        "credit-client-consulente-m-f-corner-banca-lugano",
+        "credit-e-client-advisor-m-f-corner-banca-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
