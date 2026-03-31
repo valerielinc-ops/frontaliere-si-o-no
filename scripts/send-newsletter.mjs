@@ -487,24 +487,32 @@ function sanitizeJobUrls(html, validSlugs) {
 
 // ─── Subscriber fetching ────────────────────────────────────
 
+const EXCLUDED_STATUSES = new Set(['unsubscribed', 'bounced', 'complained', 'suppressed']);
+
 async function fetchSubscribers() {
   const subscribers = new Map();
 
   try {
-    const snap = await db.collection('newsletter_subscribers').where('isActive', '==', true).get();
+    // Fetch ALL subscribers (including pending) — clicking a link auto-confirms them.
+    // Exclude only those who explicitly opted out or have delivery issues.
+    const snap = await db.collection('newsletter_subscribers').get();
     snap.docs.forEach((d) => {
       const row = d.data();
       const email = normalizeEmail(row.email);
-      if (email) {
-        subscribers.set(email, {
-          email,
-          locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
-          sourceChannel: row.source_channel || row.source || 'newsletter_page',
-          locationInterest: row.location_interest || null,
-          sectorInterest: row.sector_interest || null,
-          preferences: row.preferences || {},
-        });
-      }
+      if (!email) return;
+      const status = (row.status || '').toLowerCase();
+      if (EXCLUDED_STATUSES.has(status)) return;
+      subscribers.set(email, {
+        email,
+        locale: (row.preferred_locale || row.locale || 'it').split(/[-_]/)[0] || 'it',
+        sourceChannel: row.source_channel || row.source || 'newsletter_page',
+        locationInterest: row.location_interest || null,
+        sectorInterest: row.sector_interest || null,
+        job_slug: row.job_slug || null,
+        job_company: row.job_company || null,
+        source: row.source || null,
+        preferences: row.preferences || {},
+      });
     });
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
