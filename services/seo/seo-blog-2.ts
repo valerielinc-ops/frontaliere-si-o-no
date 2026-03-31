@@ -4,6 +4,7 @@
 import type { SEOMetadata } from '../seoService';
 
 const BASE_URL = 'https://frontaliereticino.ch';
+const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
   'blog-olio-chimica-produzione': {
@@ -26,11 +27,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Bottiglia di olio di girasole su tavolo con pane e prodotti locali a Mendrisio"
       },
       "datePublished": "2026-02-28T13:53:07+00:00",
-      "dateModified": "2026-02-28T13:53:07+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/olio-chimica-produzione-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/olio-chimica-produzione-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -54,11 +57,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada a Porlezza con auto e scooter in una mattina nebbiosa, atmosfera tragica."
       },
       "datePublished": "2026-02-28T14:50:37+00:00",
-      "dateModified": "2026-02-28T14:50:37+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-mortale-frontaliere`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-mortale-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -82,11 +87,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta del Palazzo Federale a Berna in una giornata di sole."
       },
       "datePublished": "2026-02-28T15:45:23+00:00",
-      "dateModified": "2026-02-28T15:45:23+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-dovrebbe-rinunciare-mediazione`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-dovrebbe-rinunciare-mediazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -110,11 +117,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista del lungolago di Lugano al tramonto con luci della città riflesse sull'acqua."
       },
       "datePublished": "2026-02-28T16:16:34+00:00",
-      "dateModified": "2026-02-28T16:16:34+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanremo-frontalieri-impatti`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sanremo-frontalieri-impatti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -138,11 +147,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Giovane professionista con valigia in una stazione con le Alpi svizzere sullo sfondo"
       },
       "datePublished": "2026-02-28T16:25:31+00:00",
-      "dateModified": "2026-02-28T16:25:31+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavorare-germania-educatori`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavorare-germania-educatori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -166,11 +177,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista del lungolago di Gandria, Ticino con pavimentazione in pietra e vegetazione primaverile"
       },
       "datePublished": "2026-02-28T16:55:46+00:00",
-      "dateModified": "2026-02-28T16:55:46+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/porto-ceresio-lungolago-lavori`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/porto-ceresio-lungolago-lavori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -194,11 +207,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Una moderna arena di hockey in Ticino, circondata dalle montagne svizzere in autunno."
       },
       "datePublished": "2026-02-28T17:44:22+00:00",
-      "dateModified": "2026-02-28T17:44:22+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-hockey-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/casa-hockey-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -222,11 +237,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con lago e montagne, bandiera svizzera in primo piano"
       },
       "datePublished": "2026-02-28T19:01:56+00:00",
-      "dateModified": "2026-02-28T19:01:56+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-svizzera`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassazione-individuale-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -250,11 +267,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Persone in fila nella hall di un cinema a Varese per il film 'Frontaliers Sabotage', con un poster visibile."
       },
       "datePublished": "2026-02-28T19:43:26+00:00",
-      "dateModified": "2026-02-28T19:43:26+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/film-frontaliers-sabotage-varese`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/film-frontaliers-sabotage-varese`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -278,11 +297,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Pendolari alla stazione di Lugano all'alba, simbolo del lavoro frontaliero e dell'economia ticinese."
       },
       "datePublished": "2026-03-01T08:59:12+00:00",
-      "dateModified": "2026-03-01T08:59:12+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-accordo-ps`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-accordo-ps`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -306,11 +327,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Persone di diverse età e origini camminano per le strade di Chiasso, con una chiesa sullo sfondo, simboleggiando la comunità e l'integrazione in una città di confine."
       },
       "datePublished": "2026-03-01T09:57:39+00:00",
-      "dateModified": "2026-03-01T09:57:39+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-fede-adulti-integrazione`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-fede-adulti-integrazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -334,11 +357,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Controlli doganali al valico di Chiasso-Brogeda, con un'auto fermata per ispezione e agenti in uniforme."
       },
       "datePublished": "2026-03-01T10:09:54+00:00",
-      "dateModified": "2026-03-01T10:09:54+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-confine-ticino-brogeda`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-confine-ticino-brogeda`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -362,11 +387,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama di Lugano al tramonto con un giornale finanziario in primo piano che discute i salari dei manager energetici."
       },
       "datePublished": "2026-03-01T10:32:27+00:00",
-      "dateModified": "2026-03-01T10:32:27+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendi-manager-energia-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stipendi-manager-energia-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -390,11 +417,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Giovane pensieroso con tablet, sullo sfondo una vista panoramica di Lugano e del suo lago dal Monte San Salvatore."
       },
       "datePublished": "2026-03-01T10:56:08+00:00",
-      "dateModified": "2026-03-01T10:56:08+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-educatori-germania-alternativa-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-educatori-germania-alternativa-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -418,11 +447,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica del villaggio di Gandria sul Lago di Lugano, con le case tradizionali e un accenno di nuove costruzioni in lontananza"
       },
       "datePublished": "2026-03-01T11:35:22+00:00",
-      "dateModified": "2026-03-01T11:35:22+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gandria-lusso-immobiliare-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gandria-lusso-immobiliare-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -446,11 +477,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Commuters in attesa alla fermata del bus a Lugano, con il lago e le montagne sullo sfondo, simbolo del pendolarismo ticinese."
       },
       "datePublished": "2026-03-01T11:44:50+00:00",
-      "dateModified": "2026-03-01T11:44:50+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vandalismo-bus-ticino-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vandalismo-bus-ticino-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -474,11 +507,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Bellinzona, Canton Ticino, in una giornata lavorativa, con edifici governativi sullo sfondo che richiamano il dibattito politico."
       },
       "datePublished": "2026-03-01T13:54:26+00:00",
-      "dateModified": "2026-03-01T13:54:26+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-voto-anti-dumping-salariale`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-voto-anti-dumping-salariale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -502,11 +537,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta notturna del lungolago di Lugano con auto in transito e luci della città riflesse sull'acqua, simbolo del traffico ticinese."
       },
       "datePublished": "2026-03-01T14:55:24+00:00",
-      "dateModified": "2026-03-01T14:55:24+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-stradali-ticino-frontalieri-marzo-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-stradali-ticino-frontalieri-marzo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -530,11 +567,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica della regione di Mendrisio, Canton Ticino, al confine con l'Italia, con strade e paesaggi tipici del frontalierato."
       },
       "datePublished": "2026-03-01T16:07:24+00:00",
-      "dateModified": "2026-03-01T16:07:24+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-confine-nuove-regole-fiscali`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-confine-nuove-regole-fiscali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -558,11 +597,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada panoramica lungo il Lago di Lugano all'alba, con auto che si dirigono verso la frontiera svizzera. Rappresenta il tragitto quotidiano dei frontalieri."
       },
       "datePublished": "2026-03-01T16:37:37+00:00",
-      "dateModified": "2026-03-01T16:37:37+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-stradale-frontaliere-porlezza`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-stradale-frontaliere-porlezza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -586,11 +627,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Autostrada A9 tra Chiasso e Como di notte, con chiusure per cantieri e luci di segnalazione accese, traffico di frontalieri."
       },
       "datePublished": "2026-03-01T16:48:27+00:00",
-      "dateModified": "2026-03-01T16:48:27+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -614,11 +657,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Una strada di Chiasso con una chiesa storica, persone che camminano, e l'atmosfera di una città di confine nel Mendrisiotto."
       },
       "datePublished": "2026-03-01T18:21:49+00:00",
-      "dateModified": "2026-03-01T18:21:49+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-comunita-evoluzione-sociale`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-comunita-evoluzione-sociale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -642,11 +687,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Casco da scooter posato su un muretto con vista sul Lago di Lugano all'alba, simbolo del pendolarismo transfrontaliero e della tragedia avvenuta a Porletta."
       },
       "datePublished": "2026-03-01T18:45:12+00:00",
-      "dateModified": "2026-03-01T18:45:12+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-pendolare-frontaliere-porletta`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-pendolare-frontaliere-porletta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -670,11 +717,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Autostrada A9 vicino al confine italo-svizzero, con luci di auto sfocate di notte, a causa di lavori stradali."
       },
       "datePublished": "2026-03-01T19:09:16+00:00",
-      "dateModified": "2026-03-01T19:09:16+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a9-como-chiasso-disagi-notturni-frontiera`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a9-como-chiasso-disagi-notturni-frontiera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -698,11 +747,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista vivace di Lugano con il lago e le montagne, persone che godono di attività all'aperto."
       },
       "datePublished": "2026-03-01T20:12:40+00:00",
-      "dateModified": "2026-03-01T20:12:40+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/economia-svizzera-ripresa-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/economia-svizzera-ripresa-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -726,11 +777,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Auto in coda al valico di frontiera di Brogeda tra Italia e Ticino, con le montagne svizzere sullo sfondo. Simbolo del pendolarismo frontaliero."
       },
       "datePublished": "2026-03-01T20:33:06+00:00",
-      "dateModified": "2026-03-01T20:33:06+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-nuova-mappa-fiscale-comuni-confine`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-nuova-mappa-fiscale-comuni-confine`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -754,11 +807,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Immagine di un'autostrada in entrata vicino a Chiasso al crepuscolo, con auto in movimento e luci sfocate, simbolo dei disagi e dei cantieri sulla A9."
       },
       "datePublished": "2026-03-01T20:47:16+00:00",
-      "dateModified": "2026-03-01T20:47:16+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a9-chiasso-como-marzo-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a9-chiasso-como-marzo-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -782,11 +837,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Autostrada A9 tra Chiasso e Como di notte, con luci di auto e traffico sfocate che indicano i lavori in corso al confine italo-svizzero."
       },
       "datePublished": "2026-03-01T21:09:14+00:00",
-      "dateModified": "2026-03-01T21:09:14+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a9-chiasso-como-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusura-notturna-a9-chiasso-como-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -810,11 +867,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Autostrada A9 al confine tra Chiasso e Como di notte, con lavori in corso e luci di cantiere, simbolo dei disagi per i frontalieri."
       },
       "datePublished": "2026-03-01T21:48:11+00:00",
-      "dateModified": "2026-03-01T21:48:11+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-a9-trasporti-speciali-como-chiasso`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-a9-trasporti-speciali-como-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -838,11 +897,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista di una via trafficata di Lugano, con persone che camminano, simboleggiando il dinamismo del mercato del lavoro ticinese."
       },
       "datePublished": "2026-03-01T22:10:14+00:00",
-      "dateModified": "2026-03-01T22:10:14+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-salari-ticino-voto-anti-dumping`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-salari-ticino-voto-anti-dumping`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -866,11 +927,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista urbana di Lugano, Ticino, con edifici moderni e persone che camminano, simbolo del dinamismo economico e del mercato del lavoro."
       },
       "datePublished": "2026-03-01T22:29:48+00:00",
-      "dateModified": "2026-03-01T22:29:48+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-voto-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-voto-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -894,11 +957,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada tortuosa vicino a Porlezza, con auto e scooter che si dirigono verso il confine, avvolta nella nebbia mattutina. Atmosfera suggestiva del pendolarismo."
       },
       "datePublished": "2026-03-01T22:56:19+00:00",
-      "dateModified": "2026-03-01T22:56:19+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontro-fatale-porlezza-frontaliere`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scontro-fatale-porlezza-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -922,11 +987,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica del Lago di Lugano e delle montagne circostanti, simbolo della regione di confine tra Italia e Svizzera."
       },
       "datePublished": "2026-03-01T23:18:17+00:00",
-      "dateModified": "2026-03-01T23:18:17+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-confine-disparita-fiscale`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-confine-disparita-fiscale`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -950,11 +1017,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama del lungolago di Lugano con edifici moderni e il Monte San Salvatore, simbolo dell'economia ticinese e delle sue sfide."
       },
       "datePublished": "2026-03-01T23:45:46+00:00",
-      "dateModified": "2026-03-01T23:45:46+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-anti-dumping-salari-ticino-voto`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-anti-dumping-salari-ticino-voto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -978,11 +1047,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Dipendenti di un'azienda moderna in Ticino con vista sulla Lombardia, simbolo di collaborazione transfrontaliera e benessere aziendale."
       },
       "datePublished": "2026-03-02T01:17:57+00:00",
-      "dateModified": "2026-03-02T01:17:57+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nestle-bonus-lombardia-welfare-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nestle-bonus-lombardia-welfare-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1006,11 +1077,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Autostrada A9 vicino a Chiasso con traffico pendolare e lavori stradali visibili all'alba o al tramonto."
       },
       "datePublished": "2026-03-02T04:17:25+00:00",
-      "dateModified": "2026-03-02T04:17:25+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a9-chiasso-como-chiusure-notturne-cantieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a9-chiasso-como-chiusure-notturne-cantieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1034,11 +1107,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con il lago e gli edifici commerciali, simbolo dell'attività economica ticinese in un contesto di rallentamento occupazionale."
       },
       "datePublished": "2026-03-02T05:26:02+00:00",
-      "dateModified": "2026-03-02T05:26:02+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-ticino-rallenta-2025`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-lavoro-ticino-rallenta-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1062,11 +1137,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "La frontiera italo-svizzera in un mattino sereno, con un valico di confine e il paesaggio circostante che sfuma all'orizzonte, simbolo delle complesse dinamiche fiscali."
       },
       "datePublished": "2026-03-02T05:54:09+00:00",
-      "dateModified": "2026-03-02T05:54:09+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-frontiera-nuove-regole-fiscali`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-frontiera-nuove-regole-fiscali`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1090,11 +1167,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Un frontaliere consulta i tassi di cambio CHF/EUR sul suo smartphone con il Lago di Lugano sullo sfondo, riflettendo sull'impatto del franco forte."
       },
       "datePublished": "2026-03-02T06:31:44+00:00",
-      "dateModified": "2026-03-02T06:31:44+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-forte-impatto-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-forte-impatto-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1118,11 +1197,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Casco da scooter a bordo strada con il Lago di Lugano sullo sfondo, simbolo del tragico incidente di un frontaliere"
       },
       "datePublished": "2026-03-02T06:53:59+00:00",
-      "dateModified": "2026-03-02T06:53:59+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-frontaliere-porlezza-via-ceresio`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tragedia-frontaliere-porlezza-via-ceresio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1146,11 +1227,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Autostrada A9 vicino a Chiasso all'alba, con lavori notturni e traffico pendolare al confine italo-svizzero."
       },
       "datePublished": "2026-03-02T07:03:43+00:00",
-      "dateModified": "2026-03-02T07:03:43+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a9-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-notturne-a9-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1174,11 +1257,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano, con il lago e le montagne circostanti, simbolo dell'economia ticinese in cui si discute il salario minimo."
       },
       "datePublished": "2026-03-02T07:29:12+00:00",
-      "dateModified": "2026-03-02T07:29:12+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-compromesso-ps-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-compromesso-ps-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1202,11 +1287,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta panoramica del centro di Lugano con il lago e il Monte San Salvatore, che riflette l'economia ticinese e le sue sfide salariali."
       },
       "datePublished": "2026-03-02T07:52:00+00:00",
-      "dateModified": "2026-03-02T07:52:00+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/compromesso-salario-minimo-condizioni`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/compromesso-salario-minimo-condizioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1230,11 +1317,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada principale di Chiasso con persone che camminano e la torre della chiesa sullo sfondo, simbolo di una comunità in evoluzione."
       },
       "datePublished": "2026-03-02T08:07:09+00:00",
-      "dateModified": "2026-03-02T08:07:09+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-comunita-cambiamento-valori`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-comunita-cambiamento-valori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1258,11 +1347,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada costiera nebbiosa lungo il Lago di Lugano, vicino a Porlezza, al mattino presto, con il faro di uno scooter in lontananza."
       },
       "datePublished": "2026-03-02T08:20:07+00:00",
-      "dateModified": "2026-03-02T08:20:07+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pendolarismo-fatale-frontaliere-porlezza`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pendolarismo-fatale-frontaliere-porlezza`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1286,11 +1377,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama di Lugano con il lago e le montagne, dove un gruppo di persone discute in primo piano, simbolo delle trattative sul salario minimo in Ticino."
       },
       "datePublished": "2026-03-02T08:32:27+00:00",
-      "dateModified": "2026-03-02T08:32:27+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-trattative-compromesso`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-trattative-compromesso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1314,11 +1407,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta del campus di Trevano a Lugano, Ticino, con edifici moderni e aree verdi sotto un cielo azzurro."
       },
       "datePublished": "2026-03-02T09:01:11+00:00",
-      "dateModified": "2026-03-02T09:01:11+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trevano-campus-riqualifica-12-milioni-lavori`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trevano-campus-riqualifica-12-milioni-lavori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1342,11 +1437,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Nuovo sagrato della Chiesa Madonna della Porta a Lavena Ponte Tresa, con vista sul lago di Lugano e l'attività frontaliera."
       },
       "datePublished": "2026-03-02T09:21:13+00:00",
-      "dateModified": "2026-03-02T09:21:13+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-nuovo-sagrato-chiesa`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-nuovo-sagrato-chiesa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1370,11 +1467,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Giovane professionista sul lungolago italiano di Lugano, guarda verso la sponda svizzera, riflettendo sulle opportunità di lavoro transfrontaliere."
       },
       "datePublished": "2026-03-02T09:43:02+00:00",
-      "dateModified": "2026-03-02T09:43:02+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sportello-lavoro-varese-frontalieri-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sportello-lavoro-varese-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1398,11 +1497,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada cantonale ticinese con segnaletica di velocità, in una zona di confine con montagne e abitazioni sullo sfondo, sotto un cielo mattutino."
       },
       "datePublished": "2026-03-02T10:14:54+00:00",
-      "dateModified": "2026-03-02T10:14:54+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-stradali-intensivi-frontiera-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-stradali-intensivi-frontiera-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1426,11 +1527,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Un autovelox mobile nascosto tra la vegetazione vicino a un valico di frontiera in Ticino, con veicoli in transito."
       },
       "datePublished": "2026-03-02T10:24:07+00:00",
-      "dateModified": "2026-03-02T10:24:07+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settimana-di-controlli-radar-intensivi-confine-ticino-marzo`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settimana-di-controlli-radar-intensivi-confine-ticino-marzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1454,11 +1557,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Controlli di frontiera intensificati al valico di Chiasso-Brogeda in Ticino con traffico di frontalieri."
       },
       "datePublished": "2026-03-02T11:11:03+00:00",
-      "dateModified": "2026-03-02T11:11:03+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-frontiera-ticino-rafforzati`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-frontiera-ticino-rafforzati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1482,11 +1587,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Lavori di risanamento sulla A13 nel tratto tra Cadenazzo e S. Antonino con cantieri e traffico regolato"
       },
       "datePublished": "2026-03-02T11:30:02+00:00",
-      "dateModified": "2026-03-02T11:30:02+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-risanamento-a13-cadenazzo-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-risanamento-a13-cadenazzo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1510,11 +1617,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Castel Grande a Bellinzona, simbolo del potere cantonale in Ticino, con il cielo azzurro."
       },
       "datePublished": "2026-03-02T12:42:37+00:00",
-      "dateModified": "2026-03-02T12:42:37+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-intesa-storica`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/salario-minimo-ticino-intesa-storica`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1538,11 +1647,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada cantonale in Ticino con controlli di velocità in corso"
       },
       "datePublished": "2026-03-02T13:02:20+00:00",
-      "dateModified": "2026-03-02T13:02:20+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-stradale-ticino-marzo`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-stradale-ticino-marzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1566,11 +1677,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Cantiere autostradale sulla A13 tra Cadenazzo e Sant'Antonino, Ticino, con luci di segnalazione e veicoli in transito."
       },
       "datePublished": "2026-03-02T13:23:18+00:00",
-      "dateModified": "2026-03-02T13:23:18+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a13-cantieri-frontalieri-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a13-cantieri-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1594,11 +1707,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama di Lugano, con il centro finanziario e il lago, simbolo di stabilità economica in Ticino."
       },
       "datePublished": "2026-03-02T15:52:24+00:00",
-      "dateModified": "2026-03-02T15:52:24+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-utile-calo-2025-impatto-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bns-utile-calo-2025-impatto-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1622,11 +1737,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Castel Grande a Bellinzona, simbolo di stabilità e sicurezza nel Canton Ticino."
       },
       "datePublished": "2026-03-02T17:34:53+00:00",
-      "dateModified": "2026-03-02T17:34:53+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-cantonale-nuovi-gendarmi`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-cantonale-nuovi-gendarmi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1650,11 +1767,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Edificio moderno della SUPSI a Mendrisio, centro di formazione tecnica in Ticino."
       },
       "datePublished": "2026-03-02T18:19:47+00:00",
-      "dateModified": "2026-03-02T18:19:47+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/competenze-tecniche-frontalieri-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/competenze-tecniche-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1678,11 +1797,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Castel Grande a Bellinzona, simbolo del Ticino, con il sole che sorge all'alba, a rappresentare l'inizio di un nuovo ciclo per la polizia cantonale."
       },
       "datePublished": "2026-03-02T18:42:09+00:00",
-      "dateModified": "2026-03-02T18:42:09+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-cantonale-reclutamento-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/polizia-cantonale-reclutamento-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1706,11 +1827,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista pittoresca del Lago di Lugano in Ticino."
       },
       "datePublished": "2026-03-02T19:17:12+00:00",
-      "dateModified": "2026-03-02T19:17:12+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-auto-febbraio-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mercato-auto-febbraio-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1734,11 +1857,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Nuovi poliziotti a Como, un segno di sicurezza per la comunità."
       },
       "datePublished": "2026-03-02T19:35:31+00:00",
-      "dateModified": "2026-03-02T19:35:31+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-nuovi-poliziotti-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-nuovi-poliziotti-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1762,11 +1887,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Mendrisio, Svizzera, con luci serali e lago calmo, simbolo di sicurezza e vita transfrontaliera."
       },
       "datePublished": "2026-03-02T19:56:10+00:00",
-      "dateModified": "2026-03-02T19:56:10+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sesto-calende-sicurezza-frontalieri`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sesto-calende-sicurezza-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1790,11 +1917,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Lago di Lugano con ristoranti all'aperto."
       },
       "datePublished": "2026-03-02T20:23:12+00:00",
-      "dateModified": "2026-03-02T20:23:12+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nessun-prelievo-avs-sulle-mance`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nessun-prelievo-avs-sulle-mance`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1818,11 +1947,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano e del suo lago, con le Alpi sullo sfondo, che simboleggia l'opportunità economica del Ticino."
       },
       "datePublished": "2026-03-02T21:09:04+00:00",
-      "dateModified": "2026-03-02T21:09:04+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-donne-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-donne-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1846,11 +1977,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista spettacolare di Lugano con lago e montagne."
       },
       "datePublished": "2026-03-02T21:37:28+00:00",
-      "dateModified": "2026-03-02T21:37:28+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-vantaggio-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-vantaggio-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1874,11 +2007,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista pittoresca di Lugano con lago e montagne."
       },
       "datePublished": "2026-03-02T21:59:50+00:00",
-      "dateModified": "2026-03-02T21:59:50+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/docenti-frontalieri-permesso-lavoro`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/docenti-frontalieri-permesso-lavoro`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1902,11 +2037,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista di Bellinzona con architettura storica e montagne."
       },
       "datePublished": "2026-03-02T22:16:35+00:00",
-      "dateModified": "2026-03-02T22:16:35+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-anti-dumping-ticino-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-anti-dumping-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1930,11 +2067,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica del Lago di Lugano e il confine italo-svizzero, con un'auto di un frontaliero parcheggiata all'alba."
       },
       "datePublished": "2026-03-02T22:48:09+00:00",
-      "dateModified": "2026-03-02T22:48:09+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-confine-fiscalita-disparita`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-confine-fiscalita-disparita`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1958,11 +2097,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Castelli di Bellinzona con paesaggio circostante."
       },
       "datePublished": "2026-03-02T23:01:10+00:00",
-      "dateModified": "2026-03-02T23:01:10+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-ue-pacchetto-accordi`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-ue-pacchetto-accordi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -1986,11 +2127,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con lago e montagne."
       },
       "datePublished": "2026-03-02T23:22:43+00:00",
-      "dateModified": "2026-03-02T23:22:43+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-berna-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-berna-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2014,11 +2157,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Bellinzona, Ticino con architettura storica."
       },
       "datePublished": "2026-03-02T23:53:59+00:00",
-      "dateModified": "2026-03-02T23:53:59+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-svizzera-vantaggio`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-svizzera-vantaggio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2042,11 +2187,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Edificio moderno a Lugano con richiami digitali, simbolo dell'innovazione AI transfrontaliera."
       },
       "datePublished": "2026-03-03T04:45:59+00:00",
-      "dateModified": "2026-03-03T04:45:59+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ai-lombardia-impatto-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ai-lombardia-impatto-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2070,11 +2217,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panoramica di Lugano con il lago, simbolo della resilienza economica ticinese di fronte alle crisi globali."
       },
       "datePublished": "2026-03-03T05:10:59+00:00",
-      "dateModified": "2026-03-03T05:10:59+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-golfo-carburanti-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-golfo-carburanti-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2098,11 +2247,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Stazione di servizio a Lugano con auto di frontalieri e pendolari, tipica scena ticinese."
       },
       "datePublished": "2026-03-03T05:38:48+00:00",
-      "dateModified": "2026-03-03T05:38:48+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rincari-benzina-frontalieri-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rincari-benzina-frontalieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2126,11 +2277,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Stazione di servizio in Ticino con vista sulle Alpi all'alba"
       },
       "datePublished": "2026-03-03T06:15:45+00:00",
-      "dateModified": "2026-03-03T06:15:45+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-olio-prezzi-benzina-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crisi-olio-prezzi-benzina-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2154,11 +2307,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Stazione di servizio nel Ticino al confine italo-svizzero con colonna carburante attiva"
       },
       "datePublished": "2026-03-03T06:26:08+00:00",
-      "dateModified": "2026-03-03T06:26:08+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-ticino-oriente`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-ticino-oriente`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2182,12 +2337,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta panoramica di Lugano con lago e montagne all'alba, Canton Ticino"
       },
       "datePublished": "2026-03-03T06:42:20+00:00",
-      "dateModified": "2026-03-03T06:42:20+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ai-lombardia-ticino-frontaliere-2026`
-
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ai-lombardia-ticino-frontaliere-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2211,11 +2367,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Auto in colonna al valico di frontiera di Chiasso con nuova corsia carpooling in Ticino"
       },
       "datePublished": "2026-03-03T08:38:23+00:00",
-      "dateModified": "2026-03-03T08:38:23+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carpooling-ticino-corsie-frontaliere-2026`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carpooling-ticino-corsie-frontaliere-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2239,11 +2397,13 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama del Lago di Lugano al tramonto."
       },
       "datePublished": "2026-03-03T08:52:06+00:00",
-      "dateModified": "2026-03-03T08:52:06+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-governo-svizzero`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-governo-svizzero`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -2267,12 +2427,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano, con il lago e le montagne sullo sfondo, simbolo dell’economia ticinese"
       },
       "datePublished": "2026-03-03T09:15:24+00:00",
-      "dateModified": "2026-03-03T09:15:24+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/kuhne-nagel-tagli-posti-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2297,12 +2457,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vigneti ticinesi con vista sul lago"
       },
       "datePublished": "2026-03-03T10:05:27+00:00",
-      "dateModified": "2026-03-03T10:05:27+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vini-ticinesi-collaborazione`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2327,12 +2487,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Giocatori di hockey su ghiaccio a Chiasso"
       },
       "datePublished": "2026-03-03T10:45:58+00:00",
-      "dateModified": "2026-03-03T10:45:58+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/hockey-chiasso-wild-boars-bis`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2357,12 +2517,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Svincolo autostradale A2 a Biasca, paesaggio ticinese e traffico"
       },
       "datePublished": "2026-03-03T11:32:33+00:00",
-      "dateModified": "2026-03-03T11:32:33+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svincolo-a2-biasca-rischi-frontaliere`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2387,12 +2547,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano al tramonto con il lago e le montagne."
       },
       "datePublished": "2026-03-03T12:07:44+00:00",
-      "dateModified": "2026-03-03T12:07:44+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordi-svizzera-ue-parmelin-bruxelles`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2417,12 +2577,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Treno regionale a Locarno con pendolari nel contesto montano ticinese"
       },
       "datePublished": "2026-03-03T13:07:32+00:00",
-      "dateModified": "2026-03-03T13:07:32+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-linea-locarno-cadenazzo-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2447,12 +2607,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama dal Monte Generoso con vista su Ticino e Varese in una giornata limpida"
       },
       "datePublished": "2026-03-03T13:39:09+00:00",
-      "dateModified": "2026-03-03T13:39:09+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/spirit-varesini-valico-tassa-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2477,12 +2637,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con il lago e le montagne circostanti."
       },
       "datePublished": "2026-03-08T17:03:19+00:00",
-      "dateModified": "2026-03-08T17:03:19+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-no-iniziativa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2507,12 +2667,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Viadotto Brogeda con paesaggio ticinese."
       },
       "datePublished": "2026-03-08T19:05:48+00:00",
-      "dateModified": "2026-03-08T19:05:48+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-viadotto-brogeda-como`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2537,12 +2697,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista del Lago di Lugano con montagne sullo sfondo."
       },
       "datePublished": "2026-03-08T21:04:20+00:00",
-      "dateModified": "2026-03-08T21:04:20+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziativa-contro-dumping-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2567,12 +2727,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista dei castelli di Bellinzona circondati da colline verdi."
       },
       "datePublished": "2026-03-08T21:54:21+00:00",
-      "dateModified": "2026-03-08T21:54:21+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-iniziativa-mps`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2597,12 +2757,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista dei castelli di Bellinzona circondati dal paesaggio"
       },
       "datePublished": "2026-03-08T23:01:39+00:00",
-      "dateModified": "2026-03-08T23:01:39+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/imposizione-individuale-rivoluzione-fiscale`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2627,12 +2787,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica del Lago di Lugano con montagne sullo sfondo."
       },
       "datePublished": "2026-03-08T23:59:47+00:00",
-      "dateModified": "2026-03-08T23:59:47+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-servizio-pubblico-canone-tv`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2657,12 +2817,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Bellinzona con castelli storici e mercato vivace."
       },
       "datePublished": "2026-03-09T05:29:39+00:00",
-      "dateModified": "2026-03-09T05:29:39+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/votazioni-federali-tassazione-individuale`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2687,12 +2847,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Università della Svizzera italiana (USI) e Scuola universitaria professionale della Svizzera italiana (SUPSI) a Bellinzona."
       },
       "datePublished": "2026-03-09T08:04:18+00:00",
-      "dateModified": "2026-03-09T08:04:18+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/universita-ticino-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2717,12 +2877,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con le Alpi svizzere sullo sfondo in una giornata limpida"
       },
       "datePublished": "2026-03-09T17:22:58+00:00",
-      "dateModified": "2026-03-09T17:22:58+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franco-svizzero-frontalieri-ricchi-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2747,12 +2907,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con montagne sullo sfondo e cielo sereno"
       },
       "datePublished": "2026-03-09T17:41:19+00:00",
-      "dateModified": "2026-03-09T17:41:19+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/energia-costi-ticino-rincari-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2777,12 +2937,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Auto che si rifornisce a Locarno, con vista sulle montagne."
       },
       "datePublished": "2026-03-09T20:02:22+00:00",
-      "dateModified": "2026-03-09T20:02:22+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-carburante-alle-stelle-quadri-berna-riduca-tasse`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2807,12 +2967,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Una donna in piedi su un molo di legno a Gandria, con una vista mozzafiato sul Lago di Lugano."
       },
       "datePublished": "2026-03-09T21:11:13+00:00",
-      "dateModified": "2026-03-09T21:11:13+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/un-test-per-dare-un-nome-al-dolore`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2837,12 +2997,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica del Lago di Lugano e delle montagne innevate."
       },
       "datePublished": "2026-03-09T23:08:47+00:00",
-      "dateModified": "2026-03-09T23:08:47+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumentare-gia-il-prezzo-della-benzina`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2867,12 +3027,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Auto della polizia locale di Lavena Ponte Tresa in azione per fermare i sospettati di furti nei supermercati."
       },
       "datePublished": "2026-03-10T00:03:12+00:00",
-      "dateModified": "2026-03-10T00:03:12+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furti-supermercati-ponte-tresa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2897,12 +3057,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Una pattuglia della Polizia Locale fermando un veicolo sospetto a Lavena Ponte Tresa, Ticino."
       },
       "datePublished": "2026-03-10T05:05:56+00:00",
-      "dateModified": "2026-03-10T05:05:56+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ladri-intercettati-lavena-ponte-tresa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2927,12 +3087,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica dei valichi di confine tra Ticino e Italia, con uffici cantonali sullo sfondo."
       },
       "datePublished": "2026-03-10T07:33:26+00:00",
-      "dateModified": "2026-03-10T07:33:26+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-ticino-no`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2957,12 +3117,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Uffici pubblici e valico di Gaggiolo in Ticino, scena urbana realistica"
       },
       "datePublished": "2026-03-10T10:09:52+00:00",
-      "dateModified": "2026-03-10T10:09:52+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sospensione-costi-utenti-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -2987,12 +3147,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Incidente stradale a Bioggio con pedone investito sul marciapiede"
       },
       "datePublished": "2026-03-10T12:03:12+00:00",
-      "dateModified": "2026-03-10T12:03:12+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/investimento-pedone-bioggio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3017,12 +3177,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Stazione ferroviaria di Bellinzona con persone e polizia in servizio in una giornata soleggiata."
       },
       "datePublished": "2026-03-10T14:42:02+00:00",
-      "dateModified": "2026-03-10T14:42:02+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-stazioni-treni-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3047,12 +3207,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Tir in colonna al valico di Brogeda con cantieri e disagi al confine italo-svizzero"
       },
       "datePublished": "2026-03-10T17:41:02+00:00",
-      "dateModified": "2026-03-10T17:41:02+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tir-colonna-disagi-valico-brogeda`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3077,12 +3237,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta fotorealistica di Bellinzona con i castelli storici, simbolo politico del Ticino"
       },
       "datePublished": "2026-03-10T19:57:37+00:00",
-      "dateModified": "2026-03-10T19:57:37+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iniziative-cassa-malati-costituzionalista-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3107,12 +3267,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica del lago di Lugano con villaggi e natura circostante in Ticino"
       },
       "datePublished": "2026-03-10T21:07:05+00:00",
-      "dateModified": "2026-03-10T21:07:05+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/investimenti-sicurezza-turismo-valsolda-26`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3137,12 +3297,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con evento culturale sullo sfondo e le montagne svizzere"
       },
       "datePublished": "2026-03-10T23:02:11+00:00",
-      "dateModified": "2026-03-10T23:02:11+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/premio-la-rondine-2026-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3167,12 +3327,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta panoramica di Lugano con le Alpi sullo sfondo in una giornata limpida di primavera."
       },
       "datePublished": "2026-03-10T23:57:24+00:00",
-      "dateModified": "2026-03-10T23:57:24+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassi-ipotecari-ticino-medio-oriente-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3197,12 +3357,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Fabbriche di armamenti svizzere con operai al lavoro, vista aerea di Bellinzona."
       },
       "datePublished": "2026-03-11T05:06:52+00:00",
-      "dateModified": "2026-03-11T05:06:52+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-export-bellico-svizzero-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3227,12 +3387,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista di Lugano con auto in movimento"
       },
       "datePublished": "2026-03-11T08:08:50+00:00",
-      "dateModified": "2026-03-11T08:08:50+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assicurazione-auto-rincari-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3257,12 +3417,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Una scena di vita quotidiana a Lugano con mezzi pubblici"
       },
       "datePublished": "2026-03-11T10:16:30+00:00",
-      "dateModified": "2026-03-11T10:16:30+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-biglietti-senza-contanti`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3287,12 +3447,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Lavoratori in un'azienda di Como"
       },
       "datePublished": "2026-03-11T12:16:45+00:00",
-      "dateModified": "2026-03-11T12:16:45+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aziende-como-assumono-lavoratori`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3317,12 +3477,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Coda di traffico sull'A2 presso Giornico con segnaletica di cantiere e montagne ticinesi"
       },
       "datePublished": "2026-03-11T14:56:52+00:00",
-      "dateModified": "2026-03-11T14:56:52+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/a2-giornico-cantiere-disagi-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3347,12 +3507,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Camion elettrici e tradizionali sulla strada nel Canton Ticino"
       },
       "datePublished": "2026-03-11T17:48:13+00:00",
-      "dateModified": "2026-03-11T17:48:13+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-traffico-pesante-camion-elettrici`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3377,12 +3537,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Camion e auto sulla strada con lago di Lugano sullo sfondo"
       },
       "datePublished": "2026-03-11T20:01:10+00:00",
-      "dateModified": "2026-03-11T20:01:10+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/logistica-sostenibile-a22`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3407,12 +3567,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Treno in ritardo alla stazione di Lugano"
       },
       "datePublished": "2026-03-11T21:10:14+00:00",
-      "dateModified": "2026-03-11T21:10:14+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/problemi-rotaia-bellinzona-lugano`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3437,12 +3597,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Auto con persone che condividono un viaggio in Ticino"
       },
       "datePublished": "2026-03-11T23:00:52+00:00",
-      "dateModified": "2026-03-11T23:00:52+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carpooling-aziendale-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3467,12 +3627,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Centrale elettrica a Lugano, Ticino"
       },
       "datePublished": "2026-03-11T23:59:02+00:00",
-      "dateModified": "2026-03-11T23:59:02+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/energia-ets-von-der-leyen`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3497,12 +3657,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Apprendisti frontalieri al valico di Locarno, con sfondo montano e traffico di passanti"
       },
       "datePublished": "2026-03-12T05:10:57+00:00",
-      "dateModified": "2026-03-12T05:10:57+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-apprendisti-frontali`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3527,12 +3687,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista del Lago di Lugano con montagne sullo sfondo."
       },
       "datePublished": "2026-03-12T08:15:36+00:00",
-      "dateModified": "2026-03-12T08:15:36+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/assegni-familiari-frontalieri-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3557,12 +3717,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Ambiente vivace a Chiasso, luogo di incontro per migranti."
       },
       "datePublished": "2026-03-12T10:24:00+00:00",
-      "dateModified": "2026-03-12T10:24:00+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dagatra-incontro-migranti-chiasso`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3587,12 +3747,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Fila all'ufficio postale di Chiasso"
       },
       "datePublished": "2026-03-12T17:43:54+00:00",
-      "dateModified": "2026-03-12T17:43:54+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ufficio-postale-chiasso-trasloco`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3617,12 +3777,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Il Castel Grande di Bellinzona, un'imponente fortezza medievale che domina la città."
       },
       "datePublished": "2026-03-12T20:04:30+00:00",
-      "dateModified": "2026-03-12T20:04:30+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/confine-tesissimo-assegni-familiari`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3647,12 +3807,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Il Cinema Teatro di Chiasso, sede del festival jazz, illuminato di notte."
       },
       "datePublished": "2026-03-12T21:11:40+00:00",
-      "dateModified": "2026-03-12T21:11:40+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-jazz-festival-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3677,12 +3837,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Apprendista cuoco con permesso di lavoro G"
       },
       "datePublished": "2026-03-12T23:06:54+00:00",
-      "dateModified": "2026-03-12T23:06:54+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apprendisti-frontalieri-riforma-permesso-g`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3707,12 +3867,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista aerea di Chiasso, con il confine e il traffico in primo piano."
       },
       "datePublished": "2026-03-12T23:58:37+00:00",
-      "dateModified": "2026-03-12T23:58:37+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-piano-regolatore-telefonia`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3737,12 +3897,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta del Castelgrande di Bellinzona, simbolo storico del Ticino, durante una giornata di sole."
       },
       "datePublished": "2026-03-13T05:09:19+00:00",
-      "dateModified": "2026-03-13T05:09:19+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensione-et-ticino-sentiero`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3767,12 +3927,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista di Lugano con il lago"
       },
       "datePublished": "2026-03-13T08:07:04+00:00",
-      "dateModified": "2026-03-13T08:07:04+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/paradosso-ticino-lavoro`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3797,12 +3957,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Polizia locale a Lavena Ponte Tresa"
       },
       "datePublished": "2026-03-13T10:07:51+00:00",
-      "dateModified": "2026-03-13T10:07:51+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-giro-spaccio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3827,12 +3987,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada trafficata a Lugano"
       },
       "datePublished": "2026-03-13T11:52:37+00:00",
-      "dateModified": "2026-03-13T11:52:37+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-decreto-omnibus`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3857,12 +4017,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Apertura della pesca in Ticino"
       },
       "datePublished": "2026-03-13T14:35:03+00:00",
-      "dateModified": "2026-03-13T14:35:03+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/apertura-pesca-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3887,12 +4047,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "La franchigia minima dell'assicurazione malattia potrebbe aumentare da 300 a 400 franchi."
       },
       "datePublished": "2026-03-13T17:44:42+00:00",
-      "dateModified": "2026-03-13T17:44:42+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cassa-malati-franchigia-minima-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3917,12 +4077,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Lavoratore frontaliero in ODV davanti al Lago di Lugano"
       },
       "datePublished": "2026-03-13T19:52:14+00:00",
-      "dateModified": "2026-03-13T19:52:14+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-tassa-salute-ritiro`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3947,12 +4107,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Incidente stradale nel tunnel di Trin"
       },
       "datePublished": "2026-03-13T20:31:24+00:00",
-      "dateModified": "2026-03-13T20:31:24+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trin-tunnel-grave-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -3977,12 +4137,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Chiasso, aree verdi e panorama sereno"
       },
       "datePublished": "2026-03-13T21:29:50+00:00",
-      "dateModified": "2026-03-13T21:29:50+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-verde-sufficiente`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4007,12 +4167,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Comitati e associazioni intorno a Malpensa chiedono l'assemblea del CUV per il 2026"
       },
       "datePublished": "2026-03-13T22:26:58+00:00",
-      "dateModified": "2026-03-13T22:26:58+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comitati-malpensa-cuv-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4037,12 +4197,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Operatore di borsa sul fiume Toce a Locarno"
       },
       "datePublished": "2026-03-13T23:25:47+00:00",
-      "dateModified": "2026-03-13T23:25:47+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4067,12 +4227,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica del Lago di Lugano con valico di frontiera e traffico in Ticino"
       },
       "datePublished": "2026-03-14T01:25:04+00:00",
-      "dateModified": "2026-03-14T01:25:04+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iran-tajani-non-tratta-navi`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4097,12 +4257,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Palazzi istituzionali e uffici a Bellinzona, Ticino, scena realistica"
       },
       "datePublished": "2026-03-14T04:10:54+00:00",
-      "dateModified": "2026-03-14T04:10:54+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordi-bilaterali-3-parlamento`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4127,12 +4287,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Centro raccolta rifiuti a Locarno, dove vengono smontate batterie da dispositivi elettronici."
       },
       "datePublished": "2026-03-14T05:50:27+00:00",
-      "dateModified": "2026-03-14T05:50:27+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/viaggio-delle-batterie-verso-seconda-vita`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4157,12 +4317,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Veduta fotorealistica di Bellinzona con i tre castelli e il centro storico in una giornata di primavera luminosa"
       },
       "datePublished": "2026-03-14T06:42:07+00:00",
-      "dateModified": "2026-03-14T06:42:07+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-parlamento-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4187,12 +4347,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica della città di Lugano con edifici residenziali e colline sullo sfondo in Ticino"
       },
       "datePublished": "2026-03-14T07:35:43+00:00",
-      "dateModified": "2026-03-14T07:35:43+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/affitti-rialzo-crisi-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4217,12 +4377,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con lago e montagne sullo sfondo in giornata primaverile luminosa"
       },
       "datePublished": "2026-03-14T08:31:53+00:00",
-      "dateModified": "2026-03-14T08:31:53+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-iii-ticino-parlamento-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4247,12 +4407,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Valico di Brogeda tra Italia e Ticino con frontalieri e veicoli in transito durante una giornata lavorativa."
       },
       "datePublished": "2026-03-14T09:31:01+00:00",
-      "dateModified": "2026-03-14T09:31:01+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/truffa-lavoro-svizzera-anticipo-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4277,12 +4437,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Stazione di servizio affollata vicino al confine italo-svizzero in Ticino con auto e montagne sullo sfondo"
       },
       "datePublished": "2026-03-14T10:25:32+00:00",
-      "dateModified": "2026-03-14T10:25:32+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-carburanti-prezzo-potere-acquisto`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4307,12 +4467,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "una foto di un valico di frontiera tra Italia e Svizzera"
       },
       "datePublished": "2026-03-14T11:39:29+00:00",
-      "dateModified": "2026-03-14T11:39:29+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-franchigia-minima`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4337,12 +4497,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Max 125 chars"
       },
       "datePublished": "2026-03-14T17:34:47+00:00",
-      "dateModified": "2026-03-14T17:34:47+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-swissminiatur-inaugura-miniera-doro-sessa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4367,12 +4527,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Lavena Ponte Tresa"
       },
       "datePublished": "2026-03-14T18:31:29+00:00",
-      "dateModified": "2026-03-14T18:31:29+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-addio-antonio-cannavale`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4397,12 +4557,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Lugano vista dal lago"
       },
       "datePublished": "2026-03-14T19:25:28+00:00",
-      "dateModified": "2026-03-14T19:25:28+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gravincidente-stradale-regina-feriti`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4427,12 +4587,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Locarno, Ticino"
       },
       "datePublished": "2026-03-14T20:24:20+00:00",
-      "dateModified": "2026-03-14T20:24:20+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scende-limite-nevicate-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4457,12 +4617,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama di Bellinzona con il Lago di Lugano"
       },
       "datePublished": "2026-03-14T21:24:38+00:00",
-      "dateModified": "2026-03-14T21:24:38+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-no-anti-dumping`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4487,12 +4647,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Strada della Val Bedretto a Bellinzona"
       },
       "datePublished": "2026-03-14T22:23:51+00:00",
-      "dateModified": "2026-03-14T22:23:51+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusa-val-bedretto`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4517,12 +4677,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Mendrisio con ristoranti e persone partecipanti al concorso passaporti di fedeltà"
       },
       "datePublished": "2026-03-14T23:24:29+00:00",
-      "dateModified": "2026-03-14T23:24:29+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/un-passaporto-di-fedelt`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4547,12 +4707,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Campo di baseball a Bellinzona"
       },
       "datePublished": "2026-03-15T01:50:21+00:00",
-      "dateModified": "2026-03-15T01:50:21+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/baseball-italia-porto-rico-world-classic`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4577,12 +4737,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista fotorealistica del confine italo-svizzero a Chiasso con autostrada e traffico verso il Ticino"
       },
       "datePublished": "2026-03-15T04:31:21+00:00",
-      "dateModified": "2026-03-15T04:31:21+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiusure-autostrada-confine-ticino-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4607,12 +4767,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Miniera d'Oro di Sessa a Swissminiatur, Ticino"
       },
       "datePublished": "2026-03-15T06:18:06+00:00",
-      "dateModified": "2026-03-15T06:18:06+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swissminiatur-miniera-doro-sessa`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4637,12 +4797,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista panoramica di Lugano con il lago"
       },
       "datePublished": "2026-03-15T07:50:20+00:00",
-      "dateModified": "2026-03-15T07:50:20+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sondaggio-tamedia-iva-esercito-avs`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4667,12 +4827,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Conflitto in Iran: rincari a cascata per le piccole imprese di Varese e Como"
       },
       "datePublished": "2026-03-15T08:50:44+00:00",
-      "dateModified": "2026-03-15T08:50:44+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/iran-conflitto-rincari-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4697,12 +4857,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Valle innevata in Ticino con neve fresca"
       },
       "datePublished": "2026-03-15T09:51:02+00:00",
-      "dateModified": "2026-03-15T09:51:02+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inverno-ticino-nevicate-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4727,12 +4887,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista di Bellinzona con il suo castello e montagne sullo sfondo."
       },
       "datePublished": "2026-03-15T11:25:53+00:00",
-      "dateModified": "2026-03-15T11:25:53+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/franchigia-minima-sanitario-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4757,12 +4917,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Vista di Bellinzona con i suoi castelli storici e montagne circostanti."
       },
       "datePublished": "2026-03-15T12:41:17+00:00",
-      "dateModified": "2026-03-15T12:41:17+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/svizzera-recessione-cieslakiewicz`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4787,12 +4947,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Paesaggio innevato in Ticino con valanghe in evidenza."
       },
       "datePublished": "2026-03-15T13:50:21+00:00",
-      "dateModified": "2026-03-15T13:50:21+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/valanghe-allerta-livello-4-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4817,12 +4977,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Paesaggio invernale in Ticino con montagne innevate."
       },
       "datePublished": "2026-03-15T14:32:27+00:00",
-      "dateModified": "2026-03-15T14:32:27+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nevicate-strade-bloccate-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4847,12 +5007,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Castelli di Bellinzona immersi nel verde con cielo blu."
       },
       "datePublished": "2026-03-15T15:29:43+00:00",
-      "dateModified": "2026-03-15T15:29:43+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/bilaterali-terza-fase-parlamento-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4877,12 +5037,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Campo da calcio urbano a Como con binari ferroviari sullo sfondo"
       },
       "datePublished": "2026-03-15T16:48:29+00:00",
-      "dateModified": "2026-03-15T16:48:29+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cane-morto-binarie-campo-calcio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4907,12 +5067,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "La nuova miniera d'oro a Swissminiatur a Melide nel Canton Ticino"
       },
       "datePublished": "2026-03-15T17:40:16+00:00",
-      "dateModified": "2026-03-15T17:40:16+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/swissminiatur-miniera-sessa-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4937,12 +5097,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Panorama di Lugano con il lago e le montagne sullo sfondo al tramonto"
       },
       "datePublished": "2026-03-15T18:59:29+00:00",
-      "dateModified": "2026-03-15T18:59:29+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/crescita-misera-libera-circolazione`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4967,12 +5127,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Treno pendolare sul lago di Lugano al tramonto con vista sulle montagne"
       },
       "datePublished": "2026-03-15T19:50:07+00:00",
-      "dateModified": "2026-03-15T19:50:07+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/treni-varese-milano-ceresio-express`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
     }
   },
@@ -4992,11 +5152,14 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "description": "Come ottimizzare il cambio franco-euro: confronto tra banche, fintech e broker, strategie di cambio frazionato e impatto fiscale.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1344, "height": 756, "caption": "Banconote in franchi svizzeri e euro su una scrivania con calcolatrice e grafici di cambio valuta" },
       "datePublished": "2026-03-15T20:00:00+01:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-cambio-franco-euro-frontaliere`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-cambio-franco-euro-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5014,11 +5177,14 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "description": "Guida completa alla pensione per chi lavora in Svizzera: tre pilastri, totalizzazione Italia-Svizzera e simulazione della rendita.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.webp`, "width": 1344, "height": 756, "caption": "Coppia di pensionati che passeggia lungo il lago di Lugano con le Alpi sullo sfondo" },
       "datePublished": "2026-03-15T20:01:00+01:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
       "articleSection": "Pensione",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-pensione-frontaliere-avs-lpp`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-pensione-frontaliere-avs-lpp`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5036,11 +5202,14 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "description": "Permesso B o Permesso G? Confronto dettagliato su costi, tasse, sanità, qualità della vita con esempi pratici 2026.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/locarno.webp`, "width": 1344, "height": 756, "caption": "Vista panoramica del confine italo-svizzero con il lago di Lugano e i tetti di un villaggio italiano" },
       "datePublished": "2026-03-15T20:02:00+01:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5058,11 +5227,14 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "description": "Guida ai diritti del lavoratore frontaliere contro il dumping salariale: forme più comuni, a chi rivolgersi e procedure legali.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio.webp`, "width": 1344, "height": 756, "caption": "Operai su un cantiere edile in Ticino con elmetti di sicurezza e documentazione contrattuale" },
       "datePublished": "2026-03-15T20:03:00+01:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
       "articleSection": "Fiscale",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-diritti-lavoratore-ticino`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dumping-salariale-diritti-lavoratore-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5080,11 +5252,14 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "description": "Tutto sulla copertura sanitaria del frontaliere: LAMal vs CMI, indennità giornaliere, protezione dal licenziamento e malattie rare.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1344, "height": 756, "caption": "Medico in camice bianco in un ospedale svizzero che consulta documenti con un paziente" },
       "datePublished": "2026-03-15T20:04:00+01:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malattia-frontaliere-guida-assicurazione`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/malattia-frontaliere-guida-assicurazione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5102,11 +5277,14 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
       "description": "Panoramica completa dei calcolatori e comparatori gratuiti per frontalieri: stipendio, cambio, assicurazione, pensione e lavoro.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1344, "height": 756, "caption": "Schermo di computer con grafici finanziari e calcolatrice in un ufficio moderno con vista sulle montagne" },
       "datePublished": "2026-03-15T20:05:00+01:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
       "articleSection": "Pratico",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strumenti-frontaliere-guida-comparatori`
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/strumenti-frontaliere-guida-comparatori`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true
     }
   },
 
@@ -5130,12 +5308,12 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
         "caption": "Stazione di servizio in Ticino con prezzi carburante elevati, auto in rifornimento, montagne sullo sfondo"
       },
       "datePublished": "2026-03-15T20:50:49+00:00",
-      "dateModified": "2026-03-15T20:50:49+00:00",
+      "dateModified": BUILD_DATE_ISO,
       "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Frontaliere Ticino", "jobTitle": "Esperto fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo", "worksFor": {"@id": "https://frontaliereticino.ch/#organization"}},
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/caro-carburante-benzina-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
       "isAccessibleForFree": true
 
     }
