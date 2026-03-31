@@ -61,7 +61,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           "ratingCount": "1247",
           "bestRating": "5",
           "worstRating": "1"
-        }
+        },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -237,7 +238,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "CollectionPage",
         "name": "Comparatori Servizi Frontalieri",
         "url": `${BASE_URL}/compara-servizi`,
-        "description": "Strumenti di confronto per servizi essenziali per lavoratori frontalieri"
+        "description": "Strumenti di confronto per servizi essenziali per lavoratori frontalieri",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
@@ -283,7 +285,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "CollectionPage",
         "name": "Calcolatore Stipendio Frontaliere",
         "url": `${BASE_URL}/calcola-stipendio`,
-        "description": "Raccolta strumenti di calcolo per lavoratori frontalieri Svizzera-Italia"
+        "description": "Raccolta strumenti di calcolo per lavoratori frontalieri Svizzera-Italia",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
@@ -327,7 +330,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "CollectionPage",
         "name": "Guida Frontaliere Svizzera-Italia",
         "url": `${BASE_URL}/guida-frontaliere`,
-        "description": "Guida completa per lavoratori frontalieri tra Svizzera e Italia"
+        "description": "Guida completa per lavoratori frontalieri tra Svizzera e Italia",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
@@ -406,7 +410,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "CollectionPage",
         "name": "Fisco e Previdenza Frontalieri",
         "url": `${BASE_URL}/tasse-e-pensione`,
-        "description": "Strumenti e guide su fisco e previdenza per frontalieri Svizzera-Italia"
+        "description": "Strumenti e guide su fisco e previdenza per frontalieri Svizzera-Italia",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
@@ -486,7 +491,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "WebPage",
         "name": "Aliquote imposta alla fonte Ticino 2026",
         "url": `${BASE_URL}/tasse-e-pensione/aliquote-imposta-alla-fonte-ticino-2026`,
-        "description": "Guida pratica alle tabelle A, B, C e H del Ticino per frontalieri con esempi di aliquota, FAQ e link ai simulatori fiscali."
+        "description": "Guida pratica alle tabelle A, B, C e H del Ticino per frontalieri con esempi di aliquota, FAQ e link ai simulatori fiscali.",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
@@ -547,6 +553,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Simulazione Tasse Nuovi Frontalieri 2026",
         "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri`,
         "description": "Guida e simulatore per il calcolo delle tasse dei nuovi frontalieri secondo il nuovo accordo fiscale Italia-Svizzera 2024.",
+        "inLanguage": "it",
         "dateModified": BUILD_DATE_ISO,
       },
       {
@@ -603,7 +610,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "CollectionPage",
         "name": "Vita in Ticino per Frontalieri",
         "url": `${BASE_URL}/vivere-in-ticino`,
-        "description": "Guide e strumenti sulla vita quotidiana in Ticino per lavoratori frontalieri"
+        "description": "Guide e strumenti sulla vita quotidiana in Ticino per lavoratori frontalieri",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
@@ -650,7 +658,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Confronto tassi di cambio CHF/EUR in tempo reale tra 6 provider: Wise, Revolut, PostFinance, UBS, Raiffeisen, N26",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -681,7 +690,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Confronto costi mensili di 6 operatori mobili svizzeri con roaming illimitato in Italia",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -711,7 +721,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Calcola e confronta i costi reali di trasporto per frontalieri: auto, treno e bus",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -731,7 +742,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Confronta premi assicurazione sanitaria LAMal di 14 assicuratori svizzeri in 7 cantoni",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -762,7 +774,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Confronto conti correnti e servizi bancari tra banche svizzere e italiane per lavoratori frontalieri",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -782,7 +795,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Strumento per calcolare e pianificare la pensione dei lavoratori frontalieri tra Svizzera e Italia",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -846,7 +860,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "WebPage",
         "name": "Statistiche frontalieri e osservatorio lavoro Ticino 2026",
         "url": `${BASE_URL}/statistiche`,
-        "description": "Dati statistici sui frontalieri e osservatorio del job board Ticino con aziende, località e trend delle offerte"
+        "description": "Dati statistici sui frontalieri e osservatorio del job board Ticino con aziende, località e trend delle offerte",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
@@ -854,8 +869,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Statistiche frontalieri e osservatorio offerte lavoro Ticino 2026",
         "description": "Dati statistici sui frontalieri svizzeri-italiani e osservatorio del job board Ticino: numero permessi G, aziende attive, localities, trend offerte e statistiche BFS 2026.",
         "dateModified": BUILD_DATE_ISO,
+        "datePublished": "2024-01-01",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
+        "temporalCoverage": "2024/2026",
+        "variableMeasured": [
+          { "@type": "PropertyValue", "name": "Numero frontalieri", "value": "~79.000 (2025)" },
+          { "@type": "PropertyValue", "name": "Offerte lavoro attive", "value": "Aggiornate quotidianamente" },
+          { "@type": "PropertyValue", "name": "Aziende attive", "value": "100+ aziende ticinesi" },
+          { "@type": "PropertyValue", "name": "Trend offerte", "value": "Variazione giornaliera annunci" }
+        ],
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche` }]
       },
       {
@@ -883,7 +906,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "WebPage",
       "name": "Aiutaci a Migliorare - Segnalazioni e Suggerimenti",
       "url": `${BASE_URL}/supporto`,
-      "description": "Segnala bug e suggerisci funzionalità per il simulatore fiscale frontalieri Svizzera-Italia su GitHub"
+      "description": "Segnala bug e suggerisci funzionalità per il simulatore fiscale frontalieri Svizzera-Italia su GitHub",
+      "inLanguage": "it"
     }
   },
 
@@ -905,7 +929,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Simulazione scenari fiscali per frontalieri: come cambiano le tasse con figlio, stipendio diverso, stato civile",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -934,7 +959,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Confronta fino a 4 offerte di lavoro in Svizzera con calcolo netto reale: tasse, trasporto, benefit",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1090,7 +1116,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Calcola risparmio fiscale e crescita del 3° pilastro svizzero (3a e 3b) con proiezione a lungo termine",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -1153,7 +1180,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "WebPage",
       "name": "Newsletter Frontalieri",
       "url": `${BASE_URL}/newsletter`,
-      "description": "Newsletter settimanale per frontalieri con cambio CHF/EUR, traffico valichi e novità fiscali"
+      "description": "Newsletter settimanale per frontalieri con cambio CHF/EUR, traffico valichi e novità fiscali",
+      "inLanguage": "it"
     }
   },
 
@@ -1177,7 +1205,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "CHF"
-        }
+        },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -1232,7 +1261,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "Offer",
         "price": "0",
         "priceCurrency": "CHF"
-      }
+      },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1323,7 +1353,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Calcola costi reali del pendolarismo frontaliere: benzina, autostrada, usura auto, abbonamenti treno e bus",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1394,7 +1425,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Mappa interattiva dei comuni italiani di frontiera con distanze dai valichi e informazioni utili",
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -1592,7 +1624,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Confronta lo stipendio netto a parità di RAL tra Italia e Svizzera: IRPEF, INPS, imposta alla fonte, contributi sociali svizzeri",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1611,7 +1644,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Calcola congedo maternità e paternità per frontalieri: IPG svizzera vs INPS italiana, importi e documenti",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1630,7 +1664,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Mappa interattiva dei comuni italiani di frontiera: addizionali IRPEF, distanza dal confine, costo affitti",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1654,7 +1689,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           "@type": "Offer",
           "price": "0",
           "priceCurrency": "CHF"
-        }
+        },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -1662,6 +1698,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Previsioni Meteo Lugano e Como per Frontalieri",
         "url": `${BASE_URL}/buongiorno-frontaliere`,
         "description": "Previsioni meteo in tempo reale per Lugano (CH) e Como (IT): temperatura, umidità, vento, alba e tramonto",
+        "inLanguage": "it",
         "about": [
           {
             "@type": "City",
@@ -1789,7 +1826,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Simula il costo del cambio residenza tra Italia e Svizzera: confronto costi mensili, costi una tantum, break-even",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1808,7 +1846,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Quiz interattivo per stimare lo stipendio netto come frontaliere in Svizzera",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1827,7 +1866,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Simula la busta paga svizzera con deduzioni AVS, AC, LAA, LPP e imposta alla fonte per frontalieri",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web Browser",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -1847,7 +1887,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Confronto fiscale tra permesso G (frontaliere) e permesso B (dimora): tasse, contributi, costi",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -2019,6 +2060,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "name": "Community Frontalieri",
       "url": `${BASE_URL}/community`,
       "description": "Forum della community dei frontalieri: domande e risposte su tasse, permessi, assicurazioni",
+      "inLanguage": "it",
       "about": {
         "@type": "DiscussionForum",
         "name": "Forum Frontalieri Svizzera-Italia"
@@ -2041,7 +2083,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Dashboard personale per frontalieri: salva simulazioni fiscali, confronta risultati nel tempo, esporta PDF",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -2086,7 +2129,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Calcola il credito d'imposta per evitare la doppia tassazione Svizzera-Italia per lavoratori frontalieri",
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -2151,6 +2195,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Offerte di Lavoro Ticino per Frontalieri",
         "url": `${BASE_URL}/cerca-lavoro-ticino`,
         "description": "Bacheca lavoro con offerte aggiornate per frontalieri in Ticino. Posizioni in diversi settori: tecnologia, finanza, farmaceutica, sanità, industria.",
+        "inLanguage": "it",
         "about": {
           "@type": "Thing",
           "name": "Lavoro Frontalieri Ticino"
@@ -2305,6 +2350,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "operatingSystem": "All",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
       "inLanguage": "it",
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     },
   },
 
@@ -2328,6 +2374,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "operatingSystem": "All",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
         "inLanguage": "it",
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -2382,6 +2429,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "operatingSystem": "All",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
         "inLanguage": "it",
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -2428,6 +2476,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "operatingSystem": "All",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
         "inLanguage": "it",
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       }
     ],
   },
@@ -2743,7 +2792,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Confronto costi e disponibilità asili nido tra Canton Ticino e Italia per famiglie di frontalieri",
         "applicationCategory": "LifestyleApplication",
         "operatingSystem": "Web",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
       },
       {
         "@context": "https://schema.org",
@@ -2782,7 +2832,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Calcola la tassazione di bonus e tredicesima per lavoratori frontalieri",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -2801,7 +2852,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Calcola le detrazioni per ristrutturazione casa disponibili per frontalieri residenti in Italia",
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
-      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" }
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -2822,8 +2874,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "url": `${BASE_URL}/statistiche/confronta-stipendi`,
         "description": "Database salariale con 60 professioni in 15 settori: range min-mediano-max per livello junior, mid e senior. Dati Svizzera (CHF) e Italia (EUR) per lavoratori frontalieri.",
         "dateModified": BUILD_DATE_ISO,
+        "datePublished": "2024-06-01",
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+        "temporalCoverage": "2023/2026",
+        "variableMeasured": [
+          { "@type": "PropertyValue", "name": "Stipendio mediano", "value": "CHF per settore e livello" },
+          { "@type": "PropertyValue", "name": "Settore economico", "value": "15 settori" },
+          { "@type": "PropertyValue", "name": "Livello esperienza", "value": "Junior, Mid, Senior" },
+          { "@type": "PropertyValue", "name": "Range salariale", "value": "Min-Mediano-Max in CHF e EUR" }
+        ],
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/confronta-stipendi` }]
       },
       {
@@ -2854,8 +2914,16 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/statistiche/migliori-comuni-frontiera`,
       "description": "Classifica dei migliori comuni italiani di frontiera per qualità della vita, servizi e distanza dalla dogana",
       "dateModified": BUILD_DATE_ISO,
+      "datePublished": "2024-06-01",
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "temporalCoverage": "2024/2026",
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Qualità della vita", "value": "Indice composito per comune" },
+        { "@type": "PropertyValue", "name": "Distanza dalla dogana", "value": "km dal valico più vicino" },
+        { "@type": "PropertyValue", "name": "Costo della vita", "value": "Indice relativo affitti e servizi" },
+        { "@type": "PropertyValue", "name": "Servizi disponibili", "value": "Scuole, trasporti, sanità" }
+      ],
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/migliori-comuni-frontiera` }]
     }
   },
@@ -2877,6 +2945,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "dateModified": BUILD_DATE_ISO,
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+        "datePublished": "2024-06-01",
+        "temporalCoverage": "2024/2026",
+        "variableMeasured": [
+          { "@type": "PropertyValue", "name": "Numero annunci attivi", "value": "Conteggio offerte per azienda e località" },
+          { "@type": "PropertyValue", "name": "Range salariale", "value": "CHF lordi annui osservati negli annunci" },
+          { "@type": "PropertyValue", "name": "Distribuzione settoriale", "value": "Ruoli più richiesti per settore" },
+          { "@type": "PropertyValue", "name": "Tendenze località", "value": "Comuni più attivi per volume annunci" }
+        ],
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/jobs-stats.json` }]
       },
       {
@@ -2907,6 +2983,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "datePublished": "2024-01-01",
+      "temporalCoverage": "2020/2026",
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Volume veicoli", "value": "Transiti giornalieri per valico" },
+        { "@type": "PropertyValue", "name": "Tendenze settimanali", "value": "Distribuzione traffico per giorno della settimana" },
+        { "@type": "PropertyValue", "name": "Tendenze mensili", "value": "Variazione stagionale del traffico" },
+        { "@type": "PropertyValue", "name": "Confronto valichi", "value": "Ranking valichi per volume" }
+      ],
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/storico-traffico-dogane` }]
     }
   },
@@ -2927,6 +3011,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "SECO — Segreteria di Stato dell'economia" },
+      "datePublished": "2016-01-01",
+      "temporalCoverage": "2016/2026",
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Tasso di disoccupazione", "value": "Percentuale mensile registrata SECO" },
+        { "@type": "PropertyValue", "name": "Media annuale", "value": "Tasso medio per anno solare" },
+        { "@type": "PropertyValue", "name": "Minimo storico", "value": "Valore più basso nel periodo" },
+        { "@type": "PropertyValue", "name": "Massimo storico", "value": "Valore più alto nel periodo" }
+      ],
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/switzerland-unemployment-rate.json` }]
     }
   },
@@ -2947,7 +3039,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "applicationCategory": "FinanceApplication",
       "operatingSystem": "Web",
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
-      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" }
+      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
     }
   },
 
@@ -2967,6 +3060,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "datePublished": "2024-01-01",
+      "temporalCoverage": "2024/2026",
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Prezzo benzina Italia", "value": "EUR/litro per comune di confine" },
+        { "@type": "PropertyValue", "name": "Prezzo benzina Svizzera", "value": "CHF/litro stazioni vicine" },
+        { "@type": "PropertyValue", "name": "Differenza prezzo", "value": "Risparmio percentuale IT vs CH" },
+        { "@type": "PropertyValue", "name": "Ranking stazioni", "value": "Classifica per prezzo più conveniente" }
+      ],
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/fuel-prices.json` }]
     }
   },
@@ -2987,6 +3088,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "datePublished": "2024-01-01",
+      "temporalCoverage": "2024/2026",
+      "variableMeasured": [
+        { "@type": "PropertyValue", "name": "Premio mensile LAMal", "value": "CHF/mese per comune e fascia d'età" },
+        { "@type": "PropertyValue", "name": "Differenza cantonale", "value": "Variazione premio tra cantoni" },
+        { "@type": "PropertyValue", "name": "Evoluzione storica", "value": "Trend premi negli ultimi anni" },
+        { "@type": "PropertyValue", "name": "Risparmio potenziale", "value": "Differenza cambiando comune di residenza" }
+      ],
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/health-premiums.json` }]
     }
   },
@@ -3008,6 +3117,14 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "dateModified": BUILD_DATE_ISO,
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+        "datePublished": "2024-01-01",
+        "temporalCoverage": "2020/2026",
+        "variableMeasured": [
+          { "@type": "PropertyValue", "name": "Importo ristorni", "value": "EUR per comune italiano di frontiera" },
+          { "@type": "PropertyValue", "name": "Andamento storico", "value": "Trend annuale importi versati" },
+          { "@type": "PropertyValue", "name": "Confronto provinciale", "value": "Distribuzione per provincia (Como, Varese, VCO)" },
+          { "@type": "PropertyValue", "name": "Totale annuo", "value": "Somma complessiva ristorni versati" }
+        ],
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali` }]
       },
       {
@@ -3107,7 +3224,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "CollectionPage",
       "name": "Servizi Partner per Frontalieri",
       "url": `${BASE_URL}/servizi-partner`,
-      "description": "Raccolta di servizi professionali selezionati per lavoratori frontalieri"
+      "description": "Raccolta di servizi professionali selezionati per lavoratori frontalieri",
+      "inLanguage": "it"
     }
   },
 
@@ -3123,7 +3241,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "WebPage",
       "name": "Gamification Frontaliere",
       "url": `${BASE_URL}/gamificazione`,
-      "description": "Sistema di gamification con livelli, obiettivi e punti XP per frontalieri"
+      "description": "Sistema di gamification con livelli, obiettivi e punti XP per frontalieri",
+      "inLanguage": "it"
     }
   },
 
@@ -3139,7 +3258,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "WebPage",
       "name": "Privacy Policy",
       "url": `${BASE_URL}/privacy`,
-      "description": "Informativa sulla privacy di Frontaliere Ticino"
+      "description": "Informativa sulla privacy di Frontaliere Ticino",
+      "inLanguage": "it"
     }
   },
 
@@ -3155,7 +3275,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "WebPage",
       "name": "Termini di Servizio",
       "url": `${BASE_URL}/termini-di-servizio`,
-      "description": "Termini e condizioni di utilizzo di Frontaliere Ticino"
+      "description": "Termini e condizioni di utilizzo di Frontaliere Ticino",
+      "inLanguage": "it"
     }
   },
 
@@ -3171,7 +3292,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "WebPage",
       "name": "Benvenuto Frontaliere",
       "url": "https://frontaliereticino.ch/benvenuto-frontaliere",
-      "description": "Pagina di benvenuto per i nuovi iscritti alla newsletter di Frontaliere Ticino"
+      "description": "Pagina di benvenuto per i nuovi iscritti alla newsletter di Frontaliere Ticino",
+      "inLanguage": "it"
     }
   },
 
@@ -3187,7 +3309,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "WebPage",
       "name": "Eliminazione Dati Personali",
       "url": `${BASE_URL}/eliminazione-dati`,
-      "description": "Procedura per richiedere l\'eliminazione dei dati personali"
+      "description": "Procedura per richiedere l\'eliminazione dei dati personali",
+      "inLanguage": "it"
     }
   },
 
@@ -3204,6 +3327,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "name": "Stato dei Servizi API",
       "url": `${BASE_URL}/stato-api`,
       "description": "Stato in tempo reale dei servizi API utilizzati da Frontaliere Ticino",
+      "inLanguage": "it",
       "about": {
         "@type": "WebAPI",
         "name": "API Frontaliere Ticino",
@@ -3227,7 +3351,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "CollectionPage",
         "name": "Articoli per Frontalieri",
         "url": `${BASE_URL}/articoli-frontaliere`,
-        "description": "Raccolta di articoli e guide pratiche per lavoratori frontalieri Svizzera-Italia"
+        "description": "Raccolta di articoli e guide pratiche per lavoratori frontalieri Svizzera-Italia",
+        "inLanguage": "it"
       },
       {
         "@context": "https://schema.org",
