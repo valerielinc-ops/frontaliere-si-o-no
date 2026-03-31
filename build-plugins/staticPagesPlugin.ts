@@ -1383,7 +1383,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             } catch { /* structured data not parseable, skip FAQ rendering */ }
           }
 
-          const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${editorialBlocks.map((b) => `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${faqHtml}${relatedHtml}</div>`;
+          const LAST_UPDATED_LABEL: Record<string, string> = {
+            it: 'Ultimo aggiornamento',
+            en: 'Last updated',
+            de: 'Letzte Aktualisierung',
+            fr: 'Dernière mise à jour',
+          };
+          const dateLabel = LAST_UPDATED_LABEL[locale] ?? LAST_UPDATED_LABEL.it;
+          const dateFormatLocale = locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB';
+          const formattedDate = new Date().toLocaleDateString(dateFormatLocale, { month: 'long', year: 'numeric' });
+          const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:#94a3b8"><time datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
+          const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${editorialBlocks.map((b) => `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${faqHtml}${relatedHtml}</div>`;
 
           // Detect page section from URL for skeleton-aligned static content
           const urlSegs = urlPath.split('/').filter(Boolean);

@@ -71,16 +71,14 @@ export const SCHEMA_PUBLISHER = {
 } as const;
 
 /**
- * Expert Person author for blog articles — AI systems give +25% citation
- * boost for named expert authors vs anonymous Organization authors.
- * Used in BlogPosting/NewsArticle structured data.
+ * Organization author for blog articles and editorial content.
+ * Uses @id reference to the standalone Organization in index.html
+ * for knowledge graph consistency. AI systems recognize Organization
+ * authors with strong E-E-A-T signals (knowsAbout, areaServed)
+ * from the referenced Organization entity.
  */
 export const SCHEMA_EXPERT_AUTHOR = {
-  "@type": "Person",
-  "name": "Frontaliere Ticino",
-  "jobTitle": "Esperto fiscale frontalieri",
-  "url": `${BASE_URL}/chi-siamo`,
-  "worksFor": { "@id": `${BASE_URL}/#organization` },
+  "@id": `${BASE_URL}/#organization`,
 } as const;
 
 /**

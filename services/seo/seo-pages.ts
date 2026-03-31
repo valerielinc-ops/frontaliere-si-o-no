@@ -843,6 +843,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@type": "Dataset",
         "name": "Statistiche frontalieri e osservatorio offerte lavoro Ticino 2026",
         "description": "Dati statistici sui frontalieri svizzeri-italiani e osservatorio del job board Ticino: numero permessi G, aziende attive, localities, trend offerte e statistiche BFS 2026.",
+        "dateModified": BUILD_DATE_ISO,
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche` }]
@@ -1695,6 +1696,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Come trasferire l'auto dall'Italia alla Svizzera",
         "url": `${BASE_URL}/guida-frontaliere/trasferire-auto-svizzera`,
         "description": "Guida passo-passo per importare e immatricolare un veicolo italiano in Svizzera",
+        "totalTime": "PT30M",
         "step": [
           { "@type": "HowToStep", "name": "Assicurazione svizzera", "text": "Stipulare un'assicurazione RC con una compagnia svizzera" },
           { "@type": "HowToStep", "name": "Sdoganamento", "text": "Dichiarare il veicolo alla dogana svizzera con il modulo 18.44" },
@@ -2799,6 +2801,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Confronto Stipendi Frontalieri Svizzera-Italia 2026",
         "url": `${BASE_URL}/statistiche/confronta-stipendi`,
         "description": "Database salariale con 60 professioni in 15 settori: range min-mediano-max per livello junior, mid e senior. Dati Svizzera (CHF) e Italia (EUR) per lavoratori frontalieri.",
+        "dateModified": BUILD_DATE_ISO,
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/confronta-stipendi` }]
@@ -2830,6 +2833,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "name": "Classifica Migliori Comuni di Frontiera 2026",
       "url": `${BASE_URL}/statistiche/migliori-comuni-frontiera`,
       "description": "Classifica dei migliori comuni italiani di frontiera per qualità della vita, servizi e distanza dalla dogana",
+      "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/migliori-comuni-frontiera` }]
@@ -2850,6 +2854,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Osservatorio stipendi e lavori in Ticino",
         "url": `${BASE_URL}/statistiche/osservatorio-stipendi-lavori-ticino`,
         "description": "Osservatorio giornaliero del job board Frontaliere Ticino con trend annunci, aziende attive, localita piu dinamiche e salary range osservati nelle offerte.",
+        "dateModified": BUILD_DATE_ISO,
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/jobs-stats.json` }]
@@ -2879,6 +2884,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "name": "Storico Traffico Dogane Svizzera-Italia",
       "url": `${BASE_URL}/statistiche/storico-traffico-dogane`,
       "description": "Dati storici del traffico ai valichi di frontiera tra Svizzera e Italia con tendenze e confronti",
+      "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/statistiche/storico-traffico-dogane` }]
@@ -2898,6 +2904,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "name": "Tasso di Disoccupazione Svizzera",
       "url": `${BASE_URL}/statistiche/disoccupazione-svizzera`,
       "description": "Serie storica mensile del tasso di disoccupazione registrata in Svizzera (SECO) dal 2016",
+      "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "SECO — Segreteria di Stato dell'economia" },
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/switzerland-unemployment-rate.json` }]
@@ -2937,6 +2944,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "name": "Prezzi benzina al confine Italia-Svizzera",
       "url": `${BASE_URL}/statistiche/prezzi-benzina-confine`,
       "description": "Dataset comparativo dei prezzi benzina tra comuni di confine italiani e stazioni svizzere dell'area di frontiera.",
+      "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/fuel-prices.json` }]
@@ -2956,6 +2964,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "name": "Premi cassa malati per comune svizzero",
       "url": `${BASE_URL}/statistiche/premi-malattia-comuni`,
       "description": "Dataset dei premi LAMal per comune e cantone svizzero, con evoluzione storica e confronto tra fasce d'età.",
+      "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
       "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
       "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/health-premiums.json` }]
@@ -2976,6 +2985,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Ristorni Fiscali Frontalieri per Comune",
         "url": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali`,
         "description": "Statistiche sui ristorni fiscali versati ai comuni italiani di frontiera",
+        "dateModified": BUILD_DATE_ISO,
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
         "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
         "distribution": [{ "@type": "DataDownload", "encodingFormat": "text/html", "contentUrl": `${BASE_URL}/tasse-e-pensione/ristorni-fiscali` }]
