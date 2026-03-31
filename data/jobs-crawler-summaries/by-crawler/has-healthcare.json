@@ -1,16 +1,16 @@
 {
   "key": "has-healthcare",
   "label": "HAS Healthcare",
-  "generatedAt": "2026-03-31T09:28:31.677Z",
-  "total": 3,
+  "generatedAt": "2026-03-31T21:21:57.222Z",
+  "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 5406,
-  "avgDurationMs": 5406,
+  "unchangedCount": 4,
+  "durationMs": 6428,
+  "avgDurationMs": 6428,
   "durationHistory": [
-    5406
+    6428
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -129,6 +129,45 @@
         "cleanliness": 25,
         "richness": 14,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Production Manager",
+      "company": "HAS Healthcare Advanced Synthesis",
+      "companyKey": "has-healthcare",
+      "location": "Biasca",
+      "canton": "TI",
+      "country": "CH",
+      "url": "https://e-lavoro.ch/node/264",
+      "applyUrl": "https://e-lavoro.ch/node/264",
+      "category": "manufacturing",
+      "sector": "Farmaceutico / Healthcare",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "source": "has-healthcare-crawler",
+      "postedDate": "2025-11-21",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Biasca"
+      },
+      "crawledAt": "",
+      "slug": "production-manager-has-healthcare",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "streetAddress": "Via Motta 4",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 16,
         "completeness": 22
       }
     }
