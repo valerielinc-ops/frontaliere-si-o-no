@@ -1,16 +1,16 @@
 {
   "key": "ail-lugano",
   "label": "AIL SA",
-  "generatedAt": "2026-03-30T21:05:06.038Z",
+  "generatedAt": "2026-03-31T08:53:39.010Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 4192,
-  "avgDurationMs": 4192,
+  "durationMs": 3914,
+  "avgDurationMs": 3914,
   "durationHistory": [
-    4192
+    3914
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -32,12 +32,13 @@
       "source": "ail-lugano-crawler",
       "datePosted": "2026-03-17",
       "validThrough": "2026-04-11",
-      "slug": "responsabile-del-progetto-della-comunicazione-aziende-industriali-di-lugano-ail-sa-lugano",
+      "slug": "project-manager-della-comunicazione-ail-lugano",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -47,11 +48,11 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 92,
+      "_qualityScore": 83,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 16,
         "completeness": 20
       }
     }
