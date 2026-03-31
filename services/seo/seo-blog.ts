@@ -574,9 +574,26 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "I 175 volti del confine: una mostra che parla ai frontalieri",
+      "@type": "Event",
+      "name": "Mostra fotografica 'Hic Sunt Leones' di Gabriele Spalluto",
       "description": "Scopri la mostra fotografica 'Hic Sunt Leones' di Gabriele Spalluto sui 175 valichi svizzeri. Un'analisi del confine per i frontalieri che lavorano in Ticino.",
+      "startDate": "2026-02-19T00:00:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Chiasso-Brogeda",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chiasso",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Gabriele Spalluto"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/hic-sunt-leones-confini-ticino.webp`,
@@ -584,15 +601,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "La dogana di Chiasso-Brogeda all'alba, simbolo del confine italo-svizzero per i frontalieri."
       },
-      "datePublished": "2026-02-19T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri`,
       "inLanguage": "it",
-      "articleSection": "Pratico",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -605,9 +618,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Laboratori creativi di Carnevale 2026 per bambini a Lugano",
+      "@type": "Event",
+      "name": "Laboratori creativi di Carnevale 2026 per bambini a Lugano",
       "description": "Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano dal 16 al 20 febbraio 2026. Un'idea per le famiglie frontaliere durante le vacanze.",
+      "startDate": "2026-02-16T00:00:00+01:00",
+      "endDate": "2026-02-20T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Museo in erba",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lugano",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Museo in erba"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-2026.webp`,
@@ -615,15 +646,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Famiglie con bambini passeggiano sul lungolago di Lugano durante una giornata di sole, vicino al centro culturale LAC."
       },
-      "datePublished": "2026-02-19T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri`,
       "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "articleSection": "Pratico",
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -636,9 +663,26 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Oltre il Lavoro: L'Arte che Svela la Vera Anima del Ticino",
+      "@type": "Event",
+      "name": "Mostra 'Sentimento e osservazione' al MASI di Lugano",
       "description": "Scopri la mostra 'Sentimento e osservazione' al MASI di Lugano (2025-2026). Un'analisi dell'arte e dell'identità ticinese, perfetta per i frontalieri.",
+      "startDate": "2025-04-18T00:00:00+02:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "MASI - Museo d'arte della Svizzera italiana, LAC Lugano",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lugano",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MASI - Museo d'arte della Svizzera italiana"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/arte-anima-ticino-frontalieri.webp`,
@@ -646,14 +690,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Interno del museo MASI al LAC di Lugano con visitatori che ammirano un'opera d'arte legata al Ticino."
       },
-      "datePublished": "2026-02-19T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano`,
       "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -666,9 +707,26 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Arca Russa a Chiasso: Cultura per Frontalieri",
+      "@type": "Event",
+      "name": "Arca Russa di Sokurov al Cinema Teatro di Chiasso",
       "description": "Il 18 febbraio 2026, il Cinema Teatro di Chiasso proietta 'Arca Russa' di Sokurov. Scopri i dettagli di questo evento culturale imperdibile per i frontalieri.",
+      "startDate": "2026-02-18T00:00:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Cinema Teatro di Chiasso",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Chiasso",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Cinema Teatro di Chiasso"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/arca-russa-chiasso-cultura-frontaliere.webp`,
@@ -676,13 +734,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Il Cinema Teatro di Chiasso di sera, illuminato per un evento culturale, con persone che entrano."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -695,9 +751,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Mostra RSI 'Una Storia': un viaggio fotografico nell'evoluzione del Ticino",
+      "@type": "Event",
+      "name": "Mostra RSI 'Una Storia': viaggio fotografico nel Ticino",
       "description": "Scopri la mostra gratuita 'Una Storia' di RSI ad Airolo dal 16 al 22 febbraio. Un viaggio fotografico nella Svizzera italiana dagli anni '60 ai 2000. Info e date.",
+      "startDate": "2026-02-16T00:00:00+01:00",
+      "endDate": "2026-02-22T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Caseificio del Gottardo, Airolo",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Airolo",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "RSI - Radiotelevisione svizzera"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/rsi-mostra-storia-ticino.webp`,
@@ -705,13 +779,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Mostra fotografica 'Una Storia' della RSI con immagini d'archivio in bianco e nero della Svizzera italiana."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -724,9 +796,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Figli a casa per Carnevale? A Lugano laboratori d'arte a 20 CHF",
+      "@type": "Event",
+      "name": "Laboratori creativi Tinguely per bambini al Museo in erba",
       "description": "Scopri i laboratori creativi per bambini (4-11 anni) al Museo in erba di Lugano durante le vacanze di Carnevale, dal 16 al 20 febbraio 2026. Info e costi.",
+      "startDate": "2026-02-16T00:00:00+01:00",
+      "endDate": "2026-02-20T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Museo in erba",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lugano",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Museo in erba"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/carnevale-bambini-lugano-tinguely.webp`,
@@ -734,13 +824,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Famiglia di frontalieri con bambini si gode le vacanze di Carnevale sul lungolago di Lugano, vicino al Museo in erba."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -753,9 +841,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Mostra 'TRA-S-PARENZE' di Daniela Rebuzzi a Caslano",
+      "@type": "Event",
+      "name": "Mostra 'TRA-S-PARENZE' di Daniela Rebuzzi a Caslano",
       "description": "Scopri la mostra 'TRA-S-PARENZE' dell'artista ticinese Daniela Rebuzzi a Caslano, dal 16 gennaio al 26 aprile 2026. Info, orari e significato per i frontalieri.",
+      "startDate": "2026-01-16T00:00:00+01:00",
+      "endDate": "2026-04-26T23:59:00+02:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Caslano",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Caslano",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Daniela Rebuzzi"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/daniela-rebuzzi-mostra-caslano.webp`,
@@ -763,13 +869,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Opere d'arte esposte nella mostra 'TRA-S-PARENZE' di Daniela Rebuzzi a Caslano, con vista sul paesaggio ticinese."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -782,9 +886,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "Article",
-      "headline": "Oltre il lavoro: una mostra a Agno che fa riflettere",
+      "@type": "Event",
+      "name": "Mostra 'Corpi in prestito' di Gloria Guidi Nobile a Serocca d'Agno",
       "description": "Scopri la mostra \"Corpi in prestito\" di Gloria Guidi Nobile a Serocca d'Agno. Un'opportunità culturale in Ticino, aperta fino a dicembre 2026.",
+      "startDate": "2026-02-18T00:00:00+01:00",
+      "endDate": "2026-12-31T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Serocca d'Agno",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Agno",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Gloria Guidi Nobile"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/corpi-in-prestito-arte-agno.webp`,
@@ -792,13 +914,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Interno di una galleria d'arte moderna a Lugano con una persona che osserva un quadro astratto appeso alla parete."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -811,9 +931,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "RSI in mostra: un viaggio gratuito nella storia del Ticino ad Airolo",
+      "@type": "Event",
+      "name": "Mostra RSI 'Una Storia' ad Airolo: storia del Ticino in foto",
       "description": "Scopri la mostra gratuita \"Una Storia\" della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia del Ticino attraverso foto d'archivio.",
+      "startDate": "2026-02-16T00:00:00+01:00",
+      "endDate": "2026-02-22T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Caseificio del Gottardo, Airolo",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Airolo",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "RSI - Radiotelevisione svizzera"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/rsi-storia-svizzera-italiana-mostra.webp`,
@@ -821,13 +959,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Una mostra fotografica con immagini d'archivio in bianco e nero che raccontano la storia del Canton Ticino."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -840,9 +976,26 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Rauschenberg in Ticino: una mostra gratuita a due passi dall'Italia",
+      "@type": "Event",
+      "name": "Mostra 'Began with Rauschenberg' alla Fondazione Rolla di Bruzella",
       "description": "Scopri la mostra gratuita 'Began with Rauschenberg' alla Fondazione Rolla di Bruzella (Mendrisiotto), dall'8 novembre 2025. Un evento culturale per frontalieri.",
+      "startDate": "2025-11-08T00:00:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Fondazione Rolla, Bruzella",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bruzella",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Fondazione Rolla"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/rauschenberg-arte-mendrisiotto.webp`,
@@ -850,13 +1003,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Veduta della Valle di Muggio in Ticino, con il borgo di Bruzella, sede della mostra su Rauschenberg."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -869,9 +1020,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "A Giubiasco una mostra che scuote le coscienze: 'Nakba'",
+      "@type": "Event",
+      "name": "Mostra 'Collettiva Nakba' alla Galleria Job di Giubiasco",
       "description": "La Galleria Job di Giubiasco ospita la mostra 'Collettiva Nakba' dal 25/01 al 19/02/2026. Un'occasione di riflessione culturale per i frontalieri in Ticino.",
+      "startDate": "2026-01-25T00:00:00+01:00",
+      "endDate": "2026-02-19T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Galleria Job, Giubiasco",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Giubiasco",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Galleria Job"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/nakba-mostra-giubiasco-ticino.webp`,
@@ -879,13 +1048,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Interno di una galleria d'arte moderna a Giubiasco, Ticino, con luce naturale che illumina un'opera esposta."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -898,9 +1065,26 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "De André a Locarno: Serata Gratuita sul suo Ultimo Capolavoro",
+      "@type": "Event",
+      "name": "Conferenza su Fabrizio De André 'Anime salve' a Muralto",
       "description": "Il 19 febbraio 2026, conferenza gratuita a Muralto sull'ultimo album di Fabrizio De André, 'Anime salve'. Un'analisi per frontalieri e amanti della cultura.",
+      "startDate": "2026-02-19T00:00:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Palazzo dei Congressi di Muralto",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Muralto",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Palazzo dei Congressi di Muralto"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/de-andre-anime-salve-locarno.webp`,
@@ -908,13 +1092,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Il Palazzo dei Congressi di Muralto, sede di eventi culturali nel Locarnese, visto al crepuscolo."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri`,
       "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -927,9 +1109,26 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Mostra 'Sentimento e osservazione' al MASI Lugano",
+      "@type": "Event",
+      "name": "Mostra 'Sentimento e osservazione' al MASI di Lugano",
       "description": "La mostra 'Sentimento e osservazione' al MASI di Lugano esplora l'identità del Ticino. Una guida per frontalieri per capire la cultura del cantone dove lavorano.",
+      "startDate": "2025-04-18T00:00:00+02:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "MASI - Museo d'arte della Svizzera italiana, LAC Lugano",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Lugano",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "MASI - Museo d'arte della Svizzera italiana"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/sentimento-osservazione-masi-lugano.webp`,
@@ -937,13 +1136,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "L'ingresso del Museo d'arte della Svizzera italiana (MASI) presso il centro culturale LAC di Lugano."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino`,
       "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -956,9 +1153,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Il Ticino si racconta in 60 anni di foto: mostra gratuita RSI ad Airolo",
+      "@type": "Event",
+      "name": "Mostra RSI 'Una Storia': archivio fotografico ad Airolo",
       "description": "Scopri la mostra fotografica gratuita della RSI ad Airolo, dal 16 al 22 febbraio 2026. Un viaggio nella storia della Svizzera italiana dagli anni '60 ai 2000.",
+      "startDate": "2026-02-16T00:00:00+01:00",
+      "endDate": "2026-02-22T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Caseificio del Gottardo, Airolo",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Airolo",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "RSI - Radiotelevisione svizzera"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/rsi-archivio-gottardo-2026.webp`,
@@ -966,13 +1181,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Immagini storiche in bianco e nero della Svizzera italiana in mostra ad Airolo, Ticino."
       },
-      "datePublished": "2026-02-18T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo`,
       "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -985,9 +1198,27 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Carnevale 2026 in Valle di Blenio: 3 giorni di festa a Ludiano",
+      "@type": "Event",
+      "name": "Carnevale Chièscia Bòsc 2026 a Ludiano, Valle di Blenio",
       "description": "Scopri il programma completo del Carnevale Chièscia Bòsc a Ludiano, dal 19 al 21 febbraio 2026. Gastronomia, musica e ballo in maschera in Valle di Blenio.",
+      "startDate": "2026-02-19T00:00:00+01:00",
+      "endDate": "2026-02-21T23:59:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Ludiano, Valle di Blenio",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Ludiano",
+          "addressRegion": "TI",
+          "addressCountry": "CH"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Carnevale Chièscia Bòsc"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/carnevale-blenio-chiescia-bosc.webp`,
@@ -995,13 +1226,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Atmosfera festosa del carnevale in un villaggio della Valle di Blenio, Ticino, con maschere e luci serali."
       },
-      "datePublished": "2026-02-19T00:00:00+01:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio`,
+      "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 
@@ -5900,9 +6129,26 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/walter-bonatti-in-capo-al-mondo',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Walter Bonatti 'In capo al mondo': il Teatro Sociale di Montegrino",
+      "@type": "Event",
+      "name": "'In capo al mondo. In viaggio con Walter Bonatti' al Teatro Sociale",
       "description": "Scopri 'In capo al mondo. In viaggio con Walter Bonatti' al Teatro Sociale di Montegrino Valtravaglia il 21 marzo. Un evento che rivive le avventure dell'ultimo",
+      "startDate": "2026-03-21T21:00:00+01:00",
+      "eventStatus": "https://schema.org/EventScheduled",
+      "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+      "location": {
+        "@type": "Place",
+        "name": "Teatro Sociale di Montegrino Valtravaglia",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Montegrino Valtravaglia",
+          "addressRegion": "VA",
+          "addressCountry": "IT"
+        }
+      },
+      "organizer": {
+        "@type": "Organization",
+        "name": "Teatro Sociale di Montegrino Valtravaglia"
+      },
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/walter-bonatti-in-capo-al-mondo.webp`,
@@ -5910,14 +6156,11 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "height": 756,
         "caption": "Teatro Sociale di Montegrino Valtravaglia"
       },
-      "datePublished": "2026-03-18T02:45:15+00:00",
-      "dateModified": BUILD_DATE_ISO,
+      "url": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`,
       "inLanguage": "it",
+      "isAccessibleForFree": true,
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
   },
 

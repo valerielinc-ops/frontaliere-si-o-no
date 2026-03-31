@@ -524,7 +524,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
                   // in the same array. Bing flags "conflicting markups" when WebPage
                   // coexists with FAQPage, WebApplication, Dataset, etc. on the same page.
                   if (Array.isArray(parsed) && parsed.length > 1) {
-                    const SPECIFIC_TYPES = new Set(['FAQPage', 'WebApplication', 'Dataset', 'ItemList', 'Organization', 'Article', 'NewsArticle', 'HowTo', 'Product', 'SoftwareApplication', 'CollectionPage']);
+                    const SPECIFIC_TYPES = new Set(['FAQPage', 'WebApplication', 'Dataset', 'ItemList', 'Organization', 'Article', 'NewsArticle', 'BlogPosting', 'Event', 'HowTo', 'Product', 'SoftwareApplication', 'CollectionPage']);
                     const hasSpecificType = parsed.some((item: Record<string, unknown>) => SPECIFIC_TYPES.has(String(item['@type'] || '')));
                     if (hasSpecificType) {
                       parsed = parsed.filter((item: Record<string, unknown>) => String(item['@type'] || '') !== 'WebPage');
