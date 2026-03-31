@@ -35,9 +35,23 @@ function logAuthDebug(event: string, details?: Record<string, unknown>): void {
   }
 }
 
+/** Lightweight synchronous check for an existing Firebase Auth session in localStorage. */
+function hasPersistedAuthSession(): boolean {
+  try {
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && key.startsWith('firebase:authUser:')) return true;
+    }
+  } catch { /* localStorage unavailable */ }
+  return false;
+}
+
 function shouldStartAuthImmediately(): boolean {
   if (_eagerAuthRequested) return true;
   if (typeof window === 'undefined') return false;
+  // If there's already a persisted session, start auth immediately so the user
+  // appears logged in right away — no interaction required.
+  if (hasPersistedAuthSession()) return true;
   const params = new URLSearchParams(window.location.search);
   return (
     window.location.pathname.includes('/gestione-contenuti-xk9mp2q')
