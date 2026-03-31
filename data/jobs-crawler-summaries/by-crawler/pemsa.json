@@ -1,24 +1,96 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-03-30T21:55:10.447Z",
-  "total": 42,
+  "generatedAt": "2026-03-31T09:43:49.975Z",
+  "total": 44,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 42,
-  "durationMs": 95843,
-  "avgDurationMs": 95843,
+  "unchangedCount": 44,
+  "durationMs": 102019,
+  "avgDurationMs": 102019,
   "durationHistory": [
-    95843
+    102019
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "title": "MANUTENTORE ELETTRO SU MACCHINARI EDILI E SILOS AUTOMATIZZATI",
+      "slug": "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
+      "url": "https://www.pemsa.ch/it/job/manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-2668229/",
+      "applyUrl": "https://www.pemsa.ch/it/job/manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-2668229/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-30",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-04-14",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Costruttore stradale",
+      "slug": "costruttore-stradale-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/costruttore-stradale-2668147/",
+      "applyUrl": "https://www.pemsa.ch/it/job/costruttore-stradale-2668147/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "edilizia",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-30",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-04-20",
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807",
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 20,
+        "completeness": 25
+      }
+    },
+    {
       "title": "IDRAULICO IMPIANTI RISCALDAMENTO",
-      "slug": "impianti-idraulici-riscaldamento-pemsa-lugano",
+      "slug": "idraulico-impianti-riscaldamento-pemsa-lugano",
       "url": "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2667917/",
       "applyUrl": "https://www.pemsa.ch/it/job/idraulico-impianti-riscaldamento-2667917/",
       "company": "PEMSA",
@@ -43,6 +115,7 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -78,11 +151,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -113,11 +187,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -148,6 +223,7 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -183,6 +259,7 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -218,11 +295,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -253,11 +331,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -288,11 +367,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -323,11 +403,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -358,11 +439,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -393,6 +475,7 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -428,11 +511,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -463,11 +547,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -498,11 +583,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -533,6 +619,7 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -568,6 +655,7 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -603,11 +691,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -638,6 +727,7 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -673,11 +763,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -708,11 +799,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -743,11 +835,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -778,11 +871,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -813,11 +907,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -848,11 +943,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -883,11 +979,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -918,11 +1015,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -953,11 +1051,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -988,81 +1087,12 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 97,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "TUBISTA SALDATORE",
-      "slug": "tubista-saldatore-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/tubista-saldatore-2665832/",
-      "applyUrl": "https://www.pemsa.ch/it/job/tubista-saldatore-2665832/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "metallo",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-03-31",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "MONTATORE DI FACCIATE",
-      "slug": "montatore-di-facciate-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/montatore-di-facciate-2665829/",
-      "applyUrl": "https://www.pemsa.ch/it/job/montatore-di-facciate-2665829/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "meccanica",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-16",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-03-31",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     }
