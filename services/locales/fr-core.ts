@@ -521,6 +521,7 @@ const frCore: Record<string, string> = {
     'jobBoard.filter.resetAll': 'Réinitialiser',
     'jobBoard.filter.toggle': 'Afficher/masquer les filtres',
     'jobBoard.title': 'Emploi Frontalier Tessin 2026',
+    'jobBoard.companyPageTitle': 'Offres d\'emploi {company} au Tessin',
     'jobBoard.subtitle': 'Offres d\'emploi frontalier actualisées d\'entreprises tessinoises. Plus de 100 employeurs actifs en Suisse.',
     'jobBoard.searchPlaceholder': 'Rechercher par poste, entreprise ou lieu...',
     'jobBoard.filter.category': 'Catégorie',

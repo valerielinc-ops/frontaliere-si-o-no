@@ -560,6 +560,7 @@ const translations: Record<string, string> = {
     'jobBoard.filter.resetAll': 'Reset',
     'jobBoard.filter.toggle': 'Mostra/nascondi filtri',
     'jobBoard.title': 'Lavoro Frontaliere Ticino 2026',
+    'jobBoard.companyPageTitle': '{company} - offerte di lavoro in Ticino',
     'jobBoard.subtitle': 'Offerte di lavoro frontaliere aggiornate da aziende ticinesi. Cerca tra oltre 100 aziende attive in Svizzera.',
     'jobBoard.searchPlaceholder': 'Cerca per ruolo, azienda o località...',
     'jobBoard.filter.category': 'Categoria',

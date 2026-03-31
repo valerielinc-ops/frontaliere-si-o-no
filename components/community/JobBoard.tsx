@@ -2634,6 +2634,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
     });
   }, [sortedJobs, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly, deferredSearchQuery, indexedQueryMatch, companySlugFilter]);
 
+  // Resolve the display name of the company when a company slug filter is active
+  const companyDisplayName = useMemo(() => {
+    if (!companySlugFilter) return null;
+    const firstMatch = filteredJobs[0];
+    return firstMatch?.company ?? null;
+  }, [companySlugFilter, filteredJobs]);
+
   const relatedSearchSuggestions = useMemo(() => {
     const baseQuery = deferredSearchQuery.trim();
     if (!baseQuery) return [];
@@ -5587,7 +5594,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <Briefcase className="w-4 h-4" />
           {t('jobBoard.badge')}
         </div>
-        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">{t('jobBoard.title')}</h1>
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-900 dark:text-white">
+          {companyDisplayName
+            ? t('jobBoard.companyPageTitle', { company: companyDisplayName })
+            : t('jobBoard.title')}
+        </h1>
         <p className="text-sm sm:text-base text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t('jobBoard.subtitle')}</p>
       </div>
 

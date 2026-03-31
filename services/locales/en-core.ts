@@ -521,6 +521,7 @@ const enCore: Record<string, string> = {
     'jobBoard.filter.resetAll': 'Reset',
     'jobBoard.filter.toggle': 'Show/hide filters',
     'jobBoard.title': 'Cross-Border Worker Jobs Ticino 2026',
+    'jobBoard.companyPageTitle': '{company} Job Openings in Ticino',
     'jobBoard.subtitle': 'Updated cross-border worker job offers from Ticino companies. Browse 100+ active employers in Switzerland.',
     'jobBoard.searchPlaceholder': 'Search by role, company or location...',
     'jobBoard.filter.category': 'Category',

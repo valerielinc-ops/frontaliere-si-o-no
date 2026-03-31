@@ -3680,6 +3680,7 @@ function modifySitemapNews(data) {
 
   const entry = `  <url>
     <loc>${BASE_URL}/articoli-frontaliere/${data.slugs.it}/</loc>
+    <lastmod>${today}</lastmod>
     <xhtml:link rel="alternate" hreflang="it" href="${BASE_URL}/articoli-frontaliere/${data.slugs.it}/" />
     <xhtml:link rel="alternate" hreflang="en" href="${BASE_URL}/en/cross-border-articles/${data.slugs.en}/" />
     <xhtml:link rel="alternate" hreflang="de" href="${BASE_URL}/de/grenzgaenger-artikel/${data.slugs.de}/" />

@@ -9,6 +9,7 @@ import { ALL_GLOSSARY_TERM_IDS, ALL_BORDER_CROSSING_IDS } from './router';
 import { resolveCompanyLogoUrl } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
 import { translateFaqPage } from './seo/faq-translations';
+import { translateHowToSchema } from './seo/howto-translations';
 
 /**
  * Retry a dynamic import once after clearing SW caches.
@@ -2015,6 +2016,9 @@ export async function updateMetaTags(section: string): Promise<void> {
         }
         if (clone['@type'] === 'FAQPage' && locale !== 'it') {
           translateFaqPage(clone, locale as 'en' | 'de' | 'fr');
+        }
+        if (clone['@type'] === 'HowTo' && locale !== 'it') {
+          translateHowToSchema(clone, locale as 'en' | 'de' | 'fr');
         }
       }
       return clone;

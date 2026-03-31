@@ -521,6 +521,7 @@ const deCore: Record<string, string> = {
     'jobBoard.filter.resetAll': 'Zurücksetzen',
     'jobBoard.filter.toggle': 'Filter ein-/ausblenden',
     'jobBoard.title': 'Grenzgänger Jobs Tessin 2026',
+    'jobBoard.companyPageTitle': '{company} Stellenangebote im Tessin',
     'jobBoard.subtitle': 'Aktuelle Stellenangebote für Grenzgänger von Tessiner Unternehmen. Über 100 aktive Arbeitgeber in der Schweiz.',
     'jobBoard.searchPlaceholder': 'Suche nach Rolle, Unternehmen oder Ort...',
     'jobBoard.filter.category': 'Kategorie',

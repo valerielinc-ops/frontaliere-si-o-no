@@ -12,6 +12,7 @@ import { BASE_URL, buildFlatRedirect } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { translateFaqPage } from '../services/seo/faq-translations';
+import { translateHowToSchema } from '../services/seo/howto-translations';
 
 const HOME_CRITICAL_STATIC_PATHS = new Set([
   '/',
@@ -1669,6 +1670,11 @@ ${hrefTags}
                 const obj = JSON.parse(part);
                 if (obj['@type'] === 'FAQPage' && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
                   translateFaqPage(obj, hl.lang);
+                  if (typeof obj.inLanguage === 'string') obj.inLanguage = hl.lang;
+                  return JSON.stringify(obj);
+                }
+                if (obj['@type'] === 'HowTo' && (hl.lang === 'en' || hl.lang === 'de' || hl.lang === 'fr')) {
+                  translateHowToSchema(obj, hl.lang);
                   if (typeof obj.inLanguage === 'string') obj.inLanguage = hl.lang;
                   return JSON.stringify(obj);
                 }
