@@ -1,16 +1,16 @@
 {
   "key": "international-school-of-ticino",
   "label": "International School of Ticino",
-  "generatedAt": "2026-03-30T21:42:35.678Z",
+  "generatedAt": "2026-03-31T09:31:00.399Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5456,
-  "avgDurationMs": 5456,
+  "durationMs": 4857,
+  "avgDurationMs": 4857,
   "durationHistory": [
-    5456
+    4857
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -25,7 +25,7 @@
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "expression-of-interest-international-school-of-ticino-ist",
+      "slug": "espressione-di-interesse-scuola-internazionale-di-ticino-international-school-of-ticino-lugano",
       "category": "general",
       "datePosted": "2026-03-07",
       "source": "ist-inspirededu-crawler",
@@ -47,6 +47,7 @@
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -86,6 +87,7 @@
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
