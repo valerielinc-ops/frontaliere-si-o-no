@@ -1195,106 +1195,140 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             }
           } else if (canonicalPath.startsWith('/calcola-stipendio/simula-busta-paga')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come simulare la busta paga del frontaliere</h2>`,
               `Il simulatore di busta paga ricostruisce voce per voce lo stipendio netto partendo dal lordo annuo in franchi svizzeri: AVS/AI/IPG (5,3 %), assicurazione contro la disoccupazione (1,1 %), infortunio non professionale e indennità giornaliera di malattia vengono sottratti prima del calcolo dell'imposta alla fonte.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Imposta alla fonte e conversione CHF-EUR</h2>`,
               `L'imposta alla fonte è calcolata secondo le tabelle A/B/C/H del Canton Ticino, aggiornate al 2026, e tiene conto di stato civile, numero di figli e appartenenza religiosa. Il risultato viene convertito in euro al tasso di cambio selezionato per quantificare il potere d'acquisto reale in Italia.`,
               `Dopo la simulazione puoi confrontare il netto ottenuto con i costi effettivi della vita da frontaliere: trasporto, cassa malati LAMal o CMU, pranzi, parcheggio e assicurazione auto con targhe svizzere. Questo permette di stimare il risparmio mensile effettivo.`,
             );
           } else if (canonicalPath.startsWith('/calcola-stipendio/cosa-cambia-se')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Simulatore scenari fiscali frontaliere</h2>`,
               `Il simulatore "Cosa cambia se" permette di variare un parametro alla volta — stato civile, distanza dal confine, numero figli, percentuale di lavoro, cantone — e vedere immediatamente l'impatto sul netto mensile e annuale, così da valutare decisioni concrete prima di attuarle.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quando usare il simulatore what-if</h2>`,
               `Ogni scenario viene calcolato con le stesse regole del simulatore principale: deduzioni sociali svizzere, imposta alla fonte cantonale, e conversione CHF-EUR. Le differenze vengono evidenziate in modo visivo per facilitare il confronto rapido.`,
               `Questo strumento è particolarmente utile quando si valuta un cambio di residenza, un matrimonio, la nascita di un figlio o il passaggio al tempo parziale: tutte situazioni che modificano significativamente la tassazione del frontaliere.`,
             );
           } else if (canonicalPath.startsWith('/calcola-stipendio/confronta-stipendi')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto stipendi Ticino vs Italia</h2>`,
               `Il comparatore di stipendi mette a confronto la retribuzione netta dello stesso ruolo in Ticino (CHF) e in Lombardia/Piemonte (EUR), considerando tassazione, contributi e costo della vita in entrambi i paesi.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Costi indiretti del frontaliere nel confronto</h2>`,
               `I dati di riferimento provengono da statistiche salariali reali per settore e livello di esperienza, integrati con le aliquote fiscali e contributive vigenti in Svizzera e Italia per il 2026.`,
               `Il confronto include costi indiretti tipici del frontaliere (trasporto, cassa malati, cambio valuta) per dare un quadro completo del vantaggio economico netto di lavorare in Svizzera rispetto a un impiego equivalente in Italia.`,
             );
           } else if (canonicalPath.startsWith('/calcola-stipendio/quiz-stipendio')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quiz fiscale per frontalieri</h2>`,
               `Il quiz sullo stipendio ti permette di testare la tua conoscenza sulle regole fiscali e contributive che determinano il netto di un frontaliere: deduzioni sociali, imposta alla fonte, franchigia e Nuovo Accordo fiscale 2026.`,
               `Ogni domanda è accompagnata da una spiegazione dettagliata che chiarisce il meccanismo sottostante, così il quiz diventa anche uno strumento formativo per chi si avvicina per la prima volta al lavoro transfrontaliero.`,
             );
           } else if (canonicalPath.startsWith('/calcola-stipendio/nuovi-frontalieri-oltre-20-km')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovi frontalieri oltre 20 km: regole fiscali</h2>`,
               `Questa pagina e pensata per chi ha iniziato a lavorare in Svizzera dal 17 luglio 2023 in poi e vive in un comune italiano oltre 20 km dalla frontiera. In questo scenario l'imposta alla fonte resta interamente trattenuta in Svizzera, senza il meccanismo dell'80 % / 20 % tipico dei comuni entro 20 km.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto netto: entro 20 km vs oltre 20 km</h2>`,
               `Per aiutare il confronto, l'hub raccoglie casi pratici su tre fasce di reddito e mette a fianco uno scenario identico entro 20 km. In questo modo puoi capire subito se la differenza reale riguarda il netto mensile, il saldo fiscale in Italia o la semplicita operativa della dichiarazione dei redditi.`,
               `La landing collega anche i tool gia presenti nel sito: simulatore del netto, confronto 2025 vs 2026, guida alla dichiarazione dei redditi e aliquote dell'imposta alla fonte Ticino 2026. L'obiettivo e trasformare una regola fiscale astratta in una decisione concreta sulla tua situazione personale.`,
             );
           } else if (canonicalPath.startsWith('/calcola-stipendio/confronta-retribuzione-ral')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Da RAL a netto: calcolo per frontalieri</h2>`,
               `Il comparatore RAL vs netto mette a confronto la retribuzione annua lorda (RAL) dichiarata in offerta con il netto mensile effettivo che il frontaliere riceve in busta paga, dopo tutte le deduzioni svizzere: AVS/AI/IPG (5,3 %), disoccupazione (1,1 %), infortuni non professionali, indennità giornaliera malattia, LPP e imposta alla fonte cantonale.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Negoziazione salariale: RAL Svizzera vs Italia</h2>`,
               `Questo strumento è particolarmente utile durante la negoziazione salariale: una RAL di 80.000 CHF può corrispondere a netti mensili molto diversi a seconda di stato civile, figli, cantone e fascia d'età per il LPP. Conoscere il netto atteso prima di firmare permette confronti realistici con stipendi italiani equivalenti.`,
               `Il risultato include la conversione CHF-EUR al tasso di cambio corrente e il confronto con la retribuzione netta di un ruolo equivalente in Lombardia/Piemonte, tenendo conto di IRPEF, contributi INPS e addizionali regionali, così da valutare concretamente il vantaggio economico del lavoro in Svizzera.`,
             );
           } else if (canonicalPath.startsWith('/calcola-stipendio/')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come calcolare lo stipendio netto in Svizzera</h2>`,
               `Lo strumento di calcolo utilizza i parametri fiscali e previdenziali aggiornati al 2026 per la Svizzera e l'Italia, applicando le regole del Nuovo Accordo sulla tassazione dei frontalieri entrato in vigore nel 2024.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Deduzioni obbligatorie per frontalieri</h2>`,
               `I risultati tengono conto delle specificità del Canton Ticino: aliquote dell'imposta alla fonte, tabelle di classificazione A/B/C/H, deduzioni per figli e conversione automatica CHF-EUR ai tassi di mercato.`,
               `Per ottenere una stima affidabile, inserisci lo stipendio lordo annuo in franchi svizzeri: il sistema applica automaticamente contributi AVS/AI/IPG, AC, LAA, IJM e LPP secondo le fasce d'età previste dalla legge federale.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/cambio-franco-euro')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Cambio franco svizzero euro oggi</h2>`,
               `Il convertitore di valuta CHF-EUR utilizza i tassi di cambio aggiornati in tempo reale dalla fonte TwelveData, con cache Firestore per garantire velocità e affidabilità anche in caso di picchi di traffico.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Storico tasso di cambio CHF-EUR</h2>`,
               `Oltre alla conversione istantanea, viene mostrato lo storico del tasso di cambio franco svizzero / euro con grafici interattivi che coprono gli ultimi 12 mesi, utili per individuare il momento migliore per convertire lo stipendio.`,
               `Per i frontalieri, il tasso di cambio è un fattore determinante: una variazione dell'1 % su uno stipendio di 6000 CHF equivale a circa 55–60 EUR al mese. Monitorare il cambio aiuta a pianificare le conversioni e ridurre le commissioni bancarie.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/confronta-casse-malati')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto casse malati per frontalieri</h2>`,
               `Il comparatore di casse malati LAMal confronta i premi mensili di 14 assicuratori svizzeri riconosciuti (UFSP), calcolati per cantone, modello assicurativo, franchigia, fascia d'età e copertura infortuni.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">LAMal o SSN: quale scegliere</h2>`,
               `I frontalieri con permesso G hanno diritto di optare tra LAMal svizzera e SSN italiano: la scelta è irrevocabile per tutta la durata del rapporto di lavoro. Questo strumento aiuta a confrontare i costi prima della decisione.`,
               `I premi vengono calcolati con la formula: base × (1 − sconto modello) × (1 + fattore franchigia) × moltiplicatore età × (1 + copertura infortuni). I dati coprono i cantoni TI, GR, VS, ZH, GE, BE e LU.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/confronta-banche')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Migliori conti bancari per frontalieri</h2>`,
               `Il confronto banche analizza le principali banche svizzere e italiane utilizzate dai frontalieri, confrontando commissioni di cambio, costi di conto, carte di debito/credito e servizi di bonifico transfrontaliero.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Commissioni di cambio CHF-EUR a confronto</h2>`,
               `Per i frontalieri, la scelta della banca incide direttamente sul netto percepito: le commissioni di cambio CHF→EUR possono variare dallo 0,3 % al 2,5 % a seconda dell'istituto e dello strumento utilizzato.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/confronta-prezzi-spesa')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Confronto prezzi spesa Svizzera vs Italia</h2>`,
               `Il comparatore dei prezzi della spesa confronta un paniere tipo settimanale tra supermercati svizzeri (Migros, Coop, Denner, Aldi Svizzera) e italiani (Esselunga, Lidl, Eurospin, Conad), convertendo tutto in una valuta comune al tasso di cambio corrente per un confronto reale del potere d'acquisto.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Categorie con maggiore risparmio in Italia</h2>`,
               `Il confronto copre oltre 50 categorie di prodotti: freschi, latticini, carne, confezionati, bevande e cura della persona. In media, i prodotti di marca identici costano il 35-55 % in più in Ticino rispetto alle province italiane di confine, rendendo la spesa in Italia un risparmio mensile concreto per molte famiglie frontaliere.`,
               `Lo strumento evidenzia anche le categorie dove il vantaggio italiano è maggiore (carne, formaggi, vino, pasta fresca) versus quelle dove la qualità svizzera o la disponibilità locale rende i supermercati elvetici competitivi. I dati vengono aggiornati mensilmente per riflettere le variazioni stagionali e promozionali.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/confronta-operatori-mobili')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Migliori operatori mobili per frontalieri</h2>`,
               `Il comparatore di operatori mobili valuta i piani tariffari degli operatori svizzeri (Swisscom, Salt, Sunrise, Yallo) e italiani (TIM, Vodafone, WindTre, Iliad) specificamente per chi attraversa quotidianamente il confine Svizzera-Italia e ha bisogno di copertura affidabile in entrambi i paesi senza costi di roaming eccessivi.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Roaming Svizzera-Italia: costi e copertura</h2>`,
               `I criteri chiave per i frontalieri: il roaming UE è incluso nella maggior parte delle offerte italiane per obbligo di legge, mentre gli operatori svizzeri non sono vincolati dalla normativa UE e possono addebitare costi di roaming in Italia. Per chi trascorre 8+ ore al giorno in Svizzera, un piano svizzero può essere più economico nonostante le tariffe apparentemente più alte.`,
               `Il confronto è strutturato su tre profili d'uso tipici del frontaliere: pendolare classico (alti dati, attraversamento giornaliero), smart worker (attraversamento occasionale, priorità videochiamate) e famiglia (SIM multiple). Seleziona il tuo profilo per vedere la classifica più rilevante per la tua situazione.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/calcola-bonus-ristrutturazione')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Bonus ristrutturazione per frontalieri</h2>`,
               `Il calcolatore del bonus ristrutturazione aiuta i frontalieri proprietari di immobili in Italia a stimare il costo netto degli interventi edilizi dopo l'applicazione degli incentivi fiscali italiani: detrazione ristrutturazione 50 % (Bonus Ristrutturazione), Ecobonus 65 % per efficienza energetica, Superbonus per cappotto termico e serramenti qualificati, e Bonus Mobili 36 % per arredi acquistati post-ristrutturazione.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Detraibilit&agrave; e IRPEF frontaliere</h2>`,
               `Lo strumento calcola la ripartizione della detrazione in 10 rate annuali uguali, il risparmio fiscale totale nel periodo di recupero e il costo netto effettivo dell'intervento. Tiene conto della franchigia di 10.000 EUR prevista per i nuovi frontalieri dall'Accordo 2026 per determinare quanta parte dell'IRPEF dovuta può assorbire la detrazione.`,
               `Per i frontalieri, la detraibilità è condizionata al livello di imposta italiana dovuta: se l'IRPEF netta è bassa grazie al credito per le imposte svizzere già pagate, il bonus si può recuperare solo parzialmente. Il calcolatore mostra il punto di pareggio e suggerisce se massimizzare il bonus è ottimale rispetto ad altri investimenti data la tua specifica posizione fiscale italo-svizzera.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/confronta-offerte-lavoro')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Offerte di lavoro in Ticino per frontalieri</h2>`,
               `La sezione lavoro Ticino raccoglie annunci pubblicati su fonti aziendali ufficiali, con normalizzazione dei dati principali per facilitare confronto tra ruolo, sede, contratto e coerenza con il tuo profilo professionale.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come funziona il monitoraggio delle offerte</h2>`,
               `Per ogni posizione vengono mantenuti metadati utili alla valutazione: data pubblicazione, azienda, località, requisiti richiesti e collegamento diretto alla candidatura sul sito originale del datore di lavoro.`,
               `Le offerte vengono filtrate per il Canton Ticino e aggiornate quotidianamente da crawler dedicati che monitorano i portali HR di oltre 100 aziende ticinesi, enti pubblici e multinazionali con sede nel cantone.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/costo-auto')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Costo auto per frontalieri: Svizzera vs Italia</h2>`,
               `Il calcolatore del costo auto confronta le spese annuali di possedere e usare un veicolo in Svizzera e in Italia, includendo assicurazione RC, bollo/imposta di circolazione, manutenzione, carburante e pedaggi.`,
               `Per i frontalieri che attraversano quotidianamente il confine, le targhe svizzere e italiane comportano costi differenti: l'assicurazione svizzera copre la circolazione in tutta Europa, ma i premi possono superare i 1500 CHF/anno.`,
             );
           } else if (canonicalPath.startsWith('/compara-servizi/')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Comparatori per frontalieri Svizzera-Italia</h2>`,
               `Questa sezione mette a confronto servizi, costi e condizioni rilevanti per chi lavora in Svizzera e vive in Italia, con dati aggiornati e strumenti interattivi per decisioni informate.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Voci di spesa della vita transfrontaliera</h2>`,
               `Ogni comparatore utilizza dati reali e fonti verificabili per garantire risultati affidabili. I parametri sono personalizzabili in base alla tua situazione specifica di frontaliere.`,
               `I confronti coprono le principali voci di spesa della vita transfrontaliera — banche, assicurazioni sanitarie, operatori mobili, costo della spesa e asili nido — aiutandoti a risparmiare senza rinunciare alla qualità dei servizi.`,
             );
           } else if (canonicalPath.startsWith('/tasse-e-pensione/calcola-previdenza')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Calcolo pensione frontaliere Svizzera</h2>`,
               `Il simulatore previdenziale stima la rendita pensionistica combinando primo pilastro AVS (rendita massima 2024: 2450 CHF/mese), secondo pilastro LPP (accrediti dal 7 % al 18 % in base all'età) e terzo pilastro 3a facoltativo.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Strategie previdenziali per frontalieri</h2>`,
               `Per i frontalieri, la pensione svizzera viene versata anche dopo il rientro definitivo in Italia. I contributi AVS maturati in Svizzera si sommano a quelli INPS italiani grazie alla convenzione bilaterale di sicurezza sociale.`,
               `Il simulatore mostra anche l'impatto di diverse strategie: versamenti volontari al pilastro 3a, riscatto LPP, e l'effetto del tasso di conversione sulla rendita finale, con proiezioni a 5, 10 e 20 anni.`,
             );
           } else if (canonicalPath.startsWith('/tasse-e-pensione/scadenze-fiscali')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Scadenze fiscali frontalieri 2026</h2>`,
               `Il calendario fiscale mostra tutte le scadenze che un frontaliere deve rispettare in Svizzera e in Italia: dichiarazione dei redditi (730/Modello Redditi PF), conguaglio imposta alla fonte, versamento IMU e addizionali regionali/comunali.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Franchigia 10.000 EUR per nuovi frontalieri</h2>`,
               `Per i nuovi frontalieri (regime dal 2024), la franchigia di 10.000 EUR si applica al reddito da lavoro dipendente in Svizzera ai fini IRPEF: la dichiarazione italiana tiene conto di questo abbattimento nella base imponibile.`,
               `Rispettare ogni scadenza evita sanzioni e interessi di mora. Lo strumento ti invia promemoria personalizzati e mostra il calendario completo con le date italiane e svizzere sovrapposte.`,
             );
@@ -1338,7 +1372,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             );
           } else if (canonicalPath.startsWith('/tasse-e-pensione/')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Tassazione frontalieri Ticino 2026</h2>`,
               `Questa sezione copre gli aspetti fiscali e previdenziali del lavoro transfrontaliero: imposta alla fonte svizzera, IRPEF italiana, contributi AVS/LPP e pianificazione pensionistica.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo accordo fiscale Italia-Svizzera</h2>`,
               `Le informazioni sono aggiornate al Nuovo Accordo fiscale Italia-Svizzera 2024 e tengono conto delle specificità del Canton Ticino per l'imposta alla fonte e dei regimi transitori per i frontalieri storici (ante 2024).`,
               `Per ogni tema fiscale trovi simulatori interattivi che calcolano il tuo caso specifico e guide passo-passo per compilare correttamente dichiarazioni, moduli e richieste di rimborso.`,
             );
@@ -1448,7 +1484,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             );
           } else if (canonicalPath.startsWith('/vivere-in-ticino/costo-della-vita')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Costo della vita per frontalieri</h2>`,
               `L'indice del costo della vita confronta le principali voci di spesa tra Svizzera (Ticino) e Italia (Lombardia/Piemonte): affitto, trasporti, alimentari, sanità, istruzione e tempo libero.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Permesso G vs B: impatto sul costo della vita</h2>`,
               `Il differenziale di costo della vita è il fattore chiave nella scelta tra permesso G (residenza in Italia) e permesso B (residenza in Svizzera): vivere in Italia può ridurre le spese fisse del 30–50 % rispetto al Ticino.`,
             );
           } else if (canonicalPath.startsWith('/vivere-in-ticino/asili-nido')) {
@@ -1481,7 +1519,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             );
           } else if (canonicalPath.startsWith('/vivere-in-ticino/')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vita quotidiana per frontalieri in Ticino</h2>`,
               `La sezione "Vivere in Ticino" copre gli aspetti pratici della vita quotidiana per chi lavora nel cantone: alloggio, trasporti, spesa, servizi per la famiglia e tempo libero.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Strumenti e comparatori per la vita transfrontaliera</h2>`,
               `Le informazioni sono pensate sia per chi valuta un trasferimento in Svizzera sia per chi resta in Italia e vuole ottimizzare il pendolarismo quotidiano e le spese della vita da frontaliere.`,
               `Trovi comparatori interattivi per asili nido, trasporti pubblici, operatori mobili e costo della spesa, oltre a mappe e classifiche dei comuni di frontiera migliori per qualità di vita e tempi di percorrenza.`,
             );
@@ -1499,7 +1539,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             );
           } else if (canonicalPath.startsWith('/statistiche/')) {
             editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Statistiche lavoro frontaliero Ticino</h2>`,
               `La sezione statistiche presenta dati aggregati e tendenze sul fenomeno frontaliero in Ticino: numero di permessi G per settore, andamento dei salari medi, tasso di disoccupazione cantonale e flussi di traffico ai valichi.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Fonti ufficiali e dati aggiornati</h2>`,
               `I dati provengono da fonti ufficiali (USTAT, SECO, UST) e vengono aggiornati periodicamente. I grafici interattivi permettono di esplorare serie storiche e confrontare periodi diversi.`,
               `Le statistiche sono utili per capire l'evoluzione del mercato del lavoro ticinese, identificare i settori in crescita e preparare negoziazioni salariali con dati oggettivi e verificabili.`,
             );
@@ -1608,6 +1650,12 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Settore</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Stipendio Mediano Ticino (CHF)</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Stipendio Mediano Italia (EUR)</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">IT / Software</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">95.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">35.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Finanza / Banking</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">110.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">38.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Pharma / Chimica</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">105.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">34.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Ingegneria</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">90.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">32.000</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Commercio / Retail</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">55.000</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">24.000</td></tr></tbody></table>';
           } else if (canonicalPath.startsWith('/compara-servizi/confronta-casse-malati')) {
             comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Opzione</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Premio Mensile</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Copertura</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Nota</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">LAMal Svizzera</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 300-500</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CH + UE</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Obbligatoria per residenti</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">SSN Italia</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">~&euro; 50-100</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Solo Italia</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Diritto d&#39;opzione per G</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">CMB (Complementare)</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 200-400</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Integrativa</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Riduce franchigia</td></tr></tbody></table>';
+          } else if (canonicalPath.startsWith('/compara-servizi/confronta-banche') || canonicalPath.startsWith('/compara-servizi/confronta-conti-bancari')) {
+            comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Banca</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Conto CHF</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Cambio CHF-EUR</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Costi mensili</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Carta</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">PostFinance</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,5 % spread</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 5</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Debit Mastercard</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Revolut</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Multi-valuta</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">0,3-0,5 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Gratis / &euro; 8</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa Debit</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Wise</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Multi-valuta</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">0,3-0,6 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Gratis</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa Debit</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Corner Banca</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,0-1,5 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 6</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa/Mastercard</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">BancaStato</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,0-2,0 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 3-8</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Maestro/Visa</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Raiffeisen</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">S&igrave;</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1,2-1,8 %</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 4-7</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Visa Debit</td></tr></tbody></table>';
+          } else if (canonicalPath.startsWith('/compara-servizi/confronta-operatori-mobili')) {
+            comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Operatore</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Piano</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Prezzo/mese</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Dati</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Roaming CH-IT</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Swisscom</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">blue Mobile M</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 55</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Illimitati CH</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">2 GB/mese UE incl.</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Salt</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Swiss</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 30</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Illimitati CH</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1 GB/mese UE incl.</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Sunrise</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">smart</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">CHF 45</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Illimitati CH</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">2 GB/mese UE incl.</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Iliad Italia</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Giga 180</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">&euro; 10</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">180 GB IT</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Roaming UE incluso</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">ho. Mobile</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">200 GB</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">&euro; 10</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">200 GB IT</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Roaming UE incluso</td></tr></tbody></table>';
+          } else if (canonicalPath.startsWith('/vivere-in-ticino/costo-della-vita') || canonicalPath.startsWith('/compara-servizi/confronta-costo-vita')) {
+            comparisonTableHtml = '<table style="width:100%;border-collapse:collapse;margin:.75rem 0;font-size:.85rem"><thead><tr style="background:#f1f5f9"><th style="padding:.5rem;text-align:left;border:1px solid #e2e8f0">Voce</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Lugano (CHF)</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Como (EUR)</th><th style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">Varese (EUR)</th></tr></thead><tbody><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Affitto bilocale</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1.400-1.800</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">650-900</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">550-800</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Spesa settimanale</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">150-200</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">80-110</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">75-105</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Trasporto mensile</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">70-100</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">35-50</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">35-50</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Asilo nido/mese</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">1.500-2.500</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">300-500</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">250-450</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Cena ristorante (2 pers.)</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">100-150</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">50-70</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">45-65</td></tr><tr><td style="padding:.5rem;border:1px solid #e2e8f0">Abbonamento palestra</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">80-120</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">30-50</td><td style="padding:.5rem;text-align:center;border:1px solid #e2e8f0">25-45</td></tr></tbody></table>';
           }
 
           const LAST_UPDATED_LABEL: Record<string, string> = {
@@ -1620,7 +1668,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           const dateFormatLocale = locale === 'it' ? 'it-IT' : locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : 'en-GB';
           const formattedDate = new Date().toLocaleDateString(dateFormatLocale, { month: 'long', year: 'numeric' });
           const dateLine = `<p style="margin:.5rem 0;font-size:.8rem;color:#94a3b8"><time datetime="${new Date().toISOString().slice(0, 10)}">${dateLabel}: ${formattedDate}</time></p>`;
-          const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${editorialBlocks.map((b) => `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
+          const editorialHtml = `<div style="margin-top:.75rem;font-size:.95rem;line-height:1.6;color:#334155">${dateLine}${editorialBlocks.map((b) => b.startsWith('<h2') ? b : `<p style="margin:.5rem 0">${esc(b)}</p>`).join('')}${comparisonTableHtml}${faqHtml}${relatedHtml}</div>`;
 
           // Detect page section from URL for skeleton-aligned static content
           const urlSegs = urlPath.split('/').filter(Boolean);
