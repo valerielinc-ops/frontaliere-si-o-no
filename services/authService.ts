@@ -895,7 +895,17 @@ export function useAuth(): AuthState & {
   logout: () => Promise<void>;
 } {
   const [user, setUser] = useState<any | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(() => {
+    // Only block UI rendering for flows that REQUIRE auth before showing content.
+    // All other cases (authToken, confirm_newsletter) run auth in background.
+    if (sessionStorage.getItem('auth_redirect_provider')) return true;
+    if (typeof window !== 'undefined') {
+      if (window.location.pathname.includes('/gestione-contenuti-xk9mp2q')) return true;
+      const p = new URLSearchParams(window.location.search);
+      if (p.get('mode') === 'signIn' && p.get('oobCode')) return true;
+    }
+    return false;
+  });
 
   useEffect(() => {
     let unsubscribe: (() => void) | null = null;

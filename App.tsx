@@ -646,6 +646,7 @@ const App: React.FC = () => {
           setUnsubscribeMsg(t('newsletter.confirmationError'));
         }
         window.history.replaceState({}, '', window.location.pathname);
+        window.scrollTo({ top: 0, behavior: 'instant' });
       })();
       return;
     }
