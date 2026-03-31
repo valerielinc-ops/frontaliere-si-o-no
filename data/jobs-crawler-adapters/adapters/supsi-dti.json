@@ -13,16 +13,16 @@
     "https://www.supsi.ch/lavora-con-noi"
   ],
   "notes": "Dedicated SUPSI crawler seeds from lavora-con-noi (including pagination via POST) and canonicalizes job URLs under supsi.ch.",
-  "updatedAt": "2026-03-30T22:05:06.158Z",
+  "updatedAt": "2026-03-31T09:53:32.207Z",
   "seedDetailUrls": [
     "https://www.supsi.ch/assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-26_1006-",
-    "https://www.supsi.ch/bando26_5007",
     "https://www.supsi.ch/bando26_1001",
     "https://www.supsi.ch/bando26_4003",
     "https://www.supsi.ch/bando26_1007",
     "https://www.supsi.ch/bando26_1008",
     "https://www.supsi.ch/bando25_9005",
     "https://www.supsi.ch/bando26_5013",
+    "https://www.supsi.ch/26_5001",
     "https://www.supsi.ch/bando26_9001",
     "https://www.supsi.ch/bando26_4001"
   ],
@@ -33,15 +33,6 @@
       "country": "CH",
       "company": "SUPSI / DTI",
       "companyDomain": "supsi.ch",
-      "expiresAt": "2026-03-30"
-    },
-    "https://www.supsi.ch/bando26_5007": {
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "company": "SUPSI / DTI",
-      "companyDomain": "supsi.ch",
-      "contract": "Full-time",
       "expiresAt": "2026-03-30"
     },
     "https://www.supsi.ch/bando26_1001": {
@@ -93,6 +84,14 @@
       "companyDomain": "supsi.ch",
       "contract": "Full-time",
       "expiresAt": "2026-04-30"
+    },
+    "https://www.supsi.ch/26_5001": {
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "company": "SUPSI / DTI",
+      "companyDomain": "supsi.ch",
+      "expiresAt": "2026-05-03"
     },
     "https://www.supsi.ch/bando26_9001": {
       "location": "Ticino",

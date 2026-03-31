@@ -1,16 +1,16 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-03-30T22:06:01.154Z",
-  "total": 11,
+  "generatedAt": "2026-03-31T09:54:38.749Z",
+  "total": 10,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 11,
-  "durationMs": 57778,
-  "avgDurationMs": 57778,
+  "unchangedCount": 10,
+  "durationMs": 68761,
+  "avgDurationMs": 68761,
   "durationHistory": [
-    57778
+    68761
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -27,7 +27,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/assistente-con-bachelor-o-master-per-il-corso-di-laurea-in-architettura-supsi-26_1006-",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -37,7 +37,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72000,
@@ -48,51 +49,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-l4u52o",
-      "slug": "ricercatore-ricercatrice-con-phd-nell-area-di-ricerca-sistemi-intelligenti-supsi-dti-viganello",
-      "company": "SUPSI / DTI",
-      "title": "Ricercatore / Ricercatrice con PhD nell'area di ricerca sistemi intelligenti",
-      "location": "Viganello",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-29",
-      "url": "https://www.supsi.ch/bando26_5007",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Lugano",
-        "canton": "TI"
-      },
-      "companyKey": "supsi-dti",
-      "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
-      "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Cantonale 2C",
-      "postalCode": "6928",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -107,7 +68,7 @@
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando26_1001",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -117,7 +78,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72500,
@@ -128,11 +90,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
+      "_qualityScore": 98,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 23,
         "completeness": 25
       }
     },
@@ -147,7 +109,7 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando26_4003",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -157,7 +119,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72500,
@@ -168,17 +131,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
     {
       "id": "company-l4rl4k",
-      "slug": "assistente-con-master-in-idrologia-supsi-dti-manno",
+      "slug": "assistente-con-master-in-idrologia-supsi-dti-mendrisio",
       "company": "SUPSI / DTI",
       "title": "Assistente con Master in idrologia",
       "location": "Mendrisio",
@@ -187,7 +150,7 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando26_1007",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -197,7 +160,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72000,
@@ -208,17 +172,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
     {
       "id": "company-l4rl4l",
-      "slug": "dottorando-dottoranda-in-dinamica-dei-materiali-compositi-avanzati-per-droni-translation-dottoranda-dottorando-phd-stude",
+      "slug": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
       "company": "SUPSI / DTI",
       "title": "Dottoranda / Dottorando in Dinamica dei materiali compositi avanzati per droni",
       "location": "Mendrisio. Grado d",
@@ -227,7 +191,7 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando26_1008",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -237,7 +201,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 82500,
@@ -248,11 +213,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -267,7 +232,7 @@
       "contract": "internship",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando25_9005",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -277,7 +242,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 61000,
@@ -298,7 +264,7 @@
     },
     {
       "id": "company-l4u53f",
-      "slug": "dottorando-dottorando-nella-modellistica-molecolare-dei-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-manno",
+      "slug": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano",
       "company": "SUPSI / DTI",
       "title": "Dottoranda / Dottorando in modellazione molecolare di materiali per l’energia e la sostenibilità",
       "location": "Lugano",
@@ -307,7 +273,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando26_5013",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -317,7 +283,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72500,
@@ -328,11 +295,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -347,7 +314,7 @@
       "contract": "internship",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/26_5001",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -357,7 +324,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 109000,
@@ -387,7 +355,7 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando26_9001",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -397,7 +365,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 55500,
@@ -427,7 +396,7 @@
       "contract": "temporary",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "url": "https://www.supsi.ch/bando26_4001",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -437,7 +406,8 @@
       },
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
-      "crawledAt": "2026-03-29T09:55:00.510Z",
+      "crawledAt": "2026-03-31T09:53:46.659Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -448,11 +418,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 100,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     }
