@@ -4,7 +4,14 @@
 User-agent: *
 Allow: /
 Disallow: /api/
-Disallow: /*.json
+Disallow: /data/jobs.json
+Disallow: /data/jobs-ai-cache.json
+Disallow: /data/expired-jobs.json
+Disallow: /data/translation-cache/
+Allow: /data/fuel-prices.json
+Allow: /data/health-premiums.json
+Allow: /data/jobs-stats.json
+Allow: /data/switzerland-unemployment-rate.json
 Allow: /manifest.webmanifest
 Disallow: /*?debug=*
 Disallow: /*?status=*
