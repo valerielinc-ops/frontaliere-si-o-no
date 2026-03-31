@@ -1874,6 +1874,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ict-reatto-commissione-tri.title': 'Lavoro TIC in Ticino: ATED chiede rappresentanza nella Commissione tripartita',
     'blog.article.ict-reatto-commissione-tri.excerpt': 'Il settore ICT ticinese, con oltre 14.000 professionisti e un peso economico di circa 1,4 miliardi di franchi, richiede un ruolo diretto nel processo decisionale del mercato del lavoro cantonale.',
     'blog.article.ict-reatto-commissione-tri.imageAlt': 'Rappresentanza del settore ICT nel contesto di un ufficio cantonale in Ticino',
+    'blog.article.furbata-dogana-argento.title': 'Tenta la furbata in dogana tra Como e Svizzera: nella Mustang 7 kg di rare monete di argento purissimo',
+    'blog.article.furbata-dogana-argento.excerpt': 'Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d\'argento nascoste nel bagagliaio di una Ford Mustang',
+    'blog.article.furbata-dogana-argento.imageAlt': 'Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d\'argento nascoste nel bagagliaio di una Ford Mustang',
 };
 
 export default blogMetaIt;

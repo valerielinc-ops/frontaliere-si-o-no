@@ -1874,6 +1874,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ict-reatto-commissione-tri.title': 'Emploi TIC au Tessin : ATED demande une représentation dans la Commission tripartite',
     'blog.article.ict-reatto-commissione-tri.excerpt': 'Le secteur TIC du Tessin, avec plus de 14 000 professionnels et un poids économique d’environ 1,4 milliard de francs, exige un rôle direct dans le processus décisionnel du marché du travail cantonal.',
     'blog.article.ict-reatto-commissione-tri.imageAlt': 'Représentants du secteur TIC dans un bureau gouvernemental au Tessin',
+    'blog.article.furbata-dogana-argento.title': 'Il tente un coup de malice à la douane entre Côme et la Suisse : 7 kg de pièces rares en argent pur dans une Mustang',
+    'blog.article.furbata-dogana-argento.excerpt': 'Un citoyen italien intercepté au poste-frontière de Ponte Chiasso avec 7 kg de pièces rares en argent dissimulées dans le coffre d\'une Ford Mustang',
+    'blog.article.furbata-dogana-argento.imageAlt': 'Citoyen italien arrêté à Ponte Chiasso avec 7 kg de monnaies d\'argent rares cachées dans le coffre d\'une Ford Mustang',
 };
 
 export default blogMetaFr;

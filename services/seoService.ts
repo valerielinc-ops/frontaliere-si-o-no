@@ -1764,6 +1764,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sindacati-ticino-leonardo-cascina-costa': { name: 'Sindacati in Ticino', path: '/articoli-frontaliere/sindacati-ticino-leonardo-cascina-costa', parent: 'blog' },
     'blog-chiasso-tassa-refezione-scuola-infanzia': { name: 'Notizie Ticino', path: '/articoli-frontaliere/chiasso-tassa-refezione-scuola-infanzia', parent: 'blog' },
     'blog-ict-reatto-commissione-tri': { name: 'Lavoro TIC in Ticino', path: '/articoli-frontaliere/ict-reatto-commissione-tri', parent: 'blog' },
+    'blog-furbata-dogana-argento': { name: 'Tenta la furbata in dogana tra Como e Sv', path: '/articoli-frontaliere/furbata-dogana-argento', parent: 'blog' },
   };
 
   const info = sectionNames[section];

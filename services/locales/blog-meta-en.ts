@@ -1874,6 +1874,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ict-reatto-commissione-tri.title': 'ICT Workforce in Ticino: ATED Calls for Representation in the Tripartite Commission',
     'blog.article.ict-reatto-commissione-tri.excerpt': 'The Ticino ICT sector, with over 14,000 professionals and an economic impact of approximately 1.4 billion Swiss francs, is demanding a direct role in the decision-making process of the cantonal labor market.',
     'blog.article.ict-reatto-commissione-tri.imageAlt': 'ICT sector representatives in a Ticino government office setting',
+    'blog.article.furbata-dogana-argento.title': 'Tries to pull a fast one at the border between Como and Switzerland: 7 kg of rare pure silver coins found in Mustang',
+    'blog.article.furbata-dogana-argento.excerpt': 'Italian citizen stopped at the Ponte Chiasso crossing with 7 kg of rare silver coins hidden in the trunk of a Ford Mustang',
+    'blog.article.furbata-dogana-argento.imageAlt': 'Italian citizen stopped at the Ponte Chiasso border with 7 kg of rare silver coins hidden in the trunk of a Ford Mustang',
 };
 
 export default blogMetaEn;

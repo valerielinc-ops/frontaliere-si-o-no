@@ -9221,6 +9221,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-furbata-dogana-argento': {
+    title: 'Tenta la furbata in dogana tra Como e Svizzera: nella Mustang 7 kg di | Frontaliere Ticino',
+    description: 'Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d\'argento nascoste nel bagagliaio di una Ford Mustang. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, tenta, furbata, dogana, como',
+    ogTitle: 'Tenta la furbata in dogana tra Como e Svizzera: nella Mus',
+    ogDescription: 'Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d\'argento nascoste nel bagagliaio di una Ford Mustang',
+    canonicalPath: '/articoli-frontaliere/furbata-dogana-argento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tenta la furbata in dogana tra Como e Svizzera: nella Mus",
+      "description": "Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d'argento nascoste nel bagagliaio di una Ford Mustang. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/furbata-dogana-argento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d'argento nascoste nel bagagliaio di una Ford Mustang"
+      },
+      "datePublished": "2026-03-31T07:46:01+00:00",
+      "dateModified": "2026-03-31T07:46:01+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/furbata-dogana-argento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

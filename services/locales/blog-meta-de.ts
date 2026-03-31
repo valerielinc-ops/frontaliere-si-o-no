@@ -1874,6 +1874,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ict-reatto-commissione-tri.title': 'Arbeitsmarkt TIC im Tessin: ATED fordert Vertretung in der Dreiteilungskommission',
     'blog.article.ict-reatto-commissione-tri.excerpt': 'Der Tessiner ICT-Sektor, mit über 14.000 Fachkräften und einer wirtschaftlichen Bedeutung von rund 1,4 Milliarden Franken, fordert eine direkte Rolle im Entscheidungsprozess auf dem kantonalen Arbeitsmarkt.',
     'blog.article.ict-reatto-commissione-tri.imageAlt': 'Vertreter des ICT-Sektors in einem Regierungsbüro im Tessin',
+    'blog.article.furbata-dogana-argento.title': 'Versucht, an der Grenze zwischen Como und der Schweiz schlau zu sein: 7 kg seltene Münzen aus reinem Silber in einem Mustang',
+    'blog.article.furbata-dogana-argento.excerpt': 'Italienischer Staatsbürger am Grenzübergang Ponte Chiasso mit 7 kg seltenen Silbermünzen im Kofferraum eines Ford Mustang gestoppt',
+    'blog.article.furbata-dogana-argento.imageAlt': 'Italienischer Staatsbürger bei Ponte Chiasso gestoppt mit 7 kg seltenen Silbermünzen im Kofferraum einer Ford Mustang',
 };
 
 export default blogMetaDe;
