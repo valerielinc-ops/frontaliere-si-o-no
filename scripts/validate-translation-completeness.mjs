@@ -47,9 +47,22 @@ if (!Array.isArray(jobs) || jobs.length === 0) {
 /* ── Validate ── */
 const issues = []; // { slug, locale, reason }
 
+let skippedThinSource = 0;
 for (const job of jobs) {
   const slug = job.slug || '(unknown)';
   const sourceLang = job.sourceLang || 'it';
+
+  // Skip jobs where the source description itself is too short to translate.
+  // These are not translation failures — the source site doesn't provide a real description
+  // (e.g. just a CTA button like "Candidati ora »"). Translation can't create content
+  // that doesn't exist.
+  const mainDesc = String(job.description || '').trim();
+  const sourceLocaleDesc = String(job.descriptionByLocale?.[sourceLang] || '').trim();
+  const bestSourceDesc = sourceLocaleDesc.length > mainDesc.length ? sourceLocaleDesc : mainDesc;
+  if (bestSourceDesc.length < MIN_DESCRIPTION_CHARS) {
+    skippedThinSource++;
+    continue;
+  }
 
   for (const locale of LOCALES) {
     // Title check
@@ -63,7 +76,6 @@ for (const job of jobs) {
     if (desc.length < MIN_DESCRIPTION_CHARS) {
       // For the source language, allow the main description field as fallback
       if (locale === sourceLang) {
-        const mainDesc = String(job.description || '').trim();
         if (mainDesc.length < MIN_DESCRIPTION_CHARS) {
           issues.push({ slug, locale, reason: `missing/short description (${desc.length} chars, main: ${mainDesc.length} chars)` });
         }
@@ -72,6 +84,9 @@ for (const job of jobs) {
       }
     }
   }
+}
+if (skippedThinSource > 0) {
+  console.log(`ℹ️  Skipped ${skippedThinSource} jobs with thin source descriptions (< ${MIN_DESCRIPTION_CHARS} chars) — not a translation issue.`);
 }
 
 /* ── Report ── */
