@@ -55,6 +55,13 @@ export default function CalcolatoreTabContent() {
           </Suspense>
         ) : (
           <>
+            <h1 className="text-xl sm:text-2xl font-extrabold text-slate-900 dark:text-white tracking-tight mb-1">
+              {t('seoContent.calculator.title')}
+            </h1>
+            <p className="text-sm text-slate-500 dark:text-slate-400 mb-4">
+              {t('seoContent.calculator.subtitle')}
+            </p>
+
             {showDeferredHomeWidgets ? (
               <div className="hidden md:block space-y-2 mb-4">
                 <div className="grid grid-cols-1 md:grid-cols-20 gap-2 items-stretch">

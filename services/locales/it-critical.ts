@@ -148,6 +148,9 @@ const criticalTranslations: Record<string, string> = {
   // profile (from it-vita.ts — visible in navbar)
   'profile.title': 'Il tuo Profilo',
   'profile.signIn': 'Accedi',
+  // Homepage H1 — above-the-fold SEO heading (from it-core.ts)
+  'seoContent.calculator.title': 'Calcolatore Stipendio Frontaliere Svizzera 2026',
+  'seoContent.calculator.subtitle': 'Strumenti di simulazione fiscale precisi per lavoratori frontalieri: calcola stipendio netto, busta paga, pensione AVS/LPP e deduzioni fiscali.',
 };
 
 export default criticalTranslations;
