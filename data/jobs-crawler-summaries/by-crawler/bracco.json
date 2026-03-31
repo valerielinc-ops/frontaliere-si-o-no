@@ -1,16 +1,16 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-03-30T21:17:23.757Z",
+  "generatedAt": "2026-03-31T09:06:02.077Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 2547,
-  "avgDurationMs": 2547,
+  "durationMs": 2613,
+  "avgDurationMs": 2613,
   "durationHistory": [
-    2547
+    2613
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -25,7 +25,7 @@
       "location": "Plan-les-Ouates",
       "canton": "GE",
       "country": "CH",
-      "slug": "manufacturing-technicien-production-sterile-h-f-bracco-suisse",
+      "slug": "tecnico-di-produzione-sterile-m-f-bracco-suisse-s-a-plan-les-ouates",
       "category": "production",
       "datePosted": "2026-03-03",
       "source": "bracco-workday-crawler",
@@ -47,6 +47,7 @@
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -64,7 +65,7 @@
       "location": "Plan-les-Ouates",
       "canton": "GE",
       "country": "CH",
-      "slug": "continuous-improvement-manager-bracco-suisse",
+      "slug": "responsabile-del-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates",
       "category": "management",
       "datePosted": "2025-11-17",
       "source": "bracco-workday-crawler",
