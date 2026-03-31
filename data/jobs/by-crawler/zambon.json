@@ -1,5 +1,66 @@
 {
   "crawlerKey": "zambon",
-  "assembledAt": "2026-03-30T22:11:44.319Z",
-  "jobs": []
+  "assembledAt": "2026-03-31T04:56:13.212Z",
+  "jobs": [
+    {
+      "id": "zambon-786111",
+      "url": "https://app.ncoreplat.com/jobposition/786111/stagista-laboratorio-chimico-controllo-qualita-ch/hr-switzerland",
+      "applyUrl": "https://app.ncoreplat.com/jobposition/786111/stagista-laboratorio-chimico-controllo-qualita-ch/hr-switzerland",
+      "title": "Stagista Laboratorio Chimico Controllo Qualità",
+      "company": "Zambon Svizzera SA",
+      "companyKey": "zambon",
+      "location": "Cadempino",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Cadempino",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6814",
+      "streetAddress": "Via Industria 13",
+      "description": "Stagista Laboratorio Chimico Controllo Qualità — posizione presso Zambon Svizzera SA a Cadempino (TI). Zambon è un'azienda farmaceutica internazionale specializzata in malattie respiratorie e rare. Area: Quality Management. Contratto: Full Time.",
+      "titleByLocale": {
+        "it": "Stagista Laboratorio Chimico Controllo Qualità",
+        "fr": "Stagista Laboratorio Chimico Controllo Qualità",
+        "en": "Stagista Laboratorio Chimico Controllo Qualità",
+        "de": "Stagista Laboratorio Chimico Controllo Qualità"
+      },
+      "descriptionByLocale": {
+        "it": "Stagista Laboratorio Chimico Controllo Qualità — posizione presso Zambon Svizzera SA a Cadempino (TI). Zambon è un'azienda farmaceutica internazionale specializzata in malattie respiratorie e rare. Area: Quality Management. Contratto: Full Time.",
+        "en": "Stagista Laboratorio Chimico Controllo Qualità — posizione presso Zambon Svizzera SA a Cadempino (TI). Zambon è un'azienda farmaceutica internazionale specializzata in malattie respiratorie e rare. Area: Quality Management. Contratto: Full Time.",
+        "de": "Stagista Laboratorio Chimico Controllo Qualità — posizione presso Zambon Svizzera SA a Cadempino (TI). Zambon è un'azienda farmaceutica internazionale specializzata in malattie respiratorie e rare. Area: Quality Management. Contratto: Full Time.",
+        "fr": "Stagista Laboratorio Chimico Controllo Qualità — posizione presso Zambon Svizzera SA a Cadempino (TI). Zambon è un'azienda farmaceutica internazionale specializzata in malattie respiratorie e rare. Area: Quality Management. Contratto: Full Time."
+      },
+      "slug": "stagista-laboratorio-chimico-controllo-qualita-zambon",
+      "slugByLocale": {
+        "it": "stagista-laboratorio-chimico-controllo-qualita-zambon",
+        "en": "stagista-laboratorio-chimico-controllo-qualita-zambon",
+        "de": "stagista-laboratorio-chimico-controllo-qualita-zambon",
+        "fr": "stagista-laboratorio-chimico-controllo-qualita-zambon"
+      },
+      "category": "technology",
+      "datePosted": "2026-03-10",
+      "source": "zambon-ncoreplat-api",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "MID",
+      "sector": "Farmaceutica",
+      "department": "Quality Management",
+      "seniority": "< 1 year",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      }
+    }
+  ]
 }
