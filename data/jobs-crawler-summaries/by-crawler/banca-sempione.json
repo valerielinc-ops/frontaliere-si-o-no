@@ -1,16 +1,16 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-03-30T21:13:01.267Z",
+  "generatedAt": "2026-03-31T09:01:41.112Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 7398,
-  "avgDurationMs": 7398,
+  "durationMs": 5501,
+  "avgDurationMs": 5501,
   "durationHistory": [
-    7398
+    5501
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -30,6 +30,7 @@
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -40,11 +41,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 86,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     }
