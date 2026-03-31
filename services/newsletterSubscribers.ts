@@ -171,6 +171,7 @@ const CONFIRMED_NEWSLETTER_SOURCES = new Set([
   'signup',
   'auth_google',
   'auth_facebook',
+  'auth_linkedin',
   'chatbot_google',
   'chatbot_facebook',
   'job_board_auth',
