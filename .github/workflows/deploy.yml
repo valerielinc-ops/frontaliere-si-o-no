@@ -79,6 +79,8 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --stats
 
       - name: Housekeeping (cross-crawler dedup + locale hardening)
+        env:
+          JOBS_SKIP_URL_VALIDATION: '1'
         run: node scripts/cleanup-jobs.mjs
 
       - name: Validate translation completeness (blocking)

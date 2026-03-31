@@ -34,6 +34,7 @@ const EXPIRED_SLICES_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'expire
 const MAX_CONCURRENCY = Math.max(1, Math.min(20, Number(process.env.JOBS_HOUSEKEEPING_CONCURRENCY || DEFAULT_CONCURRENCY)));
 const TIMEOUT_MS = Math.max(2000, Math.min(15000, Number(process.env.JOBS_HOUSEKEEPING_TIMEOUT_MS || DEFAULT_TIMEOUT_MS)));
 const HOUSEKEEPING_SCOPE = String(process.env.JOBS_HOUSEKEEPING_SCOPE || '').trim();
+const SKIP_URL_VALIDATION = String(process.env.JOBS_SKIP_URL_VALIDATION || '0') === '1';
 
 /** Slice-only mode: operate on a single per-crawler slice file instead of the
  *  monolithic data/jobs.json. Set JOBS_SLICE_FILE to the slice path, e.g.
@@ -417,29 +418,34 @@ async function main() {
   }
 
   // ── 2. URL validation ─────────────────────────────────────────────────
-  console.log(`\n🧹 Job housekeeping: checking ${afterAgePrune.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
-
-  const checks = await validateJobUrls(
-    afterAgePrune.map((j) => ({ id: j.id, url: j.url })),
-    { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS }
-  );
-
   const removed = [...ageRemoved];
   let kept = [];
 
-  const checkById = new Map(checks.map((c) => [c.id, c]));
-  for (const job of afterAgePrune) {
-    const c = checkById.get(job.id);
-    if (c && c.valid === false) {
-      // Definitive signals (HTTP 404/410, explicit closure phrases, portal-specific)
-      // bypass fresh protection — the job is unambiguously gone.
-      if (isFreshProtected(job) && !c.definitive) {
+  if (SKIP_URL_VALIDATION) {
+    console.log(`\n⏭️  URL validation skipped (JOBS_SKIP_URL_VALIDATION=1) — keeping ${afterAgePrune.length} jobs`);
+    kept = afterAgePrune;
+  } else {
+    console.log(`\n🧹 Job housekeeping: checking ${afterAgePrune.length} jobs (concurrency=${MAX_CONCURRENCY}, timeout=${TIMEOUT_MS}ms)`);
+
+    const checks = await validateJobUrls(
+      afterAgePrune.map((j) => ({ id: j.id, url: j.url })),
+      { concurrency: MAX_CONCURRENCY, timeoutMs: TIMEOUT_MS }
+    );
+
+    const checkById = new Map(checks.map((c) => [c.id, c]));
+    for (const job of afterAgePrune) {
+      const c = checkById.get(job.id);
+      if (c && c.valid === false) {
+        // Definitive signals (HTTP 404/410, explicit closure phrases, portal-specific)
+        // bypass fresh protection — the job is unambiguously gone.
+        if (isFreshProtected(job) && !c.definitive) {
+          kept.push(job);
+          continue;
+        }
+        removed.push({ id: job.id, url: job.url, reason: c.reason, status: c.status, definitive: !!c.definitive });
+      } else {
         kept.push(job);
-        continue;
       }
-      removed.push({ id: job.id, url: job.url, reason: c.reason, status: c.status, definitive: !!c.definitive });
-    } else {
-      kept.push(job);
     }
   }
 
