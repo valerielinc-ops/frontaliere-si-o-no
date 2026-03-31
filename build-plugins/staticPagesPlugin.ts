@@ -14,6 +14,136 @@ import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { translateFaqPage } from '../services/seo/faq-translations';
 import { translateHowToSchema } from '../services/seo/howto-translations';
 
+// ── FAQ page dedicated pre-rendering ──────────────────────────────────
+// The dedicated FAQ page at /domande-frequenti-frontalieri/ has 30 Q&A pairs
+// organized in 6 categories (5 questions each). We read these from the locale
+// files at build time so AI crawlers see the full content.
+
+const FAQ_CATEGORIES = ['taxes', 'permits', 'health', 'pension', 'daily', 'family'] as const;
+const QUESTIONS_PER_CATEGORY = 5;
+
+const FAQ_CATEGORY_LABELS: Record<string, Record<string, string>> = {
+  taxes:   { it: 'Fiscale', en: 'Taxes', de: 'Steuern', fr: 'Fiscalit\u00e9' },
+  permits: { it: 'Permessi', en: 'Permits', de: 'Bewilligungen', fr: 'Permis' },
+  health:  { it: 'Salute', en: 'Health', de: 'Gesundheit', fr: 'Sant\u00e9' },
+  pension: { it: 'Previdenza', en: 'Pension', de: 'Vorsorge', fr: 'Pr\u00e9voyance' },
+  daily:   { it: 'Quotidiano', en: 'Daily Life', de: 'Alltag', fr: 'Quotidien' },
+  family:  { it: 'Famiglia', en: 'Family', de: 'Familie', fr: 'Famille' },
+};
+
+const FAQ_DEDICATED_PAGE_SLUGS = new Set([
+  'domande-frequenti-frontalieri',
+  'cross-border-faq',
+  'grenzgaenger-faq',
+  'faq-frontaliers',
+]);
+
+/**
+ * Read FAQ Q&A pairs from a locale file at build time.
+ * Parses the TypeScript source as text and extracts translation keys matching
+ * `faq.questions.{category}.q{n}` and `faq.questions.{category}.a{n}`.
+ */
+function readFaqFromLocaleFile(
+  fs: typeof import('node:fs'),
+  np: typeof import('node:path'),
+  rootDir: string,
+  locale: string,
+): Array<{ category: string; question: string; answer: string }> {
+  const localeFile = np.resolve(rootDir, 'services', 'locales', `${locale}-core.ts`);
+  let content: string;
+  try {
+    content = fs.readFileSync(localeFile, 'utf-8');
+  } catch {
+    return [];
+  }
+
+  const results: Array<{ category: string; question: string; answer: string }> = [];
+
+  for (const cat of FAQ_CATEGORIES) {
+    for (let i = 1; i <= QUESTIONS_PER_CATEGORY; i++) {
+      const qKey = `faq.questions.${cat}.q${i}`;
+      const aKey = `faq.questions.${cat}.a${i}`;
+
+      // Match patterns like: 'faq.questions.taxes.q1': 'text here',
+      // Handles both single-quoted and escaped content
+      const qMatch = content.match(new RegExp(`'${qKey.replace(/\./g, '\\.')}':\\s*'((?:[^'\\\\]|\\\\.)*)'`));
+      const aMatch = content.match(new RegExp(`'${aKey.replace(/\./g, '\\.')}':\\s*'((?:[^'\\\\]|\\\\.)*)'`));
+
+      if (qMatch?.[1] && aMatch?.[1]) {
+        // Unescape the string (handle \' and other escapes)
+        const question = qMatch[1].replace(/\\'/g, "'").replace(/\\n/g, '\n');
+        const answer = aMatch[1].replace(/\\'/g, "'").replace(/\\n/g, '\n');
+        results.push({ category: cat, question, answer });
+      }
+    }
+  }
+
+  return results;
+}
+
+/**
+ * Build full FAQ HTML for the dedicated FAQ page — all 30 Q&A pairs grouped by category.
+ * Returns both the visible HTML and the complete FAQPage JSON-LD.
+ */
+function buildDedicatedFaqHtml(
+  faqItems: Array<{ category: string; question: string; answer: string }>,
+  locale: string,
+  esc: (s: string) => string,
+): { html: string; jsonLd: string } {
+  const FAQ_PAGE_HEADING: Record<string, string> = {
+    it: 'Domande Frequenti Frontalieri',
+    en: 'Cross-Border Worker FAQ',
+    de: 'H\u00e4ufig gestellte Fragen f\u00fcr Grenzg\u00e4nger',
+    fr: 'Questions Fr\u00e9quentes Frontaliers',
+  };
+
+  // Group by category
+  const grouped = new Map<string, Array<{ question: string; answer: string }>>();
+  for (const item of faqItems) {
+    const existing = grouped.get(item.category) ?? [];
+    existing.push({ question: item.question, answer: item.answer });
+    grouped.set(item.category, existing);
+  }
+
+  // Build visible HTML with <h2> per category and <dl>/<dt>/<dd> per Q&A
+  let html = `<section style="margin-top:1.25rem">`;
+  html += `<h2 style="font-size:1.1rem;font-weight:700;margin:0 0 1rem">${esc(FAQ_PAGE_HEADING[locale] ?? FAQ_PAGE_HEADING.it)}</h2>`;
+
+  for (const cat of FAQ_CATEGORIES) {
+    const items = grouped.get(cat);
+    if (!items || items.length === 0) continue;
+    const catLabel = FAQ_CATEGORY_LABELS[cat]?.[locale] ?? FAQ_CATEGORY_LABELS[cat]?.it ?? cat;
+    html += `<h3 style="font-size:1rem;font-weight:600;margin:1.25rem 0 .5rem;color:#1e293b">${esc(catLabel)}</h3>`;
+    html += `<dl style="margin:0">`;
+    for (const item of items) {
+      html += `<dt style="font-weight:600;margin:.75rem 0 .25rem">${esc(item.question)}</dt>`;
+      html += `<dd style="margin:0 0 .5rem 0;color:#334155">${esc(item.answer)}</dd>`;
+    }
+    html += `</dl>`;
+  }
+  html += `</section>`;
+
+  // Build complete FAQPage JSON-LD with all questions
+  const jsonLdObj = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    'name': FAQ_PAGE_HEADING[locale] ?? FAQ_PAGE_HEADING.it,
+    'url': `${BASE_URL}/${locale === 'it' ? 'domande-frequenti-frontalieri' : locale === 'en' ? 'en/cross-border-faq' : locale === 'de' ? 'de/grenzgaenger-faq' : 'fr/faq-frontaliers'}`,
+    'description': FAQ_PAGE_HEADING[locale] ?? FAQ_PAGE_HEADING.it,
+    'inLanguage': locale,
+    'mainEntity': faqItems.map(item => ({
+      '@type': 'Question',
+      'name': item.question,
+      'acceptedAnswer': {
+        '@type': 'Answer',
+        'text': item.answer,
+      },
+    })),
+  };
+
+  return { html, jsonLd: JSON.stringify(jsonLdObj) };
+}
+
 const HOME_CRITICAL_STATIC_PATHS = new Set([
   '/',
   '/en/',
@@ -1408,7 +1538,41 @@ export function staticPagesPlugin(rootDir: string): Plugin {
           // Rendering it as visible text adds 200-800 words of unique, topically-
           // relevant content — the single most effective soft-404 prevention.
           let faqHtml = '';
-          if (seoData.sd) {
+
+          // Check if this is the dedicated FAQ page — render ALL 30 Q&A pairs
+          const urlSegments = canonicalPath.split('/').filter(Boolean);
+          const faqPageSlug = urlSegments[urlSegments.length - 1] || '';
+          const isDedicatedFaqPage = FAQ_DEDICATED_PAGE_SLUGS.has(faqPageSlug);
+
+          if (isDedicatedFaqPage) {
+            // Read all FAQ content from the locale file at build time
+            const faqItems = readFaqFromLocaleFile(fs, np, rootDir, locale);
+            if (faqItems.length > 0) {
+              const dedicatedFaq = buildDedicatedFaqHtml(faqItems, locale, esc);
+              faqHtml = dedicatedFaq.html;
+              // Override structured data with complete FAQPage JSON-LD (all 30 Q&A)
+              if (seoData.sd) {
+                // Replace the existing FAQPage schema with the complete one
+                const sdSeparator = '</script>\n    <script type="application/ld+json">';
+                const sdParts = seoData.sd.split(sdSeparator);
+                const updatedParts = sdParts.map(part => {
+                  try {
+                    const obj = JSON.parse(part);
+                    if (obj['@type'] === 'FAQPage') {
+                      return dedicatedFaq.jsonLd;
+                    }
+                    return part;
+                  } catch {
+                    return part;
+                  }
+                });
+                seoData.sd = updatedParts.join(sdSeparator);
+              } else {
+                // No existing structured data — add the complete FAQPage JSON-LD
+                seoData.sd = dedicatedFaq.jsonLd;
+              }
+            }
+          } else if (seoData.sd) {
             try {
               const sdSeparator = '</script>\n    <script type="application/ld+json">';
               const sdParts = seoData.sd.split(sdSeparator);
