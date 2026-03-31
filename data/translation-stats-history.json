@@ -7848,5 +7848,53 @@
         "pending": 1
       }
     ]
+  },
+  {
+    "timestamp": "2026-03-31T05:21:16.189Z",
+    "label": "before",
+    "total": 1253,
+    "needsRetranslation": 10,
+    "incomplete": 10,
+    "complete": 1243,
+    "missingByLocale": {
+      "it": 0,
+      "en": 10,
+      "de": 10,
+      "fr": 10
+    },
+    "topPending": [
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 8
+      },
+      {
+        "company": "Denner",
+        "pending": 1
+      },
+      {
+        "company": "Zambon Svizzera SA",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-03-31T05:21:50.312Z",
+    "label": "after",
+    "total": 1253,
+    "needsRetranslation": 1,
+    "incomplete": 1,
+    "complete": 1252,
+    "missingByLocale": {
+      "it": 0,
+      "en": 1,
+      "de": 1,
+      "fr": 1
+    },
+    "topPending": [
+      {
+        "company": "Denner",
+        "pending": 1
+      }
+    ]
   }
 ]
