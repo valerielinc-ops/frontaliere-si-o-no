@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T16:37:29.196Z",
+  "generatedAt": "2026-03-31T18:34:24.597Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 235,
-      "latestObservedUpdate": "2026-03-31T16:31:59.172Z"
+      "stationCount": 236,
+      "latestObservedUpdate": "2026-03-31T18:33:08.396Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -2875,7 +2875,7 @@
             "lat": 46.03754757680269,
             "lng": 8.934256382737304,
             "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-26T17:36:00.348Z",
+            "updatedAt": "2026-03-31T16:50:09.855Z",
             "nearestMunicipality": "Campione d'Italia (CO)",
             "nearestMunicipalityDistanceKm": 8.2,
             "sp95PriceEur": 1.98,
@@ -5679,7 +5679,7 @@
             "lat": 46.03754757680269,
             "lng": 8.934256382737304,
             "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-26T17:36:00.348Z",
+            "updatedAt": "2026-03-31T16:50:09.855Z",
             "nearestMunicipality": "Campione d'Italia (CO)",
             "nearestMunicipalityDistanceKm": 8.2,
             "sp95PriceEur": 1.98,
@@ -8335,7 +8335,7 @@
             "lat": 46.03754757680269,
             "lng": 8.934256382737304,
             "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-26T17:36:00.348Z",
+            "updatedAt": "2026-03-31T16:50:09.855Z",
             "nearestMunicipality": "Campione d'Italia (CO)",
             "nearestMunicipalityDistanceKm": 8.2,
             "sp95PriceEur": 1.98,
@@ -10330,7 +10330,7 @@
             "lat": 46.03754757680269,
             "lng": 8.934256382737304,
             "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-26T17:36:00.348Z",
+            "updatedAt": "2026-03-31T16:50:09.855Z",
             "nearestMunicipality": "Campione d'Italia (CO)",
             "nearestMunicipalityDistanceKm": 8.2,
             "sp95PriceEur": 1.98,
@@ -15403,7 +15403,7 @@
             "lat": 46.053738,
             "lng": 8.972878,
             "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-24T19:42:27.166Z",
+            "updatedAt": "2026-03-31T18:33:08.396Z",
             "nearestMunicipality": "Valsolda (CO)",
             "nearestMunicipalityDistanceKm": 6.1,
             "sp95PriceEur": 2.001,
@@ -16919,7 +16919,7 @@
             "lat": 46.03754757680269,
             "lng": 8.934256382737304,
             "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-26T17:36:00.348Z",
+            "updatedAt": "2026-03-31T16:50:09.855Z",
             "nearestMunicipality": "Campione d'Italia (CO)",
             "nearestMunicipalityDistanceKm": 8.2,
             "sp95PriceEur": 1.98,
@@ -19846,7 +19846,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 107,
+        "optionCount": 108,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -22668,7 +22668,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 92,
+        "optionCount": 93,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -25920,7 +25920,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 96,
+        "optionCount": 97,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -26550,7 +26550,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 114,
+        "optionCount": 115,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -27087,7 +27087,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 104,
+        "optionCount": 105,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -28651,7 +28651,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "jLWgOqHiSgH8QJ1xjpck",
           "name": "Anfra Carburanti Sagl",
@@ -30142,7 +30142,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 84,
+        "optionCount": 85,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -30372,7 +30372,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 108,
+        "optionCount": 109,
         "cheapestStation": {
           "id": "jLWgOqHiSgH8QJ1xjpck",
           "name": "Anfra Carburanti Sagl",
@@ -31214,7 +31214,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 81,
+        "optionCount": 82,
         "cheapestStation": {
           "id": "eyss2Vf8mj29JzsCvuUr",
           "name": "Piccadilly SA",
@@ -33605,7 +33605,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 103,
+        "optionCount": 104,
         "cheapestStation": {
           "id": "jLWgOqHiSgH8QJ1xjpck",
           "name": "Anfra Carburanti Sagl",
@@ -36013,7 +36013,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 39,
+        "optionCount": 40,
         "cheapestStation": {
           "id": "jLWgOqHiSgH8QJ1xjpck",
           "name": "Anfra Carburanti Sagl",
@@ -36161,7 +36161,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 70,
+        "optionCount": 71,
         "cheapestStation": {
           "id": "jLWgOqHiSgH8QJ1xjpck",
           "name": "Anfra Carburanti Sagl",
@@ -39029,7 +39029,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 31,
+        "optionCount": 32,
         "cheapestStation": {
           "id": "jLWgOqHiSgH8QJ1xjpck",
           "name": "Anfra Carburanti Sagl",
@@ -39340,7 +39340,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 23,
+        "optionCount": 24,
         "cheapestStation": {
           "id": "bnzfTHD73LIv2jCkqLTT",
           "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
