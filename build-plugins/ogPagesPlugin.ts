@@ -91,6 +91,12 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         img: string;
         datePub: string;
         dateMod: string;
+        /** Source structuredData @type (e.g. 'Event', 'BlogPosting', 'Article') */
+        sdType: string;
+        /** Whether the source author uses an @id reference */
+        sdAuthorHasId: boolean;
+        /** Raw structuredData block text for extracting Event-specific fields */
+        sdBlock: string;
       }
       const entries: Entry[] = [];
 
@@ -121,8 +127,29 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1] ?? '';
         const dateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
 
+        // Extract source structuredData @type and author format
+        const sdType = b.match(/"@type":\s*"([^"]+)"/)?.[1] ?? '';
+        const sdAuthorHasId = /"author":\s*\{\s*"@id"/.test(b);
+        // Capture the structuredData block for Event-specific fields
+        const sdBlockMatch = b.match(/structuredData:\s*\{/);
+        let sdBlock = '';
+        if (sdBlockMatch && sdBlockMatch.index !== undefined) {
+          // Find matching closing brace by counting braces
+          let depth = 0;
+          let started = false;
+          const startIdx = sdBlockMatch.index + sdBlockMatch[0].length - 1; // position of opening {
+          for (let ci = startIdx; ci < b.length; ci++) {
+            if (b[ci] === '{') { depth++; started = true; }
+            if (b[ci] === '}') { depth--; }
+            if (started && depth === 0) {
+              sdBlock = b.substring(startIdx, ci + 1);
+              break;
+            }
+          }
+        }
+
         if (cp.startsWith('/articoli-frontaliere/')) {
-          entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, datePub, dateMod });
+          entries.push({ key, articleId, title, desc, keywords, ogT, ogD, path: cp, img: im, datePub, dateMod, sdType, sdAuthorHasId, sdBlock });
         }
       }
 
@@ -345,59 +372,157 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             .concat([`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
             .join('\n');
 
-          const ldObj: Record<string, unknown> = {
-            '@context': 'https://schema.org',
-            '@type': (en.datePub && (Date.now() - new Date(en.datePub).getTime()) < 90 * 24 * 60 * 60 * 1000) ? 'NewsArticle' : 'Article',
-            headline: localizedTitle,
-            description: localizedDesc,
-            image: {
-              '@type': 'ImageObject',
-              url: imgU,
-              width: 1200,
-              height: en.img?.includes('/images/places/') ? 563 : 675,
-            },
-            url: full,
-            inLanguage: locale,
-            // Reference standalone Organization defined in index.html (FRO-312)
-            publisher: { '@id': `${BASE_URL}/#organization` },
-            // Expert Person author — AI systems give citation boost for named authors
-            author: {
-              '@type': 'Person',
-              name: 'Redazione Frontaliere Ticino',
-              jobTitle: 'Esperti in fiscalità transfrontaliera',
-              description: 'Portale di riferimento per i frontalieri ticino dal 2020. Analisi fiscali, previdenziali e pratiche basate su fonti ufficiali: ESTV, UST, INPS, Agenzia delle Entrate.',
-              url: `${BASE_URL}/chi-siamo/`,
-              worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
-              knowsAbout: [
-                'Imposta alla fonte Svizzera',
-                'Frontalieri Ticino',
-                'AVS LPP pensione',
-                'LAMal assicurazione malattia',
-                'Accordo fiscale italo-svizzero 2020',
-              ],
-              sameAs: [],
-            },
-            mainEntityOfPage: full,
-            speakable: {
-              '@type': 'SpeakableSpecification',
-              cssSelector: ['article h1', 'article h2', 'article p'],
-            },
-            // Google Discover eligibility fields
-            isAccessibleForFree: true,
-            articleSection: 'Frontalieri Ticino',
-          };
+          // Determine author: respect source @id reference, otherwise use enriched SCHEMA_AUTHOR
+          const authorObj = en.sdAuthorHasId
+            ? {
+                '@type': 'Organization' as const,
+                '@id': `${BASE_URL}/#organization`,
+                'name': 'Redazione Frontaliere Ticino',
+                'url': `${BASE_URL}/chi-siamo`,
+                'description': 'Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino',
+                'knowsAbout': [
+                  'Fiscalità frontalieri Svizzera-Italia',
+                  'Nuovo accordo fiscale 2026',
+                  'Previdenza sociale AVS/LPP',
+                  'Assicurazione malattia LAMal/CMB',
+                  'Permesso G e permesso B',
+                  'Mercato del lavoro Ticino',
+                ],
+              }
+            : {
+                '@type': 'Person' as const,
+                name: 'Redazione Frontaliere Ticino',
+                jobTitle: 'Esperti in fiscalità transfrontaliera',
+                description: 'Portale di riferimento per i frontalieri ticino dal 2020. Analisi fiscali, previdenziali e pratiche basate su fonti ufficiali: ESTV, UST, INPS, Agenzia delle Entrate.',
+                url: `${BASE_URL}/chi-siamo/`,
+                worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
+                knowsAbout: [
+                  'Imposta alla fonte Svizzera',
+                  'Frontalieri Ticino',
+                  'AVS LPP pensione',
+                  'LAMal assicurazione malattia',
+                  'Accordo fiscale italo-svizzero 2020',
+                ],
+                sameAs: [],
+              };
+
+          // Build the JSON-LD object, respecting source @type (Event vs Article/NewsArticle)
+          const isEvent = en.sdType === 'Event';
+          let ldObj: Record<string, unknown>;
+
+          if (isEvent) {
+            // Parse Event-specific fields from the source structuredData block
+            const sd = en.sdBlock;
+            const sdStr = (field: string): string => {
+              const rx = new RegExp(`"${field}":\\s*"([^"]*)"`, 'm');
+              return sd.match(rx)?.[1] ?? '';
+            };
+            // Parse nested objects like location, organizer
+            const parseNestedObj = (field: string): Record<string, unknown> | null => {
+              const rx = new RegExp(`"${field}":\\s*\\{`);
+              const m = rx.exec(sd);
+              if (!m || m.index === undefined) return null;
+              let depth = 0;
+              let started = false;
+              const start = m.index + m[0].length - 1;
+              for (let ci = start; ci < sd.length; ci++) {
+                if (sd[ci] === '{') { depth++; started = true; }
+                if (sd[ci] === '}') { depth--; }
+                if (started && depth === 0) {
+                  const raw = sd.substring(start, ci + 1);
+                  try {
+                    // Convert TS object literal to JSON (replace single quotes, handle template literals)
+                    const jsonStr = raw
+                      .replace(/`\$\{BASE_URL\}([^`]*)`/g, `"${BASE_URL}$1"`)
+                      .replace(/(\w+):/g, '"$1":')
+                      .replace(/'/g, '"');
+                    return JSON.parse(jsonStr);
+                  } catch { return null; }
+                }
+              }
+              return null;
+            };
+
+            ldObj = {
+              '@context': 'https://schema.org',
+              '@type': 'Event',
+              name: sdStr('name') || localizedTitle,
+              description: sdStr('description') || localizedDesc,
+              image: {
+                '@type': 'ImageObject',
+                url: imgU,
+                width: 1200,
+                height: en.img?.includes('/images/places/') ? 563 : 675,
+              },
+              url: full,
+              inLanguage: locale,
+              author: authorObj,
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['article h1', 'article h2', 'article p'],
+              },
+              isAccessibleForFree: true,
+            };
+
+            // Add Event-specific fields from source
+            const startDate = sdStr('startDate');
+            const endDate = sdStr('endDate');
+            const eventStatus = sdStr('eventStatus');
+            const eventAttendanceMode = sdStr('eventAttendanceMode');
+            if (startDate) ldObj.startDate = startDate;
+            if (endDate) ldObj.endDate = endDate;
+            if (eventStatus) ldObj.eventStatus = eventStatus;
+            if (eventAttendanceMode) ldObj.eventAttendanceMode = eventAttendanceMode;
+
+            const location = parseNestedObj('location');
+            if (location) ldObj.location = location;
+            const organizer = parseNestedObj('organizer');
+            if (organizer) ldObj.organizer = organizer;
+          } else {
+            // Article or NewsArticle — apply age-based type selection
+            ldObj = {
+              '@context': 'https://schema.org',
+              '@type': (en.datePub && (Date.now() - new Date(en.datePub).getTime()) < 90 * 24 * 60 * 60 * 1000) ? 'NewsArticle' : 'Article',
+              headline: localizedTitle,
+              description: localizedDesc,
+              image: {
+                '@type': 'ImageObject',
+                url: imgU,
+                width: 1200,
+                height: en.img?.includes('/images/places/') ? 563 : 675,
+              },
+              url: full,
+              inLanguage: locale,
+              // Reference standalone Organization defined in index.html (FRO-312)
+              publisher: { '@id': `${BASE_URL}/#organization` },
+              author: authorObj,
+              mainEntityOfPage: full,
+              speakable: {
+                '@type': 'SpeakableSpecification',
+                cssSelector: ['article h1', 'article h2', 'article p'],
+              },
+              // Google Discover eligibility fields
+              isAccessibleForFree: true,
+              articleSection: 'Frontalieri Ticino',
+            };
+          }
           const buildDateIso = new Date().toISOString();
           const todayIso = buildDateIso.slice(0, 10);
-          ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
-          // Always use build date for dateModified — AI systems weight freshness heavily
-          ldObj.dateModified  = buildDateIso;
 
-          // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
-          const fullBodyHtml = bodySections.join('\n');
-          const excerpt = extractExcerpt(fullBodyHtml, 500);
-          if (excerpt) {
-            ldObj.articleBody = excerpt;
-            ldObj.wordCount = countWords(fullBodyHtml);
+          // Article-specific fields (datePublished, dateModified, articleBody, wordCount)
+          // are not applicable to Event schema
+          if (!isEvent) {
+            ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
+            // Always use build date for dateModified — AI systems weight freshness heavily
+            ldObj.dateModified  = buildDateIso;
+
+            // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
+            const fullBodyHtml = bodySections.join('\n');
+            const excerpt = extractExcerpt(fullBodyHtml, 500);
+            if (excerpt) {
+              ldObj.articleBody = excerpt;
+              ldObj.wordCount = countWords(fullBodyHtml);
+            }
           }
 
           // keywords from article metadata
