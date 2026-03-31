@@ -10,11 +10,11 @@
  *
  * Exit code 1 on any error → blocks deploy.
  */
-import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
+import { readdirSync, statSync, existsSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { join, relative } from 'node:path';
 
 const DIST = join(process.cwd(), 'dist');
-const SCRIPT_RE = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
 
 // ── Config ──────────────────────────────────────────────────────────────────
 const MAX_ERRORS_TO_PRINT = 60;
@@ -36,9 +36,9 @@ function walk(dir, out = []) {
 
 function extractJsonLd(html) {
   const blocks = [];
+  const re = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
   let m;
-  SCRIPT_RE.lastIndex = 0;
-  while ((m = SCRIPT_RE.exec(html)) !== null) {
+  while ((m = re.exec(html)) !== null) {
     const raw = (m[1] || '').trim();
     if (!raw) continue;
     try {
@@ -215,7 +215,7 @@ function validateWebApplication(schema, filePath) {
 
 // ── Main ────────────────────────────────────────────────────────────────────
 
-function main() {
+async function main() {
   if (!existsSync(DIST)) {
     console.error('dist/ directory not found — run build first');
     process.exit(1);
@@ -251,43 +251,59 @@ function main() {
     const sampleSize = Math.max(MIN_SAMPLE, Math.ceil(files.length * SAMPLE_FRACTION));
     // Deterministic sample: take evenly spaced entries
     const step = Math.max(1, Math.floor(files.length / sampleSize));
-    for (let i = 0; i < files.length && sampled.size < allFiles.length; i += step) {
+    let added = 0;
+    for (let i = 0; i < files.length && added < sampleSize; i += step) {
       sampled.add(files[i]);
-      if ([...sampled].filter(f => byCategory[cat].includes(f)).length >= sampleSize) break;
+      added++;
     }
   }
 
   console.log(`[structured-data-completeness] Sampling ${sampled.size} pages (statistics: ${byCategory.statistics.length}, jobs: ${byCategory.job.length}, blog: ${byCategory.blog.length}, company: ${byCategory.company.length}, other: ${byCategory.other.length})`);
 
-  const allErrors = [];
   let totalSchemas = 0;
   let datasetCount = 0;
   let jobPostingCount = 0;
 
-  for (const file of sampled) {
-    const html = readFileSync(file, 'utf-8');
-    const blocks = extractJsonLd(html);
-    const schemas = flattenSchemas(blocks);
+  // Process files in parallel batches for faster I/O
+  const BATCH_SIZE = 200;
+  const sampledArr = [...sampled];
+  const allErrors = [];
 
-    for (const schema of schemas) {
-      if (!schema || typeof schema !== 'object' || !schema['@type']) continue;
-      totalSchemas++;
+  for (let batchStart = 0; batchStart < sampledArr.length; batchStart += BATCH_SIZE) {
+    const batch = sampledArr.slice(batchStart, batchStart + BATCH_SIZE);
+    const results = await Promise.all(batch.map(async (file) => {
+      const html = await readFile(file, 'utf-8');
+      const blocks = extractJsonLd(html);
+      const schemas = flattenSchemas(blocks);
+      const errors = [];
+      let schemas_ = 0, datasets_ = 0, jobs_ = 0;
+      const isBridge = html.includes('__BRIDGE_TARGET_SLUG__');
 
-      if (schema['@type'] === 'Dataset') {
-        datasetCount++;
-        allErrors.push(...validateDataset(schema, file));
+      for (const schema of schemas) {
+        if (!schema || typeof schema !== 'object' || !schema['@type']) continue;
+        schemas_++;
+
+        if (schema['@type'] === 'Dataset') {
+          datasets_++;
+          errors.push(...validateDataset(schema, file));
+        }
+        if (schema['@type'] === 'JobPosting') {
+          jobs_++;
+          if (!isBridge) errors.push(...validateJobPosting(schema, file));
+        }
+        const schemaTypes = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
+        if (schemaTypes.includes('WebApplication') || schemaTypes.includes('SoftwareApplication')) {
+          errors.push(...validateWebApplication(schema, file));
+        }
       }
-      if (schema['@type'] === 'JobPosting') {
-        jobPostingCount++;
-        // Skip bridge pages — they are noindex and may have intentionally partial schemas
-        if (html.includes('__BRIDGE_TARGET_SLUG__')) continue;
-        allErrors.push(...validateJobPosting(schema, file));
-      }
-      // WebApplication / SoftwareApplication — validate aggregateRating on homepage
-      const schemaTypes = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
-      if (schemaTypes.includes('WebApplication') || schemaTypes.includes('SoftwareApplication')) {
-        allErrors.push(...validateWebApplication(schema, file));
-      }
+      return { errors, schemas: schemas_, datasets: datasets_, jobs: jobs_ };
+    }));
+
+    for (const r of results) {
+      allErrors.push(...r.errors);
+      totalSchemas += r.schemas;
+      datasetCount += r.datasets;
+      jobPostingCount += r.jobs;
     }
   }
 
