@@ -1,16 +1,16 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-03-30T21:56:43.817Z",
+  "generatedAt": "2026-03-31T09:44:22.534Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 76561,
-  "avgDurationMs": 76561,
+  "durationMs": 30163,
+  "avgDurationMs": 30163,
   "durationHistory": [
-    76561
+    30163
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,8 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-29T09:45:29.413Z",
+      "crawledAt": "2026-03-31T09:44:21.752Z",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -47,11 +48,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 93,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -76,7 +77,8 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-29T09:45:29.413Z",
+      "crawledAt": "2026-03-31T09:44:21.752Z",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -86,17 +88,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 93,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     },
     {
       "id": "company-m99b74",
-      "slug": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-cadempino",
+      "slug": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente Clientela Affluent",
       "location": "Gravesano, Ticino",
@@ -115,7 +117,8 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-29T09:45:29.413Z",
+      "crawledAt": "2026-03-31T09:44:21.752Z",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -125,17 +128,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     },
     {
       "id": "company-fnlwh1",
-      "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-cadempino",
+      "slug": "consulente-clientela-aziendale-banca-raiffeisen-vedeggio-cassarate-gravesano",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente Clientela Aziendale",
       "location": "Gravesano",
@@ -154,7 +157,8 @@
       },
       "companyKey": "banca-raiffeisen-vedeggio-cassarate",
       "companyDomain": "raiffeisen.ch",
-      "crawledAt": "2026-03-29T09:45:29.413Z",
+      "crawledAt": "2026-03-31T09:44:21.752Z",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -164,11 +168,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     }
