@@ -28,9 +28,9 @@
       "crawledAt": "2026-03-31T10:00:55.737Z",
       "slugByLocale": {
         "it": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
-        "en": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
+        "en": "network-specialist-swiss-armed-forces-vtg-locarno",
         "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-        "fr": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
+        "fr": "specialiste-des-reseaux-swiss-armed-forces-vtg-locarno"
       },
       "titleByLocale": {
         "de": "Netzwerk Spezialist/-in Professional",
@@ -46,7 +46,9 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -91,10 +93,10 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T10:00:55.737Z",
       "slugByLocale": {
-        "it": "operatore-in-support-swiss-armed-forces-vtg-rivera",
+        "it": "supporto-operatore-trice-swiss-armed-forces-vtg-rivera",
         "en": "operator-in-support-swiss-armed-forces-vtg-rivera",
         "de": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
-        "fr": "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
+        "fr": "support-operateur-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
         "en": "Operator/-in Support",
@@ -110,7 +112,10 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "operatore-in-support-swiss-armed-forces-vtg-rivera",
+        "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -158,7 +163,7 @@
         "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
         "en": "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera",
         "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
-        "fr": "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
+        "fr": "responsable-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
         "de": "Leiter/-in Führungs- und Informationssysteme",
@@ -176,7 +181,8 @@
       "sourceLang": "de",
       "previousSlugs": [
         "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
-        "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera"
+        "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera",
+        "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -222,10 +228,10 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T10:00:55.737Z",
       "slugByLocale": {
-        "it": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
-        "en": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
+        "it": "logistico-deposito-ambri-andermatt-swiss-armed-forces-vtg-ambri",
+        "en": "logistician-warehouse-ambri-andermatt-swiss-armed-forces-vtg-ambri",
         "de": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
-        "fr": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl"
+        "fr": "logisticien-ne-entrepot-ambri-andermatt-swiss-armed-forces-vtg-ambri"
       },
       "titleByLocale": {
         "de": "Logistiker/-in (Lager Ambrì/Andermatt)",
@@ -258,7 +264,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-ambri",
+        "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl"
+      ]
     },
     {
       "id": "company-cn6k0h",
@@ -352,8 +362,8 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T10:00:55.737Z",
       "slugByLocale": {
-        "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
-        "en": "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
+        "it": "strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti",
+        "en": "street-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
         "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
         "fr": "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti"
       },
@@ -372,7 +382,9 @@
       "requirementsByLocale": {},
       "sourceLang": "de",
       "previousSlugs": [
-        "apprendista-a-in-trasporto-stradale-efz-swiss-armed-forces-vtg-claro-ti"
+        "apprendista-a-in-trasporto-stradale-efz-swiss-armed-forces-vtg-claro-ti",
+        "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
+        "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,

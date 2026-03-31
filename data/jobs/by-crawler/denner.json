@@ -86,10 +86,10 @@
       "id": "denner-bb75bf17e32f",
       "slug": "verkaufer-in-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner",
+        "it": "venditore-a-denner-rubigen",
+        "en": "sales-associate-denner-rubigen",
         "de": "verkaufer-in-denner-rubigen",
-        "fr": "verkaufer-in-denner"
+        "fr": "vendeur-vendeuse-denner-rubigen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -157,16 +157,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner"
+      ]
     },
     {
       "id": "denner-30a950c6b592",
       "slug": "student-in-im-stundenlohn-denner",
       "slugByLocale": {
-        "it": "student-in-im-stundenlohn-denner",
+        "it": "studento-a-im-stundenlohn-denner-biel-bienne",
         "en": "student-in-im-stundenlohn-denner-biel-bienne",
         "de": "student-in-im-stundenlohn-denner",
-        "fr": "student-in-im-stundenlohn-denner"
+        "fr": "etudiant-e-en-heures-denner-biel-bienne"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -232,16 +235,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "student-in-im-stundenlohn-denner"
+      ]
     },
     {
       "id": "denner-93c98c4eaac5",
       "slug": "verkaufer-in-im-stundenlohn-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner",
+        "it": "venditore-a-a-tempo-determinato-denner-worb",
+        "en": "hourly-wage-salesperson-denner-worb",
         "de": "verkaufer-in-im-stundenlohn-denner-worb",
-        "fr": "verkaufer-in-im-stundenlohn-denner"
+        "fr": "vendeur-eusea-l-heure-denner-worb"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -309,16 +315,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufer-in-im-stundenlohn-denner"
+      ]
     },
     {
       "id": "denner-ded67555315e",
       "slug": "filialleiter-in-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-denner",
-        "en": "filialleiter-in-denner-schluein-7k8gx6",
+        "it": "direttoredifiliale-denner-basel",
+        "en": "branch-manager-denner-basel",
         "de": "filialleiter-in-denner-basel",
-        "fr": "filialleiter-in-denner-schluein-7k8gx6"
+        "fr": "adjoint-e-d-agence-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -376,7 +385,9 @@
       "crawledAt": "2026-03-31T09:17:38.874Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "responsabile-di-filiale-denner-schluein"
+        "responsabile-di-filiale-denner-schluein",
+        "filialleiter-in-denner",
+        "filialleiter-in-denner-schluein-7k8gx6"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -395,10 +406,10 @@
       "id": "denner-91d409b14295",
       "slug": "filialleiter-in-in-ausbildung-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner",
-        "en": "filialleiter-in-in-ausbildung-denner",
+        "it": "responsabiledi-filiale-in-formazione-denner-allschwil",
+        "en": "branch-manager-training-denner-allschwil",
         "de": "filialleiter-in-in-ausbildung-denner-allschwil",
-        "fr": "filialleiter-in-in-ausbildung-denner"
+        "fr": "responsabledesuccursale-en-formation-denner-allschwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -466,16 +477,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "filialleiter-in-in-ausbildung-denner"
+      ]
     },
     {
       "id": "denner-998f24cd746b",
       "slug": "stv-filialleiter-in-denner",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
-        "en": "stv-filialleiter-in-denner",
+        "it": "vice-direttoredifiliale-denner-basel",
+        "en": "deputy-branchmanager-denner-basel",
         "de": "stv-filialleiter-in-denner-basel",
-        "fr": "stv-filialleiter-in-denner"
+        "fr": "directeur-trice-adjoint-e-de-succursale-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -543,16 +557,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "stv-filialleiter-in-denner"
+      ]
     },
     {
       "id": "denner-a9d3e660c799",
       "slug": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
-        "en": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
+        "it": "responsabile-del-reparto-di-ingresso-e-uscita-merci-dietlikon-denner-dietlikon",
+        "en": "department-manager-warehouse-inbound-outbound-dietlikon-denner-dietlikon",
         "de": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
-        "fr": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+        "fr": "responsable-du-departement-d-entree-et-de-sortie-de-marchandises-dietlikon-denner-dietlikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -613,7 +630,9 @@
       "source": "Denner/Migros Dedicated Parser",
       "crawledAt": "2026-03-31T09:17:37.550Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -631,10 +650,10 @@
       "id": "denner-f27b15369ada",
       "slug": "werkstudent-in-application-management-denner",
       "slugByLocale": {
-        "it": "werkstudent-in-application-management-denner",
+        "it": "studente-lavoratore-a-in-application-management-denner-zurich",
         "en": "werkstudent-in-application-management-denner-zurich",
         "de": "werkstudent-in-application-management-denner",
-        "fr": "werkstudent-in-application-management-denner"
+        "fr": "etudiant-e-salarie-e-en-gestion-des-applications-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -704,16 +723,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "werkstudent-in-application-management-denner"
+      ]
     },
     {
       "id": "denner-00770ed4c401",
       "slug": "assistent-in-filialleitung-denner",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-alla-direzione-filiale-denner-appenzell",
+        "en": "assistant-store-manager-denner-appenzell",
         "de": "assistent-in-filialleitung-denner-appenzell",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-e-de-direction-de-magasin-denner-appenzell"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -771,7 +793,9 @@
       "crawledAt": "2026-03-31T09:17:34.987Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -790,10 +814,10 @@
       "id": "denner-add5d94b9d66",
       "slug": "verkaufer-in-spatschicht-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-spatschicht-denner",
-        "en": "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko",
+        "it": "venditore-turno-serale-denner-flims-dorf",
+        "en": "salesperson-late-shift-denner-flims-dorf",
         "de": "verkaufer-in-spatschicht-denner-flims-dorf",
-        "fr": "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
+        "fr": "vendeur-se-en-soiree-denner-flims-dorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -851,7 +875,9 @@
       "crawledAt": "2026-03-31T09:17:33.266Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "commesso-a-turno-serale-denner-flims-dorf"
+        "commesso-a-turno-serale-denner-flims-dorf",
+        "verkaufer-in-spatschicht-denner",
+        "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

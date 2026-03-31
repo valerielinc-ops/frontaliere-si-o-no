@@ -41,7 +41,7 @@
         "it": "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
         "en": "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
         "de": "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
-        "fr": "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano"
+        "fr": "technicien-de-maintenance-electrique-sur-des-machines-de-construction-et-des-silos-automatises-pemsa-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -57,7 +57,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "manutentore-elettro-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano"
+      ]
     },
     {
       "title": "Costruttore stradale",
@@ -96,9 +99,9 @@
       },
       "slugByLocale": {
         "it": "costruttore-stradale-pemsa-bellinzona",
-        "en": "costruttore-stradale-pemsa-bellinzona",
-        "de": "costruttore-stradale-pemsa-bellinzona",
-        "fr": "costruttore-stradale-pemsa-bellinzona"
+        "en": "road-manufacturer-pemsa-bellinzona",
+        "de": "strassenbauer-pemsa-bellinzona",
+        "fr": "constructrice-de-routes-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -114,7 +117,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "costruttore-stradale-pemsa-bellinzona"
+      ]
     },
     {
       "title": "IDRAULICO IMPIANTI RISCALDAMENTO",
@@ -215,8 +221,8 @@
       },
       "slugByLocale": {
         "it": "idraulico-impianti-sanitari-pemsa-lugano",
-        "en": "idraulico-impianti-sanitari-pemsa-lugano",
-        "de": "idraulico-impianti-sanitari-pemsa-lugano",
+        "en": "plumbing-plumbing-pemsa-lugano",
+        "de": "sanitarhydraulik-pemsa-lugano",
         "fr": "plomberie-installations-sanitaires-pemsa-lugano-oilwn9"
       },
       "salaryMin": 58000,
@@ -235,7 +241,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "sanitarhydraulik-pemsa-lugano-oilwn9"
+        "sanitarhydraulik-pemsa-lugano-oilwn9",
+        "idraulico-impianti-sanitari-pemsa-lugano"
       ]
     },
     {
@@ -517,9 +524,9 @@
       },
       "slugByLocale": {
         "it": "impermeabilizzatore-pemsa-locarno",
-        "en": "impermeabilizzatore-pemsa-locarno",
-        "de": "impermeabilizzatore-pemsa-locarno",
-        "fr": "impermeabilizzatore-pemsa-locarno"
+        "en": "hypermeabilizer-pemsa-locarno",
+        "de": "impragniermittel-pemsa-locarno",
+        "fr": "impermeabilisateur-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -539,7 +546,8 @@
       "previousSlugs": [
         "hypermeabilizer-pemsa-locarno-a8v54u",
         "impragniermittel-pemsa-locarno-a8v54u",
-        "impermeabilisateur-pemsa-locarno-a8v54u"
+        "impermeabilisateur-pemsa-locarno-a8v54u",
+        "impermeabilizzatore-pemsa-locarno"
       ]
     },
     {
@@ -876,8 +884,8 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-imp-sanitari-pemsa-lugano",
-        "en": "installatore-idraulico-imp-sanitari-pemsa-lugano",
-        "de": "installatore-idraulico-imp-sanitari-pemsa-lugano",
+        "en": "sanitary-plumbing-installer-pemsa-lugano",
+        "de": "sanitarinstallateur-pemsa-lugano",
         "fr": "installateur-hydraulique-sanitaire-pemsa-lugano-ya30tb"
       },
       "salaryMin": 58000,
@@ -896,7 +904,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "sanitarinstallateur-pemsa-lugano-ya30tb"
+        "sanitarinstallateur-pemsa-lugano-ya30tb",
+        "installatore-idraulico-imp-sanitari-pemsa-lugano"
       ]
     },
     {
@@ -1058,7 +1067,7 @@
       "slugByLocale": {
         "it": "impiegato-in-logistica-afc-pemsa-castione",
         "en": "employee-in-logistics-afc-pemsa-castione-ux0jiu",
-        "de": "angestellter-in-logistik-afc-pemsa-castione",
+        "de": "logistikmitarbeiter-afc-pemsa-castione",
         "fr": "employe-in-logistique-afc-pemsa-castione-ux0jiu"
       },
       "salaryMin": 58000,
@@ -1077,7 +1086,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "angestellter-in-logistik-afc-pemsa-castione-ux0jiu"
+        "angestellter-in-logistik-afc-pemsa-castione-ux0jiu",
+        "angestellter-in-logistik-afc-pemsa-castione"
       ]
     },
     {
@@ -1237,8 +1247,8 @@
       },
       "slugByLocale": {
         "it": "autista-di-camion-ribaltabile-pemsa-lugano",
-        "en": "autista-di-camion-ribaltabile-pemsa-lugano",
-        "de": "autista-di-camion-ribaltabile-pemsa-lugano",
+        "en": "dump-truck-driver-pemsa-lugano",
+        "de": "kipplasterfahrer-pemsa-lugano",
         "fr": "chauffeur-de-camion-a-benne-basculante-pemsa-lugano-2opwpy"
       },
       "salaryMin": 58000,
@@ -1257,7 +1267,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "kipplasterfahrer-pemsa-lugano-2opwpy"
+        "kipplasterfahrer-pemsa-lugano-2opwpy",
+        "autista-di-camion-ribaltabile-pemsa-lugano"
       ]
     },
     {

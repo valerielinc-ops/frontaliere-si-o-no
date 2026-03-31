@@ -25,8 +25,8 @@
       "slugByLocale": {
         "it": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
         "en": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
-        "de": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
-        "fr": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno"
+        "de": "mitarbeiter-in-kasse-herrenverpackung-40-manor-ag-locarno",
+        "fr": "collaborateur-trice-caisse-emballage-homme-40-manor-ag-locarno"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice cassa (Confezione Uomo) 40%",
@@ -54,7 +54,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno"
+      ]
     },
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
@@ -79,8 +82,8 @@
       "slugByLocale": {
         "it": "manor-collaboratore-trice-servizio-manora-50-locarno",
         "en": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "de": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "fr": "manor-collaboratore-trice-servizio-manora-50-locarno"
+        "de": "servicemitarbeiter-in-manora-50-manor-ag-locarno",
+        "fr": "collaborateur-trice-service-manoir-50-manor-ag-locarno"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice servizio (Manora) 50%",
@@ -108,7 +111,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaboratore-trice-servizio-manora-50-locarno"
+      ]
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -133,7 +139,7 @@
       "slugByLocale": {
         "it": "manor-collaborateur-trice-service-manora-50-locarno",
         "en": "manor-collaborateur-trice-service-manora-50-locarno",
-        "de": "manor-collaborateur-trice-service-manora-50-locarno",
+        "de": "kollaborateur-trice-service-manora-50-manor-ag-locarno",
         "fr": "manor-collaborateur-trice-service-manora-50-locarno"
       },
       "titleByLocale": {
@@ -162,7 +168,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaborateur-trice-service-manora-50-locarno"
+      ]
     },
     {
       "title": "Apprendista Polydesigner 3D AFC 100%",
@@ -243,7 +252,7 @@
       "slug": "manor-polydesigner-3d-afc-100-lugano",
       "slugByLocale": {
         "it": "manor-polydesigner-3d-afc-100-lugano",
-        "en": "manor-polydesigner-3d-afc-100-lugano",
+        "en": "3d-polydesigner-afc-100-manor-ag-lugano",
         "de": "manor-polydesigner-3d-afc-100-lugano",
         "fr": "polydesigner-3d-afc-100-manor-ag-lugano"
       },
@@ -255,7 +264,9 @@
       },
       "crawledAt": "",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "manor-polydesigner-3d-afc-100-lugano"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",

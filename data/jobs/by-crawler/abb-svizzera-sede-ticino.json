@@ -166,7 +166,7 @@
       "slugByLocale": {
         "it": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
         "en": "quality-technician-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "de": "qualitat-techniker-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil",
+        "de": "qualitatsingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino",
         "fr": "qualite-technicien-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil"
       },
       "titleByLocale": {
@@ -184,7 +184,9 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "qualitat-techniker-80-100-abb-svizzera-sede-ticino-quartino-ticino-6a4mil"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {

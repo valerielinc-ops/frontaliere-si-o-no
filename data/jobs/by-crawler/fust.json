@@ -28,9 +28,9 @@
       "crawledAt": "2026-03-31T09:24:22.634Z",
       "slugByLocale": {
         "it": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
-        "en": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
-        "de": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
-        "fr": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq"
+        "en": "kitchen-bathroom-installation-technician-fust-bellinzona-ticino",
+        "de": "kuchen-und-badezimmermonteur-fust-bellinzona-ticino",
+        "fr": "technicien-d-installation-de-cuisine-et-de-salle-de-bain-fust-bellinzona-ticino"
       },
       "titleByLocale": {
         "it": "Montatore/trice di impianti sanitari per cucine & bagni",
@@ -63,7 +63,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq"
+      ]
     },
     {
       "id": "company-ie4nz4",
@@ -91,8 +94,8 @@
       "crawledAt": "2026-03-31T09:24:22.634Z",
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
-        "en": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
-        "de": "einzelhandelsausbildung-afc-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino",
+        "en": "retail-sales-training-afc-creating-customer-experience-fust-tenero-contra-ticino",
+        "de": "lehre-detailhandel-efz-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino",
         "fr": "apprentissage-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-tenero-contra-ticino"
       },
       "titleByLocale": {
@@ -128,7 +131,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "retail-apprenticeship-afc-creating-shopping-experiences-fust-tenero-contra-ticino"
+        "retail-apprenticeship-afc-creating-shopping-experiences-fust-tenero-contra-ticino",
+        "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
+        "einzelhandelsausbildung-afc-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino"
       ]
     },
     {
@@ -156,10 +161,10 @@
       "companyDomain": "fust.ch",
       "crawledAt": "2026-03-31T09:24:22.634Z",
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
-        "en": "home-appliance-installer-fust-grigioni",
+        "it": "installatore-di-elettrodomestici-a-domicilio-fust-grigioni",
+        "en": "home-delivery-fitter-of-electrical-household-appliances-fust-grigioni",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
+        "fr": "livreur-a-domicile-monteur-d-electromenager-fust-grigioni"
       },
       "titleByLocale": {
         "de": "Heimliefermonteur:in von Elektrohaushaltgeräten",
@@ -178,7 +183,9 @@
       "previousSlugs": [
         "montatore-di-elettrodomestici-fust-grigioni",
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-dk43lj",
-        "technicien-ne-de-livraison-d-electromenagers-fust-grigioni"
+        "technicien-ne-de-livraison-d-electromenagers-fust-grigioni",
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+        "home-appliance-installer-fust-grigioni"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
