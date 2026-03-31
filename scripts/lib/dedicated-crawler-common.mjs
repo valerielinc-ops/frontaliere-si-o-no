@@ -4057,6 +4057,34 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       best.slugByLocale = { ...(prev.slugByLocale || {}) };
       reusedLocalizationFromPrevious += 1;
     }
+    // Source-copy protection: mergeLocaleTextMap picks the longer text, which can cause
+    // an EN source copy to overwrite a shorter real IT/DE/FR translation. When the merged
+    // locale value equals the EN source text AND prev had a different substantial translation,
+    // restore prev's value.
+    const sourceDescNorm = normalizeSpace(next.description || prev.description || '');
+    if (sourceDescNorm.length >= 120) {
+      for (const locale of LOCALES) {
+        if (locale === 'en') continue;
+        const mergedDesc = normalizeSpace(best.descriptionByLocale?.[locale] || '');
+        const prevLocaleDesc = (prev.descriptionByLocale || {})[locale] || '';
+        const prevDescNorm = normalizeSpace(prevLocaleDesc);
+        if (mergedDesc === sourceDescNorm && prevDescNorm.length >= 120 && prevDescNorm !== sourceDescNorm) {
+          best.descriptionByLocale[locale] = prevLocaleDesc;
+        }
+      }
+    }
+    const sourceTitleNorm = normalizeSpace(next.title || prev.title || '');
+    if (sourceTitleNorm.length >= 3) {
+      for (const locale of LOCALES) {
+        if (locale === 'en') continue;
+        const mergedTitle = normalizeSpace(best.titleByLocale?.[locale] || '');
+        const prevLocaleTitle = (prev.titleByLocale || {})[locale] || '';
+        const prevTitleNorm = normalizeSpace(prevLocaleTitle);
+        if (mergedTitle === sourceTitleNorm && prevTitleNorm.length >= 3 && prevTitleNorm !== sourceTitleNorm) {
+          best.titleByLocale[locale] = prevLocaleTitle;
+        }
+      }
+    }
     if (localeTextCoverage(best.descriptionByLocale, 120) === 0 && (best.description || '').length >= 120) {
       const fallbackDesc = {};
       const descSourceLang = detectLang(best.description || '', 'en');
