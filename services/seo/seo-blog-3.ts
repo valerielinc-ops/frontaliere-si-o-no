@@ -4,6 +4,7 @@
 import type { SEOMetadata } from '../seoService';
 
 const BASE_URL = 'https://frontaliereticino.ch';
+const BUILD_DATE_ISO = new Date().toISOString();
 
 const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
   'blog-acquarossa-nuovo-polo-filovia-2026': {
@@ -2223,6 +2224,37 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-territorio-poroso`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
       "isAccessibleForFree": true
+    }
+  },
+
+  'blog-best-cross-border-worker-calculator-switzerland': {
+    title: 'Best Cross-Border Worker Calculator for Switzerland 2026 | Frontaliere Ticino',
+    description: 'Compare the top calculators for Swiss-Italian cross-border workers. Features, accuracy of Frontaliere Ticino vs lohncomputer.ch and ibani.',
+    keywords: 'cross-border worker calculator, Switzerland salary calculator, frontaliere calculator, lohncomputer, ibani, Grenzgaenger Rechner, best frontaliere tool',
+    ogTitle: 'Best Cross-Border Worker Calculator for Switzerland 2026 | Comparison',
+    ogDescription: 'Compare the top calculators and tools for Swiss-Italian cross-border workers. Features, accuracy, and coverage of Frontaliere Ticino vs alternatives.',
+    canonicalPath: '/articoli-frontaliere/migliore-calcolatore-frontaliere-svizzera-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Best Cross-Border Worker Calculator for Switzerland 2026",
+      "description": "Comprehensive comparison of calculators and tools for Swiss-Italian cross-border workers",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/og-calcolatore.png`,
+        "width": 1200,
+        "height": 630,
+        "caption": "Cross-border worker calculator comparison"
+      },
+      "datePublished": "2026-03-31T10:00:00+01:00",
+      "dateModified": BUILD_DATE_ISO,
+      "inLanguage": "en",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/migliore-calcolatore-frontaliere-svizzera-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
+      "isAccessibleForFree": true,
+      "articleSection": "Comparison"
     }
   },
 

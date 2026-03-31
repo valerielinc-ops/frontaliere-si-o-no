@@ -1883,6 +1883,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.monete-argento-sanzionato-ponte-chiasso.title': 'Monnaies d\'argent précieuses cachées dans une voiture : un homme sanctionné à Ponte Chiasso',
     'blog.article.monete-argento-sanzionato-ponte-chiasso.excerpt': 'Un homme a été sanctionné pour avoir caché sept monnaies d\'argent précieuses dans une voiture au poste frontière de Ponte Chiasso.',
     'blog.article.monete-argento-sanzionato-ponte-chiasso.imageAlt': 'Un homme a été sanctionné pour avoir caché des pièces d\'argent précieuses dans sa voiture au poste frontière de Ponte Chiasso',
+    'blog.article.best-cross-border-worker-calculator-switzerland.title': 'Meilleur calculateur pour frontaliers en Suisse 2026',
+    'blog.article.best-cross-border-worker-calculator-switzerland.excerpt': 'Comparaison des meilleurs calculateurs et outils pour les travailleurs frontaliers italo-suisses. Fonctionnalités, précision et couverture de Frontaliere Ticino vs alternatives.',
+    'blog.article.best-cross-border-worker-calculator-switzerland.imageAlt': 'Écran d\'ordinateur avec calculateur de salaire et Alpes suisses en arrière-plan, comparaison d\'outils frontaliers.',
 };
 
 export default blogMetaFr;

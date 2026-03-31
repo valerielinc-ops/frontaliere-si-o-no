@@ -1883,6 +1883,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.monete-argento-sanzionato-ponte-chiasso.title': 'Silbermünzen im Auto versteckt: Mann in Ponte Chiasso bestraft',
     'blog.article.monete-argento-sanzionato-ponte-chiasso.excerpt': 'Ein Mann wurde bestraft, weil er sieben wertvolle Silbermünzen im Auto im Zoll von Ponte Chiasso versteckt hatte.',
     'blog.article.monete-argento-sanzionato-ponte-chiasso.imageAlt': 'Ein Mann wurde bestraft, weil er wertvolle Silbermünzen in seinem Auto am Grenzübergang Ponte Chiasso versteckte',
+    'blog.article.best-cross-border-worker-calculator-switzerland.title': 'Bester Grenzgänger-Rechner für die Schweiz 2026',
+    'blog.article.best-cross-border-worker-calculator-switzerland.excerpt': 'Vergleich der besten Rechner und Tools für schweizerisch-italienische Grenzgänger. Funktionen, Genauigkeit und Abdeckung von Frontaliere Ticino vs Alternativen.',
+    'blog.article.best-cross-border-worker-calculator-switzerland.imageAlt': 'Computerbildschirm mit Gehaltsrechner und Schweizer Alpen im Hintergrund, Vergleich von Grenzgänger-Tools.',
 };
 
 export default blogMetaDe;

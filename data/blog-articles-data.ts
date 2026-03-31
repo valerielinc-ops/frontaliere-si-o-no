@@ -5585,4 +5585,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/monete-argento-sanzionato-ponte-chiasso.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'best-cross-border-worker-calculator-switzerland',
+    category: 'pratico',
+    date: '2026-03-31T10:00:00+01:00',
+    image: '/og-calcolatore.png',
+    hasCalculator: true,
+  },
 ];

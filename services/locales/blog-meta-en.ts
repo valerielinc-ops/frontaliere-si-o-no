@@ -1883,6 +1883,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.monete-argento-sanzionato-ponte-chiasso.title': 'Precious Silver Coins Hidden in Car: Man Fined at Ponte Chiasso Border Crossing',
     'blog.article.monete-argento-sanzionato-ponte-chiasso.excerpt': 'A man was fined for hiding seven precious silver coins in his car at the Ponte Chiasso border crossing.',
     'blog.article.monete-argento-sanzionato-ponte-chiasso.imageAlt': 'A man was fined for hiding precious silver coins in his car at the Ponte Chiasso border crossing',
+    'blog.article.best-cross-border-worker-calculator-switzerland.title': 'Best Cross-Border Worker Calculator for Switzerland 2026',
+    'blog.article.best-cross-border-worker-calculator-switzerland.excerpt': 'Compare the top calculators and tools for Swiss-Italian cross-border workers. Features, accuracy, and coverage of Frontaliere Ticino vs lohncomputer.ch, ibani, and more.',
+    'blog.article.best-cross-border-worker-calculator-switzerland.imageAlt': 'Computer screen showing salary calculator with Swiss Alps in background, comparing cross-border worker tools.',
 };
 
 export default blogMetaEn;
