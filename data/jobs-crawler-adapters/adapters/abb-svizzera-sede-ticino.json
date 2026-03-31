@@ -20,6 +20,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00027039EXTERNALENGLOBAL/Quality-Technician--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00027707EXTERNALENGLOBAL/XMLNAME--80---100---Senior-Power-Electronics-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028479EXTERNALENGLOBAL/XMLNAME--80--100---R-D-HW-Engineer",
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00028488EXTERNALENGLOBAL/XMLNAME--80---100---Warehouse-Internal-Logistics-Supervisor",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028501EXTERNALENGLOBAL/R-D-Certification-Engineer",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028630EXTERNALENGLOBAL/Shift-leader-Assemblaggio---Imballo--80-100",
     "https://careers.abb/global/en/job/ABB1GLOBALJR00028631EXTERNALENGLOBAL/Shift-Leader-Assemblaggio---Imballo--80-100",
@@ -30,7 +31,7 @@
     "https://careers.abb/global/en/job/ABB1GLOBALJR00029463EXTERNALENGLOBAL/XMLNAME--80--100---R-D-Senior-Engineer--Energy-Storage-Systems"
   ],
   "notes": "Dedicated ABB crawler seeds from careers.abb search-results (keywords: ticino, graubünden, grisons, chur, davos, engadin), then resolves canonical careers.abb job detail URLs.",
-  "updatedAt": "2026-03-31T08:51:26.085Z",
+  "updatedAt": "2026-03-31T20:45:02.295Z",
   "seedMetaByUrl": {
     "https://careers.abb/global/en/job/ABB1GLOBALJR00023735EXTERNALENGLOBAL/XMLNAME--80---100----Scrum-Master": {
       "location": "Quartino, Ticino, Switzerland",
@@ -161,6 +162,14 @@
       "contract": "Full-time"
     },
     "https://careers.abb/global/en/job/ABB1GLOBALJR00021756EXTERNALENGLOBAL/Fulfillment-Specialist--80-100": {
+      "location": "Quartino, Ticino, Switzerland",
+      "canton": "TI",
+      "country": "CH",
+      "company": "ABB Svizzera (sede Ticino)",
+      "companyDomain": "abb.ch",
+      "contract": "Full-time"
+    },
+    "https://careers.abb/global/en/job/ABB1GLOBALJR00028488EXTERNALENGLOBAL/XMLNAME--80---100---Warehouse-Internal-Logistics-Supervisor": {
       "location": "Quartino, Ticino, Switzerland",
       "canton": "TI",
       "country": "CH",
