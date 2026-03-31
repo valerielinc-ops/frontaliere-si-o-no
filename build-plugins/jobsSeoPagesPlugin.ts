@@ -3429,6 +3429,123 @@ ${(() => {
       };
 
 
+      // --- extractInfoFromSlug: de-slugify orphan slugs to recover title/company/location ---
+      // Build lookup tables for matching
+      const adapterDir = np.resolve(rootDir, 'data/jobs-crawler-adapters/adapters');
+      const companySlugMap: { slug: string; name: string }[] = [];
+      const seenCompanySlugs = new Set<string>();
+      try {
+        for (const f of fs.readdirSync(adapterDir).filter((n: string) => n.endsWith('.json'))) {
+          const d = JSON.parse(fs.readFileSync(np.join(adapterDir, f), 'utf-8'));
+          const name = d.companyName || d.company || '';
+          if (!name) continue;
+          const adapterSlug = f.replace('.json', '');
+          companySlugMap.push({ slug: adapterSlug, name });
+          seenCompanySlugs.add(adapterSlug);
+          // Also generate a slugified version of the company name for matching
+          // e.g. "FART – Ferrovie Autolinee Regionali Ticinesi" → "fart-ferrovie-autolinee-regionali-ticinesi"
+          const nameSlug = name
+            .toLowerCase()
+            .replace(/[–—]/g, '-')
+            .replace(/[()]/g, '')
+            .replace(/[^a-z0-9\s-]/g, '')
+            .replace(/\s+/g, '-')
+            .replace(/-{2,}/g, '-')
+            .replace(/^-|-$/g, '');
+          if (nameSlug && nameSlug !== adapterSlug && !seenCompanySlugs.has(nameSlug)) {
+            companySlugMap.push({ slug: nameSlug, name });
+            seenCompanySlugs.add(nameSlug);
+          }
+        }
+      } catch { /* adapters dir missing */ }
+      // Sort by slug length descending for longest-match-first
+      companySlugMap.sort((a, b) => b.slug.length - a.slug.length);
+
+      // Location names from swiss-postal-codes.json (key=locationName, value=postalCode)
+      const locationNames = Object.keys(plzLookup).sort((a, b) => b.length - a.length);
+      // Slugified location names for matching (e.g. "riva san vitale" -> "riva-san-vitale")
+      const locationSlugPairs = locationNames.map(name => ({
+        name,
+        slug: name.toLowerCase().replace(/\s+/g, '-'),
+        postalCode: plzLookup[name],
+      }));
+
+      // Common Italian/English stop words and gender markers to strip from de-slugified titles
+      const slugStopFragments = new Set([
+        'm-f', 'f-m', 'm-w', 'f-m-d', 'm-w-d', 'm-f-d', 'w-m-d', 'w-m',
+        '100', '80', '60', '80-100', '60-100', '60-80',
+        'afc', 'cfp', 'a', 'o', 'e',
+        'm', 'f', 'd', 'w', // standalone gender markers (after company slug removal splits "m-f-d")
+      ]);
+
+      const extractInfoFromSlug = (slug: string): { title: string; company: string; companyKey: string; location: string; postalCode: string } => {
+        let remaining = slug;
+        let company = '';
+        let companyKey = '';
+        let location = '';
+        let postalCode = '';
+
+        // 1. Match company (longest slug match first)
+        for (const c of companySlugMap) {
+          if (remaining.includes(c.slug)) {
+            company = c.name;
+            companyKey = c.slug;
+            // Remove company slug from remaining, handling leading/trailing hyphens
+            remaining = remaining.replace(c.slug, '').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-');
+            break;
+          }
+        }
+
+        // 2. Match location (longest name match first, at end of slug preferred)
+        for (const loc of locationSlugPairs) {
+          if (remaining.endsWith(loc.slug) || remaining.endsWith('-' + loc.slug)) {
+            location = loc.name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            postalCode = loc.postalCode;
+            remaining = remaining.replace(new RegExp('-?' + loc.slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'), '');
+            break;
+          }
+          // Also check if location appears mid-slug (common for e.g. "coop-mezzovico")
+          if (!location && remaining.includes('-' + loc.slug + '-')) {
+            location = loc.name.split(' ').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+            postalCode = loc.postalCode;
+            remaining = remaining.replace('-' + loc.slug + '-', '-').replace(/^-+|-+$/g, '');
+          }
+        }
+
+        // Also check broader Swiss locations not in Ticino PLZ
+        if (!location) {
+          const broadLocations: Record<string, string> = {
+            'grigioni': 'Grigioni', 'graubunden': 'Graubünden', 'st-moritz': 'St. Moritz',
+            'coira': 'Coira', 'chur': 'Chur', 'davos': 'Davos', 'berna': 'Berna',
+            'zurigo': 'Zurigo', 'zurich': 'Zürich', 'basilea': 'Basilea', 'ginevra': 'Ginevra',
+            'losanna': 'Losanna', 'lucerna': 'Lucerna', 'anniviers': 'Anniviers',
+            'domat-ems': 'Domat/Ems', 'svizzera': '',  // generic, don't use as location
+          };
+          for (const [locSlug, locName] of Object.entries(broadLocations)) {
+            if (locName && (remaining.endsWith(locSlug) || remaining.endsWith('-' + locSlug))) {
+              location = locName;
+              remaining = remaining.replace(new RegExp('-?' + locSlug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'), '');
+              break;
+            }
+          }
+        }
+
+        // 3. Clean up remaining to form the title
+        // Remove leading number prefixes (e.g. "1-addetto" -> "addetto")
+        remaining = remaining.replace(/^\d+-/, '');
+        // Remove stop fragments
+        const parts = remaining.split('-').filter(p => p && !slugStopFragments.has(p));
+        // De-slugify: capitalize first word, join with spaces
+        const title = parts
+          .join(' ')
+          .replace(/amp\s/g, '& ')  // decode &amp; in slugs
+          .replace(/\bdot\b/g, '.')  // decode dots
+          .replace(/^./, c => c.toUpperCase())
+          .trim();
+
+        return { title: title || slug, company, companyKey, location, postalCode };
+      };
+
       let expiredCount = 0;
       let legacyCount = 0;
       const expiredSitemapEntries: string[] = [];
@@ -3450,6 +3567,9 @@ ${(() => {
         const paths = tracking[slug];
         const ejData = expiredBySlug.get(slug);
 
+        // For orphan slugs with no ejData, extract info from the slug itself
+        const slugInfo = !ejData?.title ? extractInfoFromSlug(slug) : null;
+
         // Build hreflang alternates for this expired slug (x-default → IT version)
         const hreflangLinks = [
           ...localeList.map((l) => {
@@ -3470,14 +3590,15 @@ ${(() => {
           const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
           const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
 
-          // Rich content from expired-jobs.json
-          const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || copy.title);
-          const jobCompany = String(ejData?.company || '');
-          const jobLocation = String(ejData?.location || ejData?.addressLocality || '');
+          // Rich content from expired-jobs.json, with slug-extracted fallback for orphans
+          const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || slugInfo?.title || copy.title);
+          const jobCompany = String(ejData?.company || slugInfo?.company || '');
+          const jobLocation = String(ejData?.location || ejData?.addressLocality || slugInfo?.location || '');
           const jobDescription = String(ejData?.descriptionByLocale?.[locale] || '');
 
-          // Title for <title> tag: use job title if available
-          const pageTitle = ejData?.title
+          // Title for <title> tag: use job title if available (including slug-extracted)
+          const hasRealTitle = !!(ejData?.title || slugInfo?.title);
+          const pageTitle = hasRealTitle
             ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`
             : `${esc(copy.title)} | Frontaliere Ticino`;
 
@@ -3488,11 +3609,11 @@ ${(() => {
           // the runtime expired-jobs.json fetch (which only has recently expired jobs).
           const expiredWindowData = JSON.stringify({
             slug,
-            title: ejData?.title || '',
+            title: ejData?.title || slugInfo?.title || '',
             titleByLocale: ejData?.titleByLocale || {},
-            company: ejData?.company || '',
-            companyKey: ejData?.companyKey || '',
-            location: ejData?.location || ejData?.addressLocality || '',
+            company: ejData?.company || slugInfo?.company || '',
+            companyKey: ejData?.companyKey || slugInfo?.companyKey || '',
+            location: ejData?.location || ejData?.addressLocality || slugInfo?.location || '',
             descriptionByLocale: ejData?.descriptionByLocale || {},
             slugByLocale: ejData?.slugByLocale || {},
             sector: ejData?.sector || '',
@@ -3718,8 +3839,8 @@ ${hreflangLinks}
           addressRegion: 'TI',
           addressCountry: 'CH',
         };
-        // Try postalCode from ejData, then swiss-postal-codes lookup
-        const ejPostalCode = ejData?.postalCode;
+        // Try postalCode from ejData, slug-extracted, then swiss-postal-codes lookup
+        const ejPostalCode = ejData?.postalCode || slugInfo?.postalCode;
         if (ejPostalCode) {
           address.postalCode = ejPostalCode;
         } else if (jobLocation && plzLookup[jobLocation]) {
@@ -3731,8 +3852,8 @@ ${hreflangLinks}
         const ejStreet = ejData?.streetAddress;
         if (ejStreet) {
           address.streetAddress = ejStreet;
-        } else if (ejData?.companyKey && COMPANY_HQ_ADDRESSES[ejData.companyKey]) {
-          const hq = COMPANY_HQ_ADDRESSES[ejData.companyKey];
+        } else if ((ejData?.companyKey || slugInfo?.companyKey) && COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || '']) {
+          const hq = COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || ''];
           address.streetAddress = hq.streetAddress;
           if (!address.postalCode || address.postalCode === '6900') address.postalCode = hq.postalCode;
         } else {
