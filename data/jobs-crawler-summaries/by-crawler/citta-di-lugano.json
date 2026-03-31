@@ -1,16 +1,16 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-03-30T21:21:50.875Z",
-  "total": 12,
+  "generatedAt": "2026-03-31T09:10:30.316Z",
+  "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 12,
-  "durationMs": 8221,
-  "avgDurationMs": 8221,
+  "unchangedCount": 9,
+  "durationMs": 15526,
+  "avgDurationMs": 15526,
   "durationHistory": [
-    8221
+    15526
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -31,7 +31,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "technology",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "concorsi-per-l-assunzione-di-personale-citta-di-lugano-lugano",
       "deadline": "",
@@ -40,123 +40,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 90,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "un/a architetto/a capoprogetto presso la Divisione edilizia pubblica",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=3DE2E2881613B5EBC1258DB70030A68D",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "postedDate": "2026-03-29",
-      "source": "company-website",
-      "slug": "un-a-architetto-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "un/a architetto/a o ingegnere/a capoprogetto presso la Divisione edilizia pubblica",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=941891F4EB7BAC57C1258DB7003074D8",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "postedDate": "2026-03-29",
-      "source": "company-website",
-      "slug": "un-a-architetto-a-o-ingegnere-a-capoprogetto-presso-la-divisione-edilizia-pubblica-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "un/a addetto/a manutenzione interrati presso i Servizi tecnici della Divisione spazi urbani",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=6ACAF94969C8DFC7C1258DB70030425B",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "operations",
-      "postedDate": "2026-03-29",
-      "source": "company-website",
-      "slug": "un-a-addetto-a-manutenzione-interrati-presso-i-servizi-tecnici-della-divisione-spazi-urbani-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -175,7 +68,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "technology",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
@@ -184,15 +77,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -211,7 +105,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "technology",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
@@ -220,15 +114,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -247,7 +142,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "operations",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
@@ -256,15 +151,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -283,7 +179,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "operations",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
@@ -292,15 +188,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -319,7 +216,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "administration",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
@@ -328,15 +225,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -355,7 +253,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "logistics",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
@@ -364,15 +262,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -391,7 +290,7 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "PART_TIME",
       "category": "technology",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
       "slug": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
@@ -400,15 +299,16 @@
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     },
@@ -427,24 +327,25 @@
       "streetAddress": "Piazza della Riforma",
       "employmentType": "FULL_TIME",
       "category": "education",
-      "postedDate": "2026-03-29",
+      "postedDate": "2026-03-31",
       "source": "company-website",
-      "slug": "educatore-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di",
+      "slug": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di",
       "deadline": "",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 83500,
       "salaryMax": 112500,
       "currency": "CHF",
-      "_qualityScore": 96,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
+        "translation": 16,
         "completeness": 22
       }
     }
