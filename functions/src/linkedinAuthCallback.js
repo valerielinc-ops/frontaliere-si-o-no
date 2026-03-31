@@ -43,38 +43,32 @@ async function fetchLinkedInBasicProfile(accessToken) {
 }
 
 /**
- * Save or update user profile in Firestore `users/{uid}`.
+ * Enrich newsletter_subscribers/{email} with LinkedIn profile data.
  * Best-effort — login succeeds even if Firestore write fails.
+ * Merges into existing subscriber doc; only writes non-null fields.
  *
- * @param {string} uid - Firebase Auth UID
- * @param {object} profileData - User profile fields
- * @param {boolean} isNewUser - Whether this is a newly created user
+ * @param {string} email - User email (document key)
+ * @param {object} profileData - LinkedIn profile fields
  */
-async function saveUserProfile(uid, profileData, isNewUser) {
+async function enrichSubscriberProfile(email, profileData) {
   try {
     const db = admin.firestore();
-    const userRef = db.collection('users').doc(uid);
+    const subRef = db.collection('newsletter_subscribers').doc(email.trim().toLowerCase());
 
-    if (isNewUser) {
-      await userRef.set({
-        ...profileData,
-        createdAt: admin.firestore.FieldValue.serverTimestamp(),
-        lastLoginAt: admin.firestore.FieldValue.serverTimestamp(),
-      });
-    } else {
-      // Merge: update lastLoginAt and any new fields, but don't overwrite
-      // existing data with nulls
-      const updateData = { lastLoginAt: admin.firestore.FieldValue.serverTimestamp() };
-      for (const [key, value] of Object.entries(profileData)) {
-        if (value != null) {
-          updateData[key] = value;
-        }
+    const updateData = {
+      updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+      lastLoginAt: admin.firestore.FieldValue.serverTimestamp(),
+    };
+    for (const [key, value] of Object.entries(profileData)) {
+      if (value != null) {
+        updateData[key] = value;
       }
-      await userRef.set(updateData, { merge: true });
     }
+
+    await subRef.set(updateData, { merge: true });
   } catch (err) {
     // Best-effort: don't break login if Firestore write fails
-    console.error('[linkedinAuthCallback] Failed to save user profile:', err.message);
+    console.error('[linkedinAuthCallback] Failed to enrich subscriber profile:', err.message);
   }
 }
 
@@ -181,22 +175,20 @@ export async function handleLinkedInCallback({ code, redirectUri }) {
     }
   }
 
-  // ── Save enriched profile to Firestore ────────────────────────────────────
-  await saveUserProfile(uid, {
-    uid,
-    email,
-    displayName,
+  // ── Enrich newsletter_subscribers/{email} with LinkedIn profile data ───────
+  await enrichSubscriberProfile(email, {
+    auth_uid: uid,
+    auth_provider: 'linkedin',
+    name: displayName,
     firstName,
     lastName,
     photoURL,
-    locale,
-    emailVerified,
-    provider: 'linkedin',
     linkedInSub,
     headline: basicProfile.headline,
     vanityName: basicProfile.vanityName,
-    dataSource: 'linkedin_openid',
-  }, isNewUser);
+    emailVerified,
+    auth_locale: locale,
+  });
 
   // ── Mint Firebase custom token ─────────────────────────────────────────────
   const customToken = await admin.auth().createCustomToken(uid, { linkedIn: true });

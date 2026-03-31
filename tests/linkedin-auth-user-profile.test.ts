@@ -4,14 +4,13 @@ import { resolve } from 'node:path';
 
 const root = resolve(__dirname, '..');
 
-describe('LinkedIn auth Cloud Function — user profile enrichment', () => {
+describe('LinkedIn auth Cloud Function — subscriber profile enrichment', () => {
   const source = readFileSync(
     resolve(root, 'functions/src/linkedinAuthCallback.js'),
     'utf8'
   );
 
   it('extracts all OpenID Connect fields from userInfo', () => {
-    // Core identity fields
     expect(source).toContain('userInfo.given_name');
     expect(source).toContain('userInfo.family_name');
     expect(source).toContain('userInfo.locale');
@@ -19,115 +18,83 @@ describe('LinkedIn auth Cloud Function — user profile enrichment', () => {
     expect(source).toContain('userInfo.sub');
   });
 
-  it('saves enriched profile to Firestore users collection', () => {
-    expect(source).toContain("db.collection('users').doc(uid)");
-    expect(source).toContain('saveUserProfile(uid,');
-    // Must include all profile fields
+  it('enriches newsletter_subscribers collection with LinkedIn data', () => {
+    expect(source).toContain("db.collection('newsletter_subscribers')");
+    expect(source).toContain('enrichSubscriberProfile(email,');
     expect(source).toContain('firstName,');
     expect(source).toContain('lastName,');
-    expect(source).toContain('locale,');
     expect(source).toContain('linkedInSub,');
-    expect(source).toContain("provider: 'linkedin'");
-    expect(source).toContain("dataSource: 'linkedin_openid'");
+    expect(source).toContain("auth_provider: 'linkedin'");
   });
 
-  it('sets createdAt only for new users and always updates lastLoginAt', () => {
-    expect(source).toContain('createdAt: admin.firestore.FieldValue.serverTimestamp()');
+  it('always updates lastLoginAt and updatedAt on login', () => {
     expect(source).toContain('lastLoginAt: admin.firestore.FieldValue.serverTimestamp()');
-    expect(source).toContain('isNewUser');
+    expect(source).toContain('updatedAt: admin.firestore.FieldValue.serverTimestamp()');
   });
 
   it('handles Firestore write failure gracefully (best-effort)', () => {
-    expect(source).toContain("console.error('[linkedinAuthCallback] Failed to save user profile:'");
-    // The saveUserProfile function must be wrapped in try/catch
-    const saveProfileFn = source.slice(
-      source.indexOf('async function saveUserProfile'),
+    expect(source).toContain("console.error('[linkedinAuthCallback] Failed to enrich subscriber profile:'");
+    const enrichFn = source.slice(
+      source.indexOf('async function enrichSubscriberProfile'),
       source.indexOf('async function handleLinkedInCallback')
     );
-    expect(saveProfileFn).toContain('try {');
-    expect(saveProfileFn).toContain('} catch (err) {');
+    expect(enrichFn).toContain('try {');
+    expect(enrichFn).toContain('} catch (err) {');
   });
 
-  it('documents that professional data requires additional scopes', () => {
-    expect(source).toContain('fetchLinkedInProfessionalData');
-    expect(source).toContain('jobTitle: null');
-    expect(source).toContain('company: null');
-    expect(source).toContain('industry: null');
-    // Must document scope limitations
-    expect(source).toContain('additional scopes');
-  });
-
-  it('tracks isNewUser flag for conditional profile creation', () => {
-    expect(source).toContain('let isNewUser = false');
-    expect(source).toContain('isNewUser = true');
-    expect(source).toContain('}, isNewUser)');
+  it('fetches basic profile via r_basicprofile scope', () => {
+    expect(source).toContain('fetchLinkedInBasicProfile');
+    expect(source).toContain('/v2/me');
+    expect(source).toContain('localizedHeadline');
+    expect(source).toContain('vanityName');
   });
 
   it('does not overwrite existing data with nulls on login', () => {
-    // When updating existing user, only non-null values should be written
     expect(source).toContain('if (value != null)');
   });
+
+  it('uses merge mode for subscriber document', () => {
+    expect(source).toContain("{ merge: true }");
+  });
 });
 
-describe('Firestore rules — users collection', () => {
+describe('Firestore rules — newsletter_subscribers collection', () => {
   const rules = readFileSync(resolve(root, 'firestore.rules'), 'utf8');
 
-  it('has rules for users/{uid} collection', () => {
-    expect(rules).toContain("match /users/{uid}");
+  it('has rules for newsletter_subscribers collection', () => {
+    expect(rules).toContain('match /newsletter_subscribers/{email}');
   });
 
-  it('allows only the owning user to read their profile', () => {
-    expect(rules).toContain('allow read: if request.auth != null && request.auth.uid == uid');
-  });
-
-  it('allows only the owning user to create their profile', () => {
-    expect(rules).toContain('allow create: if request.auth != null && request.auth.uid == uid');
-  });
-
-  it('allows only the owning user to update their profile', () => {
-    expect(rules).toContain('allow update: if request.auth != null && request.auth.uid == uid');
-  });
-
-  it('does not allow delete of user profiles (admin SDK only)', () => {
-    // Extract the users block
-    const usersBlock = rules.slice(
-      rules.indexOf('match /users/{uid}'),
-      rules.indexOf('}', rules.indexOf('allow update: if request.auth != null && request.auth.uid == uid') + 10) + 1
+  it('allows public read and write for subscriber documents', () => {
+    const subBlock = rules.slice(
+      rules.indexOf('match /newsletter_subscribers/{email}'),
+      rules.indexOf('}', rules.indexOf('match /newsletter_subscribers/{email}') + 80) + 1
     );
-    expect(usersBlock).not.toContain('allow delete');
+    expect(subBlock).toContain('allow read, write: if true');
   });
 });
 
-describe('Frontend authService — user profile saving', () => {
+describe('Frontend authService — subscriber profile enrichment', () => {
   const source = readFileSync(resolve(root, 'services/authService.ts'), 'utf8');
 
   it('exports saveUserProfileToFirestore function', () => {
     expect(source).toContain('export async function saveUserProfileToFirestore');
   });
 
-  it('saves profile after Google popup sign-in', () => {
-    // After signInWithPopup for Google, saveUserProfileToFirestore should be called
-    const googlePopupSection = source.slice(
-      source.indexOf("Analytics.trackUIInteraction('auth', 'google', 'login', 'popup-start')"),
-      source.indexOf("throw popupError;")
+  it('writes to newsletter_subscribers collection', () => {
+    const profileFn = source.slice(
+      source.indexOf('export async function saveUserProfileToFirestore'),
+      source.indexOf('// ─── Auth Functions')
     );
-    expect(googlePopupSection).toContain("saveUserProfileToFirestore(result.user, 'google')");
+    expect(profileFn).toContain("'newsletter_subscribers'");
   });
 
-  it('saves profile after Facebook popup sign-in', () => {
-    const facebookSection = source.slice(
-      source.indexOf("await patchFacebookData(result);"),
-      source.indexOf("} catch (popupError: any) {", source.indexOf("await patchFacebookData(result);"))
+  it('uses email as document key', () => {
+    const profileFn = source.slice(
+      source.indexOf('export async function saveUserProfileToFirestore'),
+      source.indexOf('// ─── Auth Functions')
     );
-    expect(facebookSection).toContain("saveUserProfileToFirestore(result.user, 'facebook')");
-  });
-
-  it('saves profile after redirect sign-in', () => {
-    const redirectSection = source.slice(
-      source.indexOf("'auth', provider, 'login', 'success-redirect'"),
-      source.indexOf("// Restore the path the user was on before the redirect")
-    );
-    expect(redirectSection).toContain('saveUserProfileToFirestore(result.user,');
+    expect(profileFn).toContain('.trim().toLowerCase()');
   });
 
   it('uses merge mode to avoid overwriting existing data', () => {
@@ -136,16 +103,7 @@ describe('Frontend authService — user profile saving', () => {
 
   it('handles Firestore write failure gracefully', () => {
     expect(source).toContain('.catch(() => {})');
-    expect(source).toContain("console.warn('[Auth] Failed to save user profile to Firestore:'");
-  });
-
-  it('sets createdAt only on first profile creation', () => {
-    const profileFn = source.slice(
-      source.indexOf('export async function saveUserProfileToFirestore'),
-      source.indexOf('// ─── Auth Functions')
-    );
-    expect(profileFn).toContain('if (!docSnap.exists())');
-    expect(profileFn).toContain('profileData.createdAt = fsModule.serverTimestamp()');
+    expect(source).toContain("console.warn('[Auth] Failed to enrich subscriber profile:'");
   });
 });
 
@@ -162,5 +120,25 @@ describe('Frontend App.tsx — LinkedIn profile saving', () => {
       source.indexOf("if (cancelled) return;", source.indexOf("'auth', 'linkedin', 'login', user ? 'success' : 'no-user'"))
     );
     expect(linkedinSection).toContain("saveUserProfileToFirestore(user, 'linkedin')");
+  });
+});
+
+describe('UserProfile.tsx — profile persistence', () => {
+  const source = readFileSync(resolve(root, 'components/pages/UserProfile.tsx'), 'utf8');
+
+  it('saves profile to newsletter_subscribers collection', () => {
+    expect(source).toContain("doc(db, 'newsletter_subscribers', key)");
+  });
+
+  it('loads profile from newsletter_subscribers collection', () => {
+    const loadFn = source.slice(
+      source.indexOf('const loadProfileFromFirestore'),
+      source.indexOf('} catch {', source.indexOf('const loadProfileFromFirestore'))
+    );
+    expect(loadFn).toContain("'newsletter_subscribers'");
+  });
+
+  it('does not reference user_profiles collection', () => {
+    expect(source).not.toContain("'user_profiles'");
   });
 });

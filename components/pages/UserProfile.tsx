@@ -125,12 +125,13 @@ const initFirestore = async () => {
   }
 };
 
-const saveProfileToFirestore = async (uid: string, data: UserProfileData) => {
+const saveProfileToFirestore = async (email: string, data: UserProfileData) => {
   try {
     const db = await initFirestore();
     if (!db) return;
     const { doc, setDoc } = await import('firebase/firestore');
-    await setDoc(doc(db, 'user_profiles', uid), {
+    const key = email.trim().toLowerCase();
+    await setDoc(doc(db, 'newsletter_subscribers', key), {
       ...data,
       updatedAt: new Date().toISOString(),
     }, { merge: true });
@@ -140,12 +141,13 @@ const saveProfileToFirestore = async (uid: string, data: UserProfileData) => {
   }
 };
 
-const loadProfileFromFirestore = async (uid: string): Promise<UserProfileData | null> => {
+const loadProfileFromFirestore = async (email: string): Promise<UserProfileData | null> => {
   try {
     const db = await initFirestore();
     if (!db) return null;
     const { doc, getDoc } = await import('firebase/firestore');
-    const snap = await getDoc(doc(db, 'user_profiles', uid));
+    const key = email.trim().toLowerCase();
+    const snap = await getDoc(doc(db, 'newsletter_subscribers', key));
     if (snap.exists()) {
       const data = snap.data();
       return {
@@ -493,8 +495,9 @@ const UserProfile: React.FC = () => {
 
   // When user signs in, try loading from Firestore (cloud sync)
   useEffect(() => {
-    if (!user?.uid) return;
-    loadProfileFromFirestore(user.uid).then((cloudProfile) => {
+    const email = user ? getAuthEmail(user) : null;
+    if (!email) return;
+    loadProfileFromFirestore(email).then((cloudProfile) => {
       if (cloudProfile) {
         setProfile(prev => {
           const merged: UserProfileData = { ...prev };
@@ -637,8 +640,7 @@ const UserProfile: React.FC = () => {
       })();
       if (db) {
         const { doc, deleteDoc, collection, getDocs, query, where } = await import('firebase/firestore');
-        // Delete user profile
-        await deleteDoc(doc(db, 'user_profiles', user.uid)).catch(() => {});
+        // user_profiles no longer used — data is in newsletter_subscribers (deleted below)
         // Delete newsletter subscription by deterministic docId + legacy duplicates.
         const delEmail = getAuthEmail(user);
         if (delEmail) {
@@ -719,8 +721,9 @@ const UserProfile: React.FC = () => {
     if (saveTimerRef.current) clearTimeout(saveTimerRef.current);
     saveTimerRef.current = setTimeout(async () => {
       setSaveStatus('saving');
-      if (user?.uid) {
-        await saveProfileToFirestore(user.uid, updatedProfile);
+      const email = user ? getAuthEmail(user) : null;
+      if (email) {
+        await saveProfileToFirestore(email, updatedProfile);
       }
       setSaveStatus('saved');
       const fields = ['workPosition', 'age', 'familySituation', 'frontaliereType', 'municipality', 'grossSalary'] as const;

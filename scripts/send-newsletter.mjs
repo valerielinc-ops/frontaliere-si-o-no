@@ -518,24 +518,7 @@ async function fetchSubscribers() {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
 
-  try {
-    const snap = await db.collection('user_profiles').get();
-    snap.docs.forEach((d) => {
-      const email = normalizeEmail(d.data().email);
-      if (email && !subscribers.has(email)) {
-        subscribers.set(email, {
-          email,
-          locale: (d.data().preferredLocale || d.data().locale || 'it').split(/[-_]/)[0] || 'it',
-          sourceChannel: 'signup',
-          locationInterest: null,
-          sectorInterest: null,
-          preferences: {},
-        });
-      }
-    });
-  } catch (e) {
-    console.warn('\u26a0\ufe0f User profiles fetch failed:', e.message);
-  }
+  // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
   return [...subscribers.values()];
 }
