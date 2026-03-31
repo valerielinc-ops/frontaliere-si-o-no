@@ -9,6 +9,15 @@ html { scrollbar-gutter: stable; }
    AdSense injects display:grid + max-width:1120px on <main> for side-rail ads. */
 main { display: block !important; }
 
+/* Leave room for AdSense side-rail ads (160px wide, placed ~130px from viewport edge).
+   On wide screens, shrink main so side-rails sit outside the content area. */
+@media (min-width: 1400px) {
+  main { max-width: calc(100vw - 360px) !important; }
+}
+@media (min-width: 1800px) {
+  main { max-width: calc(100vw - 420px) !important; }
+}
+
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
