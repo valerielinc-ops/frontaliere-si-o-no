@@ -31,6 +31,7 @@ import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
+import { captureLostSlugs } from './lib/dedicated-crawler-common.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -299,6 +300,10 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
 
     let changed = false;
 
+    // Snapshot slugByLocale before merge so captureLostSlugs can detect changes.
+    const slugByLocaleBefore = { ...(crawlerJob.slugByLocale || {}) };
+    const slugBefore = String(crawlerJob.slug || '').trim();
+
     // Merge locale fields from assembled (translated) into per-crawler.
     // Only ADD new locales — never remove existing ones. The shared crawler may
     // delete an untranslated copy (e.g. EN = copy of IT) before attempting
@@ -384,26 +389,21 @@ function syncTranslationsToCrawlerFile(companyKey, assembledJobs) {
         // For needsRetranslation jobs: overwrite with assembled value if it's an improvement.
         // For normal jobs: only add where the crawler has no content, or adopt localized slugs.
         if (crawlerJob.needsRetranslation || !trimmedExisting || isUnlocalizedSlug) {
-          // Before overwriting a slug, preserve the old value in previousSlugs
-          // so the build plugin can generate bridge/redirect pages for SEO continuity.
-          if (field === 'slugByLocale' && trimmedExisting && trimmedValue !== trimmedExisting) {
-            console.log(`     📌 previousSlugs: preserving ${trimmedExisting.slice(0, 60)}`);
-            if (!crawlerJob.previousSlugs) crawlerJob.previousSlugs = [];
-            if (!crawlerJob.previousSlugs.includes(trimmedExisting)) {
-              crawlerJob.previousSlugs.push(trimmedExisting);
-            }
-          }
           crawlerJob[field][locale] = value;
           changed = true;
         }
       }
     }
 
+    // Capture any slugs lost during the locale field merge above.
+    const captured = captureLostSlugs(crawlerJob, slugByLocaleBefore, slugBefore);
+    if (captured.length > 0) {
+      console.log(`     📌 previousSlugs: preserved ${captured.length} lost slug(s)`);
+      changed = true;
+    }
+
     // Sync previousSlugs from assembled dataset to per-crawler file so bridge pages
     // are generated even when slug changes happened in the assembled pipeline.
-    // Note: do NOT filter out slugs that are still active in some locale. A slug like
-    // "ingegnere-edile-jr-company-city" may still be slugByLocale.it but was previously
-    // used for EN/DE/FR. Those locale-specific URLs need bridge pages too.
     if (assembled.previousSlugs && Array.isArray(assembled.previousSlugs)) {
       if (!crawlerJob.previousSlugs) crawlerJob.previousSlugs = [];
       for (const s of assembled.previousSlugs) {

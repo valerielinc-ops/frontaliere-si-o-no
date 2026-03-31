@@ -1228,38 +1228,7 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
 
     // Preserve old slugs as aliases when slugs change (prevents 404s for renamed jobs)
     if (jobChanged) {
-      const slugsAfter = new Set();
-      if (job.slug) slugsAfter.add(String(job.slug).trim());
-      if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-        for (const s of Object.values(job.slugByLocale)) {
-          if (s) slugsAfter.add(String(s).trim());
-        }
-      }
-      // Any slug that existed before but is no longer current → preserve as alias.
-      // Global check: slug completely gone from all locales.
-      const lostGlobal = [...slugsBefore].filter((s) => s && !slugsAfter.has(s));
-      // Per-locale check: a locale's slug changed even if the old value still appears
-      // in a different locale (e.g. EN was == IT before, now IT kept the slug but EN changed).
-      const lostPerLocale = new Set();
-      for (const [locale, oldSlug] of Object.entries(slugsByLocaleBefore)) {
-        const newSlug = job.slugByLocale?.[locale];
-        const newSlugTrimmed = newSlug ? String(newSlug).trim() : '';
-        if (newSlugTrimmed !== oldSlug) {
-          lostPerLocale.add(oldSlug);
-        }
-      }
-      const lost = [...new Set([...lostGlobal, ...lostPerLocale])];
-      if (lost.length > 0) {
-        if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
-        const existing = new Set(job.previousSlugs);
-        // Also exclude current slugs from previousSlugs
-        for (const s of slugsAfter) existing.delete(s);
-        for (const s of lost) {
-          if (!slugsAfter.has(s)) existing.add(s);
-        }
-        job.previousSlugs = [...existing].slice(0, 20); // cap at 20 aliases
-      }
-
+      captureLostSlugs(job, slugsByLocaleBefore, baseSlug);
       changed = true;
       repaired += 1;
     }
@@ -3925,6 +3894,46 @@ export function shouldReusePreviousLocalization(prev = {}, next = {}, cfg = {}) 
   return true;
 }
 
+/**
+ * Detect slugs that were replaced or removed from a job and capture them into
+ * previousSlugs for SEO redirect/bridge-page continuity.
+ *
+ * Language-agnostic: works regardless of source language (EN, IT, DE, FR).
+ *
+ * @param {Object} job               – The job AFTER changes (mutated in place).
+ * @param {Object} prevSlugByLocale  – slugByLocale snapshot BEFORE changes.
+ * @param {string} prevSlug          – Canonical slug BEFORE changes.
+ * @param {number} cap               – Max previousSlugs entries (default 20).
+ * @returns {string[]} Newly captured lost slugs (may be empty).
+ */
+export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap = 20) {
+  const lost = [];
+  if (prevSlug && prevSlug !== normalizeSpace(job.slug || '')) {
+    lost.push(prevSlug);
+  }
+  for (const locale of LOCALES) {
+    const oldSlug = normalizeSpace(prevSlugByLocale[locale] || '');
+    const newSlug = normalizeSpace((job.slugByLocale || {})[locale] || '');
+    if (oldSlug && oldSlug !== newSlug) {
+      lost.push(oldSlug);
+    }
+  }
+  if (lost.length === 0) return [];
+
+  if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+  const allPrevious = new Set([...job.previousSlugs, ...lost]);
+  // Exclude current slugs to avoid self-referencing
+  if (job.slug) allPrevious.delete(normalizeSpace(job.slug));
+  if (job.slugByLocale && typeof job.slugByLocale === 'object') {
+    for (const s of Object.values(job.slugByLocale)) {
+      const trimmed = normalizeSpace(s || '');
+      if (trimmed) allPrevious.delete(trimmed);
+    }
+  }
+  job.previousSlugs = [...allPrevious].slice(0, cap);
+  return lost;
+}
+
 export function preferJob(a, b) {
   const aScore = qualityScore(a) + (a.featured ? 2 : 0) + ((a.source === 'Company Careers Crawler') ? 1 : 0);
   const bScore = qualityScore(b) + (b.featured ? 2 : 0) + ((b.source === 'Company Careers Crawler') ? 1 : 0);
@@ -4058,13 +4067,12 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       reusedLocalizationFromPrevious += 1;
     }
     // Source-copy protection: mergeLocaleTextMap picks the longer text, which can cause
-    // an EN source copy to overwrite a shorter real IT/DE/FR translation. When the merged
-    // locale value equals the EN source text AND prev had a different substantial translation,
-    // restore prev's value.
+    // a source-language copy to overwrite a shorter real translation in another locale.
+    // Language-agnostic: works for EN, IT, DE, or FR source. The source locale is naturally
+    // skipped because prev's value for that locale equals the source text.
     const sourceDescNorm = normalizeSpace(next.description || prev.description || '');
     if (sourceDescNorm.length >= 120) {
       for (const locale of LOCALES) {
-        if (locale === 'en') continue;
         const mergedDesc = normalizeSpace(best.descriptionByLocale?.[locale] || '');
         const prevLocaleDesc = (prev.descriptionByLocale || {})[locale] || '';
         const prevDescNorm = normalizeSpace(prevLocaleDesc);
@@ -4076,7 +4084,6 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     const sourceTitleNorm = normalizeSpace(next.title || prev.title || '');
     if (sourceTitleNorm.length >= 3) {
       for (const locale of LOCALES) {
-        if (locale === 'en') continue;
         const mergedTitle = normalizeSpace(best.titleByLocale?.[locale] || '');
         const prevLocaleTitle = (prev.titleByLocale || {})[locale] || '';
         const prevTitleNorm = normalizeSpace(prevLocaleTitle);
@@ -4085,12 +4092,11 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         }
       }
     }
-    // Source-copy protection for slugByLocale: EN-derived slugs can overwrite real
+    // Source-copy protection for slugByLocale: source-derived slugs can overwrite real
     // locale-specific slugs via mergeLocaleTextMap's longer-wins rule.
-    const sourceSlugNorm = normalizeSpace(best.slugByLocale?.en || best.slug || '');
+    const sourceSlugNorm = normalizeSpace(best.slug || '');
     if (sourceSlugNorm.length >= 3) {
       for (const locale of LOCALES) {
-        if (locale === 'en') continue;
         const mergedSlug = normalizeSpace(best.slugByLocale?.[locale] || '');
         const prevLocaleSlug = (prev.slugByLocale || {})[locale] || '';
         const prevSlugNorm = normalizeSpace(prevLocaleSlug);
@@ -4115,31 +4121,9 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     if (best._targetScope && !chosen._targetScope) {
       chosen._targetScope = best._targetScope;
     }
-    // Preserve lost slugs: when slugByLocale or slug changes during merge,
-    // capture the replaced values into previousSlugs for SEO redirect continuity.
-    // Applied after preferJob so it works regardless of which object was picked.
-    const lostSlugs = [];
-    if (prev.slug && prev.slug !== chosen.slug) {
-      lostSlugs.push(prev.slug);
-    }
-    for (const locale of LOCALES) {
-      const prevSlug = normalizeSpace((prev.slugByLocale || {})[locale] || '');
-      const chosenSlug = normalizeSpace((chosen.slugByLocale || {})[locale] || '');
-      if (prevSlug && prevSlug !== chosenSlug) {
-        lostSlugs.push(prevSlug);
-      }
-    }
-    if (lostSlugs.length > 0) {
-      if (!Array.isArray(chosen.previousSlugs)) chosen.previousSlugs = [];
-      const allPrevious = new Set([...chosen.previousSlugs, ...lostSlugs]);
-      // Remove current slugs to avoid self-referencing
-      if (chosen.slug) allPrevious.delete(chosen.slug);
-      for (const locale of LOCALES) {
-        const currentSlug = normalizeSpace((chosen.slugByLocale || {})[locale] || '');
-        if (currentSlug) allPrevious.delete(currentSlug);
-      }
-      chosen.previousSlugs = [...allPrevious].slice(0, 20);
-    }
+    // Preserve lost slugs: applied after preferJob so it works regardless of which
+    // object was picked. Uses shared captureLostSlugs function.
+    captureLostSlugs(chosen, prev.slugByLocale || {}, prev.slug || '');
     map.set(fp, chosen);
     refreshed += 1;
     refreshedByCompany[best.company] = (refreshedByCompany[best.company] || 0) + 1;
