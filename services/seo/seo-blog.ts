@@ -9250,6 +9250,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sicurezza-lago-maggiore': {
+    title: 'Nuova alleanza per la sicurezza del Lago Maggiore | Frontaliere Ticino',
+    description: 'La collaborazione tra Italia e Svizzera per la protezione dell\'ambiente lacustre del Lago Maggiore e del Ceresio. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, alleanza, sicurezza, lago',
+    ogTitle: 'Sicurezza Lago Maggiore',
+    ogDescription: 'La nuova alleanza tra Italia e Svizzera per la protezione dell\'ambiente lacustre',
+    canonicalPath: '/articoli-frontaliere/sicurezza-lago-maggiore',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova alleanza per la sicurezza del Lago Maggiore",
+      "description": "La collaborazione tra Italia e Svizzera per la protezione dell'ambiente lacustre del Lago Maggiore e del Ceresio. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/sicurezza-lago-maggiore.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago Maggiore e Monte Rosa"
+      },
+      "datePublished": "2026-03-31T13:56:59+00:00",
+      "dateModified": "2026-03-31T13:56:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sicurezza-lago-maggiore`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

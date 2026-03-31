@@ -1877,6 +1877,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.furbata-dogana-argento.title': 'Il tente un coup de malice à la douane entre Côme et la Suisse : 7 kg de pièces rares en argent pur dans une Mustang',
     'blog.article.furbata-dogana-argento.excerpt': 'Un citoyen italien intercepté au poste-frontière de Ponte Chiasso avec 7 kg de pièces rares en argent dissimulées dans le coffre d\'une Ford Mustang',
     'blog.article.furbata-dogana-argento.imageAlt': 'Citoyen italien arrêté à Ponte Chiasso avec 7 kg de monnaies d\'argent rares cachées dans le coffre d\'une Ford Mustang',
+    'blog.article.sicurezza-lago-maggiore.title': 'Nouvelle alliance pour la sécurité du lac Léman',
+    'blog.article.sicurezza-lago-maggiore.excerpt': 'Italie et Suisse unissent leurs forces pour protéger l\'environnement lacustre',
+    'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lac Majeur et Monte Rosa',
 };
 
 export default blogMetaFr;

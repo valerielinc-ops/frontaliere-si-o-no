@@ -5571,4 +5571,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/furbata-dogana-argento.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sicurezza-lago-maggiore',
+    category: 'novita',
+    date: '2026-03-31T13:56:59.738Z',
+    image: '/images/blog/sicurezza-lago-maggiore.jpg',
+    hasCalculator: true,
+  },
 ];

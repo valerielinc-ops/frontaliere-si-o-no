@@ -1877,6 +1877,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.furbata-dogana-argento.title': 'Versucht, an der Grenze zwischen Como und der Schweiz schlau zu sein: 7 kg seltene Münzen aus reinem Silber in einem Mustang',
     'blog.article.furbata-dogana-argento.excerpt': 'Italienischer Staatsbürger am Grenzübergang Ponte Chiasso mit 7 kg seltenen Silbermünzen im Kofferraum eines Ford Mustang gestoppt',
     'blog.article.furbata-dogana-argento.imageAlt': 'Italienischer Staatsbürger bei Ponte Chiasso gestoppt mit 7 kg seltenen Silbermünzen im Kofferraum einer Ford Mustang',
+    'blog.article.sicurezza-lago-maggiore.title': 'Neue Allianz für die Sicherheit des Lago Maggiore',
+    'blog.article.sicurezza-lago-maggiore.excerpt': 'Italien und die Schweiz bündeln Kräfte, um die Seenlandschaft zu schützen',
+    'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lago Maggiore und Monte Rosa',
 };
 
 export default blogMetaDe;

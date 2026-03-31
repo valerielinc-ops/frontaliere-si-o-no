@@ -1877,6 +1877,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.furbata-dogana-argento.title': 'Tries to pull a fast one at the border between Como and Switzerland: 7 kg of rare pure silver coins found in Mustang',
     'blog.article.furbata-dogana-argento.excerpt': 'Italian citizen stopped at the Ponte Chiasso crossing with 7 kg of rare silver coins hidden in the trunk of a Ford Mustang',
     'blog.article.furbata-dogana-argento.imageAlt': 'Italian citizen stopped at the Ponte Chiasso border with 7 kg of rare silver coins hidden in the trunk of a Ford Mustang',
+    'blog.article.sicurezza-lago-maggiore.title': 'New alliance for the safety of Lake Maggiore',
+    'blog.article.sicurezza-lago-maggiore.excerpt': 'Italy and Switzerland join forces to protect the lake environment',
+    'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lake Maggiore and Monte Rosa',
 };
 
 export default blogMetaEn;

@@ -1877,6 +1877,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.furbata-dogana-argento.title': 'Tenta la furbata in dogana tra Como e Svizzera: nella Mustang 7 kg di rare monete di argento purissimo',
     'blog.article.furbata-dogana-argento.excerpt': 'Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d\'argento nascoste nel bagagliaio di una Ford Mustang',
     'blog.article.furbata-dogana-argento.imageAlt': 'Cittadino italiano fermato al valico di Ponte Chiasso con 7 kg di rare monete d\'argento nascoste nel bagagliaio di una Ford Mustang',
+    'blog.article.sicurezza-lago-maggiore.title': 'Nuova alleanza per la sicurezza del Lago Maggiore',
+    'blog.article.sicurezza-lago-maggiore.excerpt': 'Italia e Svizzera uniscono le forze per proteggere l\'ambiente lacustre',
+    'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lago Maggiore e Monte Rosa',
 };
 
 export default blogMetaIt;
