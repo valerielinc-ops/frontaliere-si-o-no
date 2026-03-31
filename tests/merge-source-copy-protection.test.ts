@@ -217,4 +217,119 @@ describe('mergeAndDeduplicate source-copy protection', () => {
     expect(merged.descriptionByLocale.it).toBe(IT_TRANSLATION);
     expect(merged.titleByLocale.it).toBe('Specialista della Sostenibilità');
   });
+
+  it('preserves replaced slugs in previousSlugs when slugByLocale changes during merge', () => {
+    const prevJob = {
+      id: 'job-4',
+      slug: 'coordinatore-marketing-vf-stabio',
+      title: 'Marketing Coordinator - THE NORTH FACE',
+      company: 'VF International',
+      location: 'Stabio',
+      description: EN_DESC_LONG,
+      url: 'https://vfc.com/jobs/4444',
+      crawledAt: '2026-03-30T10:00:00Z',
+      source: 'Company Careers Crawler',
+      titleByLocale: {
+        en: 'Marketing Coordinator - THE NORTH FACE',
+        it: 'Coordinatore Marketing - THE NORTH FACE',
+        de: 'Marketing Koordinator - THE NORTH FACE',
+        fr: 'Coordinateur Marketing - THE NORTH FACE',
+      },
+      descriptionByLocale: {
+        en: EN_DESC_LONG,
+        it: IT_TRANSLATION,
+        de: IT_TRANSLATION.replace('Coordinatore', 'Koordinator'),
+        fr: IT_TRANSLATION.replace('Coordinatore', 'Coordinateur'),
+      },
+      slugByLocale: {
+        en: 'marketing-coordinator-the-north-face-vf-stabio',
+        it: 'coordinatore-marketing-the-north-face-vf-stabio',
+        de: 'marketing-koordinator-the-north-face-vf-stabio',
+        fr: 'coordinateur-marketing-the-north-face-vf-stabio',
+      },
+      previousSlugs: [],
+    };
+
+    // Fresh crawl brings a LONGER slug for IT (e.g. regenerated with extra tokens)
+    // Also includes requirements to make preferJob pick the merged "best" over "prev"
+    const freshCrawl = {
+      ...prevJob,
+      crawledAt: '2026-03-31T09:00:00Z',
+      requirements: ['Strong marketing skills', 'Fluent in English and Italian'],
+      slugByLocale: {
+        en: 'marketing-coordinator-the-north-face-vf-stabio',
+        it: 'coordinatore-marketing-the-north-face-vf-international-emea-stabio-campus',  // longer, different
+        de: 'marketing-koordinator-the-north-face-vf-international-emea-stabio-campus',
+        fr: 'coordinateur-marketing-the-north-face-vf-international-emea-stabio-campus',
+      },
+    };
+
+    const result = mergeAndDeduplicate([prevJob], [freshCrawl], QUALITY_CFG);
+    const merged = result.merged[0];
+
+    // The old IT slug should be in previousSlugs since it was replaced
+    expect(merged.previousSlugs).toContain('coordinatore-marketing-the-north-face-vf-stabio');
+    expect(merged.previousSlugs).toContain('marketing-koordinator-the-north-face-vf-stabio');
+    expect(merged.previousSlugs).toContain('coordinateur-marketing-the-north-face-vf-stabio');
+  });
+
+  it('protects locale slugs from EN source-copy overwrite', () => {
+    const prevJob = {
+      id: 'job-5',
+      slug: 'analista-pss-vf-stabio',
+      title: 'PSS Analyst - THE NORTH FACE',
+      company: 'VF International',
+      location: 'Stabio',
+      description: EN_DESC_LONG,
+      url: 'https://vfc.com/jobs/5555',
+      crawledAt: '2026-03-30T10:00:00Z',
+      source: 'Company Careers Crawler',
+      titleByLocale: {
+        en: 'PSS Analyst - THE NORTH FACE',
+        it: 'Analista PSS - THE NORTH FACE',
+        de: 'PSS Analyst - THE NORTH FACE',
+        fr: 'Analyste PSS - THE NORTH FACE',
+      },
+      descriptionByLocale: {
+        en: EN_DESC_LONG,
+        it: IT_TRANSLATION,
+        de: IT_TRANSLATION.replace('Coordinatore', 'Analyst'),
+        fr: IT_TRANSLATION.replace('Coordinatore', 'Analyste'),
+      },
+      slugByLocale: {
+        en: 'pss-analyst-the-north-face-vf-stabio',
+        it: 'analista-pss-the-north-face-vf-stabio',
+        de: 'pss-analyst-the-north-face-vf-stabio-de',
+        fr: 'analyste-pss-the-north-face-vf-stabio',
+      },
+      previousSlugs: [],
+    };
+
+    // Fresh crawl: all slugs are EN source copies (longer than the IT slug)
+    const freshCrawl = {
+      ...prevJob,
+      crawledAt: '2026-03-31T09:00:00Z',
+      slugByLocale: {
+        en: 'pss-analyst-the-north-face-vf-stabio',
+        it: 'pss-analyst-the-north-face-vf-stabio',  // source copy
+        de: 'pss-analyst-the-north-face-vf-stabio',
+        fr: 'pss-analyst-the-north-face-vf-stabio',
+      },
+      descriptionByLocale: {
+        en: EN_DESC_LONG,
+        it: EN_DESC_LONG,
+        de: EN_DESC_LONG,
+        fr: EN_DESC_LONG,
+      },
+    };
+
+    const result = mergeAndDeduplicate([prevJob], [freshCrawl], QUALITY_CFG);
+    const merged = result.merged[0];
+
+    // Real locale slugs should be preserved, not overwritten by EN source
+    expect(merged.slugByLocale.it).toBe('analista-pss-the-north-face-vf-stabio');
+    expect(merged.slugByLocale.fr).toBe('analyste-pss-the-north-face-vf-stabio');
+    // EN slug stays as-is
+    expect(merged.slugByLocale.en).toBe('pss-analyst-the-north-face-vf-stabio');
+  });
 });

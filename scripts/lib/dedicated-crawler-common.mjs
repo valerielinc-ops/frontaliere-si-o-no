@@ -4085,6 +4085,20 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
         }
       }
     }
+    // Source-copy protection for slugByLocale: EN-derived slugs can overwrite real
+    // locale-specific slugs via mergeLocaleTextMap's longer-wins rule.
+    const sourceSlugNorm = normalizeSpace(best.slugByLocale?.en || best.slug || '');
+    if (sourceSlugNorm.length >= 3) {
+      for (const locale of LOCALES) {
+        if (locale === 'en') continue;
+        const mergedSlug = normalizeSpace(best.slugByLocale?.[locale] || '');
+        const prevLocaleSlug = (prev.slugByLocale || {})[locale] || '';
+        const prevSlugNorm = normalizeSpace(prevLocaleSlug);
+        if (mergedSlug === sourceSlugNorm && prevSlugNorm.length >= 3 && prevSlugNorm !== sourceSlugNorm) {
+          best.slugByLocale[locale] = prevLocaleSlug;
+        }
+      }
+    }
     if (localeTextCoverage(best.descriptionByLocale, 120) === 0 && (best.description || '').length >= 120) {
       const fallbackDesc = {};
       const descSourceLang = detectLang(best.description || '', 'en');
@@ -4100,6 +4114,31 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
     const chosen = preferJob(prev, best);
     if (best._targetScope && !chosen._targetScope) {
       chosen._targetScope = best._targetScope;
+    }
+    // Preserve lost slugs: when slugByLocale or slug changes during merge,
+    // capture the replaced values into previousSlugs for SEO redirect continuity.
+    // Applied after preferJob so it works regardless of which object was picked.
+    const lostSlugs = [];
+    if (prev.slug && prev.slug !== chosen.slug) {
+      lostSlugs.push(prev.slug);
+    }
+    for (const locale of LOCALES) {
+      const prevSlug = normalizeSpace((prev.slugByLocale || {})[locale] || '');
+      const chosenSlug = normalizeSpace((chosen.slugByLocale || {})[locale] || '');
+      if (prevSlug && prevSlug !== chosenSlug) {
+        lostSlugs.push(prevSlug);
+      }
+    }
+    if (lostSlugs.length > 0) {
+      if (!Array.isArray(chosen.previousSlugs)) chosen.previousSlugs = [];
+      const allPrevious = new Set([...chosen.previousSlugs, ...lostSlugs]);
+      // Remove current slugs to avoid self-referencing
+      if (chosen.slug) allPrevious.delete(chosen.slug);
+      for (const locale of LOCALES) {
+        const currentSlug = normalizeSpace((chosen.slugByLocale || {})[locale] || '');
+        if (currentSlug) allPrevious.delete(currentSlug);
+      }
+      chosen.previousSlugs = [...allPrevious].slice(0, 20);
     }
     map.set(fp, chosen);
     refreshed += 1;
