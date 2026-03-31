@@ -5557,4 +5557,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiasso-tassa-refezione-scuola-infanzia.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ict-reatto-commissione-tri',
+    category: 'novita',
+    date: '2026-03-31T03:25:42.172Z',
+    image: '/images/blog/ict-reatto-commissione-tri.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -9192,6 +9192,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ict-reatto-commissione-tri': {
+    title: 'Lavoro TIC in Ticino: ATED chiede rappresentanza nella Commissione | Frontaliere Ticino',
+    description: 'Il settore ICT ticinese, con oltre 14.000 professionisti e un peso economico di circa 1,4 miliardi di franchi, richiede un ruolo diretto nel processo decisional',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro, ated, chiede, rappresentanza',
+    ogTitle: 'Lavoro TIC in Ticino: ATED chiede rappresentanza nella Co',
+    ogDescription: 'Il settore ICT ticinese, con oltre 14.000 professionisti e un peso economico di circa 1,4 miliardi di franchi, richiede un ruolo diretto nel processo decisional',
+    canonicalPath: '/articoli-frontaliere/ict-reatto-commissione-tri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavoro TIC in Ticino: ATED chiede rappresentanza nella Co",
+      "description": "Il settore ICT ticinese, con oltre 14.000 professionisti e un peso economico di circa 1,4 miliardi di franchi, richiede un ruolo diretto nel processo decisional",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ict-reatto-commissione-tri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rappresentanza del settore ICT nel contesto di un ufficio cantonale in Ticino"
+      },
+      "datePublished": "2026-03-31T03:25:42+00:00",
+      "dateModified": "2026-03-31T03:25:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ict-reatto-commissione-tri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

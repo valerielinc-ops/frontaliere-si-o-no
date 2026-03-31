@@ -1871,6 +1871,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso ne eviterà l\'introduction de la taxe de réfection à l\'école maternelle',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'Le Conseil municipal de Chiasso a rejeté la proposition d\'introduire la taxe de réfection à l\'école maternelle.',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Enfant qui mange dans une école maternelle à Mendrisio, Tessin.',
+    'blog.article.ict-reatto-commissione-tri.title': 'Emploi TIC au Tessin : ATED demande une représentation dans la Commission tripartite',
+    'blog.article.ict-reatto-commissione-tri.excerpt': 'Le secteur TIC du Tessin, avec plus de 14 000 professionnels et un poids économique d’environ 1,4 milliard de francs, exige un rôle direct dans le processus décisionnel du marché du travail cantonal.',
+    'blog.article.ict-reatto-commissione-tri.imageAlt': 'Représentants du secteur TIC dans un bureau gouvernemental au Tessin',
 };
 
 export default blogMetaFr;

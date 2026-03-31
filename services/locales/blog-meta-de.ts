@@ -1871,6 +1871,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso wird keine Mahlzeitsteuer an die Kindertagesstätten einführen',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'Der Gemeinderat von Chiasso hat die Vorschlag zur Einführung der Mahlzeitsteuer an die Kindertagesstätten abgelehnt.',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Kindergartenkind in Mendrisio, Tessin.',
+    'blog.article.ict-reatto-commissione-tri.title': 'Arbeitsmarkt TIC im Tessin: ATED fordert Vertretung in der Dreiteilungskommission',
+    'blog.article.ict-reatto-commissione-tri.excerpt': 'Der Tessiner ICT-Sektor, mit über 14.000 Fachkräften und einer wirtschaftlichen Bedeutung von rund 1,4 Milliarden Franken, fordert eine direkte Rolle im Entscheidungsprozess auf dem kantonalen Arbeitsmarkt.',
+    'blog.article.ict-reatto-commissione-tri.imageAlt': 'Vertreter des ICT-Sektors in einem Regierungsbüro im Tessin',
 };
 
 export default blogMetaDe;

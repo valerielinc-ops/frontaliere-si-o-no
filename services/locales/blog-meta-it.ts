@@ -1871,6 +1871,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso non introdurrà la tassa di refezione alla scuola dell\'infanzia',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'Il Consiglio comunale di Chiasso ha bocciato la proposta di introdurre la tassa di refezione alla scuola dell\'infanzia.',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Bambino che mangia in scuola dell\'infanzia a Mendrisio, Ticino.',
+    'blog.article.ict-reatto-commissione-tri.title': 'Lavoro TIC in Ticino: ATED chiede rappresentanza nella Commissione tripartita',
+    'blog.article.ict-reatto-commissione-tri.excerpt': 'Il settore ICT ticinese, con oltre 14.000 professionisti e un peso economico di circa 1,4 miliardi di franchi, richiede un ruolo diretto nel processo decisionale del mercato del lavoro cantonale.',
+    'blog.article.ict-reatto-commissione-tri.imageAlt': 'Rappresentanza del settore ICT nel contesto di un ufficio cantonale in Ticino',
 };
 
 export default blogMetaIt;

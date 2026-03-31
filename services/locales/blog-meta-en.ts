@@ -1871,6 +1871,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.title': 'Chiasso Will Not Introduce Meal Tax to Preschool',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.excerpt': 'The Chiasso Municipal Council has rejected the proposal to introduce a meal tax to preschool.',
     'blog.article.chiasso-tassa-refezione-scuola-infanzia.imageAlt': 'Child eating in kindergarten in Mendrisio, Ticino.',
+    'blog.article.ict-reatto-commissione-tri.title': 'ICT Workforce in Ticino: ATED Calls for Representation in the Tripartite Commission',
+    'blog.article.ict-reatto-commissione-tri.excerpt': 'The Ticino ICT sector, with over 14,000 professionals and an economic impact of approximately 1.4 billion Swiss francs, is demanding a direct role in the decision-making process of the cantonal labor market.',
+    'blog.article.ict-reatto-commissione-tri.imageAlt': 'ICT sector representatives in a Ticino government office setting',
 };
 
 export default blogMetaEn;
