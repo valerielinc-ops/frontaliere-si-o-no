@@ -142,16 +142,95 @@ export function loadDashboardMetrics() {
   return metrics;
 }
 
+// ─── Keyword extraction from job slugs / source strings ─────
+
+const SLUG_STOP_WORDS = new Set([
+  // IT connectives
+  'il', 'lo', 'la', 'le', 'i', 'gli', 'un', 'uno', 'una', 'di', 'del', 'della',
+  'dei', 'delle', 'dello', 'degli', 'da', 'dal', 'dalla', 'a', 'al', 'alla',
+  'in', 'nel', 'nella', 'con', 'su', 'sul', 'sulla', 'per', 'tra', 'fra', 'e', 'o',
+  // EN connectives
+  'the', 'a', 'an', 'of', 'for', 'and', 'or', 'in', 'at', 'to', 'on', 'with', 'from',
+  // DE connectives
+  'der', 'die', 'das', 'ein', 'eine', 'und', 'oder', 'fur', 'von', 'mit', 'im', 'am',
+  // FR connectives
+  'le', 'la', 'les', 'un', 'une', 'de', 'du', 'des', 'et', 'ou', 'pour', 'dans', 'en',
+  // Generic filler
+  'sa', 'ag', 'gmbh', 'srl', 'spa', 'ltd', 'inc', 'se', 'che', 'non', 'trice',
+  'm', 'f', 'd', 'mfd', 'w', 'h', 'hf',
+]);
+
 /**
- * Match jobs for a subscriber — popularity-first with company diversity and quality filters.
+ * Extract meaningful keywords from a slug or free-text source string.
+ * Filters stop words and short tokens. Returns lowercase Set.
+ */
+function extractKeywords(text) {
+  if (!text) return new Set();
+  const tokens = String(text)
+    .toLowerCase()
+    .replace(/[^a-zà-ü0-9\s-]/g, '')
+    .split(/[-\s]+/)
+    .filter((t) => t.length >= 3 && !SLUG_STOP_WORDS.has(t));
+  return new Set(tokens);
+}
+
+/**
+ * Parse the legacy `source` field (e.g. "job_gate:CompanyName:Job Title Here")
+ * into { company, title } for keyword extraction.
+ */
+function parseSourceField(source) {
+  if (!source || typeof source !== 'string') return null;
+  const parts = source.split(':');
+  if (parts.length < 3) return null;
+  return { company: parts[1]?.trim() || null, title: parts.slice(2).join(':').trim() || null };
+}
+
+/**
+ * Score a job against a set of subscriber interest keywords.
+ * Returns 0–10 relevance score.
+ */
+function keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) {
+  if (subscriberKeywords.size === 0 && !subscriberCompany) return 0;
+  let score = 0;
+  const jobTitle = String(job.titleByLocale?.it || job.title || '').toLowerCase();
+  const jobCompanyKey = (job.companyKey || job.company || '').toLowerCase();
+
+  // Company match: strong signal (same employer → highly relevant)
+  if (subscriberCompany) {
+    const subComp = subscriberCompany.toLowerCase();
+    if (jobCompanyKey.includes(subComp) || subComp.includes(jobCompanyKey)) {
+      score += 4;
+    }
+  }
+
+  // Keyword overlap with job title
+  if (subscriberKeywords.size > 0) {
+    const jobTokens = extractKeywords(jobTitle);
+    let overlap = 0;
+    for (const kw of subscriberKeywords) {
+      if (jobTokens.has(kw)) overlap++;
+    }
+    // Normalize: up to 6 points based on overlap ratio
+    if (subscriberKeywords.size > 0 && overlap > 0) {
+      score += Math.min(6, Math.round((overlap / subscriberKeywords.size) * 6));
+    }
+  }
+
+  return score;
+}
+
+/**
+ * Match jobs for a subscriber — relevance-first with popularity fallback.
  *
  * Algorithm:
  * 1. Quality filter (title, slug, company, description >= 120 chars)
- * 2. Sort by popularity (Firestore view count), fallback to recency
- * 3. Company diversity: max 1 job per company
- * 4. Top `limit` jobs
+ * 2. Extract interest keywords from subscriber's job_slug, source field, and company
+ * 3. Score each job: keyword relevance (0–10) + popularity bonus
+ * 4. Location filter (if locationInterest set)
+ * 5. Company diversity: max 1 job per company
+ * 6. Top `limit` jobs
  *
- * @param {object} subscriber — { locationInterest, sectorInterest, preferences }
+ * @param {object} subscriber — { locationInterest, sectorInterest, job_slug, job_company, source, preferences }
  * @param {object[]} jobs — Full jobs array from data/jobs.json
  * @param {number} limit — Max jobs to return (default 3)
  * @returns {object[]} — Matched jobs with title, url, company, location, contract
@@ -165,47 +244,74 @@ export function matchJobsForSubscriber(subscriber, jobs, limit = 3) {
   // Quality filter for popularity ranking; fallback pool keeps all valid jobs
   const qualityPool = jobs.filter(passesQualityGate);
   const basicPool = jobs.filter((j) => j?.title && j?.slug && j?.company);
-  // Use quality pool when we have popularity data; otherwise basic pool (recency mode)
   const pool = hasPopularity && qualityPool.length >= limit ? qualityPool : basicPool;
 
-  // Sort: popularity first (if available), then recency as tiebreaker
-  const sorted = [...pool].sort((a, b) => {
-    if (hasPopularity) {
-      const aViews = popularity.get(a.slug) || popularity.get(a.slugByLocale?.it) || 0;
-      const bViews = popularity.get(b.slug) || popularity.get(b.slugByLocale?.it) || 0;
-      if (bViews !== aViews) return bViews - aViews;
-    }
-    return toDateValue(b) - toDateValue(a);
-  });
+  // ── Build subscriber interest profile from available signals ──
+  const jobSlug = subscriber?.job_slug || '';
+  const jobCompany = subscriber?.job_company || '';
+  const sourceField = subscriber?.source || '';
 
+  // Collect keywords from multiple sources
+  const slugKeywords = extractKeywords(jobSlug);
+  const parsedSource = parseSourceField(sourceField);
+  const sourceTitleKeywords = parsedSource?.title ? extractKeywords(parsedSource.title) : new Set();
+
+  // Merge all keyword sources (slug is primary, source title is secondary)
+  const subscriberKeywords = new Set([...slugKeywords, ...sourceTitleKeywords]);
+
+  // Company from explicit field or parsed source
+  const subscriberCompany = jobCompany || parsedSource?.company || '';
+
+  const hasInterestProfile = subscriberKeywords.size > 0 || subscriberCompany;
+
+  // ── Score and sort jobs ──
   const location = String(subscriber?.locationInterest || '').toLowerCase().trim();
   const sector = String(subscriber?.sectorInterest || '').toLowerCase().trim();
+  const usableSector = sector && sector !== 'other';
 
-  let matched = sorted;
-
-  // Filter by location if specified
+  // Pre-filter by location if specified (applied before scoring for performance)
+  let candidates = pool;
   if (location) {
-    const locationFiltered = sorted.filter((j) =>
+    const locationFiltered = pool.filter((j) =>
       String(j.location || '').toLowerCase().includes(location) ||
+      String(j.addressLocality || '').toLowerCase().includes(location) ||
       String(j.addressRegion || '').toLowerCase().includes(location) ||
-      String(j.canton || '').toLowerCase().includes(location) ||
-      String(j.company || '').toLowerCase().includes(location)
+      String(j.canton || '').toLowerCase().includes(location)
     );
-    if (locationFiltered.length >= limit) matched = locationFiltered;
+    if (locationFiltered.length >= limit) candidates = locationFiltered;
   }
 
-  // Further filter by sector if specified
-  if (sector) {
-    const sectorFiltered = matched.filter((j) =>
+  // Further filter by sector only if it's not the generic "other"
+  if (usableSector) {
+    const sectorFiltered = candidates.filter((j) =>
       String(j.title || '').toLowerCase().includes(sector) ||
       String(j.category || '').toLowerCase().includes(sector) ||
-      String(j.company || '').toLowerCase().includes(sector)
+      String(j.sector || '').toLowerCase().includes(sector)
     );
-    if (sectorFiltered.length >= 1) matched = sectorFiltered;
+    if (sectorFiltered.length >= 1) candidates = sectorFiltered;
   }
 
+  // Sort: keyword relevance first, then popularity, then recency
+  const scored = candidates.map((job) => {
+    const relevance = hasInterestProfile ? keywordRelevanceScore(job, subscriberKeywords, subscriberCompany) : 0;
+    const views = hasPopularity ? (popularity.get(job.slug) || popularity.get(job.slugByLocale?.it) || 0) : 0;
+    return { job, relevance, views, date: toDateValue(job) };
+  });
+
+  scored.sort((a, b) => {
+    // Primary: relevance score (keyword + company match)
+    if (b.relevance !== a.relevance) return b.relevance - a.relevance;
+    // Secondary: popularity
+    if (b.views !== a.views) return b.views - a.views;
+    // Tertiary: recency
+    return b.date - a.date;
+  });
+
   // Company diversity: max 1 job per company (by companyKey or normalized company name)
-  const companyDiverse = dedupeBy(matched, (j) => (j.companyKey || j.company || '').toLowerCase());
+  const companyDiverse = dedupeBy(
+    scored.map((s) => s.job),
+    (j) => (j.companyKey || j.company || '').toLowerCase(),
+  );
 
   return companyDiverse
     .slice(0, limit)
