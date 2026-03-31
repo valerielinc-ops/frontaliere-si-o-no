@@ -1,16 +1,16 @@
 {
   "key": "damiani-group",
   "label": "Damiani Group",
-  "generatedAt": "2026-03-30T21:27:59.077Z",
+  "generatedAt": "2026-03-31T09:16:27.320Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 5989,
-  "avgDurationMs": 5989,
+  "durationMs": 6089,
+  "avgDurationMs": 6089,
   "durationHistory": [
-    5989
+    6089
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -43,6 +43,7 @@
       "currency": "CHF",
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -72,7 +73,7 @@
       "postedDate": "2026-03-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-03-29",
+      "validThrough": "2026-03-31",
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -108,12 +109,13 @@
       "postedDate": "2026-03-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "validThrough": "2026-03-29",
+      "validThrough": "2026-03-31",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
       "streetAddress": "Via Penate 12",
       "postalCode": "6850",
+      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 20,
