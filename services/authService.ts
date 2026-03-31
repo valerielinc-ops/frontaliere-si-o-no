@@ -886,7 +886,7 @@ export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
       response_type: 'code',
       client_id: clientId,
       redirect_uri: callbackUri,
-      scope: 'openid profile email',
+      scope: 'openid profile email r_basicprofile',
       state,
     });
 

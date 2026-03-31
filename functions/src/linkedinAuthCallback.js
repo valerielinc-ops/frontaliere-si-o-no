@@ -18,33 +18,28 @@ import { ensureAdminApp } from './newsletterResendWebhookCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
 
 /**
- * Attempt to fetch professional profile data from LinkedIn API.
- * The `openid profile email` scopes do NOT grant access to the LinkedIn
- * Profile API (r_liteprofile / r_basicprofile are deprecated; the new
- * Community Management API requires separate product approval).
- * This function is best-effort and returns null fields on failure.
+ * Fetch basic profile data from LinkedIn /v2/me endpoint.
+ * Requires `r_basicprofile` scope. Returns headline (typically "Job Title at Company")
+ * and vanityName (public profile slug). Best-effort — returns nulls on failure.
  *
- * NOTE: With current scopes (openid, profile, email), only the /v2/userinfo
- * endpoint is available. Professional data (jobTitle, company, industry)
- * would require the "Sign In with LinkedIn using OpenID Connect" product
- * AND additional scopes such as `r_organization_social` or partner-level
- * access. This function is kept as a placeholder for when those scopes
- * become available.
- *
- * @param {string} _accessToken - LinkedIn OAuth access token
- * @returns {Promise<{jobTitle: string|null, company: string|null, industry: string|null, location: string|null}>}
+ * @param {string} accessToken - LinkedIn OAuth access token
+ * @returns {Promise<{headline: string|null, vanityName: string|null}>}
  */
-async function fetchLinkedInProfessionalData(_accessToken) {
-  // LinkedIn's v2 API for profile/position data requires scopes beyond
-  // openid+profile+email. With current scopes, this data is not accessible.
-  // Return nulls — the profile will be enriched if/when additional scopes
-  // are configured.
-  return {
-    jobTitle: null,
-    company: null,
-    industry: null,
-    location: null,
-  };
+async function fetchLinkedInBasicProfile(accessToken) {
+  try {
+    const res = await fetch(
+      'https://api.linkedin.com/v2/me?projection=(id,localizedHeadline,vanityName)',
+      { headers: { Authorization: `Bearer ${accessToken}` } },
+    );
+    if (!res.ok) return { headline: null, vanityName: null };
+    const data = await res.json();
+    return {
+      headline: data.localizedHeadline || null,
+      vanityName: data.vanityName || null,
+    };
+  } catch {
+    return { headline: null, vanityName: null };
+  }
 }
 
 /**
@@ -154,8 +149,8 @@ export async function handleLinkedInCallback({ code, redirectUri }) {
   const emailVerified = userInfo.email_verified ?? null;
   const linkedInSub = userInfo.sub || null;
 
-  // ── Attempt to fetch professional data (best-effort) ─────────────────────
-  const professionalData = await fetchLinkedInProfessionalData(access_token);
+  // ── Attempt to fetch basic profile (headline, vanityName) via r_basicprofile ─
+  const basicProfile = await fetchLinkedInBasicProfile(access_token);
 
   // ── Create or update Firebase Auth user ───────────────────────────────────
   let uid;
@@ -198,10 +193,8 @@ export async function handleLinkedInCallback({ code, redirectUri }) {
     emailVerified,
     provider: 'linkedin',
     linkedInSub,
-    jobTitle: professionalData.jobTitle,
-    company: professionalData.company,
-    industry: professionalData.industry,
-    location: professionalData.location,
+    headline: basicProfile.headline,
+    vanityName: basicProfile.vanityName,
     dataSource: 'linkedin_openid',
   }, isNewUser);
 
