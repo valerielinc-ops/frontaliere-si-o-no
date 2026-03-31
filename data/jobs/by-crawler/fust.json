@@ -92,7 +92,7 @@
       "crawledAt": "2026-03-31T21:17:44.158Z",
       "slugByLocale": {
         "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
-        "en": "retail-apprenticeship-afc-creating-shopping-experiences-fust-tenero-contra-ticino",
+        "en": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
         "de": "einzelhandelsausbildung-afc-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino",
         "fr": "apprentissage-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-tenero-contra-ticino"
       },
@@ -128,7 +128,10 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "retail-apprenticeship-afc-creating-shopping-experiences-fust-tenero-contra-ticino"
+      ]
     },
     {
       "id": "company-dk43lj",

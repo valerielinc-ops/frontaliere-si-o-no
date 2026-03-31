@@ -6,10 +6,10 @@
       "id": "denner-14c3e007559f",
       "slug": "verkaufer-in-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner",
+        "it": "venditore-denner-fullinsdorf",
+        "en": "salesperson-denner-fullinsdorf",
         "de": "verkaufer-in-denner-fullinsdorf",
-        "fr": "verkaufer-in-denner"
+        "fr": "vendeur-denner-fullinsdorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -67,7 +67,8 @@
       "crawledAt": "2026-03-31T21:11:11.861Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "verkaufer-in-denner-rubigen"
+        "verkaufer-in-denner-rubigen",
+        "verkaufer-in-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -86,10 +87,10 @@
       "id": "denner-91d409b14295",
       "slug": "filialleiter-in-in-ausbildung-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner",
-        "en": "filialleiter-in-in-ausbildung-denner",
+        "it": "responsabiledi-filiale-in-formazione-denner-allschwil",
+        "en": "branch-manager-training-denner-allschwil",
         "de": "filialleiter-in-in-ausbildung-denner-allschwil",
-        "fr": "filialleiter-in-in-ausbildung-denner"
+        "fr": "responsabledesuccursale-en-formation-denner-allschwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -157,16 +158,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "filialleiter-in-in-ausbildung-denner"
+      ]
     },
     {
       "id": "denner-998f24cd746b",
       "slug": "stv-filialleiter-in-denner",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
-        "en": "stv-filialleiter-in-denner",
+        "it": "vice-direttoredifiliale-denner-basel",
+        "en": "deputy-branchmanager-denner-basel",
         "de": "stv-filialleiter-in-denner-basel",
-        "fr": "stv-filialleiter-in-denner"
+        "fr": "directeur-trice-adjoint-e-de-succursale-denner-basel"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -234,7 +238,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "stv-filialleiter-in-denner"
+      ]
     },
     {
       "id": "denner-2a8f7fd2020e",

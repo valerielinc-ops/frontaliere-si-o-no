@@ -31,7 +31,7 @@
       "slugByLocale": {
         "it": "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area",
         "en": "customer-business-support-specialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
-        "de": "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+        "de": "kunden-und-geschaftsbeauftragter-ibsa-institut-biochimique-6916-working-area",
         "fr": "customer-business-support-specialiste-ibsa-institut-biochimique-6916-working-area-dbsgw8"
       },
       "titleByLocale": {
@@ -57,7 +57,8 @@
       "country": "CH",
       "sourceLang": "en",
       "previousSlugs": [
-        "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area-dbsgw8"
+        "customer-business-support-specialista-ibsa-institut-biochimique-6916-working-area-dbsgw8",
+        "customer-business-support-spezialist-ibsa-institut-biochimique-6916-working-area-dbsgw8"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -258,9 +259,9 @@
       "crawledAt": "2026-03-31T21:23:52.685Z",
       "slugByLocale": {
         "it": "meccatronico-ibsa-institut-biochimique-6912-working-area",
-        "en": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
-        "de": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg",
-        "fr": "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg"
+        "en": "mechatronic-ibsa-institut-biochimique-6912-working-area",
+        "de": "mechatroniker-ibsa-institut-biochimique-6912-working-area",
+        "fr": "mecatronicien-ibsa-institut-biochimique-6912-working-area"
       },
       "titleByLocale": {
         "it": "Meccatronico",
@@ -277,7 +278,9 @@
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "meccatronico-ibsa-institut-biochimique-6912-working-area-e3ivbg"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -459,8 +462,8 @@
       "slugByLocale": {
         "it": "jr-et-t-qa-specialista-ibsa-institut-biochimique-6926-working-area",
         "en": "jr-et-t-qa-specialist-ibsa-institut-biochimique-6926-working-area",
-        "de": "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
-        "fr": "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9"
+        "de": "jr-et-t-qa-spezialist-ibsa-institut-biochimique-6926-working-area",
+        "fr": "jr-et-t-qa-specialiste-ibsa-institut-biochimique-6926-working-area"
       },
       "titleByLocale": {
         "en": "Jr ET&T QA Specialist",
@@ -479,7 +482,9 @@
       "sourceLang": "it",
       "previousSlugs": [
         "jr-it-qa-specialista-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9",
-        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9"
+        "jr-it-qa-specialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+        "jr-it-qa-spezialist-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita--u9trv9",
+        "jr-it-qa-specialiste-del-lavoro-personale-orientamento-al-cliente-interno-e-al-risultato-descrizione-della-posizione-la-posizione-e-inserita-u9trv9"
       ],
       "salaryMin": 55500,
       "salaryMax": 75500,
@@ -771,7 +776,7 @@
       "slugByLocale": {
         "it": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
         "en": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
-        "de": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a",
+        "de": "rechnungsfuhrer-mutterschaftsvertretung-ibsa-institut-biochimique-6926-working-area",
         "fr": "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
       },
       "titleByLocale": {
@@ -806,7 +811,10 @@
       "addressLocality": "Montagnola",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "accounting-officer-sost-maternita-ibsa-institut-biochimique-6926-working-area-toyw1a"
+      ]
     }
   ]
 }

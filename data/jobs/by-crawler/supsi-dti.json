@@ -519,9 +519,9 @@
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
         "it": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
-        "en": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-vig",
-        "de": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
-        "fr": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-vig"
+        "en": "apprentice-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viga",
+        "de": "lernende-r-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viga",
+        "fr": "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viga"
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
@@ -570,7 +570,9 @@
         ]
       },
       "previousSlugs": [
-        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj"
+        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
+        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-vig",
+        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello"
       ],
       "country": "CH",
       "sourceLang": "it",
@@ -746,9 +748,9 @@
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
         "it": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
-        "en": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy",
-        "de": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy",
-        "fr": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
+        "en": "manager-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
+        "de": "verantwortlicher-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
+        "fr": "responsable-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano"
       },
       "titleByLocale": {
         "it": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
@@ -835,7 +837,10 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
+      ]
     },
     {
       "id": "company-l4wp0m",
@@ -870,9 +875,9 @@
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
         "it": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
-        "en": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
-        "de": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
-        "fr": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
+        "en": "apprentice-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
+        "de": "lernende-r-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
+        "fr": "apprenti-e-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
@@ -921,7 +926,8 @@
         ]
       },
       "previousSlugs": [
-        "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m"
+        "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
+        "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
       ],
       "country": "CH",
       "sourceLang": "it",

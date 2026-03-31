@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "fr": "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone",
-        "it": "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone",
-        "en": "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone",
-        "de": "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone"
+        "it": "cancelliere-cancelliera-di-lingua-francese-per-la-corte-d-appello-confederazione-svizzera-bellinzone",
+        "en": "french-language-clerk-for-the-court-of-appeal-confederazione-svizzera-bellinzone",
+        "de": "franzosischsprachiger-gerichtsschreiber-fur-das-berufungsgericht-confederazione-svizzera-bellinzone"
       },
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -57,7 +57,10 @@
         }
       },
       "streetAddress": "Piazza Governo",
-      "postalCode": "6501"
+      "postalCode": "6501",
+      "previousSlugs": [
+        "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone"
+      ]
     },
     {
       "title": "Hochschulpraktikant/in für die Entwicklung von IT-Tools zur Unterstützung des Prognosedienstes (m/w)",

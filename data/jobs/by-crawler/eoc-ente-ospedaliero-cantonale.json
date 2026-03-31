@@ -240,9 +240,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "en": "impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio-uilqfl",
-        "de": "administrativer-mitarbeiter-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "assistant-administratif-70-90-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "en": "employee-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "de": "angestellte-r-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "fr": "employe-e-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a (70%-90%)",
@@ -286,7 +286,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "impiegato-a-amministrativo-a-70-90-eoc-ente-ospedaliero-cantonale-mendrisio-uilqfl",
+        "administrativer-mitarbeiter-70-90-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "assistant-administratif-70-90-eoc-ente-ospedaliero-cantonale-mendrisio"
+      ]
     },
     {
       "id": "company-uilqfj",
@@ -994,7 +999,7 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -1029,7 +1034,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-uilqca",
@@ -1776,7 +1784,7 @@
       "slugByLocale": {
         "it": "tecnico-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medical-radiology-technician-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "medizinisch-technischer-radiologe-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "techniker-a-di-radiologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "technicien-en-radiologie-medicale-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -1818,7 +1826,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medizinisch-technischer-radiologe-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uilnas",
@@ -5157,8 +5168,8 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -5192,7 +5203,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uil1va",
@@ -5340,7 +5355,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
       },
@@ -5384,7 +5399,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-uil4vw",
@@ -5478,9 +5496,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "addetto-a-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "transport-officer-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "associate-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "transportmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "responsable-des-transports-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "prepose-e-ai-trasporti-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Addetto/a ai trasporti",
@@ -5522,7 +5540,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "transport-officer-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "responsable-des-transports-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uil3cr",
@@ -5546,7 +5568,7 @@
       "slugByLocale": {
         "it": "collaboratore-trice-manutenzione-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "collaboratore-trice-maintenance-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "wartungsmitarbeiter-elektriker-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "collaboratore-trice-wartung-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "collaborateur-de-maintenance-electricien-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -5565,7 +5587,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "collaboratore-trice-manutenzione-elettricista-eoc-ente-ospedaliero-cantonale-bellinzona-uil3cr",
-        "collaboratore-trice-maintenance-elettricista-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola-uil3cr"
+        "collaboratore-trice-maintenance-elettricista-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popola-uil3cr",
+        "wartungsmitarbeiter-elektriker-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "sourceLang": "it",
       "salaryMin": 72000,
@@ -5969,8 +5992,8 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-for-the-central-accounting-and-invoicing-service-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-fur-den-zentralen-buchhaltungs-und-rechnungsdienst-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "employe-administratif-du-service-central-de-comptabilite-et-facturation-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "angestellte-r-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-ente-ospedaliero-cantonale-bel",
+        "fr": "employe-e-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-ente-ospedaliero-cantonale-bellinz"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a per il Servizio Centrale di Contabilità e Fatturazione",
@@ -5988,7 +6011,9 @@
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
-        "impiegato-a-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-be"
+        "impiegato-a-amministrativo-a-per-il-servizio-centrale-di-contabilita-e-fatturazione-eoc-be",
+        "verwaltungsmitarbeiter-fur-den-zentralen-buchhaltungs-und-rechnungsdienst-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-du-service-central-de-comptabilite-et-facturation-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -6511,8 +6536,8 @@
       "slugByLocale": {
         "it": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona-uil1tg",
-        "de": "pflegeassistent-in-oder-sozialpflegekraft-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "aide-soignant-e-ou-personnel-de-soins-sociaux-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "assistente-di-cura-o-mitarbeiter-in-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "assistente-di-cura-o-prepose-e-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Assistente di cura o addetto/a alle cure sociosanitarie",
@@ -6546,7 +6571,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "pflegeassistent-in-oder-sozialpflegekraft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "aide-soignant-e-ou-personnel-de-soins-sociaux-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uil175",
@@ -9315,9 +9344,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "servizio-civile-svizzero-aiuto-manutenzione-e-servizio-tecnico-aiuto-magazzino-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "swiss-civil-service-maintenance-and-technical-service-help-warehouse-help-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "schweizerischer-zivildienst-hilfe-bei-wartung-und-technischem-service-lagerhilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "fonction-publique-suisse-aide-a-la-maintenance-et-au-service-technique-aide-a-l-entrepot-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "servizio-civile-svizzero-aiuto-maintenance-e-servizio-technician-aiuto-warehouse-eoc-ente-ospedaliero-cantonale-bellinzo",
+        "de": "servizio-civile-svizzero-aiuto-wartung-e-servizio-techniker-aiuto-lager-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "servizio-civile-svizzero-aiuto-maintenance-e-servizio-technicien-aiuto-entrepot-eoc-ente-ospedaliero-cantonale-bellinzon"
       },
       "titleByLocale": {
         "it": "Servizio civile svizzero – Aiuto manutenzione e servizio tecnico, aiuto magazzino",
@@ -9358,7 +9387,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "swiss-civil-service-maintenance-and-technical-service-help-warehouse-help-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "schweizerischer-zivildienst-hilfe-bei-wartung-und-technischem-service-lagerhilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fonction-publique-suisse-aide-a-la-maintenance-et-au-service-technique-aide-a-l-entrepot-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uikzm8",
@@ -9656,8 +9690,8 @@
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "de": "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo",
@@ -9691,7 +9725,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-x29n2m",
@@ -9842,8 +9880,8 @@
       "slugByLocale": {
         "it": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano-uikz1l",
-        "de": "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano"
+        "de": "assistente-di-cura-o-mitarbeiter-in-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "assistente-di-cura-o-prepose-e-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Assistente di cura o addetto/a alle cure sociosanitarie",
@@ -9877,7 +9915,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "pflegehelfer-oder-sozial-und-gesundheitsarbeiter-eoc-ente-ospedaliero-cantonale-lugano",
+        "assistant-de-soins-ou-travailleur-socio-sanitaire-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-uikz1n",
@@ -10222,7 +10264,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "nurse-in-general-care-currently-in-training-diploma-yet-to-be-obtained-eoc-ente-ospedaliero-cantonale-locarno",
+        "en": "infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-ente-ospedaliero-cantonale-locarn",
         "de": "krankenpfleger-in-in-der-allgemeinpflege-derzeit-in-ausbildung-diplom-noch-ausstehend-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "infirmiere-en-soins-generaux-actuellement-en-formation-diplome-a-obtenir-eoc-ente-ospedaliero-cantonale-locarno"
       },
@@ -10242,7 +10284,8 @@
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugs": [
-        "infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-loc"
+        "infermiere-a-in-cure-generali-attualmente-in-formazione-diploma-ancora-da-ottenere-eoc-loc",
+        "nurse-in-general-care-currently-in-training-diploma-yet-to-be-obtained-eoc-ente-ospedaliero-cantonale-locarno"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -10285,8 +10328,8 @@
       "slugByLocale": {
         "it": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno",
         "en": "assistente-di-cura-o-addetto-a-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno-uikzn3",
-        "de": "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno"
+        "de": "assistente-di-cura-o-mitarbeiter-in-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno",
+        "fr": "assistente-di-cura-o-prepose-e-alle-cure-sociosanitarie-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Assistente di cura o addetto/a alle cure sociosanitarie",
@@ -10320,7 +10363,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "pflegehelfer-oder-sozialarbeiter-eoc-ente-ospedaliero-cantonale-locarno",
+        "infirmiere-auxiliaire-ou-assistante-sociale-eoc-ente-ospedaliero-cantonale-locarno"
+      ]
     },
     {
       "id": "company-uikzn4",

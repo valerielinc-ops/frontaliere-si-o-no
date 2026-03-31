@@ -807,8 +807,8 @@
       "slugByLocale": {
         "en": "product-merchandiser-guess-europe-sagl-stabio",
         "it": "product-merchandiser-guess-europe-sagl-stabio-ticino-switzerland",
-        "de": "product-merchandiser-guess-europe-sagl-stabio-ticino-switzerland",
-        "fr": "product-merchandiser-guess-europe-sagl-stabio-ticino-switzerland"
+        "de": "produkt-merchandiser-guess-europe-sagl-stabio",
+        "fr": "produit-merchandiser-guess-europe-sagl-stabio"
       },
       "requirements": [
         "Strong analytical capabilities with proficiency in data interpretation across multiple dimensions (product, market, channel)",
@@ -839,7 +839,9 @@
         "Training & Development platform and paths",
         "Discount on our products both online and in stores"
       ],
-      "previousSlugs": [],
+      "previousSlugs": [
+        "product-merchandiser-guess-europe-sagl-stabio-ticino-switzerland"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
