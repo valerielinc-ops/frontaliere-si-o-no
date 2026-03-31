@@ -288,7 +288,7 @@ async function translateWithOllama({ text, sourceLang, targetLang, kind, context
   const prompt = [
     `Translate this ${roleLabel} from ${sourceLang} to ${targetLang}.`,
     'Rules:',
-    '- Keep company names, acronyms, product names and legal entities unchanged.',
+    '- Keep company names, brand names, acronyms, product names and legal entities unchanged (e.g. "The North Face" stays "The North Face", never translate brand names literally).',
     '- Preserve every fact and every section.',
     '- Do not summarize or embellish.',
     '- Return only the translated text.',

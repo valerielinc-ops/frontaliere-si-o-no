@@ -1651,6 +1651,56 @@ export async function aiTranslateJobDescriptionDCC({ description, locale, source
   return (simple && simple.length >= floor) ? simple : '';
 }
 
+// ── Protected brand names ───────────────────────────────────────────────────
+// Brand names must NEVER be translated. Sorted longest-first to avoid partial matches.
+const PROTECTED_BRAND_NAMES = [
+  'THE NORTH FACE', 'BOTTEGA VENETA', 'DOLCE & GABBANA', 'ERMENEGILDO ZEGNA',
+  'SALVATORE FERRAGAMO', 'RALPH LAUREN', 'HUGO BOSS', 'LOUIS VUITTON',
+  'MICHAEL KORS', 'KATE SPADE', 'NORTH FACE', 'TIMBERLAND', 'NAPAPIJRI',
+  'BALENCIAGA', 'BURBERRY', 'GIVENCHY', 'VALENTINO', 'MONCLER', 'VERSACE',
+  'DICKIES', 'ARMANI', 'CHANEL', 'FENDI', 'GUCCI', 'PRADA', 'TIFFANY',
+  'ADIDAS', 'REEBOK', 'UNIQLO', 'NIKE', 'PUMA', 'VANS', 'ZARA', 'DIOR',
+  'IKEA', 'H&M',
+].sort((a, b) => b.length - a.length);
+
+const _brandRegexCache = new Map();
+function _brandRegex(brand) {
+  let re = _brandRegexCache.get(brand);
+  if (!re) {
+    re = new RegExp(brand.replace(/[.*+?^${}()|[\]\\]/g, '\\$&'), 'i');
+    _brandRegexCache.set(brand, re);
+  }
+  return re;
+}
+
+/**
+ * Post-process a translated title to restore brand names that were accidentally translated.
+ * Compares segment-by-segment (split by dash/en-dash separators) and restores any segment
+ * that contained a protected brand in the original but was altered in the translation.
+ */
+function restoreProtectedBrands(original, translated) {
+  if (!translated || !original || translated === original) return translated;
+  const SEP_RE = /\s*[-–—]\s*/;
+  const origParts = original.split(SEP_RE);
+  const transParts = translated.split(SEP_RE);
+  if (origParts.length < 2 || origParts.length !== transParts.length) return translated;
+
+  let changed = false;
+  for (let i = 0; i < origParts.length; i++) {
+    for (const brand of PROTECTED_BRAND_NAMES) {
+      const re = _brandRegex(brand);
+      if (re.test(origParts[i]) && !re.test(transParts[i])) {
+        transParts[i] = origParts[i].trim();
+        changed = true;
+        break;
+      }
+    }
+  }
+  if (!changed) return translated;
+  const sepMatch = translated.match(SEP_RE);
+  return transParts.join(sepMatch ? sepMatch[0] : ' - ');
+}
+
 // Common Italian job-title words that should NOT appear in non-IT translations.
 // Used as a post-translation quality gate to catch untranslated fragments.
 const IT_TITLE_WORDS = new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,carrozziere,falegname,muratore,carpentiere,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice'.split(','));
@@ -1672,23 +1722,25 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
   // The colon-before-suffix pattern confuses AI models and causes truncated output.
   const cleanTitle = (ns || normalize)(title || '').replace(/(\w):in(nen)?\b/gi, '$1/in$2');
   if (!cleanTitle || locale === sourceLang) return cleanTitle;
+  // Brand-name guard: restore any protected brand that a translator accidentally translated.
+  const _rb = (t) => restoreProtectedBrands(cleanTitle, t);
 
   // Local pipeline first
   const localPipeline = await translateTextWithLocalPipeline({
     text: cleanTitle, sourceLang, targetLang: locale, kind: 'title', context: { title: cleanTitle }, minChars: 2,
   });
-  if (localPipeline && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) return localPipeline;
+  if (localPipeline && localPipeline.toLowerCase() !== cleanTitle.toLowerCase()) return _rb(localPipeline);
 
   if (buildAiCacheKey && getCachedAiResponse) {
     const cacheKey = buildAiCacheKey('translate-title-v2', [cleanTitle, locale, sourceLang]);
     const fromCache = getCachedAiResponse(cacheKey);
     if (typeof fromCache === 'string') {
-      if (fromCache !== AI_CACHE_RAW_SENTINEL) return fromCache;
+      if (fromCache !== AI_CACHE_RAW_SENTINEL) return _rb(fromCache);
       const sentinelFallback = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
       if (sentinelFallback && sentinelFallback.toLowerCase() !== cleanTitle.toLowerCase() &&
           !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(sentinelFallback))) {
         setCachedAiResponse(cacheKey, sentinelFallback);
-        return sentinelFallback;
+        return _rb(sentinelFallback);
       }
       return cleanTitle;
     }
@@ -1697,8 +1749,8 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     if (deepl && deepl.length >= 2 &&
         !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(deepl)) &&
         !titleHasItalianWords(deepl, locale)) {
-      setCachedAiResponse(cacheKey, deepl);
-      return deepl;
+      setCachedAiResponse(cacheKey, _rb(deepl));
+      return _rb(deepl);
     }
     // If DeepL result has Italian remnants, fall through to LLM
     // LLM fallback
@@ -1732,6 +1784,7 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
             }
           } catch { /* keep first translation */ }
         }
+        translated = _rb(translated);
         if (translated && translated.toLowerCase() !== cleanTitle.toLowerCase() &&
             !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(translated))) {
           setCachedAiResponse(cacheKey, translated);
@@ -1741,10 +1794,11 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
     }
     const fallback = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
     if (fallback) {
-      setCachedAiResponse(cacheKey, fallback);
-      return fallback;
+      const restoredFallback = _rb(fallback);
+      setCachedAiResponse(cacheKey, restoredFallback);
+      return restoredFallback;
     }
-    const heuristic = heuristicTranslateJobTitle(cleanTitle, locale);
+    const heuristic = _rb(heuristicTranslateJobTitle(cleanTitle, locale));
     if (heuristic && !(isLowQualityLocalizedTitle && isLowQualityLocalizedTitle(heuristic))) {
       setCachedAiResponse(cacheKey, heuristic);
       return heuristic;
@@ -1755,8 +1809,8 @@ export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' 
 
   // No cache — simple fallback
   const simple = await freeTranslateWithRetry({ text: cleanTitle, sourceLang, targetLang: locale });
-  if (simple) return simple;
-  return heuristicTranslateJobTitle(cleanTitle, locale) || cleanTitle;
+  if (simple) return _rb(simple);
+  return _rb(heuristicTranslateJobTitle(cleanTitle, locale) || cleanTitle);
 }
 
 export async function aiLocalizeJobContentDCC({ title, company, location, description, requirements, sourceLang, maxLocales = 4, minChars = 120 }, ctx = {}) {
