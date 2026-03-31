@@ -98,7 +98,11 @@ async function main() {
   const parsedJobs = [];
   for (const raw of rawJobs) {
     const detail = await fetchRapelliDetailPage(raw.url);
-    const description = detail?.description || `Posizione aperta presso ${COMPANY_NAME} a ${raw.location} (TI). Candidati tramite il portale ORIOR Careers.`;
+    if (!detail?.description || detail.description.length < 120) {
+      console.log(`  ⚠️  ${raw.title}: description too short (${detail?.description?.length || 0} chars) — skipping`);
+      continue;
+    }
+    const description = detail.description;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-rapelli-${raw.location}`);
     parsedJobs.push({

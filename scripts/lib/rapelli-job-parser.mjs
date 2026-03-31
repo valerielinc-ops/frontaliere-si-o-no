@@ -117,12 +117,44 @@ export function parseRapelliListingHtml(html) {
 export function parseRapelliDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
-  // Extract job description from main content area
-  const contentMatch = html.match(/<div[^>]*class="[^"]*job-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<div[^>]*class="[^"]*jobDisplay[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<div[^>]*class="[^"]*job_description[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  // SuccessFactors uses class="jobdescription" (no hyphen, no underscore).
+  // The content has nested elements, so we can't use a simple lazy match —
+  // instead, find the start and count div depth to find the matching close.
+  let rawHtml = '';
+  const marker = 'class="jobdescription"';
+  const idx = html.indexOf(marker);
+  if (idx >= 0) {
+    // Find the '>' that closes the opening tag
+    const contentStart = html.indexOf('>', idx) + 1;
+    if (contentStart > 0) {
+      let depth = 1;
+      let pos = contentStart;
+      while (pos < html.length && depth > 0) {
+        const nextOpen = html.indexOf('<div', pos);
+        const nextClose = html.indexOf('</div>', pos);
+        if (nextClose < 0) break;
+        if (nextOpen >= 0 && nextOpen < nextClose) {
+          depth++;
+          pos = nextOpen + 4;
+        } else {
+          depth--;
+          if (depth === 0) {
+            rawHtml = html.slice(contentStart, nextClose);
+          }
+          pos = nextClose + 6;
+        }
+      }
+    }
+  }
 
-  const rawHtml = contentMatch ? contentMatch[1] : '';
+  // Fallback selectors for other SuccessFactors variants
+  if (!rawHtml) {
+    const fallback = html.match(/<div[^>]*class="[^"]*job-description[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+      || html.match(/<div[^>]*class="[^"]*jobDisplay[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
+      || html.match(/<div[^>]*class="[^"]*job_description[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+    if (fallback) rawHtml = fallback[1];
+  }
+
   const description = normalizeSpace(stripHtml(rawHtml));
 
   return {
