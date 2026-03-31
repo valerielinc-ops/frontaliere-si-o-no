@@ -1,16 +1,16 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-03-30T21:35:47.631Z",
+  "generatedAt": "2026-03-31T09:24:23.996Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 19380,
-  "avgDurationMs": 19380,
+  "durationMs": 20965,
+  "avgDurationMs": 20965,
   "durationHistory": [
-    19380
+    20965
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -37,7 +37,8 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-29T09:25:53.309Z",
+      "crawledAt": "2026-03-31T09:24:22.634Z",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -47,11 +48,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     },
@@ -76,7 +77,8 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-29T09:25:53.309Z",
+      "crawledAt": "2026-03-31T09:24:22.634Z",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -86,17 +88,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     },
     {
       "id": "company-dk43lj",
-      "slug": "installatore-di-elettrodomestici-a-domicilio-fust-cadenazzo",
+      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Grigioni",
@@ -115,7 +117,8 @@
       },
       "companyKey": "fust",
       "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-29T09:25:53.309Z",
+      "crawledAt": "2026-03-31T09:24:22.634Z",
+      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -125,11 +128,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 16,
         "completeness": 25
       }
     }
