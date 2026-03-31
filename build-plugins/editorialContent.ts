@@ -83,16 +83,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'The salary calculation tool uses the 2026 tax and social security parameters for Switzerland and Italy, applying the rules of the New Fiscal Agreement on cross-border worker taxation that entered into force in 2024.',
       'Results account for Canton Ticino specifics: withholding tax rates, A/B/C/H classification tables, per-child deductions, and automatic CHF-EUR conversion at market rates.',
       'For a reliable estimate, enter your gross annual salary in Swiss francs: the system automatically applies AVS/AI/IPG, AC, LAA, IJM, and LPP contributions based on the age brackets defined by federal law.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Federal Tax Administration (FTA)</a></p>',
     ],
     de: [
       'Das Gehaltsberechnungstool verwendet die Steuer- und Sozialversicherungsparameter 2026 für die Schweiz und Italien und wendet die Regeln des Neuen Steuerabkommens über die Besteuerung von Grenzgängern an, das 2024 in Kraft trat.',
       'Die Ergebnisse berücksichtigen Tessiner Besonderheiten: Quellensteuersätze, Klassifizierungstabellen A/B/C/H, Kinderabzüge und automatische CHF-EUR-Umrechnung zu Marktkursen.',
       'Für eine zuverlässige Schätzung geben Sie Ihr Bruttojahresgehalt in Schweizer Franken ein: Das System wendet automatisch AHV/IV/EO-, ALV-, UVG-, KTG- und BVG-Beiträge nach Altersgruppen des Bundesgesetzes an.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Eidgenössische Steuerverwaltung (ESTV)</a></p>',
     ],
     fr: [
       'L\'outil de calcul de salaire utilise les paramètres fiscaux et de sécurité sociale 2026 pour la Suisse et l\'Italie, en appliquant les règles du Nouvel Accord fiscal sur l\'imposition des frontaliers entré en vigueur en 2024.',
       'Les résultats tiennent compte des spécificités du Tessin : taux d\'impôt à la source, barèmes A/B/C/H, déductions par enfant et conversion automatique CHF-EUR aux taux du marché.',
       'Pour une estimation fiable, saisissez votre salaire brut annuel en francs suisses : le système applique automatiquement les cotisations AVS/AI/APG, AC, LAA, IJM et LPP selon les tranches d\'âge prévues par la loi fédérale.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Administration fédérale des contributions (AFC)</a></p>',
     ],
   },
 
@@ -102,16 +105,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'The CHF-EUR currency converter uses real-time exchange rates from TwelveData, with Firestore caching for speed and reliability even during traffic peaks.',
       'Beyond instant conversion, interactive charts show the Swiss franc to euro exchange rate history over the last 12 months, useful for identifying the best time to convert your salary.',
       'For cross-border workers, the exchange rate is a decisive factor: a 1% variation on a salary of 6,000 CHF corresponds to roughly 55–60 EUR per month. Monitoring the rate helps plan conversions and reduce bank fees.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.snb.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Swiss National Bank (SNB)</a></p>',
     ],
     de: [
       'Der CHF-EUR-Währungsrechner nutzt Echtzeit-Wechselkurse von TwelveData mit Firestore-Caching für Geschwindigkeit und Zuverlässigkeit auch bei hohem Zugriff.',
       'Neben der Sofortumrechnung zeigen interaktive Grafiken den Verlauf des Schweizer Franken zum Euro über die letzten 12 Monate — nützlich, um den besten Zeitpunkt für die Gehaltsumrechnung zu finden.',
       'Für Grenzgänger ist der Wechselkurs entscheidend: Eine Schwankung von 1 % bei einem Gehalt von 6.000 CHF entspricht etwa 55–60 EUR pro Monat. Die Kursüberwachung hilft, Umrechnungen zu planen und Bankgebühren zu senken.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.snb.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Schweizerische Nationalbank (SNB)</a></p>',
     ],
     fr: [
       'Le convertisseur CHF-EUR utilise les taux de change en temps réel de TwelveData, avec mise en cache Firestore pour la rapidité et la fiabilité même lors des pics de trafic.',
       'Au-delà de la conversion instantanée, des graphiques interactifs montrent l\'historique du taux de change franc suisse / euro sur les 12 derniers mois, utile pour identifier le meilleur moment pour convertir votre salaire.',
       'Pour les frontaliers, le taux de change est un facteur déterminant : une variation de 1 % sur un salaire de 6 000 CHF correspond à environ 55–60 EUR par mois. Surveiller le taux aide à planifier les conversions et réduire les frais bancaires.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.snb.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Banque nationale suisse (BNS)</a></p>',
     ],
   },
   '/compara-servizi/confronta-casse-malati': {
@@ -119,16 +125,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'The LAMal health insurance comparator compares monthly premiums from 14 recognized Swiss insurers (FOPH), calculated by canton, insurance model, deductible, age group, and accident coverage.',
       'Cross-border workers with a G permit can choose between Swiss LAMal and the Italian national health service: the choice is irrevocable for the duration of employment. This tool helps compare costs before deciding.',
       'Premiums are calculated using the formula: base × (1 − model discount) × (1 + deductible factor) × age multiplier × (1 + accident coverage). Data covers cantons TI, GR, VS, ZH, GE, BE, and LU.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.bag.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Federal Office of Public Health (FOPH)</a></p>',
     ],
     de: [
       'Der KVG-Krankenkassenvergleicher vergleicht monatliche Prämien von 14 anerkannten Schweizer Versicherern (BAG), berechnet nach Kanton, Versicherungsmodell, Franchise, Altersgruppe und Unfalldeckung.',
       'Grenzgänger mit Ausweis G können zwischen der Schweizer KVG und dem italienischen nationalen Gesundheitsdienst wählen: Die Wahl ist für die gesamte Beschäftigungsdauer unwiderruflich. Dieses Tool hilft, die Kosten vor der Entscheidung zu vergleichen.',
       'Die Prämien werden berechnet mit: Basis × (1 − Modellrabatt) × (1 + Franchisefaktor) × Altersmultiplikator × (1 + Unfalldeckung). Die Daten umfassen die Kantone TI, GR, VS, ZH, GE, BE und LU.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.bag.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Bundesamt für Gesundheit (BAG)</a></p>',
     ],
     fr: [
       'Le comparateur d\'assurance maladie LAMal compare les primes mensuelles de 14 assureurs suisses reconnus (OFSP), calculées par canton, modèle d\'assurance, franchise, tranche d\'âge et couverture accidents.',
       'Les frontaliers avec un permis G peuvent choisir entre la LAMal suisse et le service national de santé italien : le choix est irrévocable pour toute la durée de l\'emploi. Cet outil aide à comparer les coûts avant de décider.',
       'Les primes sont calculées selon la formule : base × (1 − rabais modèle) × (1 + facteur franchise) × multiplicateur âge × (1 + couverture accidents). Les données couvrent les cantons TI, GR, VS, ZH, GE, BE et LU.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.bag.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Office fédéral de la santé publique (OFSP)</a></p>',
     ],
   },
   '/compara-servizi/confronta-banche': {
@@ -204,16 +213,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'This section compares services, costs, and conditions relevant to those who work in Switzerland and live in Italy, with up-to-date data and interactive tools for informed decisions.',
       'Each comparator uses real data and verifiable sources to ensure reliable results. Parameters can be customized to your specific cross-border worker situation.',
       'The section includes eight dedicated comparator tools — from currency exchange and health insurance to cost of living and childcare — all maintained with data updated monthly. Browse each tool individually or use the overview to identify which comparisons matter most for your cross-border situation.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Federal Statistical Office (FSO)</a></p>',
     ],
     de: [
       'Dieser Bereich vergleicht Dienstleistungen, Kosten und Bedingungen, die für Personen relevant sind, die in der Schweiz arbeiten und in Italien leben, mit aktuellen Daten und interaktiven Tools.',
       'Jeder Vergleicher verwendet reale Daten und überprüfbare Quellen für zuverlässige Ergebnisse. Die Parameter können an Ihre spezifische Grenzgänger-Situation angepasst werden.',
       'Der Bereich umfasst acht spezialisierte Vergleichstools — von Währungsumrechnung und Krankenversicherung bis hin zu Lebenshaltungskosten und Kinderbetreuung — alle mit monatlich aktualisierten Daten. Nutzen Sie die einzelnen Tools oder die Übersicht, um die für Ihre Grenzgänger-Situation relevantesten Vergleiche zu finden.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Bundesamt für Statistik (BFS)</a></p>',
     ],
     fr: [
       'Cette section compare les services, coûts et conditions pertinents pour ceux qui travaillent en Suisse et vivent en Italie, avec des données actualisées et des outils interactifs pour des décisions éclairées.',
       'Chaque comparateur utilise des données réelles et des sources vérifiables pour garantir des résultats fiables. Les paramètres sont personnalisables selon votre situation spécifique de frontalier.',
       'La section comprend huit outils de comparaison dédiés — du change de devises à l\'assurance maladie, en passant par le coût de la vie et les crèches — tous alimentés par des données mises à jour mensuellement. Parcourez chaque outil ou utilisez la vue d\'ensemble pour identifier les comparaisons les plus pertinentes pour votre situation frontalière.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Office fédéral de la statistique (OFS)</a></p>',
     ],
   },
 
@@ -223,16 +235,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'The pension simulator estimates retirement benefits by combining the first pillar AVS (maximum 2024 pension: CHF 2,450/month), second pillar LPP (contribution credits from 7% to 18% based on age), and the optional third pillar 3a.',
       'For cross-border workers, the Swiss pension is paid even after permanently returning to Italy. AVS contributions accrued in Switzerland are combined with Italian INPS contributions thanks to the bilateral social security convention.',
       'The simulator also shows the impact of different strategies: voluntary third pillar 3a contributions, LPP buy-ins, and the effect of the conversion rate on the final pension, with projections at 5, 10, and 20 years.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Federal Social Insurance Office (FSIO)</a></p>',
     ],
     de: [
       'Der Vorsorgesimulator schätzt die Rentenleistungen durch Kombination der ersten Säule AHV (maximale Rente 2024: CHF 2.450/Monat), der zweiten Säule BVG (Gutschriften von 7 % bis 18 % je nach Alter) und der freiwilligen dritten Säule 3a.',
       'Für Grenzgänger wird die Schweizer Rente auch nach der endgültigen Rückkehr nach Italien gezahlt. In der Schweiz angesammelte AHV-Beiträge werden dank des bilateralen Sozialversicherungsabkommens mit italienischen INPS-Beiträgen kombiniert.',
       'Der Simulator zeigt auch die Auswirkung verschiedener Strategien: freiwillige Säule-3a-Einzahlungen, BVG-Einkäufe und den Effekt des Umwandlungssatzes auf die Endrente, mit Prognosen auf 5, 10 und 20 Jahre.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Bundesamt für Sozialversicherungen (BSV)</a></p>',
     ],
     fr: [
       'Le simulateur de prévoyance estime les prestations de retraite en combinant le premier pilier AVS (rente maximale 2024 : CHF 2 450/mois), le deuxième pilier LPP (bonifications de 7 % à 18 % selon l\'âge) et le troisième pilier 3a facultatif.',
       'Pour les frontaliers, la pension suisse est versée même après le retour définitif en Italie. Les cotisations AVS accumulées en Suisse s\'ajoutent aux cotisations INPS italiennes grâce à la convention bilatérale de sécurité sociale.',
       'Le simulateur montre également l\'impact de différentes stratégies : versements volontaires au pilier 3a, rachats LPP et effet du taux de conversion sur la rente finale, avec des projections à 5, 10 et 20 ans.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Office fédéral des assurances sociales (OFAS)</a></p>',
     ],
   },
   '/tasse-e-pensione/scadenze-fiscali': {
@@ -376,16 +391,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'This section covers the fiscal and pension aspects of cross-border work: Swiss withholding tax, Italian IRPEF, AVS/LPP contributions, and retirement planning.',
       'Information is updated to the 2024 New Fiscal Agreement between Italy and Switzerland, and accounts for Canton Ticino specifics regarding withholding tax and transitional regimes for historical cross-border workers (pre-2024).',
       'Key tools include the pension planner for AVS/LPP retirement projections, the tax calendar with filing deadlines for both countries, the third pillar 3a simulator for tax-advantaged savings, and the tax credit calculator for optimising your Italian return. Each tool is tailored to cross-border worker regulations in force for 2026.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Federal Tax Administration (FTA)</a> · <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">FSIO</a></p>',
     ],
     de: [
       'Dieser Bereich deckt die steuerlichen und vorsorgerechtlichen Aspekte der Grenzgängerarbeit ab: Schweizer Quellensteuer, italienische IRPEF, AHV/BVG-Beiträge und Altersvorsorgeplanung.',
       'Die Informationen sind auf das Neue Steuerabkommen 2024 zwischen Italien und der Schweiz aktualisiert und berücksichtigen Tessiner Besonderheiten bei der Quellensteuer und Übergangsregelungen für Alt-Grenzgänger (vor 2024).',
       'Wichtige Tools sind der Vorsorgerechner für AHV/BVG-Prognosen, der Steuerkalender mit Fristen für beide Länder, der Säule-3a-Simulator für steuerbegünstigtes Sparen und der Steuergutschrift-Rechner zur Optimierung der italienischen Steuererklärung. Jedes Tool ist auf die geltenden Grenzgängerregelungen für 2026 zugeschnitten.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Eidgenössische Steuerverwaltung (ESTV)</a> · <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">BSV</a></p>',
     ],
     fr: [
       'Cette section couvre les aspects fiscaux et de prévoyance du travail frontalier : impôt à la source suisse, IRPEF italien, cotisations AVS/LPP et planification de la retraite.',
       'Les informations sont mises à jour au Nouvel Accord fiscal 2024 entre l\'Italie et la Suisse et tiennent compte des spécificités du Tessin pour l\'impôt à la source et les régimes transitoires pour les frontaliers historiques (avant 2024).',
       'Les outils clés comprennent le planificateur de prévoyance pour les projections AVS/LPP, le calendrier fiscal avec les échéances des deux pays, le simulateur du troisième pilier 3a pour l\'épargne fiscalement avantageuse et le calculateur de crédit d\'impôt pour optimiser votre déclaration italienne. Chaque outil est adapté à la réglementation frontalière en vigueur pour 2026.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Administration fédérale des contributions (AFC)</a> · <a href="https://www.bsv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">OFAS</a></p>',
     ],
   },
 
@@ -539,16 +557,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'The cross-border guide collects practical and up-to-date information for those who work in Ticino and live in Italy: administrative procedures, permits, required documents, and tips based on the experience of thousands of cross-border workers.',
       'Each section is designed to be consulted independently and contains direct links to official forms, relevant offices, and calculation tools to verify practical implications immediately.',
       'The guides cover the entire cross-border lifecycle: from first employment to retirement, including unemployment, car transfer, border crossings, and cross-border maternity/paternity leave.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO - State Secretariat for Economic Affairs</a></p>',
     ],
     de: [
       'Der Grenzgänger-Leitfaden sammelt praktische und aktuelle Informationen für alle, die im Tessin arbeiten und in Italien leben: Verwaltungsverfahren, Bewilligungen, erforderliche Dokumente und Tipps aus der Erfahrung Tausender Grenzgänger.',
       'Jeder Abschnitt ist für eigenständige Nutzung konzipiert und enthält direkte Links zu offiziellen Formularen, zuständigen Ämtern und Berechnungstools zur sofortigen Überprüfung praktischer Auswirkungen.',
       'Die Leitfäden decken den gesamten Grenzgänger-Lebenszyklus ab: vom ersten Arbeitstag bis zur Pensionierung, einschliesslich Arbeitslosigkeit, Autotransfer, Grenzübergänge und grenzüberschreitendem Mutter-/Vaterschaftsurlaub.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO - Staatssekretariat für Wirtschaft</a></p>',
     ],
     fr: [
       'Le guide frontalier rassemble des informations pratiques et actualisées pour ceux qui travaillent au Tessin et vivent en Italie : procédures administratives, permis, documents requis et conseils basés sur l\'expérience de milliers de frontaliers.',
       'Chaque section est conçue pour être consultée de manière indépendante et contient des liens directs vers les formulaires officiels, les bureaux compétents et les outils de calcul pour vérifier immédiatement les implications pratiques.',
       'Les guides couvrent l\'ensemble du cycle de vie du frontalier : du premier emploi à la retraite, en passant par le chômage, le transfert auto, les postes frontières et le congé maternité/paternité transfrontalier.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO - Secrétariat d\'État à l\'économie</a></p>',
     ],
   },
 
@@ -698,16 +719,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'The "Living in Ticino" section covers practical aspects of daily life for those who work in the canton: housing, transport, shopping, family services, and leisure.',
       'Information is designed both for those considering a move to Switzerland and for those who stay in Italy and want to optimize daily commuting and cross-border living expenses.',
       'Practical coverage areas include housing market analysis for both sides of the border, transport options from train schedules to border crossing traffic, supermarket and shopping cost comparisons, childcare availability and fees, mobile phone plan comparisons, and home renovation cost calculators with Italian tax deduction benefits.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Federal Statistical Office (FSO)</a></p>',
     ],
     de: [
       'Der Bereich „Leben im Tessin" deckt praktische Aspekte des Alltags für im Kanton Arbeitende ab: Wohnen, Transport, Einkaufen, Familiendienste und Freizeit.',
       'Die Informationen richten sich sowohl an Personen, die einen Umzug in die Schweiz erwägen, als auch an jene, die in Italien bleiben und das tägliche Pendeln und die Lebenshaltungskosten als Grenzgänger optimieren möchten.',
       'Behandelte Praxisthemen umfassen die Wohnungsmarktanalyse beiderseits der Grenze, Transportoptionen von Zugfahrplänen bis Grenzübergangsverkehr, Supermarkt- und Einkaufskostenvergleiche, Verfügbarkeit und Kosten von Kinderbetreuung, Handytarifvergleiche sowie Renovierungskostenrechner mit italienischen Steuerabzugsmöglichkeiten.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Bundesamt für Statistik (BFS)</a></p>',
     ],
     fr: [
       'La section « Vivre au Tessin » couvre les aspects pratiques de la vie quotidienne pour ceux qui travaillent dans le canton : logement, transports, courses, services familiaux et loisirs.',
       'Les informations s\'adressent aussi bien à ceux qui envisagent un déménagement en Suisse qu\'à ceux qui restent en Italie et souhaitent optimiser le trajet quotidien et les dépenses de la vie transfrontalière.',
       'Les domaines pratiques couverts comprennent l\'analyse du marché immobilier des deux côtés de la frontière, les options de transport des horaires de trains au trafic frontalier, les comparaisons de coûts en supermarché, la disponibilité et les tarifs des crèches, les comparaisons de forfaits téléphoniques et les calculateurs de coûts de rénovation avec déductions fiscales italiennes.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Office fédéral de la statistique (OFS)</a></p>',
     ],
   },
 
@@ -717,16 +741,19 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'The statistics section presents aggregate data and trends on the cross-border phenomenon in Ticino: number of G permits by sector, average salary trends, cantonal unemployment rate, and border crossing traffic flows.',
       'Data comes from official sources (USTAT, SECO, FSO) and is updated periodically. Interactive charts allow exploration of time series and comparison of different periods.',
       'All charts are fully interactive: hover over data points for detailed values, filter by year or sector, and export visualisations for reports. Data is sourced from USTAT (Ticino cantonal statistics), SECO (State Secretariat for Economic Affairs), and the FSO (Federal Statistical Office), ensuring reliability and transparency in every figure presented.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Federal Statistical Office (FSO)</a> · <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO</a></p>',
     ],
     de: [
       'Der Statistikbereich präsentiert aggregierte Daten und Trends zum Grenzgängerphänomen im Tessin: Anzahl der G-Bewilligungen nach Branche, durchschnittliche Gehaltsentwicklung, kantonale Arbeitslosenquote und Verkehrsströme an den Grenzübergängen.',
       'Die Daten stammen aus offiziellen Quellen (USTAT, SECO, BFS) und werden regelmässig aktualisiert. Interaktive Grafiken ermöglichen die Erkundung von Zeitreihen und den Vergleich verschiedener Perioden.',
       'Alle Diagramme sind vollständig interaktiv: Fahren Sie mit der Maus über Datenpunkte für Detailwerte, filtern Sie nach Jahr oder Branche und exportieren Sie Visualisierungen für Berichte. Die Daten stammen von USTAT (Tessiner Kantonsstatistik), SECO (Staatssekretariat für Wirtschaft) und dem BFS (Bundesamt für Statistik) — für Zuverlässigkeit und Transparenz bei jeder dargestellten Kennzahl.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Quelle: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Bundesamt für Statistik (BFS)</a> · <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO</a></p>',
     ],
     fr: [
       'La section statistiques présente des données agrégées et des tendances sur le phénomène frontalier au Tessin : nombre de permis G par secteur, évolution des salaires moyens, taux de chômage cantonal et flux de trafic aux postes frontières.',
       'Les données proviennent de sources officielles (USTAT, SECO, OFS) et sont mises à jour périodiquement. Les graphiques interactifs permettent d\'explorer les séries temporelles et de comparer différentes périodes.',
       'Tous les graphiques sont entièrement interactifs : survolez les points de données pour les valeurs détaillées, filtrez par année ou secteur, et exportez les visualisations pour vos rapports. Les données proviennent de l\'USTAT (statistique cantonale tessinoise), du SECO (Secrétariat d\'État à l\'économie) et de l\'OFS (Office fédéral de la statistique), garantissant fiabilité et transparence pour chaque chiffre présenté.',
+      '<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Source : <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Office fédéral de la statistique (OFS)</a> · <a href="https://www.seco.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">SECO</a></p>',
     ],
   },
 
