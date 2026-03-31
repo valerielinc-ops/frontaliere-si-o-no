@@ -1880,6 +1880,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sicurezza-lago-maggiore.title': 'Nouvelle alliance pour la sécurité du lac Léman',
     'blog.article.sicurezza-lago-maggiore.excerpt': 'Italie et Suisse unissent leurs forces pour protéger l\'environnement lacustre',
     'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lac Majeur et Monte Rosa',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.title': 'Monnaies d\'argent précieuses cachées dans une voiture : un homme sanctionné à Ponte Chiasso',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.excerpt': 'Un homme a été sanctionné pour avoir caché sept monnaies d\'argent précieuses dans une voiture au poste frontière de Ponte Chiasso.',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.imageAlt': 'Un homme a été sanctionné pour avoir caché des pièces d\'argent précieuses dans sa voiture au poste frontière de Ponte Chiasso',
 };
 
 export default blogMetaFr;

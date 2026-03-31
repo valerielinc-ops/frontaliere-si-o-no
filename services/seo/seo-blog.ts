@@ -9914,6 +9914,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-monete-argento-sanzionato-ponte-chiasso': {
+    title: 'Monete d\'argento preziose nascoste in auto: sanzionato un uomo a Ponte | Frontaliere Ticino',
+    description: 'Un uomo è stato sanzionato per aver nascosto sette monete d\'argento preziose in auto al valico di Ponte Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, monete, argento, preziose, nascoste',
+    ogTitle: 'Monete d\'argento preziose nascoste in auto: sanzionato un uomo a Ponte Chiasso',
+    ogDescription: 'Un uomo è stato sanzionato per aver nascosto sette monete d\'argento preziose in auto al valico di Ponte Chiasso.',
+    canonicalPath: '/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Monete d'argento preziose nascoste in auto: sanzionato un uomo a Ponte Chiasso",
+      "description": "Un uomo è stato sanzionato per aver nascosto sette monete d'argento preziose in auto al valico di Ponte Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/monete-argento-sanzionato-ponte-chiasso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un uomo è stato sanzionato per aver nascosto monete d'argento preziose in auto al valico di Ponte Chiasso"
+      },
+      "datePublished": "2026-03-31T21:56:43+00:00",
+      "dateModified": "2026-03-31T21:56:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

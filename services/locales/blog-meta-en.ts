@@ -1880,6 +1880,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.sicurezza-lago-maggiore.title': 'New alliance for the safety of Lake Maggiore',
     'blog.article.sicurezza-lago-maggiore.excerpt': 'Italy and Switzerland join forces to protect the lake environment',
     'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lake Maggiore and Monte Rosa',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.title': 'Precious Silver Coins Hidden in Car: Man Fined at Ponte Chiasso Border Crossing',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.excerpt': 'A man was fined for hiding seven precious silver coins in his car at the Ponte Chiasso border crossing.',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.imageAlt': 'A man was fined for hiding precious silver coins in his car at the Ponte Chiasso border crossing',
 };
 
 export default blogMetaEn;

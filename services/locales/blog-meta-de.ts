@@ -1880,6 +1880,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sicurezza-lago-maggiore.title': 'Neue Allianz für die Sicherheit des Lago Maggiore',
     'blog.article.sicurezza-lago-maggiore.excerpt': 'Italien und die Schweiz bündeln Kräfte, um die Seenlandschaft zu schützen',
     'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lago Maggiore und Monte Rosa',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.title': 'Silbermünzen im Auto versteckt: Mann in Ponte Chiasso bestraft',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.excerpt': 'Ein Mann wurde bestraft, weil er sieben wertvolle Silbermünzen im Auto im Zoll von Ponte Chiasso versteckt hatte.',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.imageAlt': 'Ein Mann wurde bestraft, weil er wertvolle Silbermünzen in seinem Auto am Grenzübergang Ponte Chiasso versteckte',
 };
 
 export default blogMetaDe;

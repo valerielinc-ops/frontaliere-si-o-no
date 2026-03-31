@@ -1765,6 +1765,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ict-reatto-commissione-tri': { name: 'Lavoro TIC in Ticino', path: '/articoli-frontaliere/ict-reatto-commissione-tri', parent: 'blog' },
     'blog-furbata-dogana-argento': { name: 'Tenta la furbata in dogana tra Como e Sv', path: '/articoli-frontaliere/furbata-dogana-argento', parent: 'blog' },
     'blog-sicurezza-lago-maggiore': { name: 'Sicurezza Lago Maggiore', path: '/articoli-frontaliere/sicurezza-lago-maggiore', parent: 'blog' },
+    'blog-monete-argento-sanzionato-ponte-chiasso': { name: 'Monete d\'argento', path: '/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso', parent: 'blog' },
   };
 
   const info = sectionNames[section];

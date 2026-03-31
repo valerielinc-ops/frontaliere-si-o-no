@@ -3358,7 +3358,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 620,
+        "numberOfItems": 621,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3976,7 +3976,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 617, "name": "Chiasso non introdurrà la tassa di refezione al...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-tassa-refezione-scuola-infanzia` },
           { "@type": "ListItem", "position": 618, "name": "Lavoro TIC in Ticino: ATED chiede rappresentanz...", "url": `${BASE_URL}/articoli-frontaliere/ict-reatto-commissione-tri` },
           { "@type": "ListItem", "position": 619, "name": "Tenta la furbata in dogana tra Como e Svizzera:...", "url": `${BASE_URL}/articoli-frontaliere/furbata-dogana-argento` },
-          { "@type": "ListItem", "position": 620, "name": "Nuova alleanza per la sicurezza del Lago Maggiore", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lago-maggiore` }
+          { "@type": "ListItem", "position": 620, "name": "Nuova alleanza per la sicurezza del Lago Maggiore", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lago-maggiore` },
+          { "@type": "ListItem", "position": 621, "name": "Monete d'argento preziose nascoste in auto: san...", "url": `${BASE_URL}/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso` }
         ]
       }
     ]

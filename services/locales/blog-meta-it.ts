@@ -1880,6 +1880,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sicurezza-lago-maggiore.title': 'Nuova alleanza per la sicurezza del Lago Maggiore',
     'blog.article.sicurezza-lago-maggiore.excerpt': 'Italia e Svizzera uniscono le forze per proteggere l\'ambiente lacustre',
     'blog.article.sicurezza-lago-maggiore.imageAlt': 'Lago Maggiore e Monte Rosa',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.title': 'Monete d\'argento preziose nascoste in auto: sanzionato un uomo a Ponte Chiasso',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.excerpt': 'Un uomo è stato sanzionato per aver nascosto sette monete d\'argento preziose in auto al valico di Ponte Chiasso.',
+    'blog.article.monete-argento-sanzionato-ponte-chiasso.imageAlt': 'Un uomo è stato sanzionato per aver nascosto monete d\'argento preziose in auto al valico di Ponte Chiasso',
 };
 
 export default blogMetaIt;

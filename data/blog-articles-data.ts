@@ -5578,4 +5578,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sicurezza-lago-maggiore.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'monete-argento-sanzionato-ponte-chiasso',
+    category: 'fiscale',
+    date: '2026-03-31T21:56:43.674Z',
+    image: '/images/blog/monete-argento-sanzionato-ponte-chiasso.jpg',
+    hasCalculator: true,
+  },
 ];
