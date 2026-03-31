@@ -830,6 +830,36 @@ export async function isLinkedInSignInAvailable(): Promise<boolean> {
   }
 }
 
+// ─── Auth Job Context (persists job metadata across OAuth redirects) ──────
+
+const AUTH_JOB_CONTEXT_KEY = 'auth_job_context';
+
+export interface AuthJobContext {
+  slug?: string | null;
+  company?: string | null;
+  location?: string | null;
+  category?: string | null;
+}
+
+/** Save job context before an OAuth redirect so the callback can enrich the newsletter subscription. */
+export function saveAuthJobContext(ctx: AuthJobContext): void {
+  try {
+    sessionStorage.setItem(AUTH_JOB_CONTEXT_KEY, JSON.stringify(ctx));
+  } catch { /* quota or private browsing */ }
+}
+
+/** Read and clear the saved job context (one-shot). Returns null if none was saved. */
+export function consumeAuthJobContext(): AuthJobContext | null {
+  try {
+    const raw = sessionStorage.getItem(AUTH_JOB_CONTEXT_KEY);
+    sessionStorage.removeItem(AUTH_JOB_CONTEXT_KEY);
+    if (!raw) return null;
+    return JSON.parse(raw) as AuthJobContext;
+  } catch {
+    return null;
+  }
+}
+
 /**
  * Redirect the user to LinkedIn's OAuth2 authorization endpoint.
  * After authorization LinkedIn redirects to /auth/linkedin/callback.

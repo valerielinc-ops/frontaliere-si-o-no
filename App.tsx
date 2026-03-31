@@ -120,7 +120,9 @@ import {
   signInWithCustomAuthToken,
   exchangeLinkedInCode,
   saveUserProfileToFirestore,
+  consumeAuthJobContext,
 } from '@/services/authService';
+import type { AuthJobContext } from '@/services/authService';
 import {
   upsertNewsletterSubscriber as upsertNewsletterSubscriberRecord,
   normalizeNewsletterEmail,
@@ -209,6 +211,7 @@ const App: React.FC = () => {
     email: string,
     source: 'signup' | 'signup_linkedin' | 'chatbot_google' | 'chatbot_facebook' | 'chatbot_email',
     displayName?: string | null,
+    jobContext?: AuthJobContext | null,
   ): Promise<boolean> => {
     const deactivateLegacyDuplicates = async (
       db: any,
@@ -274,6 +277,11 @@ const App: React.FC = () => {
         sourceRouteFamily: activeTab,
         locale: navigator.language || 'it-IT',
         isActive: true,
+        ...(jobContext ? {
+          jobContext: { slug: jobContext.slug, company: jobContext.company, location: jobContext.location, category: jobContext.category },
+          locationInterest: jobContext.location,
+          sectorInterest: jobContext.category,
+        } : {}),
       });
 
       await deactivateLegacyDuplicates(db, normalizedEmail, `upsert_${source}`);
@@ -505,10 +513,12 @@ const App: React.FC = () => {
 
           // Subscribe to newsletter BEFORE navigating away — the auto-subscribe
           // effect won't fire because location.replace destroys React before re-render.
+          // Also pass job context saved before the OAuth redirect for personalized job recs.
           const email = getAuthEmail(user);
+          const savedJobCtx = consumeAuthJobContext();
           if (email) {
             try {
-              await upsertNewsletterSubscriber(email, 'signup_linkedin', user.displayName || null);
+              await upsertNewsletterSubscriber(email, 'signup_linkedin', user.displayName || null, savedJobCtx);
             } catch { /* best-effort: auto-subscribe on next page load will retry */ }
           }
         }
@@ -780,7 +790,8 @@ const App: React.FC = () => {
   useEffect(() => {
     if (!authEmail) return;
     if (localStorage.getItem('newsletter_subscribed') === 'true') return;
-    upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null).catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
+    const savedJobCtx = consumeAuthJobContext();
+    upsertNewsletterSubscriber(authEmail, 'signup', authUser?.displayName || null, savedJobCtx).catch((e) => reportCaughtError(e, 'app.autoNewsletterSubscribe'));
   }, [authEmail]);
 
   useEffect(() => {
