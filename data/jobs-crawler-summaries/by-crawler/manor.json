@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-03-30T21:48:17.169Z",
+  "generatedAt": "2026-03-31T09:36:51.089Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 10316,
-  "avgDurationMs": 10316,
+  "durationMs": 10837,
+  "avgDurationMs": 10837,
   "durationHistory": [
-    10316
+    10837
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -30,6 +30,7 @@
       "source": "company-website",
       "slug": "manor-collaboratore-trice-cassa-confezione-uomo-40-locarno",
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -40,11 +41,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 82,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 25,
+        "translation": 20,
         "completeness": 22
       }
     },
@@ -62,6 +63,7 @@
       "source": "company-website",
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 57500,
       "salaryMax": 77500,
@@ -72,11 +74,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 86,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 20,
         "completeness": 22
       }
     },
@@ -94,6 +96,7 @@
       "source": "company-website",
       "slug": "manor-collaborateur-trice-service-manora-50-locarno",
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 57500,
       "salaryMax": 77500,
@@ -104,11 +107,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 86,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 20,
         "completeness": 22
       }
     },
@@ -126,6 +129,7 @@
       "source": "company-website",
       "slug": "manor-apprendista-polydesigner-3d-afc-100-lugano",
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -156,8 +160,9 @@
       "descriptionIt": "Polydesigner 3D AFC 100% presso Manor, con sede a Lugano, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
       "postedDate": "2026-03-07",
       "source": "company-website",
-      "slug": "polidesigner-3d-afc-100-manor-ag-lugano",
+      "slug": "manor-polydesigner-3d-afc-100-lugano",
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -168,11 +173,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 86,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
+        "translation": 20,
         "completeness": 22
       }
     }
