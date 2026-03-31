@@ -2935,6 +2935,15 @@ const App: React.FC = () => {
             </div>
           )}
          </Suspense>
+
+          {/* Visible "last updated" date — AI freshness signal + user trust */}
+          {!(['admin', 'profile', 'email-confirmed', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
+            <p className="text-xs text-slate-400 dark:text-slate-500 text-center mt-6">
+              <time dateTime={new Date().toISOString().slice(0, 7)}>
+                {t('stats.lastUpdate')}: {new Date().toLocaleDateString(locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : locale === 'en' ? 'en-GB' : 'it-IT', { month: 'long', year: 'numeric' })}
+              </time>
+            </p>
+          )}
         </main>
 
         <footer className="border-t border-slate-200/60 dark:border-slate-800 bg-white/50 dark:bg-slate-900/50 backdrop-blur-sm py-8 pb-20 md:pb-8 mt-auto relative z-10" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 850px' }}>
