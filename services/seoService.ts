@@ -58,12 +58,25 @@ const DEFAULT_DATASET_LICENSE = 'https://creativecommons.org/licenses/by-nc/4.0/
  * E-E-A-T Author & Publisher Schema for YMYL content.
  * Using Organization with expert-level knowsAbout signals.
  * Reused across all structured data to ensure consistency.
+ *
+ * Includes inline E-E-A-T fields (name, description, knowsAbout) alongside
+ * the @id reference so that AI crawlers and schema validators see expertise
+ * signals even without resolving the referenced #organization entity.
  */
-// FRO-307: Use @id reference to the standalone Organization in index.html
-// instead of duplicating the full Organization object in every NewsArticle.
-// This reduces JSON-LD size and ensures Google links all schemas to a single entity.
 export const SCHEMA_AUTHOR = {
+  "@type": "Organization",
   "@id": `${BASE_URL}/#organization`,
+  "name": "Redazione Frontaliere Ticino",
+  "url": `${BASE_URL}/chi-siamo`,
+  "description": "Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino",
+  "knowsAbout": [
+    "Fiscalità frontalieri Svizzera-Italia",
+    "Nuovo accordo fiscale 2026",
+    "Previdenza sociale AVS/LPP",
+    "Assicurazione malattia LAMal/CMB",
+    "Permesso G e permesso B",
+    "Mercato del lavoro Ticino",
+  ],
 } as const;
 
 export const SCHEMA_PUBLISHER = {
@@ -72,13 +85,25 @@ export const SCHEMA_PUBLISHER = {
 
 /**
  * Organization author for blog articles and editorial content.
- * Uses @id reference to the standalone Organization in index.html
- * for knowledge graph consistency. AI systems recognize Organization
- * authors with strong E-E-A-T signals (knowsAbout, areaServed)
- * from the referenced Organization entity.
+ * Uses the same enriched author object as SCHEMA_AUTHOR so that
+ * AI systems see E-E-A-T signals (knowsAbout, description) inline,
+ * while the @id still links to the standalone Organization in index.html
+ * for knowledge graph consistency.
  */
 export const SCHEMA_EXPERT_AUTHOR = {
+  "@type": "Organization",
   "@id": `${BASE_URL}/#organization`,
+  "name": "Redazione Frontaliere Ticino",
+  "url": `${BASE_URL}/chi-siamo`,
+  "description": "Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino",
+  "knowsAbout": [
+    "Fiscalità frontalieri Svizzera-Italia",
+    "Nuovo accordo fiscale 2026",
+    "Previdenza sociale AVS/LPP",
+    "Assicurazione malattia LAMal/CMB",
+    "Permesso G e permesso B",
+    "Mercato del lavoro Ticino",
+  ],
 } as const;
 
 /**
