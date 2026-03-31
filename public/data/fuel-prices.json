@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-03-31T19:39:29.752Z",
+  "generatedAt": "2026-03-31T21:08:18.767Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 236,
-      "latestObservedUpdate": "2026-03-31T18:39:31.833Z"
+      "stationCount": 233,
+      "latestObservedUpdate": "2026-03-31T20:15:09.782Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -473,45 +473,6 @@
         "sp95PriceEur": 1.686
       },
       {
-        "id": "V93gOaOeLd0dF3kk9dts",
-        "name": "Station Du Gd-St-Bernard",
-        "brand": "JUBIN",
-        "address": "Rte du Saint-Bernard 8, 1937 Orsières",
-        "lat": 46.035795731091945,
-        "lng": 7.146012053235928,
-        "sp95PriceChf": 1.65,
-        "updatedAt": "2026-03-01T20:15:15.794Z",
-        "nearestMunicipality": "Saint-Rhémy-En-Bosses (AO)",
-        "nearestMunicipalityDistanceKm": 23.7,
-        "sp95PriceEur": 1.795
-      },
-      {
-        "id": "YFCrLHHY0v8Hwads0kWq",
-        "name": "Eni",
-        "brand": "ENI",
-        "address": "Rte du Saint-Bernard 1, 1937 Orsières",
-        "lat": 46.0414903645796,
-        "lng": 7.147383281436425,
-        "sp95PriceChf": 1.65,
-        "updatedAt": "2026-03-01T20:15:52.435Z",
-        "nearestMunicipality": "Saint-Rhémy-En-Bosses (AO)",
-        "nearestMunicipalityDistanceKm": 24.4,
-        "sp95PriceEur": 1.795
-      },
-      {
-        "id": "z358BfhGcL129gX6PSXr",
-        "name": "Garage du Gd-St-Bernard",
-        "brand": "JUBIN",
-        "address": "Route du St-Bernard 8, 1937 Orsières",
-        "lat": 46.04223,
-        "lng": 7.14843,
-        "sp95PriceChf": 1.65,
-        "updatedAt": "2026-03-01T20:16:03.947Z",
-        "nearestMunicipality": "Saint-Rhémy-En-Bosses (AO)",
-        "nearestMunicipalityDistanceKm": 24.4,
-        "sp95PriceEur": 1.795
-      },
-      {
         "id": "C0N2af7HpbOfesQdHoAq",
         "name": "BP Unbemannte Station Naters",
         "brand": "BP",
@@ -640,6 +601,45 @@
         "nearestMunicipality": "Antrona Schieranco (VB)",
         "nearestMunicipalityDistanceKm": 14.4,
         "sp95PriceEur": 1.871
+      },
+      {
+        "id": "R1uSATc4A8tVtp8eMu3U",
+        "name": "Coop Pronto",
+        "brand": "COOP",
+        "address": "Kantonsstrasse 300, 3900 Brig-Gamsen",
+        "lat": 46.3062,
+        "lng": 7.96076,
+        "sp95PriceChf": 1.72,
+        "updatedAt": "2026-03-04T20:31:00.079Z",
+        "nearestMunicipality": "Trasquera (VB)",
+        "nearestMunicipalityDistanceKm": 21.3,
+        "sp95PriceEur": 1.871
+      },
+      {
+        "id": "jLWgOqHiSgH8QJ1xjpck",
+        "name": "Anfra Carburanti Sagl",
+        "brand": "UNDEFINED",
+        "address": "Via Cantonale 8, Magliaso",
+        "lat": 45.9857434,
+        "lng": 8.8908046,
+        "sp95PriceChf": 1.72,
+        "updatedAt": "2026-03-29T09:57:07.911Z",
+        "nearestMunicipality": "Brusimpiano (VA)",
+        "nearestMunicipalityDistanceKm": 3,
+        "sp95PriceEur": 1.871
+      },
+      {
+        "id": "8xGyWjuOgXZNia7dursl",
+        "name": "Marantelli Sa",
+        "brand": "SHELL",
+        "address": "Li Geri 129, 7744 Campocologno",
+        "lat": 46.238396,
+        "lng": 10.13679,
+        "sp95PriceChf": 1.73,
+        "updatedAt": "2026-03-24T08:09:48.736Z",
+        "nearestMunicipality": "Tirano (SO)",
+        "nearestMunicipalityDistanceKm": 3.3,
+        "sp95PriceEur": 1.882
       }
     ],
     "bestCrossBorderSavings": [
