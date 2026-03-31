@@ -1,16 +1,16 @@
 {
   "key": "fart",
   "label": "FART",
-  "generatedAt": "2026-03-30T21:33:33.253Z",
+  "generatedAt": "2026-03-31T09:22:08.309Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 12037,
-  "avgDurationMs": 12037,
+  "durationMs": 11599,
+  "avgDurationMs": 11599,
   "durationHistory": [
-    12037
+    11599
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -46,10 +46,11 @@
       "addressLocality": "Locarno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 96,
+      "needsRetranslation": true,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 24,
+        "richness": 20,
         "translation": 25,
         "completeness": 22
       }
