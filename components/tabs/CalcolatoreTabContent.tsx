@@ -33,6 +33,7 @@ const WeeklyFact = lazyRetry(() => import('@/components/vita/WeeklyFact'));
 const DailyDialectPhrase = lazyRetry(() => import('@/components/vita/DailyDialectPhrase'));
 const SocialProofBadge = lazyRetry(() => import('@/components/shared/SocialProofBadge'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
+const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
 
 const LazyFallback = () => <SkeletonWeeklyFact />;
 
@@ -74,8 +75,9 @@ export default function CalcolatoreTabContent() {
                   </div>
                 </div>
                 <div className="mt-2">
-                  <button
-                    onClick={() => { Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
+                  <a
+                    href="/cerca-lavoro-ticino/"
+                    onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
                     className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md text-left cursor-pointer"
                   >
                     <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
@@ -86,7 +88,7 @@ export default function CalcolatoreTabContent() {
                       <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc')}</div>
                     </div>
                     <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
-                  </button>
+                  </a>
                 </div>
               </div>
             ) : (
@@ -158,8 +160,9 @@ export default function CalcolatoreTabContent() {
                 </Suspense>
                 <div className="space-y-2">
                   <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
-                  <button
-                    onClick={() => { Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
+                  <a
+                    href="/cerca-lavoro-ticino/"
+                    onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
                     className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
@@ -167,7 +170,7 @@ export default function CalcolatoreTabContent() {
                       <span className="text-sm font-bold truncate">{t('jobBoard.homeCta.mobile.title')}</span>
                     </div>
                     <span className="text-xs font-semibold text-blue-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
-                  </button>
+                  </a>
                 </div>
                 <Suspense fallback={<div className="h-[34px]" />}>
                   <DailyDialectPhrase />
@@ -182,18 +185,19 @@ export default function CalcolatoreTabContent() {
               </div>
             )}
 
-            {/* Popular Tools CTA */}
+            {/* Popular Tools CTA — uses <a> tags for Google crawlability (SEO internal linking) */}
             {result && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
                 {([
-                  { icon: ArrowRightLeft, label: t('nav.confronti'), desc: t('cta.confrontiDesc'), color: 'from-teal-500 to-emerald-600', tab: 'confronti' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
-                  { icon: Layers, label: t('cta.whatif'), desc: t('cta.whatifDesc'), color: 'from-amber-500 to-orange-600', tab: 'calculator' as ActiveTab, sub: 'whatif' as CalcolatoreSubTab },
-                  { icon: Shield, label: t('nav.fisco'), desc: t('cta.fiscalDesc'), color: 'from-emerald-500 to-teal-600', tab: 'fisco' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
-                  { icon: Briefcase, label: t('nav.guida'), desc: t('cta.guidaDesc'), color: 'from-teal-500 to-emerald-600', tab: 'guida' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
-                ]).map(({ icon: Icon, label, desc, color, tab, sub }) => (
-                  <button
+                  { icon: ArrowRightLeft, label: t('nav.confronti'), desc: t('cta.confrontiDesc'), color: 'from-teal-500 to-emerald-600', href: '/compara-servizi/cambio-franco-euro/', tab: 'confronti' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
+                  { icon: Layers, label: t('cta.whatif'), desc: t('cta.whatifDesc'), color: 'from-amber-500 to-orange-600', href: '/calcola-stipendio/cosa-cambia-se/', tab: 'calculator' as ActiveTab, sub: 'whatif' as CalcolatoreSubTab },
+                  { icon: Shield, label: t('nav.fisco'), desc: t('cta.fiscalDesc'), color: 'from-emerald-500 to-teal-600', href: '/tasse-e-pensione/', tab: 'fisco' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
+                  { icon: Briefcase, label: t('nav.guida'), desc: t('cta.guidaDesc'), color: 'from-teal-500 to-emerald-600', href: '/guida-frontaliere/', tab: 'guida' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
+                ]).map(({ icon: Icon, label, desc, color, href, tab, sub }) => (
+                  <a
                     key={tab + (sub || '')}
-                    onClick={() => navigateTo(tab, sub)}
+                    href={href}
+                    onClick={(e) => { e.preventDefault(); navigateTo(tab, sub); }}
                     className="flex items-start gap-3 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all text-left group"
                   >
                     <div className={`p-2 rounded-lg bg-gradient-to-br ${color} flex-shrink-0`}>
@@ -203,7 +207,7 @@ export default function CalcolatoreTabContent() {
                       <div className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</div>
                       <div className="text-xs text-slate-600 dark:text-slate-500 line-clamp-2">{desc}</div>
                     </div>
-                  </button>
+                  </a>
                 ))}
               </div>
             )}
@@ -217,6 +221,8 @@ export default function CalcolatoreTabContent() {
                 <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
               </div>
             )}
+            {/* SEO cross-linking: crawlable <a href> links to key pages (payslip, tax, pension, jobs) */}
+            {result && <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>}
           </>
         )}
       </div>
