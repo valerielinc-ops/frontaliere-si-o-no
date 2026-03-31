@@ -88,6 +88,12 @@ export async function createLinearIssue({
   project,
   workflow,
 }) {
+  // Feature flag: skip if disabled via Firebase Remote Config
+  if (process.env.ENABLE_LINEAR_FAILURE_REPORT === 'false') {
+    console.log('[linear-issue-creator] ENABLE_LINEAR_FAILURE_REPORT=false, skipping');
+    return null;
+  }
+
   const apiKey = process.env.LINEAR_API_KEY;
   if (!apiKey) {
     console.error('[linear-issue-creator] LINEAR_API_KEY not set, skipping issue creation');

@@ -79,6 +79,7 @@ const RC_TO_ENV = {
 
   // Linear API (issue creation on CI failure)
   LINEAR_API_KEY:                 ['LINEAR_API_KEY'],
+  ENABLE_LINEAR_FAILURE_REPORT:   ['ENABLE_LINEAR_FAILURE_REPORT'],
 
   // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
