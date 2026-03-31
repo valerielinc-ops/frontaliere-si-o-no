@@ -315,10 +315,10 @@
       },
       "crawledAt": "2026-03-31T09:20:00.001Z",
       "slugByLocale": {
-        "it": "wealth-planning-group-business-developer-efg-zurich",
+        "it": "sviluppatore-commerciale-del-gruppo-di-pianificazione-patrimoniale-efg-international-ag-zurich",
         "en": "wealth-planning-group-business-developer-efg-zurich",
         "de": "wealth-planning-group-business-developer-efg-zurich",
-        "fr": "wealth-planning-group-business-developer-efg-zurich"
+        "fr": "developpeur-commercial-du-groupe-de-planification-patrimoniale-efg-international-ag-zurich"
       },
       "addressLocality": "Zurich",
       "addressCountry": "CH",
@@ -339,7 +339,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "wealth-planning-group-business-developer-efg-zurich"
+      ]
     },
     {
       "id": "efg-6137",
@@ -860,10 +863,10 @@
       },
       "crawledAt": "2026-03-31T09:19:59.999Z",
       "slugByLocale": {
-        "it": "senior-fx-specialist-advisor-efg-zurich",
+        "it": "senior-specialista-fx-consulente-efg-international-ag-zurich",
         "en": "senior-fx-specialist-advisor-efg-international-ag-zurich",
         "de": "senior-fx-specialist-advisor-efg-zurich",
-        "fr": "senior-fx-specialist-advisor-efg-zurich"
+        "fr": "specialiste-fx-senior-conseiller-efg-international-ag-zurich"
       },
       "addressLocality": "Zurich",
       "addressCountry": "CH",
@@ -884,7 +887,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "senior-fx-specialist-advisor-efg-zurich"
+      ]
     },
     {
       "id": "efg-6068",
@@ -995,10 +1001,10 @@
       },
       "crawledAt": "2026-03-31T09:19:59.999Z",
       "slugByLocale": {
-        "it": "group-insurance-expert-efg-zurich",
+        "it": "esperto-in-assicurazioni-di-gruppo-efg-international-ag-zurich",
         "en": "group-insurance-expert-efg-international-ag-zurich",
-        "de": "group-insurance-expert-efg-zurich",
-        "fr": "group-insurance-expert-efg-zurich"
+        "de": "gruppen-versicherungsexperte-efg-international-ag-zurich",
+        "fr": "expert-en-assurance-de-groupe-efg-international-ag-zurich"
       },
       "addressLocality": "Zurich",
       "addressCountry": "CH",
@@ -1019,7 +1025,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "group-insurance-expert-efg-zurich"
+      ]
     },
     {
       "id": "efg-6061",
@@ -1152,8 +1161,8 @@
       "slugByLocale": {
         "it": "ai-ingegnere-efg-international-ag-geneve",
         "en": "ai-engineer-efg-international-ag-geneve",
-        "de": "ai-ingenieur-efg-international-ag-geneve",
-        "fr": "ai-engineer-efg-geneve"
+        "de": "ki-ingenieur-efg-international-ag-geneve",
+        "fr": "ingenieur-ia-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -1176,7 +1185,8 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "ai-engineer-efg-geneve"
+        "ai-engineer-efg-geneve",
+        "ai-ingenieur-efg-international-ag-geneve"
       ]
     },
     {
@@ -1319,10 +1329,10 @@
       },
       "crawledAt": "2026-03-31T09:19:59.998Z",
       "slugByLocale": {
-        "it": "client-services-officer-geneva-talent-pool-efg-geneve",
+        "it": "ufficiale-servizi-clienti-geneva-talent-pool-efg-international-ag-geneve",
         "en": "client-services-officer-geneva-talent-pool-efg-geneve",
-        "de": "client-services-officer-geneva-talent-pool-efg-geneve",
-        "fr": "client-services-officer-geneva-talent-pool-efg-geneve"
+        "de": "kundenservicebeauftragter-geneva-talent-pool-efg-international-ag-geneve",
+        "fr": "agent-de-services-clients-geneva-talent-pool-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -1343,7 +1353,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "client-services-officer-geneva-talent-pool-efg-geneve"
+      ]
     },
     {
       "id": "efg-5969",
@@ -1588,10 +1601,10 @@
       },
       "crawledAt": "2026-03-31T09:19:59.996Z",
       "slugByLocale": {
-        "it": "back-office-cash-reconciliation-specialist-efg-geneve",
+        "it": "specialista-in-riconciliazione-contabile-back-office-efg-international-ag-geneve",
         "en": "back-office-cash-reconciliation-specialist-efg-geneve",
         "de": "back-office-cash-reconciliation-specialist-efg-geneve",
-        "fr": "back-office-cash-reconciliation-specialist-efg-geneve"
+        "fr": "specialiste-en-reconciliation-comptable-back-office-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -1612,7 +1625,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "back-office-cash-reconciliation-specialist-efg-geneve"
+      ]
     },
     {
       "id": "efg-5819",
@@ -1724,10 +1740,10 @@
       },
       "crawledAt": "2026-03-31T09:19:59.996Z",
       "slugByLocale": {
-        "it": "risk-compliance-technical-application-owner-efg-geneve",
+        "it": "proprietario-tecnico-dell-applicazione-risk-compliance-efg-international-ag-geneve",
         "en": "risk-compliance-technical-application-owner-efg-geneve",
-        "de": "risk-compliance-technical-application-owner-efg-geneve",
-        "fr": "risk-compliance-technical-application-owner-efg-geneve"
+        "de": "technischer-anwendungseigentumer-risk-compliance-efg-international-ag-geneve",
+        "fr": "proprietaire-technique-d-application-risk-compliance-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -1748,7 +1764,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "risk-compliance-technical-application-owner-efg-geneve"
+      ]
     },
     {
       "id": "efg-5967",
@@ -2092,9 +2111,9 @@
       },
       "crawledAt": "2026-03-31T09:19:59.995Z",
       "slugByLocale": {
-        "it": "group-financial-controller-efg-geneve",
+        "it": "controllore-finanziario-di-gruppo-efg-international-ag-geneve",
         "en": "group-financial-controller-efg-geneve",
-        "de": "group-financial-controller-efg-geneve",
+        "de": "gruppen-finanzcontroller-efg-international-ag-geneve",
         "fr": "group-financial-controller-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2116,7 +2135,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "group-financial-controller-efg-geneve"
+      ]
     },
     {
       "id": "efg-6203",

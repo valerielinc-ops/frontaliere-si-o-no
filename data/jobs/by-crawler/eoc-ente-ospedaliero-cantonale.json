@@ -4621,7 +4621,7 @@
       "crawledAt": "2026-03-31T09:24:46.304Z",
       "slugByLocale": {
         "it": "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano-uilmk8",
+        "en": "internal-medicine-assistant-physician-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "assistenzarzt-fur-innere-medizin-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-assistant-en-medecine-interne-eoc-ente-ospedaliero-cantonale-lugano"
       },
@@ -4656,7 +4656,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano-uilmk8"
+      ]
     },
     {
       "id": "company-uilmkv",

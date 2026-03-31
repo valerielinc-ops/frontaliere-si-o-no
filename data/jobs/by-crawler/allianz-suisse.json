@@ -97,11 +97,13 @@
       },
       "slugByLocale": {
         "it": "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri",
-        "en": "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri",
-        "de": "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri",
-        "fr": "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri"
+        "en": "100-insurance-consultant-m-f-d-sopraceneri-general-agency-allianz-suisse-bellinzona",
+        "de": "100-versicherungsberater-m-w-d-sopraceneri-generalagentur-allianz-suisse-bellinzona",
+        "fr": "consultant-en-assurance-a-100-m-f-d-agence-generale-sopraceneri-allianz-suisse-bellinzona"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "consulente-assicurativo-m-f-d-al-100-agenzia-generale-sopraceneri"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -214,11 +216,13 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-nel-servizio-esterno-m-f-d-100",
-        "en": "consulente-previdenziale-nel-servizio-esterno-m-f-d-100",
-        "de": "consulente-previdenziale-nel-servizio-esterno-m-f-d-100",
-        "fr": "consulente-previdenziale-nel-servizio-esterno-m-f-d-100"
+        "en": "pension-advisor-in-the-field-service-m-f-d-100-allianz-suisse-bellinzona",
+        "de": "rentenberater-im-au-endienst-m-w-d-100-allianz-suisse-bellinzona",
+        "fr": "conseiller-en-retraite-dans-le-service-de-terrain-mois-f-mois-100-allianz-suisse-bellinzona"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "consulente-previdenziale-nel-servizio-esterno-m-f-d-100"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -331,12 +335,13 @@
       },
       "slugByLocale": {
         "it": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
-        "en": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
+        "en": "allianz-applicant-management-allianz-suisse-region-graubunden",
         "de": "allianz-bewerbermanagement",
-        "fr": "allianz-bewerbermanagement-allianz-suisse-region-graubunden"
+        "fr": "allianz-gestion-des-candidats-allianz-suisse-region-graubunden"
       },
       "previousSlugs": [
-        "allianz-gestione-candidati-allianz-suisse-region-graubunden"
+        "allianz-gestione-candidati-allianz-suisse-region-graubunden",
+        "allianz-bewerbermanagement-allianz-suisse-region-graubunden"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
