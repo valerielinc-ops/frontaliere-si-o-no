@@ -2136,6 +2136,42 @@ function updateStructuredData(data: Record<string, any> | Record<string, any>[])
 }
 
 /**
+ * Apply noindex SEO tags for 404 / not-found pages.
+ * Called when the SPA detects an unrecognized route so Google doesn't
+ * index the soft-404 as a real page with homepage content.
+ *
+ * Sets:
+ * - robots = noindex
+ * - 404-specific title
+ * - canonical to self (the current unrecognized URL)
+ * - removes hreflang tags (no alternate versions exist)
+ * - removes dynamic structured data (no schema for 404 pages)
+ */
+export function applyNotFoundSeo(path: string): void {
+  const notFoundTitle = 'Pagina non trovata — Frontaliere Ticino';
+
+  // Set noindex to prevent Google from indexing this soft-404
+  updateOrCreateMetaTag('name', 'robots', 'noindex');
+
+  // Set 404-specific title
+  document.title = notFoundTitle;
+  updateOrCreateMetaTag('property', 'og:title', notFoundTitle);
+  updateOrCreateMetaTag('name', 'description', 'La pagina richiesta non esiste o è stata spostata.');
+  updateOrCreateMetaTag('property', 'og:description', 'La pagina richiesta non esiste o è stata spostata.');
+
+  // Set canonical to self (the current URL) so it doesn't point to homepage
+  const selfCanonical = `${BASE_URL}${path.replace(/\/+$/, '') || '/'}`;
+  updateCanonicalLink(selfCanonical);
+  updateOrCreateMetaTag('property', 'og:url', selfCanonical);
+
+  // Remove hreflang tags — no alternate locale versions for a 404 page
+  document.querySelectorAll('link[hreflang]').forEach(el => el.remove());
+
+  // Remove dynamically-injected structured data — no schema for 404 pages
+  document.querySelectorAll('script[type="application/ld+json"][data-dynamic-ld]').forEach(el => el.remove());
+}
+
+/**
  * Track section view for analytics
  */
 export function trackSectionView(_section: string): void {

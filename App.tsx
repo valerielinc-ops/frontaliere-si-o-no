@@ -98,6 +98,11 @@ const trackSectionView = (section: string) => {
   if (!runtimeSeoEnabled) return;
   import('@/services/seoService').then(m => m.trackSectionView(section));
 };
+// Apply noindex SEO for 404 pages — NOT gated by runtimeSeoEnabled because
+// soft-404 noindex must be set immediately on initial load before any user interaction.
+const applyNotFoundSeo = (path: string) => {
+  import('@/services/seoService').then(m => m.applyNotFoundSeo(path));
+};
 import { useTranslation, initLocale, setLocale, onLocaleChange, itReady, isTranslationsReady, loadTabTranslations } from '@/services/i18n';
 import { parsePath, parseHashToPath, pushRoute, replaceRoute, buildPath, getSeoSection, updatePathForLocale, scrollToAnchor, AppRoute, preloadBlogData, resolveBlogSlug, getLocalizedJobSlug } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, ConfrontiSubTab, FiscoSubTab, GuidaSubTab, VitaSubTab, StatsSubTab, BlogArticleId, SeoLandingId, GlossaryTermId, BorderCrossingId } from '@/services/router';
@@ -194,6 +199,16 @@ const App: React.FC = () => {
       }
     }).catch(() => {});
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  // Apply noindex SEO immediately on mount for 404 pages (soft-404 protection).
+  // This runs before runtimeSeoEnabled is true, so it won't be overwritten by
+  // updateMetaTags until the user interacts — at which point we guard against it.
+  useEffect(() => {
+    if (notFoundPath) {
+      applyNotFoundSeo(notFoundPath);
+    }
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
   const [seoLanding, setSeoLanding] = useState<SeoLandingId | null>(initialRoute.route.seoLanding || null);
   const [glossaryTerm, setGlossaryTerm] = useState<GlossaryTermId | null>(initialRoute.route.glossaryTerm || null);
   const [borderCrossing, setBorderCrossing] = useState<BorderCrossingId | null>(initialRoute.route.borderCrossing || null);
@@ -960,10 +975,14 @@ const App: React.FC = () => {
       setJobSlug(route.jobSlug || null);
       // Sync locale from URL
       setLocale(urlLocale);
-      // Update SEO meta tags
-      const seoKey = getSeoSection(route);
-      updateMetaTags(seoKey);
-      trackSectionView(seoKey);
+      // Update SEO meta tags — use 404-specific noindex for unrecognized routes
+      if (parsedNotFoundPath) {
+        applyNotFoundSeo(parsedNotFoundPath);
+      } else {
+        const seoKey = getSeoSection(route);
+        updateMetaTags(seoKey);
+        trackSectionView(seoKey);
+      }
       // Scroll to anchor fragment if present, otherwise scroll to top
       // Skip auto-scroll when returning to job-board list — JobBoard restores scroll itself
       const isJobBoardReturn = route.activeTab === 'job-board' && !route.jobSlug;
