@@ -623,6 +623,23 @@ async function sendEmailBatch(emails, apiKey) {
   return totalSent;
 }
 
+// ─── Issue number (real campaign count) ─────────────────────
+
+async function getNextIssueNumber() {
+  if (!db) return null;
+  try {
+    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
+    const doc = await metaRef.get();
+    const current = doc.exists ? (doc.data().issue_number || 0) : 0;
+    const next = current + 1;
+    await metaRef.set({ issue_number: next }, { merge: true });
+    return next;
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Issue number fetch failed:', e.message);
+    return null;
+  }
+}
+
 // ─── Log to Firestore ───────────────────────────────────────
 
 async function logSend(count, subject, status) {
@@ -753,6 +770,8 @@ async function main() {
   const featuredTool = FEATURED_TOOLS[toolIndex];
   const campaignId = `weekly_${new Date().toISOString().split('T')[0]}`;
   const featuredArticle = await pickFeaturedArticle();
+  const issueNumber = await getNextIssueNumber();
+  if (issueNumber) console.log(`📰 Issue #${issueNumber}`);
 
   // ── Preview mode ──
   if (mode === 'preview') {
@@ -784,6 +803,7 @@ async function main() {
       weeklyFact,
       metrics: loadDashboardMetrics(),
       locale,
+      issueNumber,
       unsubscribeUrl: `${BASE_URL}/?action=unsubscribe&email=preview@example.com`,
       resubscribeUrl: `${BASE_URL}/?action=resubscribe&email=preview@example.com`,
     });
@@ -880,6 +900,7 @@ async function main() {
       weeklyFact,
       metrics: loadDashboardMetrics(),
       locale,
+      issueNumber,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
     });

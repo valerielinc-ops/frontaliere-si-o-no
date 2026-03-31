@@ -142,13 +142,11 @@ function getWeekNumber() {
   return Math.ceil((diff / 86400000 + start.getDay() + 1) / 7);
 }
 
-function getIssueNumber() {
-  // Issue #1 was week 1 of 2025
-  const baseWeek = 1;
-  const baseYear = 2025;
+// Fallback: week-based issue number (used only when real count is unavailable)
+function getIssueNumberFallback() {
   const now = new Date();
-  const weeksSinceBase = Math.floor((now - new Date(baseYear, 0, 6)) / (7 * 86400000));
-  return Math.max(1, weeksSinceBase + baseWeek);
+  const weeksSinceBase = Math.floor((now - new Date(2025, 0, 6)) / (7 * 86400000));
+  return Math.max(1, weeksSinceBase + 1);
 }
 
 export const FEATURED_TOOLS = [
@@ -176,9 +174,9 @@ export const FEATURED_TOOLS = [
 
 // ── Section renderers ─────────────────────────────────────────
 
-function renderTopBar(locale) {
+function renderTopBar(locale, issueNumberOverride) {
   const weekNum = getWeekNumber();
-  const issueNum = getIssueNumber();
+  const issueNum = issueNumberOverride || getIssueNumberFallback();
   const now = new Date();
   const monthNames = {
     it: ['gen', 'feb', 'mar', 'apr', 'mag', 'giu', 'lug', 'ago', 'set', 'ott', 'nov', 'dic'],
@@ -499,7 +497,7 @@ export function buildNewsletter(data) {
   let html = '';
 
   // 1. Top bar
-  html += renderTopBar(locale);
+  html += renderTopBar(locale, data.issueNumber);
 
   // 2. Hero exchange rate
   if (data.exchangeRate) html += renderHeroExchangeRate({ ...data.exchangeRate, locale });
