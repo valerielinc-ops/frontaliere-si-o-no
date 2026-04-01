@@ -1,16 +1,16 @@
 {
   "key": "zurich-insurance-sede-ticino",
   "label": "Zurich",
-  "generatedAt": "2026-04-01T10:07:04.732Z",
+  "generatedAt": "2026-04-01T21:55:55.675Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 5697,
-  "avgDurationMs": 5697,
+  "durationMs": 6166,
+  "avgDurationMs": 6166,
   "durationHistory": [
-    5697
+    6166
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -394,9 +394,9 @@
         }
       },
       "sourceLang": "it",
-      "needsRetranslation": true,
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
