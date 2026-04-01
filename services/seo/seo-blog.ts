@@ -9943,6 +9943,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ambasciatore-italiano-ritorno-berna': {
+    title: 'Rientro dell\'ambasciatore italiano a Berna dopo polemiche sul caso | Frontaliere Ticino',
+    description: 'Gian Lorenzo Cornado si prepara a partecipare a una commemorazione a Crans-Montana, segnando un passo importante nel disgelo tra Italia e Svizzera. La cooperazi',
+    keywords: 'frontalieri, ticino, svizzera, italia, rientro, dell, ambasciatore, italiano',
+    ogTitle: 'Rientro dell\'ambasciatore italiano a Berna dopo polemiche',
+    ogDescription: 'Gian Lorenzo Cornado si prepara a partecipare a una commemorazione a Crans-Montana, segnando un passo importante nel disgelo tra Italia e Svizzera. La cooperazi',
+    canonicalPath: '/articoli-frontaliere/ambasciatore-italiano-ritorno-berna',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rientro dell'ambasciatore italiano a Berna dopo polemiche",
+      "description": "Gian Lorenzo Cornado si prepara a partecipare a una commemorazione a Crans-Montana, segnando un passo importante nel disgelo tra Italia e Svizzera. La cooperazi",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ambasciatore-italiano-ritorno-berna.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Veduta di un valico di frontiera in Ticino con Lago Maggiore sullo sfondo, scena realistica."
+      },
+      "datePublished": "2026-04-01T03:37:37+00:00",
+      "dateModified": "2026-04-01T03:37:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ambasciatore-italiano-ritorno-berna`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

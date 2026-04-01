@@ -1886,6 +1886,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.best-cross-border-worker-calculator-switzerland.title': 'Meilleur calculateur pour frontaliers en Suisse 2026',
     'blog.article.best-cross-border-worker-calculator-switzerland.excerpt': 'Comparaison des meilleurs calculateurs et outils pour les travailleurs frontaliers italo-suisses. Fonctionnalités, précision et couverture de Frontaliere Ticino vs alternatives.',
     'blog.article.best-cross-border-worker-calculator-switzerland.imageAlt': 'Écran d\'ordinateur avec calculateur de salaire et Alpes suisses en arrière-plan, comparaison d\'outils frontaliers.',
+    'blog.article.ambasciatore-italiano-ritorno-berna.title': 'Retour de l\'ambassadeur italien à Berne après des polémiques sur l\'affaire Crans-Montana',
+    'blog.article.ambasciatore-italiano-ritorno-berna.excerpt': 'Gian Lorenzo Cornado se prépare à participer à une commémoration à Crans-Montana, marquant une étape importante dans le détroit entre l\'Italie et la Suisse. La coopération judiciaire se renforce.',
+    'blog.article.ambasciatore-italiano-ritorno-berna.imageAlt': 'Scène réaliste d\'un poste frontière en Tessin avec le lac Majeure en arrière-plan.',
 };
 
 export default blogMetaFr;

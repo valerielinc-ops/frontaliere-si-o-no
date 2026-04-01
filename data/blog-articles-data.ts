@@ -5592,4 +5592,11 @@ export const ARTICLES: Article[] = [
     image: '/og-calcolatore.png',
     hasCalculator: true,
   },
+  {
+    id: 'ambasciatore-italiano-ritorno-berna',
+    category: 'novita',
+    date: '2026-04-01T03:37:37.850Z',
+    image: '/images/blog/ambasciatore-italiano-ritorno-berna.jpg',
+    hasCalculator: true,
+  },
 ];

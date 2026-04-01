@@ -1886,6 +1886,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.best-cross-border-worker-calculator-switzerland.title': 'Best Cross-Border Worker Calculator for Switzerland 2026',
     'blog.article.best-cross-border-worker-calculator-switzerland.excerpt': 'Compare the top calculators and tools for Swiss-Italian cross-border workers. Features, accuracy, and coverage of Frontaliere Ticino vs lohncomputer.ch, ibani, and more.',
     'blog.article.best-cross-border-worker-calculator-switzerland.imageAlt': 'Computer screen showing salary calculator with Swiss Alps in background, comparing cross-border worker tools.',
+    'blog.article.ambasciatore-italiano-ritorno-berna.title': 'Return of the Italian ambassador to Bern after controversy over the Crans-Montana case',
+    'blog.article.ambasciatore-italiano-ritorno-berna.excerpt': 'Gian Lorenzo Cornado is preparing to attend a commemoration in Crans-Montana, marking an important step in the thaw between Italy and Switzerland. Judicial cooperation is strengthening.',
+    'blog.article.ambasciatore-italiano-ritorno-berna.imageAlt': 'Realistic scene of a border crossing in Ticino with Lake Maggiore in the background.',
 };
 
 export default blogMetaEn;
