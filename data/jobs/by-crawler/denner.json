@@ -6,10 +6,10 @@
       "id": "denner-250d78c843ee",
       "slug": "stv-filialleiter-in-denner",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
-        "en": "stv-filialleiter-in-denner",
+        "it": "vice-capo-filiale-denner-spreitenbach",
+        "en": "deputy-branch-manager-denner-spreitenbach",
         "de": "stv-filialleiter-in-denner-spreitenbach",
-        "fr": "stv-filialleiter-in-denner"
+        "fr": "adjoint-e-responsable-de-succursale-denner-spreitenbach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -67,7 +67,8 @@
       "crawledAt": "2026-04-01T21:12:26.042Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "stv-filialleiter-in-denner-basel"
+        "stv-filialleiter-in-denner-basel",
+        "stv-filialleiter-in-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -86,10 +87,10 @@
       "id": "denner-b94288b99e79",
       "slug": "sachbearbeiter-in-transport-outbound-denner",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-transport-outbound-denner",
-        "en": "sachbearbeiter-in-transport-outbound-denner",
+        "it": "addetto-a-trasporto-outbound-denner-zurich",
+        "en": "transport-outbound-specialist-denner-zurich",
         "de": "sachbearbeiter-in-transport-outbound-denner-zurich",
-        "fr": "sachbearbeiter-in-transport-outbound-denner"
+        "fr": "specialiste-transport-outbound-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -159,7 +160,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-transport-outbound-denner"
+      ]
     },
     {
       "id": "denner-ff2c799107b7",
@@ -168,7 +172,7 @@
         "it": "student-in-come-ferienaushilfe-denner-mannedorf",
         "en": "student-in-als-ferienaushilfe-denner-mannedorf",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-comme-aide-d-ete-denner-mannedorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -245,10 +249,10 @@
       "id": "denner-7ebf32d9b97e",
       "slug": "verkaufer-in-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner",
+        "it": "venditore-denner-mannedorf",
+        "en": "salesperson-denner-mannedorf",
         "de": "verkaufer-in-denner-mannedorf",
-        "fr": "verkaufer-in-denner"
+        "fr": "vendeur-denner-mannedorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -306,7 +310,8 @@
       "crawledAt": "2026-04-01T21:12:25.398Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "verkaufer-in-denner-rubigen"
+        "verkaufer-in-denner-rubigen",
+        "verkaufer-in-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
