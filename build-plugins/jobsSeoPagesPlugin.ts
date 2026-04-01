@@ -574,8 +574,26 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         'st. moritz': 'Via Maistra 12', 'samedan': 'Plazzet 4', 'pontresina': 'Via Maistra 133',
         'walenstadt': 'Bahnhofstrasse 19', 'obervaz': 'Voa Principala 22',
         'ilanz': 'Via Centrala 2', 'thusis': 'Neudorfstrasse 60', 'poschiavo': 'Via da la Stazione 1',
-        // Ginevra (per Bracco Plan-les-Ouates)
+        // Ginevra
         'plan-les-ouates': 'Route de Saint-Julien 7',
+        'genève': 'Rue du Rhône 1', 'ginevra': 'Rue du Rhône 1', 'genf': 'Rue du Rhône 1', 'geneva': 'Rue du Rhône 1',
+        // Major Swiss cities outside Ticino/GR
+        'zürich': 'Bahnhofstrasse 1', 'zurich': 'Bahnhofstrasse 1', 'zurigo': 'Bahnhofstrasse 1',
+        'bern': 'Bundesplatz 1', 'berna': 'Bundesplatz 1',
+        'basel': 'Marktplatz 1', 'basilea': 'Marktplatz 1',
+        'lausanne': 'Place de la Palud 2', 'losanna': 'Place de la Palud 2',
+        'luzern': 'Bahnhofstrasse 1', 'lucerna': 'Bahnhofstrasse 1', 'lucerne': 'Bahnhofstrasse 1',
+        'st. gallen': 'Bahnhofplatz 1', 'san gallo': 'Bahnhofplatz 1',
+        'winterthur': 'Bahnhofplatz 1',
+        'zug': 'Bahnhofstrasse 1',
+        'aarau': 'Bahnhofstrasse 1',
+        'fribourg': 'Rue de Romont 1', 'friburgo': 'Rue de Romont 1',
+        'neuchâtel': 'Place du Port 1',
+        'schaffhausen': 'Bahnhofstrasse 1',
+        'solothurn': 'Hauptgasse 1',
+        'thun': 'Bahnhofstrasse 1',
+        'baden': 'Bahnhofstrasse 1',
+        'olten': 'Bahnhofstrasse 1',
       };
 
       /** Normalise a locality string to extract the core city name for lookup.
@@ -602,9 +620,56 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 
       /** Canton capital fallback — used as ultimate last resort */
       const CANTON_CAPITAL_ADDRESS: Record<string, string> = {
-        'TI': 'Piazza Governo', 'GR': 'Bahnhofstrasse 1', 'GE': 'Route de Saint-Julien 7',
+        'TI': 'Piazza Governo', 'GR': 'Bahnhofstrasse 1', 'GE': 'Rue du Rhône 1',
         'ZH': 'Bahnhofstrasse 1', 'BE': 'Bundesplatz 1', 'LU': 'Bahnhofstrasse 1',
         'VS': 'Place de la Planta 1', 'VD': 'Place de la Palud 2',
+        'BS': 'Marktplatz 1', 'SG': 'Bahnhofplatz 1', 'AG': 'Bahnhofstrasse 1',
+        'FR': 'Rue de Romont 1', 'NE': 'Place du Port 1', 'ZG': 'Bahnhofstrasse 1',
+        'SH': 'Bahnhofstrasse 1', 'SO': 'Hauptgasse 1', 'BL': 'Marktplatz 1',
+      };
+
+      /** City name → canton code for deriving addressRegion from location */
+      const CITY_TO_CANTON: Record<string, string> = {
+        // Ticino
+        'lugano': 'TI', 'bellinzona': 'TI', 'locarno': 'TI', 'mendrisio': 'TI', 'chiasso': 'TI',
+        'biasca': 'TI', 'agno': 'TI', 'manno': 'TI', 'stabio': 'TI', 'giubiasco': 'TI',
+        'ascona': 'TI', 'paradiso': 'TI', 'massagno': 'TI', 'cadenazzo': 'TI', 'mezzovico': 'TI',
+        'balerna': 'TI', 'bedano': 'TI', 'airolo': 'TI', 'faido': 'TI', 'rivera': 'TI',
+        // Graubünden
+        'chur': 'GR', 'coira': 'GR', 'davos': 'GR', 'st. moritz': 'GR', 'landquart': 'GR',
+        'ilanz': 'GR', 'thusis': 'GR', 'poschiavo': 'GR', 'samedan': 'GR',
+        // Major Swiss cities
+        'zürich': 'ZH', 'zurich': 'ZH', 'zurigo': 'ZH', 'winterthur': 'ZH', 'kloten': 'ZH',
+        'dübendorf': 'ZH', 'dietlikon': 'ZH',
+        'bern': 'BE', 'berna': 'BE', 'thun': 'BE', 'interlaken': 'BE',
+        'basel': 'BS', 'basilea': 'BS',
+        'genève': 'GE', 'ginevra': 'GE', 'genf': 'GE', 'geneva': 'GE', 'plan-les-ouates': 'GE',
+        'lausanne': 'VD', 'losanna': 'VD',
+        'luzern': 'LU', 'lucerna': 'LU', 'lucerne': 'LU',
+        'st. gallen': 'SG', 'san gallo': 'SG', 'gossau': 'SG',
+        'aarau': 'AG', 'baden': 'AG', 'lenzburg': 'AG',
+        'fribourg': 'FR', 'friburgo': 'FR',
+        'neuchâtel': 'NE',
+        'zug': 'ZG',
+        'schaffhausen': 'SH',
+        'solothurn': 'SO', 'olten': 'SO',
+        'frauenfeld': 'TG',
+        'sion': 'VS', 'brig': 'VS', 'visp': 'VS', 'sierre': 'VS', 'martigny': 'VS',
+      };
+
+      /** Derive canton code from job location/addressLocality, falling back to job.canton or 'TI' */
+      const deriveCanton = (job: any): string => {
+        const explicitCanton = String(job.canton || job.addressRegion || '').toUpperCase().trim();
+        if (explicitCanton && explicitCanton.length === 2 && /^[A-Z]{2}$/.test(explicitCanton)) return explicitCanton;
+        // Try to infer from city names
+        const candidates = [
+          ...normaliseCityName(String(job.addressLocality || '')),
+          ...normaliseCityName(String(job.location || '')),
+        ];
+        for (const c of candidates) {
+          if (CITY_TO_CANTON[c]) return CITY_TO_CANTON[c];
+        }
+        return 'TI';
       };
 
       /** Derive streetAddress from job data, company HQ, or city generic.
@@ -785,6 +850,13 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         return slugifyCompanyBuild(company);
       };
 
+      // Truncate string to ≤max chars at the last word boundary
+      const truncTitle = (s: string, max = 60): string => {
+        if (s.length <= max) return s;
+        const cut = s.lastIndexOf(' ', max - 1);
+        return (cut > 0 ? s.substring(0, cut) : s.substring(0, max - 1)) + '…';
+      };
+
       for (const job of validJobs) {
         const perLocaleSlug = {
           it: localizedSlug(job, 'it'),
@@ -798,9 +870,35 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const canonicalUrl = `${BASE_URL}${canonicalPath}`;
           const localizedTitle = String(job?.titleByLocale?.[locale] || job.title || '');
           const jobLocation = String(job.location || '').trim();
-          const title = jobLocation
-            ? `${localizedTitle} — ${job.company}, ${jobLocation} | ${localeCopy[locale].suffix}`
-            : `${localizedTitle} — ${job.company} | ${localeCopy[locale].suffix}`;
+          const TITLE_MAX = 60;
+          const title = (() => {
+            const suffix = localeCopy[locale].suffix;
+            // 1. Full format: title — company, city | suffix
+            if (jobLocation) {
+              const full = `${localizedTitle} — ${job.company}, ${jobLocation} | ${suffix}`;
+              if (full.length <= TITLE_MAX) return full;
+            }
+            // 2. Without city: title — company | suffix
+            const noCityFull = `${localizedTitle} — ${job.company} | ${suffix}`;
+            if (noCityFull.length <= TITLE_MAX) return noCityFull;
+            // 3. Without brand: title — company, city
+            if (jobLocation) {
+              const noBrand = `${localizedTitle} — ${job.company}, ${jobLocation}`;
+              if (noBrand.length <= TITLE_MAX) return noBrand;
+            }
+            // 4. Without brand or city: title — company
+            const noBrandNoCity = `${localizedTitle} — ${job.company}`;
+            if (noBrandNoCity.length <= TITLE_MAX) return noBrandNoCity;
+            // 5. Truncate the job title to fit within "truncTitle — company"
+            const companySuffix = ` — ${job.company}`;
+            const availableForTitle = TITLE_MAX - companySuffix.length;
+            if (availableForTitle >= 15) {
+              const truncatedTitle = truncTitle(localizedTitle, availableForTitle);
+              return `${truncatedTitle}${companySuffix}`;
+            }
+            // 6. Last resort: just truncate the whole thing
+            return truncTitle(localizedTitle, TITLE_MAX);
+          })();
           const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
           const localizedDescription = normalizeText(localizedDescriptionRaw);
           const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
@@ -828,10 +926,20 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const metaBody = cleanDesc.length > 40 ? ` ${cleanDesc}` : '';
           // Assemble: intro + salary + body, truncated to 160 chars; fallback to body if over limit
           const descWithSalary = `${metaIntro}${metaSalarySnippet}${metaCta}`;
+          // Truncate meta description at word boundary, avoiding trailing hyphens/prepositions
+          const truncMetaDesc = (s: string, max = 160): string => {
+            if (s.length <= max) return s;
+            let cut = s.lastIndexOf(' ', max - 1);
+            if (cut <= 0) cut = max - 1;
+            let result = s.substring(0, cut).trimEnd();
+            // Strip trailing hyphens, dashes, and common prepositions
+            result = result.replace(/[\s\-–—]+$/, '').replace(/\s+(di|da|per|a|in|con|su|del|della|dei|delle|at|in|for|of|the|an|bei|für|im|von|chez|pour|au|du|de|des|les)\s*$/i, '');
+            return result + '...';
+          };
           // Decode HTML entities from source data to prevent double-escaping in esc()
           const description = decodeHtmlEntities(descWithSalary.length <= 160
             ? descWithSalary
-            : `${metaIntro}${metaSalarySnippet}${metaBody}`.slice(0, 160));
+            : truncMetaDesc(`${metaIntro}${metaSalarySnippet}${metaBody}`));
           const descriptionParagraphs = splitIntoParagraphs(localizedDescriptionRaw).slice(0, 10);
           const requirements = firstItems(job?.requirementsByLocale?.[locale] || job?.requirements, 8);
           const canonicalLocale = readCanonicalByLocale(job, locale);
@@ -934,7 +1042,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
                   : 'non indicato');
           const rawLocality = String(job.addressLocality || '').trim();
           const addressLocality = isValidAddress(rawLocality) ? rawLocality : String(job.location || 'Ticino');
-          const addressRegion = String(job.canton || 'TI');
+          const addressRegion = deriveCanton(job);
           const addressCountry = String(job.addressCountry || 'CH');
           const rawPostal = String(job.postalCode || '').trim();
         const postalCode = deriveJobPostalCode(job);
@@ -1316,12 +1424,6 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       }
 
       /* ── Company landing pages ────────────────────────────────── */
-      // Truncate title to ≤65 chars at the last word boundary (Bing display limit)
-      const truncTitle = (s: string, max = 65): string => {
-        if (s.length <= max) return s;
-        const cut = s.lastIndexOf(' ', max - 1);
-        return (cut > 0 ? s.substring(0, cut) : s.substring(0, max - 1)) + '…';
-      };
       const companyCopy: Record<'it' | 'en' | 'de' | 'fr', {
         title: (companyName: string) => string;
         description: (companyName: string, count: number) => string;
@@ -1331,7 +1433,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
         editorial: string;
       }> = {
         it: {
-          title: (companyName: string) => truncTitle(`${companyName} - Offerte di Lavoro in Ticino | Frontaliere Ticino`),
+          title: (companyName: string) => truncTitle(`${companyName} - Offerte di Lavoro in Ticino | Frontaliere Ticino`, 65),
           description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in Ticino. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
           heading: (companyName: string) => `${companyName} - offerte di lavoro in Ticino`,
           viewAll: 'Vedi tutte le offerte',
@@ -1339,7 +1441,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'Questa pagina raccoglie le posizioni aperte pubblicate direttamente sul sito aziendale. Gli annunci vengono aggiornati quotidianamente dal nostro crawler automatico e collegano alla pagina di candidatura ufficiale. Se non trovi posizioni attive, l\'azienda potrebbe non avere ruoli aperti in Ticino al momento — salva la pagina per ricevere aggiornamenti.',
         },
         en: {
-          title: (companyName: string) => truncTitle(`${companyName} jobs in Ticino | Frontaliere Ticino`),
+          title: (companyName: string) => truncTitle(`${companyName} jobs in Ticino | Frontaliere Ticino`, 65),
           description: (companyName: string, count: number) => `Browse ${count} open roles at ${companyName} in Ticino. Review active listings, locations and official application links.`,
           heading: (companyName: string) => `${companyName} jobs in Ticino`,
           viewAll: 'View all jobs',
@@ -1347,7 +1449,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'This page lists positions published directly on the company\'s career portal. Listings are refreshed daily by our automated crawler and link to the official application page. If no roles are shown, the company may not have open positions in Ticino right now — bookmark this page to stay updated.',
         },
         de: {
-          title: (companyName: string) => truncTitle(`${companyName} Jobs im Tessin | Frontaliere Ticino`),
+          title: (companyName: string) => truncTitle(`${companyName} Jobs im Tessin | Frontaliere Ticino`, 65),
           description: (companyName: string, count: number) => `Entdecke ${count} offene Stellen bei ${companyName} im Tessin. Sieh aktive Jobs, Standorte und offizielle Bewerbungslinks.`,
           heading: (companyName: string) => `${companyName} Jobs im Tessin`,
           viewAll: 'Alle Stellen ansehen',
@@ -1355,7 +1457,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen im Tessin.',
         },
         fr: {
-          title: (companyName: string) => truncTitle(`${companyName} - Offres d'emploi au Tessin | Frontaliere Ticino`),
+          title: (companyName: string) => truncTitle(`${companyName} - Offres d'emploi au Tessin | Frontaliere Ticino`, 65),
           description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} au Tessin. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
           heading: (companyName: string) => `${companyName} - offres d'emploi au Tessin`,
           viewAll: 'Voir toutes les offres',
