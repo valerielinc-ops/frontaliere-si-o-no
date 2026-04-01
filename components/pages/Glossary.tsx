@@ -3,6 +3,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Search, ChevronDown, ChevronUp, Tag } from 'lucide-react';
 import type { GlossaryTermId } from '@/services/router';
+import DataFreshness from '@/components/shared/DataFreshness';
 
 /* ─── Glossary JSON-LD Structured Data ───────────────────────────────────
  * Injects a DefinedTermSet with individual DefinedTerm entries.
@@ -163,6 +164,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
           )}
         </div>
         <p className="text-indigo-100 text-sm">{t('glossary.subtitle')}</p>
+        <DataFreshness lastUpdated="2026-04" source={t('freshness.source.redazione')} variant="badge" />
       </div>
 
       {/* H1 for individual term pages */}

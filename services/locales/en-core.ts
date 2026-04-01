@@ -837,6 +837,12 @@ const enCore: Record<string, string> = {
     'feedback.noReports': 'No reports yet',
     'dataFreshness.updated': 'Updated',
     'dataFreshness.source': 'Source',
+    'freshness.source.cantonTicino': 'Canton Ticino Tax Office (DFE)',
+    'freshness.source.bfs': 'BFS — Swiss Federal Statistical Office',
+    'freshness.source.ufficiMigrazione': 'SEM — State Secretariat for Migration',
+    'freshness.source.redazione': 'Frontaliere Ticino Editorial Team',
+    'freshness.source.agenziaEntrate': 'Italian Revenue Agency',
+    'freshness.source.ufsp': 'FOPH — Federal Office of Public Health',
     'common.day': 'day',
     'jobs.compare': 'Compare',
     'comparators.ral': 'Net Salary',
@@ -2159,7 +2165,7 @@ Rules:
     'seoContent.confronti.check5': 'Bank account and mortgage rate comparison for cross-border workers',
 
     'seoContent.fisco.title': 'Taxes and Fiscal Topics for Cross-Border Workers',
-    'seoContent.fisco.subtitle': 'Everything about cross-border taxation: 2026 new agreement, tax returns, fiscal deadlines and applicable deductions.',
+    'seoContent.fisco.subtitle': 'Based on Canton Ticino tax data (DFE, 2026) and Italian Revenue Agency (Circular 25/E, 2024): cross-border taxation, 2026 new agreement, tax returns, fiscal deadlines and applicable deductions.',
     'seoContent.fisco.feature1.title': 'Tax return',
     'seoContent.fisco.feature1.desc': 'Step-by-step guide to filing your Italian income tax return.',
     'seoContent.fisco.feature2.title': 'Tax calendar',
@@ -2175,7 +2181,7 @@ Rules:
     'seoContent.fisco.check5': 'Tax credit calculation and Canton Ticino rebates tracker',
 
     'seoContent.guida.title': 'Complete Guide for Swiss Cross-Border Workers',
-    'seoContent.guida.subtitle': 'From A to Z: permits, first day, contracts, glossary and everything you need to work in Switzerland from Italy.',
+    'seoContent.guida.subtitle': 'From A to Z per SEM (State Secretariat for Migration, 2026): permits, first day, contracts, glossary and everything you need to work in Switzerland from Italy.',
     'seoContent.guida.feature1.title': 'Permit comparison',
     'seoContent.guida.feature1.desc': 'G Permit vs B Permit: which to choose and why.',
     'seoContent.guida.feature2.title': 'First day',
@@ -2191,7 +2197,7 @@ Rules:
     'seoContent.guida.check5': 'Guide to employment contracts and G/B permits',
 
     'seoContent.vita.title': 'Daily Life as a Cross-Border Worker',
-    'seoContent.vita.subtitle': 'Practical tips for everyday life: groceries, transport, mobile operators, cost of living and cross-border community.',
+    'seoContent.vita.subtitle': 'Practical tips based on BFS (Swiss Federal Statistical Office, 2025) and FOPH data: groceries, transport, mobile operators, cost of living and cross-border community.',
     'seoContent.vita.feature1.title': 'CH vs IT cost of living',
     'seoContent.vita.feature1.desc': 'Compare rent, groceries, transport prices between the two countries.',
     'seoContent.vita.feature2.title': 'Mobile operators',
@@ -2207,7 +2213,7 @@ Rules:
     'seoContent.vita.check5': 'Community and forum for cross-border workers',
 
     'seoContent.stats.title': 'Cross-Border Statistics and Data',
-    'seoContent.stats.subtitle': 'Data and statistics about the cross-border community: border traffic, average salaries, CHF-EUR exchange trends.',
+    'seoContent.stats.subtitle': 'BFS data (Grenzgängerstatistik, Q4 2025) and FSO on the cross-border community: border traffic, average salaries, CHF-EUR exchange trends.',
     'seoContent.stats.feature1.title': 'Border traffic',
     'seoContent.stats.feature1.desc': 'Real-time monitoring of major border crossings.',
     'seoContent.stats.feature2.title': 'Average salaries',

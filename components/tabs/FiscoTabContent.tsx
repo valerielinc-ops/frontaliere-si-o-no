@@ -6,6 +6,7 @@ import { useTabContent } from '@/services/TabContentContext';
 import { SkeletonFisco } from '@/components/shared/Skeletons';
 import AiExtractableTable from '@/components/shared/AiExtractableTable';
 import FaqAccordion from '@/components/shared/FaqAccordion';
+import DataFreshness from '@/components/shared/DataFreshness';
 
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
@@ -28,6 +29,7 @@ export default function FiscoTabContent() {
   return (
     <div className="max-w-7xl mx-auto">
       <h1 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">{t('seoContent.fisco.title')}</h1>
+      <DataFreshness lastUpdated="2026-04" source={t('freshness.source.cantonTicino')} sourceUrl="https://www4.ti.ch/dfe/dc" variant="badge" />
       <Suspense fallback={<div className="min-h-[44px]" />}>
         <SeoContentBlock context="fisco" />
       </Suspense>

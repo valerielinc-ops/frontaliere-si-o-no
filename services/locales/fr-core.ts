@@ -837,6 +837,12 @@ const frCore: Record<string, string> = {
     'feedback.noReports': 'Aucun signalement pour le moment',
     'dataFreshness.updated': 'Mis à jour',
     'dataFreshness.source': 'Source',
+    'freshness.source.cantonTicino': 'Canton du Tessin DFE — Division des contributions',
+    'freshness.source.bfs': 'OFS — Office fédéral de la statistique',
+    'freshness.source.ufficiMigrazione': 'SEM — Secrétariat d\'État aux migrations',
+    'freshness.source.redazione': 'Rédaction Frontaliere Ticino',
+    'freshness.source.agenziaEntrate': 'Agenzia delle Entrate (IT)',
+    'freshness.source.ufsp': 'OFSP — Office fédéral de la santé publique',
     'common.day': 'jour',
     'jobs.compare': 'Comparer',
     'comparators.ral': 'Salaire Net',
@@ -2159,7 +2165,7 @@ Règles :
     'seoContent.confronti.check5': 'Comparaison comptes bancaires et taux hypothécaires pour frontaliers',
 
     'seoContent.fisco.title': 'Impôts et Fiscalité pour Frontaliers Suisse-Italie',
-    'seoContent.fisco.subtitle': 'Tout sur la fiscalité frontalière : nouvel accord 2026, déclaration d\'impôts, échéances fiscales et déductions applicables.',
+    'seoContent.fisco.subtitle': 'Selon les données du Canton du Tessin (DFE, 2026) et de l\'Agenzia delle Entrate (Circulaire 25/E, 2024) : fiscalité frontalière, nouvel accord, déclaration d\'impôts, échéances fiscales et déductions applicables.',
     'seoContent.fisco.feature1.title': 'Déclaration d\'impôts',
     'seoContent.fisco.feature1.desc': 'Guide étape par étape pour remplir votre déclaration fiscale italienne.',
     'seoContent.fisco.feature2.title': 'Calendrier fiscal',
@@ -2175,7 +2181,7 @@ Règles :
     'seoContent.fisco.check5': 'Calcul crédit d\'impôt et suivi ristournes Canton Tessin',
 
     'seoContent.guida.title': 'Guide Complet pour Frontaliers Suisses',
-    'seoContent.guida.subtitle': 'De A à Z : permis, premier jour, contrats, glossaire et tout ce qu\'il faut pour travailler en Suisse depuis l\'Italie.',
+    'seoContent.guida.subtitle': 'De A à Z selon le SEM (Secrétariat d\'État aux migrations, 2026) : permis, premier jour, contrats, glossaire et tout ce qu\'il faut pour travailler en Suisse depuis l\'Italie.',
     'seoContent.guida.feature1.title': 'Comparaison permis',
     'seoContent.guida.feature1.desc': 'Permis G vs B : lequel choisir et pourquoi.',
     'seoContent.guida.feature2.title': 'Premier jour',
@@ -2191,7 +2197,7 @@ Règles :
     'seoContent.guida.check5': 'Guide des contrats de travail et permis G/B',
 
     'seoContent.vita.title': 'Vie Quotidienne du Frontalier',
-    'seoContent.vita.subtitle': 'Conseils pratiques pour le quotidien : courses, transports, opérateurs mobiles, coût de la vie et communauté frontalière.',
+    'seoContent.vita.subtitle': 'Conseils pratiques basés sur les données OFS (Office fédéral de la statistique, 2025) et OFSP : courses, transports, opérateurs mobiles, coût de la vie et communauté frontalière.',
     'seoContent.vita.feature1.title': 'Coût de la vie CH vs IT',
     'seoContent.vita.feature1.desc': 'Comparez loyer, courses, transports entre les deux pays.',
     'seoContent.vita.feature2.title': 'Opérateurs mobiles',
@@ -2207,7 +2213,7 @@ Règles :
     'seoContent.vita.check5': 'Communauté et forum pour travailleurs frontaliers',
 
     'seoContent.stats.title': 'Statistiques et Données Frontalières',
-    'seoContent.stats.subtitle': 'Données et statistiques sur la communauté frontalière : trafic aux frontières, salaires moyens, tendances du change CHF-EUR.',
+    'seoContent.stats.subtitle': 'Données OFS (Grenzgängerstatistik, T4 2025) et OFS sur la communauté frontalière : trafic aux frontières, salaires moyens, tendances du change CHF-EUR.',
     'seoContent.stats.feature1.title': 'Trafic frontalier',
     'seoContent.stats.feature1.desc': 'Suivi en temps réel des principaux postes-frontière.',
     'seoContent.stats.feature2.title': 'Salaires moyens',

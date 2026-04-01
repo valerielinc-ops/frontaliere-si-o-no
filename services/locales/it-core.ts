@@ -888,6 +888,12 @@ const translations: Record<string, string> = {
     // --- InputCard ---
     'dataFreshness.updated': 'Aggiornato',
     'dataFreshness.source': 'Fonte',
+    'freshness.source.cantonTicino': 'Canton Ticino DFE — Divisione delle Contribuzioni',
+    'freshness.source.bfs': 'BFS — Ufficio federale di statistica',
+    'freshness.source.ufficiMigrazione': 'SEM — Segreteria di Stato della migrazione',
+    'freshness.source.redazione': 'Redazione Frontaliere Ticino',
+    'freshness.source.agenziaEntrate': 'Agenzia delle Entrate',
+    'freshness.source.ufsp': 'UFSP — Ufficio federale della sanità pubblica',
     'common.day': 'giorno',
 
     // --- Jobs ---
@@ -2248,7 +2254,7 @@ Regole:
     'seoContent.confronti.check5': 'Comparazione conti bancari e tassi ipotecari per frontalieri',
 
     'seoContent.fisco.title': 'Fisco e Tasse per Frontalieri Svizzera-Italia',
-    'seoContent.fisco.subtitle': 'Tutto sulla tassazione frontaliera: nuovo accordo 2026, dichiarazione dei redditi, scadenze fiscali e deduzioni applicabili.',
+    'seoContent.fisco.subtitle': 'Secondo i dati del Canton Ticino (DFE, 2026) e dell\'Agenzia delle Entrate (Circolare 25/E, 2024): tutto sulla tassazione frontaliera, nuovo accordo, dichiarazione dei redditi, scadenze fiscali e deduzioni applicabili.',
     'seoContent.fisco.feature1.title': 'Dichiarazione redditi',
     'seoContent.fisco.feature1.desc': 'Guida passo-passo per compilare il 730 o Modello Redditi PF.',
     'seoContent.fisco.feature2.title': 'Calendario fiscale',
@@ -2264,7 +2270,7 @@ Regole:
     'seoContent.fisco.check5': 'Calcolo credito d\'imposta e tracker ristorni Canton Ticino',
 
     'seoContent.guida.title': 'Guida Completa per Frontalieri Svizzera',
-    'seoContent.guida.subtitle': 'Dalla A alla Z: permessi, primo giorno, contratti, glossario e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
+    'seoContent.guida.subtitle': 'Dalla A alla Z secondo la SEM (Segreteria di Stato della migrazione, 2026): permessi, primo giorno, contratti, glossario e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
     'seoContent.guida.feature1.title': 'Confronto permessi',
     'seoContent.guida.feature1.desc': 'Permesso G vs B: quale scegliere e perché.',
     'seoContent.guida.feature2.title': 'Primo giorno',
@@ -2280,7 +2286,7 @@ Regole:
     'seoContent.guida.check5': 'Guida ai contratti di lavoro e permessi G/B',
 
     'seoContent.vita.title': 'Vita Quotidiana del Frontaliere',
-    'seoContent.vita.subtitle': 'Consigli pratici per la vita di tutti i giorni: spesa, trasporti, operatori telefonici, costo vita e comunità frontaliera.',
+    'seoContent.vita.subtitle': 'Consigli pratici basati su dati BFS (Ufficio federale di statistica, 2025) e UFSP: spesa, trasporti, operatori telefonici, costo vita e comunità frontaliera.',
     'seoContent.vita.feature1.title': 'Costo vita CH vs IT',
     'seoContent.vita.feature1.desc': 'Confronta prezzi di affitto, spesa, trasporti tra le due nazioni.',
     'seoContent.vita.feature2.title': 'Operatori telefonici',
@@ -2296,7 +2302,7 @@ Regole:
     'seoContent.vita.check5': 'Comunità e forum per lavoratori frontalieri',
 
     'seoContent.stats.title': 'Statistiche e Dati Frontalieri',
-    'seoContent.stats.subtitle': 'Dati e statistiche sulla comunità frontaliera: traffico valichi, stipendi medi, andamento cambio CHF-EUR.',
+    'seoContent.stats.subtitle': 'Dati BFS (Grenzgängerstatistik, IV trim. 2025) e UST sulla comunità frontaliera: traffico valichi, stipendi medi, andamento cambio CHF-EUR.',
     'seoContent.stats.feature1.title': 'Traffico valichi',
     'seoContent.stats.feature1.desc': 'Monitoraggio in tempo reale dei principali passaggi di frontiera.',
     'seoContent.stats.feature2.title': 'Stipendi medi',

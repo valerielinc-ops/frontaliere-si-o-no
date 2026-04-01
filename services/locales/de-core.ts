@@ -837,6 +837,12 @@ const deCore: Record<string, string> = {
     'feedback.noReports': 'Noch keine Meldungen',
     'dataFreshness.updated': 'Aktualisiert',
     'dataFreshness.source': 'Quelle',
+    'freshness.source.cantonTicino': 'Kanton Tessin DFE — Steuerverwaltung',
+    'freshness.source.bfs': 'BFS — Bundesamt für Statistik',
+    'freshness.source.ufficiMigrazione': 'SEM — Staatssekretariat für Migration',
+    'freshness.source.redazione': 'Redaktion Frontaliere Ticino',
+    'freshness.source.agenziaEntrate': 'Agenzia delle Entrate (IT)',
+    'freshness.source.ufsp': 'BAG — Bundesamt für Gesundheit',
     'common.day': 'Tag',
     'jobs.compare': 'Vergleichen',
     'comparators.ral': 'Nettogehalt',
@@ -2159,7 +2165,7 @@ Regeln:
     'seoContent.confronti.check5': 'Bankkonto- und Hypothekenzinsvergleich für Grenzgänger',
 
     'seoContent.fisco.title': 'Steuern und Fiskales für Grenzgänger Schweiz-Italien',
-    'seoContent.fisco.subtitle': 'Alles über die Grenzgängerbesteuerung: neues Abkommen 2026, Steuererklärung, Fristen und anwendbare Abzüge.',
+    'seoContent.fisco.subtitle': 'Gemäss Daten des Kantons Tessin (DFE, 2026) und der Agenzia delle Entrate (Rundschreiben 25/E, 2024): Grenzgängerbesteuerung, neues Abkommen, Steuererklärung, Fristen und anwendbare Abzüge.',
     'seoContent.fisco.feature1.title': 'Steuererklärung',
     'seoContent.fisco.feature1.desc': 'Schritt-für-Schritt-Anleitung zur italienischen Einkommensteuererklärung.',
     'seoContent.fisco.feature2.title': 'Steuerkalender',
@@ -2175,7 +2181,7 @@ Regeln:
     'seoContent.fisco.check5': 'Steuergutschrift-Berechnung und Kanton Tessin Rückerstattungs-Tracker',
 
     'seoContent.guida.title': 'Vollständige Anleitung für Schweizer Grenzgänger',
-    'seoContent.guida.subtitle': 'Von A bis Z: Bewilligungen, erster Tag, Verträge, Glossar und alles, was Sie brauchen, um von Italien aus in der Schweiz zu arbeiten.',
+    'seoContent.guida.subtitle': 'Von A bis Z gemäss SEM (Staatssekretariat für Migration, 2026): Bewilligungen, erster Tag, Verträge, Glossar und alles, was Sie brauchen, um von Italien aus in der Schweiz zu arbeiten.',
     'seoContent.guida.feature1.title': 'Bewilligungsvergleich',
     'seoContent.guida.feature1.desc': 'G-Bewilligung vs B-Bewilligung: welche wählen und warum.',
     'seoContent.guida.feature2.title': 'Erster Tag',
@@ -2191,7 +2197,7 @@ Regeln:
     'seoContent.guida.check5': 'Anleitung zu Arbeitsverträgen und G/B-Bewilligungen',
 
     'seoContent.vita.title': 'Alltag als Grenzgänger',
-    'seoContent.vita.subtitle': 'Praktische Tipps für den Alltag: Einkauf, Transport, Mobilfunke, Lebenshaltungskosten und Grenzgänger-Gemeinschaft.',
+    'seoContent.vita.subtitle': 'Praktische Tipps basierend auf BFS-Daten (Bundesamt für Statistik, 2025) und BAG: Einkauf, Transport, Mobilfunk, Lebenshaltungskosten und Grenzgänger-Gemeinschaft.',
     'seoContent.vita.feature1.title': 'Lebenshaltungskosten CH vs IT',
     'seoContent.vita.feature1.desc': 'Vergleichen Sie Miete, Einkauf, Transport zwischen beiden Ländern.',
     'seoContent.vita.feature2.title': 'Mobilfunkanbieter',
@@ -2207,7 +2213,7 @@ Regeln:
     'seoContent.vita.check5': 'Gemeinschaft und Forum für Grenzgänger',
 
     'seoContent.stats.title': 'Grenzgänger-Statistiken und Daten',
-    'seoContent.stats.subtitle': 'Daten und Statistiken über die Grenzgänger-Gemeinschaft: Grenzverkehr, Durchschnittslöhne, CHF-EUR Kursentwicklung.',
+    'seoContent.stats.subtitle': 'BFS-Daten (Grenzgängerstatistik, Q4 2025) und BFS über die Grenzgänger-Gemeinschaft: Grenzverkehr, Durchschnittslöhne, CHF-EUR Kursentwicklung.',
     'seoContent.stats.feature1.title': 'Grenzverkehr',
     'seoContent.stats.feature1.desc': 'Echtzeit-Überwachung der wichtigsten Grenzübergänge.',
     'seoContent.stats.feature2.title': 'Durchschnittslöhne',
