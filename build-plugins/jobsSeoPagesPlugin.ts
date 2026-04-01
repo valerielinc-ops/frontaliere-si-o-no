@@ -9,7 +9,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, buildFlatRedirect, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, buildFlatRedirect, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET } from './constants';
 import { CRAWLED_COMPANY_LOGOS } from '../services/jobDataNormalization';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
 import {
@@ -122,7 +122,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         readingLabel: string;
       }> = {
         it: {
-          suffix: 'Lavoro in Ticino',
+          suffix: 'Frontaliere Ticino',
           sectionName: 'Cerca lavoro in Ticino',
           descriptionLabel: 'Descrizione',
           applyNow: 'Vai alla candidatura',
@@ -146,7 +146,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           readingLabel: 'Tempo di lettura',
         },
         en: {
-          suffix: 'Jobs in Ticino',
+          suffix: 'Frontaliere Ticino',
           sectionName: 'Find jobs in Ticino',
           descriptionLabel: 'Description',
           applyNow: 'Apply now',
@@ -170,7 +170,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           readingLabel: 'Reading time',
         },
         de: {
-          suffix: 'Jobs im Tessin',
+          suffix: 'Frontaliere Ticino',
           sectionName: 'Jobs im Tessin',
           descriptionLabel: 'Beschreibung',
           applyNow: 'Jetzt bewerben',
@@ -194,7 +194,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           readingLabel: 'Lesezeit',
         },
         fr: {
-          suffix: 'Emplois au Tessin',
+          suffix: 'Frontaliere Ticino',
           sectionName: 'Trouver un emploi au Tessin',
           descriptionLabel: 'Description',
           applyNow: 'Postuler',
@@ -716,29 +716,29 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         editorial: string;
       }> = {
         it: {
-          title: (name: string) => `Offerte di lavoro ${name} in Ticino | Frontaliere Ticino`,
-          description: (name: string, count: number) => `Scopri ${count} annunci di lavoro attivi per ${name} in Ticino. Apri le offerte aggiornate, confronta aziende e vai subito alla candidatura.`,
+          title: (name: string) => `Offerte di lavoro ${name} in Ticino - Posizioni aperte oggi | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ offerte di lavoro ${name} in Ticino aggiornate ogni giorno. Annunci raccolti dai siti ufficiali delle aziende ticinesi con link diretto alla candidatura.`,
           heading: (name: string) => `Lavoro ${name} in Ticino`,
           openListing: 'Apri il job board completo',
           editorial: 'Gli annunci di lavoro sono raccolti direttamente dai siti ufficiali delle aziende ticinesi e aggiornati quotidianamente. Ogni offerta rimanda alla pagina di candidatura originale del datore di lavoro. Il job board copre tutti i settori presenti in Ticino: sanità, finanza, tecnologia, ingegneria, commercio e amministrazione.',
         },
         en: {
-          title: (name: string) => `${name} jobs in Ticino | Frontaliere Ticino`,
-          description: (name: string, count: number) => `Browse ${count} active job listings for ${name} in Ticino. Open the latest roles, compare employers and jump to the original application page.`,
+          title: (name: string) => `${name} jobs in Ticino - Open positions today | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ ${name} job openings in Ticino updated daily. Listings sourced from official Swiss employer career pages with direct application links.`,
           heading: (name: string) => `${name} jobs in Ticino`,
           openListing: 'Open the full job board',
           editorial: 'Job listings are sourced directly from official company career pages in Ticino and refreshed daily. Every listing links to the employer\'s original application page. The job board covers all sectors present in Ticino: healthcare, finance, technology, engineering, retail, and administration.',
         },
         de: {
-          title: (name: string) => `${name} Jobs im Tessin | Frontaliere Ticino`,
-          description: (name: string, count: number) => `Entdecke ${count} aktive Stellenanzeigen fur ${name} im Tessin. Offne aktuelle Jobs, vergleiche Arbeitgeber und springe direkt zur Bewerbung.`,
+          title: (name: string) => `${name} Jobs im Tessin - Offene Stellen heute | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ aktuelle ${name} Stellenangebote im Tessin, taglich aktualisiert. Direkt von offiziellen Karriereportalen Tessiner Unternehmen mit Bewerbungslink.`,
           heading: (name: string) => `${name} Jobs im Tessin`,
           openListing: 'Komplettes Job Board offnen',
           editorial: 'Stellenanzeigen werden direkt von den offiziellen Karriereseiten der Tessiner Unternehmen bezogen und täglich aktualisiert. Jedes Inserat verlinkt zur originalen Bewerbungsseite des Arbeitgebers. Das Job Board deckt alle im Tessin vertretenen Branchen ab: Gesundheit, Finanzen, Technologie, Ingenieurwesen, Handel und Verwaltung.',
         },
         fr: {
-          title: (name: string) => `Offres d'emploi ${name} au Tessin | Frontaliere Ticino`,
-          description: (name: string, count: number) => `Consultez ${count} offres d'emploi actives pour ${name} au Tessin. Ouvrez les annonces a jour, comparez les employeurs et accedez directement a la candidature.`,
+          title: (name: string) => `Offres d'emploi ${name} au Tessin - Postes ouverts | Frontaliere Ticino`,
+          description: (name: string, count: number) => `${count}+ offres d'emploi ${name} au Tessin mises a jour quotidiennement. Annonces provenant des portails officiels des entreprises tessinoises avec lien de candidature.`,
           heading: (name: string) => `Emploi ${name} au Tessin`,
           openListing: 'Ouvrir le job board complet',
           editorial: 'Les offres d\'emploi proviennent directement des portails carrière officiels des entreprises tessinoises et sont actualisées quotidiennement. Chaque annonce renvoie à la page de candidature originale de l\'employeur. Le job board couvre tous les secteurs présents au Tessin : santé, finance, technologie, ingénierie, commerce et administration.',
@@ -797,7 +797,10 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const canonicalPath = withSlash(relPath);
           const canonicalUrl = `${BASE_URL}${canonicalPath}`;
           const localizedTitle = String(job?.titleByLocale?.[locale] || job.title || '');
-          const title = `${localizedTitle} — ${job.company} | ${localeCopy[locale].suffix}`;
+          const jobLocation = String(job.location || '').trim();
+          const title = jobLocation
+            ? `${localizedTitle} — ${job.company}, ${jobLocation} | ${localeCopy[locale].suffix}`
+            : `${localizedTitle} — ${job.company} | ${localeCopy[locale].suffix}`;
           const localizedDescriptionRaw = String(job?.descriptionByLocale?.[locale] || job.description || '');
           const localizedDescription = normalizeText(localizedDescriptionRaw);
           const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
@@ -1234,6 +1237,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
 ${hreflangHtml}
 ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -1326,7 +1330,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
         editorial: string;
       }> = {
         it: {
-          title: (companyName: string) => truncTitle(`Offerte di lavoro ${companyName} in Ticino | Frontaliere Ticino`),
+          title: (companyName: string) => truncTitle(`${companyName} - Offerte di Lavoro in Ticino | Frontaliere Ticino`),
           description: (companyName: string, count: number) => `Scopri ${count} posizioni aperte presso ${companyName} in Ticino. Consulta gli annunci attivi, sedi e link ufficiali di candidatura.`,
           heading: (companyName: string) => `${companyName} - offerte di lavoro in Ticino`,
           viewAll: 'Vedi tutte le offerte',
@@ -1350,7 +1354,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           editorial: 'Auf dieser Seite finden Sie Stellen, die direkt auf der Karriereseite des Unternehmens veröffentlicht wurden. Die Angebote werden täglich von unserem automatischen Crawler aktualisiert und verlinken zur offiziellen Bewerbungsseite. Wenn keine Stellen angezeigt werden, gibt es derzeit möglicherweise keine offenen Positionen im Tessin.',
         },
         fr: {
-          title: (companyName: string) => truncTitle(`Offres d'emploi ${companyName} au Tessin | Frontaliere Ticino`),
+          title: (companyName: string) => truncTitle(`${companyName} - Offres d'emploi au Tessin | Frontaliere Ticino`),
           description: (companyName: string, count: number) => `Consultez ${count} postes ouverts chez ${companyName} au Tessin. Retrouvez les annonces actives, lieux et liens officiels de candidature.`,
           heading: (companyName: string) => `${companyName} - offres d'emploi au Tessin`,
           viewAll: 'Voir toutes les offres',
@@ -1463,6 +1467,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
 ${hreflangHtml}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${organizationLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -1729,6 +1734,7 @@ ${(() => {
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -1888,6 +1894,7 @@ ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}
     <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -2033,6 +2040,7 @@ ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}
     <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -2180,6 +2188,7 @@ ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}
     <script type="application/ld+json">${faqLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -2325,6 +2334,7 @@ ${alternates}
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -2470,6 +2480,7 @@ ${alternates}
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -2619,6 +2630,7 @@ ${alternates}
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -2767,6 +2779,7 @@ ${alternates}
 ${alternates}
     <script type="application/ld+json">${breadcrumbLd}</script>
     <script type="application/ld+json">${collectionLd}</script>${itemListLd ? `\n    <script type="application/ld+json">${itemListLd}</script>` : ''}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -2909,6 +2922,7 @@ ${alternates}
     <meta name="twitter:site" content="@frontaliereticino">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -3018,6 +3032,7 @@ ${(() => {
     <meta property="og:image:type" content="image/png">
     <link rel="canonical" href="${canonicalUrl}">
 ${alternates}${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -3912,6 +3927,7 @@ ${hreflangLinks}
     })()}
     <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};window.__STATIC_BODY_HTML__=${staticBodyJson};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root">
@@ -4106,6 +4122,7 @@ ${hreflangLinks}
             })()}
     <script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};window.__JOB_DATA__=${bridgeWindowData};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <div id="root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}

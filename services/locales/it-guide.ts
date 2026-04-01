@@ -199,7 +199,7 @@ const translations: Record<string, string> = {
     'guide.tabs.livingCH': 'Vivere in CH',
     'guide.tabs.livingIT': 'Vivere in IT',
     'guide.tabs.calendar': 'Scadenze Fiscali',
-    'guide.tabs.holidays': 'Festività Ticino',
+    'guide.tabs.holidays': 'Festività Ticino 2026',
     'guide.tabs.permits': 'Permessi Lavoro',
     'guide.tabs.companies': 'Aziende Ticino',
     'guide.tabs.shopping': 'Spesa Transfrontaliera',

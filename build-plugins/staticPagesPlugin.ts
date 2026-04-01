@@ -8,7 +8,7 @@
  */
 
 import type { Plugin } from 'vite';
-import { BASE_URL, buildFlatRedirect } from './constants';
+import { BASE_URL, buildFlatRedirect, GTAG_SNIPPET } from './constants';
 import { buildArticleSeoSections, cleanupArticleBodySections } from './articleSeoFallback';
 import { SECTION_EDITORIAL, SECTION_EDITORIAL_KEYS } from './editorialContent';
 import { translateFaqPage } from '../services/seo/faq-translations';
@@ -1852,6 +1852,7 @@ ${hrefTags}
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
     ${stylesheetMarkup}${preloadTag}${getPagePreloads(urlPath, locale)}
     <style>${skeletonAnim}</style>
+    ${GTAG_SNIPPET}
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
     <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}
@@ -1890,6 +1891,7 @@ ${hrefTags}
 ${hrefTags}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">
     <noscript><meta http-equiv="refresh" content="0;url=/?p=${pp}"></noscript>
+    ${GTAG_SNIPPET}
   </head>
   <body>
     <script type="application/ld+json">${breadcrumbJsonLd}</script>${seoData.sd ? `\n    <script type="application/ld+json">${seoData.sd}</script>` : ''}${speakableLd}

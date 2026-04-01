@@ -78,6 +78,8 @@ const translations: Record<string, string> = {
     'calendar.tabHolidays': 'Festività Ticino',
     'calendar.holidaysTitle': 'Festività Canton Ticino 2026',
     'calendar.holidaysSubtitle': 'Giorni festivi ufficiali e facoltativi nel Canton Ticino',
+    'holidays.seoTitle': 'Festività Canton Ticino 2026: Calendario Completo Giorni Festivi',
+    'holidays.seoDescription': 'Tutti i 15 giorni festivi del Canton Ticino 2026: festività ufficiali e facoltative, ponti, date di Pasqua, Ascensione, Corpus Domini. Confronto con festività italiane per frontalieri.',
     'calendar.upcoming': 'Prossime scadenze',
     'calendar.past': 'Scadenze passate',
     'calendar.daysLeft': 'tra {days} giorni',

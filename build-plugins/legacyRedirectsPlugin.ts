@@ -5,7 +5,7 @@
 
 import path from 'path';
 import type { Plugin } from 'vite';
-import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
 
 export function legacyRedirectsPlugin(rootDir: string): Plugin {
@@ -143,6 +143,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     <meta name="robots" content="index,follow">
     <link rel="canonical" href="https://frontaliereticino.ch${to}">
     <script type="application/ld+json">${redirectLd}</script>
+    ${GTAG_SNIPPET}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>
   <body>

@@ -191,7 +191,7 @@ const enGuide: Record<string, string> = {
     'guide.tabs.livingCH': 'Living in CH',
     'guide.tabs.livingIT': 'Living in IT',
     'guide.tabs.calendar': 'Tax Deadlines',
-    'guide.tabs.holidays': 'Ticino Holidays',
+    'guide.tabs.holidays': 'Ticino Holidays 2026',
     'guide.tabs.permits': 'Work Permits',
     'guide.tabs.companies': 'Ticino Companies',
     'guide.tabs.shopping': 'Cross-Border Shopping',

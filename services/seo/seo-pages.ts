@@ -1243,11 +1243,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   'cost-of-living': {
-    title: 'Costo Vita Frontaliere: Svizzera vs Italia | Confronto 2026',
-    description: 'Costo vita frontaliere Svizzera vs Italia: confronta Lugano, Mendrisio, Chiasso con Como, Varese, Verbania. Affitti, spesa, trasporti, sanità. Utile per.',
-    keywords: 'costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera',
-    ogTitle: 'Costo Vita Frontaliere: CH vs IT | Confronto Città Frontiera',
-    ogDescription: '🏠 Costo vita frontaliere: confronta Svizzera vs Italia. Affitti, spesa, trasporti, sanità. Utile per confronto permesso G vs B.',
+    title: 'Costo Vita Svizzera vs Italia 2026: Confronto Completo per Frontalieri',
+    description: 'Costo vita Svizzera vs Italia a confronto: affitti, spesa, trasporti e sanità tra Lugano, Mendrisio, Chiasso e Como, Varese, Verbania. Dati aggiornati 2026 per frontalieri.',
+    keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera',
+    ogTitle: 'Costo Vita Svizzera vs Italia | Confronto Completo 2026',
+    ogDescription: '🏠 Costo vita Svizzera vs Italia: confronta affitti, spesa, trasporti e sanità tra città di frontiera. Dati aggiornati 2026.',
     canonicalPath: '/compara-servizi/costo-della-vita',
     structuredData: {
       "@context": "https://schema.org",
@@ -1578,11 +1578,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   holidays: {
-    title: 'Festività Ticino | Giorni Festivi Canton Ticino',
-    description: 'Calendario completo delle festività ufficiali del Canton Ticino 2026: giorni festivi cantonali e federali, ponti, confronto con festività italiane. Utile.',
-    keywords: 'festività ticino 2026, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino, ponti svizzera, festività svizzere, giorni festivi svizzera italia confronto',
-    ogTitle: 'Festività Ticino 2026 | Giorni Festivi per Frontalieri',
-    ogDescription: '📅 Calendario completo delle festività del Canton Ticino 2026: giorni festivi, ponti e confronto con le festività italiane.',
+    title: 'Festività Canton Ticino 2026: Calendario Completo Giorni Festivi',
+    description: 'Tutti i 15 giorni festivi del Canton Ticino 2026: festività ufficiali e facoltative, ponti, date di Pasqua, Ascensione, Corpus Domini. Confronto con festività italiane per frontalieri.',
+    keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino, ponti svizzera 2026, festività svizzere, giorni festivi svizzera italia confronto',
+    ogTitle: 'Festività Ticino 2026 | Calendario Giorni Festivi per Frontalieri',
+    ogDescription: '📅 Tutti i 15 giorni festivi del Canton Ticino 2026: festività ufficiali, facoltative, ponti e confronto con festività italiane.',
     canonicalPath: '/tasse-e-pensione/festivita-ticino',
     structuredData: [
       {
@@ -2182,11 +2182,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   jobboard: {
-    title: 'Lavoro Frontaliere Ticino 2026 — Offerte Svizzera',
-    description: 'Lavoro frontaliere Ticino 2026: offerte aggiornate ogni giorno in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende attive. Candidati gratis.',
-    keywords: 'lavoro frontaliere ticino, offerte di lavoro frontalieri ticino 2026, lavoro ticino, offerte lavoro frontalieri, lavoro svizzera frontalieri, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
-    ogTitle: 'Lavoro Frontaliere Ticino 2026 — Offerte Svizzera',
-    ogDescription: '💼 Lavoro frontaliere Ticino 2026: offerte aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende. Candidati gratis!',
+    title: 'Offerte di Lavoro per Frontalieri Svizzera 2026 | Ticino',
+    description: 'Offerte di lavoro per frontalieri Svizzera: posizioni aggiornate ogni giorno in banche, tech, farmaceutica, sanità e industria in Ticino. Oltre 100 aziende attive. Candidati gratis.',
+    keywords: 'offerte di lavoro per frontalieri svizzera, lavoro frontaliere ticino, offerte di lavoro frontalieri ticino 2026, lavoro ticino, offerte lavoro frontalieri, lavoro svizzera frontalieri, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
+    ogTitle: 'Offerte di Lavoro per Frontalieri Svizzera 2026',
+    ogDescription: '💼 Offerte di lavoro per frontalieri Svizzera: posizioni aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende. Candidati gratis!',
     canonicalPath: '/cerca-lavoro-ticino',
     structuredData: [
       {
@@ -3195,11 +3195,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   consulting: {
-    title: 'Consulenza Fiscale Frontalieri | Esperti CH-IT',
-    description: 'Servizio di consulenza fiscale specializzata per frontalieri Svizzera-Italia: ottimizzazione fiscale, dichiarazione redditi, scelta regime fiscale.',
-    keywords: 'consulenza frontaliere, consulente fiscale frontaliere, ottimizzazione fiscale svizzera italia, dichiarazione redditi frontaliere, esperto frontaliero',
-    ogTitle: 'Consulenza Fiscale per Frontalieri',
-    ogDescription: '🎯 Consulenza fiscale specializzata per frontalieri: ottimizzazione, dichiarazione redditi e pianificazione.',
+    title: 'Consulenza Fiscale Frontalieri Svizzera | Esperti Tasse CH-IT 2026',
+    description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale nuovo accordo 2026. Prenota una consulenza gratuita.',
+    keywords: 'consulenza fiscale frontalieri, consulenza frontaliere, consulente fiscale frontaliere, ottimizzazione fiscale svizzera italia, dichiarazione redditi frontaliere, esperto frontaliero, consulenza fiscale frontalieri svizzera',
+    ogTitle: 'Consulenza Fiscale per Frontalieri Svizzera',
+    ogDescription: '🎯 Consulenza fiscale per frontalieri Svizzera-Italia: ottimizzazione tasse, dichiarazione redditi e pianificazione. Prenota gratis.',
     canonicalPath: '/consulenza',
     structuredData: {
       "@context": "https://schema.org",

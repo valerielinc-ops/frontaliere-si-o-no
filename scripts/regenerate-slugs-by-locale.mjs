@@ -56,17 +56,53 @@ function buildSlug(title, company, location) {
   return slugify(parts.join(' '));
 }
 
+// Stop words filtered from slug tokens (IT/EN/DE/FR connectives)
+const SLUG_STOP_WORDS = new Set(
+  'del,dei,della,delle,degli,nel,nella,per,con,una,uno,che,tra,fra,sur,les,des,une,pour,avec,dans,par,the,and,for,with,from,die,der,das,den,dem,des,und,fur,mit,von,bei,ein,eine,einer,einem,einen'.split(','),
+);
+
+function slugTokenSet(slug) {
+  return new Set(
+    String(slug || '').split('-').filter((w) => w.length >= 3 && !SLUG_STOP_WORDS.has(w)),
+  );
+}
+
 /**
- * Check if a slug roughly corresponds to a title.
- * Returns true if the slug contains the first meaningful word of the title.
+ * Jaccard similarity between two slugified strings based on their meaningful tokens.
+ * Returns a value in [0, 1]: 1 = identical token sets, 0 = disjoint.
+ */
+function slugJaccard(a, b) {
+  const setA = slugTokenSet(a);
+  const setB = slugTokenSet(b);
+  if (setA.size === 0 && setB.size === 0) return 1;
+  if (setA.size === 0 || setB.size === 0) return 0;
+  let intersection = 0;
+  for (const t of setA) if (setB.has(t)) intersection++;
+  return intersection / (setA.size + setB.size - intersection);
+}
+
+/**
+ * Check if a locale title is likely untranslated (still in the source language).
+ * Uses Jaccard token similarity on slugified versions — threshold 0.5 catches
+ * exact copies AND partial heuristic translations that changed only 1-2 words.
+ */
+function isLikelyUntranslated(localeTitle, sourceTitle) {
+  if (!localeTitle || !sourceTitle) return false;
+  const a = slugify(localeTitle);
+  const b = slugify(sourceTitle);
+  if (a === b) return true;
+  return slugJaccard(a, b) > 0.5;
+}
+
+/**
+ * Check if a slug roughly corresponds to a title (Jaccard-based).
+ * Returns true if the slug's meaningful tokens overlap sufficiently with the title.
  */
 function slugMatchesTitle(slug, title) {
   if (!slug || !title) return false;
   const titleSlug = slugify(title);
-  // Compare first 15 chars of slugified title against slug
-  const prefix = titleSlug.slice(0, Math.min(15, titleSlug.indexOf('-', 8) || 15));
-  if (prefix.length < 4) return true; // too short to compare meaningfully
-  return slug.includes(prefix);
+  if (!titleSlug) return false;
+  return slugJaccard(slug, titleSlug) >= 0.5;
 }
 
 async function main() {
@@ -104,11 +140,13 @@ async function main() {
         // No title → can't generate slug
         if (!title || title.length < 3) continue;
 
-        // If title is a source copy (not a real translation), skip slug regeneration.
-        // Generating a slug from an untranslated title would overwrite a properly
-        // translated slug with an Italian-derived one (Root Cause 2 of slug corruption).
+        // If title is a source copy or partial heuristic translation, skip slug
+        // regeneration. Uses Jaccard similarity (>0.5) on slugified tokens to catch
+        // both exact copies and partial translations that changed only 1-2 words.
+        // Without this, an Italian title in the EN slot would overwrite a properly
+        // translated English slug with an Italian-derived one.
         const sourceTitle = (tbl[sourceLang] || '').trim();
-        if (sourceTitle && title === sourceTitle) continue;
+        if (sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
         // If slug already matches title, skip
         if (currentSlug && slugMatchesTitle(currentSlug, title)) continue;

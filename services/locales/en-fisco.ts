@@ -73,6 +73,8 @@ const enFisco: Record<string, string> = {
     'calendar.tabHolidays': 'Ticino Holidays',
     'calendar.holidaysTitle': 'Canton Ticino Holidays 2026',
     'calendar.holidaysSubtitle': 'Official and optional public holidays in Canton Ticino',
+    'holidays.seoTitle': 'Canton Ticino Public Holidays 2026: Complete Calendar',
+    'holidays.seoDescription': 'All 15 public holidays in Canton Ticino 2026: official and optional holidays, bridge days, Easter, Ascension, Corpus Christi dates. Comparison with Italian holidays for cross-border workers.',
     'calendar.upcoming': 'Upcoming deadlines',
     'calendar.past': 'Past deadlines',
     'calendar.daysLeft': 'in {days} days',

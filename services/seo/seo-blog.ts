@@ -2592,10 +2592,10 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-calcolo-pensione-avs-inps': {
-    title: 'Calcolo Pensione Frontaliere AVS e INPS: Guida 2026 | Frontaliere Ticino',
-    description: 'Guida completa al calcolo della pensione per frontalieri in Ticino. Scopri come funziona la totalizzazione dei contributi AVS svizzeri e INPS italiani e i requisiti 2026.',
-    keywords: 'calcolo pensione frontaliere, pensione avs italiana, totalizzazione contributi svizzera italia, pensione frontalieri ticino, rendita avs, inps frontalieri, accordo pensioni',
-    ogTitle: 'Pensione da Frontaliere: AVS + INPS, come si calcola la tua rendita?',
+    title: 'Calcolo Pensione Frontalieri Svizzera: Guida AVS e INPS 2026',
+    description: 'Calcolo pensione frontalieri Svizzera: guida completa alla totalizzazione contributi AVS svizzeri e INPS italiani. Requisiti, importi e simulazione rendita 2026.',
+    keywords: 'calcolo pensione frontalieri svizzera, calcolo pensione frontaliere, pensione avs italiana, totalizzazione contributi svizzera italia, pensione frontalieri ticino, rendita avs, inps frontalieri, accordo pensioni',
+    ogTitle: 'Calcolo Pensione Frontalieri Svizzera: AVS + INPS',
     ogDescription: 'Hai versato contributi in Svizzera e in Italia? Ecco la guida pratica per calcolare la tua pensione da frontaliere nel 2026.',
     canonicalPath: '/articoli-frontaliere/calcolo-pensione-frontaliere-avs-inps-guida-completa',
     structuredData: {

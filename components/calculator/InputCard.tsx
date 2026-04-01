@@ -38,7 +38,7 @@ const InfoTooltip = ({ text }: { text: string }) => (
 const iconBgMap: Record<string, string> = {
   'text-indigo-600': 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600',
   'text-teal-500': 'bg-teal-100 dark:bg-teal-900/30 text-teal-500',
-  'text-gray-500': 'bg-gray-100 dark:bg-gray-900/30 text-gray-500',
+  'text-gray-500': 'bg-slate-100 dark:bg-slate-900/30 text-slate-500',
   'text-orange-500': 'bg-orange-100 dark:bg-orange-900/30 text-orange-500',
   'text-amber-700': 'bg-amber-100 dark:bg-amber-900/30 text-amber-700',
   'text-cyan-600': 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600',
@@ -701,7 +701,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
 
         {/* SECTION 5: OPTIONS */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
-           <SectionHeader title={t('input.calculationOptions')} icon={Settings2} isOpen={openSections.settings} onToggle={() => toggleSection('settings')} subtext={t('input.rateAndMonths')} iconColor="text-gray-500" />
+           <SectionHeader title={t('input.calculationOptions')} icon={Settings2} isOpen={openSections.settings} onToggle={() => toggleSection('settings')} subtext={t('input.rateAndMonths')} iconColor="text-slate-500" />
            
            {openSections.settings && (
               <div className="p-5 pt-0 space-y-5 animate-fade-in border-t border-slate-50 dark:border-slate-800/50 mt-2 pt-4">

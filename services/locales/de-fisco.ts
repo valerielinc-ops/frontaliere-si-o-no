@@ -73,6 +73,8 @@ const deFisco: Record<string, string> = {
     'calendar.tabHolidays': 'Feiertage Tessin',
     'calendar.holidaysTitle': 'Feiertage Kanton Tessin 2026',
     'calendar.holidaysSubtitle': 'Offizielle und fakultative Feiertage im Kanton Tessin',
+    'holidays.seoTitle': 'Feiertage Kanton Tessin 2026: Vollständiger Kalender',
+    'holidays.seoDescription': 'Alle 15 Feiertage im Kanton Tessin 2026: offizielle und fakultative Feiertage, Brückentage, Ostern, Auffahrt, Fronleichnam. Vergleich mit italienischen Feiertagen für Grenzgänger.',
     'calendar.upcoming': 'Nächste Termine',
     'calendar.past': 'Vergangene Termine',
     'calendar.daysLeft': 'in {days} Tagen',

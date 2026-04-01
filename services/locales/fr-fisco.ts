@@ -73,6 +73,8 @@ const frFisco: Record<string, string> = {
     'calendar.tabHolidays': 'Jours Fériés Tessin',
     'calendar.holidaysTitle': 'Jours Fériés Canton du Tessin 2026',
     'calendar.holidaysSubtitle': 'Jours fériés officiels et facultatifs dans le Canton du Tessin',
+    'holidays.seoTitle': 'Jours Fériés Tessin 2026 : Calendrier Complet',
+    'holidays.seoDescription': 'Les 15 jours fériés du Canton du Tessin 2026 : fêtes officielles et facultatives, ponts, dates de Pâques, Ascension, Fête-Dieu. Comparaison avec les jours fériés italiens pour frontaliers.',
     'calendar.upcoming': 'Prochaines échéances',
     'calendar.past': 'Échéances passées',
     'calendar.daysLeft': 'dans {days} jours',

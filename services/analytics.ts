@@ -543,10 +543,35 @@ export const Analytics = {
    * Fires ONLY page_view (not screen_view — that's for mobile apps).
    * Attribution is captured once per session via traffic_attribution,
    * not repeated on every page_view to keep events clean.
+   *
+   * DEDUPLICATION: Static HTML pages include a lightweight gtag.js snippet
+   * that fires page_view immediately on load (to capture bounces before
+   * React hydrates). When the SPA hydrates and calls this method for the
+   * first page, it skips the Firebase page_view to avoid a duplicate.
+   * The flag `window.__GTAG_PAGE_VIEW_SENT__` is set by the static snippet.
    */
   trackPageView: (path: string, title?: string) => {
     const now = Date.now();
     if (path === lastTrackedPagePath && now - lastTrackedPageAt < 500) return;
+    // Skip the first page_view if gtag.js already sent it from the static HTML.
+    // This prevents duplicate page_view events when the SPA hydrates on a
+    // static page that was pre-rendered by a build plugin.
+    const w = window as unknown as Record<string, unknown>;
+    if (w.__GTAG_PAGE_VIEW_SENT__) {
+      // Clear the flag so subsequent SPA navigations track normally.
+      delete w.__GTAG_PAGE_VIEW_SENT__;
+      // Still update internal state so time-on-page tracking works correctly.
+      lastTrackedPagePath = path;
+      lastTrackedPageAt = now;
+      previousScreen = currentScreen;
+      currentScreen = path;
+      _maxScrollDepth = 0;
+      const pageContext = deriveAnalyticsPageContext(path);
+      tagClarity('page_template', pageContext.pageTemplate);
+      tagClarity('content_group', pageContext.contentGroup);
+      _deadClickCount = 0;
+      return;
+    }
     // Calculate time spent on previous page (for pagesPerSession accuracy)
     const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
     lastTrackedPagePath = path;

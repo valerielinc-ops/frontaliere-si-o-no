@@ -890,6 +890,7 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
   contact: 'contact.subtitle',
   consulting: 'consulting.subtitle',
   partners: 'partners.subtitle',
+  holidays: 'holidays.seoDescription',
 };
 
 function translateIfExists(key: string | undefined): string | null {
@@ -1880,13 +1881,13 @@ export async function updateMetaTags(section: string): Promise<void> {
   const dialectTitleByLocale: Record<Locale, string> = {
     it: 'Dialetto Ticinese | 64 Espressioni e Proverbi | Frontaliere Ticino',
     en: 'Ticinese Dialect | 64 Expressions and Proverbs | Frontaliere Ticino',
-    de: 'Tessiner Dialekt | 64 Ausdrücke und Sprichwörter | Frontaliere Ticino',
+    de: 'Tessiner Dialekt: 64 Ausdrücke, Redewendungen und Sprichwörter',
     fr: 'Dialecte tessinois | 64 expressions et proverbes | Frontaliere Ticino',
   };
   const dialectDescriptionByLocale: Record<Locale, string> = {
     it: 'Scopri 64 parole, espressioni e proverbi del dialetto ticinese. Saluti, cibo, lavoro, natura e proverbi per la vita da frontaliere.',
     en: 'Discover 64 words, expressions and proverbs from Ticinese dialect. Greetings, food, work and nature terms for cross-border life.',
-    de: 'Entdecke 64 Wörter, Ausdrücke und Sprichwörter aus dem Tessiner Dialekt für den Grenzgänger-Alltag.',
+    de: 'Tessiner Dialekt lernen: 64 Wörter, Ausdrücke und Sprichwörter aus dem Tessin. Grüsse, Essen, Arbeit und Natur — für Grenzgänger im Alltag.',
     fr: 'Découvrez 64 mots, expressions et proverbes du dialecte tessinois pour la vie quotidienne des frontaliers.',
   };
 
