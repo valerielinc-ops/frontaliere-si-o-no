@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-01T10:06:42.247Z",
+  "assembledAt": "2026-04-01T21:55:10.642Z",
   "jobs": [
     {
       "id": "company-84ss1r",
@@ -66,7 +66,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-h0fllu",
@@ -93,7 +94,7 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T21:53:35.437Z",
       "slugByLocale": {
-        "it": "supporto-operatore-trice-swiss-armed-forces-vtg-rivera",
+        "it": "supporto-operatore-trice-swiss-armed-forces-vtg-bellinzona",
         "en": "operator-in-support-swiss-armed-forces-vtg-bellinzona",
         "de": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "fr": "operateur-in-support-swiss-armed-forces-vtg-rivera"
@@ -116,9 +117,8 @@
         "operatore-in-support-swiss-armed-forces-vtg-rivera",
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operator-in-support-swiss-armed-forces-vtg-rivera",
-        "supporto-operatore-trice-swiss-armed-forces-vtg-rivera",
-        "supporto-operatore-trice-swiss-armed-forces-vtg-bellinzona",
-        "support-operateur-swiss-armed-forces-vtg-rivera"
+        "support-operateur-swiss-armed-forces-vtg-rivera",
+        "supporto-operatore-trice-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -137,7 +137,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-cbcaem",
@@ -164,7 +165,7 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T21:53:35.437Z",
       "slugByLocale": {
-        "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
+        "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-bellinzona",
         "en": "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera",
         "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-bellinzona",
         "fr": "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
@@ -187,8 +188,7 @@
         "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera-cbcaem",
         "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera",
         "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
-        "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
-        "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-bellinzona"
+        "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
