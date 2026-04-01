@@ -4280,8 +4280,8 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrr",
-        "de": "assistenzarzt-arztin-infektiologie-und-reisemedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "infectious-diseases-and-travel-medicine-medical-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "medizinischer-assistent-infektionskrankheiten-und-reisemedizin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-assistant-en-maladies-infectieuses-et-medecine-du-voyage-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
@@ -4323,7 +4323,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-malattie-infettive-e-medicina-di-viaggio-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrr",
+        "assistenzarzt-arztin-infektiologie-und-reisemedizin-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uilm18",
@@ -4558,9 +4562,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "psicoterapeuta-in-formazione-40-o-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "psicoterapeuta-in-formazione-40-o-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "trainee-psychotherapist-40-or-60-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "psychotherapeut-in-ausbildung-40-oder-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "psicoterapeuta-in-formazione-40-o-60-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "psychotherapeute-en-formation-40-ou-60-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Psicoterapeuta in formazione (40% o 60%)",
@@ -4586,7 +4590,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "psychotherapist-in-training-40-or-60-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "psychotherapeute-en-formation-40-ou-60-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "psychotherapeute-en-formation-40-ou-60-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "psicoterapeuta-in-formazione-40-o-60-eoc-ente-ospedaliero-cantonale-bellinzona"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -4628,7 +4633,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano-uilmk8",
+        "en": "internal-medicine-assistant-physician-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "assistenzarzt-fur-innere-medizin-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-assistant-en-medecine-interne-eoc-ente-ospedaliero-cantonale-lugano"
       },
@@ -4663,7 +4668,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-medicina-interna-eoc-ente-ospedaliero-cantonale-lugano-uilmk8"
+      ]
     },
     {
       "id": "company-uilmkv",
@@ -4879,8 +4887,8 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano-uilmk6",
-        "de": "assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano",
+        "en": "geriatric-assistant-physician-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "geriatrischer-assistenzarzt-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "medecin-assistant-en-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -4921,7 +4929,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-geriatria-eoc-ente-ospedaliero-cantonale-lugano-uilmk6",
+        "assistenzarzt-fur-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-uilmk7",
@@ -4947,7 +4959,7 @@
       "slugByLocale": {
         "it": "medico-capoclinica-geriatria-eoc-ente-ospedaliero-cantonale-lugano",
         "en": "head-of-geriatrics-clinic-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "leiter-geriatrie-klinik-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "chefarzt-geriatrie-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "chef-de-clinique-de-geriatrie-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -4988,7 +5000,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "leiter-geriatrie-klinik-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-uil5mc",
