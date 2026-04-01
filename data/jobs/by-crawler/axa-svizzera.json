@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-01T07:46:05.370Z",
+  "assembledAt": "2026-04-01T09:05:22.616Z",
   "jobs": [
     {
       "title": "Consulente Assicurativo per il Luganese",
@@ -20,7 +20,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60-100%",
@@ -61,7 +61,8 @@
       "postalCode": "6901",
       "previousSlugs": [
         "consulente-assicurativo-per-il-luganese"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -81,7 +82,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -142,7 +143,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80%",
@@ -205,7 +206,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -244,7 +245,8 @@
       },
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
-      "previousSlugs": []
+      "previousSlugs": [],
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -264,7 +266,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -306,6 +308,65 @@
       "previousSlugs": []
     },
     {
+      "title": "Consulente Assicurativo",
+      "slug": "consulente-assicurativo",
+      "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": "() Agenzia principale Nicola Locarnini, Manno",
+      "addressLocality": "AXA",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "assicurazioni",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-01",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "workload": "50-100%",
+      "validThrough": "",
+      "description": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+      "titleByLocale": {
+        "it": "Consulente Assicurativo",
+        "fr": "Consulente Assicurativo",
+        "en": "Consulente Assicurativo",
+        "de": "Consulente Assicurativo"
+      },
+      "descriptionByLocale": {
+        "it": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "en": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "de": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "fr": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale."
+      },
+      "slugByLocale": {
+        "it": "consulente-assicurativo",
+        "en": "consulente-assicurativo",
+        "de": "consulente-assicurativo",
+        "fr": "consulente-assicurativo"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via della Posta 2",
+      "postalCode": "6901"
+    },
+    {
       "title": "Consulente Assicurativo per il Mendrisiotto",
       "slug": "consulente-assicurativo-per-il-mendrisiotto",
       "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo-per-il-mendrisiotto/feda0a6f-d9e7-4fd0-871d-d41b0556f7ec",
@@ -323,7 +384,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60%",
@@ -364,7 +425,8 @@
       "postalCode": "6901",
       "previousSlugs": [
         "consulente-assicurativo-per-il-mendrisiotto"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Specialist Corporate Law bei AXA-ARAG (all genders)",
@@ -384,7 +446,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -443,7 +505,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -502,7 +564,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80%",
@@ -564,31 +626,30 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
       "validThrough": "",
       "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDie AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17.\n\nDu arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens.\n\n## Dein Beitrag\n- Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen\n- Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle\n- Stellvertretung des Head of Accounting in Senior-Management-Gremien\n- Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR\n- Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen)\n- Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand\n- Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks\n- Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting\n\n## Deine Fähigkeiten und Talente\n- Diplom-Wirtschaftsprüfer/in\n- Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR)\n- Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit\n- Ausgeprägte Kommunikationsstärke in Deutsch und Englisch\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
       "titleByLocale": {
-        "de": "Senior Expert für statutarische und internationale Rechnungslegung(all genders)",
         "it": "Senior Expert per statutarische e internationale Rechnungslegung(all genders)",
         "en": "Senior Expert für statutarische und internationale Rechnungslegung(all genders)",
+        "de": "Senior Expert für statutarische und internationale Rechnungslegung(all genders)",
         "fr": "Senior Expert für statutarische und internationale Rechnungslegung(all genders)"
       },
       "descriptionByLocale": {
-        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDie AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17.\n\nDu arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens.\n\n## Dein Beitrag\n- Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen\n- Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle\n- Stellvertretung des Head of Accounting in Senior-Management-Gremien\n- Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR\n- Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen)\n- Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand\n- Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks\n- Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting\n\n## Deine Fähigkeiten und Talente\n- Diplom-Wirtschaftsprüfer/in\n- Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR)\n- Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit\n- Ausgeprägte Kommunikationsstärke in Deutsch und Englisch\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-        "it": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDie AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17.\n\nDu arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens.\n\n## Dein Beitrag\n- Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen\n- Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle\n- Stellvertretung des Head of Accounting in Senior-Management-Gremien\n- Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR\n- Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen)\n- Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand\n- Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks\n- Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting\n\n## Deine Fähigkeiten und Talente\n- Diplom-Wirtschaftsprüfer/in\n- Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR)\n- Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit\n- Ausgeprägte Kommunikationsstärke in Deutsch und Englisch\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-        "en": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDie AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17.\n\nDu arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens.\n\n## Dein Beitrag\n- Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen\n- Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle\n- Stellvertretung des Head of Accounting in Senior-Management-Gremien\n- Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR\n- Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen)\n- Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand\n- Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks\n- Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting\n\n## Deine Fähigkeiten und Talente\n- Diplom-Wirtschaftsprüfer/in\n- Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR)\n- Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit\n- Ausgeprägte Kommunikationsstärke in Deutsch und Englisch\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-        "fr": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDie AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17.\n\nDu arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens.\n\n## Dein Beitrag\n- Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen\n- Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle\n- Stellvertretung des Head of Accounting in Senior-Management-Gremien\n- Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR\n- Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen)\n- Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand\n- Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks\n- Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting\n\n## Deine Fähigkeiten und Talente\n- Diplom-Wirtschaftsprüfer/in\n- Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR)\n- Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit\n- Ausgeprägte Kommunikationsstärke in Deutsch und Englisch\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann."
+        "it": "Komm zur AXA, der führenden Versicherung der Schweiz - als Die AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17. Du arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens. ## Dein Beitrag - Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen - Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle - Stellvertretung des Head of Accounting in Senior-Management-Gremien - Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR - Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen) - Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand - Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks - Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting ## Deine Fähigkeiten und Talente - Diplom-Wirtschaftsprüfer/in - Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR) - Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit - Ausgeprägte Kommunikationsstärke in Deutsch und Englisch ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "en": "Komm zur AXA, der führenden Versicherung der Schweiz - als Die AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17. Du arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens. ## Dein Beitrag - Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen - Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle - Stellvertretung des Head of Accounting in Senior-Management-Gremien - Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR - Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen) - Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand - Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks - Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting ## Deine Fähigkeiten und Talente - Diplom-Wirtschaftsprüfer/in - Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR) - Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit - Ausgeprägte Kommunikationsstärke in Deutsch und Englisch ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als Die AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17. Du arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens. ## Dein Beitrag - Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen - Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle - Stellvertretung des Head of Accounting in Senior-Management-Gremien - Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR - Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen) - Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand - Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks - Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting ## Deine Fähigkeiten und Talente - Diplom-Wirtschaftsprüfer/in - Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR) - Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit - Ausgeprägte Kommunikationsstärke in Deutsch und Englisch ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "fr": "Komm zur AXA, der führenden Versicherung der Schweiz - als Die AXA Schweiz setzt auf sichere, innovative Versicherungs- und Vermögenslösungen. In dieser Schlüsselposition übernimmst du die zentrale Rolle als Ansprechperson für alle Fragen rund um die statutarische und internationale Rechnungslegung mit Fokus auf Kapitalanlagen und versicherungstechnische Rückstellungen und unterstützt aktiv im Austausch und der Koordination mit der externen Revisionsstelle.Dein Fachwissen ist gefragt!Du verfügst über tiefgehendes Know-how in der handels- und aufsichtsrechtlichen Rechnungslegung (OR) sowie den internationalen Standards (IFRS), insbesondere IFRS 9 und IFRS 17. Du arbeitest im Bereich Finanzen. Wir haben die verantwortungsvolle Aufgabe, die Finanzen und Risiken der AXA Schweiz zu kontrollieren und zuverlässig zu steuern. Damit schaffen wir die Basis für strategische Geschäftsentscheide sowie die Zukunft des Unternehmens. ## Dein Beitrag - Fachliche Beratung zu IFRS und OR mit Fokus auf Kapitalanlagen und versicherungstechnischen Rückstellungen - Unterstützung und Stellvertretung des Head of Accounting im Austausch und der Koordination mit der externen Revisionsstelle - Stellvertretung des Head of Accounting in Senior-Management-Gremien - Ganzheitliche Betreuung aller Rechnungslegungs-Themen im Bereich Investment Accounting, inklusive Umsetzung neuer Kapitalanlagen-Produkte unter IFRS/OR - Enge Zusammenarbeit mit lokalen Fachbereichen (Asset Management, AXA-Gruppe, externe Revisionen) - Leitung anspruchsvoller Spezialprojekte mit hohem Fach- und Steuerungsaufwand - Proaktive Informationsbeschaffung zu Neuerungen in der Rechnungslegung, Aufbau und Pflege eines Netzwerks - Kontroll- und Plausibilitätsprüfungen im Bereich Kapitalanlagenbuchhaltung sowie im gesamten statutarischen Reporting ## Deine Fähigkeiten und Talente - Diplom-Wirtschaftsprüfer/in - Tiefgehende Kenntnisse in IFRS (insb. IFRS 9, IFRS 17) sowie in statutarischen und regulatorischen Anforderungen (OR) - Analytische, strukturierte Arbeitsweise sowie eigenständige Koordination und Teamfähigkeit - Ausgeprägte Kommunikationsstärke in Deutsch und Englisch ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann."
       },
       "slugByLocale": {
-        "de": "senior-expert-fur-statutarische-und-internationale-rechnungslegung-all-genders",
         "it": "senior-expert-per-statutarische-e-internationale-rechnungslegung-all-genders-axa-svizzera-8400-winterthur",
         "en": "senior-expert-fur-statutarische-und-internationale-rechnungslegung-all-genders-axa-svizzera-8400-winterthur",
+        "de": "senior-expert-fur-statutarische-und-internationale-rechnungslegung-all-genders",
         "fr": "senior-expert-fur-statutarische-und-internationale-rechnungslegung-all-genders-axa-svizzera-8400-winterthur"
       },
-      "needsRetranslation": true,
       "previousSlugs": [],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -604,7 +665,8 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "needsRetranslation": true
     },
     {
       "title": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
@@ -624,7 +686,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
