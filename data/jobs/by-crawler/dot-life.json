@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dot-life",
-  "assembledAt": "2026-03-31T21:12:21.103Z",
+  "assembledAt": "2026-04-01T09:24:46.692Z",
   "jobs": [
     {
       "title": "Addetto alla selezione di personale acquisizione di talenti",
@@ -118,66 +118,8 @@
         }
       },
       "streetAddress": "Via Balestra 12",
-      "postalCode": "6900"
-    },
-    {
-      "title": "Front office manager",
-      "slug": "responsabile-della-dirigenza-dot-life-sa-paradiso-canton-ticino-svizzera",
-      "url": "https://www.linkedin.com/jobs/view/4366745329/",
-      "applyUrl": "https://www.linkedin.com/jobs/view/4366745329/",
-      "company": "DOT Life SA",
-      "companyKey": "dot-life",
-      "companyDomain": "dotlifestyle.ch",
-      "location": "Paradiso, Canton Ticino, Svizzera",
-      "addressLocality": "Paradiso, Canton Ticino, Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hospitality & Wellness",
-      "source": "dot-life-linkedin-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-31",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "description": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
-      "linkedInJobId": "4366745329",
-      "titleByLocale": {
-        "it": "Responsabile della dirigenza",
-        "en": "Front office manager",
-        "de": "Front-Office-Leiter",
-        "fr": "Responsable de la direction"
-      },
-      "descriptionByLocale": {
-        "it": "Descrizione dell'azienda Descrizione del ruolo Qualifiche - Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa. - Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità. - Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo. - Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
-        "en": "Company Description Role Description Qualifications - Skills in office administration and front office management to optimize operational and organizational efficiency. - Customer service and customer satisfaction skills, with a focus on delivering personalized experiences and maintaining high quality standards. - Excellent communication skills, with a focus on building strong interpersonal relationships and collaborative work. - Knowledge of other foreign languages is an advantage, as well as the ability to manage teams with multitasking skills.",
-        "de": "Unternehmensbeschreibung Rollenbeschreibung Qualifikationen – Fähigkeiten in der Büroverwaltung und im Front Office Management zur Optimierung der operativen und organisatorischen Effizienz. - Kundenservice- und Kundenzufriedenheitskompetenzen, mit Fokus auf personalisierte Erlebnisse und die Einhaltung hoher Qualitätsstandards. - Ausgezeichnete Kommunikationsfähigkeiten mit Schwerpunkt auf dem Aufbau starker zwischenmenschlicher Beziehungen und gemeinsamer Arbeit. - Kenntnisse in anderen Fremdsprachen sind ein Vorteil, ebenso wie die Fähigkeit, Teams mit Multitasking-Fähigkeiten zu führen.",
-        "fr": "Description d’entreprise Description de poste Qualifications - Compétences en administration de bureau et gestion de front office afin d’optimiser l’efficacité opérationnelle et organisationnelle. - Compétences en service client et en satisfaction client, avec un accent sur la fourniture d’expériences personnalisées et le maintien de normes de qualité élevées. - Excellentes compétences en communication, avec un accent sur la construction de relations interpersonnelles solides et le travail collaboratif. - La connaissance d’autres langues étrangères est un avantage, ainsi que la capacité à gérer des équipes ayant des compétences multitâche."
-      },
-      "slugByLocale": {
-        "it": "responsabile-della-dirigenza-dot-life-sa-paradiso-canton-ticino-svizzera",
-        "en": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
-        "de": "front-office-leiter-dot-life-sa-paradiso-canton-ticino-svizzera",
-        "fr": "responsable-de-la-direction-dot-life-sa-paradiso-canton-ticino-svizzera"
-      },
-      "previousSlugs": [],
-      "salaryMin": 72500,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72500,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     }
   ]
 }
