@@ -1,18 +1,179 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-03-31T07:22:20.286Z",
-  "total": 178,
-  "newCount": 178,
+  "generatedAt": "2026-04-01T07:26:35.442Z",
+  "total": 183,
+  "newCount": 183,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 324315,
-  "avgDurationMs": 324315,
+  "durationMs": 242769,
+  "avgDurationMs": 242769,
   "durationHistory": [
-    324315
+    242769
   ],
   "newJobs": [
+    {
+      "id": "company-9xtr67",
+      "slug": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Macellaia / Macellaio - Salumiera / Salumiere (f/m/d)",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-01",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/macellaia-macellaio-salumiera-salumiere-f-m-d/b64d0fdb-5a23-4904-972d-a6b8bb5636d3",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-01T07:24:33.443Z",
+      "needsRetranslation": true,
+      "addressLocality": "Mendrisio",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-h5yy65",
+      "slug": "consulente-vendita-deco-jumbo-grancia-ticino",
+      "company": "Jumbo, Divisione di Coop Società Cooperativa",
+      "title": "Consulente vendita Deco",
+      "location": "Grancia",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-deco/2e66aa65-e96b-4407-abb4-28e9afce979d",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-01T07:24:33.443Z",
+      "needsRetranslation": true,
+      "addressLocality": "Grancia",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-lkxfin",
+      "slug": "venditrice-venditore-food-f-m-d-coop-ascona-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Venditrice / Venditore Food (f/m/d)",
+      "location": "Ascona",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/venditrice-venditore-food-f-m-d/d66520c8-197a-4733-a6ff-52ecfb9b5e2d",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-01T07:24:33.443Z",
+      "needsRetranslation": true,
+      "addressLocality": "Ascona",
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 2,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-wwo5eg",
+      "slug": "consulente-vendita-do-it-jumbo-tenero-contra-ticino",
+      "company": "Jumbo, Divisione di Coop Società Cooperativa",
+      "title": "Consulente vendita Do-it",
+      "location": "Tenero-Contra",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-do-it/24badab9-976a-48d0-ae50-bc0956968b51",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-01T07:24:33.443Z",
+      "needsRetranslation": true,
+      "addressLocality": "Tenero-Contra",
+      "_qualityScore": 78,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-bs45mj",
+      "slug": "mitarbeiter-in-inventuren-coop-grigioni",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Inventuren",
+      "location": "Basel",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-inventuren/83600992-4755-4dfa-b53c-360bf39d94f0",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-01T07:24:33.443Z",
+      "needsRetranslation": true,
+      "addressLocality": "Basel",
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
     {
       "id": "company-bv5moc",
       "slug": "venditrice-tore-casse-servizi-jumbo-sant-antonino-ticino",
@@ -35,14 +196,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Sant'Antonino",
-      "_qualityScore": 67,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -67,14 +229,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Sant'Antonino",
-      "_qualityScore": 78,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -99,14 +262,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Sant'Antonino",
-      "_qualityScore": 78,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -131,15 +295,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -164,15 +330,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Ilanz/Glion",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -197,15 +365,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Disentis/Mustér",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -230,15 +400,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -263,14 +435,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Castione",
-      "_qualityScore": 78,
+      "salaryMin": 94000,
+      "salaryMax": 127000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -295,14 +468,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Bellinzona",
-      "_qualityScore": 67,
+      "salaryMin": 80000,
+      "salaryMax": 108000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -327,15 +501,16 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 67,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -360,15 +535,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Arosa",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -393,15 +570,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Ilanz/Glion",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -426,15 +605,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -459,15 +640,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -492,15 +675,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Schiers",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -525,15 +710,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Churwalden",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -558,15 +745,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -591,14 +780,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Castione",
-      "_qualityScore": 76,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -623,15 +813,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Schiers",
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -656,15 +848,16 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Chur",
       "sourceLang": "de",
-      "_qualityScore": 67,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -689,14 +882,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Riazzino",
-      "_qualityScore": 67,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -721,14 +915,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
-      "_qualityScore": 78,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -753,15 +948,16 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Dietlikon",
       "sourceLang": "de",
-      "_qualityScore": 67,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -786,15 +982,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Zernez",
       "sourceLang": "de",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -819,180 +1017,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
       "addressLocality": "Sankt Moritz",
       "sourceLang": "de",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-vn56hi",
-      "slug": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
-      "company": "Coop Genossenschaft",
-      "title": "Rayonleiter:in Früchte / Gemüse",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-fruechte-gemuese/d0cb0514-be67-4573-83d5-d2bea7828f4b",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
       "needsRetranslation": true,
-      "addressLocality": "Davos",
-      "sourceLang": "de",
-      "_qualityScore": 68,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-33l5v6",
-      "slug": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food Frische-Insel",
-      "location": "Davos",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frische-insel/be42fa2f-245d-45e7-be2c-cc60fb681f93",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
-      "addressLocality": "Davos",
-      "sourceLang": "de",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-l1gprk",
-      "slug": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Klosters-Serneus",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/fa692624-bcdc-4d83-8365-104f1a73af7c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
-      "addressLocality": "Klosters-Serneus",
-      "sourceLang": "de",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-l6wxbs",
-      "slug": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Frischprodukte",
-      "location": "Ilanz/Glion",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/e3b27d72-e074-4edc-bb99-8b6ebc564996",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
-      "addressLocality": "Ilanz/Glion",
-      "sourceLang": "de",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-67of9l",
-      "slug": "consulente-vendite-do-it-jumbo-chur-graubunden",
-      "company": "Jumbo, Division der Coop Genossenschaft",
-      "title": "Verkaufsberater:in Do-it",
-      "location": "Chur",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-17",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/51908790-2943-4b93-817b-eecec01d7536",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "needsRetranslation": true,
-      "addressLocality": "Chur",
-      "sourceLang": "de",
-      "_qualityScore": 68,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     }
   ],
