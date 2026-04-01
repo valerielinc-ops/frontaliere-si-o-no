@@ -233,33 +233,40 @@ export default function CalcolatoreTabContent() {
             {/* SEO cross-linking: crawlable <a href> links to key pages (payslip, tax, pension, jobs) */}
             {result && <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>}
 
-            {/* AI-extractable comparison table + FAQ — always visible on landing */}
-            <AiExtractableTable
-              caption={t('calc.table.caption')}
-              columns={[
-                { header: t('calc.table.col.aspect'), accessor: 'aspect' },
-                { header: t('calc.table.col.permitB'), accessor: 'permitB' },
-                { header: t('calc.table.col.permitG'), accessor: 'permitG' },
-              ]}
-              rows={[
-                { aspect: t('calc.table.row1.aspect'), permitB: t('calc.table.row1.permitB'), permitG: t('calc.table.row1.permitG') },
-                { aspect: t('calc.table.row2.aspect'), permitB: t('calc.table.row2.permitB'), permitG: t('calc.table.row2.permitG') },
-                { aspect: t('calc.table.row3.aspect'), permitB: t('calc.table.row3.permitB'), permitG: t('calc.table.row3.permitG') },
-                { aspect: t('calc.table.row4.aspect'), permitB: t('calc.table.row4.permitB'), permitG: t('calc.table.row4.permitG') },
-                { aspect: t('calc.table.row5.aspect'), permitB: t('calc.table.row5.permitB'), permitG: t('calc.table.row5.permitG') },
-              ]}
-              source={t('calc.table.source')}
-              className="mt-6"
-            />
-            <FaqAccordion
-              title={t('calc.faq.title')}
-              items={[
-                { question: t('calc.faq.q1'), answer: t('calc.faq.a1') },
-                { question: t('calc.faq.q2'), answer: t('calc.faq.a2') },
-                { question: t('calc.faq.q3'), answer: t('calc.faq.a3') },
-              ]}
-              className="mt-8"
-            />
+            {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
+            <details className="mt-6 group">
+              <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+                <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+                {t('calc.table.caption')}
+              </summary>
+              <div className="mt-3">
+                <AiExtractableTable
+                  caption={t('calc.table.caption')}
+                  columns={[
+                    { header: t('calc.table.col.aspect'), accessor: 'aspect' },
+                    { header: t('calc.table.col.permitB'), accessor: 'permitB' },
+                    { header: t('calc.table.col.permitG'), accessor: 'permitG' },
+                  ]}
+                  rows={[
+                    { aspect: t('calc.table.row1.aspect'), permitB: t('calc.table.row1.permitB'), permitG: t('calc.table.row1.permitG') },
+                    { aspect: t('calc.table.row2.aspect'), permitB: t('calc.table.row2.permitB'), permitG: t('calc.table.row2.permitG') },
+                    { aspect: t('calc.table.row3.aspect'), permitB: t('calc.table.row3.permitB'), permitG: t('calc.table.row3.permitG') },
+                    { aspect: t('calc.table.row4.aspect'), permitB: t('calc.table.row4.permitB'), permitG: t('calc.table.row4.permitG') },
+                    { aspect: t('calc.table.row5.aspect'), permitB: t('calc.table.row5.permitB'), permitG: t('calc.table.row5.permitG') },
+                  ]}
+                  source={t('calc.table.source')}
+                />
+                <FaqAccordion
+                  title={t('calc.faq.title')}
+                  items={[
+                    { question: t('calc.faq.q1'), answer: t('calc.faq.a1') },
+                    { question: t('calc.faq.q2'), answer: t('calc.faq.a2') },
+                    { question: t('calc.faq.q3'), answer: t('calc.faq.a3') },
+                  ]}
+                  className="mt-4"
+                />
+              </div>
+            </details>
           </>
         )}
       </div>

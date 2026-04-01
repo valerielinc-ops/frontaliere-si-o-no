@@ -57,36 +57,41 @@ export default function FiscoTabContent() {
         <Suspense fallback={<SkeletonFisco />}><NewFrontierTaxSimHub /></Suspense>
       ) : null}
 
-      {/* AI-extractable comparison table + FAQ — landing only */}
+      {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
       {!fiscoSubTab && (
-        <>
-          <AiExtractableTable
-            caption={t('fisco.table.caption')}
-            columns={[
-              { header: t('fisco.table.col.aspect'), accessor: 'aspect' },
-              { header: t('fisco.table.col.old'), accessor: 'old' },
-              { header: t('fisco.table.col.new'), accessor: 'new' },
-            ]}
-            rows={[
-              { aspect: t('fisco.table.row1.aspect'), old: t('fisco.table.row1.old'), new: t('fisco.table.row1.new') },
-              { aspect: t('fisco.table.row2.aspect'), old: t('fisco.table.row2.old'), new: t('fisco.table.row2.new') },
-              { aspect: t('fisco.table.row3.aspect'), old: t('fisco.table.row3.old'), new: t('fisco.table.row3.new') },
-              { aspect: t('fisco.table.row4.aspect'), old: t('fisco.table.row4.old'), new: t('fisco.table.row4.new') },
-              { aspect: t('fisco.table.row5.aspect'), old: t('fisco.table.row5.old'), new: t('fisco.table.row5.new') },
-            ]}
-            source={t('fisco.table.source')}
-            className="mt-6"
-          />
-          <FaqAccordion
-            title={t('fisco.faq.title')}
-            items={[
-              { question: t('fisco.faq.q1'), answer: t('fisco.faq.a1') },
-              { question: t('fisco.faq.q2'), answer: t('fisco.faq.a2') },
-              { question: t('fisco.faq.q3'), answer: t('fisco.faq.a3') },
-            ]}
-            className="mt-8"
-          />
-        </>
+        <details className="mt-6 group">
+          <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">
+            <svg className="w-4 h-4 transition-transform group-open:rotate-90" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" /></svg>
+            {t('fisco.table.caption')}
+          </summary>
+          <div className="mt-3">
+            <AiExtractableTable
+              caption={t('fisco.table.caption')}
+              columns={[
+                { header: t('fisco.table.col.aspect'), accessor: 'aspect' },
+                { header: t('fisco.table.col.old'), accessor: 'old' },
+                { header: t('fisco.table.col.new'), accessor: 'new' },
+              ]}
+              rows={[
+                { aspect: t('fisco.table.row1.aspect'), old: t('fisco.table.row1.old'), new: t('fisco.table.row1.new') },
+                { aspect: t('fisco.table.row2.aspect'), old: t('fisco.table.row2.old'), new: t('fisco.table.row2.new') },
+                { aspect: t('fisco.table.row3.aspect'), old: t('fisco.table.row3.old'), new: t('fisco.table.row3.new') },
+                { aspect: t('fisco.table.row4.aspect'), old: t('fisco.table.row4.old'), new: t('fisco.table.row4.new') },
+                { aspect: t('fisco.table.row5.aspect'), old: t('fisco.table.row5.old'), new: t('fisco.table.row5.new') },
+              ]}
+              source={t('fisco.table.source')}
+            />
+            <FaqAccordion
+              title={t('fisco.faq.title')}
+              items={[
+                { question: t('fisco.faq.q1'), answer: t('fisco.faq.a1') },
+                { question: t('fisco.faq.q2'), answer: t('fisco.faq.a2') },
+                { question: t('fisco.faq.q3'), answer: t('fisco.faq.a3') },
+              ]}
+              className="mt-4"
+            />
+          </div>
+        </details>
       )}
 
       {/* AdSense — bottom multiplex */}
