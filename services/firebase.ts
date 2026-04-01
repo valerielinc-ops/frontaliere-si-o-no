@@ -323,35 +323,21 @@ async function initAppCheck(): Promise<void> {
       window as RecaptchaLikeWindow,
     );
 
-    // Initialize with auto-refresh OFF to prevent the SDK from immediately
-    // requesting a token — if the first request fails (400), Firebase logs
-    // noisy "initial-throttle" warnings.  We acquire the first token manually
-    // and only enable auto-refresh after a successful attestation.
+    // Initialize with auto-refresh OFF.  Token acquisition is deferred until
+    // a Firebase service (Firestore, Functions, etc.) actually needs one.
+    // This avoids the browser-level "Failed to load resource: 400" console
+    // error that occurred when we proactively called getToken() — the HTTP 400
+    // from exchangeRecaptchaEnterpriseToken cannot be suppressed by JS
+    // try-catch because the browser logs network errors independently.
     const instance = appCheckModule.initializeAppCheck(await getAppInstance(), {
       provider,
       isTokenAutoRefreshEnabled: false,
     });
+    appCheck = instance;
     const providerName = provider.constructor?.name === 'ReCaptchaEnterpriseProvider'
       ? 'reCAPTCHA Enterprise'
       : 'reCAPTCHA v3';
-
-    // Validate with a manual token request before trusting the instance.
-    try {
-      await appCheckModule.getToken(instance, /* forceRefresh */ false);
-      appCheck = instance;
-      // First token succeeded — enable auto-refresh for future renewals
-      appCheckModule.setTokenAutoRefreshEnabled(instance, true);
-      console.log(`✅ Firebase App Check attivo (${providerName})`);
-    } catch (tokenError: any) {
-      // Token acquisition failed — App Check is non-functional.
-      // Log once and continue without it (non-blocking).
-      firebaseWarn(
-        `⚠️ App Check token non ottenuto (${providerName}):`,
-        tokenError?.code || tokenError?.message || tokenError,
-      );
-      // Don't set appCheck — leaves it null so isAppCheckActive() returns false
-      // and the rest of the app works without attestation.
-    }
+    console.log(`✅ Firebase App Check inizializzato (${providerName}, token deferred)`);
   } catch (error) {
     firebaseWarn('⚠️ App Check non disponibile:', error);
     reportCaughtError(error, 'firebase.initAppCheck');
