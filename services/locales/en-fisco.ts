@@ -836,6 +836,37 @@ const enFisco: Record<string, string> = {
     'fisco.landing.cta.calculator': 'Calculate net salary',
     'fisco.landing.cta.guide': 'Cross-border guide',
     'fisco.landing.cta.comparators': 'Compare cost of living',
+
+    // AI-extractable comparison table: old vs new cross-border workers
+    'fisco.table.caption': 'Tax Comparison: Old vs New Cross-Border Workers 2026',
+    'fisco.table.col.aspect': 'Aspect',
+    'fisco.table.col.old': 'Old Cross-Border (before 17/07/2023)',
+    'fisco.table.col.new': 'New Cross-Border (after 17/07/2023)',
+    'fisco.table.row1.aspect': 'Taxation in Switzerland',
+    'fisco.table.row1.old': 'Full withholding tax (0-24%)',
+    'fisco.table.row1.new': 'Reduced withholding tax (~80%)',
+    'fisco.table.row2.aspect': 'Taxation in Italy',
+    'fisco.table.row2.old': 'No IRPEF on Swiss income',
+    'fisco.table.row2.new': 'IRPEF with €10,000 allowance + tax credit',
+    'fisco.table.row3.aspect': 'Italian tax return',
+    'fisco.table.row3.old': 'Not required for Swiss income',
+    'fisco.table.row3.new': 'Mandatory (730 or Redditi PF)',
+    'fisco.table.row4.aspect': 'Municipal rebates',
+    'fisco.table.row4.old': 'Switzerland returns 40% to Italian municipalities',
+    'fisco.table.row4.new': 'No rebates',
+    'fisco.table.row5.aspect': 'Estimated net (gross CHF 60,000)',
+    'fisco.table.row5.old': '~CHF 44,500 net',
+    'fisco.table.row5.new': '~CHF 41,800 net (after Italian IRPEF)',
+    'fisco.table.source': 'Canton Ticino DFE, Agenzia delle Entrate, 2026',
+
+    // FAQ accordion
+    'fisco.faq.title': 'Frequently Asked Questions — Cross-Border Taxation',
+    'fisco.faq.q1': 'How much tax does a cross-border worker pay in Switzerland?',
+    'fisco.faq.a1': 'Withholding tax in Canton Ticino ranges from 0% to about 24%, depending on gross income, marital status, and number of children. For a CHF 60,000 gross income and single status, the rate is approximately 9-11%. (Source: Canton Ticino DFE, 2026 Withholding Tax Tables)',
+    'fisco.faq.q2': 'What is the difference between old and new cross-border workers?',
+    'fisco.faq.a2': 'Old cross-border workers (hired before 17/07/2023, living within 20 km of the border) pay only Swiss withholding tax. New cross-border workers also pay Italian IRPEF with a €10,000 allowance and a tax credit for taxes paid in Switzerland. (Source: New Italy-Switzerland Agreement, 2020 Protocol)',
+    'fisco.faq.q3': 'How is a cross-border worker\'s net salary calculated?',
+    'fisco.faq.a3': 'From gross CHF: deduct AVS (5.3%), AC (1.1%), LPP (7-18%), LAA (~0.7%), IJM (~0.8%), then withholding tax. For new cross-border workers, Italian IRPEF with €10,000 allowance is also calculated. The result is converted to EUR at the current exchange rate. (Source: UFAS/BSV, Canton Ticino DFE)',
 };
 
 export default enFisco;

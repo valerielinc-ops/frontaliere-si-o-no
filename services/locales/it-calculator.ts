@@ -365,5 +365,34 @@ const translations: Record<string, string> = {
     'input.itWorkDeduction': 'Deduzione lavoro dipendente (€)',
 
     // --- Common ---
+
+    // AI-extractable comparison table: Permit B vs Permit G
+    'calc.table.caption': 'Confronto: Permesso B (Residente) vs Permesso G (Frontaliere)',
+    'calc.table.col.aspect': 'Aspetto',
+    'calc.table.col.permitB': 'Permesso B (Residente)',
+    'calc.table.col.permitG': 'Permesso G (Frontaliere)',
+    'calc.table.row1.aspect': 'Residenza',
+    'calc.table.row1.permitB': 'In Svizzera (obbligatorio)',
+    'calc.table.row1.permitG': 'In Italia (rientro quotidiano)',
+    'calc.table.row2.aspect': 'Tassazione',
+    'calc.table.row2.permitB': 'Dichiarazione ordinaria in Svizzera',
+    'calc.table.row2.permitG': 'Imposta alla fonte + eventuale IRPEF Italia',
+    'calc.table.row3.aspect': 'Assicurazione malattia',
+    'calc.table.row3.permitB': 'LAMal obbligatoria (CHF 300-500/mese)',
+    'calc.table.row3.permitG': 'Scelta: LAMal frontaliero o SSN italiano',
+    'calc.table.row4.aspect': 'Costo della vita',
+    'calc.table.row4.permitB': 'Alto (affitti Ticino CHF 1.200-2.000/mese)',
+    'calc.table.row4.permitG': 'Più basso (costi italiani + pendolarismo)',
+    'calc.table.row5.aspect': 'Netto disponibile (lordo CHF 60.000)',
+    'calc.table.row5.permitB': '~CHF 35.000 dopo affitto e costi',
+    'calc.table.row5.permitG': '~EUR 38.000 in potere d\'acquisto',
+    'calc.table.source': 'Simulazione Frontaliere Ticino, parametri medi 2026',
+    'calc.faq.title': 'Domande Frequenti — Stipendio Frontaliere',
+    'calc.faq.q1': 'Quanto guadagna un frontaliere in Svizzera?',
+    'calc.faq.a1': 'Lo stipendio medio in Ticino è circa CHF 5.000 lordi/mese (CHF 60.000/anno). Dopo le deduzioni sociali (AVS, LPP, LAA) e l\'imposta alla fonte, il netto è circa CHF 3.700-4.200/mese a seconda dello stato civile e dei figli. (Fonte: UST Lohnstrukturerhebung 2024)',
+    'calc.faq.q2': 'Conviene di più il Permesso B o il Permesso G?',
+    'calc.faq.a2': 'Dipende dalla situazione personale. Il Permesso B (residente) offre accesso a tutti i servizi svizzeri ma ha costi di vita elevati. Il Permesso G (frontaliere) mantiene i costi italiani più bassi ma comporta pendolarismo e possibile doppia tassazione per i nuovi frontalieri.',
+    'calc.faq.q3': 'Come funziona l\'imposta alla fonte per i frontalieri?',
+    'calc.faq.a3': 'L\'imposta alla fonte viene trattenuta direttamente dal datore di lavoro svizzero sulla busta paga. Le aliquote variano per cantone, stato civile e reddito. In Ticino vanno dallo 0% al 24%. Le tabelle sono A (single), B (coniugato un reddito), C (coniugato due redditi), H (monoparentale). (Fonte: Canton Ticino DFE 2026)',
 };
 export default translations;

@@ -14,6 +14,8 @@ import {
   SkeletonWeeklyFact,
   SkeletonInputCard,
 } from '@/components/shared/Skeletons';
+import AiExtractableTable from '@/components/shared/AiExtractableTable';
+import FaqAccordion from '@/components/shared/FaqAccordion';
 
 // Eagerly load InputCard in THIS chunk so it parses only when CalcolatoreTabContent loads.
 // This removes InputCard and MobileCalcLayout from the main App bundle.
@@ -230,6 +232,34 @@ export default function CalcolatoreTabContent() {
             )}
             {/* SEO cross-linking: crawlable <a href> links to key pages (payslip, tax, pension, jobs) */}
             {result && <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>}
+
+            {/* AI-extractable comparison table + FAQ — always visible on landing */}
+            <AiExtractableTable
+              caption={t('calc.table.caption')}
+              columns={[
+                { header: t('calc.table.col.aspect'), accessor: 'aspect' },
+                { header: t('calc.table.col.permitB'), accessor: 'permitB' },
+                { header: t('calc.table.col.permitG'), accessor: 'permitG' },
+              ]}
+              rows={[
+                { aspect: t('calc.table.row1.aspect'), permitB: t('calc.table.row1.permitB'), permitG: t('calc.table.row1.permitG') },
+                { aspect: t('calc.table.row2.aspect'), permitB: t('calc.table.row2.permitB'), permitG: t('calc.table.row2.permitG') },
+                { aspect: t('calc.table.row3.aspect'), permitB: t('calc.table.row3.permitB'), permitG: t('calc.table.row3.permitG') },
+                { aspect: t('calc.table.row4.aspect'), permitB: t('calc.table.row4.permitB'), permitG: t('calc.table.row4.permitG') },
+                { aspect: t('calc.table.row5.aspect'), permitB: t('calc.table.row5.permitB'), permitG: t('calc.table.row5.permitG') },
+              ]}
+              source={t('calc.table.source')}
+              className="mt-6"
+            />
+            <FaqAccordion
+              title={t('calc.faq.title')}
+              items={[
+                { question: t('calc.faq.q1'), answer: t('calc.faq.a1') },
+                { question: t('calc.faq.q2'), answer: t('calc.faq.a2') },
+                { question: t('calc.faq.q3'), answer: t('calc.faq.a3') },
+              ]}
+              className="mt-8"
+            />
           </>
         )}
       </div>

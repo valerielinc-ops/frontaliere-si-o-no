@@ -836,6 +836,37 @@ const frFisco: Record<string, string> = {
     'fisco.landing.cta.calculator': 'Calculer salaire net',
     'fisco.landing.cta.guide': 'Guide frontalier',
     'fisco.landing.cta.comparators': 'Comparer le coût de la vie',
+
+    // AI-extractable comparison table: old vs new cross-border workers
+    'fisco.table.caption': 'Comparaison Fiscale : Anciens vs Nouveaux Frontaliers 2026',
+    'fisco.table.col.aspect': 'Aspect',
+    'fisco.table.col.old': 'Anciens Frontaliers (avant 17/07/2023)',
+    'fisco.table.col.new': 'Nouveaux Frontaliers (après 17/07/2023)',
+    'fisco.table.row1.aspect': 'Imposition en Suisse',
+    'fisco.table.row1.old': 'Impôt à la source complet (0-24%)',
+    'fisco.table.row1.new': 'Impôt à la source réduit (~80%)',
+    'fisco.table.row2.aspect': 'Imposition en Italie',
+    'fisco.table.row2.old': 'Pas d\'IRPEF sur le revenu suisse',
+    'fisco.table.row2.new': 'IRPEF avec franchise €10.000 + crédit d\'impôt',
+    'fisco.table.row3.aspect': 'Déclaration en Italie',
+    'fisco.table.row3.old': 'Non requise pour le revenu suisse',
+    'fisco.table.row3.new': 'Obligatoire (730 ou Redditi PF)',
+    'fisco.table.row4.aspect': 'Rétrocessions communales',
+    'fisco.table.row4.old': 'La Suisse restitue 40% aux communes IT',
+    'fisco.table.row4.new': 'Aucune rétrocession',
+    'fisco.table.row5.aspect': 'Net estimé (brut CHF 60.000)',
+    'fisco.table.row5.old': '~CHF 44.500 net',
+    'fisco.table.row5.new': '~CHF 41.800 net (après IRPEF IT)',
+    'fisco.table.source': 'Canton du Tessin DFE, Agenzia delle Entrate, 2026',
+
+    // FAQ accordion
+    'fisco.faq.title': 'Questions Fréquentes — Fiscalité des Frontaliers',
+    'fisco.faq.q1': 'Combien d\'impôts paie un frontalier en Suisse ?',
+    'fisco.faq.a1': 'L\'impôt à la source au Canton du Tessin varie de 0% à environ 24%, selon le revenu brut, l\'état civil et le nombre d\'enfants. Pour un revenu de CHF 60.000 en tant que célibataire, le taux est d\'environ 9-11%. (Source : Canton du Tessin DFE, Barèmes de l\'impôt à la source 2026)',
+    'fisco.faq.q2': 'Quelle est la différence entre anciens et nouveaux frontaliers ?',
+    'fisco.faq.a2': 'Les anciens frontaliers (embauchés avant le 17/07/2023, résidant à moins de 20 km de la frontière) ne paient que l\'impôt à la source suisse. Les nouveaux frontaliers paient aussi l\'IRPEF italienne avec une franchise de €10.000 et un crédit d\'impôt pour les impôts payés en Suisse. (Source : Nouvel Accord Italie-Suisse, Protocole 2020)',
+    'fisco.faq.q3': 'Comment calcule-t-on le salaire net d\'un frontalier ?',
+    'fisco.faq.a3': 'Du brut en CHF on soustrait : cotisations AVS (5,3%), AC (1,1%), LPP (7-18%), LAA (~0,7%), IJM (~0,8%), puis l\'impôt à la source. Pour les nouveaux frontaliers, on calcule aussi l\'IRPEF italienne avec franchise €10.000. Le résultat est converti en EUR au taux de change courant. (Source : OFAS/BSV, Canton du Tessin DFE)',
 };
 
 export default frFisco;

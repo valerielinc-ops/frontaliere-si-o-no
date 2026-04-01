@@ -836,6 +836,37 @@ const deFisco: Record<string, string> = {
     'fisco.landing.cta.calculator': 'Nettogehalt berechnen',
     'fisco.landing.cta.guide': 'Grenzgänger-Leitfaden',
     'fisco.landing.cta.comparators': 'Lebenshaltungskosten vergleichen',
+
+    // AI-extractable comparison table: old vs new cross-border workers
+    'fisco.table.caption': 'Steuervergleich: Alte vs Neue Grenzgänger 2026',
+    'fisco.table.col.aspect': 'Aspekt',
+    'fisco.table.col.old': 'Alte Grenzgänger (vor 17.07.2023)',
+    'fisco.table.col.new': 'Neue Grenzgänger (nach 17.07.2023)',
+    'fisco.table.row1.aspect': 'Besteuerung in der Schweiz',
+    'fisco.table.row1.old': 'Volle Quellensteuer (0-24%)',
+    'fisco.table.row1.new': 'Reduzierte Quellensteuer (~80%)',
+    'fisco.table.row2.aspect': 'Besteuerung in Italien',
+    'fisco.table.row2.old': 'Keine IRPEF auf Schweizer Einkommen',
+    'fisco.table.row2.new': 'IRPEF mit €10.000 Freibetrag + Steuergutschrift',
+    'fisco.table.row3.aspect': 'Steuererklärung in Italien',
+    'fisco.table.row3.old': 'Nicht erforderlich für Schweizer Einkommen',
+    'fisco.table.row3.new': 'Pflicht (730 oder Redditi PF)',
+    'fisco.table.row4.aspect': 'Kommunale Rückerstattungen',
+    'fisco.table.row4.old': 'Schweiz erstattet 40% an italienische Gemeinden',
+    'fisco.table.row4.new': 'Keine Rückerstattungen',
+    'fisco.table.row5.aspect': 'Geschätztes Netto (Brutto CHF 60.000)',
+    'fisco.table.row5.old': '~CHF 44.500 netto',
+    'fisco.table.row5.new': '~CHF 41.800 netto (nach italienischer IRPEF)',
+    'fisco.table.source': 'Kanton Tessin DFE, Agenzia delle Entrate, 2026',
+
+    // FAQ accordion
+    'fisco.faq.title': 'Häufig gestellte Fragen — Grenzgänger-Besteuerung',
+    'fisco.faq.q1': 'Wie viel Steuern zahlt ein Grenzgänger in der Schweiz?',
+    'fisco.faq.a1': 'Die Quellensteuer im Kanton Tessin reicht von 0% bis ca. 24%, abhängig vom Bruttoeinkommen, Familienstand und Kinderzahl. Bei einem Bruttoeinkommen von CHF 60.000 und ledigem Status beträgt der Satz etwa 9-11%. (Quelle: Kanton Tessin DFE, Quellensteuertabellen 2026)',
+    'fisco.faq.q2': 'Was ist der Unterschied zwischen alten und neuen Grenzgängern?',
+    'fisco.faq.a2': 'Alte Grenzgänger (eingestellt vor dem 17.07.2023, wohnhaft innerhalb von 20 km der Grenze) zahlen nur Schweizer Quellensteuer. Neue Grenzgänger zahlen zusätzlich italienische IRPEF mit einem Freibetrag von €10.000 und einer Steuergutschrift für in der Schweiz gezahlte Steuern. (Quelle: Neues Abkommen Italien-Schweiz, Protokoll 2020)',
+    'fisco.faq.q3': 'Wie wird das Nettogehalt eines Grenzgängers berechnet?',
+    'fisco.faq.a3': 'Vom Brutto in CHF werden abgezogen: AHV (5,3%), ALV (1,1%), BVG (7-18%), UVG (~0,7%), KTG (~0,8%), dann die Quellensteuer. Für neue Grenzgänger wird zusätzlich die italienische IRPEF mit €10.000 Freibetrag berechnet. Das Ergebnis wird zum aktuellen Wechselkurs in EUR umgerechnet. (Quelle: BSV, Kanton Tessin DFE)',
 };
 
 export default deFisco;

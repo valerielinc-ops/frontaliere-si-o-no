@@ -868,5 +868,36 @@ const translations: Record<string, string> = {
     'fisco.landing.cta.calculator': 'Calcola stipendio netto',
     'fisco.landing.cta.guide': 'Guida frontaliere',
     'fisco.landing.cta.comparators': 'Confronta costi di vita',
+
+    // AI-extractable comparison table: old vs new frontalieri
+    'fisco.table.caption': 'Confronto Fiscale: Vecchi vs Nuovi Frontalieri 2026',
+    'fisco.table.col.aspect': 'Aspetto',
+    'fisco.table.col.old': 'Vecchi Frontalieri (pre 17/07/2023)',
+    'fisco.table.col.new': 'Nuovi Frontalieri (post 17/07/2023)',
+    'fisco.table.row1.aspect': 'Tassazione in Svizzera',
+    'fisco.table.row1.old': 'Imposta alla fonte piena (0-24%)',
+    'fisco.table.row1.new': 'Imposta alla fonte ridotta (~80%)',
+    'fisco.table.row2.aspect': 'Tassazione in Italia',
+    'fisco.table.row2.old': 'Nessuna IRPEF sul reddito svizzero',
+    'fisco.table.row2.new': 'IRPEF con franchigia €10.000 + credito d\'imposta',
+    'fisco.table.row3.aspect': 'Dichiarazione in Italia',
+    'fisco.table.row3.old': 'Non necessaria per il reddito svizzero',
+    'fisco.table.row3.new': 'Obbligatoria (730 o Redditi PF)',
+    'fisco.table.row4.aspect': 'Ristorni ai comuni',
+    'fisco.table.row4.old': 'Svizzera restituisce 40% ai comuni IT',
+    'fisco.table.row4.new': 'Nessun ristorno',
+    'fisco.table.row5.aspect': 'Netto stimato (lordo CHF 60.000)',
+    'fisco.table.row5.old': '~CHF 44.500 netti',
+    'fisco.table.row5.new': '~CHF 41.800 netti (dopo IRPEF IT)',
+    'fisco.table.source': 'Canton Ticino DFE, Agenzia delle Entrate, 2026',
+
+    // FAQ accordion
+    'fisco.faq.title': 'Domande Frequenti — Fisco Frontalieri',
+    'fisco.faq.q1': 'Quanto paga di tasse un frontaliere in Svizzera?',
+    'fisco.faq.a1': 'L\'imposta alla fonte in Canton Ticino varia dallo 0% al 24% circa, in base al reddito lordo, stato civile e numero di figli. Per un reddito di CHF 60.000 con stato civile single, l\'aliquota è circa il 9-11%. (Fonte: Canton Ticino DFE, Tabelle imposta alla fonte 2026)',
+    'fisco.faq.q2': 'Qual è la differenza tra vecchi e nuovi frontalieri?',
+    'fisco.faq.a2': 'I vecchi frontalieri (assunti prima del 17/07/2023, residenti entro 20 km dal confine) pagano solo l\'imposta alla fonte svizzera. I nuovi frontalieri pagano anche l\'IRPEF italiana con una franchigia di €10.000 e credito d\'imposta per le tasse pagate in Svizzera. (Fonte: Nuovo Accordo Italia-Svizzera, Protocollo 2020)',
+    'fisco.faq.q3': 'Come si calcola lo stipendio netto di un frontaliere?',
+    'fisco.faq.a3': 'Dal lordo in CHF si sottraggono: contributi AVS (5.3%), AC (1.1%), LPP (7-18%), LAA (~0.7%), IJM (~0.8%), poi l\'imposta alla fonte. Per i nuovi frontalieri si calcola anche l\'IRPEF italiana con franchigia €10.000. Il risultato si converte in EUR al tasso di cambio corrente. (Fonte: UFAS/BSV, Canton Ticino DFE)',
 };
 export default translations;

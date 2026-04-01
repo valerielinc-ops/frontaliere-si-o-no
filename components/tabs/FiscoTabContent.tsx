@@ -4,6 +4,8 @@ import { useTranslation } from '@/services/i18n';
 import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
 import { SkeletonFisco } from '@/components/shared/Skeletons';
+import AiExtractableTable from '@/components/shared/AiExtractableTable';
+import FaqAccordion from '@/components/shared/FaqAccordion';
 
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
 const SeoContentBlock = lazyRetry(() => import('@/components/shared/SeoContentBlock'));
@@ -50,6 +52,38 @@ export default function FiscoTabContent() {
       ) : fiscoSubTab === 'new-frontier-tax-sim' ? (
         <Suspense fallback={<SkeletonFisco />}><NewFrontierTaxSimHub /></Suspense>
       ) : null}
+
+      {/* AI-extractable comparison table + FAQ — landing only */}
+      {!fiscoSubTab && (
+        <>
+          <AiExtractableTable
+            caption={t('fisco.table.caption')}
+            columns={[
+              { header: t('fisco.table.col.aspect'), accessor: 'aspect' },
+              { header: t('fisco.table.col.old'), accessor: 'old' },
+              { header: t('fisco.table.col.new'), accessor: 'new' },
+            ]}
+            rows={[
+              { aspect: t('fisco.table.row1.aspect'), old: t('fisco.table.row1.old'), new: t('fisco.table.row1.new') },
+              { aspect: t('fisco.table.row2.aspect'), old: t('fisco.table.row2.old'), new: t('fisco.table.row2.new') },
+              { aspect: t('fisco.table.row3.aspect'), old: t('fisco.table.row3.old'), new: t('fisco.table.row3.new') },
+              { aspect: t('fisco.table.row4.aspect'), old: t('fisco.table.row4.old'), new: t('fisco.table.row4.new') },
+              { aspect: t('fisco.table.row5.aspect'), old: t('fisco.table.row5.old'), new: t('fisco.table.row5.new') },
+            ]}
+            source={t('fisco.table.source')}
+            className="mt-6"
+          />
+          <FaqAccordion
+            title={t('fisco.faq.title')}
+            items={[
+              { question: t('fisco.faq.q1'), answer: t('fisco.faq.a1') },
+              { question: t('fisco.faq.q2'), answer: t('fisco.faq.a2') },
+              { question: t('fisco.faq.q3'), answer: t('fisco.faq.a3') },
+            ]}
+            className="mt-8"
+          />
+        </>
+      )}
 
       {/* AdSense — bottom multiplex */}
       <Suspense fallback={null}>
