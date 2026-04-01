@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-03-31T21:31:34.008Z",
+  "assembledAt": "2026-04-01T09:44:00.804Z",
   "jobs": [
     {
       "id": "company-nlbz63",
@@ -47,8 +47,8 @@
       "crawledAt": "2026-03-31T21:31:33.102Z",
       "slugByLocale": {
         "it": "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63",
-        "en": "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63",
-        "de": "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63",
+        "en": "pilates-reformer-and-cadillac-teacher-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63",
+        "de": "pilates-reformer-und-cadillac-lehrer-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63",
         "fr": "enseignant-e-pilates-reformer-et-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona"
       },
       "titleByLocale": {
@@ -97,7 +97,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-jn3560",
@@ -195,7 +196,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-cardio-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-jn3560"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
@@ -296,7 +298,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",

@@ -1,16 +1,16 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-03-31T21:31:34.009Z",
+  "generatedAt": "2026-04-01T09:44:00.805Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 5,
-  "durationMs": 13155,
-  "avgDurationMs": 13155,
+  "durationMs": 14381,
+  "avgDurationMs": 14381,
   "durationHistory": [
-    13155
+    14381
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -49,7 +49,6 @@
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
       "crawledAt": "2026-03-31T21:31:33.102Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -59,11 +58,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -100,7 +100,6 @@
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
       "crawledAt": "2026-03-31T21:31:33.102Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -110,11 +109,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -150,7 +150,6 @@
       "companyKey": "migros-ticino",
       "companyDomain": "migros.ch",
       "crawledAt": "2026-03-31T21:31:33.102Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -160,11 +159,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -211,11 +211,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     },
@@ -264,11 +264,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 19,
         "completeness": 25
       }
     }
