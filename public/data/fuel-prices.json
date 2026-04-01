@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T16:34:20.789Z",
+  "generatedAt": "2026-04-01T17:34:29.274Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 229,
-      "latestObservedUpdate": "2026-04-01T16:28:45.070Z"
+      "latestObservedUpdate": "2026-04-01T17:00:50.492Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -1223,11 +1223,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 12.7
           },
           {
@@ -1365,20 +1365,6 @@
             "distanceKm": 12.3
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 11
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -1391,6 +1377,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.9
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 11
           }
         ],
         "minPriceChf": 1.66,
@@ -1601,11 +1601,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 14.5
           },
           {
@@ -1853,11 +1853,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 13.8
           },
           {
@@ -1990,11 +1990,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 14.9
           },
           {
@@ -2132,20 +2132,6 @@
             "distanceKm": 12
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 11.6
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -2158,6 +2144,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 14.2
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 11.6
           }
         ],
         "minPriceChf": 1.66,
@@ -2344,11 +2344,11 @@
           "address": "Via Emilio Bossi 19, 6830 Chiasso",
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
-          "sp95PriceChf": 1.7400000000000002,
-          "updatedAt": "2026-03-31T08:22:40.813Z",
+          "sp95PriceChf": 1.7600000000000002,
+          "updatedAt": "2026-04-01T17:00:50.492Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
-          "sp95PriceEur": 1.893,
+          "sp95PriceEur": 1.915,
           "distanceKm": 19
         },
         "nearbyStations": [
@@ -2359,11 +2359,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 19
           },
           {
@@ -2423,13 +2423,13 @@
             "distanceKm": 18.7
           }
         ],
-        "minPriceChf": 1.74,
-        "minPriceEur": 1.893
+        "minPriceChf": 1.76,
+        "minPriceEur": 1.915
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.114,
-        "saving50LEur": 5.7
+        "priceDeltaEur": 0.136,
+        "saving50LEur": 6.8
       }
     },
     {
@@ -2549,11 +2549,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.7
           },
           {
@@ -2607,11 +2607,11 @@
           "address": "Via Emilio Bossi 19, 6830 Chiasso",
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
-          "sp95PriceChf": 1.7400000000000002,
-          "updatedAt": "2026-03-31T08:22:40.813Z",
+          "sp95PriceChf": 1.7600000000000002,
+          "updatedAt": "2026-04-01T17:00:50.492Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
-          "sp95PriceEur": 1.893,
+          "sp95PriceEur": 1.915,
           "distanceKm": 20
         },
         "nearbyStations": [
@@ -2622,11 +2622,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 20
           },
           {
@@ -2686,8 +2686,8 @@
             "distanceKm": 19.7
           }
         ],
-        "minPriceChf": 1.74,
-        "minPriceEur": 1.893
+        "minPriceChf": 1.76,
+        "minPriceEur": 1.915
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -2969,20 +2969,6 @@
             "distanceKm": 9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 9.1
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -2995,6 +2981,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 10
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 9.1
           }
         ],
         "minPriceChf": 1.66,
@@ -3084,20 +3084,6 @@
             "distanceKm": 9.6
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 10.1
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -3110,6 +3096,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 8.4
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 10.1
           }
         ],
         "minPriceChf": 1.66,
@@ -3443,18 +3443,18 @@
             "distanceKm": 6.7
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 5.6
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 13.2
           }
         ],
         "minPriceChf": 1.66,
@@ -3605,11 +3605,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.5
           },
           {
@@ -3753,11 +3753,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.8
           },
           {
@@ -3876,18 +3876,18 @@
             "distanceKm": 11.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 11.5
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 16.3
           }
         ],
         "minPriceChf": 1.66,
@@ -3991,18 +3991,18 @@
             "distanceKm": 6.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 4.9
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 12.9
           }
         ],
         "minPriceChf": 1.66,
@@ -4092,20 +4092,6 @@
             "distanceKm": 10.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 10
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -4118,6 +4104,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 13.7
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 10
           }
         ],
         "minPriceChf": 1.66,
@@ -4348,20 +4348,6 @@
             "distanceKm": 13.1
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 12.3
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -4374,6 +4360,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 17
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 12.3
           }
         ],
         "minPriceChf": 1.66,
@@ -4469,11 +4469,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 16.6
           },
           {
@@ -4919,11 +4919,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 13.1
           },
           {
@@ -5075,11 +5075,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.9
           },
           {
@@ -5198,20 +5198,6 @@
             "distanceKm": 11.8
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 10.5
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -5224,6 +5210,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.1
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 10.5
           }
         ],
         "minPriceChf": 1.66,
@@ -5327,18 +5327,18 @@
             "distanceKm": 8.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 8
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 13.9
           }
         ],
         "minPriceChf": 1.66,
@@ -5428,20 +5428,6 @@
             "distanceKm": 18.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 18.2
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -5454,6 +5440,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 19.5
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.66,
@@ -5549,11 +5549,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.9
           },
           {
@@ -5784,11 +5784,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.9
           },
           {
@@ -5927,11 +5927,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.5
           },
           {
@@ -6036,20 +6036,6 @@
             "distanceKm": 10.7
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 9.6
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -6062,6 +6048,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 15.9
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 9.6
           }
         ],
         "minPriceChf": 1.66,
@@ -6151,20 +6151,6 @@
             "distanceKm": 10.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 9.4
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -6177,6 +6163,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 14.3
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 9.4
           }
         ],
         "minPriceChf": 1.66,
@@ -6305,11 +6305,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.6
           },
           {
@@ -6414,20 +6414,6 @@
             "distanceKm": 10.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 10.4
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -6440,6 +6426,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 10.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 10.4
           }
         ],
         "minPriceChf": 1.66,
@@ -6536,7 +6536,7 @@
             "lat": 45.998036,
             "lng": 8.905347,
             "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-29T09:52:58.095Z",
+            "updatedAt": "2026-04-01T16:43:56.311Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 4.7,
             "sp95PriceEur": 1.948,
@@ -6957,11 +6957,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.5
           },
           {
@@ -7080,18 +7080,18 @@
             "distanceKm": 4.7
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 3.5
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 11.2
           }
         ],
         "minPriceChf": 1.66,
@@ -7181,20 +7181,6 @@
             "distanceKm": 15.7
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 15.1
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -7207,6 +7193,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.8
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 15.1
           }
         ],
         "minPriceChf": 1.66,
@@ -7431,11 +7431,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 16.7
           }
         ],
@@ -7540,18 +7540,18 @@
             "distanceKm": 4.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 4.1
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 8
           }
         ],
         "minPriceChf": 1.66,
@@ -7930,18 +7930,18 @@
             "distanceKm": 6.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 4.8
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 12.7
           }
         ],
         "minPriceChf": 1.66,
@@ -8038,7 +8038,7 @@
             "lat": 45.998036,
             "lng": 8.905347,
             "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-29T09:52:58.095Z",
+            "updatedAt": "2026-04-01T16:43:56.311Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 4.7,
             "sp95PriceEur": 1.948,
@@ -8199,20 +8199,6 @@
             "distanceKm": 12.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 11.7
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -8225,6 +8211,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.3
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 11.7
           }
         ],
         "minPriceChf": 1.66,
@@ -9004,11 +9004,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15
           },
           {
@@ -9119,11 +9119,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.2
           },
           {
@@ -9242,18 +9242,18 @@
             "distanceKm": 12.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 11.1
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.66,
@@ -9513,20 +9513,6 @@
             "distanceKm": 15.7
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 15.1
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -9539,6 +9525,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.3
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 15.1
           }
         ],
         "minPriceChf": 1.66,
@@ -9667,11 +9667,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.9
           },
           {
@@ -9853,20 +9853,6 @@
             "distanceKm": 10.3
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 9.4
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -9879,6 +9865,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 14.8
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 9.4
           }
         ],
         "minPriceChf": 1.66,
@@ -10186,20 +10186,6 @@
             "distanceKm": 8.1
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 6.9
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -10212,6 +10198,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 13.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 6.9
           }
         ],
         "minPriceChf": 1.66,
@@ -10620,20 +10620,6 @@
             "distanceKm": 12.7
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 12
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -10646,6 +10632,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 16
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 12
           }
         ],
         "minPriceChf": 1.66,
@@ -10818,11 +10818,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.3
           },
           {
@@ -10941,18 +10941,18 @@
             "distanceKm": 10.3
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 9.6
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 16
           }
         ],
         "minPriceChf": 1.66,
@@ -11185,11 +11185,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.4
           },
           {
@@ -11300,11 +11300,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 19
           },
           {
@@ -11429,11 +11429,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 17.6
           }
         ],
@@ -11524,20 +11524,6 @@
             "distanceKm": 17.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 16.7
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -11550,6 +11536,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 19.2
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 16.7
           }
         ],
         "minPriceChf": 1.66,
@@ -11672,20 +11672,6 @@
             "distanceKm": 8.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 7.5
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -11698,6 +11684,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 15.4
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 7.5
           }
         ],
         "minPriceChf": 1.66,
@@ -11907,20 +11907,6 @@
             "distanceKm": 18.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 18
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -11933,6 +11919,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.9
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 18
           }
         ],
         "minPriceChf": 1.66,
@@ -12099,20 +12099,6 @@
             "distanceKm": 15.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 14.7
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -12125,6 +12111,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 19.3
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 14.7
           }
         ],
         "minPriceChf": 1.66,
@@ -12220,11 +12220,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 17.1
           },
           {
@@ -12351,20 +12351,6 @@
             "distanceKm": 8.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 8
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -12377,6 +12363,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 13.3
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 8
           }
         ],
         "minPriceChf": 1.66,
@@ -12494,11 +12494,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 17.3
           },
           {
@@ -12603,20 +12603,6 @@
             "distanceKm": 15.3
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 14.9
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -12629,6 +12615,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 17.5
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 14.9
           }
         ],
         "minPriceChf": 1.66,
@@ -12762,20 +12762,6 @@
             "distanceKm": 8.4
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 8.1
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -12788,6 +12774,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 10.9
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 8.1
           }
         ],
         "minPriceChf": 1.66,
@@ -13124,11 +13124,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.8
           },
           {
@@ -13524,11 +13524,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 17.5
           },
           {
@@ -13647,18 +13647,18 @@
             "distanceKm": 6.3
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 5.4
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 12.3
           }
         ],
         "minPriceChf": 1.66,
@@ -13754,11 +13754,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 16.7
           },
           {
@@ -13877,18 +13877,18 @@
             "distanceKm": 5.8
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 5
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 10.6
           }
         ],
         "minPriceChf": 1.66,
@@ -14037,20 +14037,6 @@
             "distanceKm": 11.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 10.5
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -14063,6 +14049,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.4
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 10.5
           }
         ],
         "minPriceChf": 1.66,
@@ -14235,11 +14235,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.7
           },
           {
@@ -14445,18 +14445,18 @@
             "distanceKm": 13.4
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 12.9
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 18.2
           }
         ],
         "minPriceChf": 1.66,
@@ -14607,11 +14607,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 16.6
           },
           {
@@ -14785,18 +14785,18 @@
             "distanceKm": 7.4
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 7.5
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 8.7
           }
         ],
         "minPriceChf": 1.66,
@@ -14886,20 +14886,6 @@
             "distanceKm": 9.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 9.7
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -14912,6 +14898,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 11.8
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 9.7
           }
         ],
         "minPriceChf": 1.66,
@@ -15040,11 +15040,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 13.3
           },
           {
@@ -15539,18 +15539,18 @@
             "distanceKm": 12.4
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 11.6
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 18
           }
         ],
         "minPriceChf": 1.66,
@@ -15761,11 +15761,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 15.1
           },
           {
@@ -16013,11 +16013,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 16.6
           },
           {
@@ -16071,11 +16071,11 @@
           "address": "Via Emilio Bossi 19, 6830 Chiasso",
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
-          "sp95PriceChf": 1.7400000000000002,
-          "updatedAt": "2026-03-31T08:22:40.813Z",
+          "sp95PriceChf": 1.7600000000000002,
+          "updatedAt": "2026-04-01T17:00:50.492Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
-          "sp95PriceEur": 1.893,
+          "sp95PriceEur": 1.915,
           "distanceKm": 19.6
         },
         "nearbyStations": [
@@ -16086,11 +16086,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 19.6
           },
           {
@@ -16150,8 +16150,8 @@
             "distanceKm": 19.2
           }
         ],
-        "minPriceChf": 1.74,
-        "minPriceEur": 1.893
+        "minPriceChf": 1.76,
+        "minPriceEur": 1.915
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -16243,11 +16243,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 17.3
           },
           {
@@ -16621,11 +16621,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.7
           },
           {
@@ -16803,11 +16803,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18
           }
         ],
@@ -17060,18 +17060,18 @@
             "distanceKm": 4.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 3.3
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 10.5
           }
         ],
         "minPriceChf": 1.66,
@@ -17168,7 +17168,7 @@
             "lat": 45.998036,
             "lng": 8.905347,
             "sp95PriceChf": 1.79,
-            "updatedAt": "2026-03-29T09:52:58.095Z",
+            "updatedAt": "2026-04-01T16:43:56.311Z",
             "nearestMunicipality": "Brusimpiano (VA)",
             "nearestMunicipalityDistanceKm": 4.7,
             "sp95PriceEur": 1.948,
@@ -17422,20 +17422,6 @@
             "distanceKm": 11.4
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 10.1
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -17448,6 +17434,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 17.4
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 10.1
           }
         ],
         "minPriceChf": 1.66,
@@ -17783,11 +17783,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 17.5
           },
           {
@@ -18007,20 +18007,6 @@
             "distanceKm": 11
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 9.6
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -18033,6 +18019,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 17.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 9.6
           }
         ],
         "minPriceChf": 1.66,
@@ -18158,18 +18158,18 @@
             "distanceKm": 8
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 7.1
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 14.1
           }
         ],
         "minPriceChf": 1.66,
@@ -18487,11 +18487,11 @@
           "address": "Via Emilio Bossi 19, 6830 Chiasso",
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
-          "sp95PriceChf": 1.7400000000000002,
-          "updatedAt": "2026-03-31T08:22:40.813Z",
+          "sp95PriceChf": 1.7600000000000002,
+          "updatedAt": "2026-04-01T17:00:50.492Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
-          "sp95PriceEur": 1.893,
+          "sp95PriceEur": 1.915,
           "distanceKm": 19.6
         },
         "nearbyStations": [
@@ -18502,11 +18502,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 19.6
           },
           {
@@ -18566,13 +18566,13 @@
             "distanceKm": 19.7
           }
         ],
-        "minPriceChf": 1.74,
-        "minPriceEur": 1.893
+        "minPriceChf": 1.76,
+        "minPriceEur": 1.915
       },
       "comparison": {
         "cheaperCountry": "IT",
-        "priceDeltaEur": 0.154,
-        "saving50LEur": 7.7
+        "priceDeltaEur": 0.176,
+        "saving50LEur": 8.8
       }
     },
     {
@@ -19158,18 +19158,18 @@
             "distanceKm": 14.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 14.3
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 20
           }
         ],
         "minPriceChf": 1.66,
@@ -19281,20 +19281,6 @@
             "distanceKm": 14.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 13.8
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -19307,6 +19293,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 16.4
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 13.8
           }
         ],
         "minPriceChf": 1.66,
@@ -19527,20 +19527,6 @@
             "distanceKm": 13.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 12.4
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -19553,6 +19539,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 18.4
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 12.4
           }
         ],
         "minPriceChf": 1.66,
@@ -19675,20 +19675,6 @@
             "distanceKm": 7.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 6.8
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -19701,6 +19687,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 11.8
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 6.8
           }
         ],
         "minPriceChf": 1.66,
@@ -19804,18 +19804,18 @@
             "distanceKm": 14.6
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 13.9
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.904,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.66,
@@ -22366,20 +22366,6 @@
             "distanceKm": 18.9
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 19.7
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -22392,6 +22378,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 14.9
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.66,
@@ -22640,20 +22640,6 @@
             "distanceKm": 17.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 18.4
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -22666,6 +22652,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 12.9
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.66,
@@ -23378,20 +23378,6 @@
             "distanceKm": 19.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 19.6
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -23404,6 +23390,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 17
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 19.6
           }
         ],
         "minPriceChf": 1.66,
@@ -23526,20 +23526,6 @@
             "distanceKm": 18.3
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 18.8
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -23552,6 +23538,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 15.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 18.8
           }
         ],
         "minPriceChf": 1.66,
@@ -24396,20 +24396,6 @@
             "distanceKm": 18.1
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 18.4
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -24422,6 +24408,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 16.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.66,
@@ -24648,20 +24648,6 @@
             "distanceKm": 15
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 15.5
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -24674,6 +24660,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 12.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 15.5
           }
         ],
         "minPriceChf": 1.66,
@@ -24796,20 +24796,6 @@
             "distanceKm": 18.8
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 19.5
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -24822,6 +24808,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 15.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 19.5
           }
         ],
         "minPriceChf": 1.66,
@@ -28395,20 +28395,6 @@
             "distanceKm": 15.7
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 16.5
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -28421,6 +28407,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 11.7
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 16.5
           }
         ],
         "minPriceChf": 1.66,
@@ -29048,20 +29048,6 @@
             "distanceKm": 16.6
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 17
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -29074,6 +29060,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 14.5
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 17
           }
         ],
         "minPriceChf": 1.66,
@@ -29983,20 +29983,6 @@
             "distanceKm": 18.8
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 18.9
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -30009,6 +29995,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 17.8
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 18.9
           }
         ],
         "minPriceChf": 1.66,
@@ -30098,20 +30098,6 @@
             "distanceKm": 14.3
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 15
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -30124,6 +30110,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 11
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 15
           }
         ],
         "minPriceChf": 1.66,
@@ -31514,20 +31514,6 @@
             "distanceKm": 16.6
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 17.3
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -31540,6 +31526,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 13.1
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.66,
@@ -33516,20 +33516,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 16.9
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -33542,6 +33528,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 16.6
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 16.9
           }
         ],
         "minPriceChf": 1.66,
@@ -34703,20 +34703,6 @@
             "distanceKm": 12.4
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 13
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -34729,6 +34715,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 9.9
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 13
           }
         ],
         "minPriceChf": 1.66,
@@ -34862,20 +34862,6 @@
             "distanceKm": 14.5
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 14.7
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -34888,6 +34874,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 13.7
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 14.7
           }
         ],
         "minPriceChf": 1.66,
@@ -34977,20 +34977,6 @@
             "distanceKm": 13.2
           },
           {
-            "id": "2cyTEGqZPuSVhtpjGqzf",
-            "name": "Silo Shop",
-            "brand": "UNDEFINED",
-            "address": "Via Emilio Bossi 19, 6830 Chiasso",
-            "lat": 45.83496780148789,
-            "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
-            "nearestMunicipality": "Maslianico (CO)",
-            "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
-            "distanceKm": 13.5
-          },
-          {
             "id": "UelxZq99s1BipDu4DdXY",
             "name": "TAMOIL San Pietro di Stabio",
             "brand": "TAMOIL",
@@ -35003,6 +34989,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.904,
             "distanceKm": 12.2
+          },
+          {
+            "id": "2cyTEGqZPuSVhtpjGqzf",
+            "name": "Silo Shop",
+            "brand": "UNDEFINED",
+            "address": "Via Emilio Bossi 19, 6830 Chiasso",
+            "lat": 45.83496780148789,
+            "lng": 9.03111642498091,
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 1.5,
+            "sp95PriceEur": 1.915,
+            "distanceKm": 13.5
           }
         ],
         "minPriceChf": 1.66,
@@ -44679,11 +44679,11 @@
           "address": "Via Emilio Bossi 19, 6830 Chiasso",
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
-          "sp95PriceChf": 1.7400000000000002,
-          "updatedAt": "2026-03-31T08:22:40.813Z",
+          "sp95PriceChf": 1.7600000000000002,
+          "updatedAt": "2026-04-01T17:00:50.492Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
-          "sp95PriceEur": 1.893,
+          "sp95PriceEur": 1.915,
           "distanceKm": 19.7
         },
         "nearbyStations": [
@@ -44694,11 +44694,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 19.7
           },
           {
@@ -44758,8 +44758,8 @@
             "distanceKm": 19.4
           }
         ],
-        "minPriceChf": 1.74,
-        "minPriceEur": 1.893
+        "minPriceChf": 1.76,
+        "minPriceEur": 1.915
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -50845,11 +50845,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.6
           },
           {
@@ -51015,11 +51015,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 18.7
           },
           {
@@ -51192,11 +51192,11 @@
           "address": "Via Emilio Bossi 19, 6830 Chiasso",
           "lat": 45.83496780148789,
           "lng": 9.03111642498091,
-          "sp95PriceChf": 1.7400000000000002,
-          "updatedAt": "2026-03-31T08:22:40.813Z",
+          "sp95PriceChf": 1.7600000000000002,
+          "updatedAt": "2026-04-01T17:00:50.492Z",
           "nearestMunicipality": "Maslianico (CO)",
           "nearestMunicipalityDistanceKm": 1.5,
-          "sp95PriceEur": 1.893,
+          "sp95PriceEur": 1.915,
           "distanceKm": 19.5
         },
         "nearbyStations": [
@@ -51207,11 +51207,11 @@
             "address": "Via Emilio Bossi 19, 6830 Chiasso",
             "lat": 45.83496780148789,
             "lng": 9.03111642498091,
-            "sp95PriceChf": 1.7400000000000002,
-            "updatedAt": "2026-03-31T08:22:40.813Z",
+            "sp95PriceChf": 1.7600000000000002,
+            "updatedAt": "2026-04-01T17:00:50.492Z",
             "nearestMunicipality": "Maslianico (CO)",
             "nearestMunicipalityDistanceKm": 1.5,
-            "sp95PriceEur": 1.893,
+            "sp95PriceEur": 1.915,
             "distanceKm": 19.5
           },
           {
@@ -51271,8 +51271,8 @@
             "distanceKm": 19.3
           }
         ],
-        "minPriceChf": 1.74,
-        "minPriceEur": 1.893
+        "minPriceChf": 1.76,
+        "minPriceEur": 1.915
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
