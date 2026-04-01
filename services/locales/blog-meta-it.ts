@@ -1895,6 +1895,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-contingente-uova-svizzera.title': 'Svizzera a corto di uova: aumenta il contingente doganale',
     'blog.article.aumento-contingente-uova-svizzera.excerpt': 'Il Consiglio federale svizzero ha deciso di aumentare il contingente doganale per le uova del 71%, portandolo a 36.000 tonnellate.',
     'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Uova fresche in un mercato a Lugano',
+    'blog.article.congresso-svizzera-italia-2026.title': 'Dieci anni di confronto su fiscalità e frontalieri',
+    'blog.article.congresso-svizzera-italia-2026.excerpt': 'Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri.',
+    'blog.article.congresso-svizzera-italia-2026.imageAlt': 'Convegno Svizzera-Italia a Varese',
 };
 
 export default blogMetaIt;

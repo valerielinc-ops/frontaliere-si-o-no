@@ -10030,6 +10030,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congresso-svizzera-italia-2026': {
+    title: 'Dieci anni di confronto su fiscalità e frontalieri | Frontaliere Ticino',
+    description: 'Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri. Scopri il programma e le opzioni di registrazione. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, dieci, anni, confronto, fiscalità',
+    ogTitle: 'Congresso Svizzera-Italia 2026',
+    ogDescription: 'Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri. Scopri il programma e le opzioni di registrazione.',
+    canonicalPath: '/articoli-frontaliere/congresso-svizzera-italia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congresso Svizzera-Italia 2026",
+      "description": "Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri. Scopri il programma e le opzioni di registrazione. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/congresso-svizzera-italia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Convegno Svizzera-Italia a Varese"
+      },
+      "datePublished": "2026-04-01T14:02:50+00:00",
+      "dateModified": "2026-04-01T14:02:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congresso-svizzera-italia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

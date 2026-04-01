@@ -5613,4 +5613,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/aumento-contingente-uova-svizzera.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'congresso-svizzera-italia-2026',
+    category: 'fiscale',
+    date: '2026-04-01T14:02:50.963Z',
+    image: '/images/blog/congresso-svizzera-italia-2026.jpg',
+    hasCalculator: true,
+  },
 ];

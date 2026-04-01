@@ -1895,6 +1895,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-contingente-uova-svizzera.title': 'Schweiz hat Eiermangel: Erhöhung des Zollkontingents',
     'blog.article.aumento-contingente-uova-svizzera.excerpt': 'Der Schweizerische Bundesrat hat beschlossen, das Zollkontingent für Eier um 71% auf 36.000 Tonnen zu erhöhen.',
     'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Frische Eier auf einem Markt in Lugano',
+    'blog.article.congresso-svizzera-italia-2026.title': 'Zehn Jahre Konfrontation über Steuern und Grenzgänger',
+    'blog.article.congresso-svizzera-italia-2026.excerpt': 'Der Kongress Schweiz-Italien kehrt nach Varese zurück, um über neue Steuern und Grenzgänger zu diskutieren',
+    'blog.article.congresso-svizzera-italia-2026.imageAlt': 'Schweiz-Italien-Kongress in Varese',
 };
 
 export default blogMetaDe;

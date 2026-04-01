@@ -1895,6 +1895,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-contingente-uova-svizzera.title': 'Suisse : pénurie d\'œufs, augmentation du contingent douanier',
     'blog.article.aumento-contingente-uova-svizzera.excerpt': 'Le Conseil fédéral suisse a décidé d\'augmenter le contingent douanier pour les œufs de 71%, le portant à 36\'000 tonnes.',
     'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Œufs frais sur un marché à Lugano',
+    'blog.article.congresso-svizzera-italia-2026.title': 'Dix ans de débat sur la fiscalité et les frontaliers',
+    'blog.article.congresso-svizzera-italia-2026.excerpt': 'Le Congrès Suisse-Italie revient à Varèse pour discuter des nouveautés fiscales et des frontaliers',
+    'blog.article.congresso-svizzera-italia-2026.imageAlt': 'Congrès Suisse-Italie à Varèse',
 };
 
 export default blogMetaFr;

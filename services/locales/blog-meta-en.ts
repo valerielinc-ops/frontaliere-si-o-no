@@ -1895,6 +1895,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-contingente-uova-svizzera.title': 'Switzerland short on eggs: customs quota increased',
     'blog.article.aumento-contingente-uova-svizzera.excerpt': 'The Swiss Federal Council has decided to increase the customs quota for eggs by 71%, bringing it to 36,000 tonnes.',
     'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Fresh eggs in a Lugano market',
+    'blog.article.congresso-svizzera-italia-2026.title': 'Ten years of discussion on taxation and cross-border workers',
+    'blog.article.congresso-svizzera-italia-2026.excerpt': 'The Switzerland-Italy Congress returns to Varese to discuss new tax and cross-border worker developments',
+    'blog.article.congresso-svizzera-italia-2026.imageAlt': 'Switzerland-Italy Congress in Varese',
 };
 
 export default blogMetaEn;

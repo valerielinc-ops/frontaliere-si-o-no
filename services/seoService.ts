@@ -1795,6 +1795,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-ambasciatore-italiano-ritorno-berna': { name: 'Rientro dell\'ambasciatore italiano a Ber', path: '/articoli-frontaliere/ambasciatore-italiano-ritorno-berna', parent: 'blog' },
     'blog-pazienti-ticino-protesta': { name: 'Petizione cure a domicilio', path: '/articoli-frontaliere/pazienti-ticino-protesta', parent: 'blog' },
     'blog-aumento-contingente-uova-svizzera': { name: 'Economia', path: '/articoli-frontaliere/aumento-contingente-uova-svizzera', parent: 'blog' },
+    'blog-congresso-svizzera-italia-2026': { name: 'Congresso Svizzera-Italia', path: '/articoli-frontaliere/congresso-svizzera-italia-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];
