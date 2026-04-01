@@ -376,18 +376,17 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medical-assistant-hospital-doctor-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "medizinischer-assistent-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "assistant-physician-hospital-physician-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "assistant-physician-hospital-physician-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "medico-assistente-medico-ospedaliero-eoc-novaggio",
         "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
         "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistant-physician-hospital-physician-eoc-ente-ospedaliero-cantonale-novaggio",
-        "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
-        "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
+        "medical-assistant-hospital-doctor-eoc-ente-ospedaliero-cantonale-novaggio",
+        "medizinischer-assistent-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -1457,9 +1456,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-staff-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "verwaltungskraft-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "personnel-administratif-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "verwaltungskraft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -1501,7 +1500,10 @@
         "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio",
         "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "administrative-staff-eoc-ente-ospedaliero-cantonale-novaggio",
+        "verwaltungskraft-eoc-ente-ospedaliero-cantonale-novaggio",
+        "personnel-administratif-eoc-ente-ospedaliero-cantonale-novaggio"
       ]
     },
     {
@@ -4539,9 +4541,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-staff-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "verwaltungskraft-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "personnel-administratif-eoc-ente-ospedaliero-cantonale-lugano"
+        "en": "administrative-staff-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "verwaltungskraft-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "personnel-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -4594,7 +4596,8 @@
         "personnel-administratif-eoc-ente-ospedaliero-cantonale-lugano",
         "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "verwaltungskraft-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
@@ -6973,9 +6976,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomato/a",
@@ -7009,9 +7012,8 @@
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
         "kinesitherapeute-qualifie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "qualifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "zertifizierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
+        "physiotherapeute-certifie-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
