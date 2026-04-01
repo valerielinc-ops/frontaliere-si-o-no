@@ -1,10 +1,10 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-04-01T09:40:46.973Z",
+  "assembledAt": "2026-04-01T21:29:24.657Z",
   "jobs": [
     {
       "id": "company-nuf61k",
-      "slug": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
+      "slug": "venditore-venditrice-lun-f-d-40-lidl-svizzera-cadenazzo",
       "company": "Lidl Svizzera",
       "title": "Venditore / Venditrice (m/f/d) 40%",
       "location": "Locarno",
@@ -49,15 +49,16 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
-        "en": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno",
+        "it": "venditore-venditrice-lun-f-d-40-lidl-svizzera-cadenazzo",
+        "en": "venditore-venditrice-m-f-d-40-lidl-svizzera-cadenazzo",
         "de": "verkaufer-m-w-d-40-lidl-svizzera-locarno",
         "fr": "vendeur-m-f-d-40-lidl-svizzera-locarno"
       },
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k"
+        "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
+        "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -76,7 +77,8 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-komp69",
@@ -196,7 +198,8 @@
       "country": "CH",
       "sourceLang": "de",
       "previousSlugs": [
-        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz"
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz",
+        "verkaufer-verkauferin-m-w-d-20-40-lidl-svizzera-st-moritz-ancoue"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,

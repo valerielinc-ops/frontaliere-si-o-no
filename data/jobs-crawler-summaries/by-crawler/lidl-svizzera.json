@@ -1,16 +1,16 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-01T09:40:46.982Z",
+  "generatedAt": "2026-04-01T21:29:24.666Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 26516,
-  "avgDurationMs": 26516,
+  "durationMs": 7846,
+  "avgDurationMs": 7846,
   "durationHistory": [
-    26516
+    7846
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -18,7 +18,7 @@
   "unchangedJobs": [
     {
       "id": "company-nuf61k",
-      "slug": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
+      "slug": "venditore-venditrice-lun-f-d-40-lidl-svizzera-cadenazzo",
       "company": "Lidl Svizzera",
       "title": "Venditore / Venditrice (m/f/d) 40%",
       "location": "Locarno",
@@ -38,7 +38,6 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-04-01T09:40:46.250Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 54000,
@@ -49,11 +48,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "needsRetranslation": true,
+      "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
