@@ -8620,5 +8620,117 @@
         "pending": 11
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-01T02:39:25.075Z",
+    "label": "before",
+    "total": 1352,
+    "needsRetranslation": 478,
+    "incomplete": 453,
+    "complete": 899,
+    "missingByLocale": {
+      "it": 114,
+      "en": 303,
+      "de": 300,
+      "fr": 352
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 160
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 36
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 24
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 23
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 21
+      },
+      {
+        "company": "PEMSA",
+        "pending": 20
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 14
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 14
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 11
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-01T02:39:35.720Z",
+    "label": "after",
+    "total": 1352,
+    "needsRetranslation": 357,
+    "incomplete": 357,
+    "complete": 995,
+    "missingByLocale": {
+      "it": 114,
+      "en": 208,
+      "de": 204,
+      "fr": 256
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 71
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 36
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 24
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 23
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 21
+      },
+      {
+        "company": "PEMSA",
+        "pending": 20
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 14
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 14
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 11
+      }
+    ]
   }
 ]
