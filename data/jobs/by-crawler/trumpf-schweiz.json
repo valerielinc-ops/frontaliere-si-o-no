@@ -1,6 +1,6 @@
 {
   "crawlerKey": "trumpf-schweiz",
-  "assembledAt": "2026-03-31T21:49:51.416Z",
+  "assembledAt": "2026-04-01T10:02:16.192Z",
   "jobs": [
     {
       "title": "Senior Strategic Procurement Expert (m/w/d)",
@@ -43,7 +43,7 @@
         "de": "senior-strategic-procurement-expert-m-w-d-trumpf-schweiz-ag-grusch-i6pg5c",
         "fr": "expert-senior-en-approvisionnement-strategique-m-w-d-trumpf-schweiz-ag-grusch"
       },
-      "crawledAt": "2026-03-31T21:49:47.724Z",
+      "crawledAt": "2026-04-01T10:02:13.097Z",
       "salaryMin": 66000,
       "salaryMax": 89000,
       "currency": "CHF",
@@ -104,7 +104,7 @@
         "de": "area-sales-account-manager-fur-elektrowerkzeuge-m-w-d-trumpf-schweiz-ag-grusch",
         "fr": "area-sales-account-manager-pour-outils-electriques-m-w-d-trumpf-schweiz-ag-grusch"
       },
-      "crawledAt": "2026-03-31T21:49:48.372Z",
+      "crawledAt": "2026-04-01T10:02:13.727Z",
       "salaryMin": 109000,
       "salaryMax": 147000,
       "currency": "CHF",
@@ -120,7 +120,10 @@
       },
       "streetAddress": "Via Campagna 4",
       "postalCode": "6982",
-      "previousSlugs": []
+      "previousSlugs": [
+        "area-sales-account-manager-fur-elektrowerkzeuge-m-w-d-trumpf-r00037325"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verantwortlicher Produktionslinie (m/w/d)",
@@ -163,7 +166,7 @@
         "de": "verantwortlicher-produktionslinie-m-w-d-trumpf-schweiz-ag-grusch",
         "fr": "chef-de-ligne-de-production-h-f-d-trumpf-schweiz-ag-grusch-wrseiv"
       },
-      "crawledAt": "2026-03-31T21:49:48.961Z",
+      "crawledAt": "2026-04-01T10:02:14.203Z",
       "previousSlugs": [
         "verantwortlicher-produktionslinie-m-w-d-trumpf-r00038352"
       ],
@@ -224,7 +227,7 @@
         "de": "digitaler-marketing-manager-fur-elektrowerkzeuge-m-w-d-trumpf-schweiz-ag-grusch",
         "fr": "chef-de-marketing-digital-pour-outils-electriques-h-f-i-trumpf-schweiz-ag-grusch"
       },
-      "crawledAt": "2026-03-31T21:49:49.592Z",
+      "crawledAt": "2026-04-01T10:02:14.677Z",
       "salaryMin": 94000,
       "salaryMax": 127000,
       "currency": "CHF",
@@ -286,7 +289,7 @@
         "de": "mitarbeiter-m-w-d-trumpf-schweiz-ag-grusch",
         "fr": "leanmanagement-spezialist-m-w-d-trumpf-schweiz-ag-grusch"
       },
-      "crawledAt": "2026-03-31T21:49:50.111Z",
+      "crawledAt": "2026-04-01T10:02:15.215Z",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -347,7 +350,7 @@
         "de": "lehrstelle-2026-konstrukteur-in-efz-trumpf-r00033050",
         "fr": "apprentissage-2026-constructeur-constructrice-efz-trumpf-schweiz-ag-grusch"
       },
-      "crawledAt": "2026-03-31T21:49:50.834Z",
+      "crawledAt": "2026-04-01T10:02:15.677Z",
       "salaryMin": 54500,
       "salaryMax": 73500,
       "currency": "CHF",
@@ -364,7 +367,8 @@
       "streetAddress": "Via Campagna 4",
       "postalCode": "6982",
       "previousSlugs": [
-        "apprendistato-2026-konstrukteur-in-cfc-trumpf-schweiz-ag-grusch"
+        "apprendistato-2026-konstrukteur-in-cfc-trumpf-schweiz-ag-grusch",
+        "lehrstelle-2026-konstrukteur-in-efz-trumpf-r00033050"
       ]
     }
   ]
