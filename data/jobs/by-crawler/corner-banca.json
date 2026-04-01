@@ -88,9 +88,9 @@
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-lehre-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "en": "spontaneous-apprenticeship-application-corner-banca-switzerland",
+        "de": "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+        "fr": "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -150,7 +150,11 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "initiativbewerbung-lehre-corner-banca-switzerland"
+      ]
     },
     {
       "id": "corner-banca-fe61b84a0935",
@@ -237,10 +241,10 @@
       "id": "corner-banca-1d94a13bc883",
       "slug": "customer-advisor-100-corner-banca-lugano",
       "slugByLocale": {
-        "it": "customer-advisor-100-corner-banca-lugano",
+        "it": "assistenza-clienti-corner-banca-lugano",
         "en": "customer-advisor-100-corner-banca-lugano",
-        "de": "customer-advisor-100-corner-banca-lugano",
-        "fr": "customer-advisor-100-corner-banca-lugano"
+        "de": "kundenberater-corner-banca-lugano",
+        "fr": "conseiller-clients-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -296,7 +300,8 @@
       "crawledAt": "2026-03-31T21:09:07.659Z",
       "sourceLang": "en",
       "previousSlugs": [
-        "consulente-clienti-100-corner-banca-lugano"
+        "consulente-clienti-100-corner-banca-lugano",
+        "customer-advisor-100-corner-banca-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
