@@ -905,10 +905,10 @@ export default function BlogArticles({
       dateModified: `${article.date}T00:00:00+01:00`,
       author: {
         '@type': 'Person',
-        name: 'Luigi Sagese',
-        jobTitle: 'Esperto fiscale frontalieri',
+        name: 'Valerie Linc',
+        jobTitle: 'Esperta fiscale frontalieri',
         url: 'https://frontaliereticino.ch/chi-siamo/',
-        sameAs: ['https://www.linkedin.com/in/luigi-sagese/'],
+        sameAs: ['https://www.linkedin.com/in/valerie-linc/'],
       },
       publisher: {
         '@type': 'Organization',
@@ -1385,7 +1385,7 @@ export default function BlogArticles({
           <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-500">
             <span className="flex items-center gap-1 font-medium text-indigo-700 dark:text-indigo-400">
               <PenLine size={14} />
-              Luigi Sagese
+              Valerie Linc
             </span>
             <span className="text-slate-300 dark:text-slate-600">|</span>
             <span className="flex items-center gap-1">
@@ -1613,7 +1613,7 @@ export default function BlogArticles({
                   <User size={24} className="text-blue-600 dark:text-blue-400" />
                 </div>
                 <div>
-                  <p className="font-bold text-slate-800 dark:text-white">Luigi Sagese</p>
+                  <p className="font-bold text-slate-800 dark:text-white">Valerie Linc</p>
                   <p className="text-sm text-slate-600 dark:text-slate-400">{t('blog.authorBio')}</p>
                 </div>
               </div>

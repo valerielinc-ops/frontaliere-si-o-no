@@ -375,11 +375,11 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           // Determine author: always use named Person for E-E-A-T
           const authorObj = {
                 '@type': 'Person' as const,
-                name: 'Luigi Sagese',
-                jobTitle: 'Esperto fiscale frontalieri',
+                name: 'Valerie Linc',
+                jobTitle: 'Esperta fiscale frontalieri',
                 url: `${BASE_URL}/chi-siamo/`,
                 worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
-                sameAs: ['https://www.linkedin.com/in/luigi-sagese/'],
+                sameAs: ['https://www.linkedin.com/in/valerie-linc/'],
               };
 
           // Build the JSON-LD object, respecting source @type (Event vs Article/NewsArticle)
@@ -606,7 +606,7 @@ ${headTags}
     ${GTAG_SNIPPET}
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
-    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Luigi Sagese · ${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso).split('T')[0])}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
+    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · ${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso).split('T')[0])}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
     <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
   </body>
 </html>`;
