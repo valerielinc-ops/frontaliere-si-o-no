@@ -1,10 +1,10 @@
 {
   "crawlerKey": "lastminute-com",
-  "assembledAt": "2026-03-31T21:27:49.278Z",
+  "assembledAt": "2026-04-01T09:40:03.845Z",
   "jobs": [
     {
       "id": "company-s60y08",
-      "slug": "senior-frontend-software-ingegnere-chiasso",
+      "slug": "ingegnere-senior-del-software-frontend-chiasso",
       "company": "lastminute.com",
       "title": "Senior Frontend Software Engineer",
       "location": "Chiasso",
@@ -32,15 +32,15 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-31T21:27:48.251Z",
       "slugByLocale": {
-        "it": "senior-frontend-software-ingegnere-chiasso",
+        "it": "ingegnere-senior-del-software-frontend-chiasso",
         "en": "senior-frontend-software-engineer-chiasso",
-        "de": "leitender-frontend-softwareentwickler-lastminute-com-chiasso",
-        "fr": "senior-frontend-software-ingenieur-chiasso"
+        "de": "leitender-frontend-softwareentwickler-chiasso",
+        "fr": "ingenieur-logiciel-principal-frontend-chiasso"
       },
       "titleByLocale": {
         "en": "Senior Frontend Software Engineer",
-        "it": "Ingegnere Senior del Software Frontend",
-        "de": "Leitender Frontend-Softwareentwickler",
+        "it": "Senior Frontend Software Ingegnere",
+        "de": "Senior Frontend Software Ingenieur",
         "fr": "Ingénieur logiciel principal frontend"
       },
       "descriptionByLocale": {
@@ -82,7 +82,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-us91lh",
@@ -113,14 +114,14 @@
       "companyDomain": "lastminute.com",
       "crawledAt": "2026-03-31T21:27:48.251Z",
       "slugByLocale": {
-        "it": "partner-affiliazione-cliente-lastminute-com-chiasso",
+        "it": "client-affiliation-partner-chiasso",
         "en": "client-affiliation-partner-lastminute-com-chiasso",
-        "de": "kundenbeziehungs-partner-lastminute-com-chiasso",
-        "fr": "partenaire-de-relations-clients-lastminute-com-chiasso"
+        "de": "kundenbeziehungs-partner-chiasso",
+        "fr": "partenaire-de-relations-clients-chiasso"
       },
       "titleByLocale": {
         "en": "Client Affiliation Partner",
-        "it": "Partner Affiliazione Cliente",
+        "it": "Client Affiliation Partner",
         "de": "Kundenbeziehungs-Partner",
         "fr": "Partenaire de relations clients"
       },
@@ -143,9 +144,7 @@
       "addressLocality": "Chiasso",
       "country": "CH",
       "sourceLang": "en",
-      "previousSlugs": [
-        "client-affiliation-partner-chiasso"
-      ],
+      "previousSlugs": [],
       "salaryMin": 82500,
       "salaryMax": 111500,
       "baseSalary": {
@@ -162,7 +161,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2oxpfe",
@@ -240,7 +240,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-o2ikw3",
@@ -318,7 +319,8 @@
       "postalCode": "6900",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
