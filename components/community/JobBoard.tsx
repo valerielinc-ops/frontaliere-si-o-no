@@ -3838,7 +3838,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const authGateModalJsx = authGateOpen ? (
     <div className="fixed inset-0 z-[90] bg-black/45 backdrop-blur-sm flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
-      <div className="w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 space-y-4">
+      <div role="dialog" aria-modal="true" aria-label={t('jobBoard.authGateTitle') || 'Accedi per continuare'} className="w-full max-w-md rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 p-5 space-y-4">
         {/* Close X button */}
         <div className="flex items-start justify-between">
           <div className="flex items-center gap-3">
@@ -5628,7 +5628,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               placeholder={t('jobBoard.searchPlaceholder')}
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="flex-1 px-3 py-3.5 sm:py-4 text-base sm:text-lg bg-transparent text-slate-900 dark:text-white placeholder:text-slate-400 focus:outline-none"
+              className="flex-1 px-3 py-3.5 sm:py-4 text-base sm:text-lg bg-transparent text-slate-900 dark:text-white placeholder:text-slate-500 focus:outline-none"
               aria-label={t('jobBoard.searchPlaceholder')}
             />
             {searchQuery && (

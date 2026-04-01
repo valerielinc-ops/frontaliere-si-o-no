@@ -309,7 +309,7 @@ export default function SalaryCompare() {
                       value={profSearch}
                       onChange={(e) => setProfSearch(e.target.value)}
                       placeholder={t('salaryCompare.searchProfession')}
-                      className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 pl-9 pr-3 py-2 text-slate-800 dark:text-white placeholder:text-slate-400"
+                      className="w-full rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 pl-9 pr-3 py-2 text-slate-800 dark:text-white placeholder:text-slate-500"
                     />
                   </div>
                 </div>

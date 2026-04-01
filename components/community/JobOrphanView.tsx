@@ -259,13 +259,13 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
             <div className="flex flex-wrap gap-3 mt-2.5 text-sm text-slate-600 dark:text-slate-400">
               {slugParts.company && (
                 <span className="flex items-center gap-1.5">
-                  <Building2 size={14} className="text-slate-400 dark:text-slate-500" />
+                  <Building2 size={14} className="text-slate-500 dark:text-slate-500" />
                   {slugParts.company}
                 </span>
               )}
               {slugParts.location && (
                 <span className="flex items-center gap-1.5">
-                  <MapPin size={14} className="text-slate-400 dark:text-slate-500" />
+                  <MapPin size={14} className="text-slate-500 dark:text-slate-500" />
                   {slugParts.location}
                 </span>
               )}
@@ -293,7 +293,7 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
                       <span className="block text-xs text-slate-500 dark:text-slate-400 mt-0.5 truncate">{link.company}</span>
                     )}
                   </span>
-                  <ArrowRight size={14} className="text-slate-400 dark:text-slate-500 shrink-0" />
+                  <ArrowRight size={14} className="text-slate-500 dark:text-slate-500 shrink-0" />
                 </a>
               </li>
             ))}
@@ -358,9 +358,9 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
       {staticBodyHtml && (
         <details className="group rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900/80 overflow-hidden">
           <summary className="px-5 py-3.5 text-sm font-semibold text-slate-700 dark:text-slate-300 cursor-pointer select-none hover:bg-slate-50 dark:hover:bg-slate-800/60 transition-colors list-none flex items-center gap-2">
-            <Search size={14} className="text-slate-400 dark:text-slate-500" />
+            <Search size={14} className="text-slate-500 dark:text-slate-500" />
             {locale === 'it' ? 'Informazioni per frontalieri' : locale === 'de' ? 'Informationen für Grenzgänger' : locale === 'fr' ? 'Informations pour frontaliers' : 'Information for cross-border workers'}
-            <ArrowRight size={12} className="ml-auto text-slate-400 transition-transform group-open:rotate-90" />
+            <ArrowRight size={12} className="ml-auto text-slate-500 transition-transform group-open:rotate-90" />
           </summary>
           <div
             className="px-5 pb-4 prose prose-sm dark:prose-invert max-w-none text-slate-600 dark:text-slate-400 [&_h1]:hidden [&_h2]:text-sm [&_h2]:font-semibold [&_h2]:text-slate-700 [&_h2]:dark:text-slate-300 [&_h2]:mt-4 [&_h2]:mb-1.5 [&_section]:border-t [&_section]:border-slate-100 [&_section]:dark:border-slate-800 [&_section]:pt-3 [&_section:first-of-type]:border-0 [&_a]:text-indigo-600 [&_a]:dark:text-indigo-400 [&_ul]:pl-0 [&_ul]:list-none [&_li]:pl-0"

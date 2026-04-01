@@ -777,18 +777,20 @@ const TicinoCompanies: React.FC = () => {
             <span className="text-slate-600 dark:text-slate-500 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
             <input type="range" min={0} max={1000} step={50} value={minEmployees}
               onChange={(e) => setMinEmployees(Number(e.target.value))}
+              aria-label={t('companies.minEmployees') || 'Dipendenti minimi'}
               className="w-full sm:w-32 accent-violet-600" />
             <span className="font-bold text-violet-600 w-10">{minEmployees}</span>
           </div>
           <div className="flex items-center gap-2 sm:ml-auto">
             <ArrowUpDown size={14} className="text-slate-500" />
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)}
-              className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none">
+              aria-label={t('companies.sortBy') || 'Ordina per'}
+              className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
               <option value="employees">{t('companies.totalEmployees')}</option>
               <option value="name">{t('companies.sortName')}</option>
               <option value="city">{t('companies.sortCity')}</option>
             </select>
-            <button onClick={() => setSortDesc(!sortDesc)} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+            <button onClick={() => setSortDesc(!sortDesc)} aria-label={sortDesc ? (t('companies.sortAscending') || 'Ordine crescente') : (t('companies.sortDescending') || 'Ordine decrescente')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
               {sortDesc ? '↓' : '↑'}
             </button>
           </div>

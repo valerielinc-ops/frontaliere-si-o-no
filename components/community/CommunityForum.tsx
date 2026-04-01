@@ -364,6 +364,7 @@ const CommunityForum: React.FC = () => {
               value={newAnswer}
               onChange={(e) => setNewAnswer(e.target.value)}
               placeholder={t('forum.answerPlaceholder') || 'Scrivi la tua risposta...'}
+              aria-label={t('forum.answerPlaceholder') || 'Scrivi la tua risposta'}
               className="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm min-h-[80px] resize-y"
             />
             <div className="flex justify-end mt-2">
@@ -412,6 +413,7 @@ const CommunityForum: React.FC = () => {
           <select
             value={selectedCategory}
             onChange={(e) => setSelectedCategory(e.target.value as ForumCategory | '')}
+            aria-label={t('forum.allCategories') || 'Filtra per categoria'}
             className="flex-1 px-3 py-2 rounded-lg bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm font-bold"
           >
             <option value="">{t('forum.allCategories') || 'Tutte le categorie'}</option>
@@ -471,6 +473,7 @@ const CommunityForum: React.FC = () => {
             value={newTitle}
             onChange={(e) => setNewTitle(e.target.value)}
             placeholder={t('forum.titlePlaceholder') || 'Titolo della domanda...'}
+            aria-label={t('forum.titlePlaceholder') || 'Titolo della domanda'}
             className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold"
             maxLength={200}
           />
@@ -478,6 +481,7 @@ const CommunityForum: React.FC = () => {
             value={newBody}
             onChange={(e) => setNewBody(e.target.value)}
             placeholder={t('forum.bodyPlaceholder') || 'Descrivi la tua domanda in dettaglio...'}
+            aria-label={t('forum.bodyPlaceholder') || 'Descrivi la tua domanda in dettaglio'}
             className="w-full px-4 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm min-h-[120px] resize-y"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -500,6 +504,7 @@ const CommunityForum: React.FC = () => {
                 value={newTags}
                 onChange={(e) => setNewTags(e.target.value)}
                 placeholder="es: tasse, permesso G, ticino"
+                aria-label={t('forum.tags') || 'Tag separati da virgola'}
                 className="w-full px-3 py-2 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm"
               />
             </div>

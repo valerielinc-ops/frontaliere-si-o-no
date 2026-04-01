@@ -434,7 +434,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
     <div className="space-y-6">
       {/* Easter egg toast */}
       {easterEgg && easterEggVisible && (
-        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in cursor-pointer" onClick={dismissEasterEgg}>
+        <div className="fixed top-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in cursor-pointer" role="button" tabIndex={0} onClick={dismissEasterEgg} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissEasterEgg(); } }} aria-label="Chiudi notifica">
           <div className="bg-amber-100 dark:bg-amber-900/80 border border-amber-400 dark:border-amber-500 rounded-2xl shadow-xl px-6 py-3 flex items-center gap-3 max-w-md">
             <span className="text-2xl">{easterEgg.emoji}</span>
             <p className="text-sm font-semibold text-amber-800 dark:text-amber-200">{easterEgg.message}</p>

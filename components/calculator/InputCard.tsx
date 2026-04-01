@@ -96,7 +96,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
           }}
           min={min}
           max={max}
-          className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none appearance-none px-1 py-3"
+          className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 appearance-none px-1 py-3"
           aria-label={label || 'Valore numerico'}
         />
       </div>
@@ -612,13 +612,14 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                               type="text" 
                               value={t(exp.label)} 
                               onChange={e => updateExpense('CH', exp.id, { label: e.target.value })} 
-                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 transition-colors truncate"
                               title={t(exp.label)}
+                              aria-label={t('input.expenseName') || 'Nome spesa CH'}
                             />
                             {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
-                          <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('CH', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa CH'} className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <button onClick={() => updateExpense('CH', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('CH', exp.id)} className="p-2 sm:p-2.5 -m-1 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
                         </div>
                      ))}
@@ -680,12 +681,13 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                               type="text" 
                               value={t(exp.label)} 
                               onChange={e => updateExpense('IT', exp.id, { label: e.target.value })} 
-                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 transition-colors truncate" 
+                              className="flex-1 min-w-0 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-2 py-2 text-xs font-bold outline-none focus:border-indigo-500 transition-colors truncate"
                               title={t(exp.label)}
+                              aria-label={t('input.expenseName') || 'Nome spesa IT'}
                             />
                             {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
-                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
+                          <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa IT'} className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
                           <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 -m-1 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
                         </div>
@@ -732,7 +734,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                         <InfoTooltip text={t('input.healthInsuranceTooltip')} />
                       </label>
                       <div className="relative group">
-                          <input type="number" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
+                          <input type="number" value={inputs.healthInsuranceCHF || ''} onChange={(e) => handleChange('healthInsuranceCHF', Number(e.target.value))} aria-label={t('input.healthInsurance') || 'Cassa malati CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
                           <span className="absolute right-3 top-3.5 text-slate-600 dark:text-slate-500 font-bold text-xs">CHF</span>
                       </div>
                   </div>
@@ -744,7 +746,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                         <InfoTooltip text={t('input.netWealthTooltip')} />
                       </label>
                       <div className="relative group">
-                          <input type="number" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
+                          <input type="number" value={inputs.netWealthCHF || ''} onChange={(e) => handleChange('netWealthCHF', Number(e.target.value))} aria-label={t('input.netWealth') || 'Patrimonio netto CHF'} className="w-full pl-3 pr-10 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:ring-4 focus:ring-blue-100 focus:border-blue-500 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-sm h-11" placeholder="0" />
                           <span className="absolute right-3 top-3.5 text-slate-600 dark:text-slate-500 font-bold text-xs">CHF</span>
                       </div>
                       <p className="text-[9px] text-slate-600 dark:text-slate-400">{t('input.netWealthNote')}</p>
@@ -889,7 +891,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
 
       {/* Easter egg toast — discreet bottom-right, rendered via portal */}
       {easterEgg && easterEggVisible && createPortal(
-        <div className="fixed bottom-28 md:bottom-16 right-4 sm:right-6 z-[70] animate-fade-in cursor-pointer" onClick={dismissEasterEgg}>
+        <div className="fixed bottom-28 md:bottom-16 right-4 sm:right-6 z-[70] animate-fade-in cursor-pointer" role="button" tabIndex={0} onClick={dismissEasterEgg} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissEasterEgg(); } }} aria-label="Chiudi notifica">
           <div className="bg-slate-800/90 dark:bg-slate-700/90 backdrop-blur-sm rounded-xl shadow-lg px-4 py-2.5 max-w-xs">
             <p className="text-xs font-medium text-white">{easterEgg}</p>
           </div>

@@ -469,7 +469,7 @@ export default function FuelPriceStats() {
                   setHomeMunicipalityKey(match?.key || value);
                 }}
                 placeholder={tt('fuelPrices.searchHomeMunicipality', 'Es. Como (CO)')}
-                className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:border-orange-300 dark:text-slate-200"
+                className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               />
               <datalist id="fuel-municipalities">
                 {municipalityOptions.map((option) => (
@@ -487,7 +487,7 @@ export default function FuelPriceStats() {
                 step={5}
                 value={tankLiters}
                 onChange={(e) => setTankLiters(Math.min(120, Math.max(10, Number(e.target.value) || 50)))}
-                className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:border-orange-300 dark:text-slate-200"
+                className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               />
             </label>
 
@@ -500,7 +500,7 @@ export default function FuelPriceStats() {
                 step={0.01}
                 value={costPerKmEur}
                 onChange={(e) => setCostPerKmEur(Math.min(1, Math.max(0.05, Number(e.target.value) || 0.18)))}
-                className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:border-orange-300 dark:text-slate-200"
+                className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               />
             </label>
           </div>
@@ -598,13 +598,13 @@ export default function FuelPriceStats() {
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
                   placeholder={tt('fuelPrices.searchPlaceholder', 'Cerca comune o provincia')}
-                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-3 text-sm outline-none focus:border-orange-300 dark:text-slate-200"
+                  className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 py-3 pl-10 pr-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
                 />
               </label>
               <select
                 value={province}
                 onChange={(e) => setProvince(e.target.value)}
-                className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:border-orange-300 dark:text-slate-200"
+                className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               >
                 {provinces.map((item) => (
                   <option key={item} value={item}>
@@ -615,7 +615,7 @@ export default function FuelPriceStats() {
               <select
                 value={sortKey}
                 onChange={(e) => setSortKey(e.target.value as SortKey)}
-                className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:border-orange-300 dark:text-slate-200"
+                className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               >
                 <option value="saving">{tt('fuelPrices.sortSaving', 'Ordina per risparmio')}</option>
                 <option value="delta">{tt('fuelPrices.sortDelta', 'Ordina per delta')}</option>

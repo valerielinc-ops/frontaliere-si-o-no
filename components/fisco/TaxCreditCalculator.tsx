@@ -69,7 +69,7 @@ const NumberStepper: React.FC<NumberStepperProps> = ({ id, value, min, max, onCh
           next = Math.max(min, Math.min(max, next));
           onChange(next);
         }}
-        className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none appearance-none px-1 py-3"
+        className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 appearance-none px-1 py-3"
         aria-label={ariaLabel}
       />
     </div>

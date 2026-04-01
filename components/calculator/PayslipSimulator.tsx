@@ -144,7 +144,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
           }}
           min={min}
           max={max}
-          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none appearance-none px-2 py-3"
+          className="w-full h-full min-h-[48px] min-w-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 appearance-none px-2 py-3"
           aria-label={ariaLabel || label || 'Valore numerico'}
         />
       </div>
