@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-cler",
-  "assembledAt": "2026-04-01T09:17:10.275Z",
+  "assembledAt": "2026-04-01T21:06:33.502Z",
   "jobs": [
     {
       "title": "Marktgebietsleiterin Zentral (w/m)",
@@ -44,7 +44,7 @@
         "de": "marktgebietsleiterin-zentral-w-m-banca-cler-bellinzona",
         "fr": "directeur-du-marche-central-w-m-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-04-01T09:16:56.476Z",
+      "crawledAt": "2026-04-01T21:06:15.348Z",
       "id": "company-i7npcw",
       "contract": "full-time",
       "currency": "CHF",
@@ -114,7 +114,7 @@
         "de": "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler-bellinzona",
         "fr": "gestionnaire-de-branche-schaffhouse-h-f-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-04-01T09:16:55.975Z",
+      "crawledAt": "2026-04-01T21:06:14.740Z",
       "id": "company-g1x21d",
       "contract": "full-time",
       "currency": "CHF",
@@ -140,7 +140,8 @@
         }
       },
       "streetAddress": "Via Pretorio 13",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "title": "Kundenberaterin Basis Basel (w/m)",
@@ -184,7 +185,7 @@
         "de": "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona",
         "fr": "conseillere-clientele-base-bale-f-h-banca-cler-bellinzona-vlfwqx"
       },
-      "crawledAt": "2026-04-01T09:16:55.517Z",
+      "crawledAt": "2026-04-01T21:06:14.113Z",
       "id": "company-vlfwqx",
       "contract": "full-time",
       "currency": "CHF",
@@ -193,7 +194,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "kundenberaterin-basis-basel-w-m-banca-cler",
-        "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona-vlfwqx"
+        "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona-vlfwqx",
+        "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -252,7 +254,7 @@
         "de": "kundenberaterin-basis-chur-w-m-80-100-bank-cler-bellinzona",
         "fr": "conseillere-clientele-de-base-a-coire-f-m-80-100-bank-cler-chur-07od0f"
       },
-      "crawledAt": "2026-04-01T09:16:55.064Z",
+      "crawledAt": "2026-04-01T21:06:13.503Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
@@ -262,7 +264,8 @@
       "previousSlugs": [
         "kundenberaterin-basis-chur-w-m-80-100-bank-cler-chur",
         "kundenberaterin-basis-chur-w-m-banca-cler",
-        "kundenberaterin-basis-chur-w-m-80-100-bank-cler-chur-07od0f"
+        "kundenberaterin-basis-chur-w-m-80-100-bank-cler-chur-07od0f",
+        "kundenberaterin-basis-chur-w-m-80-100-bank-cler-bellinzona"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
