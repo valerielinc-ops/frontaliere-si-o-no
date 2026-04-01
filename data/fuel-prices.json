@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T11:33:54.980Z",
+  "generatedAt": "2026-04-01T12:40:24.136Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 232,
-      "latestObservedUpdate": "2026-04-01T11:24:10.881Z"
+      "latestObservedUpdate": "2026-04-01T12:39:54.448Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -616,19 +616,6 @@
         "sp95PriceEur": 1.871
       },
       {
-        "id": "jLWgOqHiSgH8QJ1xjpck",
-        "name": "Anfra Carburanti Sagl",
-        "brand": "UNDEFINED",
-        "address": "Via Cantonale 8, Magliaso",
-        "lat": 45.9857434,
-        "lng": 8.8908046,
-        "sp95PriceChf": 1.72,
-        "updatedAt": "2026-03-29T09:57:07.911Z",
-        "nearestMunicipality": "Brusimpiano (VA)",
-        "nearestMunicipalityDistanceKm": 3,
-        "sp95PriceEur": 1.871
-      },
-      {
         "id": "8xGyWjuOgXZNia7dursl",
         "name": "Marantelli Sa",
         "brand": "SHELL",
@@ -639,6 +626,19 @@
         "updatedAt": "2026-03-24T08:09:48.736Z",
         "nearestMunicipality": "Tirano (SO)",
         "nearestMunicipalityDistanceKm": 3.3,
+        "sp95PriceEur": 1.882
+      },
+      {
+        "id": "FY3hIc2oa6g9GwJkqawa",
+        "name": "Agrola Eyholz",
+        "brand": "AGROLA",
+        "address": "Kantonsstrasse 50, 3930 Eyholz",
+        "lat": 46.29573,
+        "lng": 7.91514,
+        "sp95PriceChf": 1.73,
+        "updatedAt": "2026-03-24T16:49:45.530Z",
+        "nearestMunicipality": "Trasquera (VB)",
+        "nearestMunicipalityDistanceKm": 24,
         "sp95PriceEur": 1.882
       }
     ],
@@ -1724,18 +1724,18 @@
             "distanceKm": 12.8
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 11.7
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 15.7
           }
         ],
         "minPriceChf": 1.66,
@@ -2261,18 +2261,18 @@
             "distanceKm": 19.8
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.9
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 14.2
           }
         ],
         "minPriceChf": 1.66,
@@ -3213,18 +3213,18 @@
             "distanceKm": 16.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17.2
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 5.6
           }
         ],
         "minPriceChf": 1.66,
@@ -3328,18 +3328,18 @@
             "distanceKm": 17.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 16.2
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 14.6
           }
         ],
         "minPriceChf": 1.66,
@@ -4592,18 +4592,18 @@
             "distanceKm": 7.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 6.5
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 14.7
           }
         ],
         "minPriceChf": 1.66,
@@ -5672,18 +5672,18 @@
             "distanceKm": 17.1
           },
           {
-            "id": "8OJ90l4BJaJfBOJkMrvS",
-            "name": "Garage sport SA",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 7, 6814 Cadempino",
-            "lat": 46.03754757680269,
-            "lng": 8.934256382737304,
-            "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-31T18:39:31.833Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 8.2,
+            "id": "Z8cpWklO19xnaCUaIJf9",
+            "name": "BP Service Agno",
+            "brand": "BP",
+            "address": "Strada Regina 151, 6982 Agno",
+            "lat": 46.0107135374649,
+            "lng": 8.90468663143751,
+            "sp95PriceChf": 1.82,
+            "updatedAt": "2026-04-01T11:34:35.545Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 6,
             "sp95PriceEur": 1.98,
-            "distanceKm": 17.1
+            "distanceKm": 19.8
           }
         ],
         "minPriceChf": 1.66,
@@ -6658,18 +6658,18 @@
             "distanceKm": 14.8
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 13.9
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 12.7
           }
         ],
         "minPriceChf": 1.66,
@@ -6773,18 +6773,18 @@
             "distanceKm": 16.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 16
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 12.7
           }
         ],
         "minPriceChf": 1.66,
@@ -7310,18 +7310,18 @@
             "distanceKm": 16.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 15.6
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 19.6
           }
         ],
         "minPriceChf": 1.66,
@@ -8443,18 +8443,18 @@
             "distanceKm": 17.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 16.8
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 13.1
           }
         ],
         "minPriceChf": 1.66,
@@ -9954,20 +9954,6 @@
             "distanceKm": 18.6
           },
           {
-            "id": "mQd7NzgcFwxljrEQrRnX",
-            "name": "Coop Pronto",
-            "brand": "COOP",
-            "address": "Via Monte Ceneri 20, 6512 Giubiasco",
-            "lat": 46.1681,
-            "lng": 9.0028,
-            "sp95PriceChf": 1.8900000000000001,
-            "updatedAt": "2026-03-22T11:47:05.727Z",
-            "nearestMunicipality": "Cavargna (CO)",
-            "nearestMunicipalityDistanceKm": 12,
-            "sp95PriceEur": 2.056,
-            "distanceKm": 19.3
-          },
-          {
             "id": "BAeXvILCMXTPY8rFgqlE",
             "name": "Euro Service",
             "brand": "UNDEFINED",
@@ -9994,6 +9980,20 @@
             "nearestMunicipalityDistanceKm": 12.8,
             "sp95PriceEur": 2.088,
             "distanceKm": 18.5
+          },
+          {
+            "id": "MNydGBweUV8pmXuAtQKE",
+            "name": "Agrola Bellinzona",
+            "brand": "AGROLA",
+            "address": "Via San Gottardo 65, 6500 Bellinzona",
+            "lat": 46.204418,
+            "lng": 9.035782,
+            "sp95PriceChf": 1.93,
+            "updatedAt": "2026-03-31T05:39:11.341Z",
+            "nearestMunicipality": "Cavargna (CO)",
+            "nearestMunicipalityDistanceKm": 14,
+            "sp95PriceEur": 2.099,
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.73,
@@ -11056,18 +11056,18 @@
             "distanceKm": 15.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 14.3
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 16.6
           }
         ],
         "minPriceChf": 1.66,
@@ -13261,20 +13261,6 @@
             "distanceKm": 20
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 20
-          },
-          {
             "id": "IGIlo1f7hrzC174Fqgmt",
             "name": "TAMOIL Balerna (San Gottardo)",
             "brand": "TAMOIL",
@@ -13287,6 +13273,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.882,
             "distanceKm": 2.2
+          },
+          {
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-31T15:05:48.508Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 20
           }
         ],
         "minPriceChf": 1.66,
@@ -15323,18 +15323,18 @@
             "distanceKm": 19.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.6
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 15.5
           }
         ],
         "minPriceChf": 1.66,
@@ -15654,18 +15654,18 @@
             "distanceKm": 18.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.66,
@@ -15892,20 +15892,6 @@
             "distanceKm": 19.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.4
-          },
-          {
             "id": "HapjFsEcj5Snc7o1iICH",
             "name": "Station La Posta Svizzzera",
             "brand": "UNDEFINED",
@@ -15918,6 +15904,20 @@
             "nearestMunicipalityDistanceKm": 13.7,
             "sp95PriceEur": 1.882,
             "distanceKm": 19.2
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 18.4
           }
         ],
         "minPriceChf": 1.66,
@@ -16366,18 +16366,18 @@
             "distanceKm": 17.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17.9
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 8
           }
         ],
         "minPriceChf": 1.66,
@@ -16481,18 +16481,18 @@
             "distanceKm": 18.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.5
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 2.9
           }
         ],
         "minPriceChf": 1.66,
@@ -17321,18 +17321,18 @@
             "distanceKm": 18.5
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17.8
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 10.9
           }
         ],
         "minPriceChf": 1.66,
@@ -18667,18 +18667,18 @@
             "distanceKm": 18.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.8
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 4.9
           }
         ],
         "minPriceChf": 1.66,
@@ -18740,20 +18740,6 @@
             "distanceKm": 14.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.7
-          },
-          {
             "id": "HapjFsEcj5Snc7o1iICH",
             "name": "Station La Posta Svizzzera",
             "brand": "UNDEFINED",
@@ -18766,6 +18752,20 @@
             "nearestMunicipalityDistanceKm": 13.7,
             "sp95PriceEur": 1.882,
             "distanceKm": 15.2
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 18.7
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -18928,18 +18928,18 @@
             "distanceKm": 18.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 19
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 7.2
           }
         ],
         "minPriceChf": 1.66,
@@ -19029,20 +19029,6 @@
             "distanceKm": 14.1
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 12.8
-          },
-          {
             "id": "HapjFsEcj5Snc7o1iICH",
             "name": "Station La Posta Svizzzera",
             "brand": "UNDEFINED",
@@ -19055,6 +19041,20 @@
             "nearestMunicipalityDistanceKm": 13.7,
             "sp95PriceEur": 1.882,
             "distanceKm": 18.4
+          },
+          {
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-31T15:05:48.508Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 14.8
           }
         ],
         "minPriceChf": 1.66,
@@ -19905,20 +19905,6 @@
             "distanceKm": 10.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 10.7
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -19931,6 +19917,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 10.2
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 10.7
           }
         ],
         "minPriceChf": 1.66,
@@ -20204,18 +20204,18 @@
             "distanceKm": 12.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 13.7
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 13
           }
         ],
         "minPriceChf": 1.66,
@@ -20514,20 +20514,6 @@
             "distanceKm": 16.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -20554,6 +20540,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 17.6
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 18
           }
         ],
         "minPriceChf": 1.71,
@@ -20651,20 +20651,6 @@
             "distanceKm": 17.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 19.2
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -20691,6 +20677,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 13.9
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.71,
@@ -20942,18 +20942,18 @@
             "distanceKm": 9.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 10.9
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.66,
@@ -21057,17 +21057,17 @@
             "distanceKm": 10.5
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
             "distanceKm": 11.2
           }
         ],
@@ -21516,18 +21516,18 @@
             "distanceKm": 12
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 12.9
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 12
           }
         ],
         "minPriceChf": 1.66,
@@ -21859,20 +21859,6 @@
             "distanceKm": 17.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.9
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -21899,6 +21885,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 19.6
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 18.9
           }
         ],
         "minPriceChf": 1.71,
@@ -21974,20 +21974,6 @@
             "distanceKm": 12.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 13.3
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -22000,6 +21986,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 11.7
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 13.3
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -22150,18 +22150,18 @@
             "distanceKm": 12
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 13.3
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 18.5
           }
         ],
         "minPriceChf": 1.66,
@@ -22251,20 +22251,6 @@
             "distanceKm": 10.5
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 11.8
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -22277,6 +22263,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 9.9
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 17.5
           }
         ],
         "minPriceChf": 1.66,
@@ -22495,18 +22495,18 @@
             "distanceKm": 2.1
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 3
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 17.2
           }
         ],
         "minPriceChf": 1.66,
@@ -22769,18 +22769,18 @@
             "distanceKm": 3.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 5.2
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-31T15:05:48.508Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 3.2
           }
         ],
         "minPriceChf": 1.66,
@@ -23129,18 +23129,18 @@
             "distanceKm": 17.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.4
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 9.9
           }
         ],
         "minPriceChf": 1.66,
@@ -23742,20 +23742,6 @@
             "distanceKm": 15.5
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 16.9
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -23782,6 +23768,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 18.3
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 16.9
           }
         ],
         "minPriceChf": 1.71,
@@ -23871,20 +23871,6 @@
             "distanceKm": 17.5
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.7
-          },
-          {
             "id": "IGIlo1f7hrzC174Fqgmt",
             "name": "TAMOIL Balerna (San Gottardo)",
             "brand": "TAMOIL",
@@ -23897,6 +23883,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.882,
             "distanceKm": 18.4
+          },
+          {
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-31T15:05:48.508Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 16.9
           }
         ],
         "minPriceChf": 1.66,
@@ -24133,20 +24133,6 @@
             "distanceKm": 9.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 11.2
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -24159,6 +24145,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 9.2
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 15.1
           }
         ],
         "minPriceChf": 1.66,
@@ -24234,20 +24234,6 @@
             "distanceKm": 13.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 14.6
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -24274,6 +24260,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 14.3
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 14.6
           }
         ],
         "minPriceChf": 1.71,
@@ -24497,20 +24497,6 @@
             "distanceKm": 16.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17.6
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -24523,6 +24509,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 15.7
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 17.6
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -25494,18 +25494,18 @@
             "distanceKm": 13.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 13.8
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 7.4
           }
         ],
         "minPriceChf": 1.66,
@@ -25870,20 +25870,6 @@
             "distanceKm": 18.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 19.7
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -25910,6 +25896,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 14.7
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 19.7
           }
         ],
         "minPriceChf": 1.71,
@@ -25999,20 +25999,6 @@
             "distanceKm": 5.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 6.9
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -26025,6 +26011,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 5.5
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 17.6
           }
         ],
         "minPriceChf": 1.66,
@@ -26276,18 +26276,18 @@
             "distanceKm": 7.1
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 7.9
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 13.6
           }
         ],
         "minPriceChf": 1.66,
@@ -26391,18 +26391,18 @@
             "distanceKm": 5.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 6.9
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 19.3
           }
         ],
         "minPriceChf": 1.66,
@@ -26528,18 +26528,18 @@
             "distanceKm": 7.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 9.2
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 19.5
           }
         ],
         "minPriceChf": 1.66,
@@ -26629,20 +26629,6 @@
             "distanceKm": 10.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 10.6
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -26655,6 +26641,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 10.8
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 10.6
           }
         ],
         "minPriceChf": 1.66,
@@ -26774,20 +26774,6 @@
             "distanceKm": 13.8
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 15.2
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -26814,6 +26800,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 16.3
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 15.2
           }
         ],
         "minPriceChf": 1.71,
@@ -26889,20 +26889,6 @@
             "distanceKm": 14.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 15.8
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -26929,6 +26915,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 16.1
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 15.8
           }
         ],
         "minPriceChf": 1.71,
@@ -27166,20 +27166,6 @@
             "distanceKm": 8.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 8.8
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -27192,6 +27178,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 8.1
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 8.8
           }
         ],
         "minPriceChf": 1.66,
@@ -27267,20 +27267,6 @@
             "distanceKm": 12.9
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 14.2
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -27307,6 +27293,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 16.3
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 14.2
           }
         ],
         "minPriceChf": 1.71,
@@ -27502,20 +27502,6 @@
             "distanceKm": 8.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 9.9
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -27528,6 +27514,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 7.8
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 14.2
           }
         ],
         "minPriceChf": 1.66,
@@ -28730,20 +28730,6 @@
             "distanceKm": 11.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 12.7
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -28756,6 +28742,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 11.3
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 12.7
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -29163,20 +29163,6 @@
             "distanceKm": 8.5
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 9.9
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -29189,6 +29175,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 7.9
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 15.9
           }
         ],
         "minPriceChf": 1.66,
@@ -29407,18 +29407,18 @@
             "distanceKm": 14.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 15.2
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 14.1
           }
         ],
         "minPriceChf": 1.66,
@@ -29659,18 +29659,18 @@
             "distanceKm": 2.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 3.6
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 18.7
           }
         ],
         "minPriceChf": 1.66,
@@ -30235,20 +30235,6 @@
             "distanceKm": 10.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 11.3
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -30261,6 +30247,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 10
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 11.3
           }
         ],
         "minPriceChf": 1.66,
@@ -30350,20 +30350,6 @@
             "distanceKm": 17.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 18.8
-          },
-          {
             "id": "IGIlo1f7hrzC174Fqgmt",
             "name": "TAMOIL Balerna (San Gottardo)",
             "brand": "TAMOIL",
@@ -30376,6 +30362,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.882,
             "distanceKm": 19.3
+          },
+          {
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-31T15:05:48.508Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 16.9
           }
         ],
         "minPriceChf": 1.66,
@@ -30451,20 +30451,6 @@
             "distanceKm": 13.1
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 13.2
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -30476,6 +30462,20 @@
             "nearestMunicipality": "Lavena Ponte Tresa (VA)",
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
+            "distanceKm": 13.2
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
             "distanceKm": 13.2
           },
           {
@@ -30808,18 +30808,18 @@
             "distanceKm": 4.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 6
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 18.9
           }
         ],
         "minPriceChf": 1.66,
@@ -30923,18 +30923,18 @@
             "distanceKm": 4.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 5.8
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 16.5
           }
         ],
         "minPriceChf": 1.66,
@@ -31038,18 +31038,18 @@
             "distanceKm": 10
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 11.4
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-31T15:05:48.508Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 9.3
           }
         ],
         "minPriceChf": 1.66,
@@ -31192,20 +31192,6 @@
             "distanceKm": 9.8
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 11.1
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -31218,6 +31204,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 9.1
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 16.8
           }
         ],
         "minPriceChf": 1.66,
@@ -31307,20 +31307,6 @@
             "distanceKm": 8.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 9.5
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -31333,6 +31319,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 7.8
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 18
           }
         ],
         "minPriceChf": 1.66,
@@ -31867,20 +31867,6 @@
             "distanceKm": 16.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17.6
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -31907,6 +31893,20 @@
             "nearestMunicipalityDistanceKm": 0.7,
             "sp95PriceEur": 1.903,
             "distanceKm": 16.9
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 17.6
           }
         ],
         "minPriceChf": 1.71,
@@ -32010,18 +32010,18 @@
             "distanceKm": 8.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 8.8
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 11.6
           }
         ],
         "minPriceChf": 1.66,
@@ -32130,20 +32130,6 @@
             "distanceKm": 15.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 16.4
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -32156,6 +32142,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 14.6
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 16.4
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -32259,20 +32259,6 @@
             "distanceKm": 10.7
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 12.1
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -32285,6 +32271,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 10
+          },
+          {
+            "id": "UelxZq99s1BipDu4DdXY",
+            "name": "TAMOIL San Pietro di Stabio",
+            "brand": "TAMOIL",
+            "address": "Dogana 28, 6854 San Pietro di Stabio",
+            "lat": 45.859262,
+            "lng": 8.933818,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-03-22T13:34:48.050Z",
+            "nearestMunicipality": "Clivio (VA)",
+            "nearestMunicipalityDistanceKm": 0.7,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 14.1
           }
         ],
         "minPriceChf": 1.66,
@@ -32388,18 +32388,18 @@
             "distanceKm": 12.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 12.7
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 8.4
           }
         ],
         "minPriceChf": 1.66,
@@ -33723,20 +33723,6 @@
             "distanceKm": 16.5
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 16.7
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -33749,6 +33735,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 16.6
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 16.7
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -33899,18 +33899,18 @@
             "distanceKm": 9.4
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 10.6
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 16.5
           }
         ],
         "minPriceChf": 1.66,
@@ -34588,20 +34588,6 @@
             "distanceKm": 18.3
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 19.3
-          },
-          {
             "id": "IGIlo1f7hrzC174Fqgmt",
             "name": "TAMOIL Balerna (San Gottardo)",
             "brand": "TAMOIL",
@@ -34614,6 +34600,20 @@
             "nearestMunicipalityDistanceKm": 2.2,
             "sp95PriceEur": 1.882,
             "distanceKm": 15.2
+          },
+          {
+            "id": "TyVGrppSLdVuEl3mGLQi",
+            "name": "Eni",
+            "brand": "ENI",
+            "address": "Via Cantonale 36, 6987 Caslano",
+            "lat": 45.97394481908457,
+            "lng": 8.869804789687063,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-31T15:05:48.508Z",
+            "nearestMunicipality": "Lavena Ponte Tresa (VA)",
+            "nearestMunicipalityDistanceKm": 1.6,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 17.7
           }
         ],
         "minPriceChf": 1.66,
@@ -35247,18 +35247,18 @@
             "distanceKm": 12
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 12.7
+            "id": "IGIlo1f7hrzC174Fqgmt",
+            "name": "TAMOIL Balerna (San Gottardo)",
+            "brand": "TAMOIL",
+            "address": "San Gottardo 12, 6828 Balerna",
+            "lat": 45.840241,
+            "lng": 9.018873,
+            "sp95PriceChf": 1.73,
+            "updatedAt": "2026-03-16T08:40:53.906Z",
+            "nearestMunicipality": "Maslianico (CO)",
+            "nearestMunicipalityDistanceKm": 2.2,
+            "sp95PriceEur": 1.882,
+            "distanceKm": 9.4
           }
         ],
         "minPriceChf": 1.66,
@@ -36145,20 +36145,6 @@
             "distanceKm": 16.6
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17.5
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -36171,6 +36157,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 16.3
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 17.5
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -36293,20 +36293,6 @@
             "distanceKm": 16.8
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 17.4
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -36319,6 +36305,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 16.7
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 17.4
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -38187,20 +38187,6 @@
             "distanceKm": 18.2
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 19.3
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -38213,6 +38199,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 17.7
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 19.3
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
@@ -39161,20 +39161,6 @@
             "distanceKm": 19
           },
           {
-            "id": "jLWgOqHiSgH8QJ1xjpck",
-            "name": "Anfra Carburanti Sagl",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 8, Magliaso",
-            "lat": 45.9857434,
-            "lng": 8.8908046,
-            "sp95PriceChf": 1.72,
-            "updatedAt": "2026-03-29T09:57:07.911Z",
-            "nearestMunicipality": "Brusimpiano (VA)",
-            "nearestMunicipalityDistanceKm": 3,
-            "sp95PriceEur": 1.871,
-            "distanceKm": 19.8
-          },
-          {
             "id": "TyVGrppSLdVuEl3mGLQi",
             "name": "Eni",
             "brand": "ENI",
@@ -39187,6 +39173,20 @@
             "nearestMunicipalityDistanceKm": 1.6,
             "sp95PriceEur": 1.882,
             "distanceKm": 18.7
+          },
+          {
+            "id": "jLWgOqHiSgH8QJ1xjpck",
+            "name": "Anfra Carburanti Sagl",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 8, Magliaso",
+            "lat": 45.9857434,
+            "lng": 8.8908046,
+            "sp95PriceChf": 1.75,
+            "updatedAt": "2026-04-01T11:44:10.648Z",
+            "nearestMunicipality": "Brusimpiano (VA)",
+            "nearestMunicipalityDistanceKm": 3,
+            "sp95PriceEur": 1.903,
+            "distanceKm": 19.8
           },
           {
             "id": "7PfDJXlwoV9rwwngyicQ",
