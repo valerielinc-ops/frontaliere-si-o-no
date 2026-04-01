@@ -6,9 +6,7 @@ import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analyticsProxy';
 import { pushRoute } from '@/services/router';
 import type { ActiveTab, CalcolatoreSubTab, BlogArticleId } from '@/services/router';
-import {
-  ArrowRightLeft, Layers, Shield, Briefcase,
-} from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 import {
   SkeletonNewsTicker,
   SkeletonWeeklyFact,
@@ -35,7 +33,7 @@ const WeeklyFact = lazyRetry(() => import('@/components/vita/WeeklyFact'));
 const DailyDialectPhrase = lazyRetry(() => import('@/components/vita/DailyDialectPhrase'));
 const SocialProofBadge = lazyRetry(() => import('@/components/shared/SocialProofBadge'));
 const AdSenseBanner = lazyRetry(() => import('@/components/shared/AdSenseBanner'));
-const RelatedTools = lazyRetry(() => import('@/components/shared/RelatedTools'));
+
 
 const LazyFallback = () => <SkeletonWeeklyFact />;
 
@@ -194,32 +192,6 @@ export default function CalcolatoreTabContent() {
               </div>
             )}
 
-            {/* Popular Tools CTA — uses <a> tags for Google crawlability (SEO internal linking) */}
-            {result && (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-2">
-                {([
-                  { icon: ArrowRightLeft, label: t('nav.confronti'), desc: t('cta.confrontiDesc'), color: 'from-teal-500 to-emerald-600', href: '/compara-servizi/cambio-franco-euro/', tab: 'confronti' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
-                  { icon: Layers, label: t('cta.whatif'), desc: t('cta.whatifDesc'), color: 'from-amber-500 to-orange-600', href: '/calcola-stipendio/cosa-cambia-se/', tab: 'calculator' as ActiveTab, sub: 'whatif' as CalcolatoreSubTab },
-                  { icon: Shield, label: t('nav.fisco'), desc: t('cta.fiscalDesc'), color: 'from-emerald-500 to-teal-600', href: '/tasse-e-pensione/', tab: 'fisco' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
-                  { icon: Briefcase, label: t('nav.guida'), desc: t('cta.guidaDesc'), color: 'from-teal-500 to-emerald-600', href: '/guida-frontaliere/', tab: 'guida' as ActiveTab, sub: undefined as CalcolatoreSubTab | undefined },
-                ]).map(({ icon: Icon, label, desc, color, href, tab, sub }) => (
-                  <a
-                    key={tab + (sub || '')}
-                    href={href}
-                    onClick={(e) => { e.preventDefault(); navigateTo(tab, sub); }}
-                    className="flex items-start gap-3 p-4 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:shadow-md hover:-translate-y-0.5 transition-all text-left group"
-                  >
-                    <div className={`p-2 rounded-lg bg-gradient-to-br ${color} flex-shrink-0`}>
-                      <Icon size={18} className="text-white" />
-                    </div>
-                    <div className="min-w-0">
-                      <div className="text-sm font-bold text-slate-800 dark:text-slate-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</div>
-                      <div className="text-xs text-slate-600 dark:text-slate-500 line-clamp-2">{desc}</div>
-                    </div>
-                  </a>
-                ))}
-              </div>
-            )}
             {result && (
               <div className="mt-3">
                 <Suspense fallback={<div className="h-[34px]" />}><SocialProofBadge fullWidth /></Suspense>
@@ -230,9 +202,6 @@ export default function CalcolatoreTabContent() {
                 <Suspense fallback={<SkeletonWeeklyFact />}><WeeklyFact /></Suspense>
               </div>
             )}
-            {/* SEO cross-linking: crawlable <a href> links to key pages (payslip, tax, pension, jobs) */}
-            {result && <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>}
-
             {/* AI-extractable comparison table + FAQ — in <details> for crawlability without breaking page flow */}
             <details className="mt-6 group">
               <summary className="cursor-pointer list-none flex items-center gap-2 text-sm font-medium text-blue-700 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors">

@@ -1,11 +1,10 @@
 import React, { useState, useEffect, lazy, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { Analytics } from '@/services/analytics';
-import { TrendingUp, PiggyBank, Calendar, Info, AlertCircle, CheckCircle2, ArrowRight, Users, Home, Banknote, Calculator, Clock, Globe, Percent, Shield, Share2, Check } from 'lucide-react';
+import { TrendingUp, PiggyBank, Calendar, Info, AlertCircle, CheckCircle2, Users, Home, Banknote, Calculator, Clock, Globe, Percent, Shield, Share2, Check } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
 const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
-import { buildPath } from '@/services/router';
 
 interface PensionInputs {
   currentAge: number;
@@ -638,22 +637,6 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
         </div>
       </div>
 
-      {/* Cross-link CTA */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
-        <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">{t('cta.tryAlso')}</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-          {[
-            { href: buildPath({ activeTab: 'fisco', fiscoSubTab: 'pillar3' }), icon: PiggyBank, label: t('pillar3.title'), color: 'text-violet-600' },
-            { href: buildPath({ activeTab: 'calculator' }), icon: Calculator, label: t('nav.calculator'), color: 'text-blue-600' },
-          ].map(({ href, icon: Icon, label, color }) => (
-            <a key={href} href={href} onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', href); window.dispatchEvent(new PopStateEvent('popstate')); }} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group no-underline">
-              <Icon size={18} className={color} />
-              <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</span>
-              <ArrowRight size={14} className="ml-auto text-slate-500 group-hover:text-blue-500 transition-colors" />
-            </a>
-          ))}
-        </div>
-      </div>
       <Suspense fallback={null}>
         <LeadMagnetCTA variant="pension" delay={5000} />
       </Suspense>
