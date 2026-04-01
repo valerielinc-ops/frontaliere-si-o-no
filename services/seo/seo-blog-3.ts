@@ -2241,7 +2241,7 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
       "description": "Comprehensive comparison of calculators and tools for Swiss-Italian cross-border workers",
       "image": {
         "@type": "ImageObject",
-        "url": `${BASE_URL}/og-calcolatore.png`,
+        "url": `${BASE_URL}/images/blog/calcolo-tasse-entro-confine.webp`,
         "width": 1200,
         "height": 630,
         "caption": "Cross-border worker calculator comparison"

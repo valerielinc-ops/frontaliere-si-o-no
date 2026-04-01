@@ -5589,7 +5589,7 @@ export const ARTICLES: Article[] = [
     id: 'best-cross-border-worker-calculator-switzerland',
     category: 'pratico',
     date: '2026-03-31T10:00:00+01:00',
-    image: '/og-calcolatore.png',
+    image: '/images/blog/calcolo-tasse-entro-confine.webp',
     hasCalculator: true,
   },
   {
