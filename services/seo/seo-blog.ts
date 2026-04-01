@@ -10059,6 +10059,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga': {
+    title: 'Il medico prescrive la cannabis per un disturbo cronico, la cassa malati | Frontaliere Ticino',
+    description: 'L\'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la',
+    keywords: 'frontalieri, ticino, svizzera, italia, medico, prescrive, cannabis, disturbo',
+    ogTitle: 'Il medico prescrive la cannabis per un disturbo cronico, la cassa malati non paga',
+    ogDescription: 'L\'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la',
+    canonicalPath: '/articoli-frontaliere/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il medico prescrive la cannabis per un disturbo cronico, la cassa malati non paga",
+      "description": "L'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un medico esamina un paziente"
+      },
+      "datePublished": "2026-04-01T19:19:40+00:00",
+      "dateModified": "2026-04-01T19:19:40+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

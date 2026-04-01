@@ -3379,7 +3379,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 625,
+        "numberOfItems": 626,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4002,7 +4002,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 622, "name": "Rientro dell'ambasciatore italiano a Berna dopo...", "url": `${BASE_URL}/articoli-frontaliere/ambasciatore-italiano-ritorno-berna` },
           { "@type": "ListItem", "position": 623, "name": "Petizione contro le nuove tariffe per le cure a...", "url": `${BASE_URL}/articoli-frontaliere/pazienti-ticino-protesta` },
           { "@type": "ListItem", "position": 624, "name": "Svizzera a corto di uova: aumenta il contingent...", "url": `${BASE_URL}/articoli-frontaliere/aumento-contingente-uova-svizzera` },
-          { "@type": "ListItem", "position": 625, "name": "Congresso Svizzera-Italia 2026", "url": `${BASE_URL}/articoli-frontaliere/congresso-svizzera-italia-2026` }
+          { "@type": "ListItem", "position": 625, "name": "Congresso Svizzera-Italia 2026", "url": `${BASE_URL}/articoli-frontaliere/congresso-svizzera-italia-2026` },
+          { "@type": "ListItem", "position": 626, "name": "Il medico prescrive la cannabis per un disturbo...", "url": `${BASE_URL}/articoli-frontaliere/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga` }
         ]
       }
     ]

@@ -1898,6 +1898,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.congresso-svizzera-italia-2026.title': 'Zehn Jahre Konfrontation über Steuern und Grenzgänger',
     'blog.article.congresso-svizzera-italia-2026.excerpt': 'Der Kongress Schweiz-Italien kehrt nach Varese zurück, um über neue Steuern und Grenzgänger zu diskutieren',
     'blog.article.congresso-svizzera-italia-2026.imageAlt': 'Schweiz-Italien-Kongress in Varese',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.title': 'Der Arzt verordnet Cannabis für eine chronische Störung, die Krankenkasse zahlt nicht',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.excerpt': 'Der Artikel berichtet über den Fall eines Patienten, der von einem Arzt eine Verordnung für Cannabis für eine chronische Störung erhalten hat, aber die Krankenkasse hat die Kosten nicht bezahlt. 💡',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.imageAlt': 'Ein Arzt untersucht einen Patienten',
 };
 
 export default blogMetaDe;

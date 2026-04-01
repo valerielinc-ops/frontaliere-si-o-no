@@ -1898,6 +1898,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congresso-svizzera-italia-2026.title': 'Ten years of discussion on taxation and cross-border workers',
     'blog.article.congresso-svizzera-italia-2026.excerpt': 'The Switzerland-Italy Congress returns to Varese to discuss new tax and cross-border worker developments',
     'blog.article.congresso-svizzera-italia-2026.imageAlt': 'Switzerland-Italy Congress in Varese',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.title': 'Doctor Prescribes Cannabis for Chronic Disorder, Health Insurance Won\'t Pay',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.excerpt': 'The article reports on the case of a patient who received a prescription for cannabis from a doctor for a chronic disorder, but the health insurance did not cover the expense.',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.imageAlt': 'A doctor examines a patient',
 };
 
 export default blogMetaEn;

@@ -1898,6 +1898,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.congresso-svizzera-italia-2026.title': 'Dieci anni di confronto su fiscalità e frontalieri',
     'blog.article.congresso-svizzera-italia-2026.excerpt': 'Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri.',
     'blog.article.congresso-svizzera-italia-2026.imageAlt': 'Convegno Svizzera-Italia a Varese',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.title': 'Il medico prescrive la cannabis per un disturbo cronico, la cassa malati non paga',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.excerpt': 'L\'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la spesa.',
+    'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.imageAlt': 'Un medico esamina un paziente',
 };
 
 export default blogMetaIt;

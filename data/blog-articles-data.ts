@@ -5620,4 +5620,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/congresso-svizzera-italia-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga',
+    category: 'novita',
+    date: '2026-04-01T19:19:40.705Z',
+    image: '/images/blog/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.jpg',
+    hasCalculator: true,
+  },
 ];
