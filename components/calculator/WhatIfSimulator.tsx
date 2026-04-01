@@ -1,5 +1,7 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { Sliders, Baby, MapPin, Home, TrendingUp, TrendingDown, DollarSign, Heart, HeartCrack, RotateCcw, Zap, Info, ArrowLeftRight, Sparkles, AlertTriangle, Clock, Share2, Check, Copy, MessageCircle } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { SimulationInputs, SimulationResult } from '@/types';
@@ -616,6 +618,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
           )}
         </div>
       </div>
+      <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
     </div>
   );
 };

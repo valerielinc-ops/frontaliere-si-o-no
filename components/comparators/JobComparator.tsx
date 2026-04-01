@@ -1,6 +1,8 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { Briefcase, Plus, Trash2, Trophy, Car, Clock, DollarSign, TrendingUp, Home, Coffee, ParkingCircle, Info, Calculator, MapPin } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { calculateSimulation } from '@/services/calculationService';
 import { Analytics } from '@/services/analytics';
 import { DEFAULT_INPUTS } from '@/constants';
@@ -357,6 +359,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           </div>
         </div>
       </div>
+      <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
     </div>
   );
 };

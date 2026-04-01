@@ -1,5 +1,7 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { Shield, TrendingUp, Calculator, Info, AlertCircle, Landmark, PiggyBank, Percent, Clock, Star, Building, Banknote, BarChart3, CheckCircle2, XCircle } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, Legend, Area, AreaChart } from 'recharts';
 import { Analytics } from '@/services/analytics';
 import { useTranslation } from '@/services/i18n';
@@ -486,6 +488,7 @@ const Pillar3Simulator: React.FC = () => {
           </div>
         </div>
       </div>
+      <Suspense fallback={null}><RelatedTools context="pension" /></Suspense>
     </div>
   );
 };

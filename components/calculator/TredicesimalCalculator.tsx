@@ -17,6 +17,7 @@ import {
 
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
 const ShareableResultCard = lazy(() => import('@/components/shared/ShareableResultCard'));
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 
 // ─── Types ──────────────────────────────────────────────────────────────
 
@@ -381,6 +382,7 @@ const TredicesimalCalculator: React.FC = () => {
           </Suspense>
         </>
       )}
+      <Suspense fallback={null}><RelatedTools context="payslip" /></Suspense>
     </div>
   );
 };

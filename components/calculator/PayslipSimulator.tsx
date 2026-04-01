@@ -1,6 +1,8 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { FileText, Download, Info, ChevronDown, ChevronUp, Shield, Coins, User, Heart, Baby, Plus, Minus, AlertTriangle } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { DEFAULT_TECH_PARAMS, DEFAULT_INPUTS } from '@/constants';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 
@@ -474,6 +476,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           </div>
         </div>
       </div>
+      <Suspense fallback={null}><RelatedTools context="payslip" /></Suspense>
     </div>
   );
 };

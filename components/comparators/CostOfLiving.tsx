@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Home, TrendingDown, TrendingUp, MapPin, Train, Zap, Wifi, Utensils, Heart, DollarSign, BarChart3, ArrowRight, ExternalLink, Info, RefreshCw } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { useExchangeRate } from '@/services/exchangeRateService';
@@ -438,6 +440,7 @@ const CostOfLiving: React.FC = () => {
         </div>
         <p className="text-xs text-slate-500 mt-2">{t('costOfLiving.disclaimer')}</p>
       </div>
+      <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
     </div>
   );
 };

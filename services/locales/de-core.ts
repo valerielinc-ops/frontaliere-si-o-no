@@ -520,6 +520,9 @@ const deCore: Record<string, string> = {
     'jobBoard.filter.filters': 'Filter',
     'jobBoard.filter.resetAll': 'Zurücksetzen',
     'jobBoard.filter.toggle': 'Filter ein-/ausblenden',
+    'jobBoard.filter.activeCompany': 'Aktiver Filter: Unternehmensanzeigen',
+    'jobBoard.filter.activeSearch': 'Aktiver Filter: Suche "{query}"',
+    'jobBoard.filter.remove': 'Filter entfernen',
     'jobBoard.title': 'Grenzgänger Jobs Tessin 2026',
     'jobBoard.companyPageTitle': '{company} Stellenangebote im Tessin',
     'jobBoard.subtitle': 'Aktuelle Stellenangebote für Grenzgänger von Tessiner Unternehmen. Über 100 aktive Arbeitgeber in der Schweiz.',
@@ -2716,6 +2719,16 @@ Regeln:
     'notFound.desc.shopping': 'Preisvergleich zwischen Italien und der Schweiz',
     'notFound.desc.borderMap': 'Interaktive Karte der Grenzübergänge und Wartezeiten',
     'notFound.desc.taxReturn': 'Steuererklärung für Grenzgänger — Anleitung',
+
+    // Companies
+    'companies.sortBy': 'Sortieren nach',
+    'companies.sortAscending': 'Aufsteigend sortieren',
+    'companies.sortDescending': 'Absteigend sortieren',
+
+    // Input
+    'input.expenseName': 'Ausgabenbezeichnung',
+    'input.expenseAmount': 'Ausgabenbetrag',
+    'input.toggleFrequency': 'Häufigkeit monatlich/jährlich wechseln',
 };
 
 export default deCore;

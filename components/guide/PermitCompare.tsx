@@ -1,5 +1,7 @@
-import React, { useState, useMemo, useEffect, useCallback } from 'react';
+import React, { useState, useMemo, useEffect, useCallback, lazy, Suspense } from 'react';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -877,6 +879,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
           </div>
         </div>
       </div>
+      <Suspense fallback={null}><RelatedTools context="permits" /></Suspense>
     </div>
   );
 }

@@ -8,8 +8,10 @@
  * Italian income.
  */
 
-import React, { useState, useMemo, useEffect, useRef } from 'react';
+import React, { useState, useMemo, useEffect, useRef, lazy, Suspense } from 'react';
 import { Info, ChevronDown, ChevronUp, HelpCircle, Receipt, RefreshCw, Users, Plus, Minus } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { unlockAchievement } from '@/services/gamificationService';
@@ -450,6 +452,7 @@ const TaxCreditCalculator: React.FC = () => {
           </div>
         )}
       </div>
+      <Suspense fallback={null}><RelatedTools context="tax" /></Suspense>
     </div>
   );
 };

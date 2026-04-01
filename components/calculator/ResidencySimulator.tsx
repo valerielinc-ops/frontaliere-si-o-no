@@ -5,6 +5,7 @@ import { ArrowLeftRight, MapPin, TrendingUp, AlertCircle, ChevronDown, ChevronUp
 import { MUNICIPALITIES, type Municipality } from '@/data/municipalities';
 
 const LeadMagnetCTA = lazy(() => import('@/components/shared/LeadMagnetCTA'));
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 
 // ─── Simulation Engine ───────────────────────────────────────
 
@@ -801,6 +802,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
       <Suspense fallback={null}>
         <LeadMagnetCTA variant="relocation" delay={3000} />
       </Suspense>
+      <Suspense fallback={null}><RelatedTools context="permits" /></Suspense>
     </div>
   );
 }

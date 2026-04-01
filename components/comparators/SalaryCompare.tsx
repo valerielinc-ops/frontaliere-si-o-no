@@ -11,6 +11,7 @@ import {
 } from '@/data/salaryData';
 
 const SalarySurvey = lazy(() => import('@/components/community/SalarySurvey'));
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 
 // ── Net calculation helpers ──────────────────────────────────────────────────
 
@@ -859,6 +860,7 @@ export default function SalaryCompare() {
           <p>{t('salaryCompare.disclaimer')}</p>
         </div>
       </div>
+      <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
     </div>
   );
 }

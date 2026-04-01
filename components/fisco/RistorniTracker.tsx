@@ -1,6 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Coins, MapPin, TrendingUp, Info, Calculator, ChevronDown, ChevronUp, AlertCircle, CheckCircle2 } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 
 // Ristorni rates by province and year (% of Swiss tax returned to Italy)
 interface RistorniRate {
@@ -238,6 +240,7 @@ const RistorniTracker: React.FC = () => {
           </div>
         )}
       </div>
+      <Suspense fallback={null}><RelatedTools context="tax" /></Suspense>
     </div>
   );
 };

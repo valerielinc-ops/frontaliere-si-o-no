@@ -559,6 +559,9 @@ const translations: Record<string, string> = {
     'jobBoard.filter.filters': 'Filtri',
     'jobBoard.filter.resetAll': 'Reset',
     'jobBoard.filter.toggle': 'Mostra/nascondi filtri',
+    'jobBoard.filter.activeCompany': 'Filtro attivo: annunci per azienda',
+    'jobBoard.filter.activeSearch': 'Filtro attivo: ricerca "{query}"',
+    'jobBoard.filter.remove': 'Rimuovi filtro',
     'jobBoard.title': 'Lavoro Frontaliere Ticino 2026',
     'jobBoard.companyPageTitle': '{company} - offerte di lavoro in Ticino',
     'jobBoard.subtitle': 'Offerte di lavoro frontaliere aggiornate da aziende ticinesi. Cerca tra oltre 100 aziende attive in Svizzera.',
@@ -2805,5 +2808,15 @@ Regole:
     'notFound.desc.shopping': 'Confronta i prezzi tra Italia e Svizzera',
     'notFound.desc.borderMap': 'Mappa interattiva dei valichi e tempi di attesa',
     'notFound.desc.taxReturn': 'Guida alla dichiarazione dei redditi per frontalieri',
+
+    // Companies
+    'companies.sortBy': 'Ordina per',
+    'companies.sortAscending': 'Ordine crescente',
+    'companies.sortDescending': 'Ordine decrescente',
+
+    // Input
+    'input.expenseName': 'Nome spesa',
+    'input.expenseAmount': 'Importo spesa',
+    'input.toggleFrequency': 'Cambia frequenza mensile/annuale',
 };
 export default translations;

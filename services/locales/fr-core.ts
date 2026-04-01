@@ -520,6 +520,9 @@ const frCore: Record<string, string> = {
     'jobBoard.filter.filters': 'Filtres',
     'jobBoard.filter.resetAll': 'Réinitialiser',
     'jobBoard.filter.toggle': 'Afficher/masquer les filtres',
+    'jobBoard.filter.activeCompany': 'Filtre actif : offres par entreprise',
+    'jobBoard.filter.activeSearch': 'Filtre actif : recherche "{query}"',
+    'jobBoard.filter.remove': 'Supprimer le filtre',
     'jobBoard.title': 'Emploi Frontalier Tessin 2026',
     'jobBoard.companyPageTitle': 'Offres d\'emploi {company} au Tessin',
     'jobBoard.subtitle': 'Offres d\'emploi frontalier actualisées d\'entreprises tessinoises. Plus de 100 employeurs actifs en Suisse.',
@@ -2716,6 +2719,16 @@ Règles :
     'notFound.desc.shopping': 'Comparez les prix entre l\'Italie et la Suisse',
     'notFound.desc.borderMap': 'Carte interactive des postes frontière et temps d\'attente',
     'notFound.desc.taxReturn': 'Guide de la déclaration d\'impôts pour les frontaliers',
+
+    // Companies
+    'companies.sortBy': 'Trier par',
+    'companies.sortAscending': 'Tri croissant',
+    'companies.sortDescending': 'Tri décroissant',
+
+    // Input
+    'input.expenseName': 'Nom de la dépense',
+    'input.expenseAmount': 'Montant de la dépense',
+    'input.toggleFrequency': 'Basculer fréquence mensuelle/annuelle',
 };
 
 export default frCore;

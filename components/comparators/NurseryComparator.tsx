@@ -1,7 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useTranslation } from '@/services/i18n';
 import { Baby, MapPin, Euro, Clock, Phone, Globe, Star, Filter, Search, ChevronDown, ChevronUp, ExternalLink, ArrowRight } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useNavigationOptional } from '@/services/NavigationContext';
 
 interface Nursery {
@@ -293,6 +295,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
           {t('guide.schools.title')}
         </button>
       )}
+      <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
     </div>
   );
 };

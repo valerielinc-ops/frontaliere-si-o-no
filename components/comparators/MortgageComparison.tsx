@@ -15,8 +15,10 @@
  * - Numbeo (Mar 2026): CH 20yr fixed 2.13% avg
  */
 
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState, useMemo, useCallback, useEffect, lazy, Suspense } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import {
   Home,
@@ -882,6 +884,7 @@ export default function MortgageComparison() {
         <p>{t('mortgage.dataSource')}</p>
         <p>{t('mortgage.disclaimer')}</p>
       </div>
+      <Suspense fallback={null}><RelatedTools context="exchange" /></Suspense>
     </div>
   );
 }

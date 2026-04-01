@@ -520,6 +520,9 @@ const enCore: Record<string, string> = {
     'jobBoard.filter.filters': 'Filters',
     'jobBoard.filter.resetAll': 'Reset',
     'jobBoard.filter.toggle': 'Show/hide filters',
+    'jobBoard.filter.activeCompany': 'Active filter: company listings',
+    'jobBoard.filter.activeSearch': 'Active filter: search "{query}"',
+    'jobBoard.filter.remove': 'Remove filter',
     'jobBoard.title': 'Cross-Border Worker Jobs Ticino 2026',
     'jobBoard.companyPageTitle': '{company} Job Openings in Ticino',
     'jobBoard.subtitle': 'Updated cross-border worker job offers from Ticino companies. Browse 100+ active employers in Switzerland.',
@@ -2716,6 +2719,16 @@ Rules:
     'notFound.desc.shopping': 'Compare prices between Italy and Switzerland',
     'notFound.desc.borderMap': 'Interactive map of border crossings and wait times',
     'notFound.desc.taxReturn': 'Tax return guide for cross-border workers',
+
+    // Companies
+    'companies.sortBy': 'Sort by',
+    'companies.sortAscending': 'Sort ascending',
+    'companies.sortDescending': 'Sort descending',
+
+    // Input
+    'input.expenseName': 'Expense name',
+    'input.expenseAmount': 'Expense amount',
+    'input.toggleFrequency': 'Toggle monthly/annual frequency',
 };
 
 export default enCore;

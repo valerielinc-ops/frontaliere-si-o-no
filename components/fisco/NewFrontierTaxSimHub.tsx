@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import {
   ArrowRight,
   Calculator,
@@ -9,6 +9,8 @@ import {
   Shield,
   Users,
 } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { buildPath } from '@/services/router';
 import { useLocale, type Locale } from '@/services/i18n';
 
@@ -514,6 +516,7 @@ export default function NewFrontierTaxSimHub() {
           ))}
         </div>
       </section>
+      <Suspense fallback={null}><RelatedTools context="tax" /></Suspense>
     </article>
   );
 }

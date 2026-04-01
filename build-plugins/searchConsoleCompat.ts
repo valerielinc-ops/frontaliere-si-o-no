@@ -116,9 +116,9 @@ export function resolveSearchConsoleCompatTarget(inputPath: string): SearchConso
     };
   }
 
-  const companyMatch = path.match(/^\/(?:(en|de|fr)\/)?(find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin|cerca-lavoro-ticino)\/azienda-(.+)$/);
+  const companyMatch = path.match(/^\/(?:(en|de|fr)\/)?(find-jobs-ticino|jobs-im-tessin|trouver-emploi-tessin|cerca-lavoro-ticino)\/(azienda|company|unternehmen|entreprise)-(.+)$/);
   if (companyMatch) {
-    const slug = companyMatch[3];
+    const slug = companyMatch[4];
     return {
       canonicalPath: `${listingPathForLocale(locale)}${COMPANY_ROUTE_PREFIX_BY_LOCALE[locale]}-${slug}/`.replace(/\/+/g, '/'),
       kind: 'company',

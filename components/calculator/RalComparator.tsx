@@ -1,7 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { Euro, ChevronDown, ChevronUp, Info, TrendingUp, TrendingDown, Minus, ArrowLeftRight, RefreshCw } from 'lucide-react';
 import { Analytics } from '@/services/analytics';
 import { calculateProgressiveWorkDeduction } from '@/services/calculationService';
@@ -499,6 +501,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           </div>
         </div>
       )}
+      <Suspense fallback={null}><RelatedTools context="salary" /></Suspense>
     </div>
   );
 };

@@ -1,7 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Baby, Info, Calendar, ChevronDown, ChevronUp, FileText, CheckCircle2, RefreshCw } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 
 // ─── Swiss IPG (Maternity/Paternity Insurance) ──────────────────────────
@@ -435,6 +437,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
           {t('leave.disclaimer')}
         </p>
       </div>
+      <Suspense fallback={null}><RelatedTools context="guide" /></Suspense>
     </div>
   );
 };

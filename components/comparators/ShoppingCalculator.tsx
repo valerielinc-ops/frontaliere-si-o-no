@@ -16,6 +16,7 @@ import {
 
 // Lazy-load Leaflet map to avoid loading ~200KB on initial render
 const SupermarketMap = lazy(() => import('@/components/vita/SupermarketMap'));
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 
 // ── Product data ─────────────────────────────────────────────
 
@@ -606,6 +607,7 @@ const ShoppingCalculator: React.FC = () => {
         </div>
         <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">{t('shopping.disclaimer')}</p>
       </div>
+      <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
     </div>
   );
 };

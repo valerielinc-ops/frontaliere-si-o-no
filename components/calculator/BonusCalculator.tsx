@@ -1,7 +1,9 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useMemo, useEffect, lazy, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { Gift, Euro, Calculator, Info, TrendingUp, ChevronDown, ChevronUp, ArrowUpRight, RefreshCw } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import type { UserProfileData } from '@/components/pages/UserProfile';
 import { calculateProgressiveWorkDeduction, calculateProportionalTaxCredit } from '@/services/calculationService';
 import { FRANCHIGIA_NUOVI_FRONTALIERI } from '@/constants';
@@ -462,6 +464,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
           </div>
         )}
       </div>
+      <Suspense fallback={null}><RelatedTools context="payslip" /></Suspense>
     </div>
   );
 };

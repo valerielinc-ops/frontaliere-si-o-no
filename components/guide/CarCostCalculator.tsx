@@ -1,6 +1,8 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, lazy, Suspense } from 'react';
 import { useTranslation } from '@/services/i18n';
 import { Car, Download, Info, AlertTriangle, CheckCircle, ArrowRight } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useNavigation } from '@/services/NavigationContext';
 
 type VehicleType = 'small' | 'medium' | 'large' | 'electric';
@@ -381,6 +383,7 @@ export default function CarCostCalculator() {
           </div>
         </div>
       </div>
+      <Suspense fallback={null}><RelatedTools context="guide" /></Suspense>
     </div>
   );
 }

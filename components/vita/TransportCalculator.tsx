@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import { Car, Train, Bike, TrendingDown, TrendingUp, AlertCircle, Calculator, Euro, Fuel, Clock, Zap, ArrowRight, ArrowRightLeft, MapPin } from 'lucide-react';
+import React, { useState, lazy, Suspense } from 'react';
+import { Car, Train, Bike, TrendingDown, TrendingUp, AlertCircle, Calculator, Euro, Fuel, Clock, Zap } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { buildPath, pushRoute } from '@/services/router';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 
 interface TransportOption {
@@ -496,23 +497,7 @@ const TransportCalculator: React.FC = () => {
         </div>
       </div>
 
-      {/* Related Tools */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">{t('cta.tryAlso')}</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {[
-            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'exchange' }), icon: ArrowRightLeft, label: t('comparators.exchange'), color: 'text-blue-600' },
-            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'cost-of-living' }), icon: Euro, label: t('comparators.costOfLiving'), color: 'text-emerald-700' },
-            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'shopping' }), icon: MapPin, label: t('comparators.shopping'), color: 'text-amber-700' },
-          ].map(({ href, icon: Icon, label, color }) => (
-            <a key={href} href={href} onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', href); window.dispatchEvent(new PopStateEvent('popstate')); }} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group no-underline">
-              <Icon size={18} className={color} />
-              <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</span>
-              <ArrowRight size={14} className="ml-auto text-slate-500 dark:text-slate-300 group-hover:text-blue-500 transition-colors" />
-            </a>
-          ))}
-        </div>
-      </div>
+      <Suspense fallback={null}><RelatedTools context="guide" /></Suspense>
 
       <PartnerRecommendations context="transport" />
     </div>

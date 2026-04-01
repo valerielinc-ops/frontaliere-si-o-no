@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
+import React, { useState, lazy, Suspense } from 'react';
 import { Smartphone, Wifi, Phone, MessageSquare, AlertCircle, CheckCircle2, Info, Euro, Globe } from 'lucide-react';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { buildPath } from '@/services/router';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import DataFreshness from '@/components/shared/DataFreshness';
 
@@ -712,22 +713,7 @@ const MobileOperators: React.FC = () => {
         </div>
       </div>
 
-      {/* Related Tools */}
-      <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
-        <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4">{t('cta.tryAlso')}</h3>
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
-          {[
-            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'banks' }), label: t('comparators.banks'), color: 'text-blue-600' },
-            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'cost-of-living' }), label: t('comparators.costOfLiving'), color: 'text-emerald-700' },
-            { href: buildPath({ activeTab: 'confronti', confrontiSubTab: 'health' }), label: t('comparators.health'), color: 'text-red-600' },
-          ].map(({ href, label, color }) => (
-            <a key={href} href={href} onClick={(e) => { e.preventDefault(); window.history.pushState(null, '', href); window.dispatchEvent(new PopStateEvent('popstate')); }} className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors group no-underline">
-              <span className={`text-lg ${color}`}>→</span>
-              <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">{label}</span>
-            </a>
-          ))}
-        </div>
-      </div>
+      <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
 
       <PartnerRecommendations context="mobile" />
     </div>

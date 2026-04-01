@@ -5594,26 +5594,26 @@ const JobBoard: React.FC<JobBoardProps> = ({
       {searchSlugFilter && (
         <div className="rounded-xl border border-fuchsia-200 dark:border-fuchsia-800 bg-fuchsia-50/60 dark:bg-fuchsia-950/20 p-3 text-sm text-fuchsia-800 dark:text-fuchsia-200 flex items-center justify-between gap-3">
           <span className="font-semibold">
-            Filtro attivo: ricerca “{searchSlugFilter}”
+            {t('jobBoard.filter.activeSearch', { query: searchSlugFilter })}
           </span>
           <button
             onClick={() => onJobRouteChange?.(undefined)}
             className="px-2 py-1 rounded-md border border-fuchsia-300 dark:border-fuchsia-700 hover:bg-fuchsia-100 dark:hover:bg-fuchsia-900/30 text-xs font-bold"
           >
-            Rimuovi filtro
+            {t('jobBoard.filter.remove')}
           </button>
         </div>
       )}
       {companySlugFilter && (
         <div className="rounded-xl border border-indigo-200 dark:border-indigo-800 bg-indigo-50/60 dark:bg-indigo-950/20 p-3 text-sm text-indigo-800 dark:text-indigo-200 flex items-center justify-between gap-3">
           <span className="font-semibold">
-            Filtro attivo: annunci per azienda
+            {t('jobBoard.filter.activeCompany')}
           </span>
           <button
             onClick={() => onJobRouteChange?.(undefined)}
             className="px-2 py-1 rounded-md border border-indigo-300 dark:border-indigo-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 text-xs font-bold"
           >
-            Rimuovi filtro
+            {t('jobBoard.filter.remove')}
           </button>
         </div>
       )}

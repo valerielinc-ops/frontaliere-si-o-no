@@ -1,7 +1,9 @@
-import React, { useState, useMemo, useCallback } from 'react';
+import React, { useState, useMemo, useCallback, lazy, Suspense } from 'react';
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { useTranslation } from '@/services/i18n';
 import { buildPath } from '@/services/router';
+
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 import {
   Calculator, Info, AlertTriangle, ArrowRight, PiggyBank,
   TrendingUp, Euro, Banknote, Scale, HelpCircle, ExternalLink,
@@ -623,6 +625,7 @@ const TfrCalculator: React.FC = () => {
           {t('tfr.disclaimer')}
         </p>
       </div>
+      <Suspense fallback={null}><RelatedTools context="payslip" /></Suspense>
     </div>
   );
 };

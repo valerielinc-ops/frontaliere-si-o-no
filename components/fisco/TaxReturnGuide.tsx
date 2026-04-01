@@ -4,6 +4,7 @@ import { FileText, CheckCircle2, AlertCircle, Calendar, Euro, Building2, ArrowRi
 import { getHashSection, pushRoute } from '@/services/router';
 
 const SwissTaxReturn = lazy(() => import('@/components/fisco/SwissTaxReturn'));
+const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
 
 type CountryTab = 'italia' | 'svizzera';
 type TaxStep = 'overview' | 'documents' | 'deductions' | 'timeline' | 'faq';
@@ -366,6 +367,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
       )}
       </>
       )}
+      <Suspense fallback={null}><RelatedTools context="tax" /></Suspense>
     </div>
   );
 };
