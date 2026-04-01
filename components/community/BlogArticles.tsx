@@ -6,7 +6,7 @@ import type { BlogArticleId } from '@/services/router';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
 import { Analytics } from '@/services/analytics';
-import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper } from 'lucide-react';
+import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
@@ -885,6 +885,66 @@ export default function BlogArticles({
     fetchTrendingArticles(validIds).then(setTrendingArticles).catch(() => {});
   }, [selectedArticle]);
 
+  // Inject BlogPosting JSON-LD when viewing a single article (E-E-A-T for AI systems)
+  useEffect(() => {
+    if (!selectedArticle || articles.length === 0) return;
+    const article = articles.find(a => a.id === selectedArticle);
+    if (!article) return;
+    const title = t(`blog.article.${article.id}.title`);
+    const excerpt = t(`blog.article.${article.id}.excerpt`);
+    // Skip injection if translations aren't loaded yet
+    if (title.startsWith('blog.article.')) return;
+    const canonicalUrl = `https://frontaliereticino.ch${buildPath({ activeTab: 'blog', blogArticle: article.id })}`;
+    const wordCount = estimateReadingMinutes(article.id, t) * 200; // reverse from ~200 wpm
+    const jsonLd = {
+      '@context': 'https://schema.org',
+      '@type': 'BlogPosting',
+      headline: title,
+      description: excerpt.startsWith('blog.article.') ? title : excerpt,
+      datePublished: `${article.date}T00:00:00+01:00`,
+      dateModified: `${article.date}T00:00:00+01:00`,
+      author: {
+        '@type': 'Person',
+        name: 'Luigi Sagese',
+        jobTitle: 'Esperto fiscale frontalieri',
+        url: 'https://frontaliereticino.ch/chi-siamo/',
+        sameAs: ['https://www.linkedin.com/in/luigi-sagese/'],
+      },
+      publisher: {
+        '@type': 'Organization',
+        name: 'Frontaliere Ticino',
+        url: 'https://frontaliereticino.ch',
+        logo: {
+          '@type': 'ImageObject',
+          url: 'https://frontaliereticino.ch/icons/icon-512x512.png',
+        },
+      },
+      mainEntityOfPage: canonicalUrl,
+      image: `https://frontaliereticino.ch${article.image}`,
+      inLanguage: locale,
+      isAccessibleForFree: true,
+      articleSection: article.category,
+      wordCount,
+      speakable: {
+        '@type': 'SpeakableSpecification',
+        cssSelector: ['h1', '.article-body p:first-of-type', '[data-speakable]'],
+      },
+    };
+    const scriptId = 'blog-article-jsonld';
+    let el = document.getElementById(scriptId) as HTMLScriptElement | null;
+    if (!el) {
+      el = document.createElement('script');
+      el.id = scriptId;
+      el.type = 'application/ld+json';
+      document.head.appendChild(el);
+    }
+    el.textContent = JSON.stringify(jsonLd);
+    return () => {
+      const existing = document.getElementById(scriptId);
+      if (existing) existing.remove();
+    };
+  }, [selectedArticle, articles, locale, t]);
+
   const handleResponsiveImageError = useCallback((imagePath: string) => {
     setImageFallbackMap(prev => (prev[imagePath] ? prev : { ...prev, [imagePath]: true }));
   }, []);
@@ -1325,7 +1385,7 @@ export default function BlogArticles({
           <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-500">
             <span className="flex items-center gap-1 font-medium text-indigo-700 dark:text-indigo-400">
               <PenLine size={14} />
-              {t('blog.byline')}
+              Luigi Sagese
             </span>
             <span className="text-slate-300 dark:text-slate-600">|</span>
             <span className="flex items-center gap-1">
@@ -1545,6 +1605,19 @@ export default function BlogArticles({
                 })}
               </div>
             )}
+
+            {/* Author bio for E-E-A-T */}
+            <div className="mt-8 p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
+              <div className="flex items-center gap-3">
+                <div className="w-12 h-12 rounded-full bg-blue-100 dark:bg-blue-900 flex items-center justify-center">
+                  <User size={24} className="text-blue-600 dark:text-blue-400" />
+                </div>
+                <div>
+                  <p className="font-bold text-slate-800 dark:text-white">Luigi Sagese</p>
+                  <p className="text-sm text-slate-600 dark:text-slate-400">{t('blog.authorBio')}</p>
+                </div>
+              </div>
+            </div>
 
             {/* Related articles — FRO-301: moved above ads/trending for engagement */}
             <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-8">

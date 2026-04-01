@@ -372,38 +372,14 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             .concat([`    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withTrailingSlash(lp.it)}">`])
             .join('\n');
 
-          // Determine author: respect source @id reference, otherwise use enriched SCHEMA_AUTHOR
-          const authorObj = en.sdAuthorHasId
-            ? {
-                '@type': 'Organization' as const,
-                '@id': `${BASE_URL}/#organization`,
-                'name': 'Redazione Frontaliere Ticino',
-                'url': `${BASE_URL}/chi-siamo`,
-                'description': 'Team editoriale specializzato in fiscalità, previdenza e vita quotidiana dei lavoratori frontalieri in Ticino',
-                'knowsAbout': [
-                  'Fiscalità frontalieri Svizzera-Italia',
-                  'Nuovo accordo fiscale 2026',
-                  'Previdenza sociale AVS/LPP',
-                  'Assicurazione malattia LAMal/CMB',
-                  'Permesso G e permesso B',
-                  'Mercato del lavoro Ticino',
-                ],
-              }
-            : {
+          // Determine author: always use named Person for E-E-A-T
+          const authorObj = {
                 '@type': 'Person' as const,
-                name: 'Redazione Frontaliere Ticino',
-                jobTitle: 'Esperti in fiscalità transfrontaliera',
-                description: 'Portale di riferimento per i frontalieri ticino dal 2020. Analisi fiscali, previdenziali e pratiche basate su fonti ufficiali: ESTV, UST, INPS, Agenzia delle Entrate.',
+                name: 'Luigi Sagese',
+                jobTitle: 'Esperto fiscale frontalieri',
                 url: `${BASE_URL}/chi-siamo/`,
                 worksFor: { '@type': 'Organization', name: 'Frontaliere Ticino', '@id': `${BASE_URL}/#organization` },
-                knowsAbout: [
-                  'Imposta alla fonte Svizzera',
-                  'Frontalieri Ticino',
-                  'AVS LPP pensione',
-                  'LAMal assicurazione malattia',
-                  'Accordo fiscale italo-svizzero 2020',
-                ],
-                sameAs: [],
+                sameAs: ['https://www.linkedin.com/in/luigi-sagese/'],
               };
 
           // Build the JSON-LD object, respecting source @type (Event vs Article/NewsArticle)
@@ -630,7 +606,7 @@ ${headTags}
     ${GTAG_SNIPPET}
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
-    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Redazione Frontaliere Ticino · ${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso).split('T')[0])}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
+    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Luigi Sagese · ${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso).split('T')[0])}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
     <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
   </body>
 </html>`;
