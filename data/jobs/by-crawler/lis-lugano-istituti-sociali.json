@@ -22,8 +22,8 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Capireparto",
-        "en": "Capireparto",
-        "de": "Capireparto",
+        "en": "Department Head",
+        "de": "Abteilungsleiter",
         "fr": "Capireparto"
       },
       "slugByLocale": {
@@ -72,8 +72,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Infermieri",
@@ -95,9 +94,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Infermieri",
-        "en": "Infermieri",
-        "de": "Infermieri",
-        "fr": "Infermieri"
+        "en": "Nurses",
+        "de": "Krankenschwestern",
+        "fr": "Infirmières"
       },
       "slugByLocale": {
         "it": "infermieri-lis-lugano-istituti-sociali-lugano",
@@ -143,8 +142,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori Sociosanitari",
@@ -166,9 +164,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori Sociosanitari",
-        "en": "Operatori Sociosanitari",
-        "de": "Operatori Sociosanitari",
-        "fr": "Operatori Sociosanitari"
+        "en": "Social and health workers",
+        "de": "Sozial- und Gesundheitsarbeiter",
+        "fr": "Travailleurs sociaux et de santé"
       },
       "slugByLocale": {
         "it": "operatori-sociosanitari",
@@ -219,8 +217,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Assistenti di cura",
@@ -241,10 +238,10 @@
       "role": "Medicina/Salute",
       "source": "arca24",
       "titleByLocale": {
-        "it": "Assistenti di cura",
-        "en": "Assistenti di cura",
+        "it": "Assistente di cura",
+        "en": "Assistant di cura",
         "de": "Assistenti di cura",
-        "fr": "Assistenti di cura"
+        "fr": "Assistants de cours"
       },
       "slugByLocale": {
         "it": "assistenti-di-cura",
@@ -294,8 +291,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaboratori sanitari",
@@ -317,9 +313,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Collaboratori sanitari",
-        "en": "Collaboratori sanitari",
-        "de": "Collaboratori sanitari",
-        "fr": "Collaboratori sanitari"
+        "en": "Healthcare Workers",
+        "de": "Gesundheitsfachkräfte",
+        "fr": "Travailleurs de la santé"
       },
       "slugByLocale": {
         "it": "collaboratori-sanitari",
@@ -369,8 +365,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori settore animazione",
@@ -392,9 +387,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori settore animazione",
-        "en": "Operatori settore animazione",
-        "de": "Operatori settore animazione",
-        "fr": "Operatori settore animazione"
+        "en": "Operators in the entertainment sector",
+        "de": "Betreiber im Unterhaltungssektor",
+        "fr": "Opérateurs du secteur du divertissement"
       },
       "slugByLocale": {
         "it": "operatori-settore-animazione",
@@ -443,8 +438,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Fisioterapisti / Ergoterapisti",
@@ -466,9 +460,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Fisioterapisti / Ergoterapisti",
-        "en": "Fisioterapisti / Ergoterapisti",
-        "de": "Fisioterapisti / Ergoterapisti",
-        "fr": "Fisioterapisti / Ergoterapisti"
+        "en": "Physiotherapists / Occupational therapists",
+        "de": "Physiotherapeuten / Ergotherapeuten",
+        "fr": "Kinésithérapeutes / Ergothérapeutes"
       },
       "slugByLocale": {
         "it": "fisioterapisti-ergoterapisti",
@@ -520,8 +514,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Educatori sociali",
@@ -543,9 +536,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Educatori sociali",
-        "en": "Educatori sociali",
-        "de": "Educatori sociali",
-        "fr": "Educatori sociali"
+        "en": "Social educators",
+        "de": "Sozialpädagogen",
+        "fr": "Éducateurs sociaux"
       },
       "slugByLocale": {
         "it": "educatori-sociali",
@@ -594,8 +587,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Operatori socioassistenziali (infanza)",
@@ -617,9 +609,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Operatori socioassistenziali (infanza)",
-        "en": "Operatori socioassistenziali (infanza)",
-        "de": "Operatori socioassistenziali (infanza)",
-        "fr": "Operatori socioassistenziali (infanza)"
+        "en": "Social care workers (infanza)",
+        "de": "Sozialarbeiter (infanza)",
+        "fr": "Travailleurs sociaux (infanza)"
       },
       "slugByLocale": {
         "it": "operatori-socioassistenziali-infanza",
@@ -668,8 +660,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Educatori dell'infanzia",
@@ -691,9 +682,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Educatori dell'infanzia",
-        "en": "Educatori dell'infanzia",
-        "de": "Educatori dell'infanzia",
-        "fr": "Educatori dell'infanzia"
+        "en": "Early childhood educators",
+        "de": "Frühkindliche Pädagogen",
+        "fr": "Éducateurs de la petite enfance"
       },
       "slugByLocale": {
         "it": "educatori-dell-infanzia",
@@ -743,8 +734,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Capisquadra - chef di cucina",
@@ -766,9 +756,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Capisquadra - chef di cucina",
-        "en": "Capisquadra - chef di cucina",
-        "de": "Capisquadra - chef di cucina",
-        "fr": "Capisquadra - chef di cucina"
+        "en": "Team Leaders - Kitchen Chef",
+        "de": "Teamleiter – Küchenkoch",
+        "fr": "Chefs d’équipe - Chef de cuisine"
       },
       "slugByLocale": {
         "it": "capisquadra-chef-di-cucina",
@@ -815,8 +805,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Cuochi",
@@ -838,9 +827,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Cuochi",
-        "en": "Cuochi",
-        "de": "Cuochi",
-        "fr": "Cuochi"
+        "en": "Cooks",
+        "de": "Köche",
+        "fr": "Cuisiniers"
       },
       "slugByLocale": {
         "it": "cuochi-lis-lugano-istituti-sociali-lugano",
@@ -886,8 +875,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Addetti servizi alla casa",
@@ -909,9 +897,9 @@
       "source": "arca24",
       "titleByLocale": {
         "it": "Addetti servizi alla casa",
-        "en": "Addetti servizi alla casa",
-        "de": "Addetti servizi alla casa",
-        "fr": "Addetti servizi alla casa"
+        "en": "Household service workers",
+        "de": "Haushaltsdienstmitarbeiter",
+        "fr": "Travailleurs des services ménagers"
       },
       "slugByLocale": {
         "it": "addetti-servizi-alla-casa",
@@ -961,8 +949,7 @@
         "erganzungen-zum-haus-lis-lugano-istituti-sociali-pregassona",
         "ajouts-a-la-maison-lis-lugano-istituti-sociali-pregassona",
         "household-service-workers-lis-lugano-istituti-sociali-pregassona"
-      ],
-      "needsRetranslation": true
+      ]
     }
   ]
 }
