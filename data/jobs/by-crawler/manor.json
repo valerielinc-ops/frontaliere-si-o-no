@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-03-31T21:30:08.544Z",
+  "assembledAt": "2026-04-01T09:42:35.610Z",
   "jobs": [
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
@@ -24,13 +24,13 @@
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "slugByLocale": {
         "it": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "en": "service-associate-manora-50-manor-ag-locarno",
+        "en": "manor-collaboratore-trice-servizio-manora-50-locarno",
         "de": "manor-collaboratore-trice-servizio-manora-50-locarno",
         "fr": "manor-collaboratore-trice-servizio-manora-50-locarno"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice servizio (Manora) 50%",
-        "en": "Service Associate (Manora) 50%",
+        "en": "Collaboratore/trice servizio (Manora) 50%",
         "de": "Collaboratore/trice servizio (Manora) 50%",
         "fr": "Collaboratore/trice servizio (Manora) 50%"
       },
@@ -55,10 +55,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "manor-collaboratore-trice-servizio-manora-50-locarno"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -88,7 +85,7 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice service (Manora) 50%",
-        "en": "Collaborateur/trice service (Manor) 50%",
+        "en": "Collaborateur/trice service (Manora) 50%",
         "de": "Collaborateur/trice service (Manora) 50%",
         "fr": "Collaborateur/trice service (Manora) 50%"
       },
@@ -137,9 +134,9 @@
       "slug": "manor-apprendista-polydesigner-3d-afc-100-lugano",
       "slugByLocale": {
         "it": "manor-apprendista-polydesigner-3d-afc-100-lugano",
-        "en": "apprentice-polydesigner-3d-afc-100-manor-ag-lugano",
-        "de": "lernende-r-polydesigner-3d-afc-100-manor-ag-lugano",
-        "fr": "apprenti-e-polydesigner-3d-afc-100-manor-ag-lugano"
+        "en": "manor-apprendista-polydesigner-3d-afc-100-lugano",
+        "de": "manor-apprendista-polydesigner-3d-afc-100-lugano",
+        "fr": "manor-apprendista-polydesigner-3d-afc-100-lugano"
       },
       "titleByLocale": {
         "it": "Apprendista Polydesigner 3D AFC 100%",
@@ -148,6 +145,7 @@
         "fr": "Apprenti/e Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -167,10 +165,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "manor-apprendista-polydesigner-3d-afc-100-lugano"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Polydesigner 3D AFC 100%",
@@ -194,22 +189,20 @@
       "slug": "manor-polydesigner-3d-afc-100-lugano",
       "slugByLocale": {
         "it": "manor-polydesigner-3d-afc-100-lugano",
-        "en": "pol-af-designer-3d-afc-100-manor-ag-lugano",
+        "en": "manor-polydesigner-3d-afc-100-lugano",
         "de": "manor-polydesigner-3d-afc-100-lugano",
         "fr": "polydesigner-3d-afc-100-manor-ag-lugano"
       },
       "titleByLocale": {
         "it": "Polydesigner 3D AFC 100%",
-        "en": "Pol AF Designer 3D AFC 100%",
+        "en": "Polydesigner 3D AFC 100%",
         "de": "Polydesigner 3D AFC 100%",
         "fr": "Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "previousSlugs": [
-        "manor-polydesigner-3d-afc-100-lugano"
-      ],
+      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
