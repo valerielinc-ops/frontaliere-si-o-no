@@ -1,6 +1,6 @@
 {
   "crawlerKey": "zurich-insurance-sede-ticino",
-  "assembledAt": "2026-03-20T05:05:35.672Z",
+  "assembledAt": "2026-04-01T10:07:04.732Z",
   "jobs": [
     {
       "id": "company-exgf75",
@@ -446,7 +446,10 @@
         "commercial-apprenticeship-efz-lugano-zurich-insurance-sede-ticino-lugano",
         "kaufmannische-lehre-efz-lugano-zurich-insurance-sede-ticino-lugano",
         "apprentissage-d-employe-de-commerce-cfc-lugano-zurich-insurance-sede-ticino-lugano"
-      ]
+      ],
+      "needsRetranslation": true,
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "company-7lqa80",
@@ -815,7 +818,9 @@
           }
         }
       },
-      "sourceLang": "it"
+      "sourceLang": "it",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
     }
   ]
 }
