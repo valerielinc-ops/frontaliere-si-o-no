@@ -17,6 +17,16 @@ const BASE_URL = 'https://frontaliereticino.ch';
  */
 const BUILD_DATE_ISO = new Date().toISOString();
 
+/**
+ * SpeakableSpecification for section landings and content pages.
+ * Voice assistants and AI readers use this to identify key passages
+ * for spoken answers and cited snippets.
+ */
+const SPEAKABLE_SECTION = {
+  "@type": "SpeakableSpecification",
+  "cssSelector": ["h1", "[data-speakable]", "article p:first-of-type"]
+} as const;
+
 const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   calculator: {
     title: 'Frontaliere Ticino 2026 — Calcolo Netto Nuovi e Vecchi Frontalieri',
@@ -33,6 +43,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "url": BASE_URL,
         "description": "Strumento completo per frontalieri Svizzera-Italia: simulatore fiscale, pensione, guida e comparatori servizi",
         "inLanguage": ["it", "en", "de", "fr"],
+        "speakable": SPEAKABLE_SECTION,
         "potentialAction": {
           "@type": "SearchAction",
           "target": {
@@ -239,7 +250,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Comparatori Servizi Frontalieri",
         "url": `${BASE_URL}/compara-servizi`,
         "description": "Strumenti di confronto per servizi essenziali per lavoratori frontalieri",
-        "inLanguage": "it"
+        "inLanguage": "it",
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -286,7 +298,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Calcolatore Stipendio Frontaliere",
         "url": `${BASE_URL}/calcola-stipendio`,
         "description": "Raccolta strumenti di calcolo per lavoratori frontalieri Svizzera-Italia",
-        "inLanguage": "it"
+        "inLanguage": "it",
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -331,7 +344,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Guida Frontaliere Svizzera-Italia",
         "url": `${BASE_URL}/guida-frontaliere`,
         "description": "Guida completa per lavoratori frontalieri tra Svizzera e Italia",
-        "inLanguage": "it"
+        "inLanguage": "it",
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -411,7 +425,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Fisco e Previdenza Frontalieri",
         "url": `${BASE_URL}/tasse-e-pensione`,
         "description": "Strumenti e guide su fisco e previdenza per frontalieri Svizzera-Italia",
-        "inLanguage": "it"
+        "inLanguage": "it",
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -611,7 +626,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Vita in Ticino per Frontalieri",
         "url": `${BASE_URL}/vivere-in-ticino`,
         "description": "Guide e strumenti sulla vita quotidiana in Ticino per lavoratori frontalieri",
-        "inLanguage": "it"
+        "inLanguage": "it",
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -659,7 +675,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "applicationCategory": "FinanceApplication",
         "operatingSystem": "Web Browser",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
-        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -691,7 +708,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "applicationCategory": "UtilitiesApplication",
         "operatingSystem": "Web Browser",
         "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
-        "publisher": { "@id": "https://frontaliereticino.ch/#organization" }
+        "publisher": { "@id": "https://frontaliereticino.ch/#organization" },
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -861,7 +879,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Statistiche frontalieri e osservatorio lavoro Ticino 2026",
         "url": `${BASE_URL}/statistiche`,
         "description": "Dati statistici sui frontalieri e osservatorio del job board Ticino con aziende, località e trend delle offerte",
-        "inLanguage": "it"
+        "inLanguage": "it",
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",
@@ -2232,7 +2251,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "@type": "DefinedTermSet",
       "name": "Glossario Frontaliere Svizzera-Italia",
       "url": `${BASE_URL}/glossario-frontaliere`,
-      "description": "Raccolta di 52 termini fiscali, previdenziali, assicurativi e legali per lavoratori frontalieri"
+      "description": "Raccolta di 52 termini fiscali, previdenziali, assicurativi e legali per lavoratori frontalieri",
+      "speakable": SPEAKABLE_SECTION
     }
   },
 
@@ -3352,7 +3372,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "name": "Articoli per Frontalieri",
         "url": `${BASE_URL}/articoli-frontaliere`,
         "description": "Raccolta di articoli e guide pratiche per lavoratori frontalieri Svizzera-Italia",
-        "inLanguage": "it"
+        "inLanguage": "it",
+        "speakable": SPEAKABLE_SECTION
       },
       {
         "@context": "https://schema.org",

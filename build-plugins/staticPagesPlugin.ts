@@ -1805,11 +1805,17 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             rootHtml = `<div style="max-width:56rem;margin:0 auto;padding:1rem"><article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p>${editorialHtml}</article><div style="${sp};height:38rem;margin-top:1.5rem"></div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`;
           }
 
-          // ── SpeakableSpecification for tool pages (calculator, comparators, guides) ──
-          const toolSlugs = [...comparatorSlugs, ...guideSlugs, ...fiscoSlugs, 'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire'];
-          const isToolPage = toolSlugs.some(s => firstSeg === s || canonicalPath.startsWith(`/${s}/`) || canonicalPath.startsWith(`/${locale}/${s}/`));
-          const speakableLd = isToolPage
-            ? `\n    <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1","h2",".description","p"]})}</script>`
+          // ── SpeakableSpecification for all content pages ──
+          // Voice assistants and AI readers use SpeakableSpecification to
+          // identify key passages for spoken answers and cited snippets.
+          const contentSlugs = [
+            ...comparatorSlugs, ...guideSlugs, ...fiscoSlugs, ...statsSlugs, ...blogSlugs, ...vitaSlugs,
+            'calcola-stipendio', 'calculate-salary', 'gehalt-berechnen', 'calculer-salaire',
+            'dialetto-ticinese', 'mappa-del-sito', 'supporto',
+          ];
+          const isContentPage = contentSlugs.some(s => firstSeg === s || canonicalPath.startsWith(`/${s}/`) || canonicalPath.startsWith(`/${locale}/${s}/`));
+          const speakableLd = isContentPage
+            ? `\n    <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1","[data-speakable]","article p:first-of-type"]})}</script>`
             : '';
 
           // SPA shell: loads the app directly at the correct URL (no redirect)

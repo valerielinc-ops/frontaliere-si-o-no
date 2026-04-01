@@ -154,7 +154,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-indigo-600 to-purple-700 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-gradient-to-r from-indigo-600 to-purple-700 rounded-2xl p-4 sm:p-6 text-white" data-speakable>
         <div className="flex items-center gap-3 mb-2">
           <BookOpen size={28} />
           {initialEntry ? (

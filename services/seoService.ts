@@ -618,6 +618,40 @@ function withDatasetLicenses(map: Record<string, SEOMetadata>): Record<string, S
   return out;
 }
 
+// ─── Auto-inject SpeakableSpecification into content schemas ────────────
+// Adds speakable to WebApplication, CollectionPage, Dataset, DefinedTermSet,
+// and WebPage schemas so voice assistants and AI readers can identify key
+// passages for spoken answers across ALL content pages.
+const SPEAKABLE_TARGET_TYPES = new Set([
+  'WebApplication', 'CollectionPage', 'Dataset', 'DefinedTermSet',
+  'WebPage', 'WebSite',
+]);
+
+function addSpeakable(value: any): any {
+  if (Array.isArray(value)) return value.map(addSpeakable);
+  if (!value || typeof value !== 'object') return value;
+
+  const cloned: Record<string, any> = {};
+  for (const [k, v] of Object.entries(value)) cloned[k] = addSpeakable(v);
+
+  const typeValue = cloned['@type'];
+  const isTarget = typeof typeValue === 'string' && SPEAKABLE_TARGET_TYPES.has(typeValue);
+  if (isTarget && !cloned.speakable) {
+    cloned.speakable = SCHEMA_SPEAKABLE;
+  }
+  return cloned;
+}
+
+function withSpeakable(map: Record<string, SEOMetadata>): Record<string, SEOMetadata> {
+  const out: Record<string, SEOMetadata> = {};
+  for (const [key, meta] of Object.entries(map)) {
+    out[key] = meta.structuredData
+      ? { ...meta, structuredData: addSpeakable(meta.structuredData) }
+      : meta;
+  }
+  return out;
+}
+
 function titleizeGlossaryTermId(termId: string): string {
   // Converts camelCase / snake_case ids into a readable label (IT-friendly baseline)
   const base = termId
@@ -714,10 +748,10 @@ function buildBorderCrossingSeoMetadata(): Record<string, SEOMetadata> {
 // ─── Core SEO entries (eagerly loaded) ───────────────────────────────
 // Contains glossary + border-crossing entries (generated from data).
 // Page, blog, and landing entries are lazy-loaded from services/seo/ chunks.
-export const SEO_METADATA: Record<string, SEOMetadata> = withDatasetLicenses({
+export const SEO_METADATA: Record<string, SEOMetadata> = withSpeakable(withDatasetLicenses({
   ...buildGlossarySeoMetadata(),
   ...buildBorderCrossingSeoMetadata(),
-});
+}));
 
 // ─── Lazy-loaded SEO chunks ──────────────────────────────────────────
 // Page (~90 entries), blog (~270 entries), and landing (~23 entries)
@@ -729,8 +763,8 @@ let _landingChunkCache: Record<string, SEOMetadata> | null = null;
 async function loadPagesSeoChunk(): Promise<Record<string, SEOMetadata>> {
   if (_pagesChunkCache) return _pagesChunkCache;
   const { default: entries } = await retryImport(() => import('./seo/seo-pages'), 'pages');
-  _pagesChunkCache = entries;
-  return entries;
+  _pagesChunkCache = withSpeakable(entries);
+  return _pagesChunkCache;
 }
 
 async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
@@ -747,8 +781,8 @@ async function loadBlogSeoChunk(): Promise<Record<string, SEOMetadata>> {
 async function loadLandingSeoChunk(): Promise<Record<string, SEOMetadata>> {
   if (_landingChunkCache) return _landingChunkCache;
   const { default: entries } = await retryImport(() => import('./seo/seo-landing'), 'landing');
-  _landingChunkCache = entries;
-  return entries;
+  _landingChunkCache = withSpeakable(entries);
+  return _landingChunkCache;
 }
 
 /**
