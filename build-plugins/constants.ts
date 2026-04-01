@@ -40,6 +40,7 @@ export function buildCanonicalBridgePage(options: {
   ctaLabel?: string;
   lang?: string;
   noindex?: boolean;
+  hreflangEntries?: Array<{ hreflang: string; href: string }>;
 }): string {
   const {
     canonicalUrl,
@@ -50,9 +51,13 @@ export function buildCanonicalBridgePage(options: {
     ctaLabel = 'Apri la pagina corretta',
     lang = 'it',
     noindex = false,
+    hreflangEntries,
   } = options;
 
   const robotsContent = noindex ? 'noindex,follow' : 'index,follow';
+  const hreflangHtml = hreflangEntries && hreflangEntries.length > 0
+    ? '\n' + hreflangEntries.map(e => `    <link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`).join('\n')
+    : '';
 
   return `<!DOCTYPE html>
 <html lang="${lang}">
@@ -62,7 +67,7 @@ export function buildCanonicalBridgePage(options: {
     <title>${title}</title>
     <meta name="description" content="${description}">
     <meta name="robots" content="${robotsContent}">
-    <link rel="canonical" href="${canonicalUrl}">
+    <link rel="canonical" href="${canonicalUrl}">${hreflangHtml}
     ${GTAG_SNIPPET}
     ${SPA_ACTION_REDIRECT_SCRIPT}
   </head>

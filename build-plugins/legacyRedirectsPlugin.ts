@@ -4,9 +4,73 @@
  */
 
 import path from 'path';
+import fs from 'node:fs';
 import type { Plugin } from 'vite';
 import { BASE_URL, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, GTAG_SNIPPET } from './constants';
 import { resolveSearchConsoleCompatTarget } from './searchConsoleCompat';
+
+/** Hreflang entry extracted from sitemap XML. */
+interface HreflangEntry {
+  hreflang: string;
+  href: string;
+}
+
+/**
+ * Parse all sitemap XML files under public/ and build a lookup from
+ * canonical URL (with trailing slash) → array of hreflang <link> entries.
+ * This lets legacy redirect pages point to the correct locale variants of
+ * their target canonical URL.
+ */
+function buildHreflangMap(rootDir: string): Map<string, HreflangEntry[]> {
+  const publicDir = path.resolve(rootDir, 'public');
+  const sitemapFiles = [
+    'sitemap-pages.xml',
+    'sitemap-blog.xml',
+    'sitemap-glossario.xml',
+    'sitemap-news.xml',
+  ];
+
+  const map = new Map<string, HreflangEntry[]>();
+
+  for (const file of sitemapFiles) {
+    const filePath = path.join(publicDir, file);
+    if (!fs.existsSync(filePath)) continue;
+
+    const xml = fs.readFileSync(filePath, 'utf-8');
+
+    // Extract each <url> block
+    const urlBlocks = xml.match(/<url>[\s\S]*?<\/url>/g);
+    if (!urlBlocks) continue;
+
+    for (const block of urlBlocks) {
+      // Get <loc>
+      const locMatch = block.match(/<loc>([^<]+)<\/loc>/);
+      if (!locMatch) continue;
+      const loc = locMatch[1].trim();
+
+      // Get all xhtml:link hreflang entries
+      const hreflangs: HreflangEntry[] = [];
+      const linkRegex = /<xhtml:link\s+rel="alternate"\s+hreflang="([^"]+)"\s+href="([^"]+)"\s*\/>/g;
+      let linkMatch;
+      while ((linkMatch = linkRegex.exec(block)) !== null) {
+        hreflangs.push({ hreflang: linkMatch[1], href: linkMatch[2] });
+      }
+
+      if (hreflangs.length > 0) {
+        map.set(loc, hreflangs);
+      }
+    }
+  }
+
+  return map;
+}
+
+/** Generate hreflang <link> tags string from entries. */
+function hreflangLinksHtml(entries: HreflangEntry[]): string {
+  return entries
+    .map(e => `    <link rel="alternate" hreflang="${e.hreflang}" href="${e.href}">`)
+    .join('\n');
+}
 
 export function legacyRedirectsPlugin(rootDir: string): Plugin {
   const redirects: Record<string, string> = {
@@ -96,10 +160,19 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     name: 'legacy-redirects',
     apply: 'build',
     async closeBundle() {
-      const fs = await import('node:fs');
       const distDir = path.resolve(rootDir, 'dist');
       let count = 0;
       let compatCount = 0;
+
+      // Build hreflang lookup from sitemaps so legacy pages can point to locale variants
+      const hreflangMap = buildHreflangMap(rootDir);
+
+      const getHreflangHtml = (targetPath: string): string => {
+        const targetUrl = `${BASE_URL}${targetPath}`;
+        const entries = hreflangMap.get(targetUrl);
+        if (!entries || entries.length === 0) return '';
+        return '\n' + hreflangLinksHtml(entries);
+      };
 
       const buildCompatHtml = (from: string, to: string, kind: string) => buildCanonicalBridgePage({
         canonicalUrl: `${BASE_URL}${to}`,
@@ -109,6 +182,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
         body: `Questa URL ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : 'dell annuncio'} non e piu la versione corretta. Abbiamo mantenuto una pagina compatibile per evitare un errore e aiutare Google a consolidare la canonical.`,
         ctaLabel: 'Apri la pagina corretta',
         noindex: false,
+        hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
       });
 
       for (const [fromRaw, toRaw] of Object.entries(redirects)) {
@@ -120,15 +194,15 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
         fs.mkdirSync(outDir, { recursive: true });
         // Skip if a higher-priority plugin already generated this page (e.g. active job or soft-landing)
         if (fs.existsSync(path.join(outDir, 'index.html'))) continue;
-        const targetNoLeadingSlash = to.slice(1).replace(/&/g, '~and~');
-        const fromUrl = `https://frontaliereticino.ch${from}`;
-        const toUrl = `https://frontaliereticino.ch${to}`;
+        const fromUrl = `${BASE_URL}${from}`;
+        const toUrl = `${BASE_URL}${to}`;
+        const hreflangTags = getHreflangHtml(to);
         const redirectLd = JSON.stringify({
           '@context': 'https://schema.org',
           '@type': 'WebPage',
           name: `Redirect ${from} → ${to}`,
           url: fromUrl,
-          isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: 'https://frontaliereticino.ch' },
+          isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL },
           mainEntityOfPage: toUrl,
           description: `Pagina legacy reindirizzata verso ${to}`,
           inLanguage: 'it',
@@ -141,7 +215,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     <title>Pagina spostata | Frontaliere Ticino</title>
     <meta name="description" content="Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.">
     <meta name="robots" content="index,follow">
-    <link rel="canonical" href="https://frontaliereticino.ch${to}">
+    <link rel="canonical" href="${BASE_URL}${to}">${hreflangTags}
     <script type="application/ld+json">${redirectLd}</script>
     ${GTAG_SNIPPET}
     ${SPA_ACTION_REDIRECT_SCRIPT}
