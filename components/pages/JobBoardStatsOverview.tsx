@@ -273,7 +273,7 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
               onClick={(e) => navigateLeader(e, item, props.locale)}
             >
               <div className="min-w-0">
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-500">#{index + 1}</div>
+                <div className="text-xs font-bold text-slate-500 dark:text-slate-400">#{index + 1}</div>
                 <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">{item.name}</div>
               </div>
               <div className="shrink-0 text-sm font-extrabold text-indigo-600 dark:text-indigo-300">
@@ -293,6 +293,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
   const [loading, setLoading] = useState(true);
   const [refreshing, setRefreshing] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
 
   const load = async (forceRefresh = false) => {
     try {
@@ -311,6 +312,12 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
 
   useEffect(() => {
     void load(false);
+  }, []);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
   }, []);
 
   if (loading) {
@@ -478,16 +485,16 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
               margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
               onClick={() => Analytics.trackChartInteraction('stats_jobs_daily_history', 'click')}
             >
-              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#cbd5e1" strokeOpacity={0.25} />
-              <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 600 }} minTickGap={28} />
-              <YAxis yAxisId="left" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 600 }} width={48} />
-              <YAxis yAxisId="right" orientation="right" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 600 }} width={48} />
-              <Tooltip contentStyle={{ borderRadius: '14px', border: 'none', boxShadow: '0 10px 30px rgba(15, 23, 42, 0.12)' }} />
+              <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#cbd5e1'} strokeOpacity={0.25} />
+              <XAxis dataKey="date" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }} minTickGap={28} />
+              <YAxis yAxisId="left" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }} width={48} />
+              <YAxis yAxisId="right" orientation="right" axisLine={false} tickLine={false} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }} width={48} />
+              <Tooltip contentStyle={{ borderRadius: '14px', border: 'none', boxShadow: '0 10px 30px rgba(15, 23, 42, 0.12)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b' }} />
               <Legend iconType="circle" wrapperStyle={{ fontSize: '11px', paddingTop: '10px' }} />
               <Bar yAxisId="left" dataKey="added" fill="#10b981" radius={[6, 6, 0, 0]} name={copy.chartAdded} />
               <Bar yAxisId="left" dataKey="updated" fill="#f59e0b" radius={[6, 6, 0, 0]} name={copy.chartUpdated} />
               <Bar yAxisId="left" dataKey="removed" fill="#ef4444" radius={[6, 6, 0, 0]} name={copy.chartRemoved} />
-              <Line yAxisId="right" type="monotone" dataKey="totalJobs" stroke="#4f46e5" strokeWidth={3} dot={false} name={copy.chartLine} />
+              <Line yAxisId="right" type="monotone" dataKey="totalJobs" stroke={isDark ? '#f59e0b' : '#78716c'} strokeWidth={3} dot={false} name={copy.chartLine} />
             </ComposedChart>
           </ResponsiveContainer>
         </div>

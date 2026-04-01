@@ -76,6 +76,13 @@ export default function NaspiCalculator() {
   const [exchangeRate, setExchangeRate] = useState(_liveRate || FALLBACK_EXCHANGE_RATE);
   useEffect(() => { if (_liveRate > 0) setExchangeRate(_liveRate); }, [_liveRate]);
   const [showTable, setShowTable] = useState(false);
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
 
   const result = useMemo(
     () => calculateNaspi(salary, monthsWorked, age, exchangeRate),
@@ -225,26 +232,26 @@ export default function NaspiCalculator() {
           <h4 className="text-sm font-bold text-slate-700 dark:text-slate-200 mb-3">{t('naspi.calc.chartTitle')}</h4>
           <ResponsiveContainer width="100%" height={220}>
             <LineChart data={result.rows} margin={{ top: 5, right: 20, left: 10, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
+              <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} />
               <XAxis
                 dataKey="month"
-                tick={{ fontSize: 11 }}
-                label={{ value: t('naspi.calc.monthLabel'), position: 'insideBottom', offset: -2, fontSize: 11 }}
+                tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }}
+                label={{ value: t('naspi.calc.monthLabel'), position: 'insideBottom', offset: -2, fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }}
               />
               <YAxis
-                tick={{ fontSize: 11 }}
+                tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }}
                 tickFormatter={(v: number) => `€${v}`}
               />
               <Tooltip
                 formatter={(value: number) => [formatEUR2(value), t('naspi.calc.grossAmount')]}
                 labelFormatter={(label: number) => `${t('naspi.calc.monthLabel')} ${label}`}
-                contentStyle={{ borderRadius: '8px', fontSize: '12px' }}
+                contentStyle={{ borderRadius: '8px', fontSize: '12px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }}
               />
               <ReferenceLine
                 y={result.monthlyInitial}
-                stroke="#94a3b8"
+                stroke={isDark ? '#64748b' : '#94a3b8'}
                 strokeDasharray="4 4"
-                label={{ value: t('naspi.calc.initialAmount'), position: 'right', fontSize: 10, fill: '#94a3b8' }}
+                label={{ value: t('naspi.calc.initialAmount'), position: 'right', fontSize: 10, fill: isDark ? '#64748b' : '#94a3b8' }}
               />
               <Line
                 type="stepAfter"

@@ -215,7 +215,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.grossSalary')}</label>
           <div className="relative">
-            <Euro className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
+            <Euro className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400" />
             <input
               type="number"
               value={grossSalary}
@@ -243,7 +243,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             }}
             className="w-full mt-2 accent-green-600"
           />
-          <div className="flex justify-between text-xs text-slate-500 mt-1">
+          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-1">
             <span>€15k</span>
             <span>€250k</span>
           </div>
@@ -253,9 +253,9 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('ral.exchangeRate')}</label>
           <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
             <span className="font-bold text-slate-800 dark:text-slate-200">1 EUR = {eurChfRate.toFixed(4)} CHF</span>
-            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500" />}
+            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500 dark:text-slate-400" />}
           </div>
-          <p className="text-xs text-slate-500 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
         </div>
 
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
@@ -321,7 +321,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             max={1500}
             step={10}
           />
-          <p className="text-xs text-slate-500 mt-1">{t('ral.healthInsuranceNote')}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('ral.healthInsuranceNote')}</p>
         </div>
       </div>
 
@@ -329,13 +329,13 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
       <div className={`rounded-2xl p-4 sm:p-6 border-2 ${diff > 0 ? 'bg-emerald-50 dark:bg-emerald-950/30 border-emerald-300 dark:border-emerald-700' : diff < 0 ? 'bg-red-50 dark:bg-red-950/30 border-red-300 dark:border-red-700' : 'bg-slate-50 dark:bg-slate-800 border-slate-300 dark:border-slate-700'}`}>
         <div className="text-center space-y-2">
           <div className="flex items-center justify-center gap-2">
-            {diff > 0 ? <TrendingUp className="w-6 h-6 text-emerald-700" /> : diff < 0 ? <TrendingDown className="w-6 h-6 text-red-600" /> : <Minus className="w-6 h-6 text-slate-600" />}
+            {diff > 0 ? <TrendingUp className="w-6 h-6 text-emerald-700 dark:text-emerald-400" /> : diff < 0 ? <TrendingDown className="w-6 h-6 text-red-600 dark:text-red-400" /> : <Minus className="w-6 h-6 text-slate-600 dark:text-slate-300" />}
             <p className="text-sm font-bold text-slate-600 dark:text-slate-500">{t('ral.monthlyDifference')}</p>
           </div>
-          <p className={`text-4xl font-black ${diff > 0 ? 'text-emerald-700 dark:text-emerald-400' : diff < 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-600'}`}>
+          <p className={`text-4xl font-black ${diff > 0 ? 'text-emerald-700 dark:text-emerald-400' : diff < 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-600 dark:text-slate-300'}`}>
             {diff > 0 ? '+' : ''}{formatCurrency(diff)} /mese
           </p>
-          <p className="text-sm text-slate-500">
+          <p className="text-sm text-slate-500 dark:text-slate-400">
             {t('ral.swissAdvantage')}: {diff > 0 ? '+' : ''}{diffPercent.toFixed(1)}%
           </p>
         </div>
@@ -375,11 +375,11 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <span className="font-black text-lg text-green-700 dark:text-green-400">{formatCurrency(itResult.netAnnual)}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-slate-500">{t('ral.netMonthly')} (×13)</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.netMonthly')} (×13)</span>
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(itResult.netMonthly)}</span>
               </div>
               <div className="mt-2 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                <span className="text-xs text-slate-500">{t('ral.effectiveRate')}: <b>{itResult.effectiveRate.toFixed(1)}%</b></span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{itResult.effectiveRate.toFixed(1)}%</b></span>
               </div>
             </div>
           </div>
@@ -403,7 +403,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <span className="text-sm text-slate-600 dark:text-slate-500">{t('ral.grossCHF')}</span>
                 <span className="font-bold">{formatCurrency(chResult.grossCHF, 'CHF')}</span>
               </div>
-              <div className="flex justify-between text-sm text-slate-500">
+              <div className="flex justify-between text-sm text-slate-500 dark:text-slate-400">
                 <span>({t('ral.equivalentEUR')})</span>
                 <span>{formatCurrency(grossSalary)}</span>
               </div>
@@ -429,15 +429,15 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <span className="font-black text-lg text-green-700 dark:text-green-400">{formatCurrency(chResult.netAnnual, 'CHF')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-slate-500">{t('ral.netMonthly')} (×12)</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.netMonthly')} (×12)</span>
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(chResult.netMonthly, 'CHF')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-sm text-slate-500">{t('ral.inEUR')}</span>
+                <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.inEUR')}</span>
                 <span className="font-bold text-green-600 dark:text-green-400">{formatCurrency(chResult.netMonthly * chfEurRate)}</span>
               </div>
               <div className="mt-2 p-2 bg-slate-50 dark:bg-slate-700/50 rounded-lg">
-                <span className="text-xs text-slate-500">{t('ral.effectiveRate')}: <b>{chResult.effectiveRate.toFixed(1)}%</b></span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">{t('ral.effectiveRate')}: <b>{chResult.effectiveRate.toFixed(1)}%</b></span>
               </div>
             </div>
           </div>
@@ -469,11 +469,11 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               <h5 className="font-bold text-slate-700 dark:text-slate-300 mb-2">🇮🇹 {t('ral.italyDetails')}</h5>
               <table className="w-full">
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
-                  <tr><td className="py-1 text-slate-500">{t('ral.taxableIncome')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.taxableIncome)}</td></tr>
-                  <tr><td className="py-1 text-slate-500">IRPEF lorda</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefGross)}</td></tr>
-                  <tr><td className="py-1 text-slate-500">{t('ral.deductions')}</td><td className="py-1 text-right font-mono text-green-600">-{formatCurrency(itResult.detrazioni)}</td></tr>
-                  <tr><td className="py-1 text-slate-500">IRPEF netta</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefNet)}</td></tr>
-                  <tr><td className="py-1 text-slate-500">{t('ral.addizionali')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.addizionali)}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">{t('ral.taxableIncome')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.taxableIncome)}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">IRPEF lorda</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefGross)}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">{t('ral.deductions')}</td><td className="py-1 text-right font-mono text-green-600 dark:text-green-400">-{formatCurrency(itResult.detrazioni)}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">IRPEF netta</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.irpefNet)}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">{t('ral.addizionali')}</td><td className="py-1 text-right font-mono">{formatCurrency(itResult.addizionali)}</td></tr>
                 </tbody>
               </table>
             </div>
@@ -481,11 +481,11 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               <h5 className="font-bold text-slate-700 dark:text-slate-300 mb-2">🇨🇭 {t('ral.swissDetails')}</h5>
               <table className="w-full">
                 <tbody className="divide-y divide-slate-100 dark:divide-slate-700">
-                  <tr><td className="py-1 text-slate-500">AVS (5.3%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.avs, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500">AC (1.1%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ac, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500">LAA (0.7%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.laa, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500">IJM (0.8%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ijm, 'CHF')}</td></tr>
-                  <tr><td className="py-1 text-slate-500">LPP ({ageGroup})</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.lpp, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">AVS (5.3%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.avs, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">AC (1.1%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ac, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">LAA (0.7%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.laa, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">IJM (0.8%)</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.ijm, 'CHF')}</td></tr>
+                  <tr><td className="py-1 text-slate-500 dark:text-slate-400">LPP ({ageGroup})</td><td className="py-1 text-right font-mono">{formatCurrency(chResult.lpp, 'CHF')}</td></tr>
                 </tbody>
               </table>
             </div>

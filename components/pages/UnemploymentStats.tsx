@@ -12,6 +12,7 @@ const UnemploymentStats: React.FC = () => {
   const { t, locale } = useTranslation();
   const [data, setData] = useState<SwitzerlandUnemploymentRateData | null>(null);
   const [loading, setLoading] = useState(true);
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
 
   useEffect(() => {
     Analytics.trackPageView('/statistiche/disoccupazione-svizzera', 'Disoccupazione Svizzera');
@@ -22,6 +23,12 @@ const UnemploymentStats: React.FC = () => {
       setData(result);
       setLoading(false);
     })();
+  }, []);
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
   }, []);
 
   const localeLabels = useMemo(() => ({
@@ -199,7 +206,7 @@ const UnemploymentStats: React.FC = () => {
         <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
           <BarChart3 size={20} className="text-amber-500" /> {localeLabels.title}
         </h2>
-        <p className="text-slate-500 dark:text-slate-500 text-xs mt-1">
+        <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
           {localeLabels.subtitle}
         </p>
       </div>
@@ -276,25 +283,25 @@ const UnemploymentStats: React.FC = () => {
                   margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
                   onClick={() => Analytics.trackChartInteraction('unemployment_10y_trend', 'click')}
                 >
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" strokeOpacity={0.3} />
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
                   <XAxis
                     dataKey="label"
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 10, fill: '#94a3b8', fontWeight: 600 }}
+                    tick={{ fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
                     dy={8}
                     minTickGap={50}
                   />
                   <YAxis
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 600 }}
+                    tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
                     domain={['dataMin - 0.3', 'dataMax + 0.3']}
                     width={52}
                     tickFormatter={(val) => `${Number(val).toFixed(1)}%`}
                   />
                   <Tooltip
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
+                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b' }}
                     labelFormatter={(_label, payload) => {
                       const p = payload?.[0]?.payload?.period;
                       return p || _label;
@@ -326,24 +333,24 @@ const UnemploymentStats: React.FC = () => {
                   barSize={32}
                   onClick={() => Analytics.trackChartInteraction('unemployment_yearly_avg', 'click')}
                 >
-                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" strokeOpacity={0.3} />
+                  <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
                   <XAxis
                     dataKey="year"
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 600 }}
+                    tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
                     dy={8}
                   />
                   <YAxis
                     axisLine={false}
                     tickLine={false}
-                    tick={{ fontSize: 11, fill: '#94a3b8', fontWeight: 600 }}
+                    tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600 }}
                     domain={[0, 'dataMax + 0.5']}
                     width={52}
                     tickFormatter={(val) => `${Number(val).toFixed(1)}%`}
                   />
                   <Tooltip
-                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)' }}
+                    contentStyle={{ borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b' }}
                     formatter={(value: any) => [`${Number(value).toFixed(2)}%`, localeLabels.rateLabel]}
                   />
                   <Bar dataKey="avg" radius={[6, 6, 0, 0]} name={localeLabels.rateLabel}>
@@ -381,7 +388,7 @@ const UnemploymentStats: React.FC = () => {
             <div className="bg-white dark:bg-slate-700 p-2 rounded-xl text-amber-600 shadow-sm hidden sm:block">
               <Info size={20} />
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-500 leading-relaxed text-center sm:text-left">
+            <p className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-center sm:text-left">
               {localeLabels.source}
             </p>
           </div>

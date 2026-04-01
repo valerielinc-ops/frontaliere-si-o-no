@@ -17,12 +17,19 @@ export const StatsView: React.FC = () => {
   const [ageData, setAgeData] = useState<AgePoint[]>([]);
   const [genderTrendData, setGenderTrendData] = useState<GenderTrendPoint[]>([]);
   const [genderData, setGenderData] = useState<GenderSnapshot[]>([]);
-  
+
   const [loading, setLoading] = useState(true);
   const [usingRealData, setUsingRealData] = useState(false);
   const [apiError, setApiError] = useState<string | null>(null);
   const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
   const [showBfsIntro, setShowBfsIntro] = useState(false);
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
+
+  useEffect(() => {
+    const observer = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => observer.disconnect();
+  }, []);
 
   const fetchBFSData = async (forceRefresh = false) => {
     try {
@@ -70,7 +77,7 @@ export const StatsView: React.FC = () => {
             <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
               <Database size={20} className="text-indigo-600"/> {t('stats.title')}
             </h2>
-            <p className="text-slate-500 dark:text-slate-500 text-xs mt-1">
+            <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
               {t('stats.source')}
             </p>
           </div>
@@ -176,7 +183,7 @@ export const StatsView: React.FC = () => {
                </p>
                <div className="flex items-end gap-1 mt-1">
                   <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{malePercent}%</p>
-                  <span className="text-xs text-slate-500 mb-1">M</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 mb-1">M</span>
                </div>
                {/* Tooltip */}
                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
@@ -205,18 +212,18 @@ export const StatsView: React.FC = () => {
                    >
                      <defs>
                        <linearGradient id="colorFront" x1="0" y1="0" x2="0" y2="1">
-                         <stop offset="5%" stopColor="#3b82f6" stopOpacity={0.3}/>
-                         <stop offset="95%" stopColor="#3b82f6" stopOpacity={0}/>
+                         <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3}/>
+                         <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
                        </linearGradient>
                      </defs>
-                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" strokeOpacity={0.3} />
-                     <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 11, fill: '#94a3b8', fontWeight: 600}} dy={10} minTickGap={30} />
-                     <YAxis axisLine={false} tickLine={false} tick={{fontSize: 11, fill: '#94a3b8', fontWeight: 600}} domain={['dataMin - 2000', 'auto']} width={50} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                     <Tooltip 
-                        contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)'}}
+                     <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
+                     <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600}} dy={10} minTickGap={30} />
+                     <YAxis axisLine={false} tickLine={false} tick={{fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600}} domain={['dataMin - 2000', 'auto']} width={50} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+                     <Tooltip
+                        contentStyle={{borderRadius: '12px', border: 'none', boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.1)', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b'}}
                         formatter={(value: any) => [Number(value).toLocaleString('it-IT'), t('stats.workers')]}
                      />
-                     <Area type="monotone" dataKey="frontalieri" stroke="#3b82f6" strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={1500} />
+                     <Area type="monotone" dataKey="frontalieri" stroke="#f59e0b" strokeWidth={3} fillOpacity={1} fill="url(#colorFront)" animationDuration={1500} />
                    </AreaChart>
                  </ResponsiveContainer>
                </div>
@@ -236,10 +243,10 @@ export const StatsView: React.FC = () => {
                      barSize={12}
                      onClick={() => Analytics.trackChartInteraction('stats_age_distribution', 'click')}
                    >
-                     <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke="#e2e8f0" strokeOpacity={0.3} />
+                     <CartesianGrid strokeDasharray="3 3" horizontal={true} vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.3} />
                      <XAxis type="number" hide />
-                     <YAxis dataKey="name" type="category" width={60} tick={{fontSize: 10, fill: '#94a3b8', fontWeight: 600}} axisLine={false} tickLine={false} />
-                     <Tooltip cursor={{fill: 'transparent'}} contentStyle={{borderRadius: '12px'}} />
+                     <YAxis dataKey="name" type="category" width={60} tick={{fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b', fontWeight: 600}} axisLine={false} tickLine={false} />
+                     <Tooltip cursor={{fill: 'transparent'}} contentStyle={{borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none'}} />
                      <Bar dataKey="value" radius={[0, 4, 4, 0]} fill="#10b981" name="Lavoratori">
                         {ageData.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={index % 2 === 0 ? '#10b981' : '#34d399'} />
@@ -263,13 +270,13 @@ export const StatsView: React.FC = () => {
                           margin={{ top: 10, right: 10, left: 0, bottom: 0 }}
                           onClick={() => Analytics.trackChartInteraction('stats_gender_trend', 'click')}
                         >
-                            <CartesianGrid strokeDasharray="3 3" vertical={false} strokeOpacity={0.2} />
-                            <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 10, fill: '#94a3b8'}} dy={10} minTickGap={30} />
-                            <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fill: '#94a3b8'}} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
-                            <Tooltip contentStyle={{borderRadius: '12px'}} />
+                            <CartesianGrid strokeDasharray="3 3" vertical={false} stroke={isDark ? '#334155' : '#e2e8f0'} strokeOpacity={0.2} />
+                            <XAxis dataKey="year" axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b'}} dy={10} minTickGap={30} />
+                            <YAxis axisLine={false} tickLine={false} tick={{fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b'}} width={45} tickFormatter={(val) => `${(val/1000).toFixed(0)}k`} />
+                            <Tooltip contentStyle={{borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none'}} />
                             <Legend iconType="circle" wrapperStyle={{fontSize: '10px', paddingTop: '10px'}}/>
-                            <Line type="monotone" dataKey="Uomini" stroke="#3b82f6" strokeWidth={2} dot={false} activeDot={{r: 4}} />
-                            <Line type="monotone" dataKey="Donne" stroke="#ec4899" strokeWidth={2} dot={false} activeDot={{r: 4}} />
+                            <Line type="monotone" dataKey="Uomini" stroke="#f59e0b" strokeWidth={2} dot={false} activeDot={{r: 4}} />
+                            <Line type="monotone" dataKey="Donne" stroke="#f43f5e" strokeWidth={2} dot={false} activeDot={{r: 4}} />
                         </LineChart>
                     </ResponsiveContainer>
                  ) : (
@@ -293,7 +300,7 @@ export const StatsView: React.FC = () => {
                 <div className="bg-white dark:bg-slate-700 p-2 rounded-xl text-indigo-600 shadow-sm hidden sm:block">
                     <Info size={20} />
                 </div>
-                <div className="text-xs text-slate-500 dark:text-slate-500 leading-relaxed text-center sm:text-left">
+                <div className="text-xs text-slate-500 dark:text-slate-400 leading-relaxed text-center sm:text-left">
                     {t('stats.extractedFrom')}
                     {usingRealData ? (
                         <span className="text-emerald-700 dark:text-emerald-400 font-bold ml-1">

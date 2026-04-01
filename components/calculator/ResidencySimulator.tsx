@@ -190,7 +190,7 @@ function LocationAutocomplete({
 
   return (
     <div ref={containerRef} className="relative">
-      <label className="block text-xs font-bold text-slate-500 dark:text-slate-500 mb-1">{label}</label>
+      <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{label}</label>
       <div className="relative">
         <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
         <input
@@ -225,11 +225,11 @@ function LocationAutocomplete({
           role="listbox"
         >
           {filtered.length === 0 && (
-            <p className="p-3 text-sm text-slate-500 text-center">Nessun risultato</p>
+            <p className="p-3 text-sm text-slate-500 dark:text-slate-400 text-center">Nessun risultato</p>
           )}
           {itFiltered.length > 0 && (
             <>
-              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {'\u{1F1EE}\u{1F1F9}'} Italia ({itFiltered.length})
               </div>
               {itFiltered.map((loc, i) => (
@@ -244,7 +244,7 @@ function LocationAutocomplete({
                   aria-selected={value?.id === loc.id}
                 >
                   <span className="truncate">{loc.name} {loc.province ? `(${loc.province})` : ''}</span>
-                  <span className="text-xs text-slate-500 ml-2 shrink-0">
+                  <span className="text-xs text-slate-500 dark:text-slate-400 ml-2 shrink-0">
                     {loc.distanceToBorderKm != null ? `${loc.distanceToBorderKm} km` : ''}
                   </span>
                 </button>
@@ -253,7 +253,7 @@ function LocationAutocomplete({
           )}
           {chFiltered.length > 0 && (
             <>
-              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <div className="sticky top-0 bg-slate-100 dark:bg-slate-700 px-3 py-1.5 text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {'\u{1F1E8}\u{1F1ED}'} Svizzera ({chFiltered.length})
               </div>
               {chFiltered.map((loc, j) => (
@@ -269,7 +269,7 @@ function LocationAutocomplete({
                 >
                   <span className="truncate">{loc.name}</span>
                   {loc.population && (
-                    <span className="text-xs text-slate-500 ml-2 shrink-0">
+                    <span className="text-xs text-slate-500 dark:text-slate-400 ml-2 shrink-0">
                       {loc.population.toLocaleString('it-IT')} ab.
                     </span>
                   )}
@@ -414,7 +414,7 @@ const ResidencySimulator: React.FC = () => {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           <div>
-            <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.grossMonthly')}</label>
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.grossMonthly')}</label>
             <input
               type="number"
               value={grossMonthlyCHF}
@@ -423,12 +423,12 @@ const ResidencySimulator: React.FC = () => {
             />
           </div>
           <div>
-            <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.exchangeRate')}</label>
+            <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.exchangeRate')}</label>
             <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
               <span className="text-sm font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
               {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-500" />}
             </div>
-            <p className="text-xs text-slate-500 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
           </div>
         </div>
       </div>
@@ -440,11 +440,11 @@ const ResidencySimulator: React.FC = () => {
         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
           <div className="flex items-center gap-2 mb-3">
             <MapPin className="w-4 h-4 text-slate-500" />
-            <h3 className="font-bold text-sm text-slate-500">{fromLoc.name} ({t('residency.current')})</h3>
+            <h3 className="font-bold text-sm text-slate-500 dark:text-slate-400">{fromLoc.name} ({t('residency.current')})</h3>
           </div>
           <p className="text-2xl font-black text-slate-800 dark:text-slate-200">€{Math.round(result.fromMonthly).toLocaleString('it-IT')}</p>
-          <p className="text-xs text-slate-500">{t('residency.perMonth')}</p>
-          <div className="mt-3 space-y-1 text-xs text-slate-500">
+          <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.perMonth')}</p>
+          <div className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
             <p>🏠 {t('residency.rent')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.avgRent}</p>
             <p>🛒 {t('residency.groceries')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.groceries}</p>
             <p>🚗 {t('residency.transport')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.transport}</p>
@@ -465,7 +465,7 @@ const ResidencySimulator: React.FC = () => {
           <p className={`text-3xl font-black ${result.monthlyDiff > 0 ? 'text-red-600 dark:text-red-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
             {result.monthlyDiff > 0 ? '+' : ''}€{Math.round(result.monthlyDiff).toLocaleString('it-IT')}
           </p>
-          <p className="text-xs text-slate-500 mt-1">{t('residency.monthlyDiff')}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('residency.monthlyDiff')}</p>
 
           {result.breakEvenMonths && (
             <div className="mt-3 flex items-center gap-1 text-xs text-emerald-700 dark:text-emerald-400">
@@ -482,8 +482,8 @@ const ResidencySimulator: React.FC = () => {
             <h3 className="font-bold text-sm text-indigo-500">{toLoc.name} ({t('residency.new')})</h3>
           </div>
           <p className="text-2xl font-black text-slate-800 dark:text-slate-200">€{Math.round(result.toMonthly).toLocaleString('it-IT')}</p>
-          <p className="text-xs text-slate-500">{t('residency.perMonth')}</p>
-          <div className="mt-3 space-y-1 text-xs text-slate-500">
+          <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.perMonth')}</p>
+          <div className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
             <p>🏠 {t('residency.rent')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.avgRent}</p>
             <p>🛒 {t('residency.groceries')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.groceries}</p>
             <p>🚗 {t('residency.transport')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.transport}</p>
@@ -512,7 +512,7 @@ const ResidencySimulator: React.FC = () => {
           <div className="mt-4 space-y-2">
             {result.oneTimeCosts.map((cost, i) => (
               <div key={i} className="flex items-center justify-between py-2 border-b border-slate-100 dark:border-slate-700 last:border-0">
-                <span className="text-sm text-slate-600 dark:text-slate-500">{t(cost.label)}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-300">{t(cost.label)}</span>
                 <span className="text-sm font-bold text-slate-800 dark:text-slate-200">
                   {cost.currency === 'CHF' ? 'CHF' : '€'}{cost.amount.toLocaleString('it-IT')}
                 </span>
@@ -659,7 +659,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-all ${
               showFilters || hasActiveFilters
                 ? 'bg-violet-100 dark:bg-violet-900/40 border-violet-300 dark:border-violet-700 text-violet-700 dark:text-violet-300'
-                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-500 hover:border-violet-400'
+                : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-violet-400'
             }`}
             aria-label={t('residency.bestMunicipality.filters') || 'Filtri'}
           >
@@ -672,7 +672,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
         {showFilters && (
           <div className="flex flex-wrap gap-3 p-3 bg-white/60 dark:bg-slate-800/60 rounded-lg border border-slate-200 dark:border-slate-700">
             <div>
-              <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.bestMunicipality.province') || 'Provincia'}</label>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.bestMunicipality.province') || 'Provincia'}</label>
               <select
                 value={filterProvince}
                 onChange={(e) => setFilterProvince(e.target.value)}
@@ -686,7 +686,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
               </select>
             </div>
             <div>
-              <label className="block text-xs font-bold text-slate-500 mb-1">{t('residency.bestMunicipality.fascia') || 'Fascia'}</label>
+              <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.bestMunicipality.fascia') || 'Fascia'}</label>
               <select
                 value={filterFascia}
                 onChange={(e) => setFilterFascia(e.target.value)}
@@ -762,7 +762,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             </span>
             <div className="flex-1 min-w-0">
               <p className="text-sm font-semibold text-slate-700 dark:text-slate-300 truncate">
-                {loc.name} {loc.province ? <span className="text-slate-500 font-normal">({loc.province})</span> : ''}
+                {loc.name} {loc.province ? <span className="text-slate-500 dark:text-slate-400 font-normal">({loc.province})</span> : ''}
                 {loc.fascia && <span className="ml-1.5 text-[9px] px-1.5 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 rounded-full font-medium">F{loc.fascia}</span>}
               </p>
               <div className="flex items-center gap-3 text-xs text-slate-500">
@@ -779,7 +779,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
         ))}
         
         {filteredRankings.length === 0 && (
-          <p className="text-center text-sm text-slate-500 py-4">{t('residency.bestMunicipality.noResults') || 'Nessun comune trovato con questi filtri'}</p>
+          <p className="text-center text-sm text-slate-500 dark:text-slate-400 py-4">{t('residency.bestMunicipality.noResults') || 'Nessun comune trovato con questi filtri'}</p>
         )}
       </div>
 

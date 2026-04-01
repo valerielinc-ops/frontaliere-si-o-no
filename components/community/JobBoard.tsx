@@ -5046,6 +5046,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
             .hybrid-ab-step { margin-bottom: 10px; position: relative; }
             .hybrid-ab-step::before { content: ""; position: absolute; left: -22px; top: 8px; width: 9px; height: 9px; border-radius: 999px; background: #1769ff; }
             .hybrid-ab-cta { display: inline-flex; align-items: center; justify-content: center; margin-top: 2px; border-radius: 10px; text-decoration: none; background: linear-gradient(135deg, #1769ff, #0f8bff); color: #fff; font-size: 13px; font-weight: 800; padding: 10px 13px; border: none; cursor: pointer; }
+            /* Dark mode overrides */
+            .dark .hybrid-ab-root { border-color: #334155; background: #1e293b; }
+            .dark .hybrid-ab-hero { border-color: #334155; background: linear-gradient(130deg, rgba(30, 41, 59, 0.98), rgba(20, 44, 52, 0.98)); }
+            .dark .hybrid-ab-title { color: #f1f5f9; }
+            .dark .hybrid-ab-sub { color: #94a3b8; }
+            .dark .hybrid-ab-meta span { border-color: #475569; background: rgba(30, 41, 59, 0.75); color: #cbd5e1; }
+            .dark .hybrid-ab-meta span.coverage { color: #93c5fd; border-color: #1e3a5f; background: #172554; }
+            .dark .hybrid-ab-section { border-color: #334155; background: #1e293b; }
+            .dark .hybrid-ab-section h4 { color: #cbd5e1; }
+            .dark .hybrid-ab-section p { color: #e2e8f0; }
+            .dark .hybrid-ab-section li { color: #e2e8f0; }
+            .dark .hybrid-ab-section li.subhead { color: #93c5fd; }
+            .dark .hybrid-ab-timeline { border-left-color: #475569; }
+            .dark .hybrid-ab-step::before { background: #f59e0b; }
+            .dark .hybrid-ab-cta { background: linear-gradient(135deg, #f59e0b, #d97706); }
             @media (max-width: 1120px) {
               .hybrid-ab-wrap { max-width: 100%; }
             }

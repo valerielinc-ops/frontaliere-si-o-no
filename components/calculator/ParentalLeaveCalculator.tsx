@@ -198,9 +198,9 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
           <label className="block text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">{t('leave.exchangeRate')}</label>
           <div className="flex items-center gap-2 px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900">
             <span className="font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
-            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500" />}
+            {rateLoading && <RefreshCw size={14} className="animate-spin text-slate-500 dark:text-slate-400" />}
           </div>
-          <p className="text-xs text-slate-500 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('exchange.liveRate') || 'Tasso di cambio live CHF/EUR'}</p>
         </div>
       </div>
 
@@ -217,27 +217,27 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
 
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-slate-500">{t('leave.duration')}</span>
+                <span className="text-slate-500 dark:text-slate-400">{t('leave.duration')}</span>
                 <span className="font-bold">{chResult.duration}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">{t('leave.rate')}</span>
+                <span className="text-slate-500 dark:text-slate-400">{t('leave.rate')}</span>
                 <span className="font-bold">{(chResult.rate * 100).toFixed(0)}% {t('leave.ofSalary')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">{t('leave.dailyAllowance')}</span>
+                <span className="text-slate-500 dark:text-slate-400">{t('leave.dailyAllowance')}</span>
                 <span className="font-bold">{fmt(chResult.dailyAllowance, 'CHF')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">{t('leave.maxDaily')}</span>
-                <span className="text-xs text-slate-500">CHF {IPG_DAILY_MAX_CHF}/giorno</span>
+                <span className="text-slate-500 dark:text-slate-400">{t('leave.maxDaily')}</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">CHF {IPG_DAILY_MAX_CHF}/giorno</span>
               </div>
               <hr className="border-slate-200 dark:border-slate-600" />
               <div className="flex justify-between">
                 <span className="font-bold">{t('leave.totalAllowance')}</span>
                 <span className="font-black text-lg text-emerald-700 dark:text-emerald-400">{fmt(chResult.totalAllowance, 'CHF')}</span>
               </div>
-              <div className="flex justify-between text-slate-500">
+              <div className="flex justify-between text-slate-500 dark:text-slate-400">
                 <span>{t('leave.inEUR')}</span>
                 <span className="font-bold">{fmt(chResult.totalAllowance * chfEurRate)}</span>
               </div>
@@ -245,7 +245,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
 
             <div className="space-y-1 mt-3">
               {chResult.notes.map((note, i) => (
-                <p key={i} className="text-xs text-slate-500 flex items-start gap-1">
+                <p key={i} className="text-xs text-slate-500 dark:text-slate-400 flex items-start gap-1">
                   <Info className="w-3 h-3 mt-0.5 shrink-0" />
                   {t(note)}
                 </p>
@@ -265,15 +265,15 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
 
             <div className="space-y-2 text-sm">
               <div className="flex justify-between">
-                <span className="text-slate-500">{t('leave.duration')}</span>
+                <span className="text-slate-500 dark:text-slate-400">{t('leave.duration')}</span>
                 <span className="font-bold">{itResult.duration}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">{t('leave.rate')}</span>
+                <span className="text-slate-500 dark:text-slate-400">{t('leave.rate')}</span>
                 <span className="font-bold">{(itResult.rate * 100).toFixed(0)}% {t('leave.ofSalary')}</span>
               </div>
               <div className="flex justify-between">
-                <span className="text-slate-500">{t('leave.dailyAllowance')}</span>
+                <span className="text-slate-500 dark:text-slate-400">{t('leave.dailyAllowance')}</span>
                 <span className="font-bold">{fmt(itResult.dailyAllowance)}</span>
               </div>
               <hr className="border-slate-200 dark:border-slate-600" />
@@ -285,7 +285,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
 
             <div className="space-y-1 mt-3">
               {itResult.notes.map((note, i) => (
-                <p key={i} className="text-xs text-slate-500 flex items-start gap-1">
+                <p key={i} className="text-xs text-slate-500 dark:text-slate-400 flex items-start gap-1">
                   <Info className="w-3 h-3 mt-0.5 shrink-0" />
                   {t(note)}
                 </p>
@@ -304,14 +304,14 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <p className="text-sm text-indigo-700 dark:text-indigo-300 mb-3">{t('leave.frontaliereDesc')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
           <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
-            <p className="text-slate-500">{t('leave.chIPG')}</p>
+            <p className="text-slate-500 dark:text-slate-400">{t('leave.chIPG')}</p>
             <p className="font-black text-lg">{fmt(chResult.totalAllowance, 'CHF')}</p>
-            <p className="text-xs text-slate-500">≈ {fmt(totalFrontaliereEUR)}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">≈ {fmt(totalFrontaliereEUR)}</p>
           </div>
           <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
-            <p className="text-slate-500">{t('leave.monthlySalaryLoss')}</p>
-            <p className="font-black text-lg text-amber-600">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
-            <p className="text-xs text-slate-500">{t('leave.vsFullSalary')}</p>
+            <p className="text-slate-500 dark:text-slate-400">{t('leave.monthlySalaryLoss')}</p>
+            <p className="font-black text-lg text-amber-600 dark:text-amber-400">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{t('leave.vsFullSalary')}</p>
           </div>
         </div>
       </div>
@@ -330,19 +330,19 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
           {showParental && (
             <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-3">
               <h4 className="font-bold text-slate-800 dark:text-slate-200">{t('leave.parentalTitle')}</h4>
-              <p className="text-sm text-slate-500">{t('leave.parentalDesc')}</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400">{t('leave.parentalDesc')}</p>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 text-sm">
                 <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
-                  <p className="text-slate-500">{t('leave.duration')}</p>
+                  <p className="text-slate-500 dark:text-slate-400">{t('leave.duration')}</p>
                   <p className="font-bold">6 {t('leave.months')}</p>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
-                  <p className="text-slate-500">{t('leave.rate')}</p>
+                  <p className="text-slate-500 dark:text-slate-400">{t('leave.rate')}</p>
                   <p className="font-bold">30% {t('leave.ofSalary')}</p>
                 </div>
                 <div className="bg-slate-50 dark:bg-slate-700/50 rounded-lg p-3">
-                  <p className="text-slate-500">{t('leave.total')}</p>
-                  <p className="font-bold text-emerald-700">{fmt(parentalTotalEUR)}</p>
+                  <p className="text-slate-500 dark:text-slate-400">{t('leave.total')}</p>
+                  <p className="font-bold text-emerald-700 dark:text-emerald-400">{fmt(parentalTotalEUR)}</p>
                 </div>
               </div>
             </div>
@@ -353,7 +353,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
       {/* Documents Checklist */}
       <button
         onClick={() => setShowDocs(!showDocs)}
-        className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
+        className="flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors"
       >
         <FileText size={16} />
         {showDocs ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
@@ -420,7 +420,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
                 </div>
                 <div>
                   <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{t(`leave.inpsStep${step}Title`)}</p>
-                  <p className="text-xs text-slate-500">{t(`leave.inpsStep${step}Desc`)}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">{t(`leave.inpsStep${step}Desc`)}</p>
                 </div>
               </div>
             ))}
