@@ -9068,5 +9068,117 @@
         "pending": 8
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-01T05:19:11.656Z",
+    "label": "before",
+    "total": 1352,
+    "needsRetranslation": 259,
+    "incomplete": 259,
+    "complete": 1093,
+    "missingByLocale": {
+      "it": 94,
+      "en": 145,
+      "de": 151,
+      "fr": 192
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 64
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 36
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 21
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 19
+      },
+      {
+        "company": "PEMSA",
+        "pending": 19
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 14
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 14
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 10
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 9
+      },
+      {
+        "company": "Denner",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-01T05:20:45.715Z",
+    "label": "after",
+    "total": 1352,
+    "needsRetranslation": 239,
+    "incomplete": 239,
+    "complete": 1113,
+    "missingByLocale": {
+      "it": 81,
+      "en": 133,
+      "de": 136,
+      "fr": 172
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 64
+      },
+      {
+        "company": "Jumbo, Divisione di Coop Società Cooperativa",
+        "pending": 36
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 19
+      },
+      {
+        "company": "PEMSA",
+        "pending": 19
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 19
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 10
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 9
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 8
+      },
+      {
+        "company": "Denner",
+        "pending": 6
+      }
+    ]
   }
 ]
