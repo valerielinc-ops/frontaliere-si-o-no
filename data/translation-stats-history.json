@@ -9404,5 +9404,117 @@
         "pending": 6
       }
     ]
+  },
+  {
+    "timestamp": "2026-04-01T10:07:16.521Z",
+    "label": "before",
+    "total": 1326,
+    "needsRetranslation": 713,
+    "incomplete": 369,
+    "complete": 957,
+    "missingByLocale": {
+      "it": 151,
+      "en": 247,
+      "de": 204,
+      "fr": 287
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 69
+      },
+      {
+        "company": "VOLG",
+        "pending": 39
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 36
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 21
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 19
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Denner",
+        "pending": 12
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 11
+      },
+      {
+        "company": "EMS-Chemie AG",
+        "pending": 10
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 10
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-01T10:08:10.898Z",
+    "label": "after",
+    "total": 1326,
+    "needsRetranslation": 283,
+    "incomplete": 281,
+    "complete": 1045,
+    "missingByLocale": {
+      "it": 112,
+      "en": 161,
+      "de": 152,
+      "fr": 206
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 52
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 36
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 21
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 19
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Denner",
+        "pending": 12
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 11
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 10
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 9
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 9
+      }
+    ]
   }
 ]
