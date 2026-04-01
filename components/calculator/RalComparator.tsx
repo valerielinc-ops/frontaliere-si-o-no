@@ -453,7 +453,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           setShowDetails(next);
           Analytics.trackUIInteraction('ral_comparator', 'details', 'toggle', next ? 'open' : 'close');
         }}
-        className="flex items-center gap-2 text-sm font-bold text-slate-500 hover:text-slate-700 dark:hover:text-slate-300 transition-colors mx-auto"
+        className="flex items-center gap-2 text-sm font-bold text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300 transition-colors mx-auto"
       >
         {showDetails ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
         {t('ral.showDetails')}

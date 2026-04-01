@@ -604,6 +604,7 @@ export default function FuelPriceStats() {
               <select
                 value={province}
                 onChange={(e) => setProvince(e.target.value)}
+                aria-label={tt('fuelPrices.selectProvince', 'Seleziona provincia')}
                 className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               >
                 {provinces.map((item) => (
@@ -615,6 +616,7 @@ export default function FuelPriceStats() {
               <select
                 value={sortKey}
                 onChange={(e) => setSortKey(e.target.value as SortKey)}
+                aria-label={tt('fuelPrices.sortBy', 'Ordina per')}
                 className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               >
                 <option value="saving">{tt('fuelPrices.sortSaving', 'Ordina per risparmio')}</option>

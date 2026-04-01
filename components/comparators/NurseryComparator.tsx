@@ -121,7 +121,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
             <Euro size={18} className="text-emerald-700" />
             {t('nursery.calculator')}
           </h3>
-          {showCalculator ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
+          {showCalculator ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
         {showCalculator && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4">
@@ -188,7 +188,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
       {/* Filters */}
       <div className="flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-[200px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
           <input
             type="text"
             value={searchTerm}

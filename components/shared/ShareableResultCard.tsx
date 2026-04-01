@@ -392,7 +392,7 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
           <div className="flex justify-end">
             <button
               onClick={() => { setShowCard(false); setGeneratedImage(null); }}
-              className="text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
+              className="text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
               aria-label={t('shareCard.close')}
             >
               <X size={18} />
@@ -427,11 +427,11 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
                     row.highlight ? 'border-b-2 border-slate-200' : 'border-b border-slate-100'
                   }`}
                 >
-                  <span className={`text-sm ${row.highlight ? 'font-semibold text-slate-800' : 'text-slate-600'}`}>
+                  <span className={`text-sm ${row.highlight ? 'font-semibold text-slate-800' : 'text-slate-600 dark:text-slate-400'}`}>
                     {row.label}
                   </span>
                   <span className={`text-sm font-bold ${
-                    row.color ? ROW_COLORS[row.color] || 'text-slate-800' : row.highlight ? 'text-slate-900' : 'text-slate-700'
+                    row.color ? ROW_COLORS[row.color] || 'text-slate-800' : row.highlight ? 'text-slate-900' : 'text-slate-700 dark:text-slate-300'
                   }`}>
                     {row.value}
                   </span>
@@ -441,10 +441,10 @@ const ShareableResultCard: React.FC<ShareableCardProps> = ({
 
             {/* Footer */}
             <div className="px-6 py-3 bg-slate-50 flex items-center justify-between">
-              <span className="text-xs text-slate-500">
+              <span className="text-xs text-slate-500 dark:text-slate-400">
                 {footer || t('shareCard.generatedBy')}
               </span>
-              <span className="text-xs font-semibold text-slate-500">
+              <span className="text-xs font-semibold text-slate-500 dark:text-slate-400">
                 frontaliereticino.ch
               </span>
             </div>

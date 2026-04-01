@@ -45,7 +45,7 @@ const CustomTooltip = ({ active, payload, label, isDarkMode, currency = "CHF" }:
   if (active && payload && payload.length) {
     return (
       <div className={`p-4 border rounded-2xl shadow-xl min-w-[180px] z-50 pointer-events-none backdrop-blur-md ${isDarkMode ? 'bg-slate-900/95 border-slate-700 shadow-slate-950/50' : 'bg-white/95 border-slate-100 shadow-slate-200/50'}`}>
-        {label && <p className={`font-bold mb-3 text-xs uppercase tracking-wider border-b pb-2 ${isDarkMode ? 'text-slate-500 border-slate-700' : 'text-slate-500 border-slate-100'}`}>{label}</p>}
+        {label && <p className={`font-bold mb-3 text-xs uppercase tracking-wider border-b pb-2 ${isDarkMode ? 'text-slate-500 dark:text-slate-400 border-slate-700' : 'text-slate-500 dark:text-slate-400 border-slate-100'}`}>{label}</p>}
         <div className="space-y-2">
           {payload.map((entry: any, index: number) => (
             <div key={index} className="flex items-center justify-between gap-4 text-xs">
@@ -72,7 +72,7 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
       {payload.map((entry: any, index: number) => (
         <div key={`item-${index}`} className="flex items-center gap-2">
           <div className="w-3 h-3 rounded-full" style={{ backgroundColor: entry.color || entry.fill || entry.stroke }} />
-          <span className={`text-xs font-bold uppercase tracking-wide ${isDarkMode ? 'text-slate-500' : 'text-slate-600'}`}>
+          <span className={`text-xs font-bold uppercase tracking-wide ${isDarkMode ? 'text-slate-500 dark:text-slate-400' : 'text-slate-600 dark:text-slate-400'}`}>
             {entry.value}
           </span>
         </div>
@@ -85,9 +85,9 @@ const FixedLegend = ({ payload, isDarkMode }: any) => {
 const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
   <div className="bg-slate-50 dark:bg-slate-800/50 rounded-2xl p-4 border border-slate-100 dark:border-slate-700 flex items-start justify-between group hover:border-slate-300 dark:hover:border-slate-600 transition-colors">
      <div>
-       <p className="text-xs font-bold uppercase text-slate-500 tracking-wider mb-1">{title}</p>
+       <p className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 tracking-wider mb-1">{title}</p>
        <p className={`text-xl font-mono font-bold ${colorClass}`}>{value}</p>
-       {subtext && <p className="text-xs text-slate-500 mt-1">{subtext}</p>}
+       {subtext && <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{subtext}</p>}
      </div>
      <div className={`p-2 rounded-xl bg-white dark:bg-slate-800 shadow-sm ${colorClass.replace('text-', 'text-opacity-80 text-')}`}>
        <Icon size={18} />
@@ -255,7 +255,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                 className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wide transition-all ${
                   activeTab === tab.id 
                   ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm scale-[0.98]' 
-                  : 'text-slate-500 hover:text-slate-600 dark:hover:text-slate-300'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'
                 }`}
               >
                 <tab.icon size={16} className={activeTab === tab.id ? 'stroke-[2.5px]' : ''} />
@@ -287,13 +287,13 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                        <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-lg">
                           <button 
                             onClick={() => setAnalysisMode('NET')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-slate-500 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
                           >
                             {t('chart.net')}
                           </button>
                           <button 
                             onClick={() => setAnalysisMode('TAX')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-500 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
                           >
                             {t('chart.taxes_charges')}
                           </button>
@@ -309,7 +309,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
             {activeTab === 'breakdown' ? (
               <div className="w-full flex flex-col md:flex-row gap-4" style={{ height: 320 }}>
                   <div className="flex-1 flex flex-col items-center relative">
-                      <h4 className="text-xs font-bold uppercase text-slate-500 mb-2">{t('chart.resident_ch')}</h4>
+                      <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">{t('chart.resident_ch')}</h4>
                       <div className="w-full h-full relative">
                         <ResponsiveContainer>
                             <PieChart>
@@ -321,12 +321,12 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                             </PieChart>
                         </ResponsiveContainer>
                         <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-8">
-                           <span className="text-xs font-bold text-slate-500">CH</span>
+                           <span className="text-xs font-bold text-slate-500 dark:text-slate-400">CH</span>
                         </div>
                       </div>
                   </div>
                   <div className="flex-1 flex flex-col items-center relative border-t md:border-t-0 md:border-l border-dashed border-slate-100 dark:border-slate-700 pt-4 md:pt-0">
-                      <h4 className="text-xs font-bold uppercase text-slate-500 mb-2">{t('chart.frontier_worker')}</h4>
+                      <h4 className="text-xs font-bold uppercase text-slate-500 dark:text-slate-400 mb-2">{t('chart.frontier_worker')}</h4>
                        <div className="w-full h-full relative">
                           <ResponsiveContainer>
                               <PieChart>
@@ -338,7 +338,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                               </PieChart>
                           </ResponsiveContainer>
                           <div className="absolute inset-0 flex items-center justify-center pointer-events-none mb-8">
-                             <span className="text-xs font-bold text-slate-500">IT</span>
+                             <span className="text-xs font-bold text-slate-500 dark:text-slate-400">IT</span>
                           </div>
                        </div>
                   </div>

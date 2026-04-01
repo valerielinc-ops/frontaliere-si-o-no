@@ -113,7 +113,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'confronti',
       subTab: 'banks',
       icon: Building2,
-      color: 'text-slate-600',
+      color: 'text-slate-600 dark:text-slate-400',
       keywords: ['banca', 'conto', 'bank', 'account', 'ubs', 'credit suisse', 'postfinance', 'wise', 'revolut', 'n26', 'banque', 'konto'],
     },
     {
@@ -410,7 +410,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'guida',
       subTab: 'permits',
       icon: FileText,
-      color: 'text-slate-600',
+      color: 'text-slate-600 dark:text-slate-400',
       keywords: ['permesso', 'lavoro', 'permit', 'G', 'frontaliero', 'bewilligung', 'autorisation', 'permis', 'rinnovo', 'scadenza'],
     },
     {
@@ -684,7 +684,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('sitemap.title') || 'Mappa del Sito',
       tab: 'sitemap',
       icon: Map,
-      color: 'text-slate-600',
+      color: 'text-slate-600 dark:text-slate-400',
       keywords: ['mappa', 'sito', 'sitemap', 'tutti', 'strumenti', 'indice', 'seitenplan', 'plan', 'site map', 'elenco'],
     },
     // ─── Contracts / CCNL Guide ───
@@ -1103,7 +1103,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       {/* Search trigger — compact icon button */}
       <button
         onClick={() => setIsOpen(true)}
-        className="p-2 rounded-xl text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+        className="p-2 rounded-xl text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
         title={`${t('search.placeholder') || 'Cerca...'} (⌘K)`}
         aria-label={t('search.placeholder') || 'Cerca'}
       >
@@ -1119,7 +1119,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
           >
             {/* Search input */}
             <div className="flex items-center gap-3 px-4 py-3 border-b border-slate-200 dark:border-slate-700">
-              <Search size={18} className="text-slate-500 flex-shrink-0" />
+              <Search size={18} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
               <input
                 ref={inputRef}
                 type="text"
@@ -1132,13 +1132,13 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
               {query && (
                 <button
                   onClick={() => setQuery('')}
-                  className="p-2 -m-0.5 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded"
+                  className="p-2 -m-0.5 text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 rounded"
                   aria-label={t('search.clear') || 'Cancella ricerca'}
                 >
                   <X size={14} />
                 </button>
               )}
-              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono text-slate-500 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
+              <kbd className="hidden sm:inline-flex items-center px-1.5 py-0.5 text-xs font-mono text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 rounded border border-slate-200 dark:border-slate-700">
                 esc
               </kbd>
             </div>
@@ -1146,7 +1146,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             {/* Results */}
             <div className="flex-1 min-h-0 overflow-y-auto">
               {query.trim() === '' ? (
-                <div className="px-4 py-6 text-center text-sm text-slate-500">
+                <div className="px-4 py-6 text-center text-sm text-slate-500 dark:text-slate-400">
                   <p>{t('search.hint') || 'Digita per cercare tra tutte le sezioni del sito'}</p>
                   <p className="text-xs mt-1.5 text-slate-300 dark:text-slate-500">
                     {t('search.examples') || 'Es: "cambio valuta", "pensione", "calendario festività", "permessi"'}
@@ -1178,7 +1178,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                     <p className="text-sm font-semibold text-slate-700 dark:text-slate-300">
                       {t('search.noResults.title', { query }) || `Nessun risultato per «${query}»`}
                     </p>
-                    <p className="text-xs text-slate-500 mt-1">
+                    <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                       {t('search.noResults.hint') || 'Prova con parole chiave diverse o esplora le categorie'}
                     </p>
                   </div>
@@ -1186,7 +1186,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                   {/* Fuzzy suggestions */}
                   {noResultsSuggestions.length > 0 && (
                     <div>
-                      <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                      <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
                         {t('search.noResults.maybeMeant') || 'Forse cercavi'}
                       </p>
                       <div className="space-y-1">
@@ -1203,7 +1203,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                               </div>
                               <div className="flex-1 min-w-0">
                                 <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate block">{item.title}</span>
-                                <span className="text-xs text-slate-500 truncate block">{item.description}</span>
+                                <span className="text-xs text-slate-500 dark:text-slate-400 truncate block">{item.description}</span>
                               </div>
                               <ArrowRight size={12} className="text-slate-300 flex-shrink-0" />
                             </button>
@@ -1215,7 +1215,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
 
                   {/* Browse by category */}
                   <div>
-                    <p className="text-xs font-semibold text-slate-500 uppercase tracking-wider mb-2">
+                    <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
                       {t('search.noResults.browseCategories') || 'Esplora per categoria'}
                     </p>
                     <div className="grid grid-cols-3 gap-2">
@@ -1259,7 +1259,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                             <span className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">
                               {result.title}
                             </span>
-                            <span className="text-xs uppercase tracking-wider text-slate-500 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">
+                            <span className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 px-1.5 py-0.5 rounded flex-shrink-0">
                               {result.section}
                             </span>
                           </div>
@@ -1276,7 +1276,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
             </div>
 
             {/* Footer */}
-            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500">
+            <div className="px-4 py-2 border-t border-slate-100 dark:border-slate-800 flex items-center justify-between text-xs text-slate-500 dark:text-slate-400">
               <div className="flex items-center gap-3">
                 <span className="flex items-center gap-1">
                   <kbd className="px-1 py-0.5 bg-slate-100 dark:bg-slate-800 rounded text-xs">↑↓</kbd>

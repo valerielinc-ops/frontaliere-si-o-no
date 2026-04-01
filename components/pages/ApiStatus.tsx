@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import { CheckCircle2, XCircle, AlertTriangle, Key, RefreshCw, ExternalLink } from 'lucide-react';
 import { trafficService } from '../../services/trafficService';
 import { getConfigValue } from '../../services/firebase';
@@ -115,13 +115,15 @@ const ApiStatus: React.FC = () => {
       case 'error':
         return <XCircle className="text-red-600 dark:text-red-400" size={24} />;
       default:
-        return <AlertTriangle className="text-slate-500" size={24} />;
+        return <AlertTriangle className="text-slate-500 dark:text-slate-400" size={24} />;
     }
   };
 
-  const successCount = apiChecks.filter(c => c.status === 'success').length;
-  const warningCount = apiChecks.filter(c => c.status === 'warning').length;
-  const errorCount = apiChecks.filter(c => c.status === 'error').length;
+  const { successCount, warningCount, errorCount } = useMemo(() => ({
+    successCount: apiChecks.filter(c => c.status === 'success').length,
+    warningCount: apiChecks.filter(c => c.status === 'warning').length,
+    errorCount: apiChecks.filter(c => c.status === 'error').length,
+  }), [apiChecks]);
 
   return (
     <div className="space-y-6 pb-8">

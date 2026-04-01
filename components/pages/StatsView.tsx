@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { 
   AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, 
   Legend, Cell, BarChart, Bar, LineChart, Line
@@ -64,15 +64,18 @@ export const StatsView: React.FC = () => {
   }, []);
 
   // --- KPI CALCULATIONS ---
-  const latestValue = historicalData.length > 0 ? historicalData[historicalData.length - 1].frontalieri : 0;
-  const prevValue = historicalData.length > 1 ? historicalData[historicalData.length - 2].frontalieri : 0;
-  const qoqPercent = prevValue > 0 ? (((latestValue - prevValue) / prevValue) * 100).toFixed(1) : "0.0";
-  const malePercent = genderData.find(g => g.name === 'Uomini')?.pct || "0";
+  const { latestValue, prevValue, qoqPercent, malePercent } = useMemo(() => {
+    const latest = historicalData.length > 0 ? historicalData[historicalData.length - 1].frontalieri : 0;
+    const prev = historicalData.length > 1 ? historicalData[historicalData.length - 2].frontalieri : 0;
+    const qoq = prev > 0 ? (((latest - prev) / prev) * 100).toFixed(1) : "0.0";
+    const male = genderData.find(g => g.name === 'Uomini')?.pct || "0";
+    return { latestValue: latest, prevValue: prev, qoqPercent: qoq, malePercent: male };
+  }, [historicalData, genderData]);
 
   return (
-    <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sm:backdrop-blur-xl rounded-3xl shadow-xl border border-white/60 dark:border-slate-800 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
        {/* Header */}
-       <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center sticky top-0 z-10 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md rounded-t-3xl">
+       <div className="p-6 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center sticky top-0 z-10 bg-white dark:bg-slate-800 rounded-t-2xl">
           <div>
             <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
               <Database size={20} className="text-indigo-600"/> {t('stats.title')}

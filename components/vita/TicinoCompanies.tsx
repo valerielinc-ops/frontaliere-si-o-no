@@ -723,7 +723,7 @@ const TicinoCompanies: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           {/* Search */}
           <div className="relative flex-1 min-w-0 w-full sm:min-w-[200px]">
-            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+            <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
             <input
               type="text"
               value={searchQuery}
@@ -742,7 +742,7 @@ const TicinoCompanies: React.FC = () => {
             >
               {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
             </select>
-            <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+            <ChevronDown size={14} className="absolute right-2.5 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 pointer-events-none" />
           </div>
 
           <button
@@ -773,7 +773,7 @@ const TicinoCompanies: React.FC = () => {
         {/* Employee filter + sort */}
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2 text-sm">
-            <Users size={14} className="text-slate-500 flex-shrink-0" />
+            <Users size={14} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
             <span className="text-slate-600 dark:text-slate-500 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
             <input type="range" min={0} max={1000} step={50} value={minEmployees}
               onChange={(e) => setMinEmployees(Number(e.target.value))}
@@ -782,7 +782,7 @@ const TicinoCompanies: React.FC = () => {
             <span className="font-bold text-violet-600 w-10">{minEmployees}</span>
           </div>
           <div className="flex items-center gap-2 sm:ml-auto">
-            <ArrowUpDown size={14} className="text-slate-500" />
+            <ArrowUpDown size={14} className="text-slate-500 dark:text-slate-400" />
             <select value={sortBy} onChange={(e) => setSortBy(e.target.value as SortKey)}
               aria-label={t('companies.sortBy') || 'Ordina per'}
               className="appearance-none px-3 py-1.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium focus:outline-none focus:ring-2 focus:ring-blue-500">
@@ -802,7 +802,7 @@ const TicinoCompanies: React.FC = () => {
         {/* LIST (left) */}
         <div className="w-full lg:w-[45%] xl:w-[40%] lg:max-h-[calc(100vh-120px)] lg:overflow-y-auto lg:overflow-x-hidden space-y-3 pr-0 lg:pr-1 scrollbar-thin">
           {filtered.length === 0 ? (
-            <div className="text-center py-12 text-slate-500">
+            <div className="text-center py-12 text-slate-500 dark:text-slate-400">
               <Building2 size={48} className="mx-auto mb-3 opacity-50" />
               <p className="font-bold">{t('companies.noResults')}</p>
               <p className="text-sm">{t('companies.tryModifyFilters')}</p>
@@ -840,7 +840,7 @@ const TicinoCompanies: React.FC = () => {
                     <Users size={12} />
                     <span className="font-bold">{company.employees.toLocaleString('it-IT')}</span>
                   </div>
-                  <div className="flex items-center gap-1 text-slate-500">
+                  <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
                     <MapPin size={12} />
                     <span>{company.city}</span>
                   </div>
@@ -932,7 +932,7 @@ const TicinoCompanies: React.FC = () => {
             </MapContainer>
 
             {/* Legend */}
-            <div className="flex items-center justify-center gap-2 py-2.5 bg-white dark:bg-slate-800 text-xs text-slate-500 flex-wrap px-3">
+            <div className="flex items-center justify-center gap-2 py-2.5 bg-white dark:bg-slate-800 text-xs text-slate-500 dark:text-slate-400 flex-wrap px-3">
               {Object.entries(SECTOR_ICONS).slice(0, 6).map(([sector, icon]) => (
                 <button key={sector} onClick={() => setSelectedSector(sector === selectedSector ? 'Tutti' : sector)}
                   className={`flex items-center gap-1 px-2 py-1 rounded-md transition-colors ${selectedSector === sector ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 font-bold' : 'hover:bg-slate-100 dark:hover:bg-slate-700'}`}>

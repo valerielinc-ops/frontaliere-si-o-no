@@ -226,7 +226,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
               </button>
             </div>
             <div className="flex items-center gap-2">
-              <Clock size={16} className="text-slate-500" />
+              <Clock size={16} className="text-slate-500 dark:text-slate-400" />
               <span className="text-sm text-slate-600 dark:text-slate-500">
                 {lastRefresh.toLocaleTimeString('it-IT')}
               </span>
@@ -404,7 +404,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
           </MapContainer>
 
           {/* Mobile legend */}
-          <div className="sm:hidden flex items-center justify-center gap-4 py-3 bg-white dark:bg-slate-800 text-xs text-slate-500">
+          <div className="sm:hidden flex items-center justify-center gap-4 py-3 bg-white dark:bg-slate-800 text-xs text-slate-500 dark:text-slate-400">
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-emerald-700 inline-block"></span> {t('traffic.status.green')}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span> {t('traffic.status.yellow')}</span>
             <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span> {t('traffic.status.red')}</span>
@@ -449,22 +449,22 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                   <span className={`text-sm font-bold ${textColor}`}>
                     {t(STATUS_LABEL_KEYS[status])} — {effectiveWait(traffic)} min
                   </span>
-                  <span className="text-xs text-slate-500">{traffic.direction}</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400">{traffic.direction}</span>
                 </div>
 
                 {isSelected && (
                   <div className="mt-3 pt-3 border-t border-slate-100 dark:border-slate-700 space-y-1.5 text-sm">
                     <div className="flex justify-between">
-                      <span className="text-slate-500">{t('traffic.hours')}</span>
+                      <span className="text-slate-500 dark:text-slate-400">{t('traffic.hours')}</span>
                       <span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span>
                     </div>
                     <div className="flex justify-between">
-                      <span className="text-slate-500">{t('traffic.customs')}</span>
+                      <span className="text-slate-500 dark:text-slate-400">{t('traffic.customs')}</span>
                       <span className="font-bold">{crossing.customsPresent ? t('traffic.yes') : t('traffic.no')}</span>
                     </div>
                     {traffic.source && (
                       <div className="flex justify-between">
-                        <span className="text-slate-500">{t('traffic.source')}</span>
+                        <span className="text-slate-500 dark:text-slate-400">{t('traffic.source')}</span>
                         <span className="font-bold">{traffic.source === 'mock' ? `🎲 ${t('traffic.simulated')}` : '📍 Google Maps'}</span>
                       </div>
                     )}

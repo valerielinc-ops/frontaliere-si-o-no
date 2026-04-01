@@ -286,7 +286,7 @@ const WorkPermitsGuide: React.FC = () => {
           className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"
         >
           <div className="flex items-center gap-3">
-            <Icon size={20} className="text-slate-500" />
+            <Icon size={20} className="text-slate-500 dark:text-slate-400" />
             <h4 className="font-bold text-slate-800 dark:text-slate-100">{title}</h4>
           </div>
           {isOpen ? <ChevronUp size={18} /> : <ChevronDown size={18} />}
@@ -333,8 +333,8 @@ const WorkPermitsGuide: React.FC = () => {
           >
             <div className="text-2xl mb-1">{p.icon}</div>
             <div className="font-extrabold text-lg">{p.name}</div>
-            <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-white/90' : 'text-slate-500'}`}>{p.fullName}</div>
-            <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-slate-500'}`}>{p.duration}</div>
+            <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-white/90' : 'text-slate-500 dark:text-slate-400'}`}>{p.fullName}</div>
+            <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-slate-500 dark:text-slate-400'}`}>{p.duration}</div>
           </button>
         ))}
       </div>
@@ -473,7 +473,7 @@ const WorkPermitsGuide: React.FC = () => {
 
               {/* Sources */}
               <div className="bg-slate-50 dark:bg-slate-900 rounded-xl p-4 flex items-start gap-3">
-                <FileText size={16} className="text-slate-500 flex-shrink-0 mt-0.5" />
+                <FileText size={16} className="text-slate-500 dark:text-slate-400 flex-shrink-0 mt-0.5" />
                 <p className="text-xs text-slate-600 dark:text-slate-400">{t('permits.g.switchNote')}</p>
               </div>
             </div>
@@ -506,7 +506,7 @@ const WorkPermitsGuide: React.FC = () => {
         <table className="w-full text-sm min-w-[600px]">
           <thead>
             <tr className="border-b-2 border-slate-200 dark:border-slate-700">
-              <th className="text-left py-3 text-slate-500 font-bold">{t('permits.feature')}</th>
+              <th className="text-left py-3 text-slate-500 dark:text-slate-400 font-bold">{t('permits.feature')}</th>
               {permits.map(p => (
                 <th key={p.id} className="text-center py-3 font-bold">
                   <span className="text-lg">{p.icon}</span>

@@ -241,7 +241,7 @@ const HealthInsurance: React.FC = () => {
             <input id="hi-age" type="number" min={0} max={99} value={age}
               onChange={(e) => setAge(Math.max(0, Math.min(99, Number(e.target.value))))}
               className="w-full px-3 py-2 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
-            <span className="text-xs text-slate-500 mt-0.5 block">
+            <span className="text-xs text-slate-500 dark:text-slate-400 mt-0.5 block">
               {ageGroup === '0-18' ? 'Bambino' : ageGroup === '19-25' ? 'Giovane adulto' : 'Adulto'}
             </span>
           </div>
@@ -308,7 +308,7 @@ const HealthInsurance: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-wider">{'Più economica'}</span>
             </div>
             <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{cheapest.premium.toFixed(2)} CHF</p>
-            <p className="text-xs text-slate-500">{cheapest.insurer.name} /mese</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{cheapest.insurer.name} /mese</p>
           </div>
           <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
             <div className="flex items-center gap-2 text-blue-700 dark:text-blue-400 mb-1">
@@ -325,7 +325,7 @@ const HealthInsurance: React.FC = () => {
             <p className="text-2xl font-extrabold text-emerald-700 dark:text-emerald-400">
               {(mostExpensive.annualCost - cheapest.annualCost).toFixed(0)} CHF
             </p>
-            <p className="text-xs text-slate-500">{'tra la più cara e la più economica'}</p>
+            <p className="text-xs text-slate-500 dark:text-slate-400">{'tra la più cara e la più economica'}</p>
           </div>
         </div>
       )}
@@ -333,7 +333,7 @@ const HealthInsurance: React.FC = () => {
 
       <div className="flex flex-col sm:flex-row gap-3 items-start sm:items-center">
         <div className="relative flex-1 max-w-xs">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
           <input type="text" placeholder="Cerca assicurazione..." aria-label="Cerca assicurazione"
             value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100" />
@@ -369,18 +369,18 @@ const HealthInsurance: React.FC = () => {
                         <span className="px-2 py-0.5 bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300 text-xs font-bold uppercase rounded-full">Miglior rapporto</span>)}
                     </div>
                     <div className="flex items-center gap-3 mt-0.5">
-                      <span className="text-xs text-slate-500">{result.insurer.models.length} modelli disponibili</span>
+                      <span className="text-xs text-slate-500 dark:text-slate-400">{result.insurer.models.length} modelli disponibili</span>
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
                     <p className="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-slate-100">
-                      {result.premium.toFixed(2)} <span className="text-sm font-bold text-slate-500">CHF</span></p>
-                    <p className="text-xs text-slate-500">/mese</p>
+                      {result.premium.toFixed(2)} <span className="text-sm font-bold text-slate-500 dark:text-slate-400">CHF</span></p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">/mese</p>
                     {result.savingsVsMax > 0 && result.rank <= 5 && (
                       <p className="text-xs text-emerald-700 dark:text-emerald-400 font-bold mt-0.5">
                         {'risparmi ' + result.savingsVsMax.toFixed(0) + ' CHF/anno'}</p>)}
                   </div>
-                  <div className="text-slate-500">
+                  <div className="text-slate-500 dark:text-slate-400">
                     {isExpanded ? <ChevronUp size={20} /> : <ChevronDown size={20} />}
                   </div>
                 </div>
@@ -389,19 +389,19 @@ const HealthInsurance: React.FC = () => {
                 <div className="px-4 pb-4 border-t border-slate-100 dark:border-slate-700 pt-3 animate-fade-in">
                   <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 mb-4">
                     <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-3">
-                      <p className="text-xs text-slate-500 uppercase font-bold">Premio mensile</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">Premio mensile</p>
                       <p className="text-lg font-bold text-slate-800 dark:text-slate-100">{result.premium.toFixed(2)} CHF</p>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-3">
-                      <p className="text-xs text-slate-500 uppercase font-bold">Costo annuo</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">Costo annuo</p>
                       <p className="text-lg font-bold text-slate-800 dark:text-slate-100">{result.annualCost.toFixed(0)} CHF</p>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-3">
-                      <p className="text-xs text-slate-500 uppercase font-bold">Franchigia</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">Franchigia</p>
                       <p className="text-lg font-bold text-slate-800 dark:text-slate-100">{effectiveFranchise} CHF</p>
                     </div>
                     <div className="bg-slate-50 dark:bg-slate-900/50 rounded-lg p-3">
-                      <p className="text-xs text-slate-500 uppercase font-bold">Tot. max/anno</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 uppercase font-bold">Tot. max/anno</p>
                       <p className="text-lg font-bold text-amber-700 dark:text-amber-400">{result.annualTotal.toFixed(0)} CHF</p>
                     </div>
                   </div>
@@ -446,7 +446,7 @@ const HealthInsurance: React.FC = () => {
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-center py-12 text-slate-500">
+        <div className="text-center py-12 text-slate-500 dark:text-slate-400">
           <Shield size={48} className="mx-auto mb-3 opacity-30" />
           <p className="font-bold">Nessuna assicurazione trovata</p>
           <p className="text-sm">Modifica i parametri o il termine di ricerca</p>
@@ -497,7 +497,7 @@ const HealthInsurance: React.FC = () => {
               </tbody>
             </table>
           </div>
-          <p className="text-xs text-slate-500 mt-3">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">
             {'Basato su ' + cheapest.insurer.name + ' (' + MODEL_LABELS[model] + '). Se usi poche cure mediche, la franchigia 2500 CHF costa meno in totale.'}
           </p>
         </div>
@@ -627,7 +627,7 @@ const HealthInsurance: React.FC = () => {
               </div>
             </div>
           </div>
-          <p className="text-xs text-slate-500 mt-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-4">
             Premio medio mensile standard (adulti 26+, franchigia 300 CHF, senza infortuni). Dati UFSP {data.year}. Comuni TI e GR.
           </p>
         </div>

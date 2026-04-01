@@ -274,11 +274,11 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
                       {alert.locations.length > 0 && (
                         <span> — {alert.locations.join(', ')}</span>
                       )}
-                      <span className="ml-2 text-slate-500">({alert.frequency})</span>
+                      <span className="ml-2 text-slate-500 dark:text-slate-400">({alert.frequency})</span>
                     </div>
                     <button
                       onClick={() => handleDelete(alert.id)}
-                      className="p-1 text-slate-500 hover:text-red-500 transition-colors"
+                      className="p-1 text-slate-500 dark:text-slate-400 hover:text-red-500 transition-colors"
                       title={t('jobAlert.delete') || 'Elimina'}
                     >
                       <Trash2 className="w-3.5 h-3.5" />
@@ -290,7 +290,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
           )}
 
           {loadingAlerts && (
-            <div className="flex items-center gap-2 text-xs text-slate-500">
+            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
               <Loader2 className="w-3 h-3 animate-spin" />
               {t('jobAlert.loading') || 'Caricamento alert...'}
             </div>

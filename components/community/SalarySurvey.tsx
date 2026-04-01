@@ -296,7 +296,7 @@ const SalarySurvey: React.FC = () => {
                 placeholder="80000"
                 className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-900 dark:text-slate-100 font-medium pr-16"
               />
-              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-500">CHF/anno</span>
+              <span className="absolute right-4 top-1/2 -translate-y-1/2 text-sm font-bold text-slate-500 dark:text-slate-400">CHF/anno</span>
             </div>
           </div>
 
@@ -337,7 +337,7 @@ const SalarySurvey: React.FC = () => {
             </div>
           ) : totalResponses === 0 ? (
             <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 text-center">
-              <AlertCircle className="w-12 h-12 text-slate-500 mx-auto mb-3" />
+              <AlertCircle className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto mb-3" />
               <p className="text-slate-600 dark:text-slate-500">{t('salary.noData')}</p>
             </div>
           ) : (
@@ -366,11 +366,11 @@ const SalarySurvey: React.FC = () => {
                       <h4 className="font-bold text-slate-900 dark:text-slate-100">
                         {t(`salary.sector.${agg.sector}`)}
                       </h4>
-                      <p className="text-sm text-slate-500">
+                      <p className="text-sm text-slate-500 dark:text-slate-400">
                         {agg.count} {t('salary.responses')} · {t('salary.medianLabel')}: {formatCHF(agg.median)}
                       </p>
                     </div>
-                    {expandedSector === agg.sector ? <ChevronUp className="w-5 h-5 text-slate-500" /> : <ChevronDown className="w-5 h-5 text-slate-500" />}
+                    {expandedSector === agg.sector ? <ChevronUp className="w-5 h-5 text-slate-500 dark:text-slate-400" /> : <ChevronDown className="w-5 h-5 text-slate-500 dark:text-slate-400" />}
                   </button>
 
                   {expandedSector === agg.sector && (
@@ -378,7 +378,7 @@ const SalarySurvey: React.FC = () => {
                       {/* Salary range visualization */}
                       <div className="space-y-3">
                         <div className="flex justify-between text-sm">
-                          <span className="text-slate-500">25° percentile</span>
+                          <span className="text-slate-500 dark:text-slate-400">25° percentile</span>
                           <span className="font-bold text-slate-700 dark:text-slate-300">{formatCHF(agg.p25)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
@@ -388,11 +388,11 @@ const SalarySurvey: React.FC = () => {
                           <span className="font-bold text-teal-700 dark:text-teal-300 text-lg">{formatCHF(agg.median)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-slate-500">75° percentile</span>
+                          <span className="text-slate-500 dark:text-slate-400">75° percentile</span>
                           <span className="font-bold text-slate-700 dark:text-slate-300">{formatCHF(agg.p75)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-slate-500">{t('salary.average')}</span>
+                          <span className="text-slate-500 dark:text-slate-400">{t('salary.average')}</span>
                           <span className="font-bold text-slate-700 dark:text-slate-300">{formatCHF(agg.avg)}</span>
                         </div>
                       </div>

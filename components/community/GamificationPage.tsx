@@ -156,7 +156,7 @@ const GamificationPage: React.FC = () => {
                   ? 'bg-amber-50 dark:bg-amber-900/20'
                   : 'bg-slate-100 dark:bg-slate-700 grayscale'
               }`}>
-                {isUnlocked ? achievement.icon : <Lock size={20} className="text-slate-500" />}
+                {isUnlocked ? achievement.icon : <Lock size={20} className="text-slate-500 dark:text-slate-400" />}
               </div>
 
               {/* Content */}
@@ -177,13 +177,13 @@ const GamificationPage: React.FC = () => {
                     <div className="flex-1 bg-slate-200 dark:bg-slate-600 rounded-full h-1.5">
                       <div className="bg-amber-500 rounded-full h-1.5 transition-transform duration-300" style={{ width: '100%', transform: `scaleX(${progress})`, transformOrigin: 'left' }} />
                     </div>
-                    <span className="text-xs text-slate-500 font-bold">{count}/{achievement.requiredCount}</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400 font-bold">{count}/{achievement.requiredCount}</span>
                   </div>
                 )}
 
                 {/* Unlocked date */}
                 {isUnlocked && unlockedDate && (
-                  <div className="text-xs text-slate-500 mt-1.5 flex items-center gap-1">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 flex items-center gap-1">
                     <CheckCircle2 size={10} />
                     {t('gamification.unlockedOn') || 'Sbloccato il'} {unlockedDate}
                   </div>
@@ -191,7 +191,7 @@ const GamificationPage: React.FC = () => {
 
                 {/* XP reward */}
                 <div className="flex items-center gap-1 mt-1.5">
-                  <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-slate-500'} />
+                  <Zap size={10} className={isUnlocked ? 'text-amber-500' : 'text-slate-500 dark:text-slate-400'} />
                   <span className={`text-xs font-bold ${isUnlocked ? 'text-amber-600 dark:text-amber-400' : 'text-slate-500'}`}>
                     +50 XP
                   </span>
@@ -224,7 +224,7 @@ const GamificationPage: React.FC = () => {
                       : 'bg-slate-50 dark:bg-slate-800/50 border border-slate-200 dark:border-slate-700 opacity-50'
                 }`}
               >
-                <div className={`text-lg font-black ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-700' : 'text-slate-500'}`}>
+                <div className={`text-lg font-black ${isCurrent ? 'text-amber-600' : isReached ? 'text-emerald-700' : 'text-slate-500 dark:text-slate-400'}`}>
                   {lvl}
                 </div>
                 <div className="text-xs font-bold text-slate-600 dark:text-slate-300 mt-0.5">{title}</div>

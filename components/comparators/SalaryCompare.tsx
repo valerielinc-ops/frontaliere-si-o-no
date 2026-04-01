@@ -302,7 +302,7 @@ export default function SalaryCompare() {
                   <div className="relative">
                     <Search
                       size={16}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400"
                     />
                     <input
                       id="sc-search"
@@ -518,7 +518,7 @@ export default function SalaryCompare() {
                             <td className="py-3 px-3 text-right font-mono text-slate-600 dark:text-slate-400">
                               {'\u20AC'} {r.ppp.toLocaleString()}
                             </td>
-                            <td className="py-3 px-2 text-slate-500">
+                            <td className="py-3 px-2 text-slate-500 dark:text-slate-400">
                               {expandedSectors.has(r.id) ? (
                                 <ChevronUp size={16} />
                               ) : (
@@ -839,7 +839,7 @@ export default function SalaryCompare() {
                 {t('salaryCompare.faq' + n + 'Q')}
                 <ChevronDown
                   size={16}
-                  className="text-slate-500 group-open:rotate-180 transition-transform"
+                  className="text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform"
                 />
               </summary>
               <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400">

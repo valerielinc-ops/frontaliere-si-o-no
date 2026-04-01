@@ -319,7 +319,7 @@ const ShoppingCalculator: React.FC = () => {
                       <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDEE\uD83C\uDDF9'} {product.storeIT}</div>
                       <div className="font-black text-emerald-700 dark:text-emerald-400 text-lg">{'\u20AC'} {product.priceIT.toFixed(2)}</div>
                     </div>
-                    <ArrowRight size={14} className="text-slate-500" />
+                    <ArrowRight size={14} className="text-slate-500 dark:text-slate-400" />
                     <div className="text-center">
                       <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDE8\uD83C\uDDED'} {product.storeCH}</div>
                       <div className="font-black text-red-600 dark:text-red-400 text-lg">{product.priceCH.toFixed(2)} CHF</div>
@@ -570,7 +570,7 @@ const ShoppingCalculator: React.FC = () => {
             <details key={n} className="group border border-slate-200 dark:border-slate-700 rounded-lg">
               <summary className="flex items-center justify-between p-4 cursor-pointer text-sm font-semibold text-slate-800 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-700/30 rounded-lg">
                 {t(`shopping.faq${n}Q`)}
-                <ChevronDown size={16} className="text-slate-500 group-open:rotate-180 transition-transform" />
+                <ChevronDown size={16} className="text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform" />
               </summary>
               <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400">{t(`shopping.faq${n}A`)}</div>
             </details>

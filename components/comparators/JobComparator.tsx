@@ -171,7 +171,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             <div className="space-y-3">
               {/* Country selector */}
               <div>
-                <label className="text-xs font-bold text-slate-500 uppercase flex items-center gap-1">
+                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase flex items-center gap-1">
                   <MapPin size={12} />
                   {t('jobs.country') || 'Paese posizione'}
                 </label>
@@ -203,7 +203,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-500 uppercase">
+                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                   {offer.country === 'CH' ? t('jobs.grossSalary') : t('jobs.grossSalaryIT')}
                 </label>
                 <input type="number" value={offer.grossSalaryCHF} onChange={(e) => updateOffer(offer.id, 'grossSalaryCHF', Number(e.target.value))}
@@ -213,13 +213,13 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
               <div className="grid grid-cols-2 gap-2">
                 <div>
-                  <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.distance')}</label>
+                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.distance')}</label>
                   <input type="number" value={offer.distanceKm} onChange={(e) => updateOffer(offer.id, 'distanceKm', Number(e.target.value))}
                     className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     min={0} />
                 </div>
                 <div>
-                  <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.travelTime')}</label>
+                  <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.travelTime')}</label>
                   <input type="number" value={offer.travelTimeMin} onChange={(e) => updateOffer(offer.id, 'travelTimeMin', Number(e.target.value))}
                     className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     min={0} />
@@ -227,7 +227,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               </div>
 
               <div>
-                <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.homeOffice')}</label>
+                <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.homeOffice')}</label>
                 <input type="range" min={0} max={5} value={offer.homeOfficeDays} onChange={(e) => updateOffer(offer.id, 'homeOfficeDays', Number(e.target.value))}
                   className="w-full accent-amber-600" />
                 <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} {t('jobs.days')}</div>
@@ -253,7 +253,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
         {offers.length < 4 && (
           <button
             onClick={addOffer}
-            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-slate-500 hover:text-amber-600 hover:border-amber-400 transition-all min-h-[200px]"
+            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-slate-500 dark:text-slate-400 hover:text-amber-600 hover:border-amber-400 transition-all min-h-[200px]"
           >
             <Plus size={32} />
             <span className="font-bold">{t('jobs.addOffer')}</span>
@@ -287,20 +287,20 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               <div className="flex items-start justify-between gap-4 mb-4">
                 <div>
                   <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{r.offer.companyName || `${t('jobs.offer')} ${idx + 1}`}</h3>
-                  <p className="text-sm text-slate-500">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
+                  <p className="text-sm text-slate-500 dark:text-slate-400">RAL CHF {r.offer.grossSalaryCHF.toLocaleString('it-IT')} • {r.offer.distanceKm} km • {r.offer.travelTimeMin} min</p>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs font-bold text-slate-500 uppercase">{t('jobs.effectiveNet')}</div>
+                  <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.effectiveNet')}</div>
                   <div className={`text-3xl font-extrabold ${isBest ? 'text-emerald-700' : 'text-slate-800 dark:text-slate-100'}`}>
                     € {Math.round(r.effectiveNetMonthly).toLocaleString('it-IT')}
                   </div>
-                  <div className="text-xs text-slate-500">/mese</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">/mese</div>
                 </div>
               </div>
 
               <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl">
-                  <div className="flex items-center gap-1.5 text-xs text-slate-500 mb-1">
+                  <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 mb-1">
                     <DollarSign size={12} />
                     {t('jobs.netTaxes')}
                   </div>
@@ -334,7 +334,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                   <span className="text-orange-600 font-bold">
                     {t('jobs.difference')}: -€ {Math.round(bestResult.effectiveNetMonthly - r.effectiveNetMonthly).toLocaleString('it-IT')}/{t('common.monthly').toLowerCase()}
                   </span>
-                  <span className="text-slate-500 ml-2">
+                  <span className="text-slate-500 dark:text-slate-400 ml-2">
                     (-€ {Math.round((bestResult.effectiveNetMonthly - r.effectiveNetMonthly) * 12).toLocaleString('it-IT')}/{t('common.annual').toLowerCase()})
                   </span>
                 </div>

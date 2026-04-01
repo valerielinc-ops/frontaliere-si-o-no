@@ -6,7 +6,7 @@
  * "tools for frontalieri" page rather than an ad page.
  */
 
-import React from 'react';
+import React, { useMemo } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { getAllPartners, buildAffiliateUrl, type AffiliatePartner } from '@/services/affiliateService';
@@ -70,6 +70,15 @@ const PartnerServices: React.FC = () => {
   const { t } = useTranslation();
   const allPartners = getAllPartners();
 
+  const partnersByCategory = useMemo(() =>
+    CATEGORIES.map(cat => ({
+      cat,
+      partners: allPartners.filter(p =>
+        p.contexts.some(c => (cat.contexts as readonly string[]).includes(c))
+      ),
+    })).filter(entry => entry.partners.length > 0),
+  [allPartners]);
+
   return (
     <div className="max-w-4xl mx-auto px-4 py-8 space-y-8">
       {/* Header */}
@@ -86,13 +95,7 @@ const PartnerServices: React.FC = () => {
       </div>
 
       {/* Categories */}
-      {CATEGORIES.map(cat => {
-        const categoryPartners = allPartners.filter(p => 
-          p.contexts.some(c => (cat.contexts as readonly string[]).includes(c))
-        );
-        if (categoryPartners.length === 0) return null;
-
-        return (
+      {partnersByCategory.map(({ cat, partners: categoryPartners }) => (
           <div key={cat.key}>
             <h2 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
               <span>{cat.emoji}</span>
@@ -104,8 +107,7 @@ const PartnerServices: React.FC = () => {
               ))}
             </div>
           </div>
-        );
-      })}
+        ))}
 
       {/* Disclosure */}
       <div className="text-center">

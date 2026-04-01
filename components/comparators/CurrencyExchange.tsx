@@ -478,7 +478,7 @@ const CurrencyExchange: React.FC = () => {
             <label htmlFor="exchange-amount" className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wide">{t('currency.amount_to_convert')}</label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span className="text-slate-500 font-bold">CHF</span>
+                <span className="text-slate-500 dark:text-slate-400 font-bold">CHF</span>
               </div>
               <input
                 id="exchange-amount"
@@ -495,7 +495,7 @@ const CurrencyExchange: React.FC = () => {
             <label htmlFor="exchange-rate" className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wide flex items-center gap-2">
               {t('currency.real_market_rate')}
               <div className="group relative inline-flex items-center cursor-help">
-                <Info size={12} className="text-slate-500" />
+                <Info size={12} className="text-slate-500 dark:text-slate-400" />
                 <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 text-white text-[10px] font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none z-50 text-center">
                   {t('currency.mid_market_tooltip')}
                 </div>
@@ -503,7 +503,7 @@ const CurrencyExchange: React.FC = () => {
             </label>
             <div className="relative">
               <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                <span className="text-slate-500 text-sm">1 CHF =</span>
+                <span className="text-slate-500 dark:text-slate-400 text-sm">1 CHF =</span>
               </div>
               <input
                 id="exchange-rate"
@@ -514,7 +514,7 @@ const CurrencyExchange: React.FC = () => {
                 className="w-full pl-20 pr-4 py-3 bg-slate-100 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl font-bold text-slate-600 dark:text-slate-300 text-lg"
               />
             </div>
-            <p className="text-[10px] text-slate-500 text-right min-h-[16px]">
+            <p className="text-[10px] text-slate-500 dark:text-slate-400 text-right min-h-[16px]">
               {lastUpdate ? `${t('currency.updated')}: ${lastUpdate.toLocaleTimeString('it-IT')}` : '\u00A0'}
             </p>
           </div>
@@ -540,20 +540,20 @@ const CurrencyExchange: React.FC = () => {
           </div>
         </div>
         {historyLoading ? (
-          <div className="h-[280px] flex items-center justify-center text-slate-500">
+          <div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400">
             <RefreshCw size={24} className="animate-spin" />
           </div>
         ) : historyData.length > 0 ? (
-          <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-slate-500"><RefreshCw size={24} className="animate-spin" /></div>}>
+          <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400"><RefreshCw size={24} className="animate-spin" /></div>}>
             <LazyExchangeChart data={historyData} />
           </Suspense>
         ) : (
-          <div className="h-[280px] flex items-center justify-center text-slate-500 text-sm">
+          <div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm">
             {t('currency.no_data_available')}
           </div>
         )}
         {historyData.length > 1 && (
-          <div className="flex justify-between mt-3 text-xs text-slate-500 min-h-[20px]">
+          <div className="flex justify-between mt-3 text-xs text-slate-500 dark:text-slate-400 min-h-[20px]">
             <span>Min: {Math.min(...historyData.map(d => d.rate)).toFixed(4)}</span>
             <span>{t('currency.average')}: {(historyData.reduce((s, d) => s + d.rate, 0) / historyData.length).toFixed(4)}</span>
             <span>Max: {Math.max(...historyData.map(d => d.rate)).toFixed(4)}</span>

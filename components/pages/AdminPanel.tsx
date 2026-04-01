@@ -246,7 +246,7 @@ function CopyButton({ text, label }: { text: string; label?: string }) {
       title={`Copia: ${text}`}
       aria-label={`Copia ${label || text}`}
     >
-      {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} className="text-slate-500" />}
+      {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} className="text-slate-500 dark:text-slate-400" />}
       <span className="max-w-[200px] truncate">{text}</span>
     </button>
   );
@@ -961,12 +961,12 @@ export default function AdminPanel() {
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-500">(4–10)</span></span>
+                  <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-500 dark:text-slate-400">(4–10)</span></span>
                   <input type="number" min={4} max={10} value={minQualityScoreInput} onChange={e => setMinQualityScoreInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-500">(80–600 car.)</span></span>
+                  <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-500 dark:text-slate-400">(80–600 car.)</span></span>
                   <input type="number" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
@@ -1001,7 +1001,7 @@ export default function AdminPanel() {
                   </button>
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-500">(0–100)</span></span>
+                  <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-500 dark:text-slate-400">(0–100)</span></span>
                   <input type="number" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
@@ -1036,17 +1036,17 @@ export default function AdminPanel() {
                   </button>
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span>Similarità min <span className="text-[10px] text-slate-500">(0.70–1.00)</span></span>
+                  <span>Similarità min <span className="text-[10px] text-slate-500 dark:text-slate-400">(0.70–1.00)</span></span>
                   <input type="number" min={0.7} max={1} step={0.01} value={contentReuseSimilarityThresholdInput} onChange={e => setContentReuseSimilarityThresholdInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span>Char sorgente min <span className="text-[10px] text-slate-500">(120–8000)</span></span>
+                  <span>Char sorgente min <span className="text-[10px] text-slate-500 dark:text-slate-400">(120–8000)</span></span>
                   <input type="number" min={120} max={8000} value={contentReuseMinSourceCharsInput} onChange={e => setContentReuseMinSourceCharsInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  <span>Delta lunghezza max <span className="text-[10px] text-slate-500">(0.02–1.00)</span></span>
+                  <span>Delta lunghezza max <span className="text-[10px] text-slate-500 dark:text-slate-400">(0.02–1.00)</span></span>
                   <input type="number" min={0.02} max={1} step={0.01} value={contentReuseMaxLengthDeltaRatioInput} onChange={e => setContentReuseMaxLengthDeltaRatioInput(Number(e.target.value))}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
@@ -1067,12 +1067,12 @@ export default function AdminPanel() {
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Whitelist: se compilata, solo questi domini vengono crawlati. Blacklist: domini sempre esclusi.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Domain Whitelist <span className="text-[10px] text-slate-500">(1 host per riga)</span>
+                  Domain Whitelist <span className="text-[10px] text-slate-500 dark:text-slate-400">(1 host per riga)</span>
                   <textarea rows={5} value={domainWhitelistText} onChange={e => setDomainWhitelistText(e.target.value)} placeholder="esempio.com"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Domain Blacklist <span className="text-[10px] text-slate-500">(1 host per riga)</span>
+                  Domain Blacklist <span className="text-[10px] text-slate-500 dark:text-slate-400">(1 host per riga)</span>
                   <textarea rows={5} value={domainBlacklistText} onChange={e => setDomainBlacklistText(e.target.value)} placeholder="esempio-da-escludere.com"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
@@ -1092,24 +1092,24 @@ export default function AdminPanel() {
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Priorità: punteggio numerico per ordinare le aziende nel crawl. Seed: URL career page iniziali.</p>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Priorità per dominio <span className="text-[10px] text-slate-500">(JSON: {`{"host": score}`})</span>
+                  Priorità per dominio <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"host": score}`})</span>
                   <textarea rows={6} value={companyPriorityByDomainText} onChange={e => setCompanyPriorityByDomainText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Priorità per nome <span className="text-[10px] text-slate-500">(JSON: {`{"name": score}`})</span>
+                  Priorità per nome <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"name": score}`})</span>
                   <textarea rows={6} value={companyPriorityByNameText} onChange={e => setCompanyPriorityByNameText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Seed URL per dominio <span className="text-[10px] text-slate-500">(JSON: {`{"host": ["url1","url2"]}`})</span>
+                  Seed URL per dominio <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"host": ["url1","url2"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByDomainText} onChange={e => setSourceSeedsByDomainText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
-                  Seed URL per nome azienda <span className="text-[10px] text-slate-500">(JSON: {`{"name": ["url1"]}`})</span>
+                  Seed URL per nome azienda <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"name": ["url1"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByNameText} onChange={e => setSourceSeedsByNameText(e.target.value)}
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
@@ -1538,7 +1538,7 @@ export default function AdminPanel() {
                           <div className="flex gap-3 mt-0.5">
                             {job.url && <a href={job.url} target="_blank" rel="noreferrer" className="text-[10px] text-blue-600 dark:text-blue-400 hover:underline">🔗 Sorgente</a>}
                             {siteUrl && (type === 'removed' ? (
-                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-slate-500 hover:underline">🏚 Sito (archiviato)</a>
+                              <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-slate-500 dark:text-slate-400 hover:underline">🏚 Sito (archiviato)</a>
                             ) : (
                               <a href={siteUrl} target="_blank" rel="noreferrer" className="text-[10px] text-indigo-600 dark:text-indigo-400 hover:underline">🏠 Sito</a>
                             ))}
@@ -1670,7 +1670,7 @@ export default function AdminPanel() {
                     {/* Filters */}
                     <div className="flex flex-wrap items-center gap-2 px-1">
                       <div className="relative">
-                        <Search size={12} className="absolute left-2 top-1/2 -translate-y-1/2 text-slate-500" />
+                        <Search size={12} className="absolute left-2 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
                         <input
                           type="text"
                           value={crawlerNameFilter}
@@ -3155,7 +3155,7 @@ export default function AdminPanel() {
                   text="gh workflow run send-confirmation-email.yml -f email=subscriber@example.com -f token=UUID"
                   label="Workflow dispatch"
                 />
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-500 dark:text-slate-400">
                   Il workflow legge i subscriber con <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-xs">status: 'pending'</code> da Firestore,
                   genera un link di conferma con token, e invia via Resend.
                   Al click del link, una Cloud Function aggiorna <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-xs">status: 'confirmed'</code> e <code className="bg-slate-100 dark:bg-slate-800 px-1 py-0.5 rounded text-xs">isActive: true</code>.

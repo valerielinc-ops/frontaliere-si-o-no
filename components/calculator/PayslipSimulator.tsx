@@ -112,7 +112,7 @@ function calculatePayslip(grossAnnual: number, age: number, maritalStatus: 'sing
 
 const InfoTooltip = ({ text }: { text: string }) => (
   <div className="group relative inline-flex items-center ml-1.5 cursor-help z-50">
-    <Info size={12} className="text-slate-500 hover:text-indigo-500 transition-colors" />
+    <Info size={12} className="text-slate-500 dark:text-slate-400 hover:text-indigo-500 transition-colors" />
     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-48 p-2.5 bg-slate-800 dark:bg-slate-700 text-white text-xs font-medium leading-relaxed rounded-xl shadow-xl border border-slate-600 pointer-events-none text-center">
       {text}
       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
@@ -126,7 +126,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
     <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-all border-r border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-all border-r border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: diminuisci`}
         type="button"
       >
@@ -152,7 +152,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
       </div>
       <button
         onClick={() => onChange(max ? Math.min(max, value + 1) : value + 1)}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-all border-l border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-all border-l border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: aumenta`}
         type="button"
       >
@@ -233,14 +233,14 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
         aria-label={t('payslip.lppAgeRates')}
       >
         <div className="flex items-center gap-3">
-          <div className={`p-2 rounded-lg transition-colors ${showInfo ? 'bg-amber-100 text-amber-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-500'}`}>
+          <div className={`p-2 rounded-lg transition-colors ${showInfo ? 'bg-amber-100 text-amber-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}>
             <Info size={18} />
           </div>
           <span className={`text-sm font-bold transition-colors ${showInfo ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-500'}`}>
             {t('payslip.lppAgeRates')}
           </span>
         </div>
-        <div className={`transition-transform duration-300 ${showInfo ? 'rotate-180 text-indigo-500' : 'text-slate-500'}`}>
+        <div className={`transition-transform duration-300 ${showInfo ? 'rotate-180 text-indigo-500' : 'text-slate-500 dark:text-slate-400'}`}>
           <ChevronDown size={18} />
         </div>
       </button>
@@ -252,7 +252,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <span>{(r.rate * 100).toFixed(1)}%</span>
             </div>
           ))}
-          <p className="mt-2 text-xs text-slate-500">{t('payslip.anniFiglio')}</p>
+          <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{t('payslip.anniFiglio')}</p>
         </div>
       )}
     </div>
@@ -309,7 +309,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               </label>
               <div className="relative group transition-transform duration-200 focus-within:scale-[1.01]">
                 <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-                  <span className="text-slate-500 font-bold text-lg">CHF</span>
+                  <span className="text-slate-500 dark:text-slate-400 font-bold text-lg">CHF</span>
                 </div>
                 <input
                   type="text"
@@ -348,7 +348,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     <option value="single">{t('payslip.single')}</option>
                     <option value="married">{t('payslip.married')}</option>
                   </select>
-                  <ChevronDown size={14} className="absolute right-3 top-3.5 text-slate-500 pointer-events-none"/>
+                  <ChevronDown size={14} className="absolute right-3 top-3.5 text-slate-500 dark:text-slate-400 pointer-events-none"/>
                 </div>
               </div>
             </div>
@@ -356,7 +356,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
 
           {/* Section 2: Family */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-5">
-            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
               <Baby size={14} className="text-pink-500"/> {t('payslip.children')}
             </h3>
             <StepperInput

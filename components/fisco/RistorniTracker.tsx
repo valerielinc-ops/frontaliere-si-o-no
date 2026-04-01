@@ -110,7 +110,7 @@ const RistorniTracker: React.FC = () => {
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <Calculator size={18} className="text-violet-600" /> {t('ristorni.yourContribution')}
           </h3>
-          {expandedSection === 'calculator' ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
+          {expandedSection === 'calculator' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
         {expandedSection === 'calculator' && (
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -171,7 +171,7 @@ const RistorniTracker: React.FC = () => {
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <TrendingUp size={18} className="text-emerald-700" /> {t('ristorni.ranking')}
           </h3>
-          {expandedSection === 'ranking' ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
+          {expandedSection === 'ranking' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
         {expandedSection === 'ranking' && (
           <div className="px-4 pb-4 space-y-2 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
@@ -215,7 +215,7 @@ const RistorniTracker: React.FC = () => {
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <TrendingUp size={18} className="text-blue-600" /> {t('ristorni.historicalTrend')}
           </h3>
-          {expandedSection === 'history' ? <ChevronUp size={18} className="text-slate-500" /> : <ChevronDown size={18} className="text-slate-500" />}
+          {expandedSection === 'history' ? <ChevronUp size={18} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={18} className="text-slate-500 dark:text-slate-400" />}
         </button>
         {expandedSection === 'history' && (
           <div className="px-4 pb-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">

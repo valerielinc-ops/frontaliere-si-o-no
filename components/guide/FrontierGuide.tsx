@@ -1,4 +1,4 @@
-import React, { useState, useEffect, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { useTranslation } from '../../services/i18n';
 import { requestSlot, releaseSlot, isActive, subscribe, POPUP_PRIORITY } from '@/services/popupQueue';
 import NaspiCalculator from '@/components/calculator/NaspiCalculator';
@@ -38,7 +38,7 @@ const LazyLeafletMap = ({ children }: { children: (leaflet: { MapContainer: any,
     });
     return () => { mounted = false; };
   }, []);
-  if (!leaflet) return <div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 text-sm">Loading map…</span></div>;
+  if (!leaflet) return <div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 dark:text-slate-400 text-sm">Loading map…</span></div>;
   return <>{children(leaflet)}</>;
 };
 import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink, Rocket, X } from 'lucide-react';
@@ -266,7 +266,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
       <div className="p-4 border-b border-slate-200 dark:border-slate-700 space-y-3">
         {/* Search */}
         <div className="relative">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
           <input
             type="text"
             value={schoolSearch}
@@ -563,7 +563,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
   };
 
   // Comuni frontalieri — lista completa da data/municipalities.ts (115 comuni, 5 province)
-  const lombardyMunicipalities: Municipality[] = BORDER_MUNICIPALITIES.map(m => ({
+  const lombardyMunicipalities: Municipality[] = useMemo(() => BORDER_MUNICIPALITIES.map(m => ({
     name: m.name,
     province: PROVINCE_NAMES[m.province] || m.province,
     distance: m.distanceKm,
@@ -575,9 +575,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
     irpefAddizionale: m.irpefAddizionale,
     fascia: m.fascia,
     avgRentMonthly: m.avgRentMonthly,
-  }));
+  })), []);
 
-  const filteredMunicipalities = lombardyMunicipalities
+  const filteredMunicipalities = useMemo(() => lombardyMunicipalities
     .filter(m => {
       if (filterProvince !== 'all' && m.province !== PROVINCE_NAMES[filterProvince]) return false;
       if (filterType === 'all') return true;
@@ -588,7 +588,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
     .sort((a, b) => {
       if (sortBy === 'distance') return a.distance - b.distance;
       return b.population - a.population;
-    });
+    }), [lombardyMunicipalities, filterProvince, filterType, sortBy]);
   const selectedMunicipalityIndex = selectedMunicipality
     ? filteredMunicipalities.findIndex((m) => m.name === selectedMunicipality.name)
     : -1;
@@ -600,7 +600,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
     : -1;
 
   // Dogane Canton Ticino - Italia (fonte centralizzata: data/borderCrossings.ts)
-  const borderCrossings = centralizedBorderCrossings.map(c => ({
+  const borderCrossings = useMemo(() => centralizedBorderCrossings.map(c => ({
     name: c.name,
     italianSide: c.italianSide,
     avgWaitMorning: c.avgWaitMorning,
@@ -611,7 +611,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
     lat: c.lat,
     lng: c.lng,
     traffic: c.trafficLevel,
-  }));
+  })), []);
 
 
   return (
@@ -800,7 +800,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <span className="text-slate-700 dark:text-slate-300">{t('guide.legendBoth')}</span>
               </div>
             </div>
-            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 text-sm">Loading map…</span></div>}>
+            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 dark:text-slate-400 text-sm">Loading map…</span></div>}>
               <LazyLeafletMap>
                 {({ MapContainer, TileLayer, Marker, Popup, L }) => (
                   <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
@@ -995,7 +995,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               <MapPin size={16} className="text-red-500" />
               {t('guide.border.interactiveMap')}
             </h3>
-            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 text-sm">Loading map…</span></div>}>
+            <Suspense fallback={<div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 dark:text-slate-400 text-sm">Loading map…</span></div>}>
               <LazyLeafletMap>
                 {({ MapContainer, TileLayer, Marker, Popup, L }) => (
                   <div className="h-[500px] rounded-xl overflow-hidden border-2 border-slate-200 dark:border-slate-700">
@@ -1032,7 +1032,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                               <Popup>
                                 <div className="text-sm min-w-[200px]">
                                   <div className="font-bold text-slate-800 mb-1">{border.name}</div>
-                                  <div className="text-xs text-slate-600 mb-2">📍 {border.italianSide}</div>
+                                  <div className="text-xs text-slate-600 dark:text-slate-400 mb-2">📍 {border.italianSide}</div>
                                   <div className="text-xs space-y-1">
                                     <div><strong>🌅 {t('guide.border.morning')}:</strong> {border.avgWaitMorning}</div>
                                     <div><strong>🌆 {t('guide.border.evening')}:</strong> {border.avgWaitEvening}</div>
@@ -1126,11 +1126,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     <div className="space-y-2">
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-slate-600 dark:text-slate-300">{t('guide.border.waitMorning')} (🌅 7-9)</span>
-                        <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-slate-600'}`}>{border.avgWaitMorning}</span>
+                        <span className={`text-sm font-bold ${selectedTime === 'morning' ? 'text-orange-600' : 'text-slate-600 dark:text-slate-400'}`}>{border.avgWaitMorning}</span>
                       </div>
                       <div className="flex items-center justify-between">
                         <span className="text-xs text-slate-600 dark:text-slate-300">{t('guide.border.waitEvening')} (🌆 17-19)</span>
-                        <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-purple-600' : 'text-slate-600'}`}>{border.avgWaitEvening}</span>
+                        <span className={`text-sm font-bold ${selectedTime === 'evening' ? 'text-purple-600' : 'text-slate-600 dark:text-slate-400'}`}>{border.avgWaitEvening}</span>
                       </div>
                       <div className="pt-2 border-t border-slate-200 dark:border-slate-700">
                         <div className="text-xs text-slate-500 dark:text-slate-400 mb-1">⏰ {t('guide.border.openingHours')}</div>

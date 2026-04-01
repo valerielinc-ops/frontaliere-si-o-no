@@ -154,12 +154,12 @@ const CarTransferGuide: React.FC = () => {
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
                     <div className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('carTransfer.customs.ivaLabel')}</div>
                     <div className="text-xl font-bold text-slate-800 dark:text-slate-200">8.1%</div>
-                    <div className="text-xs text-slate-500">{t('carTransfer.customs.ivaNote')}</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('carTransfer.customs.ivaNote')}</div>
                   </div>
                   <div className="bg-white dark:bg-slate-800 rounded-lg p-3 border border-blue-200 dark:border-blue-800">
                     <div className="text-xs text-blue-600 dark:text-blue-400 font-semibold">{t('carTransfer.customs.dutyLabel')}</div>
                     <div className="text-xl font-bold text-slate-800 dark:text-slate-200">0 CHF</div>
-                    <div className="text-xs text-slate-500">{t('carTransfer.customs.dutyNote')}</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">{t('carTransfer.customs.dutyNote')}</div>
                   </div>
                 </div>
               </div>
@@ -251,24 +251,24 @@ const CarTransferGuide: React.FC = () => {
                 <h4 className="font-bold text-slate-700 dark:text-slate-300 mb-3">{t('carTransfer.plates.typesTitle')}</h4>
                 <ul className="space-y-3 text-sm">
                   <li className="flex items-start gap-3">
-                    <div className="shrink-0 w-16 h-8 bg-white border-2 border-slate-300 rounded flex items-center justify-center text-xs font-bold text-slate-700">TI ···</div>
+                    <div className="shrink-0 w-16 h-8 bg-white border-2 border-slate-300 rounded flex items-center justify-center text-xs font-bold text-slate-700 dark:text-slate-300">TI ···</div>
                     <div>
                       <div className="font-semibold text-slate-700 dark:text-slate-300">{t('carTransfer.plates.permanent')}</div>
-                      <div className="text-slate-500">{t('carTransfer.plates.permanentDesc')}</div>
+                      <div className="text-slate-500 dark:text-slate-400">{t('carTransfer.plates.permanentDesc')}</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="shrink-0 w-16 h-8 bg-blue-100 border-2 border-blue-300 rounded flex items-center justify-center text-xs font-bold text-blue-700">U ···</div>
                     <div>
                       <div className="font-semibold text-slate-700 dark:text-slate-300">{t('carTransfer.plates.temp')}</div>
-                      <div className="text-slate-500">{t('carTransfer.plates.tempDesc')}</div>
+                      <div className="text-slate-500 dark:text-slate-400">{t('carTransfer.plates.tempDesc')}</div>
                     </div>
                   </li>
                   <li className="flex items-start gap-3">
                     <div className="shrink-0 w-16 h-8 bg-yellow-100 border-2 border-yellow-400 rounded flex items-center justify-center text-xs font-bold text-yellow-700">TI ···</div>
                     <div>
                       <div className="font-semibold text-slate-700 dark:text-slate-300">{t('carTransfer.plates.transfer')}</div>
-                      <div className="text-slate-500">{t('carTransfer.plates.transferDesc')}</div>
+                      <div className="text-slate-500 dark:text-slate-400">{t('carTransfer.plates.transferDesc')}</div>
                     </div>
                   </li>
                 </ul>
@@ -446,7 +446,7 @@ const CarTransferGuide: React.FC = () => {
                     <tr key={i} className="border-b border-slate-100 dark:border-slate-800">
                       <td className="py-3 px-4 text-slate-700 dark:text-slate-300">{row.item}</td>
                       <td className="py-3 px-4 text-right font-bold text-slate-800 dark:text-slate-200">{row.amount}</td>
-                      <td className="py-3 px-4 text-slate-500">{row.note}</td>
+                      <td className="py-3 px-4 text-slate-500 dark:text-slate-400">{row.note}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -536,7 +536,7 @@ const CarTransferGuide: React.FC = () => {
                 className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
               >
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 pr-4">{item.q}</span>
-                {expandedFaq === i ? <ChevronUp size={16} className="shrink-0 text-slate-500" /> : <ChevronDown size={16} className="shrink-0 text-slate-500" />}
+                {expandedFaq === i ? <ChevronUp size={16} className="shrink-0 text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="shrink-0 text-slate-500 dark:text-slate-400" />}
               </button>
               {expandedFaq === i && (
                 <div className="px-4 pb-4 text-sm text-slate-600 dark:text-slate-400 border-t border-slate-100 dark:border-slate-700 pt-3">

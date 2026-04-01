@@ -233,12 +233,12 @@ const GamificationWidget: React.FC = () => {
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {state.streak > 0 && (
-                    <div className="flex items-center gap-1 text-xs text-slate-500">
+                    <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
                       <Flame size={14} className="text-orange-400" />
                       <span className="font-bold">{state.streak}</span>
                     </div>
                   )}
-                  <div className="flex items-center gap-1 text-xs text-slate-500">
+                  <div className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400">
                     <CheckCircle2 size={14} className="text-emerald-500" />
                     <span className="font-bold">{unlockedCount}/{totalCount}</span>
                   </div>
@@ -252,7 +252,7 @@ const GamificationWidget: React.FC = () => {
                     style={{ width: `${xpProgressPct}%` }}
                   />
                 </div>
-                <div className="flex justify-between text-[9px] text-slate-500 mt-0.5">
+                <div className="flex justify-between text-[9px] text-slate-500 dark:text-slate-400 mt-0.5">
                   <span>{levelInfo.currentXp}/{levelInfo.nextLevelXp} XP</span>
                   <span>{progressPercent}%</span>
                 </div>
@@ -261,11 +261,11 @@ const GamificationWidget: React.FC = () => {
 
             {/* Recent achievements (last unlocked) */}
             <div className="px-3 py-2">
-              <div className="text-xs uppercase tracking-wider text-slate-500 font-bold mb-2 px-1">
+              <div className="text-xs uppercase tracking-wider text-slate-500 dark:text-slate-400 font-bold mb-2 px-1">
                 {t('gamification.recentAchievements') || 'Ultimi sbloccati'}
               </div>
               {recentAchievements.length === 0 ? (
-                <div className="text-center py-4 text-xs text-slate-500">
+                <div className="text-center py-4 text-xs text-slate-500 dark:text-slate-400">
                   {t('gamification.noAchievementsYet') || 'Nessun achievement sbloccato ancora. Esplora il sito!'}
                 </div>
               ) : (

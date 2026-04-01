@@ -3849,7 +3849,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               <p className="text-sm text-slate-600 dark:text-slate-400">{t('jobBoard.authGateDescription')}</p>
             </div>
           </div>
-          <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-1 rounded-lg text-slate-500 hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
+          <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-1 rounded-lg text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-200" aria-label={t('common.close')}>
             <X size={18} />
           </button>
         </div>
@@ -5164,7 +5164,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
                     />
                   ) : (
-                    <Building2 className="w-9 h-9 text-slate-500" />
+                    <Building2 className="w-9 h-9 text-slate-500 dark:text-slate-400" />
                   )}
                 </a>
                 <div className="min-w-0">
@@ -5317,7 +5317,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                       onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }}
                     />
                   ) : (
-                    <Building2 className="w-4 h-4 text-slate-500" />
+                    <Building2 className="w-4 h-4 text-slate-500 dark:text-slate-400" />
                   )}
                 </div>
                 <div className="min-w-0">
@@ -5398,7 +5398,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                           className="flex items-center justify-between gap-2 rounded-lg px-2 py-1.5 bg-slate-50 hover:bg-slate-100 dark:bg-slate-900/50 dark:hover:bg-slate-900 text-slate-700 dark:text-slate-200 transition-colors"
                         >
                           <span className="font-medium leading-tight">{crossing.name}</span>
-                          <ArrowUpRight className="w-3 h-3 text-slate-500" />
+                          <ArrowUpRight className="w-3 h-3 text-slate-500 dark:text-slate-400" />
                         </a>
                       ))}
                     </div>
@@ -5518,7 +5518,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                         {jobLogo ? (
                           <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
                         ) : (
-                          <Building2 className="w-5 h-5 text-slate-500" />
+                          <Building2 className="w-5 h-5 text-slate-500 dark:text-slate-400" />
                         )}
                       </div>
                       <div className="min-w-0">
@@ -5636,7 +5636,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-blue-500/20 to-violet-500/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" />
           <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 group-focus-within:border-indigo-500 dark:group-focus-within:border-indigo-400 shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-indigo-500/10 transition-all duration-200">
-            <Search className="ml-4 w-5 h-5 text-slate-500 group-focus-within:text-indigo-500 dark:group-focus-within:text-indigo-400 transition-colors shrink-0" />
+            <Search className="ml-4 w-5 h-5 text-slate-500 dark:text-slate-400 group-focus-within:text-indigo-500 dark:group-focus-within:text-indigo-400 transition-colors shrink-0" />
             <input
               ref={searchInputRef}
               type="text"
@@ -5650,7 +5650,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               <button
                 type="button"
                 onClick={() => setSearchQuery('')}
-                className="p-2 mr-1 rounded-full text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
+                className="p-2 mr-1 rounded-full text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors"
                 aria-label="Clear search"
               >
                 <X className="w-4 h-4" />
@@ -5792,7 +5792,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
               </div>
 
               <div className="relative">
@@ -5812,7 +5812,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
               </div>
 
               <div className="relative">
@@ -5833,7 +5833,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
               </div>
 
               <div className="relative">
@@ -5853,7 +5853,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     </option>
                   ))}
                 </select>
-                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 pointer-events-none" />
+                <ChevronDown className="absolute right-2 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500 dark:text-slate-400 pointer-events-none" />
               </div>
             </div>
           </div>

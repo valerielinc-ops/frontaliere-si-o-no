@@ -297,7 +297,7 @@ const BankComparison: React.FC = () => {
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
                     {bank.accountFee === 0 ? t('banks.free') : `${bank.accountFee} ${bank.country === 'CH' ? 'CHF' : '€'}`}
                   </div>
-                  <div className="text-xs text-slate-500">{t('banks.monthlyFee')}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">{t('banks.monthlyFee')}</div>
                 </div>
               </div>
 

@@ -414,8 +414,8 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
   };
 
   return (
-    <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sm:backdrop-blur-xl rounded-3xl shadow-xl shadow-slate-200/50 border border-white/60 dark:border-slate-800 overflow-hidden flex flex-col h-full animate-fade-in-up transition-colors duration-300">
-      <div className="p-5 bg-white/50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start sm:items-center sticky top-0 z-10 backdrop-blur-md gap-4 flex-col sm:flex-row">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 overflow-hidden flex flex-col h-full animate-fade-in-up transition-colors duration-300">
+      <div className="p-5 bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-800 flex justify-between items-start sm:items-center sticky top-0 z-10 gap-4 flex-col sm:flex-row">
         <div className="flex-1 w-full">
            <div className="flex justify-between items-center mb-2">
              <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100">{t('results.comparativeAnalysis')}</h2>
@@ -432,7 +432,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                  </button>
                  <button
                    onClick={() => setShowEUR(true)}
-                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all ${showEUR ? 'bg-white dark:bg-slate-700 text-amber-700 dark:text-amber-300 shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${showEUR ? 'bg-white dark:bg-slate-700 text-amber-700 dark:text-amber-300 shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
                    aria-label={t('results.showEUR')}
                  >
                    EUR
@@ -441,7 +441,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                {nav && (
                  <button
                    onClick={() => { const newFocus = !isFocusMode; nav.setIsFocusMode(newFocus); Analytics.trackFocusMode(newFocus); }}
-                   className={`p-2 rounded-xl transition-all ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                   className={`p-2 rounded-xl transition-colors ${isFocusMode ? 'bg-blue-50 dark:bg-blue-900/20 text-blue-600 dark:text-blue-400' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                    title={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                    aria-label={isFocusMode ? t('results.detailedView') : t('results.conciseView')}
                  >
@@ -450,7 +450,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                )}
                <button 
                  onClick={exportPDF} 
-                 className="p-2 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-all flex-shrink-0 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
+                 className="p-2 rounded-xl text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800 transition-[color,background-color,box-shadow] flex-shrink-0 focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
                  title={t('results.downloadPDF')}
                  aria-label={t('results.downloadPDF')}
                >
@@ -458,7 +458,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                </button>
                <button
                  onClick={handleShare}
-                 className={`p-2 rounded-xl transition-all flex-shrink-0 ${shareState === 'copied' ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20' : 'text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
+                 className={`p-2 rounded-xl transition-colors flex-shrink-0 ${shareState === 'copied' ? 'text-emerald-700 bg-emerald-50 dark:bg-emerald-900/20' : 'text-slate-500 hover:text-blue-600 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                  title={shareState === 'copied' ? t('results.share.copied') : t('results.share.button')}
                  aria-label={t('results.share.button')}
                >
@@ -475,7 +475,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                     key={idx}
                     type="button"
                     onClick={() => onProfileTagClick(tag.field!)}
-                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-xs'} font-bold uppercase tracking-wide border border-transparent transition-all active:scale-[0.98] ${tag.bg} ${tag.color} sm:cursor-default`}
+                    className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg ${tag.field === 'maritalStatus' ? 'text-[9px] sm:text-xs' : 'text-xs'} font-bold uppercase tracking-wide border border-transparent transition-transform active:scale-[0.98] ${tag.bg} ${tag.color} sm:cursor-default`}
                     aria-label={tag.label}
                   >
                     <tag.icon size={12} strokeWidth={2.5} />
@@ -494,7 +494,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
 
       <div className="p-4 sm:p-6 flex-grow overflow-y-auto custom-scrollbar bg-slate-50/30 dark:bg-slate-950/30">
         {/* Banner with Fun Animation */}
-        <div className={`p-4 sm:p-6 rounded-3xl text-white shadow-lg mb-8 relative overflow-hidden transition-all duration-500 group ${
+        <div className={`p-4 sm:p-6 rounded-3xl text-white shadow-lg mb-8 relative overflow-hidden transition-colors duration-500 group ${
             isBetterFrontaliere 
             ? 'bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600' 
             : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700'
@@ -509,7 +509,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
            </div>
            
            <div className="flex items-center gap-4 sm:gap-6 relative z-10">
-              <div className="bg-white/20 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
+              <div className="bg-white/10 p-3 sm:p-4 rounded-2xl shrink-0 transition-transform group-hover:scale-110 duration-300">
                 {isBetterFrontaliere ? <Trophy size={28} className="text-yellow-300" /> : <Armchair size={28} className="text-indigo-200" />}
               </div>
               <div className="min-w-0">
@@ -547,7 +547,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
           <div
             id="results-ch-section"
             ref={chSectionRef}
-            className={`bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-all hover:shadow-md ${
+            className={`bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
               focusArea === 'CH'
                 ? 'border-blue-400 dark:border-blue-500 ring-2 ring-blue-200/80 dark:ring-blue-900/60'
                 : 'border-slate-100 dark:border-slate-700'
@@ -559,7 +559,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                  <div className="text-xs font-bold text-blue-700 dark:text-blue-400 uppercase tracking-widest mb-1 bg-blue-50 dark:bg-blue-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInTicino')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.switzerland')}</div>
                </div>
-               <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" width={32} height={21} />
+               <img src="https://flagcdn.com/w80/ch.png" className="w-8 rounded opacity-90" alt="CH" width={32} height={21} loading="lazy" />
             </div>
 
             <div className="space-y-4">
@@ -603,7 +603,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
           <div
             id="results-it-section"
             ref={itSectionRef}
-            className={`bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-all hover:shadow-md ${
+            className={`bg-white dark:bg-slate-800 rounded-3xl p-4 sm:p-6 shadow-sm border relative group transition-[box-shadow,border-color] hover:shadow-md ${
               focusArea === 'IT'
                 ? 'border-emerald-400 dark:border-emerald-500 ring-2 ring-emerald-200/80 dark:ring-emerald-900/60'
                 : 'border-slate-100 dark:border-slate-700'
@@ -615,7 +615,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                  <div className="text-xs font-bold text-red-700 dark:text-red-400 uppercase tracking-widest mb-1 bg-red-50 dark:bg-red-900/20 px-2 py-0.5 rounded-full inline-block">{t('results.liveInItaly')}</div>
                  <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('results.italy')}</div>
                </div>
-               <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} />
+               <img src="https://flagcdn.com/w80/it.png" className="w-8 rounded opacity-90" alt="IT" width={32} height={21} loading="lazy" />
             </div>
 
             <div className="space-y-4">

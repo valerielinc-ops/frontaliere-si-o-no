@@ -101,7 +101,7 @@ function calculateTfrRevaluation(previousTotal: number, inflationRate: number): 
 
 const InfoTooltip = ({ text }: { text: string }) => (
   <div className="group relative inline-flex items-center ml-1.5 cursor-help">
-    <Info size={14} className="text-slate-500 hover:text-blue-500 transition-colors" />
+    <Info size={14} className="text-slate-500 dark:text-slate-400 hover:text-blue-500 transition-colors" />
     <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block w-64 p-3 bg-slate-800 dark:bg-slate-700 text-white text-xs leading-relaxed rounded-xl shadow-2xl z-50 border border-slate-600">
       {text}
       <div className="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-slate-800 dark:border-t-slate-700"></div>
@@ -303,7 +303,7 @@ const TfrCalculator: React.FC = () => {
               <InfoTooltip text={t('tfr.salaryChfInfo')} />
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-500">CHF</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">CHF</span>
               <input
                 id="tfr-salary-chf"
                 type="number"
@@ -324,7 +324,7 @@ const TfrCalculator: React.FC = () => {
               <InfoTooltip text={t('tfr.salaryEurInfo')} />
             </label>
             <div className="relative">
-              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-500">€</span>
+              <span className="absolute left-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">€</span>
               <input
                 id="tfr-salary-eur"
                 type="number"
@@ -388,7 +388,7 @@ const TfrCalculator: React.FC = () => {
                 max={10}
                 step={0.1}
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500">%</span>
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">%</span>
             </div>
           </div>
 
@@ -409,7 +409,7 @@ const TfrCalculator: React.FC = () => {
                 max={5}
                 step={0.25}
               />
-              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500">%</span>
+              <span className="absolute right-3 top-1/2 -translate-y-1/2 text-xs text-slate-500 dark:text-slate-400">%</span>
             </div>
           </div>
         </div>
@@ -480,7 +480,7 @@ const TfrCalculator: React.FC = () => {
             <Clock className="w-4 h-4 text-slate-600 dark:text-slate-400" />
             {t('tfr.yearlyBreakdown')}
           </h2>
-          {showTable ? <ChevronUp size={16} className="text-slate-500" /> : <ChevronDown size={16} className="text-slate-500" />}
+          {showTable ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
         </button>
 
         {showTable && (
@@ -583,7 +583,7 @@ const TfrCalculator: React.FC = () => {
             <details key={i} className="group bg-slate-50 dark:bg-slate-700/30 rounded-xl overflow-hidden">
               <summary className="px-4 py-3 cursor-pointer text-sm font-medium text-slate-900 dark:text-white hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors list-none flex items-center justify-between">
                 {t(`tfr.faq${i}Q`)}
-                <ChevronDown size={14} className="text-slate-500 group-open:rotate-180 transition-transform" />
+                <ChevronDown size={14} className="text-slate-500 dark:text-slate-400 group-open:rotate-180 transition-transform" />
               </summary>
               <div className="px-4 pb-3 text-xs text-slate-700 dark:text-slate-300 leading-relaxed">
                 {t(`tfr.faq${i}A`)}

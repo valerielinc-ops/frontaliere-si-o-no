@@ -84,19 +84,19 @@ export const DataDeletion: React.FC = () => {
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">What We Do Collect:</h3>
             <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-500">
               <li className="flex items-start gap-2">
-                <span className="text-slate-500">•</span>
+                <span className="text-slate-500 dark:text-slate-400">•</span>
                 <span><strong>Account Data (if signed in):</strong> Email address, display name, and profile photo from your Google or Facebook account, stored in Firebase Authentication and Firestore.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-slate-500">•</span>
+                <span className="text-slate-500 dark:text-slate-400">•</span>
                 <span><strong>Newsletter Subscription:</strong> Email address if you subscribe to our newsletter, stored in Firestore.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-slate-500">•</span>
+                <span className="text-slate-500 dark:text-slate-400">•</span>
                 <span><strong>Anonymous Analytics:</strong> Google Analytics collects anonymous usage statistics (page views, device type, browser). No personally identifiable information.</span>
               </li>
               <li className="flex items-start gap-2">
-                <span className="text-slate-500">•</span>
+                <span className="text-slate-500 dark:text-slate-400">•</span>
                 <span><strong>Local Preferences:</strong> Theme preferences (dark/light mode) stored in your browser's local storage. Never leaves your device.</span>
               </li>
             </ul>

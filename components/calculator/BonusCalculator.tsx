@@ -301,7 +301,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
                 aria-label={t('bonus.refreshRate')}
                 title={t('bonus.refreshRate')}
               >
-                <RefreshCw size={14} className={`text-slate-500 ${rateLoading ? 'animate-spin' : ''}`} />
+                <RefreshCw size={14} className={`text-slate-500 dark:text-slate-400 ${rateLoading ? 'animate-spin' : ''}`} />
               </button>
             </div>
             {rateOverride !== null && (

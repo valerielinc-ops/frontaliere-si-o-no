@@ -193,7 +193,7 @@ function LocationAutocomplete({
     <div ref={containerRef} className="relative">
       <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{label}</label>
       <div className="relative">
-        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+        <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 pointer-events-none" />
         <input
           ref={inputRef}
           type="text"
@@ -211,7 +211,7 @@ function LocationAutocomplete({
         {value && !isOpen && (
           <button
             onClick={() => { setQuery(''); inputRef.current?.focus(); setIsOpen(true); }}
-            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
+            className="absolute right-2 top-1/2 -translate-y-1/2 p-1 text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300"
             aria-label="Cambia"
           >
             <ChevronDown size={14} />
@@ -427,7 +427,7 @@ const ResidencySimulator: React.FC = () => {
             <label className="block text-xs font-bold text-slate-500 dark:text-slate-400 mb-1">{t('residency.exchangeRate')}</label>
             <div className="flex items-center gap-2 px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700">
               <span className="text-sm font-bold text-slate-800 dark:text-slate-200">1 CHF = {chfEurRate.toFixed(4)} EUR</span>
-              {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-500" />}
+              {rateLoading && <RefreshCw size={12} className="animate-spin text-slate-500 dark:text-slate-400" />}
             </div>
             <p className="text-xs text-slate-500 dark:text-slate-400 mt-0.5">{t('exchange.liveRate') || 'Tasso live'}</p>
           </div>
@@ -440,7 +440,7 @@ const ResidencySimulator: React.FC = () => {
         {/* From card */}
         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
           <div className="flex items-center gap-2 mb-3">
-            <MapPin className="w-4 h-4 text-slate-500" />
+            <MapPin className="w-4 h-4 text-slate-500 dark:text-slate-400" />
             <h3 className="font-bold text-sm text-slate-500 dark:text-slate-400">{fromLoc.name} ({t('residency.current')})</h3>
           </div>
           <p className="text-2xl font-black text-slate-800 dark:text-slate-200">€{Math.round(result.fromMonthly).toLocaleString('it-IT')}</p>
@@ -505,7 +505,7 @@ const ResidencySimulator: React.FC = () => {
           </div>
           <div className="flex items-center gap-2">
             <span className="text-lg font-black text-amber-600 dark:text-amber-400">€{Math.round(result.totalOneTime).toLocaleString('it-IT')}</span>
-            {showDetails ? <ChevronUp size={16} className="text-slate-500" /> : <ChevronDown size={16} className="text-slate-500" />}
+            {showDetails ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
           </div>
         </button>
 
@@ -640,7 +640,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
       <div className="space-y-3">
         <div className="flex gap-2">
           <div className="relative flex-1">
-            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none" />
+            <Search size={14} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 pointer-events-none" />
             <input
               type="text"
               value={searchQuery}
@@ -650,7 +650,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
               aria-label={t('residency.bestMunicipality.searchPlaceholder') || 'Cerca comune'}
             />
             {searchQuery && (
-              <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 hover:text-slate-600" aria-label="Pulisci ricerca">
+              <button onClick={() => setSearchQuery('')} className="absolute right-2 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400 hover:text-slate-600" aria-label="Pulisci ricerca">
                 <X size={14} />
               </button>
             )}
@@ -724,19 +724,19 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
           </div>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 text-center">
             <div>
-              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.monthlyTotal')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.monthlyTotal')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">€{best.totalMonthlyCost.toLocaleString()}</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.irpef')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.irpef')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.irpefComunale}%</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.distance')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.distance')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.distanceToBorderKm} km</p>
             </div>
             <div>
-              <p className="text-xs text-slate-500">{t('residency.bestMunicipality.queue')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.bestMunicipality.queue')}</p>
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">{best.avgQueueMinutes}' {t('residency.bestMunicipality.avg')}</p>
             </div>
           </div>
@@ -766,7 +766,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
                 {loc.name} {loc.province ? <span className="text-slate-500 dark:text-slate-400 font-normal">({loc.province})</span> : ''}
                 {loc.fascia && <span className="ml-1.5 text-[9px] px-1.5 py-0.5 bg-violet-100 dark:bg-violet-900/30 text-violet-600 dark:text-violet-400 rounded-full font-medium">F{loc.fascia}</span>}
               </p>
-              <div className="flex items-center gap-3 text-xs text-slate-500">
+              <div className="flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
                 <span className="flex items-center gap-0.5"><Navigation size={8} /> {loc.nearestCrossing}</span>
                 <span className="flex items-center gap-0.5"><Car size={8} /> {loc.distanceToBorderKm} km</span>
                 <span className="flex items-center gap-0.5"><Clock size={8} /> {loc.avgQueueMinutes}'</span>
@@ -774,7 +774,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
             </div>
             <div className="text-right shrink-0">
               <p className="text-sm font-bold text-slate-700 dark:text-slate-300">€{loc.totalMonthlyCost.toLocaleString()}/m</p>
-              <p className="text-xs text-slate-500">IRPEF com. {loc.irpefComunale}%</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400">IRPEF com. {loc.irpefComunale}%</p>
             </div>
           </div>
         ))}

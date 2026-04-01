@@ -316,7 +316,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           <p className="text-slate-600 dark:text-slate-500 mb-3">
             {t('newsletter.doubleOptIn.description')}
           </p>
-          <p className="text-xs text-slate-500 mb-4">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
             {t('newsletter.doubleOptIn.spamHint')}
           </p>
 
@@ -338,7 +338,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           {/* FRO-26: Resend confirmation */}
           {email && (
             <div className="mt-4">
-              <p className="text-xs text-slate-500 mb-1">{t('newsletter.pendingReminder.resend')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('newsletter.pendingReminder.resend')}</p>
               <button
                 disabled={resendStatus === 'sending' || resendStatus === 'sent'}
                 onClick={async () => {
@@ -365,7 +365,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         <form onSubmit={handleSubscribe} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">{t('newsletter.emailLabel')}</label>
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.emailLabel')}</label>
               <EmailInput
                 value={email}
                 onChange={(val) => { setEmail(val); setStatus('idle'); }}
@@ -374,7 +374,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
               />
             </div>
             <div>
-              <label className="text-xs font-bold text-slate-500 uppercase mb-1 block">{t('newsletter.nameLabel')}</label>
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.nameLabel')}</label>
               <input type="text" value={name}
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Mario"
@@ -386,7 +386,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
 
           {/* Preferences */}
           <div>
-            <label className="text-xs font-bold text-slate-500 uppercase mb-3 block">{t('newsletter.interestsLabel')}</label>
+            <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-3 block">{t('newsletter.interestsLabel')}</label>
             <div className="grid grid-cols-2 gap-3">
               {[
                 { key: 'exchangeRate', label: `💱 ${t('newsletter.exchangeRate')}`, desc: t('newsletter.exchangeRateDesc') },
@@ -407,7 +407,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                     className="mt-1 w-4 h-4 rounded text-teal-600 focus:ring-teal-500" />
                   <div>
                     <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>
-                    <div className="text-xs text-slate-500">{pref.desc}</div>
+                    <div className="text-xs text-slate-500 dark:text-slate-400">{pref.desc}</div>
                   </div>
                 </label>
               ))}
@@ -426,7 +426,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
           )}
 
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-2 text-xs text-slate-500">
+            <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
               <Shield size={14} />
               {t('newsletter.protectedBy')}
             </div>
@@ -447,7 +447,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             </button>
           </div>
 
-          <p className="text-xs text-slate-500 text-center">
+          <p className="text-xs text-slate-500 dark:text-slate-400 text-center">
             {t('newsletter.unsubscribeNotice')}
           </p>
         </form>

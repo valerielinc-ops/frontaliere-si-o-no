@@ -241,7 +241,7 @@ export const ProfileLoginCTA: React.FC<{
       {onDismiss && (
         <button
           onClick={() => { setDismissed(true); onDismiss(); }}
-          className="text-xs text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
+          className="text-xs text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300"
           aria-label={t('profile.cta.dismiss')}
         >
           ✕
@@ -357,7 +357,7 @@ const FamilyMemberRow: React.FC<{
     <div className="flex flex-col sm:flex-row gap-2 p-3 bg-slate-50 dark:bg-slate-900/40 rounded-xl border border-slate-100 dark:border-slate-800">
       <div className="flex-1 grid grid-cols-2 gap-2">
         <div>
-          <label htmlFor={`rel-${member.id}`} className="text-xs font-bold text-slate-500 uppercase">{t('profile.family.relationship')}</label>
+          <label htmlFor={`rel-${member.id}`} className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.family.relationship')}</label>
           <select
             id={`rel-${member.id}`}
             value={member.relationship}
@@ -373,7 +373,7 @@ const FamilyMemberRow: React.FC<{
           </select>
         </div>
         <div>
-          <label htmlFor={`year-${member.id}`} className="text-xs font-bold text-slate-500 uppercase">{t('profile.family.birthYear')}</label>
+          <label htmlFor={`year-${member.id}`} className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.family.birthYear')}</label>
           <input
             id={`year-${member.id}`}
             type="number"
@@ -864,7 +864,7 @@ const UserProfile: React.FC = () => {
             </button>
             */}
 
-            <div className="flex items-center gap-2 justify-center text-xs text-slate-500">
+            <div className="flex items-center gap-2 justify-center text-xs text-slate-500 dark:text-slate-400">
               <Shield size={12} />
               <span>{t('profile.privacyNote')}</span>
             </div>
@@ -957,7 +957,7 @@ const UserProfile: React.FC = () => {
         {/* Quick actions strip */}
         <div className="px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-100 dark:border-slate-800">
           <div className="flex items-center gap-2 overflow-x-auto">
-            <span className="text-xs font-bold text-slate-500 uppercase whitespace-nowrap">{t('profile.quickActions')}</span>
+            <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase whitespace-nowrap">{t('profile.quickActions')}</span>
             {[
               { icon: Calculator, label: t('profile.action.simulate'), tab: 'calculator' },
               { icon: Sparkles, label: t('profile.action.whatif'), tab: 'calculator', subTab: 'whatif' },
@@ -993,7 +993,7 @@ const UserProfile: React.FC = () => {
                   <span className="text-lg font-bold text-emerald-700 dark:text-emerald-400 tabular-nums">
                     {Math.round(quickSimResult.chResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-xs text-slate-500">CHF/{t('profile.widget.month')}</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400">CHF/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* Net salary (IT) */}
@@ -1007,7 +1007,7 @@ const UserProfile: React.FC = () => {
                   <span className="text-lg font-bold text-blue-600 dark:text-blue-400 tabular-nums">
                     {Math.round(quickSimResult.itResident.netIncomeMonthly).toLocaleString('de-CH')}
                   </span>
-                  <span className="text-xs text-slate-500">EUR/{t('profile.widget.month')}</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400">EUR/{t('profile.widget.month')}</span>
                 </button>
               )}
               {/* EUR/CHF rate */}
@@ -1020,7 +1020,7 @@ const UserProfile: React.FC = () => {
                 <span className="text-lg font-bold text-amber-600 dark:text-amber-400 tabular-nums">
                   {fxRate.toFixed(4)}
                 </span>
-                <span className="text-xs text-slate-500">{t('profile.widget.live')}</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400">{t('profile.widget.live')}</span>
               </button>
               {/* Preferred dogana / morning dashboard */}
               <button
@@ -1094,7 +1094,7 @@ const UserProfile: React.FC = () => {
                       <>
                         <span className={`text-2xl font-extrabold tabular-nums ${numColor}`}>{diffDays}</span>
                         <span className={`text-sm font-medium ${textColor}`}>{t('profile.permit.daysLeft')}</span>
-                        {diffMonths > 0 && <span className="text-xs text-slate-500 ml-1">({diffMonths} {t('profile.permit.months')})</span>}
+                        {diffMonths > 0 && <span className="text-xs text-slate-500 dark:text-slate-400 ml-1">({diffMonths} {t('profile.permit.months')})</span>}
                       </>
                     )}
                   </div>
@@ -1125,7 +1125,7 @@ const UserProfile: React.FC = () => {
               </span>
             )}
             {saveStatus === 'saving' && (
-              <span className="flex items-center gap-1 text-xs text-slate-500 font-medium">
+              <span className="flex items-center gap-1 text-xs text-slate-500 dark:text-slate-400 font-medium">
                 <Loader2 size={13} className="animate-spin" />
                 {t('profile.saving')}
               </span>
@@ -1316,7 +1316,7 @@ const UserProfile: React.FC = () => {
                   </span>
                 )}
               </h3>
-              <span className="text-slate-500 text-lg font-medium" aria-hidden>
+              <span className="text-slate-500 dark:text-slate-400 text-lg font-medium" aria-hidden>
                 {showFamily ? '−' : '+'}
               </span>
             </button>
@@ -1366,7 +1366,7 @@ const UserProfile: React.FC = () => {
 
                 {/* Detailed family members list */}
                 <div className="space-y-2">
-                  <p className="text-xs text-slate-500 font-medium">{t('profile.family.detailLabel')}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">{t('profile.family.detailLabel')}</p>
                   {(profile.familyMembersList || []).map(member => (
                     <FamilyMemberRow
                       key={member.id}
@@ -1525,7 +1525,7 @@ const UserProfile: React.FC = () => {
             aria-controls="profile-privacy-content"
             className="flex items-center gap-2 text-lg font-bold text-slate-800 dark:text-slate-100 focus:outline-none cursor-pointer rounded-md focus:ring-2 focus:ring-indigo-500"
           >
-            <Shield size={18} className="text-slate-500" />
+            <Shield size={18} className="text-slate-500 dark:text-slate-400" />
             <span>{t('profile.privacySection')}</span>
           </div>
 
@@ -1539,7 +1539,7 @@ const UserProfile: React.FC = () => {
           >
           <div className="overflow-hidden space-y-3 mt-3">
             {/* Privacy note */}
-            <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-500">
+            <div className="flex items-center gap-3 px-4 py-3 bg-slate-50 dark:bg-slate-900 rounded-xl border border-slate-200 dark:border-slate-700 text-xs text-slate-500 dark:text-slate-400">
               <Shield size={14} className="flex-shrink-0" />
               <p>{t('profile.dataPrivacy')}</p>
             </div>

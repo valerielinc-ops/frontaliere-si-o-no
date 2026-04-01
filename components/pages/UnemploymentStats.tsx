@@ -184,7 +184,7 @@ const UnemploymentStats: React.FC = () => {
 
   if (loading) {
     return (
-      <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sm:backdrop-blur-xl rounded-3xl shadow-xl border border-white/60 dark:border-slate-800 flex items-center justify-center py-32">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex items-center justify-center py-32">
         <Loader2 className="animate-spin h-10 w-10 text-amber-500" />
       </div>
     );
@@ -192,7 +192,7 @@ const UnemploymentStats: React.FC = () => {
 
   if (!data) {
     return (
-      <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sm:backdrop-blur-xl rounded-3xl shadow-xl border border-white/60 dark:border-slate-800 flex flex-col items-center justify-center py-32 space-y-3">
+      <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col items-center justify-center py-32 space-y-3">
         <BarChart3 size={40} className="text-slate-500" />
         <p className="text-slate-500 dark:text-slate-400 text-sm">{localeLabels.noData}</p>
       </div>
@@ -200,9 +200,9 @@ const UnemploymentStats: React.FC = () => {
   }
 
   return (
-    <div className="bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm sm:backdrop-blur-xl rounded-3xl shadow-xl border border-white/60 dark:border-slate-800 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
+    <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
       {/* Header */}
-      <div className="p-6 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10 bg-white/50 dark:bg-slate-900/50 backdrop-blur-md rounded-t-3xl">
+      <div className="p-6 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10 bg-white dark:bg-slate-800 rounded-t-2xl">
         <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
           <BarChart3 size={20} className="text-amber-500" /> {localeLabels.title}
         </h2>

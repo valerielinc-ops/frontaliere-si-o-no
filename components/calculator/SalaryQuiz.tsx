@@ -277,7 +277,7 @@ export default function SalaryQuiz() {
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
                   {t(`salaryQuiz.experience.${level}`)}
                 </span>
-                <ChevronRight size={18} className="text-slate-500 group-hover:text-emerald-500" />
+                <ChevronRight size={18} className="text-slate-500 dark:text-slate-400 group-hover:text-emerald-500" />
               </button>
             ))}
           </div>
@@ -298,7 +298,7 @@ export default function SalaryQuiz() {
                 onClick={() => handleProvinceSelect(prov)}
                 className="flex items-center gap-2 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
               >
-                <MapPin size={16} className="text-slate-500 group-hover:text-emerald-500" />
+                <MapPin size={16} className="text-slate-500 dark:text-slate-400 group-hover:text-emerald-500" />
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 capitalize">
                   {t(`salaryQuiz.province.${prov}`)}
                 </span>

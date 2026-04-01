@@ -209,7 +209,7 @@ export const FeedbackSection: React.FC = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
         {/* Form Section */}
-        <div className="bg-white/70 dark:bg-slate-900/70 backdrop-blur-sm sm:backdrop-blur-xl p-4 sm:p-6 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-xl shadow-slate-200/50 dark:shadow-slate-950/50">
+        <div className="bg-white dark:bg-slate-800 p-4 sm:p-6 rounded-2xl border border-slate-200 dark:border-slate-700 shadow-sm">
           <div className="flex items-center gap-3 mb-6">
             <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600 dark:text-indigo-400 rounded-xl">
               <MessageSquare size={20} />
@@ -222,21 +222,21 @@ export const FeedbackSection: React.FC = () => {
               <button 
                 type="button"
                 onClick={() => setFormData(prev => ({...prev, type: 'BUG'}))}
-                className={`p-3 rounded-2xl border-2 transition-all flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'BUG' ? 'border-red-500 bg-red-50 dark:bg-red-900/20 text-red-600' : 'border-slate-100 dark:border-slate-800 text-slate-500'}`}
+                className={`p-3 rounded-2xl border-2 transition-all flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'BUG' ? 'border-red-500 bg-red-50 dark:bg-red-900/20 text-red-600' : 'border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400'}`}
               >
                 <Bug size={16} /> Bug
               </button>
               <button 
                 type="button"
                 onClick={() => setFormData(prev => ({...prev, type: 'FEATURE'}))}
-                className={`p-3 rounded-2xl border-2 transition-all flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'FEATURE' ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600' : 'border-slate-100 dark:border-slate-800 text-slate-500'}`}
+                className={`p-3 rounded-2xl border-2 transition-all flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'FEATURE' ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600' : 'border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400'}`}
               >
                 <Lightbulb size={16} /> Feature
               </button>
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-500 uppercase ml-1">{t('feedback.titleLabel')}</label>
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase ml-1">{t('feedback.titleLabel')}</label>
               <input 
                 value={formData.title}
                 onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
@@ -246,7 +246,7 @@ export const FeedbackSection: React.FC = () => {
             </div>
 
             <div className="space-y-1 relative">
-              <label className="text-xs font-bold text-slate-500 uppercase ml-1">{t('feedback.detailsLabel')}</label>
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase ml-1">{t('feedback.detailsLabel')}</label>
               <textarea 
                 value={formData.description}
                 onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
@@ -281,7 +281,7 @@ export const FeedbackSection: React.FC = () => {
             </button>
             
             {!githubToken && (
-              <p className="text-xs text-center text-slate-500">
+              <p className="text-xs text-center text-slate-500 dark:text-slate-400">
                 <Lock size={10} className="inline mr-1"/>
                 {t('feedback.requiresToken')}
               </p>
@@ -292,10 +292,10 @@ export const FeedbackSection: React.FC = () => {
         {/* List Section */}
         <div className="space-y-4">
           <div className="flex items-center justify-between px-2">
-            <h3 className="text-xs font-bold text-slate-500 uppercase tracking-widest flex items-center gap-2">
+            <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest flex items-center gap-2">
               <Github size={14} /> {t('feedback.recentActivity')}
             </h3>
-            <a href={`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues`} target="_blank" rel="noreferrer" className="text-xs bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold text-slate-500 hover:text-indigo-500 flex items-center gap-1 transition-colors">
+            <a href={`https://github.com/${REPO_OWNER}/${REPO_NAME}/issues`} target="_blank" rel="noreferrer" className="text-xs bg-slate-200 dark:bg-slate-800 px-2 py-0.5 rounded-full font-bold text-slate-500 dark:text-slate-400 hover:text-indigo-500 flex items-center gap-1 transition-colors">
               {t('feedback.viewAll')} <ExternalLink size={8} />
             </a>
           </div>
@@ -324,11 +324,11 @@ export const FeedbackSection: React.FC = () => {
                           {item.description}
                         </p>
                         <div className="flex items-center gap-3 mt-3">
-                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20' : 'bg-slate-100 text-slate-500 dark:bg-slate-800'}`}>
+                          <span className={`text-[9px] font-bold px-1.5 py-0.5 rounded flex items-center gap-1 ${item.status === 'OPEN' ? 'bg-emerald-50 text-emerald-700 dark:bg-emerald-900/20' : 'bg-slate-100 text-slate-500 dark:text-slate-400 dark:bg-slate-800'}`}>
                             {item.status === 'OPEN' ? <Clock size={10} /> : <CheckCircle size={10} />}
                             {item.status}
                           </span>
-                          <span className="text-[9px] text-slate-500 flex items-center gap-1 font-medium">
+                          <span className="text-[9px] text-slate-500 dark:text-slate-400 flex items-center gap-1 font-medium">
                             <Clock size={10} /> {new Date(item.createdAt).toLocaleDateString()}
                           </span>
                         </div>
@@ -341,7 +341,7 @@ export const FeedbackSection: React.FC = () => {
             ) : (
               <div className="text-center py-12 bg-slate-50/50 dark:bg-slate-900/50 rounded-3xl border-2 border-dashed border-slate-200 dark:border-slate-800">
                 <Github size={32} className="mx-auto text-slate-300 mb-3" />
-                <p className="text-sm text-slate-500">{t('feedback.noReports')}</p>
+                <p className="text-sm text-slate-500 dark:text-slate-400">{t('feedback.noReports')}</p>
               </div>
             )}
           </div>

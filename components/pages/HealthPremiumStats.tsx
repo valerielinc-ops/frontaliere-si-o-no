@@ -109,7 +109,7 @@ const HealthPremiumStats: React.FC = () => {
 
   if (!data) {
     return (
-      <div className="flex items-center justify-center min-h-[300px] text-slate-500">
+      <div className="flex items-center justify-center min-h-[300px] text-slate-500 dark:text-slate-400">
         <Heart className="animate-pulse mr-2" size={20} /> Caricamento dati premi...
       </div>
     );
@@ -168,7 +168,7 @@ const HealthPremiumStats: React.FC = () => {
                 <span className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
                   <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')}</span>
-                  <span className="text-slate-500 text-xs">({c.canton})</span>
+                  <span className="text-slate-500 dark:text-slate-400 text-xs">({c.canton})</span>
                 </span>
                 <span className="font-bold text-emerald-700 dark:text-emerald-400">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
@@ -185,7 +185,7 @@ const HealthPremiumStats: React.FC = () => {
                 <span className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-full bg-red-100 dark:bg-red-900/50 text-red-700 dark:text-red-300 flex items-center justify-center text-xs font-bold">{i + 1}</span>
                   <span className="text-slate-700 dark:text-slate-300">{c.municipality.replace(/^\d+-/, '')}</span>
-                  <span className="text-slate-500 text-xs">({c.canton})</span>
+                  <span className="text-slate-500 dark:text-slate-400 text-xs">({c.canton})</span>
                 </span>
                 <span className="font-bold text-red-700 dark:text-red-400">{c.avgPremium.toFixed(0)} CHF</span>
               </div>
@@ -201,7 +201,7 @@ const HealthPremiumStats: React.FC = () => {
             <MapPin size={16} /> Classifica completa ({filtered.length} comuni)
           </h3>
           <div className="flex items-center gap-2">
-            <Filter size={14} className="text-slate-500" />
+            <Filter size={14} className="text-slate-500 dark:text-slate-400" />
             <select
               value={cantonFilter}
               onChange={(e) => setCantonFilter(e.target.value)}
@@ -251,12 +251,12 @@ const HealthPremiumStats: React.FC = () => {
                 const globalRank = filtered.indexOf(c) + 1;
                 return (
                   <tr key={c.municipality} className="border-b border-slate-100 dark:border-slate-700/50 hover:bg-slate-50 dark:hover:bg-slate-700/30">
-                    <td className="py-2 px-2 text-slate-500 font-mono">{globalRank}</td>
+                    <td className="py-2 px-2 text-slate-500 dark:text-slate-400 font-mono">{globalRank}</td>
                     <td className="py-2 px-2 text-slate-700 dark:text-slate-300 font-medium">
                       {c.municipality.replace(/^\d+-/, '')}
-                      <span className="text-slate-500 ml-1 text-xs">{c.municipality.match(/^\d+/)?.[0]}</span>
+                      <span className="text-slate-500 dark:text-slate-400 ml-1 text-xs">{c.municipality.match(/^\d+/)?.[0]}</span>
                     </td>
-                    <td className="py-2 px-2 text-center text-slate-500">{c.canton}</td>
+                    <td className="py-2 px-2 text-center text-slate-500 dark:text-slate-400">{c.canton}</td>
                     <td className={`py-2 px-2 text-right font-bold ${
                       globalRank <= 10 ? 'text-emerald-700 dark:text-emerald-400' :
                       globalRank > filtered.length - 10 ? 'text-red-700 dark:text-red-400' :
@@ -264,7 +264,7 @@ const HealthPremiumStats: React.FC = () => {
                     }`}>
                       {c.avgPremium.toFixed(0)} CHF
                     </td>
-                    <td className="py-2 px-2 text-right text-slate-500">{c.numInsurers}</td>
+                    <td className="py-2 px-2 text-right text-slate-500 dark:text-slate-400">{c.numInsurers}</td>
                   </tr>
                 );
               })}
@@ -283,7 +283,7 @@ const HealthPremiumStats: React.FC = () => {
       </div>
 
       {/* Source attribution */}
-      <div className="text-center text-xs text-slate-500 space-y-1">
+      <div className="text-center text-xs text-slate-500 dark:text-slate-400 space-y-1">
         <p>
           Dati ufficiali UFSP/BAG {data.year}. Premi standard, adulti 26+, franchigia 300 CHF, senza copertura infortuni.
         </p>
