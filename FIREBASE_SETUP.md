@@ -30,8 +30,8 @@ Sempre in **Authentication → Settings → Authorized domains**, verifica che s
 - `localhost` (per sviluppo locale)
 - `frontaliere-ticino.firebaseapp.com` (authDomain legacy)
 - `auth.frontaliereticino.ch` (authDomain custom per OAuth)
-- `www.frontaliereticino.ch` (dominio di produzione)
-- `frontaliereticino.ch`
+- `frontaliereticino.ch` (dominio di produzione)
+- `www.frontaliereticino.ch` (redirect al dominio principale)
 
 Se manca il dominio di produzione, clicca **Add domain** e aggiungilo.
 

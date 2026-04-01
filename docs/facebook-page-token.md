@@ -110,7 +110,7 @@ To avoid renewal, ensure:
 FB_PAGE_ACCESS_TOKEN=your_token FB_PAGE_ID=your_page_id \
   node scripts/post-to-facebook.mjs \
     "test-article" \
-    "https://www.frontaliereticino.ch/articoli-frontaliere/test" \
+    "https://frontaliereticino.ch/articoli-frontaliere/test" \
     "Test Article Title" \
     "Test article description" \
     "pratico" \

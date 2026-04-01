@@ -367,7 +367,7 @@ This is a client-side SPA on GitHub Pages. SEO requires extra care because searc
    - `<xhtml:link rel="alternate">` for all 4 locales + x-default
    - Appropriate `<lastmod>`, `<changefreq>`, and `<priority>`
 3. **Hreflang consistency**: Every URL in the sitemap must have matching hreflang entries. If locale `X` links to locale `Y`, locale `Y` must link back to `X`.
-4. **Canonical URLs**: Always use `https://www.frontaliereticino.ch/` (with `www`, with trailing path, no trailing slash except root).
+4. **Canonical URLs**: Always use `https://frontaliereticino.ch/` (NO `www`, with trailing path, no trailing slash except root).
 5. **Meta descriptions**: 150–160 characters, include primary keyword, in the page's locale language.
 6. **Titles**: Format `Keyword Phrase | Frontaliere Ticino`. Max 60 characters.
 7. **Structured data**: Add JSON-LD `structuredData` to `SEO_METADATA` entries for tool/calculator pages (use `WebApplication` or `FAQPage` schema as appropriate).
@@ -379,12 +379,12 @@ This is a client-side SPA on GitHub Pages. SEO requires extra care because searc
 When adding a new page:
 ```xml
 <url>
-  <loc>https://www.frontaliereticino.ch/{italian-slug}</loc>
-  <xhtml:link rel="alternate" hreflang="it" href="https://www.frontaliereticino.ch/{it-slug}" />
-  <xhtml:link rel="alternate" hreflang="en" href="https://www.frontaliereticino.ch/en/{en-slug}" />
-  <xhtml:link rel="alternate" hreflang="de" href="https://www.frontaliereticino.ch/de/{de-slug}" />
-  <xhtml:link rel="alternate" hreflang="fr" href="https://www.frontaliereticino.ch/fr/{fr-slug}" />
-  <xhtml:link rel="alternate" hreflang="x-default" href="https://www.frontaliereticino.ch/{it-slug}" />
+  <loc>https://frontaliereticino.ch/{italian-slug}</loc>
+  <xhtml:link rel="alternate" hreflang="it" href="https://frontaliereticino.ch/{it-slug}" />
+  <xhtml:link rel="alternate" hreflang="en" href="https://frontaliereticino.ch/en/{en-slug}" />
+  <xhtml:link rel="alternate" hreflang="de" href="https://frontaliereticino.ch/de/{de-slug}" />
+  <xhtml:link rel="alternate" hreflang="fr" href="https://frontaliereticino.ch/fr/{fr-slug}" />
+  <xhtml:link rel="alternate" hreflang="x-default" href="https://frontaliereticino.ch/{it-slug}" />
   <lastmod>YYYY-MM-DD</lastmod>
   <changefreq>weekly|monthly</changefreq>
   <priority>0.8</priority>
