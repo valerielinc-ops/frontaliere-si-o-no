@@ -1,16 +1,16 @@
 {
   "key": "mcdonald-s-switzerland",
   "label": "mcdonalds",
-  "generatedAt": "2026-04-01T09:42:49.424Z",
+  "generatedAt": "2026-04-01T21:31:54.418Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 3,
-  "durationMs": 4276,
-  "avgDurationMs": 4276,
+  "durationMs": 3992,
+  "avgDurationMs": 3992,
   "durationHistory": [
-    4276
+    3992
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -25,7 +25,7 @@
       "location": "Chur",
       "canton": "GR",
       "country": "CH",
-      "slug": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
+      "slug": "mcdonald-s-citta-di-coira-mcdonald-s-switzerland-chur",
       "category": "gastronomy",
       "datePosted": "2026-03-24",
       "validThrough": "2026-04-28",
@@ -39,7 +39,6 @@
         "location": "Chur"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -49,11 +48,11 @@
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -66,7 +65,7 @@
       "location": "Chur",
       "canton": "GR",
       "country": "CH",
-      "slug": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
+      "slug": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chiasso",
       "category": "gastronomy",
       "datePosted": "2026-03-24",
       "validThrough": "2026-04-28",
@@ -80,7 +79,6 @@
         "location": "Chur"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -90,11 +88,11 @@
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 79,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     },
@@ -107,7 +105,7 @@
       "location": "Lugano",
       "canton": "TI",
       "country": "CH",
-      "slug": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
+      "slug": "collaboratore-trice-lamone-mcdonald-s-switzerland-chiasso",
       "category": "gastronomy",
       "datePosted": "2026-03-03",
       "validThrough": "2026-04-30",
@@ -121,7 +119,6 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -131,11 +128,12 @@
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 79,
+      "needsRetranslation": true,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 20
       }
     }
