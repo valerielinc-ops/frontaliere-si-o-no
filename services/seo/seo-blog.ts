@@ -10001,6 +10001,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-contingente-uova-svizzera': {
+    title: 'Svizzera a corto di uova: aumenta il contingente doganale | Frontaliere Ticino',
+    description: 'Il Consiglio federale svizzero aumenta il contingente doganale per le uova del 71% a causa della carenza di uova nel mercato svizzero. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, corto, uova, aumenta, contingente',
+    ogTitle: 'Svizzera a corto di uova: aumenta il contingente doganale',
+    ogDescription: 'Il Consiglio federale svizzero ha deciso di aumentare il contingente doganale per le uova del 71%, portandolo a 36.000 tonnellate.',
+    canonicalPath: '/articoli-frontaliere/aumento-contingente-uova-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Svizzera a corto di uova: aumenta il contingente doganale",
+      "description": "Il Consiglio federale svizzero aumenta il contingente doganale per le uova del 71% a causa della carenza di uova nel mercato svizzero. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-contingente-uova-svizzera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uova fresche in un mercato a Lugano"
+      },
+      "datePublished": "2026-04-01T10:16:07+00:00",
+      "dateModified": "2026-04-01T10:16:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-contingente-uova-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

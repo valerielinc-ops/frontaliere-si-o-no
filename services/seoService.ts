@@ -1794,6 +1794,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-monete-argento-sanzionato-ponte-chiasso': { name: 'Monete d\'argento', path: '/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso', parent: 'blog' },
     'blog-ambasciatore-italiano-ritorno-berna': { name: 'Rientro dell\'ambasciatore italiano a Ber', path: '/articoli-frontaliere/ambasciatore-italiano-ritorno-berna', parent: 'blog' },
     'blog-pazienti-ticino-protesta': { name: 'Petizione cure a domicilio', path: '/articoli-frontaliere/pazienti-ticino-protesta', parent: 'blog' },
+    'blog-aumento-contingente-uova-svizzera': { name: 'Economia', path: '/articoli-frontaliere/aumento-contingente-uova-svizzera', parent: 'blog' },
   };
 
   const info = sectionNames[section];

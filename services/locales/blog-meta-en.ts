@@ -1892,6 +1892,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pazienti-ticino-protesta.title': 'Ticino: 20,000 signatures against new fees for home care',
     'blog.article.pazienti-ticino-protesta.excerpt': 'The petition \'Non è colpa dei pazienti\' has gathered over 20,000 signatures in just 5 days in opposition to the new charges for home care services',
     'blog.article.pazienti-ticino-protesta.imageAlt': 'Lugano protest against new home care fees',
+    'blog.article.aumento-contingente-uova-svizzera.title': 'Switzerland short on eggs: customs quota increased',
+    'blog.article.aumento-contingente-uova-svizzera.excerpt': 'The Swiss Federal Council has decided to increase the customs quota for eggs by 71%, bringing it to 36,000 tonnes.',
+    'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Fresh eggs in a Lugano market',
 };
 
 export default blogMetaEn;

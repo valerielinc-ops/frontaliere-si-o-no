@@ -1892,6 +1892,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pazienti-ticino-protesta.title': 'Ticino : 20 000 signatures contre les nouvelles tarifs pour les soins à domicile',
     'blog.article.pazienti-ticino-protesta.excerpt': 'La pétition \'Ce n\'est pas la faute des patients\' a recueilli plus de 20 000 signatures en seulement 5 jours contre les nouvelles tarifs pour les soins à domicile',
     'blog.article.pazienti-ticino-protesta.imageAlt': 'Manifestation à Lugano contre les nouvelles tarifs pour les soins à domicile',
+    'blog.article.aumento-contingente-uova-svizzera.title': 'Suisse : pénurie d\'œufs, augmentation du contingent douanier',
+    'blog.article.aumento-contingente-uova-svizzera.excerpt': 'Le Conseil fédéral suisse a décidé d\'augmenter le contingent douanier pour les œufs de 71%, le portant à 36\'000 tonnes.',
+    'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Œufs frais sur un marché à Lugano',
 };
 
 export default blogMetaFr;

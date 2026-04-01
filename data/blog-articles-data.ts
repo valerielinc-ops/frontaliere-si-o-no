@@ -5606,4 +5606,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/pazienti-ticino-protesta.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'aumento-contingente-uova-svizzera',
+    category: 'novita',
+    date: '2026-04-01T10:16:07.575Z',
+    image: '/images/blog/aumento-contingente-uova-svizzera.jpg',
+    hasCalculator: true,
+  },
 ];

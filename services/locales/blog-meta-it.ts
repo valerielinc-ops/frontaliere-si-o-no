@@ -1892,6 +1892,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pazienti-ticino-protesta.title': 'Ticino: 20mila firme contro le nuove tariffe per le cure a domicilio',
     'blog.article.pazienti-ticino-protesta.excerpt': 'La petizione \'Non è colpa dei pazienti\' ha raccolto oltre 20mila firme in soli 5 giorni contro le nuove tariffe per le cure a domicilio',
     'blog.article.pazienti-ticino-protesta.imageAlt': 'Manifestazione a Lugano contro le nuove tariffe per le cure a domicilio',
+    'blog.article.aumento-contingente-uova-svizzera.title': 'Svizzera a corto di uova: aumenta il contingente doganale',
+    'blog.article.aumento-contingente-uova-svizzera.excerpt': 'Il Consiglio federale svizzero ha deciso di aumentare il contingente doganale per le uova del 71%, portandolo a 36.000 tonnellate.',
+    'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Uova fresche in un mercato a Lugano',
 };
 
 export default blogMetaIt;

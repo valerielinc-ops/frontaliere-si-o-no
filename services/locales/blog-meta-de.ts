@@ -1892,6 +1892,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pazienti-ticino-protesta.title': 'Tessin: 20.000 Unterschriften gegen neue Tarife für Hauskrankenpflege',
     'blog.article.pazienti-ticino-protesta.excerpt': 'Die Petition \'Nicht die Patienten sind schuld\' hat in nur 5 Tagen über 20.000 Unterschriften gesammelt, um gegen die neuen Tarife für die häusliche Pflege zu protestieren',
     'blog.article.pazienti-ticino-protesta.imageAlt': 'Lugano Protest gegen neue Gebühren für häusliche Pflege',
+    'blog.article.aumento-contingente-uova-svizzera.title': 'Schweiz hat Eiermangel: Erhöhung des Zollkontingents',
+    'blog.article.aumento-contingente-uova-svizzera.excerpt': 'Der Schweizerische Bundesrat hat beschlossen, das Zollkontingent für Eier um 71% auf 36.000 Tonnen zu erhöhen.',
+    'blog.article.aumento-contingente-uova-svizzera.imageAlt': 'Frische Eier auf einem Markt in Lugano',
 };
 
 export default blogMetaDe;
