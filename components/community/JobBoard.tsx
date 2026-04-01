@@ -2550,11 +2550,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const sortedJobs = useMemo(() => {
     // Canton priority: TI first, GR second, everything else after.
-    // Within each group, newest jobs appear first.
+    // Within each canton group, sort by day (not hour/minute — avoids crawler-time bias),
+    // then by qualityScore descending so higher-quality listings surface first.
     const cantonRank = (canton: string) => canton === 'TI' ? 0 : canton === 'GR' ? 1 : 2;
-    const withTs = jobs.map(j => ({ job: j, ts: new Date(j.crawledAt || j.postedDate).getTime() }));
-    withTs.sort((a, b) => (cantonRank(a.job.canton) - cantonRank(b.job.canton)) || (b.ts - a.ts));
-    return withTs.map(({ job }) => job);
+    const dayTs = (d: string | undefined) => {
+      const t = new Date(d || 0);
+      return new Date(t.getFullYear(), t.getMonth(), t.getDate()).getTime();
+    };
+    const withMeta = jobs.map(j => ({
+      job: j,
+      day: dayTs(j.crawledAt || j.postedDate),
+      qs: j.qualityScore ?? 0,
+    }));
+    withMeta.sort((a, b) =>
+      (cantonRank(a.job.canton) - cantonRank(b.job.canton))
+      || (b.day - a.day)
+      || (b.qs - a.qs)
+    );
+    return withMeta.map(({ job }) => job);
   }, [jobs]);
 
   // Pre-built search index: caches normalised haystack per job so
@@ -5488,7 +5501,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     <div className="flex items-start gap-3">
                       <div className="w-12 h-12 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
                         {jobLogo ? (
-                          <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" />
+                          <img src={jobLogo} alt={`Logo ${job.company}`} className="w-8 h-8 object-contain" width={32} height={32} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
                         ) : (
                           <Building2 className="w-5 h-5 text-slate-500" />
                         )}
