@@ -931,6 +931,17 @@ export default function BlogArticles({
       },
     };
     const scriptId = 'blog-article-jsonld';
+    // Remove any pre-existing BlogPosting JSON-LD from static HTML (ogPagesPlugin)
+    // to prevent duplicate schemas during SPA hydration
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(el => {
+      if (el.id === scriptId) return;
+      try {
+        const data = JSON.parse(el.textContent || '');
+        if (data['@type'] === 'BlogPosting' || data['@type'] === 'NewsArticle' || data['@type'] === 'Article') {
+          el.remove();
+        }
+      } catch { /* non-JSON — leave it */ }
+    });
     let el = document.getElementById(scriptId) as HTMLScriptElement | null;
     if (!el) {
       el = document.createElement('script');

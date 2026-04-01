@@ -3183,7 +3183,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
     if (selectedJob) {
       const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
       const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
-      const fullTitle = `${localizedTitle} — ${selectedJob.company} | Frontaliere Ticino`;
+      // Build title with cascading truncation to fit ~60 char SERP limit
+      const suffix = ' | Frontaliere Ticino';
+      const sep = ' — ';
+      const company = selectedJob.company;
+      let fullTitle: string;
+      const candidate1 = `${localizedTitle}${sep}${company}${suffix}`;
+      if (candidate1.length <= 60) {
+        fullTitle = candidate1;
+      } else {
+        const candidate2 = `${localizedTitle}${sep}${company}`;
+        if (candidate2.length <= 60) {
+          fullTitle = candidate2;
+        } else {
+          // Truncate job title at word boundary to fit with company name
+          const maxTitleLen = 60 - sep.length - company.length;
+          if (maxTitleLen > 20) {
+            const cut = localizedTitle.lastIndexOf(' ', maxTitleLen - 1);
+            const truncated = cut > 15 ? localizedTitle.slice(0, cut) + '…' : localizedTitle.slice(0, maxTitleLen - 1) + '…';
+            fullTitle = `${truncated}${sep}${company}`;
+          } else {
+            fullTitle = localizedTitle.length <= 60 ? localizedTitle : localizedTitle.slice(0, 57) + '…';
+          }
+        }
+      }
       const descSnippet = String(localizedDescription || '').slice(0, 160);
       document.title = fullTitle;
       const metaDesc = document.querySelector('meta[name="description"]');
