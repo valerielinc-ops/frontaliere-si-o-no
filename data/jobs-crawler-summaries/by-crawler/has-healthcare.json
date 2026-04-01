@@ -1,16 +1,16 @@
 {
   "key": "has-healthcare",
   "label": "HAS Healthcare",
-  "generatedAt": "2026-03-31T21:21:57.222Z",
+  "generatedAt": "2026-04-01T09:34:17.196Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 4,
-  "durationMs": 6428,
-  "avgDurationMs": 6428,
+  "durationMs": 7127,
+  "avgDurationMs": 7127,
   "durationHistory": [
-    6428
+    7127
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -152,7 +152,7 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "production-manager-has-healthcare",
+      "slug": "direttore-di-produzione-has-healthcare-advanced-synthesis-biasca",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 72000,
@@ -163,11 +163,11 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "_qualityScore": 73,
+      "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 21,
         "completeness": 22
       }
     }

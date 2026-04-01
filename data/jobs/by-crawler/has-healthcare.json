@@ -1,6 +1,6 @@
 {
   "crawlerKey": "has-healthcare",
-  "assembledAt": "2026-03-31T21:21:57.222Z",
+  "assembledAt": "2026-04-01T09:34:17.196Z",
   "jobs": [
     {
       "title": "Tecnica/o diplomata/o SSS costruzioni meccaniche",
@@ -77,7 +77,8 @@
       "addressCountry": "CH",
       "previousSlugs": [
         "tecnica-o-diplomata-o-sss-costruzioni-meccaniche-has-healthcare-advanced-synthesis-biasca-068qa9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "HSE Specialist",
@@ -156,7 +157,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "title": "Assistente di Produzione",
@@ -247,13 +249,13 @@
       },
       "descriptionByLocale": {
         "it": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Production Manager.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
-        "en": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Production Manager.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
+        "en": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Production Manager. 🗣️ Lingue richieste: Inglese professionale 🎓 Titolo di studio: Università Settore: Farmaceutico / API (Active Pharmaceutical Ingredients) Sede: Via Industria 24, Biasca (TI), Svizzera",
         "de": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Production Manager.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera",
         "fr": "HAS Healthcare Advanced Synthesis, con sede a Biasca (TI), è alla ricerca di: Production Manager.\n\n🗣️ Lingue richieste: Inglese professionale\n🎓 Titolo di studio: Università\n\nSettore: Farmaceutico / API (Active Pharmaceutical Ingredients)\nSede: Via Industria 24, Biasca (TI), Svizzera"
       },
       "slugByLocale": {
         "it": "direttore-di-produzione-has-healthcare-advanced-synthesis-biasca",
-        "en": "production-manager-has-healthcare-advanced-synthesis-biasca",
+        "en": "production-manager-has-healthcare-advanced-synthesis-lugano",
         "de": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2",
         "fr": "production-manager-has-healthcare-advanced-synthesis-biasca-068qc2"
       },
@@ -262,11 +264,12 @@
         "location": "Biasca"
       },
       "crawledAt": "",
-      "slug": "production-manager-has-healthcare",
+      "slug": "direttore-di-produzione-has-healthcare-advanced-synthesis-biasca",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "production-manager-has-healthcare"
+        "production-manager-has-healthcare",
+        "production-manager-has-healthcare-advanced-synthesis-biasca"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
