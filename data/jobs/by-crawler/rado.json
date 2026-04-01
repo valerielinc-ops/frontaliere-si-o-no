@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-03-30T08:27:20.739Z",
+  "assembledAt": "2026-04-01T09:59:59.803Z",
   "jobs": [
     {
       "id": "company-7uasdr",
@@ -94,7 +94,14 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543",
+      "addressLocality": "Lengnau",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME"
     }
   ]
 }
