@@ -208,9 +208,9 @@
       "slug": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
       "slugByLocale": {
         "it": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
-        "en": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
-        "de": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
-        "fr": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno"
+        "en": "apprenticeship-operator-trice-in-automation-afc-for-2026-schindler-locarno",
+        "de": "ausbildung-zum-automationsfachmann-frau-afc-fur-2026-schindler-locarno",
+        "fr": "apprentissage-en-automatisation-afc-pour-2026-schindler-locarno"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -265,7 +265,10 @@
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno"
+      ]
     }
   ]
 }

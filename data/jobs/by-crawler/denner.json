@@ -574,7 +574,7 @@
       "id": "denner-00770ed4c401",
       "slug": "assistent-in-filialleitung-denner",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
+        "it": "vice-direttore-di-filiale-denner-appenzell",
         "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
         "de": "assistent-in-filialleitung-denner-appenzell",
         "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
@@ -636,7 +636,8 @@
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -655,7 +656,7 @@
       "id": "denner-b94288b99e79",
       "slug": "sachbearbeiter-in-transport-outbound-denner",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-transport-outbound-denner",
+        "it": "impiegato-in-uscita-per-il-trasporto-denner-zurich",
         "en": "sachbearbeiter-in-transport-outbound-denner",
         "de": "sachbearbeiter-in-transport-outbound-denner-zurich",
         "fr": "sachbearbeiter-in-transport-outbound-denner"
@@ -729,13 +730,16 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-transport-outbound-denner"
+      ]
     },
     {
       "id": "denner-a3b6fd22c11d",
       "slug": "filialleiter-in-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-denner",
+        "it": "direttore-di-filiale-denner-schluein",
         "en": "filialleiter-in-denner-schluein-7k8gx6",
         "de": "filialleiter-in-denner-schluein",
         "fr": "filialleiter-in-denner-schluein-7k8gx6"
@@ -797,7 +801,8 @@
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
-        "responsabile-di-filiale-denner-schluein"
+        "responsabile-di-filiale-denner-schluein",
+        "filialleiter-in-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -816,7 +821,7 @@
       "id": "denner-add5d94b9d66",
       "slug": "verkaufer-in-spatschicht-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-spatschicht-denner",
+        "it": "venditore-del-turno-di-notte-denner-flims-dorf",
         "en": "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko",
         "de": "verkaufer-in-spatschicht-denner-flims-dorf",
         "fr": "verkaufer-in-spatschicht-denner-flims-dorf-2ghwko"
@@ -878,7 +883,8 @@
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
-        "commesso-a-turno-serale-denner-flims-dorf"
+        "commesso-a-turno-serale-denner-flims-dorf",
+        "verkaufer-in-spatschicht-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -897,7 +903,7 @@
       "id": "denner-c81d819efe2a",
       "slug": "stv-filialleiter-in-in-ausbildung-denner",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-in-ausbildung-denner",
+        "it": "vice-direttore-di-filiale-in-formazione-denner-chur",
         "en": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
         "de": "stv-filialleiter-in-in-ausbildung-denner-chur",
         "fr": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
@@ -959,7 +965,8 @@
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
-        "vice-responsabile-di-filiale-in-formazione-denner-chur"
+        "vice-responsabile-di-filiale-in-formazione-denner-chur",
+        "stv-filialleiter-in-in-ausbildung-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

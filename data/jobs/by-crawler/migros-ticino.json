@@ -343,7 +343,7 @@
       "crawledAt": "2026-03-31T21:31:33.102Z",
       "slugByLocale": {
         "it": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
-        "en": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
+        "en": "tai-chi-teacher-f-m-d-scuola-club-lugano-scuola-club-migros-lugano",
         "de": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
         "fr": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
       },
@@ -391,7 +391,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
+      ]
     },
     {
       "id": "company-ei49p7",
@@ -441,7 +444,7 @@
       "crawledAt": "2026-03-31T21:31:33.102Z",
       "slugByLocale": {
         "it": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7",
-        "en": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7",
+        "en": "german-teacher-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona",
         "de": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7",
         "fr": "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7"
       },
@@ -491,7 +494,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7"
+      ]
     }
   ]
 }

@@ -41,9 +41,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino-9xtr67",
-        "en": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino-9xtr67",
-        "de": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino-9xtr67",
-        "fr": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino-9xtr67"
+        "en": "butcher-deli-specialist-f-m-d-coop-genossenschaft-mendrisio",
+        "de": "metzger-feinkostspezialist-w-m-d-coop-genossenschaft-mendrisio",
+        "fr": "boucher-specialiste-charcuterie-h-f-d-coop-genossenschaft-mendrisio"
       },
       "addressLocality": "Mendrisio",
       "salaryMin": 58000,
@@ -57,7 +57,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino-9xtr67"
+      ]
     },
     {
       "id": "company-h5yy65",
@@ -98,9 +101,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "consulente-vendita-deco-jumbo-grancia-ticino-h5yy65",
-        "en": "consulente-sales-deco-jumbo-grancia-ticino-h5yy65",
-        "de": "consulente-verkauf-deco-jumbo-grancia-ticino-h5yy65",
-        "fr": "consulente-vente-deco-jumbo-grancia-ticino-h5yy65"
+        "en": "sales-consultant-deco-jumbo-divisione-di-coop-societa-cooperativa-grancia",
+        "de": "verkaufsberater-deco-jumbo-divisione-di-coop-societa-cooperativa-grancia",
+        "fr": "conseiller-de-vente-deco-jumbo-divisione-di-coop-societa-cooperativa-grancia"
       },
       "addressLocality": "Grancia",
       "salaryMin": 58000,
@@ -114,7 +117,12 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "consulente-sales-deco-jumbo-grancia-ticino-h5yy65",
+        "consulente-verkauf-deco-jumbo-grancia-ticino-h5yy65",
+        "consulente-vente-deco-jumbo-grancia-ticino-h5yy65"
+      ]
     },
     {
       "id": "company-lkxfin",
@@ -166,8 +174,8 @@
       "slugByLocale": {
         "it": "venditrice-venditore-food-f-m-d-coop-ascona-ticino-lkxfin",
         "en": "venditrice-venditore-food-f-m-d-coop-ascona-ticino-lkxfin",
-        "de": "venditrice-venditore-food-f-m-d-coop-ascona-ticino-lkxfin",
-        "fr": "venditrice-venditore-food-f-m-d-coop-ascona-ticino-lkxfin"
+        "de": "verkaufer-in-food-f-m-d-coop-genossenschaft-ascona",
+        "fr": "vendeur-vendeuse-food-f-m-d-coop-genossenschaft-ascona"
       },
       "addressLocality": "Ascona",
       "salaryMin": 58000,
@@ -181,7 +189,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "venditrice-venditore-food-f-m-d-coop-ascona-ticino-lkxfin"
+      ]
     },
     {
       "id": "company-wwo5eg",
@@ -222,9 +233,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "consulente-vendita-do-it-jumbo-tenero-contra-ticino-wwo5eg",
-        "en": "consulente-sales-do-it-jumbo-tenero-contra-ticino-wwo5eg",
-        "de": "consulente-verkauf-do-it-jumbo-tenero-contra-ticino-wwo5eg",
-        "fr": "consulente-vente-do-it-jumbo-tenero-contra-ticino-wwo5eg"
+        "en": "do-it-sales-consultant-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra",
+        "de": "do-it-verkaufsberater-in-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra",
+        "fr": "conseiller-ere-de-vente-do-it-jumbo-divisione-di-coop-societa-cooperativa-tenero-contra"
       },
       "addressLocality": "Tenero-Contra",
       "salaryMin": 58000,
@@ -238,7 +249,12 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "consulente-sales-do-it-jumbo-tenero-contra-ticino-wwo5eg",
+        "consulente-verkauf-do-it-jumbo-tenero-contra-ticino-wwo5eg",
+        "consulente-vente-do-it-jumbo-tenero-contra-ticino-wwo5eg"
+      ]
     },
     {
       "id": "company-bs45mj",
@@ -288,7 +304,7 @@
       },
       "slugByLocale": {
         "it": "collaboratore-trice-inventuren-coop-grigioni-bs45mj",
-        "en": "associate-inventuren-coop-grigioni-bs45mj",
+        "en": "inventory-associate-coop-genossenschaft-basel",
         "de": "mitarbeiter-in-inventuren-coop-grigioni-bs45mj",
         "fr": "collaborateur-trice-inventuren-coop-grigioni-bs45mj"
       },
@@ -305,7 +321,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "associate-inventuren-coop-grigioni-bs45mj"
+      ]
     },
     {
       "id": "company-bv5moc",

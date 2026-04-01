@@ -24,7 +24,7 @@
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "slugByLocale": {
         "it": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "en": "manor-collaboratore-trice-servizio-manora-50-locarno",
+        "en": "service-associate-manora-50-manor-ag-locarno",
         "de": "manor-collaboratore-trice-servizio-manora-50-locarno",
         "fr": "manor-collaboratore-trice-servizio-manora-50-locarno"
       },
@@ -55,7 +55,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaboratore-trice-servizio-manora-50-locarno"
+      ]
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -191,7 +194,7 @@
       "slug": "manor-polydesigner-3d-afc-100-lugano",
       "slugByLocale": {
         "it": "manor-polydesigner-3d-afc-100-lugano",
-        "en": "manor-polydesigner-3d-afc-100-lugano",
+        "en": "pol-af-designer-3d-afc-100-manor-ag-lugano",
         "de": "manor-polydesigner-3d-afc-100-lugano",
         "fr": "polydesigner-3d-afc-100-manor-ag-lugano"
       },
@@ -204,7 +207,9 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "manor-polydesigner-3d-afc-100-lugano"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",

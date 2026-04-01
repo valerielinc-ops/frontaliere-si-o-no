@@ -46,14 +46,15 @@
       },
       "slugByLocale": {
         "it": "fisioterapista-diplomata-o-80-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "fisioterapista-diplomata-o-80-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "certified-physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "fisioterapista-diplomata-o-80-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "fisioterapista-diplomata-o-80-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "fisioterapista-diplomata-o-80-eoc-novaggio",
-        "fisioterapista-diplomata-o-80-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uilqfp"
+        "fisioterapista-diplomata-o-80-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offert-uilqfp",
+        "fisioterapista-diplomata-o-80-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -167,7 +168,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "capo-gruppo-servizio-pasti-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "capo-gruppo-servizio-pasti-100-eoc-ente-ospedaliero-cantonale-lugano-uilqfm",
+        "en": "meal-service-group-leader-100-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "capo-gruppo-servizio-pasti-100-eoc-ente-ospedaliero-cantonale-lugano-uilqfm",
         "fr": "capo-gruppo-servizio-pasti-100-eoc-ente-ospedaliero-cantonale-lugano-uilqfm"
       },
@@ -212,7 +213,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "capo-gruppo-servizio-pasti-100-eoc-ente-ospedaliero-cantonale-lugano-uilqfm"
+      ]
     },
     {
       "id": "company-uilqfl",
@@ -389,7 +393,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "infermieri-specializzati-in-cure-intense-80-100-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "infermieri-specializzati-in-cure-intense-80-100-eoc-ente-ospedaliero-cantonale-lugano-uilqeu",
+        "en": "nurses-specialising-in-intensive-care-80-100-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "intensivpflege-spezialisten-80-100-eoc-ente-ospedaliero-cantonale-lugano",
         "fr": "specialistes-en-soins-intensifs-80-100-eoc-ente-ospedaliero-cantonale-lugano"
       },
@@ -434,7 +438,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "infermieri-specializzati-in-cure-intense-80-100-eoc-ente-ospedaliero-cantonale-lugano-uilqeu"
+      ]
     },
     {
       "id": "company-uilqer",
@@ -518,7 +525,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "certified-physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio-uilqev",
         "fr": "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -546,7 +553,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -590,7 +598,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "dietista-40-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "dietista-40-eoc-ente-ospedaliero-cantonale-novaggio-uilqeq",
+        "en": "dietitian-40-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "dipl-ernahrungsberater-in-40-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "dieteticien-ne-40-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -633,7 +641,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "dietista-40-eoc-ente-ospedaliero-cantonale-novaggio-uilqeq"
+      ]
     },
     {
       "id": "company-uilqeo",
@@ -718,7 +729,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno-uilqdx",
+        "en": "medical-office-assistant-60-70-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-60-70-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "assistant-e-de-cabinet-medical-60-70-eoc-ente-ospedaliero-cantonale-locarno"
       },
@@ -762,7 +773,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-di-studio-medico-60-70-eoc-ente-ospedaliero-cantonale-locarno-uilqdx"
+      ]
     },
     {
       "id": "company-uilqd6",
@@ -789,7 +803,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-capoclinica-di-allergologia-60-100-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "head-of-allergy-clinic-physician-60-100-eoc-ente-ospedaliero-cantonale-locarno",
+        "en": "lead-physician-of-allergology-60-100-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "leitender-arzt-arztin-allergologie-60-100-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "medecin-chef-de-clinique-en-allergologie-60-100-eoc-ente-ospedaliero-cantonale-locarno"
       },
@@ -834,7 +848,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "head-of-allergy-clinic-physician-60-100-eoc-ente-ospedaliero-cantonale-locarno"
+      ]
     },
     {
       "id": "company-uilqd5",
@@ -1204,7 +1221,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-in-medicina-nucleare-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "resident-physician-in-nuclear-medicine-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "assistant-physician-in-nuclear-medicine-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "assistenzarzt-arztin-nuklearmedizin-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-assistant-e-en-medecine-nucleaire-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -1247,7 +1264,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "resident-physician-in-nuclear-medicine-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uilqc5",
@@ -1272,7 +1292,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-capoclinica-in-medicina-nucleare-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-capoclinica-in-medicina-nucleare-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilqc5",
+        "en": "lead-physician-in-nuclear-medicine-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "leitender-arzt-nuklearmedizin-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-chef-en-medecine-nucleaire-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -1315,7 +1335,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-capoclinica-in-medicina-nucleare-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilqc5"
+      ]
     },
     {
       "id": "company-uilpqm",
@@ -1399,7 +1422,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "dottorando-di-ricerca-in-neuroscienze-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilpqq",
-        "en": "dottorando-di-ricerca-in-neuroscienze-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilpqq",
+        "en": "phd-student-in-neuroscience-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "dottorando-di-ricerca-in-neuroscienze-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilpqq",
         "fr": "dottorando-di-ricerca-in-neuroscienze-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilpqq"
       },
@@ -1442,7 +1465,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "dottorando-di-ricerca-in-neuroscienze-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilpqq"
+      ]
     },
     {
       "id": "company-uilpqr",
@@ -1464,7 +1490,7 @@
       "companyDomain": "eoc.ch",
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
-        "it": "phd-in-neurosciences-100-eoc-ente-ospedaliero-cantonale-2026-employment-conditions-are-governed-by-the-cantonal-employment-regulations-uilpqr",
+        "it": "dottorato-in-neuroscienze-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "phd-in-neurosciences-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilpqr",
         "de": "phd-in-neurosciences-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilpqr",
         "fr": "phd-in-neurosciences-100-eoc-ente-ospedaliero-cantonale-bellinzona"
@@ -1485,7 +1511,8 @@
       "requirementsByLocale": {},
       "sourceLang": "en",
       "previousSlugs": [
-        "phd-in-neurosciences-100-eoc-bellinzona"
+        "phd-in-neurosciences-100-eoc-bellinzona",
+        "phd-in-neurosciences-100-eoc-ente-ospedaliero-cantonale-2026-employment-conditions-are-governed-by-the-cantonal-employment-regulations-uilpqr"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -1647,7 +1674,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-locarno",
-        "en": "medico-assistente-in-formazione-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-locarno-uilpqk",
+        "en": "assistant-physician-in-training-general-internal-medicine-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "medizinischer-assistent-in-ausbildung-allgemeine-innere-medizin-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "assistant-medical-en-formation-medecine-interne-generale-eoc-ente-ospedaliero-cantonale-locarno"
       },
@@ -1690,7 +1717,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-in-formazione-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-locarno-uilpqk"
+      ]
     },
     {
       "id": "company-uilo8e",
@@ -1854,7 +1884,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-per-l-attivita-clinica-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-assistente-per-l-attivita-clinica-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilnas",
+        "en": "clinical-assistant-physician-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "klinischer-assistenzarzt-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-assistant-clinique-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -1897,7 +1927,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-per-l-attivita-clinica-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilnas"
+      ]
     },
     {
       "id": "company-uil4ya",
@@ -2063,7 +2096,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46",
+        "en": "catering-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -2106,7 +2139,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46"
+      ]
     },
     {
       "id": "company-uilozx",
@@ -2131,7 +2167,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-chirurgia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-assistente-in-formazione-chirurgia-eoc-ente-ospedaliero-cantonale-bellinzona-uilozx",
+        "en": "assistant-physician-in-training-surgery-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "medizinischer-assistent-in-ausbildung-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "assistant-medical-en-formation-chirurgie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2174,7 +2210,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-in-formazione-chirurgia-eoc-ente-ospedaliero-cantonale-bellinzona-uilozx"
+      ]
     },
     {
       "id": "company-uiloz2",
@@ -2272,7 +2311,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-perito-sam-con-specializzazione-in-psichiatria-e-psicoterapia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "sam-medical-expert-with-specialization-in-psychiatry-and-psychotherapy-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "sam-expert-physician-with-specialization-in-psychiatry-and-psychotherapy-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "sam-mediziner-mit-spezialisierung-auf-psychiatrie-und-psychotherapie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "expert-medical-sam-avec-specialisation-en-psychiatrie-et-psychotherapie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2318,7 +2357,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "sam-medical-expert-with-specialization-in-psychiatry-and-psychotherapy-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uiloyb",
@@ -2344,7 +2386,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-pronto-soccorso-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-assistente-in-formazione-pronto-soccorso-eoc-ente-ospedaliero-cantonale-bellinzona-uiloyb",
+        "en": "assistant-physician-in-training-emergency-department-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "medizinischer-assistent-in-ausbildung-notfallstation-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "assistant-medical-en-formation-departement-d-urgence-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2388,7 +2430,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-in-formazione-pronto-soccorso-eoc-ente-ospedaliero-cantonale-bellinzona-uiloyb"
+      ]
     },
     {
       "id": "company-uil2ns",
@@ -2482,7 +2527,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47",
+        "en": "household-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "mitarbeiter-in-fur-haushaltswirtschaft-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-e-en-economie-domestique-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -2518,7 +2563,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-trice-dell-economia-domestica-eoc-ente-ospedaliero-cantonale-novaggio-x29n47"
+      ]
     },
     {
       "id": "company-uilo3d",
@@ -2603,7 +2651,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-gineologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-assistente-in-formazione-gineologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-bellinzona-uilo2b",
+        "en": "assistant-physician-in-training-gynaology-and-obstetrics-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "assistenzarztin-in-ausbildung-gynakologie-und-geburtshilfe-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-assistante-en-formation-gynecologie-et-obstetrique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2647,7 +2695,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-in-formazione-gineologia-e-ostetricia-eoc-ente-ospedaliero-cantonale-bellinzona-uilo2b"
+      ]
     },
     {
       "id": "company-uilngt",
@@ -2673,7 +2724,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-in-oncologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-assistente-in-formazione-in-oncologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona-uilngt",
+        "en": "assistant-physician-in-training-in-medical-oncology-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "medizinischer-assistent-in-ausbildung-in-medizinischer-onkologie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "assistant-medical-en-formation-en-oncologie-medicale-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2717,7 +2768,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-in-formazione-in-oncologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona-uilngt"
+      ]
     },
     {
       "id": "company-uilngs",
@@ -2743,7 +2797,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-borsista-in-oncologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-borsista-in-oncologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona-uilngs",
+        "en": "medical-oncology-fellow-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "medizinischer-fellow-in-medizinischer-onkologie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medico-borsista-in-oncologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona-uilngs"
       },
@@ -2787,7 +2841,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-borsista-in-oncologia-medica-eoc-ente-ospedaliero-cantonale-bellinzona-uilngs"
+      ]
     },
     {
       "id": "company-uilngr",
@@ -2878,7 +2935,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "ausiliario-a-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "ausiliario-a-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona-uilnf2",
+        "en": "catering-auxiliary-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "mitarbeiter-in-gastronomie-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "assistant-e-restauration-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2914,7 +2971,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "ausiliario-a-ristorazione-eoc-ente-ospedaliero-cantonale-bellinzona-uilnf2"
+      ]
     },
     {
       "id": "company-uilnbm",
@@ -2939,7 +2999,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-capoclinica-in-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "head-clinician-in-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "head-physician-in-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "stationsleiterin-stationsleiter-innere-medizin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-chef-de-clinique-en-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -2982,7 +3042,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "head-clinician-in-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uilnbl",
@@ -3008,7 +3071,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medici-assistenti-in-formazione-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medici-assistenti-in-formazione-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona-uilnbl",
+        "en": "assistant-physicians-in-training-internal-medicine-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "ausbildende-assistenzarzte-innere-medizin-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecins-assistants-en-formation-medecine-interne-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -3052,7 +3115,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medici-assistenti-in-formazione-medicina-interna-eoc-ente-ospedaliero-cantonale-bellinzona-uilnbl"
+      ]
     },
     {
       "id": "company-uil4vo",
@@ -3416,7 +3482,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-in-formazione-pediatria-di-base-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medico-assistente-in-formazione-pediatria-di-base-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrt",
+        "en": "assistant-physician-in-training-basic-pediatrics-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "assistenzarztin-assistenzarzt-in-weiterbildung-allgemeine-padiatrie-100-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "medecin-assistant-en-formation-pediatrie-generale-100-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -3462,7 +3528,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-in-formazione-pediatria-di-base-100-eoc-ente-ospedaliero-cantonale-bellinzona-uilmrt"
+      ]
     },
     {
       "id": "company-uilmru",
@@ -7433,7 +7502,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-iosi-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "iosi-general-care-nurse-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "nurse-in-general-care-iosi-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "iosi-krankenschwester-fur-allgemeine-pflege-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "infermiere-a-in-cure-generali-iosi-eoc-ente-ospedaliero-cantonale-bellinzona-x29n9c"
       },
@@ -7469,7 +7538,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "iosi-general-care-nurse-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uikznx",
@@ -7553,7 +7625,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-orbv-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "orbv-general-care-nurse-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "nurse-in-general-care-orbv-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "orbv-krankenschwester-fur-allgemeine-pflege-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "infermiere-a-in-cure-generali-orbv-eoc-ente-ospedaliero-cantonale-bellinzona-x29n8p"
       },
@@ -7589,7 +7661,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "orbv-general-care-nurse-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uikytv",
@@ -7678,7 +7753,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c",
+        "en": "assistant-physician-hospital-physician-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "assistenzarzt-krankenhausarzt-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "medecin-assistant-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -7722,7 +7797,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio-x29n4c"
+      ]
     },
     {
       "id": "company-x29n4e",
@@ -7745,7 +7823,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -7781,7 +7859,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "social-health-worker-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-x29n57",
@@ -7804,7 +7885,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57",
+        "en": "care-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "pflegeassistent-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-de-soins-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -7840,7 +7921,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-di-cura-eoc-ente-ospedaliero-cantonale-novaggio-x29n57"
+      ]
     },
     {
       "id": "company-x29n5y",
@@ -7925,7 +8009,7 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -7954,7 +8038,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "qualified-physiotherapist-eoc-ente-ospedaliero-cantonale-novaggio",
-        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio"
+        "physiotherapeute-qualifie-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,

@@ -942,7 +942,7 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-imp-sanitari-pemsa-lugano",
-        "en": "installatore-idraulico-imp-sanitari-pemsa-lugano",
+        "en": "plumbing-installer-imp-sanitaryware-pemsa-lugano",
         "de": "installatore-idraulico-imp-sanitari-pemsa-lugano",
         "fr": "installateur-hydraulique-sanitaire-pemsa-lugano-ya30tb"
       },
@@ -1427,7 +1427,7 @@
       },
       "slugByLocale": {
         "it": "copritetto-afc-pemsa-bellinzona",
-        "en": "afc-blanket-pemsa-bellinzona-rdnflr",
+        "en": "roof-cover-afc-pemsa-bellinzona",
         "de": "dachdecker-efz-pemsa-bellinzona-rdnflr",
         "fr": "couvre-lit-afc-pemsa-bellinzona-rdnflr"
       },
@@ -1447,7 +1447,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "copritetto-afc-pemsa-bellinzona"
+        "copritetto-afc-pemsa-bellinzona",
+        "afc-blanket-pemsa-bellinzona-rdnflr"
       ],
       "needsRetranslation": true
     },
@@ -1670,7 +1671,7 @@
       },
       "slugByLocale": {
         "it": "installatore-di-linee-aeree-pemsa-lugano",
-        "en": "overhead-line-installer-pemsa-lugano-h0kgxm",
+        "en": "airline-installer-pemsa-lugano",
         "de": "installatore-di-linee-aeree-pemsa-lugano",
         "fr": "monteur-de-lignes-aeriennes-pemsa-lugano-h0kgxm"
       },
@@ -1690,7 +1691,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "freileitungsmonteur-pemsa-lugano-h0kgxm"
+        "freileitungsmonteur-pemsa-lugano-h0kgxm",
+        "overhead-line-installer-pemsa-lugano-h0kgxm"
       ],
       "needsRetranslation": true
     },
@@ -1852,7 +1854,7 @@
       },
       "slugByLocale": {
         "it": "giardiniere-pemsa-locarno",
-        "en": "giardinimum-pemsa-locarno-81lx20",
+        "en": "gardener-pemsa-locarno",
         "de": "giardiniere-pemsa-locarno",
         "fr": "jardinier-pemsa-locarno-81lx20"
       },
@@ -1873,7 +1875,8 @@
       "postalCode": "6807",
       "previousSlugs": [
         "giardiniere-pemsa-locarno",
-        "waren-pemsa-locarno"
+        "waren-pemsa-locarno",
+        "giardinimum-pemsa-locarno-81lx20"
       ],
       "needsRetranslation": true
     },
@@ -1914,7 +1917,7 @@
       },
       "slugByLocale": {
         "it": "tubista-saldatore-pemsa-locarno",
-        "en": "welder-tuber-pemsa-locarno-5l6h64",
+        "en": "pipe-welder-pemsa-locarno",
         "de": "rohrschweisser-pemsa-locarno-5l6h64",
         "fr": "tuyauteur-soudeur-pemsa-locarno-5l6h64"
       },
@@ -1934,7 +1937,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "tubista-saldatore-pemsa-locarno"
+        "tubista-saldatore-pemsa-locarno",
+        "welder-tuber-pemsa-locarno-5l6h64"
       ],
       "needsRetranslation": true
     },
@@ -1975,7 +1979,7 @@
       },
       "slugByLocale": {
         "it": "montatore-di-facciate-pemsa-locarno",
-        "en": "facade-assembler-pemsa-locarno-nhedm6",
+        "en": "facade-installer-pemsa-locarno",
         "de": "montatore-di-facciate-pemsa-locarno",
         "fr": "monteur-de-facades-pemsa-locarno-nhedm6"
       },
@@ -1995,7 +1999,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "fassadenmonteur-pemsa-locarno-nhedm6"
+        "fassadenmonteur-pemsa-locarno-nhedm6",
+        "facade-assembler-pemsa-locarno-nhedm6"
       ],
       "needsRetranslation": true
     },
@@ -2097,7 +2102,7 @@
       },
       "slugByLocale": {
         "it": "piastrellista-pemsa-bellinzona",
-        "en": "piastrellista-pemsa-bellinzona",
+        "en": "tiler-pemsa-bellinzona",
         "de": "keramikfliese-pemsa-bellinzona-jj5g46",
         "fr": "carrelage-pemsa-bellinzona-jj5g46"
       },
@@ -2218,7 +2223,7 @@
       },
       "slugByLocale": {
         "it": "montatore-di-ponteggi-pemsa-bellinzona",
-        "en": "montatore-di-ponteggi-pemsa-bellinzona",
+        "en": "scaffolding-assembler-pemsa-bellinzona",
         "de": "montatore-di-ponteggi-pemsa-bellinzona",
         "fr": "montatore-di-ponteggi-pemsa-bellinzona"
       },
@@ -2279,7 +2284,7 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
-        "en": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
+        "en": "metal-builder-amp-8211-welder-pemsa-bellinzona",
         "de": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
         "fr": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona"
       },
@@ -2458,7 +2463,7 @@
       },
       "slugByLocale": {
         "it": "giardiniere-pemsa-bellinzona",
-        "en": "giardiniere-pemsa-bellinzona",
+        "en": "gardener-pemsa-bellinzona",
         "de": "giardiniere-pemsa-bellinzona",
         "fr": "giardiniere-pemsa-bellinzona"
       },
@@ -2580,7 +2585,7 @@
       },
       "slugByLocale": {
         "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
-        "en": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
+        "en": "plasterer-amp-8211-chalk-pemsa-bellinzona",
         "de": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
         "fr": "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
       },
@@ -2641,7 +2646,7 @@
       },
       "slugByLocale": {
         "it": "elettricista-pemsa-lugano",
-        "en": "elettricista-pemsa-lugano",
+        "en": "electrician-pemsa-lugano",
         "de": "elettricista-pemsa-lugano",
         "fr": "elettricista-pemsa-lugano"
       },
@@ -2702,7 +2707,7 @@
       },
       "slugByLocale": {
         "it": "muratore-carpentiere-pemsa-bellinzona",
-        "en": "muratore-carpentiere-pemsa-bellinzona",
+        "en": "mason-carpenter-pemsa-bellinzona",
         "de": "muratore-carpentiere-pemsa-bellinzona",
         "fr": "muratore-carpentiere-pemsa-bellinzona"
       },
