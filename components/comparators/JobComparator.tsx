@@ -134,21 +134,17 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
   const bestResult = results[0];
 
-  const offerColors = ['indigo', 'emerald', 'amber', 'rose'];
+  const offerColors = ['amber', 'emerald', 'stone', 'rose'];
 
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="bg-gradient-to-br from-indigo-600 via-blue-600 to-cyan-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
-        <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-            <Briefcase size={32} />
-          </div>
-          <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold">{t('jobs.title')}</h1>
-            <p className="text-indigo-100 mt-1">{t('jobs.subtitle')}</p>
-          </div>
+      <div className="pb-6 border-b-2 border-amber-200 dark:border-amber-800">
+        <div className="flex items-center gap-3 mb-3">
+          <Briefcase size={28} className="text-amber-700 dark:text-amber-400" />
+          <h1 className="text-3xl sm:text-4xl font-extrabold text-stone-800 dark:text-stone-100">{t('jobs.title')}</h1>
         </div>
+        <p className="text-lg text-stone-500 dark:text-stone-400">{t('jobs.subtitle')}</p>
       </div>
 
       {/* Offers Input */}
@@ -160,7 +156,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 type="text"
                 value={offer.companyName}
                 onChange={(e) => updateOffer(offer.id, 'companyName', e.target.value)}
-                className="text-lg font-bold text-slate-800 dark:text-slate-100 bg-transparent border-none outline-none focus:ring-2 focus:ring-blue-500 w-full"
+                className="text-lg font-bold text-slate-800 dark:text-slate-100 bg-transparent border-none outline-none focus:ring-2 focus:ring-amber-500 w-full"
                 placeholder={t('jobs.companyName')}
               />
               {offers.length > 2 && (
@@ -209,7 +205,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                   {offer.country === 'CH' ? t('jobs.grossSalary') : t('jobs.grossSalaryIT')}
                 </label>
                 <input type="number" value={offer.grossSalaryCHF} onChange={(e) => updateOffer(offer.id, 'grossSalaryCHF', Number(e.target.value))}
-                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                  className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
                   min={0} step={1000} />
               </div>
 
@@ -217,13 +213,13 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <div>
                   <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.distance')}</label>
                   <input type="number" value={offer.distanceKm} onChange={(e) => updateOffer(offer.id, 'distanceKm', Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     min={0} />
                 </div>
                 <div>
                   <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.travelTime')}</label>
                   <input type="number" value={offer.travelTimeMin} onChange={(e) => updateOffer(offer.id, 'travelTimeMin', Number(e.target.value))}
-                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                    className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
                     min={0} />
                 </div>
               </div>
@@ -231,21 +227,21 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               <div>
                 <label className="text-xs font-bold text-slate-500 uppercase">{t('jobs.homeOffice')}</label>
                 <input type="range" min={0} max={5} value={offer.homeOfficeDays} onChange={(e) => updateOffer(offer.id, 'homeOfficeDays', Number(e.target.value))}
-                  className="w-full accent-indigo-600" />
+                  className="w-full accent-amber-600" />
                 <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} {t('jobs.days')}</div>
               </div>
 
               {offer.country === 'IT' && (
                 <div className="flex items-center gap-2">
                   <input type="checkbox" id={`meal-vouchers-${offer.id}`} checked={offer.hasMealVouchers} onChange={(e) => updateOffer(offer.id, 'hasMealVouchers', e.target.checked)}
-                    className="w-4 h-4 text-indigo-600 rounded" />
+                    className="w-4 h-4 text-amber-600 rounded" />
                   <label htmlFor={`meal-vouchers-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-500">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
                 </div>
               )}
 
               <div className="flex items-center gap-2">
                 <input type="checkbox" id={`parking-${offer.id}`} checked={offer.hasParking} onChange={(e) => updateOffer(offer.id, 'hasParking', e.target.checked)}
-                  className="w-4 h-4 text-indigo-600 rounded" />
+                  className="w-4 h-4 text-amber-600 rounded" />
                 <label htmlFor={`parking-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-500">{t('jobs.parking')}</label>
               </div>
             </div>
@@ -255,7 +251,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
         {offers.length < 4 && (
           <button
             onClick={addOffer}
-            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-slate-500 hover:text-indigo-600 hover:border-indigo-400 transition-all min-h-[200px]"
+            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-slate-500 hover:text-amber-600 hover:border-amber-400 transition-all min-h-[200px]"
           >
             <Plus size={32} />
             <span className="font-bold">{t('jobs.addOffer')}</span>

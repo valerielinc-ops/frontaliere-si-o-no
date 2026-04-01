@@ -84,14 +84,12 @@ const Pillar3Simulator: React.FC = () => {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="bg-gradient-to-br from-teal-600 via-emerald-600 to-green-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+      <div className="bg-amber-50/80 dark:bg-amber-950/20 rounded-2xl p-5 sm:p-8 border border-amber-200/60 dark:border-amber-800/40">
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-            <Landmark size={32} />
-          </div>
+          <Landmark size={32} className="text-emerald-700 dark:text-emerald-400" />
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold">{t('pillar3.title')}</h1>
-            <p className="text-teal-100 mt-1">{t('pillar3.subtitle')}</p>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('pillar3.title')}</h1>
+            <p className="text-stone-500 dark:text-stone-400 mt-1">{t('pillar3.subtitle')}</p>
           </div>
         </div>
       </div>
@@ -215,10 +213,10 @@ const Pillar3Simulator: React.FC = () => {
               </div>
             )}
 
-            <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-2xl p-5 text-white shadow-lg">
-              <div className="text-blue-100 text-xs font-bold uppercase mb-1">{t('pillar3.totalReturn')}</div>
+            <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-5 text-white shadow-lg">
+              <div className="text-emerald-100 text-xs font-bold uppercase mb-1">{t('pillar3.totalReturn')}</div>
               <div className="text-2xl sm:text-3xl font-extrabold">CHF {results.totalGains.toLocaleString('it-IT')}</div>
-              <div className="text-blue-100 text-xs mt-1">{t('pillar3.invested')}: CHF {results.totalContributed.toLocaleString('it-IT')}</div>
+              <div className="text-emerald-100 text-xs mt-1">{t('pillar3.invested')}: CHF {results.totalContributed.toLocaleString('it-IT')}</div>
             </div>
           </div>
 
@@ -293,7 +291,7 @@ const Pillar3Simulator: React.FC = () => {
                   <tr className="border-b border-blue-200 dark:border-blue-700">
                     <th className="text-left py-2 text-slate-600 dark:text-slate-500">{t('pillar3.feature')}</th>
                     <th className="text-center py-2 text-teal-600 font-bold">{t('pillar3.type3aShort')}</th>
-                    <th className="text-center py-2 text-purple-600 font-bold">{t('pillar3.type3bShort')}</th>
+                    <th className="text-center py-2 text-rose-600 font-bold">{t('pillar3.type3bShort')}</th>
                   </tr>
                 </thead>
                 <tbody className="text-slate-700 dark:text-slate-300">
@@ -330,7 +328,7 @@ const Pillar3Simulator: React.FC = () => {
           {/* Investment Options Comparison */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
             <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-              <BarChart3 size={20} className="text-indigo-600" />
+              <BarChart3 size={20} className="text-amber-700" />
               {t('pillar3.investmentComparison')}
             </h3>
             <p className="text-sm text-slate-600 dark:text-slate-500 mb-4">
@@ -365,14 +363,14 @@ const Pillar3Simulator: React.FC = () => {
               </div>
 
               {/* Investment Funds */}
-              <div className="border-2 border-indigo-300 dark:border-indigo-700 rounded-xl p-5 space-y-3 ring-2 ring-indigo-100 dark:ring-indigo-900/30">
+              <div className="border-2 border-amber-300 dark:border-amber-700 rounded-xl p-5 space-y-3 ring-2 ring-amber-100 dark:ring-amber-900/30">
                 <div className="flex items-center gap-2">
-                  <div className="p-2 bg-indigo-100 dark:bg-indigo-900/30 rounded-lg">
-                    <TrendingUp size={20} className="text-indigo-600" />
+                  <div className="p-2 bg-amber-100 dark:bg-amber-900/30 rounded-lg">
+                    <TrendingUp size={20} className="text-amber-700" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 dark:text-slate-100">{t('pillar3.investmentFunds')}</h4>
-                    <span className="text-xs px-2 py-0.5 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-full font-bold">{t('pillar3.mediumRisk')}</span>
+                    <span className="text-xs px-2 py-0.5 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-full font-bold">{t('pillar3.mediumRisk')}</span>
                   </div>
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-500">
@@ -393,12 +391,12 @@ const Pillar3Simulator: React.FC = () => {
               {/* Insurance */}
               <div className="border-2 border-slate-200 dark:border-slate-700 rounded-xl p-5 space-y-3">
                 <div className="flex items-center gap-2">
-                  <div className="p-2 bg-purple-100 dark:bg-purple-900/30 rounded-lg">
-                    <Shield size={20} className="text-purple-600" />
+                  <div className="p-2 bg-rose-100 dark:bg-rose-900/30 rounded-lg">
+                    <Shield size={20} className="text-rose-600" />
                   </div>
                   <div>
                     <h4 className="font-bold text-slate-800 dark:text-slate-100">{t('pillar3.lifeInsurance')}</h4>
-                    <span className="text-xs px-2 py-0.5 bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 rounded-full font-bold">{t('pillar3.lowRisk')}</span>
+                    <span className="text-xs px-2 py-0.5 bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 rounded-full font-bold">{t('pillar3.lowRisk')}</span>
                   </div>
                 </div>
                 <div className="text-sm text-slate-600 dark:text-slate-500">

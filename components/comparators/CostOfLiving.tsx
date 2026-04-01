@@ -224,12 +224,12 @@ const CostOfLiving: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-violet-600 to-indigo-700 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="pb-6 border-b-2 border-amber-200 dark:border-amber-800">
         <div className="flex items-center gap-3 mb-3">
-          <BarChart3 size={28} />
-          <h3 className="text-2xl font-extrabold">{t('costOfLiving.title')}</h3>
+          <BarChart3 size={28} className="text-amber-700 dark:text-amber-400" />
+          <h3 className="text-3xl sm:text-4xl font-extrabold text-stone-800 dark:text-stone-100">{t('costOfLiving.title')}</h3>
         </div>
-        <p className="text-violet-200">{t('costOfLiving.subtitle')}</p>
+        <p className="text-lg text-stone-500 dark:text-stone-400">{t('costOfLiving.subtitle')}</p>
         <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Numbeo / UST" sourceUrl="https://www.numbeo.com" variant="badge" /></div>
       </div>
 
@@ -273,7 +273,7 @@ const CostOfLiving: React.FC = () => {
         <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
           <label htmlFor="col-exchange-rate" className="text-xs font-bold text-slate-500 uppercase tracking-wide flex items-center gap-2">
             {t('costOfLiving.exchangeRate')}
-            {rateLoading && <RefreshCw size={12} className="animate-spin text-violet-500" />}
+            {rateLoading && <RefreshCw size={12} className="animate-spin text-amber-600" />}
           </label>
           <input
             id="col-exchange-rate"
@@ -292,13 +292,13 @@ const CostOfLiving: React.FC = () => {
         <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-1 inline-flex">
           <button
             onClick={() => setShowAnnual(false)}
-            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${!showAnnual ? 'bg-violet-600 text-white' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${!showAnnual ? 'bg-amber-700 text-white' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'}`}
           >
             {t('costOfLiving.monthly')}
           </button>
           <button
             onClick={() => setShowAnnual(true)}
-            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${showAnnual ? 'bg-violet-600 text-white' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'}`}
+            className={`px-4 py-2 rounded-lg text-sm font-bold transition-all ${showAnnual ? 'bg-amber-700 text-white' : 'text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'}`}
           >
             {t('costOfLiving.annual')}
           </button>
@@ -353,7 +353,7 @@ const CostOfLiving: React.FC = () => {
             <div key={cat.key} className="p-4 border-b border-slate-100 dark:border-slate-700/50 last:border-b-0 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors">
               <div className="grid grid-cols-2 sm:grid-cols-4 items-center gap-2">
                 <div className="flex items-center gap-2 col-span-2 sm:col-span-1">
-                  <span className="text-violet-500">{cat.icon}</span>
+                  <span className="text-amber-600">{cat.icon}</span>
                   <span className="font-bold text-sm text-slate-800 dark:text-slate-200">{cat.label}</span>
                 </div>
                 <div className="text-center">
@@ -407,10 +407,10 @@ const CostOfLiving: React.FC = () => {
       </div>
 
       {/* Frontaliere Tip */}
-      <div className="bg-violet-50 dark:bg-violet-950/30 border-l-4 border-violet-500 p-4 rounded-lg">
+      <div className="bg-amber-50 dark:bg-amber-950/30 border-l-4 border-amber-500 p-4 rounded-lg">
         <div className="flex items-start gap-3">
-          <DollarSign className="text-violet-600 flex-shrink-0 mt-0.5" size={20} />
-          <div className="text-sm text-violet-900 dark:text-violet-200">
+          <DollarSign className="text-amber-700 flex-shrink-0 mt-0.5" size={20} />
+          <div className="text-sm text-amber-900 dark:text-amber-200">
             <p className="font-bold mb-1">{t('costOfLiving.frontaliereTipTitle')}</p>
             <p>{t('costOfLiving.frontaliereTip')}</p>
           </div>
@@ -431,7 +431,7 @@ const CostOfLiving: React.FC = () => {
             { name: 'Numbeo', url: 'https://www.numbeo.com', flag: '🌍' },
           ].map(source => (
             <a key={source.name} href={source.url} target="_blank" rel="noopener noreferrer"
-              className="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-violet-100 dark:hover:bg-violet-900/30 transition-colors font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1">
+              className="px-3 py-1.5 bg-slate-100 dark:bg-slate-700 rounded-lg hover:bg-amber-100 dark:hover:bg-amber-900/30 transition-colors font-bold text-slate-700 dark:text-slate-300 flex items-center gap-1">
               {source.flag} {source.name} <ExternalLink size={10} />
             </a>
           ))}

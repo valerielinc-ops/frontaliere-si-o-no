@@ -16,8 +16,8 @@ const transportOptions: TransportOption[] = [
   { type: 'car-benzina', name: 'Auto Benzina', icon: <Car size={20} />, color: 'from-red-500 to-orange-600' },
   { type: 'car-diesel', name: 'Auto Diesel', icon: <Car size={20} />, color: 'from-slate-600 to-gray-700' },
   { type: 'car-electric', name: 'Auto Elettrica', icon: <Zap size={20} />, color: 'from-green-500 to-emerald-600' },
-  { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'from-blue-500 to-indigo-600' },
-  { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'from-purple-500 to-pink-600' }
+  { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'from-blue-500 to-blue-700' },
+  { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'from-rose-500 to-pink-600' }
 ];
 
 const TransportCalculator: React.FC = () => {
@@ -147,7 +147,7 @@ const TransportCalculator: React.FC = () => {
       costPerMonth: trainCostPerMonth,
       costPerYear: trainCostPerMonth * 12,
       details: null,
-      color: 'from-blue-500 to-indigo-600',
+      color: 'from-blue-500 to-blue-700',
       icon: <Train size={24} />,
       fuelLocation: null
     },
@@ -157,7 +157,7 @@ const TransportCalculator: React.FC = () => {
       costPerMonth: ebikeCostPerMonth + ebikePurchaseCost,
       costPerYear: (ebikeCostPerMonth + ebikePurchaseCost) * 12,
       details: null,
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-rose-500 to-pink-600',
       icon: <Bike size={24} />,
       fuelLocation: null
     }
@@ -185,12 +185,12 @@ const TransportCalculator: React.FC = () => {
       </div>
 
       {/* Header */}
-      <div className="bg-gradient-to-br from-blue-600 to-cyan-700 rounded-2xl p-5 sm:p-8 text-white">
+      <div className="bg-gradient-to-br from-emerald-800 to-green-900 rounded-2xl p-5 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
           <Car size={32} />
           <h2 className="text-2xl sm:text-3xl font-extrabold">{t('transport.title')}</h2>
         </div>
-        <p className="text-blue-100 text-lg">
+        <p className="text-emerald-100 text-lg">
           {t('transport.subtitle')}
         </p>
       </div>
@@ -440,8 +440,8 @@ const TransportCalculator: React.FC = () => {
             )}
 
             {result.type === 'ebike' && (
-              <div className="mt-4 p-3 bg-purple-50 dark:bg-purple-950/30 rounded-lg">
-                <p className="text-xs text-purple-800 dark:text-purple-300">
+              <div className="mt-4 p-3 bg-rose-50 dark:bg-rose-950/30 rounded-lg">
+                <p className="text-xs text-rose-800 dark:text-rose-300">
                   💡 {t('transport.ebikeTip')}
                 </p>
               </div>

@@ -824,30 +824,28 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="bg-gradient-to-br from-purple-600 via-indigo-600 to-blue-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+      <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-amber-600 dark:border-amber-500">
         <div className="flex items-center gap-4 mb-4">
-          <div className="p-3 bg-white/20 rounded-2xl backdrop-blur-sm">
-            {activeTab === 'fiscal' ? <Calendar size={32} /> : <Star size={32} />}
-          </div>
+          {activeTab === 'fiscal' ? <Calendar size={32} className="text-amber-700 dark:text-amber-400" /> : <Star size={32} className="text-amber-700 dark:text-amber-400" />}
           <div>
-            <h1 className="text-2xl sm:text-3xl font-extrabold">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
-            <p className="text-purple-100 mt-1">{activeTab === 'fiscal' ? t('calendar.subtitle') : t('calendar.holidaysSubtitle')}</p>
+            <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{activeTab === 'fiscal' ? t('calendar.title') : t('calendar.holidaysTitle')}</h1>
+            <p className="text-stone-500 dark:text-stone-400 mt-1">{activeTab === 'fiscal' ? t('calendar.subtitle') : t('calendar.holidaysSubtitle')}</p>
           </div>
         </div>
 
         {/* Tab switcher — only show if no initialTab forced */}
         {!initialTab && (
-          <div className="flex gap-2 mt-4 bg-white/10 rounded-xl p-1">
+          <div className="flex gap-2 mt-4 bg-stone-200/50 dark:bg-stone-800/50 rounded-xl p-1">
             <button
               onClick={() => handleTabChange('fiscal')}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'fiscal' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/90 hover:bg-white/10'}`}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'fiscal' ? 'bg-white dark:bg-stone-700 text-amber-700 dark:text-amber-400 shadow-lg' : 'text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'}`}
             >
               <Calendar size={16} />
               {t('calendar.tabFiscal')}
             </button>
             <button
               onClick={() => handleTabChange('holidays')}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'holidays' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/90 hover:bg-white/10'}`}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'holidays' ? 'bg-white dark:bg-stone-700 text-amber-700 dark:text-amber-400 shadow-lg' : 'text-stone-600 dark:text-stone-400 hover:bg-stone-100 dark:hover:bg-stone-800'}`}
             >
               <Star size={16} />
               {t('calendar.tabHolidays')}
@@ -857,17 +855,17 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
 
         {/* Next deadline highlight */}
         {nextDeadline && (
-          <div className="mt-6 bg-white/15 backdrop-blur-sm rounded-2xl p-4 border border-white/20">
-            <div className="flex items-center gap-2 text-purple-100 text-xs font-bold uppercase mb-2">
+          <div className="mt-6 bg-amber-50 dark:bg-amber-950/30 rounded-2xl p-4 border border-amber-200 dark:border-amber-800">
+            <div className="flex items-center gap-2 text-amber-700 dark:text-amber-400 text-xs font-bold uppercase mb-2">
               <Bell size={14} />
               {t('calendar.nextDeadline')}
             </div>
             <div className="flex items-center justify-between flex-wrap gap-3">
               <div>
-                <div className="font-bold text-xl">{nextDeadline.title}</div>
-                <div className="text-purple-100 text-sm">{formatDate(nextDeadline.date)}</div>
+                <div className="font-bold text-xl text-stone-800 dark:text-stone-100">{nextDeadline.title}</div>
+                <div className="text-stone-500 dark:text-stone-400 text-sm">{formatDate(nextDeadline.date)}</div>
               </div>
-              <div className="px-4 py-2 bg-white/20 rounded-xl font-extrabold text-2xl">
+              <div className="px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-xl font-extrabold text-2xl">
                 {getDaysUntil(nextDeadline.date)} {t('calendar.days')}
               </div>
             </div>
@@ -888,7 +886,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             </button>
             <button
               onClick={exportChecklistPdf}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-indigo-600 text-white hover:bg-indigo-700"
+              className="px-3 py-1.5 rounded-lg text-xs font-bold bg-amber-700 text-white hover:bg-amber-800"
             >
               Export PDF
             </button>
@@ -896,8 +894,8 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         </div>
 
         {!reminderEnabled && reminderSignupOpen && (
-          <div className="rounded-xl border border-indigo-200 dark:border-indigo-700 bg-indigo-50 dark:bg-indigo-950/30 p-3 space-y-2">
-            <div className="text-xs font-semibold text-indigo-800 dark:text-indigo-300">
+          <div className="rounded-xl border border-amber-200 dark:border-amber-700 bg-amber-50 dark:bg-amber-950/30 p-3 space-y-2">
+            <div className="text-xs font-semibold text-amber-800 dark:text-amber-300">
               Attiva i reminder iscrivendoti: salviamo la preferenza e misuriamo questo funnel.
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
@@ -947,7 +945,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               <button
                 type="submit"
                 disabled={reminderSignupLoading}
-                className="px-3 py-2 rounded-lg bg-indigo-600 text-white text-xs font-bold hover:bg-indigo-700 disabled:opacity-50"
+                className="px-3 py-2 rounded-lg bg-amber-700 text-white text-xs font-bold hover:bg-amber-800 disabled:opacity-50"
               >
                 {reminderSignupLoading ? '...' : 'Iscriviti'}
               </button>
@@ -968,7 +966,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             <button
               key={profile}
               onClick={() => setChecklistProfile(profile)}
-              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${checklistProfile === profile ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
+              className={`px-2.5 py-1.5 rounded-lg text-xs font-bold ${checklistProfile === profile ? 'bg-amber-700 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
             >
               {profile === 'tutti' ? t('calendar.filterAll') : profile === 'vecchio' ? t('calendar.filterOld') : t('calendar.filterNew')}
             </button>
@@ -1013,7 +1011,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         <div className="flex flex-wrap gap-2 flex-grow">
           <button
             onClick={() => { setFilterCategory('all'); Analytics.trackCalendarEvent('filter', 'all'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterCategory === 'all' ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterCategory === 'all' ? 'bg-amber-700 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
           >
             {t('calendar.all')}
           </button>
@@ -1047,14 +1045,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           <div className="flex bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-0.5">
             <button
               onClick={() => setViewMode('calendar')}
-              className={`p-1.5 rounded-md transition-colors ${viewMode === 'calendar' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-500 hover:text-slate-600'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'calendar' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700' : 'text-slate-500 hover:text-slate-600'}`}
               title="Calendario"
             >
               <LayoutGrid size={16} />
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-500 hover:text-slate-600'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700' : 'text-slate-500 hover:text-slate-600'}`}
               title="Lista"
             >
               <List size={16} />
@@ -1072,7 +1070,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               <button
                 onClick={() => { setCurrentMonth(m => Math.max(0, m - 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 0}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
               >
                 <ChevronLeft size={22} />
               </button>
@@ -1084,14 +1082,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                     onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
                     className={`relative px-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-[color,background-color,box-shadow,transform] ${
                       currentMonth === i
-                        ? 'bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 scale-105'
-                        : 'text-slate-600 dark:text-slate-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 dark:hover:text-indigo-300'
+                        ? 'bg-gradient-to-br from-amber-600 to-amber-700 text-white shadow-lg shadow-amber-500/25 scale-105'
+                        : 'text-slate-600 dark:text-slate-500 hover:bg-amber-50 dark:hover:bg-amber-900/20 hover:text-amber-700 dark:hover:text-amber-300'
                     }`}
                   >
                     {name.substring(0, 3)}
                     {monthEventCounts[i] > 0 && (
                       <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-xs font-extrabold flex items-center justify-center shadow-sm ${
-                        currentMonth === i ? 'bg-white text-indigo-600' : 'bg-indigo-500 text-white'
+                        currentMonth === i ? 'bg-white text-amber-700' : 'bg-amber-600 text-white'
                       }`}>
                         {monthEventCounts[i]}
                       </span>
@@ -1103,7 +1101,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               <button
                 onClick={() => { setCurrentMonth(m => Math.min(11, m + 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 11}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-amber-100 dark:hover:bg-amber-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
               >
                 <ChevronRight size={22} />
               </button>
@@ -1128,7 +1126,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                         onClick={() => setSelectedDate(d.date === selectedDate ? null : d.date)}
                         className={`cursor-pointer transition-[color,background-color,box-shadow,transform] rounded-xl ${
                           d.date === selectedDate
-                            ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950/40 scale-[1.02] shadow-md'
+                            ? 'ring-2 ring-amber-500 bg-amber-50 dark:bg-amber-950/40 scale-[1.02] shadow-md'
                             : 'hover:scale-[1.01] hover:shadow-sm'
                         }`}
                       >
@@ -1181,14 +1179,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                           }
                         }}
                         className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-[color,background-color,opacity,box-shadow] relative
-                          ${hasEvents ? 'cursor-pointer hover:bg-indigo-50/80 dark:hover:bg-indigo-950/30' : ''}
-                          ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-500 ring-inset shadow-inner' : ''}
+                          ${hasEvents ? 'cursor-pointer hover:bg-amber-50/80 dark:hover:bg-amber-950/30' : ''}
+                          ${isSelected ? 'bg-amber-100 dark:bg-amber-900/40 ring-2 ring-amber-500 ring-inset shadow-inner' : ''}
                           ${isPast && !hasEvents ? 'opacity-40' : ''}
                         `}
                       >
                         {/* Day number */}
                         <div className={`text-sm font-bold self-end w-7 h-7 flex items-center justify-center rounded-full ${
-                          isToday ? 'bg-indigo-600 text-white shadow-sm' : isSelected ? 'bg-indigo-200 dark:bg-indigo-800 text-indigo-800 dark:text-indigo-200' : 'text-slate-700 dark:text-slate-300'
+                          isToday ? 'bg-amber-700 text-white shadow-sm' : isSelected ? 'bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200' : 'text-slate-700 dark:text-slate-300'
                         }`}>
                           {day}
                         </div>
@@ -1201,7 +1199,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               return (
                                 <div
                                   key={i}
-                                  className={`px-1.5 py-1 rounded-lg text-xs font-extrabold leading-snug bg-${cfg?.color || 'indigo'}-100 dark:bg-${cfg?.color || 'indigo'}-900/40 text-${cfg?.color || 'indigo'}-800 dark:text-${cfg?.color || 'indigo'}-200 border border-${cfg?.color || 'indigo'}-300 dark:border-${cfg?.color || 'indigo'}-700 shadow-sm`}
+                                  className={`px-1.5 py-1 rounded-lg text-xs font-extrabold leading-snug bg-${cfg?.color || 'amber'}-100 dark:bg-${cfg?.color || 'amber'}-900/40 text-${cfg?.color || 'amber'}-800 dark:text-${cfg?.color || 'amber'}-200 border border-${cfg?.color || 'amber'}-300 dark:border-${cfg?.color || 'amber'}-700 shadow-sm`}
                                   title={e.title}
                                 >
                                   <span className="line-clamp-2">{e.title}</span>
@@ -1209,7 +1207,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               );
                             })}
                             {events.length > 2 && (
-                              <div className="text-xs font-extrabold text-indigo-500 dark:text-indigo-400 text-center">+{events.length - 2}</div>
+                              <div className="text-xs font-extrabold text-amber-600 dark:text-amber-400 text-center">+{events.length - 2}</div>
                             )}
                           </div>
                         )}
@@ -1223,7 +1221,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               {selectedDate && selectedDeadlines.length > 0 && (
                 <div className="mt-3 space-y-2 animate-fade-in relative z-30">
                   <div className="flex items-center gap-2">
-                    <div className="px-2 py-1 bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 rounded-lg text-xs font-extrabold">
+                    <div className="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-xs font-extrabold">
                       📅 {formatDate(selectedDate)}
                     </div>
                     <div className="flex-grow h-px bg-slate-200 dark:bg-slate-700"></div>

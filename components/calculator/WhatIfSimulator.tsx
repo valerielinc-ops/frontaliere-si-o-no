@@ -115,7 +115,7 @@ const getScenarios = (t: (key: string) => string, profile?: UserProfileData | nu
     title: t('whatif.scenario.exchange'),
     description: t('whatif.scenario.exchange.desc'),
     storyPrompt: t('whatif.story.exchange'),
-    color: 'indigo',
+    color: 'teal',
     fields: [
       { key: 'customExchangeRate', label: t('whatif.field.exchangeRate'), type: 'slider', min: exchangeMin, max: exchangeMax, step: 0.01 },
     ],
@@ -156,7 +156,6 @@ const colorMap: Record<string, { bg: string; text: string; border: string; light
   blue: { bg: 'bg-blue-500', text: 'text-blue-600', border: 'border-blue-200 dark:border-blue-800', light: 'bg-blue-50 dark:bg-blue-950/30' },
   rose: { bg: 'bg-rose-500', text: 'text-rose-600', border: 'border-rose-200 dark:border-rose-800', light: 'bg-rose-50 dark:bg-rose-950/30' },
   amber: { bg: 'bg-amber-500', text: 'text-amber-600', border: 'border-amber-200 dark:border-amber-800', light: 'bg-amber-50 dark:bg-amber-950/30' },
-  indigo: { bg: 'bg-teal-500', text: 'text-teal-600', border: 'border-teal-200 dark:border-teal-800', light: 'bg-teal-50 dark:bg-teal-950/30' },
   teal: { bg: 'bg-teal-500', text: 'text-teal-600', border: 'border-teal-200 dark:border-teal-800', light: 'bg-teal-50 dark:bg-teal-950/30' },
   orange: { bg: 'bg-orange-500', text: 'text-orange-600', border: 'border-orange-200 dark:border-orange-800', light: 'bg-orange-50 dark:bg-orange-950/30' },
 };
@@ -265,29 +264,24 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
   return (
     <div className="w-full space-y-6 animate-fade-in">
       {/* Header — Fun/Playful */}
-      <div className="bg-gradient-to-br from-amber-500 via-orange-500 to-rose-500 rounded-3xl p-5 sm:p-8 text-white shadow-2xl relative overflow-hidden">
-        {/* Decorative blobs */}
-        <div className="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full blur-2xl" />
-        <div className="absolute -bottom-10 -left-10 w-32 h-32 bg-yellow-300/15 rounded-full blur-2xl" />
+      <div className="bg-amber-50/80 dark:bg-amber-950/20 rounded-2xl p-5 sm:p-8 border border-amber-200/60 dark:border-amber-800/40 relative overflow-hidden">
         <div className="relative z-10">
           <div className="flex items-center gap-4 mb-4">
-            <div className="p-3 bg-white/20 rounded-2xl">
-              <Sparkles size={32} className="text-yellow-300" />
-            </div>
+            <Sparkles size={32} className="text-amber-700 dark:text-amber-400" />
             <div className="flex-1 min-w-0">
               <div className="flex items-center gap-3 flex-wrap">
-                <h1 className="text-2xl sm:text-3xl font-extrabold">{t('whatif.title')}</h1>
-                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-yellow-400/25 text-yellow-200 border border-yellow-300/40 rounded-full">
+                <h1 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('whatif.title')}</h1>
+                <span className="inline-flex items-center gap-1.5 px-3 py-1 text-xs font-bold uppercase tracking-wider bg-amber-200/60 dark:bg-amber-900/40 text-amber-800 dark:text-amber-300 border border-amber-300/60 dark:border-amber-700/40 rounded-full">
                   ✨ {t('whatif.experimentalBadge')}
                 </span>
               </div>
-              <p className="text-white/70 mt-1 text-sm">{t('whatif.subtitle')}</p>
+              <p className="text-stone-500 dark:text-stone-400 mt-1 text-sm">{t('whatif.subtitle')}</p>
             </div>
           </div>
           {/* Fun hint bar */}
-          <div className="mt-4 bg-white/15 rounded-xl p-3 text-sm text-white/60">
+          <div className="mt-4 bg-amber-100/60 dark:bg-amber-900/20 rounded-xl p-3 text-sm text-stone-500 dark:text-stone-400">
             <div className="flex items-center gap-2">
-              <Sliders size={14} className="text-yellow-300" />
+              <Sliders size={14} className="text-amber-700 dark:text-amber-400" />
               <span>{t('whatif.terminalHint')}</span>
             </div>
           </div>

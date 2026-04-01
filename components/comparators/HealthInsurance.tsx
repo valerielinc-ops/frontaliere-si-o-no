@@ -205,7 +205,7 @@ const HealthInsurance: React.FC = () => {
 
   return (
     <div className="space-y-6 pb-8">
-      <div className="bg-gradient-to-br from-rose-600 to-pink-700 rounded-2xl p-4 sm:p-8 text-white">
+      <div className="bg-gradient-to-br from-rose-700 to-rose-900 rounded-2xl p-4 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-3">
           <Heart size={28} />
           <h2 className="text-2xl sm:text-3xl font-extrabold">{t('health.title')}</h2>
@@ -504,9 +504,9 @@ const HealthInsurance: React.FC = () => {
       )}
 
       {/* CMU vs LAMal comparison for French border workers */}
-      <div className="bg-gradient-to-br from-violet-50 to-purple-50 dark:from-violet-950/30 dark:to-purple-950/30 rounded-2xl border border-violet-200 dark:border-violet-800 p-6">
+      <div className="bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30 rounded-2xl border border-rose-200 dark:border-rose-800 p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-          <Globe size={20} className="text-violet-600" />
+          <Globe size={20} className="text-rose-700" />
           CMU francese vs LAMal
         </h3>
         <p className="text-sm text-slate-600 dark:text-slate-300 mb-4">
@@ -514,7 +514,7 @@ const HealthInsurance: React.FC = () => {
         </p>
         <div className="grid md:grid-cols-2 gap-4 mb-4">
           <div className="p-4 bg-white/60 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-violet-600 mb-2">CMU (Francia)</p>
+            <p className="font-bold text-rose-700 mb-2">CMU (Francia)</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
               <li>Costo: ~8% del reddito fiscale (RFR)</li>
               <li>Rimborso: ~70% per visite, ~65% farmaci</li>
@@ -523,7 +523,7 @@ const HealthInsurance: React.FC = () => {
             </ul>
           </div>
           <div className="p-4 bg-white/60 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-violet-600 mb-2">LAMal (Svizzera)</p>
+            <p className="font-bold text-rose-700 mb-2">LAMal (Svizzera)</p>
             <ul className="space-y-1 text-sm text-slate-700 dark:text-slate-300 list-disc ml-4">
               <li>Costo: premio fisso ({cheapest ? cheapest.premium.toFixed(0) + '-' + (mostExpensive?.premium.toFixed(0) ?? '?') : '?'} CHF/mese)</li>
               <li>Franchigia: {availableFranchises[0]}-{availableFranchises[availableFranchises.length - 1]} CHF/anno</li>
@@ -532,14 +532,14 @@ const HealthInsurance: React.FC = () => {
             </ul>
           </div>
         </div>
-        <div className="p-4 bg-violet-100/60 dark:bg-violet-900/30 rounded-xl">
-          <p className="text-sm text-violet-900 dark:text-violet-200">
+        <div className="p-4 bg-rose-100/60 dark:bg-rose-900/30 rounded-xl">
+          <p className="text-sm text-rose-900 dark:text-rose-200">
             <strong>Nota:</strong>{' La CMU conviene generalmente per redditi bassi (<40.000 CHF). Per redditi alti LAMal è spesso più economica. Questa comparazione è informativa — i frontalieri italiani in Ticino scelgono tra LAMal e SSN.'}
           </p>
         </div>
       </div>
 
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
+      <div className="bg-gradient-to-br from-rose-50 to-amber-50 dark:from-rose-950/30 dark:to-amber-950/30 rounded-2xl border border-rose-200 dark:border-rose-800 p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Info size={20} className="text-blue-600" />
           LAMal svizzera vs SSN italiano

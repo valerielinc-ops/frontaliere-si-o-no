@@ -80,7 +80,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 50000,
     transferTime: 'Istantaneo',
     transferTimeKey: 'instant',
-    color: 'from-blue-500 to-indigo-600',
+    color: 'from-blue-500 to-blue-700',
     features: ['Cambio gratuito fino a 1000 EUR/mese (Standard)', 'Oltre limite: 1% commissione uso corretto', 'Weekend: markup 1%'],
     featureKeys: ['feature_free_exchange_1000', 'feature_fair_usage_1pct', 'feature_weekend_markup_1pct'],
     type: 'neobank',
@@ -96,7 +96,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 100000,
     transferTime: 'Istantaneo',
     transferTimeKey: 'instant',
-    color: 'from-purple-500 to-pink-600',
+    color: 'from-rose-500 to-pink-600',
     features: ['100% digitale', 'Nessuna commissione dichiarata', 'Spread nascosto ~0.9%'],
     featureKeys: ['feature_100_digital', 'feature_no_declared_commission', 'feature_hidden_spread_09'],
     type: 'neobank'
@@ -172,7 +172,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 500000,
     transferTime: '2-5 giorni lavorativi',
     transferTimeKey: '2_5_business_days',
-    color: 'from-blue-600 to-indigo-700',
+    color: 'from-blue-600 to-blue-800',
     features: ['Commissione fissa + 0.25%', 'Spread molto elevato', 'Servizio bancario classico'],
     featureKeys: ['feature_fixed_commission_025', 'feature_very_high_spread', 'feature_classic_banking'],
     type: 'traditional'
@@ -233,7 +233,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 500000,
     transferTime: '1-2 giorni lavorativi',
     transferTimeKey: '1_2_business_days',
-    color: 'from-cyan-500 to-blue-600',
+    color: 'from-teal-500 to-blue-600',
     features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.35%', 'Bonifico diretto su conto italiano', '🎁 Da frontalieticino.ch: 25€ in regalo con 3000 CHF di ordini nei primi 30 giorni'],
     featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_035', 'feature_direct_transfer_italy', 'feature_cambiavalute_referral_bonus'],
     type: 'service',
@@ -403,24 +403,22 @@ const CurrencyExchange: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-teal-500 via-emerald-500 to-teal-600 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white shadow-2xl">
+      <div className="bg-gradient-to-br from-emerald-700 to-teal-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white">
         <div className="flex items-center gap-3 sm:gap-4 mb-4">
-          <div className="p-2.5 sm:p-3 bg-white/20 rounded-xl sm:rounded-2xl backdrop-blur-sm">
-            <ArrowRightLeft size={28} className="sm:w-8 sm:h-8" />
-          </div>
+          <ArrowRightLeft size={28} className="sm:w-8 sm:h-8" />
           <div>
             <h1 className="text-xl sm:text-3xl font-extrabold">{t('currency.title')}</h1>
-            <p className="text-teal-100 text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
+            <p className="text-emerald-100 text-sm sm:text-base mt-1">{t('currency.subtitle')}</p>
           </div>
         </div>
 
         {/* Important Notice */}
-        <div className="mt-6 p-4 bg-white/10 backdrop-blur-sm rounded-2xl border border-white/20">
+        <div className="mt-6 p-4 bg-white/10 rounded-2xl border border-white/20">
           <div className="flex items-start gap-3">
             <AlertCircle size={24} className="flex-shrink-0 mt-0.5" />
             <div className="text-sm">
               <p className="font-bold mb-2">⚠️ {t('currency.notice_title')}</p>
-              <p className="text-teal-100 leading-relaxed">
+              <p className="text-emerald-100 leading-relaxed">
                 {t('currency.notice_text')}
               </p>
             </div>
@@ -434,7 +432,7 @@ const CurrencyExchange: React.FC = () => {
           onClick={() => { setExchangeSubTab('overview'); Analytics.trackCurrencyExchange('provider_view', 'overview'); }}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
             exchangeSubTab === 'overview'
-              ? 'bg-indigo-600 text-white shadow-lg'
+              ? 'bg-emerald-700 text-white shadow-lg'
               : 'text-slate-600 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
         >
@@ -445,7 +443,7 @@ const CurrencyExchange: React.FC = () => {
           onClick={() => { setExchangeSubTab('statistics'); Analytics.trackCurrencyExchange('provider_view', 'statistics'); }}
           className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
             exchangeSubTab === 'statistics'
-              ? 'bg-indigo-600 text-white shadow-lg'
+              ? 'bg-emerald-700 text-white shadow-lg'
               : 'text-slate-600 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700'
           }`}
         >
@@ -462,13 +460,13 @@ const CurrencyExchange: React.FC = () => {
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-            <Calculator size={20} className="text-indigo-600" />
+            <Calculator size={20} className="text-emerald-700" />
             {t('currency.calculate_exchange')}
           </h2>
           <button
             onClick={refresh}
             disabled={loading}
-            className="flex items-center gap-2 px-3 py-2 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600 dark:text-indigo-400 rounded-xl text-xs font-bold hover:bg-indigo-100 dark:hover:bg-indigo-900/40 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-xl text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all disabled:opacity-50"
           >
             <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
             {t('currency.refresh_rate')}
@@ -487,7 +485,7 @@ const CurrencyExchange: React.FC = () => {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(Math.max(0, parseFloat(e.target.value) || 0))}
-                className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-lg"
+                className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-lg"
                 placeholder="1000"
               />
             </div>
@@ -527,14 +525,14 @@ const CurrencyExchange: React.FC = () => {
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
         <div className="flex items-center justify-between mb-4 flex-wrap gap-3">
           <h2 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-            <BarChart3 size={20} className="text-indigo-600" />
+            <BarChart3 size={20} className="text-emerald-700" />
             {t('currency.history_title')}
           </h2>
           <div className="flex gap-1.5">
             {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
               <button key={p}
                 onClick={() => setHistoryPeriod(p)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${historyPeriod === p ? 'bg-indigo-600 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${historyPeriod === p ? 'bg-emerald-700 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-500 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
               >
                 {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
               </button>
@@ -644,7 +642,7 @@ const CurrencyExchange: React.FC = () => {
       <div>
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-lg sm:text-2xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-            <Percent size={20} className="text-indigo-600 sm:w-6 sm:h-6" />
+            <Percent size={20} className="text-emerald-700 sm:w-6 sm:h-6" />
             {t('currency.detailed_comparison')}
           </h2>
           <button onClick={handleShare} aria-label={t('common.share')} className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors text-sm font-semibold text-slate-600 dark:text-slate-300">
@@ -767,7 +765,7 @@ const CurrencyExchange: React.FC = () => {
       {/* Moved to Statistics subtab */}
 
       {/* Educational Section */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
+      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-6">
         <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Info size={20} className="text-blue-600" />
           {t('currency.how_hidden_spread_works')}
@@ -786,7 +784,7 @@ const CurrencyExchange: React.FC = () => {
           </div>
 
           <div className="p-4 bg-white/50 dark:bg-slate-900/50 rounded-xl">
-            <p className="font-bold text-indigo-600 mb-2">💡 {t('currency.tips_to_save_title')}:</p>
+            <p className="font-bold text-emerald-700 mb-2">💡 {t('currency.tips_to_save_title')}:</p>
             <ul className="space-y-1 ml-4 list-disc">
               <li>{t('currency.tip_use_wise')}</li>
               <li>{t('currency.tip_revolut_small')}</li>

@@ -116,7 +116,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 25,
     contractType: 'abbonamento',
-    color: 'from-blue-600 to-indigo-700',
+    color: 'from-blue-600 to-blue-800',
     features: ['Copertura eccellente', 'Opzione CH 10€/mese', 'Costoso complessivamente'],
     website: 'https://www.tim.it/offerte/mobile'
   },
@@ -155,7 +155,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'prepagato',
-    color: 'from-purple-600 to-pink-700',
+    color: 'from-rose-600 to-pink-700',
     features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH costoso'],
     website: 'https://www.verymobile.it/offerte'
   },
@@ -195,7 +195,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'abbonamento',
-    color: 'from-blue-700 to-indigo-800',
+    color: 'from-blue-700 to-blue-900',
     features: ['Rete migliore CH', 'Roaming UE illimitato', 'Premium'],
     website: 'https://www.swisscom.ch'
   },
@@ -290,7 +290,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'prepagato',
-    color: 'from-cyan-600 to-blue-700',
+    color: 'from-teal-600 to-blue-700',
     features: ['Rete Swisscom', 'Roaming UE incluso', 'Buon prezzo'],
     website: 'https://www.wingo.ch/it'
   },
@@ -382,12 +382,12 @@ const MobileOperators: React.FC = () => {
   return (
     <div className="space-y-6 pb-8">
       {/* Header */}
-      <div className="bg-gradient-to-br from-indigo-600 to-purple-700 rounded-2xl p-5 sm:p-8 text-white">
+      <div className="bg-amber-50/80 dark:bg-amber-950/20 rounded-2xl p-5 sm:p-8 border border-amber-200/60 dark:border-amber-800/40">
         <div className="flex items-center gap-3 mb-4">
-          <Smartphone size={32} />
-          <h2 className="text-2xl sm:text-3xl font-extrabold">{t('mobile.title')}</h2>
+          <Smartphone size={32} className="text-amber-700 dark:text-amber-400" />
+          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('mobile.title')}</h2>
         </div>
-        <p className="text-indigo-100 text-lg">
+        <p className="text-stone-500 dark:text-stone-400 text-lg">
           {t('mobile.subtitle')}
         </p>
         <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Operatori ufficiali" variant="badge" /></div>
@@ -416,7 +416,7 @@ const MobileOperators: React.FC = () => {
                 onClick={() => { setFilterCountry('all'); Analytics.trackMobileOperator('filter', undefined, 'all'); }}
                 className={`px-4 py-2 rounded-lg text-sm font-bold transition-colors ${
                   filterCountry === 'all' 
-                    ? 'bg-indigo-600 text-white' 
+                    ? 'bg-amber-700 text-white'
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200'
                 }`}
               >
@@ -508,7 +508,7 @@ const MobileOperators: React.FC = () => {
             className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all cursor-pointer ${
               hasGoodRoaming 
                 ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' 
-                : 'border-slate-200 dark:border-slate-700 hover:border-indigo-400'
+                : 'border-slate-200 dark:border-slate-700 hover:border-amber-400'
             }`
           } : {
             className: `bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all ${
@@ -594,7 +594,7 @@ const MobileOperators: React.FC = () => {
               {/* Plan Details */}
               <div className="grid grid-cols-3 gap-3 mb-4">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
-                  <Wifi className="mx-auto mb-1 text-indigo-600" size={18} />
+                  <Wifi className="mx-auto mb-1 text-amber-700" size={18} />
                   <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.data')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.dataGB === 'illimitati' ? '∞' : `${operator.dataGB} GB`}
@@ -610,7 +610,7 @@ const MobileOperators: React.FC = () => {
                 </div>
 
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-xl text-center">
-                  <MessageSquare className="mx-auto mb-1 text-purple-600" size={18} />
+                  <MessageSquare className="mx-auto mb-1 text-rose-600" size={18} />
                   <div className="text-xs text-slate-500 dark:text-slate-500 mb-1">{t('mobile.sms')}</div>
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">
                     {operator.sms === 'illimitati' ? '∞' : operator.sms}
@@ -675,7 +675,7 @@ const MobileOperators: React.FC = () => {
       </div>
 
       {/* Educational Section */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
+      <div className="bg-gradient-to-br from-amber-50 to-orange-50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl border border-amber-200 dark:border-amber-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Info size={20} className="text-blue-600" />
           {t('mobile.tipsTitle')}
