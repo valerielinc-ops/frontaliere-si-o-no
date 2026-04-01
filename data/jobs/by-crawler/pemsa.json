@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "disegnatore-progettista-meccanico-pemsa-giubiasco",
-        "en": "disegnatore-progettista-meccanico-pemsa-giubiasco",
-        "de": "disegnatore-progettista-meccanico-pemsa-giubiasco",
-        "fr": "disegnatore-progettista-meccanico-pemsa-giubiasco"
+        "en": "mechanical-draftsman-designer-pemsa-giubiasco",
+        "de": "mechanischer-zeichner-konstrukteur-pemsa-giubiasco",
+        "fr": "dessinateur-concepteur-mecanique-pemsa-giubiasco"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -57,7 +57,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "disegnatore-progettista-meccanico-pemsa-giubiasco"
+      ]
     },
     {
       "title": "MANUTENTORE ELETTRO SU MACCHINARI EDILI E SILOS AUTOMATIZZATI",

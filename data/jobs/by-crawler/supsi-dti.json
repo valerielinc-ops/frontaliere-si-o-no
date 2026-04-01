@@ -39,7 +39,7 @@
         "it": "assistente-con-master-nel-settore-sistema-edificio-supsi-dti-mendrisio",
         "en": "assistant-with-master-s-degree-in-the-building-systems-sector-supsi-dti-mendrisio",
         "de": "assistente-con-master-nel-settore-sistema-edificio-supsi-dti-mendrisio-l4rl4e",
-        "fr": "assistente-con-master-nel-settore-sistema-edificio-supsi-dti-mendrisio-l4rl4e"
+        "fr": "assistant-avec-master-dans-le-secteur-du-systeme-du-batiment-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Master nel Settore sistema edificio",
@@ -114,7 +114,10 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-con-master-nel-settore-sistema-edificio-supsi-dti-mendrisio-l4rl4e"
+      ]
     },
     {
       "id": "company-l4ti31",
@@ -280,9 +283,9 @@
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
         "it": "assistente-con-master-in-idrologia-supsi-dti-mendrisio",
-        "en": "assistente-con-master-in-idrologia-supsi-dti-mendrisio",
+        "en": "assistant-with-a-master-s-degree-in-hydrology-supsi-dti-mendrisio",
         "de": "assistente-con-master-in-idrologia-supsi-dti-mendrisio",
-        "fr": "assistente-con-master-in-idrologia-supsi-dti-mendrisio"
+        "fr": "assistant-avec-master-en-hydrologie-supsi-dti-mendrisio"
       },
       "titleByLocale": {
         "it": "Assistente con Master in idrologia",
@@ -353,7 +356,10 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-con-master-in-idrologia-supsi-dti-mendrisio"
+      ]
     },
     {
       "id": "company-l4rl4l",
@@ -392,7 +398,7 @@
       "slugByLocale": {
         "it": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
         "en": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-dti-mendrisio-grado-d",
-        "de": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l",
+        "de": "doktorand-im-bereich-dynamik-fortgeschrittener-verbundwerkstoffe-fur-drohnen-supsi-dti-mendrisio-grado-d",
         "fr": "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
       },
       "titleByLocale": {
@@ -463,7 +469,8 @@
       "country": "CH",
       "sourceLang": "it",
       "previousSlugs": [
-        "phd-student-in-dynamic-of-advanced-composite-materials-for-drones-supsi-dti-mendrisio-grado-d"
+        "phd-student-in-dynamic-of-advanced-composite-materials-for-drones-supsi-dti-mendrisio-grado-d",
+        "dottoranda-dottorando-in-dinamica-dei-materiali-compositi-avanzati-per-droni-supsi-mendrisio-grado-d-l4rl4l"
       ],
       "salaryMin": 82500,
       "salaryMax": 111500,
