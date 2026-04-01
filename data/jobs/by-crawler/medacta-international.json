@@ -1,6 +1,6 @@
 {
   "crawlerKey": "medacta-international",
-  "assembledAt": "2026-03-30T09:25:47.434Z",
+  "assembledAt": "2026-04-01T09:43:16.384Z",
   "jobs": [
     {
       "id": "medacta-92188",
@@ -364,7 +364,10 @@
         "diplomarbeit-f-e-orthopadie-medacta-international-sa-rancate",
         "these-r-d-orthopedie-medacta-international-sa-rancate",
         "thesis-r-d-orthopedics-medacta-international-sa-rancate"
-      ]
+      ],
+      "needsRetranslation": true,
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "medacta-102667",
@@ -725,7 +728,10 @@
       },
       "previousSlugs": [
         "bediener-vor-und-nach-der-beschichtung-medacta-international-sa-castel-san-pietro"
-      ]
+      ],
+      "needsRetranslation": true,
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "medacta-96190",
@@ -1091,7 +1097,10 @@
       "previousSlugs": [
         "turner-medacta-international-sa-castel-san-pietro-rancate",
         "dreher-medacta-international-sa-castel-san-pietro-rancate-kl7c9g"
-      ]
+      ],
+      "needsRetranslation": true,
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "medacta-97004",
@@ -1452,7 +1461,10 @@
       },
       "previousSlugs": [
         "schleif-und-polierarbeiter-3-schichten-medacta-international-sa-castel-san-pietro"
-      ]
+      ],
+      "needsRetranslation": true,
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
     }
   ]
 }
