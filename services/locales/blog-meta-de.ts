@@ -1889,6 +1889,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ambasciatore-italiano-ritorno-berna.title': 'Rückkehr des italienischen Botschafters nach Bern nach Kontroversen im Crans-Montana-Fall',
     'blog.article.ambasciatore-italiano-ritorno-berna.excerpt': 'Gian Lorenzo Cornado bereitet sich darauf vor, an einer Gedenkfeier in Crans-Montana teilzunehmen, was einen wichtigen Schritt im Auftauen zwischen Italien und der Schweiz markiert. Die justizielle Zusammenarbeit wird gestärkt.',
     'blog.article.ambasciatore-italiano-ritorno-berna.imageAlt': 'Realistische Darstellung eines Grenzübergangs in Tessin mit Blick auf den Lago Maggiore.',
+    'blog.article.pazienti-ticino-protesta.title': 'Tessin: 20.000 Unterschriften gegen neue Tarife für Hauskrankenpflege',
+    'blog.article.pazienti-ticino-protesta.excerpt': 'Die Petition \'Nicht die Patienten sind schuld\' hat in nur 5 Tagen über 20.000 Unterschriften gesammelt, um gegen die neuen Tarife für die häusliche Pflege zu protestieren',
+    'blog.article.pazienti-ticino-protesta.imageAlt': 'Lugano Protest gegen neue Gebühren für häusliche Pflege',
 };
 
 export default blogMetaDe;

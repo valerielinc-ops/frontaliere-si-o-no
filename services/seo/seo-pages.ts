@@ -3358,7 +3358,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 622,
+        "numberOfItems": 623,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -3978,7 +3978,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 619, "name": "Tenta la furbata in dogana tra Como e Svizzera:...", "url": `${BASE_URL}/articoli-frontaliere/furbata-dogana-argento` },
           { "@type": "ListItem", "position": 620, "name": "Nuova alleanza per la sicurezza del Lago Maggiore", "url": `${BASE_URL}/articoli-frontaliere/sicurezza-lago-maggiore` },
           { "@type": "ListItem", "position": 621, "name": "Monete d'argento preziose nascoste in auto: san...", "url": `${BASE_URL}/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso` },
-          { "@type": "ListItem", "position": 622, "name": "Rientro dell'ambasciatore italiano a Berna dopo...", "url": `${BASE_URL}/articoli-frontaliere/ambasciatore-italiano-ritorno-berna` }
+          { "@type": "ListItem", "position": 622, "name": "Rientro dell'ambasciatore italiano a Berna dopo...", "url": `${BASE_URL}/articoli-frontaliere/ambasciatore-italiano-ritorno-berna` },
+          { "@type": "ListItem", "position": 623, "name": "Petizione contro le nuove tariffe per le cure a...", "url": `${BASE_URL}/articoli-frontaliere/pazienti-ticino-protesta` }
         ]
       }
     ]

@@ -1889,6 +1889,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ambasciatore-italiano-ritorno-berna.title': 'Return of the Italian ambassador to Bern after controversy over the Crans-Montana case',
     'blog.article.ambasciatore-italiano-ritorno-berna.excerpt': 'Gian Lorenzo Cornado is preparing to attend a commemoration in Crans-Montana, marking an important step in the thaw between Italy and Switzerland. Judicial cooperation is strengthening.',
     'blog.article.ambasciatore-italiano-ritorno-berna.imageAlt': 'Realistic scene of a border crossing in Ticino with Lake Maggiore in the background.',
+    'blog.article.pazienti-ticino-protesta.title': 'Ticino: 20,000 signatures against new fees for home care',
+    'blog.article.pazienti-ticino-protesta.excerpt': 'The petition \'Non è colpa dei pazienti\' has gathered over 20,000 signatures in just 5 days in opposition to the new charges for home care services',
+    'blog.article.pazienti-ticino-protesta.imageAlt': 'Lugano protest against new home care fees',
 };
 
 export default blogMetaEn;

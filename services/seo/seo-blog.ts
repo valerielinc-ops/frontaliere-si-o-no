@@ -9972,6 +9972,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pazienti-ticino-protesta': {
+    title: 'Ticino: 20mila firme contro le nuove tariffe per le cure a domicilio | Frontaliere Ticino',
+    description: 'La petizione \'Non è colpa dei pazienti\' ha raccolto oltre 20mila firme contro le nuove tariffe per le cure a domicilio in Ticino. Scopri di più sulla protesta e',
+    keywords: 'frontalieri, ticino, svizzera, italia, 20mila, firme, contro, nuove',
+    ogTitle: 'Petizione contro le nuove tariffe per le cure a domicilio in Ticino',
+    ogDescription: 'La petizione \'Non è colpa dei pazienti\' ha raccolto oltre 20mila firme contro le nuove tariffe per le cure a domicilio in Ticino.',
+    canonicalPath: '/articoli-frontaliere/pazienti-ticino-protesta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Petizione contro le nuove tariffe per le cure a domicilio in Ticino",
+      "description": "La petizione 'Non è colpa dei pazienti' ha raccolto oltre 20mila firme contro le nuove tariffe per le cure a domicilio in Ticino. Scopri di più sulla protesta e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pazienti-ticino-protesta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione a Lugano contro le nuove tariffe per le cure a domicilio"
+      },
+      "datePublished": "2026-04-01T07:49:47+00:00",
+      "dateModified": "2026-04-01T07:49:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pazienti-ticino-protesta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

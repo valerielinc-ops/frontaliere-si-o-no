@@ -5599,4 +5599,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ambasciatore-italiano-ritorno-berna.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'pazienti-ticino-protesta',
+    category: 'novita',
+    date: '2026-04-01T07:49:47.482Z',
+    image: '/images/blog/pazienti-ticino-protesta.jpg',
+    hasCalculator: true,
+  },
 ];

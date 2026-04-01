@@ -1889,6 +1889,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ambasciatore-italiano-ritorno-berna.title': 'Rientro dell\'ambasciatore italiano a Berna dopo polemiche sul caso Crans-Montana',
     'blog.article.ambasciatore-italiano-ritorno-berna.excerpt': 'Gian Lorenzo Cornado si prepara a partecipare a una commemorazione a Crans-Montana, segnando un passo importante nel disgelo tra Italia e Svizzera. La cooperazione giudiziaria si rafforza.',
     'blog.article.ambasciatore-italiano-ritorno-berna.imageAlt': 'Veduta di un valico di frontiera in Ticino con Lago Maggiore sullo sfondo, scena realistica.',
+    'blog.article.pazienti-ticino-protesta.title': 'Ticino: 20mila firme contro le nuove tariffe per le cure a domicilio',
+    'blog.article.pazienti-ticino-protesta.excerpt': 'La petizione \'Non è colpa dei pazienti\' ha raccolto oltre 20mila firme in soli 5 giorni contro le nuove tariffe per le cure a domicilio',
+    'blog.article.pazienti-ticino-protesta.imageAlt': 'Manifestazione a Lugano contro le nuove tariffe per le cure a domicilio',
 };
 
 export default blogMetaIt;
