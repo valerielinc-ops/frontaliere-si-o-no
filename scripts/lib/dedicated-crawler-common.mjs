@@ -3893,11 +3893,29 @@ export function localeTextCoverage(map = {}, minChars = 1) {
 
 export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1) {
   const out = {};
+  // Detect source-lang value in b to guard against overwriting real translations
+  // with source-language copies. Many parsers put the same Italian title in all
+  // four locale slots; we must not let that overwrite an existing EN/DE/FR translation.
+  const bSourceValues = new Set();
+  for (const srcLocale of ['it', 'en']) {
+    const v = normalizeSpace(String(b?.[srcLocale] || ''));
+    if (v.length >= minChars) bSourceValues.add(v);
+  }
   for (const locale of LOCALES) {
     const av = normalizeSpace(String(a?.[locale] || ''));
     const bv = normalizeSpace(String(b?.[locale] || ''));
     if (av.length < minChars && bv.length < minChars) continue;
-    out[locale] = bv.length >= av.length ? bv : av;
+    if (av.length < minChars) { out[locale] = bv; continue; }
+    if (bv.length < minChars) { out[locale] = av; continue; }
+    // If `b` has the same value across multiple locales (source-lang copy pattern)
+    // and `a` has a DIFFERENT value for this locale, keep `a` — it's a real translation.
+    const bIsCrossLocaleDuplicate = (locale !== 'it') && bSourceValues.has(bv) &&
+      LOCALES.filter(l => l !== locale).some(l => normalizeSpace(String(b?.[l] || '')) === bv);
+    if (bIsCrossLocaleDuplicate && av !== bv) {
+      out[locale] = av;
+    } else {
+      out[locale] = bv.length >= av.length ? bv : av;
+    }
   }
   return out;
 }
@@ -3996,14 +4014,11 @@ export function captureLostSlugs(job, prevSlugByLocale = {}, prevSlug = '', cap 
 
   if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
   const allPrevious = new Set([...job.previousSlugs, ...lost]);
-  // Exclude current slugs to avoid self-referencing
+  // Only exclude the current MASTER slug — locale slugs in slugByLocale should
+  // NOT be removed from previousSlugs because they may still be needed as bridge
+  // redirects. An old master slug that happens to coincide with a current locale
+  // slug was being incorrectly purged, losing SEO continuity.
   if (job.slug) allPrevious.delete(normalizeSpace(job.slug));
-  if (job.slugByLocale && typeof job.slugByLocale === 'object') {
-    for (const s of Object.values(job.slugByLocale)) {
-      const trimmed = normalizeSpace(s || '');
-      if (trimmed) allPrevious.delete(trimmed);
-    }
-  }
   job.previousSlugs = [...allPrevious].slice(0, cap);
   return lost;
 }
