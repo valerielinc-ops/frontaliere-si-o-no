@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
-        "en": "consulente-technician-interno-di-sales-m-f-d-hoval-mezzovico",
-        "de": "consulente-techniker-interno-di-verkauf-m-f-d-hoval-mezzovico",
-        "fr": "consulente-technicien-interno-di-vente-m-f-d-hoval-mezzovico"
+        "en": "internal-technical-sales-consultant-m-f-d-hoval-mezzovico",
+        "de": "interner-technischer-vertriebsberater-m-w-d-hoval-mezzovico",
+        "fr": "consultant-technique-interne-en-vente-m-f-d-hoval-mezzovico"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -61,7 +61,10 @@
       "previousSlugs": [
         "consulente-technician-interno-di-sales-m-f-d-hoval-mezzovico-bege65",
         "consulente-techniker-interno-di-verkauf-m-f-d-hoval-mezzovico-bege65",
-        "consulente-technicien-interno-di-vente-m-f-d-hoval-mezzovico-bege65"
+        "consulente-technicien-interno-di-vente-m-f-d-hoval-mezzovico-bege65",
+        "consulente-technician-interno-di-sales-m-f-d-hoval-mezzovico",
+        "consulente-techniker-interno-di-verkauf-m-f-d-hoval-mezzovico",
+        "consulente-technicien-interno-di-vente-m-f-d-hoval-mezzovico"
       ]
     },
     {
@@ -101,7 +104,7 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino",
-        "en": "technician-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino",
+        "en": "service-technician-for-renewable-energy-heating-systems-m-f-d-hoval-ticino",
         "de": "techniker-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino-begew1",
         "fr": "technicien-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino-begew1"
       },
@@ -121,7 +124,8 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "previousSlugs": [
-        "technician-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino-begew1"
+        "technician-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino-begew1",
+        "technician-di-servizio-per-impianti-di-riscaldamento-energie-rinnovabili-m-f-d-hoval-ticino"
       ]
     },
     {
@@ -161,7 +165,7 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino",
-        "en": "technician-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino",
+        "en": "service-technician-for-oil-gas-heating-systems-m-f-d-hoval-ticino",
         "de": "techniker-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino-begeak",
         "fr": "technicien-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino-begeak"
       },
@@ -181,7 +185,8 @@
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
       "previousSlugs": [
-        "technician-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino-begeak"
+        "technician-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino-begeak",
+        "technician-di-servizio-per-impianti-di-riscaldamento-olio-gas-m-f-d-hoval-ticino"
       ]
     }
   ]
