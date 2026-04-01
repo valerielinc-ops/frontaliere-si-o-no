@@ -328,10 +328,10 @@
       "id": "denner-a9d3e660c799",
       "slug": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
       "slugByLocale": {
-        "it": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
-        "en": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon",
+        "it": "responsabile-del-reparto-di-ingresso-e-uscita-merci-dietlikon-denner-dietlikon",
+        "en": "department-manager-warehouse-inbound-outbound-dietlikon-denner-dietlikon",
         "de": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner",
-        "fr": "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+        "fr": "responsable-du-departement-d-entree-et-de-sortie-de-marchandises-dietlikon-denner-dietlikon"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -392,7 +392,9 @@
       "source": "Denner/Migros Dedicated Parser",
       "crawledAt": "2026-03-31T21:11:10.370Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "abteilungsleiter-in-wareneingang-warenausgang-dietlikon-denner-dietlikon"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -410,10 +412,10 @@
       "id": "denner-f27b15369ada",
       "slug": "werkstudent-in-application-management-denner",
       "slugByLocale": {
-        "it": "werkstudent-in-application-management-denner",
+        "it": "studente-lavoratore-a-in-application-management-denner-zurich",
         "en": "werkstudent-in-application-management-denner-zurich",
         "de": "werkstudent-in-application-management-denner",
-        "fr": "werkstudent-in-application-management-denner"
+        "fr": "etudiant-e-salarie-e-en-gestion-des-applications-denner-zurich"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -483,7 +485,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "werkstudent-in-application-management-denner"
+      ]
     },
     {
       "id": "denner-36545d079df8",

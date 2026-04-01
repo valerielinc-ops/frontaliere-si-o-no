@@ -28,9 +28,9 @@
       "crawledAt": "2026-03-31T21:53:35.437Z",
       "slugByLocale": {
         "it": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
-        "en": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
+        "en": "network-specialist-swiss-armed-forces-vtg-locarno",
         "de": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno",
-        "fr": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
+        "fr": "specialiste-des-reseaux-swiss-armed-forces-vtg-locarno"
       },
       "titleByLocale": {
         "de": "Netzwerk Spezialist/-in Professional",
@@ -46,7 +46,9 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -91,10 +93,10 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T21:53:35.437Z",
       "slugByLocale": {
-        "it": "operatore-in-support-swiss-armed-forces-vtg-rivera",
+        "it": "supporto-operatore-trice-swiss-armed-forces-vtg-rivera",
         "en": "operator-in-support-swiss-armed-forces-vtg-rivera",
         "de": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
-        "fr": "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
+        "fr": "support-operateur-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
         "en": "Operator/-in Support",
@@ -110,7 +112,10 @@
       },
       "requirementsByLocale": {},
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "operatore-in-support-swiss-armed-forces-vtg-rivera",
+        "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {

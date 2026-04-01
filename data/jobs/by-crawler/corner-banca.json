@@ -6,10 +6,10 @@
       "id": "corner-banca-b69f1f79bbe3",
       "slug": "customer-advisor-40-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-40-corner-banca-wallisellen",
+        "it": "consulente-clienti-40-corner-banca-wallisellen",
         "en": "customer-advisor-40-corner-banca-wallisellen",
-        "de": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "fr": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        "de": "kundenberater-40-corner-banca-wallisellen",
+        "fr": "conseiller-client-40-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -62,7 +62,10 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "crawledAt": "2026-03-31T21:09:07.660Z",
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "customer-advisor-40-corner-banca-wallisellen",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
