@@ -104,6 +104,12 @@ async function main() {
         // No title → can't generate slug
         if (!title || title.length < 3) continue;
 
+        // If title is a source copy (not a real translation), skip slug regeneration.
+        // Generating a slug from an untranslated title would overwrite a properly
+        // translated slug with an Italian-derived one (Root Cause 2 of slug corruption).
+        const sourceTitle = (tbl[sourceLang] || '').trim();
+        if (sourceTitle && title === sourceTitle) continue;
+
         // If slug already matches title, skip
         if (currentSlug && slugMatchesTitle(currentSlug, title)) continue;
 

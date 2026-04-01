@@ -170,6 +170,7 @@ const CRAWLER_CONFIG_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-config.json
 const AUDIT_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-audit.json');
 const EXTRA_COMPANIES_PATH = path.resolve(ROOT, 'data', 'ticino-companies-extra.json');
 
+const BY_CRAWLER_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
 const SLUG_REGISTRY_PATH = path.resolve(ROOT, 'data', 'slug-registry.json');
 const ADAPTERS_REGISTRY_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'registry.json');
 const ADAPTERS_BASE_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters');
@@ -459,6 +460,28 @@ function readJson(filePath, fallback = null) {
   } catch {
     return fallback;
   }
+}
+
+/**
+ * Read existing jobs from per-crawler slices when data/jobs.json is absent.
+ * In CI, data/jobs.json is gitignored and doesn't exist, but per-crawler slices
+ * (data/jobs/by-crawler/*.json) are committed and contain translated data.
+ * Falling back to slices preserves translations across crawler runs.
+ */
+function readExistingJobsFromSlices(scopedKeys) {
+  if (!fs.existsSync(BY_CRAWLER_DIR)) return [];
+  const files = fs.readdirSync(BY_CRAWLER_DIR).filter(f => f.endsWith('.json'));
+  const jobs = [];
+  for (const file of files) {
+    const key = file.replace(/\.json$/, '');
+    // When running a scoped crawler, only load that crawler's slice
+    if (scopedKeys && scopedKeys.length > 0 && !scopedKeys.includes(key)) continue;
+    const data = readJson(path.join(BY_CRAWLER_DIR, file), null);
+    if (data && Array.isArray(data.jobs)) {
+      jobs.push(...data.jobs);
+    }
+  }
+  return jobs;
 }
 
 function writeJson(filePath, value) {
@@ -4780,7 +4803,14 @@ async function main() {
     // Only log on first invocation — message is identical every time
   } else {
     // Pre-load known job URLs to skip re-crawling detail pages already in data/jobs.json
-    const _preloadedJobs = readJson(DATA_JOBS, []);
+    // Fall back to per-crawler slices when data/jobs.json is absent (CI environment)
+    let _preloadedJobs = readJson(DATA_JOBS, null);
+    if (_preloadedJobs === null) {
+      _preloadedJobs = readExistingJobsFromSlices(requestedCompanyKeys);
+      if (_preloadedJobs.length > 0) {
+        console.log(`📂 data/jobs.json absent — loaded ${_preloadedJobs.length} jobs from per-crawler slices for URL skip-optimization`);
+      }
+    }
     const knownJobUrls = new Set(
       (Array.isArray(_preloadedJobs) ? _preloadedJobs : [])
         .map((j) => canonicalizeJobUrl(j.url))
@@ -4871,7 +4901,18 @@ async function main() {
 
   const extracted = incomingJobs.length;
 
-  const existingJobs = readJson(DATA_JOBS, []);
+  // Read existing jobs from data/jobs.json — or fall back to per-crawler slices.
+  // In CI, data/jobs.json is gitignored and absent. Without this fallback,
+  // existingJobs=[] causes mergeAndDeduplicate to lose all translated titles/slugs.
+  let existingJobs = readJson(DATA_JOBS, null);
+  if (existingJobs === null) {
+    existingJobs = readExistingJobsFromSlices(requestedCompanyKeys);
+    if (existingJobs.length > 0) {
+      console.log(`📂 data/jobs.json absent — loaded ${existingJobs.length} existing jobs from per-crawler slices`);
+    } else {
+      existingJobs = [];
+    }
+  }
   if (!Array.isArray(existingJobs)) {
     throw new Error(`${DATA_JOBS} must contain an array`);
   }
