@@ -538,22 +538,42 @@ function applySerpTitleDescriptionVariant(
     return { title, description, variant: 'control' };
   }
 
+  const MAX_TITLE_LENGTH = 60;
+  const MAX_DESCRIPTION_LENGTH = 160;
   const year = serpExperimentState.year;
   const intent = getSerpIntentLabel(path, locale);
   const cleanTitle = title.replace(/\s+\|\s+Frontaliere Ticino$/i, '').trim();
 
   if (serpExperimentState.variant === 'year_intent') {
+    const suffix = ` ${year} | ${intent}`;
+    let experimentTitle: string;
+    if (cleanTitle.length + suffix.length <= MAX_TITLE_LENGTH) {
+      experimentTitle = `${cleanTitle}${suffix}`;
+    } else {
+      const maxClean = MAX_TITLE_LENGTH - suffix.length;
+      experimentTitle = maxClean >= 10 ? `${cleanTitle.slice(0, maxClean).trimEnd()}${suffix}` : title;
+    }
+    const experimentDesc = `${description} Aggiornato ${year} con focus: ${intent}.`;
     return {
-      title: `${cleanTitle} ${year} | ${intent}`,
-      description: `${description} Aggiornato ${year} con focus: ${intent}.`,
+      title: experimentTitle,
+      description: experimentDesc.length <= MAX_DESCRIPTION_LENGTH ? experimentDesc : description,
       variant: 'year_intent',
     };
   }
 
   if (serpExperimentState.variant === 'intent_simulation') {
+    const suffix = ` | ${intent} | ${year}`;
+    let experimentTitle: string;
+    if (cleanTitle.length + suffix.length <= MAX_TITLE_LENGTH) {
+      experimentTitle = `${cleanTitle}${suffix}`;
+    } else {
+      const maxClean = MAX_TITLE_LENGTH - suffix.length;
+      experimentTitle = maxClean >= 10 ? `${cleanTitle.slice(0, maxClean).trimEnd()}${suffix}` : title;
+    }
+    const experimentDesc = `${description} Simulazione aggiornata ${year} per ${intent}.`;
     return {
-      title: `${cleanTitle} | ${intent} | ${year}`,
-      description: `${description} Simulazione aggiornata ${year} per ${intent}.`,
+      title: experimentTitle,
+      description: experimentDesc.length <= MAX_DESCRIPTION_LENGTH ? experimentDesc : description,
       variant: 'intent_simulation',
     };
   }
@@ -1830,10 +1850,31 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
 }
 
 /**
+ * Check if the non-IT locale translation chunk has been loaded.
+ * IT is always available synchronously via it-critical.ts.
+ * For other locales, we test a known core key — if it returns the
+ * Italian fallback, the locale chunk hasn't loaded yet.
+ */
+function isLocaleChunkLoaded(locale: Locale): boolean {
+  if (locale === 'it') return true;
+  const testKey = 'nav.simulator';
+  const value = t(testKey);
+  const italianFallbacks = new Set(['Calcolatore', testKey]);
+  return !italianFallbacks.has(value);
+}
+
+/**
  * Updates document meta tags dynamically.
  * Uses the i18n router to build locale-aware canonical and hreflang URLs.
  */
 export async function updateMetaTags(section: string): Promise<void> {
+  // If the non-IT locale chunk hasn't loaded yet, t() falls back to Italian.
+  // Preserve the correct static HTML metadata until the chunk arrives.
+  const currentLocale = getLocale();
+  if (currentLocale !== 'it' && !isLocaleChunkLoaded(currentLocale)) {
+    return;
+  }
+
   loadSerpExperimentState();
   const sectionKey = section.startsWith('jobboard-') ? 'jobboard' : section;
   const metadata = await getSeoEntry(sectionKey);
