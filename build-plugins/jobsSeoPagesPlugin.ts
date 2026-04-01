@@ -1235,7 +1235,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       }
     </style>
 ${hreflangHtml}
-${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    <script type="application/ld+json">${breadcrumbLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
+${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${JSON.stringify({"@context":"https://schema.org","@type":"SpeakableSpecification","cssSelector":["h1",".hero-sub",".section"]})}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
     ${SPA_ACTION_REDIRECT_SCRIPT}
     ${GTAG_SNIPPET}
   </head>

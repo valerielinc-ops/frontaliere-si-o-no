@@ -2,7 +2,7 @@
  * Generate OG landing pages for blog articles.
  *
  * For every blog article in seo-blog.ts, writes a full static HTML page
- * with OG/Twitter meta, hreflang alternates, JSON-LD (Article / NewsArticle),
+ * with OG/Twitter meta, hreflang alternates, JSON-LD (BlogPosting),
  * article body text, and the SPA entry bundle so the page hydrates into
  * the React app on load.
  */
@@ -382,7 +382,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
                 sameAs: ['https://www.linkedin.com/in/valerie-linc/'],
               };
 
-          // Build the JSON-LD object, respecting source @type (Event vs Article/NewsArticle)
+          // Build the JSON-LD object, respecting source @type (Event vs BlogPosting)
           const isEvent = en.sdType === 'Event';
           let ldObj: Record<string, unknown>;
 
@@ -455,10 +455,10 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             const organizer = parseNestedObj('organizer');
             if (organizer) ldObj.organizer = organizer;
           } else {
-            // Article or NewsArticle — apply age-based type selection
+            // BlogPosting — matches SPA runtime schema from BlogArticles.tsx
             ldObj = {
               '@context': 'https://schema.org',
-              '@type': (en.datePub && (Date.now() - new Date(en.datePub).getTime()) < 90 * 24 * 60 * 60 * 1000) ? 'NewsArticle' : 'Article',
+              '@type': 'BlogPosting',
               headline: localizedTitle,
               description: localizedDesc,
               image: {
