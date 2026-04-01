@@ -27,9 +27,9 @@
       "slug": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
       "slugByLocale": {
         "de": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur",
-        "it": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
-        "en": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc",
-        "fr": "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc"
+        "it": "mcdonald-s-citta-di-coira-mcdonald-s-switzerland-chur",
+        "en": "mcdonald-s-stadt-chur-mcdonald-s-switzerland-chur",
+        "fr": "mcdonald-s-ville-de-coire-mcdonald-s-switzerland-chur"
       },
       "category": "gastronomy",
       "datePosted": "2026-03-24",
@@ -46,7 +46,8 @@
       "crawledAt": "",
       "sourceLang": "de",
       "previousSlugs": [
-        "mcdonald-s-chur-city-mcdonalds"
+        "mcdonald-s-chur-city-mcdonalds",
+        "mcdonald-s-chur-city-mcdonald-s-switzerland-chur-j6oknc"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -93,7 +94,7 @@
       "slugByLocale": {
         "de": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur",
         "it": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
-        "en": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n",
+        "en": "mcdonald-s-chur-south-mcdonald-s-switzerland-chur",
         "fr": "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n"
       },
       "category": "gastronomy",
@@ -111,7 +112,8 @@
       "crawledAt": "",
       "sourceLang": "de",
       "previousSlugs": [
-        "mcdonald-s-chur-sud-mcdonalds"
+        "mcdonald-s-chur-sud-mcdonalds",
+        "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur-j6ok4n"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -156,10 +158,10 @@
       },
       "slug": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
       "slugByLocale": {
-        "de": "collaboratore-trice-lamone-mcdonalds",
+        "de": "lamone-mitarbeiter-mcdonald-s-switzerland-lugano",
         "it": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano",
-        "en": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
-        "fr": "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk"
+        "en": "lamone-collaborator-mcdonald-s-switzerland-lugano",
+        "fr": "collaborateur-lamone-mcdonald-s-switzerland-lugano"
       },
       "category": "gastronomy",
       "datePosted": "2026-03-03",
@@ -175,7 +177,10 @@
       },
       "crawledAt": "",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "collaboratore-trice-lamone-mcdonald-s-switzerland-lugano-j6oksk",
+        "collaboratore-trice-lamone-mcdonalds"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",

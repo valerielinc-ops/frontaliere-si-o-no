@@ -51,12 +51,14 @@
       "slugByLocale": {
         "it": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
         "en": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno",
-        "de": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k",
-        "fr": "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k"
+        "de": "verkaufer-m-w-d-40-lidl-svizzera-locarno",
+        "fr": "vendeur-m-f-d-40-lidl-svizzera-locarno"
       },
       "country": "CH",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "venditore-venditrice-m-f-d-40-lidl-svizzera-locarno-nuf61k"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {

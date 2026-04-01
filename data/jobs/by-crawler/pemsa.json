@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "autista-c-di-ribaltabile-pemsa-bellinzona",
-        "en": "autista-c-di-ribaltabile-pemsa-bellinzona",
-        "de": "autista-c-di-ribaltabile-pemsa-bellinzona",
-        "fr": "autista-c-di-ribaltabile-pemsa-bellinzona"
+        "en": "driver-c-of-tipper-pemsa-bellinzona",
+        "de": "fahrer-c-des-kippers-pemsa-bellinzona",
+        "fr": "conducteur-c-du-basculant-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -57,7 +57,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "autista-c-di-ribaltabile-pemsa-bellinzona"
+      ]
     },
     {
       "title": "Ferraiolo",
@@ -96,9 +99,9 @@
       },
       "slugByLocale": {
         "it": "ferraiolo-pemsa-bellinzona",
-        "en": "ferraiolo-pemsa-bellinzona",
-        "de": "ferraiolo-pemsa-bellinzona",
-        "fr": "ferraiolo-pemsa-bellinzona"
+        "en": "ironworker-pemsa-bellinzona",
+        "de": "bauschlosser-pemsa-bellinzona",
+        "fr": "ferrailleur-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -114,7 +117,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "ferraiolo-pemsa-bellinzona"
+      ]
     },
     {
       "title": "QUADRISTA CABALTORE",
@@ -153,9 +159,9 @@
       },
       "slugByLocale": {
         "it": "quadrista-cabaltore-pemsa-lugano",
-        "en": "quadrista-cabaltore-pemsa-lugano",
-        "de": "quadrista-cabaltore-pemsa-lugano",
-        "fr": "quadrista-cabaltore-pemsa-lugano"
+        "en": "panel-builder-cabatrice-pemsa-lugano",
+        "de": "plattenbauer-cabatrice-pemsa-lugano",
+        "fr": "cabatrice-de-panneaux-pemsa-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -171,7 +177,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "quadrista-cabaltore-pemsa-lugano"
+      ]
     },
     {
       "title": "MONTATORE MECCANICO DI MACCHINARI INDUSTRIALI",
@@ -210,9 +219,9 @@
       },
       "slugByLocale": {
         "it": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
-        "en": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
-        "de": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano",
-        "fr": "montatore-meccanico-di-macchinari-industriali-pemsa-lugano"
+        "en": "mechanical-fitter-of-industrial-machinery-pemsa-lugano",
+        "de": "mechanischer-monteur-von-industriemaschinen-pemsa-lugano",
+        "fr": "ajusteur-mecanique-de-machines-industrielles-pemsa-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -228,7 +237,10 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "montatore-meccanico-di-macchinari-industriali-pemsa-lugano"
+      ]
     },
     {
       "title": "DISEGNATORE/PROGETTISTA MECCANICO",
