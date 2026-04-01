@@ -1244,7 +1244,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   'cost-of-living': {
     title: 'Costo Vita Svizzera vs Italia 2026: Confronto Completo per Frontalieri',
-    description: 'Costo vita Svizzera vs Italia a confronto: affitti, spesa, trasporti e sanità tra Lugano, Mendrisio, Chiasso e Como, Varese, Verbania. Dati aggiornati 2026 per frontalieri.',
+    description: 'Costo vita Svizzera vs Italia a confronto: affitti, spesa, trasporti e sanità tra Lugano, Mendrisio, Chiasso e Como, Varese. Dati aggiornati 2026 per frontalieri.',
     keywords: 'costo vita svizzera vs italia, costo vita svizzera italia, costo vita lugano, costo vita como, affitto ticino prezzi, costo vita mendrisio chiasso, confronto prezzi svizzera italia, vivere in svizzera costi, costo vita frontiera',
     ogTitle: 'Costo Vita Svizzera vs Italia | Confronto Completo 2026',
     ogDescription: '🏠 Costo vita Svizzera vs Italia: confronta affitti, spesa, trasporti e sanità tra città di frontiera. Dati aggiornati 2026.',
@@ -1579,7 +1579,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   holidays: {
     title: 'Festività Canton Ticino 2026: Calendario Completo Giorni Festivi',
-    description: 'Tutti i 15 giorni festivi del Canton Ticino 2026: festività ufficiali e facoltative, ponti, date di Pasqua, Ascensione, Corpus Domini. Confronto con festività italiane per frontalieri.',
+    description: 'I 15 giorni festivi del Canton Ticino 2026: festività ufficiali e facoltative, ponti, Pasqua, Ascensione, Corpus Domini. Confronto con festività italiane per frontalieri.',
     keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino, ponti svizzera 2026, festività svizzere, giorni festivi svizzera italia confronto',
     ogTitle: 'Festività Ticino 2026 | Calendario Giorni Festivi per Frontalieri',
     ogDescription: '📅 Tutti i 15 giorni festivi del Canton Ticino 2026: festività ufficiali, facoltative, ponti e confronto con festività italiane.',
@@ -2183,7 +2183,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   jobboard: {
     title: 'Offerte di Lavoro per Frontalieri Svizzera 2026 | Ticino',
-    description: 'Offerte di lavoro per frontalieri Svizzera: posizioni aggiornate ogni giorno in banche, tech, farmaceutica, sanità e industria in Ticino. Oltre 100 aziende attive. Candidati gratis.',
+    description: 'Offerte di lavoro per frontalieri Svizzera: posizioni aggiornate ogni giorno in banche, tech, farmaceutica, sanità e industria in Ticino. Oltre 100 aziende attive.',
     keywords: 'offerte di lavoro per frontalieri svizzera, lavoro frontaliere ticino, offerte di lavoro frontalieri ticino 2026, lavoro ticino, offerte lavoro frontalieri, lavoro svizzera frontalieri, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
     ogTitle: 'Offerte di Lavoro per Frontalieri Svizzera 2026',
     ogDescription: '💼 Offerte di lavoro per frontalieri Svizzera: posizioni aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende. Candidati gratis!',
@@ -3196,7 +3196,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   consulting: {
     title: 'Consulenza Fiscale Frontalieri Svizzera | Esperti Tasse CH-IT 2026',
-    description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale nuovo accordo 2026. Prenota una consulenza gratuita.',
+    description: 'Consulenza fiscale per frontalieri: ottimizzazione tasse Svizzera-Italia, dichiarazione redditi, scelta regime fiscale nuovo accordo 2026. Prenota una consulenza.',
     keywords: 'consulenza fiscale frontalieri, consulenza frontaliere, consulente fiscale frontaliere, ottimizzazione fiscale svizzera italia, dichiarazione redditi frontaliere, esperto frontaliero, consulenza fiscale frontalieri svizzera',
     ogTitle: 'Consulenza Fiscale per Frontalieri Svizzera',
     ogDescription: '🎯 Consulenza fiscale per frontalieri Svizzera-Italia: ottimizzazione tasse, dichiarazione redditi e pianificazione. Prenota gratis.',
