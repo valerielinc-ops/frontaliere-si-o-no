@@ -1,10 +1,10 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-04-01T09:59:59.803Z",
+  "assembledAt": "2026-04-01T21:48:55.765Z",
   "jobs": [
     {
       "id": "company-7uasdr",
-      "slug": "responsabile-acquisti-e-subfornitura-u-d-stabilimento-di-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jur",
+      "slug": "responsabile-acquisti-e-subfornitura-u-d-stabilimento-di-delemont-blancpain-ltd-lengnau",
       "company": "Blancpain Ltd",
       "title": "Responsable Achats & Sous-Traitance (H/F) - site de Delémont",
       "location": "Route de la Communance 2800 Delémont (Jura) Suisse Adresse de l'entreprise Blanc",
@@ -66,7 +66,7 @@
         ]
       },
       "slugByLocale": {
-        "it": "responsabile-acquisti-e-subfornitura-u-d-stabilimento-di-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jur",
+        "it": "responsabile-acquisti-e-subfornitura-u-d-stabilimento-di-delemont-blancpain-ltd-lengnau",
         "en": "purchasing-subcontracting-manager-h-f-delemont-site-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adres",
         "de": "leiter-in-einkauf-unterauftrage-standort-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse",
         "fr": "responsable-achats-sous-traitance-h-f-site-de-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blanc"
@@ -83,7 +83,8 @@
         "einkaufs-outsourcing-leiter-m-w-standort-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-bla",
         "responsabile-acquisti-e-sottotratto-h-f-sito-di-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-",
         "purchasing-outsourcing-manager-m-f-delemont-site-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-blan",
-        "leiter-in-einkauf-unterauftrage-standort-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-bla-7uasdr"
+        "leiter-in-einkauf-unterauftrage-standort-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jura-suisse-adresse-de-l-entreprise-bla-7uasdr",
+        "responsabile-acquisti-e-subfornitura-u-d-stabilimento-di-delemont-blancpain-ltd-route-de-la-communance-2800-delemont-jur"
       ],
       "salaryMin": 66000,
       "salaryMax": 89000,
@@ -102,7 +103,8 @@
       "addressLocality": "Lengnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
