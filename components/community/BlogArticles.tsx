@@ -288,10 +288,10 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       const heading = lines[0].replace(/^###\s+/, '').trim();
       const inlineBody = lines.slice(1).join('\n').trim();
       renderedBlocks.push(
-        <div key={`h4-${idx}`} className="space-y-1.5">
-          <h4 className="text-base font-bold text-slate-800 dark:text-slate-200 mt-1">
+        <div key={`h3-${idx}`} className="space-y-1.5">
+          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-1">
             {renderInlineFormatting(heading, navigators)}
-          </h4>
+          </h3>
           {inlineBody && (
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
               {renderInlineFormatting(inlineBody, navigators)}
@@ -346,9 +346,9 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
 
       renderedBlocks.push(
         <div key={`heading-${idx}`} className="space-y-2">
-          <h3 className="text-lg font-bold text-indigo-700 dark:text-indigo-400 border-l-4 border-indigo-500 pl-3 mt-2">
+          <h2 className="text-xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3 mt-6 mb-2">
             {renderInlineFormatting(heading, navigators)}
-          </h3>
+          </h2>
           {inlineBody && (
             <p className="text-slate-700 dark:text-slate-300 leading-relaxed">
               {renderInlineFormatting(inlineBody, navigators)}
