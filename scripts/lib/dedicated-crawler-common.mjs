@@ -2374,9 +2374,29 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         const descLang = detectTextLocale(baseDesc || baseTitle, titleLang).lang;
         if (baseTitle && !job.titleByLocale[titleLang]) job.titleByLocale[titleLang] = baseTitle;
         if (baseDesc && !job.descriptionByLocale[descLang]) job.descriptionByLocale[descLang] = baseDesc;
-        job.needsRetranslation = true;
-        skipAiMarkedCount += 1;
-        changed = true;
+        // FRO-549: If all locale titles are already translated, a cache miss (hash
+        // mismatch or missing entry) should not force retranslation. Recache the
+        // current state with the new hash to prevent infinite flagging loops.
+        const srcTitleLower = baseTitle.trim().toLowerCase();
+        const titlesComplete = DEFAULT_LOCALES.every(
+          (l) => String(job.titleByLocale[l] || '').trim().length >= 3,
+        );
+        const someNonSourceTranslated = DEFAULT_LOCALES
+          .filter((l) => l !== titleLang)
+          .some((l) => {
+            const t = String(job.titleByLocale[l] || '').trim().toLowerCase();
+            return t && t !== srcTitleLower;
+          });
+        if (titlesComplete && someNonSourceTranslated) {
+          // Translations complete — update cache so next run gets a hit
+          translationCache[jobCacheKey] = buildCacheEntry(job, contentHash);
+          cacheUpdated = true;
+          if (job.needsRetranslation) { delete job.needsRetranslation; changed = true; }
+        } else {
+          job.needsRetranslation = true;
+          skipAiMarkedCount += 1;
+          changed = true;
+        }
         continue;
       }
 

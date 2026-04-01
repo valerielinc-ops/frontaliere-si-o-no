@@ -156,13 +156,17 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
     it: new Set('assemblaggio,imballo,imballaggio,collaudo,edile,cantiere,geometra,impiegato,impiegata,responsabile,tecnico,tecnica,ingegnere,manutenzione,magazzino,produzione,qualita,logistica,vendita,pulizia,operaio,operaia,conduttore,conduttrice,contabile,elettricista,meccanico,meccanica,direttore,direttrice,gestione,amministrazione,segretario,segretaria,cuoco,cuoca,cameriere,cameriera,operatore,operatrice,educatore,educatrice,infermiere,infermiera,fisioterapista,caporeparto,servizio,ricercatore,ricercatrice,architetto,laboratorio,metrologia,saldatore,fresatore,tornitore,verniciatore,falegname,muratore,idraulico,giardiniere,autista,magazziniere,addetto,addetta,apprendista,collaboratore,collaboratrice,specialista,descrizione,mansioni,requisiti,candidato,principali'.split(',')),
     de: new Set('mitarbeiter,mitarbeitende,aufgaben,bewerbung,bewerben,arbeitsort,anfallenden,unternehmen,lernender,lehrjahr,detailhandel,kassieren,filiale,filialen,qualifikationsverfahren,ferien,ausbildung,angebot,beschreibung,stellenangebot,verantwortungsvolles,einsatzbereitschaft,teamgeist,karriere,arbeitsbeginn,pensum,vollzeit,teilzeit,berufserfahrung,anforderungen,voraussetzungen,leistung,entlohnung,schulung,weiterbildung,pflegefachfrau,pflegefachmann,systemgastronomie,diatkoch'.split(',')),
     fr: new Set('responsable,candidature,postuler,emploi,salaire,formation,recrutement,disponibilite,competences,qualifications,experience,horaires,contrat,entreprise,taches,principales,description,auxiliaire'.split(',')),
+    // English words that are distinctively English and should not appear in IT/DE/FR job titles
+    en: new Set('responsibilities,requirements,qualifications,applications,deadline,teamwork,fulltime,parttime,employment,vacancy,benefits,workplace,colleagues,onboarding,outstanding,performance,accountability'.split(',')),
   };
   const _getWords = (text) => String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 5);
-  const _hasWrongLangWords = (text, locale) => {
+  // For title checks: flag if ≥2 wrong-language words found.
+  // For slug checks: stricter threshold (≥3) because slugs are short and share more tokens.
+  const _hasWrongLangWords = (text, locale, threshold = 2) => {
     const words = _getWords(text);
     for (const [lang, wordSet] of Object.entries(_LANG_WORDS)) {
       if (lang === locale) continue;
-      if (words.filter(w => wordSet.has(w)).length >= 2) return true;
+      if (words.filter(w => wordSet.has(w)).length >= threshold) return true;
     }
     return false;
   };
@@ -179,7 +183,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
       // Wrong-language words in title
       if (_hasWrongLangWords(titles[locale], locale)) { needsFlag = true; break; }
       // Wrong-language words in slug
-      if (locale !== 'it' && _hasWrongLangWords((job.slugByLocale?.[locale] || '').replace(/-/g, ' '), locale)) { needsFlag = true; break; }
+      if (locale !== 'it' && _hasWrongLangWords((job.slugByLocale?.[locale] || '').replace(/-/g, ' '), locale, 3)) { needsFlag = true; break; }
     }
     if (needsFlag) { job.needsRetranslation = true; flagged++; }
   }
