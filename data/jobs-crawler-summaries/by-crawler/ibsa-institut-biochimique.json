@@ -1,16 +1,16 @@
 {
   "key": "ibsa-institut-biochimique",
   "label": "IBSA",
-  "generatedAt": "2026-03-31T21:23:53.980Z",
+  "generatedAt": "2026-04-01T09:36:20.714Z",
   "total": 11,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 11,
-  "durationMs": 15226,
-  "avgDurationMs": 15226,
+  "durationMs": 20696,
+  "avgDurationMs": 20696,
   "durationHistory": [
-    15226
+    20696
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -38,7 +38,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 72500,
@@ -49,11 +48,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -79,7 +79,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 82500,
@@ -90,11 +89,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -120,7 +120,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 72000,
@@ -131,17 +130,17 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "company-e3ivbg",
-      "slug": "meccatronico-ibsa-institut-biochimique-6912-working-area",
+      "slug": "meccatronico-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Meccatronico",
       "location": "6912 Working Area",
@@ -161,7 +160,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -172,11 +170,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -202,7 +200,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72500,
@@ -213,11 +210,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 91,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -243,7 +240,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 80000,
@@ -254,11 +250,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -284,7 +280,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 55500,
@@ -295,11 +290,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -325,7 +320,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72500,
@@ -336,11 +330,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -366,7 +361,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 61000,
@@ -377,11 +371,12 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -407,7 +402,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72500,
@@ -418,17 +412,18 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 92,
+      "needsRetranslation": true,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
     {
       "id": "company-toyw1a",
-      "slug": "accounting-officer-sost-maternita-e-collaborazione-persona-responsabile-ed-affidabile-abituata-a-gestire-scadenze-a-breve-termine-luogo-di-l-toyw1a",
+      "slug": "contabile-sost-maternita-ibsa-institut-biochimique-montagnola",
       "company": "IBSA Institut Biochimique",
       "title": "Accounting Officer (sost. maternità)",
       "location": "6926 Working Area",
@@ -448,7 +443,6 @@
       "companyKey": "ibsa-institut-biochimique",
       "companyDomain": "ibsa.ch",
       "crawledAt": "2026-03-31T21:23:52.685Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 82500,
@@ -459,11 +453,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     }
