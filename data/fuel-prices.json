@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-01T14:51:54.615Z",
+  "generatedAt": "2026-04-01T16:34:20.789Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 230,
-      "latestObservedUpdate": "2026-04-01T14:44:59.951Z"
+      "stationCount": 229,
+      "latestObservedUpdate": "2026-04-01T16:28:45.070Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -434,19 +434,6 @@
         "sp95PriceEur": 1.48
       },
       {
-        "id": "C0N2af7HpbOfesQdHoAq",
-        "name": "BP Unbemannte Station Naters",
-        "brand": "BP",
-        "address": "Furkastrasse 13, 3904 Naters",
-        "lat": 46.32299,
-        "lng": 7.98811,
-        "sp95PriceChf": 1.66,
-        "updatedAt": "2026-03-02T16:13:57.395Z",
-        "nearestMunicipality": "Trasquera (VB)",
-        "nearestMunicipalityDistanceKm": 20.4,
-        "sp95PriceEur": 1.806
-      },
-      {
         "id": "eyss2Vf8mj29JzsCvuUr",
         "name": "Piccadilly SA",
         "brand": "UNDEFINED",
@@ -639,6 +626,19 @@
         "updatedAt": "2026-03-31T15:05:48.508Z",
         "nearestMunicipality": "Lavena Ponte Tresa (VA)",
         "nearestMunicipalityDistanceKm": 1.6,
+        "sp95PriceEur": 1.882
+      },
+      {
+        "id": "XDaZFDVg7EaSmPAy5ZiL",
+        "name": "Eni Tschierv",
+        "brand": "ENI",
+        "address": "Via Principala, 7532 Tschierv",
+        "lat": 46.6269586,
+        "lng": 10.3342125,
+        "sp95PriceChf": 1.73,
+        "updatedAt": "2026-03-09T09:58:42.870Z",
+        "nearestMunicipality": "Tubre (BZ)",
+        "nearestMunicipalityDistanceKm": 10.1,
         "sp95PriceEur": 1.882
       }
     ],
