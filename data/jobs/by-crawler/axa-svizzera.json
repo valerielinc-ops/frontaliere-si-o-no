@@ -343,8 +343,8 @@
       },
       "slugByLocale": {
         "it": "consulente-per-la-sicurezza-axa-svizzera-axa",
-        "en": "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "de": "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
+        "en": "insurance-consultant-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
+        "de": "versicherungsberater-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
         "fr": "consulente-assicurativo"
       },
       "needsRetranslation": true,
@@ -362,7 +362,11 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
+        "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
+      ]
     },
     {
       "title": "Consulente Assicurativo per il Mendrisiotto",
@@ -465,9 +469,11 @@
         "it": "senior-specialista-corporate-law-bei-axa-arag-all-genders-axa-svizzera-ernst-nobs-platz-7",
         "en": "senior-specialist-corporate-law-bei-axa-arag-all-genders",
         "de": "senior-spezialist-corporate-law-bei-axa-arag-all-genders-axa-svizzera-ernst-nobs-platz-7",
-        "fr": "senior-specialiste-corporate-law-bei-axa-arag-all-genders-axa-svizzera-ernst-nobs-platz-7"
+        "fr": "specialiste-senior-en-droit-des-societes-chez-axa-arag-tous-genres-axa-svizzera-unbefristet-zurich-smart-working"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "senior-specialiste-corporate-law-bei-axa-arag-all-genders-axa-svizzera-ernst-nobs-platz-7"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",

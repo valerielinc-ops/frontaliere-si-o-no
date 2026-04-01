@@ -76,10 +76,10 @@
       "id": "corner-banca-1d94a13bc883",
       "slug": "customer-advisor-100-corner-banca-lugano",
       "slugByLocale": {
-        "it": "customer-advisor-100-corner-banca-lugano",
+        "it": "customer-consulente-100-corner-banca-lugano",
         "en": "customer-advisor-100-corner-banca-lugano",
-        "de": "customer-advisor-100-corner-banca-lugano",
-        "fr": "customer-advisor-100-corner-banca-lugano"
+        "de": "customer-berater-100-corner-banca-lugano",
+        "fr": "customer-conseiller-100-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -136,7 +136,8 @@
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "consulente-clienti-100-corner-banca-lugano"
+        "consulente-clienti-100-corner-banca-lugano",
+        "customer-advisor-100-corner-banca-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -159,10 +160,10 @@
       "id": "corner-banca-422277a6cd4c",
       "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
       "slugByLocale": {
-        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "it": "it-card-management-analista-specialista-corner-banca-lugano",
         "en": "it-card-management-analyst-specialist-corner-banca-lugano",
         "de": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
+        "fr": "it-card-management-analyste-specialiste-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -203,7 +204,8 @@
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano"
+        "analista-specialista-gestione-carte-it-corner-banca-lugano",
+        "it-card-management-analyst-specialist-corner-banca-lugano"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -226,10 +228,10 @@
       "id": "corner-banca-b69f1f79bbe3",
       "slug": "customer-advisor-40-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-advisor-40-corner-banca-wallisellen",
+        "it": "customer-consulente-40-corner-banca-wallisellen",
         "en": "customer-advisor-40-corner-banca-wallisellen",
-        "de": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "fr": "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+        "de": "customer-berater-40-corner-banca-wallisellen",
+        "fr": "customer-conseiller-40-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -283,7 +285,10 @@
       "crawledAt": "2026-04-01T09:21:21.856Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "customer-advisor-40-corner-banca-wallisellen",
+        "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen"
+      ],
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -642,10 +647,10 @@
       "id": "corner-banca-363ccb9527a5",
       "slug": "credit-e-client-advisor-m-f-corner-banca-lugano",
       "slugByLocale": {
-        "it": "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "it": "credit-client-consulente-m-f-corner-banca-lugano",
         "en": "credit-client-advisor-m-f-corner-banca-lugano",
-        "de": "credit-e-client-advisor-m-f-corner-banca-lugano",
-        "fr": "credit-e-client-advisor-m-f-corner-banca-lugano"
+        "de": "credit-client-berater-m-f-corner-banca-lugano",
+        "fr": "credit-client-conseiller-m-f-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -708,7 +713,8 @@
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "credit-client-consulente-m-f-corner-banca-lugano"
+        "credit-client-consulente-m-f-corner-banca-lugano",
+        "credit-e-client-advisor-m-f-corner-banca-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

@@ -40,7 +40,7 @@
       "slugByLocale": {
         "it": "responsabile-struttura-junior-tarchini-group-mendrisio",
         "en": "junior-facility-manager-tarchini-group-mendrisio",
-        "de": "juniormanager-fur-immobilien-tarchini-group-mendrisio-rfrc7y",
+        "de": "juniormanager-fur-immobilien-tarchini-group-mendrisio",
         "fr": "gestionnaire-junior-des-immobilisations-tarchini-group-mendrisio"
       },
       "salaryMin": 46500,
@@ -60,7 +60,8 @@
       "postalCode": "6533",
       "previousSlugs": [
         "gestionnaire-junior-des-immobilisations-tarchini-group-mendrisio-rfrc7y",
-        "junior-facility-manager-tarchini-group-mendrisio"
+        "junior-facility-manager-tarchini-group-mendrisio",
+        "juniormanager-fur-immobilien-tarchini-group-mendrisio-rfrc7y"
       ]
     },
     {
@@ -100,9 +101,9 @@
       },
       "slugByLocale": {
         "it": "responsabile-investimenti-e-partecipazioni-tarchini-group-manno",
-        "en": "manager-investimenti-e-partecipazioni-tarchini-group-manno-ovurfn",
+        "en": "manager-investimenti-e-partecipazioni-tarchini-group-manno",
         "de": "verantwortlicher-fur-investitionen-und-beteiligungen-tarchini-group-manno",
-        "fr": "responsable-investimenti-e-partecipazioni-tarchini-group-manno-ovurfn"
+        "fr": "responsable-des-investissements-et-des-participations-tarchini-group-manno"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -120,7 +121,9 @@
       "streetAddress": "Via Cantonale 12",
       "postalCode": "6533",
       "previousSlugs": [
-        "verantwortlicher-investimenti-e-partecipazioni-tarchini-group-manno-ovurfn"
+        "verantwortlicher-investimenti-e-partecipazioni-tarchini-group-manno-ovurfn",
+        "manager-investimenti-e-partecipazioni-tarchini-group-manno-ovurfn",
+        "responsable-investimenti-e-partecipazioni-tarchini-group-manno-ovurfn"
       ]
     },
     {
@@ -161,8 +164,8 @@
       "slugByLocale": {
         "it": "direttore-delle-vendite-tarchini-group-lugano",
         "en": "sales-manager-tarchini-group-lugano",
-        "de": "verkaufsleiter-tarchini-group-lugano-meswki",
-        "fr": "directeur-des-ventes-tarchini-group-lugano-meswki"
+        "de": "verkaufsleiter-tarchini-group-lugano",
+        "fr": "directeur-des-ventes-tarchini-group-lugano"
       },
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -180,7 +183,9 @@
       "streetAddress": "Via Cantonale 12",
       "postalCode": "6533",
       "previousSlugs": [
-        "sales-manager-tarchini-group-lugano"
+        "sales-manager-tarchini-group-lugano",
+        "verkaufsleiter-tarchini-group-lugano-meswki",
+        "directeur-des-ventes-tarchini-group-lugano-meswki"
       ]
     }
   ]

@@ -40,10 +40,13 @@
       "slugByLocale": {
         "it": "brand-marketing-specialista-damiani-group-mendrisio",
         "en": "brand-marketing-specialist-damiani-group-mendrisio",
-        "de": "brand-marketing-specialist-damiani-group-mendrisio",
-        "fr": "brand-marketing-specialiste-damiani-group-mendrisio"
+        "de": "brand-marketing-spezialist-damiani-group-mendrisio",
+        "fr": "specialiste-marketing-de-la-marque-damiani-group-mendrisio"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "brand-marketing-specialist-damiani-group-mendrisio",
+        "brand-marketing-specialiste-damiani-group-mendrisio"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -99,11 +102,12 @@
         "it": "sales-assistant-damiani-group-serravalle-scrivia",
         "en": "sales-assistant-damiani-group-serravalle-scrivia",
         "de": "verkaufsassistent-damiani-group-serravalle-scrivia",
-        "fr": "assistant-commercial-damiani-group-serravalle-scrivia-2sd2ck"
+        "fr": "assistant-commercial-damiani-group-serravalle-scrivia"
       },
       "previousSlugs": [
         "sales-assistant-damiani-group-serravalle-scrivia",
-        "sales-assistent-damiani-group-serravalle-scrivia"
+        "sales-assistent-damiani-group-serravalle-scrivia",
+        "assistant-commercial-damiani-group-serravalle-scrivia-2sd2ck"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -159,10 +163,13 @@
       "slugByLocale": {
         "it": "it-business-intelligence-sviluppatore-microsoft-ecosystem-damiani-group-mendrisio",
         "en": "it-business-intelligence-developer-microsoft-ecosystem-damiani-group-mendrisio",
-        "de": "it-business-intelligence-entwickler-microsoft-ecosystem-damiani-group-mendrisio",
-        "fr": "it-business-intelligence-developpeur-microsoft-ecosystem-damiani-group-mendrisio"
+        "de": "it-business-intelligence-entwickler-microsoft-okosystem-damiani-group-mendrisio",
+        "fr": "developpeur-de-business-intelligence-microsoft-ecosysteme-damiani-group-mendrisio"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "it-business-intelligence-entwickler-microsoft-ecosystem-damiani-group-mendrisio",
+        "it-business-intelligence-developpeur-microsoft-ecosystem-damiani-group-mendrisio"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -218,7 +225,7 @@
         "it": "specialista-tesoreria-damiani-group-mendrisio",
         "en": "treasury-specialist-damiani-group-mendrisio",
         "de": "treasury-specialist-damiani-group-mendrisio",
-        "fr": "specialiste-tresorerie-damiani-group-mendrisio"
+        "fr": "specialiste-de-la-tresorerie-damiani-group-mendrisio"
       },
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -234,7 +241,10 @@
         }
       },
       "streetAddress": "Via Penate 12",
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "specialiste-tresorerie-damiani-group-mendrisio"
+      ]
     },
     {
       "title": "Specialista Customer Service - lingua araba o russa",

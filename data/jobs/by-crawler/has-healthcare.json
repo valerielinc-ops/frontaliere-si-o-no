@@ -109,9 +109,9 @@
       },
       "slugByLocale": {
         "it": "specialista-hse-has-healthcare-advanced-synthesis-biasca",
-        "en": "hse-specialist-has-healthcare-advanced-synthesis-lugano",
-        "de": "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-        "fr": "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa"
+        "en": "hse-specialist-has-healthcare-advanced-synthesis-biasca",
+        "de": "hse-spezialist-has-healthcare-advanced-synthesis-biasca",
+        "fr": "specialiste-hse-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
         "canton": "TI",
@@ -137,7 +137,10 @@
       "previousSlugs": [
         "hse-specialist-has-healthcare",
         "hse-specialist-has-healthcare-advanced-synthesis-biasca-068qaa",
-        "hse-specialist-has-healthcare-advanced-synthesis-biasca"
+        "hse-specialist-has-healthcare-advanced-synthesis-biasca",
+        "hse-specialist-has-healthcare-advanced-synthesis-lugano",
+        "hse-spezialist-has-healthcare-advanced-synthesis-biasca-068qaa",
+        "hse-specialiste-has-healthcare-advanced-synthesis-biasca-068qaa"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -188,8 +191,8 @@
       },
       "slugByLocale": {
         "it": "assistente-di-produzione-has-healthcare-advanced-synthesis-lugano",
-        "en": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
-        "de": "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5",
+        "en": "assistente-di-production-has-healthcare-advanced-synthesis-biasca",
+        "de": "assistente-di-produktion-has-healthcare-advanced-synthesis-biasca",
         "fr": "assistant-de-production-has-healthcare-advanced-synthesis-biasca"
       },
       "_targetScope": {
@@ -202,7 +205,8 @@
       "sourceLang": "it",
       "previousSlugs": [
         "assistente-di-produzione-has-healthcare",
-        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca"
+        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca",
+        "assistente-di-produzione-has-healthcare-advanced-synthesis-biasca-068qb5"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,

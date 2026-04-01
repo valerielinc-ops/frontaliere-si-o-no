@@ -572,7 +572,7 @@
       },
       "slugByLocale": {
         "it": "muratore-pemsa-bellinzona",
-        "en": "bricjlayer-pemsa-bellinzona-4dsm5u",
+        "en": "bricjlayer-pemsa-bellinzona",
         "de": "maurer-pemsa-bellinzona-4dsm5u",
         "fr": "macon-pemsa-bellinzona-4dsm5u"
       },
@@ -592,7 +592,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "muratore-pemsa-bellinzona"
+        "muratore-pemsa-bellinzona",
+        "bricjlayer-pemsa-bellinzona-4dsm5u"
       ]
     },
     {
@@ -632,9 +633,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-edile-pemsa-bellinzona",
-        "en": "construction-carpenter-pemsa-bellinzona-s5255a",
+        "en": "construction-carpenter-pemsa-bellinzona",
         "de": "carpentiere-edile-pemsa-bellinzona",
-        "fr": "macon-constructeur-pemsa-bellinzona-s5255a"
+        "fr": "macon-constructeur-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -654,7 +655,9 @@
       "previousSlugs": [
         "carpentiere-edile-pemsa-bellinzona",
         "bautischlerei-pemsa-bellinzona",
-        "bauzimmerer-pemsa-bellinzona"
+        "bauzimmerer-pemsa-bellinzona",
+        "construction-carpenter-pemsa-bellinzona-s5255a",
+        "macon-constructeur-pemsa-bellinzona-s5255a"
       ]
     },
     {
@@ -695,8 +698,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-locarno",
         "en": "group-pemsa-locarno-6097fr",
-        "de": "installateur-pemsa-locarno-6097fr",
-        "fr": "hydraulique-pemsa-locarno-6097fr"
+        "de": "installateur-pemsa-locarno",
+        "fr": "hydraulique-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -714,7 +717,9 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "idraulico-pemsa-locarno"
+        "idraulico-pemsa-locarno",
+        "installateur-pemsa-locarno-6097fr",
+        "hydraulique-pemsa-locarno-6097fr"
       ]
     },
     {
@@ -754,7 +759,7 @@
       },
       "slugByLocale": {
         "it": "meccanico-di-macchine-da-cantiere-pemsa-locarno",
-        "en": "construction-machine-mechanic-pemsa-locarno-f50cmm",
+        "en": "construction-machinery-mechanic-pemsa-locarno",
         "de": "meccanico-di-macchine-da-cantiere-pemsa-locarno",
         "fr": "technicien-de-machines-de-chantier-pemsa-locarno-f50cmm"
       },
@@ -774,7 +779,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "meccanico-di-macchine-da-cantiere-pemsa-locarno"
+        "meccanico-di-macchine-da-cantiere-pemsa-locarno",
+        "construction-machine-mechanic-pemsa-locarno-f50cmm"
       ]
     },
     {
@@ -877,7 +883,7 @@
       },
       "slugByLocale": {
         "it": "macchinista-pemsa-locarno",
-        "en": "train-master-pemsa-locarno-88b5e7",
+        "en": "train-master-pemsa-locarno",
         "de": "lokfuhrer-pemsa-locarno-88b5e7",
         "fr": "machiniste-pemsa-locarno-88b5e7"
       },
@@ -897,7 +903,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "macchinista-pemsa-locarno"
+        "macchinista-pemsa-locarno",
+        "train-master-pemsa-locarno-88b5e7"
       ]
     },
     {
@@ -997,9 +1004,9 @@
       },
       "slugByLocale": {
         "it": "carpentiere-tetti-pemsa-locarno",
-        "en": "roof-carpenters-pemsa-locarno-30ggqk",
-        "de": "zimmermann-dacher-pemsa-locarno-30ggqk",
-        "fr": "charpentier-toits-pemsa-locarno-30ggqk"
+        "en": "roof-carpenters-pemsa-locarno",
+        "de": "zimmermann-dacher-pemsa-locarno",
+        "fr": "charpentier-toits-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1017,7 +1024,10 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "carpentiere-tetti-pemsa-locarno"
+        "carpentiere-tetti-pemsa-locarno",
+        "roof-carpenters-pemsa-locarno-30ggqk",
+        "zimmermann-dacher-pemsa-locarno-30ggqk",
+        "charpentier-toits-pemsa-locarno-30ggqk"
       ]
     },
     {
@@ -1057,9 +1067,9 @@
       },
       "slugByLocale": {
         "it": "tecnico-di-cantiere-pemsa-bellinzona",
-        "en": "technician-di-cantiere-pemsa-bellinzona-4htmqi",
-        "de": "techniker-di-cantiere-pemsa-bellinzona-4htmqi",
-        "fr": "technicien-di-cantiere-pemsa-bellinzona-4htmqi"
+        "en": "technician-di-cantiere-pemsa-bellinzona",
+        "de": "techniker-di-cantiere-pemsa-bellinzona",
+        "fr": "technicien-di-cantiere-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1075,7 +1085,12 @@
         }
       },
       "streetAddress": "Via Industria 20",
-      "postalCode": "6807"
+      "postalCode": "6807",
+      "previousSlugs": [
+        "technician-di-cantiere-pemsa-bellinzona-4htmqi",
+        "techniker-di-cantiere-pemsa-bellinzona-4htmqi",
+        "technicien-di-cantiere-pemsa-bellinzona-4htmqi"
+      ]
     },
     {
       "title": "Installatore Idraulico",
@@ -1116,7 +1131,7 @@
         "it": "installatore-idraulico-pemsa-lugano",
         "en": "hydraulic-installer-pemsa-lugano-170hj2",
         "de": "installateur-hydraulik-pemsa-lugano-170hj2",
-        "fr": "installateur-hydraulique-pemsa-lugano-170hj2"
+        "fr": "installateur-hydraulique-pemsa-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1134,7 +1149,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "installatore-idraulico-pemsa-lugano"
+        "installatore-idraulico-pemsa-lugano",
+        "installateur-hydraulique-pemsa-lugano-170hj2"
       ]
     },
     {
@@ -1297,8 +1313,8 @@
       "slugByLocale": {
         "it": "idraulico-pemsa-lugano",
         "en": "group-pemsa-lugano-609thv",
-        "de": "installateur-pemsa-lugano-609thv",
-        "fr": "hydraulique-pemsa-lugano-609thv"
+        "de": "installateur-pemsa-lugano",
+        "fr": "hydraulique-pemsa-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1316,7 +1332,9 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "idraulico-pemsa-lugano"
+        "idraulico-pemsa-lugano",
+        "installateur-pemsa-lugano-609thv",
+        "hydraulique-pemsa-lugano-609thv"
       ]
     },
     {
@@ -1356,7 +1374,7 @@
       },
       "slugByLocale": {
         "it": "macchinista-pemsa-bellinzona",
-        "en": "train-master-pemsa-bellinzona-88aes1",
+        "en": "train-master-pemsa-bellinzona",
         "de": "lokfuhrer-pemsa-bellinzona-88aes1",
         "fr": "machiniste-pemsa-bellinzona-88aes1"
       },
@@ -1376,7 +1394,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "macchinista-pemsa-bellinzona"
+        "macchinista-pemsa-bellinzona",
+        "train-master-pemsa-bellinzona-88aes1"
       ]
     },
     {
@@ -1416,8 +1435,8 @@
       },
       "slugByLocale": {
         "it": "rullista-pemsa-bellinzona",
-        "en": "rollerist-pemsa-bellinzona-82esm3",
-        "de": "rollenbahn-pemsa-bellinzona-82esm3",
+        "en": "rollerist-pemsa-bellinzona",
+        "de": "rollenbahn-pemsa-bellinzona",
         "fr": "rouleau-pemsa-bellinzona-82esm3"
       },
       "salaryMin": 58000,
@@ -1436,7 +1455,9 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "rullista-pemsa-bellinzona"
+        "rullista-pemsa-bellinzona",
+        "rollerist-pemsa-bellinzona-82esm3",
+        "rollenbahn-pemsa-bellinzona-82esm3"
       ]
     },
     {
@@ -1595,7 +1616,7 @@
       },
       "slugByLocale": {
         "it": "giardiniere-muratore-pemsa-locarno",
-        "en": "gardener-bricklayer-pemsa-locarno-qwgr0v",
+        "en": "gardener-bricklayer-pemsa-locarno",
         "de": "gartner-maurer-pemsa-locarno-qwgr0v",
         "fr": "jardinier-macon-pemsa-locarno-qwgr0v"
       },
@@ -1615,7 +1636,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "giardiniere-muratore-pemsa-locarno"
+        "giardiniere-muratore-pemsa-locarno",
+        "gardener-bricklayer-pemsa-locarno-qwgr0v"
       ]
     },
     {
@@ -1655,7 +1677,7 @@
       },
       "slugByLocale": {
         "it": "muratore-carpentiere-pemsa-locarno",
-        "en": "mason-carpenter-pemsa-locarno-lprn55",
+        "en": "mason-carpenter-pemsa-locarno",
         "de": "maurer-zimmerer-pemsa-locarno-lprn55",
         "fr": "macon-charpentier-pemsa-locarno-lprn55"
       },
@@ -1675,7 +1697,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "muratore-carpentiere-pemsa-locarno"
+        "muratore-carpentiere-pemsa-locarno",
+        "mason-carpenter-pemsa-locarno-lprn55"
       ]
     },
     {
@@ -1717,7 +1740,7 @@
         "it": "capo-cantiere-pemsa-locarno",
         "en": "site-foreman-pemsa-locarno-mj8eu2",
         "de": "bauleiter-pemsa-locarno-mj8eu2",
-        "fr": "chef-de-chantier-pemsa-locarno-mj8eu2"
+        "fr": "chef-de-chantier-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1735,7 +1758,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "capo-cantiere-pemsa-locarno"
+        "capo-cantiere-pemsa-locarno",
+        "chef-de-chantier-pemsa-locarno-mj8eu2"
       ]
     },
     {
@@ -2019,7 +2043,7 @@
         "it": "lattoniere-pemsa-bellinzona",
         "en": "sheet-metal-worker-pemsa-bellinzona-o8tlzm",
         "de": "spengler-pemsa-bellinzona-o8tlzm",
-        "fr": "ferblantier-pemsa-bellinzona-o8tlzm"
+        "fr": "ferblantier-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2037,7 +2061,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "lattoniere-pemsa-bellinzona"
+        "lattoniere-pemsa-bellinzona",
+        "ferblantier-pemsa-bellinzona-o8tlzm"
       ]
     },
     {
@@ -2137,7 +2162,7 @@
       },
       "slugByLocale": {
         "it": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
-        "en": "metal-builder-amp-8211-welder-pemsa-bellinzona",
+        "en": "metal-builder-welder-pemsa-bellinzona",
         "de": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
         "fr": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona"
       },
@@ -2157,7 +2182,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona"
+        "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
+        "metal-builder-amp-8211-welder-pemsa-bellinzona"
       ]
     },
     {
@@ -2376,7 +2402,7 @@
       },
       "slugByLocale": {
         "it": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
-        "en": "plasterer-amp-8211-chalk-pemsa-bellinzona",
+        "en": "plasterer-chalk-pemsa-bellinzona",
         "de": "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
         "fr": "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
       },
@@ -2396,7 +2422,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
+        "cartongessista-amp-8211-gessatore-pemsa-bellinzona",
+        "plasterer-amp-8211-chalk-pemsa-bellinzona"
       ]
     },
     {

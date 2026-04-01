@@ -161,11 +161,13 @@
         "en": "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant",
         "it": "assistente-cameriere-cameriera-m-w-essere-l-eroe-del-ristorante-grace-la-margna-st-moritz-st-moritz",
         "de": "assistent-waiter-waitress-m-w-be-the-hero-in-the-restaurant-grace-la-margna-st-moritz-st-moritz",
-        "fr": "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
+        "fr": "assistant-serveur-serveuse-m-w-etre-le-heros-dans-le-restaurant-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
       "crawledAt": "2026-03-29T09:28:47.709Z",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "assistant-waiter-waitress-m-w-be-the-hero-in-the-restaurant"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -342,13 +344,16 @@
       },
       "slugByLocale": {
         "en": "commis-de-cuisine-m-f-when-you-call-kitchen-home-grace-la-margna-st-moritz-st-moritz",
-        "it": "commis-de-cuisine-m-f-when-you-call-kitchen-home-grace-la-margna-st-moritz-st-moritz",
-        "de": "commis-de-cuisine-m-w-when-you-call-kitchen-home",
+        "it": "commis-de-cuisine-m-f-quando-la-cucina-e-di-casa-grace-la-margna-st-moritz-st-moritz",
+        "de": "commis-de-cuisine-m-w-wenn-sie-kuche-zuhause-nennen-grace-la-margna-st-moritz-st-moritz",
         "fr": "commis-de-cuisine-h-f-when-you-call-kitchen-home-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
       "crawledAt": "2026-03-29T09:28:59.854Z",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "commis-de-cuisine-m-f-when-you-call-kitchen-home-grace-la-margna-st-moritz-st-moritz",
+        "commis-de-cuisine-m-w-when-you-call-kitchen-home"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -824,12 +829,13 @@
         "en": "restaurant-supervisor-m-w-restaurant-is-your-internship-grace-la-margna-st-moritz-st-moritz",
         "it": "restaurant-supervisore-m-w-restaurant-is-your-stage-grace-la-margna-st-moritz-st-moritz",
         "de": "restaurant-vorgesetzter-m-w-restaurant-is-your-stage-grace-la-margna-st-moritz-st-moritz",
-        "fr": "superviseur-du-restaurant-m-w-le-restaurant-est-votre-scene-grace-la-margna-st-moritz-st-moritz"
+        "fr": "superviseur-de-restaurant-lun-mercredi-le-restaurant-est-votre-etape-grace-la-margna-st-moritz-st-moritz"
       },
       "source": "dedicated-crawler",
       "crawledAt": "2026-03-29T09:29:32.630Z",
       "previousSlugs": [
-        "restaurant-supervisor-m-w-restaurant-is-your-stage"
+        "restaurant-supervisor-m-w-restaurant-is-your-stage",
+        "superviseur-du-restaurant-m-w-le-restaurant-est-votre-scene-grace-la-margna-st-moritz-st-moritz"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,

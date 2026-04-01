@@ -31,7 +31,7 @@
         "en": "assistente-alla-sales-madrelingua-tedesca-sales-assistant-mikron-group-agno-aaibc9",
         "it": "assistente-alla-vendita-madrelingua-tedesca-sales-assistant-mikron",
         "de": "vertriebsassistent-muttersprache-deutsch-mikron-group-agno",
-        "fr": "assistente-alla-vente-madrelingua-tedesca-sales-assistant-mikron-group-agno-aaibc9"
+        "fr": "assistant-commercial-locuteur-natif-allemand-mikron-group-agno"
       },
       "category": "sales",
       "datePosted": "2026-03-29",
@@ -63,7 +63,8 @@
         "sales-assistant-native-german-speaker-mikron-group-agno-aaibc9",
         "assistente-alla-vendita-madrelingua-tedesca-sales-assistent-mikron-group-agno-aaibc9",
         "assistant-commercial-locuteur-natif-allemand-mikron-group-agno-aaibc9",
-        "assistente-alla-verkauf-madrelingua-tedesca-sales-assistent-mikron-group-agno-aaibc9"
+        "assistente-alla-verkauf-madrelingua-tedesca-sales-assistent-mikron-group-agno-aaibc9",
+        "assistente-alla-vente-madrelingua-tedesca-sales-assistant-mikron-group-agno-aaibc9"
       ],
       "sourceLang": "it"
     },
@@ -344,8 +345,8 @@
       "slugByLocale": {
         "en": "internal-machining-manager-m-w-d-mikron-group-agno",
         "it": "responsabile-della-lavorazione-interna-m-w-d-mikron-group-agno",
-        "de": "leiter-der-internen-bearbeitung-m-w-d-mikron-group-agno-lula68",
-        "fr": "responsable-de-l-usinage-interne-m-w-d-mikron-group-agno-lula68"
+        "de": "leiter-der-internen-bearbeitung-m-w-d-mikron-group-agno",
+        "fr": "responsable-de-l-usinage-interne-m-w-d-mikron-group-agno"
       },
       "category": "production",
       "datePosted": "2026-03-29",
@@ -374,7 +375,9 @@
       },
       "previousSlugs": [
         "internal-machining-manager-m-w-d-mikron-group-agno-lula68",
-        "internal-machining-manager-m-w-d-mikron"
+        "internal-machining-manager-m-w-d-mikron",
+        "leiter-der-internen-bearbeitung-m-w-d-mikron-group-agno-lula68",
+        "responsable-de-l-usinage-interne-m-w-d-mikron-group-agno-lula68"
       ],
       "sourceLang": "en"
     },
@@ -467,10 +470,10 @@
       },
       "slug": "apprendisti-m-f-d-mikron-group-agno",
       "slugByLocale": {
-        "en": "apprentices-m-f-d-mikron-group-agno-3l34ew",
+        "en": "apprentices-m-f-d-mikron-group-agno",
         "it": "apprendisti-m-f-d-mikron-group-agno",
-        "de": "auszubildende-m-w-d-mikron-group-agno-3l34ew",
-        "fr": "apprentis-m-f-d-mikron-group-agno-3l34ew"
+        "de": "auszubildende-m-w-d-mikron-group-agno",
+        "fr": "apprentis-m-f-d-mikron-group-agno"
       },
       "category": "apprenticeship",
       "datePosted": "2026-03-29",
@@ -486,7 +489,10 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "apprendisti-m-f-d-mikron-group-agno-3l34ew",
-        "apprendisti-m-f-d-mikron"
+        "apprendisti-m-f-d-mikron",
+        "apprentices-m-f-d-mikron-group-agno-3l34ew",
+        "auszubildende-m-w-d-mikron-group-agno-3l34ew",
+        "apprentis-m-f-d-mikron-group-agno-3l34ew"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -531,7 +537,7 @@
       "slugByLocale": {
         "en": "apprentice-trainer-for-polymecanicists-mikron-group-agno",
         "it": "formatore-di-apprendistato-per-polimecanicisti-mikron-group-agno",
-        "de": "ausbilder-fur-polymekanik-mikron-group-agno-7wsa9s",
+        "de": "ausbilder-fur-polymekanik-mikron-group-agno",
         "fr": "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron-group-agno-7wsa9s"
       },
       "category": "hr",
@@ -562,7 +568,8 @@
       "sourceLang": "fr",
       "previousSlugs": [
         "formateur-d-apprentissage-pour-former-les-apprentis-polymecaniciens-mikron",
-        "apprentice-trainer-for-polymecanicists-mikron-group-agno-7wsa9s"
+        "apprentice-trainer-for-polymecanicists-mikron-group-agno-7wsa9s",
+        "ausbilder-fur-polymekanik-mikron-group-agno-7wsa9s"
       ]
     },
     {
@@ -594,7 +601,7 @@
         "en": "motion-control-software-engineer-m-f-d-mikron-group-agno-y9v6ol",
         "it": "ingegnere-del-software-di-controllo-del-movimento-m-f-d-mikron-group-agno",
         "de": "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol",
-        "fr": "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol"
+        "fr": "ingenieur-logiciel-de-controle-de-mouvement-m-f-d-mikron-group-agno"
       },
       "category": "technology",
       "datePosted": "2026-03-29",
@@ -622,7 +629,8 @@
         }
       },
       "previousSlugs": [
-        "motion-control-software-engineer-m-f-d-mikron"
+        "motion-control-software-engineer-m-f-d-mikron",
+        "motion-control-software-ingenieur-m-f-d-mikron-group-agno-y9v6ol"
       ],
       "sourceLang": "en"
     }

@@ -40,8 +40,8 @@
       "slugByLocale": {
         "it": "project-manager-swift-sepa-relewant-chiasso",
         "en": "project-manager-swift-sepa-relewant-chiasso",
-        "de": "bi-spezialist-relewant-chiasso-pqrule",
-        "fr": "specialiste-bi-relewant-chiasso-pqrule"
+        "de": "bi-spezialist-relewant-chiasso",
+        "fr": "specialiste-bi-relewant-chiasso"
       },
       "salaryMin": 100500,
       "salaryMax": 136500,
@@ -57,7 +57,11 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "previousSlugs": [
+        "bi-spezialist-relewant-chiasso-pqrule",
+        "specialiste-bi-relewant-chiasso-pqrule"
+      ]
     },
     {
       "title": "BI Specialist",
@@ -273,9 +277,11 @@
         "it": "senior-system-ingegnere-relewant-chiasso",
         "en": "senior-system-engineer-relewant-chiasso",
         "de": "senior-system-ingenieur-relewant-chiasso",
-        "fr": "senior-system-ingenieur-relewant-chiasso"
+        "fr": "ingenieur-systeme-senior-relewant-chiasso"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "senior-system-ingenieur-relewant-chiasso"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
@@ -389,9 +395,11 @@
         "it": "technical-architect-relewant-chiasso",
         "en": "technical-architect-relewant-chiasso",
         "de": "technical-architect-relewant-chiasso",
-        "fr": "technical-architecte-relewant-chiasso"
+        "fr": "architecte-technique-relewant-chiasso"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "technical-architecte-relewant-chiasso"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -565,10 +573,11 @@
         "it": "senior-it-security-architect-relewant-chiasso",
         "en": "senior-it-securit-archit-relewant-chiasso-a4qy95",
         "de": "leitender-it-sicherheitsarchitekt-relewant-chiasso",
-        "fr": "senior-it-security-architecte-relewant-chiasso"
+        "fr": "architecte-senior-en-securite-informatique-relewant-chiasso"
       },
       "previousSlugs": [
-        "leitender-it-sicherheitsarchitekt-relewant-chiasso-a4qy95"
+        "leitender-it-sicherheitsarchitekt-relewant-chiasso-a4qy95",
+        "senior-it-security-architecte-relewant-chiasso"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -623,9 +632,9 @@
       },
       "slugByLocale": {
         "it": "sviluppatore-pl-sql-relewant-chiasso",
-        "en": "pl-sql-developer-relewant-chiasso-ce8nq2",
-        "de": "pl-sql-entwickler-relewant-chiasso-ce8nq2",
-        "fr": "developpeur-pl-sql-relewant-chiasso-ce8nq2"
+        "en": "pl-sql-developer-relewant-chiasso",
+        "de": "pl-sql-entwickler-relewant-chiasso",
+        "fr": "developpeur-pl-sql-relewant-chiasso"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -643,7 +652,10 @@
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
       "previousSlugs": [
-        "sviluppatore-pl-sql-relewant-chiasso"
+        "sviluppatore-pl-sql-relewant-chiasso",
+        "pl-sql-developer-relewant-chiasso-ce8nq2",
+        "pl-sql-entwickler-relewant-chiasso-ce8nq2",
+        "developpeur-pl-sql-relewant-chiasso-ce8nq2"
       ]
     },
     {
@@ -685,9 +697,11 @@
         "it": "it-card-management-analista-specialista-relewant-chiasso",
         "en": "it-card-management-analyst-specialist-relewant-chiasso",
         "de": "it-card-management-analyst-spezialist-relewant-chiasso",
-        "fr": "it-card-management-analyste-specialiste-relewant-chiasso"
+        "fr": "analyste-specialiste-en-gestion-des-cartes-it-relewant-chiasso"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "it-card-management-analyste-specialiste-relewant-chiasso"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -743,10 +757,11 @@
         "it": "automation-mft-specialista-relewant-lugano",
         "en": "automation-mft-specialist-relewant-lugano",
         "de": "automatisierungs-und-mft-spezialist-relewant-lugano",
-        "fr": "automation-mft-specialiste-relewant-lugano"
+        "fr": "specialiste-en-automatisation-et-mft-relewant-lugano"
       },
       "previousSlugs": [
-        "automation-mft-spezialist-relewant-lugano"
+        "automation-mft-spezialist-relewant-lugano",
+        "automation-mft-specialiste-relewant-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -803,9 +818,11 @@
         "it": "network-ingegnere-relewant-chiasso",
         "en": "network-engineer-relewant-chiasso",
         "de": "network-ingenieur-relewant-chiasso",
-        "fr": "network-ingenieur-relewant-chiasso"
+        "fr": "ingenieur-reseau-relewant-chiasso"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "network-ingenieur-relewant-chiasso"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
@@ -859,9 +876,9 @@
       },
       "slugByLocale": {
         "it": "sviluppatore-plsql-relewant-chiasso",
-        "en": "plsql-developer-relewant-chiasso-hrbojx",
-        "de": "plsql-entwickler-relewant-chiasso-hrbojx",
-        "fr": "developpeur-plsql-relewant-chiasso-hrbojx"
+        "en": "plsql-developer-relewant-chiasso",
+        "de": "plsql-entwickler-relewant-chiasso",
+        "fr": "developpeur-plsql-relewant-chiasso"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -879,7 +896,10 @@
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
       "previousSlugs": [
-        "sviluppatore-plsql-relewant-chiasso"
+        "sviluppatore-plsql-relewant-chiasso",
+        "plsql-developer-relewant-chiasso-hrbojx",
+        "plsql-entwickler-relewant-chiasso-hrbojx",
+        "developpeur-plsql-relewant-chiasso-hrbojx"
       ]
     },
     {
@@ -919,9 +939,9 @@
       },
       "slugByLocale": {
         "it": "analista-funzionale-relewant-chiasso",
-        "en": "functional-analyst-relewant-chiasso-czslhp",
+        "en": "functional-analyst-relewant-chiasso",
         "de": "funktionsanalyst-relewant-chiasso",
-        "fr": "analyste-fonctionnel-relewant-chiasso-czslhp"
+        "fr": "analyste-fonctionnel-relewant-chiasso"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -939,7 +959,9 @@
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
       "previousSlugs": [
-        "funktionsanalyst-relewant-chiasso-czslhp"
+        "funktionsanalyst-relewant-chiasso-czslhp",
+        "functional-analyst-relewant-chiasso-czslhp",
+        "analyste-fonctionnel-relewant-chiasso-czslhp"
       ]
     },
     {

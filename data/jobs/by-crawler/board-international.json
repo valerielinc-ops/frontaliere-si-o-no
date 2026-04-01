@@ -40,8 +40,8 @@
       "slugByLocale": {
         "it": "responsabile-proposte-rfx-board-international-chiasso-switzerland",
         "en": "rfx-proposal-manager-board-international-chiasso-switzerland",
-        "de": "leiter-rfx-angebote-board-international-chiasso-switzerland-fzo8z7",
-        "fr": "responsable-des-propositions-rfx-board-international-chiasso-switzerland-fzo8z7"
+        "de": "leiter-rfx-angebote-board-international-chiasso-switzerland",
+        "fr": "responsable-des-propositions-rfx-board-international-chiasso-switzerland"
       },
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -58,7 +58,10 @@
       },
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
-      "previousSlugs": []
+      "previousSlugs": [
+        "leiter-rfx-angebote-board-international-chiasso-switzerland-fzo8z7",
+        "responsable-des-propositions-rfx-board-international-chiasso-switzerland-fzo8z7"
+      ]
     },
     {
       "title": "Videomaker & Motion Designer (Maternity Cover)",
@@ -159,7 +162,7 @@
         "it": "progettista-di-esperienza-utente-board-international-chiasso-ticino-switzerland",
         "en": "ux-designer-board-international-chiasso-ticino-switzerland",
         "de": "ux-designer-board-international-chiasso-ticino-switzerland",
-        "fr": "concepteur-d-experience-utilisateur-board-international-chiasso-ticino-switzerland-1l2noe"
+        "fr": "concepteur-d-experience-utilisateur-board-international-chiasso-ticino-switzerland"
       },
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -176,7 +179,9 @@
       },
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
-      "previousSlugs": []
+      "previousSlugs": [
+        "concepteur-d-experience-utilisateur-board-international-chiasso-ticino-switzerland-1l2noe"
+      ]
     },
     {
       "title": "AI Product Manager",
@@ -216,8 +221,8 @@
       "slugByLocale": {
         "it": "responsabile-prodotto-ai-board-international-chiasso-switzerland",
         "en": "ai-product-manager-board-international-chiasso-switzerland",
-        "de": "ki-produktmanager-board-international-chiasso-switzerland-yzl78f",
-        "fr": "chef-de-produit-ia-board-international-chiasso-switzerland-yzl78f"
+        "de": "ki-produktmanager-board-international-chiasso-switzerland",
+        "fr": "chef-de-produit-ia-board-international-chiasso-switzerland"
       },
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -234,7 +239,10 @@
       },
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
-      "previousSlugs": []
+      "previousSlugs": [
+        "ki-produktmanager-board-international-chiasso-switzerland-yzl78f",
+        "chef-de-produit-ia-board-international-chiasso-switzerland-yzl78f"
+      ]
     },
     {
       "title": "Associate Product Manager",
@@ -274,8 +282,8 @@
       "slugByLocale": {
         "it": "product-manager-associato-board-international-chiasso-switzerland",
         "en": "associate-product-manager-board-international-chiasso-switzerland",
-        "de": "assistierender-product-manager-board-international-chiasso-switzerland-jm5a39",
-        "fr": "product-manager-associe-board-international-chiasso-switzerland-jm5a39"
+        "de": "assistierender-product-manager-board-international-chiasso-switzerland",
+        "fr": "product-manager-associe-board-international-chiasso-switzerland"
       },
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -292,7 +300,10 @@
       },
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
-      "previousSlugs": []
+      "previousSlugs": [
+        "assistierender-product-manager-board-international-chiasso-switzerland-jm5a39",
+        "product-manager-associe-board-international-chiasso-switzerland-jm5a39"
+      ]
     },
     {
       "title": "Technical Product Manager – Platform",
@@ -332,8 +343,8 @@
       "slugByLocale": {
         "it": "responsabile-tecnico-di-prodotto-piattaforma-board-international-chiasso-switzerland",
         "en": "technical-product-manager-platform-board-international-chiasso-switzerland",
-        "de": "technischer-produktmanager-plattform-board-international-chiasso-switzerland-0b4xaa",
-        "fr": "chef-de-produit-technique-plateforme-board-international-chiasso-switzerland-0b4xaa"
+        "de": "technischer-produktmanager-plattform-board-international-chiasso-switzerland",
+        "fr": "chef-de-produit-technique-plateforme-board-international-chiasso-switzerland"
       },
       "salaryMin": 94000,
       "salaryMax": 127000,
@@ -350,7 +361,10 @@
       },
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
-      "previousSlugs": []
+      "previousSlugs": [
+        "technischer-produktmanager-plattform-board-international-chiasso-switzerland-0b4xaa",
+        "chef-de-produit-technique-plateforme-board-international-chiasso-switzerland-0b4xaa"
+      ]
     },
     {
       "title": "Senior Consultant Financial Consolidation",
@@ -451,10 +465,11 @@
         "it": "ingegnere-del-software-board-international-chiasso-ticino-switzerland",
         "en": "software-engineer-board-international-chiasso-ticino-switzerland",
         "de": "software-ingenieur-board-international-chiasso-ticino-switzerland",
-        "fr": "software-ingenieur-board-international-chiasso-ticino-switzerland"
+        "fr": "ingenieur-logiciel-board-international-chiasso-ticino-switzerland"
       },
       "previousSlugs": [
-        "software-ingegnere-board-international-chiasso-ticino-switzerland"
+        "software-ingegnere-board-international-chiasso-ticino-switzerland",
+        "software-ingenieur-board-international-chiasso-ticino-switzerland"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -511,11 +526,12 @@
         "it": "sviluppatore-soluzione-board-international-chiasso-switzerland",
         "en": "solution-developer-board-international-chiasso-switzerland",
         "de": "losungsentwickler-board-international-chiasso-switzerland",
-        "fr": "solution-developpeur-board-international-chiasso-switzerland"
+        "fr": "developpeur-de-la-solution-board-international-chiasso-switzerland"
       },
       "previousSlugs": [
         "solution-sviluppatore-board-international-chiasso-switzerland",
-        "solution-entwickler-board-international-chiasso-switzerland"
+        "solution-entwickler-board-international-chiasso-switzerland",
+        "solution-developpeur-board-international-chiasso-switzerland"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
