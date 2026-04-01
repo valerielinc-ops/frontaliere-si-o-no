@@ -1,6 +1,6 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-04-01T08:56:46.287Z",
+  "assembledAt": "2026-04-01T20:46:15.186Z",
   "jobs": [
     {
       "title": "Ingegnere edile Jr.",
@@ -60,6 +60,67 @@
           "@type": "QuantitativeValue",
           "minValue": 55500,
           "maxValue": 75500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "title": "Receptionist",
+      "slug": "receptionist-a-group-massagno",
+      "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
+      "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
+      "company": "A++ Group",
+      "companyKey": "a-group",
+      "companyDomain": "a2plus.green",
+      "location": "Massagno",
+      "addressLocality": "Massagno",
+      "postalCode": "6942",
+      "streetAddress": "Via Molinazzo 4",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "admin",
+      "sector": "Architettura & Design",
+      "source": "a-plus-plus-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-01",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "Principali mansioni e responsabilità :\n\n- Accoglienza degli ospiti.\n- Supervisione degli ambienti di lavoro, monitorando quotidianamente l’ordine e la pulizia.\n- Supporto al team Real Estate nelle attività quotidiane di front e back office.\n- Creazione di materiali visivi e presentazioni con Canva.\n- Primo contatto telefonico con i clienti.",
+      "titleByLocale": {
+        "it": "Receptionist",
+        "en": "Receptionist",
+        "de": "Receptionist",
+        "fr": "Receptionist"
+      },
+      "descriptionByLocale": {
+        "it": "Principali mansioni e responsabilità :\n\n- Accoglienza degli ospiti.\n- Supervisione degli ambienti di lavoro, monitorando quotidianamente l’ordine e la pulizia.\n- Supporto al team Real Estate nelle attività quotidiane di front e back office.\n- Creazione di materiali visivi e presentazioni con Canva.\n- Primo contatto telefonico con i clienti.",
+        "en": "Principali mansioni e responsabilità :\n\n- Accoglienza degli ospiti.\n- Supervisione degli ambienti di lavoro, monitorando quotidianamente l’ordine e la pulizia.\n- Supporto al team Real Estate nelle attività quotidiane di front e back office.\n- Creazione di materiali visivi e presentazioni con Canva.\n- Primo contatto telefonico con i clienti.",
+        "de": "Principali mansioni e responsabilità :\n\n- Accoglienza degli ospiti.\n- Supervisione degli ambienti di lavoro, monitorando quotidianamente l’ordine e la pulizia.\n- Supporto al team Real Estate nelle attività quotidiane di front e back office.\n- Creazione di materiali visivi e presentazioni con Canva.\n- Primo contatto telefonico con i clienti.",
+        "fr": "Principali mansioni e responsabilità :\n\n- Accoglienza degli ospiti.\n- Supervisione degli ambienti di lavoro, monitorando quotidianamente l’ordine e la pulizia.\n- Supporto al team Real Estate nelle attività quotidiane di front e back office.\n- Creazione di materiali visivi e presentazioni con Canva.\n- Primo contatto telefonico con i clienti."
+      },
+      "slugByLocale": {
+        "it": "receptionist-a-group-massagno",
+        "en": "receptionist-a-plus-plus-group-massagno",
+        "de": "receptionist-a-plus-plus-group-massagno",
+        "fr": "receptionist-a-plus-plus-group-massagno"
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "receptionist-a-plus-plus-group-massagno"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
           "unitText": "YEAR"
         }
       }
