@@ -156,10 +156,21 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
       <div className="bg-gradient-to-r from-indigo-600 to-purple-700 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-2">
           <BookOpen size={28} />
-          <h2 className="text-2xl font-bold">{t('glossary.title')}</h2>
+          {initialEntry ? (
+            <h2 className="text-2xl font-bold">{t('glossary.title')}</h2>
+          ) : (
+            <h1 className="text-2xl font-bold">{t('glossary.title')}</h1>
+          )}
         </div>
         <p className="text-indigo-100 text-sm">{t('glossary.subtitle')}</p>
       </div>
+
+      {/* H1 for individual term pages */}
+      {initialEntry && (
+        <h1 className="text-2xl font-bold text-slate-800 dark:text-white">
+          {t(`glossary.terms.${initialEntry}.title`)}
+        </h1>
+      )}
 
       {/* Search and filters */}
       <div className="flex flex-wrap gap-3 items-center">

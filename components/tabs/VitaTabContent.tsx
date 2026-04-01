@@ -1,5 +1,6 @@
 import React, { Suspense } from 'react';
 import { lazyRetry } from '@/services/lazyRetry';
+import { useTranslation } from '@/services/i18n';
 import { useNavigation } from '@/services/NavigationContext';
 import { useTabContent } from '@/services/TabContentContext';
 import { SkeletonComparator } from '@/components/shared/Skeletons';
@@ -12,11 +13,13 @@ const NurseryComparator = lazyRetry(() => import('@/components/comparators/Nurse
 const TransportCalculator = lazyRetry(() => import('@/components/vita/TransportCalculator'));
 
 export default function VitaTabContent() {
+  const { t } = useTranslation();
   const { vitaSubTab } = useNavigation();
   const { userProfile } = useTabContent();
 
   return (
     <div className="max-w-7xl mx-auto">
+      <h1 className="text-2xl font-bold text-slate-800 dark:text-white mb-4">{t('seoContent.vita.title')}</h1>
       <Suspense fallback={<div className="min-h-[44px]" />}>
         <SeoContentBlock context="vita" />
       </Suspense>

@@ -1833,10 +1833,10 @@ export default function BlogArticles({
     <div className="max-w-5xl mx-auto space-y-6">
       {/* Header */}
       <div className="text-center mb-6">
-        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
+        <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
           <BookOpen size={28} className="text-indigo-600" />
           {t('blog.title')}
-        </h2>
+        </h1>
         <p className="text-slate-600 dark:text-slate-500">{t('blog.subtitle')}</p>
       </div>
 
