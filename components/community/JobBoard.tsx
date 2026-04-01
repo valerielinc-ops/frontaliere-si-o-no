@@ -3088,8 +3088,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
       '@graph': jobPostings,
     });
 
+    // Remove any pre-existing JobPosting JSON-LD — both the SPA's own script
+    // (identified by ID) and any static-HTML scripts injected by the build plugin
+    // (which may lack this ID). This prevents duplicate/conflicting schemas.
     const prev = document.getElementById('jobposting-structured-data');
     if (prev) prev.remove();
+    document.querySelectorAll('script[type="application/ld+json"]').forEach(el => {
+      if (el.id === 'jobposting-structured-data') return; // already removed above
+      try {
+        const data = JSON.parse(el.textContent || '');
+        const hasJobPosting = (obj: unknown): boolean => {
+          if (!obj || typeof obj !== 'object') return false;
+          const o = obj as Record<string, unknown>;
+          if (o['@type'] === 'JobPosting') return true;
+          if (Array.isArray(o['@graph'])) return (o['@graph'] as unknown[]).some(hasJobPosting);
+          return false;
+        };
+        if (hasJobPosting(data)) el.remove();
+      } catch { /* non-JSON or malformed — leave it */ }
+    });
     document.head.appendChild(script);
 
     return () => {
@@ -3138,6 +3155,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
       return;
     }
 
+    // When we're on a job detail URL but the job data is still loading
+    // (selectedJob is null because jobs[] is empty or the job hasn't been
+    // matched yet), preserve the static HTML metadata that the build plugin
+    // already injected. Without this guard the canonical/title/OG tags would
+    // momentarily revert to the generic listing-page values.
+    if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter && !editorialLandingDescriptor) {
+      return;
+    }
+
     // For company/search pages, use initialJobSlug to build the canonical so it
     // self-references the current page instead of falling back to the listing page.
     const canonicalSlugSource = selectedJob
@@ -3157,13 +3183,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
     if (selectedJob) {
       const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
       const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
-      document.title = `${localizedTitle} — ${selectedJob.company} | Frontaliere Ticino`;
+      const fullTitle = `${localizedTitle} — ${selectedJob.company} | Frontaliere Ticino`;
+      const descSnippet = String(localizedDescription || '').slice(0, 160);
+      document.title = fullTitle;
       const metaDesc = document.querySelector('meta[name="description"]');
       if (metaDesc) {
-        metaDesc.setAttribute('content', String(localizedDescription || '').slice(0, 160));
+        metaDesc.setAttribute('content', descSnippet);
       }
-      const ogUrl = document.querySelector('meta[property="og:url"]');
-      if (ogUrl) ogUrl.setAttribute('content', canonicalHref);
+
+      // Set all OG tags so they stay consistent with the job detail page,
+      // even if seoService.updateMetaTags runs later with generic fallbacks.
+      const ogLocaleMap: Record<string, string> = { it: 'it_IT', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
+      const setOg = (prop: string, val: string) => {
+        let el = document.querySelector(`meta[property="${prop}"]`);
+        if (!el) { el = document.createElement('meta'); el.setAttribute('property', prop); document.head.appendChild(el); }
+        el.setAttribute('content', val);
+      };
+      setOg('og:title', fullTitle);
+      setOg('og:description', descSnippet);
+      setOg('og:url', canonicalHref);
+      setOg('og:type', 'article');
+      setOg('og:locale', ogLocaleMap[locale] || 'it_IT');
+      setOg('og:site_name', 'Frontaliere Ticino');
+
+      // Ensure the html lang attribute matches the active locale
+      document.documentElement.lang = locale;
       return;
     }
 

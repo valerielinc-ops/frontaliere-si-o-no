@@ -1944,6 +1944,12 @@ export async function updateMetaTags(section: string): Promise<void> {
         return; // Preserve static HTML metadata for expired job pages
       }
     } catch { /* SSR or missing — continue with dynamic metadata */ }
+    // For active job detail pages where the job couldn't be resolved from
+    // /data/jobs.json (async load race, or job not in the global dataset),
+    // preserve whatever metadata JobBoard.tsx already set (title, OG tags,
+    // canonical with job slug) instead of overwriting with generic listing
+    // defaults like "Offerte di Lavoro per Frontalieri".
+    return;
   }
 
   const localizedTitle = isBlogArticle ? t(`blog.article.${blogArticleId}.title`) : '';
@@ -1979,13 +1985,18 @@ export async function updateMetaTags(section: string): Promise<void> {
     : isDialectPage
       ? dialectDescriptionByLocale[locale]
       : (hasLocalizedExcerpt ? localizedExcerpt : localizedSeoContent.description);
-  const serpVariant = applySerpTitleDescriptionVariant(
-    section,
-    canonicalLocalePath,
-    locale,
-    baseMetaTitle,
-    baseMetaDescription,
-  );
+  // Never apply SERP experiment suffixes ("| simulazione | 2026") to individual
+  // job detail pages — these have their own structured title pattern:
+  // "{JobTitle} — {Company} | Frontaliere Ticino"
+  const serpVariant = isJobDetailPage
+    ? { title: baseMetaTitle, description: baseMetaDescription, variant: 'control' as const }
+    : applySerpTitleDescriptionVariant(
+      section,
+      canonicalLocalePath,
+      locale,
+      baseMetaTitle,
+      baseMetaDescription,
+    );
   const metaTitle = serpVariant.title;
   const metaDescription = serpVariant.description;
   const metaOgTitle = metaTitle;
