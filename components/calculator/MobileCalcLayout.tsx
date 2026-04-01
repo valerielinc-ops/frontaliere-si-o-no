@@ -216,7 +216,7 @@ const MobileCalcLayout: React.FC<Props> = ({
           <div className="flex items-stretch gap-2">
             <button
               onClick={() => handleChange('annualIncomeCHF', Math.max(SALARY_MIN, inputs.annualIncomeCHF - 5000))}
-              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all"
+              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-[color,background-color,transform]"
               aria-label="Diminuisci stipendio di 5000"
               type="button"
             >−</button>
@@ -230,13 +230,13 @@ const MobileCalcLayout: React.FC<Props> = ({
                 inputMode="numeric"
                 value={formatNumber(inputs.annualIncomeCHF)}
                 onChange={(e) => handleChange('annualIncomeCHF', parseNumber(e.target.value))}
-                className="w-full pl-14 pr-3 py-3.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-xl focus:ring-4 focus:border-blue-500 focus:ring-blue-500/10 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
+                className="w-full pl-14 pr-3 py-3.5 bg-slate-50 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 rounded-xl focus:ring-4 focus:border-blue-500 focus:ring-blue-500/10 outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight text-center"
                 placeholder="0"
               />
             </div>
             <button
               onClick={() => handleChange('annualIncomeCHF', Math.min(SALARY_MAX, inputs.annualIncomeCHF + 5000))}
-              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-all"
+              className="w-12 shrink-0 flex items-center justify-center rounded-xl bg-slate-100 dark:bg-slate-800 border-2 border-slate-100 dark:border-slate-700 text-slate-600 dark:text-slate-400 text-xl font-bold hover:bg-slate-200 dark:hover:bg-slate-700 active:scale-95 transition-[color,background-color,transform]"
               aria-label="Aumenta stipendio di 5000"
               type="button"
             >+</button>
@@ -247,7 +247,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <button
                 key={s}
                 onClick={() => handleChange('annualIncomeCHF', s)}
-                className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-all ${
+                className={`shrink-0 px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
                   inputs.annualIncomeCHF === s
                     ? 'bg-blue-600 text-white shadow-sm'
                     : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-500 hover:bg-slate-200'
@@ -268,7 +268,7 @@ const MobileCalcLayout: React.FC<Props> = ({
           <div className="grid grid-cols-2 gap-2.5">
             <button
               onClick={() => { handleChange('frontierWorkerType', 'NEW'); handleChange('distanceZone', 'WITHIN_20KM'); }}
-              className={`relative p-2.5 rounded-xl border-2 transition-all flex flex-col items-center gap-0.5 ${
+              className={`relative p-2.5 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center gap-0.5 ${
                 inputs.frontierWorkerType === 'NEW'
                   ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/30'
                   : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800'
@@ -284,7 +284,7 @@ const MobileCalcLayout: React.FC<Props> = ({
             </button>
             <button
               onClick={() => handleChange('frontierWorkerType', 'OLD')}
-              className={`relative p-2.5 rounded-xl border-2 transition-all flex flex-col items-center gap-0.5 ${
+              className={`relative p-2.5 rounded-xl border-2 transition-[color,background-color,border-color] flex flex-col items-center gap-0.5 ${
                 inputs.frontierWorkerType === 'OLD'
                   ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/30'
                   : 'border-slate-100 dark:border-slate-700 bg-slate-50 dark:bg-slate-800'
@@ -309,7 +309,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                 <button
                   key={opt.value}
                   onClick={() => handleChange('distanceZone', opt.value)}
-                  className={`flex-1 flex items-center justify-center gap-1 text-xs font-bold py-2 rounded-lg transition-all ${
+                  className={`flex-1 flex items-center justify-center gap-1 text-xs font-bold py-2 rounded-lg transition-[color,background-color,box-shadow] ${
                     inputs.distanceZone === opt.value
                       ? 'text-blue-700 dark:text-blue-300 bg-white dark:bg-slate-700 shadow-sm'
                       : 'text-slate-600 dark:text-slate-400'
@@ -326,7 +326,7 @@ const MobileCalcLayout: React.FC<Props> = ({
 
       {/* ─── SECTION 2: Instant Result Card ─── */}
       {result && (
-        <div className={`rounded-2xl shadow-lg border overflow-hidden transition-all duration-300 ${
+        <div className={`rounded-2xl shadow-lg border overflow-hidden transition-colors duration-300 ${
           isBetterIT
             ? 'bg-gradient-to-br from-emerald-50 to-white dark:from-emerald-950/60 dark:to-slate-900 border-emerald-200 dark:border-emerald-800'
             : 'bg-gradient-to-br from-blue-50 to-white dark:from-blue-950/60 dark:to-slate-900 border-blue-200 dark:border-blue-800'
@@ -360,7 +360,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <button
                 type="button"
                 onClick={() => openFullAnalysisFocused('CH')}
-                className={`w-full text-left p-3 rounded-xl transition-all active:scale-[0.99] ${
+                className={`w-full text-left p-3 rounded-xl transition-[color,background-color,transform] active:scale-[0.99] ${
                   !isBetterIT
                     ? 'bg-blue-100/50 dark:bg-blue-900/30 ring-2 ring-blue-300 dark:ring-blue-700'
                     : 'bg-white/60 dark:bg-slate-800/60 hover:bg-blue-50/70 dark:hover:bg-blue-900/20'
@@ -386,7 +386,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               <button
                 type="button"
                 onClick={() => openFullAnalysisFocused('IT')}
-                className={`w-full text-left p-3 rounded-xl transition-all active:scale-[0.99] ${
+                className={`w-full text-left p-3 rounded-xl transition-[color,background-color,transform] active:scale-[0.99] ${
                   isBetterIT
                     ? 'bg-emerald-100/50 dark:bg-emerald-900/30 ring-2 ring-emerald-300 dark:ring-emerald-700'
                     : 'bg-white/60 dark:bg-slate-800/60 hover:bg-emerald-50/70 dark:hover:bg-emerald-900/20'
@@ -413,7 +413,7 @@ const MobileCalcLayout: React.FC<Props> = ({
             <div className="flex gap-2 mt-3">
               <button
                 onClick={toggleFullResults}
-                className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-all active:scale-95 ${
+                className={`flex-1 py-2.5 rounded-xl text-xs font-bold transition-[color,background-color,transform] active:scale-95 ${
                   isBetterIT
                     ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-lg shadow-emerald-500/20'
                     : 'bg-blue-600 hover:bg-blue-700 text-white shadow-lg shadow-blue-500/20'
@@ -424,7 +424,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               </button>
               <button
                 onClick={openSheet}
-                className="px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-all active:scale-95"
+                className="px-4 py-2.5 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-200 dark:hover:bg-slate-700 transition-[color,background-color,transform] active:scale-95"
                 aria-label={t('mobileCalc.customize')}
               >
                 <Settings2 size={16} />
@@ -521,7 +521,7 @@ const MobileCalcLayout: React.FC<Props> = ({
                   <button
                     onClick={handleGateSubscribe}
                     disabled={gateStatus === 'loading' || !gateEmail.includes('@')}
-                    className="w-full py-2.5 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
+                    className="w-full py-2.5 rounded-xl text-sm font-bold bg-blue-600 hover:bg-blue-700 text-white transition-[color,background-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                   >
                     {gateStatus === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Mail size={16} />}
                     {t('newsletterGate.subscribe')}

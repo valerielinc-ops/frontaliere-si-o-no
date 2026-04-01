@@ -425,7 +425,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                <div className="flex items-center bg-slate-100 dark:bg-slate-800 rounded-xl p-0.5 gap-0.5">
                  <button
                    onClick={() => setShowEUR(false)}
-                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all ${!showEUR ? 'bg-white dark:bg-slate-700 text-blue-700 dark:text-blue-300 shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
+                   className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-[color,background-color,box-shadow] ${!showEUR ? 'bg-white dark:bg-slate-700 text-blue-700 dark:text-blue-300 shadow-sm' : 'text-slate-600 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'}`}
                    aria-label={t('results.showCHF')}
                  >
                    CHF

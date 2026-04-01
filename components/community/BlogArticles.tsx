@@ -1215,7 +1215,7 @@ export default function BlogArticles({
           target="_blank"
           rel="noopener noreferrer sponsored"
           onClick={handleAffClick}
-          className="group block p-3 bg-white/70 dark:bg-slate-800/70 rounded-xl border border-slate-200/60 dark:border-slate-700/60 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-all text-center"
+          className="group block p-3 bg-white/70 dark:bg-slate-800/70 rounded-xl border border-slate-200/60 dark:border-slate-700/60 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-sm transition-[color,border-color,box-shadow] text-center"
         >
           <span className="text-xl block mb-1">{partner.emoji}</span>
           <span className="text-xs font-semibold text-slate-700 dark:text-slate-200 block leading-tight">{partner.name}</span>
@@ -1238,7 +1238,7 @@ export default function BlogArticles({
         {/* Back button — prominent */}
         <button
           onClick={handleBackToList}
-          className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-all shadow-sm"
+          className="mb-6 inline-flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl text-sm font-semibold text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors shadow-sm"
           aria-label={t('blog.backToList')}
         >
           <ArrowLeft size={16} />
@@ -1340,7 +1340,7 @@ export default function BlogArticles({
               {/* Copy link */}
               <button
                 onClick={() => handleCopyLink(article.id)}
-                className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium transition-all"
+                className="inline-flex items-center gap-1 px-3 py-1 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-xs font-medium transition-colors"
                 aria-label={t('blog.copyLink')}
               >
                 {copied ? <Check size={12} className="text-emerald-500" /> : <Copy size={12} />}
@@ -1349,7 +1349,7 @@ export default function BlogArticles({
               {/* WhatsApp */}
               <button
                 onClick={() => handleWhatsAppShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] transition-all"
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] transition-colors"
                 aria-label={t('blog.shareWhatsApp')}
                 title={t('blog.shareWhatsApp')}
               >
@@ -1358,7 +1358,7 @@ export default function BlogArticles({
               {/* Twitter/X */}
               <button
                 onClick={() => handleTwitterShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all"
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
                 aria-label={t('blog.shareTwitter')}
                 title={t('blog.shareTwitter')}
               >
@@ -1367,7 +1367,7 @@ export default function BlogArticles({
               {/* Facebook */}
               <button
                 onClick={() => handleFacebookShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#1877F2]/10 hover:bg-[#1877F2]/20 text-[#1877F2] transition-all"
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#1877F2]/10 hover:bg-[#1877F2]/20 text-[#1877F2] transition-colors"
                 aria-label={t('blog.shareFacebook')}
                 title={t('blog.shareFacebook')}
               >
@@ -1376,7 +1376,7 @@ export default function BlogArticles({
               {/* Telegram */}
               <button
                 onClick={() => handleTelegramShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#0088cc]/10 hover:bg-[#0088cc]/20 text-[#0088cc] transition-all"
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#0088cc]/10 hover:bg-[#0088cc]/20 text-[#0088cc] transition-colors"
                 aria-label={t('blog.shareTelegram')}
                 title={t('blog.shareTelegram')}
               >
@@ -1385,7 +1385,7 @@ export default function BlogArticles({
               {/* LinkedIn */}
               <button
                 onClick={() => handleLinkedInShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#0A66C2] transition-all"
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#0A66C2] transition-colors"
                 aria-label={t('blog.shareLinkedIn')}
                 title={t('blog.shareLinkedIn')}
               >
@@ -1394,7 +1394,7 @@ export default function BlogArticles({
               {/* Email */}
               <button
                 onClick={() => handleEmailShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-all"
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
                 aria-label={t('blog.shareEmail')}
                 title={t('blog.shareEmail')}
               >
@@ -1404,7 +1404,7 @@ export default function BlogArticles({
               {typeof navigator !== 'undefined' && 'share' in navigator && (
                 <button
                   onClick={() => handleNativeShare(article.id)}
-                  className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 hover:bg-indigo-200 dark:hover:bg-indigo-800/50 text-indigo-700 dark:text-indigo-300 transition-all"
+                  className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 hover:bg-indigo-200 dark:hover:bg-indigo-800/50 text-indigo-700 dark:text-indigo-300 transition-colors"
                   aria-label={t('blog.shareNative')}
                   title={t('blog.shareNative')}
                 >
@@ -1479,7 +1479,7 @@ export default function BlogArticles({
                         key={job.id}
                         href={buildPath({ activeTab: 'job-board', jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
                         onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
-                        className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-all group"
+                        className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-colors group"
                       >
                         <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0 overflow-hidden">
                           {logo ? <img src={logo} alt={`Logo ${job.company}`} width={24} height={24} className="w-6 h-6 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Building2 size={14} className="text-indigo-600 dark:text-indigo-400" />}
@@ -1534,7 +1534,7 @@ export default function BlogArticles({
                           <a
                             href={buildPath(NAV_ACTION_ROUTES[cta.navAction])}
                             onClick={(e) => { e.preventDefault(); cta.action(); }}
-                            className={`mt-3 px-4 py-2 ${CTA_BTN_COLORS[cta.color]} text-white rounded-xl text-sm font-semibold inline-flex items-center gap-1 transition-all`}
+                            className={`mt-3 px-4 py-2 ${CTA_BTN_COLORS[cta.color]} text-white rounded-xl text-sm font-semibold inline-flex items-center gap-1 transition-colors`}
                           >
                             {t(cta.buttonKey)} <ArrowRight size={14} />
                           </a>
@@ -1555,7 +1555,7 @@ export default function BlogArticles({
                     key={related.id}
                     href={buildPath({ activeTab: 'blog', blogArticle: related.id })}
                     onClick={(e) => { e.preventDefault(); handleArticleClick(related.id); }}
-                    className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-all text-left"
+                    className="flex items-center gap-3 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-left"
                   >
                     {(() => {
                       const responsive = imageFallbackMap[related.image] ? null : getResponsiveImageSet(related.image);
@@ -1627,7 +1627,7 @@ export default function BlogArticles({
                           key={tr.id}
                           href={buildPath({ activeTab: 'blog', blogArticle: tr.id })}
                           onClick={(e) => { e.preventDefault(); handleArticleClick(tr.id); }}
-                          className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 border border-orange-200/60 dark:border-orange-800/40 rounded-xl hover:from-orange-100 hover:to-amber-100 dark:hover:from-orange-900/40 dark:hover:to-amber-900/30 transition-all text-left group"
+                          className="flex items-center gap-3 p-3 bg-gradient-to-r from-orange-50 to-amber-50 dark:from-orange-950/30 dark:to-amber-950/20 border border-orange-200/60 dark:border-orange-800/40 rounded-xl hover:from-orange-100 hover:to-amber-100 dark:hover:from-orange-900/40 dark:hover:to-amber-900/30 transition-colors text-left group"
                         >
                           <div className="relative shrink-0">
                             <picture className="w-16 h-12 shrink-0">
@@ -1699,7 +1699,7 @@ export default function BlogArticles({
                         key={job.id}
                         href={buildPath({ activeTab: 'job-board', jobSlug })}
                         onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', jobSlug); }}
-                        className="flex items-start gap-3 p-3 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-all text-left border border-indigo-100 dark:border-indigo-900/40"
+                        className="flex items-start gap-3 p-3 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-colors text-left border border-indigo-100 dark:border-indigo-900/40"
                       >
                         <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0 overflow-hidden">
                           {logo ? <img src={logo} alt={`Logo ${job.company}`} width={28} height={28} className="w-7 h-7 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Briefcase size={16} className="text-indigo-500" />}
@@ -1720,7 +1720,7 @@ export default function BlogArticles({
                 <a
                   href={buildPath({ activeTab: 'job-board' })}
                   onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); }}
-                  className="flex items-center gap-3 p-4 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-all border border-indigo-100 dark:border-indigo-900/40"
+                  className="flex items-center gap-3 p-4 bg-indigo-50/60 dark:bg-indigo-950/20 rounded-xl hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-colors border border-indigo-100 dark:border-indigo-900/40"
                 >
                   <div className="w-10 h-10 rounded-lg bg-white dark:bg-slate-700 flex items-center justify-center border border-slate-200 dark:border-slate-600 shrink-0">
                     <Search size={18} className="text-indigo-500" />
@@ -1846,7 +1846,7 @@ export default function BlogArticles({
           <button
             key={cat}
             onClick={() => handleCategoryChange(cat)}
-            className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-full text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
               selectedCategory === cat
                 ? 'bg-indigo-600 text-white shadow-md'
                 : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-indigo-400'
@@ -1861,7 +1861,7 @@ export default function BlogArticles({
       {pageArticles.length > 0 && (
         <a
           href={buildPath({ activeTab: 'blog', blogArticle: pageArticles[0].id })}
-          className="block w-full text-left group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-all"
+          className="block w-full text-left group relative overflow-hidden rounded-2xl shadow-xl hover:shadow-2xl transition-shadow"
           onClick={(e) => { e.preventDefault(); handleArticleClick(pageArticles[0].id); }}
         >
           <div className="relative h-64 sm:h-80">
@@ -1926,7 +1926,7 @@ export default function BlogArticles({
             <a
               key={article.id}
               href={buildPath({ activeTab: 'blog', blogArticle: article.id })}
-              className={`block text-left bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600 transition-all group${idx >= 3 ? ' content-auto' : ''}`}
+              className={`block text-left bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden hover:shadow-lg hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color,box-shadow] group${idx >= 3 ? ' content-auto' : ''}`}
               onClick={(e) => { e.preventDefault(); handleArticleClick(article.id); }}
             >
               {/* Card image */}

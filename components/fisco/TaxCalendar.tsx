@@ -767,7 +767,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
     return (
       <div
         key={d.id}
-        className={`rounded-xl border p-3 transition-all ${
+        className={`rounded-xl border p-3 transition-[color,background-color,border-color,opacity] ${
           isPast ? 'bg-slate-50 dark:bg-slate-900 border-slate-200 dark:border-slate-700 opacity-60'
             : days <= 7 ? 'bg-red-50 dark:bg-red-950/30 border-red-200 dark:border-red-800'
             : days <= 30 ? 'bg-amber-50 dark:bg-amber-950/30 border-amber-200 dark:border-amber-800'
@@ -840,14 +840,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           <div className="flex gap-2 mt-4 bg-white/10 rounded-xl p-1">
             <button
               onClick={() => handleTabChange('fiscal')}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'fiscal' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/90 hover:bg-white/10'}`}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'fiscal' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/90 hover:bg-white/10'}`}
             >
               <Calendar size={16} />
               {t('calendar.tabFiscal')}
             </button>
             <button
               onClick={() => handleTabChange('holidays')}
-              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-all ${activeTab === 'holidays' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/90 hover:bg-white/10'}`}
+              className={`flex-1 flex items-center justify-center gap-2 px-4 py-2.5 rounded-lg text-sm font-bold transition-[color,background-color,box-shadow] ${activeTab === 'holidays' ? 'bg-white text-indigo-700 shadow-lg' : 'text-white/90 hover:bg-white/10'}`}
             >
               <Star size={16} />
               {t('calendar.tabHolidays')}
@@ -1013,7 +1013,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
         <div className="flex flex-wrap gap-2 flex-grow">
           <button
             onClick={() => { setFilterCategory('all'); Analytics.trackCalendarEvent('filter', 'all'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${filterCategory === 'all' ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterCategory === 'all' ? 'bg-indigo-600 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
           >
             {t('calendar.all')}
           </button>
@@ -1021,7 +1021,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
             <button
               key={key}
               onClick={() => { setFilterCategory(key); Analytics.trackCalendarEvent('filter', key); }}
-              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all flex items-center gap-1.5 ${filterCategory === key ? `bg-${cfg.color}-600 text-white` : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
+              className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 ${filterCategory === key ? `bg-${cfg.color}-600 text-white` : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
             >
               <cfg.icon size={12} />
               {cfg.label}
@@ -1035,7 +1035,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               {(['tutti', 'vecchio', 'nuovo'] as const).map(ft => (
                 <button key={ft}
                   onClick={() => { setFilterType(ft); Analytics.trackCalendarEvent('filter', ft); }}
-                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-all ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
+                  className={`px-2.5 py-1.5 rounded-lg text-xs font-bold transition-colors ${filterType === ft ? 'bg-slate-800 dark:bg-slate-100 text-white dark:text-slate-900' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-500 border border-slate-200 dark:border-slate-700'}`}
                 >
                   {ft === 'tutti' ? `👥 ${t('calendar.filterAll')}` : ft === 'vecchio' ? `📋 ${t('calendar.filterOld')}` : `📄 ${t('calendar.filterNew')}`}
                 </button>
@@ -1047,14 +1047,14 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
           <div className="flex bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg p-0.5">
             <button
               onClick={() => setViewMode('calendar')}
-              className={`p-1.5 rounded-md transition-all ${viewMode === 'calendar' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-500 hover:text-slate-600'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'calendar' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-500 hover:text-slate-600'}`}
               title="Calendario"
             >
               <LayoutGrid size={16} />
             </button>
             <button
               onClick={() => setViewMode('list')}
-              className={`p-1.5 rounded-md transition-all ${viewMode === 'list' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-500 hover:text-slate-600'}`}
+              className={`p-1.5 rounded-md transition-colors ${viewMode === 'list' ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600' : 'text-slate-500 hover:text-slate-600'}`}
               title="Lista"
             >
               <List size={16} />
@@ -1072,7 +1072,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               <button
                 onClick={() => { setCurrentMonth(m => Math.max(0, m - 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 0}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-all"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
               >
                 <ChevronLeft size={22} />
               </button>
@@ -1082,7 +1082,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                   <button
                     key={i}
                     onClick={() => { setCurrentMonth(i); setSelectedDate(null); }}
-                    className={`relative px-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all ${
+                    className={`relative px-2 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-[color,background-color,box-shadow,transform] ${
                       currentMonth === i
                         ? 'bg-gradient-to-br from-indigo-600 to-purple-600 text-white shadow-lg shadow-indigo-500/25 scale-105'
                         : 'text-slate-600 dark:text-slate-500 hover:bg-indigo-50 dark:hover:bg-indigo-900/20 hover:text-indigo-600 dark:hover:text-indigo-300'
@@ -1103,7 +1103,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               <button
                 onClick={() => { setCurrentMonth(m => Math.min(11, m + 1)); setSelectedDate(null); }}
                 disabled={currentMonth === 11}
-                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-all"
+                className="p-2.5 rounded-xl bg-slate-100 dark:bg-slate-700 hover:bg-indigo-100 dark:hover:bg-indigo-900/30 disabled:opacity-30 transition-[color,background-color,opacity]"
               >
                 <ChevronRight size={22} />
               </button>
@@ -1126,7 +1126,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                       <div
                         key={d.id}
                         onClick={() => setSelectedDate(d.date === selectedDate ? null : d.date)}
-                        className={`cursor-pointer transition-all rounded-xl ${
+                        className={`cursor-pointer transition-[color,background-color,box-shadow,transform] rounded-xl ${
                           d.date === selectedDate
                             ? 'ring-2 ring-indigo-500 bg-indigo-50 dark:bg-indigo-950/40 scale-[1.02] shadow-md'
                             : 'hover:scale-[1.01] hover:shadow-sm'
@@ -1180,7 +1180,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                             Analytics.trackCalendarEvent('expand_deadline', dateStr);
                           }
                         }}
-                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-all relative
+                        className={`border-b border-r border-slate-100 dark:border-slate-700/50 p-1.5 min-h-[80px] sm:min-h-[96px] flex flex-col transition-[color,background-color,opacity,box-shadow] relative
                           ${hasEvents ? 'cursor-pointer hover:bg-indigo-50/80 dark:hover:bg-indigo-950/30' : ''}
                           ${isSelected ? 'bg-indigo-100 dark:bg-indigo-900/40 ring-2 ring-indigo-500 ring-inset shadow-inner' : ''}
                           ${isPast && !hasEvents ? 'opacity-40' : ''}

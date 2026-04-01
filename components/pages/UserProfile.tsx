@@ -824,7 +824,7 @@ const UserProfile: React.FC = () => {
             {!gisButtonRendered && (
               <button
                 onClick={handleGoogleSignIn}
-                className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white dark:bg-slate-700 border-2 border-slate-200 dark:border-slate-600 rounded-2xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-lg transition-all group"
+                className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-white dark:bg-slate-700 border-2 border-slate-200 dark:border-slate-600 rounded-2xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-lg transition-[border-color,box-shadow] group"
               >
                 <svg viewBox="0 0 24 24" className="w-5 h-5" aria-hidden="true">
                   <path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92a5.06 5.06 0 01-2.2 3.32v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.1z" fill="#4285F4" />
@@ -843,7 +843,7 @@ const UserProfile: React.FC = () => {
               <button
                 type="button"
                 onClick={() => signInWithLinkedIn()}
-                className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#0A66C2] hover:bg-[#004182] border-2 border-[#0A66C2] hover:border-[#004182] rounded-2xl hover:shadow-lg transition-all text-white font-semibold"
+                className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#0A66C2] hover:bg-[#004182] border-2 border-[#0A66C2] hover:border-[#004182] rounded-2xl hover:shadow-lg transition-[color,background-color,border-color,box-shadow] text-white font-semibold"
               >
                 <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
                 <span>{locale === 'it' ? 'Continua con LinkedIn' : locale === 'de' ? 'Mit LinkedIn fortfahren' : locale === 'fr' ? 'Continuer avec LinkedIn' : 'Continue with LinkedIn'}</span>
@@ -853,7 +853,7 @@ const UserProfile: React.FC = () => {
             {/* Facebook Sign-In Button — hidden until Facebook app approval
             <button
               onClick={handleFacebookSignIn}
-              className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#1877F2] border-2 border-[#1877F2] rounded-2xl hover:bg-[#166FE5] hover:shadow-lg transition-all group"
+              className="w-full flex items-center justify-center gap-3 px-6 py-3.5 bg-[#1877F2] border-2 border-[#1877F2] rounded-2xl hover:bg-[#166FE5] hover:shadow-lg transition-[color,background-color,box-shadow] group"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5" fill="white" aria-hidden="true">
                 <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
@@ -944,7 +944,7 @@ const UserProfile: React.FC = () => {
             </div>
             <div className="w-full bg-white/20 rounded-full h-2">
               <div
-                className="bg-white rounded-full h-2 transition-all duration-500"
+                className="bg-white rounded-full h-2 transition-[width] duration-500"
                 style={{ width: `${completeness}%` }}
               />
             </div>
@@ -969,7 +969,7 @@ const UserProfile: React.FC = () => {
                 onClick={() => {
                   window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: a.tab, ...(a.subTab ? { subTab: a.subTab } : {}) } }));
                 }}
-                className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-indigo-300 dark:hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition-all whitespace-nowrap"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg text-xs font-medium text-slate-600 dark:text-slate-400 hover:border-indigo-300 dark:hover:border-indigo-600 hover:text-indigo-600 dark:hover:text-indigo-400 transition-[color,border-color] whitespace-nowrap"
               >
                 <a.icon size={13} />
                 {a.label}
@@ -987,7 +987,7 @@ const UserProfile: React.FC = () => {
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
                   aria-label={t('profile.widget.netSalary')}
-                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all cursor-pointer"
+                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color] cursor-pointer"
                 >
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netCH')}</span>
                   <span className="text-lg font-bold text-emerald-700 dark:text-emerald-400 tabular-nums">
@@ -1001,7 +1001,7 @@ const UserProfile: React.FC = () => {
                 <button
                   onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'calculator' } }))}
                   aria-label={t('profile.widget.netSalary')}
-                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all cursor-pointer"
+                  className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color] cursor-pointer"
                 >
                   <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('profile.widget.netIT')}</span>
                   <span className="text-lg font-bold text-blue-600 dark:text-blue-400 tabular-nums">
@@ -1014,7 +1014,7 @@ const UserProfile: React.FC = () => {
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'confronti', subTab: 'exchange' } }))}
                 aria-label={t('profile.widget.fxRate')}
-                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-all cursor-pointer"
+                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600 transition-[border-color] cursor-pointer"
               >
                 <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">EUR/CHF</span>
                 <span className="text-lg font-bold text-amber-600 dark:text-amber-400 tabular-nums">
@@ -1026,7 +1026,7 @@ const UserProfile: React.FC = () => {
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'morning' } }))}
                 aria-label={t('profile.widget.morning')}
-                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-orange-300 dark:hover:border-orange-600 transition-all cursor-pointer"
+                className="flex flex-col items-center gap-1 p-3 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-orange-300 dark:hover:border-orange-600 transition-[border-color] cursor-pointer"
               >
                 <span className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">
                   {preferredCrossing ? preferredCrossing.name : t('profile.widget.morning')}
