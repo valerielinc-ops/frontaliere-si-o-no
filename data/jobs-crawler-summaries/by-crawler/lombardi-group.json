@@ -1,16 +1,16 @@
 {
   "key": "lombardi-group",
   "label": "Lombardi Group",
-  "generatedAt": "2026-04-01T09:41:56.108Z",
+  "generatedAt": "2026-04-01T21:30:58.288Z",
   "total": 9,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 19683,
-  "avgDurationMs": 19683,
+  "durationMs": 19764,
+  "avgDurationMs": 19764,
   "durationHistory": [
-    19683
+    19764
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -260,11 +260,11 @@
       "streetAddress": "Via Arch. Frizzi 15",
       "postalCode": "6648",
       "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 19,
+        "translation": 21,
         "completeness": 25
       }
     },
@@ -290,12 +290,12 @@
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 125000,
       "currency": "CHF",
       "streetAddress": "Via Arch. Frizzi 15",
       "postalCode": "6648",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
