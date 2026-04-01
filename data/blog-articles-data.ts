@@ -5627,4 +5627,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavori-notturni-via-lavizzari',
+    category: 'novita',
+    date: '2026-04-01T21:55:31.506Z',
+    image: '/images/blog/lavori-notturni-via-lavizzari.jpg',
+    hasCalculator: true,
+  },
 ];

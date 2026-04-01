@@ -10088,6 +10088,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavori-notturni-via-lavizzari': {
+    title: 'Lavori notturni di pavimentazione in Via Lavizzari a Chiasso | Frontaliere Ticino',
+    description: 'Lavori di pavimentazione notturni in Via Lavizzari a Chiasso dal 7 al 18 aprile 2026. Informazioni su orari, tratte interessate e viabilità. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavori, notturni, pavimentazione, lavizzari',
+    ogTitle: 'Lavori notturni di pavimentazione in Via Lavizzari a Chiasso',
+    ogDescription: 'Informazioni sui lavori notturni di pavimentazione in Via Lavizzari a Chiasso dal 7 al 18 aprile 2026.',
+    canonicalPath: '/articoli-frontaliere/lavori-notturni-via-lavizzari',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavori notturni di pavimentazione in Via Lavizzari a Chiasso",
+      "description": "Lavori di pavimentazione notturni in Via Lavizzari a Chiasso dal 7 al 18 aprile 2026. Informazioni su orari, tratte interessate e viabilità. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavori-notturni-via-lavizzari.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori notturni di pavimentazione in Via Lavizzari a Chiasso"
+      },
+      "datePublished": "2026-04-01T21:55:31+00:00",
+      "dateModified": "2026-04-01T21:55:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavori-notturni-via-lavizzari`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

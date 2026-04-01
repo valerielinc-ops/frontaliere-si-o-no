@@ -1901,6 +1901,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.title': 'Le médailles prescrivent la cannabis pour un trouble chronique, la caisse malade ne paie pas',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.excerpt': 'L\'article relate le cas d\'un patient qui a reçu une ordonnance de cannabis d\'un médecin pour un trouble chronique, mais la caisse malade n\'a pas payé la dépense.',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.imageAlt': 'Un médecin examine un patient',
+    'blog.article.lavori-notturni-via-lavizzari.title': 'Travaux nocturnes de pavage dans la Via Lavizzari à Chiasso',
+    'blog.article.lavori-notturni-via-lavizzari.excerpt': 'Du 7 au 18 avril 2026, la Via Lavizzari à Chiasso sera concernée par des travaux nocturnes de pavage. La route sera fermée à la circulation ordinaire de 20h00 à 05h00.',
+    'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Travaux de pavage nocturnes sur la Via Lavizzari à Chiasso',
 };
 
 export default blogMetaFr;

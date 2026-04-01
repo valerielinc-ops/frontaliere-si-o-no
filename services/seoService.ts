@@ -1851,6 +1851,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-contingente-uova-svizzera': { name: 'Economia', path: '/articoli-frontaliere/aumento-contingente-uova-svizzera', parent: 'blog' },
     'blog-congresso-svizzera-italia-2026': { name: 'Congresso Svizzera-Italia', path: '/articoli-frontaliere/congresso-svizzera-italia-2026', parent: 'blog' },
     'blog-il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga': { name: 'Cannabis e disturbi cronici: la cassa', path: '/articoli-frontaliere/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga', parent: 'blog' },
+    'blog-lavori-notturni-via-lavizzari': { name: 'Viabilità', path: '/articoli-frontaliere/lavori-notturni-via-lavizzari', parent: 'blog' },
   };
 
   const info = sectionNames[section];

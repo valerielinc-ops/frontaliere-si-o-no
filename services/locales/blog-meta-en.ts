@@ -1901,6 +1901,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.title': 'Doctor Prescribes Cannabis for Chronic Disorder, Health Insurance Won\'t Pay',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.excerpt': 'The article reports on the case of a patient who received a prescription for cannabis from a doctor for a chronic disorder, but the health insurance did not cover the expense.',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.imageAlt': 'A doctor examines a patient',
+    'blog.article.lavori-notturni-via-lavizzari.title': 'Nighttime Roadwork on Via Lavizzari in Chiasso',
+    'blog.article.lavori-notturni-via-lavizzari.excerpt': 'From April 7 to 18, 2026, Via Lavizzari in Chiasso will be affected by nighttime roadwork. The road will be closed to regular traffic from 20:00 to 05:00.',
+    'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Nighttime paving works on Via Lavizzari in Chiasso',
 };
 
 export default blogMetaEn;

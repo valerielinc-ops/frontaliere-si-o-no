@@ -1901,6 +1901,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.title': 'Der Arzt verordnet Cannabis für eine chronische Störung, die Krankenkasse zahlt nicht',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.excerpt': 'Der Artikel berichtet über den Fall eines Patienten, der von einem Arzt eine Verordnung für Cannabis für eine chronische Störung erhalten hat, aber die Krankenkasse hat die Kosten nicht bezahlt. 💡',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.imageAlt': 'Ein Arzt untersucht einen Patienten',
+    'blog.article.lavori-notturni-via-lavizzari.title': 'Nachtliche Pflasterarbeiten in der Via Lavizzari in Chiasso',
+    'blog.article.lavori-notturni-via-lavizzari.excerpt': 'Vom 7. bis 18. April 2026 finden in der Via Lavizzari in Chiasso nächtliche Pflasterarbeiten statt. Die Strasse wird für den normalen Verkehr von 20:00 bis 05:00 Uhr gesperrt sein.',
+    'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Nachttarbeiten zur Straßenpflasterung in der Via Lavizzari in Chiasso',
 };
 
 export default blogMetaDe;

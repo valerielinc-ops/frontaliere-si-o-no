@@ -1901,6 +1901,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.title': 'Il medico prescrive la cannabis per un disturbo cronico, la cassa malati non paga',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.excerpt': 'L\'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la spesa.',
     'blog.article.il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.imageAlt': 'Un medico esamina un paziente',
+    'blog.article.lavori-notturni-via-lavizzari.title': 'Lavori notturni di pavimentazione in Via Lavizzari a Chiasso',
+    'blog.article.lavori-notturni-via-lavizzari.excerpt': 'Dal 7 al 18 aprile 2026, Via Lavizzari a Chiasso sarà interessata da lavori notturni di pavimentazione. La strada sarà chiusa al traffico ordinario dalle 20:00 alle 05:00.',
+    'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Lavori notturni di pavimentazione in Via Lavizzari a Chiasso',
 };
 
 export default blogMetaIt;
