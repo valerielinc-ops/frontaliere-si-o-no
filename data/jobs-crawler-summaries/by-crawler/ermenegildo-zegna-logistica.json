@@ -1,18 +1,52 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-04-02T12:53:02.006Z",
+  "generatedAt": "2026-04-02T21:52:08.257Z",
   "total": 2,
-  "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 1,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 7002,
-  "avgDurationMs": 7002,
+  "durationMs": 8316,
+  "avgDurationMs": 8316,
   "durationHistory": [
-    7002
+    8316
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=266304035&Team=231361275",
+      "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=266304035&Team=231361275",
+      "title": "IT Sales Project Manager",
+      "company": "Ermenegildo Zegna Group",
+      "companyKey": "ermenegildo-zegna-logistica",
+      "location": "Stabio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "it-sales-project-manager-zegna",
+      "department": "Corporate and Staff Functions/Information Technology",
+      "category": "Corporate and Staff Functions/Information Technology",
+      "datePosted": "2026-04-02",
+      "source": "zegna-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "IT",
+      "brand": "Zegna",
+      "contractType": "Permanent Job",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Stabio"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 58,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 4,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=259465840&Team=231361275",
@@ -54,7 +88,9 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=248140604&Team=231361275",
       "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=248140604&Team=231361275",
@@ -64,7 +100,7 @@
       "location": "Stabio",
       "canton": "TI",
       "country": "CH",
-      "slug": "it-in-store-sales-specialista-ermenegildo-zegna-group-stabio-f73689",
+      "slug": "it-in-store-sales-specialista-ermenegildo-zegna-group-stabio",
       "department": "Corporate and Staff Functions/Information Technology",
       "category": "Corporate and Staff Functions/Information Technology",
       "datePosted": "2026-03-29",
@@ -97,6 +133,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
