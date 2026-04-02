@@ -1,60 +1,19 @@
 {
   "key": "ail-lugano",
   "label": "AIL SA",
-  "generatedAt": "2026-04-01T20:48:33.472Z",
+  "generatedAt": "2026-04-02T11:56:32.711Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3982,
-  "avgDurationMs": 3982,
+  "unchangedCount": 0,
+  "durationMs": 4223,
+  "avgDurationMs": 4223,
   "durationHistory": [
-    3982
+    4223
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Project Manager della comunicazione",
-      "company": "Aziende Industriali di Lugano (AIL) SA",
-      "companyKey": "ail-lugano",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.ail.ch/AIL/risorse-umane/offerte-di-lavoro.html",
-      "applyUrl": "https://www.ail.ch/AIL/risorse-umane/concorsi.html?applicationId=157773d6-0252-46a4-a0bd-2f522b5416a5",
-      "category": "management",
-      "sector": "Energia / Servizi pubblici",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "source": "ail-lugano-crawler",
-      "datePosted": "2026-03-17",
-      "validThrough": "2026-04-11",
-      "slug": "project-manager-della-comunicazione-ail-lugano",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via della Posta 8",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
