@@ -111,7 +111,7 @@ export function isIncomplete(job) {
     if (currentSrc) {
       const normBase = normalizeForLengthComparison(baseDesc);
       const normSrc = normalizeForLengthComparison(currentSrc);
-      if (normSrc.length / Math.max(1, normBase.length) < 0.85) return true;
+      if (normSrc.length / Math.max(1, normBase.length) < 0.75) return true;
     }
   }
 

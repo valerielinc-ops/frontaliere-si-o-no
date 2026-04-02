@@ -1920,15 +1920,24 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     return null;
   }
   if (fromCache && typeof fromCache === 'object' && !Array.isArray(fromCache)) {
-    // Cache quality guard: if the cached "translation" is just the source text copied
-    // into target locales, the cache entry is poisoned. Delete it and fall through to
-    // a fresh AI/free-translate call so the job gets properly translated.
+    // Cache quality guard: bust the cache if any target locale contains untranslated
+    // content (source-language text in a non-source locale slot).
+    // Use language detection + exact-match check to catch both identical copies and
+    // slightly reformatted copies that didn't actually get translated.
     const cleanSourceLower = cleanFn(description || '').toLowerCase();
     const hasBadLocale = targetLocales.some((locale) => {
       const localeData = fromCache[locale];
-      if (!localeData?.description) return false;
-      const cleanLocale = cleanFn(localeData.description).toLowerCase();
-      return cleanLocale === cleanSourceLower;
+      if (!localeData?.description) return true; // missing = bad
+      const cleanLocale = cleanFn(localeData.description);
+      // Exact copy check
+      if (cleanLocale.toLowerCase() === cleanSourceLower) return true;
+      // Language detection: if a non-source locale is detected as the source language,
+      // the "translation" is likely just the source text with minor edits
+      if (cleanLocale.length >= 100) {
+        const detected = detectLanguage(cleanLocale, locale);
+        if (detected === sourceLang && detected !== locale) return true;
+      }
+      return false;
     });
     if (hasBadLocale) {
       const { deleteCachedAiResponse: delCache } = ctx;
