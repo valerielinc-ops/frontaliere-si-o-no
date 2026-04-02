@@ -64,9 +64,17 @@ function extractCanonical(content) {
   return match ? match[1] : null;
 }
 
-// Check if content is a thin bridge page
+// Check if content is a thin bridge page (old-style redirect)
 function isBridgePage(content) {
   return content.includes('Versione canonica disponibile');
+}
+
+// Check if content is a full-content previousSlug bridge page.
+// These intentionally have canonical → current slug (not self-referencing)
+// because they serve identical content at the old URL while consolidating
+// search signals to the canonical slug. This is correct SEO behavior.
+function isPreviousSlugBridgePage(content) {
+  return content.includes('__BRIDGE_TARGET_SLUG__');
 }
 
 // Main validation
@@ -75,6 +83,7 @@ console.log(`[validate-canonical] Checking ${sitemapUrls.size} sitemap URLs...\n
 
 const errors = [];
 const warnings = [];
+let bridgeSkipped = 0;
 
 for (const url of sitemapUrls) {
   const htmlFile = findHtmlFile(url);
@@ -95,7 +104,15 @@ for (const url of sitemapUrls) {
     continue;
   }
 
-  // Check 2: Canonical mismatch
+  // Check 2: previousSlug bridge pages — intentional non-self canonical
+  if (isPreviousSlugBridgePage(content)) {
+    // Full-content bridge page for a previousSlug. Canonical correctly
+    // points to the current active slug. Not an error.
+    bridgeSkipped++;
+    continue;
+  }
+
+  // Check 3: Canonical mismatch
   const canonical = extractCanonical(content);
   if (!canonical) {
     warnings.push({ url, issue: 'No canonical tag found' });
@@ -145,6 +162,10 @@ if (warnings.length > 0) {
 
 if (errors.length === 0 && warnings.length === 0) {
   console.log('✅ All sitemap URLs have correct self-referencing canonical tags.');
+}
+
+if (bridgeSkipped > 0) {
+  console.log(`ℹ️  ${bridgeSkipped} previousSlug bridge page(s) skipped (canonical → current slug is correct).`);
 }
 
 if (errors.length === 0) {
