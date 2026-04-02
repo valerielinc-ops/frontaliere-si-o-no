@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T15:38:56.267Z",
+  "generatedAt": "2026-04-02T17:29:30.780Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 229,
-      "latestObservedUpdate": "2026-04-02T14:51:11.475Z"
+      "latestObservedUpdate": "2026-04-02T17:19:06.730Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -2868,18 +2868,18 @@
             "distanceKm": 18.3
           },
           {
-            "id": "8OJ90l4BJaJfBOJkMrvS",
-            "name": "Garage sport SA",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 7, 6814 Cadempino",
-            "lat": 46.03754757680269,
-            "lng": 8.934256382737304,
-            "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-31T18:39:31.833Z",
+            "id": "Ma1s7ixOimaKRcftiJzY",
+            "name": "Eni Melide",
+            "brand": "ENI",
+            "address": "Via Cantonale 31, 6815 Melide",
+            "lat": 45.9562952,
+            "lng": 8.9473102,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-27T21:25:29.995Z",
             "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 8.2,
-            "sp95PriceEur": 1.975,
-            "distanceKm": 18.4
+            "nearestMunicipalityDistanceKm": 2.3,
+            "sp95PriceEur": 1.986,
+            "distanceKm": 18.8
           }
         ],
         "minPriceChf": 1.66,
@@ -8328,18 +8328,18 @@
             "distanceKm": 17.4
           },
           {
-            "id": "8OJ90l4BJaJfBOJkMrvS",
-            "name": "Garage sport SA",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 7, 6814 Cadempino",
-            "lat": 46.03754757680269,
-            "lng": 8.934256382737304,
-            "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-31T18:39:31.833Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 8.2,
-            "sp95PriceEur": 1.975,
-            "distanceKm": 17.3
+            "id": "ahxEtrinnrLWGsZ2laVB",
+            "name": "SOCAR / Piccadilly Gandria",
+            "brand": "PICCADILLY",
+            "address": "Via Cantonale 14, 6978 Gandria",
+            "lat": 46.008082,
+            "lng": 9.007765,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-24T08:33:41.793Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 3.6,
+            "sp95PriceEur": 1.986,
+            "distanceKm": 13.4
           }
         ],
         "minPriceChf": 1.66,
@@ -10295,20 +10295,6 @@
             "distanceKm": 19.8
           },
           {
-            "id": "8OJ90l4BJaJfBOJkMrvS",
-            "name": "Garage sport SA",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 7, 6814 Cadempino",
-            "lat": 46.03754757680269,
-            "lng": 8.934256382737304,
-            "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-31T18:39:31.833Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 8.2,
-            "sp95PriceEur": 1.975,
-            "distanceKm": 19.8
-          },
-          {
             "id": "ahxEtrinnrLWGsZ2laVB",
             "name": "SOCAR / Piccadilly Gandria",
             "brand": "PICCADILLY",
@@ -10321,6 +10307,20 @@
             "nearestMunicipalityDistanceKm": 3.6,
             "sp95PriceEur": 1.986,
             "distanceKm": 14.8
+          },
+          {
+            "id": "QkkuujYJoDbXtFbdSQKK",
+            "name": "Righetti Distributore Fungo",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 3, 6900 Lugano",
+            "lat": 46.0069075400228,
+            "lng": 8.94983618677324,
+            "sp95PriceChf": 1.84,
+            "updatedAt": "2026-03-21T10:10:53.759Z",
+            "nearestMunicipality": "Campione d'Italia (CO)",
+            "nearestMunicipalityDistanceKm": 4.6,
+            "sp95PriceEur": 1.997,
+            "distanceKm": 19.2
           }
         ],
         "minPriceChf": 1.66,
@@ -16814,18 +16814,18 @@
             "distanceKm": 17.5
           },
           {
-            "id": "8OJ90l4BJaJfBOJkMrvS",
-            "name": "Garage sport SA",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 7, 6814 Cadempino",
-            "lat": 46.03754757680269,
-            "lng": 8.934256382737304,
-            "sp95PriceChf": 1.8200000000000003,
-            "updatedAt": "2026-03-31T18:39:31.833Z",
-            "nearestMunicipality": "Campione d'Italia (CO)",
-            "nearestMunicipalityDistanceKm": 8.2,
-            "sp95PriceEur": 1.975,
-            "distanceKm": 17.3
+            "id": "ahxEtrinnrLWGsZ2laVB",
+            "name": "SOCAR / Piccadilly Gandria",
+            "brand": "PICCADILLY",
+            "address": "Via Cantonale 14, 6978 Gandria",
+            "lat": 46.008082,
+            "lng": 9.007765,
+            "sp95PriceChf": 1.83,
+            "updatedAt": "2026-03-24T08:33:41.793Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 3.6,
+            "sp95PriceEur": 1.986,
+            "distanceKm": 13.8
           }
         ],
         "minPriceChf": 1.66,
@@ -35185,7 +35185,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 4,
+        "optionCount": 5,
         "cheapestStation": {
           "id": "GoI5fYq4VUMqE2LwjFJB",
           "name": "Independent Saas-Fee",
@@ -35256,6 +35256,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 15.8
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 15.9
           }
         ],
         "minPriceChf": 1.71,
@@ -35474,7 +35488,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -35517,6 +35531,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 15.7
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 15.8
           }
         ],
         "minPriceChf": 1.77,
@@ -35687,7 +35715,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -35730,6 +35758,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 17.9
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 18.1
           }
         ],
         "minPriceChf": 1.77,
@@ -35760,7 +35802,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -35803,6 +35845,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 9.1
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 9.3
           }
         ],
         "minPriceChf": 1.77,
@@ -35833,7 +35889,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -35876,6 +35932,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 17.2
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 17.4
           }
         ],
         "minPriceChf": 1.77,
@@ -36573,7 +36643,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -36616,6 +36686,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 13.5
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 13.7
           }
         ],
         "minPriceChf": 1.77,
@@ -36668,7 +36752,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -36711,6 +36795,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 14.6
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 14.7
           }
         ],
         "minPriceChf": 1.77,
@@ -36862,7 +36960,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -36905,6 +37003,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 14.9
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 15.1
           }
         ],
         "minPriceChf": 1.77,
@@ -37702,7 +37814,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -37745,6 +37857,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 15.5
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 15.7
           }
         ],
         "minPriceChf": 1.77,
@@ -37892,7 +38018,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -37935,6 +38061,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 15.2
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 15.4
           }
         ],
         "minPriceChf": 1.77,
@@ -37965,7 +38105,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -38008,6 +38148,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 15.7
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 15.9
           }
         ],
         "minPriceChf": 1.77,
@@ -38153,7 +38307,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -38196,6 +38350,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 19.5
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 19.6
           }
         ],
         "minPriceChf": 1.77,
@@ -38480,7 +38648,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -38523,6 +38691,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 17.4
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 17.5
           }
         ],
         "minPriceChf": 1.77,
@@ -39127,7 +39309,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 4,
+        "optionCount": 5,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -39198,6 +39380,20 @@
             "nearestMunicipalityDistanceKm": 19.3,
             "sp95PriceEur": 2.008,
             "distanceKm": 19.3
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 5.9
           }
         ],
         "minPriceChf": 1.77,
@@ -39250,7 +39446,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -39293,6 +39489,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 17.1
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.77,
@@ -39533,7 +39743,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -39576,6 +39786,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 8.8
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 9
           }
         ],
         "minPriceChf": 1.77,
@@ -40032,7 +40256,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 3,
         "cheapestStation": {
           "id": "5GABW402f1nC7TrNr0Uy",
           "name": "Eni Gondo",
@@ -40075,6 +40299,20 @@
             "nearestMunicipalityDistanceKm": 5.8,
             "sp95PriceEur": 1.921,
             "distanceKm": 17.2
+          },
+          {
+            "id": "RvlCv2ckrRb5q8cnVW7m",
+            "name": "BP Service Simplon Dorf - Gondo",
+            "brand": "BP",
+            "address": "Simplonstrasse, 3907 Simplon Dorf - Gondo",
+            "lat": 46.19713785942049,
+            "lng": 8.13638592407683,
+            "sp95PriceChf": 1.89,
+            "updatedAt": "2026-04-02T16:00:44.302Z",
+            "nearestMunicipality": "Trasquera (VB)",
+            "nearestMunicipalityDistanceKm": 5.9,
+            "sp95PriceEur": 2.051,
+            "distanceKm": 17.3
           }
         ],
         "minPriceChf": 1.77,
@@ -52441,39 +52679,11 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 1,
-        "cheapestStation": {
-          "id": "qwgGPFGqZRzvSLMPRnp5",
-          "name": "Garage Lischana",
-          "brand": "UNDEFINED",
-          "address": "Via da la Staziun 409, 7550 Scuol",
-          "lat": 46.79522126963307,
-          "lng": 10.293178452091905,
-          "sp95PriceChf": 1.75,
-          "updatedAt": "2026-03-03T16:11:24.171Z",
-          "nearestMunicipality": "Curon Venosta (BZ)",
-          "nearestMunicipalityDistanceKm": 20,
-          "sp95PriceEur": 1.899,
-          "distanceKm": 20
-        },
-        "nearbyStations": [
-          {
-            "id": "qwgGPFGqZRzvSLMPRnp5",
-            "name": "Garage Lischana",
-            "brand": "UNDEFINED",
-            "address": "Via da la Staziun 409, 7550 Scuol",
-            "lat": 46.79522126963307,
-            "lng": 10.293178452091905,
-            "sp95PriceChf": 1.75,
-            "updatedAt": "2026-03-03T16:11:24.171Z",
-            "nearestMunicipality": "Curon Venosta (BZ)",
-            "nearestMunicipalityDistanceKm": 20,
-            "sp95PriceEur": 1.899,
-            "distanceKm": 20
-          }
-        ],
-        "minPriceChf": 1.75,
-        "minPriceEur": 1.899
+        "optionCount": 0,
+        "cheapestStation": null,
+        "nearbyStations": [],
+        "minPriceChf": null,
+        "minPriceEur": null
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
