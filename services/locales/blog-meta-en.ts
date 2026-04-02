@@ -1913,6 +1913,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.settanta-chili-di-mozzarella.title': 'Seventy kilograms of mozzarella in the SUV\'s trunk. Double customs seizure in Ticino',
     'blog.article.settanta-chili-di-mozzarella.excerpt': 'Two distinct cases of food contraband were intercepted on the same day by UDSC collaborators between Sottoceneri and Sopraceneri.',
     'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV with mozzarella',
+    'blog.article.contrabbando-ticino-2026.title': 'With almost 70 kilograms of mozzarella in Ponte Tresa: a new case of smuggling',
+    'blog.article.contrabbando-ticino-2026.excerpt': 'An Italian driver was stopped in Ponte Tresa with over 67 kilograms of undeclared mozzarella. Another case of smuggling was recorded in Mendrisio',
+    'blog.article.contrabbando-ticino-2026.imageAlt': 'A scenic view of Lake Lugano, with a small boat in the background. The sun is shining and the water is calm.',
 };
 
 export default blogMetaEn;

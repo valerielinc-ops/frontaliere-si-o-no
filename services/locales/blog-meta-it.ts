@@ -1913,6 +1913,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.settanta-chili-di-mozzarella.title': 'Settanta chili di mozzarella nel bagagliaio del SUV. Doppio sequestro della dogana in Ticino',
     'blog.article.settanta-chili-di-mozzarella.excerpt': 'Due distinti casi di contrabbando di generi alimentari sono stati intercettati nello stesso giorno dai collaboratori dell’UDSC tra Sottoceneri e Sopraceneri.',
     'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV con mozzarella',
+    'blog.article.contrabbando-ticino-2026.title': 'Con quasi 70 chili di mozzarella a Ponte Tresa: un nuovo caso di contrabbando',
+    'blog.article.contrabbando-ticino-2026.excerpt': 'Un conducente italiano è stato fermato a Ponte Tresa con oltre 67 chili di mozzarella non dichiarati. Un altro caso di contrabbando è stato registrato a Mendrisio',
+    'blog.article.contrabbando-ticino-2026.imageAlt': 'Un paesaggio panoramico del Lago di Lugano, con una piccola barca in primo piano. Il sole splende e l\'acqua è calma.',
 };
 
 export default blogMetaIt;

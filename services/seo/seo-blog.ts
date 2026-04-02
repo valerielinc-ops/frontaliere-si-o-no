@@ -10399,6 +10399,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contrabbando-ticino-2026': {
+    title: 'Con quasi 70 chili di mozzarella a Ponte Tresa: un nuovo caso di | Frontaliere Ticino',
+    description: 'Un conducente italiano è stato fermato a Ponte Tresa con quasi 70 chili di mozzarella non dichiarati. Un altro caso di contrabbando è stato registrato a',
+    keywords: 'frontalieri, ticino, svizzera, italia, quasi, chili, mozzarella, ponte',
+    ogTitle: 'Contrabbando in Ticino: un nuovo caso di contrabbando a Ponte Tresa',
+    ogDescription: 'Un conducente italiano è stato fermato a Ponte Tresa con quasi 70 chili di mozzarella non dichiarati. Un altro caso di contrabbando è stato registrato a',
+    canonicalPath: '/articoli-frontaliere/contrabbando-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contrabbando in Ticino: un nuovo caso di contrabbando a Ponte Tresa",
+      "description": "Un conducente italiano è stato fermato a Ponte Tresa con quasi 70 chili di mozzarella non dichiarati. Un altro caso di contrabbando è stato registrato a",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contrabbando-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un paesaggio panoramico del Lago di Lugano, con una piccola barca in primo piano. Il sole splende e l'acqua è calma."
+      },
+      "datePublished": "2026-04-02T13:53:44+00:00",
+      "dateModified": "2026-04-02T13:53:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbando-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

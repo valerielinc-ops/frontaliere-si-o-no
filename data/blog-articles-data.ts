@@ -5655,4 +5655,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/settanta-chili-di-mozzarella.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'contrabbando-ticino-2026',
+    category: 'fiscale',
+    date: '2026-04-02T13:53:44.235Z',
+    image: '/images/blog/contrabbando-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];

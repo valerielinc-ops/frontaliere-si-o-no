@@ -1913,6 +1913,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.settanta-chili-di-mozzarella.title': 'Soixante-dix kilos de mozzarella dans le coffre du SUV. Deux saisies douanières enregistrées au Tessin',
     'blog.article.settanta-chili-di-mozzarella.excerpt': 'Deux affaires distinctes de contrebande de denrées alimentaires ont été interceptées dans la même journée par les agents de l\'UDSC entre Sottoceneri et Sopraceneri.',
     'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV avec mozzarella',
+    'blog.article.contrabbando-ticino-2026.title': 'Con quasi 70 chili di mozzarella a Ponte Tresa: un nuovo caso di contrabbando',
+    'blog.article.contrabbando-ticino-2026.excerpt': 'Un conducteur italien a été arrêté à Ponte Tresa avec plus de 67 kilogrammes de mozzarella non déclarés. Un autre cas de contrebande a été enregistré à Mendrisio',
+    'blog.article.contrabbando-ticino-2026.imageAlt': 'Une vue panoramique du Lac de Lugano, avec une petite bateau en fond. Le soleil brillait et l\'eau était calme.',
 };
 
 export default blogMetaFr;

@@ -1913,6 +1913,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.settanta-chili-di-mozzarella.title': 'Siebzig Kilo Mozzarella im Kofferraum des SUV. Doppeltes Zollsequester im Tessin',
     'blog.article.settanta-chili-di-mozzarella.excerpt': 'In einem Tag wurden zwei verschiedene Fälle von Lebensmittel-Schmuggel von den Mitarbeitern der UDSC zwischen Sottoceneri und Sopraceneri aufgedeckt.',
     'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV mit Mozzarella',
+    'blog.article.contrabbando-ticino-2026.title': 'Mit fast 70 Kilo Mozzarella in Ponte Tresa: ein neuer Fall von Zollvergehen',
+    'blog.article.contrabbando-ticino-2026.excerpt': 'Ein italienischer Fahrer wurde in Ponte Tresa mit mehr als 67 Kilo unangekündigter Mozzarella festgenommen. Ein weiterer Fall von Zollvergehen wurde in Mendrisio registriert',
+    'blog.article.contrabbando-ticino-2026.imageAlt': 'Ein Panorama-Blick auf den Luganersee, mit einem kleinen Boot in der Mitte. Die Sonne scheint und das Wasser ist ruhig.',
 };
 
 export default blogMetaDe;
