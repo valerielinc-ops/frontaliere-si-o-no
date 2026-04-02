@@ -232,10 +232,10 @@
       "id": "corner-banca-b69f1f79bbe3",
       "slug": "customer-advisor-40-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-consulente-40-corner-banca-wallisellen",
+        "it": "consulente-clienti-40-corner-banca-wallisellen",
         "en": "customer-advisor-40-corner-banca-wallisellen",
-        "de": "customer-berater-40-corner-banca-wallisellen",
-        "fr": "customer-conseiller-40-corner-banca-wallisellen"
+        "de": "kundenberater-40-corner-banca-wallisellen",
+        "fr": "conseiller-client-40-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -290,7 +290,10 @@
       "sourceLang": "en",
       "previousSlugs": [
         "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "customer-advisor-40-corner-banca-wallisellen"
+        "customer-advisor-40-corner-banca-wallisellen",
+        "customer-consulente-40-corner-banca-wallisellen",
+        "customer-berater-40-corner-banca-wallisellen",
+        "customer-conseiller-40-corner-banca-wallisellen"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -314,9 +317,9 @@
       "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
       "slugByLocale": {
         "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "de": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "fr": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano"
+        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
+        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
+        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -392,7 +395,10 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-fe61b84a0935",
