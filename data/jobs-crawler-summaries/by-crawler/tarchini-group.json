@@ -1,24 +1,22 @@
 {
   "key": "tarchini-group",
   "label": "Tarchini Group",
-  "generatedAt": "2026-04-01T21:49:41.754Z",
+  "generatedAt": "2026-04-02T09:53:14.548Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 3454,
-  "avgDurationMs": 3454,
+  "unchangedCount": 0,
+  "durationMs": 3898,
+  "avgDurationMs": 3898,
   "durationHistory": [
-    3454
+    3898
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Junior Facility Manager",
-      "slug": "responsabile-struttura-junior-tarchini-group-mendrisio",
+      "slug": "junior-facility-manager-tarchini-group-mendrisio",
       "url": "https://www.tarchinigroup.com/it/work/1531/junior-facility-manager",
       "applyUrl": "mailto:info@tarchinigroup.com?subject=Junior%20Facility%20Manager",
       "company": "Tarchini Group",
@@ -34,7 +32,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +67,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -78,7 +76,6 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale 12",
       "postalCode": "6533",
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -89,7 +86,7 @@
     },
     {
       "title": "Sales Manager",
-      "slug": "direttore-delle-vendite-tarchini-group-lugano",
+      "slug": "sales-manager-tarchini-group-lugano",
       "url": "https://www.tarchinigroup.com/it/work/1497/sales-manager",
       "applyUrl": "mailto:info@tarchinigroup.com?subject=Sales%20Manager",
       "company": "Tarchini Group",
@@ -105,7 +102,7 @@
       "sector": "Immobiliare",
       "source": "tarchini-group-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -122,5 +119,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
