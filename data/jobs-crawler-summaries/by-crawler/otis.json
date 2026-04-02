@@ -1,18 +1,19 @@
 {
   "key": "otis",
   "label": "Otis",
-  "generatedAt": "2026-04-02T13:38:37.063Z",
+  "generatedAt": "2026-04-02T21:33:07.850Z",
   "total": 3,
-  "newCount": 3,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4341,
-  "avgDurationMs": 4341,
+  "durationMs": 4401,
+  "avgDurationMs": 4401,
   "durationHistory": [
-    4341
+    4401
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "otis-994d1f77a972",
       "slug": "supervisor-mod-bex-otis-1032",
@@ -32,7 +33,7 @@
       "postedDate": "2026-03-16",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Supervisor-MOD-BEX_20155074",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-02T13:38:35.484Z",
+      "crawledAt": "2026-04-02T21:33:05.873Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "postedDate": "2026-02-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-02T13:38:35.083Z",
+      "crawledAt": "2026-04-02T21:33:05.656Z",
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -88,7 +89,7 @@
       "postedDate": "2026-02-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-02T13:38:34.846Z",
+      "crawledAt": "2026-04-02T21:33:05.272Z",
       "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -98,7 +99,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -120,7 +120,7 @@
       "postedDate": "2026-03-16",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Supervisor-MOD-BEX_20155074",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-02T13:38:35.484Z",
+      "crawledAt": "2026-04-02T21:33:05.873Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 58000,
@@ -153,7 +153,7 @@
       "postedDate": "2026-02-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-02T13:38:35.083Z",
+      "crawledAt": "2026-04-02T21:33:05.656Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 58000,
@@ -186,7 +186,7 @@
       "postedDate": "2026-02-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-02T13:38:34.846Z",
+      "crawledAt": "2026-04-02T21:33:05.272Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 58000,
