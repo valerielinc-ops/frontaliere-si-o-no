@@ -1,18 +1,59 @@
 {
   "key": "supsi-dti",
   "label": "SUPSI",
-  "generatedAt": "2026-04-02T12:47:19.626Z",
-  "total": 10,
-  "newCount": 10,
+  "generatedAt": "2026-04-02T21:46:10.775Z",
+  "total": 11,
+  "newCount": 11,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 78863,
-  "avgDurationMs": 78863,
+  "durationMs": 70935,
+  "avgDurationMs": 70935,
   "durationHistory": [
-    78863
+    70935
   ],
   "newJobs": [
+    {
+      "id": "company-l4u53i",
+      "slug": "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-lugano",
+      "company": "SUPSI / DTI",
+      "title": "Ricercatrice / Ricercatore con PhD nell’area del Privacy Preserving Data Processing",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://www.supsi.ch/bando26_5016",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Lugano",
+        "canton": "TI"
+      },
+      "companyKey": "supsi-dti",
+      "companyDomain": "supsi.ch",
+      "crawledAt": "2026-04-02T21:45:28.793Z",
+      "needsRetranslation": true,
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "streetAddress": "Via Cantonale 2C",
+      "postalCode": "6928",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 98,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 23,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-l4u53h",
       "slug": "ricercatrice-ricercatore-in-metodi-di-valutazione-della-sostenibilita-per-prodotti-e-processi-industriali-supsi-dti-lugano",
@@ -35,7 +76,6 @@
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-02T12:46:24.051Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 72500,
@@ -46,6 +86,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -76,7 +117,6 @@
       "companyKey": "supsi-dti",
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-04-02T12:46:24.051Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 109000,
@@ -87,6 +127,7 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
