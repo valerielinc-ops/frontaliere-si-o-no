@@ -454,6 +454,10 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             if (location) ldObj.location = location;
             const organizer = parseNestedObj('organizer');
             if (organizer) ldObj.organizer = organizer;
+            const offers = parseNestedObj('offers');
+            if (offers) ldObj.offers = offers;
+            const performer = parseNestedObj('performer');
+            if (performer) ldObj.performer = performer;
           } else {
             // BlogPosting — matches SPA runtime schema from BlogArticles.tsx
             ldObj = {

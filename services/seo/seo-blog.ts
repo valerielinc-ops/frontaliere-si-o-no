@@ -592,7 +592,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Gabriele Spalluto"
+        "name": "Gabriele Spalluto",
+          "url": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri`
       },
       "image": {
         "@type": "ImageObject",
@@ -604,6 +605,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri`
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Gabriele Spalluto"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -637,7 +649,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Museo in erba"
+        "name": "Museo in erba",
+          "url": "https://www.museoinerba.com"
       },
       "image": {
         "@type": "ImageObject",
@@ -649,6 +662,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Museo in erba"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -681,7 +705,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "MASI - Museo d'arte della Svizzera italiana"
+        "name": "MASI - Museo d'arte della Svizzera italiana",
+          "url": "https://www.masilugano.ch"
       },
       "image": {
         "@type": "ImageObject",
@@ -693,6 +718,18 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "endDate": "2026-02-22T23:59:00+01:00",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "MASI - Museo d'arte della Svizzera italiana"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -725,7 +762,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Cinema Teatro di Chiasso"
+        "name": "Cinema Teatro di Chiasso",
+          "url": "https://www.cinemateatro.ch"
       },
       "image": {
         "@type": "ImageObject",
@@ -737,6 +775,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Cinema Teatro di Chiasso"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -770,7 +819,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "RSI - Radiotelevisione svizzera"
+        "name": "RSI - Radiotelevisione svizzera",
+          "url": "https://www.rsi.ch"
       },
       "image": {
         "@type": "ImageObject",
@@ -782,6 +832,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "RSI - Radiotelevisione svizzera"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -815,7 +876,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Museo in erba"
+        "name": "Museo in erba",
+          "url": "https://www.museoinerba.com"
       },
       "image": {
         "@type": "ImageObject",
@@ -827,6 +889,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Museo in erba"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -860,7 +933,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Daniela Rebuzzi"
+        "name": "Daniela Rebuzzi",
+          "url": `${BASE_URL}/articoli-frontaliere/daniela-rebuzzi-mostra-caslano`
       },
       "image": {
         "@type": "ImageObject",
@@ -872,6 +946,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino`
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Daniela Rebuzzi"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -905,7 +990,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Gloria Guidi Nobile"
+        "name": "Gloria Guidi Nobile",
+          "url": `${BASE_URL}/articoli-frontaliere/corpi-in-prestito-arte-agno`
       },
       "image": {
         "@type": "ImageObject",
@@ -917,6 +1003,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino`
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Gloria Guidi Nobile"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -950,7 +1047,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "RSI - Radiotelevisione svizzera"
+        "name": "RSI - Radiotelevisione svizzera",
+          "url": "https://www.rsi.ch"
       },
       "image": {
         "@type": "ImageObject",
@@ -962,6 +1060,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "RSI - Radiotelevisione svizzera"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -994,7 +1103,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Fondazione Rolla"
+        "name": "Fondazione Rolla",
+          "url": "https://www.fondazionerolla.ch"
       },
       "image": {
         "@type": "ImageObject",
@@ -1006,6 +1116,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Fondazione Rolla"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -1039,7 +1160,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Galleria Job"
+        "name": "Galleria Job",
+          "url": `${BASE_URL}/articoli-frontaliere/nakba-mostra-giubiasco-ticino`
       },
       "image": {
         "@type": "ImageObject",
@@ -1051,6 +1173,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Galleria Job"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -1083,7 +1216,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Palazzo dei Congressi di Muralto"
+        "name": "Palazzo dei Congressi di Muralto",
+          "url": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri`
       },
       "image": {
         "@type": "ImageObject",
@@ -1095,6 +1229,18 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "endDate": "2026-02-19T23:59:00+01:00",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri`
+      },
+      "performer": {
+        "@type": "Person",
+        "name": "Claudio Cavalli"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -1127,7 +1273,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "MASI - Museo d'arte della Svizzera italiana"
+        "name": "MASI - Museo d'arte della Svizzera italiana",
+          "url": "https://www.masilugano.ch"
       },
       "image": {
         "@type": "ImageObject",
@@ -1139,6 +1286,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "MASI - Museo d'arte della Svizzera italiana"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -1172,7 +1330,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "RSI - Radiotelevisione svizzera"
+        "name": "RSI - Radiotelevisione svizzera",
+          "url": "https://www.rsi.ch"
       },
       "image": {
         "@type": "ImageObject",
@@ -1184,6 +1343,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "RSI - Radiotelevisione svizzera"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -1217,7 +1387,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Carnevale Chièscia Bòsc"
+        "name": "Carnevale Chièscia Bòsc",
+          "url": `${BASE_URL}/articoli-frontaliere/carnevale-blenio-chiescia-bosc`
       },
       "image": {
         "@type": "ImageObject",
@@ -1229,6 +1400,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Carnevale Chièscia Bòsc"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
@@ -6147,7 +6329,8 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "organizer": {
         "@type": "Organization",
-        "name": "Teatro Sociale di Montegrino Valtravaglia"
+        "name": "Teatro Sociale di Montegrino Valtravaglia",
+          "url": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`
       },
       "image": {
         "@type": "ImageObject",
@@ -6159,6 +6342,18 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "url": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`,
       "inLanguage": "it",
       "isAccessibleForFree": true,
+      "endDate": "2026-03-21T23:59:00+01:00",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "CHF",
+        "availability": "https://schema.org/InStock",
+        "url": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`
+      },
+      "performer": {
+        "@type": "Organization",
+        "name": "Teatro Sociale di Montegrino Valtravaglia"
+      },
       "author": {"@id": "https://frontaliereticino.ch/#organization"},
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] }
     }
