@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "prada-stock-assistant-m-f-d-prada-mendrisio",
         "en": "prada-stock-assistant-m-f-d-prada-mendrisio",
-        "de": "prada-stock-assistant-m-f-d-prada-mendrisio",
+        "de": "prada-stock-assistent-m-f-d-prada-group-mendrisio",
         "fr": "prada-stock-assistant-m-f-d-prada-group-mendrisio"
       },
       "company": "Prada Group",
@@ -50,7 +50,9 @@
       "crawledAt": "2026-04-02T13:51:55.037Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "prada-stock-assistant-m-f-d-prada-mendrisio"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {

@@ -6,10 +6,10 @@
       "id": "hilcona-e4f575268c03",
       "slug": "einkaeufer-einkaeuferin-seafood-hilcona-undefined",
       "slugByLocale": {
-        "it": "einkaeufer-einkaeuferin-seafood-hilcona-undefined",
-        "en": "einkaeufer-einkaeuferin-seafood-hilcona-undefined",
+        "it": "acquirente-di-frutti-di-mare-hilcona-ag-bell-food-group-landquart",
+        "en": "seafood-purchaser-hilcona-ag-bell-food-group-landquart",
         "de": "einkaeufer-einkaeuferin-seafood-hilcona-ag-bell-food-group-landquart",
-        "fr": "einkaeufer-einkaeuferin-seafood-hilcona-undefined"
+        "fr": "acheteur-de-fruits-de-mer-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -49,7 +49,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:10.039Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "einkaeufer-einkaeuferin-seafood-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -68,10 +70,10 @@
       "id": "hilcona-f2a3ba5d1c30",
       "slug": "projektingenieurin-projektingenieur-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "projektingenieurin-projektingenieur-hilcona-ag-bell-food-group-landquart",
+        "it": "ingegnere-di-progetto-hilcona-ag-bell-food-group-landquart",
         "en": "projektingenieurin-projektingenieur-hilcona-ag-bell-food-group-landquart",
         "de": "projektingenieurin-projektingenieur-hilcona-undefined",
-        "fr": "projektingenieurin-projektingenieur-hilcona-ag-bell-food-group-landquart"
+        "fr": "ingenieur-de-projet-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -112,7 +114,8 @@
       "crawledAt": "2026-04-02T13:39:09.803Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "projektingenieurin-projektingenieur-hilcona-undefined"
+        "projektingenieurin-projektingenieur-hilcona-undefined",
+        "projektingenieurin-projektingenieur-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -132,7 +135,7 @@
       "id": "hilcona-a79602be7ea8",
       "slug": "senior-controller-business-partner-master-key-user-sap-fi-co-hilcona-undefined",
       "slugByLocale": {
-        "it": "senior-controller-business-partner-master-key-user-sap-fi-co-hilcona-undefined",
+        "it": "controller-senior-partner-commerciale-utente-chiave-master-sap-fi-co-hilcona-ag-bell-food-group-landquart",
         "en": "senior-controller-business-partner-master-key-user-sap-fi-co-hilcona-undefined",
         "de": "senior-controller-business-partner-master-key-user-sap-fi-co-hilcona-undefined",
         "fr": "senior-controller-business-partner-master-key-user-sap-fi-co-hilcona-undefined"
@@ -187,16 +190,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "senior-controller-business-partner-master-key-user-sap-fi-co-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-96218584d31c",
       "slug": "technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined",
       "slugByLocale": {
-        "it": "technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined",
+        "it": "tecnico-tutore-facility-management-hilcona-ag-bell-food-group-landquart",
         "en": "technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined",
         "de": "technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined",
-        "fr": "technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined"
+        "fr": "technicien-tutore-gestion-des-installations-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -248,16 +254,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "technischer-allrounder-technische-allrounderin-facility-management-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-8de8ea0a72fd",
       "slug": "logistiker-logistikerin-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "logistiker-logistikerin-hilcona-ag-bell-food-group-landquart",
-        "en": "logistiker-logistikerin-hilcona-undefined",
+        "en": "logistics-hilcona-ag-bell-food-group-landquart",
         "de": "logistiker-logistikerin-hilcona-ag-bell-food-group-landquart",
-        "fr": "logistiker-logistikerin-hilcona-undefined"
+        "fr": "logistique-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -318,10 +327,10 @@
       "id": "hilcona-42bfb966eda5",
       "slug": "klaerwerkmeister-in-leiter-in-ara-100-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "klaerwerkmeister-in-leiter-in-ara-100-hilcona-ag-bell-food-group-landquart",
-        "en": "klaerwerkmeister-in-leiter-in-ara-100-hilcona-ag-bell-food-group-landquart",
+        "it": "caposquadra-in-scala-in-ara-100-hilcona-ag-bell-food-group-landquart",
+        "en": "clarifier-master-in-head-in-ara-100-hilcona-ag-bell-food-group-landquart",
         "de": "klaerwerkmeister-in-leiter-in-ara-100-hilcona-undefined",
-        "fr": "klaerwerkmeister-in-leiter-in-ara-100-hilcona-ag-bell-food-group-landquart"
+        "fr": "tete-d-ara-100-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -362,7 +371,8 @@
       "crawledAt": "2026-04-02T13:39:08.988Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "klaerwerkmeister-in-leiter-in-ara-100-hilcona-undefined"
+        "klaerwerkmeister-in-leiter-in-ara-100-hilcona-undefined",
+        "klaerwerkmeister-in-leiter-in-ara-100-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -382,10 +392,10 @@
       "id": "hilcona-ea294a9da839",
       "slug": "bilanzbuchhalter-80-100-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "bilanzbuchhalter-80-100-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "bilanzbuchhalter-80-100-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "contabile-80-100-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "accountant-80-100-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "bilanzbuchhalter-80-100-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "bilanzbuchhalter-80-100-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "comptable-80-100-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -426,7 +436,8 @@
       "crawledAt": "2026-04-02T13:39:08.768Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "bilanzbuchhalter-80-100-m-w-d-hilcona-undefined"
+        "bilanzbuchhalter-80-100-m-w-d-hilcona-undefined",
+        "bilanzbuchhalter-80-100-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -446,10 +457,10 @@
       "id": "hilcona-48e06bf460f9",
       "slug": "collaboratore-trice-magazzino-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-magazzino-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-lager-m-w-d-hilcona-undefined",
+        "it": "magazzino-dipendenti-wednesday-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "employee-warehouse-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-lager-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "mitarbeiter-lager-m-w-d-hilcona-undefined"
+        "fr": "entrepot-des-employes-lundi-jour-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -490,7 +501,8 @@
       "crawledAt": "2026-04-02T13:39:08.569Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-lager-m-w-d-hilcona-undefined"
+        "mitarbeiter-lager-m-w-d-hilcona-undefined",
+        "collaboratore-trice-magazzino-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -510,10 +522,10 @@
       "id": "hilcona-e08b395843af",
       "slug": "mechaniker-mechanikerin-foerdertechnik-hilcona-undefined",
       "slugByLocale": {
-        "it": "mechaniker-mechanikerin-foerdertechnik-hilcona-undefined",
-        "en": "mechaniker-mechanikerin-foerdertechnik-hilcona-undefined",
+        "it": "meccanico-meccanica-tecnologia-di-carico-hilcona-ag-bell-food-group-landquart",
+        "en": "mechanic-mechanic-conveyance-technology-hilcona-ag-bell-food-group-landquart",
         "de": "mechaniker-mechanikerin-foerdertechnik-hilcona-ag-bell-food-group-landquart",
-        "fr": "mechaniker-mechanikerin-foerdertechnik-hilcona-undefined"
+        "fr": "mecanicien-mecanicienne-technologie-de-chargement-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -553,7 +565,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:08.371Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "mechaniker-mechanikerin-foerdertechnik-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -572,10 +586,10 @@
       "id": "hilcona-9e2f5303a5ce",
       "slug": "einkaeufer-einkaeuferin-food-hilcona-undefined",
       "slugByLocale": {
-        "it": "einkaeufer-einkaeuferin-food-hilcona-undefined",
-        "en": "einkaeufer-einkaeuferin-food-hilcona-undefined",
+        "it": "einkufer-einkuferin-food-hilcona-ag-bell-food-group-landquart",
+        "en": "food-buyer-buyer-hilcona-ag-bell-food-group-landquart",
         "de": "einkaeufer-einkaeuferin-food-hilcona-ag-bell-food-group-landquart",
-        "fr": "einkaeufer-einkaeuferin-food-hilcona-undefined"
+        "fr": "acheteur-acheteuse-alimentaire-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -615,7 +629,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:08.171Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "einkaeufer-einkaeuferin-food-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -634,10 +650,10 @@
       "id": "hilcona-7b6e0b97e49b",
       "slug": "kuechenhilfe-teilzeit-m-w-d-f-samstag-hilcona-undefined",
       "slugByLocale": {
-        "it": "kuechenhilfe-teilzeit-m-w-d-f-samstag-hilcona-undefined",
-        "en": "kuechenhilfe-teilzeit-m-w-d-f-samstag-hilcona-undefined",
+        "it": "aiuto-in-cucina-part-time-m-w-d-f-sabato-hilcona-ag-bell-food-group-landquart",
+        "en": "kitchen-assistant-part-time-m-w-d-f-saturday-hilcona-ag-bell-food-group-landquart",
         "de": "kuechenhilfe-teilzeit-m-w-d-f-samstag-hilcona-ag-bell-food-group-landquart",
-        "fr": "kuechenhilfe-teilzeit-m-w-d-f-samstag-hilcona-undefined"
+        "fr": "assistant-de-cuisine-part-time-m-w-d-f-samedi-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -677,7 +693,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:07.972Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "kuechenhilfe-teilzeit-m-w-d-f-samstag-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -696,10 +714,10 @@
       "id": "hilcona-5d1200e80f5f",
       "slug": "klaerwaerter-in-100-hilcona-undefined",
       "slugByLocale": {
-        "it": "klaerwaerter-in-100-hilcona-undefined",
-        "en": "klaerwaerter-in-100-hilcona-undefined",
+        "it": "operatore-di-depurazione-acque-in-100-hilcona-ag-bell-food-group-landquart",
+        "en": "water-treatment-operator-in-100-hilcona-ag-bell-food-group-landquart",
         "de": "klaerwaerter-in-100-hilcona-ag-bell-food-group-landquart",
-        "fr": "klaerwaerter-in-100-hilcona-undefined"
+        "fr": "operateur-de-traitement-des-eaux-en-100-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -739,7 +757,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:07.769Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "klaerwaerter-in-100-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -758,10 +778,10 @@
       "id": "hilcona-56522bff062f",
       "slug": "collaboratore-trice-mitarbeiterin-kueche-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-kueche-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-mitarbeiterin-kueche-hilcona-undefined",
+        "it": "membro-del-personale-cucina-hilcona-ag-bell-food-group-landquart",
+        "en": "kitchen-staff-member-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-mitarbeiterin-kueche-hilcona-ag-bell-food-group-landquart",
-        "fr": "mitarbeiter-mitarbeiterin-kueche-hilcona-undefined"
+        "fr": "membre-d-equipe-de-cuisine-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -802,7 +822,8 @@
       "crawledAt": "2026-04-02T13:39:07.565Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-kueche-hilcona-undefined"
+        "mitarbeiter-mitarbeiterin-kueche-hilcona-undefined",
+        "collaboratore-trice-mitarbeiterin-kueche-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -822,10 +843,10 @@
       "id": "hilcona-0a460af4bb32",
       "slug": "berufsbildner-technik-hilcona-undefined",
       "slugByLocale": {
-        "it": "berufsbildner-technik-hilcona-undefined",
-        "en": "berufsbildner-technik-hilcona-undefined",
+        "it": "formatori-tecnici-hilcona-ag-bell-food-group-landquart",
+        "en": "technical-training-specialists-hilcona-ag-bell-food-group-landquart",
         "de": "berufsbildner-technik-hilcona-ag-bell-food-group-landquart",
-        "fr": "berufsbildner-technik-hilcona-undefined"
+        "fr": "formateurs-techniques-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -865,7 +886,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:07.357Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "berufsbildner-technik-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -884,10 +907,10 @@
       "id": "hilcona-1568cfb38f4d",
       "slug": "collaboratore-trice-schlussdienst-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-schlussdienst-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-schlussdienst-m-w-d-hilcona-undefined",
+        "it": "membro-di-servizio-di-fine-settimana-hilcona-ag-bell-food-group-landquart",
+        "en": "end-of-week-service-member-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-schlussdienst-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "mitarbeiter-schlussdienst-m-w-d-hilcona-undefined"
+        "fr": "membre-de-service-de-fin-de-semaine-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -928,7 +951,8 @@
       "crawledAt": "2026-04-02T13:39:07.150Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-schlussdienst-m-w-d-hilcona-undefined"
+        "mitarbeiter-schlussdienst-m-w-d-hilcona-undefined",
+        "collaboratore-trice-schlussdienst-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -948,10 +972,10 @@
       "id": "hilcona-34e78343abbf",
       "slug": "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "responsabile-sezione-produzione-alimentare-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "department-head-food-production-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "chef-de-depart-production-alimentaire-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -992,7 +1016,8 @@
       "crawledAt": "2026-04-02T13:39:06.944Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-undefined"
+        "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-undefined",
+        "abteilungsleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1076,10 +1101,10 @@
       "id": "hilcona-12a2a60aad6b",
       "slug": "organisationstalent-fuer-einstallung-e-abholung-von-gefluegel-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "organisationstalent-fuer-einstallung-e-abholung-von-gefluegel-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "organisationstalent-fuer-einstallung-und-abholung-von-gefluegel-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "organizzazione-fornitura-e-ritiro-pollame-hilcona-ag-bell-food-group-landquart",
+        "en": "organisation-talent-for-installation-and-collection-of-poultry-mwd-hilcona-ag-bell-food-group-landquart",
         "de": "organisationstalent-fuer-einstallung-und-abholung-von-gefluegel-m-w-d-hilcona-undefined",
-        "fr": "organisationstalent-fuer-einstallung-und-abholung-von-gefluegel-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "talent-organisation-pour-l-installation-et-la-collecte-de-volailles-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1120,7 +1145,9 @@
       "crawledAt": "2026-04-02T13:39:06.538Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "organisationstalent-fuer-einstallung-und-abholung-von-gefluegel-m-w-d-hilcona-undefined"
+        "organisationstalent-fuer-einstallung-und-abholung-von-gefluegel-m-w-d-hilcona-undefined",
+        "organisationstalent-fuer-einstallung-e-abholung-von-gefluegel-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "organisationstalent-fuer-einstallung-und-abholung-von-gefluegel-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1140,9 +1167,9 @@
       "id": "hilcona-c61317d14e0d",
       "slug": "responsable-regional-des-ventes-suisse-romande-h-f-hilcona-undefined",
       "slugByLocale": {
-        "it": "responsable-regional-des-ventes-suisse-romande-h-f-hilcona-undefined",
-        "en": "responsable-regional-des-ventes-suisse-romande-h-f-hilcona-undefined",
-        "de": "responsable-regional-des-ventes-suisse-romande-h-f-hilcona-undefined",
+        "it": "responsabile-regionale-vendite-svizzera-romanda-h-f-hilcona-ag-bell-food-group-landquart",
+        "en": "regional-sales-manager-switzerland-romandie-h-f-hilcona-ag-bell-food-group-landquart",
+        "de": "regionalverkaufsleiter-schweiz-romandie-h-f-hilcona-ag-bell-food-group-landquart",
         "fr": "responsable-regional-des-ventes-suisse-romande-h-f-hilcona-undefined"
       },
       "company": "Hilcona AG (Bell Food Group)",
@@ -1195,16 +1222,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "responsable-regional-des-ventes-suisse-romande-h-f-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-ef7445080b2a",
       "slug": "sachbearbeiter-in-produktionsplanung-pps-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "sachbearbeiter-in-produktionsplanung-pps-hilcona-ag-bell-food-group-landquart",
-        "en": "sachbearbeiter-in-produktionsplanung-pps-hilcona-ag-bell-food-group-landquart",
+        "it": "addetta-alla-pianificazione-della-produzione-pps-hilcona-ag-bell-food-group-landquart",
+        "en": "production-planning-specialist-hilcona-ag-bell-food-group-landquart",
         "de": "sachbearbeiter-in-produktionsplanung-pps-hilcona-ag-bell-food-group-landquart",
-        "fr": "sachbearbeiter-in-produktionsplanung-pps-hilcona-ag-bell-food-group-landquart"
+        "fr": "commis-a-la-planification-de-production-pps-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1245,7 +1275,8 @@
       "crawledAt": "2026-04-02T13:39:06.131Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sachbearbeiter-in-produktionsplanung-pps-hilcona-undefined"
+        "sachbearbeiter-in-produktionsplanung-pps-hilcona-undefined",
+        "sachbearbeiter-in-produktionsplanung-pps-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1265,10 +1296,10 @@
       "id": "hilcona-1a966e72b7f9",
       "slug": "culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined",
+        "it": "consulente-culinario-im-foodservice-deutschland-m-w-d-hilcona-ag-bell-food-group-landquart",
         "en": "culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined",
         "de": "culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined",
-        "fr": "culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined"
+        "fr": "conseiller-culinaire-im-foodservice-deutschland-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1320,16 +1351,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "culinary-advisor-im-foodservice-deutschland-m-w-d-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-b765798c4853",
       "slug": "country-procurement-lead-schweiz-hilcona-undefined",
       "slugByLocale": {
-        "it": "country-procurement-lead-schweiz-hilcona-undefined",
+        "it": "country-procurement-lead-svizzera-hilcona-ag-bell-food-group-landquart",
         "en": "country-procurement-lead-schweiz-hilcona-undefined",
         "de": "country-procurement-lead-schweiz-hilcona-undefined",
-        "fr": "country-procurement-lead-schweiz-hilcona-undefined"
+        "fr": "country-procurement-lead-suisse-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1381,16 +1415,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "country-procurement-lead-schweiz-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-f683d89b7e88",
       "slug": "teamleiter-beschaffung-eu-rohwaren-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "teamleiter-beschaffung-eu-rohwaren-m-w-d-hilcona-undefined",
-        "en": "teamleiter-beschaffung-eu-rohwaren-m-w-d-hilcona-undefined",
+        "it": "capo-squadra-approvvigionamento-ue-materie-prime-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "team-leader-procurement-eu-raw-materials-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "teamleiter-beschaffung-eu-rohwaren-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "teamleiter-beschaffung-eu-rohwaren-m-w-d-hilcona-undefined"
+        "fr": "chef-d-equipe-achats-eu-matieres-premieres-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1430,7 +1467,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:05.505Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "teamleiter-beschaffung-eu-rohwaren-m-w-d-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -1511,10 +1550,10 @@
       "id": "hilcona-02164ccc6470",
       "slug": "leiter-entwicklung-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "leiter-entwicklung-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "leiter-entwicklung-m-w-d-hilcona-undefined",
+        "it": "capo-dello-sviluppo-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "development-manager-hilcona-ag-bell-food-group-landquart",
         "de": "leiter-entwicklung-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "leiter-entwicklung-m-w-d-hilcona-undefined"
+        "fr": "responsable-du-developpement-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1555,7 +1594,8 @@
       "crawledAt": "2026-04-02T13:39:05.104Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "leiter-entwicklung-m-w-d-hilcona-undefined"
+        "leiter-entwicklung-m-w-d-hilcona-undefined",
+        "leiter-entwicklung-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -1575,10 +1615,10 @@
       "id": "hilcona-215c71b1294b",
       "slug": "automatikerin-automatiker-100-hilcona-undefined",
       "slugByLocale": {
-        "it": "automatikerin-automatiker-100-hilcona-undefined",
-        "en": "automatikerin-automatiker-100-hilcona-undefined",
+        "it": "automatista-100-hilcona-ag-bell-food-group-landquart",
+        "en": "automation-technician-100-hilcona-ag-bell-food-group-landquart",
         "de": "automatikerin-automatiker-100-hilcona-ag-bell-food-group-landquart",
-        "fr": "automatikerin-automatiker-100-hilcona-undefined"
+        "fr": "technicien-d-automatisation-100-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1618,7 +1658,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:04.898Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "automatikerin-automatiker-100-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -1637,10 +1679,10 @@
       "id": "hilcona-c6cf9aaa2492",
       "slug": "sprachcoach-deutsch-franzoesisch-e-englisch-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "sprachcoach-deutsch-franzoesisch-e-englisch-hilcona-ag-bell-food-group-landquart",
-        "en": "sprachcoach-deutsch-franzoesisch-und-englisch-hilcona-undefined",
+        "it": "sprachcoach-deutsch-francese-e-inglese-hilcona-ag-bell-food-group-landquart",
+        "en": "german-french-and-english-language-coach-hilcona-ag-bell-food-group-landquart",
         "de": "sprachcoach-deutsch-franzoesisch-und-englisch-hilcona-undefined",
-        "fr": "sprachcoach-deutsch-franzoesisch-und-englisch-hilcona-undefined"
+        "fr": "coach-de-langue-allemand-francais-et-anglais-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1681,7 +1723,8 @@
       "crawledAt": "2026-04-02T13:39:04.680Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sprachcoach-deutsch-franzoesisch-und-englisch-hilcona-undefined"
+        "sprachcoach-deutsch-franzoesisch-und-englisch-hilcona-undefined",
+        "sprachcoach-deutsch-franzoesisch-e-englisch-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1701,10 +1744,10 @@
       "id": "hilcona-8f1c7590f624",
       "slug": "stv-schichtleiter-schichtleiterin-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "stv-schichtleiter-schichtleiterin-hilcona-ag-bell-food-group-landquart",
-        "en": "stv-schichtleiter-schichtleiterin-hilcona-ag-bell-food-group-landquart",
+        "it": "vice-capo-turno-hilcona-ag-bell-food-group-landquart",
+        "en": "shift-supervisor-hilcona-ag-bell-food-group-landquart",
         "de": "stv-schichtleiter-schichtleiterin-hilcona-ag-bell-food-group-landquart",
-        "fr": "stv-schichtleiter-schichtleiterin-hilcona-ag-bell-food-group-landquart"
+        "fr": "superviseur-de-tour-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1745,7 +1788,8 @@
       "crawledAt": "2026-04-02T13:39:04.470Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "stv-schichtleiter-schichtleiterin-hilcona-undefined"
+        "stv-schichtleiter-schichtleiterin-hilcona-undefined",
+        "stv-schichtleiter-schichtleiterin-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1765,10 +1809,10 @@
       "id": "hilcona-1aacc77d1ded",
       "slug": "collaboratore-trice-steuerung-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-steuerung-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-steuerung-m-w-d-hilcona-undefined",
+        "it": "controllo-dipendenti-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "employee-control-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-steuerung-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "mitarbeiter-steuerung-m-w-d-hilcona-undefined"
+        "fr": "controle-des-employes-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1809,7 +1853,8 @@
       "crawledAt": "2026-04-02T13:39:04.267Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-steuerung-m-w-d-hilcona-undefined"
+        "mitarbeiter-steuerung-m-w-d-hilcona-undefined",
+        "collaboratore-trice-steuerung-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1829,8 +1874,8 @@
       "id": "hilcona-e4e1c59c4d21",
       "slug": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "linienleiter-produzione-alimentare-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "production-line-leader-food-production-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-undefined",
         "fr": "linienleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
@@ -1873,7 +1918,8 @@
       "crawledAt": "2026-04-02T13:39:04.065Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "linienleiter-lebensmittelproduktion-m-w-d-hilcona-undefined"
+        "linienleiter-lebensmittelproduktion-m-w-d-hilcona-undefined",
+        "linienleiter-lebensmittelproduktion-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1893,10 +1939,10 @@
       "id": "hilcona-56e439cab36b",
       "slug": "lkw-fahrer-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "lkw-fahrer-m-w-d-hilcona-undefined",
-        "en": "lkw-fahrer-m-w-d-hilcona-undefined",
+        "it": "camionista-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "truck-driver-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "lkw-fahrer-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "lkw-fahrer-m-w-d-hilcona-undefined"
+        "fr": "chauffeur-de-camion-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1936,7 +1982,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:03.857Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "lkw-fahrer-m-w-d-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -1955,10 +2003,10 @@
       "id": "hilcona-964ba49b08d9",
       "slug": "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-ag-bell-food-group-landquart",
-        "en": "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-ag-bell-food-group-landquart",
+        "it": "responsabile-formazione-logistica-hilcona-ag-bell-food-group-landquart",
+        "en": "logistics-training-officer-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-ag-bell-food-group-landquart",
-        "fr": "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-ag-bell-food-group-landquart"
+        "fr": "responsable-de-la-formation-logistique-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -1999,7 +2047,8 @@
       "crawledAt": "2026-04-02T13:39:03.636Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-undefined"
+        "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-undefined",
+        "ausbildungsverantwortlicher-ausbildungsverantwortliche-logistik-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2019,10 +2068,10 @@
       "id": "hilcona-e97bab90a4d1",
       "slug": "customer-marketing-specialist-food-service-100-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "customer-marketing-specialist-food-service-100-m-w-d-hilcona-undefined",
+        "it": "specialista-marketing-per-clienti-food-service-100-m-w-d-hilcona-ag-bell-food-group-landquart",
         "en": "customer-marketing-specialist-food-service-100-m-w-d-hilcona-undefined",
         "de": "customer-marketing-specialist-food-service-100-m-w-d-hilcona-undefined",
-        "fr": "customer-marketing-specialist-food-service-100-m-w-d-hilcona-undefined"
+        "fr": "specialiste-du-marketing-pour-clients-food-service-100-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2074,7 +2123,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "customer-marketing-specialist-food-service-100-m-w-d-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-d4930d62d3df",
@@ -2083,7 +2135,7 @@
         "it": "key-account-manager-retail-at-80-100-hilcona-undefined",
         "en": "key-account-manager-retail-at-80-100-hilcona-undefined",
         "de": "key-account-manager-retail-at-80-100-hilcona-undefined",
-        "fr": "key-account-manager-retail-at-80-100-hilcona-undefined"
+        "fr": "gestionnaire-de-comptes-cles-retail-a-80-100-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2135,16 +2187,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "key-account-manager-retail-at-80-100-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-50538ed02ec7",
       "slug": "collaboratore-trice-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-mitarbeiterin-stall-hilcona-undefined",
+        "it": "addetto-essa-allo-stallo-hilcona-ag-bell-food-group-landquart",
+        "en": "stable-hand-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart",
-        "fr": "mitarbeiter-mitarbeiterin-stall-hilcona-undefined"
+        "fr": "man-uvre-de-la-ferme-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2185,7 +2240,8 @@
       "crawledAt": "2026-04-02T13:39:02.983Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-stall-hilcona-undefined"
+        "mitarbeiter-mitarbeiterin-stall-hilcona-undefined",
+        "collaboratore-trice-mitarbeiterin-stall-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2205,10 +2261,10 @@
       "id": "hilcona-4219fb4e77de",
       "slug": "mechatroniker-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "mechatroniker-m-w-d-hilcona-undefined",
-        "en": "mechatroniker-m-w-d-hilcona-undefined",
+        "it": "meccatronico-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "mechatronic-technician-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "mechatroniker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "mechatroniker-m-w-d-hilcona-undefined"
+        "fr": "technicien-en-mecatronique-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2248,7 +2304,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:02.770Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "mechatroniker-m-w-d-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -2267,10 +2325,10 @@
       "id": "hilcona-99a5e09d3122",
       "slug": "kaeltetechniker-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "kaeltetechniker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "kaeltetechniker-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "tecnico-di-raffreddamento-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "refrigeration-technician-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "kaeltetechniker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "kaeltetechniker-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "technicien-de-refrigeration-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2311,7 +2369,8 @@
       "crawledAt": "2026-04-02T13:39:02.541Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "kaeltetechniker-m-w-d-hilcona-undefined"
+        "kaeltetechniker-m-w-d-hilcona-undefined",
+        "kaeltetechniker-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2331,10 +2390,10 @@
       "id": "hilcona-890caa76ffe0",
       "slug": "betriebselektriker-instandhaltung-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "betriebselektriker-instandhaltung-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "betriebselektriker-instandhaltung-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "manutenzione-elettricista-impianto-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "plant-electrician-maintenance-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektriker-instandhaltung-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "betriebselektriker-instandhaltung-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "entretien-de-l-electricien-d-usine-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2375,7 +2434,8 @@
       "crawledAt": "2026-04-02T13:39:02.334Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "betriebselektriker-instandhaltung-m-w-d-hilcona-undefined"
+        "betriebselektriker-instandhaltung-m-w-d-hilcona-undefined",
+        "betriebselektriker-instandhaltung-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2396,9 +2456,9 @@
       "slug": "installateur-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
         "it": "installateur-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "installateur-m-w-d-hilcona-undefined",
+        "en": "installation-technician-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "installateur-m-w-d-hilcona-undefined",
-        "fr": "installateur-m-w-d-hilcona-undefined"
+        "fr": "technicien-d-installation-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2459,10 +2519,10 @@
       "id": "hilcona-26d478f5fdd1",
       "slug": "international-category-manager-f-m-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "international-category-manager-f-m-d-hilcona-undefined",
+        "it": "gestore-delle-categorie-internazionali-f-m-d-hilcona-ag-bell-food-group-landquart",
         "en": "international-category-manager-f-m-d-hilcona-ag-bell-food-group-landquart",
         "de": "international-category-manager-f-m-d-hilcona-undefined",
-        "fr": "international-category-manager-f-m-d-hilcona-undefined"
+        "fr": "gestionnaire-de-categorie-international-f-m-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2502,7 +2562,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:01.879Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "international-category-manager-f-m-d-hilcona-undefined"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {
@@ -2521,7 +2583,7 @@
       "id": "hilcona-d906ee108cf1",
       "slug": "bezirksleitung-im-aussendienst-food-service-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-hilcona-undefined",
       "slugByLocale": {
-        "it": "bezirksleitung-im-aussendienst-food-service-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-hilcona-undefined",
+        "it": "direttore-di-distretto-nel-servizio-sul-campo-servizio-ristorazione-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-",
         "en": "bezirksleitung-im-aussendienst-food-service-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-hilcona-undefined",
         "de": "bezirksleitung-im-aussendienst-food-service-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-hilcona-undefined",
         "fr": "bezirksleitung-im-aussendienst-food-service-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-hilcona-undefined"
@@ -2576,7 +2638,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "bezirksleitung-im-aussendienst-food-service-m-w-d-ansbach-schwabach-neumarkt-i-d-opf-ingolstadt-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-2c0717df219c",
@@ -2643,10 +2708,10 @@
       "id": "hilcona-2db07b8d93bb",
       "slug": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
-        "en": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
+        "it": "meccanico-di-manutenzione-schlachthaus-hilcona-ag-bell-food-group-landquart",
+        "en": "maintenance-mechanic-schlachthaus-hilcona-ag-bell-food-group-landquart",
         "de": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart",
-        "fr": "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart"
+        "fr": "mecanicien-de-maintenance-schlachthaus-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2687,7 +2752,8 @@
       "crawledAt": "2026-04-02T13:39:01.177Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-undefined"
+        "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-undefined",
+        "betriebsmechaniker-betriebsmechanikerin-schlachthaus-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2707,10 +2773,10 @@
       "id": "hilcona-8aeb414129a7",
       "slug": "regionaler-key-account-manager-ostdeutschland-hilcona-undefined",
       "slugByLocale": {
-        "it": "regionaler-key-account-manager-ostdeutschland-hilcona-undefined",
+        "it": "regional-key-account-manager-est-ovest-hilcona-ag-bell-food-group-landquart",
         "en": "regionaler-key-account-manager-ostdeutschland-hilcona-undefined",
         "de": "regionaler-key-account-manager-ostdeutschland-hilcona-undefined",
-        "fr": "regionaler-key-account-manager-ostdeutschland-hilcona-undefined"
+        "fr": "gestionnaire-de-comptes-regionaux-cles-est-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2762,16 +2828,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "regionaler-key-account-manager-ostdeutschland-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-5b900cc79063",
       "slug": "regionaler-key-account-manager-sued-west-deutschland-hilcona-undefined",
       "slugByLocale": {
-        "it": "regionaler-key-account-manager-sued-west-deutschland-hilcona-undefined",
+        "it": "regional-key-account-manager-sud-ovest-germania-hilcona-ag-bell-food-group-landquart",
         "en": "regionaler-key-account-manager-sued-west-deutschland-hilcona-undefined",
         "de": "regionaler-key-account-manager-sued-west-deutschland-hilcona-undefined",
-        "fr": "regionaler-key-account-manager-sued-west-deutschland-hilcona-undefined"
+        "fr": "gestionnaire-de-comptes-regionaux-cles-pour-l-allemagne-du-sud-ouest-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2823,16 +2892,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "regionaler-key-account-manager-sued-west-deutschland-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-fb9c237b3fc5",
       "slug": "teamleiter-teamleiterin-elektrotechnik-e-automation-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "teamleiter-teamleiterin-elektrotechnik-e-automation-hilcona-ag-bell-food-group-landquart",
-        "en": "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-undefined",
+        "it": "team-leader-team-leader-elektrotecnica-e-automazione-hilcona-ag-bell-food-group-landquart",
+        "en": "team-leader-team-leader-electrical-and-automation-engineering-hilcona-ag-bell-food-group-landquart",
         "de": "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-undefined",
-        "fr": "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-undefined"
+        "fr": "chef-d-equipe-chef-d-equipe-genie-electrique-et-automatisation-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2873,7 +2945,8 @@
       "crawledAt": "2026-04-02T13:39:00.559Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-undefined"
+        "teamleiter-teamleiterin-elektrotechnik-und-automation-hilcona-undefined",
+        "teamleiter-teamleiterin-elektrotechnik-e-automation-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2893,10 +2966,10 @@
       "id": "hilcona-9bb5ddb054a8",
       "slug": "metzger-portionierung-metzgerin-portionierung-hilcona-undefined",
       "slugByLocale": {
-        "it": "metzger-portionierung-metzgerin-portionierung-hilcona-undefined",
-        "en": "metzger-portionierung-metzgerin-portionierung-hilcona-undefined",
+        "it": "divisione-carni-divisione-carni-hilcona-ag-bell-food-group-landquart",
+        "en": "meat-portioning-meat-portioning-hilcona-ag-bell-food-group-landquart",
         "de": "metzger-portionierung-metzgerin-portionierung-hilcona-ag-bell-food-group-landquart",
-        "fr": "metzger-portionierung-metzgerin-portionierung-hilcona-undefined"
+        "fr": "division-de-viande-division-de-viande-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2936,7 +3009,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:39:00.360Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "metzger-portionierung-metzgerin-portionierung-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -2955,10 +3030,10 @@
       "id": "hilcona-690455bf6856",
       "slug": "collaboratore-trice-technik-e-materialwirtschaft-mitarbeiterin-technik-e-materialwirtschaft-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-technik-e-materialwirtschaft-mitarbeiterin-technik-e-materialwirtschaft-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-ag-bell-food-group-landq",
+        "it": "membro-del-team-tecnico-e-materiali-hilcona-ag-bell-food-group-landquart",
+        "en": "technical-and-materials-team-member-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-undefined",
-        "fr": "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-ag-bell-food-group-landq"
+        "fr": "membre-de-l-equipe-technique-et-des-matieres-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -2999,7 +3074,9 @@
       "crawledAt": "2026-04-02T13:39:00.161Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-undefined"
+        "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-undefined",
+        "collaboratore-trice-technik-e-materialwirtschaft-mitarbeiterin-technik-e-materialwirtschaft-hilcona-ag-bell-food-group-landquart",
+        "mitarbeiter-technik-und-materialwirtschaft-mitarbeiterin-technik-und-materialwirtschaft-hilcona-ag-bell-food-group-landq"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3019,7 +3096,7 @@
       "id": "hilcona-7262ee819cc9",
       "slug": "bezirksleitung-im-aussendienst-food-service-m-w-d-duesseldorf-krefeld-aachen-hilcona-undefined",
       "slugByLocale": {
-        "it": "bezirksleitung-im-aussendienst-food-service-m-w-d-duesseldorf-krefeld-aachen-hilcona-undefined",
+        "it": "direttore-distrettuale-servizio-ristorazione-m-w-d-dusseldorf-krefeld-aquisgrana-hilcona-ag-bell-food-group-landquart",
         "en": "bezirksleitung-im-aussendienst-food-service-m-w-d-duesseldorf-krefeld-aachen-hilcona-undefined",
         "de": "bezirksleitung-im-aussendienst-food-service-m-w-d-duesseldorf-krefeld-aachen-hilcona-undefined",
         "fr": "bezirksleitung-im-aussendienst-food-service-m-w-d-duesseldorf-krefeld-aachen-hilcona-undefined"
@@ -3074,7 +3151,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "bezirksleitung-im-aussendienst-food-service-m-w-d-duesseldorf-krefeld-aachen-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-370c6b5a9d8a",
@@ -3142,10 +3222,10 @@
       "id": "hilcona-145c81d63aa5",
       "slug": "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "assistente-team-vendite-interne-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "team-assistant-inside-sales-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "assistant-d-equipe-ventes-internes-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3186,7 +3266,8 @@
       "crawledAt": "2026-04-02T13:38:59.567Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-undefined"
+        "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-undefined",
+        "teamassistenz-vertriebsinnendienst-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3206,10 +3287,10 @@
       "id": "hilcona-7ad9d5aeaec6",
       "slug": "mechaniker-mechanikerin-hilcona-undefined",
       "slugByLocale": {
-        "it": "mechaniker-mechanikerin-hilcona-undefined",
-        "en": "mechaniker-mechanikerin-hilcona-undefined",
+        "it": "meccanico-meccanica-hilcona-ag-bell-food-group-landquart",
+        "en": "mechanic-mechanic-hilcona-ag-bell-food-group-landquart",
         "de": "mechaniker-mechanikerin-hilcona-ag-bell-food-group-landquart",
-        "fr": "mechaniker-mechanikerin-hilcona-undefined"
+        "fr": "mecanicien-mecanicienne-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3249,7 +3330,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:38:59.373Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "mechaniker-mechanikerin-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -3268,10 +3351,10 @@
       "id": "hilcona-8d97b14c9bb4",
       "slug": "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "operatore-amministrativo-di-acquisto-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "purchasing-administrative-assistant-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "assistant-administratif-d-achat-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3312,7 +3395,8 @@
       "crawledAt": "2026-04-02T13:38:59.178Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-undefined"
+        "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-undefined",
+        "kaufmaennischer-sachbearbeiter-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3332,10 +3416,10 @@
       "id": "hilcona-e26f2eef9bed",
       "slug": "hr-systems-consultant-hilcona-undefined",
       "slugByLocale": {
-        "it": "hr-systems-consultant-hilcona-undefined",
+        "it": "consulente-per-sistemi-hr-hilcona-ag-bell-food-group-landquart",
         "en": "hr-systems-consultant-hilcona-ag-bell-food-group-landquart",
         "de": "hr-systems-consultant-hilcona-undefined",
-        "fr": "hr-systems-consultant-hilcona-undefined"
+        "fr": "consultant-en-systemes-rh-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3375,7 +3459,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:38:58.787Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "hr-systems-consultant-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -3458,10 +3544,10 @@
       "id": "hilcona-14439ae1edd5",
       "slug": "collaboratore-trice-verladung-versand-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-verladung-versand-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-verladung-versand-m-w-d-hilcona-undefined",
+        "it": "operatore-di-carico-e-spedizione-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "loading-and-shipping-assistant-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-verladung-versand-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "mitarbeiter-verladung-versand-m-w-d-hilcona-undefined"
+        "fr": "assistant-de-chargement-et-de-livraison-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3502,7 +3588,8 @@
       "crawledAt": "2026-04-02T13:38:58.379Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-verladung-versand-m-w-d-hilcona-undefined"
+        "mitarbeiter-verladung-versand-m-w-d-hilcona-undefined",
+        "collaboratore-trice-verladung-versand-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3522,10 +3609,10 @@
       "id": "hilcona-b0390b1f8782",
       "slug": "vorarbeiter-standort-edewecht-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "vorarbeiter-standort-edewecht-m-w-d-hilcona-undefined",
-        "en": "vorarbeiter-standort-edewecht-m-w-d-hilcona-undefined",
+        "it": "posizione-del-caposquadra-edewecht-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "foreman-edewecht-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "vorarbeiter-standort-edewecht-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "vorarbeiter-standort-edewecht-m-w-d-hilcona-undefined"
+        "fr": "chef-de-chantier-edewecht-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3565,7 +3652,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:38:58.176Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "vorarbeiter-standort-edewecht-m-w-d-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -3646,9 +3735,9 @@
       "slug": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
       "slugByLocale": {
         "it": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
-        "en": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "dual-study-program-industrial-clerks-bachelor-of-arts-bwl-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-undefined",
-        "fr": "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "etudes-doubles-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3688,7 +3777,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:38:57.772Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "duales-studium-industriekaufleute-bachelor-bwl-m-w-d-hilcona-ag-bell-food-group-landquart"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -3707,10 +3798,10 @@
       "id": "hilcona-5df6688887f1",
       "slug": "ausbildung-come-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "ausbildung-come-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "formazione-come-commercialista-industriale-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "training-as-industrial-business-manager-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "formation-en-tant-que-gestionnaire-commercial-industriel-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3751,7 +3842,9 @@
       "crawledAt": "2026-04-02T13:38:57.563Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ausbildung-als-industriekaufmann-m-w-d-hilcona-undefined"
+        "ausbildung-als-industriekaufmann-m-w-d-hilcona-undefined",
+        "ausbildung-come-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "ausbildung-als-industriekaufmann-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3771,10 +3864,10 @@
       "id": "hilcona-3116eeef1e3c",
       "slug": "collaboratore-trice-mitarbeiterin-reinigung-con-stv-aufgaben-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-reinigung-con-stv-aufgaben-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-mitarbeiterin-reinigung-mit-stv-aufgaben-hilcona-undefined",
+        "it": "addetto-a-pulizia-con-compiti-di-supplenza-hilcona-ag-bell-food-group-landquart",
+        "en": "cleaning-staff-member-with-deputy-tasks-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-mitarbeiterin-reinigung-mit-stv-aufgaben-hilcona-undefined",
-        "fr": "mitarbeiter-mitarbeiterin-reinigung-mit-stv-aufgaben-hilcona-undefined"
+        "fr": "membre-de-l-equipe-de-nettoyage-avec-taches-de-suppleance-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3815,7 +3908,8 @@
       "crawledAt": "2026-04-02T13:38:57.363Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-reinigung-mit-stv-aufgaben-hilcona-undefined"
+        "mitarbeiter-mitarbeiterin-reinigung-mit-stv-aufgaben-hilcona-undefined",
+        "collaboratore-trice-mitarbeiterin-reinigung-con-stv-aufgaben-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3835,10 +3929,10 @@
       "id": "hilcona-1bfea227b5d8",
       "slug": "projektleiter-technik-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "projektleiter-technik-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "projektleiter-technik-m-w-d-hilcona-undefined",
+        "it": "responsabile-di-progetto-tecnico-hilcona-ag-bell-food-group-landquart",
+        "en": "technical-project-manager-hilcona-ag-bell-food-group-landquart",
         "de": "projektleiter-technik-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "projektleiter-technik-m-w-d-hilcona-undefined"
+        "fr": "responsable-de-projet-technique-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3879,7 +3973,8 @@
       "crawledAt": "2026-04-02T13:38:57.160Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "projektleiter-technik-m-w-d-hilcona-undefined"
+        "projektleiter-technik-m-w-d-hilcona-undefined",
+        "projektleiter-technik-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3899,10 +3994,10 @@
       "id": "hilcona-c625473621cc",
       "slug": "industriemechaniker-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "industriemechaniker-hilcona-ag-bell-food-group-landquart",
-        "en": "industriemechaniker-hilcona-ag-bell-food-group-landquart",
+        "it": "tecnico-meccanico-industriale-hilcona-ag-bell-food-group-landquart",
+        "en": "industrial-mechanic-hilcona-ag-bell-food-group-landquart",
         "de": "industriemechaniker-hilcona-ag-bell-food-group-landquart",
-        "fr": "industriemechaniker-hilcona-ag-bell-food-group-landquart"
+        "fr": "mecanicien-industriel-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -3943,7 +4038,8 @@
       "crawledAt": "2026-04-02T13:38:56.965Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "industriemechaniker-hilcona-undefined"
+        "industriemechaniker-hilcona-undefined",
+        "industriemechaniker-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3963,10 +4059,10 @@
       "id": "hilcona-b3cf65cae603",
       "slug": "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "responsabile-di-produzione-liquida-m-f-d-hilcona-ag-bell-food-group-landquart",
+        "en": "liquid-production-supervisor-m-f-d-hilcona-ag-bell-food-group-landquart",
         "de": "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "responsable-de-production-liquide-m-f-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4007,7 +4103,8 @@
       "crawledAt": "2026-04-02T13:38:56.767Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-undefined"
+        "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-undefined",
+        "anlagefuehrer-fluessigproduktion-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4027,10 +4124,10 @@
       "id": "hilcona-13642df85ad6",
       "slug": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "formazione-come-elettricista-per-tecnologia-operativa-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "training-as-an-electronics-engineer-for-operational-technology-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-undefined",
-        "fr": "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "formation-d-electricien-pour-la-technologie-operationnelle-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4071,7 +4168,8 @@
       "crawledAt": "2026-04-02T13:38:56.567Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-undefined"
+        "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-undefined",
+        "ausbildung-zum-elektroniker-fuer-betriebstechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4091,10 +4189,10 @@
       "id": "hilcona-370e66fee721",
       "slug": "ausbildung-zum-industriemechaniker-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "ausbildung-zum-industriemechaniker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "ausbildung-zum-industriemechaniker-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "formazione-come-meccanico-industriale-m-f-d-hilcona-ag-bell-food-group-landquart",
+        "en": "apprenticeship-as-industrial-mechanic-m-f-d-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildung-zum-industriemechaniker-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "ausbildung-zum-industriemechaniker-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "formation-d-apprenti-mecanicien-industriel-h-f-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4135,7 +4233,8 @@
       "crawledAt": "2026-04-02T13:38:56.372Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ausbildung-zum-industriemechaniker-m-w-d-hilcona-undefined"
+        "ausbildung-zum-industriemechaniker-m-w-d-hilcona-undefined",
+        "ausbildung-zum-industriemechaniker-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4155,10 +4254,10 @@
       "id": "hilcona-d009a6e13758",
       "slug": "ausbildung-zum-maschinen-e-anlagenfuehrer-m-w-d-specializzazione-lebensmitteltechnik-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "ausbildung-zum-maschinen-e-anlagenfuehrer-m-w-d-specializzazione-lebensmitteltechnik-hilcona-ag-bell-food-group-landquart",
-        "en": "ausbildung-zum-maschinen-und-anlagenfuehrer-m-w-d-fachrichtung-lebensmitteltechnik-hilcona-ag-bell-food-group-landquart",
+        "it": "formazione-a-operatore-di-macchine-e-impianti-settore-tecnologia-alimentare-hilcona-ag-bell-food-group-landquart",
+        "en": "training-as-a-machine-and-plant-operator-food-technology-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildung-zum-maschinen-und-anlagenfuehrer-m-w-d-fachrichtung-lebensmitteltechnik-hilcona-undefined",
-        "fr": "ausbildung-zum-maschinen-und-anlagenfuehrer-m-w-d-fachrichtung-lebensmitteltechnik-hilcona-ag-bell-food-group-landquart"
+        "fr": "formation-d-operateur-de-machines-et-d-installations-technologie-alimentaire-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4199,7 +4298,9 @@
       "crawledAt": "2026-04-02T13:38:56.175Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ausbildung-zum-maschinen-und-anlagenfuehrer-m-w-d-fachrichtung-lebensmitteltechnik-hilcona-undefined"
+        "ausbildung-zum-maschinen-und-anlagenfuehrer-m-w-d-fachrichtung-lebensmitteltechnik-hilcona-undefined",
+        "ausbildung-zum-maschinen-e-anlagenfuehrer-m-w-d-specializzazione-lebensmitteltechnik-hilcona-ag-bell-food-group-landquart",
+        "ausbildung-zum-maschinen-und-anlagenfuehrer-m-w-d-fachrichtung-lebensmitteltechnik-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4219,10 +4320,10 @@
       "id": "hilcona-91b73a611280",
       "slug": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-undefined",
-        "en": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-undefined",
+        "it": "formazione-come-specialista-della-logistica-di-magazzino-hilcona-ag-bell-food-group-landquart",
+        "en": "training-as-a-warehouse-logistics-specialist-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-undefined",
-        "fr": "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-undefined"
+        "fr": "formation-en-tant-que-specialiste-de-la-logistique-d-entreposage-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4274,16 +4375,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "ausbildung-zur-fachkraft-fuer-lagerlogistik-m-w-d-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-2ae0ea192259",
       "slug": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "formazione-come-specialista-di-tecnologia-alimentare-hilcona-ag-bell-food-group-landquart",
+        "en": "training-as-a-food-technology-specialist-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-undefined",
-        "fr": "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "formation-en-tant-que-specialiste-de-la-technologie-alimentaire-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4324,7 +4428,8 @@
       "crawledAt": "2026-04-02T13:38:55.768Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-undefined"
+        "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-undefined",
+        "ausbildung-zur-fachkraft-fuer-lebensmitteltechnik-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4344,10 +4449,10 @@
       "id": "hilcona-84e6d3397f5f",
       "slug": "rangierer-lkw-hilcona-undefined",
       "slugByLocale": {
-        "it": "rangierer-lkw-hilcona-undefined",
-        "en": "rangierer-lkw-hilcona-undefined",
+        "it": "addetto-alla-movimentazione-dei-camion-hilcona-ag-bell-food-group-landquart",
+        "en": "truck-handler-hilcona-ag-bell-food-group-landquart",
         "de": "rangierer-lkw-hilcona-ag-bell-food-group-landquart",
-        "fr": "rangierer-lkw-hilcona-undefined"
+        "fr": "manutentionnaire-de-camions-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4387,7 +4492,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:38:55.570Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "rangierer-lkw-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -4406,10 +4513,10 @@
       "id": "hilcona-826fc61efec9",
       "slug": "tieraerztin-tierarzt-come-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "tieraerztin-tierarzt-come-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-ag-bell-food-group-landquart",
-        "en": "tieraerztin-tierarzt-als-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-ag-bell-food-group-landquart",
+        "it": "medico-veterinario-responsabile-del-servizio-sanitario-per-pollame-hilcona-ag-bell-food-group-landquart",
+        "en": "veterinarian-head-of-poultry-health-service-hilcona-ag-bell-food-group-landquart",
         "de": "tieraerztin-tierarzt-als-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-undefined",
-        "fr": "tieraerztin-tierarzt-als-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-ag-bell-food-group-landquart"
+        "fr": "veterinaire-responsable-du-service-de-sante-pour-les-volailles-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4450,7 +4557,9 @@
       "crawledAt": "2026-04-02T13:38:55.373Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "tieraerztin-tierarzt-als-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-undefined"
+        "tieraerztin-tierarzt-als-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-undefined",
+        "tieraerztin-tierarzt-come-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-ag-bell-food-group-landquart",
+        "tieraerztin-tierarzt-als-leiterin-leiter-gesundheitsdienst-gefluegel-80-100-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -4470,10 +4579,10 @@
       "id": "hilcona-88702a86a172",
       "slug": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
+        "it": "elettricista-di-esercizio-nuova-costruzione-oensingen-hilcona-ag-bell-food-group-landquart",
         "en": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
         "de": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
-        "fr": "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
+        "fr": "electricien-d-exploitation-nouvelle-construction-oensingen-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4514,7 +4623,8 @@
       "crawledAt": "2026-04-02T13:38:55.171Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined"
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-undefined",
+        "betriebselektriker-betriebselektrikerin-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4534,10 +4644,10 @@
       "id": "hilcona-213882616741",
       "slug": "dh-studium-bwl-personalmanagement-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "dh-studium-bwl-personalmanagement-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "dh-studium-bwl-personalmanagement-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "studio-dh-bwl-gestione-del-personale-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "dh-study-bwl-human-resource-management-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "dh-studium-bwl-personalmanagement-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "dh-studium-bwl-personalmanagement-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "etude-dh-bwl-gestion-des-ressources-humaines-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4578,7 +4688,8 @@
       "crawledAt": "2026-04-02T13:38:54.964Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "dh-studium-bwl-personalmanagement-m-w-d-hilcona-undefined"
+        "dh-studium-bwl-personalmanagement-m-w-d-hilcona-undefined",
+        "dh-studium-bwl-personalmanagement-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4598,10 +4709,10 @@
       "id": "hilcona-3b741e931148",
       "slug": "dh-studium-bwl-industrie-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "dh-studium-bwl-industrie-m-w-d-hilcona-undefined",
+        "it": "studio-bwl-industria-hilcona-ag-bell-food-group-landquart",
         "en": "dh-studium-bwl-industrie-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "dh-studium-bwl-industrie-m-w-d-hilcona-undefined",
-        "fr": "dh-studium-bwl-industrie-m-w-d-hilcona-undefined"
+        "fr": "etudes-en-gestion-industrielle-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4641,7 +4752,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:38:54.766Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "dh-studium-bwl-industrie-m-w-d-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -4660,8 +4773,8 @@
       "id": "hilcona-0a1a69c9e1dc",
       "slug": "dh-studium-bwl-food-management-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "dh-studium-bwl-food-management-m-w-d-hilcona-undefined",
-        "en": "dh-studium-bwl-food-management-m-w-d-hilcona-undefined",
+        "it": "dh-studium-bwl-gestione-alimentare-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "study-of-business-administration-food-management-full-time-hilcona-ag-bell-food-group-landquart",
         "de": "dh-studium-bwl-food-management-m-w-d-hilcona-undefined",
         "fr": "dh-studium-bwl-food-management-m-w-d-hilcona-undefined"
       },
@@ -4715,16 +4828,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "dh-studium-bwl-food-management-m-w-d-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-9e6c94ef1e40",
       "slug": "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hilcona-ag-bell-food-group-landquart",
-        "en": "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined",
+        "it": "adegno-macchine-e-impianti-con-specializzazione-in-alimentare-hilcona-ag-bell-food-group-landquart",
+        "en": "apprentice-machine-and-plant-operator-with-a-focus-on-food-hilcona-ag-bell-food-group-landquart",
         "de": "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined",
-        "fr": "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined"
+        "fr": "apprenti-conducteur-de-machines-et-d-installations-avec-specialisation-dans-l-alimentation-hilcona-ag-bell-food-group-la"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4765,7 +4881,8 @@
       "crawledAt": "2026-04-02T13:38:54.343Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined"
+        "auszubildende-maschinen-und-anlagenfuehrer-m-w-d-mit-schwerpunkt-lebensmittel-hilcona-undefined",
+        "auszubildende-maschinen-e-anlagenfuehrer-m-w-d-con-schwerpunkt-alimentari-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4785,8 +4902,8 @@
       "id": "hilcona-84e0b5dc2d40",
       "slug": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo",
       "slugByLocale": {
-        "it": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo",
-        "en": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo",
+        "it": "aziendali-industriali-in-formazione-con-qualifica-aggiuntiva-di-gestione-economica-internazionale-hilcona-ag-bell-food-g",
+        "en": "apprentice-industrial-business-manager-with-additional-qualification-in-international-business-management-hilcona-ag-bel",
         "de": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined",
         "fr": "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
       },
@@ -4829,7 +4946,8 @@
       "crawledAt": "2026-04-02T13:38:54.142Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined"
+        "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-undefined",
+        "auszubildende-industriekaufleute-m-w-d-mit-zusatzqualifikation-internationales-wirtschaftsmanagement-hilcona-ag-bell-foo"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4850,9 +4968,9 @@
       "slug": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
       "slugByLocale": {
         "it": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
-        "en": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
+        "en": "apprentice-specialist-for-warehouse-logistics-hilcona-ag-bell-food-group-landquart",
         "de": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined",
-        "fr": "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
+        "fr": "apprenti-specialiste-de-la-logistique-d-entreposage-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4904,16 +5022,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "auszubildende-fachkraft-fuer-lagerlogistik-fachlagerist-m-w-d-hilcona-undefined"
+      ]
     },
     {
       "id": "hilcona-4ddfe1272f1f",
       "slug": "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "it": "apprendista-informatico-di-sistema-m-f-hilcona-ag-bell-food-group-landquart",
         "en": "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-undefined",
         "de": "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-undefined",
-        "fr": "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-ag-bell-food-group-landquart"
+        "fr": "apprenti-specialiste-en-informatique-de-systeme-m-f-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -4954,7 +5075,8 @@
       "crawledAt": "2026-04-02T13:38:53.746Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-undefined"
+        "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-undefined",
+        "auszubildende-fachinformatiker-fuer-systemintegration-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4974,10 +5096,10 @@
       "id": "hilcona-70be2a51f1cb",
       "slug": "ausbildung-koch-m-w-d-hilcona-undefined",
       "slugByLocale": {
-        "it": "ausbildung-koch-m-w-d-hilcona-undefined",
-        "en": "ausbildung-koch-m-w-d-hilcona-undefined",
+        "it": "formazione-cuoco-hilcona-ag-bell-food-group-landquart",
+        "en": "cooking-apprenticeship-hilcona-ag-bell-food-group-landquart",
         "de": "ausbildung-koch-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "fr": "ausbildung-koch-m-w-d-hilcona-undefined"
+        "fr": "formation-de-cuisinier-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -5017,7 +5139,9 @@
       "source": "Hilcona Dedicated Parser",
       "crawledAt": "2026-04-02T13:38:53.553Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "ausbildung-koch-m-w-d-hilcona-undefined"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -5036,10 +5160,10 @@
       "id": "hilcona-19a6b73a6fa0",
       "slug": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
+        "it": "elettricista-di-esercizio-hilcona-ag-bell-food-group-landquart",
         "en": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart",
         "de": "betriebselektrikerin-betriebselektriker-100-hilcona-undefined",
-        "fr": "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
+        "fr": "electricien-d-exploitation-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -5080,7 +5204,8 @@
       "crawledAt": "2026-04-02T13:38:53.355Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "betriebselektrikerin-betriebselektriker-100-hilcona-undefined"
+        "betriebselektrikerin-betriebselektriker-100-hilcona-undefined",
+        "betriebselektrikerin-betriebselektriker-100-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5100,10 +5225,10 @@
       "id": "hilcona-1fd042e916e4",
       "slug": "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart",
-        "en": "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart",
+        "it": "tecnico-di-manutenzione-automatico-hilcona-ag-bell-food-group-landquart",
+        "en": "maintenance-technician-automation-hilcona-ag-bell-food-group-landquart",
         "de": "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-undefined",
-        "fr": "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart"
+        "fr": "technicien-de-maintenance-automatique-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -5144,7 +5269,8 @@
       "crawledAt": "2026-04-02T13:38:53.153Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-undefined"
+        "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-undefined",
+        "wartungstechnikerin-automatikerin-wartungstechniker-automatiker-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5164,10 +5290,10 @@
       "id": "hilcona-665e4fe3846f",
       "slug": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-ag-bell-food-group-landquart",
-        "en": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-ag-bell-food-group-landquart",
+        "it": "operatore-alimentare-eba-2026-hilcona-ag-bell-food-group-landquart",
+        "en": "food-practitioner-eba-2026-hilcona-ag-bell-food-group-landquart",
         "de": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-undefined",
-        "fr": "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-ag-bell-food-group-landquart"
+        "fr": "praticien-en-alimentation-eba-2026-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -5208,7 +5334,8 @@
       "crawledAt": "2026-04-02T13:38:52.956Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-undefined"
+        "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-undefined",
+        "lebensmittelpraktiker-lebensmittelpraktikerin-eba-2026-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5228,10 +5355,10 @@
       "id": "hilcona-938b262f0e83",
       "slug": "collaboratore-trice-mitarbeiterin-leitstand-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-leitstand-neubau-oensingen-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-undefined",
+        "it": "collaboratore-centro-di-controllo-nuova-costruzione-oensingen-hilcona-ag-bell-food-group-landquart",
+        "en": "operations-control-center-team-member-new-building-oensingen-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-undefined",
-        "fr": "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-undefined"
+        "fr": "membre-de-l-equipe-du-centre-de-controle-operationnel-nouvelle-construction-oensingen-hilcona-ag-bell-food-group-landqua"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -5272,7 +5399,8 @@
       "crawledAt": "2026-04-02T13:38:52.756Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-undefined"
+        "mitarbeiter-mitarbeiterin-leitstand-neubau-oensingen-hilcona-undefined",
+        "collaboratore-trice-mitarbeiterin-leitstand-neubau-oensingen-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5292,10 +5420,10 @@
       "id": "hilcona-584acd4e3ab9",
       "slug": "collaboratore-trice-personal-con-ungarisch-kenntnissen-m-w-d-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "collaboratore-trice-personal-con-ungarisch-kenntnissen-m-w-d-hilcona-ag-bell-food-group-landquart",
-        "en": "mitarbeiter-personal-mit-ungarisch-kenntnissen-m-w-d-hilcona-undefined",
+        "it": "collaboratore-personale-con-conoscenze-ungheresi-m-w-d-hilcona-ag-bell-food-group-landquart",
+        "en": "personnel-assistant-with-hungarian-knowledge-m-w-d-hilcona-ag-bell-food-group-landquart",
         "de": "mitarbeiter-personal-mit-ungarisch-kenntnissen-m-w-d-hilcona-undefined",
-        "fr": "mitarbeiter-personal-mit-ungarisch-kenntnissen-m-w-d-hilcona-undefined"
+        "fr": "assistant-personnel-avec-connaissances-hongroises-m-w-d-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -5336,7 +5464,8 @@
       "crawledAt": "2026-04-02T13:38:52.553Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-personal-mit-ungarisch-kenntnissen-m-w-d-hilcona-undefined"
+        "mitarbeiter-personal-mit-ungarisch-kenntnissen-m-w-d-hilcona-undefined",
+        "collaboratore-trice-personal-con-ungarisch-kenntnissen-m-w-d-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -5356,10 +5485,10 @@
       "id": "hilcona-4e4a95804e43",
       "slug": "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-ag-bell-food-group-landquart",
       "slugByLocale": {
-        "it": "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-ag-bell-food-group-landquart",
-        "en": "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-ag-bell-food-group-landquart",
+        "it": "operatore-di-impianti-operatrice-di-impianti-efz-2026-hilcona-ag-bell-food-group-landquart",
+        "en": "plant-operator-plant-operator-efz-2026-hilcona-ag-bell-food-group-landquart",
         "de": "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-undefined",
-        "fr": "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-ag-bell-food-group-landquart"
+        "fr": "conducteur-d-installations-conductrice-d-installations-efz-2026-hilcona-ag-bell-food-group-landquart"
       },
       "company": "Hilcona AG (Bell Food Group)",
       "companyKey": "hilcona",
@@ -5400,7 +5529,8 @@
       "crawledAt": "2026-04-02T13:38:52.352Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-undefined"
+        "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-undefined",
+        "anlagenfuehrer-anlagenfuehrerin-efz-2026-hilcona-ag-bell-food-group-landquart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
