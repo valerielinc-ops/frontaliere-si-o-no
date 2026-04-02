@@ -1,19 +1,51 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-04-01T21:37:35.326Z",
+  "generatedAt": "2026-04-02T09:41:22.380Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2951,
-  "avgDurationMs": 2951,
+  "unchangedCount": 0,
+  "durationMs": 3996,
+  "avgDurationMs": 3996,
   "durationHistory": [
-    2951
+    3996
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "pkb-private-bank-178b665b7fb0",
+      "slug": "disclaimer-pkb-private-bank-lugano",
+      "company": "PKB Private Bank",
+      "companyKey": "pkb-private-bank",
+      "companyDomain": "pkb.ch",
+      "title": "Disclaimer",
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via S. Balestra 1",
+      "category": "finance",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://careers.pkb.ch/jobs.php?source=&lan=en&language=en",
+      "source": "PKB Dedicated Parser",
+      "crawledAt": "2026-04-02T09:41:20.543Z",
+      "_qualityScore": 65,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 10,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
