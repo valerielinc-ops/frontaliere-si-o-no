@@ -1,6 +1,6 @@
 {
   "crawlerKey": "international-school-of-ticino",
-  "assembledAt": "2026-04-01T21:25:51.716Z",
+  "assembledAt": "2026-04-02T12:23:37.715Z",
   "jobs": [
     {
       "url": "https://jobs.inspirededu.com/job/Lugano-Expression-of-Interest-International-School-of-Ticino/1331830557/",
@@ -70,75 +70,8 @@
       "postalCode": "6814",
       "addressLocality": "Cadempino",
       "addressRegion": "TI",
-      "addressCountry": "CH"
-    },
-    {
-      "url": "https://jobs.inspirededu.com/job/Lugano-History-Teacher/1351808857/",
-      "applyUrl": "https://jobs.inspirededu.com/job/Lugano-History-Teacher/1351808857/",
-      "title": "History Teacher",
-      "company": "International School of Ticino",
-      "companyKey": "international-school-of-ticino",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "description": "Inspired Education is the leading global group of premium schools, with a portfolio of 126 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13.\n\nThe International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino.",
-      "descriptionByLocale": {
-        "it": "Posizione aperta presso la International School of Ticino a Lugano. Ruolo: History Teacher. La International School of Ticino (IST) fa parte di Inspired Education Group, uno dei principali gruppi scolastici premium al mondo. Situata a Lugano, IST offre un ambiente di apprendimento internazionale stimolante in Ticino.",
-        "en": "Inspired Education is the leading global group of premium schools, with a portfolio of 126 premium private schools spanning 6 continents which utilise proven educational practices from every corner of the globe, ensuring over 95,000 students receive a world-class learning experience from Kindergarten to Year 13. The International School of Ticino (IST) is part of the Inspired Education Group, one of the world's leading premium school groups. Located in Lugano, IST offers a stimulating international learning environment in Ticino.",
-        "de": "Inspired Education ist die führende globale Gruppe von Premium-Schulen, mit einem Portfolio von 126 Premium-Privatschulen über 6 Kontinente, die bewährte Bildungspraktiken aus jeder Ecke der Welt nutzen, um sicherzustellen, dass über 95.000 Studenten erhalten eine erstklassige Lernerfahrung von Kindergarten zu Jahr 13. Die International School of Ticino (IST) ist Teil der Inspired Education Group, einer der weltweit führenden Premium-Schulgruppen. Das IST in Lugano bietet eine anregende internationale Lernumgebung in Tessin.",
-        "fr": "Inspired Education est le premier groupe mondial d'écoles haut de gamme, avec un portefeuille de 126 écoles privées haut de gamme réparties sur 6 continents qui utilisent des pratiques éducatives éprouvées de tous les coins du monde, assurant plus de 95 000 étudiants reçoivent une expérience d'apprentissage de classe mondiale de la maternelle à l'année 13. L'École Internationale du Tessin (IST) fait partie du Groupe Inspiré de l'Education, l'un des principaux groupes d'écoles haut de gamme au monde. Situé à Lugano, l'IST offre un environnement d'apprentissage international stimulant au Tessin."
-      },
-      "titleByLocale": {
-        "it": "History Teacher",
-        "en": "History Teacher",
-        "de": "Geschichte Lehrer",
-        "fr": "Professeur d'histoire"
-      },
-      "slug": "history-teacher-international-school-of-ticino-cadempino",
-      "slugByLocale": {
-        "it": "history-teacher-international-school-of-ticino-cadempino",
-        "en": "history-teacher-international-school-of-ticino-lugano-jzfueu",
-        "de": "geschichte-lehrer-international-school-of-ticino-lugano",
-        "fr": "professeur-d-histoire-international-school-of-ticino-lugano"
-      },
-      "category": "education",
-      "datePosted": "2026-03-04",
-      "source": "ist-inspirededu-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione / Scuola internazionale",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "jobReqId": "1351808857",
-      "crawledAt": "",
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "history-teacher-ist",
-        "history-teacher-international-school-of-ticino-lugano",
-        "storia-maestro-international-school-of-ticino-lugano",
-        "insegnante-di-storia-international-school-of-ticino-lugano"
-      ],
-      "sourceLang": "en",
-      "salaryMin": 83500,
-      "salaryMax": 112500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 112500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Ponteggia 23",
-      "postalCode": "6814",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     }
   ]
 }

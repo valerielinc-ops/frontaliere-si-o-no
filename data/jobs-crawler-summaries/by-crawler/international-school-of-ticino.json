@@ -1,100 +1,19 @@
 {
   "key": "international-school-of-ticino",
   "label": "International School of Ticino",
-  "generatedAt": "2026-04-01T21:25:51.717Z",
-  "total": 2,
+  "generatedAt": "2026-04-02T12:23:37.716Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3754,
-  "avgDurationMs": 3754,
+  "unchangedCount": 0,
+  "durationMs": 4172,
+  "avgDurationMs": 4172,
   "durationHistory": [
-    3754
+    4172
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://jobs.inspirededu.com/job/Lugano-Expression-of-Interest-International-School-of-Ticino/1331830557/",
-      "applyUrl": "https://jobs.inspirededu.com/job/Lugano-Expression-of-Interest-International-School-of-Ticino/1331830557/",
-      "title": "Expression of Interest - International School of Ticino",
-      "company": "International School of Ticino",
-      "companyKey": "international-school-of-ticino",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "espressione-di-interesse-scuola-internazionale-di-ticino-international-school-of-ticino-lugano",
-      "category": "general",
-      "datePosted": "2026-03-07",
-      "source": "ist-inspirededu-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Istruzione / Scuola internazionale",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "jobReqId": "1331830557",
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Ponteggia 23",
-      "postalCode": "6814",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://jobs.inspirededu.com/job/Lugano-History-Teacher/1351808857/",
-      "applyUrl": "https://jobs.inspirededu.com/job/Lugano-History-Teacher/1351808857/",
-      "title": "History Teacher",
-      "company": "International School of Ticino",
-      "companyKey": "international-school-of-ticino",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "history-teacher-international-school-of-ticino-cadempino",
-      "category": "education",
-      "datePosted": "2026-03-04",
-      "source": "ist-inspirededu-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione / Scuola internazionale",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "jobReqId": "1351808857",
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 83500,
-      "salaryMax": 112500,
-      "currency": "CHF",
-      "streetAddress": "Via Ponteggia 23",
-      "postalCode": "6814",
-      "addressLocality": "Cadempino",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
