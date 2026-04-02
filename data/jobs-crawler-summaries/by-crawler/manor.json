@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-04-02T09:35:08.051Z",
+  "generatedAt": "2026-04-02T10:12:11.318Z",
   "total": 4,
   "newCount": 0,
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8680,
-  "avgDurationMs": 8680,
+  "durationMs": 36019,
+  "avgDurationMs": 36019,
   "durationHistory": [
-    8680
+    36019
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -28,12 +28,11 @@
       "source": "company-website",
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 14,
+        "richness": 18,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -51,12 +50,11 @@
       "source": "company-website",
       "slug": "manor-collaborateur-trice-service-manora-50-locarno",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 14,
+        "richness": 18,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -74,12 +72,11 @@
       "source": "company-website",
       "slug": "manor-apprendista-polydesigner-3d-afc-100-lugano",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 14,
+        "richness": 18,
+        "translation": 25,
         "completeness": 11
       }
     },
@@ -97,12 +94,11 @@
       "source": "company-website",
       "slug": "manor-polydesigner-3d-afc-100-lugano",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 70,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 14,
-        "translation": 20,
+        "richness": 18,
+        "translation": 25,
         "completeness": 11
       }
     }
