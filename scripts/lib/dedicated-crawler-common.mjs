@@ -975,14 +975,23 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       job.titleByLocale[sourceLang] = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
       jobChanged = true;
     }
-    if (baseDesc && !String(job.descriptionByLocale[sourceLang] || '').trim()) {
-      // Only copy baseDesc if it's substantial content, not page chrome/boilerplate/placeholder
-      const isGarbage = baseDesc.length < 80 ||
-        /^(Zum Hauptinhalt|Skip to|Aller au|Vai al)/i.test(baseDesc) ||
-        isPlaceholderDescription(baseDesc);
-      if (!isGarbage) {
+    if (baseDesc && baseDesc.length >= 80 &&
+        !/^(Zum Hauptinhalt|Skip to|Aller au|Vai al)/i.test(baseDesc) &&
+        !isPlaceholderDescription(baseDesc)) {
+      const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();
+      // Overwrite when empty OR when the locale copy has lost significant content
+      // compared to the authoritative base (truncated AI retranslation, stale cache).
+      // Threshold: 85% — below this the source locale is considered corrupt.
+      const contentRatio = currentSourceDesc ? currentSourceDesc.length / baseDesc.length : 0;
+      if (!currentSourceDesc || contentRatio < 0.85) {
         job.descriptionByLocale[sourceLang] = baseDesc;
         jobChanged = true;
+        // Cascade: other locale translations were derived from the truncated source
+        // and are equally incomplete. Keep them visible (better partial than nothing)
+        // but mark for retranslation so the pipeline regenerates from the restored source.
+        if (currentSourceDesc && contentRatio < 0.85) {
+          job.needsRetranslation = true;
+        }
       }
     }
 
@@ -2411,16 +2420,21 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         job.titleByLocale[titleSourceLang] = baseTitle;
       }
       const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();
+      // Restore base as source-locale when the locale copy is empty, too short,
+      // or has lost significant content vs the authoritative base (threshold: 85%).
+      const sourceContentRatio = currentSourceDesc.length / Math.max(1, baseDesc.length);
       const shouldRestoreSourceDesc =
         !!baseDesc &&
         baseDesc.length >= minDescriptionChars &&
-        currentSourceDesc.length < minDescriptionChars;
+        (!currentSourceDesc || sourceContentRatio < 0.85);
       if (shouldRestoreSourceDesc) {
         job.descriptionByLocale[sourceLang] = baseDesc;
         jobTranslated = true;
-      } else if (baseDesc && !currentSourceDesc) {
-        job.descriptionByLocale[sourceLang] = baseDesc;
-        jobTranslated = true;
+        // Cascade: if source was truncated, derived translations are also bad.
+        // Clear them so the loop below retranslates from the restored source.
+        if (currentSourceDesc && sourceContentRatio < 0.85) {
+          job.needsRetranslation = true;
+        }
       }
 
       const sourceTitle = String(job.titleByLocale[titleSourceLang] || baseTitle).trim();
@@ -2457,20 +2471,24 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         const sourceDescriptionIsRich = sourceDesc.length >= minDescriptionChars;
         const isGarbageCopy = currentDesc && normalize(currentDesc) === normalize(baseDesc) &&
           baseDesc.length < 400 && /^(Zum Hauptinhalt|Skip to|Aller au|Vai al|Springe)/i.test(baseDesc);
-        // Quality gate: translation is suspiciously thin — less than 30% of source length
-        // while source is substantial (≥500 chars). Indicates the translation pipeline
-        // produced a fallback boilerplate sentence instead of translating the full content.
+        // Quality gate: translation is suspiciously thin compared to source.
+        // A faithful translation should be ≥70% of source length. Below that,
+        // the AI likely truncated, summarized, or produced a boilerplate fallback.
         const isThinTranslation =
           locale !== sourceLang &&
           currentDesc.length > 0 &&
           sourceDesc.length >= 500 &&
-          currentDesc.length < sourceDesc.length * 0.3;
+          currentDesc.length < sourceDesc.length * 0.7;
         const descNeedsWork =
           !currentDesc ||
           isGarbageCopy ||
           isThinTranslation ||
           (sourceDescriptionIsRich && currentDesc.length < minDescriptionChars) ||
-          (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc));
+          (locale !== sourceLang && normalize(currentDesc) === normalize(sourceDesc)) ||
+          // When the source description was just restored from a richer base (85% rule),
+          // force re-translation of all non-source locales — the old translations were
+          // derived from the truncated source and are equally incomplete.
+          (locale !== sourceLang && shouldRestoreSourceDesc && !!currentSourceDesc);
 
         if (locale === titleSourceLang) {
           if (!String(job.titleByLocale[locale] || '').trim() && sourceTitle) {

@@ -408,6 +408,11 @@ const JOB_SECTION_KEYWORDS = [
   'Your tasks', 'Your responsibilities', 'What you will do', 'Role description',
   'What we offer', 'What we expect', 'Your profile', 'Requirements', 'Benefits',
   'Your benefits', 'What you bring', 'About us', 'Contact',
+  'Key Responsibilities', 'Role Focus', 'Experience & Skills Required',
+  'What Success Looks Like', 'Our Commitment to Diversity and Inclusion',
+  'Qualifications', 'Skills', 'Education', 'Responsibilities',
+  'Job Description', 'Job Summary', 'Who We Are', 'Who You Are',
+  'What You Bring', 'Nice to Have', 'Preferred Qualifications',
   // DE
   'Deine Aufgaben', 'Ihre Aufgaben', 'Aufgaben', 'Was wir bieten',
   'Was wir erwarten', 'Dein Profil', 'Ihr Profil', 'Anforderungen', 'Vorteile',
