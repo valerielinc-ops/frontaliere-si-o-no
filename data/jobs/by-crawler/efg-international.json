@@ -2584,7 +2584,7 @@
       },
       "crawledAt": "2026-04-01T21:14:54.648Z",
       "slugByLocale": {
-        "it": "client-support-officer-efg-st-moritz",
+        "it": "addetto-all-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
         "de": "client-support-officer-efg-st-moritz",
         "fr": "client-support-officer-efg-st-moritz"
@@ -2609,7 +2609,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "client-support-officer-efg-st-moritz"
+      ]
     },
     {
       "id": "efg-6175",

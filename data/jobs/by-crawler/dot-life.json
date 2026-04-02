@@ -159,7 +159,7 @@
       "slugByLocale": {
         "it": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
         "en": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
-        "de": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
+        "de": "buroleiter-dot-life-sa-paradiso-canton-ticino-svizzera",
         "fr": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera"
       },
       "needsRetranslation": true,
@@ -177,7 +177,10 @@
         }
       },
       "streetAddress": "Via Balestra 12",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "previousSlugs": [
+        "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera"
+      ]
     }
   ]
 }

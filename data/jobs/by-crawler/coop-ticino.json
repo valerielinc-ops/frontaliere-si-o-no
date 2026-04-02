@@ -40,10 +40,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkaufsberater-in-interdiscount-chur-graubunden-x19tlj",
-        "en": "verkaufsberater-in-interdiscount-chur-graubunden-x19tlj",
+        "it": "venditore-a-interdiscount-chur",
+        "en": "sales-advisor-interdiscount-chur",
         "de": "verkaufsberater-in-interdiscount-chur-graubunden-x19tlj",
-        "fr": "verkaufsberater-in-interdiscount-chur-graubunden-x19tlj"
+        "fr": "conseiller-ere-de-vente-interdiscount-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -58,7 +58,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-interdiscount-chur-graubunden-x19tlj"
+      ]
     },
     {
       "id": "company-jri4bo",
@@ -107,10 +110,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-coop-ristorante-chur-graubunden-jri4bo",
-        "en": "associate-gastronomie-coop-ristorante-chur-graubunden-jri4bo",
+        "it": "addetto-a-gastronomia-coop-genossenschaft-chur",
+        "en": "catering-staff-coop-genossenschaft-chur",
         "de": "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden-jri4bo",
-        "fr": "collaborateur-trice-gastronomie-coop-ristorante-chur-graubunden-jri4bo"
+        "fr": "employe-e-en-restauration-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -125,7 +128,12 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "collaboratore-trice-gastronomie-coop-ristorante-chur-graubunden-jri4bo",
+        "associate-gastronomie-coop-ristorante-chur-graubunden-jri4bo",
+        "collaborateur-trice-gastronomie-coop-ristorante-chur-graubunden-jri4bo"
+      ]
     },
     {
       "id": "company-5t9qhe",
@@ -174,10 +182,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-gastronomie-coop-landquart-graubunden-5t9qhe",
-        "en": "associate-gastronomie-coop-landquart-graubunden-5t9qhe",
+        "it": "addetto-a-alla-gastronomia-coop-genossenschaft-landquart",
+        "en": "gastronomy-team-member-coop-genossenschaft-landquart",
         "de": "mitarbeiter-in-gastronomie-coop-landquart-graubunden-5t9qhe",
-        "fr": "collaborateur-trice-gastronomie-coop-landquart-graubunden-5t9qhe"
+        "fr": "membre-de-l-equipe-de-gastronomie-coop-genossenschaft-landquart"
       },
       "addressLocality": "Landquart",
       "sourceLang": "de",
@@ -192,7 +200,12 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "collaboratore-trice-gastronomie-coop-landquart-graubunden-5t9qhe",
+        "associate-gastronomie-coop-landquart-graubunden-5t9qhe",
+        "collaborateur-trice-gastronomie-coop-landquart-graubunden-5t9qhe"
+      ]
     },
     {
       "id": "company-9xtr67",

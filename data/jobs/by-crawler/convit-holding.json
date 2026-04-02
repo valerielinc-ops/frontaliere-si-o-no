@@ -39,7 +39,7 @@
       },
       "slugByLocale": {
         "it": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-massagno",
-        "en": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-massagno",
+        "en": "financial-planning-intern-lateral-entry-indefinite-term-convit-holding-gmbh-massagno",
         "de": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-massagno",
         "fr": "planification-financiere-tirocinante-entree-laterale-duree-indeterminee-convit-holding-gmbh-massagno"
       },
@@ -280,7 +280,7 @@
       },
       "slugByLocale": {
         "it": "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
-        "en": "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-mendrisio-borgo",
+        "en": "entry-position-financial-consulting-paid-training-convit-holding-gmbh-mendrisio-borgo",
         "de": "posizione-di-ingresso-consulenza-finanziaria-formazione-pagata-convit-holding-gmbh-mendrisio-borgo",
         "fr": "poste-d-entree-conseil-financier-formation-remuneree-convit-holding-gmbh-mendrisio-borgo"
       },
@@ -343,8 +343,8 @@
       "slugByLocale": {
         "it": "pianificazione-finanziaria-junior-mentoring-convit-gordola",
         "en": "financial-planning-junior-mentoring-convit-holding-gmbh-gordola",
-        "de": "pianificazione-finanziaria-junior-mentoring-convit-gordola",
-        "fr": "planification-financiere-juin-mentorat-convit-holding-gmbh-gordola"
+        "de": "finanzplanung-junior-mentoring-convit-holding-gmbh-gordola",
+        "fr": "planification-financiere-junior-mentorat-convit-holding-gmbh-gordola"
       },
       "salaryMin": 61000,
       "salaryMax": 83000,
@@ -364,7 +364,8 @@
       "previousSlugs": [
         "pianificazione-finanziaria-junior-mentoring-convit-gordola",
         "financial-planning-junior-mentoring-convit-holding-gmbh-gordola",
-        "pianificazione-finanziaria-junior-mentoring-convit-holding-gmbh-gordola"
+        "pianificazione-finanziaria-junior-mentoring-convit-holding-gmbh-gordola",
+        "planification-financiere-juin-mentorat-convit-holding-gmbh-gordola"
       ]
     },
     {
@@ -404,7 +405,7 @@
       },
       "slugByLocale": {
         "it": "pianificatore-finanziario-regionale-junior-ibrido-convit-magadino",
-        "en": "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino",
+        "en": "regional-financial-planner-junior-hybrid-convit-holding-gmbh-magadino",
         "de": "regionaler-finanzplaner-junior-hybrid-convit-holding-gmbh-magadino",
         "fr": "planificateur-financier-regional-junior-hybride-convit-holding-gmbh-magadino"
       },
@@ -425,7 +426,8 @@
       "postalCode": "6900",
       "previousSlugs": [
         "pianificatore-finanziario-regionale-junior-ibrido-convit-magadino",
-        "regional-financial-planner-junior-hybrid-convit-holding-gmbh-magadino-29vs6a"
+        "regional-financial-planner-junior-hybrid-convit-holding-gmbh-magadino-29vs6a",
+        "pianificatore-finanziario-regionale-junior-ibrido-convit-holding-gmbh-magadino"
       ],
       "needsRetranslation": true
     },
@@ -466,7 +468,7 @@
       },
       "slugByLocale": {
         "it": "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-cugnasco-gerra",
-        "en": "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-cugnasco-gerra",
+        "en": "financial-planner-side-entry-fixed-bonus-convit-holding-gmbh-cugnasco-gerra",
         "de": "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-cugnasco-gerra",
         "fr": "planificateur-financier-entree-laterale-fixe-bonus-convit-holding-gmbh-cugnasco-gerra"
       },
@@ -529,7 +531,7 @@
       },
       "slugByLocale": {
         "it": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-giubiasco-monte-carasso",
-        "en": "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
+        "en": "entrance-financial-counseling-3a-3b-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso",
         "de": "zulassung-3a-3b-finanzberatung-flexible-stunden-convit-holding-gmbh-giubiasco-monte-carasso",
         "fr": "ingresso-consulenza-finanziaria-3a-3b-orari-flessibili-convit-holding-gmbh-giubiasco-monte-carasso"
       },
@@ -549,7 +551,8 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso"
+        "admission-3a-3b-conseils-financiers-horaires-flexibles-convit-holding-gmbh-giubiasco-monte-carasso",
+        "admission-3a-3b-financial-advice-flexible-hours-convit-holding-gmbh-giubiasco-monte-carasso"
       ],
       "needsRetranslation": true
     },
@@ -828,13 +831,14 @@
       },
       "slugByLocale": {
         "it": "consulenza-previdenziale-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
-        "en": "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+        "en": "pension-counseling-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
         "de": "vorlaufige-beratung-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
         "fr": "conseils-preliminaires-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
       },
       "previousSlugs": [
         "consulenza-previdenziale-3a-3b-homeoffice-convit-pazzallo",
-        "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
+        "preliminary-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo",
+        "pension-advice-3a-3b-homeoffice-convit-holding-gmbh-pazzallo"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -951,7 +955,7 @@
       },
       "slugByLocale": {
         "it": "consulenza-finanziaria-regionale-ticino-convit-tesserete",
-        "en": "ticino-regional-financial-advice-convit-holding-gmbh-tesserete",
+        "en": "ticino-regional-financial-consulting-convit-holding-gmbh-tesserete",
         "de": "ticino-regionale-finanzberatung-convit-holding-gmbh-tesserete",
         "fr": "conseil-financier-regional-tessin-convit-holding-gmbh-tesserete"
       },
@@ -974,7 +978,8 @@
         "consulenza-finanziaria-regionale-ticino-convit-tesserete",
         "regional-financial-consultancy-ticino-convit-holding-gmbh-tesserete-trcvhc",
         "regionale-finanzberatung-tessin-convit-holding-gmbh-tesserete-trcvhc",
-        "consulenza-finanziaria-regionale-ticino-convit-holding-gmbh-tesserete"
+        "consulenza-finanziaria-regionale-ticino-convit-holding-gmbh-tesserete",
+        "ticino-regional-financial-advice-convit-holding-gmbh-tesserete"
       ],
       "needsRetranslation": true
     },
@@ -1015,7 +1020,7 @@
       },
       "slugByLocale": {
         "it": "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-arbedo-castione",
-        "en": "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione",
+        "en": "online-financial-counseling-side-entry-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
         "de": "online-finanzberatung-seiteneingang-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
         "fr": "conseils-financiers-en-ligne-entree-laterale-hybride-homeoffice-convit-holding-gmbh-arbedo-castione"
       },
@@ -1037,7 +1042,8 @@
       "previousSlugs": [
         "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-arbedo-castione",
         "online-financial-advice-side-entrance-hybrid-homeoffice-convit-holding-gmbh-arbedo-castione",
-        "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione"
+        "consulenza-finanziaria-online-entrata-laterale-ibrido-homeoffice-convit-holding-gmbh-arbedo-castione",
+        "online-financial-advice-side-entry-hybrid-home-office-convit-holding-gmbh-arbedo-castione"
       ],
       "needsRetranslation": true
     },
@@ -1323,7 +1329,7 @@
       },
       "slugByLocale": {
         "it": "consulente-privati-piani-di-risparmio-junior-homeoffice-convit-origlio",
-        "en": "private-consultant-savings-plans-junior-homeoffice-convit-holding-gmbh-origlio",
+        "en": "private-savings-plan-consultant-junior-homeoffice-convit-holding-gmbh-origlio",
         "de": "private-berater-sparplane-junior-homeoffice-convit-holding-gmbh-origlio",
         "fr": "consulente-privati-piani-di-risparmio-junior-homeoffice-convit-holding-gmbh-origlio"
       },
@@ -1343,7 +1349,8 @@
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
       "previousSlugs": [
-        "plans-d-epargne-des-consultants-prives-joint-homeoffice-convit-holding-gmbh-origlio"
+        "plans-d-epargne-des-consultants-prives-joint-homeoffice-convit-holding-gmbh-origlio",
+        "private-consultant-savings-plans-junior-homeoffice-convit-holding-gmbh-origlio"
       ],
       "needsRetranslation": true
     },
@@ -1447,13 +1454,14 @@
       },
       "slugByLocale": {
         "it": "consulente-privati-3a-3b-ibrido-convit-sementina",
-        "en": "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina",
+        "en": "private-consultant-3a-3b-hybrid-convit-holding-gmbh-sementina",
         "de": "privater-berater-3a-3b-hybrid-convit-holding-gmbh-sementina",
         "fr": "consulente-privati-3a-3b-ibrido-convit-holding-gmbh-sementina"
       },
       "previousSlugs": [
         "consultant-prive-3a-3b-hybrid-convit-holding-gmbh-sementina",
-        "private-consultant-3a-3b-hybrid-convit-holding-gmbh-sementina"
+        "private-consultant-3a-3b-hybrid-convit-holding-gmbh-sementina",
+        "private-advisor-3a-3b-hybrid-convit-holding-gmbh-sementina"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1572,7 +1580,7 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-risparmio-junior-convit-lugano",
-        "en": "pension-savings-advisor-junior-convit-holding-gmbh-lugano",
+        "en": "pension-savings-consultant-junior-convit-holding-gmbh-lugano",
         "de": "privater-berater-und-ersparnisse-junior-convit-holding-gmbh-lugano",
         "fr": "consultant-prive-epargne-junior-convit-holding-gmbh-lugano"
       },
@@ -1594,7 +1602,8 @@
       "previousSlugs": [
         "consulente-previdenziale-risparmio-junior-convit-lugano",
         "private-consultant-savings-junior-convit-holding-gmbh-lugano",
-        "consulente-previdenziale-risparmio-junior-convit-holding-gmbh-lugano"
+        "consulente-previdenziale-risparmio-junior-convit-holding-gmbh-lugano",
+        "pension-savings-advisor-junior-convit-holding-gmbh-lugano"
       ],
       "needsRetranslation": true
     },
@@ -1635,8 +1644,8 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-pianificazione-ibrido-convit-montagnola",
-        "en": "consulente-previdenziale-pianificazione-ibrido-convit-montagnola",
-        "de": "consulente-previdenziale-pianificazione-ibrido-convit-holding-gmbh-montagnola",
+        "en": "prevident-adviser-hybrid-planning-convit-holding-gmbh-montagnola",
+        "de": "vorlaufiger-berater-und-hybridplanung-convit-holding-gmbh-montagnola",
         "fr": "conseiller-precedent-et-planification-hybride-convit-holding-gmbh-montagnola"
       },
       "salaryMin": 82500,
@@ -1761,7 +1770,7 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-losone",
-        "en": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-losone",
+        "en": "pension-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-gmbh-losone",
         "de": "social-security-consultant-m-f-d-eintritt-ohne-ausbildung-ote-bis-7500-chf-convit-holding-gmbh-losone",
         "fr": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-losone"
       },
@@ -2011,7 +2020,7 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-ote-fino-a-7500-chf-convit-neggio",
-        "en": "pension-advisor-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio",
+        "en": "private-consultant-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio",
         "de": "rentenberater-junior-ote-bis-zu-7500-chf-convit-holding-gmbh-neggio",
         "fr": "conseiller-en-retraite-junior-ote-jusqu-a-7500-chf-convit-holding-gmbh-neggio"
       },
@@ -2035,7 +2044,8 @@
         "private-consultant-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio",
         "consulente-previdenziale-junior-ote-fino-a-7500-chf-convit-holding-gmbh-neggio",
         "privater-berater-junior-ote-bis-7500-chf-convit-holding-gmbh-neggio",
-        "consultant-prive-junior-ote-jusqu-a-7500-chf-convit-holding-gmbh-neggio"
+        "consultant-prive-junior-ote-jusqu-a-7500-chf-convit-holding-gmbh-neggio",
+        "pension-advisor-junior-ote-up-to-7500-chf-convit-holding-gmbh-neggio"
       ]
     },
     {
@@ -2075,7 +2085,7 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-camorino",
-        "en": "consulente-previdenziale-junior-entrata-laterale-mentoring-coaching-convit-camorino",
+        "en": "pension-consultant-junior-lateral-entry-mentoring-coaching-convit-holding-gmbh-camorino",
         "de": "prevident-consultant-junior-seitlicher-eingang-mentoring-coaching-convit-holding-gmbh-camorino",
         "fr": "consultant-precedent-joint-entree-laterale-mentorat-et-coaching-convit-holding-gmbh-camorino"
       },
@@ -2138,7 +2148,7 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-paradiso",
-        "en": "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
+        "en": "pension-consultant-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
         "de": "vorlaufiger-berater-ibrid-eintrag-ohne-erfahrung-convit-holding-gmbh-paradiso",
         "fr": "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-paradiso"
       },
@@ -2160,7 +2170,8 @@
       "previousSlugs": [
         "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-paradiso",
         "prevident-adviser-ibrid-entry-without-experience-convit-holding-gmbh-paradiso",
-        "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso"
+        "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-holding-gmbh-paradiso",
+        "pension-advisor-hybrid-entry-without-experience-convit-holding-gmbh-paradiso"
       ],
       "needsRetranslation": true
     }
