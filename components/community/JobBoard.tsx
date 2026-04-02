@@ -3144,6 +3144,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
         : jobOrSlug
           ? deriveLocalizedJobSlug(jobOrSlug, locale)
           : '';
+    // Defense-in-depth: if no slug resolved, return current pathname
+    // instead of the listing page URL to preserve static HTML canonical.
+    if (!localizedSlug) return window.location.pathname;
     return buildPath({ activeTab: 'job-board' as any, ...(localizedSlug ? { jobSlug: localizedSlug } : {}) }, locale);
   };
 
@@ -3164,6 +3167,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
     // momentarily revert to the generic listing-page values.
     if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter && !editorialLandingDescriptor) {
       return;
+    }
+
+    // FRO-SEO: When the user arrived via a previousSlug (bridge page), the
+    // build plugin already set the correct canonical pointing to the current
+    // slug URL. The SPA should NOT overwrite it — deriveLocalizedJobSlug()
+    // would produce the current slug which differs from the URL, creating a
+    // canonical mismatch that confuses Google's JS renderer.
+    if (selectedJob && initialJobSlug) {
+      const currentSlug = deriveLocalizedJobSlug(selectedJob, locale);
+      // Check if initialJobSlug matches ANY current locale slug (not a previousSlug)
+      const isCurrentSlug = currentSlug === initialJobSlug ||
+        selectedJob.slug === initialJobSlug ||
+        (['it', 'en', 'de', 'fr'] as const).some(l => deriveLocalizedJobSlug(selectedJob, l) === initialJobSlug);
+      if (!isCurrentSlug) {
+        // URL slug is a previousSlug → preserve static HTML canonical (already
+        // points to the current slug via bridge page mechanism).
+        // Still update title/description for user experience.
+        const localizedDescription = selectedJob.descriptionByLocale?.[locale] ?? selectedJob.description;
+        const localizedTitle = sanitizeJobTitle(selectedJob.titleByLocale?.[locale] ?? selectedJob.title);
+        const suffix = ' | Frontaliere Ticino';
+        const sep = ' — ';
+        const company = selectedJob.company;
+        const candidate = `${localizedTitle}${sep}${company}${suffix}`;
+        document.title = candidate.length <= 60 ? candidate : `${localizedTitle}${sep}${company}`.slice(0, 60);
+        const metaDesc = document.querySelector('meta[name="description"]');
+        if (metaDesc) metaDesc.setAttribute('content', String(localizedDescription || '').slice(0, 160));
+        return;
+      }
     }
 
     // Defense-in-depth: if we're on a job detail URL (initialJobSlug is set)
