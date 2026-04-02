@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pkb-private-bank",
-  "assembledAt": "2026-04-02T09:41:22.379Z",
+  "assembledAt": "2026-04-02T10:51:40.337Z",
   "jobs": [
     {
       "id": "pkb-private-bank-178b665b7fb0",
@@ -66,7 +66,8 @@
       },
       "previousSlugs": [
         "disclaimer-pkb-private-bank-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
