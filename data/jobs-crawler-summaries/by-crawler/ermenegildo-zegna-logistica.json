@@ -1,21 +1,19 @@
 {
   "key": "ermenegildo-zegna-logistica",
   "label": "Zegna",
-  "generatedAt": "2026-04-01T21:55:15.899Z",
+  "generatedAt": "2026-04-02T11:44:11.079Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 7511,
-  "avgDurationMs": 7511,
+  "unchangedCount": 0,
+  "durationMs": 7815,
+  "avgDurationMs": 7815,
   "durationHistory": [
-    7511
+    7815
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "url": "https://careers.zegnagroup.com/jobs/job-details?JobID=259465840&Team=231361275",
       "applyUrl": "https://careers.zegnagroup.com/jobs/job-details?JobID=259465840&Team=231361275",
@@ -25,7 +23,7 @@
       "location": "Stabio",
       "canton": "TI",
       "country": "CH",
-      "slug": "senior-credit-specialista-ermenegildo-zegna-group-stabio",
+      "slug": "senior-credit-specialista-ermenegildo-zegna-group-stabio-jj2eb9",
       "department": "Corporate and Staff Functions/Finance & Control",
       "category": "Corporate and Staff Functions/Finance & Control",
       "datePosted": "2026-03-29",
@@ -66,14 +64,14 @@
       "location": "Stabio",
       "canton": "TI",
       "country": "CH",
-      "slug": "it-in-store-sales-specialista-ermenegildo-zegna-group-stabio",
+      "slug": "it-in-store-sales-specialista-ermenegildo-zegna-group-stabio-f73689",
       "department": "Corporate and Staff Functions/Information Technology",
-      "category": "corporate",
+      "category": "Corporate and Staff Functions/Information Technology",
       "datePosted": "2026-03-29",
       "source": "zegna-careers-crawler",
       "employmentType": "FULL_TIME",
       "experienceLevel": "",
-      "sector": "Lusso & Moda",
+      "sector": "IT",
       "brand": "Zegna",
       "contractType": "Permanent Job",
       "_targetScope": {
@@ -98,5 +96,7 @@
         "completeness": 20
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
