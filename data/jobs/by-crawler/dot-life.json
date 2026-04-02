@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dot-life",
-  "assembledAt": "2026-04-01T21:13:47.618Z",
+  "assembledAt": "2026-04-02T10:27:30.619Z",
   "jobs": [
     {
       "title": "Addetto alla selezione di personale acquisizione di talenti",
@@ -120,7 +120,8 @@
         }
       },
       "streetAddress": "Via Balestra 12",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "title": "Front office manager",
@@ -153,10 +154,10 @@
         "fr": "Front office manager"
       },
       "descriptionByLocale": {
-        "it": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
-        "en": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
-        "de": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
-        "fr": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking."
+        "it": "Descrizione dell'azienda Descrizione del ruolo Qualifiche - Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa. - Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità. - Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo. - Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
+        "en": "Descrizione dell'azienda Descrizione del ruolo Qualifiche - Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa. - Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità. - Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo. - Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
+        "de": "Descrizione dell'azienda Descrizione del ruolo Qualifiche - Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa. - Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità. - Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo. - Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
+        "fr": "Descrizione dell'azienda Descrizione del ruolo Qualifiche - Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa. - Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità. - Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo. - Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking."
       },
       "slugByLocale": {
         "it": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
@@ -164,7 +165,6 @@
         "de": "buroleiter-dot-life-sa-paradiso-canton-ticino-svizzera",
         "fr": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera"
       },
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -182,7 +182,8 @@
       "postalCode": "6900",
       "previousSlugs": [
         "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
