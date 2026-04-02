@@ -1922,6 +1922,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.san-gottardo-code-giovedi-santo.title': 'San Gottardo, Stau am Gründonnerstag: keine Überraschung, viel Geduld',
     'blog.article.san-gottardo-code-giovedi-santo.excerpt': 'Die San-Gottardo-Autobahn in der Hauptsaison: Verzögerungen und Staus in Richtung Tessin und Italien',
     'blog.article.san-gottardo-code-giovedi-santo.imageAlt': 'San Gottardo während der Hochsaison',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Como und der See: Pascha ist ein Boom: \'Buchungen über 90 % in der Stadt\'. Achte jedoch: \'Bedenken für die Sommerzeit\'',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'Pascha in Como und am See ist ein Boom: Buchungen über 90 %. Doch gibt es Bedenken für die Sommerzeit.',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lake Lugano mit Menschen, die den Landschaft genießen',
 };
 
 export default blogMetaDe;

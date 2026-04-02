@@ -1922,6 +1922,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.san-gottardo-code-giovedi-santo.title': 'San Gottardo, traffic jam since Holy Thursday: no surprise, plenty of patience',
     'blog.article.san-gottardo-code-giovedi-santo.excerpt': 'The San Gottardo highway in peak season: slowdowns and traffic jams in the direction of Ticino and Italy',
     'blog.article.san-gottardo-code-giovedi-santo.imageAlt': 'San Gottardo during peak season',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Como and Lake Como for Easter is a Boom: \'Bookings Over 90% in City\'. But Be Wary: \'Summer Fears\'',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'Easter in Como and Lake Como is a boom: bookings over 90%. However, there are fears for the summer.',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lake Lugano with people enjoying the landscape',
 };
 
 export default blogMetaEn;

@@ -5676,4 +5676,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/san-gottardo-code-giovedi-santo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'como-lago-pasqua-boom-prenotazioni',
+    category: 'novita',
+    date: '2026-04-02T21:51:49.106Z',
+    image: '/images/blog/como-lago-pasqua-boom-prenotazioni.jpg',
+    hasCalculator: true,
+  },
 ];

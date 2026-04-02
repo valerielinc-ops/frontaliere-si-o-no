@@ -1922,6 +1922,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.san-gottardo-code-giovedi-santo.title': 'San Gottardo, code da Giovedì Santo: niente sorpresa, tanta pazienza',
     'blog.article.san-gottardo-code-giovedi-santo.excerpt': 'Il San Gottardo autostradale in alta stagione: rallentamenti e code in direzione Ticino e Italia',
     'blog.article.san-gottardo-code-giovedi-santo.imageAlt': 'Il San Gottardo durante la stagione alta',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Como e il Lago, per Pasqua è boom: “Prenotazioni oltre il 90% in città”. Attenzione però: “Timori per l’estate”',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'La Pasqua a Como e sul Lago è un boom: prenotazioni oltre il 90%. Ma ci sono timori per l’estate.',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lago di Lugano con persone che godono del paesaggio',
 };
 
 export default blogMetaIt;

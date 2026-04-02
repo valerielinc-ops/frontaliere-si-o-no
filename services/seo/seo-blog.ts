@@ -10486,6 +10486,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-como-lago-pasqua-boom-prenotazioni': {
+    title: 'Como e il Lago, per Pasqua è boom: “Prenotazioni oltre il 90% in città” | Frontaliere Ticino',
+    description: 'La Pasqua a Como e sul Lago è in boom con prenotazioni oltre il 90%. Ma ci sono timori per l’estate a causa della crisi internazionale. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, lago, pasqua, boom',
+    ogTitle: 'Como e il Lago, per Pasqua è boom: “Prenotazioni oltre il 90% in città”. Attenzione però',
+    ogDescription: 'La Pasqua a Como e sul Lago è in boom con prenotazioni oltre il 90%. Ma ci sono timori per l’estate a causa della crisi internazionale.',
+    canonicalPath: '/articoli-frontaliere/como-lago-pasqua-boom-prenotazioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\": \"https://schema.org\", \"@type\": \"Article\", \"mainEntityOfPage\": {\"@type\": \"WebPage\"",
+      "description": "La Pasqua a Como e sul Lago è in boom con prenotazioni oltre il 90%. Ma ci sono timori per l’estate a causa della crisi internazionale. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/como-lago-pasqua-boom-prenotazioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con persone che godono del paesaggio"
+      },
+      "datePublished": "2026-04-02T21:51:49+00:00",
+      "dateModified": "2026-04-02T21:51:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/como-lago-pasqua-boom-prenotazioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

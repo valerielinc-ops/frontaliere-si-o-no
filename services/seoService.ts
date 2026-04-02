@@ -1858,6 +1858,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-contrabbando-ticino-2026': { name: 'Contrabbando in Ticino', path: '/articoli-frontaliere/contrabbando-ticino-2026', parent: 'blog' },
     'blog-mobilita-infermieri-ticino': { name: 'Mobilità internazionale', path: '/articoli-frontaliere/mobilita-infermieri-ticino', parent: 'blog' },
     'blog-san-gottardo-code-giovedi-santo': { name: 'San Gottardo, code da Giovedì Santo', path: '/articoli-frontaliere/san-gottardo-code-giovedi-santo', parent: 'blog' },
+    'blog-como-lago-pasqua-boom-prenotazioni': { name: 'Como e il Lago', path: '/articoli-frontaliere/como-lago-pasqua-boom-prenotazioni', parent: 'blog' },
   };
 
   const info = sectionNames[section];

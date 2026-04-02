@@ -1922,6 +1922,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.san-gottardo-code-giovedi-santo.title': 'San Gottardo, code da Giovedì Santo: niente sorpresa, tanta pazienza',
     'blog.article.san-gottardo-code-giovedi-santo.excerpt': 'La route autoroutière du Saint-Gothard en haute saison : ralentissements et files d\'attente en direction du Tessin et de l\'Italie',
     'blog.article.san-gottardo-code-giovedi-santo.imageAlt': 'San Gottardo en haute saison',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Comme et le Lac, pour Pâques c\'est le boom : "Réservations à plus de 90 % en ville". Attention toutefois : "Craintes pour l\'été"',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'Pâques à Côme et sur le Lac, c\'est un boom : réservations à plus de 90 %. Mais il y a des craintes pour l\'été.',
+    'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lac de Lugano avec des personnes qui apprécient la paysage',
 };
 
 export default blogMetaFr;
