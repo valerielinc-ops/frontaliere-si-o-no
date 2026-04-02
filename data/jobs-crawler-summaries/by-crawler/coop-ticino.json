@@ -1,18 +1,156 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-01T07:26:35.442Z",
-  "total": 183,
-  "newCount": 183,
-  "updatedCount": 0,
+  "generatedAt": "2026-04-02T07:18:09.281Z",
+  "total": 178,
+  "newCount": 3,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 242769,
-  "avgDurationMs": 242769,
+  "unchangedCount": 174,
+  "durationMs": 223893,
+  "avgDurationMs": 223893,
   "durationHistory": [
-    242769
+    223893
   ],
   "newJobs": [
+    {
+      "id": "company-x19tlj",
+      "slug": "verkaufsberater-in-interdiscount-chur-graubunden",
+      "company": "Interdiscount",
+      "title": "Verkaufsberater:in",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in/c5ad4cbf-9e45-4351-b18f-f4fdf65a5e8c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-02T07:16:01.587Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-jri4bo",
+      "slug": "mitarbeiter-in-gastronomie-coop-ristorante-chur-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Gastronomie",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/9b06158b-0888-4d05-95a2-ea4ab747260e",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-02T07:16:01.587Z",
+      "needsRetranslation": true,
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-5t9qhe",
+      "slug": "mitarbeiter-in-gastronomie-coop-landquart-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Mitarbeiter:in Gastronomie",
+      "location": "Landquart",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-gastronomie/511c949c-7196-4b5b-96f7-3a113ac3a8d9",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-02T07:16:01.587Z",
+      "needsRetranslation": true,
+      "addressLocality": "Landquart",
+      "sourceLang": "de",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 15,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
+    {
+      "id": "company-lkxfin",
+      "slug": "venditrice-venditore-food-f-m-d-coop-ascona-ticino",
+      "company": "Coop Genossenschaft",
+      "title": "Venditrice / Venditore Food (f/m/d)",
+      "location": "Ascona",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "url": "https://jobs.coopjobs.ch/posti-vacanti/venditrice-venditore-food-f-m-d/d66520c8-197a-4733-a6ff-52ecfb9b5e2d",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-04-01T07:24:33.443Z",
+      "addressLocality": "Ascona",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-9xtr67",
       "slug": "macellaia-macellaio-salumiera-salumiere-f-m-d-coop-mendrisio-ticino",
@@ -35,14 +173,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-01T07:24:33.443Z",
-      "needsRetranslation": true,
       "addressLocality": "Mendrisio",
-      "_qualityScore": 67,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -67,46 +206,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-01T07:24:33.443Z",
-      "needsRetranslation": true,
       "addressLocality": "Grancia",
-      "_qualityScore": 78,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
-      }
-    },
-    {
-      "id": "company-lkxfin",
-      "slug": "venditrice-venditore-food-f-m-d-coop-ascona-ticino",
-      "company": "Coop Genossenschaft",
-      "title": "Venditrice / Venditore Food (f/m/d)",
-      "location": "Ascona",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-31",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/venditrice-venditore-food-f-m-d/d66520c8-197a-4733-a6ff-52ecfb9b5e2d",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-04-01T07:24:33.443Z",
-      "needsRetranslation": true,
-      "addressLocality": "Ascona",
-      "_qualityScore": 66,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 2,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -131,14 +239,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-01T07:24:33.443Z",
-      "needsRetranslation": true,
       "addressLocality": "Tenero-Contra",
-      "_qualityScore": 78,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -163,15 +272,17 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-01T07:24:33.443Z",
-      "needsRetranslation": true,
       "addressLocality": "Basel",
       "sourceLang": "de",
-      "_qualityScore": 79,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -187,72 +298,6 @@
       "featured": false,
       "postedDate": "2026-03-30",
       "url": "https://jobs.coopjobs.ch/posti-vacanti/venditrice-tore-casse-servizi/138985b9-c3da-47c8-963c-d59311adf9a2",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Sant'Antonino",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-epci0p",
-      "slug": "consulente-vendita-giardino-jumbo-sant-antonino-ticino",
-      "company": "Jumbo, Divisione di Coop Società Cooperativa",
-      "title": "Consulente vendita Giardino",
-      "location": "Sant'Antonino",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-30",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-giardino/1731b02e-0433-4153-9ecb-c8cab2d52a80",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Sant'Antonino",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-z5x46y",
-      "slug": "consulente-vendita-do-it-jumbo-sant-antonino-ticino",
-      "company": "Jumbo, Divisione di Coop Società Cooperativa",
-      "title": "Consulente vendita Do-it",
-      "location": "Sant'Antonino",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-30",
-      "url": "https://jobs.coopjobs.ch/posti-vacanti/consulente-vendita-do-it/463e0ae4-4802-44c0-86c5-da91f3aae1a5",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
@@ -331,41 +376,6 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
       "addressLocality": "Ilanz/Glion",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-hbxhxq",
-      "slug": "verkaufer-in-kassen-services-coop-disentis-muster-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Kassen/Services",
-      "location": "Disentis/Mustér",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-30",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/59c53f28-f2d6-454c-82bf-a6a67fb18f7c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Disentis/Mustér",
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -654,41 +664,6 @@
       }
     },
     {
-      "id": "company-bv1qsy",
-      "slug": "verkaufer-in-food-coop-schiers-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Schiers",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-26",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/4349f23a-386e-403a-a090-96e238e7ccb4",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Schiers",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
       "id": "company-tcv189",
       "slug": "verkaufer-in-food-brot-frische-coop-churwalden-graubunden",
       "company": "Coop Genossenschaft",
@@ -787,41 +762,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-ayfofo",
-      "slug": "magazziniere-venditore-coop-schiers-graubunden",
-      "company": "Coop Genossenschaft",
-      "title": "Magaziner:in Verkauf",
-      "location": "Schiers",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-21",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/magaziner-in-verkauf/bf4ab42e-a7e9-4425-a3e4-2a6607007b3c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Schiers",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
@@ -1029,9 +969,216 @@
         "translation": 25,
         "completeness": 19
       }
+    },
+    {
+      "id": "company-vn56hi",
+      "slug": "rayonleiter-in-fruchte-gemuse-coop-davos-graubunden-vn56hi",
+      "company": "Coop Genossenschaft",
+      "title": "Rayonleiter:in Früchte / Gemüse",
+      "location": "Davos",
+      "canton": "GR",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/rayonleiter-in-fruechte-gemuese/d0cb0514-be67-4573-83d5-d2bea7828f4b",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Davos",
+      "sourceLang": "de",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-33l5v6",
+      "slug": "verkaufer-in-food-frische-insel-coop-davos-graubunden-33l5v6",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Food Frische-Insel",
+      "location": "Davos",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food-frische-insel/be42fa2f-245d-45e7-be2c-cc60fb681f93",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Davos",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-l1gprk",
+      "slug": "verkaufer-in-kassen-services-coop-klosters-serneus-graubunden-l1gprk",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Kassen/Services",
+      "location": "Klosters-Serneus",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-kassen-services/fa692624-bcdc-4d83-8365-104f1a73af7c",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Klosters-Serneus",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-l6wxbs",
+      "slug": "verkaufer-in-frischprodukte-coop-ilanz-glion-graubunden-l6wxbs",
+      "company": "Coop Genossenschaft",
+      "title": "Verkäufer:in Frischprodukte",
+      "location": "Ilanz/Glion",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-frischprodukte/e3b27d72-e074-4edc-bb99-8b6ebc564996",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Ilanz/Glion",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-67of9l",
+      "slug": "consulente-vendite-do-it-jumbo-chur-graubunden",
+      "company": "Jumbo, Division der Coop Genossenschaft",
+      "title": "Verkaufsberater:in Do-it",
+      "location": "Chur",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-17",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaufsberater-in-do-it/51908790-2943-4b93-817b-eecec01d7536",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Chur",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
+    },
+    {
+      "id": "company-50rt90",
+      "slug": "vice-direttore-coop-sankt-moritz-graubunden",
+      "company": "Coop Genossenschaft",
+      "title": "Stv. Geschäftsführer:in",
+      "location": "Sankt Moritz",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-16",
+      "url": "https://jobs.coopjobs.ch/offene-stellen/stv-geschaeftsfuehrer-in/124e1432-1987-407c-8627-f486fe36bc31",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "coop-ticino",
+      "companyDomain": "coop.ch",
+      "crawledAt": "2026-03-31T07:18:28.826Z",
+      "addressLocality": "Sankt Moritz",
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 19
+      }
     }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
