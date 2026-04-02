@@ -1,33 +1,31 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-04-01T21:01:57.561Z",
+  "generatedAt": "2026-04-02T10:15:29.327Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 15143,
-  "avgDurationMs": 15143,
+  "unchangedCount": 0,
+  "durationMs": 16747,
+  "avgDurationMs": 16747,
   "durationHistory": [
-    15143
+    16747
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "company-kbhp6",
-      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute",
+      "slug": "senior-backend-sviluppatore-cambiavalute-ch-2025-cambiavalute-0kbhp6",
       "company": "CambiaValute.ch",
       "title": "Senior Backend developer",
-      "location": "2025 CambiaValute",
+      "location": "2026 CambiaValute.ch. All Rights Reserved. Cambi",
       "canton": "TI",
       "category": "tech",
       "contract": "part-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-03-31",
+      "postedDate": "2026-04-02",
       "url": "https://cambiavalute.ch/annuncio-di-lavoro/senior-backend-developer/",
       "source": "Company Careers Crawler",
       "_targetScope": {
@@ -56,5 +54,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
