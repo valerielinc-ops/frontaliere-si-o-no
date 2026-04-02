@@ -104,6 +104,13 @@ function main() {
 
     const html = readFileSync(filePath, 'utf-8');
 
+    // Skip previousSlug bridge pages — these are thin redirect pages by design.
+    // Full-content bridges have __BRIDGE_TARGET_SLUG__, legacy bridges from
+    // buildCanonicalBridgePage have "Apri la pagina" + non-self canonical.
+    if (html.includes('__BRIDGE_TARGET_SLUG__')) {
+      continue;
+    }
+
     // Noindex pages in sitemaps is a conflict — BLOCKING
     if (hasNoindex(html)) {
       noindexInSitemap.push({ sitemap, path });
@@ -112,6 +119,14 @@ function main() {
     }
 
     const words = countWords(html);
+
+    // Legacy bridge pages (buildCanonicalBridgePage output) are thin by design.
+    // They have a canonical pointing to a different job page and simple redirect content.
+    // Skip them from thin content checks.
+    if (words < MIN_WORDS && isIndividualJobPage(path) && html.includes('Apri la pagina')) {
+      continue;
+    }
+
     if (words < MIN_WORDS) {
       thinContent.push({ sitemap, path, words });
       errors++; // Thin content in sitemaps is now BLOCKING
