@@ -1,54 +1,19 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-04-02T10:45:00.525Z",
+  "generatedAt": "2026-04-02T12:28:59.131Z",
   "total": 12,
   "newCount": 0,
-  "updatedCount": 12,
+  "updatedCount": 11,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4732,
-  "avgDurationMs": 4732,
+  "unchangedCount": 1,
+  "durationMs": 4670,
+  "avgDurationMs": 4670,
   "durationHistory": [
-    4732
+    4670
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "title": "UNO UNA PARALEGAL O LEGAL SEGRETARY​",
-      "slug": "uno-una-paralegal-o-legal-segretary-lwp-ledermann-wieting-partners-lugano",
-      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/uno_una_paralegal_o_legal_segretary.pdf",
-      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
-      "company": "LWP Ledermann Wieting & Partners",
-      "companyKey": "lwphr",
-      "companyDomain": "lwphr.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Consulenza",
-      "source": "lwphr-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 20,
-        "completeness": 25
-      }
-    },
     {
       "title": "CONSULENTE PATRIMONIALE SENIOR CH",
       "slug": "consulente-patrimoniale-senior-ch-lwp-ledermann-wieting-partners-lugano",
@@ -436,5 +401,42 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "UNO UNA PARALEGAL O LEGAL SEGRETARY​",
+      "slug": "uno-una-paralegal-o-legal-segretary-lwp-ledermann-wieting-partners-lugano",
+      "url": "https://www.lwphr.ch/uploads/1/4/6/5/146598773/uno_una_paralegal_o_legal_segretary.pdf",
+      "applyUrl": "https://www.lwphr.ch/opportunita-opportunities.html",
+      "company": "LWP Ledermann Wieting & Partners",
+      "companyKey": "lwphr",
+      "companyDomain": "lwphr.ch",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Consulenza",
+      "source": "lwphr-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 18",
+      "postalCode": "6928",
+      "needsRetranslation": true,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 20,
+        "completeness": 25
+      }
+    }
+  ]
 }
