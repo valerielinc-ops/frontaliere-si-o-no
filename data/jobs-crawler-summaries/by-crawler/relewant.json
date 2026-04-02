@@ -1,16 +1,16 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-04-02T09:44:11.872Z",
+  "generatedAt": "2026-04-02T10:54:26.742Z",
   "total": 20,
   "newCount": 4,
   "updatedCount": 17,
   "removedCount": 3,
   "unchangedCount": 0,
-  "durationMs": 31219,
-  "avgDurationMs": 31219,
+  "durationMs": 36005,
+  "avgDurationMs": 36005,
   "durationHistory": [
-    31219
+    36005
   ],
   "newJobs": [
     {
@@ -44,10 +44,10 @@
       }
     },
     {
-      "title": "Network & Security Engineer",
-      "slug": "network-security-engineer-relewant-chiasso",
-      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505085/Network-Security-Engineer",
-      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505085/Network-Security-Engineer/apply",
+      "title": "Network Engineer",
+      "slug": "network-engineer-relewant-chiasso",
+      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505047/Network-Engineer",
+      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505047/Network-Engineer/apply",
       "company": "ReleWant",
       "companyKey": "relewant",
       "companyDomain": "zohorecruit.com",
@@ -74,10 +74,10 @@
       }
     },
     {
-      "title": "Network Engineer",
-      "slug": "network-engineer-relewant-chiasso",
-      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505047/Network-Engineer",
-      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505047/Network-Engineer/apply",
+      "title": "Network & Security Engineer",
+      "slug": "network-security-engineer-relewant-chiasso",
+      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505085/Network-Security-Engineer",
+      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505085/Network-Security-Engineer/apply",
       "company": "ReleWant",
       "companyKey": "relewant",
       "companyDomain": "zohorecruit.com",
@@ -162,6 +162,7 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
+      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
