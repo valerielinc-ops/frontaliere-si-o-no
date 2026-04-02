@@ -243,7 +243,7 @@ async function main() {
   }
 
   const discoveredJobs = await fetchJobs();
-  const diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
+  let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   if (discoveredJobs.length === 0) { console.log('ℹ️  No job listings found — skipping crawl.'); return; }
 
   const seedUrls = discoveredJobs.map((j) => j.url);
@@ -257,7 +257,7 @@ async function main() {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     const companyJobs = Array.isArray(jobs) ? jobs.filter(isCompanyJob) : [];
     const after = snapshotJobSlugs(companyJobs);
-    const diff = computeCrawlDiff(beforeMap, after);
+    diff = computeCrawlDiff(beforeMap, after);
     printCrawlChangeSummary(diff, COMPANY_NAME);
     writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
     console.log(`\n🏦 Total ${COMPANY_NAME} jobs: ${companyJobs.length}`);
