@@ -1,16 +1,16 @@
 {
   "key": "pemsa",
   "label": "PEMSA",
-  "generatedAt": "2026-04-02T09:41:59.571Z",
+  "generatedAt": "2026-04-02T10:52:18.649Z",
   "total": 42,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 1,
   "unchangedCount": 29,
-  "durationMs": 91996,
-  "avgDurationMs": 91996,
+  "durationMs": 96726,
+  "avgDurationMs": 96726,
   "durationHistory": [
-    91996
+    96726
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -391,11 +391,11 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -426,11 +426,11 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -461,11 +461,11 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 23,
+        "translation": 25,
         "completeness": 25
       }
     }
