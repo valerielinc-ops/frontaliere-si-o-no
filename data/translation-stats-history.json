@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-29T19:48:29.639Z",
-    "label": "after",
-    "total": 1500,
-    "needsRetranslation": 1175,
-    "incomplete": 1091,
-    "complete": 409,
-    "missingByLocale": {
-      "it": 519,
-      "en": 735,
-      "de": 493,
-      "fr": 926
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 41
-      },
-      {
-        "company": "VOLG",
-        "pending": 40
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 22
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-29T19:56:18.216Z",
-    "label": "before",
-    "total": 1500,
-    "needsRetranslation": 1173,
-    "incomplete": 1083,
-    "complete": 417,
-    "missingByLocale": {
-      "it": 512,
-      "en": 734,
-      "de": 485,
-      "fr": 918
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 41
-      },
-      {
-        "company": "VOLG",
-        "pending": 40
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 22
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-29T19:56:18.840Z",
     "label": "after",
     "total": 1500,
@@ -9793,6 +9681,118 @@
       },
       {
         "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T12:49:15.322Z",
+    "label": "before",
+    "total": 1341,
+    "needsRetranslation": 200,
+    "incomplete": 136,
+    "complete": 1205,
+    "missingByLocale": {
+      "it": 33,
+      "en": 102,
+      "de": 91,
+      "fr": 110
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 35
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 8
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 5
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Schindler",
+        "pending": 4
+      },
+      {
+        "company": "FFS Officine (Ferrovie Federali)",
+        "pending": 3
+      },
+      {
+        "company": "Avaloq",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T12:50:47.264Z",
+    "label": "after",
+    "total": 1341,
+    "needsRetranslation": 146,
+    "incomplete": 98,
+    "complete": 1243,
+    "missingByLocale": {
+      "it": 30,
+      "en": 86,
+      "de": 75,
+      "fr": 94
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 35
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 5
+      },
+      {
+        "company": "Denner",
+        "pending": 2
+      },
+      {
+        "company": "Scuola Club Migros",
+        "pending": 2
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 2
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 1
+      },
+      {
+        "company": "Avaloq",
+        "pending": 1
+      },
+      {
+        "company": "Banca Raiffeisen Vedeggio Cassarate",
+        "pending": 1
+      },
+      {
+        "company": "Cornèr Banca",
         "pending": 1
       }
     ]
