@@ -1916,6 +1916,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contrabbando-ticino-2026.title': 'With almost 70 kilograms of mozzarella in Ponte Tresa: a new case of smuggling',
     'blog.article.contrabbando-ticino-2026.excerpt': 'An Italian driver was stopped in Ponte Tresa with over 67 kilograms of undeclared mozzarella. Another case of smuggling was recorded in Mendrisio',
     'blog.article.contrabbando-ticino-2026.imageAlt': 'A scenic view of Lake Lugano, with a small boat in the background. The sun is shining and the water is calm.',
+    'blog.article.mobilita-infermieri-ticino.title': 'International mobility of nursing staff on the rise',
+    'blog.article.mobilita-infermieri-ticino.excerpt': 'The Nursing Up union denounces the exodus of nurses from Italy to Switzerland',
+    'blog.article.mobilita-infermieri-ticino.imageAlt': 'Nursing staff in Ticino',
 };
 
 export default blogMetaEn;

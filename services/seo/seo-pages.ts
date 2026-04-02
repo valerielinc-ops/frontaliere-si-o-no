@@ -3379,7 +3379,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 631,
+        "numberOfItems": 632,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4008,7 +4008,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 628, "name": "Limitare la popolazione in Ticino a 10 milioni:...", "url": `${BASE_URL}/articoli-frontaliere/limite-popolazione-10-milioni-ticino` },
           { "@type": "ListItem", "position": 629, "name": "Contrabbando d'argento: una storia di collabora...", "url": `${BASE_URL}/articoli-frontaliere/contrabbando-argento-frontiera` },
           { "@type": "ListItem", "position": 630, "name": "Settanta chili di mozzarella nel bagagliaio del...", "url": `${BASE_URL}/articoli-frontaliere/settanta-chili-di-mozzarella` },
-          { "@type": "ListItem", "position": 631, "name": "Contrabbando in Ticino: un nuovo caso di contra...", "url": `${BASE_URL}/articoli-frontaliere/contrabbando-ticino-2026` }
+          { "@type": "ListItem", "position": 631, "name": "Contrabbando in Ticino: un nuovo caso di contra...", "url": `${BASE_URL}/articoli-frontaliere/contrabbando-ticino-2026` },
+          { "@type": "ListItem", "position": 632, "name": "Mobilità internazionale del personale infermier...", "url": `${BASE_URL}/articoli-frontaliere/mobilita-infermieri-ticino` }
         ]
       }
     ]

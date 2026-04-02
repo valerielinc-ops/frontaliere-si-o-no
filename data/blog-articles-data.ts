@@ -5662,4 +5662,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/contrabbando-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'mobilita-infermieri-ticino',
+    category: 'novita',
+    date: '2026-04-02T16:09:37.164Z',
+    image: '/images/blog/mobilita-infermieri-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

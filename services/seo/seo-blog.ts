@@ -10428,6 +10428,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobilita-infermieri-ticino': {
+    title: 'Aumenta la mobilità internazionale del personale infermieristico | Frontaliere Ticino',
+    description: 'Il sindacato Nursing Up denuncia la fuga di infermieri e infermiere dall\'Italia verso la Svizzera. Scopri di più sul fenomeno e sulle opportunità di lavoro',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumenta, mobilità, internazionale, personale',
+    ogTitle: 'Mobilità internazionale del personale infermieristico',
+    ogDescription: 'Il sindacato Nursing Up denuncia la fuga di infermieri e infermiere dall\'Italia verso la Svizzera',
+    canonicalPath: '/articoli-frontaliere/mobilita-infermieri-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mobilità internazionale del personale infermieristico",
+      "description": "Il sindacato Nursing Up denuncia la fuga di infermieri e infermiere dall'Italia verso la Svizzera. Scopri di più sul fenomeno e sulle opportunità di lavoro",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mobilita-infermieri-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Personale infermieristico in Ticino"
+      },
+      "datePublished": "2026-04-02T16:09:37+00:00",
+      "dateModified": "2026-04-02T16:09:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilita-infermieri-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

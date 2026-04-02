@@ -1916,6 +1916,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.contrabbando-ticino-2026.title': 'Con quasi 70 chili di mozzarella a Ponte Tresa: un nuovo caso di contrabbando',
     'blog.article.contrabbando-ticino-2026.excerpt': 'Un conducteur italien a été arrêté à Ponte Tresa avec plus de 67 kilogrammes de mozzarella non déclarés. Un autre cas de contrebande a été enregistré à Mendrisio',
     'blog.article.contrabbando-ticino-2026.imageAlt': 'Une vue panoramique du Lac de Lugano, avec une petite bateau en fond. Le soleil brillait et l\'eau était calme.',
+    'blog.article.mobilita-infermieri-ticino.title': 'Augmentation de la mobilité internationale du personnel infirmier',
+    'blog.article.mobilita-infermieri-ticino.excerpt': 'Le syndicat Nursing Up dénonce la fuite des infirmiers et infirmières d\'Italie vers la Suisse',
+    'blog.article.mobilita-infermieri-ticino.imageAlt': 'Personnel infirmier en Tessin',
 };
 
 export default blogMetaFr;

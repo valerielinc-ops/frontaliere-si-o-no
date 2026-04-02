@@ -1856,6 +1856,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-contrabbando-argento-frontiera': { name: 'Notizie dal Ticino', path: '/articoli-frontaliere/contrabbando-argento-frontiera', parent: 'blog' },
     'blog-settanta-chili-di-mozzarella': { name: 'Novita in Ticino', path: '/articoli-frontaliere/settanta-chili-di-mozzarella', parent: 'blog' },
     'blog-contrabbando-ticino-2026': { name: 'Contrabbando in Ticino', path: '/articoli-frontaliere/contrabbando-ticino-2026', parent: 'blog' },
+    'blog-mobilita-infermieri-ticino': { name: 'Mobilità internazionale', path: '/articoli-frontaliere/mobilita-infermieri-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];
