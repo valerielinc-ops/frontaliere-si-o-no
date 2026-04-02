@@ -1,24 +1,22 @@
 {
   "key": "rittmeyer-ag",
   "label": "Rittmeyer AG",
-  "generatedAt": "2026-04-01T21:40:25.847Z",
+  "generatedAt": "2026-04-02T09:44:03.605Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2349,
-  "avgDurationMs": 2349,
+  "unchangedCount": 0,
+  "durationMs": 2394,
+  "avgDurationMs": 2394,
   "durationHistory": [
-    2349
+    2394
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Sales Project Engineer (a) Ticino",
-      "slug": "sales-project-ingegnere-a-ticino-rittmeyer-ag-camorino",
+      "slug": "sales-project-engineer-a-ticino-rittmeyer-ag-tessin",
       "url": "https://karriere.rittmeyer.com/offene-stellen/sales-project-engineer-a-ticino/",
       "applyUrl": "https://brugg.onlyfy.jobs/job/0dv8x2rj",
       "company": "Rittmeyer AG",
@@ -34,7 +32,7 @@
       "sector": "Energia",
       "source": "rittmeyer-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -43,7 +41,6 @@
       "currency": "CHF",
       "streetAddress": "Inwilerriedstrasse 57",
       "postalCode": "6340",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -52,5 +49,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
