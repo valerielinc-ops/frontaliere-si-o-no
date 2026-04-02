@@ -103,8 +103,8 @@
       "slugByLocale": {
         "it": "sales-agent-agno-60-100-sunrise-ticino",
         "en": "sales-agent-agno-60-100-sunrise-ticino",
-        "de": "sales-agent-agno-60-100-sunrise-ticino",
-        "fr": "sales-agent-agno-60-100-sunrise-ticino"
+        "de": "vertriebsagent-sunrise-communications-ag-ticino",
+        "fr": "agent-commercial-sunrise-communications-ag-ticino"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -119,7 +119,10 @@
           "unitText": "YEAR"
         }
       },
-      "streetAddress": "Via Industria 7"
+      "streetAddress": "Via Industria 7",
+      "previousSlugs": [
+        "sales-agent-agno-60-100-sunrise-ticino"
+      ]
     }
   ]
 }

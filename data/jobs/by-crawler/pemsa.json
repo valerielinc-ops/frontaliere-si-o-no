@@ -588,8 +588,8 @@
       "slugByLocale": {
         "it": "muratore-pemsa-bellinzona",
         "en": "bricjlayer-pemsa-bellinzona",
-        "de": "maurer-pemsa-bellinzona-4dsm5u",
-        "fr": "macon-pemsa-bellinzona-4dsm5u"
+        "de": "maurer-pemsa-bellinzona",
+        "fr": "macon-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -608,7 +608,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "muratore-pemsa-bellinzona",
-        "bricjlayer-pemsa-bellinzona-4dsm5u"
+        "bricjlayer-pemsa-bellinzona-4dsm5u",
+        "maurer-pemsa-bellinzona-4dsm5u",
+        "macon-pemsa-bellinzona-4dsm5u"
       ]
     },
     {
@@ -712,7 +714,7 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-locarno",
-        "en": "group-pemsa-locarno-6097fr",
+        "en": "plumber-pemsa-locarno",
         "de": "installateur-pemsa-locarno",
         "fr": "hydraulique-pemsa-locarno"
       },
@@ -734,7 +736,8 @@
       "previousSlugs": [
         "idraulico-pemsa-locarno",
         "installateur-pemsa-locarno-6097fr",
-        "hydraulique-pemsa-locarno-6097fr"
+        "hydraulique-pemsa-locarno-6097fr",
+        "group-pemsa-locarno-6097fr"
       ]
     },
     {
@@ -899,8 +902,8 @@
       "slugByLocale": {
         "it": "macchinista-pemsa-locarno",
         "en": "train-master-pemsa-locarno",
-        "de": "lokfuhrer-pemsa-locarno-88b5e7",
-        "fr": "machiniste-pemsa-locarno-88b5e7"
+        "de": "maschinist-pemsa-locarno",
+        "fr": "machiniste-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -919,7 +922,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "macchinista-pemsa-locarno",
-        "train-master-pemsa-locarno-88b5e7"
+        "train-master-pemsa-locarno-88b5e7",
+        "lokfuhrer-pemsa-locarno-88b5e7",
+        "machiniste-pemsa-locarno-88b5e7"
       ]
     },
     {
@@ -960,8 +965,8 @@
       "slugByLocale": {
         "it": "lattonieri-pemsa-locarno",
         "en": "sheet-metal-worker-pemsa-locarno-oah52n",
-        "de": "spengler-pemsa-locarno-oah52n",
-        "fr": "tin-makers-pemsa-locarno-oah52n"
+        "de": "blechschmiede-pemsa-locarno",
+        "fr": "ferblantiers-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -979,7 +984,9 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "lattonieri-pemsa-locarno"
+        "lattonieri-pemsa-locarno",
+        "spengler-pemsa-locarno-oah52n",
+        "tin-makers-pemsa-locarno-oah52n"
       ]
     },
     {
@@ -1144,8 +1151,8 @@
       },
       "slugByLocale": {
         "it": "installatore-idraulico-pemsa-lugano",
-        "en": "hydraulic-installer-pemsa-lugano-170hj2",
-        "de": "installateur-hydraulik-pemsa-lugano-170hj2",
+        "en": "plumbing-installer-pemsa-lugano",
+        "de": "klempnerinstallateur-pemsa-lugano",
         "fr": "installateur-hydraulique-pemsa-lugano"
       },
       "salaryMin": 58000,
@@ -1167,7 +1174,9 @@
         "installatore-idraulico-pemsa-lugano",
         "installateur-hydraulique-pemsa-lugano-170hj2",
         "idraulico-installatore-3-pemsa-lugano",
-        "ricerca-idraulico-installatore-3-pemsa"
+        "ricerca-idraulico-installatore-3-pemsa",
+        "hydraulic-installer-pemsa-lugano-170hj2",
+        "installateur-hydraulik-pemsa-lugano-170hj2"
       ]
     },
     {
@@ -1328,7 +1337,7 @@
       },
       "slugByLocale": {
         "it": "idraulico-pemsa-lugano",
-        "en": "group-pemsa-lugano-609thv",
+        "en": "plumber-pemsa-lugano",
         "de": "installateur-pemsa-lugano",
         "fr": "hydraulique-pemsa-lugano"
       },
@@ -1350,7 +1359,8 @@
       "previousSlugs": [
         "idraulico-pemsa-lugano",
         "installateur-pemsa-lugano-609thv",
-        "hydraulique-pemsa-lugano-609thv"
+        "hydraulique-pemsa-lugano-609thv",
+        "group-pemsa-lugano-609thv"
       ]
     },
     {
@@ -1391,8 +1401,8 @@
       "slugByLocale": {
         "it": "macchinista-pemsa-bellinzona",
         "en": "train-master-pemsa-bellinzona",
-        "de": "lokfuhrer-pemsa-bellinzona-88aes1",
-        "fr": "machiniste-pemsa-bellinzona-88aes1"
+        "de": "maschinist-pemsa-bellinzona",
+        "fr": "machiniste-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1411,7 +1421,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "macchinista-pemsa-bellinzona",
-        "train-master-pemsa-bellinzona-88aes1"
+        "train-master-pemsa-bellinzona-88aes1",
+        "lokfuhrer-pemsa-bellinzona-88aes1",
+        "machiniste-pemsa-bellinzona-88aes1"
       ]
     },
     {
@@ -1453,7 +1465,7 @@
         "it": "rullista-pemsa-bellinzona",
         "en": "rollerist-pemsa-bellinzona",
         "de": "rollenbahn-pemsa-bellinzona",
-        "fr": "rouleau-pemsa-bellinzona-82esm3"
+        "fr": "convoyeur-a-rouleaux-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1473,7 +1485,8 @@
       "previousSlugs": [
         "rullista-pemsa-bellinzona",
         "rollerist-pemsa-bellinzona-82esm3",
-        "rollenbahn-pemsa-bellinzona-82esm3"
+        "rollenbahn-pemsa-bellinzona-82esm3",
+        "rouleau-pemsa-bellinzona-82esm3"
       ]
     },
     {
@@ -1575,8 +1588,8 @@
       "slugByLocale": {
         "it": "copritetto-afc-pemsa-bellinzona",
         "en": "roof-cover-afc-pemsa-bellinzona",
-        "de": "dachdecker-efz-pemsa-bellinzona-rdnflr",
-        "fr": "couvre-lit-afc-pemsa-bellinzona-rdnflr"
+        "de": "dachabdeckung-afc-pemsa-bellinzona",
+        "fr": "toit-couvre-toit-afc-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1595,7 +1608,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "copritetto-afc-pemsa-bellinzona",
-        "afc-blanket-pemsa-bellinzona-rdnflr"
+        "afc-blanket-pemsa-bellinzona-rdnflr",
+        "dachdecker-efz-pemsa-bellinzona-rdnflr",
+        "couvre-lit-afc-pemsa-bellinzona-rdnflr"
       ]
     },
     {
@@ -1636,8 +1651,8 @@
       "slugByLocale": {
         "it": "giardiniere-muratore-pemsa-locarno",
         "en": "gardener-bricklayer-pemsa-locarno",
-        "de": "gartner-maurer-pemsa-locarno-qwgr0v",
-        "fr": "jardinier-macon-pemsa-locarno-qwgr0v"
+        "de": "gartner-maurer-pemsa-locarno",
+        "fr": "jardinier-macon-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1656,7 +1671,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "giardiniere-muratore-pemsa-locarno",
-        "gardener-bricklayer-pemsa-locarno-qwgr0v"
+        "gardener-bricklayer-pemsa-locarno-qwgr0v",
+        "gartner-maurer-pemsa-locarno-qwgr0v",
+        "jardinier-macon-pemsa-locarno-qwgr0v"
       ]
     },
     {
@@ -1697,8 +1714,8 @@
       "slugByLocale": {
         "it": "muratore-carpentiere-pemsa-locarno",
         "en": "mason-carpenter-pemsa-locarno",
-        "de": "maurer-zimmerer-pemsa-locarno-lprn55",
-        "fr": "macon-charpentier-pemsa-locarno-lprn55"
+        "de": "maurer-zimmermann-pemsa-locarno",
+        "fr": "macon-charpentier-pemsa-locarno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1717,7 +1734,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "muratore-carpentiere-pemsa-locarno",
-        "mason-carpenter-pemsa-locarno-lprn55"
+        "mason-carpenter-pemsa-locarno-lprn55",
+        "maurer-zimmerer-pemsa-locarno-lprn55",
+        "macon-charpentier-pemsa-locarno-lprn55"
       ]
     },
     {
@@ -1757,8 +1776,8 @@
       },
       "slugByLocale": {
         "it": "capo-cantiere-pemsa-locarno",
-        "en": "site-foreman-pemsa-locarno-mj8eu2",
-        "de": "bauleiter-pemsa-locarno-mj8eu2",
+        "en": "site-manager-pemsa-locarno",
+        "de": "standortleiter-pemsa-locarno",
         "fr": "chef-de-chantier-pemsa-locarno"
       },
       "salaryMin": 58000,
@@ -1778,7 +1797,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "capo-cantiere-pemsa-locarno",
-        "chef-de-chantier-pemsa-locarno-mj8eu2"
+        "chef-de-chantier-pemsa-locarno-mj8eu2",
+        "site-foreman-pemsa-locarno-mj8eu2",
+        "bauleiter-pemsa-locarno-mj8eu2"
       ]
     },
     {
@@ -1819,8 +1840,8 @@
       "slugByLocale": {
         "it": "selciatore-pemsa-bellinzona",
         "en": "pavior-and-kerb-layer-pemsa-bellinzona-l71bxi",
-        "de": "pflasterer-pemsa-bellinzona-l71bxi",
-        "fr": "paveur-pemsa-bellinzona-l71bxi"
+        "de": "pflaster-pemsa-bellinzona",
+        "fr": "pave-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1838,7 +1859,9 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "selciatore-pemsa-bellinzona"
+        "selciatore-pemsa-bellinzona",
+        "pflasterer-pemsa-bellinzona-l71bxi",
+        "paveur-pemsa-bellinzona-l71bxi"
       ]
     },
     {
@@ -1878,7 +1901,7 @@
       },
       "slugByLocale": {
         "it": "meccanico-di-mezzi-pesi-pemsa-bellinzona",
-        "en": "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh",
+        "en": "meccanico-di-mezzi-weighti-pemsa-bellinzona",
         "de": "schwerlastfahrzeugmechaniker-pemsa-bellinzona",
         "fr": "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
       },
@@ -1901,7 +1924,8 @@
         "schwerlastfahrzeugmechaniker-pemsa-bellinzona-ens3sh",
         "meccanico-di-mezzi-graviti-pemsa-bellinzona",
         "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
-        "meccanico-di-mezzi-pesanti-pemsa-bellinzona"
+        "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
+        "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
       ]
     },
     {
@@ -1942,7 +1966,7 @@
       "slugByLocale": {
         "it": "piastrellista-pemsa-bellinzona",
         "en": "tiler-pemsa-bellinzona",
-        "de": "keramikfliese-pemsa-bellinzona-jj5g46",
+        "de": "fliesenleger-pemsa-bellinzona",
         "fr": "carrelage-pemsa-bellinzona-jj5g46"
       },
       "salaryMin": 58000,
@@ -1961,7 +1985,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "piastrellista-pemsa-bellinzona"
+        "piastrellista-pemsa-bellinzona",
+        "keramikfliese-pemsa-bellinzona-jj5g46"
       ]
     },
     {
@@ -2002,7 +2027,7 @@
       "slugByLocale": {
         "it": "lattoniere-pemsa-bellinzona",
         "en": "sheet-metal-worker-pemsa-bellinzona-o8tlzm",
-        "de": "spengler-pemsa-bellinzona-o8tlzm",
+        "de": "blechschmiede-pemsa-bellinzona",
         "fr": "ferblantier-pemsa-bellinzona"
       },
       "salaryMin": 58000,
@@ -2022,7 +2047,8 @@
       "postalCode": "6807",
       "previousSlugs": [
         "lattoniere-pemsa-bellinzona",
-        "ferblantier-pemsa-bellinzona-o8tlzm"
+        "ferblantier-pemsa-bellinzona-o8tlzm",
+        "spengler-pemsa-bellinzona-o8tlzm"
       ]
     },
     {
@@ -2238,7 +2264,7 @@
       },
       "slugByLocale": {
         "it": "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona",
-        "en": "carpentiere-lattoniere-with-certificate-works-in-quota-and-use-of-3-cat-pemsa-bellinzona-okeeah",
+        "en": "carpenter-tinsmith-with-certificate-of-work-at-height-and-use-of-ppe-of-3rd-cat-pemsa-bellinzona",
         "de": "carpentiere-lattoniere-mit-zertifikatswerken-in-quota-und-verwendung-von-3-katze-pemsa-bellinzona-okeeah",
         "fr": "carpentiere-lattoniere-avec-certificat-travaux-en-contingent-et-utilisation-de-3-cat-pemsa-bellinzona-okeeah"
       },
@@ -2258,7 +2284,8 @@
       "streetAddress": "Via Industria 20",
       "postalCode": "6807",
       "previousSlugs": [
-        "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona"
+        "carpentiere-lattoniere-con-attestato-lavori-in-quota-ed-uso-dpi-di-3-cat-pemsa-bellinzona",
+        "carpentiere-lattoniere-with-certificate-works-in-quota-and-use-of-3-cat-pemsa-bellinzona-okeeah"
       ]
     },
     {

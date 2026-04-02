@@ -7,9 +7,9 @@
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-lehre-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "en": "spontaneous-apprenticeship-application-corner-banca-switzerland",
+        "de": "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+        "fr": "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -75,16 +75,20 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "initiativbewerbung-lehre-corner-banca-switzerland"
+      ]
     },
     {
       "id": "corner-banca-b69f1f79bbe3",
       "slug": "customer-advisor-40-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "customer-consulente-40-corner-banca-wallisellen",
+        "it": "consulente-clienti-40-corner-banca-wallisellen",
         "en": "customer-advisor-40-corner-banca-wallisellen",
-        "de": "customer-berater-40-corner-banca-wallisellen",
-        "fr": "customer-conseiller-40-corner-banca-wallisellen"
+        "de": "kundenberater-40-corner-banca-wallisellen",
+        "fr": "conseiller-client-40-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -146,7 +150,10 @@
       "sourceLang": "en",
       "previousSlugs": [
         "customer-advisor-evening-and-weekend-40-corner-banca-wallisellen",
-        "customer-advisor-40-corner-banca-wallisellen"
+        "customer-advisor-40-corner-banca-wallisellen",
+        "customer-consulente-40-corner-banca-wallisellen",
+        "customer-berater-40-corner-banca-wallisellen",
+        "customer-conseiller-40-corner-banca-wallisellen"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -169,10 +176,10 @@
       "id": "corner-banca-fe61b84a0935",
       "slug": "employee-card-onboarding-corner-banca-lugano",
       "slugByLocale": {
-        "it": "employee-card-onboarding-corner-banca-lugano",
+        "it": "onboarding-della-carta-di-credito-corner-banca-lugano",
         "en": "employee-card-onboarding-corner-banca-lugano",
-        "de": "employee-card-onboarding-corner-banca-lugano",
-        "fr": "employee-card-onboarding-corner-banca-lugano"
+        "de": "kartenaufnahme-corner-banca-lugano",
+        "fr": "onboarding-de-la-carte-de-paiement-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -233,7 +240,8 @@
       "crawledAt": "2026-04-02T10:24:16.040Z",
       "sourceLang": "en",
       "previousSlugs": [
-        "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        "addetto-all-emission-carte-cliente-corner-banca-lugano",
+        "employee-card-onboarding-corner-banca-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -256,10 +264,10 @@
       "id": "corner-banca-1d94a13bc883",
       "slug": "customer-advisor-100-corner-banca-lugano",
       "slugByLocale": {
-        "it": "customer-consulente-100-corner-banca-lugano",
+        "it": "assistenza-clienti-corner-banca-lugano",
         "en": "customer-advisor-100-corner-banca-lugano",
-        "de": "customer-berater-100-corner-banca-lugano",
-        "fr": "customer-conseiller-100-corner-banca-lugano"
+        "de": "kundenberater-corner-banca-lugano",
+        "fr": "conseiller-clients-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -324,7 +332,10 @@
       "sourceLang": "en",
       "previousSlugs": [
         "consulente-clienti-100-corner-banca-lugano",
-        "customer-advisor-100-corner-banca-lugano"
+        "customer-advisor-100-corner-banca-lugano",
+        "customer-consulente-100-corner-banca-lugano",
+        "customer-berater-100-corner-banca-lugano",
+        "customer-conseiller-100-corner-banca-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
