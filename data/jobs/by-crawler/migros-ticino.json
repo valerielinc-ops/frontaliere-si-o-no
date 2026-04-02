@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-04-02T12:30:48.629Z",
+  "assembledAt": "2026-04-02T21:29:02.929Z",
   "jobs": [
     {
       "id": "company-nlbz63",
@@ -97,7 +97,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-jn3560",
@@ -195,7 +196,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-cardio-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-jn3560"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
@@ -296,7 +298,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
@@ -344,8 +347,8 @@
       "slugByLocale": {
         "it": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
         "en": "tai-chi-teacher-f-m-d-scuola-club-lugano-scuola-club-migros-lugano",
-        "de": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
-        "fr": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
+        "de": "tai-chi-lehrer-m-w-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
+        "fr": "enseignant-de-tai-chi-h-f-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
       },
       "titleByLocale": {
         "it": "Insegnante Tai Chi (f/m/d) - Scuola Club Lugano",
@@ -393,7 +396,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-ei49p7",
@@ -495,7 +499,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-tedesco-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-ei49p7"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
