@@ -1,21 +1,19 @@
 {
   "key": "medacta-international",
   "label": "Medacta",
-  "generatedAt": "2026-04-01T21:32:23.362Z",
+  "generatedAt": "2026-04-02T12:30:14.570Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 16727,
-  "avgDurationMs": 16727,
+  "unchangedCount": 3,
+  "durationMs": 16900,
+  "avgDurationMs": 16900,
   "durationHistory": [
-    16727
+    16900
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "medacta-92188",
       "slug": "tesi-r-s-ortopedia-medacta-international-sa-castel-san-pietro",
@@ -321,7 +319,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "medacta-102667",
       "slug": "operatore-pre-post-coating-medacta-international-sa-castel-san-pietro",
