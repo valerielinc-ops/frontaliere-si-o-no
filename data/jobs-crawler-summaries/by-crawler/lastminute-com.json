@@ -1,21 +1,18 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-04-01T21:29:09.385Z",
+  "generatedAt": "2026-04-02T09:32:51.434Z",
   "total": 4,
-  "newCount": 0,
+  "newCount": 4,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 13100,
-  "avgDurationMs": 13100,
+  "unchangedCount": 0,
+  "durationMs": 15544,
+  "avgDurationMs": 15544,
   "durationHistory": [
-    13100
+    15544
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
     {
       "id": "company-s60y08",
       "slug": "senior-frontend-software-ingegnere-chiasso",
@@ -180,5 +177,8 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
