@@ -66,50 +66,81 @@ export function parseAvaloqListingLinks(html = '') {
 
 const SR_API = 'https://api.smartrecruiters.com/v1/companies/Avaloq1/postings';
 
+async function srFetch(url, timeoutMs) {
+  const ctrl = new AbortController();
+  const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+  try {
+    const res = await fetch(url, { signal: ctrl.signal, headers: { 'Accept': 'application/json' } });
+    if (!res.ok) throw new Error(`SmartRecruiters API HTTP ${res.status}`);
+    return await res.json();
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 /**
  * Fetch all Avaloq job postings from the SmartRecruiters public API.
- * Returns an array of detail objects matching the shape of parseAvaloqJobDetail output.
+ * Step 1: Fetch listing (lightweight, no descriptions).
+ * Step 2: For target jobs, fetch individual postings for full descriptions.
+ * @param {Function} locationFilter - Filter function for target locations.
  */
-export async function fetchAvaloqJobsFromApi(timeoutMs = 20000) {
+export async function fetchAvaloqJobsFromApi(timeoutMs = 20000, locationFilter = () => true) {
+  // Step 1: Fetch all postings (listing only — no jobAd content)
   const all = [];
   let offset = 0;
   while (true) {
-    const url = `${SR_API}?limit=100&offset=${offset}`;
-    const ctrl = new AbortController();
-    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
-    try {
-      const res = await fetch(url, { signal: ctrl.signal, headers: { 'Accept': 'application/json' } });
-      if (!res.ok) throw new Error(`SmartRecruiters API HTTP ${res.status}`);
-      const data = await res.json();
-      all.push(...(data.content || []));
-      if (all.length >= (data.totalFound || 0)) break;
-      offset += 100;
-    } finally {
-      clearTimeout(timer);
-    }
+    const data = await srFetch(`${SR_API}?limit=100&offset=${offset}`, timeoutMs);
+    all.push(...(data.content || []));
+    if (all.length >= (data.totalFound || 0)) break;
+    offset += 100;
   }
-  return all.map((posting) => {
-    const loc = posting.location || {};
-    const city = normalizeSpace(loc.city || '');
-    const sections = [];
-    const jobDesc = (posting.jobAd?.sections?.jobDescription?.text || '').trim();
-    const qualif = (posting.jobAd?.sections?.qualifications?.text || '').trim();
-    const addInfo = (posting.jobAd?.sections?.additionalInformation?.text || '').trim();
-    if (jobDesc) sections.push(htmlToMarkdown(jobDesc));
-    if (qualif) sections.push(`## Qualifiche\n\n${htmlToMarkdown(qualif)}`);
-    if (addInfo) sections.push(`## Informazioni aggiuntive\n\n${htmlToMarkdown(addInfo)}`);
-    const description = sections.join('\n\n').trim() || normalizeSpace(posting.name || '');
-    return {
-      title: normalizeSpace(posting.name || ''),
-      description,
-      canonicalUrl: `https://www.avaloq.com/careers/job-openings/${posting.id}`,
-      applyUrl: posting.applyUrl || `https://jobs.smartrecruiters.com/Avaloq1/${posting.id}`,
-      location: city,
-      postalCode: normalizeSpace(loc.postalCode || ''),
-      workArrangement: posting.typeOfEmployment?.label || '',
-      releasedDate: posting.releasedDate || '',
-    };
+
+  // Step 2: Filter to target locations before fetching descriptions
+  const targetPostings = all.filter((p) => {
+    const city = normalizeSpace((p.location || {}).city || '');
+    return locationFilter(city);
   });
+
+  // Step 3: Fetch individual postings for full descriptions (concurrently, max 5)
+  const details = [];
+  const queue = [...targetPostings];
+  const workers = Array.from({ length: Math.min(5, queue.length) }, async () => {
+    while (queue.length > 0) {
+      const posting = queue.shift();
+      try {
+        const full = await srFetch(`${SR_API}/${posting.id}`, timeoutMs);
+        details.push(buildDetailFromPosting(full));
+      } catch (err) {
+        // Fallback to listing data if individual fetch fails
+        details.push(buildDetailFromPosting(posting));
+      }
+    }
+  });
+  await Promise.all(workers);
+  return details;
+}
+
+function buildDetailFromPosting(posting) {
+  const loc = posting.location || {};
+  const city = normalizeSpace(loc.city || '');
+  const sections = [];
+  const jobDesc = (posting.jobAd?.sections?.jobDescription?.text || '').trim();
+  const qualif = (posting.jobAd?.sections?.qualifications?.text || '').trim();
+  const addInfo = (posting.jobAd?.sections?.additionalInformation?.text || '').trim();
+  if (jobDesc) sections.push(htmlToMarkdown(jobDesc));
+  if (qualif) sections.push(`## Qualifiche\n\n${htmlToMarkdown(qualif)}`);
+  if (addInfo) sections.push(`## Informazioni aggiuntive\n\n${htmlToMarkdown(addInfo)}`);
+  const description = sections.join('\n\n').trim() || normalizeSpace(posting.name || '');
+  return {
+    title: normalizeSpace(posting.name || ''),
+    description,
+    canonicalUrl: `https://www.avaloq.com/careers/job-openings/${posting.id}`,
+    applyUrl: posting.applyUrl || `https://jobs.smartrecruiters.com/Avaloq1/${posting.id}`,
+    location: city,
+    postalCode: normalizeSpace(loc.postalCode || ''),
+    workArrangement: posting.typeOfEmployment?.label || '',
+    releasedDate: posting.releasedDate || '',
+  };
 }
 
 export function parseAvaloqJobDetail(html = '', url = '') {

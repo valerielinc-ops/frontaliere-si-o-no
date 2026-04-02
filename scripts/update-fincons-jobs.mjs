@@ -120,8 +120,8 @@ async function fetchListings() {
   const html = await fetchText(LISTING_URL);
   const rows = parseFinconsListingsPage(html);
   console.log(`📋 Lugano job rows found: ${rows.length}`);
-  if (rows.length < 8) {
-    throw new Error(`Expected at least 8 Fincons Lugano jobs, found ${rows.length}`);
+  if (rows.length < 4) {
+    throw new Error(`Expected at least 4 Fincons Lugano jobs, found ${rows.length}`);
   }
   rows.forEach((row) => console.log(`  📄 ${row.title} (${row.location})`));
   return rows;

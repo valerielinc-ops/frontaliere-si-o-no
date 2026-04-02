@@ -116,8 +116,11 @@ function inferCategory(detail = {}) {
 
 async function fetchListings() {
   console.log('🔍 Fetching Avaloq jobs from SmartRecruiters API...');
-  const details = await fetchAvaloqJobsFromApi(Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
-  console.log(`📋 Total Avaloq job postings from API: ${details.length}`);
+  const details = await fetchAvaloqJobsFromApi(
+    Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000,
+    (city) => isAvaloqTargetLocation(city)
+  );
+  console.log(`📋 Avaloq Ticino/Grigioni jobs from API: ${details.length}`);
   return details;
 }
 
