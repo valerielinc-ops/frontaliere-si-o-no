@@ -1,21 +1,19 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-04-01T20:49:27.585Z",
+  "generatedAt": "2026-04-02T10:02:58.432Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 12138,
-  "avgDurationMs": 12138,
+  "unchangedCount": 0,
+  "durationMs": 11970,
+  "avgDurationMs": 11970,
   "durationHistory": [
-    12138
+    11970
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
@@ -34,7 +32,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -43,11 +41,11 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "_qualityScore": 93,
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
+        "translation": 20,
         "completeness": 25
       }
     },
@@ -69,7 +67,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -78,7 +76,6 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -105,7 +102,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -114,7 +111,6 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -141,7 +137,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "A tempo indeterminato",
       "validThrough": "",
@@ -150,7 +146,6 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -177,7 +172,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -186,7 +181,6 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -213,7 +207,7 @@
       "sector": "Assicurazioni",
       "source": "allianz-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -222,7 +216,6 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -231,5 +224,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
