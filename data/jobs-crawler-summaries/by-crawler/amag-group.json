@@ -1,21 +1,19 @@
 {
   "key": "amag-group",
   "label": "AMAG Group",
-  "generatedAt": "2026-04-01T20:51:00.674Z",
+  "generatedAt": "2026-04-02T10:04:39.109Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3429,
-  "avgDurationMs": 3429,
+  "unchangedCount": 0,
+  "durationMs": 3463,
+  "avgDurationMs": 3463,
   "durationHistory": [
-    3429
+    3463
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Autista su chiamata",
       "slug": "autista-su-chiamata",
@@ -43,7 +41,6 @@
       "currency": "CHF",
       "streetAddress": "Via Industria 1",
       "postalCode": "6934",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -52,5 +49,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
