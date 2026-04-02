@@ -1,21 +1,18 @@
 {
   "key": "mtic-group",
   "label": "MTIC Group",
-  "generatedAt": "2026-04-01T21:36:45.856Z",
+  "generatedAt": "2026-04-02T09:40:19.143Z",
   "total": 5,
-  "newCount": 0,
+  "newCount": 5,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 31619,
-  "avgDurationMs": 31619,
+  "unchangedCount": 0,
+  "durationMs": 28253,
+  "avgDurationMs": 28253,
   "durationHistory": [
-    31619
+    28253
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
     {
       "title": "Auditors, Technical & Clinical Experts",
       "slug": "auditors-technical-clinical-experts-mtic-group-lugano-paradiso",
@@ -34,26 +31,21 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "postalCode": "6500",
-      "_qualityScore": 87,
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 20,
-        "completeness": 22
+        "completeness": 14
       }
     },
     {
       "title": "Back Office / Sales Support Specialist",
-      "slug": "back-office-sales-support-specialista-mtic-group-lugano-paradiso",
+      "slug": "back-office-sales-support-specialist-mtic-group-lugano-paradiso",
       "url": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-back-office-/-sales-support-specialist",
       "applyUrl": "http://spsintercertsa.mtic-group.org/it/opportunita-di-lavoro/open-position-back-office-/-sales-support-specialist",
       "company": "MTIC Group",
@@ -69,20 +61,16 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "postalCode": "6500",
-      "_qualityScore": 82,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 25,
-        "completeness": 22
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -102,22 +90,17 @@
       "category": "quality",
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "sourceLang": "fr",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "postalCode": "6500",
-      "needsRetranslation": true,
-      "_qualityScore": 79,
+      "_qualityScore": 66,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 7,
-        "translation": 25,
-        "completeness": 22
+        "translation": 20,
+        "completeness": 14
       }
     },
     {
@@ -138,21 +121,16 @@
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "needsRetranslation": true,
-      "salaryMin": 80000,
-      "salaryMax": 108000,
-      "currency": "CHF",
-      "postalCode": "6500",
-      "_qualityScore": 77,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 20,
-        "completeness": 22
+        "completeness": 14
       }
     },
     {
@@ -172,23 +150,21 @@
       "category": "management",
       "sector": "Certificazione e Ispezioni",
       "source": "mtic-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "sourceLang": "fr",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "needsRetranslation": true,
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "postalCode": "6500",
-      "_qualityScore": 77,
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
         "translation": 20,
-        "completeness": 22
+        "completeness": 14
       }
     }
-  ]
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
