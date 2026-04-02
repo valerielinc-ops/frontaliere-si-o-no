@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-04-02T12:29:17.547Z",
+  "assembledAt": "2026-04-02T21:27:38.601Z",
   "jobs": [
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
@@ -24,17 +24,18 @@
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "slugByLocale": {
         "it": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "en": "collaborator-service-trice-manora-50-manor-ag-locarno",
-        "de": "servicemitarbeiter-in-manora-50-manor-ag-locarno",
-        "fr": "collaborateur-trice-service-manoir-50-manor-ag-locarno"
+        "en": "manor-collaboratore-trice-servizio-manora-50-locarno",
+        "de": "manor-collaboratore-trice-servizio-manora-50-locarno",
+        "fr": "manor-collaboratore-trice-servizio-manora-50-locarno"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice servizio (Manora) 50%",
-        "en": "Collaborator/service trice (Manora) 50%",
-        "de": "Servicemitarbeiter/in (Manora) 50 %",
-        "fr": "Collaborateur/trice service (Manoir) 50 %"
+        "en": "Collaboratore/trice servizio (Manora) 50%",
+        "de": "Collaboratore/trice servizio (Manora) 50%",
+        "fr": "Collaboratore/trice servizio (Manora) 50%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 57500,
       "salaryMax": 77500,
@@ -54,10 +55,7 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "previousSlugs": [
-        "manor-collaboratore-trice-servizio-manora-50-locarno"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",
@@ -87,11 +85,12 @@
       },
       "titleByLocale": {
         "it": "Collaborateur/trice service (Manora) 50%",
-        "en": "Collaborateur/trice service (Manor) 50%",
-        "de": "Kollaborateur/Trice Service (Manora) 50 %",
-        "fr": "Collaborateur/trice service (Manora) 50 %"
+        "en": "Collaborateur/trice service (Manora) 50%",
+        "de": "Collaborateur/trice service (Manora) 50%",
+        "fr": "Collaborateur/trice service (Manora) 50%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 57500,
       "salaryMax": 77500,
@@ -146,6 +145,7 @@
         "fr": "Apprenti/e Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -194,12 +194,13 @@
         "fr": "polydesigner-3d-afc-100-manor-ag-lugano"
       },
       "titleByLocale": {
-        "it": "Polidesigner 3D AFC 100%",
-        "en": "3D polydesigner AFC 100%",
-        "de": "3D-Polydesigner AFC 100 %",
+        "it": "Polydesigner 3D AFC 100%",
+        "en": "Polydesigner 3D AFC 100%",
+        "de": "Polydesigner 3D AFC 100%",
         "fr": "Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "previousSlugs": [],
       "salaryMin": 58000,
