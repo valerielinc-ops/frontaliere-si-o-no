@@ -32,6 +32,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -422,6 +423,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'kronenhof');
   console.log('🏨 Running dedicated Grand Hotel Kronenhof crawler...');
   console.log(`   API: ${API_BASE}`);
   console.log('');

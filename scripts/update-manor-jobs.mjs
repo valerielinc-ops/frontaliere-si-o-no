@@ -31,6 +31,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -555,6 +556,7 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(MANOR_KEY, 'Manor');
   console.log('═══════════════════════════════════════════════');
   console.log('  Manor AG — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

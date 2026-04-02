@@ -32,6 +32,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -524,6 +525,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(CAPRI_KEY, 'Capri Holdings');
   console.log('═══════════════════════════════════════════════');
   console.log('  Capri Holdings — Dedicated Crawler');
   console.log('  Brands: Michael Kors, Versace, Jimmy Choo');

@@ -15,6 +15,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -247,6 +248,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'TSMG');
   console.log('═══════════════════════════════════════════════');
   console.log('  TSMG — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

@@ -19,6 +19,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -1102,6 +1103,7 @@ function validateLisLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(LIS_KEY, 'LIS');
   console.log('🏛️ Running dedicated LIS – Lugano Istituti Sociali jobs crawler...');
 
   // Ensure the adapter has the correct Arca24 seed URLs

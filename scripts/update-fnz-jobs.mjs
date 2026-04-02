@@ -34,6 +34,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -597,6 +598,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(FNZ_KEY, 'FNZ');
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  FNZ (Switzerland) AG — Dedicated Crawler');

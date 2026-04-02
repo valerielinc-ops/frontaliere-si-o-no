@@ -27,6 +27,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -480,6 +481,7 @@ async function runDedicatedIbsaCrawler() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(IBSA_KEY, 'IBSA');
   console.log('🚀 IBSA dedicated crawler start');
   const beforeSnapshot = snapshotJobSlugs(loadIbsaJobs());
 

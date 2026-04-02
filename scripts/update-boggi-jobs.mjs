@@ -26,6 +26,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -374,6 +375,7 @@ async function enrichBoggiDescriptions() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Boggi Milano');
   console.log('═══════════════════════════════════════════════');
   console.log('  Boggi Milano — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

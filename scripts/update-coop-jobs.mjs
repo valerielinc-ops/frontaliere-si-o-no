@@ -30,6 +30,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -649,7 +650,7 @@ function validateCoopLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime(); // reset wall-clock baseline at actual crawler start
-  console.log('🛒 Running dedicated Coop Ticino jobs crawler...');
+  registerCrawlerSummaryGuard(COOP_KEY, 'Coop');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103)');
   console.log('   Cantons: TI (Ticino) + GR (Grigioni)');
   console.log('   Categories: Offerte di lavoro + Posti di apprendistato + Tirocini di prova');

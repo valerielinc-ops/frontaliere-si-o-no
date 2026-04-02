@@ -27,6 +27,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -194,6 +195,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(TPL_KEY, 'TPL Lugano');
   console.log('🚌 Running dedicated TPL Lugano jobs crawler...');
   console.log(`   Portal: ${TPL_HOST}`);
   console.log('');

@@ -15,6 +15,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -267,6 +268,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Damiani Group');
   console.log('═══════════════════════════════════════════════');
   console.log('  Damiani Group — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

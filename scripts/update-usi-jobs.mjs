@@ -35,6 +35,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -1268,6 +1269,7 @@ function validateUsiLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(USI_KEY, 'USI');
   console.log('🎓 Running dedicated USI – Università della Svizzera italiana jobs crawler...');
   console.log(`   IT page: ${LISTING_URL_IT}`);
   console.log(`   EN page: ${LISTING_URL_EN}\n`);

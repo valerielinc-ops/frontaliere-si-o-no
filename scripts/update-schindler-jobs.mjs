@@ -32,6 +32,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -469,6 +470,7 @@ async function runBaseCrawler() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(SCHINDLER_KEY, 'Schindler');
   console.log('🏗️ Running dedicated Schindler Ticino jobs crawler (direct HTML parsing)...');
   console.log(`   Source: ${SCHINDLER_SEARCH_URL}`);
   console.log('   Scope: CH jobs in Ticino');

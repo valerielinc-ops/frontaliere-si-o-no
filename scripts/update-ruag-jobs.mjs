@@ -15,6 +15,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -299,6 +300,7 @@ function mergeJobs(discoveredJobs) {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'RUAG');
   console.log('═══════════════════════════════════════════════');
   console.log('  RUAG AG — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

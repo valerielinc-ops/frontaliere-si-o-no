@@ -29,6 +29,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -281,6 +282,7 @@ async function fetchAndParseDetailPages(urls) {
 /* -- Main -------------------------------------------------------------- */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(ALDI_KEY, 'ALDI Suisse');
   console.log('\ud83d\uded2 Running dedicated ALDI Suisse jobs crawler...');
   console.log(`   Portal: ${ALDI_HOST}`);
   console.log('');

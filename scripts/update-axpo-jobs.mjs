@@ -15,6 +15,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -344,6 +345,7 @@ function mergeJobs(discoveredJobs) {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'axpo');
   console.log(`\n⚡ Axpo Group — Dedicated Job Crawler`);
   console.log(`   Source: Teamtailor RSS (careers.axpo.com)`);
   console.log(`   Company key: ${COMPANY_KEY}\n`);

@@ -26,6 +26,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -650,6 +651,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(SWISSCOM_KEY, 'Swisscom Ticino');
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  Swisscom (sede Ticino) — Dedicated Crawler');

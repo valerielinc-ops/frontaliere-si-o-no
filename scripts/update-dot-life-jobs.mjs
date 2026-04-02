@@ -32,6 +32,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -399,6 +400,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'dot-life');
   console.log('═══════════════════════════════════════════════');
   console.log('  DOT Life SA — LinkedIn Guest Crawler');
   console.log('═══════════════════════════════════════════════');

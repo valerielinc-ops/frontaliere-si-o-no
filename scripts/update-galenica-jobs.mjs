@@ -32,6 +32,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -562,6 +563,7 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(GALENICA_KEY, 'Galenica');
   console.log('═══════════════════════════════════════════════');
   console.log('  Galenica AG — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

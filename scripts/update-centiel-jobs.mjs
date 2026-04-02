@@ -31,6 +31,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -347,6 +348,7 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'centiel');
   console.log('═══════════════════════════════════════════════');
   console.log('  Centiel — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

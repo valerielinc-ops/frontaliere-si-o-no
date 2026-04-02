@@ -28,6 +28,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -346,6 +347,7 @@ function mergeJobs(discoveredJobs) {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'trumpf');
   console.log(`\n⚡ TRUMPF Schweiz AG — Dedicated Job Crawler`);
   console.log(`   Source: Workday ATS (trumpf.wd3.myworkdayjobs.com)`);
   console.log(`   Company key: ${COMPANY_KEY}\n`);

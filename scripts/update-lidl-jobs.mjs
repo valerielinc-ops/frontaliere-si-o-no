@@ -29,6 +29,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -609,6 +610,7 @@ function validateLidlLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(LIDL_KEY, 'Lidl');
   console.log('🛒 Running dedicated Lidl Svizzera jobs crawler...');
   console.log('   Source: team.lidl.ch search_api/jobsearch');
   console.log('   Scope: Ticino + Grigioni italiano');

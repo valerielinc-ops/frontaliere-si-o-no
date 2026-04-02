@@ -27,6 +27,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -328,6 +329,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Convit Holding');
   console.log('═══════════════════════════════════════════════');
   console.log('  Convit Holding GmbH — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

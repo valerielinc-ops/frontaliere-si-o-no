@@ -32,6 +32,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -672,6 +673,7 @@ function validateZegnaLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(ZEGNA_KEY, 'Zegna');
   console.log('👔 Running dedicated Zegna Group jobs crawler...');
   console.log(`   Listing URL: ${LISTING_URL}\n`);
 

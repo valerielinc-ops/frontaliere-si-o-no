@@ -15,6 +15,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -280,6 +281,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'pizzarotti');
   console.log('═══════════════════════════════════════════════════');
   console.log('  Impresa Pizzarotti & C. S.p.A. — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════════');

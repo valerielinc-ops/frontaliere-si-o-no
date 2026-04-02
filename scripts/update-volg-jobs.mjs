@@ -35,6 +35,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -736,6 +737,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'volg');
   console.log('🏪 Running dedicated Volg / fenaco jobs crawler...');
   console.log(`   Source: ${CC_BASE}`);
   console.log('');

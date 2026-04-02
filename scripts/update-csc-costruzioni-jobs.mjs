@@ -27,6 +27,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -230,6 +231,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(CSC_KEY, 'CSC Costruzioni');
   console.log('🏗️ Running dedicated CSC Costruzioni jobs crawler...');
   console.log(`   Portal: ${CSC_HOST} (Drupal CMS)`);
   console.log('');

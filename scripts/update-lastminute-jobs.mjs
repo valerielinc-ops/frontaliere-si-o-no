@@ -27,6 +27,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -752,6 +753,7 @@ function fillMissingLastminuteDescriptions() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(LASTMINUTE_KEY, 'lastminute.com');
   console.log('🚀 lastminute.com dedicated crawler start');
   const beforeSnapshot = snapshotJobSlugs(loadLastminuteJobs());
 

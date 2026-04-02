@@ -33,6 +33,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -289,6 +290,7 @@ async function fetchAndParseDetailPages(urls) {
 /* -- Main -------------------------------------------------------------- */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(DENNER_KEY, 'Denner');
   console.log('\ud83c\udfea Running dedicated Denner jobs crawler...');
   console.log(`   Portal: ${DENNER_HOST} (Migros Group portal)`);
   console.log('');

@@ -10,6 +10,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -83,6 +84,7 @@ function validateVfLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(VF_KEY, 'VF');
   let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('🎯 Running dedicated VF jobs crawler (with forced localization)...');
 

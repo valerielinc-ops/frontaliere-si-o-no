@@ -31,6 +31,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -353,6 +354,7 @@ function patchDescriptionsFromDetailBodies(detailBodies) {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(RAIFF_KEY, 'Raiffeisen VC');
   console.log('🏦 Running dedicated Raiffeisen Vedeggio Cassarate jobs crawler...');
   console.log(`   Careers: ${CAREERS_URLS[0]}`);
   console.log(`   Jobs portal: ${RAIFF_JOBS_HOST}`);

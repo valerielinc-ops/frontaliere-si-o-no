@@ -44,6 +44,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -580,6 +581,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'Confederazione TI+GR');
   console.log('===============================================');
   console.log('  Confederazione Svizzera — TI + GR Federal Jobs');
   console.log('===============================================');

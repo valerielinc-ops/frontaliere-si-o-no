@@ -27,6 +27,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -312,6 +313,7 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(CAMBIAVALUTE_KEY, 'Cambiavalute');
   console.log('═══════════════════════════════════════════════');
   console.log('  CambiaValute.ch — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

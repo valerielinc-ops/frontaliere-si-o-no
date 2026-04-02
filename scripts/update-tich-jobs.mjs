@@ -39,6 +39,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -689,6 +690,7 @@ async function enrichTichJobs() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(TICH_KEY, 'Ti.CH');
   console.log('🏛️ Running dedicated Ti.CH (Cantone Ticino) jobs crawler...');
   console.log('   Platform: Rexx Systems (concorsi.ti.ch)');
   console.log('   Source: Listing page + Atom RSS feed');

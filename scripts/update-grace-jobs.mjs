@@ -16,6 +16,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -558,6 +559,7 @@ function mergeJobs(discoveredJobs) {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'grace');
   console.log(`\n🏨 Grace La Margna St. Moritz — Dedicated Job Crawler`);
   console.log(`   Source: hotelcareer.com (Playwright browser-based)`);
   console.log(`   Company key: ${COMPANY_KEY}\n`);

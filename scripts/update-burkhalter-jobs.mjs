@@ -32,6 +32,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -359,6 +360,7 @@ async function pMap(items, fn, concurrency = CONCURRENCY) {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'burkhalter');
   console.log('🏗️  Running dedicated Burkhalter Group jobs crawler...');
   console.log(`   Portal: ${VACANCIES_URL}`);
   console.log('');

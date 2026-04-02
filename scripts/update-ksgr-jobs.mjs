@@ -21,6 +21,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -204,6 +205,7 @@ function postProcessKsgrJobs(discoveredJobs) {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(KSGR_KEY, 'KSGR');
   console.log('🏥 Running dedicated KSGR jobs crawler (Prospective API)...');
   const beforeJobs = readExistingCrawlerJobs(KSGR_KEY, DATA_JOBS);
   const beforeTargetJobs = Array.isArray(beforeJobs) ? beforeJobs.filter((job) => isKsgrJob(job)) : [];

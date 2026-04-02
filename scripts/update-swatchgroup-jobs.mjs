@@ -10,6 +10,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -149,6 +150,7 @@ function validateSwatchLocaleCoverage(companyKeys) {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(ck, ck);
   const companyKeys = loadSwatchCompanyKeys();
   if (companyKeys.length === 0) {
     console.log('ℹ️ Nessun adapter swatchgroup.com trovato. Niente da fare.');

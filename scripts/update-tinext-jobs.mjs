@@ -30,6 +30,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -399,6 +400,7 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'tinext');
   console.log('═══════════════════════════════════════════════');
   console.log('  Tinext SA — Dedicated Crawler (Kenjo)');
   console.log('═══════════════════════════════════════════════');

@@ -33,6 +33,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -531,6 +532,7 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(BANCA_SEMPIONE_KEY, 'Banca del Sempione');
   console.log('═══════════════════════════════════════════════');
   console.log('  Banca del Sempione — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

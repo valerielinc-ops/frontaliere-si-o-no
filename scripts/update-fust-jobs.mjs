@@ -33,6 +33,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -290,6 +291,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(FUST_KEY, 'Fust');
   console.log('🏪 Running dedicated Fust jobs crawler...');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000103, Coop Group)');
   console.log('   Cantons: TI (Ticino) + GR (Grigioni)');

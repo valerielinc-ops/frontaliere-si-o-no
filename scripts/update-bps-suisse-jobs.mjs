@@ -29,6 +29,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -325,6 +326,7 @@ function updateAdapterConfig(seedUrls) {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(BPS_KEY, 'BPS Suisse');
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${BPS_COMPANY_NAME} — Dedicated Crawler`);
   console.log('═══════════════════════════════════════════════');

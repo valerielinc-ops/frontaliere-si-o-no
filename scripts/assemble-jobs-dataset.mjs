@@ -45,6 +45,55 @@ import { computeCrawlerQualityAggregate, computeJobQualityScore } from './lib/de
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
+/* ── Summary guard — ensures every crawler writes a summary on exit ──── */
+
+let _summaryWritten = false;
+
+/**
+ * Register a process-exit guard that writes a minimal summary if the crawler
+ * exits (via early return, process.exit, or uncaught error) before calling
+ * writeSummaryCrawlerSlice().
+ *
+ * Call this once at the top of main() in each crawler script.
+ *
+ * @param {string} key   - Crawler key (same as COMPANY_KEY)
+ * @param {string} label - Human-readable label (company name)
+ */
+export function registerCrawlerSummaryGuard(key, label) {
+  process.on('exit', (code) => {
+    if (_summaryWritten) return;
+    try {
+      writeSummaryCrawlerSlice({
+        key,
+        label: label || key,
+        generatedAt: new Date().toISOString(),
+        total: 0,
+        newCount: 0,
+        updatedCount: 0,
+        removedCount: 0,
+        unchangedCount: 0,
+        newJobs: [],
+        updatedJobs: [],
+        removedJobs: [],
+        unchangedJobs: [],
+        earlyExit: true,
+        exitCode: code,
+      });
+    } catch { /* best-effort — process is exiting */ }
+
+    // Also write GH Actions step summary
+    const summaryFile = process.env.GITHUB_STEP_SUMMARY;
+    if (summaryFile) {
+      const status = code === 0 ? '⚠️ Uscita anticipata' : `❌ Errore (exit ${code})`;
+      try {
+        fs.appendFileSync(summaryFile,
+          `\n## 📋 Riepilogo crawler — ${label || key}\n\n` +
+          `${status} — nessun riepilogo dettagliato disponibile.\n`);
+      } catch { /* non-blocking */ }
+    }
+  });
+}
+
 /* ── Assembler-specific identity ──────────────────────────────────────── */
 
 /**
@@ -211,6 +260,7 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs) {
  * @param {object} summaryEntry - Summary entry object (key, label, generatedAt, ...)
  */
 export function writeSummaryCrawlerSlice(summaryEntry) {
+  _summaryWritten = true;
   if (!summaryEntry?.key || typeof summaryEntry.key !== 'string') {
     throw new TypeError('writeSummaryCrawlerSlice: summaryEntry.key must be a non-empty string');
   }

@@ -30,6 +30,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -880,6 +881,7 @@ async function runDedicatedSupsiCrawler() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(SUPSI_KEY, 'SUPSI');
   console.log('🚀 SUPSI dedicated crawler start');
   const beforeSnapshot = snapshotJobSlugs(loadSupsiJobs());
 

@@ -28,6 +28,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -582,6 +583,7 @@ function validatePostLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(POST_KEY, 'Post.ch');
   console.log('📮 Running dedicated Swiss Post (La Posta) jobs crawler...');
   console.log(`   Listing URLs:`);
   for (const url of LISTING_URLS) console.log(`     ${url}`);

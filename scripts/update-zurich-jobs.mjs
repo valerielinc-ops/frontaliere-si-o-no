@@ -14,6 +14,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -194,6 +195,7 @@ function validateZurichLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(ZURICH_KEY, 'Zurich');
   console.log('🏛️ Running dedicated Zurich Insurance jobs crawler (with forced localization)...');
 
   // Ensure the adapter has all TI + GR seed URLs

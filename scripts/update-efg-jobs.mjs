@@ -23,6 +23,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -1010,6 +1011,7 @@ function validateEfgLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(EFG_KEY, 'EFG');
   console.log('🏦 Running dedicated EFG International AG jobs crawler...');
   console.log(`   Oracle HCM: ${ORACLE_BASE}`);
   console.log(`   Site: ${SITE_NUMBER}, Location: Switzerland (${LOCATION_ID_CH})\n`);

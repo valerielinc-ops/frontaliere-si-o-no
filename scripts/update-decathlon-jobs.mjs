@@ -28,6 +28,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -207,6 +208,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(DECATHLON_KEY, 'Decathlon');
   console.log('🏃 Running dedicated Decathlon Suisse jobs crawler...');
   console.log(`   Portal: ${DECATHLON_HOST}`);
   console.log('');

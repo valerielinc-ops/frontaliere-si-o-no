@@ -27,6 +27,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -1076,6 +1077,7 @@ function validateMedactaLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(MEDACTA_KEY, 'Medacta');
   console.log('🏥 Running dedicated Medacta International SA jobs crawler...');
   console.log(`   Website: https://www.medacta.com`);
   console.log(`   ATS: Allibo (joblink.allibo.com)`);

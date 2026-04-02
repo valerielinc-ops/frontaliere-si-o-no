@@ -29,6 +29,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -552,6 +553,7 @@ function validateAbbLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(ABB_KEY, 'ABB');
   console.log('⚡ Running dedicated ABB Svizzera jobs crawler...');
   console.log(`   Source: careers.abb search-results`);
   console.log(`   Keywords: ${ABB_SEARCH_KEYWORDS.join(', ')}`);

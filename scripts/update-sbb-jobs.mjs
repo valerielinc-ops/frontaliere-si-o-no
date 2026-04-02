@@ -44,6 +44,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -1079,6 +1080,7 @@ function validateSbbLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(SBB_KEY, 'SBB');
   console.log('🚂 Running dedicated SBB / FFS jobs crawler...');
   console.log('   Platform: SAP SuccessFactors via AEM JSON API');
   console.log('   Region filter: Ticino + Grigioni');

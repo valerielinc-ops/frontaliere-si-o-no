@@ -25,6 +25,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -241,7 +242,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime(); // reset wall-clock baseline at actual crawler start
-  console.log('═══════════════════════════════════════════════');
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'ReleWant');
   console.log('  ReleWant — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
   console.log(`  Careers page: ${CAREERS_URL}\n`);

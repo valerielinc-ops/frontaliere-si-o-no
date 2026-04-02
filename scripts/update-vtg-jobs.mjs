@@ -30,6 +30,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -288,6 +289,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(VTG_KEY, 'VTG');
   console.log('🎖️ Running dedicated Swiss Armed Forces (VTG) jobs crawler...');
   console.log('   Platform: Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch)');
   console.log('   Regions: Tessin (TI) + Ostschweiz (GR)');

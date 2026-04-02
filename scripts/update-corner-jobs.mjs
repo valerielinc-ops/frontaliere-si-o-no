@@ -24,6 +24,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -331,6 +332,7 @@ async function runBaseCrawler() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(CORNER_KEY, 'Corner');
   console.log('🏦 Running dedicated Corner jobs crawler (Recruitee API)...');
 
   // Snapshot Corner jobs before crawl for diff summary

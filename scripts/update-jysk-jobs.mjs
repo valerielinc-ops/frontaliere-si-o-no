@@ -29,6 +29,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -212,6 +213,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(JYSK_KEY, 'JYSK');
   console.log('🛋️ Running dedicated JYSK jobs crawler...');
   console.log(`   Portal: ${JYSK_HOST} (Drupal CMS)`);
   console.log('');

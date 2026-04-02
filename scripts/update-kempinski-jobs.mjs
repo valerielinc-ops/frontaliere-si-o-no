@@ -37,6 +37,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -342,6 +343,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'kempinski');
   console.log('🏨 Running dedicated Kempinski Switzerland crawler...');
   console.log(`   API: ${API_URL}`);
   console.log(`   Filter: Switzerland locations only`);

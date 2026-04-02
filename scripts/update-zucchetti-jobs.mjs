@@ -15,6 +15,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -255,6 +256,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'zucchetti');
   console.log('═══════════════════════════════════════════════');
   console.log('  Zucchetti Switzerland SA — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

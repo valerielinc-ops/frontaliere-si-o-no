@@ -40,6 +40,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -341,6 +342,7 @@ function validateMigrosLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(MIGROS_KEY, 'Migros');
   console.log('🛒 Running dedicated Migros Ticino jobs crawler...');
   console.log('   Platform: Nuxt.js SSR (jobs.migros.ch)');
   console.log('   Regions: Svizzera meridionale (871) + Grigioni (868)');

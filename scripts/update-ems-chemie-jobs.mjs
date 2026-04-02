@@ -31,6 +31,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -233,6 +234,7 @@ function postProcess() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, COMPANY_NAME);
   console.log('═══════════════════════════════════════════════');
   console.log(`  ${COMPANY_NAME} — Dedicated Crawler`);
   console.log('═══════════════════════════════════════════════');

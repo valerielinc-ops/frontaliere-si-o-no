@@ -37,6 +37,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -387,6 +388,7 @@ function validateLocales() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'colin-cie');
   console.log('═══════════════════════════════════════════════');
   console.log('  Colin&Cie Wealth Management — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');

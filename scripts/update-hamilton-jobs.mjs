@@ -38,6 +38,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -408,6 +409,7 @@ function validateLocaleCoverage() {
 /* ── Main ──────────────────────────────────────────────────── */
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'hamilton');
   console.log('🏭 Running dedicated Hamilton Bonaduz AG crawler...');
   console.log(`   API: ${API_URL}`);
   console.log(`   Filter: Switzerland only`);

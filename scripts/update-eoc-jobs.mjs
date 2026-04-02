@@ -16,6 +16,7 @@ import { printPublishedJobUrls, writeJobsSummary, snapshotJobSlugs, computeCrawl
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -590,6 +591,7 @@ function validateEocLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(EOC_KEY, 'EOC');
   console.log('🏥 Running dedicated EOC – Ente Ospedaliero Cantonale jobs crawler...');
 
   // 1. Fetch all job detail URLs from paginated Umantis listing

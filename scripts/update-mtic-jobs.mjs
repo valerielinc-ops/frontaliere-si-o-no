@@ -26,6 +26,7 @@ import {
 import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
+  registerCrawlerSummaryGuard,
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
@@ -358,6 +359,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  registerCrawlerSummaryGuard(COMPANY_KEY, 'MTIC Group');
   console.log('═══════════════════════════════════════════════');
   console.log('  MTIC Group / SPS InterCert S.A. — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
