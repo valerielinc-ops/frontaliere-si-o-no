@@ -10370,6 +10370,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-settanta-chili-di-mozzarella': {
+    title: 'Settanta chili di mozzarella nel bagagliaio del SUV. Doppio sequestro | Frontaliere Ticino',
+    description: 'Due distinti casi di contrabbando di generi alimentari sono stati intercettati nello stesso giorno dalle forze dell’ordine. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, settanta, chili, mozzarella, bagagliaio',
+    ogTitle: 'Settanta chili di mozzarella nel bagagliaio del SUV. Doppio sequestro della dogana in',
+    ogDescription: 'Due distinti casi di contrabbando di generi alimentari sono stati intercettati nello stesso giorno dalle forze dell’ordine.',
+    canonicalPath: '/articoli-frontaliere/settanta-chili-di-mozzarella',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Settanta chili di mozzarella nel bagagliaio del SUV. Doppio sequestro della dogana in Ticino",
+      "description": "Due distinti casi di contrabbando di generi alimentari sono stati intercettati nello stesso giorno dalle forze dell’ordine. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/settanta-chili-di-mozzarella.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "SUV con mozzarella"
+      },
+      "datePublished": "2026-04-02T10:15:12+00:00",
+      "dateModified": "2026-04-02T10:15:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/settanta-chili-di-mozzarella`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

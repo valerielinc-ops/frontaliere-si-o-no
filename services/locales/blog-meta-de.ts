@@ -1910,6 +1910,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.contrabbando-argento-frontiera.title': 'Silberschmuggel: Sieben geprägte Silberstücke',
     'blog.article.contrabbando-argento-frontiera.excerpt': 'Der Schweizer Zoll hat bei einer Routinekontrolle sieben geprägte Silberstücke beschlagnahmt.',
     'blog.article.contrabbando-argento-frontiera.imageAlt': 'Silber-Schmuggel an der Grenze',
+    'blog.article.settanta-chili-di-mozzarella.title': 'Siebzig Kilo Mozzarella im Kofferraum des SUV. Doppeltes Zollsequester im Tessin',
+    'blog.article.settanta-chili-di-mozzarella.excerpt': 'In einem Tag wurden zwei verschiedene Fälle von Lebensmittel-Schmuggel von den Mitarbeitern der UDSC zwischen Sottoceneri und Sopraceneri aufgedeckt.',
+    'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV mit Mozzarella',
 };
 
 export default blogMetaDe;

@@ -5648,4 +5648,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/contrabbando-argento-frontiera.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'settanta-chili-di-mozzarella',
+    category: 'novita',
+    date: '2026-04-02T10:15:12.482Z',
+    image: '/images/blog/settanta-chili-di-mozzarella.jpg',
+    hasCalculator: true,
+  },
 ];

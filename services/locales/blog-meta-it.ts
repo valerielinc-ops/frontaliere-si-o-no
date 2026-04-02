@@ -1910,6 +1910,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contrabbando-argento-frontiera.title': 'Contrabbando d\'argento: sette pezzi d\'argento in conio',
     'blog.article.contrabbando-argento-frontiera.excerpt': 'La dogana svizzera ha sequestrato sette pezzi d\'argento in conio durante un controllo di routine',
     'blog.article.contrabbando-argento-frontiera.imageAlt': 'Contrabbando d\'argento sulla frontiera',
+    'blog.article.settanta-chili-di-mozzarella.title': 'Settanta chili di mozzarella nel bagagliaio del SUV. Doppio sequestro della dogana in Ticino',
+    'blog.article.settanta-chili-di-mozzarella.excerpt': 'Due distinti casi di contrabbando di generi alimentari sono stati intercettati nello stesso giorno dai collaboratori dell’UDSC tra Sottoceneri e Sopraceneri.',
+    'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV con mozzarella',
 };
 
 export default blogMetaIt;

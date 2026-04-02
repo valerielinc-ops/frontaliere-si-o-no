@@ -1910,6 +1910,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contrabbando-argento-frontiera.title': 'Silver Smuggling: Seven Minted Silver Pieces Seized',
     'blog.article.contrabbando-argento-frontiera.excerpt': 'The Swiss customs authority has seized seven minted silver pieces during a routine inspection.',
     'blog.article.contrabbando-argento-frontiera.imageAlt': 'Silver smuggling on the border',
+    'blog.article.settanta-chili-di-mozzarella.title': 'Seventy kilograms of mozzarella in the SUV\'s trunk. Double customs seizure in Ticino',
+    'blog.article.settanta-chili-di-mozzarella.excerpt': 'Two distinct cases of food contraband were intercepted on the same day by UDSC collaborators between Sottoceneri and Sopraceneri.',
+    'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV with mozzarella',
 };
 
 export default blogMetaEn;

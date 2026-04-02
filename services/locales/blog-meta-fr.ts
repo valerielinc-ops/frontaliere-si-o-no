@@ -1910,6 +1910,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.contrabbando-argento-frontiera.title': 'Contrebande d\'argent : sept pièces d\'argent frappées',
     'blog.article.contrabbando-argento-frontiera.excerpt': 'La douane suisse a saisi sept pièces d\'argent frappées lors d\'un contrôle de routine',
     'blog.article.contrabbando-argento-frontiera.imageAlt': 'Contrôle des douanes à la frontière',
+    'blog.article.settanta-chili-di-mozzarella.title': 'Soixante-dix kilos de mozzarella dans le coffre du SUV. Deux saisies douanières enregistrées au Tessin',
+    'blog.article.settanta-chili-di-mozzarella.excerpt': 'Deux affaires distinctes de contrebande de denrées alimentaires ont été interceptées dans la même journée par les agents de l\'UDSC entre Sottoceneri et Sopraceneri.',
+    'blog.article.settanta-chili-di-mozzarella.imageAlt': 'SUV avec mozzarella',
 };
 
 export default blogMetaFr;

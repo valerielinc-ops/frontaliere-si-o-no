@@ -1854,6 +1854,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavori-notturni-via-lavizzari': { name: 'Viabilità', path: '/articoli-frontaliere/lavori-notturni-via-lavizzari', parent: 'blog' },
     'blog-limite-popolazione-10-milioni-ticino': { name: 'Limitare la popolazione in Ticino a 10 m', path: '/articoli-frontaliere/limite-popolazione-10-milioni-ticino', parent: 'blog' },
     'blog-contrabbando-argento-frontiera': { name: 'Notizie dal Ticino', path: '/articoli-frontaliere/contrabbando-argento-frontiera', parent: 'blog' },
+    'blog-settanta-chili-di-mozzarella': { name: 'Novita in Ticino', path: '/articoli-frontaliere/settanta-chili-di-mozzarella', parent: 'blog' },
   };
 
   const info = sectionNames[section];
