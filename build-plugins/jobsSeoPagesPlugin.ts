@@ -3388,6 +3388,29 @@ ${(() => {
         return `  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n${xDefault}\n    <lastmod>${jobLastmod}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`;
       }).join('\n');
 
+      // FRO-SEO: Add previousSlugs entries to sitemap so Google can associate
+      // old indexed URLs with sitemap entries. These bridge pages have canonical
+      // pointing to the current active slug, helping Google consolidate signals.
+      const prevSlugEntries: string[] = [];
+      for (const job of sitemapEligibleJobs) {
+        const prevSlugs: string[] = Array.isArray((job as any).previousSlugs) ? (job as any).previousSlugs : [];
+        if (prevSlugs.length === 0) continue;
+        const currentItSlug = localizedSlug(job, 'it');
+        const currentItPath = withSlash(`/${sectionByLocale.it}/${currentItSlug}`.replace(/\/+/g, '/'));
+        const canonicalAlternates = localeList.map((l) => {
+          const p = `${localePrefix[l]}/${sectionByLocale[l]}/${localizedSlug(job, l)}`.replace(/\/+/g, '/');
+          return `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(p)}" />`;
+        }).join('\n');
+        const xDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${currentItPath}" />`;
+        const jobLastmod = job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : dateStamp;
+        for (const ps of prevSlugs) {
+          if (!ps || ps === currentItSlug) continue;
+          const psPath = withSlash(`/${sectionByLocale.it}/${ps}`.replace(/\/+/g, '/'));
+          prevSlugEntries.push(`  <url>\n    <loc>${BASE_URL}${psPath}</loc>\n${canonicalAlternates}\n${xDefault}\n    <lastmod>${jobLastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>`);
+        }
+      }
+      const prevSlugSitemap = prevSlugEntries.length > 0 ? '\n' + prevSlugEntries.join('\n') : '';
+
       // Company sitemap entries
       const companyEntries = [...companyMap.keys()].map((cSlug) => {
         const itSlug = `${companyRoutePrefix.it}-${cSlug}`;
@@ -3401,7 +3424,7 @@ ${(() => {
         return `  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n${xDefault}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
       }).join('\n');
 
-      const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}\n</urlset>\n`;
+      const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}\n</urlset>\n`;
       fs.writeFileSync(np.join(distDir, 'sitemap-jobs.xml'), sitemapJobs, 'utf-8');
 
       const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
@@ -3422,7 +3445,7 @@ ${(() => {
         fs.writeFileSync(sitemapIndexPath, idx, 'utf-8');
       }
 
-      console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml`);
+      console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${validJobs.length * 4} localized job pages and sitemap-jobs.xml (${prevSlugEntries.length} previousSlug entries)`);
 
       /* ── Expired-job soft-landing pages ────────────────────────── */
       // 1. Read tracking file + merge current jobs

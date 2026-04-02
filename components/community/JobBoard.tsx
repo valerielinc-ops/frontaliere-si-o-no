@@ -3166,13 +3166,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
       return;
     }
 
-    // For company/search pages, use initialJobSlug to build the canonical so it
-    // self-references the current page instead of falling back to the listing page.
+    // Defense-in-depth: if we're on a job detail URL (initialJobSlug is set)
+    // but selectedJob is null, NEVER fall through to listing-page canonical.
+    // Use the URL slug as canonical source instead of null.
     const canonicalSlugSource = selectedJob
       ? selectedJob
-      : (companySlugFilter || searchSlugFilter) && initialJobSlug
+      : (companySlugFilter || searchSlugFilter || editorialLandingDescriptor) && initialJobSlug
         ? initialJobSlug
-        : selectedJob;
+        : initialJobSlug || selectedJob;
     const canonicalHref = `${window.location.origin}${buildJobPath(canonicalSlugSource)}`;
     let canonical = document.querySelector('link[rel="canonical"]') as HTMLLinkElement | null;
     if (!canonical) {
@@ -4796,6 +4797,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // via bridgeTargetSlug above. No redirect or interstitial needed.
 
   if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter) {
+    // Ensure expired/orphan job pages are indexable — remove any stale noindex
+    // that may have been set by a previous navigation or SPA hydration race.
+    const robotsMeta = document.querySelector('meta[name="robots"]');
+    if (robotsMeta?.getAttribute('content')?.includes('noindex')) {
+      robotsMeta.remove();
+    }
     // Expired: slug found in expired-jobs.json — show metadata + sign-in + related
     if (expiredJobLoading) return <SkeletonJobDetail />;
     if (expiredJob) {

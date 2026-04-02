@@ -78,8 +78,11 @@ function getSeededExpiredJob(): ExpiredJob | null {
 export function hasSeededExpiredData(): boolean {
   try {
     const raw = (window as unknown as Record<string, unknown>).__EXPIRED_JOB_DATA__;
+    // Check for slug only — title may be empty for orphan slugs that have no
+    // enrichment data. Guard 1 in JobBoard.tsx must still fire for these pages
+    // to prevent the canonical from falling through to the listing page URL.
     return !!(raw && typeof raw === 'object' && 'slug' in (raw as Record<string, unknown>) &&
-      (raw as Record<string, string>).title?.trim());
+      (raw as Record<string, string>).slug?.trim());
   } catch { return false; }
 }
 
