@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T08:36:45.223Z",
+  "generatedAt": "2026-04-02T09:44:09.146Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,8 +10,8 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 229,
-      "latestObservedUpdate": "2026-04-02T08:01:38.056Z"
+      "stationCount": 228,
+      "latestObservedUpdate": "2026-04-02T09:11:03.862Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -15396,20 +15396,6 @@
             "distanceKm": 17.7
           },
           {
-            "id": "oE9ujs5ie5VaYL9ls0Y0",
-            "name": "Stazione di servizio Migrol",
-            "brand": "MIGROL",
-            "address": "Via Lugano 49, 6953 Lugaggia",
-            "lat": 46.053738,
-            "lng": 8.972878,
-            "sp95PriceChf": 1.84,
-            "updatedAt": "2026-03-31T18:33:08.396Z",
-            "nearestMunicipality": "Valsolda (CO)",
-            "nearestMunicipalityDistanceKm": 6.1,
-            "sp95PriceEur": 2.002,
-            "distanceKm": 19.9
-          },
-          {
             "id": "eDbI0PJQV5oNt1i95qtE",
             "name": "ECSA Energy SA - Stazione di servizio Pregassona",
             "brand": "UNDEFINED",
@@ -15422,6 +15408,20 @@
             "nearestMunicipalityDistanceKm": 5.3,
             "sp95PriceEur": 2.024,
             "distanceKm": 19.8
+          },
+          {
+            "id": "oE9ujs5ie5VaYL9ls0Y0",
+            "name": "Stazione di servizio Migrol",
+            "brand": "MIGROL",
+            "address": "Via Lugano 49, 6953 Lugaggia",
+            "lat": 46.053738,
+            "lng": 8.972878,
+            "sp95PriceChf": 1.8900000000000001,
+            "updatedAt": "2026-04-02T09:11:03.862Z",
+            "nearestMunicipality": "Valsolda (CO)",
+            "nearestMunicipalityDistanceKm": 6.1,
+            "sp95PriceEur": 2.056,
+            "distanceKm": 19.9
           },
           {
             "id": "Vw7zlCaSR4BImrslQopa",
@@ -52567,7 +52567,7 @@
       },
       "swiss": {
         "searchRadiusKm": 20,
-        "optionCount": 2,
+        "optionCount": 1,
         "cheapestStation": {
           "id": "qwgGPFGqZRzvSLMPRnp5",
           "name": "Garage Lischana",
@@ -52596,20 +52596,6 @@
             "nearestMunicipalityDistanceKm": 20,
             "sp95PriceEur": 1.904,
             "distanceKm": 20
-          },
-          {
-            "id": "wLTuFeopy06OT1FSDjxM",
-            "name": "Central-Garage Flurin Denoth AG",
-            "brand": "AVIA",
-            "address": "Stradun 270, 7550 Scuol",
-            "lat": 46.798752,
-            "lng": 10.304489,
-            "sp95PriceChf": 1.83,
-            "updatedAt": "2026-03-03T09:19:16.866Z",
-            "nearestMunicipality": "Curon Venosta (BZ)",
-            "nearestMunicipalityDistanceKm": 19.1,
-            "sp95PriceEur": 1.991,
-            "distanceKm": 19.1
           }
         ],
         "minPriceChf": 1.75,
