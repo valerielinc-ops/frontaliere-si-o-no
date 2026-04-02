@@ -1,24 +1,22 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-04-01T20:58:01.106Z",
+  "generatedAt": "2026-04-02T10:11:44.366Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 13387,
-  "avgDurationMs": 13387,
+  "unchangedCount": 0,
+  "durationMs": 15329,
+  "avgDurationMs": 15329,
   "durationHistory": [
-    13387
+    15329
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "International Sales Manager",
-      "slug": "responsabile-delle-vendite-internazionali-chocolat-alprose-sa-baronie-switzerland-sa-caslano",
+      "slug": "international-sales-manager-baronie-caslano",
       "url": "https://www.baronie.com/en/jobs/international-sales-manager-caslano",
       "applyUrl": "https://www.baronie.com/en/jobs/international-sales-manager-caslano",
       "company": "Chocolat Alprose SA / Baronie Switzerland SA",
@@ -34,7 +32,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -43,14 +41,15 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale",
       "postalCode": "6613",
-      "needsRetranslation": true,
-      "_qualityScore": 93,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 21,
+        "translation": 15,
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
