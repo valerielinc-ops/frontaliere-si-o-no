@@ -1,57 +1,16 @@
 {
   "key": "axpo-group",
   "label": "axpo",
-  "generatedAt": "2026-04-01T20:55:24.115Z",
-  "total": 1,
+  "generatedAt": "2026-04-02T20:50:08.853Z",
+  "total": 0,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2172,
-  "avgDurationMs": 2172,
-  "durationHistory": [
-    2172
-  ],
+  "unchangedCount": 0,
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Dispatcher/in Betriebs- und Schichtdienst",
-      "slug": "dispatcher-in-betriebs-e-schichtdienst-axpo-group-tavanasa",
-      "url": "https://careers.axpo.com/jobs/7290386-dispatcher-in-betriebs-und-schichtdienst",
-      "applyUrl": "https://careers.axpo.com/jobs/7290386-dispatcher-in-betriebs-und-schichtdienst",
-      "company": "Axpo Group",
-      "companyKey": "axpo-group",
-      "companyDomain": "axpo.com",
-      "location": "Tavanasa",
-      "addressLocality": "Tavanasa",
-      "addressRegion": "Graubünden",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "operations",
-      "sector": "Energia & Utilities",
-      "department": "Operation / Production",
-      "source": "axpo-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-02-25",
-      "validThrough": "",
-      "employmentType": "full_time",
-      "contractType": "permanent",
-      "crawledAt": "2026-04-01T20:55:24.083Z",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Viale Stazione 31",
-      "postalCode": "6500",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
