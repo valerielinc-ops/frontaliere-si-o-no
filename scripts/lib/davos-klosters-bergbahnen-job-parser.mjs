@@ -1,11 +1,14 @@
 /**
  * Davos Klosters Bergbahnen AG job parser — tourism/mountain railways.
- * Source: https://www.davosklosters.ch/bergbahnen
+ * Source: https://www.davosklostersmountains.ch/de/mountains/stellenangebote/jobs-berge
+ *
+ * The listing page uses rexx-systems: job cards are <div class="job-item">
+ * with <h3 class="job-item__title">, metadata divs, and a detail link
+ * matching /de/mountains/stellenangebote/{slug}_j_{id}.
  */
 
-const CAREERS_URL = 'https://www.davosklosters.ch/de/bergbahnen/jobs';
-const CAREERS_ALT = 'https://www.davos.ch/arbeiten-in-davos/stellenangebote/';
-const CAREERS_BASE = 'https://www.davosklosters.ch';
+const CAREERS_URL = 'https://www.davosklostersmountains.ch/de/mountains/stellenangebote/jobs-berge';
+const CAREERS_BASE = 'https://www.davosklostersmountains.ch';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
 // ── shared utilities ──────────────────────────────────────────────────
@@ -44,46 +47,71 @@ export function inferEmploymentType(title = '', description = '', percentage = '
 
 /**
  * Parse job listings from Davos Klosters Bergbahnen HTML.
- * Tries multiple patterns for job links on tourism career pages.
+ *
+ * Real HTML structure:
+ * <div class="job-item clickable js-go-to-link">
+ *   <h3 class="... job-item__title">Title</h3>
+ *   <div class="row ...">
+ *     <div class="col-md-10 ...">
+ *       <div class="col-md ...">Period</div>
+ *       <div class="col-md ...">Percentage</div>
+ *       <div class="col-md ...">Department</div>
+ *     </div>
+ *     <div class="col-md-2 ...">
+ *       <a href="/de/mountains/stellenangebote/Slug_j_ID">Details</a>
+ *     </div>
+ *   </div>
+ * </div>
  */
 export function parseDavosKlostersBergbahnenListingHtml(html) {
   if (!html || typeof html !== 'string') return [];
   const seen = new Set();
   const jobs = [];
 
-  // Pattern 1: links to job detail pages with /jobs/, /stelle/, /stellenangebote/
-  const patterns = [
-    /<a[^>]+href=["']([^"']*?\/(?:jobs?|stelle[n]?(?:angebote)?|career|karriere)\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
-    /<a[^>]+href=["']([^"']+)["'][^>]*class="[^"]*(?:job|stelle|vacancy)[^"]*"[^>]*>([\s\S]*?)<\/a>/gi,
-    /<div[^>]+class="[^"]*(?:job|stelle|vacancy)[^"]*"[^>]*>[\s\S]*?<a[^>]+href=["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi,
-  ];
+  // Split on job-item blocks
+  const blocks = html.split(/(?=<div[^>]*class="[^"]*job-item[^"]*")/i);
 
-  for (const pattern of patterns) {
-    let m;
-    while ((m = pattern.exec(html)) !== null) {
-      const rawUrl = m[1].trim();
-      // Skip listing pages and anchors
-      if (/(?:stellenangebote|jobs)\/?(?:#.*)?$/.test(rawUrl)) continue;
-      const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
-      if (seen.has(url)) continue;
-      seen.add(url);
+  for (const block of blocks) {
+    // Must contain a job-item class
+    if (!/class="[^"]*job-item/i.test(block)) continue;
 
-      const title = stripHtml(m[2]).trim();
-      if (!title || title.length < 3) continue;
+    // Extract title from <h3 class="... job-item__title">
+    const titleMatch = block.match(/<h3[^>]*class="[^"]*job-item__title[^"]*"[^>]*>([\s\S]*?)<\/h3>/i);
+    if (!titleMatch) continue;
+    const title = stripHtml(titleMatch[1]).trim();
+    if (!title || title.length < 3) continue;
 
-      const slugMatch = rawUrl.match(/\/([^/?#]+)\/?(?:\?|#|$)/);
-      const jobId = slugMatch ? slugMatch[1] : '';
+    // Extract detail link: <a href="/de/mountains/stellenangebote/Slug_j_ID">
+    const linkMatch = block.match(/<a[^>]+href=["']([^"']*?stellenangebote\/[^"']+_j_\d+[^"']*)["']/i);
+    if (!linkMatch) continue;
+    const rawUrl = linkMatch[1].trim();
+    const url = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl}`;
+    if (seen.has(url)) continue;
+    seen.add(url);
 
-      // Try to extract location from context
-      const ctx = html.slice(m.index, m.index + 800);
-      const locMatch = ctx.match(/(?:location|ort|standort|arbeitsort)[^>]*>([^<]+)/i)
-        || ctx.match(/(Davos|Klosters|Parsenn|Jakobshorn|Rinerhorn|Pischa|Madrisa)/i);
-      const location = locMatch
-        ? (typeof locMatch[1] === 'string' ? stripHtml(locMatch[1]).trim() : locMatch[0])
-        : 'Davos';
+    // Extract job ID from the URL pattern: _j_ID
+    const idMatch = rawUrl.match(/_j_(\d+)/);
+    const jobId = idMatch ? idMatch[1] : '';
 
-      jobs.push({ id: jobId, jobId, title, url, location, canton: 'GR', department: '' });
-    }
+    // Extract metadata from the three col-md divs (period, percentage, department)
+    const metaDivs = block.match(/<div[^>]*class="col-md vertical-gutter__item"[^>]*>([\s\S]*?)<\/div>/gi) || [];
+    const metaValues = metaDivs.map(d => stripHtml(d).trim()).filter(Boolean);
+
+    const period = metaValues[0] || '';
+    const percentage = metaValues[1] || '';
+    const department = metaValues[2] || '';
+
+    jobs.push({
+      id: slugify(title),
+      jobId,
+      title,
+      url,
+      location: 'Davos',
+      canton: 'GR',
+      department,
+      percentage,
+      period,
+    });
   }
 
   return jobs;
@@ -91,54 +119,70 @@ export function parseDavosKlostersBergbahnenListingHtml(html) {
 
 // ── detail parsing ────────────────────────────────────────────────────
 
+/**
+ * Parse a Davos Klosters Bergbahnen detail page.
+ *
+ * Structure:
+ * - <h1> containing <span class="text-primary">Title</span>
+ * - <div class="h3"> with department
+ * - <div class="meta-list"> with period and percentage
+ * - <div class="wysiwyg"> with full description HTML
+ */
 export function parseDavosKlostersBergbahnenDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
+  const result = {};
+
+  // Extract title from <h1> → <span class="text-primary">
+  const titleMatch = html.match(/<h1[^>]*>[\s\S]*?<span[^>]*class="[^"]*text-primary[^"]*"[^>]*>([\s\S]*?)<\/span>/i);
+  if (titleMatch) result.title = stripHtml(titleMatch[1]).trim();
+
+  // Extract department from <div class="h3 ..."> before <h1>
+  const deptMatch = html.match(/<div[^>]*class="h3[^"]*"[^>]*>([\s\S]*?)<\/div>/i);
+  if (deptMatch) result.department = stripHtml(deptMatch[1]).trim();
+
+  // Extract metadata from meta-list items
+  const metaListMatch = html.match(/<div[^>]*class="meta-list"[^>]*>([\s\S]*?)<\/div>\s*<\/div>/i);
+  if (metaListMatch) {
+    const items = metaListMatch[1].match(/<div[^>]*class="meta-list__item"[^>]*>([\s\S]*?)<\/div>/gi) || [];
+    const metaValues = items.map(d => stripHtml(d).trim()).filter(v => v && !v.includes('download'));
+    if (metaValues.length >= 1) result.period = metaValues[0];
+    if (metaValues.length >= 2) result.percentage = metaValues[1];
+  }
+
+  // Extract description from wysiwyg content block
   let description = '';
-  const contentMatch = html.match(/<div[^>]+class="[^"]*(?:job|stelle|vacancy|content)[-_]?(?:description|content|details|body|text)[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-    || html.match(/<div[^>]+class="[^"]*entry[-_]?content[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
-
-  if (contentMatch) {
-    description = stripHtml(contentMatch[1]);
+  const wysiwygMatch = html.match(/<div[^>]*class="wysiwyg[^"]*"[^>]*>([\s\S]*?)<\/div>\s*(?:<\/div>|$)/i);
+  if (wysiwygMatch) {
+    description = stripHtml(wysiwygMatch[1]);
   }
 
+  // Fallback: extract from <main>
   if (!description || description.length < 30) {
-    const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
-    if (bodyMatch) description = stripHtml(bodyMatch[1]);
+    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+    if (mainMatch) description = stripHtml(mainMatch[1]);
   }
 
-  return description && description.length >= 30 ? { description } : null;
+  if (description && description.length >= 30) {
+    result.description = description;
+  }
+
+  return Object.keys(result).length > 0 ? result : null;
 }
 
 // ── fetch helpers ─────────────────────────────────────────────────────
 
-export async function fetchDavosKlostersBergbahnenJobUrls() {
+export async function fetchDavosKlostersBergbahnenJobUrls(timeoutMs = 15_000) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30_000);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    // Try primary careers URL
     const res = await fetch(CAREERS_URL, {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });
-    if (res.ok) {
-      const html = await res.text();
-      const jobs = parseDavosKlostersBergbahnenListingHtml(html);
-      if (jobs.length > 0) return jobs;
-    }
-  } catch { /* fall through to alternative */ }
-
-  try {
-    // Fallback: community job board
-    const res2 = await fetch(CAREERS_ALT, {
-      headers: { 'User-Agent': UA },
-      signal: controller.signal,
-    });
-    if (!res2.ok) return [];
-    const html2 = await res2.text();
-    return parseDavosKlostersBergbahnenListingHtml(html2);
+    if (!res.ok) return [];
+    const html = await res.text();
+    return parseDavosKlostersBergbahnenListingHtml(html);
   } catch {
     return [];
   } finally {
@@ -146,10 +190,10 @@ export async function fetchDavosKlostersBergbahnenJobUrls() {
   }
 }
 
-export async function fetchDavosKlostersBergbahnenDetailPage(url) {
+export async function fetchDavosKlostersBergbahnenDetailPage(url, timeoutMs = 15_000) {
   if (!url) return null;
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 20_000);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetch(url, {
       headers: { 'User-Agent': UA },

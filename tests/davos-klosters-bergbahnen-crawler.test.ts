@@ -7,31 +7,97 @@ import {
   inferEmploymentType,
 } from '@/scripts/lib/davos-klosters-bergbahnen-job-parser.mjs';
 
-// ── fixtures ──────────────────────────────────────────────────────────
+// ── fixtures (matching real davosklostersmountains.ch HTML) ───────────
 
 const SAMPLE_LISTING_HTML = `
 <html><body>
-<div class="jobs">
-  <a href="/de/bergbahnen/jobs/bergbahnmechaniker">Bergbahnmechaniker (m/w/d)</a>
-  <span class="standort">Davos</span>
-  <a href="/de/bergbahnen/jobs/pistenfahrzeugfuehrer">Pistenfahrzeugführer 100%</a>
-  <span class="standort">Davos</span>
-  <a href="/de/bergbahnen/jobs/chef-de-partie">Chef de Partie (Saison)</a>
-  <span class="standort">Klosters</span>
-  <a href="/de/bergbahnen/jobs/bergbahnmechaniker">Bergbahnmechaniker (m/w/d)</a>
-  <a href="/de/bergbahnen/jobs/">Alle Stellen</a>
+<div class="job-item clickable js-go-to-link ">
+  <h3 class="mb-1 text-primary job-item__title">Allrounder:in Restaurant Bolgen Plaza </h3>
+  <div class="row row-gutter--2 vertical-gutter--3">
+    <div class="col-md-10 vertical-gutter__item">
+      <div class="row row-gutter--2 vertical-gutter--2">
+        <div class="col-md vertical-gutter__item">Sommersaison 2026</div>
+        <div class="col-md vertical-gutter__item">80%</div>
+        <div class="col-md vertical-gutter__item">Gastro &amp; Bar</div>
+      </div>
+    </div>
+    <div class="col-md-2 vertical-gutter__item">
+      <a href="/de/mountains/stellenangebote/Allrounder-in-Restaurant-Bolgen-Plaza_j_3007454" class="text-primary">Details anzeigen</a>
+    </div>
+  </div>
+</div>
+<div class="job-item clickable js-go-to-link ">
+  <h3 class="mb-1 text-primary job-item__title">Betriebselektriker:in</h3>
+  <div class="row row-gutter--2 vertical-gutter--3">
+    <div class="col-md-10 vertical-gutter__item">
+      <div class="row row-gutter--2 vertical-gutter--2">
+        <div class="col-md vertical-gutter__item">ab Sommersaison 2026</div>
+        <div class="col-md vertical-gutter__item">100%</div>
+        <div class="col-md vertical-gutter__item">Bergbahnen</div>
+      </div>
+    </div>
+    <div class="col-md-2 vertical-gutter__item">
+      <a href="/de/mountains/stellenangebote/Betriebselektriker-in_j_2730837" class="text-primary">Details anzeigen</a>
+    </div>
+  </div>
+</div>
+<div class="job-item clickable js-go-to-link ">
+  <h3 class="mb-1 text-primary job-item__title">Mitarbeiter:in Gruppen &amp; Events</h3>
+  <div class="row row-gutter--2 vertical-gutter--3">
+    <div class="col-md-10 vertical-gutter__item">
+      <div class="row row-gutter--2 vertical-gutter--2">
+        <div class="col-md vertical-gutter__item">ab 01.06.2026</div>
+        <div class="col-md vertical-gutter__item">Teilzeit 80% - 100%</div>
+        <div class="col-md vertical-gutter__item">Resorts</div>
+      </div>
+    </div>
+    <div class="col-md-2 vertical-gutter__item">
+      <a href="/de/mountains/stellenangebote/Mitarbeiter-in-Gruppen-Events_j_3010123" class="text-primary">Details anzeigen</a>
+    </div>
+  </div>
 </div>
 </body></html>
 `;
 
 const SAMPLE_DETAIL_HTML = `
-<html><body>
-<article>
-  <h1>Bergbahnmechaniker (m/w/d)</h1>
-  <p>Die Davos Klosters Bergbahnen AG sucht einen erfahrenen Bergbahnmechaniker für die Wartung
-  und Instandhaltung unserer Seilbahnanlagen. Sie sind verantwortlich für die mechanische Wartung,
-  Fehlerdiagnose und Reparatur aller Bergbahnanlagen im Skigebiet Davos Klosters.</p>
-</article>
+<html lang="de"><body>
+<main id="main-content" role="main" class="content-block">
+  <div class="title-block title-block--main title-block--main-small">
+    <div class="media-text media-text--text-only text-center">
+      <div class="container container--no-padding-xs">
+        <div class="container-narrow">
+          <div class="media-text__content">
+            <div class="media-text__content__offset">
+              <div class="h3 mb-0 text-white">Bergbahnen</div>
+              <h1 class="mb-0 h2">
+                <span class="d-block text-primary">Betriebselektriker:in</span>
+              </h1>
+              <div class="meta-list">
+                <div class="meta-list__item">ab Sommersaison 2026</div>
+                <div class="meta-list__item">100%</div>
+                <div class="meta-list__item">
+                  <a href='https://example.com/download' class='text-primary'><span class='icon icon-download'></span> Infos downloaden</a>
+                </div>
+              </div>
+            </div>
+            <div class="wysiwyg mt-2 pt-1 text-left">
+              <p>Die Davos Klosters Mountains sind fünf Berg- und Skigebiete in den Bündner Alpen. Neben den
+              Bergbahnen betreibt die Davos Klosters Bergbahnen AG unter der Marke Mountain Hotels und
+              Resorts über 23 Unterkünfte vom einfachen Gruppenhaus bis zum gehobenen Vier-Sterne-
+              Superior Hotel.</p>
+              <p>Für die kommende <strong>Sommersaison 2026</strong> suchen wir eine Person als:</p>
+              <p><strong>Betriebselektriker:in 100%</strong></p>
+              <ul>
+                <li>Unterhalt und Betrieb von Seilbahnen und Schneeanlagen</li>
+                <li>Unterhalt und Betrieb unserer Gebäudeinfrastruktur inkl. Gastronomiebetriebe</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
 </body></html>
 `;
 
@@ -39,32 +105,57 @@ const SAMPLE_DETAIL_HTML = `
 
 describe('Davos Klosters Bergbahnen job parser', () => {
   describe('parseDavosKlostersBergbahnenListingHtml', () => {
-    it('extracts job links from HTML', () => {
+    it('extracts job cards from real HTML structure', () => {
       const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
-      expect(jobs.length).toBeGreaterThanOrEqual(3);
-      expect(jobs[0].title).toBe('Bergbahnmechaniker (m/w/d)');
-      expect(jobs[0].url).toContain('/jobs/bergbahnmechaniker');
+      expect(jobs).toHaveLength(3);
+      expect(jobs[0].title).toBe('Allrounder:in Restaurant Bolgen Plaza');
+      expect(jobs[0].url).toContain('Allrounder-in-Restaurant-Bolgen-Plaza_j_3007454');
+      expect(jobs[0].jobId).toBe('3007454');
+    });
+
+    it('extracts metadata (period, percentage, department)', () => {
+      const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
+      expect(jobs[0].period).toBe('Sommersaison 2026');
+      expect(jobs[0].percentage).toBe('80%');
+      expect(jobs[0].department).toBe('Gastro & Bar');
+      expect(jobs[1].percentage).toBe('100%');
+      expect(jobs[1].department).toBe('Bergbahnen');
+    });
+
+    it('sets all locations to Davos and canton to GR', () => {
+      const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
+      for (const job of jobs) {
+        expect(job.location).toBe('Davos');
+        expect(job.canton).toBe('GR');
+      }
     });
 
     it('deduplicates by URL', () => {
-      const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
+      const htmlWithDupe = SAMPLE_LISTING_HTML + `
+<div class="job-item clickable js-go-to-link">
+  <h3 class="mb-1 text-primary job-item__title">Allrounder:in Restaurant Bolgen Plaza </h3>
+  <div class="row">
+    <div class="col-md-10">
+      <div class="row">
+        <div class="col-md vertical-gutter__item">Sommersaison 2026</div>
+        <div class="col-md vertical-gutter__item">80%</div>
+        <div class="col-md vertical-gutter__item">Gastro &amp; Bar</div>
+      </div>
+    </div>
+    <div class="col-md-2">
+      <a href="/de/mountains/stellenangebote/Allrounder-in-Restaurant-Bolgen-Plaza_j_3007454">Details</a>
+    </div>
+  </div>
+</div>`;
+      const jobs = parseDavosKlostersBergbahnenListingHtml(htmlWithDupe);
       const urls = jobs.map((j) => j.url);
       expect(new Set(urls).size).toBe(urls.length);
     });
 
-    it('extracts location from context', () => {
+    it('generates slug-based IDs', () => {
       const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
-      const klostersJob = jobs.find((j) => j.title.includes('Chef de Partie'));
-      if (klostersJob) {
-        expect(klostersJob.location).toBe('Klosters');
-      }
-    });
-
-    it('sets canton to GR', () => {
-      const jobs = parseDavosKlostersBergbahnenListingHtml(SAMPLE_LISTING_HTML);
-      for (const job of jobs) {
-        expect(job.canton).toBe('GR');
-      }
+      expect(jobs[0].id).toBe(slugify('Allrounder:in Restaurant Bolgen Plaza'));
+      expect(jobs[1].id).toBe(slugify('Betriebselektriker:in'));
     });
 
     it('returns empty for null/empty input', () => {
@@ -75,11 +166,27 @@ describe('Davos Klosters Bergbahnen job parser', () => {
   });
 
   describe('parseDavosKlostersBergbahnenDetailHtml', () => {
-    it('extracts description from detail page', () => {
+    it('extracts title from <h1><span class="text-primary">', () => {
       const result = parseDavosKlostersBergbahnenDetailHtml(SAMPLE_DETAIL_HTML);
       expect(result).not.toBeNull();
-      expect(result.description).toContain('Bergbahnmechaniker');
-      expect(result.description).toContain('Davos Klosters');
+      expect(result.title).toBe('Betriebselektriker:in');
+    });
+
+    it('extracts department from <div class="h3">', () => {
+      const result = parseDavosKlostersBergbahnenDetailHtml(SAMPLE_DETAIL_HTML);
+      expect(result.department).toBe('Bergbahnen');
+    });
+
+    it('extracts metadata from meta-list (excluding download links)', () => {
+      const result = parseDavosKlostersBergbahnenDetailHtml(SAMPLE_DETAIL_HTML);
+      expect(result.period).toBe('ab Sommersaison 2026');
+      expect(result.percentage).toBe('100%');
+    });
+
+    it('extracts description from wysiwyg div', () => {
+      const result = parseDavosKlostersBergbahnenDetailHtml(SAMPLE_DETAIL_HTML);
+      expect(result.description).toContain('Davos Klosters Mountains');
+      expect(result.description).toContain('Seilbahnen');
       expect(result.description.length).toBeGreaterThan(30);
     });
 

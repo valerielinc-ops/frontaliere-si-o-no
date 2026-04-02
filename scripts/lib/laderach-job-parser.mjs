@@ -1,10 +1,12 @@
 /**
- * Läderach (Schweiz) AG job parser — Softgarden career platform.
- * Source: https://laderach.career.softgarden.de/
+ * Läderach (Schweiz) AG job parser — Softgarden career platform (Next.js).
+ * Source: https://laderach.career.softgarden.de/jobs/
+ *
+ * The listing page embeds all jobs in a __NEXT_DATA__ script tag.
+ * Detail pages also use __NEXT_DATA__ for metadata + JSON-LD for the description.
  */
 
-const CAREERS_URL = 'https://laderach.career.softgarden.de/';
-const CAREERS_API = 'https://laderach.career.softgarden.de/api/frontend/v1/jobad?limit=100&geoDistance=0';
+const CAREERS_URL = 'https://laderach.career.softgarden.de/jobs/';
 const CAREERS_BASE = 'https://laderach.career.softgarden.de';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -39,47 +41,79 @@ export function inferEmploymentType(title = '', description = '', percentage = '
   return 'FULL_TIME';
 }
 
-// ── JSON API parsing ──────────────────────────────────────────────────
+// ── listing parsing ───────────────────────────────────────────────────
 
 /**
- * Parse Softgarden JSON API response.
- * Expected shape: { results: [{ id, title, geoCity, channelUrl, ... }] }
+ * Extract __NEXT_DATA__ JSON from a Softgarden HTML page.
+ * Returns the parsed object or null.
  */
-export function parseLaderachApiResponse(json) {
-  if (!json || typeof json !== 'object') return [];
-  const results = Array.isArray(json.results) ? json.results : Array.isArray(json) ? json : [];
-  const seen = new Set();
-  const jobs = [];
-
-  for (const item of results) {
-    if (!item || !item.title) continue;
-    const url = item.channelUrl || item.applyUrl || item.externalPostingUrl || '';
-    const id = String(item.id || item.jobId || '');
-    const key = url || id;
-    if (!key || seen.has(key)) continue;
-    seen.add(key);
-
-    jobs.push({
-      id: id,
-      jobId: id,
-      title: String(item.title || '').trim(),
-      url: url.startsWith('http') ? url : `${CAREERS_BASE}${url}`,
-      location: String(item.geoCity || item.geo_city || item.location || 'Ennenda').trim(),
-      canton: 'GR',
-      department: String(item.jobCategory || item.department || '').trim(),
-    });
+export function extractNextData(html) {
+  if (!html || typeof html !== 'string') return null;
+  const m = html.match(/<script\s+id="__NEXT_DATA__"\s+type="application\/json">([\s\S]*?)<\/script>/i);
+  if (!m) return null;
+  try {
+    return JSON.parse(m[1]);
+  } catch {
+    return null;
   }
-  return jobs;
 }
 
 /**
- * Fallback: parse listing HTML from the Softgarden careers page.
+ * Parse listing HTML from the Softgarden careers page.
+ * Extracts jobs from __NEXT_DATA__ → props.pageProps.jobs[].
+ * Each job: { jobPostingId, title, link, location, additionalLocations }
  */
 export function parseLaderachListingHtml(html) {
   if (!html || typeof html !== 'string') return [];
+
+  const nextData = extractNextData(html);
+  if (nextData) {
+    const rawJobs = nextData?.props?.pageProps?.jobs;
+    if (Array.isArray(rawJobs) && rawJobs.length > 0) {
+      return parseLaderachNextDataJobs(rawJobs);
+    }
+  }
+
+  // Fallback: parse <li><a> links from the server-rendered HTML
+  return parseLaderachHtmlFallback(html);
+}
+
+/**
+ * Parse the jobs array from __NEXT_DATA__ pageProps.
+ */
+export function parseLaderachNextDataJobs(jobs) {
+  if (!Array.isArray(jobs)) return [];
+  const seen = new Set();
+  const result = [];
+
+  for (const item of jobs) {
+    if (!item || !item.title) continue;
+    const jobId = String(item.jobPostingId || '');
+    const url = String(item.link || '').trim();
+    const key = url || jobId;
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+
+    result.push({
+      id: slugify(item.title),
+      jobId,
+      title: String(item.title).trim(),
+      url: url.startsWith('http') ? url : `${CAREERS_BASE}${url}`,
+      location: String(item.location || 'Ennenda').trim(),
+      canton: 'GL',
+      department: '',
+    });
+  }
+  return result;
+}
+
+/**
+ * Fallback: parse <a href="/jobs/ID/Slug/"> links from server-rendered HTML.
+ */
+function parseLaderachHtmlFallback(html) {
   const seen = new Set();
   const jobs = [];
-  const pattern = /<a[^>]+href=["']([^"']*?\/job\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
+  const pattern = /<a[^>]+href=["']([^"']*?\/jobs\/\d+\/[^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi;
   let m;
 
   while ((m = pattern.exec(html)) !== null) {
@@ -91,66 +125,92 @@ export function parseLaderachListingHtml(html) {
     const title = stripHtml(m[2]).trim();
     if (!title) continue;
 
-    const idMatch = rawUrl.match(/\/job\/(\d+)/);
+    const idMatch = rawUrl.match(/\/jobs\/(\d+)\//);
     const jobId = idMatch ? idMatch[1] : '';
 
-    const locationMatch = html.slice(m.index, m.index + 500).match(/(?:location|ort|standort)[^>]*>([^<]+)/i);
-    const location = locationMatch ? stripHtml(locationMatch[1]).trim() : 'Ennenda';
+    // Location is in <small>Locations: <!-- -->City</small> after the <a>
+    const ctx = html.slice(m.index, m.index + 500).replace(/<!--[\s\S]*?-->/g, '');
+    const locMatch = ctx.match(/<small[^>]*>[^<]*Locations?:\s*([^<]+)/i);
+    const location = locMatch ? stripHtml(locMatch[1]).trim() : 'Ennenda';
 
-    jobs.push({ id: jobId, jobId, title, url, location, canton: 'GR', department: '' });
+    jobs.push({
+      id: slugify(title),
+      jobId,
+      title,
+      url,
+      location,
+      canton: 'GL',
+      department: '',
+    });
   }
   return jobs;
 }
 
 // ── detail parsing ────────────────────────────────────────────────────
 
+/**
+ * Parse a Läderach detail page. Extracts:
+ * - Metadata from __NEXT_DATA__ → data.context.job
+ * - Description from JSON-LD JobPosting schema or HTML body fallback
+ */
 export function parseLaderachDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
-  let description = '';
-  const contentMatch = html.match(/<div[^>]+class="[^"]*job[-_]?(?:description|content|details|ad)[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i)
-    || html.match(/<div[^>]+class="[^"]*softgarden[^"]*"[^>]*>([\s\S]*?)<\/div>/i)
-    || html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+  const result = {};
 
-  if (contentMatch) {
-    description = stripHtml(contentMatch[1]);
+  // Extract metadata from __NEXT_DATA__
+  const nextData = extractNextData(html);
+  if (nextData) {
+    const job = nextData?.props?.pageProps?.data?.context?.job;
+    if (job) {
+      if (job.title) result.title = String(job.title).trim();
+      if (job.city) result.location = String(job.city).trim();
+      if (job.employmentType) result.employmentTypeRaw = String(job.employmentType).trim();
+      if (job.workTime) result.workTime = String(job.workTime).trim();
+    }
   }
 
+  // Extract description from JSON-LD JobPosting
+  let description = '';
+  const ldMatch = html.match(/<script\s+type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
+  if (ldMatch) {
+    try {
+      const ld = JSON.parse(ldMatch[1]);
+      if (ld['@type'] === 'JobPosting' && ld.description) {
+        description = stripHtml(ld.description);
+      }
+    } catch { /* ignore parse errors */ }
+  }
+
+  // Fallback: extract from HTML body
+  if (!description || description.length < 30) {
+    const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i);
+    if (mainMatch) description = stripHtml(mainMatch[1]);
+  }
   if (!description || description.length < 30) {
     const bodyMatch = html.match(/<body[^>]*>([\s\S]*?)<\/body>/i);
     if (bodyMatch) description = stripHtml(bodyMatch[1]);
   }
 
-  return description && description.length >= 30 ? { description } : null;
+  if (description && description.length >= 30) {
+    result.description = description;
+  }
+
+  return Object.keys(result).length > 0 ? result : null;
 }
 
 // ── fetch helpers ─────────────────────────────────────────────────────
 
-export async function fetchLaderachJobUrls() {
+export async function fetchLaderachJobUrls(timeoutMs = 15_000) {
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 30_000);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    // Try JSON API first
-    const apiRes = await fetch(CAREERS_API, {
-      headers: { 'User-Agent': UA, 'Accept': 'application/json' },
-      signal: controller.signal,
-    });
-    if (apiRes.ok) {
-      const json = await apiRes.json();
-      const jobs = parseLaderachApiResponse(json);
-      if (jobs.length > 0) return jobs;
-    }
-  } catch { /* fall through to HTML */ }
-
-  try {
-    // Fallback: HTML listing
-    const htmlRes = await fetch(CAREERS_URL, {
+    const res = await fetch(CAREERS_URL, {
       headers: { 'User-Agent': UA },
       signal: controller.signal,
     });
-    if (!htmlRes.ok) return [];
-    const html = await htmlRes.text();
+    if (!res.ok) return [];
+    const html = await res.text();
     return parseLaderachListingHtml(html);
   } catch {
     return [];
@@ -159,10 +219,10 @@ export async function fetchLaderachJobUrls() {
   }
 }
 
-export async function fetchLaderachDetailPage(url) {
+export async function fetchLaderachDetailPage(url, timeoutMs = 15_000) {
   if (!url) return null;
   const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), 20_000);
+  const timeout = setTimeout(() => controller.abort(), timeoutMs);
   try {
     const res = await fetch(url, {
       headers: { 'User-Agent': UA },
