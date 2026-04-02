@@ -499,6 +499,106 @@ function assembleExpiredJobs() {
   return assembled;
 }
 
+/* ── Ghost expired reconciliation ──────────────────────────────────── */
+
+/**
+ * Cross-reference expired jobs against active jobs to find "ghosts" —
+ * expired entries that refer to jobs still active under a different slug
+ * (due to title retranslation). Removes ghosts from expired, merges their
+ * old slugs into previousSlugs on the matching active job, and updates
+ * the per-crawler slices on disk.
+ *
+ * Returns { cleanedExpired, ghostCount, mergedSlugs }.
+ */
+function reconcileGhostExpired(activeJobs, expiredJobs) {
+  if (!activeJobs?.length || !expiredJobs?.length) {
+    return { cleanedExpired: expiredJobs || [], ghostCount: 0, mergedSlugs: 0 };
+  }
+
+  // Build active lookup: title+company → first matching job
+  const activeByTC = Object.create(null);
+  for (const j of activeJobs) {
+    const key = `${(j.title || '').toLowerCase().trim()}||${(j.company || '').toLowerCase().trim()}`;
+    if (!activeByTC[key]) activeByTC[key] = j;
+  }
+
+  // Build set of all active slugs (current + previous)
+  const activeSlugSet = new Set();
+  for (const j of activeJobs) {
+    if (j.slugByLocale) Object.values(j.slugByLocale).forEach(s => activeSlugSet.add(s));
+    if (j.previousSlugs) j.previousSlugs.forEach(s => activeSlugSet.add(s));
+  }
+
+  const ghostIds = new Set();
+  let mergedSlugs = 0;
+
+  for (const ej of expiredJobs) {
+    const expSlugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
+    const hasSlugOverlap = expSlugs.some(s => activeSlugSet.has(s));
+    const key = `${(ej.title || '').toLowerCase().trim()}||${(ej.company || '').toLowerCase().trim()}`;
+    const match = activeByTC[key];
+
+    // Ghost: slug overlap + title match, or exact same IT slug
+    const sameItSlug = match && (ej.slugByLocale?.it === match.slugByLocale?.it);
+    if (!match || (!hasSlugOverlap && !sameItSlug)) continue;
+
+    // Mark as ghost
+    ghostIds.add(ej.slug || ej.id || JSON.stringify(ej.slugByLocale));
+
+    // Merge expired slugs into active job's previousSlugs
+    const existingSlugs = new Set([
+      ...(match.slugByLocale ? Object.values(match.slugByLocale) : []),
+      ...(match.previousSlugs || []),
+    ]);
+    const newSlugs = [
+      ...expSlugs.filter(s => s && !existingSlugs.has(s)),
+      ...(ej.previousSlugs || []).filter(s => s && !existingSlugs.has(s)),
+    ];
+    const uniqueNew = [...new Set(newSlugs)];
+
+    if (uniqueNew.length > 0) {
+      if (!match.previousSlugs) match.previousSlugs = [];
+      match.previousSlugs.push(...uniqueNew);
+      mergedSlugs += uniqueNew.length;
+    }
+  }
+
+  // Filter out ghosts
+  const cleanedExpired = expiredJobs.filter(ej => {
+    const id = ej.slug || ej.id || JSON.stringify(ej.slugByLocale);
+    return !ghostIds.has(id);
+  });
+
+  const ghostCount = ghostIds.size;
+
+  // Update per-crawler expired slices on disk
+  if (ghostCount > 0) {
+    const cleanedSlugSet = new Set();
+    for (const ej of cleanedExpired) {
+      if (ej.slug) cleanedSlugSet.add(ej.slug);
+      if (ej.id) cleanedSlugSet.add(ej.id);
+      if (ej.slugByLocale) Object.values(ej.slugByLocale).forEach(s => cleanedSlugSet.add(s));
+    }
+
+    const sliceFiles = listSliceFiles(EXPIRED_SLICES_DIR);
+    for (const fp of sliceFiles) {
+      const slice = readJson(fp, null);
+      if (!Array.isArray(slice)) continue;
+      const cleaned = slice.filter(ej => {
+        if (ej.id && cleanedSlugSet.has(ej.id)) return true;
+        if (ej.slug && cleanedSlugSet.has(ej.slug)) return true;
+        const slugs = ej.slugByLocale ? Object.values(ej.slugByLocale) : [];
+        return slugs.some(s => cleanedSlugSet.has(s));
+      });
+      if (cleaned.length < slice.length) {
+        writeJson(fp, cleaned);
+      }
+    }
+  }
+
+  return { cleanedExpired, ghostCount, mergedSlugs };
+}
+
 /* ── Meta generation ──────────────────────────────────────────────────── */
 
 /**
@@ -626,10 +726,25 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
   // --- Expired jobs ---
   const expiredJobs = assembleExpiredJobs();
   if (expiredJobs !== null) {
-    writeJson(DATA_EXPIRED, expiredJobs);
-    fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
-    writeJson(PUBLIC_EXPIRED, expiredJobs);
-    console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
+    // --- Ghost reconciliation: remove expired entries that match active jobs ---
+    if (assembled) {
+      const { cleanedExpired, ghostCount, mergedSlugs } = reconcileGhostExpired(assembled, expiredJobs);
+      if (ghostCount > 0) {
+        console.log(`  👻 Ghost reconciliation: removed ${ghostCount} ghost expired entries, merged ${mergedSlugs} slugs into active previousSlugs`);
+        // Write back active jobs with merged previousSlugs
+        writeJson(DATA_JOBS, assembled);
+        writeJson(PUBLIC_JOBS, assembled);
+      }
+      writeJson(DATA_EXPIRED, cleanedExpired);
+      fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
+      writeJson(PUBLIC_EXPIRED, cleanedExpired);
+      console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
+    } else {
+      writeJson(DATA_EXPIRED, expiredJobs);
+      fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
+      writeJson(PUBLIC_EXPIRED, expiredJobs);
+      console.log(`✅ data/expired-jobs.json assembled: ${expiredJobs.length} expired jobs`);
+    }
   }
 
   // --- Summaries ---
