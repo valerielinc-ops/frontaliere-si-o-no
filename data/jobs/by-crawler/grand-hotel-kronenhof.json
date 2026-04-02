@@ -104,11 +104,14 @@
       "slugByLocale": {
         "it": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-620",
         "en": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-620",
-        "de": "assistent-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "fr": "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-620"
+        "de": "mitarbeiter-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "fr": "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz"
       },
       "crawledAt": "2026-04-02T12:26:48.512Z",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "assistent-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz-st-moritz-620"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",

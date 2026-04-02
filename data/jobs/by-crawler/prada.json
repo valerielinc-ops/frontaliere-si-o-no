@@ -7,7 +7,7 @@
       "slug": "prada-stock-assistant-m-f-d-prada-mendrisio",
       "slugByLocale": {
         "it": "prada-stock-assistant-m-f-d-prada-mendrisio",
-        "en": "prada-stock-assistant-m-f-d-prada-mendrisio",
+        "en": "prada-stockhelfer-m-w-d-prada-group-mendrisio",
         "de": "prada-stock-assistent-m-f-d-prada-group-mendrisio",
         "fr": "prada-stock-assistant-m-f-d-prada-group-mendrisio"
       },
@@ -195,8 +195,8 @@
       "slugByLocale": {
         "it": "in-store-clientelling-manager-prada-mendrisio",
         "en": "in-store-clientelling-manager-prada-group-mendrisio",
-        "de": "in-store-clientelling-manager-prada-mendrisio",
-        "fr": "in-store-clientelling-manager-prada-mendrisio"
+        "de": "instore-clientelling-manager-prada-group-mendrisio",
+        "fr": "gestionnaire-clientelling-en-magasin-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -237,7 +237,9 @@
       "crawledAt": "2026-04-02T13:51:53.440Z",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "in-store-clientelling-manager-prada-mendrisio"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {
@@ -256,9 +258,9 @@
       "id": "prada-bb97253c79f0",
       "slug": "department-manager-prada-mendrisio",
       "slugByLocale": {
-        "it": "department-manager-prada-mendrisio",
+        "it": "direttore-prada-group-mendrisio",
         "en": "department-manager-prada-group-mendrisio",
-        "de": "department-manager-prada-mendrisio",
+        "de": "abteilungsleiter-prada-group-mendrisio",
         "fr": "department-manager-prada-mendrisio"
       },
       "company": "Prada Group",
@@ -298,7 +300,9 @@
       "crawledAt": "2026-04-02T13:51:52.927Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "department-manager-prada-mendrisio"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {
@@ -317,10 +321,10 @@
       "id": "prada-eb020e88fc62",
       "slug": "retail-training-manager-prada-mendrisio",
       "slugByLocale": {
-        "it": "retail-training-manager-prada-mendrisio",
+        "it": "responsabile-della-formazione-al-dettaglio-prada-group-mendrisio",
         "en": "retail-training-manager-prada-group-mendrisio",
-        "de": "retail-training-manager-prada-mendrisio",
-        "fr": "retail-training-manager-prada-mendrisio"
+        "de": "schulungsleiter-prada-group-mendrisio",
+        "fr": "directeur-de-la-formation-au-commerce-de-detail-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -359,7 +363,9 @@
       "crawledAt": "2026-04-02T13:51:52.393Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "retail-training-manager-prada-mendrisio"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {
@@ -380,8 +386,8 @@
       "slugByLocale": {
         "it": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
         "en": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
-        "de": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
-        "fr": "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+        "de": "miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "fr": "directeur-du-magasin-miu-miu-saint-moritz-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -434,7 +440,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+      ]
     },
     {
       "id": "prada-e41a47cd1c53",

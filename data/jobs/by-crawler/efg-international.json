@@ -2669,8 +2669,8 @@
       "slugByLocale": {
         "it": "addetto-all-assistenza-clienti-efg-international-ag-st-moritz",
         "en": "client-support-officer-efg-international-ag-st-moritz",
-        "de": "client-support-officer-efg-st-moritz",
-        "fr": "client-support-officer-efg-st-moritz"
+        "de": "kundenbetreuer-efg-international-ag-st-moritz",
+        "fr": "agent-de-support-client-efg-international-ag-st-moritz"
       },
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
@@ -2821,9 +2821,9 @@
       },
       "crawledAt": "2026-04-02T12:12:57.326Z",
       "slugByLocale": {
-        "it": "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
+        "it": "specialista-di-supporto-pb-medio-oriente-ch-efg-international-ag-geneve",
         "en": "pb-support-specialist-middle-east-ch-efg-geneve",
-        "de": "pb-support-spezialist-middle-east-ch-efg-international-ag-geneve",
+        "de": "pb-support-spezialist-naher-osten-ch-efg-international-ag-geneve",
         "fr": "pb-support-specialiste-middle-east-ch-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
@@ -2847,7 +2847,9 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "pb-support-specialist-middle-east-ch-efg-geneve"
+        "pb-support-specialist-middle-east-ch-efg-geneve",
+        "pb-support-specialista-middle-east-ch-efg-international-ag-geneve",
+        "pb-support-spezialist-middle-east-ch-efg-international-ag-geneve"
       ]
     },
     {
@@ -2943,10 +2945,10 @@
       },
       "crawledAt": "2026-04-02T12:12:57.324Z",
       "slugByLocale": {
-        "it": "bi-solution-specialista-efg-international-ag-geneve",
+        "it": "specialista-soluzioni-bi-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
-        "de": "bi-solution-spezialist-efg-international-ag-geneve",
-        "fr": "bi-solution-specialiste-efg-international-ag-geneve"
+        "de": "bi-losungs-spezialist-efg-international-ag-geneve",
+        "fr": "specialiste-des-solutions-bi-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",

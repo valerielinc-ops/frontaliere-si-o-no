@@ -590,9 +590,9 @@
       },
       "slugByLocale": {
         "it": "impiegato-a-di-finanza-entrata-laterale-previdenza-finanza-convit-novazzano",
-        "en": "employee-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
-        "de": "angestellte-r-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
-        "fr": "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy"
+        "en": "finance-employee-side-entrance-convit-holding-gmbh-novazzano",
+        "de": "finanz-mitarbeiter-seit-eingang-convit-holding-gmbh-novazzano",
+        "fr": "employe-financier-entree-laterale-convit-holding-gmbh-novazzano"
       },
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -608,7 +608,12 @@
         }
       },
       "streetAddress": "Via Balestra 12",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "previousSlugs": [
+        "employee-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
+        "angestellte-r-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy",
+        "employe-e-di-finanza-entrata-laterale-previdenza-finanza-convit-holding-gmbh-novazzano-d57ygy"
+      ]
     },
     {
       "title": "Consultant previdenza & risparmio (entrata laterale) OTE fino a 7500 CHF",
@@ -648,12 +653,13 @@
       "slugByLocale": {
         "it": "consulente-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
         "en": "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
-        "de": "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino",
+        "de": "sicherheitsberater-sparen-seiteneingang-ote-bis-7500-chf-convit-holding-gmbh-lumino",
         "fr": "conseiller-en-securite-epargne-entree-laterale-ote-jusqu-a-7500-chf-convit-holding-gmbh-lumino"
       },
       "previousSlugs": [
         "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-lumino",
-        "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-l"
+        "consultant-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-l",
+        "berater-previdenza-risparmio-entrata-laterale-ote-fino-a-7500-chf-convit-holding-gmbh-lumino"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -709,11 +715,12 @@
       "slugByLocale": {
         "it": "consulente-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
         "en": "consultant-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
-        "de": "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino",
-        "fr": "consultant-previdenza-3a-3b-ibrido-convit-gentilino"
+        "de": "beraterrente-3a-3b-hybrid-convit-holding-gmbh-gentilino",
+        "fr": "pension-de-consultant-3a-3b-hybride-convit-holding-gmbh-gentilino"
       },
       "previousSlugs": [
-        "consultant-previdenza-3a-3b-ibrido-convit-gentilino"
+        "consultant-previdenza-3a-3b-ibrido-convit-gentilino",
+        "berater-previdenza-3a-3b-ibrido-convit-holding-gmbh-gentilino"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

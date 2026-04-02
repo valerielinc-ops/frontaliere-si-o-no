@@ -798,8 +798,8 @@
       "slugByLocale": {
         "it": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
         "en": "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-lidl-svizzera-sant-antonino",
-        "de": "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-lidl-svizzera-cadenazzo",
-        "fr": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh"
+        "de": "lehre-im-detailhandel-cfp-oder-afc-start-2026-lidl-svizzera-sant-antonino",
+        "fr": "apprentissage-dans-le-commerce-de-detail-cfp-ou-afc-debut-2026-lidl-svizzera-sant-antonino"
       },
       "titleByLocale": {
         "it": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
@@ -835,7 +835,10 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "previousSlugs": []
+      "previousSlugs": [
+        "apprenticeship-in-retail-trade-cfp-or-efz-start-of-2026-lidl-svizzera-cadenazzo",
+        "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh"
+      ]
     }
   ]
 }
