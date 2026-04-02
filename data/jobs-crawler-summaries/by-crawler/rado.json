@@ -1,22 +1,21 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-04-02T11:46:41.435Z",
+  "generatedAt": "2026-04-02T12:46:44.282Z",
   "total": 1,
   "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 44928,
-  "avgDurationMs": 44928,
+  "durationMs": 24851,
+  "avgDurationMs": 24851,
   "durationHistory": [
-    63332,
-    44928
+    24851
   ],
   "newJobs": [
     {
       "id": "company-7uasdr",
-      "slug": "responsabile-acquisti-e-subfornitura-u-d-stabilimento-di-delemont-blancpain-ltd-lengnau",
+      "slug": "responsabile-acquisti-outsourcing-m-f-sede-di-delemont-blancpain-ltd-lengnau",
       "company": "Blancpain Ltd",
       "title": "Responsable Achats & Sous-Traitance (H/F) - site de Delémont",
       "location": "Route de la Communance 2800 Delémont (Jura) Suisse Adresse de l'entreprise Blanc",
@@ -40,6 +39,7 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,

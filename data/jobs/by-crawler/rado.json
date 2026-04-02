@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-04-02T11:46:41.435Z",
+  "assembledAt": "2026-04-02T12:46:44.282Z",
   "jobs": [
     {
       "id": "company-7uasdr",
@@ -106,7 +106,8 @@
       "addressLocality": "Lengnau",
       "addressRegion": "BE",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }
