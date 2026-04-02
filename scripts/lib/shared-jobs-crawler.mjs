@@ -224,15 +224,23 @@ const BROWSER_FALLBACK_TIMEOUT_MS = clampNum(process.env.JOBS_BROWSER_FALLBACK_T
 const BROWSER_FALLBACK_MAX_LINKS = clampNum(process.env.JOBS_BROWSER_FALLBACK_MAX_LINKS, 10, 500, 120);
 const CAREER_DISCOVERY_HINT_RE = /(career|careers|jobs|job|vacanc|offerta|lavor|karriere|stellen|emploi|candid|join-us|work-with-us)/i;
 const CAREER_DISCOVERY_ATS_HOST_RE = /(myworkdayjobs\.com|greenhouse\.io|lever\.co|smartrecruiters\.com)/i;
-const FORCE_LOCALIZE_COMPANY_KEYS = new Set(
-  String(process.env.JOBS_CRAWLER_FORCE_LOCALIZE_KEYS !== undefined
-    ? process.env.JOBS_CRAWLER_FORCE_LOCALIZE_KEYS
-    : 'vf-international-the-north-face-timberland,banca-cler')
-    .split(',')
-    .map((x) => normalizeCompanyKey(x))
-    .filter(Boolean)
-);
-const FORCE_LOCALIZE_WORKDAY = String(process.env.JOBS_FORCE_LOCALIZE_WORKDAY || '1') !== '0';
+// Re-read env vars on each call to handle translate-pending's per-company overrides.
+// ESM caches modules, so module-level const Sets only capture the FIRST call's env vars.
+function getForceLocalizeCompanyKeys() {
+  return new Set(
+    String(process.env.JOBS_CRAWLER_FORCE_LOCALIZE_KEYS !== undefined
+      ? process.env.JOBS_CRAWLER_FORCE_LOCALIZE_KEYS
+      : 'vf-international-the-north-face-timberland,banca-cler')
+      .split(',')
+      .map((x) => normalizeCompanyKey(x))
+      .filter(Boolean)
+  );
+}
+const FORCE_LOCALIZE_COMPANY_KEYS = getForceLocalizeCompanyKeys();
+function getForceLocalizeWorkday() {
+  return String(process.env.JOBS_FORCE_LOCALIZE_WORKDAY || '1') !== '0';
+}
+const FORCE_LOCALIZE_WORKDAY = getForceLocalizeWorkday();
 const LOCALIZE_ONLY_COMPANY_KEYS = new Set(
   String(process.env.JOBS_CRAWLER_LOCALIZE_ONLY_COMPANY_KEYS || '')
     .split(',')
@@ -371,6 +379,13 @@ function setCachedAiResponse(cacheKey, value) {
   aiResponseCache.set(cacheKey, { value: cloneCacheValue(value), touchedAt: Date.now() });
   aiCacheDirty = true;
   trimAiCache(AI_CACHE_MAX_ENTRIES);
+}
+
+function deleteCachedAiResponse(cacheKey) {
+  if (!cacheKey || !aiResponseCache.has(cacheKey)) return false;
+  aiResponseCache.delete(cacheKey);
+  aiCacheDirty = true;
+  return true;
 }
 
 function loadPersistentAiCache() {
@@ -1898,8 +1913,8 @@ function ensureLocaleFields(job) {
 function _buildLocalizationCtx() {
   return {
     LOCALES,
-    FORCE_LOCALIZE_COMPANY_KEYS,
-    FORCE_LOCALIZE_WORKDAY,
+    FORCE_LOCALIZE_COMPANY_KEYS: getForceLocalizeCompanyKeys(),
+    FORCE_LOCALIZE_WORKDAY: getForceLocalizeWorkday(),
     LOCALIZE_ONLY_COMPANY_KEYS,
     AI_CACHE_RAW_SENTINEL,
     cleanDescription,
@@ -1919,6 +1934,7 @@ function _buildLocalizationCtx() {
     buildAiCacheKey,
     getCachedAiResponse,
     setCachedAiResponse,
+    deleteCachedAiResponse,
     getAiLocalizationCalls: () => aiLocalizationCalls,
     incrAiLocalizationCalls: () => { aiLocalizationCalls += 1; },
     getDeeplFallbackToLlm: () => deeplFallbackToLlm,

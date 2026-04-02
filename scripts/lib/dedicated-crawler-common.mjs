@@ -1919,7 +1919,25 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     }
     return null;
   }
-  if (fromCache && typeof fromCache === 'object' && !Array.isArray(fromCache)) return fromCache;
+  if (fromCache && typeof fromCache === 'object' && !Array.isArray(fromCache)) {
+    // Cache quality guard: if the cached "translation" is just the source text copied
+    // into target locales, the cache entry is poisoned. Delete it and fall through to
+    // a fresh AI/free-translate call so the job gets properly translated.
+    const cleanSourceLower = cleanFn(description || '').toLowerCase();
+    const hasBadLocale = targetLocales.some((locale) => {
+      const localeData = fromCache[locale];
+      if (!localeData?.description) return false;
+      const cleanLocale = cleanFn(localeData.description).toLowerCase();
+      return cleanLocale === cleanSourceLower;
+    });
+    if (hasBadLocale) {
+      const { deleteCachedAiResponse: delCache } = ctx;
+      if (delCache) delCache(cacheKey);
+      // Fall through to LLM/free-translate path
+    } else {
+      return fromCache;
+    }
+  }
 
   if (!(isAnyModelAvailable && isAnyModelAvailable())) {
     const cleanedSource = cleanFn(description || '');
