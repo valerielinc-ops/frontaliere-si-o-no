@@ -195,6 +195,7 @@ function logStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'JYSK');
 
   return { total: jobs.length };
+  return crawlDiff;
 }
 
 function validateLocaleCoverage() {
@@ -239,6 +240,7 @@ async function main() {
 
   // Step 5: Stats + validation
   const stats = logStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ No JYSK jobs found after crawl. Exiting OK.');
     return;

@@ -626,6 +626,7 @@ function logCoopJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'Coop');
 
   return { total: coopJobs.length, ticino: ticinoJobs.length, coopJobs, crawlDiff };
+  return crawlDiff;
 }
 
 function validateCoopLocaleCoverage() {
@@ -690,6 +691,7 @@ async function main() {
 
   // Step 4: Log stats and validate
   const stats = logCoopJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job Coop trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

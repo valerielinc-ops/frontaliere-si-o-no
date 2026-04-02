@@ -569,6 +569,7 @@ function logTichJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'TiCH');
 
   return { total: tichJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateTichLocaleCoverage() {
@@ -721,6 +722,7 @@ async function main() {
 
   // Step 4: Log stats and validate
   const stats = logTichJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log(
       'ℹ️ Nessun job Ti.CH trovato in questa esecuzione. Nessun errore — uscita OK.',

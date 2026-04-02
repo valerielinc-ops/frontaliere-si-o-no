@@ -502,6 +502,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, "McDonald's");
   writeCrawlChangeSummaryToGH(crawlDiff, "McDonald's");
   return { total: mcdoJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -537,7 +538,7 @@ async function main() {
     console.log("\n⚠️ No McDonald's TI/GR jobs discovered.");
     console.log('   The portal may have no openings in target regions.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

@@ -175,6 +175,7 @@ function logZurichJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'Zurich');
 
   return { total: zurichJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateZurichLocaleCoverage() {
@@ -205,6 +206,7 @@ async function main() {
 
   // Log stats
   const stats = logZurichJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job Zurich trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

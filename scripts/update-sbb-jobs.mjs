@@ -1055,6 +1055,7 @@ function logSbbJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'SBB');
 
   return { total: sbbJobs.length, ticino: ticinoJobs.length, grigioni: grigioniJobs.length };
+  return crawlDiff;
 }
 
 function validateSbbLocaleCoverage() {
@@ -1124,6 +1125,7 @@ async function main() {
 
   // Step 4: Log stats and validate
   const stats = logSbbJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job SBB trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

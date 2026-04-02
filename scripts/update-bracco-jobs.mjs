@@ -584,6 +584,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Bracco Suisse');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Bracco Suisse');
   return { total: braccoJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -621,7 +622,7 @@ async function main() {
     console.log('\n⚠️ No Bracco jobs discovered.');
     console.log('   The Workday API may be unreachable or have no Swiss openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

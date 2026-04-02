@@ -503,6 +503,7 @@ function logStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'Capri Holdings');
 
   return { total: jobs.length };
+  return crawlDiff;
 }
 
 function validateLocaleCoverage() {
@@ -539,6 +540,7 @@ async function main() {
     console.log('   The Workday API may have no Swiss openings currently.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     const stats = logStats(_beforeSnapshot);
+  const crawlDiff = stats;
     writeCrawlChangeSummaryToGH(computeCrawlDiff(_beforeSnapshot, new Map()), 'Capri Holdings');
     return;
   }
@@ -569,6 +571,7 @@ async function main() {
 
   // Phase 6: Stats & validation
   const stats = logStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total > 0) {
     validateLocaleCoverage();
   } else {

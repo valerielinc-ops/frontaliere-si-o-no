@@ -625,6 +625,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'AIL SA');
   writeCrawlChangeSummaryToGH(crawlDiff, 'AIL SA');
   return { total: targetJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -662,7 +663,7 @@ async function main() {
       '   The careers page may have changed structure or have no current openings.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

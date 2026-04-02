@@ -567,6 +567,7 @@ function logEocJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'EOC');
 
   return { total: eocJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateEocLocaleCoverage() {
@@ -613,6 +614,7 @@ async function main() {
 
   // Log stats
   const stats = logEocJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job EOC trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

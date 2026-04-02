@@ -657,6 +657,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'OSCAM');
   writeCrawlChangeSummaryToGH(crawlDiff, 'OSCAM');
   return { total: targetJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -699,7 +700,7 @@ async function main() {
       '   The career pages may have changed structure or have no current concorsi.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

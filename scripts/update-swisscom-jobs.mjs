@@ -626,6 +626,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Swisscom Ticino');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Swisscom Ticino');
   return { total: swisscomJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -664,7 +665,7 @@ async function main() {
     console.log('\n⚠️ No Swisscom TI/GR jobs discovered.');
     console.log('   The Workday API may be unreachable or have no TI/GR openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

@@ -419,6 +419,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Linnea SA');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Linnea SA');
   return { total: linneaJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -456,7 +457,7 @@ async function main() {
     console.log('\n⚠️ No Linnea jobs discovered.');
     console.log('   The careers page may have changed structure or have no current openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

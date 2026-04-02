@@ -190,6 +190,7 @@ function logStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'Decathlon');
 
   return { total: jobs.length };
+  return crawlDiff;
 }
 
 function validateLocaleCoverage() {
@@ -258,6 +259,7 @@ async function main() {
   });
 
   const stats = logStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ No Decathlon jobs found after crawl. Exiting OK.');
     return;

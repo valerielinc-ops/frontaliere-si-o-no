@@ -186,6 +186,7 @@ function postProcess() {
     if (!job.location) { job.location = 'Bellinzona'; fixed++; }
   }
   if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); console.log(`🔧 Post-processed ${fixed} Vir jobs.`); }
+  return crawlDiff;
 }
 
 async function main() {
@@ -212,7 +213,7 @@ async function main() {
   await mergeJobs(discoveredJobs);
   console.log('\n🌐 Running base crawler for AI localization...');
   await runBaseCrawler();
-  postProcess();
+  const crawlDiff = postProcess();
 
   if (!fs.existsSync(DATA_JOBS)) return;
   const finalJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));

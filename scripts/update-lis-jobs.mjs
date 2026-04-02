@@ -1075,6 +1075,7 @@ function logLisJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'LIS');
 
   return { total: lisJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateLisLocaleCoverage() {
@@ -1134,6 +1135,7 @@ async function main() {
 
   // Log stats
   const stats = logLisJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.warn('⚠️  WARNING: No LIS jobs found after both direct Arca24 scraping and shared pipeline.');
     console.warn('⚠️  This likely indicates the Arca24 ATS structure has changed or the site is down.');

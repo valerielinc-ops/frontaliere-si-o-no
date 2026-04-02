@@ -784,6 +784,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Città di Mendrisio');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Città di Mendrisio');
   return { total: mendrisioJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -821,7 +822,7 @@ async function main() {
       '   The concorsi page may have changed structure or have no current openings.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

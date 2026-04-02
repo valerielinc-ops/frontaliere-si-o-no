@@ -585,6 +585,7 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'IST');
   writeCrawlChangeSummaryToGH(crawlDiff, 'IST');
   return { total: istJobs.length };
+  return crawlDiff;
 }
 
 function validateLocales() {
@@ -620,7 +621,7 @@ async function main() {
     console.log('\n⚠️ No IST jobs discovered.');
     console.log('   The careers portal may have no TI/GR openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    logStats(beforeSnapshot);
+    const crawlDiff = logStats(beforeSnapshot);
     return;
   }
 

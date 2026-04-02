@@ -273,6 +273,7 @@ function logStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'Fust');
 
   return { total: jobs.length };
+  return crawlDiff;
 }
 
 function validateLocaleCoverage() {
@@ -325,6 +326,7 @@ async function main() {
 
   // Step 6: Stats + validation
   const stats = logStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ No Fust jobs found after crawl. Exiting OK.');
     return;

@@ -533,6 +533,7 @@ function logAbbJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'ABB');
   writeCrawlChangeSummaryToGH(crawlDiff, 'ABB');
   return { total: abbJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateAbbLocaleCoverage() {
@@ -571,6 +572,7 @@ async function main() {
   postProcessAbbJobs();
 
   const stats = logAbbJobStats(beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job ABB trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

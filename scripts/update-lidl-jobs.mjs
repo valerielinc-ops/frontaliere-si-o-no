@@ -590,6 +590,7 @@ function logLidlJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Lidl');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Lidl');
   return { total: lidlJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateLidlLocaleCoverage() {
@@ -631,6 +632,7 @@ async function main() {
   await enrichLidlJobDescriptions();
 
   const stats = logLidlJobStats(beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job Lidl trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

@@ -177,6 +177,7 @@ function logStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'TPL Lugano');
 
   return { total: jobs.length };
+  return crawlDiff;
 }
 
 function validateLocaleCoverage() {
@@ -237,6 +238,7 @@ async function main() {
   });
 
   const stats = logStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ No TPL jobs found after crawl. Exiting OK.');
     return;

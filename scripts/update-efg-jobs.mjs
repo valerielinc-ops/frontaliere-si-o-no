@@ -987,6 +987,7 @@ function logEfgJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'EFG');
 
   return { total: efgJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateEfgLocaleCoverage() {
@@ -1062,6 +1063,7 @@ async function main() {
 
   // 7. Log stats
   const stats = logEfgJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job EFG trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

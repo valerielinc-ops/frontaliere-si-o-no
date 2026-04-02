@@ -318,6 +318,7 @@ function logMigrosJobStats(beforeSnapshot = new Map()) {
   writeCrawlChangeSummaryToGH(crawlDiff, 'Migros');
 
   return { total: migrosJobs.length, ticino: ticinoJobs.length };
+  return crawlDiff;
 }
 
 function validateMigrosLocaleCoverage() {
@@ -364,6 +365,7 @@ async function main() {
 
   // Step 4: Log stats and validate
   const stats = logMigrosJobStats(_beforeSnapshot);
+  const crawlDiff = stats;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job Migros trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;
