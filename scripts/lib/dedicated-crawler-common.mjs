@@ -2378,14 +2378,14 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         }
         // Quality gate: even with a valid cache, check for thin translations.
         // The cache may hold old truncated AI output that should be retranslated.
+        // IMPORTANT: use baseDesc (authoritative description) as reference, NOT the
+        // cached source locale — the cache itself may contain a truncated source.
         const sourceLangForCache = job.sourceLang || detectTextLocale(baseDesc || baseTitle, 'it').lang;
-        const sourceLenForCache = normalizeForLengthComparison(
-          String(job.descriptionByLocale?.[sourceLangForCache] || baseDesc)
-        ).length;
-        const hasThinCached = sourceLenForCache >= 500 && DEFAULT_LOCALES.some((l) => {
+        const normBaseLenForCache = normalizeForLengthComparison(baseDesc).length;
+        const hasThinCached = normBaseLenForCache >= 500 && DEFAULT_LOCALES.some((l) => {
           if (l === sourceLangForCache) return false;
           const d = normalizeForLengthComparison(String(job.descriptionByLocale?.[l] || ''));
-          return d.length > 0 && d.length < sourceLenForCache * 0.7;
+          return d.length > 0 && d.length < normBaseLenForCache * 0.7;
         });
         if (hasThinCached) {
           // Thin translations in cache — skip cache, fall through to retranslation
