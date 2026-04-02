@@ -1919,6 +1919,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mobilita-infermieri-ticino.title': 'Die internationale Mobilität des Pflegepersonals nimmt zu',
     'blog.article.mobilita-infermieri-ticino.excerpt': 'Die Gewerkschaft Nursing Up beklagt den Abgang von Krankenpflegern und Krankenschwestern aus Italien in die Schweiz',
     'blog.article.mobilita-infermieri-ticino.imageAlt': 'Pflegepersonal in Tessin',
+    'blog.article.san-gottardo-code-giovedi-santo.title': 'San Gottardo, Stau am Gründonnerstag: keine Überraschung, viel Geduld',
+    'blog.article.san-gottardo-code-giovedi-santo.excerpt': 'Die San-Gottardo-Autobahn in der Hauptsaison: Verzögerungen und Staus in Richtung Tessin und Italien',
+    'blog.article.san-gottardo-code-giovedi-santo.imageAlt': 'San Gottardo während der Hochsaison',
 };
 
 export default blogMetaDe;

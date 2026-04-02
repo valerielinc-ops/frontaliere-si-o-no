@@ -10457,6 +10457,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-san-gottardo-code-giovedi-santo': {
+    title: 'San Gottardo, code da Giovedì Santo: niente sorpresa, tanta pazienza | Frontaliere Ticino',
+    description: 'Il San Gottardo autostradale in alta stagione: rallentamenti e code in direzione Ticino e Italia. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, gottardo, code, giovedì, santo',
+    ogTitle: 'San Gottardo, code da Giovedì Santo: niente sorpresa, tanta pazienza',
+    ogDescription: 'Il San Gottardo autostradale in alta stagione: rallentamenti e code in direzione Ticino e Italia',
+    canonicalPath: '/articoli-frontaliere/san-gottardo-code-giovedi-santo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "San Gottardo, code da Giovedì Santo: niente sorpresa, tanta pazienza",
+      "description": "Il San Gottardo autostradale in alta stagione: rallentamenti e code in direzione Ticino e Italia. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/san-gottardo-code-giovedi-santo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il San Gottardo durante la stagione alta"
+      },
+      "datePublished": "2026-04-02T19:11:02+00:00",
+      "dateModified": "2026-04-02T19:11:02+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/san-gottardo-code-giovedi-santo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

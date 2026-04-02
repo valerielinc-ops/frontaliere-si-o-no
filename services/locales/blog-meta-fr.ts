@@ -1919,6 +1919,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mobilita-infermieri-ticino.title': 'Augmentation de la mobilité internationale du personnel infirmier',
     'blog.article.mobilita-infermieri-ticino.excerpt': 'Le syndicat Nursing Up dénonce la fuite des infirmiers et infirmières d\'Italie vers la Suisse',
     'blog.article.mobilita-infermieri-ticino.imageAlt': 'Personnel infirmier en Tessin',
+    'blog.article.san-gottardo-code-giovedi-santo.title': 'San Gottardo, code da Giovedì Santo: niente sorpresa, tanta pazienza',
+    'blog.article.san-gottardo-code-giovedi-santo.excerpt': 'La route autoroutière du Saint-Gothard en haute saison : ralentissements et files d\'attente en direction du Tessin et de l\'Italie',
+    'blog.article.san-gottardo-code-giovedi-santo.imageAlt': 'San Gottardo en haute saison',
 };
 
 export default blogMetaFr;

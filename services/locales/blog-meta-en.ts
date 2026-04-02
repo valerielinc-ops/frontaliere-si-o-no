@@ -1919,6 +1919,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mobilita-infermieri-ticino.title': 'International mobility of nursing staff on the rise',
     'blog.article.mobilita-infermieri-ticino.excerpt': 'The Nursing Up union denounces the exodus of nurses from Italy to Switzerland',
     'blog.article.mobilita-infermieri-ticino.imageAlt': 'Nursing staff in Ticino',
+    'blog.article.san-gottardo-code-giovedi-santo.title': 'San Gottardo, traffic jam since Holy Thursday: no surprise, plenty of patience',
+    'blog.article.san-gottardo-code-giovedi-santo.excerpt': 'The San Gottardo highway in peak season: slowdowns and traffic jams in the direction of Ticino and Italy',
+    'blog.article.san-gottardo-code-giovedi-santo.imageAlt': 'San Gottardo during peak season',
 };
 
 export default blogMetaEn;

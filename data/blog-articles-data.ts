@@ -5669,4 +5669,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/mobilita-infermieri-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'san-gottardo-code-giovedi-santo',
+    category: 'pratico',
+    date: '2026-04-02T19:11:02.300Z',
+    image: '/images/blog/san-gottardo-code-giovedi-santo.jpg',
+    hasCalculator: true,
+  },
 ];
