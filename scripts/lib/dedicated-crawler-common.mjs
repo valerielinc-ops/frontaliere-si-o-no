@@ -1894,17 +1894,6 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     cleanFn(description || ''),
   ]);
   const fromCache = getCachedAiResponse(cacheKey);
-  // DIAGNOSTIC: aggregate cache stats
-  if (typeof aiLocalizeJobContentDCC._cacheStats === 'undefined') {
-    aiLocalizeJobContentDCC._cacheStats = { hit: 0, miss: 0, sentinel: 0, busted: 0 };
-  }
-  if (fromCache === AI_CACHE_RAW_SENTINEL) {
-    aiLocalizeJobContentDCC._cacheStats.sentinel++;
-  } else if (fromCache && typeof fromCache === 'object') {
-    aiLocalizeJobContentDCC._cacheStats.hit++;
-  } else {
-    aiLocalizeJobContentDCC._cacheStats.miss++;
-  }
   if (fromCache === AI_CACHE_RAW_SENTINEL) {
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length < floor) return null;
@@ -2147,16 +2136,6 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     localizationEnabled && sourceTitle.length >= 3 && (titleNeedsLocalization || forceLocalization);
 
   if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) {
-    // DIAGNOSTIC: aggregate skip reasons
-    if (typeof enrichJobLocalesDCC._diagSkipTotal === 'undefined') enrichJobLocalesDCC._diagSkipTotal = 0;
-    enrichJobLocalesDCC._diagSkipTotal++;
-    // Log first 5 skipped jobs
-    if (typeof enrichJobLocalesDCC._diagSkipCount === 'undefined') enrichJobLocalesDCC._diagSkipCount = 0;
-    if (enrichJobLocalesDCC._diagSkipCount < 5) {
-      enrichJobLocalesDCC._diagSkipCount++;
-      const slug = (out.slug || out.title || 'unknown').slice(0, 40);
-      console.log(`   🔬 enrichSkip[${enrichJobLocalesDCC._diagSkipCount}] "${slug}" locEnabled=${localizationEnabled} budget=${hasBudget} cov=${coverage}/${locales.length} descLen=${(out.description||'').length} canAi=${canUseAi} force=${forceLocalization} titleNeed=${titleNeedsLocalization}`);
-    }
     // Only re-flag if the job genuinely has missing locales AND was skipped due to
     // budget/AI exhaustion. Do NOT re-flag jobs that are already complete — this was
     // causing 140+ complete jobs to be re-flagged every run (infinite loop).
@@ -2212,16 +2191,6 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     }
   }
 
-  // DIAGNOSTIC: log first 3 AI call attempts + running totals
-  if (typeof enrichJobLocalesDCC._diagAiCallCount === 'undefined') enrichJobLocalesDCC._diagAiCallCount = 0;
-  if (typeof enrichJobLocalesDCC._diagAiCallTotal === 'undefined') enrichJobLocalesDCC._diagAiCallTotal = 0;
-  enrichJobLocalesDCC._diagAiCallTotal++;
-  if (shouldRunDescriptionLocalization && enrichJobLocalesDCC._diagAiCallCount < 3) {
-    enrichJobLocalesDCC._diagAiCallCount++;
-    const slug = (out.slug || out.title || 'unknown').slice(0, 40);
-    console.log(`   🔬 enrichAI[${enrichJobLocalesDCC._diagAiCallCount}] "${slug}" canAi=${canUseAi} descLen=${(out.description||'').length} → will${canUseAi ? '' : ' NOT'} call AI`);
-  }
-
   const aiLocalized = shouldRunDescriptionLocalization && canUseAi
     ? await aiLocalizeJobContentDCC({
         title: out.title, company: out.company, location: out.location,
@@ -2232,17 +2201,6 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   if (shouldRunDescriptionLocalization && ctx.incrAiLocalizationCalls) ctx.incrAiLocalizationCalls();
 
    const reqByLocale = (out.requirementsByLocale && typeof out.requirementsByLocale === 'object') ? { ...out.requirementsByLocale } : {};
-  // DIAGNOSTIC: trace AI result for first 2 jobs needing desc localization
-  if (typeof enrichJobLocalesDCC._diagApplyCount === 'undefined') enrichJobLocalesDCC._diagApplyCount = 0;
-  if (shouldRunDescriptionLocalization && enrichJobLocalesDCC._diagApplyCount < 2) {
-    enrichJobLocalesDCC._diagApplyCount++;
-    const slug = (out.slug || out.title || 'unknown').slice(0, 40);
-    const aiNull = aiLocalized === null;
-    const aiKeys = aiLocalized ? Object.keys(aiLocalized).join(',') : 'N/A';
-    const aiEnDesc = aiLocalized?.en?.description?.slice(0, 60) || 'N/A';
-    const curEnBefore = (currentByLocale.en || '').slice(0, 60);
-    console.log(`   🔬 enrichApply[${enrichJobLocalesDCC._diagApplyCount}] "${slug}" aiNull=${aiNull} aiKeys=${aiKeys} aiEN="${aiEnDesc}" curEN_before="${curEnBefore}" retrans=${!!out.needsRetranslation} cov=${coverage}`);
-  }
   if (aiLocalized) {
     for (const locale of locales) {
       const localized = aiLocalized[locale];
