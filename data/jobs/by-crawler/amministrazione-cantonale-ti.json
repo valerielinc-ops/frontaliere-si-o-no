@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-04-02T12:48:11.893Z",
+  "assembledAt": "2026-04-02T21:47:11.526Z",
   "jobs": [
     {
       "id": "company-213j3w",
@@ -247,7 +247,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0o",
@@ -371,7 +372,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
@@ -522,7 +524,7 @@
       "crawledAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "1-apprendista-operatrice-tore-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-31-agosto-2026-al-30-agosto-2029-presso",
-        "en": "requisiti-amministrazione-cantonale-ticino-mendrisio",
+        "en": "requisiti-amministrazione-cantonale-ticino-bellinzona",
         "de": "praktikant-im-bau-und-infrastrukturbereich-amministrazione-cantonale-ticino-mendrisio",
         "fr": "apprenti-operateur-ere-de-batiment-et-d-infrastructure-amministrazione-cantonale-ticino-bellinzona"
       },
@@ -655,9 +657,9 @@
       "crawledAt": "2026-03-31T21:48:48.088Z",
       "slugByLocale": {
         "it": "tribunale-d-appello-amministrazione-cantonale-ticino-bellinzona",
-        "en": "court-of-appeal-amministrazione-cantonale-ticino-lugano",
+        "en": "court-of-appeal-amministrazione-cantonale-ticino-bellinzona",
         "de": "oberlandesgericht-amministrazione-cantonale-ticino-lugano",
-        "fr": "cour-d-appel-amministrazione-cantonale-ticino-lugano"
+        "fr": "cour-d-appel-amministrazione-cantonale-ticino-bellinzona"
       },
       "titleByLocale": {
         "it": "Tribunale d'appello",
@@ -882,7 +884,8 @@
       "previousSlugs": [
         "capo-ufficio-iii-part-time-80-full-time-100-amministrazione-cantonale-ticino-camorino-213if6",
         "chef-de-bureau-iii-a-temps-partiel-80-a-temps-plein-100-amministrazione-cantonale-ticino-camorino"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213if3",
@@ -1079,7 +1082,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "ispettore-trice-specialista-a-tempo-pieno-100-presso-la-polizia-cantonale-polizia-giudiziaria-rg1-sezione-reati-economico-finanziari-sref-lu-213if1"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213if0",
