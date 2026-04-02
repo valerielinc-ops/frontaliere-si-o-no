@@ -1,18 +1,19 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-02T10:21:50.028Z",
+  "generatedAt": "2026-04-02T12:05:58.129Z",
   "total": 15,
-  "newCount": 1,
-  "updatedCount": 14,
+  "newCount": 0,
+  "updatedCount": 15,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1837,
-  "avgDurationMs": 1837,
+  "durationMs": 1800,
+  "avgDurationMs": 1800,
   "durationHistory": [
-    1837
+    1800
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Inspektor/in",
       "slug": "inspektor-in-confederazione-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs",
@@ -35,16 +36,19 @@
       "validThrough": "2026-05-06",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "_qualityScore": 61,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Greffier/greffière de langue française, pour la Cour d'appel",
       "slug": "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone",
@@ -247,6 +251,7 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
+      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
