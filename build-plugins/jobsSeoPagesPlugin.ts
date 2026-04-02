@@ -833,6 +833,11 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
        *  so that expired soft-landing pages never overwrite a live job page. */
       const activeJobDirs = new Set<string>();
 
+      /** Caches active job page HTML by `${locale}:${slug}` so bridge pages
+       *  (previousSlugs) can serve identical full-content pages with only the
+       *  canonical URL pointing to the current slug. */
+      const jobHtmlCache = new Map<string, string>();
+
       const companyRoutePrefix: Record<'it' | 'en' | 'de' | 'fr', string> = {
         it: 'azienda',
         en: 'company',
@@ -1386,6 +1391,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
   </body>
 </html>`;
           _qw(np.join(outDir, 'index.html'), html);
+          jobHtmlCache.set(`${locale}:${perLocaleSlug[locale]}`, html);
           // Also write flat .html so /slug serves 200 (avoids GitHub Pages 301 redirect)
           // Uses a canonical bridge page instead of a noindex/meta-refresh alias
           const flatPath = canonicalPath.replace(/\/+$/, '');
@@ -4112,8 +4118,11 @@ ${hreflangLinks}
         console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${expiredCount} soft-landing pages for ${expiredSlugs.length} expired jobs${legacyCount > 0 ? ` (+ ${legacyCount} legacy slug bridges)` : ''}`);
       }
 
-      /* ── Rich bridge pages for previousSlugs of active jobs ────── */
-      // These pages serve users arriving via old URLs (bookmarks, search engines).
+      /* ── Full-content pages for previousSlugs of active jobs ────── */
+      // Serve identical full-content pages at old URLs (bookmarks, search engines).
+      // The only difference: <link rel="canonical"> points to the current slug URL,
+      // and window.__BRIDGE_TARGET_SLUG__ tells the SPA to use the current slug.
+      // No redirect, no countdown — user sees full job content immediately.
 
       let bridgeCount = 0;
       for (const job of validJobs) {
@@ -4122,9 +4131,8 @@ ${hreflangLinks}
 
         for (const locale of localeList) {
           const currentSlug = localizedSlug(job, locale);
-          const currentPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${currentSlug}`.replace(/\/+/g, '/');
-          const canonicalUrl = `${BASE_URL}${withSlash(currentPath)}`;
-          const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
+          const cachedHtml = jobHtmlCache.get(`${locale}:${currentSlug}`);
+          if (!cachedHtml) continue;
 
           for (const oldSlug of prevSlugs) {
             if (oldSlug === currentSlug) continue;
@@ -4136,101 +4144,11 @@ ${hreflangLinks}
             const outDir = np.join(distDir, oldRelPath);
             if (fs.existsSync(np.join(outDir, 'index.html'))) continue;
 
-            const localizedTitle = String(job.titleByLocale?.[locale] || job.title || '');
-            const jobCompany = String(job.company || '');
-            const jobLocation = String((job as any).addressLocality || (job as any).location || '');
-            const pageTitle = `${esc(localizedTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`;
-
-            // Pre-inject job data and bridge target so the SPA can show JobBridgeView immediately.
-            // JobBridgeView renders: adsbygoogle (AdSense) + Google Sign In + countdown redirect.
-            const bridgeWindowData = JSON.stringify({
-              title: localizedTitle,
-              titleByLocale: job.titleByLocale,
-              company: jobCompany,
-              location: jobLocation,
-            });
-
-            const bridgeHtml = `<!DOCTYPE html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${pageTitle}</title>
-    <meta name="description" content="${esc(localizedTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}.">
-    <meta name="robots" content="index,follow">
-    <link rel="canonical" href="${canonicalUrl}">
-    <script type="application/ld+json">${JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: BASE_URL + '/' },
-        { '@type': 'ListItem', position: 2, name: localeCopy[locale]?.sectionName || 'Job Board', item: `${BASE_URL}${listingPath}` },
-        { '@type': 'ListItem', position: 3, name: localizedTitle },
-      ],
-    })}</script>
-    ${(() => {
-              // JobPosting for bridge pages — mirrors active page schema for SEO continuity
-              const desc = String(job.descriptionByLocale?.[locale] || job.description || '');
-              // Prefer HTML description for consistency with active page JobPosting
-              const htmlDesc = desc.includes('<') ? desc.slice(0, 5000) : desc.replace(/<[^>]+>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 5000);
-              const pc = String((job as any).postalCode || '');
-              // Only emit JobPosting if we have sufficient data (including postalCode)
-              // to pass the quality guard tests — incomplete schemas are worse than none
-              if (htmlDesc.length >= 30 && localizedTitle && jobCompany && pc) {
-                const sa = deriveStreetAddress(job);
-                const ar = String((job as any).addressRegion || (job as any).canton || '');
-                const ac = String((job as any).addressCountry || 'CH');
-                const bSalaryMin = Number.isFinite(Number((job as any).salaryMin)) && Number((job as any).salaryMin) > 0
-                  ? Number((job as any).salaryMin)
-                  : Number((job as any)?.baseSalary?.value?.minValue) || 0;
-                const bSalaryMax = Number.isFinite(Number((job as any).salaryMax)) ? Number((job as any).salaryMax) : Number((job as any)?.baseSalary?.value?.maxValue) || 0;
-                const bCurrency = String((job as any).currency || (job as any)?.baseSalary?.currency || 'CHF');
-                const bridgeSalary = bSalaryMin > 0 ? {
-                  '@type': 'MonetaryAmount', currency: bCurrency,
-                  value: { '@type': 'QuantitativeValue', minValue: bSalaryMin, ...(bSalaryMax > bSalaryMin ? { maxValue: bSalaryMax } : {}), unitText: 'YEAR' },
-                } : {
-                  '@type': 'MonetaryAmount', currency: 'CHF',
-                  value: { '@type': 'QuantitativeValue', minValue: 41080, unitText: 'YEAR' },
-                };
-                return `<script type="application/ld+json">${JSON.stringify({
-                  '@context': 'https://schema.org',
-                  '@type': 'JobPosting',
-                  title: localizedTitle,
-                  description: htmlDesc,
-                  datePosted: toIsoDateTime(job.postedDate),
-                  validThrough: toValidThrough(job.postedDate, job.crawledAt),
-                  employmentType: (() => {
-                    const c = String((job as any).contract || '').toLowerCase();
-                    if (c === 'full-time' || c === 'full_time') return 'FULL_TIME';
-                    if (c === 'part-time' || c === 'part_time') return 'PART_TIME';
-                    if (c === 'temporary') return 'TEMPORARY';
-                    if (c === 'internship' || c === 'intern') return 'INTERN';
-                    if (c === 'contract' || c === 'contractor') return 'CONTRACTOR';
-                    return 'OTHER';
-                  })(),
-                  hiringOrganization: { '@type': 'Organization', name: jobCompany },
-                  jobLocation: { '@type': 'Place', address: {
-                    '@type': 'PostalAddress',
-                    streetAddress: sa || jobLocation || 'Ticino',
-                    addressLocality: jobLocation || 'Ticino',
-                    ...(ar ? { addressRegion: ar } : { addressRegion: 'TI' }),
-                    addressCountry: ac,
-                    postalCode: pc,
-                  }},
-                  baseSalary: bridgeSalary,
-                  url: canonicalUrl,
-                })}</script>`;
-              }
-              return '';
-            })()}
-    <script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};window.__JOB_DATA__=${bridgeWindowData};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
-    ${SPA_ACTION_REDIRECT_SCRIPT}
-    ${GTAG_SNIPPET}
-  </head>
-  <body>
-    <div id="root"></div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
-  </body>
-</html>`;
+            // Reuse the full active page HTML — canonical already points to the
+            // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
+            // use the current slug for data lookup instead of parsing the old URL.
+            const bridgeScript = `<script>window.__BRIDGE_TARGET_SLUG__=${JSON.stringify(currentSlug)};</script>`;
+            const bridgeHtml = cachedHtml.replace('</head>', `    ${bridgeScript}\n  </head>`);
 
             _md(outDir);
             _qw(np.join(outDir, 'index.html'), bridgeHtml);
@@ -4243,7 +4161,7 @@ ${hreflangLinks}
         }
       }
       if (bridgeCount > 0) {
-        console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs bridge pages`);
+        console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages`);
       }
 
       /* ── Flush all buffered writes in parallel batches ── */

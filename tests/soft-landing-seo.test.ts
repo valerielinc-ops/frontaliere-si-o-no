@@ -35,7 +35,7 @@ describe('Soft-landing SEO pages for expired jobs', () => {
     expect(pluginSource).toContain('expired-jobs.json');
   });
 
-  it('generates previousSlugs bridge pages for active jobs', () => {
+  it('generates previousSlugs full-content pages for active jobs', () => {
     expect(pluginSource).toContain('previousSlugs');
   });
 
@@ -43,9 +43,9 @@ describe('Soft-landing SEO pages for expired jobs', () => {
     // Expired pages now include a JobPosting with a past validThrough date
     // so Google recognizes the job as expired while keeping semantic data
     const expiredStart = pluginSource.indexOf('Expired-job') ?? pluginSource.indexOf('expired');
-    const bridgeStart = pluginSource.indexOf('Rich bridge pages');
-    const expiredSection = bridgeStart > expiredStart
-      ? pluginSource.slice(expiredStart, bridgeStart)
+    const fullContentStart = pluginSource.indexOf('Full-content pages for previousSlugs');
+    const expiredSection = fullContentStart > expiredStart
+      ? pluginSource.slice(expiredStart, fullContentStart)
       : pluginSource.slice(expiredStart);
     expect(expiredSection).toContain('JobPosting');
     expect(expiredSection).toContain('validThrough');

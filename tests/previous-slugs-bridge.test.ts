@@ -8,21 +8,20 @@ const pluginSource = fs.readFileSync(
   'utf-8',
 );
 
-describe('previousSlugs bridge pages', () => {
-  it('generates bridge pages for active jobs with previousSlugs', () => {
+describe('previousSlugs full-content pages', () => {
+  it('generates full-content pages for active jobs with previousSlugs', () => {
     expect(pluginSource).toContain('previousSlugs');
     expect(pluginSource).toContain('bridgeCount');
   });
 
-  it('bridge pages use canonical pointing to current slug', () => {
-    expect(pluginSource).toContain('bridge');
+  it('full-content pages use canonical pointing to current slug', () => {
     expect(pluginSource).toContain('canonical');
+    expect(pluginSource).toContain('jobHtmlCache');
   });
 
-  it('bridge pages include rich content with AdSense and signup', () => {
-    const bridgeSection = pluginSource.slice(pluginSource.indexOf('Rich bridge pages for previousSlugs'));
-    expect(bridgeSection).toContain('adsbygoogle');
-    expect(bridgeSection).toContain('Google Sign In');
-    expect(bridgeSection).toContain('BreadcrumbList');
+  it('full-content pages reuse cached active job HTML', () => {
+    expect(pluginSource).toContain('jobHtmlCache.get');
+    expect(pluginSource).toContain('jobHtmlCache.set');
+    expect(pluginSource).toContain('__BRIDGE_TARGET_SLUG__');
   });
 });

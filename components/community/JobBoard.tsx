@@ -50,7 +50,6 @@ import { SkeletonJobDetail } from '@/components/shared/Skeletons';
 import { useExpiredJob, hasSeededExpiredData } from '@/hooks/useExpiredJob';
 import JobExpiredView from '@/components/community/JobExpiredView';
 import JobOrphanView from '@/components/community/JobOrphanView';
-import JobBridgeView from '@/components/community/JobBridgeView';
 import { AD_SLOTS } from '@/services/adsenseSlots';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { eagerAuth, getAuthEmail, promptOneTap, renderGoogleButton, isLinkedInSignInAvailable, signInWithLinkedIn, saveAuthJobContext } from '@/services/authService';
@@ -2307,10 +2306,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
     () => (typeof window !== 'undefined' ? ((window as any).__BRIDGE_TARGET_SLUG__ as string | undefined) : undefined),
     [],
   );
-  const bridgeJobData = useMemo(
-    () => (typeof window !== 'undefined' ? ((window as any).__JOB_DATA__ as { title?: string; titleByLocale?: Record<string, string>; company?: string; location?: string } | undefined) : undefined),
-    [],
-  );
 
   useEffect(() => {
     const syncSearchQueryFromUrl = () => {
@@ -2405,8 +2400,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const selectedJob = useMemo(() => {
     if (companySlugFilter || searchSlugFilter || editorialLandingDescriptor) return null;
     if (!initialJobSlug) return null;
-    return jobs.find((j) => matchesRouteSlug(j, initialJobSlug)) || null;
-  }, [jobs, initialJobSlug, companySlugFilter, searchSlugFilter, editorialLandingDescriptor]);
+    // When navigating via a previousSlug (bridge), use the current slug for job lookup
+    const lookupSlug = bridgeTargetSlug || initialJobSlug;
+    return jobs.find((j) => matchesRouteSlug(j, lookupSlug)) || null;
+  }, [jobs, initialJobSlug, bridgeTargetSlug, companySlugFilter, searchSlugFilter, editorialLandingDescriptor]);
 
   // FRO-386: Lazily enrich slim job with full data (description, requirements, canonicalContent)
   // when the detail view opens. Merges full fields into the jobs state so selectedJob
@@ -4790,18 +4787,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
     );
   }
 
-  // Bridge: old URL with a known active replacement (window.__BRIDGE_TARGET_SLUG__ set by plugin template).
-  // Checked before selectedJob so bridge pages show JobBridgeView even when previousSlugs matches.
-  if (initialJobSlug && bridgeTargetSlug && !companySlugFilter && !searchSlugFilter) {
-    return (
-      <JobBridgeView
-        targetSlug={bridgeTargetSlug}
-        jobData={bridgeJobData}
-        relatedJobs={relatedJobsForNotFound}
-        onBack={backToList}
-      />
-    );
-  }
+  // Bridge pages (previousSlugs) now serve full content — selectedJob resolves
+  // via bridgeTargetSlug above. No redirect or interstitial needed.
 
   if (initialJobSlug && !selectedJob && !companySlugFilter && !searchSlugFilter) {
     // Expired: slug found in expired-jobs.json — show metadata + sign-in + related
