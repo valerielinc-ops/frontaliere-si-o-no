@@ -1,21 +1,19 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-04-01T21:02:22.812Z",
+  "generatedAt": "2026-04-02T11:59:59.776Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 21318,
-  "avgDurationMs": 21318,
+  "unchangedCount": 1,
+  "durationMs": 14713,
+  "avgDurationMs": 14713,
   "durationHistory": [
-    21318
+    14713
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20---weekends-_R_783328",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20---weekends-_R_783328",
@@ -30,7 +28,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "sales-associate-part-time-fixed-term-20-weekends-capri-holdings-michael-kors-versace-graubunden",
+      "slug": "addetto-a-vendite-part-time-20-weekend-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-03-24",
       "source": "capri-holdings-workday-crawler",
@@ -47,6 +45,7 @@
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -69,7 +68,7 @@
       "addressCountry": "CH",
       "postalCode": "6850",
       "streetAddress": "Via Penate",
-      "slug": "addetto-alle-vendite-landquart-outlet-50-a-tempo-determinato-capri-holdings-michael-kors-versace-graubunden",
+      "slug": "addetto-alle-vendite-landquart-outlet-50-tempo-determinato-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-03-24",
       "source": "capri-holdings-workday-crawler",
@@ -86,6 +85,7 @@
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -93,7 +93,10 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate--Landquart-Outlet_R_782019",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate--Landquart-Outlet_R_782019",
@@ -125,6 +128,7 @@
       "salaryMin": 54000,
       "salaryMax": 73000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
