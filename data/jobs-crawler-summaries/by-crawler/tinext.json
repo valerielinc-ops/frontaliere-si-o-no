@@ -1,24 +1,22 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-04-01T21:50:15.405Z",
+  "generatedAt": "2026-04-02T09:53:52.768Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 754,
-  "avgDurationMs": 754,
+  "unchangedCount": 0,
+  "durationMs": 1040,
+  "avgDurationMs": 1040,
   "durationHistory": [
-    754
+    1040
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Freelance Java Developer | Full-remote",
-      "slug": "freelance-java-sviluppatore-full-remote-tinext-sa-morbio",
+      "slug": "freelance-java-developer-full-remote-tinext-lugano-javadev",
       "url": "https://tinext.kenjo.io/javadev",
       "applyUrl": "https://tinext.kenjo.io/javadev",
       "company": "Tinext SA",
@@ -34,7 +32,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -69,7 +67,7 @@
       "sector": "IT & Digital Transformation",
       "source": "tinext-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "validThrough": "",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -78,7 +76,6 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale 18",
       "postalCode": "6928",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -87,5 +84,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
