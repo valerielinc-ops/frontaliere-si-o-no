@@ -612,13 +612,7 @@ async function main() {
   console.log(`  Workday API: ${BRACCO_API_BASE}\n`);
 
   // Snapshot before
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isBraccoJob) : []);
-    } catch { /* ignore */ }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(BRACCO_KEY, DATA_JOBS).filter(isBraccoJob))
 
   // Phase 1: Fetch jobs from Workday API
   const discoveredJobs = await fetchBraccoJobs();

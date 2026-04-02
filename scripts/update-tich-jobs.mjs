@@ -706,13 +706,7 @@ async function main() {
   ensureAdapterSeedUrls(detailUrls);
 
   // Snapshot company jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isTichJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(TICH_KEY, DATA_JOBS).filter(isTichJob))
 
   // Step 3: Run the base crawler which fetches each detail page
   // and parses the HTML content

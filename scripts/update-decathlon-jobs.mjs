@@ -218,13 +218,7 @@ async function main() {
 
   ensureAdapterSeedUrls(detailUrls);
 
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isDecathlonJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(DECATHLON_KEY, DATA_JOBS).filter(isDecathlonJob))
 
   await runBaseCrawler();
 

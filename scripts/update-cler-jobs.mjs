@@ -397,15 +397,7 @@ async function main() {
   console.log(`  Company key: ${COMPANY_KEY}\n`);
 
   // Snapshot before
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
-      beforeSnapshot = snapshotJobSlugs(
-        Array.isArray(pre) ? pre.filter(isTargetJob) : []
-      );
-    } catch { /* ignore */ }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isTargetJob))
 
   // Phase 1: Fetch and parse jobs
   console.log('🔍 Phase 1: Fetch Cler jobs...');

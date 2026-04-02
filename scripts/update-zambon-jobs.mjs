@@ -177,8 +177,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log('  Zambon Svizzera SA — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) { try { const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isCompanyJob) : []); } catch {} }
+    const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
   const discovered = await fetchJobs();
   if (!discovered.length) { console.log('⚠️ No Zambon jobs discovered.'); return; }
   updateAdapterConfig(discovered.map((j) => j.url));

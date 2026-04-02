@@ -86,13 +86,7 @@ async function main() {
   console.log('🎯 Running dedicated VF jobs crawler (with forced localization)...');
 
   // Snapshot VF jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isVfJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(VF_KEY, DATA_JOBS).filter(isVfJob))
 
   await runBaseCrawler();
   await translateMissingJobLocales({

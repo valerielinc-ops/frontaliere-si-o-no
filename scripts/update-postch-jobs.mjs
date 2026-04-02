@@ -606,13 +606,7 @@ async function main() {
   await mergePostJobs(discoveredJobs);
 
   // Snapshot for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isPostJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(POST_KEY, DATA_JOBS).filter(isPostJob))
 
   // 4. Run base crawler for AI localization (IT/DE/FR/EN translations)
   console.log('\n🌐 Running base crawler for AI localization of Post.ch jobs...');

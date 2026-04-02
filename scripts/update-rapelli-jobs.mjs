@@ -80,13 +80,7 @@ async function main() {
   setCrawlerStartTime();
   console.log(`\ud83c\udf56 Running dedicated ${COMPANY_NAME} crawler...`);
 
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isCompanyJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
   const rawJobs = await fetchRapelliJobUrls();
   if (rawJobs.length === 0) {

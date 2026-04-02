@@ -195,8 +195,7 @@ async function main() {
   console.log('  Mikron Group — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
 
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) { try { const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isMikronJob) : []); } catch {} }
+    const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isMikronJob))
 
   const discoveredJobs = await fetchMikronJobs();
   if (discoveredJobs.length === 0) {

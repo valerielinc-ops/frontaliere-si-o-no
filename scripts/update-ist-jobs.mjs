@@ -611,13 +611,7 @@ async function main() {
   console.log(`  Portal: ${IST_COMPANY_HOST}\n`);
 
   // Snapshot before
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isIstJob) : []);
-    } catch { /* ignore */ }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(IST_KEY, DATA_JOBS).filter(isIstJob))
 
   // Phase 1: Discover job URLs
   const discoveredJobs = await fetchIstJobs();

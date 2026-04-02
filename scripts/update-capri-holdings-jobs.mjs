@@ -529,13 +529,7 @@ async function main() {
   console.log('  ATS: Workday (capri.wd1.myworkdayjobs.com)');
   console.log('═══════════════════════════════════════════════\n');
 
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isCapriJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(CAPRI_KEY, DATA_JOBS).filter(isCapriJob))
 
   // Phase 1: Fetch jobs from Workday API
   const discoveredJobs = await fetchCapriHoldingsJobs();

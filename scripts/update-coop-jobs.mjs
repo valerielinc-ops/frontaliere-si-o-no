@@ -31,6 +31,7 @@ import {
   writeJobsCrawlerSlice,
   writeSummaryCrawlerSlice,
   assembleJobsDataset,
+  readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
 import {
@@ -672,13 +673,7 @@ async function main() {
   injectCachedCoopTranslations();
 
   // Snapshot company jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isCoopJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COOP_KEY, DATA_JOBS).filter(isCoopJob))
 
   // Step 3: Run the base crawler which fetches each SSR detail page
   // and parses the JSON-LD JobPosting structured data

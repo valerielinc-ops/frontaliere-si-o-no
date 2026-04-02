@@ -474,15 +474,7 @@ async function main() {
   console.log('');
 
   // Snapshot before for diff
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isSchindlerJob) : []);
-    } catch {
-      beforeSnapshot = new Map();
-    }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(SCHINDLER_KEY, DATA_JOBS).filter(isSchindlerJob))
 
   // Step 1: Discover jobs from search page (titles + URLs + locations)
   const searchResults = await fetchSchindlerSearchResults();

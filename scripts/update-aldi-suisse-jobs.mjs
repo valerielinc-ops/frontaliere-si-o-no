@@ -285,13 +285,7 @@ async function main() {
   console.log(`   Portal: ${ALDI_HOST}`);
   console.log('');
 
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isAldiJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(ALDI_KEY, DATA_JOBS).filter(isAldiJob))
 
   const detailUrls = await fetchAldiJobUrls();
   if (detailUrls.length === 0) {

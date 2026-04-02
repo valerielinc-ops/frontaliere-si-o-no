@@ -1082,13 +1082,7 @@ async function main() {
   console.log(`   Categories: ${CAREER_CATEGORIES.length}\n`);
 
   // Snapshot company jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isMedactaJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(MEDACTA_KEY, DATA_JOBS).filter(isMedactaJob))
 
   // 1. Discover public job links without persisting third-party access URLs.
   const discovery = await discoverMedactaJobs();

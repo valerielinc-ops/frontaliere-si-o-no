@@ -50,8 +50,7 @@ async function main() {
   setCrawlerStartTime();
   console.log('\ud83c\udfe2 Running dedicated Citt\u00e0 di Locarno crawler...');
 
-  let _before = new Map();
-  if (fs.existsSync(DATA_JOBS)) { try { const p = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); _before = snapshotJobSlugs(Array.isArray(p) ? p.filter(isCompanyJob) : []); } catch {} }
+    const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
   const rawJobs = await fetchLocarnoJobs();
   if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No Locarno jobs found. Keeping existing.'); return; }

@@ -194,8 +194,7 @@ async function main() {
   console.log('  Vir Biotechnology (Humabs BioMed) — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
 
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) { try { const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isVirJob) : []); } catch {} }
+    const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isVirJob))
 
   const swissJobs = await fetchGreenhouseJobs();
   const discoveredJobs = swissJobs.map(buildJobFromGreenhouse);

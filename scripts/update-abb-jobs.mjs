@@ -565,15 +565,7 @@ async function main() {
 
   ensureAdapterSeedUrls(discovery.urls, discovery.seedMetaByUrl);
 
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isAbbJob) : []);
-    } catch {
-      beforeSnapshot = new Map();
-    }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(ABB_KEY, DATA_JOBS).filter(isAbbJob))
 
   await runBaseCrawler();
   postProcessAbbJobs();

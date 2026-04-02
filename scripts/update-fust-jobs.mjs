@@ -309,13 +309,7 @@ async function main() {
   ensureAdapterSeedUrls(detailUrls, discovery.seedMetaByUrl);
 
   // Snapshot before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isFustJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(FUST_KEY, DATA_JOBS).filter(isFustJob))
 
   // Step 3: Run the base crawler (fetches JSON-LD from detail pages)
   await runBaseCrawler();

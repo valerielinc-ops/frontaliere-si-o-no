@@ -604,13 +604,7 @@ async function main() {
   }
 
   // Snapshot company jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isEocJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(EOC_KEY, DATA_JOBS).filter(isEocJob))
 
   await runBaseCrawler();
 

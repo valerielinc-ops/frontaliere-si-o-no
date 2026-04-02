@@ -293,13 +293,7 @@ async function main() {
   console.log(`   Portal: ${DENNER_HOST} (Migros Group portal)`);
   console.log('');
 
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isDennerJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(DENNER_KEY, DATA_JOBS).filter(isDennerJob))
 
   const detailUrls = await fetchDennerJobUrls();
   if (detailUrls.length === 0) {

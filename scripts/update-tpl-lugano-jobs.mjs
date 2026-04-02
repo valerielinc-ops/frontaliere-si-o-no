@@ -205,13 +205,7 @@ async function main() {
 
   ensureAdapterSeedUrls(detailUrls);
 
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isTplJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(TPL_KEY, DATA_JOBS).filter(isTplJob))
 
   await runBaseCrawler();
 

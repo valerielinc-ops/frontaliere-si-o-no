@@ -48,8 +48,7 @@ async function main() {
   setCrawlerStartTime();
   console.log('\ud83c\udfe6 Running dedicated PKB Private Bank crawler...');
 
-  let _before = new Map();
-  if (fs.existsSync(DATA_JOBS)) { try { const p = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); _before = snapshotJobSlugs(Array.isArray(p) ? p.filter(isCompanyJob) : []); } catch {} }
+    const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
   const rawJobs = await fetchPkbJobs();
   if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No PKB jobs found. Keeping existing.'); return; }

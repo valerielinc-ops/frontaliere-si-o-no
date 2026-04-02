@@ -810,17 +810,7 @@ async function main() {
   console.log(`  Careers page: ${MENDRISIO_CAREERS_URL}\n`);
 
   // Snapshot before
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(
-        Array.isArray(pre) ? pre.filter(isMendrisioJob) : []
-      );
-    } catch {
-      /* ignore */
-    }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(MENDRISIO_KEY, DATA_JOBS).filter(isMendrisioJob))
 
   // Phase 1: Fetch and parse jobs
   const discoveredJobs = await fetchMendrisioJobs();

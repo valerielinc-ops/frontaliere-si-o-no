@@ -1014,13 +1014,7 @@ async function main() {
   console.log(`   Site: ${SITE_NUMBER}, Location: Switzerland (${LOCATION_ID_CH})\n`);
 
   // Snapshot company jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isEfgJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(EFG_KEY, DATA_JOBS).filter(isEfgJob))
 
   let injectedCount = 0;
   let descriptions = new Map();

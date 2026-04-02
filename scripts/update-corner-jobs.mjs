@@ -334,13 +334,7 @@ async function main() {
   console.log('🏦 Running dedicated Corner jobs crawler (Recruitee API)...');
 
   // Snapshot Corner jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isCornerJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(CORNER_KEY, DATA_JOBS).filter(isCornerJob))
 
   // Step 1: Fetch offers from Recruitee API
   const offers = await fetchRecruiteeOffers();

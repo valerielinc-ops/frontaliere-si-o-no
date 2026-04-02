@@ -375,13 +375,7 @@ async function main() {
   const detailBodies = await enrichJobsWithDetailBody(detailUrls);
 
   // Snapshot before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isRaiffeisenVCJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(RAIFF_KEY, DATA_JOBS).filter(isRaiffeisenVCJob))
 
   // Step 3: Run the base crawler
   await runBaseCrawler();

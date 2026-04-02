@@ -528,13 +528,7 @@ async function main() {
   console.log(`  Portal: ${MCDO_COMPANY_HOST}\n`);
 
   // Snapshot before
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isMcdoJob) : []);
-    } catch { /* ignore */ }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(MCDO_KEY, DATA_JOBS).filter(isMcdoJob))
 
   // Phase 1: Discover job entries from embedded data
   const mapEntries = await discoverMcdoJobs();

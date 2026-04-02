@@ -694,13 +694,7 @@ async function main() {
   await mergeZegnaJobs(discoveredJobs);
 
   // Snapshot for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isZegnaJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(ZEGNA_KEY, DATA_JOBS).filter(isZegnaJob))
 
   // 4. Run base crawler for AI localization (IT/DE/FR translations)
   console.log('\n🌐 Running base crawler for AI localization of Zegna jobs...');

@@ -655,13 +655,7 @@ async function main() {
   console.log(`  Workday API: ${SWISSCOM_API_BASE}\n`);
 
   // Snapshot before
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isSwisscomJob) : []);
-    } catch { /* ignore */ }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(SWISSCOM_KEY, DATA_JOBS).filter(isSwisscomJob))
 
   // Phase 1: Fetch Ticino jobs from Workday API
   const discoveredJobs = await fetchSwisscomJobs();

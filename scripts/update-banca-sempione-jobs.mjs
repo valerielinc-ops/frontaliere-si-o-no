@@ -534,13 +534,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
 
   // Snapshot before
-  let beforeMap = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-    if (Array.isArray(jobs)) {
-      beforeMap = snapshotJobSlugs(jobs.filter(isBancaSempioneJob));
-    }
-  }
+  const beforeMap = snapshotJobSlugs(readExistingCrawlerJobs(BANCA_SEMPIONE_KEY, DATA_JOBS).filter(isBancaSempioneJob))
 
   // Phase 1: discover jobs via WP REST API
   const discoveredJobs = await fetchBancaSempioneJobs();

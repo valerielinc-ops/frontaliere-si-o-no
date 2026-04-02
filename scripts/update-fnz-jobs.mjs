@@ -602,13 +602,7 @@ async function main() {
   console.log(`  Workday API: ${FNZ_API_BASE}\n`);
 
   // Snapshot before
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isFnzJob) : []);
-    } catch { /* ignore */ }
-  }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(FNZ_KEY, DATA_JOBS).filter(isFnzJob))
 
   // Phase 1: Fetch jobs from Workday API
   const discoveredJobs = await fetchFnzJobs();

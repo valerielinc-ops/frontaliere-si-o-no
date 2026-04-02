@@ -152,8 +152,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log('  Hugo Boss — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════\n');
-  let beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) { try { const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')); beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isCompanyJob) : []); } catch { /* ignore */ } }
+  const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
   const discovered = await fetchJobs();
   if (discovered.length === 0) { console.log('⚠️ No Hugo Boss jobs discovered. Keeping existing.'); return; }

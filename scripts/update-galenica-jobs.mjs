@@ -565,13 +565,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
 
   // Snapshot before
-  let beforeMap = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-    if (Array.isArray(jobs)) {
-      beforeMap = snapshotJobSlugs(jobs.filter(isGalenicaJob));
-    }
-  }
+  const beforeMap = snapshotJobSlugs(readExistingCrawlerJobs(GALENICA_KEY, DATA_JOBS).filter(isGalenicaJob))
 
   // Phase 1: discover jobs from Solique data.json
   const discoveredJobs = await fetchGalenicaJobs();

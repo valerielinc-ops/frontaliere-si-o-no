@@ -1104,13 +1104,7 @@ async function main() {
   }
 
   // Snapshot company jobs before crawl for diff summary
-  let _beforeSnapshot = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    try {
-      const pre = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-      _beforeSnapshot = snapshotJobSlugs(Array.isArray(pre) ? pre.filter(isSbbJob) : []);
-    } catch {}
-  }
+    const _beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(SBB_KEY, DATA_JOBS).filter(isSbbJob))
 
   // Step 3: Parse detail pages directly (dedicated parser, no generic filter)
   console.log(`🧩 Parsing SBB detail pages directly (${mergedDetailUrls.length})...`);
