@@ -6,10 +6,10 @@
       "id": "denner-7ceb5158f5ae",
       "slug": "verkaufer-in-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-denner",
-        "en": "verkaufer-in-denner",
+        "it": "venditore-denner-pfungen",
+        "en": "salesperson-denner-pfungen",
         "de": "verkaufer-in-denner-pfungen",
-        "fr": "verkaufer-in-denner"
+        "fr": "vendeur-denner-pfungen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -67,7 +67,8 @@
       "crawledAt": "2026-04-02T12:10:12.447Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "verkaufer-in-denner-rubigen"
+        "verkaufer-in-denner-rubigen",
+        "verkaufer-in-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -86,10 +87,10 @@
       "id": "denner-91d4adbfd846",
       "slug": "stv-filialleiter-in-denner",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
-        "en": "stv-filialleiter-in-denner",
+        "it": "vice-capo-filiale-denner-lenzburg",
+        "en": "deputy-branch-manager-denner-lenzburg",
         "de": "stv-filialleiter-in-denner-lenzburg",
-        "fr": "stv-filialleiter-in-denner"
+        "fr": "adjoint-e-responsable-de-succursale-denner-lenzburg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -147,7 +148,8 @@
       "crawledAt": "2026-04-02T12:10:12.111Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "stv-filialleiter-in-denner-basel"
+        "stv-filialleiter-in-denner-basel",
+        "stv-filialleiter-in-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -166,10 +168,10 @@
       "id": "denner-2c20d2329644",
       "slug": "filialleiter-in-in-ausildung-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausildung-denner",
-        "en": "filialleiter-in-in-ausildung-denner",
+        "it": "responsabile-di-filiale-in-formazione-denner-steinhausen",
+        "en": "branch-manager-in-training-denner-steinhausen",
         "de": "filialleiter-in-in-ausildung-denner-steinhausen",
-        "fr": "filialleiter-in-in-ausildung-denner"
+        "fr": "responsable-de-filiale-en-formation-denner-steinhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -237,16 +239,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "filialleiter-in-in-ausildung-denner"
+      ]
     },
     {
       "id": "denner-15307eb35311",
       "slug": "filialleiter-in-in-ausbildung-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausbildung-denner",
-        "en": "filialleiter-in-in-ausbildung-denner",
+        "it": "responsabile-di-filiale-in-formazione-denner-horw",
+        "en": "branch-manager-in-training-denner-horw",
         "de": "filialleiter-in-in-ausbildung-denner-horw",
-        "fr": "filialleiter-in-in-ausbildung-denner"
+        "fr": "responsable-de-succursale-en-formation-denner-horw"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -304,7 +309,8 @@
       "crawledAt": "2026-04-02T12:10:11.769Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "filialleiter-in-in-ausbildung-denner-allschwil"
+        "filialleiter-in-in-ausbildung-denner-allschwil",
+        "filialleiter-in-in-ausbildung-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -326,7 +332,7 @@
         "it": "student-in-come-ferienaushilfe-denner-thalwil",
         "en": "student-in-als-ferienaushilfe-denner-thalwil",
         "de": "student-in-als-ferienaushilfe-denner",
-        "fr": "student-in-als-ferienaushilfe-denner"
+        "fr": "etudiant-comme-aide-d-ete-denner-thalwil"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -403,10 +409,10 @@
       "id": "denner-cdf41db8fba2",
       "slug": "verkaufer-in-fruhschicht-im-stundenlohn-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-fruhschicht-im-stundenlohn-denner",
-        "en": "verkaufer-in-fruhschicht-im-stundenlohn-denner",
+        "it": "addetto-a-alle-vendite-turno-mattutino-a-ore-denner-solothurn",
+        "en": "sales-assistant-morning-shift-hourly-wage-denner-solothurn",
         "de": "verkaufer-in-fruhschicht-im-stundenlohn-denner-solothurn",
-        "fr": "verkaufer-in-fruhschicht-im-stundenlohn-denner"
+        "fr": "vendeur-euse-equipe-du-matin-salaire-horaire-denner-solothurn"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -474,15 +480,18 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufer-in-fruhschicht-im-stundenlohn-denner"
+      ]
     },
     {
       "id": "denner-d83a683dd5ee",
       "slug": "vendeur-vendeuse-denner-champlan",
       "slugByLocale": {
-        "it": "vendeur-vendeuse-denner-champlan",
-        "en": "vendeur-vendeuse-denner",
-        "de": "vendeur-vendeuse-denner",
+        "it": "venditore-venditrice-denner-champlan",
+        "en": "salesperson-denner-champlan",
+        "de": "verkaufer-verkauferin-denner-champlan",
         "fr": "vendeur-vendeuse-denner-champlan"
       },
       "company": "Denner",
@@ -542,7 +551,8 @@
       "sourceLang": "fr",
       "previousSlugs": [
         "vendeur-vendeuse-denner-geneve",
-        "vendeur-vendeuse-denner"
+        "vendeur-vendeuse-denner",
+        "vendeur-vendeuse-denner-champlan"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -561,10 +571,10 @@
       "id": "denner-f28566a0c93d",
       "slug": "filialleiter-in-in-aubsildung-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-in-aubsildung-denner",
-        "en": "filialleiter-in-in-aubsildung-denner",
+        "it": "responsabile-di-filiale-in-formazione-denner-burgdorf",
+        "en": "branch-manager-in-training-denner-burgdorf",
         "de": "filialleiter-in-in-aubsildung-denner-burgdorf",
-        "fr": "filialleiter-in-in-aubsildung-denner"
+        "fr": "responsable-de-succursale-en-formation-denner-burgdorf"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -632,16 +642,19 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "filialleiter-in-in-aubsildung-denner"
+      ]
     },
     {
       "id": "denner-622b3f93b624",
       "slug": "assistent-in-filialleitung-denner",
       "slugByLocale": {
-        "it": "assistent-in-filialleitung-denner",
-        "en": "assistent-in-filialleitung-denner-flims-dorf-gzl76k",
+        "it": "assistente-del-direttore-di-filiale-denner-biberist",
+        "en": "assistant-branch-manager-denner-biberist",
         "de": "assistent-in-filialleitung-denner-biberist",
-        "fr": "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
+        "fr": "assistant-de-direction-de-filiale-denner-biberist"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -699,7 +712,9 @@
       "crawledAt": "2026-04-02T12:10:08.226Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "assistent-in-filialleitung-denner-flims-dorf"
+        "assistent-in-filialleitung-denner-flims-dorf",
+        "assistent-in-filialleitung-denner",
+        "assistent-in-filialleitung-denner-flims-dorf-gzl76k"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -718,10 +733,10 @@
       "id": "denner-a6952a16386d",
       "slug": "stv-filialleiter-in-in-ausbildung-denner",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-in-ausbildung-denner",
-        "en": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+        "it": "assistente-di-negozio-in-formazione-denner-lyssach",
+        "en": "assistant-store-manager-in-training-denner-lyssach",
         "de": "stv-filialleiter-in-in-ausbildung-denner-lyssach",
-        "fr": "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        "fr": "assistant-responsable-de-magasin-en-formation-denner-lyssach"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -780,7 +795,8 @@
       "sourceLang": "de",
       "previousSlugs": [
         "vice-responsabile-di-filiale-in-formazione-denner-chur",
-        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5"
+        "stv-filialleiter-in-in-ausbildung-denner-chur-c7igr5",
+        "stv-filialleiter-in-in-ausbildung-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -799,10 +815,10 @@
       "id": "denner-b5ff5efbac35",
       "slug": "verkaufer-in-im-stundenlohn-denner",
       "slugByLocale": {
-        "it": "verkaufer-in-im-stundenlohn-denner",
-        "en": "verkaufer-in-im-stundenlohn-denner",
+        "it": "venditore-a-a-ore-denner-stein-ag",
+        "en": "sales-associate-denner-stein-ag",
         "de": "verkaufer-in-im-stundenlohn-denner-stein-ag",
-        "fr": "verkaufer-in-im-stundenlohn-denner"
+        "fr": "vendeur-vendeuse-a-temps-partiel-denner-stein-ag"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -860,7 +876,8 @@
       "crawledAt": "2026-04-02T12:10:07.569Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "verkaufer-in-im-stundenlohn-denner-worb"
+        "verkaufer-in-im-stundenlohn-denner-worb",
+        "verkaufer-in-im-stundenlohn-denner"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

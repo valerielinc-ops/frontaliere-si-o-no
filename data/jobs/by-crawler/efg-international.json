@@ -2948,10 +2948,10 @@
       },
       "crawledAt": "2026-04-02T12:12:57.324Z",
       "slugByLocale": {
-        "it": "bi-solution-specialist-efg-geneve",
+        "it": "bi-solution-specialista-efg-international-ag-geneve",
         "en": "bi-solution-specialist-efg-international-ag-geneve",
-        "de": "bi-solution-specialist-efg-geneve",
-        "fr": "bi-solution-specialist-efg-geneve"
+        "de": "bi-solution-spezialist-efg-international-ag-geneve",
+        "fr": "bi-solution-specialiste-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -2973,7 +2973,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "bi-solution-specialist-efg-geneve"
+      ]
     }
   ]
 }
