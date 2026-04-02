@@ -1,59 +1,19 @@
 {
   "key": "dxt-commodities",
   "label": "DXT Commodities",
-  "generatedAt": "2026-04-01T21:14:31.276Z",
+  "generatedAt": "2026-04-02T12:12:04.923Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2682,
-  "avgDurationMs": 2682,
+  "unchangedCount": 0,
+  "durationMs": 2740,
+  "avgDurationMs": 2740,
   "durationHistory": [
-    2682
+    2740
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://dxt.com/careers/?panel=20897_1",
-      "applyUrl": "https://dxt.com/careers/",
-      "title": "Junior Legal",
-      "company": "DXT Commodities S.A.",
-      "companyKey": "dxt-commodities",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "junior-legale-dxt-commodities-s-a-lugano",
-      "category": "legal",
-      "datePosted": "2026-03-29",
-      "source": "dxt-careers-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "sector": "Energia / Trading materie prime",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 61000,
-      "salaryMax": 83000,
-      "currency": "CHF",
-      "streetAddress": "Corso Elvezia 14",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
