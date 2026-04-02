@@ -1,0 +1,935 @@
+#!/usr/bin/env node
+/**
+ * sync-gsc-orphans.mjs
+ *
+ * Synchronizes orphan job slugs from Google Search Console, enriches them
+ * from all available local + remote sources, and writes
+ * `data/orphan-enriched-data.json` used by the build plugin.
+ *
+ * Usage:
+ *   node scripts/load-rc-env.mjs && node scripts/sync-gsc-orphans.mjs
+ *   node scripts/sync-gsc-orphans.mjs --dry-run
+ *
+ * Environment variables (required):
+ *   GSC_CLIENT_ID, GSC_CLIENT_SECRET, GSC_REFRESH_TOKEN
+ *
+ * Optional env flags:
+ *   ENABLE_URL_INSPECTION=1   Enable URL Inspection API enrichment (max 500/run)
+ *   ENABLE_WAYBACK=1          Enable Wayback Machine enrichment (max 200/run)
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const ROOT = path.resolve(__dirname, '..');
+
+const SITE_URL = 'https://frontaliereticino.ch';
+const DRY_RUN = process.argv.includes('--dry-run');
+
+// ── Env ──────────────────────────────────────────────────
+const GSC_CLIENT_ID = process.env.GSC_CLIENT_ID || '';
+const GSC_CLIENT_SECRET = process.env.GSC_CLIENT_SECRET || '';
+const GSC_REFRESH_TOKEN = process.env.GSC_REFRESH_TOKEN || '';
+
+const ENABLE_URL_INSPECTION = process.env.ENABLE_URL_INSPECTION === '1';
+const ENABLE_WAYBACK = process.env.ENABLE_WAYBACK === '1';
+
+// ── Locale path prefixes ─────────────────────────────────
+const LOCALE_PREFIXES = {
+  it: ['/cerca-lavoro-ticino/'],
+  en: ['/en/find-job-ticino/', '/en/job-search-ticino/'],
+  de: ['/de/jobs-im-tessin/', '/de/jobsuche-tessin/'],
+  fr: ['/fr/recherche-emploi-tessin/', '/fr/trouver-emploi-tessin/'],
+};
+
+const ALL_PREFIXES = Object.values(LOCALE_PREFIXES).flat();
+
+// ── Helpers ──────────────────────────────────────────────
+function dataPath(...segments) {
+  return path.join(ROOT, 'data', ...segments);
+}
+
+function readJsonSafe(filePath) {
+  try {
+    if (!fs.existsSync(filePath)) return null;
+    return JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+  } catch {
+    return null;
+  }
+}
+
+function writeJson(filePath, data) {
+  fs.mkdirSync(path.dirname(filePath), { recursive: true });
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + '\n');
+}
+
+function extractSlugFromPath(urlPath) {
+  for (const prefix of ALL_PREFIXES) {
+    if (urlPath.startsWith(prefix)) {
+      const slug = urlPath.slice(prefix.length).replace(/\/$/, '');
+      if (slug && !slug.includes('/')) return slug;
+    }
+  }
+  return null;
+}
+
+function detectLocaleFromPath(urlPath) {
+  for (const [locale, prefixes] of Object.entries(LOCALE_PREFIXES)) {
+    for (const prefix of prefixes) {
+      if (urlPath.startsWith(prefix)) return locale;
+    }
+  }
+  return 'it';
+}
+
+function sleep(ms) {
+  return new Promise((r) => setTimeout(r, ms));
+}
+
+// ── OAuth2 ───────────────────────────────────────────────
+async function getAccessToken() {
+  if (!GSC_CLIENT_ID || !GSC_CLIENT_SECRET || !GSC_REFRESH_TOKEN) {
+    throw new Error('Missing GSC_CLIENT_ID, GSC_CLIENT_SECRET, or GSC_REFRESH_TOKEN');
+  }
+  const res = await fetch('https://oauth2.googleapis.com/token', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+    body: new URLSearchParams({
+      client_id: GSC_CLIENT_ID,
+      client_secret: GSC_CLIENT_SECRET,
+      refresh_token: GSC_REFRESH_TOKEN,
+      grant_type: 'refresh_token',
+    }),
+  });
+  if (!res.ok) throw new Error(`OAuth token error: ${res.status} ${await res.text()}`);
+  const data = await res.json();
+  return data.access_token;
+}
+
+// ══════════════════════════════════════════════════════════
+// STEP 1 — Import from GSC
+// ══════════════════════════════════════════════════════════
+
+async function fetchGscJobUrls(accessToken) {
+  console.log('🔍 Step 1: Querying GSC Search Analytics API...');
+
+  const endDate = new Date().toISOString().slice(0, 10);
+  const startMs = Date.now() - 18 * 30 * 24 * 60 * 60 * 1000; // ~18 months
+  const startDate = new Date(startMs).toISOString().slice(0, 10);
+
+  /** @type {Map<string, { slug: string, locale: string, path: string, queries: {query: string, clicks: number, impressions: number}[], totalImpressions: number, totalClicks: number }>} */
+  const slugMap = new Map();
+
+  // Query per locale group to get best coverage
+  const filterExpressions = [
+    '/cerca-lavoro-ticino/',
+    '/en/find-job-ticino/',
+    '/en/job-search-ticino/',
+    '/de/jobs-im-tessin/',
+    '/de/jobsuche-tessin/',
+    '/fr/recherche-emploi-tessin/',
+    '/fr/trouver-emploi-tessin/',
+  ];
+
+  for (const expression of filterExpressions) {
+    let startRow = 0;
+    let pageCount = 0;
+
+    while (true) {
+      const res = await fetch(
+        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`,
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            startDate,
+            endDate,
+            dimensions: ['page', 'query'],
+            dimensionFilterGroups: [
+              {
+                filters: [
+                  {
+                    dimension: 'page',
+                    operator: 'contains',
+                    expression,
+                  },
+                ],
+              },
+            ],
+            rowLimit: 25000,
+            startRow,
+          }),
+        },
+      );
+
+      if (!res.ok) {
+        const errText = await res.text();
+        console.error(`  ❌ GSC API error for "${expression}": ${res.status} ${errText}`);
+        break;
+      }
+
+      const data = await res.json();
+      const rows = data.rows || [];
+      if (rows.length === 0) break;
+      pageCount++;
+
+      for (const row of rows) {
+        const pageUrl = row.keys?.[0] || '';
+        const query = row.keys?.[1] || '';
+        const clicks = row.clicks || 0;
+        const impressions = row.impressions || 0;
+
+        let urlPath;
+        try {
+          urlPath = new URL(pageUrl).pathname;
+        } catch {
+          continue;
+        }
+
+        const slug = extractSlugFromPath(urlPath);
+        if (!slug) continue;
+
+        const locale = detectLocaleFromPath(urlPath);
+        const key = `${locale}:${slug}`;
+
+        if (!slugMap.has(key)) {
+          slugMap.set(key, {
+            slug,
+            locale,
+            path: urlPath,
+            queries: [],
+            totalImpressions: 0,
+            totalClicks: 0,
+          });
+        }
+
+        const entry = slugMap.get(key);
+        entry.queries.push({ query, clicks, impressions });
+        entry.totalImpressions += impressions;
+        entry.totalClicks += clicks;
+      }
+
+      startRow += rows.length;
+      if (rows.length < 25000) break;
+    }
+
+    if (pageCount > 0) {
+      console.log(`  📄 "${expression}": ${pageCount} page(s) fetched`);
+    }
+  }
+
+  console.log(`  📊 Total GSC entries: ${slugMap.size} (slug+locale pairs)`);
+  return slugMap;
+}
+
+// ══════════════════════════════════════════════════════════
+// STEP 2 — Identify orphans
+// ══════════════════════════════════════════════════════════
+
+function buildKnownSlugsSet() {
+  console.log('\n🔍 Step 2: Building known slugs set...');
+  const known = new Set();
+
+  function addSlug(s) {
+    if (s && typeof s === 'string') known.add(s);
+  }
+
+  function addJobSlugs(job) {
+    addSlug(job.slug);
+    if (job.slugByLocale) {
+      for (const s of Object.values(job.slugByLocale)) addSlug(s);
+    }
+    if (Array.isArray(job.previousSlugs)) {
+      for (const s of job.previousSlugs) addSlug(s);
+    }
+  }
+
+  // 1. Active jobs
+  const activeJobs = readJsonSafe(dataPath('jobs.json'));
+  if (Array.isArray(activeJobs)) {
+    for (const job of activeJobs) addJobSlugs(job);
+    console.log(`  📦 Active jobs: ${activeJobs.length} (${known.size} slugs so far)`);
+  }
+
+  // 2. Expired jobs
+  const expiredJobs = readJsonSafe(dataPath('expired-jobs.json'));
+  if (Array.isArray(expiredJobs)) {
+    for (const job of expiredJobs) addJobSlugs(job);
+    console.log(`  📦 Expired jobs: ${expiredJobs.length} (${known.size} slugs so far)`);
+  }
+
+  // 3. All-known-job-slugs
+  const allKnown = readJsonSafe(dataPath('all-known-job-slugs.json'));
+  if (allKnown && typeof allKnown === 'object') {
+    for (const slug of Object.keys(allKnown)) addSlug(slug);
+    console.log(`  📦 all-known-job-slugs: ${Object.keys(allKnown).length} entries (${known.size} slugs so far)`);
+  }
+
+  // 4. Per-crawler slices
+  const crawlerDir = dataPath('jobs', 'by-crawler');
+  if (fs.existsSync(crawlerDir)) {
+    let crawlerCount = 0;
+    for (const file of fs.readdirSync(crawlerDir).filter((f) => f.endsWith('.json'))) {
+      const data = readJsonSafe(path.join(crawlerDir, file));
+      if (data?.jobs && Array.isArray(data.jobs)) {
+        for (const job of data.jobs) addJobSlugs(job);
+        crawlerCount++;
+      }
+    }
+    console.log(`  📦 Crawler slices: ${crawlerCount} files (${known.size} slugs so far)`);
+  }
+
+  // 5. Per-crawler expired
+  const expiredCrawlerDir = dataPath('jobs', 'expired', 'by-crawler');
+  if (fs.existsSync(expiredCrawlerDir)) {
+    let expiredCrawlerCount = 0;
+    for (const file of fs.readdirSync(expiredCrawlerDir).filter((f) => f.endsWith('.json'))) {
+      const data = readJsonSafe(path.join(expiredCrawlerDir, file));
+      if (Array.isArray(data)) {
+        for (const job of data) addJobSlugs(job);
+        expiredCrawlerCount++;
+      }
+    }
+    console.log(`  📦 Expired crawler slices: ${expiredCrawlerCount} files (${known.size} slugs so far)`);
+  }
+
+  console.log(`  ✅ Total known slugs: ${known.size}`);
+  return known;
+}
+
+function identifyOrphans(gscMap, knownSlugs) {
+  const orphans = [];
+  let matchedCount = 0;
+
+  for (const [, entry] of gscMap) {
+    if (knownSlugs.has(entry.slug)) {
+      matchedCount++;
+    } else {
+      orphans.push(entry);
+    }
+  }
+
+  orphans.sort((a, b) => b.totalImpressions - a.totalImpressions);
+
+  console.log(`  🔗 Matched (not orphan): ${matchedCount}`);
+  console.log(`  🚨 Orphans found: ${orphans.length}`);
+
+  if (orphans.length > 0) {
+    console.log('  Top 10 orphans by impressions:');
+    for (const o of orphans.slice(0, 10)) {
+      console.log(`    ❌ ${o.slug} (${o.locale}) — ${o.totalImpressions} imp, ${o.totalClicks} clicks`);
+    }
+  }
+
+  return orphans;
+}
+
+// ══════════════════════════════════════════════════════════
+// STEP 3 — Enrich from local sources
+// ══════════════════════════════════════════════════════════
+
+function enrichFromLocalSources(orphans) {
+  console.log('\n🔍 Step 3: Enriching from local sources...');
+
+  // Load translation cache (all files)
+  const translationCache = new Map();
+  const cacheDir = dataPath('translation-cache');
+  let cacheFileCount = 0;
+  if (fs.existsSync(cacheDir)) {
+    for (const file of fs.readdirSync(cacheDir).filter((f) => f.endsWith('.json'))) {
+      const companyKey = file.replace('.json', '');
+      const data = readJsonSafe(path.join(cacheDir, file));
+      if (data && typeof data === 'object') {
+        for (const [slug, entry] of Object.entries(data)) {
+          if (entry?.translations) {
+            translationCache.set(slug, { ...entry, companyKey });
+          }
+        }
+        cacheFileCount++;
+      }
+    }
+  }
+  console.log(`  📚 Translation cache: ${cacheFileCount} files, ${translationCache.size} slug entries`);
+
+  // Load slug registry
+  const slugRegistry = readJsonSafe(dataPath('slug-registry.json')) || {};
+  // Build reverse lookup: slug → registry entry
+  const registryBySlug = new Map();
+  for (const [key, entry] of Object.entries(slugRegistry)) {
+    if (entry.canonicalSlug) registryBySlug.set(entry.canonicalSlug, { ...entry, registryKey: key });
+    if (entry.slugByLocale) {
+      for (const s of Object.values(entry.slugByLocale)) {
+        if (s && !registryBySlug.has(s)) registryBySlug.set(s, { ...entry, registryKey: key });
+      }
+    }
+  }
+  console.log(`  📚 Slug registry: ${Object.keys(slugRegistry).length} entries, ${registryBySlug.size} slug lookups`);
+
+  // Load all-known-job-slugs for locale paths
+  const allKnownSlugs = readJsonSafe(dataPath('all-known-job-slugs.json')) || {};
+  console.log(`  📚 All-known-job-slugs: ${Object.keys(allKnownSlugs).length} entries`);
+
+  // Enrich each orphan
+  let enrichedFromCache = 0;
+  let enrichedFromRegistry = 0;
+  let enrichedFromKnown = 0;
+
+  const enriched = orphans.map((orphan) => {
+    const result = {
+      slug: orphan.slug,
+      locale: orphan.locale,
+      path: orphan.path,
+      queries: orphan.queries
+        .sort((a, b) => b.impressions - a.impressions)
+        .slice(0, 20), // Keep top 20 queries
+      totalImpressions: orphan.totalImpressions,
+      totalClicks: orphan.totalClicks,
+      topQuery: null,
+      title: '',
+      titleByLocale: { it: '', en: '', de: '', fr: '' },
+      descriptionByLocale: { it: '', en: '', de: '', fr: '' },
+      company: '',
+      companyKey: '',
+      location: '',
+      sector: '',
+      salaryMin: 0,
+      salaryCurrency: 'CHF',
+      slugByLocale: {},
+      localePaths: {},
+      sourceUrl: '',
+      googleStatus: 'unknown',
+      googleCanonical: '',
+      lastCrawlTime: '',
+      source: ['gsc'],
+    };
+
+    // Top query
+    if (result.queries.length > 0) {
+      result.topQuery = result.queries[0].query;
+    }
+
+    // Enrich from translation cache
+    const cached = translationCache.get(orphan.slug);
+    if (cached?.translations) {
+      const { titles, descriptions } = cached.translations;
+      if (titles) {
+        result.titleByLocale = {
+          it: titles.it || '',
+          en: titles.en || '',
+          de: titles.de || '',
+          fr: titles.fr || '',
+        };
+        result.title = titles[orphan.locale] || titles.it || Object.values(titles).find(Boolean) || '';
+      }
+      if (descriptions) {
+        result.descriptionByLocale = {
+          it: descriptions.it || '',
+          en: descriptions.en || '',
+          de: descriptions.de || '',
+          fr: descriptions.fr || '',
+        };
+      }
+      if (cached.companyKey) {
+        result.companyKey = cached.companyKey;
+        // Convert company key to display name (kebab-case → Title Case)
+        result.company = cached.companyKey
+          .split('-')
+          .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+          .join(' ');
+      }
+      result.source.push('translation-cache');
+      enrichedFromCache++;
+    }
+
+    // Enrich from slug registry
+    const regEntry = registryBySlug.get(orphan.slug);
+    if (regEntry) {
+      if (regEntry.slugByLocale) {
+        result.slugByLocale = { ...regEntry.slugByLocale };
+      }
+      if (regEntry.registryKey?.startsWith('url|')) {
+        result.sourceUrl = regEntry.registryKey.slice(4);
+      }
+      result.source.push('slug-registry');
+      enrichedFromRegistry++;
+    }
+
+    // Enrich from all-known-job-slugs
+    const knownEntry = allKnownSlugs[orphan.slug];
+    if (knownEntry && typeof knownEntry === 'object') {
+      result.localePaths = { ...knownEntry };
+      if (!result.slugByLocale || Object.keys(result.slugByLocale).length === 0) {
+        // Derive slug from paths
+        for (const [loc, p] of Object.entries(knownEntry)) {
+          const s = extractSlugFromPath(p);
+          if (s) {
+            if (!result.slugByLocale) result.slugByLocale = {};
+            result.slugByLocale[loc] = s;
+          }
+        }
+      }
+      result.source.push('all-known-slugs');
+      enrichedFromKnown++;
+    }
+
+    // Derive title from slug if still empty
+    if (!result.title && orphan.slug) {
+      result.title = orphan.slug
+        .replace(/-/g, ' ')
+        .replace(/\b\w/g, (c) => c.toUpperCase());
+    }
+
+    return result;
+  });
+
+  console.log(`  ✅ Enriched from translation cache: ${enrichedFromCache}`);
+  console.log(`  ✅ Enriched from slug registry: ${enrichedFromRegistry}`);
+  console.log(`  ✅ Enriched from all-known-slugs: ${enrichedFromKnown}`);
+
+  return enriched;
+}
+
+// ══════════════════════════════════════════════════════════
+// STEP 4 — Remote enrichment (optional)
+// ══════════════════════════════════════════════════════════
+
+async function enrichUrlInspection(enrichedOrphans, accessToken) {
+  if (!ENABLE_URL_INSPECTION) {
+    console.log('\n⏭️  Step 4a: URL Inspection API — skipped (ENABLE_URL_INSPECTION not set)');
+    return;
+  }
+  console.log('\n🔍 Step 4a: URL Inspection API enrichment...');
+
+  // Load existing results
+  const resultsPath = dataPath('url-inspection-results.json');
+  const existingResults = readJsonSafe(resultsPath) || [];
+  const resultsBySlug = new Map();
+  for (const r of existingResults) {
+    if (r.slug) resultsBySlug.set(r.slug, r);
+  }
+
+  const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+
+  // Filter orphans needing inspection: no recent data + sorted by impressions
+  const needsInspection = enrichedOrphans
+    .filter((o) => {
+      const existing = resultsBySlug.get(o.slug);
+      if (existing?.inspectedAt && new Date(existing.inspectedAt).getTime() > sevenDaysAgo) {
+        return false; // Recent data exists
+      }
+      return true;
+    })
+    .sort((a, b) => b.totalImpressions - a.totalImpressions)
+    .slice(0, 500); // Cap at 500
+
+  console.log(`  📊 Eligible for inspection: ${needsInspection.length}`);
+
+  let inspected = 0;
+  let errors = 0;
+
+  for (const orphan of needsInspection) {
+    const inspectionUrl = `${SITE_URL}${orphan.path}`;
+    try {
+      const res = await fetch(
+        'https://searchconsole.googleapis.com/v1/urlInspection/index:inspect',
+        {
+          method: 'POST',
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            inspectionUrl,
+            siteUrl: SITE_URL,
+          }),
+        },
+      );
+
+      if (res.status === 429) {
+        console.warn('  ⚠️  Rate limited by URL Inspection API — stopping');
+        break;
+      }
+
+      if (!res.ok) {
+        errors++;
+        if (errors > 10) {
+          console.warn('  ⚠️  Too many errors — stopping URL Inspection');
+          break;
+        }
+        continue;
+      }
+
+      const data = await res.json();
+      const result = data.inspectionResult?.indexStatusResult || {};
+
+      const inspectionData = {
+        slug: orphan.slug,
+        verdict: result.verdict || 'UNKNOWN',
+        coverageState: result.coverageState || '',
+        lastCrawlTime: result.lastCrawlTime || '',
+        crawledAs: result.crawledAs || '',
+        indexingState: result.indexingState || '',
+        googleCanonical: result.googleCanonical || '',
+        inspectedAt: new Date().toISOString(),
+      };
+
+      resultsBySlug.set(orphan.slug, inspectionData);
+
+      // Map to orphan fields
+      orphan.googleCanonical = inspectionData.googleCanonical;
+      orphan.lastCrawlTime = inspectionData.lastCrawlTime;
+      if (result.verdict === 'PASS') {
+        orphan.googleStatus = 'indexed';
+      } else if (result.coverageState?.includes('redirect')) {
+        orphan.googleStatus = 'redirect';
+      } else if (result.coverageState?.includes('alternate')) {
+        orphan.googleStatus = 'alternate';
+      }
+      if (!orphan.source.includes('url-inspection')) {
+        orphan.source.push('url-inspection');
+      }
+
+      inspected++;
+      // Respect rate limits (~ 2 requests/sec)
+      await sleep(500);
+    } catch (err) {
+      errors++;
+      if (errors > 10) break;
+    }
+  }
+
+  console.log(`  ✅ Inspected: ${inspected}, errors: ${errors}`);
+
+  // Also apply existing results to orphans that weren't re-inspected
+  for (const orphan of enrichedOrphans) {
+    const existing = resultsBySlug.get(orphan.slug);
+    if (existing && orphan.googleStatus === 'unknown') {
+      orphan.googleCanonical = existing.googleCanonical || '';
+      orphan.lastCrawlTime = existing.lastCrawlTime || '';
+      if (existing.verdict === 'PASS') orphan.googleStatus = 'indexed';
+      else if (existing.coverageState?.includes('redirect')) orphan.googleStatus = 'redirect';
+      else if (existing.coverageState?.includes('alternate')) orphan.googleStatus = 'alternate';
+    }
+  }
+
+  // Write merged inspection results
+  if (!DRY_RUN) {
+    const allResults = Array.from(resultsBySlug.values());
+    writeJson(resultsPath, allResults);
+    console.log(`  💾 Saved ${allResults.length} inspection results`);
+  }
+}
+
+async function enrichWayback(enrichedOrphans) {
+  if (!ENABLE_WAYBACK) {
+    console.log('\n⏭️  Step 4b: Wayback Machine — skipped (ENABLE_WAYBACK not set)');
+    return;
+  }
+  console.log('\n🔍 Step 4b: Wayback Machine enrichment...');
+
+  // Only enrich orphans with no title from other sources
+  const needsWayback = enrichedOrphans
+    .filter(
+      (o) =>
+        !o.titleByLocale?.it &&
+        !o.source.includes('translation-cache'),
+    )
+    .sort((a, b) => b.totalImpressions - a.totalImpressions)
+    .slice(0, 200);
+
+  console.log(`  📊 Candidates for Wayback lookup: ${needsWayback.length}`);
+
+  let found = 0;
+  let errors = 0;
+
+  for (const orphan of needsWayback) {
+    const cdxUrl =
+      `https://web.archive.org/cdx/search/cdx?url=${encodeURIComponent(`frontaliereticino.ch${orphan.path}`)}&output=json&limit=1&fl=timestamp,original`;
+
+    try {
+      const controller = new AbortController();
+      const timeout = setTimeout(() => controller.abort(), 10000);
+
+      const res = await fetch(cdxUrl, { signal: controller.signal });
+      clearTimeout(timeout);
+
+      if (!res.ok) {
+        errors++;
+        await sleep(1000);
+        continue;
+      }
+
+      const data = await res.json();
+      // CDX returns [["timestamp","original"], ["20240101...","url"]]
+      if (!Array.isArray(data) || data.length < 2) {
+        await sleep(1000);
+        continue;
+      }
+
+      const [, timestamp] = data[1] || [];
+      if (!timestamp) {
+        await sleep(1000);
+        continue;
+      }
+
+      // Fetch the archived page to extract title
+      const archiveUrl = `https://web.archive.org/web/${timestamp}/https://frontaliereticino.ch${orphan.path}`;
+      const pageRes = await fetch(archiveUrl, {
+        signal: AbortSignal.timeout(10000),
+        headers: { 'User-Agent': 'FrontaliereTicino-OrphanSync/1.0' },
+      });
+
+      if (pageRes.ok) {
+        const html = await pageRes.text();
+        const titleMatch = html.match(/<title[^>]*>([^<]+)<\/title>/i);
+        if (titleMatch?.[1]) {
+          const title = titleMatch[1]
+            .replace(/\s*\|.*$/, '') // Remove " | Frontaliere Ticino" suffix
+            .trim();
+          if (title && title.length > 5) {
+            if (!orphan.title || orphan.title === orphan.slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())) {
+              orphan.title = title;
+            }
+            // Assign to the detected locale
+            if (!orphan.titleByLocale[orphan.locale]) {
+              orphan.titleByLocale[orphan.locale] = title;
+            }
+            if (!orphan.source.includes('wayback')) {
+              orphan.source.push('wayback');
+            }
+            found++;
+          }
+        }
+      }
+    } catch {
+      errors++;
+    }
+
+    await sleep(1000); // 1 req/sec rate limit
+  }
+
+  console.log(`  ✅ Wayback titles found: ${found}, errors: ${errors}`);
+}
+
+// ══════════════════════════════════════════════════════════
+// STEP 5 — Write outputs
+// ══════════════════════════════════════════════════════════
+
+function writeOutputs(enrichedOrphans, gscMap) {
+  console.log('\n💾 Step 5: Writing outputs...');
+
+  if (DRY_RUN) {
+    console.log('  ⏭️  --dry-run: skipping file writes');
+    console.log(`  Would write ${enrichedOrphans.length} orphans to orphan-enriched-data.json`);
+    return;
+  }
+
+  // 1. orphan-enriched-data.json — full enriched array
+  const enrichedPath = dataPath('orphan-enriched-data.json');
+  writeJson(enrichedPath, enrichedOrphans);
+  console.log(`  💾 ${enrichedPath}: ${enrichedOrphans.length} entries`);
+
+  // 2. orphan-indexed-job-slugs.json — simple slug array (backward compat)
+  const slugsPath = dataPath('orphan-indexed-job-slugs.json');
+  const slugArray = [...new Set(enrichedOrphans.map((o) => o.slug))];
+  writeJson(slugsPath, slugArray);
+  console.log(`  💾 ${slugsPath}: ${slugArray.length} unique slugs`);
+
+  // 3. gsc-orphan-queries.json — query data per slug
+  const queriesPath = dataPath('gsc-orphan-queries.json');
+  const queriesBySlug = {};
+  for (const orphan of enrichedOrphans) {
+    if (orphan.queries.length > 0) {
+      queriesBySlug[orphan.slug] = orphan.queries;
+    }
+  }
+  writeJson(queriesPath, queriesBySlug);
+  console.log(`  💾 ${queriesPath}: ${Object.keys(queriesBySlug).length} slugs with query data`);
+
+  // 4. Also save query data for non-orphan GSC entries (useful for analytics)
+  // Already written via gsc-orphan-queries.json above
+}
+
+// ══════════════════════════════════════════════════════════
+// STEP 6 — Process expired jobs
+// ══════════════════════════════════════════════════════════
+
+function processExpiredJobs() {
+  console.log('\n🔍 Step 6: Enriching expired jobs from translation cache...');
+
+  const expiredPath = dataPath('expired-jobs.json');
+  const expiredJobs = readJsonSafe(expiredPath);
+  if (!Array.isArray(expiredJobs) || expiredJobs.length === 0) {
+    console.log('  ⏭️  No expired jobs to process');
+    return;
+  }
+
+  // Load translation cache
+  const cacheDir = dataPath('translation-cache');
+  if (!fs.existsSync(cacheDir)) {
+    console.log('  ⏭️  No translation cache directory');
+    return;
+  }
+
+  const translationCache = new Map();
+  for (const file of fs.readdirSync(cacheDir).filter((f) => f.endsWith('.json'))) {
+    const data = readJsonSafe(path.join(cacheDir, file));
+    if (data && typeof data === 'object') {
+      for (const [slug, entry] of Object.entries(data)) {
+        if (entry?.translations) {
+          translationCache.set(slug, entry.translations);
+        }
+      }
+    }
+  }
+
+  let enrichedCount = 0;
+  let updatedCount = 0;
+
+  for (const job of expiredJobs) {
+    if (!job.slug) continue;
+
+    // Try to find in cache by slug or by any slugByLocale value
+    const slugsToCheck = [job.slug];
+    if (job.slugByLocale) {
+      for (const s of Object.values(job.slugByLocale)) {
+        if (s) slugsToCheck.push(s);
+      }
+    }
+
+    let cached = null;
+    for (const s of slugsToCheck) {
+      cached = translationCache.get(s);
+      if (cached) break;
+    }
+
+    if (!cached) continue;
+    enrichedCount++;
+
+    let changed = false;
+
+    // Merge titleByLocale
+    if (cached.titles) {
+      if (!job.titleByLocale) job.titleByLocale = {};
+      for (const [loc, title] of Object.entries(cached.titles)) {
+        if (title && !job.titleByLocale[loc]) {
+          job.titleByLocale[loc] = title;
+          changed = true;
+        }
+      }
+    }
+
+    // Merge descriptionByLocale
+    if (cached.descriptions) {
+      if (!job.descriptionByLocale) job.descriptionByLocale = {};
+      for (const [loc, desc] of Object.entries(cached.descriptions)) {
+        if (desc && !job.descriptionByLocale[loc]) {
+          job.descriptionByLocale[loc] = desc;
+          changed = true;
+        }
+      }
+    }
+
+    if (changed) updatedCount++;
+  }
+
+  console.log(`  📊 Cache matches: ${enrichedCount}, jobs updated: ${updatedCount}`);
+
+  if (updatedCount > 0 && !DRY_RUN) {
+    writeJson(expiredPath, expiredJobs);
+    console.log(`  💾 Updated ${expiredPath}`);
+  } else if (DRY_RUN && updatedCount > 0) {
+    console.log(`  ⏭️  --dry-run: would update ${updatedCount} expired jobs`);
+  }
+}
+
+// ══════════════════════════════════════════════════════════
+// Main
+// ══════════════════════════════════════════════════════════
+
+async function main() {
+  console.log('🚀 sync-gsc-orphans — GSC Orphan Job Slug Synchronizer\n');
+
+  if (DRY_RUN) {
+    console.log('⚠️  DRY RUN MODE — no files will be written\n');
+  }
+
+  // Auth
+  let accessToken;
+  try {
+    accessToken = await getAccessToken();
+    console.log('✅ GSC OAuth token obtained\n');
+  } catch (err) {
+    console.error('❌ Cannot get GSC access token:', err.message);
+    console.error('   Set GSC_CLIENT_ID, GSC_CLIENT_SECRET, GSC_REFRESH_TOKEN');
+    process.exit(1);
+  }
+
+  // Step 1: Fetch GSC data
+  const gscMap = await fetchGscJobUrls(accessToken);
+  if (gscMap.size === 0) {
+    console.log('\n⚠️  No job URLs found in GSC. Nothing to do.');
+    process.exit(0);
+  }
+
+  // Step 2: Identify orphans
+  const knownSlugs = buildKnownSlugsSet();
+  const orphans = identifyOrphans(gscMap, knownSlugs);
+
+  // Step 3: Enrich from local sources
+  const enrichedOrphans = enrichFromLocalSources(orphans);
+
+  // Step 4: Remote enrichment (optional)
+  try {
+    await enrichUrlInspection(enrichedOrphans, accessToken);
+  } catch (err) {
+    console.warn(`  ⚠️  URL Inspection enrichment failed: ${err.message}`);
+  }
+
+  try {
+    await enrichWayback(enrichedOrphans);
+  } catch (err) {
+    console.warn(`  ⚠️  Wayback enrichment failed: ${err.message}`);
+  }
+
+  // Step 5: Write outputs
+  writeOutputs(enrichedOrphans, gscMap);
+
+  // Step 6: Process expired jobs
+  try {
+    processExpiredJobs();
+  } catch (err) {
+    console.warn(`  ⚠️  Expired jobs enrichment failed: ${err.message}`);
+  }
+
+  // Summary
+  console.log('\n' + '═'.repeat(60));
+  console.log('📊 Summary');
+  console.log('═'.repeat(60));
+  console.log(`  GSC entries:        ${gscMap.size}`);
+  console.log(`  Known slugs:        ${knownSlugs.size}`);
+  console.log(`  Orphans:            ${enrichedOrphans.length}`);
+  console.log(`  With title:         ${enrichedOrphans.filter((o) => o.title && o.title !== o.slug.replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())).length}`);
+  console.log(`  With descriptions:  ${enrichedOrphans.filter((o) => Object.values(o.descriptionByLocale).some(Boolean)).length}`);
+  console.log(`  With company:       ${enrichedOrphans.filter((o) => o.company).length}`);
+
+  const topImpressions = enrichedOrphans.slice(0, 5);
+  if (topImpressions.length > 0) {
+    console.log('\n  Top orphans by impressions:');
+    for (const o of topImpressions) {
+      console.log(`    ${o.totalImpressions.toString().padStart(6)} imp  ${o.slug.slice(0, 60)}`);
+    }
+  }
+
+  console.log('\n✅ Done');
+}
+
+main().catch((err) => {
+  console.error('❌ Fatal error:', err);
+  process.exit(1);
+});

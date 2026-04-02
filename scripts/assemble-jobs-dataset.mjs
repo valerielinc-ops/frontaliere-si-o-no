@@ -739,6 +739,39 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });
       writeJson(PUBLIC_EXPIRED, cleanedExpired);
       console.log(`✅ data/expired-jobs.json assembled: ${cleanedExpired.length} expired jobs`);
+
+      // --- Orphan + Expired slug reconciliation (Jaccard similarity) ---
+      try {
+        const { reconcileOrphanSlugs, reconcileExpiredSlugs } = await import('./reconcile-job-slugs.mjs');
+
+        // Reconcile orphan slugs → merge into active jobs' previousSlugs
+        const orphanFile = path.join(ROOT, 'data', 'orphan-indexed-job-slugs.json');
+        const enrichedFile = path.join(ROOT, 'data', 'orphan-enriched-data.json');
+        if (fs.existsSync(orphanFile)) {
+          const orphanSlugs = JSON.parse(fs.readFileSync(orphanFile, 'utf8'));
+          const enrichedData = fs.existsSync(enrichedFile)
+            ? JSON.parse(fs.readFileSync(enrichedFile, 'utf8'))
+            : {};
+          const orphanResult = reconcileOrphanSlugs(assembled, orphanSlugs, enrichedData, { dryRun: false, writeSlices: true });
+          if (orphanResult.merged > 0) {
+            console.log(`  🔗 Orphan reconciliation: ${orphanResult.merged} slugs merged into active jobs' previousSlugs`);
+            writeJson(DATA_JOBS, assembled);
+            writeJson(PUBLIC_JOBS, assembled);
+          }
+        }
+
+        // Reconcile expired slugs → merge into active jobs' previousSlugs
+        const expResult = reconcileExpiredSlugs(assembled, cleanedExpired, { dryRun: false, writeSlices: true });
+        if (expResult.merged > 0) {
+          console.log(`  🔗 Expired reconciliation: ${expResult.merged} slugs merged into active jobs' previousSlugs`);
+          writeJson(DATA_JOBS, assembled);
+          writeJson(PUBLIC_JOBS, assembled);
+          writeJson(DATA_EXPIRED, cleanedExpired);
+          writeJson(PUBLIC_EXPIRED, cleanedExpired);
+        }
+      } catch (err) {
+        console.warn(`  ⚠️ Slug reconciliation skipped: ${err.message}`);
+      }
     } else {
       writeJson(DATA_EXPIRED, expiredJobs);
       fs.mkdirSync(path.dirname(PUBLIC_EXPIRED), { recursive: true });

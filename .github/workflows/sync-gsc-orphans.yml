@@ -1,0 +1,123 @@
+name: Sync GSC Orphan Job Slugs
+
+# Runs weekly to keep orphan data synchronized with Google Search Console.
+# Also runs after translate-pending completes (new jobs may create new orphans).
+on:
+  schedule:
+    - cron: '30 14 * * 0'  # Every Sunday at 14:30 UTC
+  workflow_dispatch:
+    inputs:
+      enable_url_inspection:
+        description: 'Enable URL Inspection API (500 req cap, uses daily quota)'
+        required: false
+        type: boolean
+        default: false
+      enable_wayback:
+        description: 'Enable Wayback Machine lookups (slow, unreliable)'
+        required: false
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Dry run (no file writes, just report)'
+        required: false
+        type: boolean
+        default: false
+
+concurrency:
+  group: jobs-data-pipeline
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  sync-orphans:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Load Firebase Remote Config env
+        run: node scripts/load-rc-env.mjs
+        env:
+          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
+          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+
+      - name: Sync GSC orphan slugs + enrich
+        run: |
+          node scripts/sync-gsc-orphans.mjs \
+            ${{ inputs.dry_run == true && '--dry-run' || '' }}
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+          ENABLE_URL_INSPECTION: ${{ inputs.enable_url_inspection == true && '1' || '0' }}
+          ENABLE_WAYBACK: ${{ inputs.enable_wayback == true && '1' || '0' }}
+
+      - name: Reconcile orphan + expired slugs with active jobs
+        if: ${{ inputs.dry_run != true }}
+        run: node scripts/reconcile-job-slugs.mjs
+        env:
+          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
+          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
+          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
+
+      - name: Check for changes
+        id: changes
+        run: |
+          git add -A data/orphan-enriched-data.json data/orphan-indexed-job-slugs.json \
+                     data/gsc-orphan-queries.json data/url-inspection-results.json \
+                     data/expired-jobs.json data/jobs/by-crawler/ data/jobs/expired/by-crawler/ \
+                     public/data/expired-jobs.json
+          if git diff --cached --quiet; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "📭 No changes to commit"
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+            echo "📬 Changes detected — will commit"
+            git diff --cached --stat
+          fi
+
+      - name: Commit and push
+        if: steps.changes.outputs.changed == 'true' && inputs.dry_run != true
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          
+          # Count what changed
+          ORPHAN_COUNT=$(node -e "try{console.log(JSON.parse(require('fs').readFileSync('data/orphan-enriched-data.json','utf8')).length)}catch{console.log(0)}")
+          
+          git commit -m "chore: sync GSC orphan slugs and reconcile job data
+
+          Orphan slugs: ${ORPHAN_COUNT}
+          Automated by sync-gsc-orphans workflow"
+          
+          git push
+
+      - name: Trigger deploy if previousSlugs changed
+        if: steps.changes.outputs.changed == 'true' && inputs.dry_run != true
+        run: |
+          # Check if any by-crawler files changed (previousSlugs merged)
+          CRAWLER_CHANGES=$(git diff HEAD~1 --name-only -- data/jobs/by-crawler/ | wc -l)
+          if [ "$CRAWLER_CHANGES" -gt 0 ]; then
+            echo "🚀 previousSlugs changed in $CRAWLER_CHANGES crawler slices — triggering deploy"
+            bash scripts/lib/trigger-deploy.sh
+          else
+            echo "📝 Only orphan metadata changed — no deploy needed"
+          fi
+        env:
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
