@@ -4260,11 +4260,9 @@ ${hreflangLinks}
             if (activeJobDirs.has(oldRelPath.replace(/\/+$/, ''))) continue;
             const outDir = np.join(distDir, oldRelPath);
             const targetFile = np.join(outDir, 'index.html');
-            // Use _writtenPaths for buffered-write awareness (fs.existsSync only
-            // sees files from previous builds or pre-existing on disk). Bridge pages
-            // should overwrite any thin expired/orphan page at the same path, so we
-            // only skip if the path is occupied by an active job (checked above).
-            if (fs.existsSync(targetFile) && !_writtenPaths.has(targetFile)) continue;
+            // Always generate bridge pages — they take priority over any compat/legacy
+            // page that another plugin (e.g. legacyRedirectsPlugin) may have written
+            // at the same path via fs.writeFileSync during concurrent closeBundle.
 
             // Reuse the full active page HTML — canonical already points to the
             // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
