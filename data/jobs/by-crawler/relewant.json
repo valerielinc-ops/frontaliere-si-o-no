@@ -1,6 +1,6 @@
 {
   "crawlerKey": "relewant",
-  "assembledAt": "2026-04-01T21:40:26.326Z",
+  "assembledAt": "2026-04-02T09:44:11.870Z",
   "jobs": [
     {
       "title": "Project Manager Swift/Sepa",
@@ -61,7 +61,8 @@
       "previousSlugs": [
         "bi-spezialist-relewant-chiasso-pqrule",
         "specialiste-bi-relewant-chiasso-pqrule"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "BI Specialist",
@@ -414,7 +415,8 @@
         }
       },
       "streetAddress": "Via Cantonale 2A",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "needsRetranslation": true
     },
     {
       "title": "Java Developer",
