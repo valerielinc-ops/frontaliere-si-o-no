@@ -218,6 +218,19 @@ const companies: Company[] = [
   { name: 'Kendrion (sede Ticino)', sector: 'Altro', employees: 90, city: 'Stabio', coordinates: [45.8518, 8.9365], website: 'https://www.kendrion.com', description: 'Componenti elettromagnetici per automotive e industria' },
   { name: 'Glas Trösch (sede TI)', sector: 'Altro', employees: 70, city: 'Bodio', coordinates: [46.3500, 8.9130], website: 'https://www.glastroesch.ch', description: 'Lavorazione vetro industriale e isolante' },
   { name: 'Agire Invest', sector: 'Finanza & Banking', employees: 10, city: 'Manno', coordinates: [46.0355, 8.9195], website: 'https://www.agire.ch', description: 'Fondazione per innovazione tecnologica in Ticino' },
+  // Nuove aziende — Ticino
+  { name: 'Pini Group SA', sector: 'Altro', employees: 700, city: 'Lugano', coordinates: [46.0037, 8.9511], website: 'https://www.pinigroup.com', careersUrl: 'https://careers.pini.group/jobs.php', description: 'Ingegneria infrastrutturale, tunnel, ponti e grandi opere' },
+  { name: 'Prada Group', sector: 'Lusso & Moda', employees: 200, city: 'Mendrisio', coordinates: [45.8750, 8.9800], website: 'https://www.pradagroup.com', careersUrl: 'https://jobs.pradagroup.com/', description: 'Moda e lusso, outlet FoxTown e uffici regionali' },
+  { name: 'Salt Mobile SA', sector: 'Tecnologia & IT', employees: 150, city: 'Lugano', coordinates: [46.0037, 8.9500], website: 'https://www.salt.ch', careersUrl: 'https://www.salt.ch/it/about-us/careers', description: 'Terzo operatore mobile svizzero, rete e servizi digitali' },
+  { name: 'Helvetia Assicurazioni', sector: 'Assicurazioni', employees: 120, city: 'Lugano', coordinates: [46.0037, 8.9511], website: 'https://www.helvetia.com', careersUrl: 'https://jobs.helvetia.com/ch/?lang=it', description: 'Primario gruppo assicurativo svizzero, sede regionale TI' },
+  { name: 'Mabetex Group', sector: 'Altro', employees: 300, city: 'Lugano', coordinates: [46.0037, 8.9511], website: 'https://www.mabetex.com', careersUrl: 'https://www.mabetex.com/career/', description: 'Gruppo costruzioni ed engineering internazionale' },
+  { name: 'Otis SA', sector: 'Altro', employees: 200, city: 'Ticino', coordinates: [46.0037, 8.9500], website: 'https://www.otis.com', careersUrl: 'https://otis.wd5.myworkdayjobs.com/REC_Ext_Gateway', description: 'Leader mondiale ascensori, scale mobili e manutenzione' },
+  { name: 'Unilabs', sector: 'Farmaceutico & Chimico', employees: 60, city: 'Manno', coordinates: [46.0300, 8.9200], website: 'https://www.unilabs.com', careersUrl: 'https://apply.workable.com/unilabs/', description: 'Diagnostica di laboratorio medico, analisi cliniche' },
+  // Nuove aziende — Grigioni
+  { name: 'Läderach (Schweiz) AG', sector: 'Alimentare', employees: 1000, city: 'Ennenda', coordinates: [46.8508, 9.5319], website: 'https://www.laderach.com', careersUrl: 'https://laderach.career.softgarden.de/', description: 'Cioccolato svizzero premium, produzione e retail' },
+  { name: 'Hilcona AG (Bell Food Group)', sector: 'Alimentare', employees: 500, city: 'Landquart', coordinates: [46.9686, 9.5520], website: 'https://www.hilcona.com', careersUrl: 'https://career.bellfoodgroup.com/en', description: 'Alimentare convenience, produzione e logistica' },
+  { name: 'CEDES AG', sector: 'Tecnologia & IT', employees: 200, city: 'Landquart', coordinates: [46.9668, 9.5481], website: 'https://www.cedes.com', careersUrl: 'https://www.cedes.com/en/career/jobs/', description: 'Sensori industriali e di sicurezza, elettronica ottica' },
+  { name: 'Davos Klosters Bergbahnen AG', sector: 'Altro', employees: 300, city: 'Davos', coordinates: [46.8027, 9.8360], website: 'https://www.davos.ch', description: 'Impianti di risalita, infrastrutture turistiche e gastronomia' },
 ];
 
 type ExternalCompanyRaw = {
