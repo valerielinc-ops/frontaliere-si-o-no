@@ -64,6 +64,54 @@ export function parseAvaloqListingLinks(html = '') {
   return [];
 }
 
+const SR_API = 'https://api.smartrecruiters.com/v1/companies/Avaloq1/postings';
+
+/**
+ * Fetch all Avaloq job postings from the SmartRecruiters public API.
+ * Returns an array of detail objects matching the shape of parseAvaloqJobDetail output.
+ */
+export async function fetchAvaloqJobsFromApi(timeoutMs = 20000) {
+  const all = [];
+  let offset = 0;
+  while (true) {
+    const url = `${SR_API}?limit=100&offset=${offset}`;
+    const ctrl = new AbortController();
+    const timer = setTimeout(() => ctrl.abort(), timeoutMs);
+    try {
+      const res = await fetch(url, { signal: ctrl.signal, headers: { 'Accept': 'application/json' } });
+      if (!res.ok) throw new Error(`SmartRecruiters API HTTP ${res.status}`);
+      const data = await res.json();
+      all.push(...(data.content || []));
+      if (all.length >= (data.totalFound || 0)) break;
+      offset += 100;
+    } finally {
+      clearTimeout(timer);
+    }
+  }
+  return all.map((posting) => {
+    const loc = posting.location || {};
+    const city = normalizeSpace(loc.city || '');
+    const sections = [];
+    const jobDesc = (posting.jobAd?.sections?.jobDescription?.text || '').trim();
+    const qualif = (posting.jobAd?.sections?.qualifications?.text || '').trim();
+    const addInfo = (posting.jobAd?.sections?.additionalInformation?.text || '').trim();
+    if (jobDesc) sections.push(htmlToMarkdown(jobDesc));
+    if (qualif) sections.push(`## Qualifiche\n\n${htmlToMarkdown(qualif)}`);
+    if (addInfo) sections.push(`## Informazioni aggiuntive\n\n${htmlToMarkdown(addInfo)}`);
+    const description = sections.join('\n\n').trim() || normalizeSpace(posting.name || '');
+    return {
+      title: normalizeSpace(posting.name || ''),
+      description,
+      canonicalUrl: `https://www.avaloq.com/careers/job-openings/${posting.id}`,
+      applyUrl: posting.applyUrl || `https://jobs.smartrecruiters.com/Avaloq1/${posting.id}`,
+      location: city,
+      postalCode: normalizeSpace(loc.postalCode || ''),
+      workArrangement: posting.typeOfEmployment?.label || '',
+      releasedDate: posting.releasedDate || '',
+    };
+  });
+}
+
 export function parseAvaloqJobDetail(html = '', url = '') {
   const dom = new JSDOM(html);
   const document = dom.window.document;

@@ -30,6 +30,7 @@ import {
   isAvaloqTargetLocation,
   inferAvaloqCanton,
   buildAvaloqLocalizedContent,
+  fetchAvaloqJobsFromApi,
 } from './lib/avaloq-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -114,11 +115,10 @@ function inferCategory(detail = {}) {
 }
 
 async function fetchListings() {
-  console.log('🔍 Fetching Avaloq jobs from careers page...');
-  const html = await fetchText(CAREERS_URL);
-  const links = [...new Set(parseAvaloqListingLinks(html))];
-  console.log(`📋 Total Avaloq job links discovered: ${links.length}`);
-  return links;
+  console.log('🔍 Fetching Avaloq jobs from SmartRecruiters API...');
+  const details = await fetchAvaloqJobsFromApi(Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000);
+  console.log(`📋 Total Avaloq job postings from API: ${details.length}`);
+  return details;
 }
 
 async function mapConcurrent(items, limit, mapper) {
@@ -135,11 +135,7 @@ async function mapConcurrent(items, limit, mapper) {
 }
 
 async function buildAvaloqJobs() {
-  const links = await fetchListings();
-  const details = await mapConcurrent(links, 8, async (url) => {
-    const html = await fetchText(url);
-    return parseAvaloqJobDetail(html, url);
-  });
+  const details = await fetchListings();
   const target = details.filter((detail) => isAvaloqTargetLocation(detail.location || ''));
   console.log(`📋 Avaloq Ticino/Grigioni jobs: ${target.length}`);
   for (const detail of target) {
@@ -171,7 +167,7 @@ async function buildAvaloqJobs() {
       sector: 'Tecnologia & IT',
       source: 'avaloq-dedicated-crawler',
       sourceLang: detectLang(`${detail.title} ${detail.description}`, 'en'),
-      postedDate: new Date().toISOString().slice(0, 10),
+      postedDate: (detail.releasedDate || '').slice(0, 10) || new Date().toISOString().slice(0, 10),
       employmentType: contractType,
       contractType,
       validThrough: '',
