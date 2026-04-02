@@ -234,6 +234,8 @@ async function main() {
   console.log(`   Portal: ${CSC_HOST} (Drupal CMS)`);
   console.log('');
 
+  let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
+
   // Step 1: Discover job detail URLs from the careers page
   const detailUrls = await fetchCscJobUrls();
   if (detailUrls.length === 0) {
@@ -259,7 +261,7 @@ async function main() {
 
   // Step 5: Stats + validation
   const stats = logStats(_beforeSnapshot);
-  const crawlDiff = stats.crawlDiff;
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No CSC Costruzioni jobs found after crawl. Exiting OK.');
     printCrawlChangeSummary({ newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'CSC Costruzioni');

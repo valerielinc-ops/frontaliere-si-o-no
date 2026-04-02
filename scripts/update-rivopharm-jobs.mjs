@@ -365,6 +365,7 @@ async function main() {
   console.log('═══════════════════════════════════════════════');
   console.log(`  Career page: ${CAREERS_URL}\n`);
 
+  let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   const beforeSnapshot = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isRivopharmJob))
 
   // Phase 1: Fetch careers page
@@ -376,8 +377,6 @@ async function main() {
     writeJobsCrawlerSlice(COMPANY_KEY, []);
     writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: [] });
     await assembleJobsDataset();
-    const _cdResult = logStats(beforeSnapshot);
-    const crawlDiff = _cdResult.crawlDiff;
     return;
   }
 
@@ -412,6 +411,7 @@ async function main() {
 
   // Phase 7: Log stats
   const stats = logStats(beforeSnapshot);
+  crawlDiff = stats.crawlDiff || crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No Rivopharm jobs found after crawl.');
     return;
