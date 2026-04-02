@@ -94,11 +94,18 @@ async function main() {
   const parsedJobs = [];
   for (const raw of rawJobs) {
     const detail = await fetchPradaDetailPage(raw.url);
-    if (!detail?.description || detail.description.length < 120) {
-      console.log(`  ⚠️  ${raw.title}: description too short (${detail?.description?.length || 0} chars) — skipping`);
+    // SuccessFactors detail pages are JS-rendered; description may be empty or generic.
+    // Use detail description if substantial, otherwise build from title + location.
+    let description = detail?.description || '';
+    if (!description || description.length < 50 || description.toLowerCase().includes('prada group careers')) {
+      const loc = raw.location || 'Mendrisio';
+      const dept = raw.department ? ` — ${raw.department}` : '';
+      description = `${raw.title}${dept}. Posizione presso Prada Group a ${loc}, Svizzera. Candidati ora su jobs.pradagroup.com.`;
+    }
+    if (description.length < 30) {
+      console.log(`  ⚠️  ${raw.title}: description too short (${description.length} chars) — skipping`);
       continue;
     }
-    const description = detail.description;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
     const jobSlug = slugify(`${raw.title}-prada-${raw.location}`);
     parsedJobs.push({

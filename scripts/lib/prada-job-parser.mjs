@@ -177,7 +177,19 @@ export function parsePradaDetailHtml(html) {
     if (mainMatch) rawHtml = mainMatch[1];
   }
 
-  const description = normalizeSpace(stripHtml(rawHtml));
+  let description = normalizeSpace(stripHtml(rawHtml));
+
+  // SuccessFactors detail pages are often 100% JS-rendered.
+  // Fallback to og:description or meta description which ARE server-rendered.
+  if (!description || description.length < 30) {
+    const ogDescMatch = html.match(/<meta\s+property="[^"]*og:description[^"]*"\s+content="([^"]*)"/i)
+      || html.match(/<meta\s+content="([^"]*)"\s+property="[^"]*og:description[^"]*"/i);
+    if (ogDescMatch) description = normalizeSpace(ogDescMatch[1]);
+  }
+  if (!description || description.length < 30) {
+    const metaDescMatch = html.match(/<meta\s+name="description"\s+content="([^"]*)"/i);
+    if (metaDescMatch) description = normalizeSpace(metaDescMatch[1]);
+  }
 
   // Extract title from the detail page
   const titleMatch = html.match(/<h1[^>]*class="[^"]*jobTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)

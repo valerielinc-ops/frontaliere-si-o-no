@@ -56,23 +56,25 @@ async function main() {
     const detail = await fetchHilconaDetailPage(raw.url);
     if (!detail?.description || detail.description.length < 120) { console.log(`  ⚠️  ${raw.title}: too short — skipping`); continue; }
     const description = detail.description;
+    const loc = detail.location || 'Landquart';
+    const company = detail.company || COMPANY_NAME;
     const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-hilcona-${raw.location}`);
+    const jobSlug = slugify(`${raw.title}-hilcona-${loc}`);
     parsedJobs.push({
       id: `hilcona-${urlHash}`, slug: jobSlug,
       slugByLocale: { it: jobSlug, en: jobSlug, de: jobSlug, fr: jobSlug },
-      company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'bellfoodgroup.com',
+      company, companyKey: COMPANY_KEY, companyDomain: 'bellfoodgroup.com',
       title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
       description, descriptionByLocale: { it: description },
       requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
-      location: raw.location || 'Landquart', canton: 'GR',
-      addressLocality: raw.location || 'Landquart', addressCountry: 'CH',
-      category: 'manufacturing', contract: 'full-time',
-      employmentType: inferEmploymentType(raw.title, description),
+      location: loc, canton: 'GR',
+      addressLocality: loc, addressCountry: 'CH',
+      category: 'manufacturing', contract: detail.contractType || 'full-time',
+      employmentType: inferEmploymentType(raw.title, description, detail.pensum),
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
       url: raw.url, source: 'Hilcona Dedicated Parser', crawledAt: new Date().toISOString(),
     });
-    console.log(`  ✅ ${raw.title} — ${raw.location}`);
+    console.log(`  ✅ ${raw.title} — ${loc}`);
   }
 
   if (parsedJobs.length === 0) { console.log('⚠️ No valid jobs parsed.'); return; }
