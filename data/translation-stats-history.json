@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T03:57:02.950Z",
-    "label": "after",
-    "total": 1500,
-    "needsRetranslation": 1139,
-    "incomplete": 1031,
-    "complete": 469,
-    "missingByLocale": {
-      "it": 475,
-      "en": 708,
-      "de": 444,
-      "fr": 866
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 41
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T04:27:49.352Z",
-    "label": "before",
-    "total": 1500,
-    "needsRetranslation": 1139,
-    "incomplete": 1024,
-    "complete": 476,
-    "missingByLocale": {
-      "it": 475,
-      "en": 708,
-      "de": 444,
-      "fr": 866
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 28
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T04:27:49.859Z",
     "label": "after",
     "total": 1500,
@@ -9794,6 +9682,94 @@
       {
         "company": "PwC Switzerland",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T19:24:07.150Z",
+    "label": "before",
+    "total": 1547,
+    "needsRetranslation": 215,
+    "incomplete": 173,
+    "complete": 1374,
+    "missingByLocale": {
+      "it": 144,
+      "en": 147,
+      "de": 55,
+      "fr": 165
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 65
+      },
+      {
+        "company": "Hilcona AG (Bell Food Group)",
+        "pending": 36
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 35
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "Prada Group",
+        "pending": 8
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 5
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "CEDES AG",
+        "pending": 2
+      },
+      {
+        "company": "Scuola Club Migros",
+        "pending": 2
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T20:00:51.234Z",
+    "label": "after",
+    "total": 1547,
+    "needsRetranslation": 45,
+    "incomplete": 11,
+    "complete": 1536,
+    "missingByLocale": {
+      "it": 4,
+      "en": 9,
+      "de": 9,
+      "fr": 9
+    },
+    "topPending": [
+      {
+        "company": "Prada Group",
+        "pending": 8
+      },
+      {
+        "company": "Avaloq",
+        "pending": 1
+      },
+      {
+        "company": "Hilcona AG (Bell Food Group)",
+        "pending": 1
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 1
       }
     ]
   }
