@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-02T07:25:12.824Z",
+  "assembledAt": "2026-04-02T10:08:11.536Z",
   "jobs": [
     {
       "title": "Consulente Assicurativo per il Luganese",
@@ -20,7 +20,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60-100%",
@@ -62,7 +62,8 @@
       "previousSlugs": [
         "consulente-assicurativo-per-il-luganese",
         "consulente-assicurativo-per-il-luganese-axa-svizzera-axa"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -82,7 +83,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -143,7 +144,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80%",
@@ -206,7 +207,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -247,7 +248,8 @@
       "postalCode": "6901",
       "previousSlugs": [
         "senior-underwriter-responsabilita-civile-axa-svizzera-axa-assicurazioni"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -267,7 +269,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -311,6 +313,65 @@
       ]
     },
     {
+      "title": "Consulente Assicurativo",
+      "slug": "consulente-assicurativo",
+      "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": "() Agenzia principale Nicola Locarnini, Manno",
+      "addressLocality": "AXA",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "assicurazioni",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-02",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "workload": "50-100%",
+      "validThrough": "",
+      "description": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+      "titleByLocale": {
+        "it": "Consulente Assicurativo",
+        "fr": "Consulente Assicurativo",
+        "en": "Consulente Assicurativo",
+        "de": "Consulente Assicurativo"
+      },
+      "descriptionByLocale": {
+        "it": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "en": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "de": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "fr": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale."
+      },
+      "slugByLocale": {
+        "it": "consulente-assicurativo",
+        "en": "consulente-assicurativo",
+        "de": "consulente-assicurativo",
+        "fr": "consulente-assicurativo"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via della Posta 2",
+      "postalCode": "6901"
+    },
+    {
       "title": "Consulente Assicurativo per il Mendrisiotto",
       "slug": "consulente-assicurativo-per-il-mendrisiotto",
       "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo-per-il-mendrisiotto/feda0a6f-d9e7-4fd0-871d-d41b0556f7ec",
@@ -328,7 +389,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60%",
@@ -370,7 +431,8 @@
       "previousSlugs": [
         "consulente-assicurativo-per-il-mendrisiotto",
         "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Specialist OpRisk & Internal Control (all genders)",
@@ -390,31 +452,30 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
       "validThrough": "",
       "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDas Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür.\n\nDu arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten.\n\n## Dein Beitrag\n- Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management\n- Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen\n- Handling von Tools, Dokumentation und Reporting\n- Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen\n- Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen\n\n## Deine Fähigkeiten und Talente\n- Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA)\n- Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n- Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
       "titleByLocale": {
-        "de": "Senior Spezialist OpRisk & Internal Control (all genders)",
-        "en": "Senior Specialist OpRisk & Internal Control (all genders)",
         "it": "Senior Specialista OpRisk & Internal Control (all genders)",
+        "en": "Senior Specialist OpRisk & Internal Control (all genders)",
+        "de": "Senior Spezialist OpRisk & Internal Control (all genders)",
         "fr": "Senior Spécialiste OpRisk & Internal Control (all genders)"
       },
       "descriptionByLocale": {
-        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDas Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür.\n\nDu arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten.\n\n## Dein Beitrag\n- Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management\n- Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen\n- Handling von Tools, Dokumentation und Reporting\n- Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen\n- Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen\n\n## Deine Fähigkeiten und Talente\n- Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA)\n- Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n- Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-        "it": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDas Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür.\n\nDu arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten.\n\n## Dein Beitrag\n- Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management\n- Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen\n- Handling von Tools, Dokumentation und Reporting\n- Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen\n- Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen\n\n## Deine Fähigkeiten und Talente\n- Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA)\n- Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n- Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-        "en": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDas Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür.\n\nDu arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten.\n\n## Dein Beitrag\n- Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management\n- Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen\n- Handling von Tools, Dokumentation und Reporting\n- Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen\n- Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen\n\n## Deine Fähigkeiten und Talente\n- Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA)\n- Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n- Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-        "fr": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nDas Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür.\n\nDu arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten.\n\n## Dein Beitrag\n- Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management\n- Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen\n- Handling von Tools, Dokumentation und Reporting\n- Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen\n- Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen\n\n## Deine Fähigkeiten und Talente\n- Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA)\n- Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche\n- Ausgeprägte analytische und konzeptionelle Fähigkeiten\n- Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann."
+        "it": "Komm zur AXA, der führenden Versicherung der Schweiz - als Das Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür. Du arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten. ## Dein Beitrag - Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management - Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen - Handling von Tools, Dokumentation und Reporting - Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen - Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen ## Deine Fähigkeiten und Talente - Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA) - Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche - Ausgeprägte analytische und konzeptionelle Fähigkeiten - Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "en": "Komm zur AXA, der führenden Versicherung der Schweiz - als Das Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür. Du arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten. ## Dein Beitrag - Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management - Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen - Handling von Tools, Dokumentation und Reporting - Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen - Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen ## Deine Fähigkeiten und Talente - Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA) - Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche - Ausgeprägte analytische und konzeptionelle Fähigkeiten - Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als Das Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür. Du arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten. ## Dein Beitrag - Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management - Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen - Handling von Tools, Dokumentation und Reporting - Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen - Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen ## Deine Fähigkeiten und Talente - Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA) - Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche - Ausgeprägte analytische und konzeptionelle Fähigkeiten - Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "fr": "Komm zur AXA, der führenden Versicherung der Schweiz - als Das Risk Management der AXA Schweiz stellt die Nachhaltigkeit unseres Geschäftes sicher. Wir decken die gesamte Bandbreite der Risikolandschaft ab: Finanzrisiken, versicherungstechnische Risiken, operative Risken und Kontrollen sowie Aufgaben im Bereich der IT-Security, der Physical Security und der Operational Resilience.Unser Ziel als Team ist es, Vorreiter in der Weiterentwicklung unserer Funktionen zu sein – mit Investitionen in moderne Prozesse, Tools und Methoden sowie in unsere Kompetenzen.Bei AXA Schweiz ist das Risikomanagement nicht nur eine Funktion, sondern ein integraler Bestandteil unserer Strategie, um die Nachhaltigkeit unseres Geschäfts zu gewährleisten.Du möchtest aktiv die Zukunft des Risikomanagements gestalten und siehst deine Stärken insbesondere im Bereich Technologie, IT-Audit und Digitalisierung? Bei uns hast du die Möglichkeit, deine Expertise gezielt einzubringen und einen entscheidenden Beitrag zur Weiterentwicklung unserer IT-getriebenen Kontroll- und Risikoprozesse zu leisten. Ob du aus dem klassischen OpRisk, Internal Control kommst oder deinen Schwerpunkt auf IT-Audit legen möchtest – wir bieten dir die Bühne dafür. Du arbeitest im Bereich Risk Management & Actuarial. Unsere Aufgabe ist es, den Umgang der AXA Schweiz mit ihren eigenen Risiken als verlässlicher Partner systematisch und proaktiv mitzugestalten. ## Dein Beitrag - Aktive Unterstützung verschiedener Ressorts in allen Belangen von Internal Control und Operational Risk Management - Durchführung von Design- und Operating-Effectiveness Tests, Control-Reviews, Risk Assessments und Analysen - Handling von Tools, Dokumentation und Reporting - Mitwirkung an der organisatorischen, methodischen und technischen Weiterentwicklung, zum Beispiel im Bereich Digitalisierung und Automatisierung von Kontrollprozessen - Unterstützung des Managements bei der Förderung einer starken Risikokultur und beim Vorantreiben innovativer, technologiegestützter Assurance-Lösungen ## Deine Fähigkeiten und Talente - Abgeschlossenes Hochschulstudium in Wirtschaftsinformatik, Betriebswirtschaft oder vergleichbare Qualifikation, Qualifikation als Wirtschaftsprüfer oder IT-Auditor (CISA) - Berufserfahrung im Bereich Internal Control und Operational Risk Management, IT-Audit idealerweise aus dem Consulting-/Prüfungs-Umfeld oder der Versicherungsbranche - Ausgeprägte analytische und konzeptionelle Fähigkeiten - Sehr gute Deutsch- und gute Englischkenntnisse in Wort und Schrift ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann."
       },
       "slugByLocale": {
-        "de": "senior-spezialist-oprisk-internal-control-all-genders-axa-svizzera-8400-winterthur",
         "it": "senior-specialista-oprisk-internal-control-all-genders-axa-svizzera-8400-winterthur",
         "en": "senior-specialist-oprisk-internal-control-all-genders",
+        "de": "senior-spezialist-oprisk-internal-control-all-genders-axa-svizzera-8400-winterthur",
         "fr": "senior-specialiste-oprisk-internal-control-all-genders-axa-svizzera-8400-winterthur"
       },
-      "needsRetranslation": true,
       "previousSlugs": [
         "senior-specialist-oprisk-internal-control-all-genders"
       ],
@@ -432,7 +493,8 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Specialist Corporate Law bei AXA-ARAG (all genders)",
@@ -452,7 +514,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -514,7 +576,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -575,7 +637,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80%",
@@ -638,7 +700,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
