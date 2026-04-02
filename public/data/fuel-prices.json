@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T03:34:51.673Z",
+  "generatedAt": "2026-04-02T05:23:36.165Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -11,7 +11,7 @@
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
       "stationCount": 229,
-      "latestObservedUpdate": "2026-04-01T19:49:47.068Z"
+      "latestObservedUpdate": "2026-04-02T04:09:44.498Z"
     },
     "exchangeRate": {
       "provider": "ECB",
@@ -38690,20 +38690,34 @@
         "searchRadiusKm": 20,
         "optionCount": 19,
         "cheapestStation": {
-          "id": "bnzfTHD73LIv2jCkqLTT",
-          "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
+          "id": "nwrveGAiIpJbIuyRVwXf",
+          "name": "Stazione Di Servizio",
           "brand": "UNDEFINED",
-          "address": "Via Cantonale 1, 6678 Giumaglio",
-          "lat": 46.271764887254335,
-          "lng": 8.682101847720066,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-19T12:46:31.226Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 18.9,
-          "sp95PriceEur": 1.948,
-          "distanceKm": 18.9
+          "address": "Via Cantonale 6, 6672 Gordevio",
+          "lat": 46.2245541215933,
+          "lng": 8.7429916534227,
+          "sp95PriceChf": 1.78,
+          "updatedAt": "2026-03-11T05:17:27.341Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 15.1,
+          "sp95PriceEur": 1.937,
+          "distanceKm": 18.5
         },
         "nearbyStations": [
+          {
+            "id": "nwrveGAiIpJbIuyRVwXf",
+            "name": "Stazione Di Servizio",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 6, 6672 Gordevio",
+            "lat": 46.2245541215933,
+            "lng": 8.7429916534227,
+            "sp95PriceChf": 1.78,
+            "updatedAt": "2026-03-11T05:17:27.341Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 15.1,
+            "sp95PriceEur": 1.937,
+            "distanceKm": 18.5
+          },
           {
             "id": "bnzfTHD73LIv2jCkqLTT",
             "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
@@ -38717,20 +38731,6 @@
             "nearestMunicipalityDistanceKm": 18.9,
             "sp95PriceEur": 1.948,
             "distanceKm": 18.9
-          },
-          {
-            "id": "nwrveGAiIpJbIuyRVwXf",
-            "name": "Stazione Di Servizio",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 6, 6672 Gordevio",
-            "lat": 46.2245541215933,
-            "lng": 8.7429916534227,
-            "sp95PriceChf": 1.83,
-            "updatedAt": "2026-03-18T15:14:08.923Z",
-            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 15.1,
-            "sp95PriceEur": 1.991,
-            "distanceKm": 18.5
           },
           {
             "id": "h2ZwaUkIyFGomzNQ4HBF",
@@ -38775,8 +38775,8 @@
             "distanceKm": 19
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.948
+        "minPriceChf": 1.78,
+        "minPriceEur": 1.937
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -39429,20 +39429,34 @@
         "searchRadiusKm": 20,
         "optionCount": 24,
         "cheapestStation": {
-          "id": "bnzfTHD73LIv2jCkqLTT",
-          "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
+          "id": "nwrveGAiIpJbIuyRVwXf",
+          "name": "Stazione Di Servizio",
           "brand": "UNDEFINED",
-          "address": "Via Cantonale 1, 6678 Giumaglio",
-          "lat": 46.271764887254335,
-          "lng": 8.682101847720066,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-19T12:46:31.226Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 18.9,
-          "sp95PriceEur": 1.948,
-          "distanceKm": 19.8
+          "address": "Via Cantonale 6, 6672 Gordevio",
+          "lat": 46.2245541215933,
+          "lng": 8.7429916534227,
+          "sp95PriceChf": 1.78,
+          "updatedAt": "2026-03-11T05:17:27.341Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 15.1,
+          "sp95PriceEur": 1.937,
+          "distanceKm": 17.4
         },
         "nearbyStations": [
+          {
+            "id": "nwrveGAiIpJbIuyRVwXf",
+            "name": "Stazione Di Servizio",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 6, 6672 Gordevio",
+            "lat": 46.2245541215933,
+            "lng": 8.7429916534227,
+            "sp95PriceChf": 1.78,
+            "updatedAt": "2026-03-11T05:17:27.341Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 15.1,
+            "sp95PriceEur": 1.937,
+            "distanceKm": 17.4
+          },
           {
             "id": "bnzfTHD73LIv2jCkqLTT",
             "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
@@ -39470,20 +39484,6 @@
             "nearestMunicipalityDistanceKm": 1,
             "sp95PriceEur": 1.991,
             "distanceKm": 19.1
-          },
-          {
-            "id": "nwrveGAiIpJbIuyRVwXf",
-            "name": "Stazione Di Servizio",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 6, 6672 Gordevio",
-            "lat": 46.2245541215933,
-            "lng": 8.7429916534227,
-            "sp95PriceChf": 1.83,
-            "updatedAt": "2026-03-18T15:14:08.923Z",
-            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 15.1,
-            "sp95PriceEur": 1.991,
-            "distanceKm": 17.4
           },
           {
             "id": "jkMR6Jpz20Ho3Mk3rq2y",
@@ -39514,8 +39514,8 @@
             "distanceKm": 8.5
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.948
+        "minPriceChf": 1.78,
+        "minPriceEur": 1.937
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
@@ -40211,20 +40211,34 @@
         "searchRadiusKm": 20,
         "optionCount": 18,
         "cheapestStation": {
-          "id": "bnzfTHD73LIv2jCkqLTT",
-          "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
+          "id": "nwrveGAiIpJbIuyRVwXf",
+          "name": "Stazione Di Servizio",
           "brand": "UNDEFINED",
-          "address": "Via Cantonale 1, 6678 Giumaglio",
-          "lat": 46.271764887254335,
-          "lng": 8.682101847720066,
-          "sp95PriceChf": 1.79,
-          "updatedAt": "2026-03-19T12:46:31.226Z",
-          "nearestMunicipality": "Re (VB)",
-          "nearestMunicipalityDistanceKm": 18.9,
-          "sp95PriceEur": 1.948,
-          "distanceKm": 19.2
+          "address": "Via Cantonale 6, 6672 Gordevio",
+          "lat": 46.2245541215933,
+          "lng": 8.7429916534227,
+          "sp95PriceChf": 1.78,
+          "updatedAt": "2026-03-11T05:17:27.341Z",
+          "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+          "nearestMunicipalityDistanceKm": 15.1,
+          "sp95PriceEur": 1.937,
+          "distanceKm": 19
         },
         "nearbyStations": [
+          {
+            "id": "nwrveGAiIpJbIuyRVwXf",
+            "name": "Stazione Di Servizio",
+            "brand": "UNDEFINED",
+            "address": "Via Cantonale 6, 6672 Gordevio",
+            "lat": 46.2245541215933,
+            "lng": 8.7429916534227,
+            "sp95PriceChf": 1.78,
+            "updatedAt": "2026-03-11T05:17:27.341Z",
+            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
+            "nearestMunicipalityDistanceKm": 15.1,
+            "sp95PriceEur": 1.937,
+            "distanceKm": 19
+          },
           {
             "id": "bnzfTHD73LIv2jCkqLTT",
             "name": "ECSA Energy SA - Stazione Di Servizio Giumaglio",
@@ -40238,20 +40252,6 @@
             "nearestMunicipalityDistanceKm": 18.9,
             "sp95PriceEur": 1.948,
             "distanceKm": 19.2
-          },
-          {
-            "id": "nwrveGAiIpJbIuyRVwXf",
-            "name": "Stazione Di Servizio",
-            "brand": "UNDEFINED",
-            "address": "Via Cantonale 6, 6672 Gordevio",
-            "lat": 46.2245541215933,
-            "lng": 8.7429916534227,
-            "sp95PriceChf": 1.83,
-            "updatedAt": "2026-03-18T15:14:08.923Z",
-            "nearestMunicipality": "Tronzano Lago Maggiore (VA)",
-            "nearestMunicipalityDistanceKm": 15.1,
-            "sp95PriceEur": 1.991,
-            "distanceKm": 19
           },
           {
             "id": "h2ZwaUkIyFGomzNQ4HBF",
@@ -40296,8 +40296,8 @@
             "distanceKm": 19.7
           }
         ],
-        "minPriceChf": 1.79,
-        "minPriceEur": 1.948
+        "minPriceChf": 1.78,
+        "minPriceEur": 1.937
       },
       "comparison": {
         "cheaperCountry": "NO_DATA",
