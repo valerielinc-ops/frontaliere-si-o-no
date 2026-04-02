@@ -20,6 +20,14 @@ describe('avaloq-job-parser', () => {
     ]);
   });
 
+  it('extracts links from SmartRecruiters embedded IDs when no href links exist', () => {
+    const html = `<script>{"props":{"pageProps":{"jobs":[{"applyUrl":"https:\\/\\/smartrecruiters.com\\/v1\\/companies\\/Avaloq1\\/postings\\/744000118386833"},{"applyUrl":"https:\\/\\/smartrecruiters.com\\/v1\\/companies\\/Avaloq1\\/postings\\/744000118375717"}]}}}</script>`;
+    expect(parseAvaloqListingLinks(html)).toEqual([
+      'https://www.avaloq.com/careers/job-openings/744000118386833',
+      'https://www.avaloq.com/careers/job-openings/744000118375717',
+    ]);
+  });
+
   it('parses an Avaloq detail page and extracts location, apply url and sections', () => {
     const html = `
       <html>

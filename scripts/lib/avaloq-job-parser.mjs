@@ -46,9 +46,22 @@ function textWindow(source = '', startLabel = '', endLabels = []) {
 }
 
 export function parseAvaloqListingLinks(html = '') {
-  return [...html.matchAll(/href="(\/(?:de\/)?careers\/job-openings\/[^"]+)"/g)]
+  // Strategy 1: traditional <a href="/careers/job-openings/ID"> links
+  const hrefLinks = [...html.matchAll(/href="(\/(?:de\/)?careers\/job-openings\/[^"]+)"/g)]
     .map((match) => `https://www.avaloq.com${String(match[1] || '').trim()}`)
     .filter((url) => /\/careers\/job-openings\/\d{6,}/.test(url));
+  if (hrefLinks.length > 0) return hrefLinks;
+
+  // Strategy 2: SmartRecruiters posting IDs embedded in page (escaped JSON)
+  const srIds = [...new Set(
+    [...html.matchAll(/smartrecruiters\.com\\?\/v1\\?\/companies\\?\/Avaloq1\\?\/postings\\?\/(7\d{14,17})/g)]
+      .map((m) => m[1])
+  )];
+  if (srIds.length > 0) {
+    return srIds.map((id) => `https://www.avaloq.com/careers/job-openings/${id}`);
+  }
+
+  return [];
 }
 
 export function parseAvaloqJobDetail(html = '', url = '') {
