@@ -2376,10 +2376,27 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
           translated += 1;
           details.push({ company: job.company, slug: job.slug, sourceLang: 'cache' });
         }
-        cacheHits += 1;
-        continue;
+        // Quality gate: even with a valid cache, check for thin translations.
+        // The cache may hold old truncated AI output that should be retranslated.
+        const sourceLangForCache = job.sourceLang || detectTextLocale(baseDesc || baseTitle, 'it').lang;
+        const sourceLenForCache = normalizeForLengthComparison(
+          String(job.descriptionByLocale?.[sourceLangForCache] || baseDesc)
+        ).length;
+        const hasThinCached = sourceLenForCache >= 500 && DEFAULT_LOCALES.some((l) => {
+          if (l === sourceLangForCache) return false;
+          const d = normalizeForLengthComparison(String(job.descriptionByLocale?.[l] || ''));
+          return d.length > 0 && d.length < sourceLenForCache * 0.7;
+        });
+        if (hasThinCached) {
+          // Thin translations in cache — skip cache, fall through to retranslation
+          cacheMisses += 1;
+        } else {
+          cacheHits += 1;
+          continue;
+        }
+      } else {
+        cacheMisses += 1;
       }
-      cacheMisses += 1;
 
       // ── SKIP_AI_TRANSLATION: cache miss → mark for retranslation, skip AI ──
       if (skipAiTranslation) {
