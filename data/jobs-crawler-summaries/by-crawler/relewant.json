@@ -1,16 +1,16 @@
 {
   "key": "relewant",
   "label": "ReleWant",
-  "generatedAt": "2026-04-02T12:38:18.510Z",
+  "generatedAt": "2026-04-02T21:37:22.213Z",
   "total": 20,
   "newCount": 5,
   "updatedCount": 16,
   "removedCount": 4,
   "unchangedCount": 0,
-  "durationMs": 26850,
-  "avgDurationMs": 26850,
+  "durationMs": 31037,
+  "avgDurationMs": 31037,
   "durationHistory": [
-    26850
+    31037
   ],
   "newJobs": [
     {
@@ -74,36 +74,6 @@
       }
     },
     {
-      "title": "Cloud Engineer",
-      "slug": "cloud-engineer-relewant-chiasso",
-      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019511008/Cloud-Engineer",
-      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019511008/Cloud-Engineer/apply",
-      "company": "ReleWant",
-      "companyKey": "relewant",
-      "companyDomain": "zohorecruit.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "devops",
-      "sector": "Consulenza IT",
-      "source": "relewant-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 16,
-        "completeness": 14
-      }
-    },
-    {
       "title": "Network & Security Engineer",
       "slug": "network-security-engineer-relewant-chiasso",
       "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019505085/Network-Security-Engineer",
@@ -121,6 +91,36 @@
       "sector": "Consulenza IT",
       "source": "relewant-dedicated-crawler",
       "sourceLang": "en",
+      "postedDate": "2026-04-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "Cloud Engineer",
+      "slug": "cloud-engineer-relewant-chiasso",
+      "url": "https://relewant.zohorecruit.com/jobs/Careers/467189000019511008/Cloud-Engineer",
+      "applyUrl": "https://relewant.zohorecruit.com/jobs/Careers/467189000019511008/Cloud-Engineer/apply",
+      "company": "ReleWant",
+      "companyKey": "relewant",
+      "companyDomain": "zohorecruit.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "devops",
+      "sector": "Consulenza IT",
+      "source": "relewant-dedicated-crawler",
+      "sourceLang": "de",
       "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
@@ -192,7 +192,6 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale 2A",
       "postalCode": "6928",
-      "needsRetranslation": true,
       "_qualityScore": 99,
       "_qualityBreakdown": {
         "cleanliness": 25,
