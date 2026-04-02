@@ -2,20 +2,26 @@
  * Prada Group — jobs.pradagroup.com job parser
  *
  * Prada Group operates luxury fashion brands with a major site in Mendrisio, Ticino.
- * The careers portal is at:
+ * The careers portal uses SAP SuccessFactors at:
  *   https://jobs.pradagroup.com/
  *
- * Job detail URLs typically follow patterns like:
- *   https://jobs.pradagroup.com/job/{slug}/{jobId}
+ * Search endpoint:
+ *   https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location
  *
- * HTML structure on the listing page:
- *   Job cards/links with title, location, and category info
- *   Filter for Switzerland/Ticino locations
+ * Job detail URLs follow the pattern:
+ *   https://jobs.pradagroup.com/job/{Location}-{Title}/{jobId}/
  *
- * This parser extracts jobs from the listing page HTML.
+ * HTML structure on the search results page:
+ *   <table class="searchResults">
+ *     <tr class="data-row">
+ *       <td class="jobTitle ..."><a/span class="jobTitle-link" href="/job/.../{id}/">Title</a/span></td>
+ *       <td class="colLocation ...">Location</td>
+ *     </tr>
+ *   </table>
  */
 
-const CAREERS_URL = 'https://jobs.pradagroup.com/';
+const SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=switzerland&searchby=location';
+const TICINO_SEARCH_URL = 'https://jobs.pradagroup.com/search/?q=&locationsearch=ticino&searchby=location';
 const CAREERS_BASE = 'https://jobs.pradagroup.com';
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
 
@@ -54,60 +60,70 @@ export function slugify(value = '') {
 }
 
 /**
- * Parse the Prada Group listing page HTML to extract job links.
- * Returns array of { id, title, url, location, canton, department, jobId }
+ * Parse the Prada Group SuccessFactors search results page HTML.
+ * Extracts job listings from <table class="searchResults"> with data-row entries.
+ *
+ * Real HTML structure:
+ *   <tr class="data-row">
+ *     <td class="jobTitle hidden-phone">
+ *       <a/span class="jobTitle-link" href="/job/{path}/{jobId}/">Title</a/span>
+ *     </td>
+ *     <td class="colLocation hidden-phone">Location</td>
+ *   </tr>
+ *
+ * SuccessFactors renders both desktop and mobile versions — deduplicate by jobId.
+ *
+ * @returns {Array<{id: string, title: string, url: string, location: string, canton: string, department: string, jobId: string}>}
  */
 export function parsePradaListingHtml(html) {
   if (!html || typeof html !== 'string') return [];
 
   const jobs = [];
+  const seen = new Set();
 
-  // Pattern 1: SAP SuccessFactors / custom portal links with job IDs
-  const linkRe = /<a\s+[^>]*href="([^"]*\/job[^"]*?\/(\d+)[^"]*)"/gi;
+  // Pattern 1: SuccessFactors jobTitle-link with href — <a class="jobTitle-link" href="/job/.../{id}/">
+  const linkRe = /<(?:a|span)[^>]*class="[^"]*jobTitle-link[^"]*"[^>]*href="([^"]*\/job\/([^"]*?)\/(\d+)\/?)"[^>]*>([\s\S]*?)<\/(?:a|span)>/gi;
   let match;
-
   while ((match = linkRe.exec(html)) !== null) {
-    const rawUrl = match[1];
-    const jobId = match[2];
-    const fullUrl = rawUrl.startsWith('http') ? rawUrl : `${CAREERS_BASE}${rawUrl.startsWith('/') ? '' : '/'}${rawUrl}`;
+    const relUrl = match[1];
+    const jobId = match[3];
+    const rawTitle = normalizeSpace(stripHtml(match[4]));
+    if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+    seen.add(jobId);
 
-    const afterLink = html.slice(match.index, match.index + 500);
-    const titleMatch = afterLink.match(/<a\s+[^>]*>[^<]*<[^>]*>([^<]+)<\/[^>]*>\s*<\/a>/i)
-      || afterLink.match(/<a\s+[^>]*>([^<]+)<\/a>/i);
-    if (!titleMatch) continue;
+    const fullUrl = relUrl.startsWith('http') ? relUrl : `${CAREERS_BASE}${relUrl}`;
 
-    const rawTitle = normalizeSpace(stripHtml(titleMatch[1]));
-    if (!rawTitle || rawTitle.length < 3) continue;
+    // Extract location from the next colLocation cell
+    const afterMatch = html.slice(match.index, match.index + 1000);
+    const locMatch = afterMatch.match(/class="[^"]*colLocation[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
+    const location = locMatch ? normalizeSpace(stripHtml(locMatch[1])) : '';
 
-    const contextBlock = html.slice(match.index, match.index + 800);
-    const locationMatch = contextBlock.match(/(?:Mendrisio|Lugano|Chiasso|Milano|Milan|Firenze|Florence|Roma|Rome|Switzerland|Svizzera)/i);
-    const location = locationMatch ? locationMatch[0] : 'Mendrisio';
-
-    const deptMatch = contextBlock.match(/(?:Retail|Store|Visual Merchandising|Logistics|Logistica|Operations|Marketing|Design|Production|Produzione|Corporate|Finance|HR|IT|E-Commerce)/i);
-    const department = deptMatch ? deptMatch[0] : '';
+    // Extract department from colDepartment cell if present
+    const deptMatch = afterMatch.match(/class="[^"]*colDepartment[^"]*"[^>]*>([\s\S]*?)<\/td>/i);
+    const department = deptMatch ? normalizeSpace(stripHtml(deptMatch[1])) : '';
 
     jobs.push({
       id: `prada-${jobId}`,
       title: rawTitle,
       url: fullUrl,
-      location,
+      location: location || 'Mendrisio',
       canton: 'TI',
       department,
       jobId,
     });
   }
 
-  // Pattern 2: generic job card links
+  // Pattern 2: href="/job/.../{id}/" links without jobTitle-link class (fallback)
   if (jobs.length === 0) {
-    const cardRe = /<a\s+[^>]*href="(\/[^"]*(?:job|position|career|opening)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
-    let cMatch;
-    while ((cMatch = cardRe.exec(html)) !== null) {
-      const relUrl = cMatch[1];
-      const innerHtml = cMatch[2];
-      const rawTitle = normalizeSpace(stripHtml(innerHtml));
-      if (!rawTitle || rawTitle.length < 3) continue;
-      const idMatch = relUrl.match(/(\d{3,})/);
-      const jobId = idMatch ? idMatch[1] : String(jobs.length + 1);
+    const fallbackRe = /<a\s+[^>]*href="(\/job\/[^"]*?\/(\d{5,})\/?)"[^>]*>([\s\S]*?)<\/a>/gi;
+    let fMatch;
+    while ((fMatch = fallbackRe.exec(html)) !== null) {
+      const relUrl = fMatch[1];
+      const jobId = fMatch[2];
+      const rawTitle = normalizeSpace(stripHtml(fMatch[3]));
+      if (!rawTitle || rawTitle.length < 3 || seen.has(jobId)) continue;
+      seen.add(jobId);
+
       jobs.push({
         id: `prada-${jobId}`,
         title: rawTitle,
@@ -120,28 +136,30 @@ export function parsePradaListingHtml(html) {
     }
   }
 
-  // Deduplicate by jobId
-  const seen = new Set();
-  return jobs.filter((j) => {
-    if (seen.has(j.jobId)) return false;
-    seen.add(j.jobId);
-    return true;
-  });
+  return jobs;
 }
 
 /**
- * Parse a Prada Group job detail page for description content.
+ * Parse a Prada Group SuccessFactors job detail page for description content.
+ * SuccessFactors detail pages use class patterns like:
+ *   - jobdetail-container, jobdetail-externalDescription
+ *   - job-description, requisitionDescription
+ *
+ * Also extracts title and location if present in the detail HTML.
  */
 export function parsePradaDetailHtml(html) {
   if (!html || typeof html !== 'string') return null;
 
   let rawHtml = '';
 
+  // SuccessFactors-specific selectors (priority order)
   const selectors = [
+    /<div[^>]*class="[^"]*jobdetail-externalDescription[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
+    /<div[^>]*class="[^"]*jobdetail-container[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
+    /<div[^>]*class="[^"]*requisitionDescription[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
     /<div[^>]*class="[^"]*job[-_]?description[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
     /<div[^>]*class="[^"]*job[-_]?detail[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
     /<div[^>]*class="[^"]*description[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
-    /<div[^>]*class="[^"]*requisition[-_]?description[^"]*"[^>]*>([\s\S]*?)<\/div>/i,
     /<article[^>]*>([\s\S]*?)<\/article>/i,
     /<section[^>]*class="[^"]*job[^"]*"[^>]*>([\s\S]*?)<\/section>/i,
   ];
@@ -161,28 +179,60 @@ export function parsePradaDetailHtml(html) {
 
   const description = normalizeSpace(stripHtml(rawHtml));
 
+  // Extract title from the detail page
+  const titleMatch = html.match(/<h1[^>]*class="[^"]*jobTitle[^"]*"[^>]*>([\s\S]*?)<\/h1>/i)
+    || html.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i);
+  const title = titleMatch ? normalizeSpace(stripHtml(titleMatch[1])) : '';
+
+  // Extract location from the detail page
+  const locMatch = html.match(/class="[^"]*jobdetail-location[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div|td|p)>/i)
+    || html.match(/class="[^"]*job-location[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div|td|p)>/i);
+  const location = locMatch ? normalizeSpace(stripHtml(locMatch[1])) : '';
+
+  // Extract department
+  const deptMatch = html.match(/class="[^"]*jobdetail-department[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div|td|p)>/i)
+    || html.match(/class="[^"]*job-department[^"]*"[^>]*>([\s\S]*?)<\/(?:span|div|td|p)>/i);
+  const department = deptMatch ? normalizeSpace(stripHtml(deptMatch[1])) : '';
+
   return {
     description: description || '',
     rawHtml,
+    title,
+    location,
+    department,
   };
 }
 
 /**
- * Fetch all job URLs from the Prada Group listing page.
+ * Fetch all job URLs from the Prada Group SuccessFactors search endpoint.
+ * Searches for both "switzerland" and "ticino" to maximize coverage.
  */
 export async function fetchPradaJobUrls(timeoutMs = 15000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(CAREERS_URL, {
-      signal: controller.signal,
-      headers: { Accept: 'text/html', 'User-Agent': UA },
-      redirect: 'follow',
-    });
+    const allJobs = [];
+    const seenIds = new Set();
+
+    for (const searchUrl of [SEARCH_URL, TICINO_SEARCH_URL]) {
+      const res = await fetch(searchUrl, {
+        signal: controller.signal,
+        headers: { Accept: 'text/html', 'User-Agent': UA },
+        redirect: 'follow',
+      });
+      if (!res.ok) continue;
+      const html = await res.text();
+      const jobs = parsePradaListingHtml(html);
+      for (const job of jobs) {
+        if (!seenIds.has(job.jobId)) {
+          seenIds.add(job.jobId);
+          allJobs.push(job);
+        }
+      }
+    }
+
     clearTimeout(timer);
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const html = await res.text();
-    return parsePradaListingHtml(html);
+    return allJobs;
   } catch (err) {
     console.warn(`\u26a0\ufe0f Failed to fetch Prada Group careers page: ${err.message}`);
     return [];

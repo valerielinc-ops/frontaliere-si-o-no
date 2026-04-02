@@ -2,7 +2,8 @@
  * Tests for the Otis SA (Workday) crawler parser.
  *
  * Tests parseOtisWorkdayListings(), parseOtisWorkdayDetail(),
- * isSwissLocation(), and utility functions using mock Workday API responses.
+ * isSwissLocation(), and utility functions using mock Workday API responses
+ * matching the real API response format.
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -17,69 +18,78 @@ import {
   stripHtml,
 } from '@/scripts/lib/otis-job-parser.mjs';
 
-// ─── Mock Workday API listing response ────────────────────────────────────────
+// ─── Mock Workday API listing response (matches real API format) ──────────────
 
 const MOCK_LISTINGS = {
+  total: 26,
   jobPostings: [
     {
-      title: 'Field Technician - Ticino',
-      externalPath: '/job/CHE---Ticino/Field-Technician_REQ20001',
-      locationsText: 'CHE - Ticino',
-      bulletFields: ['REQ20001', 'Full time'],
-      postedOn: '2026-03-10',
+      title: 'Aufzugsmonteur (m/w/d)',
+      externalPath: '/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293',
+      locationsText: 'Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland',
+      postedOn: 'Posted 30+ Days Ago',
+      remoteType: 'On-Site',
+      bulletFields: ['Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland', '20152293'],
     },
     {
-      title: 'Service Supervisor',
-      externalPath: '/job/CHE---Lugano/Service-Supervisor_REQ20002',
-      locationsText: 'CHE - Lugano',
-      bulletFields: ['REQ20002', 'Full time'],
-      postedOn: '2026-03-12',
+      title: 'Service Techniker Aufzüge (m/w/d)',
+      externalPath: '/job/Zurich-Switzerland/Service-Techniker-Aufzuge--m-w-d-_20158801',
+      locationsText: 'Zurich, Switzerland',
+      postedOn: 'Posted 14 Days Ago',
+      remoteType: 'On-Site',
+      bulletFields: ['Zurich, Switzerland', '20158801'],
     },
     {
-      title: 'Elevator Engineer',
-      externalPath: '/job/DEU---Berlin/Elevator-Engineer_REQ20003',
-      locationsText: 'DEU - Berlin',
-      bulletFields: ['REQ20003', 'Full time'],
-      postedOn: '2026-03-08',
+      title: 'Sales Manager DACH',
+      externalPath: '/job/Berlin-Germany/Sales-Manager-DACH_20160001',
+      locationsText: 'Berlin, Germany',
+      postedOn: 'Posted 7 Days Ago',
+      remoteType: 'On-Site',
+      bulletFields: ['Berlin, Germany', '20160001'],
     },
     {
-      title: 'Sales Representative',
-      externalPath: '/job/FRA---Paris/Sales-Rep_REQ20004',
-      locationsText: 'FRA - Paris',
-      bulletFields: ['REQ20004', 'Full time'],
-      postedOn: '2026-03-05',
+      title: 'Responsable Technique',
+      externalPath: '/job/Paris-France/Responsable-Technique_20160002',
+      locationsText: 'Paris, France',
+      postedOn: 'Posted 3 Days Ago',
+      remoteType: 'On-Site',
+      bulletFields: ['Paris, France', '20160002'],
     },
     {
-      title: 'Maintenance Technician',
-      externalPath: '/job/CHE---Switzerland/Maintenance-Tech_REQ20005',
-      locationsText: 'Switzerland',
-      bulletFields: ['REQ20005', 'Part time'],
-      postedOn: '2026-03-14',
+      title: 'Teilzeit Servicemonteur (m/w/d) 60%',
+      externalPath: '/job/Bern-Switzerland/Teilzeit-Servicemonteur--m-w-d-_20159900',
+      locationsText: 'Bern, Switzerland',
+      postedOn: 'Posted 5 Days Ago',
+      remoteType: 'On-Site',
+      bulletFields: ['Bern, Switzerland', '20159900'],
     },
   ],
-  total: 5,
 };
 
-// ─── Mock Workday job detail ──────────────────────────────────────────────────
+// ─── Mock Workday job detail (matches real API response format) ───────────────
 
 const MOCK_DETAIL = {
   jobPostingInfo: {
-    title: 'Field Technician - Ticino',
-    location: 'CHE - Ticino',
-    jobDescription: '<p>Otis SA cerca un tecnico di campo per la manutenzione e riparazione di ascensori nella regione Ticino.</p><ul><li>Manutenzione preventiva degli impianti</li><li>Diagnosi e riparazione guasti</li><li>Assistenza clienti on-site</li></ul><p>Offriamo un ambiente dinamico e formazione continua nel settore degli ascensori.</p>',
+    id: 'ba36e00ac18c10019e3cbf648a740000',
+    title: 'Aufzugsmonteur (m/w/d)',
+    jobDescription: '<p>Otis AG sucht einen erfahrenen Aufzugsmonteur für die Installation und Wartung von Aufzugsanlagen in der Region St-Gallen.</p><ul><li>Installation neuer Aufzugsanlagen</li><li>Wartung und Reparatur bestehender Systeme</li><li>Kundenbetreuung vor Ort</li></ul><p>Wir bieten ein dynamisches Arbeitsumfeld und kontinuierliche Weiterbildung.</p>',
+    location: 'Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland',
+    postedOn: 'Posted 30+ Days Ago',
+    startDate: '2026-02-05',
     timeType: 'Full time',
-    jobReqId: 'REQ20001',
-    startDate: '2026-04-01',
-    country: { descriptor: 'Switzerland' },
+    jobReqId: '20152293',
+    country: { descriptor: 'Switzerland', id: 'bc33aa3152ec42d4995f4791a106ed09' },
+    remoteType: 'On-Site',
+    externalUrl: 'https://otis.wd5.myworkdayjobs.com/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293',
   },
 };
 
 // ─── parseOtisWorkdayListings tests ───────────────────────────────────────────
 
 describe('parseOtisWorkdayListings — Swiss filtering', () => {
-  it('filters only Swiss listings', () => {
+  it('filters only Swiss listings (Switzerland in location)', () => {
     const results = parseOtisWorkdayListings(MOCK_LISTINGS);
-    expect(results).toHaveLength(3); // Ticino + Lugano + Switzerland
+    expect(results).toHaveLength(3); // St-Gallen + Zurich + Bern (all have "Switzerland")
   });
 
   it('excludes Berlin and Paris listings', () => {
@@ -91,15 +101,27 @@ describe('parseOtisWorkdayListings — Swiss filtering', () => {
   it('extracts correct titles', () => {
     const results = parseOtisWorkdayListings(MOCK_LISTINGS);
     const titles = results.map((r) => r.title);
-    expect(titles).toContain('Field Technician - Ticino');
-    expect(titles).toContain('Service Supervisor');
-    expect(titles).toContain('Maintenance Technician');
+    expect(titles).toContain('Aufzugsmonteur (m/w/d)');
+    expect(titles).toContain('Service Techniker Aufzüge (m/w/d)');
+    expect(titles).toContain('Teilzeit Servicemonteur (m/w/d) 60%');
   });
 
-  it('extracts city from location text', () => {
+  it('extracts city from real locationsText format', () => {
     const results = parseOtisWorkdayListings(MOCK_LISTINGS);
-    const luganoJob = results.find((r) => r.title === 'Service Supervisor');
-    expect(luganoJob?.city).toBe('Lugano');
+    const stGallenJob = results.find((r) => r.title === 'Aufzugsmonteur (m/w/d)');
+    expect(stGallenJob?.city).toBe('St-Gallen');
+  });
+
+  it('extracts city from "City, Country" format', () => {
+    const results = parseOtisWorkdayListings(MOCK_LISTINGS);
+    const zurichJob = results.find((r) => r.title.includes('Service Techniker'));
+    expect(zurichJob?.city).toBe('Zurich');
+  });
+
+  it('extracts jobId from bulletFields', () => {
+    const results = parseOtisWorkdayListings(MOCK_LISTINGS);
+    expect(results[0].jobId).toBe('20152293');
+    expect(results[1].jobId).toBe('20158801');
   });
 
   it('deduplicates by externalPath', () => {
@@ -129,30 +151,47 @@ describe('parseOtisWorkdayDetail', () => {
   it('extracts title', () => {
     const result = parseOtisWorkdayDetail(MOCK_DETAIL, '/job/test');
     expect(result).not.toBeNull();
-    expect(result!.title).toBe('Field Technician - Ticino');
+    expect(result!.title).toBe('Aufzugsmonteur (m/w/d)');
   });
 
   it('extracts description without HTML', () => {
     const result = parseOtisWorkdayDetail(MOCK_DETAIL, '/job/test');
     expect(result!.description).not.toMatch(/<[a-z]/i);
-    expect(result!.description).toContain('tecnico di campo');
-    expect(result!.description).toContain('ascensori');
+    expect(result!.description).toContain('Aufzugsmonteur');
+    expect(result!.description).toContain('Aufzugsanlagen');
   });
 
   it('builds correct public URL', () => {
-    const result = parseOtisWorkdayDetail(MOCK_DETAIL, '/job/CHE---Ticino/Field-Tech_REQ20001');
+    const path = '/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293';
+    const result = parseOtisWorkdayDetail(MOCK_DETAIL, path);
     expect(result!.url).toContain('otis.wd5.myworkdayjobs.com');
-    expect(result!.url).toContain('/job/CHE---Ticino/Field-Tech_REQ20001');
+    expect(result!.url).toContain('/Aufzugsmonteur--m-w-d-_20152293');
   });
 
   it('extracts datePosted from startDate', () => {
     const result = parseOtisWorkdayDetail(MOCK_DETAIL, '/job/test');
-    expect(result!.datePosted).toBe('2026-04-01');
+    expect(result!.datePosted).toBe('2026-02-05');
   });
 
-  it('detects FULL_TIME employment type', () => {
+  it('detects FULL_TIME from Workday timeType', () => {
     const result = parseOtisWorkdayDetail(MOCK_DETAIL, '/job/test');
     expect(result!.employmentType).toBe('FULL_TIME');
+  });
+
+  it('detects PART_TIME from Workday timeType', () => {
+    const partTimeDetail = {
+      jobPostingInfo: {
+        ...MOCK_DETAIL.jobPostingInfo,
+        timeType: 'Part time',
+      },
+    };
+    const result = parseOtisWorkdayDetail(partTimeDetail, '/job/test');
+    expect(result!.employmentType).toBe('PART_TIME');
+  });
+
+  it('extracts jobReqId', () => {
+    const result = parseOtisWorkdayDetail(MOCK_DETAIL, '/job/test');
+    expect(result!.jobReqId).toBe('20152293');
   });
 
   it('returns null for null input', () => {
@@ -168,32 +207,39 @@ describe('parseOtisWorkdayDetail', () => {
 // ─── isSwissLocation tests ────────────────────────────────────────────────────
 
 describe('isSwissLocation', () => {
-  it('returns true for Ticino', () => { expect(isSwissLocation('CHE - Ticino')).toBe(true); });
-  it('returns true for Lugano', () => { expect(isSwissLocation('CHE - Lugano')).toBe(true); });
+  it('returns true for real locationsText with Switzerland', () => {
+    expect(isSwissLocation('Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland')).toBe(true);
+  });
+  it('returns true for City, Switzerland', () => { expect(isSwissLocation('Zurich, Switzerland')).toBe(true); });
+  it('returns true for Lugano', () => { expect(isSwissLocation('Lugano, TI')).toBe(true); });
   it('returns true for Switzerland', () => { expect(isSwissLocation('Switzerland')).toBe(true); });
-  it('returns false for Berlin', () => { expect(isSwissLocation('DEU - Berlin')).toBe(false); });
-  it('returns false for Paris', () => { expect(isSwissLocation('FRA - Paris')).toBe(false); });
+  it('returns false for Berlin, Germany', () => { expect(isSwissLocation('Berlin, Germany')).toBe(false); });
+  it('returns false for Paris, France', () => { expect(isSwissLocation('Paris, France')).toBe(false); });
 });
 
 // ─── Utility function tests ───────────────────────────────────────────────────
 
 describe('parseWorkdayCity', () => {
-  it('extracts city from "CHE - Ticino"', () => { expect(parseWorkdayCity('CHE - Ticino')).toBe('Ticino'); });
+  it('extracts city from "Street, PostalCode City, Country"', () => {
+    expect(parseWorkdayCity('Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland')).toBe('St-Gallen');
+  });
+  it('extracts city from "City, Country"', () => { expect(parseWorkdayCity('Zurich, Switzerland')).toBe('Zurich'); });
   it('extracts city from "CHE - Lugano"', () => { expect(parseWorkdayCity('CHE - Lugano')).toBe('Lugano'); });
+  it('handles plain "Switzerland"', () => { expect(parseWorkdayCity('Switzerland')).toBe('Switzerland'); });
   it('handles "Lugano, Switzerland"', () => { expect(parseWorkdayCity('Lugano, Switzerland')).toBe('Lugano'); });
 });
 
 describe('buildPublicUrl', () => {
   it('builds correct URL', () => {
-    expect(buildPublicUrl('/job/CHE---Ticino/Field-Tech_REQ20001')).toBe(
-      'https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/CHE---Ticino/Field-Tech_REQ20001'
+    expect(buildPublicUrl('/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293')).toBe(
+      'https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293'
     );
   });
 });
 
 describe('Otis — slugify', () => {
   it('generates correct slug', () => {
-    expect(slugify('Field Technician - Ticino')).toBe('field-technician-ticino');
+    expect(slugify('Aufzugsmonteur (m/w/d)')).toBe('aufzugsmonteur-m-w-d');
   });
 
   it('handles accented characters', () => {
@@ -221,19 +267,23 @@ describe('Otis — stripHtml', () => {
 });
 
 describe('Otis — inferEmploymentType', () => {
-  it('detects FULL_TIME from Full time', () => {
+  it('detects FULL_TIME from Workday "Full time"', () => {
     expect(inferEmploymentType('', '', 'Full time')).toBe('FULL_TIME');
   });
 
-  it('detects PART_TIME from Part time', () => {
+  it('detects PART_TIME from Workday "Part time"', () => {
     expect(inferEmploymentType('', '', 'Part time')).toBe('PART_TIME');
   });
 
-  it('detects PART_TIME from 60%', () => {
+  it('detects PART_TIME from 60% in title', () => {
     expect(inferEmploymentType('Technician 60%')).toBe('PART_TIME');
   });
 
-  it('defaults to FULL_TIME', () => {
-    expect(inferEmploymentType('Field Technician')).toBe('FULL_TIME');
+  it('defaults to FULL_TIME when no signals', () => {
+    expect(inferEmploymentType('Aufzugsmonteur')).toBe('FULL_TIME');
+  });
+
+  it('detects PART_TIME from Teilzeit', () => {
+    expect(inferEmploymentType('Teilzeit Servicemonteur')).toBe('PART_TIME');
   });
 });

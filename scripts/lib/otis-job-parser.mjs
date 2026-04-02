@@ -2,23 +2,23 @@
  * Otis SA — Workday API job parser
  *
  * Otis is a global elevator and escalator manufacturing company.
- * Their Swiss operations include positions in Canton Ticino.
+ * Their Swiss operations include positions across Switzerland.
  *
  * Workday API endpoints:
  *   Listing: POST https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway/jobs
- *   Detail:  GET  https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway/job/{externalPath}
+ *            Body: {"appliedFacets":{},"limit":20,"offset":0,"searchText":"Switzerland"}
+ *   Detail:  GET  https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway{externalPath}
  *
  * Public URL base:
- *   https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/{externalPath}
+ *   https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway{externalPath}
  *
- * The listing endpoint accepts a POST body with optional facets for country filtering.
- * Switzerland country facet ID: f2e609fe77da01661cd2407e01746e08
+ * The listing endpoint uses searchText to filter by country (facet IDs cause 400 errors).
+ * Response locationsText format: "Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland"
  */
 
 export const WORKDAY_API_BASE = 'https://otis.wd5.myworkdayjobs.com/wday/cxs/otis/REC_Ext_Gateway';
 export const WORKDAY_PUBLIC_BASE = 'https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway';
 export const COMPANY_HOST = 'otis.wd5.myworkdayjobs.com';
-export const SWISS_COUNTRY_FACET = 'f2e609fe77da01661cd2407e01746e08';
 
 /**
  * Known Ticino location keywords for filtering.
@@ -28,6 +28,8 @@ export const TICINO_LOCATION_KEYWORDS = [
   'mendrisio', 'chiasso', 'sorengo', 'agno', 'bioggio',
   'rivera', 'lamone', 'grancia', 'muzzano', 'paradiso',
   'switzerland', 'svizzera', 'suisse', 'schweiz',
+  'st-gallen', 'st. gallen', 'zürich', 'zurich', 'bern', 'basel', 'geneva', 'genève',
+  'lausanne', 'winterthur', 'luzern', 'lucerne',
 ];
 
 const UA = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)';
@@ -79,13 +81,40 @@ export function isSwissLocation(locationText = '') {
 
 /**
  * Parse city name from Workday location text.
- * Workday format: "CHE - Lugano" or "Ticino, Switzerland"
+ * Real format: "Walenbüchelstrasse 3, 9000 St-Gallen, Switzerland"
+ * Also handles: "CHE - Lugano", "Ticino, Switzerland", plain "Switzerland"
  */
 export function parseWorkdayCity(locText = '') {
   const cleaned = String(locText || '').trim();
-  const parts = cleaned.split(/\s*-\s*/);
-  const city = parts.length > 1 ? parts.slice(1).join('-').trim() : cleaned;
-  return city.replace(/,\s*(?:switzerland|svizzera|suisse|schweiz)$/i, '').trim() || cleaned;
+  if (!cleaned) return '';
+
+  // Format: "Street, PostalCode City, Country" — extract "City" from the middle segment
+  const commaParts = cleaned.split(',').map((s) => s.trim());
+  if (commaParts.length >= 3) {
+    // Middle part is typically "9000 St-Gallen" — strip postal code
+    const middle = commaParts[commaParts.length - 2];
+    const cityFromMiddle = middle.replace(/^\d{4,5}\s+/, '').trim();
+    if (cityFromMiddle && !/^switzerland|svizzera|suisse|schweiz$/i.test(cityFromMiddle)) {
+      return cityFromMiddle;
+    }
+  }
+
+  // Format: "City, Country"
+  if (commaParts.length === 2) {
+    const candidate = commaParts[0].replace(/^\d{4,5}\s+/, '').trim();
+    if (candidate && !/^switzerland|svizzera|suisse|schweiz$/i.test(candidate)) {
+      return candidate;
+    }
+  }
+
+  // Format: "CHE - City"
+  const dashParts = cleaned.split(/\s*-\s*/);
+  if (dashParts.length > 1) {
+    const city = dashParts.slice(1).join('-').trim();
+    return city.replace(/,\s*(?:switzerland|svizzera|suisse|schweiz)$/i, '').trim() || cleaned;
+  }
+
+  return cleaned.replace(/,\s*(?:switzerland|svizzera|suisse|schweiz)$/i, '').trim() || cleaned;
 }
 
 /**
@@ -97,8 +126,13 @@ export function buildPublicUrl(externalPath = '') {
 
 /**
  * Infer employment type from Workday time type or title/description.
+ * Workday uses "Full time", "Part time" in the timeType field.
  */
 export function inferEmploymentType(title = '', description = '', timeType = '') {
+  const tt = String(timeType || '').trim().toLowerCase();
+  if (tt === 'part time') return 'PART_TIME';
+  if (tt === 'full time') return 'FULL_TIME';
+
   const combined = `${title} ${timeType} ${description}`;
   if (/part[- ]?time|teilzeit|tempo parziale|temps partiel/i.test(combined)) return 'PART_TIME';
   const pctMatch = combined.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/) || combined.match(/(\d{2,3})\s*%/);
@@ -111,10 +145,13 @@ export function inferEmploymentType(title = '', description = '', timeType = '')
 
 /**
  * Parse job listings from the Workday API JSON response.
- * Filters to Swiss positions.
+ * Filters to Swiss positions based on locationsText containing "Switzerland".
+ *
+ * Real response format:
+ * { title, externalPath, locationsText, postedOn, remoteType, bulletFields: [location, jobReqId] }
  *
  * @param {object} apiResponse - Parsed JSON from the Workday listing endpoint
- * @returns {Array<{title: string, externalPath: string, location: string, city: string, bulletFields: string[], postedOn: string}>}
+ * @returns {Array<{title: string, externalPath: string, location: string, city: string, bulletFields: string[], postedOn: string, jobId: string}>}
  */
 export function parseOtisWorkdayListings(apiResponse) {
   if (!apiResponse || !Array.isArray(apiResponse.jobPostings)) return [];
@@ -134,13 +171,28 @@ export function parseOtisWorkdayListings(apiResponse) {
     // Filter for Swiss locations
     if (!isSwissLocation(locationsText)) continue;
 
+    // Extract jobId from bulletFields (typically last element) or externalPath
+    const bulletFields = posting.bulletFields || [];
+    let jobId = '';
+    for (const field of bulletFields) {
+      if (/^\d{5,}$/.test(String(field).trim())) {
+        jobId = String(field).trim();
+        break;
+      }
+    }
+    if (!jobId) {
+      const pathMatch = externalPath.match(/_(\d{5,})$/);
+      if (pathMatch) jobId = pathMatch[1];
+    }
+
     results.push({
       title,
       externalPath,
       location: locationsText,
       city: parseWorkdayCity(locationsText),
-      bulletFields: posting.bulletFields || [],
+      bulletFields,
       postedOn: posting.postedOn || '',
+      jobId,
     });
   }
 
@@ -185,6 +237,7 @@ export function parseOtisWorkdayDetail(detail, externalPath = '') {
 
 /**
  * Fetch all Swiss job listings from the Otis Workday API.
+ * Uses searchText:"Switzerland" instead of facet IDs (which cause HTTP 400).
  */
 export async function fetchOtisJobUrls(timeoutMs = 15000) {
   const controller = new AbortController();
@@ -205,10 +258,10 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
           'User-Agent': UA,
         },
         body: JSON.stringify({
-          appliedFacets: { locationCountry: [SWISS_COUNTRY_FACET] },
+          appliedFacets: {},
           limit,
           offset,
-          searchText: '',
+          searchText: 'Switzerland',
         }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -233,12 +286,14 @@ export async function fetchOtisJobUrls(timeoutMs = 15000) {
 
 /**
  * Fetch and parse a single Otis Workday job detail page.
+ * Detail URL: GET {WORKDAY_API_BASE}{externalPath}
+ * (externalPath already starts with /job/...)
  */
 export async function fetchOtisDetailPage(externalPath, timeoutMs = 15000) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
-    const res = await fetch(`${WORKDAY_API_BASE}/job${externalPath}`, {
+    const res = await fetch(`${WORKDAY_API_BASE}${externalPath}`, {
       signal: controller.signal,
       headers: {
         Accept: 'application/json',
