@@ -1,16 +1,16 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-02T09:59:40.838Z",
+  "generatedAt": "2026-04-02T11:43:52.882Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3606,
-  "avgDurationMs": 3606,
+  "unchangedCount": 1,
+  "durationMs": 2561,
+  "avgDurationMs": 2561,
   "durationHistory": [
-    3606
+    2561
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -83,7 +83,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
       "slug": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno",
@@ -119,7 +122,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
