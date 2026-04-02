@@ -1,51 +1,18 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-02T12:28:09.796Z",
+  "generatedAt": "2026-04-02T21:26:13.823Z",
   "total": 12,
-  "newCount": 1,
-  "updatedCount": 6,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
-  "unchangedCount": 5,
-  "durationMs": 64206,
-  "avgDurationMs": 64206,
+  "unchangedCount": 7,
+  "durationMs": 47687,
+  "avgDurationMs": 47687,
   "durationHistory": [
-    64206
+    47687
   ],
-  "newJobs": [
-    {
-      "id": "company-jb4io9",
-      "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
-      "company": "Lidl Svizzera",
-      "title": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
-      "location": "St. Moritz",
-      "canton": "gr",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-673001",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "St. Moritz",
-        "canton": "GR"
-      },
-      "companyKey": "lidl-svizzera",
-      "companyDomain": "lidl.ch",
-      "crawledAt": "2026-04-02T12:28:08.796Z",
-      "needsRetranslation": true,
-      "country": "CH",
-      "_qualityScore": 65,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 4,
-        "completeness": 14
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "id": "company-nuf61k",
@@ -249,51 +216,50 @@
         "translation": 23,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
-      "id": "company-kp8dxh",
-      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
+      "id": "company-jb4io9",
+      "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
       "company": "Lidl Svizzera",
-      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
-      "location": "Sant'Antonino",
-      "canton": "ti",
-      "category": "other",
+      "title": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
+      "location": "St. Moritz",
+      "canton": "gr",
+      "category": "admin",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2025-08-05",
-      "url": "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
+      "postedDate": "2026-04-02",
+      "url": "https://team.lidl.ch/de/jobs/filialleiter-filialleiterin-m-w-d-80-100-st-moritz-673001",
       "source": "Company Careers Crawler",
       "_targetScope": {
         "type": "adapter_seed_meta",
-        "location": "Sant'Antonino",
-        "canton": "TI"
+        "location": "St. Moritz",
+        "canton": "GR"
       },
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
-      "crawledAt": "2026-03-31T21:28:15.779Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-04-02T12:28:08.796Z",
       "country": "CH",
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
+      "sourceLang": "de",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
       "streetAddress": "Via Industria 7",
       "postalCode": "6593",
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 81,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 9,
+        "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-7p9uz6",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
@@ -477,6 +443,47 @@
       "companyKey": "lidl-svizzera",
       "companyDomain": "lidl.ch",
       "crawledAt": "2026-03-31T21:28:15.779Z",
+      "country": "CH",
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "company-kp8dxh",
+      "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-sant-antonino-kp8dxh",
+      "company": "Lidl Svizzera",
+      "title": "Apprendistato nel commercio al dettaglio CFP o AFC - Inizio 2026",
+      "location": "Sant'Antonino",
+      "canton": "ti",
+      "category": "other",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-08-05",
+      "url": "https://team.lidl.ch/it/jobs/apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-sant-antonino-588231",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Sant'Antonino",
+        "canton": "TI"
+      },
+      "companyKey": "lidl-svizzera",
+      "companyDomain": "lidl.ch",
+      "crawledAt": "2026-03-31T21:28:15.779Z",
+      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "it",
       "salaryMin": 46500,

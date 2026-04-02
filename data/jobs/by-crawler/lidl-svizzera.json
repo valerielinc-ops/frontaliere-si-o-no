@@ -1,10 +1,10 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-04-02T12:28:09.790Z",
+  "assembledAt": "2026-04-02T21:26:13.818Z",
   "jobs": [
     {
       "id": "company-jb4io9",
-      "slug": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-jb4io9",
+      "slug": "responsabile-filiale-m-f-80-100-lidl-svizzera-st-moritz",
       "company": "Lidl Svizzera",
       "title": "Filialleiter / Filialleiterin (m/w/d) 80-100%",
       "location": "St. Moritz",
@@ -42,7 +42,7 @@
       "slugByLocale": {
         "it": "responsabile-filiale-m-f-80-100-lidl-svizzera-st-moritz",
         "en": "branch-manager-m-f-80-100-lidl-svizzera-st-moritz",
-        "de": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
+        "de": "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-cadenazzo",
         "fr": "responsable-de-succursale-h-f-80-100-lidl-svizzera-st-moritz"
       },
       "country": "CH",
@@ -148,7 +148,8 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-komp69",
@@ -221,7 +222,8 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ancoue",
@@ -495,7 +497,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-biasca-3t5gz5"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-kscbfg",
@@ -562,7 +565,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zdpsyo",
