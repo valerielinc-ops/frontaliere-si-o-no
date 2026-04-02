@@ -361,7 +361,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'AMAG Group');
   writeJobsSummary(mergedTarget, 'AMAG Group');
   printPublishedJobUrls(mergedTarget, 'AMAG Group');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -434,7 +434,7 @@ async function main() {
 
   const jobs = deduplicated.map(buildAmagJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for AMAG Group jobs...');

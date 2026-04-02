@@ -261,7 +261,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Tarchini Group');
   writeJobsSummary(mergedTarget, 'Tarchini Group');
   printPublishedJobUrls(mergedTarget, 'Tarchini Group');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -320,7 +320,7 @@ async function main() {
   const enrichedListings = await enrichWithDetails(listings);
   const jobs = enrichedListings.map(buildTarchiniJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Tarchini Group jobs...');

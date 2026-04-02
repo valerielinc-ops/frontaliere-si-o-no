@@ -347,7 +347,7 @@ function mergeJobs(discoveredJobs) {
   console.log(`  🗑️  Removed (stale): ${removed}`);
   console.log(`  📊 Total jobs in file: ${allJobs.length}`);
 
-  return { total: allJobs.length, added, updated, removed, targetCount: merged.length };
+  return { total: allJobs.length, added, updated, removed, targetCount: merged.length, diff };
 }
 
 // ─────────────────────────────────────────────────────────────
@@ -412,6 +412,7 @@ async function main() {
   // Phase 2: Merge into data/jobs.json
   console.log('\n📦 Phase 2: Merge...');
   const stats = mergeJobs(discoveredJobs);
+  const diff = stats.diff;
 
   // Phase 3: Run base crawler for AI localization
   console.log('\n🌐 Phase 3: AI localization...');

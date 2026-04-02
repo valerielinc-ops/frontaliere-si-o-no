@@ -206,7 +206,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'GOLINE SA');
   writeJobsSummary(mergedTarget, 'GOLINE SA');
   printPublishedJobUrls(mergedTarget, 'GOLINE SA');
-  return mergedTarget.length;
+  return { total: mergedTarget.length, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -273,7 +273,7 @@ async function main() {
 
   const role = parseGolineOpportunitiesPage(html);
   const job = buildJob(role);
-  const total = mergeJobs([job]);
+  const { total, diff } = mergeJobs([job]);
   updateAdapterConfig([job]);
 
   console.log('\n🌐 Running locale fill for GOLINE jobs...');

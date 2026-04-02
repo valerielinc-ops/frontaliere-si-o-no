@@ -278,7 +278,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'ALTEN Switzerland');
   writeJobsSummary(mergedTarget, 'ALTEN Switzerland');
   printPublishedJobUrls(mergedTarget, 'ALTEN Switzerland');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -333,6 +333,7 @@ async function main() {
   }
   const jobs = await buildJobs(listings);
   const result = mergeJobs(jobs);
+  const diff = result.diff;
   updateAdapterConfig(jobs);
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,

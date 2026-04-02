@@ -225,6 +225,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Bosch Thermotechnik AG');
   writeJobsSummary(mergedTarget, 'Bosch Thermotechnik AG');
   printPublishedJobUrls(mergedTarget, 'Bosch Thermotechnik AG');
+  return { diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -270,7 +271,7 @@ async function main() {
   const jobs = [];
   for (const listing of listings) jobs.push(await buildBoschJob(listing));
   updateAdapterConfig(jobs);
-  mergeJobs(jobs);
+  const { diff } = mergeJobs(jobs);
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,
     isTargetJob,

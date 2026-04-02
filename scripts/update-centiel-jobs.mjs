@@ -305,7 +305,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   writeJobsSummary(mergedTarget, COMPANY_NAME);
   printPublishedJobUrls(mergedTarget, COMPANY_NAME);
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
@@ -370,7 +370,7 @@ async function main() {
   const jobs = listings.map(buildJob);
 
   // 3. Merge into jobs.json
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   // 4. Translate missing locales

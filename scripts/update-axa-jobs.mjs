@@ -346,7 +346,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'AXA Svizzera');
   writeJobsSummary(mergedTarget, 'AXA Svizzera');
   printPublishedJobUrls(mergedTarget, 'AXA Svizzera');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -422,7 +422,7 @@ async function main() {
 
   const jobs = deduplicated.map(buildAxaJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for AXA jobs...');

@@ -210,7 +210,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Ariston Group');
   writeJobsSummary(mergedTarget, 'Ariston Group');
   printPublishedJobUrls(mergedTarget, 'Ariston Group');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -266,6 +266,7 @@ async function main() {
   }
 
   const merged = mergeJobs(jobs);
+  const diff = merged.diff;
   updateAdapterConfig(jobs);
   await translateMissingJobLocales({
     dataJobsPath: DATA_JOBS,

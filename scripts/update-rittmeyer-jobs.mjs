@@ -205,7 +205,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Rittmeyer AG');
   writeJobsSummary(mergedTarget, 'Rittmeyer AG');
   printPublishedJobUrls(mergedTarget, 'Rittmeyer AG');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -259,7 +259,7 @@ async function main() {
   for (const listing of listings) {
     jobs.push(await buildRittmeyerJob(listing));
   }
-  const { total } = mergeJobs(jobs);
+  const { total, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Rittmeyer jobs...');

@@ -242,6 +242,7 @@ async function main() {
   }
 
   const discoveredJobs = await fetchJobs();
+  const diff = discoveredJobs.diff;
   if (discoveredJobs.length === 0) { console.log('ℹ️  No job listings found — skipping crawl.'); return; }
 
   const seedUrls = discoveredJobs.map((j) => j.url);

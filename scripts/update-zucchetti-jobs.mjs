@@ -211,7 +211,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   writeJobsSummary(mergedTarget, COMPANY_NAME);
   printPublishedJobUrls(mergedTarget, COMPANY_NAME);
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -267,6 +267,7 @@ async function main() {
   }
 
   const result = mergeJobs(jobs);
+  const diff = result.diff;
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Zucchetti jobs...');

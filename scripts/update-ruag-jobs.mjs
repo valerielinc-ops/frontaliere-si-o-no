@@ -294,7 +294,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'RUAG AG');
   writeJobsSummary(mergedTarget, 'RUAG AG');
   printPublishedJobUrls(mergedTarget, 'RUAG AG');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 async function main() {

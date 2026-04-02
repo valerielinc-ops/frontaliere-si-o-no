@@ -228,7 +228,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Agroscope');
   writeJobsSummary(mergedTarget, 'Agroscope');
   printPublishedJobUrls(mergedTarget, 'Agroscope');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -286,7 +286,7 @@ async function main() {
 
   const jobs = listings.map(buildAgroscopeJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\nRunning locale fill for Agroscope jobs...');

@@ -203,7 +203,7 @@ function mergeJobs(discoveredJobs) {
   writeJobsSummary(mergedTarget, 'TSMG');
   printPublishedJobUrls(mergedTarget, 'TSMG');
 
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -263,7 +263,7 @@ async function main() {
     throw new Error(`Expected at least 2 Ticino/Grigioni jobs, found ${target.length}`);
   }
   const discoveredJobs = target.map(buildJob);
-  const { total, added, updated } = mergeJobs(discoveredJobs);
+  const { total, added, updated, diff} = mergeJobs(discoveredJobs);
   updateAdapterConfig(discoveredJobs);
 
   const newUrls = discoveredJobs.map((job) => job.url).filter(Boolean);

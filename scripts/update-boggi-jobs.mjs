@@ -210,7 +210,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Boggi Milano');
   writeJobsSummary(mergedTarget, 'Boggi Milano');
   printPublishedJobUrls(mergedTarget, 'Boggi Milano');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -402,7 +402,7 @@ async function main() {
 
   const jobs = deduplicated.map(buildBoggiJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   // Enrich jobs with short/truncated descriptions by fetching the HTML detail page.

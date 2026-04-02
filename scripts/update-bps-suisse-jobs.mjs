@@ -354,11 +354,12 @@ async function main() {
   });
 
   // Stats
+  let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   if (fs.existsSync(DATA_JOBS)) {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     const companyJobs = Array.isArray(jobs) ? jobs.filter(isBpsJob) : [];
     const after = snapshotJobSlugs(companyJobs);
-    const diff = computeCrawlDiff(beforeMap, after);
+    diff = computeCrawlDiff(beforeMap, after);
     printCrawlChangeSummary(diff, 'BPS Suisse');
     writeCrawlChangeSummaryToGH(diff, 'BPS Suisse');
     console.log(`\n🏦 Total BPS Suisse jobs: ${companyJobs.length}`);

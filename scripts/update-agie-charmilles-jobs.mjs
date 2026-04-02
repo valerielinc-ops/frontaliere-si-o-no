@@ -222,7 +222,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'AGIE Charmilles');
   writeJobsSummary(mergedTarget, 'AGIE Charmilles');
   printPublishedJobUrls(mergedTarget, 'AGIE Charmilles');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -300,7 +300,7 @@ async function main() {
 
   const jobs = listings.map(buildAgieCharmillesJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for AGIE Charmilles jobs...');

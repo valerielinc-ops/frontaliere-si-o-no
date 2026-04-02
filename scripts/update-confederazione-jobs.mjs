@@ -519,7 +519,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Confederazione TI+GR');
   writeJobsSummary(mergedTarget, 'Confederazione TI+GR');
   printPublishedJobUrls(mergedTarget, 'Confederazione TI+GR');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 /* ── Adapter Config ────────────────────────────────────────── */
@@ -616,7 +616,7 @@ async function main() {
 
   const jobs = listings.map(buildJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\nRunning locale fill for Confederazione jobs...');

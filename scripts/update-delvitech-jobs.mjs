@@ -310,7 +310,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Delvitech SA');
   writeJobsSummary(mergedTarget, 'Delvitech SA');
   printPublishedJobUrls(mergedTarget, 'Delvitech SA');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -387,7 +387,7 @@ async function main() {
     throw new Error(`Expected at least ${minJobs} TI/GR Delvitech jobs after excluding foreign roles, found ${jobs.length}`);
   }
 
-  const { total } = mergeJobs(jobs);
+  const { total, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Delvitech jobs...');

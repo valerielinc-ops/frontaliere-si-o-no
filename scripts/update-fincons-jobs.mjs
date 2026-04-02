@@ -219,7 +219,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Fincons Group');
   writeJobsSummary(mergedTarget, 'Fincons Group');
   printPublishedJobUrls(mergedTarget, 'Fincons Group');
-  return mergedTarget;
+  return { mergedTarget, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -274,7 +274,7 @@ async function main() {
     jobs.push(await buildFinconsJob(listing));
   }
 
-  const merged = mergeJobs(jobs);
+  const { mergedTarget: merged, diff } = mergeJobs(jobs);
   updateAdapterConfig(merged);
 
   console.log('\n🌐 Running locale fill for Fincons jobs...');

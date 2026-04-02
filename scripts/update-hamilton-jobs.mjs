@@ -355,7 +355,7 @@ function mergeJobs(discoveredJobs) {
   printCrawlChangeSummary(diff, COMPANY_NAME);
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
 
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 /* ── Stats & Validation ────────────────────────────────────── */
@@ -455,7 +455,7 @@ async function main() {
   }
 
   // Step 3: Merge into jobs.json
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   console.log(`\n📦 Merge complete: ${total} total, ${added} added, ${updated} updated`);
 
   // Step 4: Translate missing locales

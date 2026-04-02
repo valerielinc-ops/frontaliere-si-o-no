@@ -314,7 +314,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'MTIC Group');
   writeJobsSummary(mergedTarget, 'MTIC Group');
   printPublishedJobUrls(mergedTarget, 'MTIC Group');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -390,7 +390,7 @@ async function main() {
 
   const jobs = deduplicated.map(buildMticJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   if (jobs.length > 0) {

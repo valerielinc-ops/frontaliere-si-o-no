@@ -249,7 +249,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   writeJobsSummary(mergedTarget, COMPANY_NAME);
   printPublishedJobUrls(mergedTarget, COMPANY_NAME);
-  return { total: mergedTarget.length };
+  return { total: mergedTarget.length, diff };
 }
 
 function refreshLocalizedSlugs() {
@@ -327,7 +327,7 @@ async function main() {
   for (const listing of listings) {
     jobs.push(await buildSkyguideJob(listing));
   }
-  const { total } = mergeJobs(jobs);
+  const { total , diff } = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Skyguide jobs...');

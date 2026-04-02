@@ -222,7 +222,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Artisa Group');
   writeJobsSummary(mergedTarget, 'Artisa Group');
   printPublishedJobUrls(mergedTarget, 'Artisa Group');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -309,7 +309,7 @@ async function main() {
     jobs.push(await buildArtisaJob(listing));
   }
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Artisa jobs...');

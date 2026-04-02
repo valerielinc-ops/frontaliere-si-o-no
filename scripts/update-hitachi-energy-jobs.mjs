@@ -335,7 +335,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Hitachi Energy');
   writeJobsSummary(mergedTarget, 'Hitachi Energy');
   printPublishedJobUrls(mergedTarget, 'Hitachi Energy');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -417,7 +417,7 @@ async function main() {
 
   const jobs = deduplicated.map(buildHitachiJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Hitachi Energy jobs...');

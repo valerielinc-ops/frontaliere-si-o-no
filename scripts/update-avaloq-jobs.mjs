@@ -222,7 +222,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Avaloq');
   writeJobsSummary(mergedTarget, 'Avaloq');
   printPublishedJobUrls(mergedTarget, 'Avaloq');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -272,7 +272,7 @@ async function main() {
   console.log(`  Careers page: ${CAREERS_URL}\n`);
 
   const jobs = await buildAvaloqJobs();
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Avaloq jobs...');

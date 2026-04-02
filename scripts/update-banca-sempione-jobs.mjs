@@ -508,6 +508,7 @@ function logStats(before) {
   console.log(`\n🏦 Total Banca del Sempione jobs: ${bsJobs.length}`);
   for (const j of bsJobs) {
     console.log(`  • ${j.title} (${j.location}, ${j.canton || j.country || '?'})`);
+  return diff;
   }
 }
 
@@ -558,7 +559,7 @@ async function main() {
   postProcessBancaSempioneJobs();
 
   // Phase 6: log stats
-  logStats(beforeMap);
+  const diff = logStats(beforeMap);
 
   // Phase 7: locale validation
   validateLocales();

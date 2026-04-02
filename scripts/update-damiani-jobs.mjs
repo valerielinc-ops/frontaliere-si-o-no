@@ -223,7 +223,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Damiani Group');
   writeJobsSummary(mergedTarget, 'Damiani Group');
   printPublishedJobUrls(mergedTarget, 'Damiani Group');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -278,7 +278,7 @@ async function main() {
     console.log(`  📄 Processing: ${listing.title} (${listing.location})`);
     jobs.push(await buildDamianiJob(listing));
   }
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Damiani jobs...');

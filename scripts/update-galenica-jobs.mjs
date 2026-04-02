@@ -539,6 +539,7 @@ function logStats(before) {
   console.log(`\n💊 Total Galenica jobs: ${galJobs.length}`);
   for (const j of galJobs) {
     console.log(`  • ${j.title} — ${j.company} (${j.location}, ${j.canton || j.country || '?'})`);
+  return diff;
   }
 }
 
@@ -589,7 +590,7 @@ async function main() {
   postProcessGalenicaJobs();
 
   // Phase 6: log stats
-  logStats(beforeMap);
+  const diff = logStats(beforeMap);
 
   // Phase 7: locale validation
   validateLocales();

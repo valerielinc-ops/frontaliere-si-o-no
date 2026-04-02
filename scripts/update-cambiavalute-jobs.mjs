@@ -291,6 +291,7 @@ function logStats(before) {
   const diff = computeCrawlDiff(before, after);
   printCrawlChangeSummary(diff, 'CambiaValute.ch');
   writeCrawlChangeSummaryToGH(diff, 'CambiaValute.ch');
+  return diff;
 }
 
 /* ── Locale validation ─────────────────────────────────────── */
@@ -336,7 +337,7 @@ async function main() {
   postProcess();
 
   // Phase 5: log stats
-  logStats(beforeMap);
+  const diff = logStats(beforeMap);
 
   // Phase 6: locale validation
   validateLocales();

@@ -160,7 +160,7 @@ async function mergeJobs(discoveredJobs) {
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
   fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
   console.log(`\n📦 Merge: ➕${added} 🔄${updated} 🗑️${removed} 📊${final.length}`);
-  return { added, updated, removed, total: final.length };
+  return { added, updated, removed, total: final.length, diff };
 }
 
 function updateAdapterConfig() {
@@ -196,6 +196,7 @@ async function main() {
     if (p.applyUrl) {
       console.log(`    🔗 Fetching detail page: ${p.applyUrl}`);
       const detailHtml = await fetchPage(p.applyUrl);
+  const diff = detailHtml.diff;
       if (detailHtml) {
         const detail = parseSmartRecruiterDetail(detailHtml);
         if (detail.description && detail.description.split(/\s+/).length >= 30) {

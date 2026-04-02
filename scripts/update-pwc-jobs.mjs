@@ -211,7 +211,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'PwC');
   writeJobsSummary(mergedTarget, 'PwC');
   printPublishedJobUrls(mergedTarget, 'PwC');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -269,7 +269,7 @@ async function main() {
 
   const jobs = listings.map(buildPwcJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\nRunning locale fill for PwC jobs...');

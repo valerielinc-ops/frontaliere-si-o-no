@@ -203,7 +203,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'PEMSA');
   writeJobsSummary(mergedTarget, 'PEMSA');
   printPublishedJobUrls(mergedTarget, 'PEMSA');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -301,7 +301,7 @@ async function main() {
     console.log(`🔄 Deduplicated: ${jobs.length} → ${deduplicated.length} unique`);
   }
 
-  const { total, added, updated } = mergeJobs(deduplicated);
+  const { total, added, updated, diff} = mergeJobs(deduplicated);
   updateAdapterConfig(deduplicated);
 
   console.log('\n🌐 Running locale fill for PEMSA jobs...');

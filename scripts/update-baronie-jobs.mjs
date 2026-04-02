@@ -215,7 +215,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Baronie');
   writeJobsSummary(mergedTarget, 'Baronie');
   printPublishedJobUrls(mergedTarget, 'Baronie');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
@@ -327,7 +327,7 @@ async function main() {
   }
 
   // 5. Merge
-  const { total, added, updated } = mergeJobs(deduplicated);
+  const { total, added, updated, diff} = mergeJobs(deduplicated);
   updateAdapterConfig(deduplicated);
 
   // 6. Translate missing locales

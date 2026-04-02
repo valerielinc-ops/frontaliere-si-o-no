@@ -532,6 +532,7 @@ function logStats(before) {
   console.log(`\n🏬 Total Manor jobs: ${manorJobs.length}`);
   for (const j of manorJobs) {
     console.log(`  • ${j.title} — ${j.company} (${j.location}, ${j.canton || j.country || '?'})`);
+  return diff;
   }
 }
 
@@ -582,7 +583,7 @@ async function main() {
   postProcessManorJobs();
 
   // Phase 6: log stats
-  logStats(beforeMap);
+  const diff = logStats(beforeMap);
 
   // Phase 7: locale validation
   validateLocales();

@@ -304,7 +304,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, 'Engel & Völkers');
   writeJobsSummary(mergedTarget, 'Engel & Völkers');
   printPublishedJobUrls(mergedTarget, 'Engel & Völkers');
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -381,7 +381,7 @@ async function main() {
 
   const jobs = deduplicated.map(buildJob);
 
-  const { total, added, updated } = mergeJobs(jobs);
+  const { total, added, updated, diff} = mergeJobs(jobs);
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Engel & Völkers jobs...');

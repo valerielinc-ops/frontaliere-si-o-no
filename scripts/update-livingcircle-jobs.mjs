@@ -169,7 +169,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   writeJobsSummary(mergedTarget, COMPANY_NAME);
   printPublishedJobUrls(mergedTarget, COMPANY_NAME);
-  return mergedTarget.length;
+  return { total: mergedTarget.length, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -230,7 +230,7 @@ async function main() {
     return;
   }
   const jobs = targetRoles.map(buildJob);
-  const total = mergeJobs(jobs);
+  const { total, diff } = mergeJobs(jobs);
   updateAdapterConfig(jobs);
   console.log('\n🌐 Running locale fill for The Living Circle jobs...');
   await translateMissingJobLocales({

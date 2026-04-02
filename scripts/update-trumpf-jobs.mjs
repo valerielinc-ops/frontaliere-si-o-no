@@ -337,7 +337,7 @@ function mergeJobs(discoveredJobs) {
   printCrawlChangeSummary(diff, COMPANY_NAME);
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
 
-  return { total: allJobs.length, added, updated, targetCount: mergedTarget.length };
+  return { total: allJobs.length, added, updated, targetCount: mergedTarget.length, diff };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -417,6 +417,7 @@ async function main() {
   console.log('Phase 4: Merge');
   console.log('═══════════════════════════════════════');
   const stats = mergeJobs(jobs);
+  const diff = stats.diff;
   console.log(`\n📈 Result: ${stats.targetCount} TRUMPF GR jobs (${stats.added} new, ${stats.updated} updated)`);
   console.log(`   Total jobs in file: ${stats.total}`);
 

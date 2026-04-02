@@ -197,6 +197,7 @@ async function mergeJobs(discoveredJobs) {
   printPublishedJobUrls(mergedTarget, 'LWPHR');
   const removed = Math.max(0, existingTarget.length - mergedTarget.length);
   console.log(`📦 Merge results:\n  ➕ Added: ${added}\n  🔄 Updated: ${updated}\n  🗑️  Removed (stale): ${removed}\n  📊 Total jobs in file: ${allJobs.length}`);
+  return { diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -264,7 +265,7 @@ async function main() {
   }
 
   updateAdapterConfig(discoveredJobs);
-  await mergeJobs(discoveredJobs);
+  const { diff } = await mergeJobs(discoveredJobs);
 
   console.log('\n🌐 Running locale fill for LWPHR jobs...');
   await translateMissingJobLocales({
