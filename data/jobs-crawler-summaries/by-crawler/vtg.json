@@ -1,24 +1,22 @@
 {
   "key": "vtg",
   "label": "VTG",
-  "generatedAt": "2026-04-01T21:55:10.643Z",
+  "generatedAt": "2026-04-02T12:52:59.380Z",
   "total": 6,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 6,
-  "durationMs": 41657,
-  "avgDurationMs": 41657,
+  "unchangedCount": 0,
+  "durationMs": 45271,
+  "avgDurationMs": 45271,
   "durationHistory": [
-    41657
+    45271
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "company-84ss1r",
-      "slug": "netzwerk-spezialist-in-professional-swiss-armed-forces-vtg-locarno-84ss1r",
+      "slug": "professionista-specialista-in-rete-swiss-armed-forces-vtg-locarno",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Netzwerk Spezialist/-in Professional",
       "location": "Locarno",
@@ -47,7 +45,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -58,7 +55,7 @@
     },
     {
       "id": "company-h0fllu",
-      "slug": "supporto-operatore-trice-swiss-armed-forces-vtg-bellinzona",
+      "slug": "supporto-operatore-trice-swiss-armed-forces-vtg-rivera",
       "company": "Swiss Armed Forces (VTG)",
       "title": "Operator/-in Support",
       "location": "Rivera",
@@ -87,7 +84,6 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -127,12 +123,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -165,14 +160,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "_qualityScore": 87,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -207,12 +199,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -245,16 +236,15 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "_qualityScore": 89,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
