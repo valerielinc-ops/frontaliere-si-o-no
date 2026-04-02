@@ -1,18 +1,19 @@
 {
   "key": "prada",
   "label": "Prada Group",
-  "generatedAt": "2026-04-02T13:51:56.961Z",
+  "generatedAt": "2026-04-02T21:34:54.132Z",
   "total": 8,
-  "newCount": 8,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8534,
-  "avgDurationMs": 8534,
+  "durationMs": 8498,
+  "avgDurationMs": 8498,
   "durationHistory": [
-    8534
+    8498
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "prada-e41a47cd1c53",
       "slug": "mendrisio-outlet-client-advisor-part-time-domenicale-limited-contract-prada-mendrisio",
@@ -32,7 +33,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Mendrisio-Mendrisio-Outlet-Client-Advisor-part-time-domenicale-%28limited-contract%29/1377980233/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:51.304Z",
+      "crawledAt": "2026-04-02T21:34:48.735Z",
       "_qualityScore": 49,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:51.845Z",
+      "crawledAt": "2026-04-02T21:34:49.227Z",
       "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -88,7 +89,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Sydney-Retail-Training-Manager/1370300133/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:52.393Z",
+      "crawledAt": "2026-04-02T21:34:49.796Z",
       "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -116,7 +117,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Sydney-Department-Manager/1370290933/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:52.927Z",
+      "crawledAt": "2026-04-02T21:34:50.354Z",
       "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -144,7 +145,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Sydney-In-store-Clientelling-Manager/1370292233/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:53.440Z",
+      "crawledAt": "2026-04-02T21:34:50.923Z",
       "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -172,7 +173,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Levanella-Buresta-Levanella-Outlet-Sales-Assistant/1289076701/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:54.001Z",
+      "crawledAt": "2026-04-02T21:34:51.402Z",
       "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -200,7 +201,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Bodrum-PRADA-Client-Advisor%2C-Bodrum/1287690701/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:54.504Z",
+      "crawledAt": "2026-04-02T21:34:51.897Z",
       "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -228,7 +229,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Roermond-PRADA-Stock-Assistant-%28mfd%29/1380243133/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:55.037Z",
+      "crawledAt": "2026-04-02T21:34:52.430Z",
       "_qualityScore": 52,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -238,7 +239,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -260,7 +260,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Roermond-PRADA-Stock-Assistant-%28mfd%29/1380243133/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:55.037Z",
+      "crawledAt": "2026-04-02T21:34:52.430Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -293,7 +293,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Bodrum-PRADA-Client-Advisor%2C-Bodrum/1287690701/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:54.504Z",
+      "crawledAt": "2026-04-02T21:34:51.897Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 58000,
@@ -326,7 +326,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Levanella-Buresta-Levanella-Outlet-Sales-Assistant/1289076701/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:54.001Z",
+      "crawledAt": "2026-04-02T21:34:51.402Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -359,7 +359,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Sydney-In-store-Clientelling-Manager/1370292233/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:53.440Z",
+      "crawledAt": "2026-04-02T21:34:50.923Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 72000,
@@ -392,7 +392,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Sydney-Department-Manager/1370290933/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:52.927Z",
+      "crawledAt": "2026-04-02T21:34:50.354Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 72000,
@@ -425,7 +425,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Sydney-Retail-Training-Manager/1370300133/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:52.393Z",
+      "crawledAt": "2026-04-02T21:34:49.796Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 72000,
@@ -458,7 +458,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/St_-Moritz-MIU-MIU-Store-Manager-Saint-Moritz/1281959601/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:51.845Z",
+      "crawledAt": "2026-04-02T21:34:49.227Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 72000,
@@ -491,7 +491,7 @@
       "postedDate": "2026-04-02",
       "url": "https://jobs.pradagroup.com/job/Mendrisio-Mendrisio-Outlet-Client-Advisor-part-time-domenicale-%28limited-contract%29/1377980233/",
       "source": "Prada Group Dedicated Parser",
-      "crawledAt": "2026-04-02T13:51:51.304Z",
+      "crawledAt": "2026-04-02T21:34:48.735Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
       "salaryMin": 58000,
