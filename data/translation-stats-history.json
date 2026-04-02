@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-29T03:55:01.758Z",
-    "label": "after",
-    "total": 1502,
-    "needsRetranslation": 1086,
-    "incomplete": 1362,
-    "complete": 140,
-    "missingByLocale": {
-      "it": 823,
-      "en": 228,
-      "de": 107,
-      "fr": 238
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 159
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 118
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 95
-      },
-      {
-        "company": "PEMSA",
-        "pending": 43
-      },
-      {
-        "company": "VOLG",
-        "pending": 40
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 25
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-29T05:21:15.507Z",
-    "label": "before",
-    "total": 1502,
-    "needsRetranslation": 1086,
-    "incomplete": 1362,
-    "complete": 140,
-    "missingByLocale": {
-      "it": 823,
-      "en": 228,
-      "de": 107,
-      "fr": 238
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 159
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 118
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 95
-      },
-      {
-        "company": "PEMSA",
-        "pending": 43
-      },
-      {
-        "company": "VOLG",
-        "pending": 40
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 25
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-29T05:36:01.901Z",
     "label": "after",
     "total": 1502,
@@ -9774,6 +9662,118 @@
       {
         "company": "ABB Svizzera (sede Ticino)",
         "pending": 8
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 4
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 4
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T07:33:51.939Z",
+    "label": "before",
+    "total": 1308,
+    "needsRetranslation": 205,
+    "incomplete": 170,
+    "complete": 1138,
+    "missingByLocale": {
+      "it": 70,
+      "en": 110,
+      "de": 99,
+      "fr": 137
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 39
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 19
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 10
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 8
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 4
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 4
+      },
+      {
+        "company": "PwC Switzerland",
+        "pending": 4
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T07:34:47.839Z",
+    "label": "after",
+    "total": 1308,
+    "needsRetranslation": 160,
+    "incomplete": 158,
+    "complete": 1150,
+    "missingByLocale": {
+      "it": 61,
+      "en": 105,
+      "de": 96,
+      "fr": 129
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 36
+      },
+      {
+        "company": "Convit Holding GmbH",
+        "pending": 16
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 9
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 5
       },
       {
         "company": "Denner",
