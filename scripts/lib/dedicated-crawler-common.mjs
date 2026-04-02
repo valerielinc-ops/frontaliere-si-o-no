@@ -987,8 +987,8 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // Guard: if the base is raw HTML (>10 tags), it's unparsed page chrome — the
       // locale copy is the actual clean content, so never overwrite with HTML garbage.
       const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
-      const normBase = baseDesc.replace(/\s+/g, ' ').trim();
-      const normSource = currentSourceDesc.replace(/\s+/g, ' ').trim();
+      const normBase = normalizeForLengthComparison(baseDesc);
+      const normSource = normalizeForLengthComparison(currentSourceDesc);
       const contentRatio = normSource ? normSource.length / Math.max(1, normBase.length) : 0;
       if (!baseHasHtmlGarbage && (!currentSourceDesc || contentRatio < 0.85)) {
         job.descriptionByLocale[sourceLang] = baseDesc;
@@ -2432,8 +2432,8 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       // Compare NORMALIZED lengths to avoid false positives from whitespace differences.
       // Guard: never overwrite clean locale content with raw HTML garbage base.
       const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
-      const normBaseDesc = baseDesc.replace(/\s+/g, ' ').trim();
-      const normCurrentSource = currentSourceDesc.replace(/\s+/g, ' ').trim();
+      const normBaseDesc = normalizeForLengthComparison(baseDesc);
+      const normCurrentSource = normalizeForLengthComparison(currentSourceDesc);
       const sourceContentRatio = normCurrentSource.length / Math.max(1, normBaseDesc.length);
       const shouldRestoreSourceDesc =
         !!baseDesc &&
@@ -2488,8 +2488,8 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         // A faithful translation should be ≥70% of source length. Below that,
         // the AI likely truncated, summarized, or produced a boilerplate fallback.
         // Use normalized lengths to avoid false positives from whitespace differences.
-        const normCurrentDesc = currentDesc.replace(/\s+/g, ' ').trim();
-        const normSourceDesc = sourceDesc.replace(/\s+/g, ' ').trim();
+        const normCurrentDesc = normalizeForLengthComparison(currentDesc);
+        const normSourceDesc = normalizeForLengthComparison(sourceDesc);
         const isThinTranslation =
           locale !== sourceLang &&
           normCurrentDesc.length > 0 &&
@@ -3495,6 +3495,27 @@ export function decodeNumericEntities(value = '') {
 
 export function normalizeSpace(s) {
   return String(s || '')
+    .replace(/\u00a0/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+/**
+ * Normalize text for length-based comparisons (85% source guard, 70% thin check).
+ * Strips HTML entities and collapses whitespace so that "&nbsp;" padding in the base
+ * doesn't inflate its length relative to the clean locale copy.
+ */
+export function normalizeForLengthComparison(s) {
+  return String(s || '')
+    .replace(/&nbsp;/g, ' ')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&#8211;/g, '-')
+    .replace(/&#8212;/g, '-')
+    .replace(/&[rln]dquo;/g, '"')
+    .replace(/&[rl]squo;/g, "'")
+    .replace(/&[nm]dash;/g, '-')
     .replace(/\u00a0/g, ' ')
     .replace(/\s+/g, ' ')
     .trim();

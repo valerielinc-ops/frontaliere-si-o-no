@@ -31,7 +31,7 @@ import path from 'node:path';
 
 import { fileURLToPath } from 'node:url';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
-import { captureLostSlugs } from './lib/dedicated-crawler-common.mjs';
+import { captureLostSlugs, normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -109,8 +109,8 @@ export function isIncomplete(job) {
   if (baseDesc.length >= 120 && (baseDesc.match(/<[^>]+>/g) || []).length <= 10) {
     const currentSrc = (dbl[srcLang] || '').trim();
     if (currentSrc) {
-      const normBase = baseDesc.replace(/\s+/g, ' ').trim();
-      const normSrc = currentSrc.replace(/\s+/g, ' ').trim();
+      const normBase = normalizeForLengthComparison(baseDesc);
+      const normSrc = normalizeForLengthComparison(currentSrc);
       if (normSrc.length / Math.max(1, normBase.length) < 0.85) return true;
     }
   }
@@ -146,8 +146,8 @@ export function isIncomplete(job) {
       const srcLang = job.sourceLang || 'it';
       const srcDesc = (dbl[srcLang] || job.description || '').trim();
       if (srcDesc.length >= 500) {
-        const normDesc = desc.replace(/\s+/g, ' ').trim();
-        const normSrc = srcDesc.replace(/\s+/g, ' ').trim();
+        const normDesc = normalizeForLengthComparison(desc);
+        const normSrc = normalizeForLengthComparison(srcDesc);
         if (normSrc.length >= 500 && normDesc.length < normSrc.length * 0.7) return true;
       }
     }
