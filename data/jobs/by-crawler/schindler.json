@@ -7,9 +7,9 @@
       "slug": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
       "slugByLocale": {
         "it": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "en": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "de": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio",
-        "fr": "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio"
+        "en": "elevator-mechanic-senior-m-f-d-80-100-schindler-bioggio",
+        "de": "elevatormechaniker-senior-m-f-d-80-100-schindler-bioggio",
+        "fr": "mecanicien-d-ascenseurs-senior-m-f-d-80-100-schindler-bioggio"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -64,16 +64,19 @@
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "montatore-trice-di-ascensori-senior-m-f-d-80-100-schindler-bioggio"
+      ]
     },
     {
       "id": "schindler-0ae43c9e6cc5",
       "slug": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo",
       "slugByLocale": {
         "it": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo",
-        "en": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo",
-        "de": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo",
-        "fr": "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo"
+        "en": "installation-supervisor-m-f-d-80-100-schindler-castione-arbedo",
+        "de": "installationsleiter-m-w-d-80-100-schindler-castione-arbedo",
+        "fr": "responsable-d-installation-m-f-d-80-100-schindler-castione-arbedo"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -128,16 +131,19 @@
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "supervisore-dell-installazione-m-f-d-80-100-schindler-castione-arbedo"
+      ]
     },
     {
       "id": "schindler-f97349d91827",
       "slug": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
       "slugByLocale": {
         "it": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "en": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "de": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo",
-        "fr": "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo"
+        "en": "elevator-mechanic-m-f-d-80-100-schindler-castione-arbedo",
+        "de": "aufzugsmonteur-m-f-d-80-100-schindler-castione-arbedo",
+        "fr": "monteur-d-ascenseur-m-f-d-80-100-schindler-castione-arbedo"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -192,16 +198,19 @@
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "montatore-ascensori-m-f-d-80-100-schindler-castione-arbedo"
+      ]
     },
     {
       "id": "schindler-662375d58209",
       "slug": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
       "slugByLocale": {
         "it": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
-        "en": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
-        "de": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno",
-        "fr": "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno"
+        "en": "apprenticeship-operator-trice-in-automation-afc-for-2026-schindler-locarno",
+        "de": "ausbildung-zum-automationsfachmann-frau-afc-fur-2026-schindler-locarno",
+        "fr": "apprentissage-en-automatisation-afc-pour-2026-schindler-locarno"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -256,7 +265,10 @@
       "streetAddress": "Via Industria 11",
       "postalCode": "6934",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "apprendistato-operatore-trice-in-automazione-afc-per-il-2026-schindler-locarno"
+      ]
     }
   ]
 }
