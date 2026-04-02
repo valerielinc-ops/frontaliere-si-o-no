@@ -196,7 +196,6 @@ async function main() {
     if (p.applyUrl) {
       console.log(`    🔗 Fetching detail page: ${p.applyUrl}`);
       const detailHtml = await fetchPage(p.applyUrl);
-  const diff = detailHtml.diff;
       if (detailHtml) {
         const detail = parseSmartRecruiterDetail(detailHtml);
         if (detail.description && detail.description.split(/\s+/).length >= 30) {
