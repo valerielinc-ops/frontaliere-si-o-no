@@ -5060,6 +5060,14 @@ async function main() {
         );
         if (_diagChanged > 0 || _diagUnchanged > 0) {
           console.log(`   📊 Backfill results: ${_diagChanged} changed, ${_diagUnchanged} unchanged`);
+          // Dump cache stats from aiLocalizeJobContentDCC
+          const cs = _enrichJobLocalesDCC?.aiLocalizeJobContentDCC?._cacheStats
+            || (typeof aiLocalizeJobContentDCC !== 'undefined' ? aiLocalizeJobContentDCC._cacheStats : null);
+          try {
+            const { aiLocalizeJobContentDCC: aiFn, enrichJobLocalesDCC: eFn } = await import('./dedicated-crawler-common.mjs');
+            if (aiFn?._cacheStats) console.log(`   📊 AI cache stats: hit=${aiFn._cacheStats.hit} miss=${aiFn._cacheStats.miss} sentinel=${aiFn._cacheStats.sentinel} busted=${aiFn._cacheStats.busted}`);
+            if (eFn?._diagSkipTotal || eFn?._diagAiCallTotal) console.log(`   📊 Enrich stats: skipped=${eFn._diagSkipTotal || 0} aiCalled=${eFn._diagAiCallTotal || 0}`);
+          } catch (_) { /* ignore */ }
         }
         for (const entry of localizedEntries) {
           if (!entry?.fp) continue;

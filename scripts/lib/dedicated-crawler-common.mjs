@@ -1894,15 +1894,16 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     cleanFn(description || ''),
   ]);
   const fromCache = getCachedAiResponse(cacheKey);
-  // DIAGNOSTIC: trace cache state for first 3 calls
-  if (typeof aiLocalizeJobContentDCC._diagCacheCount === 'undefined') aiLocalizeJobContentDCC._diagCacheCount = 0;
-  if (aiLocalizeJobContentDCC._diagCacheCount < 3) {
-    aiLocalizeJobContentDCC._diagCacheCount++;
-    const cacheType = fromCache === AI_CACHE_RAW_SENTINEL ? 'SENTINEL' :
-      fromCache && typeof fromCache === 'object' ? `OBJECT(${Object.keys(fromCache).join(',')})` :
-      fromCache === null || fromCache === undefined ? 'MISS' : `OTHER(${typeof fromCache})`;
-    const desc30 = (description || '').slice(0, 30);
-    console.log(`   🔬 aiCache[${aiLocalizeJobContentDCC._diagCacheCount}] "${title?.slice(0,30)}" type=${cacheType} key=${cacheKey?.slice(0,12)}… desc="${desc30}…"`);
+  // DIAGNOSTIC: aggregate cache stats
+  if (typeof aiLocalizeJobContentDCC._cacheStats === 'undefined') {
+    aiLocalizeJobContentDCC._cacheStats = { hit: 0, miss: 0, sentinel: 0, busted: 0 };
+  }
+  if (fromCache === AI_CACHE_RAW_SENTINEL) {
+    aiLocalizeJobContentDCC._cacheStats.sentinel++;
+  } else if (fromCache && typeof fromCache === 'object') {
+    aiLocalizeJobContentDCC._cacheStats.hit++;
+  } else {
+    aiLocalizeJobContentDCC._cacheStats.miss++;
   }
   if (fromCache === AI_CACHE_RAW_SENTINEL) {
     const cleanedSource = cleanFn(description || '');
@@ -1950,6 +1951,8 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
       return false;
     });
     if (hasBadLocale) {
+      aiLocalizeJobContentDCC._cacheStats.busted++;
+      console.log(`   ⚠️ Cache guard busted: "${title?.slice(0,40)}" key=${cacheKey?.slice(0,12)}…`);
       const { deleteCachedAiResponse: delCache } = ctx;
       if (delCache) delCache(cacheKey);
       // Fall through to LLM/free-translate path
@@ -2144,7 +2147,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     localizationEnabled && sourceTitle.length >= 3 && (titleNeedsLocalization || forceLocalization);
 
   if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) {
-    // DIAGNOSTIC: log first 5 skipped jobs to trace why translations are blocked
+    // DIAGNOSTIC: aggregate skip reasons
+    if (typeof enrichJobLocalesDCC._diagSkipTotal === 'undefined') enrichJobLocalesDCC._diagSkipTotal = 0;
+    enrichJobLocalesDCC._diagSkipTotal++;
+    // Log first 5 skipped jobs
     if (typeof enrichJobLocalesDCC._diagSkipCount === 'undefined') enrichJobLocalesDCC._diagSkipCount = 0;
     if (enrichJobLocalesDCC._diagSkipCount < 5) {
       enrichJobLocalesDCC._diagSkipCount++;
@@ -2206,8 +2212,10 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     }
   }
 
-  // DIAGNOSTIC: log first 3 AI call attempts
+  // DIAGNOSTIC: log first 3 AI call attempts + running totals
   if (typeof enrichJobLocalesDCC._diagAiCallCount === 'undefined') enrichJobLocalesDCC._diagAiCallCount = 0;
+  if (typeof enrichJobLocalesDCC._diagAiCallTotal === 'undefined') enrichJobLocalesDCC._diagAiCallTotal = 0;
+  enrichJobLocalesDCC._diagAiCallTotal++;
   if (shouldRunDescriptionLocalization && enrichJobLocalesDCC._diagAiCallCount < 3) {
     enrichJobLocalesDCC._diagAiCallCount++;
     const slug = (out.slug || out.title || 'unknown').slice(0, 40);
