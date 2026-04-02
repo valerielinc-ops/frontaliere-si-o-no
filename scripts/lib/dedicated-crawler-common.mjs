@@ -2107,6 +2107,13 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
     localizationEnabled && sourceTitle.length >= 3 && (titleNeedsLocalization || forceLocalization);
 
   if (!shouldRunDescriptionLocalization && !shouldRunTitleLocalization) {
+    // DIAGNOSTIC: log first 5 skipped jobs to trace why translations are blocked
+    if (typeof enrichJobLocalesDCC._diagSkipCount === 'undefined') enrichJobLocalesDCC._diagSkipCount = 0;
+    if (enrichJobLocalesDCC._diagSkipCount < 5) {
+      enrichJobLocalesDCC._diagSkipCount++;
+      const slug = (out.slug || out.title || 'unknown').slice(0, 40);
+      console.log(`   🔬 enrichSkip[${enrichJobLocalesDCC._diagSkipCount}] "${slug}" locEnabled=${localizationEnabled} budget=${hasBudget} cov=${coverage}/${locales.length} descLen=${(out.description||'').length} canAi=${canUseAi} force=${forceLocalization} titleNeed=${titleNeedsLocalization}`);
+    }
     // Only re-flag if the job genuinely has missing locales AND was skipped due to
     // budget/AI exhaustion. Do NOT re-flag jobs that are already complete — this was
     // causing 140+ complete jobs to be re-flagged every run (infinite loop).
@@ -2160,6 +2167,14 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
       out.description = enrichedDesc;
       currentByLocale[sourceLang] = enrichedDesc;
     }
+  }
+
+  // DIAGNOSTIC: log first 3 AI call attempts
+  if (typeof enrichJobLocalesDCC._diagAiCallCount === 'undefined') enrichJobLocalesDCC._diagAiCallCount = 0;
+  if (shouldRunDescriptionLocalization && enrichJobLocalesDCC._diagAiCallCount < 3) {
+    enrichJobLocalesDCC._diagAiCallCount++;
+    const slug = (out.slug || out.title || 'unknown').slice(0, 40);
+    console.log(`   🔬 enrichAI[${enrichJobLocalesDCC._diagAiCallCount}] "${slug}" canAi=${canUseAi} descLen=${(out.description||'').length} → will${canUseAi ? '' : ' NOT'} call AI`);
   }
 
   const aiLocalized = shouldRunDescriptionLocalization && canUseAi

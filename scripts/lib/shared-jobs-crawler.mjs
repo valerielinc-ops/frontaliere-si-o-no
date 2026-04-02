@@ -5020,17 +5020,31 @@ async function main() {
       }
       const enrichedMap = new Map();
       if (selectedQueue.length > 0) {
+        let _diagChanged = 0;
+        let _diagUnchanged = 0;
         const localizedEntries = await runWithConcurrency(
           selectedQueue.map((job, index) => ({ job, index })),
           async ({ job, index }) => {
             if (shouldForceLocalizationForJob(job)) {
               console.log(`🔁 Backfill forced localization ${index + 1}/${selectedQueue.length}: ${job.slug || job.id || 'unknown'}`);
             }
+            const beforeEn = (job.descriptionByLocale?.en || '').slice(0, 40);
             const enriched = await enrichJobLocalesWithRetry(job, crawlerConfig);
+            const afterEn = (enriched.descriptionByLocale?.en || '').slice(0, 40);
+            if (beforeEn !== afterEn) {
+              _diagChanged++;
+              if (_diagChanged <= 3) console.log(`   🔬 [${index}] EN changed: "${beforeEn}…" → "${afterEn}…"`);
+            } else {
+              _diagUnchanged++;
+              if (_diagUnchanged <= 3) console.log(`   🔬 [${index}] EN unchanged: "${beforeEn.slice(0, 30)}…" needsRetrans=${!!enriched.needsRetranslation}`);
+            }
             return { fp: fingerprintJob(job), enriched };
           },
           localizationConcurrency
         );
+        if (_diagChanged > 0 || _diagUnchanged > 0) {
+          console.log(`   📊 Backfill results: ${_diagChanged} changed, ${_diagUnchanged} unchanged`);
+        }
         for (const entry of localizedEntries) {
           if (!entry?.fp) continue;
           enrichedMap.set(entry.fp, entry.enriched);
