@@ -100,6 +100,20 @@ export function isIncomplete(job) {
   const tbl = job.titleByLocale || {};
   const sourceTitle = (job.title || '').trim().toLowerCase();
   const sourceDesc = (job.description || '').trim().toLowerCase();
+  const baseDesc = (job.description || '').trim();
+
+  // Source locale 85% guard: if the source locale copy has lost significant content
+  // compared to the authoritative base, the job needs reprocessing.
+  // Guard: skip if base is unparsed HTML garbage (>10 tags).
+  const srcLang = job.sourceLang || 'it';
+  if (baseDesc.length >= 120 && (baseDesc.match(/<[^>]+>/g) || []).length <= 10) {
+    const currentSrc = (dbl[srcLang] || '').trim();
+    if (currentSrc) {
+      const normBase = baseDesc.replace(/\s+/g, ' ').trim();
+      const normSrc = currentSrc.replace(/\s+/g, ' ').trim();
+      if (normSrc.length / Math.max(1, normBase.length) < 0.85) return true;
+    }
+  }
 
   for (const locale of LOCALES) {
     const title = (tbl[locale] || '').trim();
@@ -124,6 +138,19 @@ export function isIncomplete(job) {
 
     // Description identical to source (not translated)
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
+
+    // Thin translation: locale description is suspiciously short compared to the source.
+    // A faithful translation should be ≥70% of source length (normalized whitespace).
+    // Below that, the AI likely truncated, summarized, or produced boilerplate.
+    if (locale !== (job.sourceLang || 'it') && desc.length > 0) {
+      const srcLang = job.sourceLang || 'it';
+      const srcDesc = (dbl[srcLang] || job.description || '').trim();
+      if (srcDesc.length >= 500) {
+        const normDesc = desc.replace(/\s+/g, ' ').trim();
+        const normSrc = srcDesc.replace(/\s+/g, ' ').trim();
+        if (normSrc.length >= 500 && normDesc.length < normSrc.length * 0.7) return true;
+      }
+    }
 
     // Cross-locale contamination: title detected as SOURCE language in a non-source slot.
     // Guard: if other non-source locales have different titles, the job WAS translated.
