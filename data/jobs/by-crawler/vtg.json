@@ -374,9 +374,9 @@
       "crawledAt": "2026-03-31T21:53:35.437Z",
       "slugByLocale": {
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-bellinzona",
-        "en": "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
+        "en": "street-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
         "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
-        "fr": "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti"
+        "fr": "specialiste-du-transport-de-rue-efz-swiss-armed-forces-vtg-claro-ti"
       },
       "titleByLocale": {
         "it": "Apprendista Specialista in trasporti stradali CFC",
@@ -394,7 +394,9 @@
       "sourceLang": "de",
       "previousSlugs": [
         "apprendista-a-in-trasporto-stradale-efz-swiss-armed-forces-vtg-claro-ti",
-        "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti"
+        "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
+        "apprentice-road-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
+        "apprenti-e-specialiste-du-transport-routier-cfc-swiss-armed-forces-vtg-claro-ti"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

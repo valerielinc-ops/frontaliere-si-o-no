@@ -40,7 +40,7 @@
       "slugByLocale": {
         "it": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-massagno",
         "en": "financial-planning-intern-lateral-entry-indefinite-term-convit-holding-gmbh-massagno",
-        "de": "tirocinante-pianificazione-finanziaria-entrata-laterale-tempo-indeterminato-convit-massagno",
+        "de": "tirocinante-finanzplanung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-massagno",
         "fr": "planification-financiere-tirocinante-entree-laterale-duree-indeterminee-convit-holding-gmbh-massagno"
       },
       "salaryMin": 82500,
@@ -466,7 +466,7 @@
       "slugByLocale": {
         "it": "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-cugnasco-gerra",
         "en": "financial-planner-side-entry-fixed-bonus-convit-holding-gmbh-cugnasco-gerra",
-        "de": "pianificatore-finanziario-entrata-laterale-fisso-bonus-convit-cugnasco-gerra",
+        "de": "finanzplaner-seiteneingang-fest-bonus-convit-holding-gmbh-cugnasco-gerra",
         "fr": "planificateur-financier-entree-laterale-fixe-bonus-convit-holding-gmbh-cugnasco-gerra"
       },
       "salaryMin": 82500,
@@ -888,8 +888,8 @@
       },
       "slugByLocale": {
         "it": "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-bellinzona",
-        "en": "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona",
-        "de": "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona",
+        "en": "investment-consulting-retirement-planning-side-entry-indefinite-term-convit-holding-gmbh-bellinzona",
+        "de": "anlage-und-rentenberatung-seiteneinstieg-unbefristet-convit-holding-gmbh-bellinzona",
         "fr": "conseil-en-investissement-securite-sociale-entree-laterale-duree-indeterminee-convit-holding-gmbh-bellinzona"
       },
       "salaryMin": 54000,
@@ -909,7 +909,9 @@
       "postalCode": "6900",
       "previousSlugs": [
         "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-bellinzona",
-        "investment-advice-social-security-side-entrance-indefinite-time-convit-holding-gmbh-bellinzona"
+        "investment-advice-social-security-side-entrance-indefinite-time-convit-holding-gmbh-bellinzona",
+        "consulenza-investimenti-previdenza-entrata-laterale-tempo-indeterminato-convit-holding-gmbh-bellinzona",
+        "investitionsberatung-sozialversicherung-seiteneingang-unbestimmte-zeit-convit-holding-gmbh-bellinzona"
       ]
     },
     {
@@ -1259,7 +1261,7 @@
       "slugByLocale": {
         "it": "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-comano",
         "en": "private-consultant-financial-planning-junior-flexible-hours-convit-holding-gmbh-comano",
-        "de": "consulente-privati-pianificazione-finanziaria-junior-orari-flessibili-convit-comano",
+        "de": "private-berater-finanzplanung-junior-flexible-stunden-convit-holding-gmbh-comano",
         "fr": "consultant-prive-planification-financiere-junior-heures-flexibles-convit-holding-gmbh-comano"
       },
       "salaryMin": 61000,
@@ -1382,8 +1384,8 @@
       "slugByLocale": {
         "it": "consulente-privati-finanza-entrata-laterale-convit-cresciano",
         "en": "private-finance-consultant-side-entry-convit-holding-gmbh-cresciano",
-        "de": "berater-private-finanz-seiteneingang-convit-holding-gmbh-cresciano",
-        "fr": "consulente-privati-finanza-entrata-laterale-convit-cresciano"
+        "de": "berater-privater-finanz-seiteneingang-convit-holding-gmbh-cresciano",
+        "fr": "entree-cote-finances-privees-convit-holding-gmbh-cresciano"
       },
       "salaryMin": 82500,
       "salaryMax": 111500,
@@ -1403,7 +1405,8 @@
       "previousSlugs": [
         "consulente-privati-finanza-entrata-laterale-convit-cresciano",
         "adviser-private-finance-side-entrance-convit-holding-gmbh-cresciano",
-        "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano"
+        "consulente-privati-finanza-entrata-laterale-convit-holding-gmbh-cresciano",
+        "berater-private-finanz-seiteneingang-convit-holding-gmbh-cresciano"
       ]
     },
     {
@@ -1505,9 +1508,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-tenero-contra",
-        "en": "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-holding-gmbh-tenero-contra",
+        "en": "social-security-consultant-without-experience-paid-training-convit-holding-gmbh-tenero-contra",
         "de": "soziale-sicherheitsberater-ohne-erfahrung-bezahlte-ausbildung-convit-holding-gmbh-tenero-contra",
-        "fr": "consulente-previdenziale-senza-esperienza-formazione-pagata-convit-tenero-contra"
+        "fr": "consultant-en-securite-sociale-sans-experience-convit-holding-gmbh-tenero-contra"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1759,7 +1762,7 @@
         "it": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-losone",
         "en": "pension-consultant-m-f-d-entry-without-training-ote-up-to-7500-chf-convit-holding-gmbh-losone",
         "de": "social-security-consultant-m-f-d-eintritt-ohne-ausbildung-ote-bis-7500-chf-convit-holding-gmbh-losone",
-        "fr": "consulente-previdenziale-m-f-d-ingresso-senza-formazione-ote-fino-a-7500-chf-convit-losone"
+        "fr": "consultant-en-securite-sociale-m-f-d-sans-formation-convit-holding-gmbh-losone"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -1884,9 +1887,9 @@
       },
       "slugByLocale": {
         "it": "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-coldrerio",
-        "en": "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-holding-gmbh-coldrerio",
+        "en": "social-security-counsellor-junior-without-experience-paid-training-convit-holding-gmbh-coldrerio",
         "de": "soziale-sicherheitsberater-junior-ohne-erfahrung-bezahlte-ausbildung-convit-holding-gmbh-coldrerio",
-        "fr": "consulente-previdenziale-junior-senza-esperienza-formazione-pagata-convit-coldrerio"
+        "fr": "conseiller-en-securite-sociale-joint-sans-experience-convit-holding-gmbh-coldrerio"
       },
       "salaryMin": 43000,
       "salaryMax": 58000,
@@ -2135,7 +2138,7 @@
         "it": "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-paradiso",
         "en": "pension-consultant-hybrid-entry-without-experience-convit-holding-gmbh-paradiso",
         "de": "vorlaufiger-berater-ibrid-eintrag-ohne-erfahrung-convit-holding-gmbh-paradiso",
-        "fr": "consulente-previdenziale-ibrido-ingresso-senza-esperienza-convit-paradiso"
+        "fr": "precedent-conseiller-ibrid-sans-experience-convit-holding-gmbh-paradiso"
       },
       "salaryMin": 54000,
       "salaryMax": 73000,

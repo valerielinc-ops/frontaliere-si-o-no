@@ -1201,7 +1201,7 @@
       "slugByLocale": {
         "it": "installatore-idraulico-imp-sanitari-pemsa-lugano",
         "en": "plumbing-installer-imp-sanitaryware-pemsa-lugano",
-        "de": "installatore-idraulico-imp-sanitari-pemsa-lugano",
+        "de": "sanitarinstallateur-pemsa-lugano",
         "fr": "installateur-hydraulique-sanitaire-pemsa-lugano-ya30tb"
       },
       "salaryMin": 58000,
@@ -1508,8 +1508,8 @@
       "slugByLocale": {
         "it": "muratore-amp-8211-carpentiere-edile-pemsa-bellinzona",
         "en": "mason-construction-carpenter-pemsa-bellinzona",
-        "de": "muratore-amp-8211-carpentiere-edile-pemsa-bellinzona",
-        "fr": "muratore-amp-8211-carpentiere-edile-pemsa-bellinzona"
+        "de": "maurer-bautischler-pemsa-bellinzona",
+        "fr": "macon-charpentier-de-batiment-pemsa-bellinzona"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1813,8 +1813,8 @@
       "slugByLocale": {
         "it": "installatore-di-linee-aeree-pemsa-lugano",
         "en": "airline-installer-pemsa-lugano",
-        "de": "installatore-di-linee-aeree-pemsa-lugano",
-        "fr": "monteur-de-lignes-aeriennes-pemsa-lugano-h0kgxm"
+        "de": "freileitungsmonteur-pemsa-lugano",
+        "fr": "installateur-de-lignes-aeriennes-pemsa-lugano"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1833,7 +1833,9 @@
       "postalCode": "6807",
       "previousSlugs": [
         "freileitungsmonteur-pemsa-lugano-h0kgxm",
-        "overhead-line-installer-pemsa-lugano-h0kgxm"
+        "overhead-line-installer-pemsa-lugano-h0kgxm",
+        "installatore-di-linee-aeree-pemsa-lugano",
+        "monteur-de-lignes-aeriennes-pemsa-lugano-h0kgxm"
       ]
     },
     {
