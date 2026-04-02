@@ -3396,6 +3396,10 @@ ${(() => {
         const prevSlugs: string[] = Array.isArray((job as any).previousSlugs) ? (job as any).previousSlugs : [];
         if (prevSlugs.length === 0) continue;
         const currentItSlug = localizedSlug(job, 'it');
+        // Verify we have cached HTML for the IT page — without it, the bridge
+        // page generator cannot create a full-content page and the previousSlug
+        // would get a thin legacy redirect with canonical → listing page.
+        if (!jobHtmlCache.has(`it:${currentItSlug}`)) continue;
         const currentItPath = withSlash(`/${sectionByLocale.it}/${currentItSlug}`.replace(/\/+/g, '/'));
         const canonicalAlternates = localeList.map((l) => {
           const p = `${localePrefix[l]}/${sectionByLocale[l]}/${localizedSlug(job, l)}`.replace(/\/+/g, '/');
@@ -3405,7 +3409,11 @@ ${(() => {
         const jobLastmod = job.crawledAt ? new Date(job.crawledAt).toISOString().slice(0, 10) : dateStamp;
         for (const ps of prevSlugs) {
           if (!ps || ps === currentItSlug) continue;
-          const psPath = withSlash(`/${sectionByLocale.it}/${ps}`.replace(/\/+/g, '/'));
+          // Only add to sitemap if the bridge page path is not occupied by an
+          // active job page (which would mean a different job owns that URL).
+          const psRelPath = `${sectionByLocale.it}/${ps}`.replace(/\/+/g, '/');
+          if (activeJobDirs.has(psRelPath)) continue;
+          const psPath = withSlash(`/${psRelPath}`);
           prevSlugEntries.push(`  <url>\n    <loc>${BASE_URL}${psPath}</loc>\n${canonicalAlternates}\n${xDefault}\n    <lastmod>${jobLastmod}</lastmod>\n    <changefreq>monthly</changefreq>\n    <priority>0.3</priority>\n  </url>`);
         }
       }
@@ -3458,6 +3466,14 @@ ${(() => {
       const currentSlugs = new Set<string>();
       for (const job of validJobs) {
         currentSlugs.add(job.slug);
+        // Also mark all localized slugs as "current" so they aren't treated as
+        // expired when they appear as orphan tracking keys. Without this, a
+        // German master slug that differs from the IT localizedSlug can end up
+        // generating a thin expired soft-landing at the master-slug path.
+        for (const locale of localeList) {
+          const ls = localizedSlug(job, locale);
+          if (ls) currentSlugs.add(ls);
+        }
         if (!tracking[job.slug]) {
           tracking[job.slug] = {};
           for (const locale of localeList) {
@@ -4243,7 +4259,12 @@ ${hreflangLinks}
             // are invisible to fs.existsSync — use the activeJobDirs set instead).
             if (activeJobDirs.has(oldRelPath.replace(/\/+$/, ''))) continue;
             const outDir = np.join(distDir, oldRelPath);
-            if (fs.existsSync(np.join(outDir, 'index.html'))) continue;
+            const targetFile = np.join(outDir, 'index.html');
+            // Use _writtenPaths for buffered-write awareness (fs.existsSync only
+            // sees files from previous builds or pre-existing on disk). Bridge pages
+            // should overwrite any thin expired/orphan page at the same path, so we
+            // only skip if the path is occupied by an active job (checked above).
+            if (fs.existsSync(targetFile) && !_writtenPaths.has(targetFile)) continue;
 
             // Reuse the full active page HTML — canonical already points to the
             // current slug URL. Inject __BRIDGE_TARGET_SLUG__ so the SPA knows to
