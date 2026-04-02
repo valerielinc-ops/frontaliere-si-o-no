@@ -1,16 +1,16 @@
 {
   "key": "abb-svizzera-sede-ticino",
   "label": "ABB",
-  "generatedAt": "2026-04-02T11:44:57.580Z",
+  "generatedAt": "2026-04-02T20:41:42.566Z",
   "total": 18,
   "newCount": 0,
   "updatedCount": 17,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 44480,
-  "avgDurationMs": 44480,
+  "durationMs": 37180,
+  "avgDurationMs": 37180,
   "durationHistory": [
-    44480
+    37180
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -683,7 +683,6 @@
       "companyKey": "abb-svizzera-sede-ticino",
       "companyDomain": "abb.ch",
       "crawledAt": "2026-03-31T20:45:35.471Z",
-      "needsRetranslation": true,
       "country": "CH",
       "sourceLang": "en",
       "salaryMin": 72000,
@@ -694,11 +693,11 @@
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 75,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 17,
         "richness": 18,
-        "translation": 15,
+        "translation": 25,
         "completeness": 25
       }
     }
