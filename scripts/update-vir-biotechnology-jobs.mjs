@@ -227,7 +227,7 @@ async function main() {
 
   const _durationMs = getCrawlerElapsedMs();
   writeJobsCrawlerSlice(COMPANY_KEY, companyJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Vir Biotechnology', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: companyJobs.length, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: companyJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Vir Biotechnology', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: companyJobs.slice(0, 30) });
   await assembleJobsDataset();
 }
 

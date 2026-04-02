@@ -228,14 +228,15 @@ async function main() {
   const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isMikronJob);
   console.log(`\n📊 Mikron Agno jobs: ${companyJobs.length}`);
-  printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs)), 'Mikron');
-  writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs)), 'Mikron');
+  const diff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs));
+  printCrawlChangeSummary(diff, 'Mikron');
+  writeCrawlChangeSummaryToGH(diff, 'Mikron');
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_MIKRON_STRICT', label: 'Mikron', dataJobsPath: DATA_JOBS, isTargetJob: isMikronJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_mikron_domain', failWhenNoJobs: false, noJobsMessage: 'No Mikron Agno jobs found.' });
   console.log('\n✅ Mikron Group crawler complete.');
 
   const _durationMs = getCrawlerElapsedMs();
   writeJobsCrawlerSlice(COMPANY_KEY, companyJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Mikron', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: companyJobs.length, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: companyJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Mikron', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
 

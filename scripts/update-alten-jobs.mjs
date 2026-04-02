@@ -328,7 +328,7 @@ async function main() {
   const listings = await discoverListings();
   if (!listings) {
     console.log('⏩ Skipping ALTEN update — site unavailable.');
-    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'ALTEN Switzerland');
+    printCrawlChangeSummary({ newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'ALTEN Switzerland');
     return;
   }
   const jobs = await buildJobs(listings);
@@ -354,17 +354,17 @@ async function main() {
     label: 'ALTEN Switzerland',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
-    newCount: 0,
-    updatedCount: 0,
-    removedCount: 0,
-    unchangedCount: _sliceJobs.length,
+    newCount: diff.newJobs.length,
+    updatedCount: diff.updatedJobs.length,
+    removedCount: diff.removedJobs.length,
+    unchangedCount: diff.unchangedCount,
     durationMs: _durationMs,
     avgDurationMs: _durationMs,
     durationHistory: [_durationMs],
-    newJobs: [],
-    updatedJobs: [],
-    removedJobs: [],
-    unchangedJobs: _sliceJobs.slice(0, 30),
+    newJobs: diff.newJobs.slice(0, 30),
+    updatedJobs: diff.updatedJobs.slice(0, 30),
+    removedJobs: diff.removedJobs.slice(0, 30),
+    unchangedJobs: (diff.unchangedJobs || []).slice(0, 30),
   });
   await assembleJobsDataset();
 }

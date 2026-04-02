@@ -373,7 +373,7 @@ async function main() {
     console.log('   Writing empty slice to clear stale data (career page unreachable).');
     const _dur = getCrawlerElapsedMs();
     writeJobsCrawlerSlice(COMPANY_KEY, []);
-    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: 0, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [] });
+    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: [] });
     await assembleJobsDataset();
     logStats(beforeSnapshot);
     return;
@@ -389,7 +389,7 @@ async function main() {
     console.log('   Writing empty slice to clear stale data.');
     const _dur = getCrawlerElapsedMs();
     writeJobsCrawlerSlice(COMPANY_KEY, []);
-    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: 0, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [] });
+    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: [] });
     await assembleJobsDataset();
     logStats(beforeSnapshot);
     return;
@@ -426,9 +426,9 @@ async function main() {
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({
     key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(),
-    total: _sliceJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: _sliceJobs.length,
+    total: _sliceJobs.length, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount,
     durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs],
-    newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: _sliceJobs.slice(0, 30),
+    newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
   });
   await assembleJobsDataset();
 }

@@ -264,14 +264,15 @@ async function main() {
   const finalJobs = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isJuliusBaerJob);
   console.log(`\n📊 Julius Baer Ticino jobs: ${companyJobs.length}`);
-  printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs)), 'Julius Baer');
-  writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs)), 'Julius Baer');
+  const diff = computeCrawlDiff(beforeSnapshot, snapshotJobSlugs(companyJobs));
+  printCrawlChangeSummary(diff, 'Julius Baer');
+  writeCrawlChangeSummaryToGH(diff, 'Julius Baer');
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_JULIUS_BAER_STRICT', label: 'Julius Baer', dataJobsPath: DATA_JOBS, isTargetJob: isJuliusBaerJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_julius_baer_domain', failWhenNoJobs: false, noJobsMessage: 'No Julius Baer Ticino jobs found.' });
   console.log('\n✅ Julius Baer crawler complete.');
 
   const _durationMs = getCrawlerElapsedMs();
   writeJobsCrawlerSlice(COMPANY_KEY, companyJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Julius Baer', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: companyJobs.length, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: companyJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Julius Baer', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
 

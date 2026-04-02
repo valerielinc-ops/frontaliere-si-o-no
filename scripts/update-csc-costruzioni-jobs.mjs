@@ -237,7 +237,7 @@ async function main() {
   const detailUrls = await fetchCscJobUrls();
   if (detailUrls.length === 0) {
     console.log('ℹ️ No CSC Costruzioni job URLs discovered. Exiting OK.');
-    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'CSC Costruzioni');
+    printCrawlChangeSummary({ newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'CSC Costruzioni');
     return;
   }
 
@@ -260,7 +260,7 @@ async function main() {
   const stats = logStats(_beforeSnapshot);
   if (stats.total === 0) {
     console.log('ℹ️ No CSC Costruzioni jobs found after crawl. Exiting OK.');
-    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'CSC Costruzioni');
+    printCrawlChangeSummary({ newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'CSC Costruzioni');
     return;
   }
 
@@ -276,17 +276,17 @@ async function main() {
     label: 'CSC Costruzioni',
     generatedAt: new Date().toISOString(),
     total: _sliceJobs.length,
-    newCount: 0,
-    updatedCount: 0,
-    removedCount: 0,
-    unchangedCount: _sliceJobs.length,
+    newCount: crawlDiff.newJobs.length,
+    updatedCount: crawlDiff.updatedJobs.length,
+    removedCount: crawlDiff.removedJobs.length,
+    unchangedCount: crawlDiff.unchangedCount,
     durationMs: _durationMs,
     avgDurationMs: _durationMs,
     durationHistory: [_durationMs],
-    newJobs: [],
-    updatedJobs: [],
-    removedJobs: [],
-    unchangedJobs: _sliceJobs.slice(0, 30),
+    newJobs: crawlDiff.newJobs.slice(0, 30),
+    updatedJobs: crawlDiff.updatedJobs.slice(0, 30),
+    removedJobs: crawlDiff.removedJobs.slice(0, 30),
+    unchangedJobs: (crawlDiff.unchangedJobs || []).slice(0, 30),
   });
   await assembleJobsDataset();
 }

@@ -116,7 +116,7 @@ async function main() {
   const sr = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const sj = Array.isArray(sr) ? sr.filter(isCompanyJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, sj);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Bellinzona', generatedAt: new Date().toISOString(), total: sj.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: sj.length, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: sj.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Bellinzona', generatedAt: new Date().toISOString(), total: sj.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: dur, avgDurationMs: dur, durationHistory: [dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: sj.slice(0, 30) });
   await assembleJobsDataset();
 }
 

@@ -232,15 +232,16 @@ async function main() {
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isSwissMedicalJob);
   console.log(`\n📊 Swiss Medical Network Ticino jobs: ${companyJobs.length}`);
   const afterSnapshot = snapshotJobSlugs(companyJobs);
-  printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Swiss Medical Network');
-  writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Swiss Medical Network');
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'Swiss Medical Network');
+  writeCrawlChangeSummaryToGH(diff, 'Swiss Medical Network');
 
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_SWISS_MEDICAL_STRICT', label: 'Swiss Medical Network', dataJobsPath: DATA_JOBS, isTargetJob: isSwissMedicalJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_swiss_medical_domain', failWhenNoJobs: false, noJobsMessage: 'No Swiss Medical Network Ticino jobs found.' });
   console.log('\n✅ Swiss Medical Network crawler complete.');
 
   const _durationMs = getCrawlerElapsedMs();
   writeJobsCrawlerSlice(COMPANY_KEY, companyJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Swiss Medical Network', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: companyJobs.length, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: companyJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Swiss Medical Network', generatedAt: new Date().toISOString(), total: companyJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: (diff.unchangedJobs || []).slice(0, 30) });
   await assembleJobsDataset();
 }
 

@@ -247,7 +247,7 @@ async function main() {
   if (discoveredJobs.length === 0) {
     console.log('ℹ️  No job listings found — writing empty slice to clear stale data.');
     writeJobsCrawlerSlice(COMPANY_KEY, []);
-    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: 0, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: 0, durationMs: getCrawlerElapsedMs(), avgDurationMs: getCrawlerElapsedMs(), durationHistory: [getCrawlerElapsedMs()], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [] });
+    writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: 0, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: getCrawlerElapsedMs(), avgDurationMs: getCrawlerElapsedMs(), durationHistory: [getCrawlerElapsedMs()], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: [] });
     await assembleJobsDataset();
     return;
   }
@@ -278,7 +278,7 @@ async function main() {
   const _sliceRaw = fs.existsSync(DATA_JOBS) ? JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8')) : [];
   const _sliceJobs = Array.isArray(_sliceRaw) ? _sliceRaw.filter(isCompanyJob) : [];
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: 0, updatedCount: 0, removedCount: 0, unchangedCount: _sliceJobs.length, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
   await assembleJobsDataset();
 }
 
