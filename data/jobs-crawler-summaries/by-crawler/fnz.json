@@ -1,60 +1,19 @@
 {
   "key": "fnz",
   "label": "FNZ",
-  "generatedAt": "2026-04-01T21:18:38.210Z",
+  "generatedAt": "2026-04-02T12:16:14.898Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2729,
-  "avgDurationMs": 2729,
+  "unchangedCount": 0,
+  "durationMs": 2760,
+  "avgDurationMs": 2760,
   "durationHistory": [
-    2729
+    2760
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Solution-Consultant-CRM_REQ-16005",
-      "applyUrl": "https://fnz.wd3.myworkdayjobs.com/en/fnz_careers/job/Chiasso---Switzerland/Solution-Consultant-CRM_REQ-16005",
-      "title": "Solution Consultant CRM",
-      "company": "FNZ (Switzerland) AG",
-      "companyKey": "fnz",
-      "location": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "solution-consulente-crm-fnz-switzerland-ag-lugano",
-      "category": "consulting",
-      "datePosted": "2026-02-19",
-      "source": "fnz-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Fintech / Servizi finanziari",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Chiasso"
-      },
-      "jobReqId": "REQ-16005",
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 77500,
-      "salaryMax": 104500,
-      "currency": "CHF",
-      "streetAddress": "Via Nassa 5",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
