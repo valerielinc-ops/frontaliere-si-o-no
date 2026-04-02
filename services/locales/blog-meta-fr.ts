@@ -1907,6 +1907,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.limite-popolazione-10-milioni-ticino.title': 'Limiter la population du Tessin à 10 millions : défis et opportunités',
     'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'L\'initiative de l\'UDC vise à fixer un plafond de 10 millions d\'habitants en Suisse d\'ici 2050, avec des répercussions directes sur le Canton du Tessin et les frontaliers.',
     'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Scène photoréaliste du passage de frontière en Ticino entre Chiasso et Gaggiolo, avec paysage urbain et naturel.',
+    'blog.article.contrabbando-argento-frontiera.title': 'Contrebande d\'argent : sept pièces d\'argent frappées',
+    'blog.article.contrabbando-argento-frontiera.excerpt': 'La douane suisse a saisi sept pièces d\'argent frappées lors d\'un contrôle de routine',
+    'blog.article.contrabbando-argento-frontiera.imageAlt': 'Contrôle des douanes à la frontière',
 };
 
 export default blogMetaFr;

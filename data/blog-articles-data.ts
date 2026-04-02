@@ -5641,4 +5641,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/limite-popolazione-10-milioni-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'contrabbando-argento-frontiera',
+    category: 'fiscale',
+    date: '2026-04-02T07:29:45.638Z',
+    image: '/images/blog/contrabbando-argento-frontiera.jpg',
+    hasCalculator: true,
+  },
 ];

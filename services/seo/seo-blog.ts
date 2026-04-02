@@ -10146,6 +10146,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contrabbando-argento-frontiera': {
+    title: 'Contrabbando d\'argento: sette pezzi d\'argento in conio | Frontaliere Ticino',
+    description: 'La dogana svizzera ha sequestrato sette pezzi d\'argento in conio durante un controllo di routine alla frontiera italo-svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, contrabbando, argento, sette, pezzi',
+    ogTitle: 'Contrabbando d\'argento: sette pezzi sequestrati',
+    ogDescription: 'La dogana svizzera ha sequestrato sette pezzi d\'argento in conio durante un controllo di routine',
+    canonicalPath: '/articoli-frontaliere/contrabbando-argento-frontiera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contrabbando d'argento: una storia di collaborazione",
+      "description": "La dogana svizzera ha sequestrato sette pezzi d'argento in conio durante un controllo di routine alla frontiera italo-svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contrabbando-argento-frontiera.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Contrabbando d'argento sulla frontiera"
+      },
+      "datePublished": "2026-04-02T07:29:45+00:00",
+      "dateModified": "2026-04-02T07:29:45+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbando-argento-frontiera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

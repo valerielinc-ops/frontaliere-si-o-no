@@ -1907,6 +1907,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.limite-popolazione-10-milioni-ticino.title': 'Limiting the Population in Ticino to 10 Million: Challenges and Opportunities',
     'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'The initiative by the Swiss People\'s Party (UDC) aims to set a cap of 10 million inhabitants in Switzerland by 2050, with direct implications for the Canton of Ticino and cross-border workers.',
     'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Realistic scene of the border crossing in Ticino between Chiasso and Gaggiolo, with urban and natural landscape.',
+    'blog.article.contrabbando-argento-frontiera.title': 'Silver Smuggling: Seven Minted Silver Pieces Seized',
+    'blog.article.contrabbando-argento-frontiera.excerpt': 'The Swiss customs authority has seized seven minted silver pieces during a routine inspection.',
+    'blog.article.contrabbando-argento-frontiera.imageAlt': 'Silver smuggling on the border',
 };
 
 export default blogMetaEn;

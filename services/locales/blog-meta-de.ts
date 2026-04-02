@@ -1907,6 +1907,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.limite-popolazione-10-milioni-ticino.title': 'Begrenzung der Bevölkerung im Tessin auf 10 Millionen: Herausforderungen und Chancen',
     'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'Die Initiative der SVP zielt darauf ab, eine Obergrenze von 10 Millionen Einwohnern in der Schweiz bis zum Jahr 2050 festzulegen, mit direkten Auswirkungen auf den Kanton Tessin und die Grenzgänger.',
     'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Realistische Darstellung des Grenzübergangs in Ticino zwischen Chiasso und Gaggiolo mit Stadt- und Naturblick.',
+    'blog.article.contrabbando-argento-frontiera.title': 'Silberschmuggel: Sieben geprägte Silberstücke',
+    'blog.article.contrabbando-argento-frontiera.excerpt': 'Der Schweizer Zoll hat bei einer Routinekontrolle sieben geprägte Silberstücke beschlagnahmt.',
+    'blog.article.contrabbando-argento-frontiera.imageAlt': 'Silber-Schmuggel an der Grenze',
 };
 
 export default blogMetaDe;

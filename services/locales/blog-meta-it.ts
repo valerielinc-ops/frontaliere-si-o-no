@@ -1907,6 +1907,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.limite-popolazione-10-milioni-ticino.title': 'Limitare la popolazione in Ticino a 10 milioni: sfide e opportunità',
     'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'L\'iniziativa dell\'UDC mira a fissare un tetto di 10 milioni di abitanti in Svizzera entro il 2050, con ripercussioni dirette sul Canton Ticino e sui frontalieri.',
     'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Vista del valico di frontiera di Chiasso e Gaggiolo in Ticino, con paesaggio urbano e naturale circostante.',
+    'blog.article.contrabbando-argento-frontiera.title': 'Contrabbando d\'argento: sette pezzi d\'argento in conio',
+    'blog.article.contrabbando-argento-frontiera.excerpt': 'La dogana svizzera ha sequestrato sette pezzi d\'argento in conio durante un controllo di routine',
+    'blog.article.contrabbando-argento-frontiera.imageAlt': 'Contrabbando d\'argento sulla frontiera',
 };
 
 export default blogMetaIt;
