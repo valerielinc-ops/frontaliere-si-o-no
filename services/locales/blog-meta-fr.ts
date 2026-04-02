@@ -1904,6 +1904,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavori-notturni-via-lavizzari.title': 'Travaux nocturnes de pavage dans la Via Lavizzari à Chiasso',
     'blog.article.lavori-notturni-via-lavizzari.excerpt': 'Du 7 au 18 avril 2026, la Via Lavizzari à Chiasso sera concernée par des travaux nocturnes de pavage. La route sera fermée à la circulation ordinaire de 20h00 à 05h00.',
     'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Travaux de pavage nocturnes sur la Via Lavizzari à Chiasso',
+    'blog.article.limite-popolazione-10-milioni-ticino.title': 'Limiter la population du Tessin à 10 millions : défis et opportunités',
+    'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'L\'initiative de l\'UDC vise à fixer un plafond de 10 millions d\'habitants en Suisse d\'ici 2050, avec des répercussions directes sur le Canton du Tessin et les frontaliers.',
+    'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Scène photoréaliste du passage de frontière en Ticino entre Chiasso et Gaggiolo, avec paysage urbain et naturel.',
 };
 
 export default blogMetaFr;

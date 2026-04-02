@@ -1904,6 +1904,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavori-notturni-via-lavizzari.title': 'Nachtliche Pflasterarbeiten in der Via Lavizzari in Chiasso',
     'blog.article.lavori-notturni-via-lavizzari.excerpt': 'Vom 7. bis 18. April 2026 finden in der Via Lavizzari in Chiasso nächtliche Pflasterarbeiten statt. Die Strasse wird für den normalen Verkehr von 20:00 bis 05:00 Uhr gesperrt sein.',
     'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Nachttarbeiten zur Straßenpflasterung in der Via Lavizzari in Chiasso',
+    'blog.article.limite-popolazione-10-milioni-ticino.title': 'Begrenzung der Bevölkerung im Tessin auf 10 Millionen: Herausforderungen und Chancen',
+    'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'Die Initiative der SVP zielt darauf ab, eine Obergrenze von 10 Millionen Einwohnern in der Schweiz bis zum Jahr 2050 festzulegen, mit direkten Auswirkungen auf den Kanton Tessin und die Grenzgänger.',
+    'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Realistische Darstellung des Grenzübergangs in Ticino zwischen Chiasso und Gaggiolo mit Stadt- und Naturblick.',
 };
 
 export default blogMetaDe;

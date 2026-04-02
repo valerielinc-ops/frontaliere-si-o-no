@@ -1852,6 +1852,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congresso-svizzera-italia-2026': { name: 'Congresso Svizzera-Italia', path: '/articoli-frontaliere/congresso-svizzera-italia-2026', parent: 'blog' },
     'blog-il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga': { name: 'Cannabis e disturbi cronici: la cassa', path: '/articoli-frontaliere/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga', parent: 'blog' },
     'blog-lavori-notturni-via-lavizzari': { name: 'Viabilità', path: '/articoli-frontaliere/lavori-notturni-via-lavizzari', parent: 'blog' },
+    'blog-limite-popolazione-10-milioni-ticino': { name: 'Limitare la popolazione in Ticino a 10 m', path: '/articoli-frontaliere/limite-popolazione-10-milioni-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

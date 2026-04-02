@@ -1904,6 +1904,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavori-notturni-via-lavizzari.title': 'Nighttime Roadwork on Via Lavizzari in Chiasso',
     'blog.article.lavori-notturni-via-lavizzari.excerpt': 'From April 7 to 18, 2026, Via Lavizzari in Chiasso will be affected by nighttime roadwork. The road will be closed to regular traffic from 20:00 to 05:00.',
     'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Nighttime paving works on Via Lavizzari in Chiasso',
+    'blog.article.limite-popolazione-10-milioni-ticino.title': 'Limiting the Population in Ticino to 10 Million: Challenges and Opportunities',
+    'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'The initiative by the Swiss People\'s Party (UDC) aims to set a cap of 10 million inhabitants in Switzerland by 2050, with direct implications for the Canton of Ticino and cross-border workers.',
+    'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Realistic scene of the border crossing in Ticino between Chiasso and Gaggiolo, with urban and natural landscape.',
 };
 
 export default blogMetaEn;

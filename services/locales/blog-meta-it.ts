@@ -1904,6 +1904,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavori-notturni-via-lavizzari.title': 'Lavori notturni di pavimentazione in Via Lavizzari a Chiasso',
     'blog.article.lavori-notturni-via-lavizzari.excerpt': 'Dal 7 al 18 aprile 2026, Via Lavizzari a Chiasso sarà interessata da lavori notturni di pavimentazione. La strada sarà chiusa al traffico ordinario dalle 20:00 alle 05:00.',
     'blog.article.lavori-notturni-via-lavizzari.imageAlt': 'Lavori notturni di pavimentazione in Via Lavizzari a Chiasso',
+    'blog.article.limite-popolazione-10-milioni-ticino.title': 'Limitare la popolazione in Ticino a 10 milioni: sfide e opportunità',
+    'blog.article.limite-popolazione-10-milioni-ticino.excerpt': 'L\'iniziativa dell\'UDC mira a fissare un tetto di 10 milioni di abitanti in Svizzera entro il 2050, con ripercussioni dirette sul Canton Ticino e sui frontalieri.',
+    'blog.article.limite-popolazione-10-milioni-ticino.imageAlt': 'Vista del valico di frontiera di Chiasso e Gaggiolo in Ticino, con paesaggio urbano e naturale circostante.',
 };
 
 export default blogMetaIt;

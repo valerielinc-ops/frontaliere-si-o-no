@@ -5634,4 +5634,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavori-notturni-via-lavizzari.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'limite-popolazione-10-milioni-ticino',
+    category: 'pratico',
+    date: '2026-04-02T03:21:20.111Z',
+    image: '/images/blog/limite-popolazione-10-milioni-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

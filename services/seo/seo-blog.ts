@@ -10117,6 +10117,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-limite-popolazione-10-milioni-ticino': {
+    title: 'Limitare la popolazione in Ticino a 10 milioni: sfide e opportunità | Frontaliere Ticino',
+    description: 'L\'iniziativa dell\'UDC mira a fissare un tetto di 10 milioni di abitanti in Svizzera entro il 2050, con ripercussioni dirette sul Canton Ticino e sui frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, limitare, popolazione, milioni, sfide',
+    ogTitle: 'Limitare la popolazione in Ticino a 10 milioni: sfide e o',
+    ogDescription: 'L\'iniziativa dell\'UDC mira a fissare un tetto di 10 milioni di abitanti in Svizzera entro il 2050, con ripercussioni dirette sul Canton Ticino e sui frontalieri',
+    canonicalPath: '/articoli-frontaliere/limite-popolazione-10-milioni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Limitare la popolazione in Ticino a 10 milioni: sfide e o",
+      "description": "L'iniziativa dell'UDC mira a fissare un tetto di 10 milioni di abitanti in Svizzera entro il 2050, con ripercussioni dirette sul Canton Ticino e sui frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/limite-popolazione-10-milioni-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del valico di frontiera di Chiasso e Gaggiolo in Ticino, con paesaggio urbano e naturale circostante."
+      },
+      "datePublished": "2026-04-02T03:21:20+00:00",
+      "dateModified": "2026-04-02T03:21:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/limite-popolazione-10-milioni-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
