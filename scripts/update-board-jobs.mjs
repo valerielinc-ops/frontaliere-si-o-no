@@ -24,6 +24,7 @@ import {
   detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
+import { JSDOM } from 'jsdom';
 import {
   parseBoardListings,
   isBoardTargetLocation,
@@ -116,12 +117,45 @@ function isTrustedDomain(rawUrl = '') {
   }
 }
 
+function extractNextPageUrl(html, currentUrl) {
+  const document = new JSDOM(html).window.document;
+  // Look for "Next »" pagination link
+  for (const a of document.querySelectorAll('a')) {
+    const text = (a.textContent || '').trim();
+    if (/next|»|›|successiv/i.test(text)) {
+      const href = a.getAttribute('href');
+      if (href) return new URL(href, currentUrl).href;
+    }
+  }
+  return null;
+}
+
 async function fetchBoardListings() {
   console.log('🔍 Fetching Board jobs from careers page...');
-  const html = await fetchText(CAREERS_URL);
-  const discovered = parseBoardListings(html);
-  const target = discovered.filter((row) => isBoardTargetLocation(row.location));
-  console.log(`📋 Total listing rows: ${discovered.length}`);
+  const MAX_PAGES = 10;
+  const allDiscovered = [];
+  let pageUrl = CAREERS_URL;
+  let page = 1;
+
+  while (pageUrl && page <= MAX_PAGES) {
+    console.log(`📄 Fetching page ${page}: ${pageUrl}`);
+    const html = await fetchText(pageUrl);
+    const discovered = parseBoardListings(html);
+    console.log(`  → Found ${discovered.length} listings on page ${page}`);
+    allDiscovered.push(...discovered);
+
+    // Check for next page
+    const nextUrl = extractNextPageUrl(html, pageUrl);
+    if (nextUrl && nextUrl !== pageUrl) {
+      pageUrl = nextUrl;
+      page++;
+    } else {
+      break;
+    }
+  }
+
+  const target = allDiscovered.filter((row) => isBoardTargetLocation(row.location));
+  console.log(`📋 Total listing rows (all pages): ${allDiscovered.length}`);
   console.log(`📋 Ticino/Grigioni rows: ${target.length}`);
   for (const row of target) {
     console.log(`  📄 ${row.title} (${row.location})`);
@@ -211,7 +245,7 @@ function mergeJobs(discoveredJobs) {
   writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   writeJobsSummary(mergedTarget, COMPANY_NAME);
   printPublishedJobUrls(mergedTarget, COMPANY_NAME);
-  return { total: mergedTarget.length, added, updated };
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 function updateAdapterConfig(jobs) {
@@ -267,6 +301,7 @@ async function main() {
   }
 
   const result = mergeJobs(jobs);
+  const diff = result.diff || { newJobs: [], updatedJobs: [], removedJobs: [], unchangedJobs: [], unchangedCount: 0 };
   updateAdapterConfig(jobs);
 
   console.log('\n🌐 Running locale fill for Board jobs...');
