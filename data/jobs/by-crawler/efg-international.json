@@ -3055,10 +3055,10 @@
       },
       "crawledAt": "2026-04-02T21:10:29.026Z",
       "slugByLocale": {
-        "it": "risk-analyst-efg-lugano",
+        "it": "risk-analista-efg-international-ag-lugano",
         "en": "risk-analyst-efg-international-ag-lugano",
         "de": "risk-analyst-efg-lugano",
-        "fr": "risk-analyst-efg-lugano"
+        "fr": "risk-analyste-efg-international-ag-lugano"
       },
       "addressLocality": "Lugano",
       "addressCountry": "CH",
@@ -3080,7 +3080,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "risk-analyst-efg-lugano"
+      ]
     }
   ]
 }
