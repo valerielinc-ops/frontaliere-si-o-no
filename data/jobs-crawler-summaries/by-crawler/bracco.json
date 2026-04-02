@@ -1,98 +1,19 @@
 {
   "key": "bracco",
   "label": "Bracco Suisse",
-  "generatedAt": "2026-04-01T21:00:56.068Z",
+  "generatedAt": "2026-04-02T11:58:40.930Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 3570,
-  "avgDurationMs": 3570,
+  "unchangedCount": 0,
+  "durationMs": 2617,
+  "avgDurationMs": 2617,
   "durationHistory": [
-    3570
+    2617
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/MANUFACTURING-TECHNICIEN-PRODUCTION-STERILE--H-F-_JR100029",
-      "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/MANUFACTURING-TECHNICIEN-PRODUCTION-STERILE--H-F-_JR100029",
-      "title": "MANUFACTURING TECHNICIEN PRODUCTION STERILE (H/F)",
-      "company": "Bracco Suisse S.A.",
-      "companyKey": "bracco",
-      "location": "Plan-les-Ouates",
-      "canton": "GE",
-      "country": "CH",
-      "slug": "tecnico-di-produzione-sterile-m-f-bracco-suisse-s-a-plan-les-ouates",
-      "category": "production",
-      "datePosted": "2026-03-03",
-      "source": "bracco-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Healthcare / Imaging diagnostico",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Plan-les-Ouates"
-      },
-      "jobReqId": "JR100029",
-      "crawledAt": "",
-      "sourceLang": "fr",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via E. Bracco 6",
-      "postalCode": "6830",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
-    {
-      "url": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/CONTINUOUS-IMPROVEMENT-MANAGER_",
-      "applyUrl": "https://bracco.wd103.myworkdayjobs.com/it-IT/BraccoCareers/job/CHE---Plan-les-Ouates/CONTINUOUS-IMPROVEMENT-MANAGER_",
-      "title": "CONTINUOUS IMPROVEMENT MANAGER",
-      "company": "Bracco Suisse S.A.",
-      "companyKey": "bracco",
-      "location": "Plan-les-Ouates",
-      "canton": "GE",
-      "country": "CH",
-      "slug": "responsabile-del-miglioramento-continuo-bracco-suisse-s-a-plan-les-ouates",
-      "category": "management",
-      "datePosted": "2025-11-17",
-      "source": "bracco-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sector": "Healthcare / Imaging diagnostico",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Plan-les-Ouates"
-      },
-      "crawledAt": "",
-      "sourceLang": "en",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via E. Bracco 6",
-      "postalCode": "6830",
-      "addressLocality": "Chiasso",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
