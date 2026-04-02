@@ -982,8 +982,15 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       // Overwrite when empty OR when the locale copy has lost significant content
       // compared to the authoritative base (truncated AI retranslation, stale cache).
       // Threshold: 85% — below this the source locale is considered corrupt.
-      const contentRatio = currentSourceDesc ? currentSourceDesc.length / baseDesc.length : 0;
-      if (!currentSourceDesc || contentRatio < 0.85) {
+      // Compare NORMALIZED lengths (collapse whitespace) to avoid false positives
+      // when base contains indentation/blank lines that normalizeSpace stripped.
+      // Guard: if the base is raw HTML (>10 tags), it's unparsed page chrome — the
+      // locale copy is the actual clean content, so never overwrite with HTML garbage.
+      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const normBase = baseDesc.replace(/\s+/g, ' ').trim();
+      const normSource = currentSourceDesc.replace(/\s+/g, ' ').trim();
+      const contentRatio = normSource ? normSource.length / Math.max(1, normBase.length) : 0;
+      if (!baseHasHtmlGarbage && (!currentSourceDesc || contentRatio < 0.85)) {
         job.descriptionByLocale[sourceLang] = baseDesc;
         jobChanged = true;
         // Cascade: other locale translations were derived from the truncated source
@@ -2422,9 +2429,15 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
       const currentSourceDesc = String(job.descriptionByLocale[sourceLang] || '').trim();
       // Restore base as source-locale when the locale copy is empty, too short,
       // or has lost significant content vs the authoritative base (threshold: 85%).
-      const sourceContentRatio = currentSourceDesc.length / Math.max(1, baseDesc.length);
+      // Compare NORMALIZED lengths to avoid false positives from whitespace differences.
+      // Guard: never overwrite clean locale content with raw HTML garbage base.
+      const baseHasHtmlGarbage = (baseDesc.match(/<[^>]+>/g) || []).length > 10;
+      const normBaseDesc = baseDesc.replace(/\s+/g, ' ').trim();
+      const normCurrentSource = currentSourceDesc.replace(/\s+/g, ' ').trim();
+      const sourceContentRatio = normCurrentSource.length / Math.max(1, normBaseDesc.length);
       const shouldRestoreSourceDesc =
         !!baseDesc &&
+        !baseHasHtmlGarbage &&
         baseDesc.length >= minDescriptionChars &&
         (!currentSourceDesc || sourceContentRatio < 0.85);
       if (shouldRestoreSourceDesc) {
@@ -2474,11 +2487,14 @@ export async function translateMissingJobLocales({ dataJobsPath, isTargetJob = n
         // Quality gate: translation is suspiciously thin compared to source.
         // A faithful translation should be ≥70% of source length. Below that,
         // the AI likely truncated, summarized, or produced a boilerplate fallback.
+        // Use normalized lengths to avoid false positives from whitespace differences.
+        const normCurrentDesc = currentDesc.replace(/\s+/g, ' ').trim();
+        const normSourceDesc = sourceDesc.replace(/\s+/g, ' ').trim();
         const isThinTranslation =
           locale !== sourceLang &&
-          currentDesc.length > 0 &&
-          sourceDesc.length >= 500 &&
-          currentDesc.length < sourceDesc.length * 0.7;
+          normCurrentDesc.length > 0 &&
+          normSourceDesc.length >= 500 &&
+          normCurrentDesc.length < normSourceDesc.length * 0.7;
         const descNeedsWork =
           !currentDesc ||
           isGarbageCopy ||
