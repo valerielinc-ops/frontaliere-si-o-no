@@ -1,21 +1,19 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-04-01T21:37:13.781Z",
+  "generatedAt": "2026-04-02T09:40:58.807Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2154,
-  "avgDurationMs": 2154,
+  "unchangedCount": 0,
+  "durationMs": 2331,
+  "avgDurationMs": 2331,
   "durationHistory": [
-    2154
+    2331
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "PREVENTIVISTA - SVIZZERA",
       "slug": "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
@@ -34,7 +32,7 @@
       "sector": "Costruzioni & Infrastrutture",
       "source": "pizzarotti-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -50,5 +48,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
