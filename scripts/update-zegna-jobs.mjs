@@ -608,7 +608,7 @@ function postProcessZegnaJobs() {
 function logZegnaJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0 };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -649,7 +649,7 @@ function logZegnaJobStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'Zegna');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Zegna');
-  return { total: zegnaJobs.length };
+  return { total: zegnaJobs.length, crawlDiff };
 }
 
 function validateZegnaLocaleCoverage() {
@@ -705,6 +705,7 @@ async function main() {
 
   // 6. Log stats
   const stats = logZegnaJobStats(_beforeSnapshot);
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No Zegna jobs found. Exiting OK.');
     return;

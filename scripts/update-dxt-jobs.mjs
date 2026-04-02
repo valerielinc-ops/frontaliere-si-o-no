@@ -485,8 +485,8 @@ function logStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'DXT Commodities');
   writeCrawlChangeSummaryToGH(crawlDiff, 'DXT Commodities');
-  return { total: dxtJobs.length };
-  return crawlDiff;
+  return { total: dxtJobs.length, crawlDiff };
+
 }
 
 function validateLocales() {
@@ -524,7 +524,8 @@ async function main() {
     console.log('\n⚠️ No DXT Lugano jobs discovered.');
     console.log('   The careers page may have changed structure or have no current openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    const crawlDiff = logStats(beforeSnapshot);
+    const _cdResult = logStats(beforeSnapshot);
+    const crawlDiff = _cdResult.crawlDiff;
     return;
   }
 

@@ -285,8 +285,8 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Raiffeisen VC');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Raiffeisen VC');
 
-  return { total: jobs.length };
-  return crawlDiff;
+  return { total: jobs.length, crawlDiff };
+
 }
 
 function validateLocaleCoverage() {
@@ -394,7 +394,7 @@ async function main() {
 
   // Step 5: Stats + validation
   const stats = logStats(_beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No Raiffeisen VC jobs found after crawl. Exiting OK.');
     return;

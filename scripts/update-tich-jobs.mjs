@@ -539,7 +539,7 @@ function runBaseCrawler() {
 function logTichJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0 };
+    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -568,8 +568,8 @@ function logTichJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'TiCH');
   writeCrawlChangeSummaryToGH(crawlDiff, 'TiCH');
 
-  return { total: tichJobs.length, ticino: ticinoJobs.length };
-  return crawlDiff;
+  return { total: tichJobs.length, ticino: ticinoJobs.length, crawlDiff };
+
 }
 
 function validateTichLocaleCoverage() {
@@ -722,7 +722,7 @@ async function main() {
 
   // Step 4: Log stats and validate
   const stats = logTichJobStats(_beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log(
       'ℹ️ Nessun job Ti.CH trovato in questa esecuzione. Nessun errore — uscita OK.',

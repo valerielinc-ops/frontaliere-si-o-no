@@ -783,8 +783,8 @@ function logStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'Città di Mendrisio');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Città di Mendrisio');
-  return { total: mendrisioJobs.length };
-  return crawlDiff;
+  return { total: mendrisioJobs.length, crawlDiff };
+
 }
 
 function validateLocales() {
@@ -822,7 +822,8 @@ async function main() {
       '   The concorsi page may have changed structure or have no current openings.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    const crawlDiff = logStats(beforeSnapshot);
+    const _cdResult = logStats(beforeSnapshot);
+    const crawlDiff = _cdResult.crawlDiff;
     return;
   }
 

@@ -1018,7 +1018,7 @@ function postProcessMedactaJobs() {
 function logMedactaJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0 };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -1053,7 +1053,7 @@ function logMedactaJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Medacta');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Medacta');
 
-  return { total: medactaJobs.length, ticino: ticinoJobs.length };
+  return { total: medactaJobs.length, ticino: ticinoJobs.length, crawlDiff };
 }
 
 function validateMedactaLocaleCoverage() {
@@ -1102,6 +1102,7 @@ async function main() {
 
   // 5. Log stats
   const stats = logMedactaJobStats(_beforeSnapshot);
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job Medacta trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

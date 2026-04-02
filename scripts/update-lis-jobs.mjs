@@ -1047,7 +1047,7 @@ async function crawlArca24Direct() {
 function logLisJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0 };
+    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -1074,8 +1074,8 @@ function logLisJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'LIS');
   writeCrawlChangeSummaryToGH(crawlDiff, 'LIS');
 
-  return { total: lisJobs.length, ticino: ticinoJobs.length };
-  return crawlDiff;
+  return { total: lisJobs.length, ticino: ticinoJobs.length, crawlDiff };
+
 }
 
 function validateLisLocaleCoverage() {
@@ -1135,7 +1135,7 @@ async function main() {
 
   // Log stats
   const stats = logLisJobStats(_beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.warn('⚠️  WARNING: No LIS jobs found after both direct Arca24 scraping and shared pipeline.');
     console.warn('⚠️  This likely indicates the Arca24 ATS structure has changed or the site is down.');

@@ -1201,7 +1201,7 @@ function applyUsiLocaleOverrides() {
 function logUsiJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0 };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -1246,7 +1246,7 @@ function logUsiJobStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'USI');
   writeCrawlChangeSummaryToGH(crawlDiff, 'USI');
-  return { total: usiJobs.length };
+  return { total: usiJobs.length, crawlDiff };
 }
 
 function validateUsiLocaleCoverage() {
@@ -1307,6 +1307,7 @@ async function main() {
 
   // 6. Log stats
   const stats = logUsiJobStats(_beforeSnapshot);
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job USI trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

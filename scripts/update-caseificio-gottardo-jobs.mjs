@@ -614,8 +614,8 @@ function logStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'Caseificio del Gottardo');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Caseificio del Gottardo');
-  return { total: targetJobs.length };
-  return crawlDiff;
+  return { total: targetJobs.length, crawlDiff };
+
 }
 
 function validateLocales() {
@@ -658,7 +658,8 @@ async function main() {
       '   The careers page may have changed structure or have no current openings.'
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    const crawlDiff = logStats(beforeSnapshot);
+    const _cdResult = logStats(beforeSnapshot);
+    const crawlDiff = _cdResult.crawlDiff;
     return;
   }
 

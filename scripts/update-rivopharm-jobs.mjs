@@ -336,8 +336,8 @@ function logStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'Rivopharm SA');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Rivopharm SA');
-  return { total: companyJobs.length };
-  return crawlDiff;
+  return { total: companyJobs.length, crawlDiff };
+
 }
 
 function validateLocales() {
@@ -376,7 +376,8 @@ async function main() {
     writeJobsCrawlerSlice(COMPANY_KEY, []);
     writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: 'Rivopharm SA', generatedAt: new Date().toISOString(), total: 0, newCount: crawlDiff.newJobs.length, updatedCount: crawlDiff.updatedJobs.length, removedCount: crawlDiff.removedJobs.length, unchangedCount: crawlDiff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: crawlDiff.newJobs.slice(0, 30), updatedJobs: crawlDiff.updatedJobs.slice(0, 30), removedJobs: crawlDiff.removedJobs.slice(0, 30), unchangedJobs: [] });
     await assembleJobsDataset();
-    const crawlDiff = logStats(beforeSnapshot);
+    const _cdResult = logStats(beforeSnapshot);
+    const crawlDiff = _cdResult.crawlDiff;
     return;
   }
 

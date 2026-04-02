@@ -575,8 +575,8 @@ function logStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'FNZ');
   writeCrawlChangeSummaryToGH(crawlDiff, 'FNZ');
-  return { total: fnzJobs.length };
-  return crawlDiff;
+  return { total: fnzJobs.length, crawlDiff };
+
 }
 
 function validateLocales() {
@@ -612,7 +612,8 @@ async function main() {
     console.log('\n⚠️ No FNZ jobs discovered.');
     console.log('   The Workday API may be unreachable or have no Swiss openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
-    const crawlDiff = logStats(beforeSnapshot);
+    const _cdResult = logStats(beforeSnapshot);
+    const crawlDiff = _cdResult.crawlDiff;
     return;
   }
 

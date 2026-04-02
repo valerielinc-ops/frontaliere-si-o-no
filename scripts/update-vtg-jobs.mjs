@@ -270,8 +270,8 @@ function logStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'VTG');
   writeCrawlChangeSummaryToGH(crawlDiff, 'VTG');
 
-  return { total: jobs.length };
-  return crawlDiff;
+  return { total: jobs.length, crawlDiff };
+
 }
 
 function validateLocaleCoverage() {
@@ -318,7 +318,7 @@ async function main() {
 
   // Step 5: Stats + validation
   const stats = logStats(_beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No VTG jobs found after crawl. Exiting OK.');
     return;

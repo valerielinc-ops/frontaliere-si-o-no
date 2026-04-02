@@ -385,8 +385,8 @@ function logStats(beforeSnapshot = new Map()) {
 
   writeJobsSummary(targetJobs, 'Guess');
   printPublishedJobUrls(targetJobs, 'Guess');
-  return { total: targetJobs.length };
-  return crawlDiff;
+  return { total: targetJobs.length, crawlDiff };
+
 }
 
 function validateLocales() {
@@ -438,7 +438,7 @@ async function main() {
 
   postProcessJobs();
   const stats = logStats(beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total < 5) {
     throw new Error(`Guess crawler produced only ${stats.total} jobs (<5).`);
   }

@@ -147,7 +147,7 @@ function runBaseCrawler() {
 function logZurichJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0 };
+    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -174,8 +174,8 @@ function logZurichJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Zurich');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Zurich');
 
-  return { total: zurichJobs.length, ticino: ticinoJobs.length };
-  return crawlDiff;
+  return { total: zurichJobs.length, ticino: ticinoJobs.length, crawlDiff };
+
 }
 
 function validateZurichLocaleCoverage() {
@@ -206,7 +206,7 @@ async function main() {
 
   // Log stats
   const stats = logZurichJobStats(_beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job Zurich trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

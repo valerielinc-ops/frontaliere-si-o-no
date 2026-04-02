@@ -510,7 +510,7 @@ function postProcessAbbJobs() {
 function logAbbJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0 };
+    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -532,8 +532,8 @@ function logAbbJobStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'ABB');
   writeCrawlChangeSummaryToGH(crawlDiff, 'ABB');
-  return { total: abbJobs.length, ticino: ticinoJobs.length };
-  return crawlDiff;
+  return { total: abbJobs.length, ticino: ticinoJobs.length, crawlDiff };
+
 }
 
 function validateAbbLocaleCoverage() {
@@ -572,7 +572,7 @@ async function main() {
   postProcessAbbJobs();
 
   const stats = logAbbJobStats(beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job ABB trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

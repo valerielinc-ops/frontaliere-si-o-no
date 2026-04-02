@@ -431,7 +431,7 @@ function logSchindlerJobStats(parsedJobs, beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'Schindler');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Schindler');
-  return crawlDiff;
+  return { crawlDiff };
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -509,7 +509,8 @@ async function main() {
   writeJobsSummary(publishedJobs, 'Schindler');
 
   // Step 4: Stats & diff
-  const crawlDiff = logSchindlerJobStats(publishedJobs, beforeSnapshot);
+  const _cdResult = logSchindlerJobStats(publishedJobs, beforeSnapshot);
+  const crawlDiff = _cdResult.crawlDiff;
 
   // Step 5: Run shared localization pass
   await runBaseCrawler();

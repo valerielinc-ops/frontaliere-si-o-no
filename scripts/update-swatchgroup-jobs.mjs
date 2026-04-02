@@ -96,7 +96,7 @@ function runBaseCrawler(companyKeys) {
 function logSwatchJobStats(companyKeys, beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, discarded: 0 };
+    return { total: 0, ticino: 0, discarded: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const swatchKeysSet = new Set(companyKeys.map((k) => normalizeKey(k)));
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
@@ -131,7 +131,7 @@ function logSwatchJobStats(companyKeys, beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'Swatch Group');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Swatch Group');
 
-  return { total: swatchJobs.length, ticino: ticinoJobs.length, discarded };
+  return { total: swatchJobs.length, ticino: ticinoJobs.length, discarded, crawlDiff };
 }
 
 function validateSwatchLocaleCoverage(companyKeys) {
@@ -170,6 +170,7 @@ async function main() {
 
   // Log stats: total jobs found, Ticino vs non-Ticino
   const stats = logSwatchJobStats(companyKeys, _beforeSnapshot);
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job Swatch trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

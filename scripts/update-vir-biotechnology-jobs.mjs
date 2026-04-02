@@ -186,7 +186,7 @@ function postProcess() {
     if (!job.location) { job.location = 'Bellinzona'; fixed++; }
   }
   if (fixed > 0) { fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n'); fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(jobs, null, 2) + '\n'); console.log(`🔧 Post-processed ${fixed} Vir jobs.`); }
-  return crawlDiff;
+  return;
 }
 
 async function main() {
@@ -213,15 +213,16 @@ async function main() {
   await mergeJobs(discoveredJobs);
   console.log('\n🌐 Running base crawler for AI localization...');
   await runBaseCrawler();
-  const crawlDiff = postProcess();
+  postProcess();
 
   if (!fs.existsSync(DATA_JOBS)) return;
   const finalJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const companyJobs = (Array.isArray(finalJobs) ? finalJobs : []).filter(isVirJob);
   console.log(`\n📊 Vir Biotechnology jobs: ${companyJobs.length}`);
   const afterSnapshot = snapshotJobSlugs(companyJobs);
-  printCrawlChangeSummary(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Vir Biotechnology');
-  writeCrawlChangeSummaryToGH(computeCrawlDiff(beforeSnapshot, afterSnapshot), 'Vir Biotechnology');
+  const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(crawlDiff, 'Vir Biotechnology');
+  writeCrawlChangeSummaryToGH(crawlDiff, 'Vir Biotechnology');
 
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_VIR_BIOTECHNOLOGY_STRICT', label: 'Vir Biotechnology', dataJobsPath: DATA_JOBS, isTargetJob: isVirJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_vir_domain', failWhenNoJobs: false, noJobsMessage: 'No Vir Biotechnology Swiss jobs found.' });
   console.log('\n✅ Vir Biotechnology crawler complete.');

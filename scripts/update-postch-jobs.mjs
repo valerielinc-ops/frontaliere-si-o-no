@@ -517,7 +517,7 @@ function postProcessPostJobs() {
 function logPostJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0 };
+    return { total: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -558,7 +558,7 @@ function logPostJobStats(beforeSnapshot = new Map()) {
   const crawlDiff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(crawlDiff, 'Post.ch');
   writeCrawlChangeSummaryToGH(crawlDiff, 'Post.ch');
-  return { total: postJobs.length };
+  return { total: postJobs.length, crawlDiff };
 }
 
 function validatePostLocaleCoverage() {
@@ -617,6 +617,7 @@ async function main() {
 
   // 6. Log stats
   const stats = logPostJobStats(_beforeSnapshot);
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ No Post.ch jobs found. Exiting OK.');
     return;

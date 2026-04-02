@@ -959,7 +959,7 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
 function logEfgJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0 };
+    return { total: 0, ticino: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -986,8 +986,8 @@ function logEfgJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'EFG');
   writeCrawlChangeSummaryToGH(crawlDiff, 'EFG');
 
-  return { total: efgJobs.length, ticino: ticinoJobs.length };
-  return crawlDiff;
+  return { total: efgJobs.length, ticino: ticinoJobs.length, crawlDiff };
+
 }
 
 function validateEfgLocaleCoverage() {
@@ -1063,7 +1063,7 @@ async function main() {
 
   // 7. Log stats
   const stats = logEfgJobStats(_beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job EFG trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;

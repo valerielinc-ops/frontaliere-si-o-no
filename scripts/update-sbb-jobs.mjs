@@ -1025,7 +1025,7 @@ function ensureAdapterSeedUrls(seedUrls) {
 function logSbbJobStats(beforeSnapshot = new Map()) {
   if (!fs.existsSync(DATA_JOBS)) {
     console.log('ℹ️ jobs.json non trovato — nessuna statistica disponibile.');
-    return { total: 0, ticino: 0, grigioni: 0 };
+    return { total: 0, ticino: 0, grigioni: 0, crawlDiff: { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] } };
   }
   const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
   const allJobs = Array.isArray(raw) ? raw : [];
@@ -1054,8 +1054,8 @@ function logSbbJobStats(beforeSnapshot = new Map()) {
   printCrawlChangeSummary(crawlDiff, 'SBB');
   writeCrawlChangeSummaryToGH(crawlDiff, 'SBB');
 
-  return { total: sbbJobs.length, ticino: ticinoJobs.length, grigioni: grigioniJobs.length };
-  return crawlDiff;
+  return { total: sbbJobs.length, ticino: ticinoJobs.length, grigioni: grigioniJobs.length, crawlDiff };
+
 }
 
 function validateSbbLocaleCoverage() {
@@ -1125,7 +1125,7 @@ async function main() {
 
   // Step 4: Log stats and validate
   const stats = logSbbJobStats(_beforeSnapshot);
-  const crawlDiff = stats;
+  const crawlDiff = stats.crawlDiff;
   if (stats.total === 0) {
     console.log('ℹ️ Nessun job SBB trovato in questa esecuzione. Nessun errore — uscita OK.');
     return;
