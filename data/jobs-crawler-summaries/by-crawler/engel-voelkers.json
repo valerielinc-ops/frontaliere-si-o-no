@@ -1,21 +1,19 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-01T21:15:45.570Z",
+  "generatedAt": "2026-04-02T10:29:26.035Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 20173,
-  "avgDurationMs": 20173,
+  "unchangedCount": 0,
+  "durationMs": 18791,
+  "avgDurationMs": 18791,
   "durationHistory": [
-    20173
+    18791
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Stage Assistente Team (3-6 mesi) | Lugano",
       "slug": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
@@ -34,7 +32,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "internship",
       "contractType": "internship",
       "validThrough": "",
@@ -53,7 +51,7 @@
     },
     {
       "title": "Immobilienberater/in 100 % | Ascona",
-      "slug": "consulente-immobiliare-100-ascona-ticino-premium-properties-sa-ascona",
+      "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
       "company": "Ticino Premium Properties SA",
@@ -69,7 +67,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -78,7 +76,6 @@
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -87,5 +84,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }

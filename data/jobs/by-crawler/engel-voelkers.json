@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-04-01T21:15:45.570Z",
+  "assembledAt": "2026-04-02T10:29:26.035Z",
   "jobs": [
     {
       "title": "Stage Assistente Team (3-6 mesi) | Lugano",
@@ -20,7 +20,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "internship",
       "contractType": "internship",
       "validThrough": "",
@@ -80,7 +80,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -120,7 +120,8 @@
         }
       },
       "streetAddress": "Via Nassa 17",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     }
   ]
 }
