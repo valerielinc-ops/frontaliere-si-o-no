@@ -5127,10 +5127,14 @@ async function main() {
 
   // IMPORTANT: keep crawler output raw (sanitize/strip only).
   // Salary/address enrichment must run only in scripts/re-enrich-jobs.mjs (single source of truth).
+  // Skip stripCopyPasteLocales in LOCALIZE_EXISTING_ONLY mode — blanking copy-paste locales
+  // without being able to AI-retranslate them destroys data. The translate-pending pipeline
+  // is the translation pass; stripping should only happen during real crawl runs.
   let strippedCount = 0;
   const mergedEnriched = merged
     .map(sanitizeJobStrings)
     .map((job) => {
+      if (localizeExistingOnly) return job;
       const before = JSON.stringify(job.titleByLocale || {}) + JSON.stringify(job.descriptionByLocale || {});
       const out = stripCopyPasteLocales(job);
       const after = JSON.stringify(out.titleByLocale || {}) + JSON.stringify(out.descriptionByLocale || {});
