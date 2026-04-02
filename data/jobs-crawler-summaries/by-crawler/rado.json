@@ -1,21 +1,18 @@
 {
   "key": "rado",
   "label": "rado",
-  "generatedAt": "2026-04-01T21:48:55.765Z",
+  "generatedAt": "2026-04-02T11:45:13.880Z",
   "total": 1,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 23361,
-  "avgDurationMs": 23361,
+  "unchangedCount": 0,
+  "durationMs": 63332,
+  "avgDurationMs": 63332,
   "durationHistory": [
-    23361
+    63332
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
     {
       "id": "company-7uasdr",
       "slug": "responsabile-acquisti-e-subfornitura-u-d-stabilimento-di-delemont-blancpain-ltd-lengnau",
@@ -42,7 +39,6 @@
       "addressRegion": "BE",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -51,5 +47,8 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
