@@ -1,19 +1,53 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-04-01T21:04:25.438Z",
+  "generatedAt": "2026-04-02T09:08:09.061Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2808,
-  "avgDurationMs": 2808,
+  "unchangedCount": 0,
+  "durationMs": 2968,
+  "avgDurationMs": 2968,
   "durationHistory": [
-    2808
+    2968
   ],
   "newJobs": [],
-  "updatedJobs": [],
+  "updatedJobs": [
+    {
+      "id": "citta-di-bellinzona-azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona",
+      "slug": "azienda-multiservizi-bellinzona-amb-un-una-assistente-clienti-per-il-settore-approvvigiona",
+      "company": "Città di Bellinzona",
+      "companyKey": "citta-di-bellinzona",
+      "companyDomain": "bellinzona.ch",
+      "title": "Azienda Multiservizi Bellinzona (AMB) - Un/una assistente clienti per il Settore Approvvigionamento e Vendita (InfoCentro)",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6500",
+      "streetAddress": "Piazza Nosetto",
+      "category": "public-admin",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://www.bellinzona.ch/assunzioni",
+      "pdfUrl": null,
+      "applyUrl": null,
+      "source": "Bellinzona Dedicated Parser",
+      "crawledAt": "2026-04-02T09:08:07.176Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 10,
+        "completeness": 20
+      }
+    }
+  ],
   "removedJobs": [],
   "unchangedJobs": [
     {
