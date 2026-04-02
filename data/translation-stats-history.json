@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-29T21:05:26.389Z",
-    "label": "after",
-    "total": 1500,
-    "needsRetranslation": 1173,
-    "incomplete": 1080,
-    "complete": 420,
-    "missingByLocale": {
-      "it": 510,
-      "en": 731,
-      "de": 484,
-      "fr": 915
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 41
-      },
-      {
-        "company": "VOLG",
-        "pending": 40
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 22
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-29T21:38:00.105Z",
-    "label": "before",
-    "total": 1500,
-    "needsRetranslation": 1175,
-    "incomplete": 1082,
-    "complete": 418,
-    "missingByLocale": {
-      "it": 512,
-      "en": 733,
-      "de": 484,
-      "fr": 917
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 41
-      },
-      {
-        "company": "VOLG",
-        "pending": 40
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Kulm Hotel St. Moritz",
-        "pending": 22
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-29T21:38:32.776Z",
     "label": "after",
     "total": 1500,
@@ -9743,6 +9631,118 @@
   },
   {
     "timestamp": "2026-04-02T18:24:24.312Z",
+    "label": "after",
+    "total": 1547,
+    "needsRetranslation": 261,
+    "incomplete": 219,
+    "complete": 1328,
+    "missingByLocale": {
+      "it": 146,
+      "en": 191,
+      "de": 101,
+      "fr": 211
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 65
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Hilcona AG (Bell Food Group)",
+        "pending": 36
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 35
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "Prada Group",
+        "pending": 8
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 5
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "CEDES AG",
+        "pending": 2
+      },
+      {
+        "company": "Scuola Club Migros",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T18:40:54.469Z",
+    "label": "before",
+    "total": 1547,
+    "needsRetranslation": 261,
+    "incomplete": 219,
+    "complete": 1328,
+    "missingByLocale": {
+      "it": 146,
+      "en": 191,
+      "de": 101,
+      "fr": 211
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 65
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Hilcona AG (Bell Food Group)",
+        "pending": 36
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 35
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "Prada Group",
+        "pending": 8
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 5
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "CEDES AG",
+        "pending": 2
+      },
+      {
+        "company": "Scuola Club Migros",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T18:40:58.543Z",
     "label": "after",
     "total": 1547,
     "needsRetranslation": 261,
