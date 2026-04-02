@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-29T10:31:24.034Z",
-    "label": "after",
-    "total": 1500,
-    "needsRetranslation": 1265,
-    "incomplete": 1406,
-    "complete": 94,
-    "missingByLocale": {
-      "it": 830,
-      "en": 1020,
-      "de": 750,
-      "fr": 1242
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "EOC – Ente Ospedaliero Cantonale",
-        "pending": 161
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 118
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 95
-      },
-      {
-        "company": "VOLG",
-        "pending": 42
-      },
-      {
-        "company": "PEMSA",
-        "pending": 41
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 25
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-29T13:14:27.636Z",
-    "label": "before",
-    "total": 1500,
-    "needsRetranslation": 189,
-    "incomplete": 1229,
-    "complete": 271,
-    "missingByLocale": {
-      "it": 607,
-      "en": 841,
-      "de": 553,
-      "fr": 1051
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 109
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "VOLG",
-        "pending": 42
-      },
-      {
-        "company": "PEMSA",
-        "pending": 41
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 29
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 25
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-29T13:21:06.023Z",
     "label": "after",
     "total": 1500,
@@ -9794,6 +9682,118 @@
       {
         "company": "Scuola Club Migros",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T08:00:39.575Z",
+    "label": "before",
+    "total": 1309,
+    "needsRetranslation": 121,
+    "incomplete": 119,
+    "complete": 1190,
+    "missingByLocale": {
+      "it": 53,
+      "en": 93,
+      "de": 87,
+      "fr": 114
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 35
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 4
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 4
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 4
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 3
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 3
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 3
+      },
+      {
+        "company": "Scuola Club Migros",
+        "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-02T08:01:37.150Z",
+    "label": "after",
+    "total": 1309,
+    "needsRetranslation": 118,
+    "incomplete": 116,
+    "complete": 1193,
+    "missingByLocale": {
+      "it": 50,
+      "en": 93,
+      "de": 87,
+      "fr": 114
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 46
+      },
+      {
+        "company": "Interdiscount",
+        "pending": 35
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 4
+      },
+      {
+        "company": "EFG International AG",
+        "pending": 4
+      },
+      {
+        "company": "VF International (The North Face, Timberland)",
+        "pending": 4
+      },
+      {
+        "company": "ABB Svizzera (sede Ticino)",
+        "pending": 3
+      },
+      {
+        "company": "Kulm Hotel St. Moritz",
+        "pending": 3
+      },
+      {
+        "company": "Scuola Club Migros",
+        "pending": 2
+      },
+      {
+        "company": "AXA Svizzera",
+        "pending": 1
       }
     ]
   }
