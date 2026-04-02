@@ -1,18 +1,49 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-02T12:13:27.984Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-04-02T21:11:08.137Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 18857,
-  "avgDurationMs": 18857,
+  "durationMs": 19477,
+  "avgDurationMs": 19477,
   "durationHistory": [
-    18857
+    19477
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Praktikum als Teamassistent/in (3–6 Monate) | Ascona",
+      "slug": "praktikum-als-teamassistent-in-3-6-monate-ascona-engel-voelkers-ascona",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/33d6dc9a-33d2-4e23-b6ff-d7ff86d8c80e",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/33d6dc9a-33d2-4e23-b6ff-d7ff86d8c80e",
+      "company": "Ticino Premium Properties SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "marketing",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-02",
+      "employmentType": "internship",
+      "contractType": "internship",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 20,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Immobilienberater/in 100 % | Ascona",
