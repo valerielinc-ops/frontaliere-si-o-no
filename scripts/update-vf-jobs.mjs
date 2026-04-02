@@ -83,6 +83,7 @@ function validateVfLocaleCoverage() {
 
 async function main() {
   setCrawlerStartTime();
+  let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('🎯 Running dedicated VF jobs crawler (with forced localization)...');
 
   // Snapshot VF jobs before crawl for diff summary

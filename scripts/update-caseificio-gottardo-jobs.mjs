@@ -639,6 +639,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  Caseificio del Gottardo — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -659,7 +660,7 @@ async function main() {
     );
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     const _cdResult = logStats(beforeSnapshot);
-    const crawlDiff = _cdResult.crawlDiff;
+    crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
   }
 

@@ -597,6 +597,7 @@ function validateLocales() {
 
 async function main() {
   setCrawlerStartTime();
+  let crawlDiff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   console.log('═══════════════════════════════════════════════');
   console.log('  FNZ (Switzerland) AG — Dedicated Crawler');
   console.log('═══════════════════════════════════════════════');
@@ -613,7 +614,7 @@ async function main() {
     console.log('   The Workday API may be unreachable or have no Swiss openings.');
     console.log('   Keeping existing jobs — no changes to data/jobs.json.');
     const _cdResult = logStats(beforeSnapshot);
-    const crawlDiff = _cdResult.crawlDiff;
+    crawlDiff = _cdResult.crawlDiff || crawlDiff;
     return;
   }
 
