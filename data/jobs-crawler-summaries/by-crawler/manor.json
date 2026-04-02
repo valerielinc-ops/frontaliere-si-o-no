@@ -1,21 +1,19 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-04-01T21:31:30.741Z",
+  "generatedAt": "2026-04-02T09:35:08.051Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 8179,
-  "avgDurationMs": 8179,
+  "unchangedCount": 0,
+  "durationMs": 8680,
+  "avgDurationMs": 8680,
   "durationHistory": [
-    8179
+    8680
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
       "company": "Manor AG",
@@ -31,22 +29,12 @@
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "crawledAt": "",
       "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 57500,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Dante",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 20,
-        "completeness": 22
+        "translation": 14,
+        "completeness": 11
       }
     },
     {
@@ -64,22 +52,12 @@
       "slug": "manor-collaborateur-trice-service-manora-50-locarno",
       "crawledAt": "",
       "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 57500,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Dante",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 81,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 20,
-        "completeness": 22
+        "translation": 14,
+        "completeness": 11
       }
     },
     {
@@ -97,22 +75,12 @@
       "slug": "manor-apprendista-polydesigner-3d-afc-100-lugano",
       "crawledAt": "",
       "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Piazza Dante",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 86,
+      "_qualityScore": 64,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 25,
-        "completeness": 22
+        "translation": 14,
+        "completeness": 11
       }
     },
     {
@@ -130,23 +98,15 @@
       "slug": "manor-polydesigner-3d-afc-100-lugano",
       "crawledAt": "",
       "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Piazza Dante",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 81,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 20,
-        "completeness": 22
+        "completeness": 11
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
