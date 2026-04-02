@@ -1,24 +1,22 @@
 {
   "key": "mks-pamp",
   "label": "MKS PAMP",
-  "generatedAt": "2026-04-01T21:36:13.333Z",
+  "generatedAt": "2026-04-02T09:39:47.461Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 20009,
-  "avgDurationMs": 20009,
+  "unchangedCount": 2,
+  "durationMs": 24555,
+  "avgDurationMs": 24555,
   "durationHistory": [
-    20009
+    24555
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "HR Business Partner",
-      "slug": "risorse-umane-business-partner-mks-pamp-castel-san-pietro",
+      "slug": "hr-business-partner-mks-pamp-castel-san-pietro",
       "url": "https://careers.mkspamp.com/jobs/7410901-hr-business-partner",
       "applyUrl": "https://careers.mkspamp.com/jobs/7410901-hr-business-partner",
       "company": "MKS PAMP",
@@ -33,7 +31,7 @@
       "category": "hr",
       "sector": "Metalli preziosi",
       "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "en",
+      "sourceLang": "fr",
       "postedDate": "2026-03-18",
       "employmentType": "full-time",
       "contractType": "permanent",
@@ -43,7 +41,6 @@
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
-      "needsRetranslation": true,
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -52,6 +49,44 @@
         "completeness": 25
       }
     },
+    {
+      "title": "Metal &amp; Inventory Controller",
+      "slug": "metal-amp-inventory-controller-mks-pamp-castel-san-pietro",
+      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
+      "company": "MKS PAMP",
+      "companyKey": "mks-pamp",
+      "companyDomain": "mkspamp.com",
+      "location": "Castel San Pietro",
+      "addressLocality": "Castel San Pietro",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "finance",
+      "sector": "Metalli preziosi",
+      "source": "mkspamp-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-02-04",
+      "employmentType": "full-time",
+      "contractType": "permanent",
+      "validThrough": "",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "currency": "CHF",
+      "streetAddress": "Via delle Fornaci",
+      "postalCode": "6828",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
       "slug": "idraulico-manutentore-macchinari-industriali-mks-pamp-castel-san-pietro",
@@ -79,48 +114,11 @@
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 21,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Metal &amp; Inventory Controller",
-      "slug": "controllore-del-metallo-e-dell-inventario-mks-pamp-castel-san-pietro",
-      "url": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
-      "applyUrl": "https://careers.mkspamp.com/jobs/7169456-metal-inventory-controller",
-      "company": "MKS PAMP",
-      "companyKey": "mks-pamp",
-      "companyDomain": "mkspamp.com",
-      "location": "Castel San Pietro",
-      "addressLocality": "Castel San Pietro",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Metalli preziosi",
-      "source": "mkspamp-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-02-04",
-      "employmentType": "full-time",
-      "contractType": "permanent",
-      "validThrough": "",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828",
-      "needsRetranslation": true,
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
         "completeness": 25
       }
     },
@@ -151,7 +149,6 @@
       "currency": "CHF",
       "streetAddress": "Via delle Fornaci",
       "postalCode": "6828",
-      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
