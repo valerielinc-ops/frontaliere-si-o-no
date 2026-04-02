@@ -3497,6 +3497,26 @@ ${(() => {
         }
       } catch { /* file missing — skip */ }
 
+      // 1c. Load GSC enriched data for orphan slugs (queries, impressions, clicks)
+      const orphanEnrichedPath = np.resolve(rootDir, 'data/orphan-enriched-data.json');
+      const orphanGscData = new Map<string, { queries: string[]; totalImpressions: number; totalClicks: number; topQuery: string | null }>();
+      try {
+        const enrichedArr: any[] = JSON.parse(fs.readFileSync(orphanEnrichedPath, 'utf-8'));
+        for (const entry of enrichedArr) {
+          if (entry?.slug && entry?.queries?.length > 0) {
+            orphanGscData.set(entry.slug, {
+              queries: entry.queries,
+              totalImpressions: entry.totalImpressions || 0,
+              totalClicks: entry.totalClicks || 0,
+              topQuery: entry.topQuery || null,
+            });
+          }
+        }
+        if (orphanGscData.size > 0) {
+          console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Loaded GSC enrichment for ${orphanGscData.size} orphan slugs`);
+        }
+      } catch { /* file missing — skip */ }
+
       // 2. Load expired job data for rich content (previousSlugs, title, company, etc.)
       const expiredJobsPath = np.resolve(rootDir, 'data/expired-jobs.json');
       let expiredJobsData: any[] = [];
@@ -3749,6 +3769,8 @@ ${(() => {
             ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`
             : `${esc(copy.title)} | Frontaliere Ticino`;
 
+          // GSC enrichment: use top search query data for better meta description
+          const gscInfo = orphanGscData.get(slug);
           const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
           // Seed expired job data as window global so the SPA can render
@@ -3765,6 +3787,7 @@ ${(() => {
             slugByLocale: ejData?.slugByLocale || {},
             sector: ejData?.sector || '',
             expiredAt: ejData?.expiredAt || '',
+            ...(gscInfo ? { gscQueries: gscInfo.queries, gscImpressions: gscInfo.totalImpressions, gscClicks: gscInfo.totalClicks } : {}),
           });
 
           // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
@@ -3879,6 +3902,25 @@ ${(() => {
               staticBodyParts.push(`<section><h2>Arbeitsmarkt im Tessin</h2><p>Der Kanton Tessin bietet zahlreiche M\u00f6glichkeiten f\u00fcr Grenzg\u00e4nger aus Italien. Mit \u00fcber 70.000 aktiven Grenzpendlern ist das Tessin eines der wichtigsten Ziele f\u00fcr Arbeitssuchende in der Schweiz aus der Region Insubrien. Die aktivsten Branchen sind Industrie, Finanzdienstleistungen, Gesundheitswesen, Handel und Technologie. Das Durchschnittsgehalt im Tessin liegt deutlich h\u00f6her als in den italienischen Grenzregionen, was die Grenzg\u00e4ngerarbeit zu einer sehr attraktiven Option f\u00fcr Bewohner der Lombardei, des Piemonts und anderer naher Provinzen macht.</p></section>`);
             } else {
               staticBodyParts.push(`<section><h2>March\u00e9 du travail au Tessin</h2><p>Le Canton du Tessin offre de nombreuses opportunit\u00e9s pour les travailleurs frontaliers venant d'Italie. Avec plus de 70 000 frontaliers actifs, le Tessin est l'une des principales destinations pour ceux qui cherchent un emploi en Suisse depuis la r\u00e9gion insubrienne. Les secteurs les plus actifs comprennent l'industrie, les services financiers, la sant\u00e9, le commerce et la technologie. Le salaire moyen au Tessin est nettement plus \u00e9lev\u00e9 que dans les r\u00e9gions frontali\u00e8res italiennes, ce qui fait du travail transfrontalier une option tr\u00e8s attractive pour les r\u00e9sidents de Lombardie, du Pi\u00e9mont et d'autres provinces voisines.</p></section>`);
+            }
+          }
+
+          // --- GSC related searches section (only for orphan slugs with query data) ---
+          if (gscInfo?.queries && gscInfo.queries.length > 0) {
+            const relatedQueries = gscInfo.queries
+              .filter((q: string) => q.length > 3)
+              .slice(0, 6);
+            if (relatedQueries.length > 0) {
+              const relSearchHeading: Record<string, string> = {
+                it: 'Ricerche correlate',
+                en: 'Related searches',
+                de: 'Verwandte Suchanfragen',
+                fr: 'Recherches associées',
+              };
+              const queryLinks = relatedQueries.map((q: string) =>
+                `<li><a href="${BASE_URL}${listingPath}">${esc(q)}</a></li>`
+              ).join('');
+              staticBodyParts.push(`<section><h2>${relSearchHeading[locale] || relSearchHeading.it}</h2><ul>${queryLinks}</ul></section>`);
             }
           }
 
