@@ -172,6 +172,17 @@
     "jobs:update:capri-holdings": "node scripts/update-capri-holdings-jobs.mjs",
     "jobs:update:aldi-suisse": "node scripts/update-aldi-suisse-jobs.mjs",
     "jobs:update:denner": "node scripts/update-denner-jobs.mjs",
+    "jobs:update:pini-group": "node scripts/update-pini-group-jobs.mjs",
+    "jobs:update:prada": "node scripts/update-prada-jobs.mjs",
+    "jobs:update:salt": "node scripts/update-salt-jobs.mjs",
+    "jobs:update:helvetia": "node scripts/update-helvetia-jobs.mjs",
+    "jobs:update:mabetex": "node scripts/update-mabetex-jobs.mjs",
+    "jobs:update:otis": "node scripts/update-otis-jobs.mjs",
+    "jobs:update:unilabs": "node scripts/update-unilabs-jobs.mjs",
+    "jobs:update:laderach": "node scripts/update-laderach-jobs.mjs",
+    "jobs:update:hilcona": "node scripts/update-hilcona-jobs.mjs",
+    "jobs:update:cedes": "node scripts/update-cedes-jobs.mjs",
+    "jobs:update:davos-klosters-bergbahnen": "node scripts/update-davos-klosters-bergbahnen-jobs.mjs",
     "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
   },
   "dependencies": {
