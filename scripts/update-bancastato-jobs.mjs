@@ -41,6 +41,7 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
+mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseListingPage, parseDetailPage, buildJob, stripHtml } from './lib/bancastato-job-parser.mjs';
 
@@ -172,8 +173,8 @@ function mergeJobs(discoveredJobs) {
     const existing = existingByUrl.get(key);
     if (existing) {
       Object.assign(existing, { title: job.title, company: job.company, companyKey: job.companyKey, location: job.location, canton: job.canton, country: job.country, category: job.category, description: job.description, postedDate: job.postedDate || existing.postedDate, source: job.source, postalCode: job.postalCode || existing.postalCode, streetAddress: job.streetAddress || existing.streetAddress, addressLocality: job.addressLocality || existing.addressLocality, addressRegion: job.addressRegion || existing.addressRegion, addressCountry: job.addressCountry || existing.addressCountry, employmentType: job.employmentType || existing.employmentType });
-      if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) existing.slugByLocale = job.slugByLocale;
-      if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) existing.titleByLocale = job.titleByLocale;
+      if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
+      if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
       updated++;
       existingByUrl.delete(key);
     } else { allJobs.push(job); added++; }

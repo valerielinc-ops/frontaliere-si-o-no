@@ -43,6 +43,7 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
+mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 
 
@@ -366,10 +367,10 @@ function mergeBancaSempioneJobs(discoveredJobs) {
       existing.source = job.source;
       // Preserve AI-generated locale data if present
       if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) {
-        existing.slugByLocale = job.slugByLocale;
+        existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
       }
       if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) {
-        existing.titleByLocale = job.titleByLocale;
+        existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
       }
       updated++;
       existingByUrl.delete(key); // track processed

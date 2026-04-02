@@ -42,6 +42,7 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
+mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseYoustyApprenticeshipHtml } from './lib/yousty-job-parser.mjs';
 
@@ -382,12 +383,12 @@ function mergeGalenicaJobs(discoveredJobs) {
       existing.category = job.category;
       existing.description = job.description;
       existing.descriptionIt = job.descriptionIt;
-      existing.descriptionByLocale = job.descriptionByLocale;
+      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30);
       existing.applyUrl = job.applyUrl || existing.applyUrl;
       existing.postedDate = job.postedDate || existing.postedDate;
       existing.source = job.source;
-      existing.slugByLocale = job.slugByLocale;
-      existing.titleByLocale = job.titleByLocale;
+      existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
+      existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
       updated++;
       existingByUrl.delete(key);
     } else {

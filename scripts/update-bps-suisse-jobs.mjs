@@ -37,6 +37,7 @@ import {
   validateDedicatedLocaleCoverage,
   normalize,
   normalizeKey,
+mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseBpsSuisseListingPage,
@@ -284,8 +285,8 @@ function mergeJobs(discoveredJobs) {
         postedDate: job.postedDate || existing.postedDate, source: job.source,
         _targetScope: job._targetScope,
       });
-      if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) existing.slugByLocale = job.slugByLocale;
-      if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) existing.titleByLocale = job.titleByLocale;
+      if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
+      if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
       updated++;
       existingByUrl.delete(key);
     } else {
