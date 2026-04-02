@@ -20,7 +20,7 @@ These directives have the highest priority. No exceptions, workarounds, or "temp
 8. **Use Playwright for end-to-end tests**, not preview tools. Build + serve dist + Playwright.
 9. **Linear tasks must reflect reality**: if a task is partially completed, close it and create a follow-up for what's missing.
 10. **Always launch subagents with `model: "opus"`** (Claude Opus 4.6, max effort, 1M context). Never use Sonnet or Haiku for subagents — they need full codebase understanding and maximum reasoning capability.
-11. **GitHub MCP: always use `github-*` tools** (from `.vscode/mcp.json`, points to `github.com`). Never use `github-mcp-server-*` tools — those route to an enterprise GHE instance and will 404 on this repo.
+11. **GitHub: always use `gh` CLI** for all GitHub operations (issues, PRs, repos, actions, API calls). Never use any MCP GitHub tools (`github-*`, `github-mcp-server-*`) — they route to GitHub Enterprise and will 404 on this repo. The `gh` CLI is pre-authenticated and targets `github.com` by default. Examples: `gh pr list`, `gh issue create`, `gh api repos/{owner}/{repo}`, `gh run list`.
 
 ---
 
