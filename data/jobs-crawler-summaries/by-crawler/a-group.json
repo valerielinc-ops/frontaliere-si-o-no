@@ -1,24 +1,22 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-01T20:46:15.186Z",
+  "generatedAt": "2026-04-02T09:59:40.838Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 2622,
-  "avgDurationMs": 2622,
+  "unchangedCount": 0,
+  "durationMs": 3606,
+  "avgDurationMs": 3606,
   "durationHistory": [
-    2622
+    3606
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Ingegnere edile Jr.",
-      "slug": "ingegnere-edile-jr-a-group-massagno",
+      "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno",
       "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
       "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
       "company": "A++ Group",
@@ -36,7 +34,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -53,7 +51,7 @@
     },
     {
       "title": "Receptionist",
-      "slug": "receptionist-a-group-massagno",
+      "slug": "receptionist-a-plus-plus-group-massagno",
       "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
       "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/receptionist-696956/en/",
       "company": "A++ Group",
@@ -71,19 +69,18 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 84,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -107,7 +104,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -122,5 +119,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
