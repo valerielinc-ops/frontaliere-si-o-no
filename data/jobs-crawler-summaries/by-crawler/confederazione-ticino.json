@@ -1,24 +1,53 @@
 {
   "key": "confederazione-ticino",
   "label": "Confederazione TI+GR",
-  "generatedAt": "2026-04-01T21:08:13.320Z",
-  "total": 14,
-  "newCount": 0,
-  "updatedCount": 0,
+  "generatedAt": "2026-04-02T10:21:50.028Z",
+  "total": 15,
+  "newCount": 1,
+  "updatedCount": 14,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 1709,
-  "avgDurationMs": 1709,
+  "unchangedCount": 0,
+  "durationMs": 1837,
+  "avgDurationMs": 1837,
   "durationHistory": [
-    1709
+    1837
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
+    {
+      "title": "Inspektor/in",
+      "slug": "inspektor-in-confederazione-sie-arbeiten-im-homeoffice-und-fuhren-inspektionen-in-einem-der-folgenden-kantone-aus-zh-sh-zentralschweiz-ag-so-be-vs",
+      "url": "https://jobs.admin.ch/posti-vacanti/inspektor-in/2f67b3a7-98a7-4fc9-adc5-4f840b4fc1aa",
+      "applyUrl": "https://jobs.admin.ch/posti-vacanti/inspektor-in/2f67b3a7-98a7-4fc9-adc5-4f840b4fc1aa",
+      "company": "Confederazione Svizzera",
+      "companyKey": "confederazione-ticino",
+      "companyDomain": "admin.ch",
+      "location": "Sie arbeiten im Homeoffice und führen Inspektionen in einem der folgenden Kantone aus: ZH, SH, Zentralschweiz, AG, SO, BE, VS",
+      "addressLocality": "Sie arbeiten im Homeoffice und führen Inspektionen in einem der folgenden Kantone aus: ZH, SH, Zentralschweiz, AG, SO, BE, VS",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "public-administration",
+      "sector": "Pubblica amministrazione",
+      "source": "confederazione-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-01",
+      "validThrough": "2026-05-06",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "_qualityScore": 61,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Greffier/greffière de langue française, pour la Cour d'appel",
-      "slug": "cancelliere-cancelliera-di-lingua-francese-per-la-corte-d-appello-confederazione-svizzera-bellinzone",
+      "slug": "greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel-confederazione-bellinzone",
       "url": "https://jobs.admin.ch/posti-vacanti/greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel/2da12b58-3ffe-4e47-8b91-82275ad8a602",
       "applyUrl": "https://jobs.admin.ch/posti-vacanti/greffier-greffiere-de-langue-francaise-pour-la-cour-d-appel/2da12b58-3ffe-4e47-8b91-82275ad8a602",
       "company": "Confederazione Svizzera",
@@ -53,7 +82,7 @@
     },
     {
       "title": "Hochschulpraktikant/in für die Entwicklung von IT-Tools zur Unterstützung des Prognosedienstes (m/w)",
-      "slug": "hochschulpraktikant-in-per-lo-sviluppo-di-strumenti-it-per-il-servizio-di-previsione-confederazione-svizzera-locarno-mon",
+      "slug": "hochschulpraktikant-in-fur-die-entwicklung-von-it-tools-zur-unterstutzung-des-prognosedienstes-m-w-confederazione-locarno-monti",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in-fuer-die-entwicklung-von-it-tools-zur-unterstuetzung-des-prognosedienstes-m-w/493c5aee-df62-4767-b3eb-64bf8d900a39",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18212",
       "company": "Confederazione Svizzera",
@@ -88,7 +117,7 @@
     },
     {
       "title": "Lernende Kauffrau EFZ / Lernender Kaufmann EFZ",
-      "slug": "apprendista-kauffrau-cfc-apprendista-kaufmann-cfc-confederazione-svizzera-bellinzona",
+      "slug": "lernende-kauffrau-efz-lernender-kaufmann-efz-confederazione-bellinzona",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-kauffrau-efz-lernender-kaufmann-efz/c8555081-fe5b-458b-a244-5ec2d9abed41",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17852",
       "company": "Confederazione Svizzera",
@@ -123,7 +152,7 @@
     },
     {
       "title": "Netzwerk Spezialist/-in Professional",
-      "slug": "network-specialist-in-professional-confederazione-svizzera-locarno",
+      "slug": "netzwerk-spezialist-in-professional-confederazione-locarno",
       "url": "https://jobs.admin.ch/posti-vacanti/netzwerk-spezialist-in-professional/c7d89e03-5b52-465e-a7b4-7f94a0b0c1fd",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18159",
       "company": "Confederazione Svizzera",
@@ -158,7 +187,7 @@
     },
     {
       "title": "GERICHTSSCHREIBERIN / GERICHTSSCHREIBER der Strafkammer",
-      "slug": "gerichtsschreiberin-gerichtsschreiber-della-corte-penale-confederazione-svizzera-bellinzona",
+      "slug": "gerichtsschreiberin-gerichtsschreiber-der-strafkammer-confederazione-bellinzona",
       "url": "https://jobs.admin.ch/posti-vacanti/gerichtsschreiberin-gerichtsschreiber-der-strafkammer/acbd9f41-7f7c-4052-9f76-1adfa12f23ba",
       "applyUrl": "https://jobs.admin.ch/posti-vacanti/gerichtsschreiberin-gerichtsschreiber-der-strafkammer/acbd9f41-7f7c-4052-9f76-1adfa12f23ba",
       "company": "Confederazione Svizzera",
@@ -193,7 +222,7 @@
     },
     {
       "title": "Operator/-in Support",
-      "slug": "operatore-in-support-confederazione-svizzera-rivera",
+      "slug": "operator-in-support-confederazione-rivera",
       "url": "https://jobs.admin.ch/posti-vacanti/operator-in-support/771b16cf-183e-45b2-aaf0-ed8342934e63",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=18050",
       "company": "Confederazione Svizzera",
@@ -218,7 +247,6 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -229,7 +257,7 @@
     },
     {
       "title": "Leiter/-in Führungs- und Informationssysteme",
-      "slug": "responsabile-fuhrungs-e-informationssysteme-confederazione-svizzera-rivera",
+      "slug": "leiter-in-fuhrungs-und-informationssysteme-confederazione-rivera",
       "url": "https://jobs.admin.ch/posti-vacanti/leiter-in-fuehrungs-und-informationssysteme/8e05ede4-8d17-4d04-8a23-3a532d91866e",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17996",
       "company": "Confederazione Svizzera",
@@ -264,7 +292,7 @@
     },
     {
       "title": "Logistiker/-in (Lager Ambrì/Andermatt)",
-      "slug": "impiegato-a-in-logistica-magazzino-ambri-andermatt-confederazione-svizzera-ambri",
+      "slug": "logistiker-in-lager-ambri-andermatt-confederazione-ambri",
       "url": "https://jobs.admin.ch/posti-vacanti/logistiker-in-lager-ambri-andermatt/594ecbbc-6903-4279-a26a-4d3c352f4c2d",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17940",
       "company": "Confederazione Svizzera",
@@ -299,7 +327,7 @@
     },
     {
       "title": "Hochschulpraktikant/in",
-      "slug": "tirocinante-universitario-confederazione-svizzera-bern",
+      "slug": "hochschulpraktikant-in-confederazione-bern",
       "url": "https://jobs.admin.ch/posti-vacanti/hochschulpraktikant-in/d9606c79-e062-423d-9473-3490ad81d760",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=17548",
       "company": "Confederazione Svizzera",
@@ -334,7 +362,7 @@
     },
     {
       "title": "Raus aus der Routine? Werde Berufsoffizier/-in",
-      "slug": "raus-aus-la-routine-diventa-ufficiale-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+      "slug": "raus-aus-der-routine-werde-berufsoffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
       "url": "https://jobs.admin.ch/posti-vacanti/raus-aus-der-routine-werde-berufsoffizier-in/11516aeb-07f4-40d5-8100-2fc3b0452a9c",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16680",
       "company": "Confederazione Svizzera",
@@ -359,7 +387,6 @@
       "currency": "CHF",
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
-      "needsRetranslation": true,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -370,7 +397,7 @@
     },
     {
       "title": "Dein Beruf sollte mehr bieten? Werde Berufsunteroffizier/-in",
-      "slug": "il-tuo-lavoro-dovrebbe-essere-piu-di-un-impiego-confederazione-svizzera-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
+      "slug": "dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in-confederazione-schweiz-und-ausland-abhangig-von-funktion-und-einsatzort",
       "url": "https://jobs.admin.ch/posti-vacanti/dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in/0dcc8a3a-b28d-430b-9824-d69013c2b60a",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16681",
       "company": "Confederazione Svizzera",
@@ -405,7 +432,7 @@
     },
     {
       "title": "Lernende/-r Automobil-Mechatroniker/-in EFZ, Fachrichtung Personenwagen",
-      "slug": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-confederazione-svizzera-rivera",
+      "slug": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-confederazione-rivera",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/bc15c8a6-d6a3-47d3-9845-848a7da7c7cb",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16473",
       "company": "Confederazione Svizzera",
@@ -440,7 +467,7 @@
     },
     {
       "title": "Lernende/-r Strassentransportfachmann/-frau EFZ",
-      "slug": "apprendista-specialista-in-trasporti-stradali-cfc-confederazione-svizzera-claro",
+      "slug": "lernende-r-strassentransportfachmann-frau-efz-confederazione-claro",
       "url": "https://jobs.admin.ch/posti-vacanti/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=16470",
       "company": "Confederazione Svizzera",
@@ -475,7 +502,7 @@
     },
     {
       "title": "Asyl-Dolmetscher/-in",
-      "slug": "interprete-per-asilo-confederazione-svizzera-alle-standorte-des-sem",
+      "slug": "asyl-dolmetscher-in-confederazione-alle-standorte-des-sem",
       "url": "https://jobs.admin.ch/posti-vacanti/asyl-dolmetscher-in/0181eed7-a2b2-4b22-b148-139bd72659a4",
       "applyUrl": "https://jobs.admin.ch/posti-vacanti/asyl-dolmetscher-in/0181eed7-a2b2-4b22-b148-139bd72659a4",
       "company": "Confederazione Svizzera",
@@ -508,5 +535,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
