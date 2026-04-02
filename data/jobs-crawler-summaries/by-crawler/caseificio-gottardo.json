@@ -1,96 +1,19 @@
 {
   "key": "caseificio-gottardo",
   "label": "Caseificio del Gottardo",
-  "generatedAt": "2026-04-01T21:03:23.586Z",
+  "generatedAt": "2026-04-02T12:01:06.487Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4080,
-  "avgDurationMs": 4080,
+  "unchangedCount": 0,
+  "durationMs": 3348,
+  "avgDurationMs": 3348,
   "durationHistory": [
-    4080
+    3348
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "Apprendisti per la formazione di Tecnologo/a del latte (AFC)",
-      "company": "Caseificio dimostrativo del Gottardo SA",
-      "companyKey": "caseificio-gottardo",
-      "location": "Airolo",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.caseificiodelgottardo.ch/IT/Apprendisti-per-la-formazione-di-Tecnologoa-del-latte-AFC-50359200",
-      "applyUrl": "https://www.caseificiodelgottardo.ch/IT/Apprendisti-per-la-formazione-di-Tecnologoa-del-latte-AFC-50359200",
-      "category": "apprenticeship",
-      "sector": "Industria lattiero-casearia / Alimentare",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "source": "caseificio-gottardo-crawler",
-      "postedDate": "2026-03-29",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Airolo"
-      },
-      "crawledAt": "",
-      "slug": "apprendisti-per-la-formazione-di-tecnologo-a-del-latte-afc-caseificio-gottardo",
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
-      "currency": "CHF",
-      "streetAddress": "Zona Industriale",
-      "postalCode": "6780",
-      "addressLocality": "Airolo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Offerta di impiego quale Aiuto tecnologo del latte / Aiuto Casaro",
-      "company": "Caseificio dimostrativo del Gottardo SA",
-      "companyKey": "caseificio-gottardo",
-      "location": "Airolo",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://www.caseificiodelgottardo.ch/IT/Offerta-di-impiego-quale-Aiuto-tecnologo-del-latte-Aiuto-Casaro-2ad9c300",
-      "applyUrl": "https://www.caseificiodelgottardo.ch/IT/Offerta-di-impiego-quale-Aiuto-tecnologo-del-latte-Aiuto-Casaro-2ad9c300",
-      "category": "production",
-      "sector": "Industria lattiero-casearia / Alimentare",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "ENTRY",
-      "source": "caseificio-gottardo-crawler",
-      "postedDate": "2026-03-29",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Airolo"
-      },
-      "crawledAt": "",
-      "slug": "offerta-di-impiego-quale-aiuto-tecnologo-del-latte-aiuto-casaro-caseificio-gottardo",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Zona Industriale",
-      "postalCode": "6780",
-      "addressLocality": "Airolo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
