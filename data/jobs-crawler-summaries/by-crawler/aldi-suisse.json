@@ -1,21 +1,19 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-04-01T20:49:00.040Z",
+  "generatedAt": "2026-04-02T08:52:34.918Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 6363,
-  "avgDurationMs": 6363,
+  "unchangedCount": 0,
+  "durationMs": 3930,
+  "avgDurationMs": 3930,
   "durationHistory": [
-    6363
+    3930
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
       "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -36,10 +34,10 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-01T20:48:58.074Z",
+      "crawledAt": "2026-04-02T08:52:33.360Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 54000,
@@ -72,10 +70,10 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-01T20:48:58.072Z",
+      "crawledAt": "2026-04-02T08:52:33.359Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 54000,
@@ -108,10 +106,10 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-01T20:48:58.071Z",
+      "crawledAt": "2026-04-02T08:52:33.358Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 43000,
@@ -124,5 +122,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
