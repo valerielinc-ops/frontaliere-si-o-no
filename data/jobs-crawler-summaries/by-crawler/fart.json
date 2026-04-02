@@ -1,59 +1,19 @@
 {
   "key": "fart",
   "label": "FART",
-  "generatedAt": "2026-04-01T21:16:53.086Z",
+  "generatedAt": "2026-04-02T12:14:41.497Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 8463,
-  "avgDurationMs": 8463,
+  "unchangedCount": 0,
+  "durationMs": 11785,
+  "avgDurationMs": 11785,
   "durationHistory": [
-    8463
+    11785
   ],
   "newJobs": [],
   "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "title": "1 capo movimento (100% – f/m)",
-      "company": "FART – Ferrovie Autolinee Regionali Ticinesi",
-      "companyKey": "fart",
-      "location": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "url": "https://fartiamo.ch/wp-content/uploads/2026/02/Concorso-Capomovimento-per-esterni.pdf",
-      "applyUrl": "https://fartiamo.ch/lavora-con-noi-concorsi/",
-      "category": "management",
-      "sector": "Trasporti pubblici / Ferrovia",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "source": "fart-crawler",
-      "postedDate": "2026-03-30",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Locarno"
-      },
-      "crawledAt": "",
-      "slug": "1-movimento-di-capo-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "streetAddress": "Via Franzoni 1",
-      "postalCode": "6601",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "needsRetranslation": true,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "fart",
-  "assembledAt": "2026-04-01T21:16:53.086Z",
+  "assembledAt": "2026-04-02T12:14:41.497Z",
   "jobs": [
     {
       "title": "1 capo movimento (100% – f/m)",
@@ -83,7 +83,8 @@
         "chef-femme-de-departement-des-operations-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "head-of-operations-department-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
         "leiter-der-bewegung-100-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
-        "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno"
+        "1-capo-dipartimento-dell-esercizio-f-m-fart-ferrovie-autolinee-regionali-ticinesi-locarno",
+        "1-capo-movimento-100-f-m-fart"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -102,7 +103,8 @@
       "postalCode": "6601",
       "addressLocality": "Locarno",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     }
   ]
 }
