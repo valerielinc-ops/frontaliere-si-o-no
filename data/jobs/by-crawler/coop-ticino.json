@@ -8831,10 +8831,10 @@
       "companyDomain": "coop.ch",
       "crawledAt": "2026-03-31T07:18:28.826Z",
       "slugByLocale": {
-        "it": "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
-        "en": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
+        "it": "dettagliato-venditore-efz-creare-esperienze-di-acquisto-interdiscount-jegensdorf",
+        "en": "detail-salesperson-efz-crafting-shopping-experiences-interdiscount-jegensdorf",
         "de": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
-        "fr": "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
+        "fr": "vendeur-detaille-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf"
       },
       "titleByLocale": {
         "de": "Detailhandelsfachfrau:mann EFZ \"Gestalten von Einkaufserlebnissen\"",
@@ -8862,7 +8862,11 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "detailhandelsfachfrau-mann-cfc-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i",
+        "detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen-interdiscount-grigioni-s8ey7i"
+      ]
     },
     {
       "id": "company-hwivop",
