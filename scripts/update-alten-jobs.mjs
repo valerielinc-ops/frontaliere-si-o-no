@@ -328,7 +328,7 @@ async function main() {
   const listings = await discoverListings();
   if (!listings) {
     console.log('⏩ Skipping ALTEN update — site unavailable.');
-    printCrawlChangeSummary({ newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'ALTEN Switzerland');
+    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'ALTEN Switzerland');
     return;
   }
   const jobs = await buildJobs(listings);

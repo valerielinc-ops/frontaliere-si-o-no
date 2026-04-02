@@ -409,7 +409,7 @@ async function main() {
 
   if (positions.length === 0) {
     console.log('ℹ️ No active positions found on the Tinext Kenjo API.');
-    printCrawlChangeSummary({ newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 }, COMPANY_NAME);
+    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, COMPANY_NAME);
     return;
   }
 

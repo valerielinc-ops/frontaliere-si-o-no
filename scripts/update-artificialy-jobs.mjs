@@ -313,7 +313,7 @@ async function main() {
   if (listings.length === 0) {
     console.log('No Ticino/GR Artificialy jobs found — skipping merge.');
     console.log('(Site may be blocked by Cloudflare managed challenge)');
-    printCrawlChangeSummary({ newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 }, 'Artificialy');
+    printCrawlChangeSummary({ newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 }, 'Artificialy');
     return;
   }
 

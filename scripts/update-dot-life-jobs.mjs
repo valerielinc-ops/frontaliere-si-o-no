@@ -408,7 +408,7 @@ async function main() {
   if (!cards) {
     // Transient failure — preserve existing data
     printCrawlChangeSummary(
-      { newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 },
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
       COMPANY_NAME,
     );
     return;
@@ -418,7 +418,7 @@ async function main() {
     console.log('\nℹ️  No DOT Life LinkedIn jobs found. Skipping merge & translation.');
     updateAdapterConfig([]);
     printCrawlChangeSummary(
-      { newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 },
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
       COMPANY_NAME,
     );
     console.log('✅ DOT Life crawler complete (0 jobs).');
@@ -462,7 +462,7 @@ async function main() {
   if (jobs.length === 0) {
     console.warn('⚠️  All detail fetches failed — preserving existing data.');
     printCrawlChangeSummary(
-      { newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 },
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
       COMPANY_NAME,
     );
     return;

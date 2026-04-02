@@ -331,7 +331,7 @@ async function main() {
     console.log('\nℹ️  No Swiss-located A++ Group jobs found. Skipping merge & translation.');
     updateAdapterConfig([]);
     printCrawlChangeSummary(
-      { newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 },
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
       COMPANY_NAME,
     );
     console.log('✅ A++ Group crawler complete (0 Swiss jobs).');
@@ -357,7 +357,7 @@ async function main() {
   if (jobs.length === 0) {
     console.warn('⚠️  All detail fetches failed — preserving existing data.');
     printCrawlChangeSummary(
-      { newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedCount: 0 },
+      { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0 },
       COMPANY_NAME,
     );
     return;
