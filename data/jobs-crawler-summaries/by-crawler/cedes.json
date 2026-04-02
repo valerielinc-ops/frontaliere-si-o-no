@@ -1,18 +1,19 @@
 {
   "key": "cedes",
   "label": "CEDES",
-  "generatedAt": "2026-04-02T13:38:33.105Z",
+  "generatedAt": "2026-04-02T20:58:25.885Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3664,
-  "avgDurationMs": 3664,
+  "durationMs": 3100,
+  "avgDurationMs": 3100,
   "durationHistory": [
-    3664
+    3100
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "cedes-3fa516c3ca31",
       "slug": "unsolicited-applications-cedes-landquart",
@@ -32,7 +33,7 @@
       "postedDate": "2026-04-02",
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
-      "crawledAt": "2026-04-02T13:38:30.830Z",
+      "crawledAt": "2026-04-02T20:58:24.007Z",
       "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -60,7 +61,7 @@
       "postedDate": "2026-04-02",
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
-      "crawledAt": "2026-04-02T13:38:31.171Z",
+      "crawledAt": "2026-04-02T20:58:24.297Z",
       "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -70,7 +71,6 @@
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -92,7 +92,7 @@
       "postedDate": "2026-04-02",
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
-      "crawledAt": "2026-04-02T13:38:31.171Z",
+      "crawledAt": "2026-04-02T20:58:24.297Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 58000,
@@ -125,7 +125,7 @@
       "postedDate": "2026-04-02",
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
-      "crawledAt": "2026-04-02T13:38:30.830Z",
+      "crawledAt": "2026-04-02T20:58:24.007Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 58000,
