@@ -1,21 +1,19 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-04-01T20:56:29.638Z",
+  "generatedAt": "2026-04-02T10:34:40.858Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3440,
-  "avgDurationMs": 3440,
+  "unchangedCount": 0,
+  "durationMs": 4679,
+  "avgDurationMs": 4679,
   "durationHistory": [
-    3440
+    4679
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Global Wealth Management – Consulente alla Clientela / Private Banker",
       "company": "Banca del Sempione",
@@ -30,24 +28,15 @@
       "source": "company-website",
       "slug": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "streetAddress": "Via P. Peri 2",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 77,
+      "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
-        "completeness": 22
+        "translation": 25,
+        "completeness": 11
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
