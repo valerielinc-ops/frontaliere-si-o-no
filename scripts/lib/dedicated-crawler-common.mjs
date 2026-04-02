@@ -2232,16 +2232,16 @@ export async function enrichJobLocalesDCC(job, crawlerConfig, ctx = {}) {
   if (shouldRunDescriptionLocalization && ctx.incrAiLocalizationCalls) ctx.incrAiLocalizationCalls();
 
    const reqByLocale = (out.requirementsByLocale && typeof out.requirementsByLocale === 'object') ? { ...out.requirementsByLocale } : {};
-  // DIAGNOSTIC: trace AI result for first flagged job
+  // DIAGNOSTIC: trace AI result for first 2 jobs needing desc localization
   if (typeof enrichJobLocalesDCC._diagApplyCount === 'undefined') enrichJobLocalesDCC._diagApplyCount = 0;
-  if (out.needsRetranslation && enrichJobLocalesDCC._diagApplyCount < 2) {
+  if (shouldRunDescriptionLocalization && enrichJobLocalesDCC._diagApplyCount < 2) {
     enrichJobLocalesDCC._diagApplyCount++;
     const slug = (out.slug || out.title || 'unknown').slice(0, 40);
     const aiNull = aiLocalized === null;
     const aiKeys = aiLocalized ? Object.keys(aiLocalized).join(',') : 'N/A';
     const aiEnDesc = aiLocalized?.en?.description?.slice(0, 60) || 'N/A';
-    const curEnDesc = (currentByLocale.en || '').slice(0, 60);
-    console.log(`   🔬 enrichApply[${enrichJobLocalesDCC._diagApplyCount}] "${slug}" aiNull=${aiNull} aiKeys=${aiKeys} aiEN="${aiEnDesc}" curEN="${curEnDesc}" cov=${coverage}`);
+    const curEnBefore = (currentByLocale.en || '').slice(0, 60);
+    console.log(`   🔬 enrichApply[${enrichJobLocalesDCC._diagApplyCount}] "${slug}" aiNull=${aiNull} aiKeys=${aiKeys} aiEN="${aiEnDesc}" curEN_before="${curEnBefore}" retrans=${!!out.needsRetranslation} cov=${coverage}`);
   }
   if (aiLocalized) {
     for (const locale of locales) {
