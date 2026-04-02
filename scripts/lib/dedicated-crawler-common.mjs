@@ -1571,12 +1571,24 @@ export function hasUntranslatedLocaleDescriptions(job = {}, ctx = {}) {
   const sourceDesc = clean(job?.description || '');
   if (!sourceDesc) return false;
   const sourceLang = detectLanguage(sourceDesc, 'en');
+  // Use the source-locale description as length reference (richer than base after harden)
+  const srcLocaleDesc = normalizeForLengthComparison(
+    String(job?.descriptionByLocale?.[sourceLang] || sourceDesc)
+  );
+  const srcLen = srcLocaleDesc.length;
   for (const locale of LOCALES) {
     if (locale === sourceLang) continue;
     const localized = clean(job?.descriptionByLocale?.[locale] || '');
     if (!localized) return true;
     if (localized.toLowerCase() === sourceDesc.toLowerCase()) return true;
+    // Thin translation check: if source is substantial and locale is <70%, needs work
+    if (srcLen >= 500) {
+      const normLocale = normalizeForLengthComparison(localized);
+      if (normLocale.length > 0 && normLocale.length < srcLen * 0.7) return true;
+    }
   }
+  // Also flag jobs explicitly marked for retranslation
+  if (job.needsRetranslation) return true;
   return false;
 }
 
