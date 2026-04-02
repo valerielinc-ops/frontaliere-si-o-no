@@ -1,24 +1,53 @@
 {
   "key": "board-international",
   "label": "board",
-  "generatedAt": "2026-04-01T20:58:15.138Z",
-  "total": 9,
-  "newCount": 0,
-  "updatedCount": 0,
+  "generatedAt": "2026-04-02T07:38:09.252Z",
+  "total": 10,
+  "newCount": 1,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 4791,
-  "avgDurationMs": 4791,
+  "unchangedCount": 0,
+  "durationMs": 7296,
+  "avgDurationMs": 7296,
   "durationHistory": [
-    4791
+    7296
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "newJobs": [
+    {
+      "title": "Senior Software Engineer",
+      "slug": "senior-software-engineer-board-international-chiasso-switzerland",
+      "url": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
+      "applyUrl": "https://boardinternationalsa.applytojob.com/apply/ueKvovaT2t/Senior-Software-Engineer",
+      "company": "Board International",
+      "companyKey": "board-international",
+      "companyDomain": "board.com",
+      "location": "Chiasso, Switzerland",
+      "addressLocality": "Chiasso, Switzerland",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "board-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-02-04",
+      "employmentType": "full time",
+      "contractType": "full-time",
+      "validThrough": "2026-05-05",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 4,
+        "completeness": 14
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "RFx Proposal Manager",
-      "slug": "responsabile-proposte-rfx-board-international-chiasso-switzerland",
+      "slug": "rfx-proposal-manager-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/myLBa36vGc/RFx-Proposal-Manager",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/myLBa36vGc/RFx-Proposal-Manager",
       "company": "Board International",
@@ -53,7 +82,7 @@
     },
     {
       "title": "Videomaker & Motion Designer (Maternity Cover)",
-      "slug": "videomaker-motion-designer-sostituzione-maternita-board-international-chiasso-switzerland",
+      "slug": "videomaker-motion-designer-maternity-cover-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/XzpyWUhC4I/Videomaker-Motion-Designer-Maternity-Cover",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/XzpyWUhC4I/Videomaker-Motion-Designer-Maternity-Cover",
       "company": "Board International",
@@ -88,7 +117,7 @@
     },
     {
       "title": "UX Designer",
-      "slug": "progettista-di-esperienza-utente-board-international-chiasso-ticino-switzerland",
+      "slug": "ux-designer-board-international-chiasso-ticino-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/VAUNIdK4v9/UX-Designer",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/VAUNIdK4v9/UX-Designer",
       "company": "Board International",
@@ -123,7 +152,7 @@
     },
     {
       "title": "AI Product Manager",
-      "slug": "responsabile-prodotto-ai-board-international-chiasso-switzerland",
+      "slug": "ai-product-manager-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/P9W2xHIinG/AI-Product-Manager",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/P9W2xHIinG/AI-Product-Manager",
       "company": "Board International",
@@ -158,7 +187,7 @@
     },
     {
       "title": "Associate Product Manager",
-      "slug": "product-manager-associato-board-international-chiasso-switzerland",
+      "slug": "associate-product-manager-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/os5l1sOnFw/Associate-Product-Manager",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/os5l1sOnFw/Associate-Product-Manager",
       "company": "Board International",
@@ -193,7 +222,7 @@
     },
     {
       "title": "Technical Product Manager – Platform",
-      "slug": "responsabile-tecnico-di-prodotto-piattaforma-board-international-chiasso-switzerland",
+      "slug": "technical-product-manager-platform-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/NTzaGusTPU/Technical-Product-Manager-Platform",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/NTzaGusTPU/Technical-Product-Manager-Platform",
       "company": "Board International",
@@ -218,6 +247,7 @@
       "currency": "CHF",
       "streetAddress": "Via Campagna 11",
       "postalCode": "6982",
+      "needsRetranslation": true,
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -228,7 +258,7 @@
     },
     {
       "title": "Senior Consultant Financial Consolidation",
-      "slug": "senior-consulente-financial-consolidation-board-international-chiasso-switzerland",
+      "slug": "senior-consultant-financial-consolidation-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/GjzwooGtXt/Senior-Consultant-Financial-Consolidation",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/GjzwooGtXt/Senior-Consultant-Financial-Consolidation",
       "company": "Board International",
@@ -263,7 +293,7 @@
     },
     {
       "title": "Software Engineer",
-      "slug": "ingegnere-del-software-board-international-chiasso-ticino-switzerland",
+      "slug": "software-engineer-board-international-chiasso-ticino-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/9RLIpJ4fYO/Software-Engineer",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/9RLIpJ4fYO/Software-Engineer",
       "company": "Board International",
@@ -279,10 +309,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-04-01",
+      "validThrough": "2026-04-02",
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -298,7 +328,7 @@
     },
     {
       "title": "Solution Developer",
-      "slug": "sviluppatore-soluzione-board-international-chiasso-switzerland",
+      "slug": "solution-developer-board-international-chiasso-switzerland",
       "url": "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer",
       "applyUrl": "https://boardinternationalsa.applytojob.com/apply/yfE1WDGOS4/Solution-Developer",
       "company": "Board International",
@@ -314,10 +344,10 @@
       "sector": "Tecnologia & IT",
       "source": "board-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full time",
       "contractType": "full-time",
-      "validThrough": "2026-04-01",
+      "validThrough": "2026-04-02",
       "salaryMin": 72500,
       "salaryMax": 97500,
       "currency": "CHF",
@@ -331,5 +361,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
