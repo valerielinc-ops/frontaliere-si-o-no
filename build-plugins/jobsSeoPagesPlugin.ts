@@ -3497,23 +3497,60 @@ ${(() => {
         }
       } catch { /* file missing — skip */ }
 
-      // 1c. Load GSC enriched data for orphan slugs (queries, impressions, clicks)
+      // 1c. Load enriched data for orphan slugs (GSC queries + translation cache titles/descriptions)
       const orphanEnrichedPath = np.resolve(rootDir, 'data/orphan-enriched-data.json');
-      const orphanGscData = new Map<string, { queries: string[]; totalImpressions: number; totalClicks: number; topQuery: string | null }>();
+      interface OrphanEnriched {
+        queries?: string[];
+        totalImpressions?: number;
+        totalClicks?: number;
+        topQuery?: string | null;
+        title?: string;
+        titleByLocale?: Record<string, string>;
+        descriptionByLocale?: Record<string, string>;
+        company?: string;
+        companyKey?: string;
+        location?: string;
+        sector?: string;
+        salaryMin?: number;
+        salaryCurrency?: string;
+        slugByLocale?: Record<string, string>;
+        localePaths?: Record<string, string>;
+        sourceUrl?: string;
+      }
+      const orphanGscData = new Map<string, OrphanEnriched>();
       try {
         const enrichedArr: any[] = JSON.parse(fs.readFileSync(orphanEnrichedPath, 'utf-8'));
+        let withQueries = 0;
+        let withContent = 0;
         for (const entry of enrichedArr) {
-          if (entry?.slug && entry?.queries?.length > 0) {
-            orphanGscData.set(entry.slug, {
-              queries: entry.queries,
-              totalImpressions: entry.totalImpressions || 0,
-              totalClicks: entry.totalClicks || 0,
-              topQuery: entry.topQuery || null,
-            });
+          if (!entry?.slug) continue;
+          const data: OrphanEnriched = {};
+          if (entry.queries?.length > 0) {
+            data.queries = entry.queries;
+            data.totalImpressions = entry.totalImpressions || 0;
+            data.totalClicks = entry.totalClicks || 0;
+            data.topQuery = entry.topQuery || null;
+            withQueries++;
           }
+          if (entry.title) data.title = entry.title;
+          if (entry.titleByLocale) data.titleByLocale = entry.titleByLocale;
+          if (entry.descriptionByLocale && Object.keys(entry.descriptionByLocale).length > 0) {
+            data.descriptionByLocale = entry.descriptionByLocale;
+            withContent++;
+          }
+          if (entry.company) data.company = entry.company;
+          if (entry.companyKey) data.companyKey = entry.companyKey;
+          if (entry.location) data.location = entry.location;
+          if (entry.sector) data.sector = entry.sector;
+          if (entry.salaryMin) data.salaryMin = entry.salaryMin;
+          if (entry.salaryCurrency) data.salaryCurrency = entry.salaryCurrency;
+          if (entry.slugByLocale) data.slugByLocale = entry.slugByLocale;
+          if (entry.localePaths) data.localePaths = entry.localePaths;
+          if (entry.sourceUrl) data.sourceUrl = entry.sourceUrl;
+          if (Object.keys(data).length > 0) orphanGscData.set(entry.slug, data);
         }
         if (orphanGscData.size > 0) {
-          console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Loaded GSC enrichment for ${orphanGscData.size} orphan slugs`);
+          console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Loaded enrichment for ${orphanGscData.size} orphan slugs (${withQueries} with GSC queries, ${withContent} with full content)`);
         }
       } catch { /* file missing — skip */ }
 
@@ -3757,20 +3794,19 @@ ${(() => {
           const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
           const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
 
-          // Rich content from expired-jobs.json, with slug-extracted fallback for orphans
-          const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || slugInfo?.title || copy.title);
-          const jobCompany = String(ejData?.company || slugInfo?.company || '');
-          const jobLocation = String(ejData?.location || ejData?.addressLocality || slugInfo?.location || '');
-          const jobDescription = String(ejData?.descriptionByLocale?.[locale] || '');
+          // Rich content fallback chain: expired-jobs.json → orphan enriched data → slug extraction
+          const gscInfo = orphanGscData.get(slug);
+          const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title);
+          const jobCompany = String(ejData?.company || gscInfo?.company || slugInfo?.company || '');
+          const jobLocation = String(ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '');
+          const jobDescription = String(ejData?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.[locale] || '');
 
           // Title for <title> tag: use job title if available (including slug-extracted)
-          const hasRealTitle = !!(ejData?.title || slugInfo?.title);
+          const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
           const pageTitle = hasRealTitle
             ? `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''} | Frontaliere Ticino`
             : `${esc(copy.title)} | Frontaliere Ticino`;
 
-          // GSC enrichment: use top search query data for better meta description
-          const gscInfo = orphanGscData.get(slug);
           const pageDesc = `${esc(jobTitle)}${jobCompany ? ` — ${esc(jobCompany)}` : ''}. ${esc(archiveRelatedLabel[locale] || archiveRelatedLabel.it)}.`;
 
           // Seed expired job data as window global so the SPA can render
@@ -3778,16 +3814,16 @@ ${(() => {
           // the runtime expired-jobs.json fetch (which only has recently expired jobs).
           const expiredWindowData = JSON.stringify({
             slug,
-            title: ejData?.title || slugInfo?.title || '',
-            titleByLocale: ejData?.titleByLocale || {},
-            company: ejData?.company || slugInfo?.company || '',
-            companyKey: ejData?.companyKey || slugInfo?.companyKey || '',
-            location: ejData?.location || ejData?.addressLocality || slugInfo?.location || '',
-            descriptionByLocale: ejData?.descriptionByLocale || {},
-            slugByLocale: ejData?.slugByLocale || {},
-            sector: ejData?.sector || '',
+            title: ejData?.title || gscInfo?.title || slugInfo?.title || '',
+            titleByLocale: ejData?.titleByLocale || gscInfo?.titleByLocale || {},
+            company: ejData?.company || gscInfo?.company || slugInfo?.company || '',
+            companyKey: ejData?.companyKey || gscInfo?.companyKey || slugInfo?.companyKey || '',
+            location: ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '',
+            descriptionByLocale: ejData?.descriptionByLocale || gscInfo?.descriptionByLocale || {},
+            slugByLocale: ejData?.slugByLocale || gscInfo?.slugByLocale || {},
+            sector: ejData?.sector || gscInfo?.sector || '',
             expiredAt: ejData?.expiredAt || '',
-            ...(gscInfo ? { gscQueries: gscInfo.queries, gscImpressions: gscInfo.totalImpressions, gscClicks: gscInfo.totalClicks } : {}),
+            ...(gscInfo?.queries ? { gscQueries: gscInfo.queries, gscImpressions: gscInfo.totalImpressions, gscClicks: gscInfo.totalClicks } : {}),
           });
 
           // FRO-320: Generate static body content so Google sees real text, not an empty SPA shell.
@@ -3893,7 +3929,7 @@ ${(() => {
           // --- Fallback enrichment for pages without expired-jobs.json data ---
           // Ensures pages without rich ejData still have enough content (>= 50 words)
           // by adding general info about the Ticino cross-border job market.
-          if (!ejData?.title) {
+          if (!ejData?.title && !gscInfo?.title) {
             if (locale === 'it') {
               staticBodyParts.push(`<section><h2>Mercato del lavoro in Ticino</h2><p>Il Canton Ticino offre numerose opportunit\u00e0 per i lavoratori frontalieri provenienti dall'Italia. Con oltre 70.000 frontalieri attivi, il Ticino rappresenta una delle principali destinazioni per chi cerca lavoro in Svizzera dalla regione insubrica. I settori pi\u00f9 attivi includono industria, servizi finanziari, sanit\u00e0, commercio e tecnologia. Lo stipendio medio in Ticino \u00e8 significativamente pi\u00f9 alto rispetto alle regioni italiane di confine, rendendo il lavoro transfrontaliero un'opzione molto attraente per i residenti di Lombardia, Piemonte e altre province vicine.</p></section>`);
             } else if (locale === 'en') {
