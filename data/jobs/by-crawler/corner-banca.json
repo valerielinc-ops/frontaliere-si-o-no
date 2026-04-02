@@ -7,9 +7,9 @@
       "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-lehre-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "en": "spontaneous-apprenticeship-application-corner-banca-switzerland",
+        "de": "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+        "fr": "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -69,16 +69,20 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "initiativbewerbung-lehre-corner-banca-switzerland"
+      ]
     },
     {
       "id": "corner-banca-1d94a13bc883",
       "slug": "customer-advisor-100-corner-banca-lugano",
       "slugByLocale": {
-        "it": "customer-consulente-100-corner-banca-lugano",
+        "it": "assistenza-clienti-corner-banca-lugano",
         "en": "customer-advisor-100-corner-banca-lugano",
-        "de": "customer-berater-100-corner-banca-lugano",
-        "fr": "customer-conseiller-100-corner-banca-lugano"
+        "de": "kundenberater-corner-banca-lugano",
+        "fr": "conseiller-clients-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -135,7 +139,10 @@
       "sourceLang": "en",
       "previousSlugs": [
         "consulente-clienti-100-corner-banca-lugano",
-        "customer-advisor-100-corner-banca-lugano"
+        "customer-advisor-100-corner-banca-lugano",
+        "customer-consulente-100-corner-banca-lugano",
+        "customer-berater-100-corner-banca-lugano",
+        "customer-conseiller-100-corner-banca-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -160,7 +167,7 @@
       "slugByLocale": {
         "it": "it-card-management-analista-specialista-corner-banca-lugano",
         "en": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "de": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "de": "it-kartenmanagement-analyst-spezialist-corner-banca-lugano",
         "fr": "it-card-management-analyste-specialiste-corner-banca-lugano"
       },
       "company": "Cornèr Banca",

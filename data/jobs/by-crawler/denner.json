@@ -330,10 +330,10 @@
       "id": "denner-2c20d2329644",
       "slug": "filialleiter-in-in-ausildung-denner",
       "slugByLocale": {
-        "it": "filialleiter-in-in-ausildung-denner",
-        "en": "filialleiter-in-in-ausildung-denner",
+        "it": "responsabile-di-filiale-in-formazione-denner-steinhausen",
+        "en": "branch-manager-in-training-denner-steinhausen",
         "de": "filialleiter-in-in-ausildung-denner-steinhausen",
-        "fr": "filialleiter-in-in-ausildung-denner"
+        "fr": "responsable-de-filiale-en-formation-denner-steinhausen"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -401,7 +401,10 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "filialleiter-in-in-ausildung-denner"
+      ]
     },
     {
       "id": "denner-15307eb35311",
