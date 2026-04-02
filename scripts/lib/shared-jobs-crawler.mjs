@@ -5020,10 +5020,14 @@ async function main() {
       ) && (sourceDescLength >= 160 || hasTitleWork);
     });
     if (queue.length > 0) {
-      // Prioritize recently-scraped jobs so they get localized first
-      // if budget runs out before processing the entire queue.
+      // Prioritize: 1) needsRetranslation jobs (translation pipeline targets),
+      // 2) recently-scraped jobs, 3) everything else.
+      // This ensures the limited budget goes to actually-incomplete jobs first.
       const incomingFps = new Set(incomingJobs.map(fingerprintJob).filter(Boolean));
       queue.sort((a, b) => {
+        const aNeedsRetrans = a.needsRetranslation ? 0 : 1;
+        const bNeedsRetrans = b.needsRetranslation ? 0 : 1;
+        if (aNeedsRetrans !== bNeedsRetrans) return aNeedsRetrans - bNeedsRetrans;
         const aNew = incomingFps.has(fingerprintJob(a)) ? 0 : 1;
         const bNew = incomingFps.has(fingerprintJob(b)) ? 0 : 1;
         return aNew - bNew;
