@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-04-02T22:05:29.270Z",
+  "generatedAt": "2026-04-02T23:04:11.939Z",
   "sources": {
     "italy": {
       "provider": "MIMIT Open Data",
@@ -10,7 +10,7 @@
     "switzerland": {
       "provider": "TCS Benzinpreis",
       "providerUrl": "https://benzin.tcs.ch/de/map/SP95",
-      "stationCount": 229,
+      "stationCount": 228,
       "latestObservedUpdate": "2026-04-02T21:36:45.651Z"
     },
     "exchangeRate": {
@@ -512,19 +512,6 @@
         "sp95PriceEur": 1.856
       },
       {
-        "id": "TvxVexOq6LV5z6262EYR",
-        "name": "BP Unbemannte Station Glis",
-        "brand": "BP",
-        "address": "Kantonsstrasse 2, 3902 Glis",
-        "lat": 46.309179,
-        "lng": 7.971345,
-        "sp95PriceChf": 1.71,
-        "updatedAt": "2026-03-03T22:44:37.025Z",
-        "nearestMunicipality": "Trasquera (VB)",
-        "nearestMunicipalityDistanceKm": 20.7,
-        "sp95PriceEur": 1.856
-      },
-      {
         "id": "PXyiipFqlVOYwf2m60NW",
         "name": "Patoil Saas-Grund",
         "brand": "UNDEFINED",
@@ -639,6 +626,19 @@
         "updatedAt": "2026-03-31T15:05:48.508Z",
         "nearestMunicipality": "Lavena Ponte Tresa (VA)",
         "nearestMunicipalityDistanceKm": 1.6,
+        "sp95PriceEur": 1.878
+      },
+      {
+        "id": "XDaZFDVg7EaSmPAy5ZiL",
+        "name": "Eni Tschierv",
+        "brand": "ENI",
+        "address": "Via Principala, 7532 Tschierv",
+        "lat": 46.6269586,
+        "lng": 10.3342125,
+        "sp95PriceChf": 1.73,
+        "updatedAt": "2026-03-09T09:58:42.870Z",
+        "nearestMunicipality": "Tubre (BZ)",
+        "nearestMunicipalityDistanceKm": 10.1,
         "sp95PriceEur": 1.878
       }
     ],
