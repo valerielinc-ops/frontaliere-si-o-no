@@ -1,24 +1,22 @@
 {
   "key": "centiel",
   "label": "centiel",
-  "generatedAt": "2026-04-01T21:03:44.734Z",
+  "generatedAt": "2026-04-02T10:17:24.373Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 4,
-  "durationMs": 1235,
-  "avgDurationMs": 1235,
+  "unchangedCount": 0,
+  "durationMs": 916,
+  "avgDurationMs": 916,
   "durationHistory": [
-    1235
+    916
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "title": "Application Engineer – critical power",
-      "slug": "ingegnere-applicativo-potenza-critica-centiel-lugano",
+      "slug": "application-engineer-critical-power-centiel-ticino",
       "url": "https://www.centiel.com/wp-content/uploads/2026/02/2026.02-JD-EG-ApplicationEngineer.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -34,7 +32,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -53,7 +51,7 @@
     },
     {
       "title": "Research & Development Engineer",
-      "slug": "ingegnere-di-ricerca-e-sviluppo-centiel-lugano",
+      "slug": "research-development-engineer-centiel-ticino",
       "url": "https://www.centiel.com/wp-content/uploads/2025/11/2025.11-JD-EG-RD-Engineer-Rev1.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -69,7 +67,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
@@ -88,7 +86,7 @@
     },
     {
       "title": "Sales – 3-phase UPS Channel Partners Manager",
-      "slug": "vendite-responsabile-dei-partner-di-canale-ups-trifase-centiel-lugano",
+      "slug": "sales-3-phase-ups-channel-partners-manager-centiel-ticino",
       "url": "https://www.centiel.com/wp-content/uploads/2025/10/2025.10-JD-EG-Sales-Manager-Channel-Partners.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -104,7 +102,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "100%",
       "contractType": "full-time",
       "validThrough": "",
@@ -123,7 +121,7 @@
     },
     {
       "title": "After-Sales Technician",
-      "slug": "tecnico-post-vendita-centiel-lugano",
+      "slug": "after-sales-technician-centiel-ticino",
       "url": "https://www.centiel.com/wp-content/uploads/2025/05/Job_profile_After_Sales_Technician.pdf",
       "applyUrl": "https://www.centiel.com/careers/",
       "company": "Centiel",
@@ -139,7 +137,7 @@
       "sector": "Energia / UPS / Power Protection",
       "source": "centiel-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-01",
+      "postedDate": "2026-04-02",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -156,5 +154,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
