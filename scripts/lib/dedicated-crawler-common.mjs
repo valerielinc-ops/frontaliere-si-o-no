@@ -936,8 +936,18 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       }
     }
 
-    const baseTitle = String(job.title || '').trim();
-    const baseDesc = String(job.description || '').trim();
+    // Decode HTML entities (handles double-encoded cases like &amp;#8211; → – )
+    const cleanText = (s) => decodeNumericEntities(decodeHtmlEntities(String(s || '').trim()));
+    const baseTitle = cleanText(job.title);
+    const baseDesc = cleanText(job.description);
+    if (baseTitle && baseTitle !== String(job.title || '').trim()) {
+      job.title = baseTitle;
+      jobChanged = true;
+    }
+    if (baseDesc && baseDesc !== String(job.description || '').trim()) {
+      job.description = baseDesc;
+      jobChanged = true;
+    }
     const baseSlug = String(job.slug || '').trim();
     const detectedSourceLang = detectLang(baseDesc || baseTitle, 'it');
     let titleSourceLang = detectJobTitleLang(baseTitle, detectedSourceLang);
@@ -958,6 +968,20 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
       job.slugByLocale = {};
       jobChanged = true;
     }
+
+    // Clean HTML entities from existing locale values
+    for (const map of [job.titleByLocale, job.descriptionByLocale]) {
+      for (const loc of Object.keys(map)) {
+        const raw = map[loc];
+        if (typeof raw !== 'string') continue;
+        const decoded = cleanText(raw);
+        if (decoded !== raw) {
+          map[loc] = decoded;
+          jobChanged = true;
+        }
+      }
+    }
+
     if (String(job.sourceLang || '').trim() !== sourceLang) {
       job.sourceLang = sourceLang;
       jobChanged = true;
@@ -3504,14 +3528,29 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
 
 // ── HTML entity decoders ─────────────────────────────────────
 
+const HTML_NAMED_ENTITIES = {
+  amp: '&', quot: '"', apos: "'", lt: '<', gt: '>',
+  nbsp: '\u00A0', shy: '\u00AD',
+  ndash: '–', mdash: '—', hellip: '…', bull: '•', middot: '·',
+  lsquo: '\u2018', rsquo: '\u2019', ldquo: '\u201C', rdquo: '\u201D',
+  laquo: '«', raquo: '»', times: '×', divide: '÷', minus: '−',
+  agrave: 'à', aacute: 'á', acirc: 'â', atilde: 'ã', auml: 'ä',
+  egrave: 'è', eacute: 'é', ecirc: 'ê', euml: 'ë',
+  igrave: 'ì', iacute: 'í', icirc: 'î', iuml: 'ï',
+  ograve: 'ò', oacute: 'ó', ocirc: 'ô', otilde: 'õ', ouml: 'ö',
+  ugrave: 'ù', uacute: 'ú', ucirc: 'û', uuml: 'ü',
+  Agrave: 'À', Aacute: 'Á', Eacute: 'É', Egrave: 'È',
+  Igrave: 'Ì', Ograve: 'Ò', Uacute: 'Ú', Uuml: 'Ü',
+  ntilde: 'ñ', ccedil: 'ç', szlig: 'ß',
+  euro: '€', pound: '£', yen: '¥', cent: '¢',
+  copy: '©', reg: '®', trade: '™', deg: '°',
+  frac12: '½', frac14: '¼', frac34: '¾',
+};
+
 export function decodeHtmlEntities(value = '') {
   return String(value || '')
-    .replace(/&amp;/g, '&')
-    .replace(/&quot;/g, '"')
-    .replace(/&#39;/g, "'")
-    .replace(/&lt;/g, '<')
-    .replace(/&gt;/g, '>')
-    .replace(/&nbsp;/g, ' ');
+    .replace(/&([a-zA-Z]+);/g, (match, name) => HTML_NAMED_ENTITIES[name] ?? match)
+    .replace(/&nbsp;/gi, ' '); // normalize NBSP to regular space for job text
 }
 
 export function decodeNumericEntities(value = '') {
