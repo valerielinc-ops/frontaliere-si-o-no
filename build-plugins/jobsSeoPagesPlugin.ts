@@ -3536,6 +3536,41 @@ ${(() => {
         }
       } catch { /* file missing — skip */ }
 
+      // 1b2. Merge GSC 404 compat paths into tracking so they get soft-landing pages
+      //      instead of thin "Pagina archiviata" pages from legacyRedirectsPlugin.
+      //      The compat file is a manual GSC export; the orphan pipeline now subsumes it.
+      //      Handles all locales: IT (/cerca-lavoro-ticino/), DE (/de/jobs-im-tessin/), FR (/fr/trouver-emploi-tessin/)
+      const compatPathsFile = np.resolve(rootDir, 'data/seo-404-compat-paths.json');
+      try {
+        const compatData = JSON.parse(fs.readFileSync(compatPathsFile, 'utf-8'));
+        const compatPaths: string[] = Array.isArray(compatData?.paths) ? compatData.paths : [];
+        let compatAdded = 0;
+        const COMPAT_JOB_PATTERNS: { re: RegExp; locale: string; prefix: string }[] = [
+          { re: /\/cerca-lavoro-ticino\/([^/]+)\/?$/, locale: 'it', prefix: '/cerca-lavoro-ticino/' },
+          { re: /\/en\/find-job-ticino\/([^/]+)\/?$/, locale: 'en', prefix: '/en/find-job-ticino/' },
+          { re: /\/de\/jobs-im-tessin\/([^/]+)\/?$/, locale: 'de', prefix: '/de/jobs-im-tessin/' },
+          { re: /\/fr\/trouver-emploi-tessin\/([^/]+)\/?$/, locale: 'fr', prefix: '/fr/trouver-emploi-tessin/' },
+        ];
+        const SKIP_PREFIX_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
+        for (const p of compatPaths) {
+          const raw = String(p || '');
+          for (const { re, locale, prefix } of COMPAT_JOB_PATTERNS) {
+            const m = raw.match(re);
+            if (!m) continue;
+            const slug = m[1];
+            if (!slug || SKIP_PREFIX_RE.test(slug)) break;
+            if (!tracking[slug]) tracking[slug] = {};
+            if ((tracking[slug] as Record<string, string>)[locale]) break; // locale path already known
+            (tracking[slug] as Record<string, string>)[locale] = `${prefix}${slug}`;
+            compatAdded++;
+            break;
+          }
+        }
+        if (compatAdded > 0) {
+          console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Merged ${compatAdded} GSC-404 compat job paths into expired tracking`);
+        }
+      } catch { /* file missing — skip */ }
+
       // 1c. Load enriched data for orphan slugs (GSC queries + translation cache titles/descriptions)
       const orphanEnrichedPath = np.resolve(rootDir, 'data/orphan-enriched-data.json');
       interface OrphanEnriched {

@@ -881,6 +881,43 @@ async function main() {
   const knownSlugs = buildKnownSlugsSet();
   const orphans = identifyOrphans(gscMap, knownSlugs);
 
+  // Step 2b: Supplement orphans with GSC 404 compat paths
+  // These are URLs from GSC Coverage reports (404/soft-404) that never appeared in
+  // Search Analytics (no impressions/clicks). They get thin "Pagina archiviata" compat
+  // pages at build time — feeding them into the orphan pipeline gives them proper
+  // soft-landing pages with enriched content instead.
+  const compatPathsFile = dataPath('seo-404-compat-paths.json');
+  const compatData = readJsonSafe(compatPathsFile);
+  if (compatData?.paths && Array.isArray(compatData.paths)) {
+    const COMPAT_JOB_RE = /^\/(cerca-lavoro-ticino|en\/find-job-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin)\/([^/]+)\/?$/;
+    const SKIP_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
+    const existingSlugs = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
+    let compatAdded = 0;
+    for (const p of compatData.paths) {
+      const m = String(p || '').match(COMPAT_JOB_RE);
+      if (!m) continue;
+      const slug = m[2];
+      if (!slug || SKIP_RE.test(slug)) continue;
+      const locale = detectLocaleFromPath(p);
+      const key = `${locale}:${slug}`;
+      if (knownSlugs.has(slug) || existingSlugs.has(key)) continue;
+      existingSlugs.add(key);
+      orphans.push({
+        slug,
+        locale,
+        path: p.replace(/\/$/, ''),
+        queries: [],
+        totalImpressions: 0,
+        totalClicks: 0,
+        source: 'gsc-404-compat',
+      });
+      compatAdded++;
+    }
+    if (compatAdded > 0) {
+      console.log(`  📋 GSC-404 compat paths: ${compatAdded} supplementary orphans added`);
+    }
+  }
+
   // Step 3: Enrich from local sources
   const enrichedOrphans = enrichFromLocalSources(orphans);
 
