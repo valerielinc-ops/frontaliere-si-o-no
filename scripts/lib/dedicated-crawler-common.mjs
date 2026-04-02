@@ -1894,6 +1894,16 @@ export async function aiLocalizeJobContentDCC({ title, company, location, descri
     cleanFn(description || ''),
   ]);
   const fromCache = getCachedAiResponse(cacheKey);
+  // DIAGNOSTIC: trace cache state for first 3 calls
+  if (typeof aiLocalizeJobContentDCC._diagCacheCount === 'undefined') aiLocalizeJobContentDCC._diagCacheCount = 0;
+  if (aiLocalizeJobContentDCC._diagCacheCount < 3) {
+    aiLocalizeJobContentDCC._diagCacheCount++;
+    const cacheType = fromCache === AI_CACHE_RAW_SENTINEL ? 'SENTINEL' :
+      fromCache && typeof fromCache === 'object' ? `OBJECT(${Object.keys(fromCache).join(',')})` :
+      fromCache === null || fromCache === undefined ? 'MISS' : `OTHER(${typeof fromCache})`;
+    const desc30 = (description || '').slice(0, 30);
+    console.log(`   🔬 aiCache[${aiLocalizeJobContentDCC._diagCacheCount}] "${title?.slice(0,30)}" type=${cacheType} key=${cacheKey?.slice(0,12)}… desc="${desc30}…"`);
+  }
   if (fromCache === AI_CACHE_RAW_SENTINEL) {
     const cleanedSource = cleanFn(description || '');
     if (cleanedSource.length < floor) return null;
