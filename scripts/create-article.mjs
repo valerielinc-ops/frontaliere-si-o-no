@@ -1572,9 +1572,15 @@ ${idsSection}
 
 ═══ REGOLE EDITORIALI ═══
 
-STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi. Usa numeri, date, luoghi reali, istituzioni. Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.
-MAI usare: "In conclusione", "È importante notare", "In questo contesto", "Vale la pena", "È fondamentale", "Alla luce di".
+STILE: Scrivi come giornalista finanziario italiano reale, NON come AI. Varia lunghezza frasi (da 5 a 30 parole). Alterna paragrafi brevi (1-2 frasi) a paragrafi più lunghi. Usa numeri, date, luoghi reali, istituzioni. Colore locale: valichi (Brogeda, Gaggiolo), comuni (Chiasso, Mendrisio), uffici cantonali.
+MAI usare: "In conclusione", "È importante notare", "In questo contesto", "Vale la pena", "È fondamentale", "Alla luce di", "Ecco cosa sapere", "Vediamo nel dettaglio", "Andiamo con ordine", "Non è un caso che", "Un aspetto cruciale", "Sempre più", "In un contesto di".
 Linguaggio diretto: "conviene" non "potrebbe essere utile". Includi citazione dalla fonte. Il testo DEVE superare AI detection.
+ANTI-AI (CRITICO): Il testo NON deve sembrare generato da AI. Regole:
+- MAI aprire body1 con una frase generica tipo "Il tema dei frontalieri...". Inizia con un FATTO concreto (data, numero, nome, luogo).
+- MAI elenchi puntati di >5 elementi (spezzali in paragrafi narrativi)
+- MAX 2 emoji callout (📊/💡/⚠️) per INTERO articolo (body1+body2+body3 combinati). Zero è meglio.
+- Varia la struttura: non TUTTI i body devono avere un elenco puntato. Alterna prosa, tabelle, FAQ, citazioni.
+- NON usare parallelismi strutturali tra body1/body2/body3 (se body1 ha ## + elenco, body2 deve avere ## + prosa + tabella).
 
 TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.
 
@@ -1599,7 +1605,19 @@ Azioni: calculator, exchange, health, cost-of-living, pension, pillar3, payslip,
 MAI usare <a href> o URL diretti.
 
 GRASSETTO: max 2-3 parole in grassetto per INTERO campo body. MAI grassetto su importi (350 CHF), etichette (Caso 1:), frasi >5 parole, nomi strumenti. Preferire ZERO grassetto.
-FORMATTAZIONE: ## sottotitoli, - elenchi, > citazioni (MAX 1 per articolo — solo se c'è una vera citazione dalla fonte), 📊 dati, 💡 consigli, ⚠️ avvertenze. Blocchi separati con \\n\\n. NON usare > per paragrafi normali — solo per citazioni dirette brevi (1-2 frasi).
+FORMATTAZIONE: ## sottotitoli, ### sotto-sottotitoli, - elenchi, > citazioni (MAX 1 per articolo — solo se c'è una vera citazione dalla fonte), 📊 dati, 💡 consigli, ⚠️ avvertenze. Blocchi separati con \\n\\n. NON usare > per paragrafi normali — solo per citazioni dirette brevi (1-2 frasi).
+STRUTTURA H3 (CRITICO): Ogni body con >250 parole DEVE avere almeno 1 sotto-sezione ### (H3). Esempio:
+## Nuove aliquote per i frontalieri (body2 main heading)
+... paragrafo introduttivo ...
+### Frontalieri entro 20 km (H3 sub-section)
+... dettaglio ...
+### Frontalieri oltre 20 km (H3 sub-section)
+... dettaglio ...
+
+ANTI-RIPETITIVITÀ (CRITICO): I tre body DEVONO avere contenuti DIVERSI. Mai ripetere lo stesso concetto tra body1, body2, body3.
+- body1 = FATTI NUDI: chi ha deciso/annunciato cosa, quando, dove, perché. Cronaca pura, stile agenzia stampa.
+- body2 = ANALISI TECNICA: numeri, confronti, tabelle, normative, calcoli. Informazione che NON era nel body1.
+- body3 = AZIONE PRATICA: cosa fare concretamente, scadenze, procedura step-by-step, strumenti. NON riassumere body1 o body2.
 
 Genera JSON (no markdown, no code fences):
 {
@@ -1614,9 +1632,9 @@ Genera JSON (no markdown, no code fences):
     "it": {
       "title": "Titolo giornalistico con keyword (max 60 chars)",
       "excerpt": "Sottotitolo con dati concreti (max 160 chars)",
-      "body1": "Lead giornalistico: chi, cosa, dove, quando, perché. 300-400 parole.",
-      "body2": "Approfondimento tecnico: normative, scadenze, importi. 300-400 parole.",
-      "body3": "Consigli pratici + CTA naturale + fonte/data notizia. 300-400 parole."
+      "body1": "Lead giornalistico: FATTI (chi, cosa, dove, quando, perché). Solo cronaca. 300-400 parole. Min 1 ### sotto-sezione.",
+      "body2": "Analisi tecnica: normative, confronti, tabelle, calcoli. Contenuto DIVERSO da body1. 300-400 parole. Min 1 ### sotto-sezione.",
+      "body3": "Azione pratica: procedura step-by-step, scadenze, strumenti + CTA finale. NON riassumere body1/body2. 300-400 parole."
     }
   },
   "seo": {
@@ -2176,15 +2194,68 @@ const CTA_KEYWORDS_EN = ['calculator', 'comparator', 'simulator', 'converter', '
 const CTA_KEYWORDS_DE = ['rechner', 'vergleich', 'simulator', 'umrechner', 'planer', 'unsere plattform', 'tool', 'werkzeug', 'entdecken'];
 const CTA_KEYWORDS_FR = ['calculateur', 'comparateur', 'simulateur', 'convertisseur', 'planificateur', 'notre site', 'notre plateforme', 'outil', 'découvrez'];
 
-const DEFAULT_CTA = {
-  it: '\n\nPer un calcolo preciso del tuo stipendio netto come frontaliere, usa il nostro comparatore: lo strumento più completo per confrontare in pochi click il netto in busta tra permesso G e permesso B, con tutte le deduzioni fiscali e previdenziali aggiornate al 2026.',
-  en: '\n\nFor a precise calculation of your net salary as a cross-border worker, use our comparator: the most complete tool to compare your take-home pay between G and B permits, with all tax and social deductions updated to 2026.',
-  de: '\n\nFür eine genaue Berechnung Ihres Nettogehalts als Grenzgänger nutzen Sie unseren Vergleichsrechner: das umfassendste Tool zum Vergleich Ihres Nettogehalts zwischen G- und B-Bewilligung, mit allen Steuer- und Sozialabzügen auf dem Stand 2026.',
-  fr: '\n\nPour un calcul précis de votre salaire net en tant que frontalier, utilisez notre comparateur : l\'outil le plus complet pour comparer votre salaire net entre permis G et permis B, avec toutes les déductions fiscales et sociales mises à jour pour 2026.',
-};
+const CTA_POOL = [
+  {
+    it: '\n\nPer un calcolo preciso del tuo stipendio netto come frontaliere, usa il nostro [comparatore fiscale](nav:calculator): confronta il netto in busta tra permesso G e permesso B con tutte le deduzioni aggiornate al 2026.',
+    en: '\n\nFor a precise net salary calculation, use our [tax comparator](nav:calculator): compare take-home pay between G and B permits with all 2026 deductions.',
+    de: '\n\nFür eine genaue Nettogehaltsberechnung nutzen Sie unseren [Steuervergleichsrechner](nav:calculator): vergleichen Sie G- und B-Bewilligung mit allen Abzügen 2026.',
+    fr: '\n\nPour un calcul précis du salaire net, utilisez notre [comparateur fiscal](nav:calculator) : comparez permis G et permis B avec toutes les déductions 2026.',
+  },
+  {
+    it: '\n\nSe stai valutando un\'offerta in Ticino, simula la tua [busta paga netta](nav:payslip): inserisci RAL, stato civile e comune di residenza per un preventivo dettagliato.',
+    en: '\n\nEvaluating a Ticino job offer? Simulate your [net payslip](nav:payslip): enter gross salary, marital status and municipality for a detailed breakdown.',
+    de: '\n\nJobangebot im Tessin? Simulieren Sie Ihre [Netto-Gehaltsabrechnung](nav:payslip): Bruttolohn, Familienstand und Wohngemeinde eingeben.',
+    fr: '\n\nOffre d\'emploi au Tessin? Simulez votre [fiche de paie nette](nav:payslip) : salaire brut, état civil et commune de résidence.',
+  },
+  {
+    it: '\n\nConfronta il [tasso di cambio CHF/EUR](nav:exchange) in tempo reale tra i principali provider: risparmi fino a 1.5% sulle commissioni del bonifico mensile.',
+    en: '\n\nCompare the [CHF/EUR exchange rate](nav:exchange) in real time across providers: save up to 1.5% on monthly transfer fees.',
+    de: '\n\nVergleichen Sie den [CHF/EUR-Wechselkurs](nav:exchange) in Echtzeit: sparen Sie bis zu 1,5% bei den monatlichen Überweisungsgebühren.',
+    fr: '\n\nComparez le [taux CHF/EUR](nav:exchange) en temps réel : économisez jusqu\'à 1,5% sur les frais de virement mensuel.',
+  },
+  {
+    it: '\n\nScopri le [offerte di lavoro in Ticino](nav:jobs) aggiornate quotidianamente: oltre 4.000 posizioni da aziende svizzere che assumono frontalieri.',
+    en: '\n\nDiscover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swiss companies hiring cross-border workers.',
+    de: '\n\nEntdecken Sie [Stellenangebote im Tessin](nav:jobs) — täglich aktualisiert: über 4.000 Stellen von Schweizer Unternehmen.',
+    fr: '\n\nDécouvrez les [offres d\'emploi au Tessin](nav:jobs) mises à jour quotidiennement : plus de 4.000 postes.',
+  },
+  {
+    it: '\n\nPianifica la tua [previdenza da frontaliere](nav:pension): calcola AVS, secondo pilastro e coordinamento INPS per evitare sorprese al pensionamento.',
+    en: '\n\nPlan your [cross-border pension](nav:pension): calculate AVS, second pillar and INPS coordination to avoid retirement surprises.',
+    de: '\n\nPlanen Sie Ihre [Grenzgänger-Vorsorge](nav:pension): AHV, zweite Säule und INPS-Koordination berechnen.',
+    fr: '\n\nPlanifiez votre [prévoyance frontalier](nav:pension) : calculez AVS, deuxième pilier et coordination INPS.',
+  },
+  {
+    it: '\n\nConfronta i [premi LAMal delle casse malati](nav:health) svizzere: fino a 200 CHF di differenza mensile tra compagnie per lo stesso cantone e franchigia.',
+    en: '\n\nCompare [LAMal health insurance premiums](nav:health): up to CHF 200 monthly difference between providers for the same canton and deductible.',
+    de: '\n\nVergleichen Sie die [LAMal-Prämien der Krankenkassen](nav:health): bis zu 200 CHF monatlicher Unterschied zwischen Anbietern.',
+    fr: '\n\nComparez les [primes LAMal](nav:health) : jusqu\'à 200 CHF de différence mensuelle entre assureurs pour le même canton.',
+  },
+  {
+    it: '\n\nVerifica le [scadenze fiscali](nav:calendar) per frontalieri: 730, dichiarazione svizzera, ristorni — tutte le date in un calendario interattivo.',
+    en: '\n\nCheck [tax deadlines](nav:calendar) for cross-border workers: returns, Swiss declarations, rebates — all dates in one interactive calendar.',
+    de: '\n\nÜberprüfen Sie die [Steuerfristen](nav:calendar) für Grenzgänger: alle Termine in einem interaktiven Kalender.',
+    fr: '\n\nVérifiez les [échéances fiscales](nav:calendar) : déclarations, ristournes — toutes les dates dans un calendrier interactif.',
+  },
+  {
+    it: '\n\nÈ il tuo primo giorno come frontaliere? La nostra [guida pratica](nav:first-day) ti accompagna dalla registrazione cantonale al primo stipendio.',
+    en: '\n\nFirst day as a cross-border worker? Our [practical guide](nav:first-day) walks you from cantonal registration to your first paycheck.',
+    de: '\n\nErster Tag als Grenzgänger? Unser [praktischer Leitfaden](nav:first-day) begleitet Sie von der Anmeldung bis zum ersten Gehalt.',
+    fr: '\n\nPremier jour en tant que frontalier? Notre [guide pratique](nav:first-day) vous accompagne de l\'inscription au premier salaire.',
+  },
+];
+
+function pickDefaultCTA(articleCategory) {
+  const preferred = { fiscale: [0, 1, 6], pratico: [1, 7, 3], novita: [3, 0, 2], pensione: [4, 0, 5] };
+  const indices = preferred[articleCategory] || [0, 1, 2];
+  return CTA_POOL[indices[Math.floor(Math.random() * indices.length)]];
+}
+
+const DEFAULT_CTA = CTA_POOL[0];
 
 function validateAndEnforceCTA(data) {
   const localeKeywords = { it: CTA_KEYWORDS_IT, en: CTA_KEYWORDS_EN, de: CTA_KEYWORDS_DE, fr: CTA_KEYWORDS_FR };
+  const cta = pickDefaultCTA(data.category);
 
   for (const locale of ['it', 'en', 'de', 'fr']) {
     if (!data.content[locale]) continue; // translations may not exist yet
@@ -2193,8 +2264,8 @@ function validateAndEnforceCTA(data) {
     const hasCTA = keywords.some(kw => body3.includes(kw));
 
     if (!hasCTA) {
-      console.error(`  ⚠️  CTA mancante in body3 [${locale}] — aggiungo CTA di default (comparatore)`);
-      data.content[locale].body3 += DEFAULT_CTA[locale];
+      console.error(`  ⚠️  CTA mancante in body3 [${locale}] — aggiungo CTA (${data.category})`);
+      data.content[locale].body3 += cta[locale];
     }
   }
 
@@ -3643,6 +3714,17 @@ function updateSitemapIndexLastmod(childSitemapUrl) {
   }
 }
 
+/**
+ * Strip JSON blobs and HTML tags from text intended for XML sitemap fields.
+ * Prevents structured data leaking into <image:title> or similar plain-text fields.
+ */
+function sanitizePlainText(text) {
+  let s = String(text || '');
+  if (/^\s*[\[{]/.test(s)) s = '';
+  s = s.replace(/<[^>]+>/g, '');
+  return s.trim();
+}
+
 function modifySitemap(data) {
   const file = 'public/sitemap-blog.xml';
   let src = read(file);
@@ -3651,8 +3733,8 @@ function modifySitemap(data) {
   const imagePath = data._generatedImagePath
     ? data._generatedImagePath.replace(/^\//, '')
     : `images/places/${data.image}`;
-  const imageCaption = String(data.imageAlt?.it || data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
-  const imageTitle = String(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const imageCaption = sanitizePlainText(data.imageAlt?.it || data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const imageTitle = sanitizePlainText(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   const entry = `  <url>
     <loc>${BASE_URL}/articoli-frontaliere/${data.slugs.it}/</loc>
@@ -3706,7 +3788,7 @@ function modifySitemapNews(data) {
   const imagePath = data._generatedImagePath
     ? data._generatedImagePath.replace(/^\//, '')
     : `images/places/${data.image}`;
-  const imageTitle = String(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+  const imageTitle = sanitizePlainText(data.seo.headline || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
 
   const entry = `  <url>
     <loc>${BASE_URL}/articoli-frontaliere/${data.slugs.it}/</loc>
