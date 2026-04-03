@@ -2340,6 +2340,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const [page, setPage] = useState(() => readPageFromUrl());
   // Counter incremented on page/search changes to force ad slot remount
   const [adRefreshKey, setAdRefreshKey] = useState(0);
+  // Mobile load-more: accumulate jobs instead of paginating
+  const [mobileJobLimit, setMobileJobLimit] = useState(10);
   const [authGateOpen, setAuthGateOpen] = useState(false);
   const [pendingJob, setPendingJob] = useState<JobListing | null>(null);
   const [authBusy, setAuthBusy] = useState<'google' | 'facebook' | 'email' | null>(null);
@@ -2962,6 +2964,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   useEffect(() => {
     if (skipPageReset.current) { skipPageReset.current = false; return; }
     setPage(1);
+    setMobileJobLimit(10);
     syncQueryParamsToUrl({ page: null });
     setAdRefreshKey((k) => k + 1);
   }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly]);
@@ -2986,6 +2989,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const start = (currentPage - 1) * pageSize;
     return filteredJobs.slice(start, start + pageSize);
   }, [filteredJobs, currentPage]);
+
+  // Mobile: accumulate jobs via load-more; Desktop: use pagedJobs
+  const mobileJobs = useMemo(() => filteredJobs.slice(0, mobileJobLimit), [filteredJobs, mobileJobLimit]);
+  const displayJobs = isMobile ? mobileJobs : pagedJobs;
+  const hasMoreMobileJobs = isMobile && mobileJobLimit < filteredJobs.length;
+
+  const loadMoreMobile = useCallback(() => {
+    setMobileJobLimit((prev) => prev + 10);
+    setAdRefreshKey((k) => k + 1);
+  }, []);
 
   const relatedJobs = useMemo(() => {
     if (!selectedJob) return [];
@@ -6206,16 +6219,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-2 sm:gap-3">
         <p className="text-xs sm:text-sm text-slate-500 dark:text-slate-400">
-          {t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}
+          {isMobile && filteredJobs.length > 0
+            ? t('jobBoard.showingNJobs', { count: String(displayJobs.length), total: String(filteredJobs.length) })
+            : t('jobBoard.resultsCount', { count: String(filteredJobs.length) })}
         </p>
-        {renderPagination()}
+        {!isMobile && renderPagination()}
       </div>
 
       <div className="space-y-3 min-h-[600px]" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 800px' }}>
-        {pagedJobs.slice(0, 3).map((job) => renderJobCard(job))}
+        {displayJobs.slice(0, 3).map((job) => renderJobCard(job))}
 
         {/* In-feed ad — mobile (after 3rd job, conditional mount) */}
-        {pagedJobs.length > 3 && isMobile && (
+        {displayJobs.length > 3 && isMobile && (
           <React.Fragment key={`infeed-m-${adRefreshKey}`}>
             <AdSenseBanner
               adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
@@ -6227,10 +6242,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </React.Fragment>
         )}
 
-        {pagedJobs.length > 3 && renderJobCard(pagedJobs[3])}
+        {displayJobs.length > 3 && renderJobCard(displayJobs[3])}
 
         {/* In-feed ad — desktop (after 4th job, conditional mount) */}
-        {pagedJobs.length > 4 && !isMobile && (
+        {displayJobs.length > 4 && !isMobile && (
           <React.Fragment key={`infeed-d-${adRefreshKey}`}>
             <AdSenseBanner
               adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
@@ -6242,7 +6257,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           </React.Fragment>
         )}
 
-        {pagedJobs.slice(4).map((job) => renderJobCard(job))}
+        {displayJobs.slice(4).map((job) => renderJobCard(job))}
 
         {filteredJobs.length === 0 && (
           <div className="text-center py-12 text-slate-500 dark:text-slate-400">
@@ -6253,8 +6268,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
         )}
       </div>
 
+      {/* Mobile: Load More button */}
+      {hasMoreMobileJobs && (
+        <div className="flex justify-center mt-4 sm:hidden">
+          <button
+            type="button"
+            onClick={loadMoreMobile}
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+          >
+            {t('jobBoard.loadMore')} ({Math.min(10, filteredJobs.length - mobileJobLimit)} {t('jobBoard.moreJobs')})
+          </button>
+        </div>
+      )}
+
       <div className="flex flex-wrap items-center justify-center sm:justify-end gap-3">
-        {renderPagination()}
+        {!isMobile && renderPagination()}
       </div>
 
       {/* AdSense — end-of-list multiplex */}
