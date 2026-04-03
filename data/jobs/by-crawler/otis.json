@@ -1,15 +1,15 @@
 {
   "crawlerKey": "otis",
-  "assembledAt": "2026-04-03T09:37:12.988Z",
+  "assembledAt": "2026-04-03T21:33:04.062Z",
   "jobs": [
     {
       "id": "otis-994d1f77a972",
       "slug": "supervisor-mod-bex-otis-1032",
       "slugByLocale": {
-        "it": "supervisore-mod-bex-otis-sa-1032",
+        "it": "supervisor-mod-bex-otis-1032",
         "en": "supervisor-mod-bex-otis-1032",
-        "de": "vorgesetzter-mod-bex-otis-sa-1032",
-        "fr": "supervisor-mod-bex-otis-sa-1032"
+        "de": "supervisor-mod-bex-otis-1032",
+        "fr": "supervisor-mod-bex-otis-1032"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -47,12 +47,9 @@
       "postedDate": "2026-03-16",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Supervisor-MOD-BEX_20155074",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-03T09:37:11.411Z",
+      "crawledAt": "2026-04-03T21:33:02.084Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
-      "previousSlugs": [
-        "supervisor-mod-bex-otis-1032"
-      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -112,7 +109,7 @@
       "postedDate": "2026-02-13",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Chemin-des-Msanges-5-1032-Romanel-sur-Lausanne/Vivier-des-Talents-Vaud---Service-Technicien-Monteur-Repairman_20149775",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-03T09:37:11.172Z",
+      "crawledAt": "2026-04-03T21:33:01.824Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 58000,
@@ -134,7 +131,7 @@
       "slug": "aufzugsmonteur-m-w-d-otis-st-gallen",
       "slugByLocale": {
         "it": "aufzugsmonteur-m-w-d-otis-st-gallen",
-        "en": "aufzugsmonteur-m-w-d-otis-sa-st-gallen",
+        "en": "aufzugsmonteur-m-w-d-otis-st-gallen",
         "de": "aufzugsmonteur-m-w-d-otis-st-gallen",
         "fr": "aufzugsmonteur-m-w-d-otis-st-gallen"
       },
@@ -174,10 +171,9 @@
       "postedDate": "2026-02-05",
       "url": "https://otis.wd5.myworkdayjobs.com/en-US/REC_Ext_Gateway/job/Walenbchelstrasse-3-9000-St-Gallen-Switzerland/Aufzugsmonteur--m-w-d-_20152293",
       "source": "Otis Dedicated Parser (Workday)",
-      "crawledAt": "2026-04-03T09:37:10.886Z",
+      "crawledAt": "2026-04-03T21:33:01.450Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
