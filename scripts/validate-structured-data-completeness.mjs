@@ -179,6 +179,68 @@ function validateJobPosting(schema, filePath) {
   return errors;
 }
 
+function validateEvent(schema, filePath) {
+  const errors = [];
+  if (schema['@type'] !== 'Event') return errors;
+
+  // Mandatory fields for Event rich results (Google + deploy-blocking)
+  const stringChecks = [
+    ['name', schema.name],
+    ['startDate', schema.startDate],
+    ['endDate', schema.endDate],
+    ['eventStatus', schema.eventStatus],
+    ['eventAttendanceMode', schema.eventAttendanceMode],
+  ];
+  for (const [field, value] of stringChecks) {
+    if (!isNonEmpty(value)) {
+      errors.push({ file: filePath, type: 'Event', field, message: `Event missing "${field}"` });
+    }
+  }
+
+  // description >= 30 chars
+  const desc = String(schema.description || '').trim();
+  if (desc.length < 30) {
+    errors.push({ file: filePath, type: 'Event', field: 'description', message: `Event description too short (${desc.length} chars, need >= 30)` });
+  }
+
+  // location must exist with addressLocality
+  if (!schema.location || typeof schema.location !== 'object') {
+    errors.push({ file: filePath, type: 'Event', field: 'location', message: 'Event missing "location"' });
+  } else {
+    const addr = schema.location.address;
+    if (!addr || !isNonEmpty(addr.addressLocality)) {
+      errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
+    }
+  }
+
+  // organizer
+  if (!schema.organizer || !isNonEmpty(schema.organizer.name)) {
+    errors.push({ file: filePath, type: 'Event', field: 'organizer', message: 'Event missing "organizer" or organizer.name' });
+  }
+
+  // performer
+  if (!schema.performer || !isNonEmpty(schema.performer.name)) {
+    errors.push({ file: filePath, type: 'Event', field: 'performer', message: 'Event missing "performer" or performer.name' });
+  }
+
+  // offers
+  if (!schema.offers || typeof schema.offers !== 'object') {
+    errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event missing "offers"' });
+  } else {
+    if (schema.offers.price === undefined || schema.offers.price === null) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.price', message: 'Event offers missing "price"' });
+    }
+    if (!isNonEmpty(schema.offers.priceCurrency)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
+    }
+    if (!isNonEmpty(schema.offers.availability)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
+    }
+  }
+
+  return errors;
+}
+
 function validateWebApplication(schema, filePath) {
   const errors = [];
   const type = schema['@type'];
@@ -238,6 +300,9 @@ async function main() {
   // Always include ALL statistics pages (small count, critical for Dataset validation)
   for (const f of byCategory.statistics) sampled.add(f);
 
+  // Always include ALL blog pages (Event schema validation requires checking every Event article)
+  for (const f of byCategory.blog) sampled.add(f);
+
   // Always include homepage files (critical for WebApplication/SoftwareApplication aggregateRating)
   const homepageFiles = ['index.html', 'en/index.html', 'de/index.html', 'fr/index.html'];
   for (const hp of homepageFiles) {
@@ -263,6 +328,7 @@ async function main() {
   let totalSchemas = 0;
   let datasetCount = 0;
   let jobPostingCount = 0;
+  let eventCount = 0;
 
   // Process files in parallel batches for faster I/O
   const BATCH_SIZE = 200;
@@ -276,7 +342,7 @@ async function main() {
       const blocks = extractJsonLd(html);
       const schemas = flattenSchemas(blocks);
       const errors = [];
-      let schemas_ = 0, datasets_ = 0, jobs_ = 0;
+      let schemas_ = 0, datasets_ = 0, jobs_ = 0, events_ = 0;
       const isBridge = html.includes('__BRIDGE_TARGET_SLUG__');
 
       for (const schema of schemas) {
@@ -291,12 +357,16 @@ async function main() {
           jobs_++;
           if (!isBridge) errors.push(...validateJobPosting(schema, file));
         }
+        if (schema['@type'] === 'Event') {
+          events_++;
+          errors.push(...validateEvent(schema, file));
+        }
         const schemaTypes = Array.isArray(schema['@type']) ? schema['@type'] : [schema['@type']];
         if (schemaTypes.includes('WebApplication') || schemaTypes.includes('SoftwareApplication')) {
           errors.push(...validateWebApplication(schema, file));
         }
       }
-      return { errors, schemas: schemas_, datasets: datasets_, jobs: jobs_ };
+      return { errors, schemas: schemas_, datasets: datasets_, jobs: jobs_, events: events_ };
     }));
 
     for (const r of results) {
@@ -304,6 +374,7 @@ async function main() {
       totalSchemas += r.schemas;
       datasetCount += r.datasets;
       jobPostingCount += r.jobs;
+      eventCount += r.events;
     }
   }
 
@@ -318,7 +389,7 @@ async function main() {
   }
 
   // Report
-  console.log(`[structured-data-completeness] Checked ${totalSchemas} schemas (${datasetCount} Dataset, ${jobPostingCount} JobPosting)`);
+  console.log(`[structured-data-completeness] Checked ${totalSchemas} schemas (${datasetCount} Dataset, ${jobPostingCount} JobPosting, ${eventCount} Event)`);
 
   if (uniqueErrors.length > 0) {
     // Group by error type for summary
@@ -345,7 +416,7 @@ async function main() {
     process.exit(1);
   }
 
-  console.log(`[structured-data-completeness] All ${totalSchemas} schemas valid (${datasetCount} Dataset, ${jobPostingCount} JobPosting across ${sampled.size} pages)`);
+  console.log(`[structured-data-completeness] All ${totalSchemas} schemas valid (${datasetCount} Dataset, ${jobPostingCount} JobPosting, ${eventCount} Event across ${sampled.size} pages)`);
 }
 
 main();

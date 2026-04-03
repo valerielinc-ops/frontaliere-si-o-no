@@ -578,6 +578,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "name": "Mostra fotografica 'Hic Sunt Leones' di Gabriele Spalluto",
       "description": "Scopri la mostra fotografica 'Hic Sunt Leones' di Gabriele Spalluto sui 175 valichi svizzeri. Un'analisi del confine per i frontalieri che lavorano in Ticino.",
       "startDate": "2026-02-19T00:00:00+01:00",
+      "endDate": "2026-02-19T23:59:00+01:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "location": {
@@ -748,6 +749,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "name": "Arca Russa di Sokurov al Cinema Teatro di Chiasso",
       "description": "Il 18 febbraio 2026, il Cinema Teatro di Chiasso proietta 'Arca Russa' di Sokurov. Scopri i dettagli di questo evento culturale imperdibile per i frontalieri.",
       "startDate": "2026-02-18T00:00:00+01:00",
+      "endDate": "2026-02-18T23:59:00+01:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "location": {
@@ -1089,6 +1091,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "name": "Mostra 'Began with Rauschenberg' alla Fondazione Rolla di Bruzella",
       "description": "Scopri la mostra gratuita 'Began with Rauschenberg' alla Fondazione Rolla di Bruzella (Mendrisiotto), dall'8 novembre 2025. Un evento culturale per frontalieri.",
       "startDate": "2025-11-08T00:00:00+01:00",
+      "endDate": "2026-03-31T23:59:00+02:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "location": {
@@ -1259,6 +1262,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
       "name": "Mostra 'Sentimento e osservazione' al MASI di Lugano",
       "description": "La mostra 'Sentimento e osservazione' al MASI di Lugano esplora l'identità del Ticino. Una guida per frontalieri per capire la cultura del cantone dove lavorano.",
       "startDate": "2025-04-18T00:00:00+02:00",
+      "endDate": "2026-02-22T23:59:00+01:00",
       "eventStatus": "https://schema.org/EventScheduled",
       "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
       "location": {

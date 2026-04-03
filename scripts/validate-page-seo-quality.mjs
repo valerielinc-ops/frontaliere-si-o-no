@@ -61,6 +61,7 @@ const PRIMARY_SCHEMAS = new Set([
   'WebApplication',
   'FAQPage',
   'JobPosting',
+  'Event',
   'DefinedTerm',
   'Organization',
   'Dataset',

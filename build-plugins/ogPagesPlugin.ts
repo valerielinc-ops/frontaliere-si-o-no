@@ -390,10 +390,14 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             // Parse Event-specific fields from the source structuredData block
             const sd = en.sdBlock;
             const sdStr = (field: string): string => {
-              const rx = new RegExp(`"${field}":\\s*"([^"]*)"`, 'm');
-              return sd.match(rx)?.[1] ?? '';
+              // Handle escaped double quotes inside JSON strings (e.g. \"Corpi in prestito\")
+              const rx = new RegExp(`"${field}":\\s*"((?:[^"\\\\]|\\\\.)*)"`, 'm');
+              const val = sd.match(rx)?.[1] ?? '';
+              return val.replace(/\\"/g, '"').replace(/\\'/g, "'");
             };
-            // Parse nested objects like location, organizer
+            // Parse nested objects like location, organizer, offers, performer.
+            // Source keys are already double-quoted (JSON-LD style), so we only need
+            // to resolve `${BASE_URL}` template literals and strip trailing commas.
             const parseNestedObj = (field: string): Record<string, unknown> | null => {
               const rx = new RegExp(`"${field}":\\s*\\{`);
               const m = rx.exec(sd);
@@ -407,11 +411,9 @@ export function ogPagesPlugin(rootDir: string): Plugin {
                 if (started && depth === 0) {
                   const raw = sd.substring(start, ci + 1);
                   try {
-                    // Convert TS object literal to JSON (replace single quotes, handle template literals)
                     const jsonStr = raw
                       .replace(/`\$\{BASE_URL\}([^`]*)`/g, `"${BASE_URL}$1"`)
-                      .replace(/(\w+):/g, '"$1":')
-                      .replace(/'/g, '"');
+                      .replace(/,\s*([\]}])/g, '$1'); // strip trailing commas
                     return JSON.parse(jsonStr);
                   } catch { return null; }
                 }
