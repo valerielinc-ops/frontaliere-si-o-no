@@ -464,13 +464,14 @@ const HealthInsurance: React.FC = () => {
           </p>
           <div className="overflow-x-auto">
             <table className="w-full text-xs">
+              <caption className="sr-only">Confronto franchige assicurazioni</caption>
               <thead>
                 <tr className="border-b border-slate-200 dark:border-slate-700">
-                  <th className="text-left py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Franchigia</th>
-                  <th className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Premio/mese</th>
-                  <th className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Premi/anno</th>
-                  <th className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">{'Costo max (premi+franchigia)'}</th>
-                  <th className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Risparmio vs 300</th>
+                  <th scope="col" className="text-left py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Franchigia</th>
+                  <th scope="col" className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Premio/mese</th>
+                  <th scope="col" className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Premi/anno</th>
+                  <th scope="col" className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">{'Costo max (premi+franchigia)'}</th>
+                  <th scope="col" className="text-right py-2 px-2 text-slate-600 dark:text-slate-400 font-bold">Risparmio vs 300</th>
                 </tr>
               </thead>
               <tbody>

@@ -544,9 +544,11 @@ const CurrencyExchange: React.FC = () => {
             <RefreshCw size={24} className="animate-spin" />
           </div>
         ) : historyData.length > 0 ? (
-          <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400"><RefreshCw size={24} className="animate-spin" /></div>}>
-            <LazyExchangeChart data={historyData} />
-          </Suspense>
+          <div role="img" aria-label="Grafico tasso di cambio CHF/EUR" tabIndex={0}>
+            <Suspense fallback={<div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400"><RefreshCw size={24} className="animate-spin" /></div>}>
+              <LazyExchangeChart data={historyData} />
+            </Suspense>
+          </div>
         ) : (
           <div className="h-[280px] flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm">
             {t('currency.no_data_available')}
@@ -659,10 +661,12 @@ const CurrencyExchange: React.FC = () => {
             href: result.provider.referralUrl,
             target: '_blank',
             rel: 'noopener noreferrer',
+            'aria-label': result.provider.name,
             className: `block min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-all cursor-pointer ${
               isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700 hover:border-emerald-400'
             }`
           } : {
+            'aria-label': result.provider.name,
             className: `min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-all ${
               isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700'
             }`

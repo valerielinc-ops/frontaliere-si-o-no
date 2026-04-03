@@ -489,6 +489,7 @@ export default function FuelPriceStats() {
                 onChange={(e) => setTankLiters(Math.min(120, Math.max(10, Number(e.target.value) || 50)))}
                 className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               />
+              <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">10 – 120 L</span>
             </label>
 
             <label>
@@ -502,6 +503,7 @@ export default function FuelPriceStats() {
                 onChange={(e) => setCostPerKmEur(Math.min(1, Math.max(0.05, Number(e.target.value) || 0.18)))}
                 className="w-full rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/50 px-4 py-3 text-sm outline-none focus:ring-2 focus:ring-orange-500 focus:border-orange-500 dark:text-slate-200"
               />
+              <span className="text-xs text-slate-500 dark:text-slate-400 mt-1 block">0.05 – 1.00 €/km</span>
             </label>
           </div>
 
@@ -641,6 +643,7 @@ export default function FuelPriceStats() {
                       Analytics.trackUIInteraction('statistiche', 'carburanti', 'select_municipality', 'click', `${row.municipality}-${row.province}`);
                     }}
                     className="w-full rounded-[1.5rem] px-4 py-4 text-left transition hover:bg-slate-100/70 dark:hover:bg-slate-800/70 sm:px-5"
+                    aria-expanded={isSelected}
                   >
                     <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                       <div className="min-w-0">

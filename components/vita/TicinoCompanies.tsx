@@ -516,7 +516,7 @@ const SECTOR_ICONS: Record<string, string> = {
   'Altro': '🏭',
 };
 
-const createCompanyIcon = (sector: string, employees: number) => {
+const createCompanyIcon = (sector: string, employees: number, isHovered = false) => {
   const color = SECTOR_COLORS[sector] || '#6b7280';
   const icon = SECTOR_ICONS[sector] || '🏢';
   const size = employees > 1000 ? 44 : employees > 500 ? 38 : employees > 200 ? 32 : 28;
@@ -528,10 +528,12 @@ const createCompanyIcon = (sector: string, employees: number) => {
         background: ${color};
         border: 3px solid white;
         border-radius: 12px;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.3), 0 0 0 2px ${color}30;
+        box-shadow: ${isHovered ? `0 4px 16px rgba(0,0,0,0.5), 0 0 0 4px ${color}` : `0 2px 8px rgba(0,0,0,0.3), 0 0 0 2px ${color}30`};
         display: flex; align-items: center; justify-content: center;
         font-size: ${size > 36 ? 18 : 14}px;
         font-family: system-ui;
+        transform: ${isHovered ? 'scale(1.25)' : 'scale(1)'};
+        transition: transform 0.2s, box-shadow 0.2s;
       ">${icon}</div>
     `,
     iconSize: [size, size],
@@ -750,6 +752,7 @@ const TicinoCompanies: React.FC = () => {
             <select
               value={selectedSector}
               onChange={(e) => setSelectedSector(e.target.value)}
+              aria-label="Filtra per settore"
               className="appearance-none pl-3 pr-8 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg text-sm font-medium focus:outline-none focus:ring-2 focus:ring-violet-500 cursor-pointer"
             >
               {SECTORS.map(s => <option key={s} value={s}>{s}</option>)}
@@ -885,14 +888,14 @@ const TicinoCompanies: React.FC = () => {
 
         {/* MAP (right) */}
         <div className="w-full lg:w-[55%] xl:w-[60%] lg:sticky lg:top-4 lg:self-start">
-          <div className="rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg">
+          <div className="rounded-2xl overflow-hidden border-2 border-slate-200 dark:border-slate-700 shadow-lg" tabIndex={0} aria-label="Mappa aziende in Ticino">
             <MapContainer center={mapCenter} zoom={10} style={{ height: 'min(600px, 70vh)', width: '100%' }} scrollWheelZoom={true}>
               <TileLayer
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
                 url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
               />
               {filtered.map((company) => (
-                <Marker key={company.name} position={company.coordinates} icon={createCompanyIcon(company.sector, company.employees)}>
+                <Marker key={company.name} position={company.coordinates} icon={createCompanyIcon(company.sector, company.employees, hoveredCompany === company.name)}>
                   <Popup maxWidth={300}>
                     <div className="p-1">
                       <div className="flex items-center gap-2 mb-2">
