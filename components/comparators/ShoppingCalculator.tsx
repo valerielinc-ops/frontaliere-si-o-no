@@ -165,7 +165,7 @@ const ShoppingCalculator: React.FC = () => {
       <div className="bg-gradient-to-br from-orange-500 to-red-600 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-3">
           <ShoppingCart size={28} />
-          <h2 className="text-2xl font-extrabold">{t('shopping.title')}</h2>
+          <h2 className="text-2xl font-bold">{t('shopping.title')}</h2>
         </div>
         <p className="text-orange-100">{t('shopping.subtitle')}</p>
 
@@ -341,7 +341,7 @@ const ShoppingCalculator: React.FC = () => {
           {/* Cart Summary */}
           {stats.selectedCount > 0 && (
             <div className="bg-gradient-to-br from-slate-800 to-slate-900 dark:from-slate-700 dark:to-slate-800 rounded-2xl p-4 sm:p-6 text-white">
-              <h4 className="font-extrabold text-lg mb-4 flex items-center gap-2">
+              <h4 className="font-bold text-lg mb-4 flex items-center gap-2">
                 <ShoppingCart size={20} /> {t('shopping.cartSummary')}
               </h4>
               <div className="grid md:grid-cols-4 gap-4">

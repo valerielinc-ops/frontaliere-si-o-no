@@ -218,7 +218,7 @@ const SubscriptionCTA: React.FC = () => {
       {/* Dismiss button */}
       <button
         onClick={handleDismiss}
-        className="absolute top-3 right-3 p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
+        className="absolute top-1 right-1 p-3 min-w-[44px] min-h-[44px] flex items-center justify-center text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 rounded-lg transition-colors z-10"
         aria-label={t('newsletter.cta.postCalc.dismiss')}
       >
         <X className="w-4 h-4" />

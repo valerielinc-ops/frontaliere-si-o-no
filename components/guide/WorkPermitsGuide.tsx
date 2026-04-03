@@ -332,7 +332,7 @@ const WorkPermitsGuide: React.FC = () => {
             }`}
           >
             <div className="text-2xl mb-1">{p.icon}</div>
-            <div className="font-extrabold text-lg">{p.name}</div>
+            <div className="font-bold text-lg">{p.name}</div>
             <div className={`text-xs mt-0.5 ${selectedPermit === p.id ? 'text-white/90' : 'text-slate-500 dark:text-slate-400'}`}>{p.fullName}</div>
             <div className={`text-xs mt-2 font-bold ${selectedPermit === p.id ? 'text-white/70' : 'text-slate-500 dark:text-slate-400'}`}>{p.duration}</div>
           </button>
@@ -346,7 +346,7 @@ const WorkPermitsGuide: React.FC = () => {
           <div className="flex items-center gap-3 mb-3">
             <span className="text-4xl">{permit.icon}</span>
             <div>
-              <h2 className="text-2xl font-extrabold">{permit.name} — {permit.fullName}</h2>
+              <h2 className="text-2xl font-bold">{permit.name} — {permit.fullName}</h2>
               <p className="text-white/90 text-sm mt-1">{permit.forWhom}</p>
             </div>
           </div>

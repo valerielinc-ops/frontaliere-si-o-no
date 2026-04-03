@@ -160,7 +160,7 @@ const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
       <Icon className="text-white" size={28} />
     </div>
     <div>
-      <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100">{title}</h2>
+      <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100">{title}</h2>
       {subtitle && <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">{subtitle}</p>}
     </div>
   </div>
@@ -256,7 +256,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
         <div className="flex items-center gap-3">
           <BookOpen size={24} />
           <div>
-            <h3 className="text-lg font-extrabold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
+            <h3 className="text-lg font-bold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
             <p className="text-teal-100 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
           </div>
         </div>
@@ -382,7 +382,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
   <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-500 dark:border-indigo-400 p-5 sm:p-6 shadow-lg animate-fade-in">
     <div className="flex items-start justify-between gap-4 mb-5">
       <div>
-        <h3 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{municipality.name}</h3>
+        <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{municipality.name}</h3>
         <p className="text-sm text-slate-500 dark:text-slate-400 mt-0.5">
           {municipality.province} · {
             municipality.type === 'both'
@@ -2319,11 +2319,11 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 </h4>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                    <div className="text-2xl font-extrabold text-red-700 dark:text-red-300">70%</div>
+                    <div className="text-2xl font-bold text-red-700 dark:text-red-300">70%</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount70')}</div>
                   </div>
                   <div className="bg-red-50 dark:bg-red-900/20 rounded-lg p-3">
-                    <div className="text-2xl font-extrabold text-red-700 dark:text-red-300">80%</div>
+                    <div className="text-2xl font-bold text-red-700 dark:text-red-300">80%</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.ch.amount80')}</div>
                   </div>
                 </div>
@@ -2405,7 +2405,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   <p>{t('guide.unemployment.it.amount1')}</p>
                   <p>{t('guide.unemployment.it.amount2')}</p>
                   <div className="bg-green-50 dark:bg-green-900/20 rounded-lg p-3 mt-2">
-                    <div className="text-lg font-extrabold text-green-700 dark:text-green-300">€ 1.550,42</div>
+                    <div className="text-lg font-bold text-green-700 dark:text-green-300">€ 1.550,42</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.unemployment.it.maxMonthly')} (2025)</div>
                   </div>
                 </div>

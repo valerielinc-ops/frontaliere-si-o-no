@@ -865,7 +865,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                 <div className="font-bold text-xl text-stone-800 dark:text-stone-100">{nextDeadline.title}</div>
                 <div className="text-stone-500 dark:text-stone-400 text-sm">{formatDate(nextDeadline.date)}</div>
               </div>
-              <div className="px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-xl font-extrabold text-2xl">
+              <div className="px-4 py-2 bg-amber-100 dark:bg-amber-900/30 text-amber-800 dark:text-amber-300 rounded-xl font-bold text-2xl">
                 {getDaysUntil(nextDeadline.date)} {t('calendar.days')}
               </div>
             </div>
@@ -876,7 +876,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
       {/* Personalized checklist + reminders + PDF export */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 shadow-sm space-y-3">
         <div className="flex items-center justify-between gap-2 flex-wrap">
-          <h2 className="text-sm font-extrabold text-slate-800 dark:text-slate-100">Checklist fiscale personalizzata</h2>
+          <h2 className="text-sm font-bold text-slate-800 dark:text-slate-100">Checklist fiscale personalizzata</h2>
           <div className="flex items-center gap-2">
             <button
               onClick={handleReminderToggle}
@@ -1088,7 +1088,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                   >
                     {name.substring(0, 3)}
                     {monthEventCounts[i] > 0 && (
-                      <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-xs font-extrabold flex items-center justify-center shadow-sm ${
+                      <span className={`absolute -top-1.5 -right-1.5 w-5 h-5 rounded-full text-xs font-bold flex items-center justify-center shadow-sm ${
                         currentMonth === i ? 'bg-white text-amber-700' : 'bg-amber-600 text-white'
                       }`}>
                         {monthEventCounts[i]}
@@ -1199,7 +1199,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               return (
                                 <div
                                   key={i}
-                                  className={`px-1.5 py-1 rounded-lg text-xs font-extrabold leading-snug bg-${cfg?.color || 'amber'}-100 dark:bg-${cfg?.color || 'amber'}-900/40 text-${cfg?.color || 'amber'}-800 dark:text-${cfg?.color || 'amber'}-200 border border-${cfg?.color || 'amber'}-300 dark:border-${cfg?.color || 'amber'}-700 shadow-sm`}
+                                  className={`px-1.5 py-1 rounded-lg text-xs font-bold leading-snug bg-${cfg?.color || 'amber'}-100 dark:bg-${cfg?.color || 'amber'}-900/40 text-${cfg?.color || 'amber'}-800 dark:text-${cfg?.color || 'amber'}-200 border border-${cfg?.color || 'amber'}-300 dark:border-${cfg?.color || 'amber'}-700 shadow-sm`}
                                   title={e.title}
                                 >
                                   <span className="line-clamp-2">{e.title}</span>
@@ -1207,7 +1207,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
                               );
                             })}
                             {events.length > 2 && (
-                              <div className="text-xs font-extrabold text-amber-600 dark:text-amber-400 text-center">+{events.length - 2}</div>
+                              <div className="text-xs font-bold text-amber-600 dark:text-amber-400 text-center">+{events.length - 2}</div>
                             )}
                           </div>
                         )}
@@ -1221,7 +1221,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
               {selectedDate && selectedDeadlines.length > 0 && (
                 <div className="mt-3 space-y-2 animate-fade-in relative z-30">
                   <div className="flex items-center gap-2">
-                    <div className="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-xs font-extrabold">
+                    <div className="px-2 py-1 bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 rounded-lg text-xs font-bold">
                       📅 {formatDate(selectedDate)}
                     </div>
                     <div className="flex-grow h-px bg-slate-200 dark:bg-slate-700"></div>

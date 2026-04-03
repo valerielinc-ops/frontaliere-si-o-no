@@ -280,7 +280,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
           <Sparkles className="w-3.5 h-3.5" />
           {copy.badge}
         </div>
-        <h2 className="mt-3 text-2xl sm:text-3xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+        <h2 className="mt-3 text-2xl sm:text-3xl font-bold tracking-tight text-slate-900 dark:text-white">
           {copy.title}
         </h2>
         <p className="mt-3 max-w-3xl text-sm sm:text-base leading-7 text-slate-600 dark:text-slate-300">
@@ -313,7 +313,7 @@ const NewFrontierOver20KmHub: React.FC = () => {
                 <div className="text-xs font-semibold uppercase tracking-[0.16em] text-slate-500 dark:text-slate-400">
                   {summary}
                 </div>
-                <h3 className="mt-2 text-lg font-extrabold text-slate-900 dark:text-white">{title}</h3>
+                <h3 className="mt-2 text-lg font-bold text-slate-900 dark:text-white">{title}</h3>
                 <div className="mt-4 space-y-2 text-sm">
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-slate-600 dark:text-slate-300">{copy.labelGross}</span>
@@ -329,11 +329,11 @@ const NewFrontierOver20KmHub: React.FC = () => {
                   </div>
                   <div className="mt-2 pt-2 border-t border-slate-200 dark:border-slate-700 flex items-center justify-between gap-3">
                     <span className="text-slate-600 dark:text-slate-300">{copy.labelNetAnnual}</span>
-                    <span className="font-extrabold text-slate-900 dark:text-white">{money(result.itResident.netIncomeAnnual, locale, 'CHF')}</span>
+                    <span className="font-bold text-slate-900 dark:text-white">{money(result.itResident.netIncomeAnnual, locale, 'CHF')}</span>
                   </div>
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-slate-600 dark:text-slate-300">{copy.labelNetMonthly}</span>
-                    <span className="font-extrabold text-sky-700 dark:text-sky-300">{money(result.itResident.netIncomeMonthly, locale, 'CHF')}</span>
+                    <span className="font-bold text-sky-700 dark:text-sky-300">{money(result.itResident.netIncomeMonthly, locale, 'CHF')}</span>
                   </div>
                   <div className="flex items-center justify-between gap-3">
                     <span className="text-slate-600 dark:text-slate-300">{copy.labelEffRate}</span>
@@ -361,19 +361,19 @@ const NewFrontierOver20KmHub: React.FC = () => {
           <div className="mt-4 grid grid-cols-1 md:grid-cols-3 gap-3">
             <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4">
               <div className="text-xs text-slate-500 dark:text-slate-400">{copy.compareOver}</div>
-              <div className="mt-2 text-xl font-extrabold text-slate-900 dark:text-white">
+              <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
                 {money(comparison.over20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
             </div>
             <div className="rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 p-4">
               <div className="text-xs text-slate-500 dark:text-slate-400">{copy.compareWithin}</div>
-              <div className="mt-2 text-xl font-extrabold text-slate-900 dark:text-white">
+              <div className="mt-2 text-xl font-bold text-slate-900 dark:text-white">
                 {money(comparison.within20.itResident.netIncomeMonthly, locale, 'CHF')}
               </div>
             </div>
             <div className="rounded-2xl bg-sky-600 text-white p-4">
               <div className="text-xs text-sky-100">{copy.compareDelta}</div>
-              <div className="mt-2 text-xl font-extrabold">
+              <div className="mt-2 text-xl font-bold">
                 {money(comparison.delta, locale, 'CHF')}
               </div>
             </div>

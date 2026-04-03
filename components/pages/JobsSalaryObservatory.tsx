@@ -206,7 +206,7 @@ function Kpi(props: { label: string; value: string; accent: string }) {
   return (
     <div className={`rounded-2xl border p-4 ${props.accent}`}>
       <div className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">{props.label}</div>
-      <div className="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">{props.value}</div>
+      <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{props.value}</div>
     </div>
   );
 }
@@ -245,7 +245,7 @@ function LeaderBlock(props: {
                 <div className="text-xs font-bold text-slate-500 dark:text-slate-400">#{index + 1}</div>
                 <div className="truncate text-sm font-semibold text-slate-800 dark:text-slate-100">{item.name}</div>
               </div>
-              <div className="shrink-0 text-right text-sm font-extrabold text-indigo-600 dark:text-indigo-300">
+              <div className="shrink-0 text-right text-sm font-bold text-indigo-600 dark:text-indigo-300">
                 {props.valueRenderer(item)}
               </div>
             </a>
@@ -308,7 +308,7 @@ export const JobsSalaryObservatory: React.FC = () => {
       <div className="rounded-3xl border border-slate-100 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-4xl">
-            <h2 className="flex items-center gap-2 text-lg font-extrabold text-slate-900 dark:text-white">
+            <h2 className="flex items-center gap-2 text-lg font-bold text-slate-900 dark:text-white">
               <Wallet className="h-5 w-5 text-indigo-600" />
               {copy.title}
             </h2>

@@ -229,7 +229,7 @@ const CostOfLiving: React.FC = () => {
       <div className="pb-6 border-b-2 border-amber-200 dark:border-amber-800">
         <div className="flex items-center gap-3 mb-3">
           <BarChart3 size={28} className="text-amber-700 dark:text-amber-400" />
-          <h3 className="text-3xl sm:text-4xl font-extrabold text-stone-800 dark:text-stone-100">{t('costOfLiving.title')}</h3>
+          <h3 className="text-3xl sm:text-4xl font-bold text-stone-800 dark:text-stone-100">{t('costOfLiving.title')}</h3>
         </div>
         <p className="text-lg text-stone-500 dark:text-stone-400">{t('costOfLiving.subtitle')}</p>
         <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Numbeo / UST" sourceUrl="https://www.numbeo.com" variant="badge" /></div>

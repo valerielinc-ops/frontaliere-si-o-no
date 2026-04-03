@@ -577,10 +577,10 @@ const CurrencyExchange: React.FC = () => {
               </div>
               <div>
                 <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</div>
-                <div className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
+                <div className="text-xl font-bold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-700 mb-1">
+            <div className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-1">
               € {best.netAmount.toFixed(2)}
             </div>
             <div className="text-sm text-slate-600 dark:text-slate-500">
@@ -598,10 +598,10 @@ const CurrencyExchange: React.FC = () => {
               </div>
               <div>
                 <div className="text-xs font-bold text-emerald-700 dark:text-emerald-400 uppercase">{t('currency.best_offer')}</div>
-                <div className="text-base sm:text-xl font-extrabold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
+                <div className="text-base sm:text-xl font-bold text-slate-800 dark:text-slate-100">{best.provider.name}</div>
               </div>
             </div>
-            <div className="text-2xl sm:text-3xl font-extrabold text-emerald-700 mb-1">
+            <div className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-1">
               € {best.netAmount.toFixed(2)}
             </div>
             <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-500">
@@ -617,10 +617,10 @@ const CurrencyExchange: React.FC = () => {
             </div>
             <div>
               <div className="text-xs font-bold text-red-600 dark:text-red-400 uppercase">{t('currency.worst_offer')}</div>
-              <div className="text-base sm:text-xl font-extrabold text-slate-800 dark:text-slate-100">{worst.provider.name}</div>
+              <div className="text-base sm:text-xl font-bold text-slate-800 dark:text-slate-100">{worst.provider.name}</div>
             </div>
           </div>
-          <div className="text-2xl sm:text-3xl font-extrabold text-red-600 mb-1">
+          <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-1">
             € {worst.netAmount.toFixed(2)}
           </div>
           <div className="text-xs sm:text-sm text-slate-600 dark:text-slate-500">
@@ -641,7 +641,7 @@ const CurrencyExchange: React.FC = () => {
       {/* Comparison Table */}
       <div>
         <div className="flex items-center justify-between mb-4">
-          <h2 className="text-lg sm:text-2xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+          <h2 className="text-lg sm:text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
             <Percent size={20} className="text-emerald-700 sm:w-6 sm:h-6" />
             {t('currency.detailed_comparison')}
           </h2>
@@ -692,7 +692,7 @@ const CurrencyExchange: React.FC = () => {
                 </div>
 
                 <div className="flex items-center justify-between sm:block sm:text-right pl-11 sm:pl-0">
-                  <div className="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                  <div className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100">
                     € {result.netAmount.toFixed(2)}
                   </div>
                   <div className="flex sm:flex-col items-center sm:items-end gap-1.5 sm:gap-0">

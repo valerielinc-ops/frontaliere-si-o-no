@@ -439,7 +439,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
               <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">
                 🇮🇹 {t('whatif.netIT')}
               </div>
-              <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+              <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                 € {Math.round(newNetIT).toLocaleString('it-IT')}
               </div>
               {hasChanges && (
@@ -454,7 +454,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
               <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">
                 🇨🇭 {t('whatif.netCH')}
               </div>
-              <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+              <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                 CHF {Math.round(newNetCH).toLocaleString('it-IT')}
               </div>
               {hasChanges && (
@@ -470,7 +470,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                 <ArrowLeftRight size={12} />
                 {t('whatif.bestOption')}
               </div>
-              <div className={`text-lg font-extrabold ${bestOptionNow === 'IT' ? 'text-emerald-700' : 'text-blue-600'}`}>
+              <div className={`text-lg font-bold ${bestOptionNow === 'IT' ? 'text-emerald-700' : 'text-blue-600'}`}>
                 {bestOptionNow === 'IT' ? '🇮🇹 ' + t('whatif.liveInItaly') : '🇨🇭 ' + t('whatif.liveInSwiss')}
               </div>
               <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
@@ -560,7 +560,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     <div className="grid grid-cols-2 gap-3 mb-3">
                       <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
                         <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('whatif.yourNetChange')}</div>
-                        <div className={`text-xl font-extrabold ${diffIT >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
+                        <div className={`text-xl font-bold ${diffIT >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffIT >= 0 ? '+' : ''}{Math.round(diffIT).toLocaleString('it-IT')} €/{t('common.months')}
                         </div>
                         <div className="text-xs text-slate-500 dark:text-slate-400">
@@ -570,7 +570,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                       </div>
                       <div className="bg-white/70 dark:bg-slate-800/70 rounded-lg p-3">
                         <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('whatif.chComparison')}</div>
-                        <div className={`text-xl font-extrabold ${diffCH >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
+                        <div className={`text-xl font-bold ${diffCH >= 0 ? 'text-emerald-700' : 'text-red-600'}`}>
                           {diffCH >= 0 ? '+' : ''}{Math.round(diffCH).toLocaleString('it-IT')} CHF/{t('common.months')}
                         </div>
                         <div className="text-xs text-slate-500 dark:text-slate-400">
@@ -586,7 +586,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         <ArrowLeftRight size={14} className="text-amber-600" />
                         <span className="text-slate-600 dark:text-slate-400">{t('whatif.comparisonLabel')}:</span>
                       </div>
-                      <div className={`text-lg font-extrabold mt-1 ${newDifferential >= 0 ? 'text-emerald-700' : 'text-blue-600'}`}>
+                      <div className={`text-lg font-bold mt-1 ${newDifferential >= 0 ? 'text-emerald-700' : 'text-blue-600'}`}>
                         {newDifferential >= 0 
                           ? `🇮🇹 ${t('whatif.italyBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`
                           : `🇨🇭 ${t('whatif.swissBetterBy')} € ${Math.abs(Math.round(newDifferential)).toLocaleString('it-IT')}/${t('whatif.perYear')}`

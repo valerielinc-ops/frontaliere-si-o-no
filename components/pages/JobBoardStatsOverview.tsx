@@ -247,7 +247,7 @@ function KpiCard(props: { label: string; value: number; accent: string }) {
   return (
     <div className={`rounded-2xl border p-4 ${props.accent}`}>
       <div className="text-xs font-bold uppercase tracking-wide text-slate-500 dark:text-slate-400">{props.label}</div>
-      <div className="mt-2 text-2xl font-extrabold text-slate-900 dark:text-white">{props.value.toLocaleString('it-IT')}</div>
+      <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-white">{props.value.toLocaleString('it-IT')}</div>
     </div>
   );
 }
@@ -276,7 +276,7 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
                 <div className="text-xs font-bold text-slate-500 dark:text-slate-400">#{index + 1}</div>
                 <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">{item.name}</div>
               </div>
-              <div className="shrink-0 text-sm font-extrabold text-indigo-600 dark:text-indigo-300">
+              <div className="shrink-0 text-sm font-bold text-indigo-600 dark:text-indigo-300">
                 {Number(item[props.valueKey] || 0).toLocaleString('it-IT')}
               </div>
             </a>
@@ -348,7 +348,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
       <div className="bg-white dark:bg-slate-800 p-6 rounded-3xl border border-slate-100 dark:border-slate-700 shadow-sm">
         <div className="flex flex-col gap-5 lg:flex-row lg:items-start lg:justify-between">
           <div className="max-w-4xl">
-            <h3 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
               <Briefcase className="w-5 h-5 text-indigo-600" />
               {copy.title}
             </h3>
@@ -363,7 +363,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
                 </div>
                 <a
                   href={buildPath({ activeTab: 'job-board' })}
-                  className="mt-2 inline-flex items-center text-sm font-extrabold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
+                  className="mt-2 inline-flex items-center text-sm font-bold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
                   onClick={(e) => {
                     e.preventDefault();
                     const route = { activeTab: 'job-board' as const };
@@ -380,7 +380,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
                   </div>
                   <a
                     href={jobTodayHref(locale)}
-                    className="mt-2 inline-flex items-center text-sm font-extrabold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
+                    className="mt-2 inline-flex items-center text-sm font-bold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
                     onClick={(e) => {
                       e.preventDefault();
                       const route = { activeTab: 'job-board' as const, jobSlug: JOB_TODAY_SLUG[locale] };
@@ -399,7 +399,7 @@ export const JobBoardStatsOverview: React.FC<{ locale: Locale }> = ({ locale }) 
                   </div>
                   <a
                     href={jobsObservatoryHref(locale)}
-                    className="mt-2 inline-flex items-center text-sm font-extrabold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
+                    className="mt-2 inline-flex items-center text-sm font-bold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
                     onClick={(e) => {
                       e.preventDefault();
                       const route = { activeTab: 'stats' as const, statsSubTab: 'jobs-observatory' as const };

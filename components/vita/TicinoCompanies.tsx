@@ -721,11 +721,11 @@ const TicinoCompanies: React.FC = () => {
         <div className="flex gap-3 sm:gap-4 mt-4">
           <div className="bg-white/20 rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
             <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalCompanies') || 'Aziende'}</div>
-            <div className="text-xl sm:text-2xl font-extrabold">{filtered.length}</div>
+            <div className="text-xl sm:text-2xl font-bold">{filtered.length}</div>
           </div>
           <div className="bg-white/20 rounded-xl px-3 sm:px-4 py-2 flex-1 min-w-0">
             <div className="text-purple-100 text-xs font-bold uppercase">{t('companies.totalEmployees') || 'Dipendenti'}</div>
-            <div className="text-xl sm:text-2xl font-extrabold">{totalEmployees.toLocaleString('it-IT')}</div>
+            <div className="text-xl sm:text-2xl font-bold">{totalEmployees.toLocaleString('it-IT')}</div>
           </div>
         </div>
       </div>
@@ -902,7 +902,7 @@ const TicinoCompanies: React.FC = () => {
                           <span className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</span>
                         )}
                         <div>
-                          <h3 className="font-extrabold text-base m-0 text-slate-800 dark:text-slate-200">{company.name}</h3>
+                          <h3 className="font-bold text-base m-0 text-slate-800 dark:text-slate-200">{company.name}</h3>
                           <span className="text-xs font-semibold" style={{ color: SECTOR_COLORS[company.sector] }}>{company.sector}</span>
                         </div>
                       </div>

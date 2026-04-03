@@ -213,7 +213,7 @@ const BankComparison: React.FC = () => {
       <div className="bg-stone-50 dark:bg-stone-900 rounded-2xl p-5 sm:p-8 border-l-4 border-amber-600 dark:border-amber-500">
         <div className="flex items-center gap-3 mb-4">
           <Building2 size={32} className="text-amber-700 dark:text-amber-400" />
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('banks.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-stone-800 dark:text-stone-100">{t('banks.title')}</h2>
         </div>
         <p className="text-stone-500 dark:text-stone-400 text-lg">{t('banks.subtitle')}</p>
         <div className="mt-3"><DataFreshness lastUpdated="2026-01" source="Siti ufficiali banche" variant="badge" /></div>
@@ -294,7 +294,7 @@ const BankComparison: React.FC = () => {
                 </div>
 
                 <div className="text-right">
-                  <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                     {bank.accountFee === 0 ? t('banks.free') : `${bank.accountFee} ${bank.country === 'CH' ? 'CHF' : '€'}`}
                   </div>
                   <div className="text-xs text-slate-500 dark:text-slate-400">{t('banks.monthlyFee')}</div>

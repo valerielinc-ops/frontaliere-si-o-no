@@ -67,7 +67,7 @@ const GamificationPage: React.FC = () => {
               <Trophy size={32} className="text-white" />
             </div>
             <div>
-              <h2 className="text-2xl sm:text-3xl font-extrabold">{t('gamification.pageTitle') || 'I tuoi Progressi'}</h2>
+              <h2 className="text-2xl sm:text-3xl font-bold">{t('gamification.pageTitle') || 'I tuoi Progressi'}</h2>
               <p className="text-amber-100 text-sm mt-1">{t('gamification.pageSubtitle') || 'Sblocca achievement esplorando tutte le funzionalità'}</p>
             </div>
           </div>

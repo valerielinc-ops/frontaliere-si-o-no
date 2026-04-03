@@ -166,7 +166,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 shadow-sm lg:hidden">
         <div className="flex items-center justify-between mb-3">
           <span className="text-sm font-bold text-slate-700 dark:text-slate-300">{t('pension.totalMonthlyPension')}</span>
-          <span className="text-2xl font-extrabold text-emerald-700">
+          <span className="text-2xl font-bold text-emerald-700">
             CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}
           </span>
         </div>
@@ -433,7 +433,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <div className="text-emerald-100 text-sm font-semibold uppercase tracking-wide mb-1">
                     {t('pension.totalMonthlyPension')}
                   </div>
-                  <div className="text-3xl sm:text-4xl font-extrabold">
+                  <div className="text-3xl sm:text-4xl font-bold">
                     CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}
                   </div>
                 </div>
@@ -459,7 +459,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
                     {t('pension.lppCapital')}
                   </div>
-                  <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                     CHF {Math.round(result.lppAccumulated).toLocaleString('it-IT')}
                   </div>
                 </div>
@@ -486,7 +486,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
                     {t('pension.avsPension')}
                   </div>
-                  <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                  <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                     CHF {Math.round(result.avsPensionCHF).toLocaleString('it-IT')}
                   </div>
                 </div>
@@ -516,7 +516,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
                       {t('pension.inpsPension')}
                     </div>
-                    <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                    <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                       € {Math.round(result.italianPensionEUR).toLocaleString('it-IT')}
                     </div>
                   </div>
@@ -568,7 +568,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
               <div className="border-t-2 border-emerald-500 pt-3 mt-3">
                 <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl">
                   <span className="text-base font-bold text-slate-800 dark:text-slate-100">{t('pension.monthlyTotal')}</span>
-                  <span className="text-2xl font-extrabold text-emerald-700">
+                  <span className="text-2xl font-bold text-emerald-700">
                     CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}
                   </span>
                 </div>

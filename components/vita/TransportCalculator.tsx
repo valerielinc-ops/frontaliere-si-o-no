@@ -189,7 +189,7 @@ const TransportCalculator: React.FC = () => {
       <div className="bg-gradient-to-br from-emerald-800 to-green-900 rounded-2xl p-5 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
           <Car size={32} />
-          <h2 className="text-2xl sm:text-3xl font-extrabold">{t('transport.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">{t('transport.title')}</h2>
         </div>
         <p className="text-emerald-100 text-lg">
           {t('transport.subtitle')}
@@ -327,10 +327,10 @@ const TransportCalculator: React.FC = () => {
             </div>
             <div>
               <p className="text-sm font-bold text-emerald-700 dark:text-emerald-400">{t('transport.cheapestOption')}</p>
-              <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{cheapest.name}</h3>
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100">{cheapest.name}</h3>
             </div>
           </div>
-          <div className="text-2xl sm:text-3xl font-extrabold text-emerald-700 mb-2">
+          <div className="text-2xl sm:text-3xl font-bold text-emerald-700 mb-2">
             € {cheapest.costPerMonth.toFixed(2)}/mese
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -345,10 +345,10 @@ const TransportCalculator: React.FC = () => {
             </div>
             <div>
               <p className="text-sm font-bold text-red-700 dark:text-red-400">{t('transport.mostExpensive')}</p>
-              <h3 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{mostExpensive.name}</h3>
+              <h3 className="text-2xl font-bold text-slate-800 dark:text-slate-100">{mostExpensive.name}</h3>
             </div>
           </div>
-          <div className="text-2xl sm:text-3xl font-extrabold text-red-600 mb-2">
+          <div className="text-2xl sm:text-3xl font-bold text-red-600 mb-2">
             € {mostExpensive.costPerMonth.toFixed(2)}/mese
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400">
@@ -388,7 +388,7 @@ const TransportCalculator: React.FC = () => {
               </div>
 
               <div className="text-right">
-                <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                   € {result.costPerMonth.toFixed(2)}
                 </div>
                 <div className="text-xs text-slate-500 dark:text-slate-400">{t('transport.perMonth')}</div>

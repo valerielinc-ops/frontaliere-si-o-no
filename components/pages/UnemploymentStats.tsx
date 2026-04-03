@@ -203,7 +203,7 @@ const UnemploymentStats: React.FC = () => {
     <div className="bg-white dark:bg-slate-800 rounded-2xl shadow-sm border border-slate-200 dark:border-slate-700 flex flex-col h-full animate-fade-in-up transition-colors duration-300 pb-8">
       {/* Header */}
       <div className="p-6 border-b border-slate-100 dark:border-slate-800 sticky top-0 z-10 bg-white dark:bg-slate-800 rounded-t-2xl">
-        <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
+        <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 tracking-tight flex items-center gap-2">
           <BarChart3 size={20} className="text-amber-500" /> {localeLabels.title}
         </h2>
         <p className="text-slate-500 dark:text-slate-400 text-xs mt-1">
@@ -222,7 +222,7 @@ const UnemploymentStats: React.FC = () => {
               <Info size={12} className="text-amber-400 cursor-help" />
             </p>
             <div className="flex items-end gap-2 mt-1">
-              <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+              <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                 {data.rate.toFixed(1)}%
               </p>
               {kpis?.yoyChange != null && (
@@ -237,7 +237,7 @@ const UnemploymentStats: React.FC = () => {
           {/* Historic Low */}
           <div className="bg-emerald-50/50 dark:bg-emerald-900/20 p-4 rounded-2xl border border-emerald-100 dark:border-emerald-800">
             <p className="text-xs font-bold text-emerald-600 uppercase">{localeLabels.minimum}</p>
-            <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">{kpis?.min.toFixed(1)}%</p>
+            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mt-1">{kpis?.min.toFixed(1)}%</p>
             {kpis?.minEntry && (
               <p className="text-xs text-emerald-700 dark:text-emerald-300 mt-1 capitalize">
                 {(() => {
@@ -251,7 +251,7 @@ const UnemploymentStats: React.FC = () => {
           {/* Historic High */}
           <div className="bg-red-50/50 dark:bg-red-900/20 p-4 rounded-2xl border border-red-100 dark:border-red-800">
             <p className="text-xs font-bold text-red-600 uppercase">{localeLabels.maximum}</p>
-            <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">{kpis?.max.toFixed(1)}%</p>
+            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mt-1">{kpis?.max.toFixed(1)}%</p>
             {kpis?.maxEntry && (
               <p className="text-xs text-red-700 dark:text-red-300 mt-1 capitalize">
                 {(() => {
@@ -265,7 +265,7 @@ const UnemploymentStats: React.FC = () => {
           {/* Period Average */}
           <div className="bg-blue-50/50 dark:bg-blue-900/20 p-4 rounded-2xl border border-blue-100 dark:border-blue-800">
             <p className="text-xs font-bold text-blue-600 uppercase">{localeLabels.average}</p>
-            <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 mt-1">{kpis?.avg.toFixed(1)}%</p>
+            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100 mt-1">{kpis?.avg.toFixed(1)}%</p>
             <p className="text-xs text-blue-700 dark:text-blue-300 mt-1">2016 – 2026</p>
           </div>
         </div>

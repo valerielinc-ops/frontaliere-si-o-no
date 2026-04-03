@@ -201,7 +201,7 @@ export const FeedbackSection: React.FC = () => {
     <div className="space-y-8 pb-12">
       {/* Introduction */}
       <div className="text-center space-y-3">
-        <h2 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100 tracking-tight">{t('feedback.title')}</h2>
+        <h2 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 tracking-tight">{t('feedback.title')}</h2>
         <p className="text-slate-600 dark:text-slate-400 max-w-xl mx-auto text-sm leading-relaxed">
           {t('feedback.subtitle')}
         </p>

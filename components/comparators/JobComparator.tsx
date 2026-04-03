@@ -263,7 +263,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
       {/* Results */}
       <div className="space-y-4">
-        <h2 className="text-2xl font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
           <Trophy size={24} className="text-amber-500" />
           {t('jobs.ranking')}
         </h2>
@@ -291,7 +291,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 </div>
                 <div className="text-right">
                   <div className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.effectiveNet')}</div>
-                  <div className={`text-3xl font-extrabold ${isBest ? 'text-emerald-700' : 'text-slate-800 dark:text-slate-100'}`}>
+                  <div className={`text-3xl font-bold ${isBest ? 'text-emerald-700' : 'text-slate-800 dark:text-slate-100'}`}>
                     € {Math.round(r.effectiveNetMonthly).toLocaleString('it-IT')}
                   </div>
                   <div className="text-xs text-slate-500 dark:text-slate-400">/mese</div>

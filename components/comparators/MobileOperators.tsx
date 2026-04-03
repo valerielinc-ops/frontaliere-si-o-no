@@ -386,7 +386,7 @@ const MobileOperators: React.FC = () => {
       <div className="bg-amber-50/80 dark:bg-amber-950/20 rounded-2xl p-5 sm:p-8 border border-amber-200/60 dark:border-amber-800/40">
         <div className="flex items-center gap-3 mb-4">
           <Smartphone size={32} className="text-amber-700 dark:text-amber-400" />
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-stone-800 dark:text-stone-100">{t('mobile.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold text-stone-800 dark:text-stone-100">{t('mobile.title')}</h2>
         </div>
         <p className="text-stone-500 dark:text-stone-400 text-lg">
           {t('mobile.subtitle')}
@@ -547,14 +547,14 @@ const MobileOperators: React.FC = () => {
                       <div className="text-sm text-slate-500 dark:text-slate-400 line-through">
                         {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
                       </div>
-                      <div className="text-2xl font-extrabold text-red-600 dark:text-red-400">
+                      <div className="text-2xl font-bold text-red-600 dark:text-red-400">
                         {operator.country === 'IT' ? '€' : 'CHF'} {realMonthlyCost.toFixed(2)}
                       </div>
                       <div className="text-xs text-red-600 dark:text-red-400 font-medium">{t('mobile.realCostMonth')}</div>
                     </>
                   ) : (
                     <>
-                      <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                      <div className="text-2xl font-bold text-slate-800 dark:text-slate-100">
                         {operator.country === 'IT' ? '€' : 'CHF'} {operator.monthlyCost.toFixed(2)}
                       </div>
                       <div className="text-xs text-slate-500 dark:text-slate-400">{t('mobile.perMonth')}</div>

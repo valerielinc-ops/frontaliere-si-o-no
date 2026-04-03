@@ -344,7 +344,7 @@ const MobileCalcLayout: React.FC<Props> = ({
               }
             </div>
             <div className="flex-1">
-              <div className="text-white font-extrabold text-sm tracking-tight">
+              <div className="text-white font-bold text-sm tracking-tight">
                 {isBetterIT ? t('mobileCalc.betterIT') : t('mobileCalc.betterCH')}
               </div>
               <div className="text-white/80 text-xs font-bold">
@@ -565,7 +565,7 @@ const MobileCalcLayout: React.FC<Props> = ({
           <div className="flex-shrink-0 pt-3 pb-2 px-4">
             <div className="w-10 h-1 bg-slate-300 dark:bg-slate-600 rounded-full mx-auto mb-3" />
             <div className="flex items-center justify-between">
-              <h3 className="text-sm font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+              <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
                 <Settings2 size={16} className="text-blue-600 dark:text-blue-400" />
                 {t('mobileCalc.customize')}
               </h3>

@@ -208,7 +208,7 @@ const HealthInsurance: React.FC = () => {
       <div className="bg-gradient-to-br from-rose-700 to-rose-900 rounded-2xl p-4 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-3">
           <Heart size={28} />
-          <h2 className="text-2xl sm:text-3xl font-extrabold">{t('health.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">{t('health.title')}</h2>
         </div>
         <p className="text-rose-100 text-base sm:text-lg">
           {'Confronta i premi di ' + (data?.insurers.length || '...') + ' assicurazioni LAMal svizzere in ' + (data ? Object.keys(data.premiums).length : '...') + ' località. Inserisci i tuoi dati per trovare l\'offerta migliore.'}
@@ -307,7 +307,7 @@ const HealthInsurance: React.FC = () => {
               <TrendingDown size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">{'Più economica'}</span>
             </div>
-            <p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{cheapest.premium.toFixed(2)} CHF</p>
+            <p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{cheapest.premium.toFixed(2)} CHF</p>
             <p className="text-xs text-slate-500 dark:text-slate-400">{cheapest.insurer.name} /mese</p>
           </div>
           <div className="bg-blue-50 dark:bg-blue-950/30 rounded-xl p-4 border border-blue-200 dark:border-blue-800">
@@ -315,14 +315,14 @@ const HealthInsurance: React.FC = () => {
               <Award size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">Miglior rapporto</span>
             </div>
-            {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">{bv.premium.toFixed(2)} CHF</p><p className="text-xs text-slate-500">{bv.insurer.name}</p></>) : null; })()}
+            {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{bv.premium.toFixed(2)} CHF</p><p className="text-xs text-slate-500">{bv.insurer.name}</p></>) : null; })()}
           </div>
           <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center gap-2 text-slate-500 dark:text-slate-500 mb-1">
               <Info size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">Risparmio max annuo</span>
             </div>
-            <p className="text-2xl font-extrabold text-emerald-700 dark:text-emerald-400">
+            <p className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">
               {(mostExpensive.annualCost - cheapest.annualCost).toFixed(0)} CHF
             </p>
             <p className="text-xs text-slate-500 dark:text-slate-400">{'tra la più cara e la più economica'}</p>
@@ -354,7 +354,7 @@ const HealthInsurance: React.FC = () => {
                 : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'}`}>
               <div className="p-4 cursor-pointer" role="button" tabIndex={0} onClick={() => { setExpandedCard(isExpanded ? null : result.insurer.id); if (!isExpanded) Analytics.trackHealthInsurance('view_provider', result.insurer.id); }} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); setExpandedCard(isExpanded ? null : result.insurer.id); if (!isExpanded) Analytics.trackHealthInsurance('view_provider', result.insurer.id); } }} aria-expanded={isExpanded} aria-label={`${result.insurer.name} — ${isExpanded ? 'chiudi' : 'apri'} dettagli`}>
                 <div className="flex items-center gap-4">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-extrabold text-sm ${
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
                     result.rank === 1 ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300'
                     : result.rank <= 3 ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300'
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-500'}`}>
@@ -373,7 +373,7 @@ const HealthInsurance: React.FC = () => {
                     </div>
                   </div>
                   <div className="text-right flex-shrink-0">
-                    <p className="text-xl sm:text-2xl font-extrabold text-slate-800 dark:text-slate-100">
+                    <p className="text-xl sm:text-2xl font-bold text-slate-800 dark:text-slate-100">
                       {result.premium.toFixed(2)} <span className="text-sm font-bold text-slate-500 dark:text-slate-400">CHF</span></p>
                     <p className="text-xs text-slate-500 dark:text-slate-400">/mese</p>
                     {result.savingsVsMax > 0 && result.rank <= 5 && (

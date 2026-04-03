@@ -186,7 +186,7 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
           <ChartBar size={24} className="text-slate-600 dark:text-slate-400" />
         </div>
         <div>
-          <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{t('currency.historical_extremes')}</h2>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('currency.historical_extremes')}</h2>
           <p className="text-sm text-slate-600 dark:text-slate-400">
             {historyData.length} {t('currency.data_points')}
           </p>
@@ -349,7 +349,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
         </div>
         <div>
           <div className="flex items-center gap-2">
-            <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">{t('currency.when_to_exchange')}</h2>
+            <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('currency.when_to_exchange')}</h2>
             <span className="px-2 py-0.5 bg-amber-200 dark:bg-amber-800 text-amber-800 dark:text-amber-200 text-xs font-bold uppercase rounded-full tracking-wider">{t('currency.experimental')}</span>
           </div>
           <p className="text-sm text-slate-600 dark:text-slate-400 mt-0.5">
@@ -367,15 +367,15 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
           <div className="space-y-2 text-sm">
             <div className="flex justify-between items-center">
               <span className="text-slate-600 dark:text-slate-400">{t('currency.day_of_week')}</span>
-              <span className="font-extrabold text-emerald-700">{t(`currency.${timing.bestDay}`)}</span>
+              <span className="font-bold text-emerald-700">{t(`currency.${timing.bestDay}`)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-600 dark:text-slate-400">{t('currency.month_of_year')}</span>
-              <span className="font-extrabold text-emerald-700">{t(`currency.${timing.bestMonth}`)}</span>
+              <span className="font-bold text-emerald-700">{t(`currency.${timing.bestMonth}`)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-600 dark:text-slate-400">{t('currency.recommended_time')}</span>
-              <span className="font-extrabold text-emerald-700">10:00–12:00</span>
+              <span className="font-bold text-emerald-700">10:00–12:00</span>
             </div>
           </div>
         </div>
@@ -387,15 +387,15 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
           <div className="space-y-2 text-sm">
             <div className="flex justify-between items-center">
               <span className="text-slate-600 dark:text-slate-400">{t('currency.day_of_week')}</span>
-              <span className="font-extrabold text-red-600">{t(`currency.${timing.worstDay}`)}</span>
+              <span className="font-bold text-red-600">{t(`currency.${timing.worstDay}`)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-600 dark:text-slate-400">{t('currency.month_of_year')}</span>
-              <span className="font-extrabold text-red-600">{t(`currency.${timing.worstMonth}`)}</span>
+              <span className="font-bold text-red-600">{t(`currency.${timing.worstMonth}`)}</span>
             </div>
             <div className="flex justify-between items-center">
               <span className="text-slate-600 dark:text-slate-400">{t('currency.unfavorable_time')}</span>
-              <span className="font-extrabold text-red-600">{t('currency.weekend_17plus')}</span>
+              <span className="font-bold text-red-600">{t('currency.weekend_17plus')}</span>
             </div>
           </div>
         </div>
@@ -466,7 +466,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
 
       {volatility && (
         <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-purple-200 dark:border-purple-800 space-y-4">
-          <h3 className="font-extrabold text-sm text-purple-700 dark:text-purple-300 flex items-center gap-2">
+          <h3 className="font-bold text-sm text-purple-700 dark:text-purple-300 flex items-center gap-2">
             📈 {t('currency.volatility_trend_analysis')}
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
@@ -518,7 +518,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
       )}
 
       <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/20 dark:to-teal-950/20 rounded-xl p-5 border border-emerald-200 dark:border-emerald-800 space-y-3">
-        <h3 className="font-extrabold text-sm text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
+        <h3 className="font-bold text-sm text-emerald-700 dark:text-emerald-300 flex items-center gap-2">
           🎯 {t('currency.life_hacks_title')}
         </h3>
         <div className="grid sm:grid-cols-2 gap-2">
@@ -540,7 +540,7 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
 
       {volatility && (
         <div className="bg-gradient-to-r from-indigo-500 to-purple-600 rounded-xl p-5 text-white space-y-2">
-          <h3 className="font-extrabold text-sm flex items-center gap-2">🧮 {t('currency.how_much_difference')}</h3>
+          <h3 className="font-bold text-sm flex items-center gap-2">🧮 {t('currency.how_much_difference')}</h3>
           <div className="grid sm:grid-cols-3 gap-3 text-center">
             <div className="bg-white/15 rounded-lg p-3">
               <div className="text-xs uppercase tracking-wider text-white/70">{t('currency.1000chf_best_rate')}</div>
@@ -640,7 +640,7 @@ const WeightedAverageStats: React.FC<{
           <BarChart3 size={24} className="text-blue-600 dark:text-blue-400" />
         </div>
         <div>
-          <h2 className="text-xl font-extrabold text-slate-800 dark:text-slate-100">📊 {t('currency.weighted_avg_stats')}</h2>
+          <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">📊 {t('currency.weighted_avg_stats')}</h2>
           <p className="text-sm text-slate-600 dark:text-slate-400">
             {t('currency.weighted_avg_desc', { period: periodLabel })}
           </p>
@@ -699,7 +699,7 @@ const WeightedAverageStats: React.FC<{
       )}
 
       <div className="bg-gradient-to-r from-indigo-500 to-blue-600 rounded-xl p-5 text-white space-y-3">
-        <h3 className="font-extrabold text-sm flex items-center gap-2">💰 {t('currency.impact_frontaliere')}</h3>
+        <h3 className="font-bold text-sm flex items-center gap-2">💰 {t('currency.impact_frontaliere')}</h3>
         <div className="grid sm:grid-cols-3 gap-3 text-center">
           <div className="bg-white/15 rounded-lg p-3">
             <div className="text-xs uppercase tracking-wider text-white/70">{t('currency.at_current_rate')}</div>
@@ -805,7 +805,7 @@ const WeeklyExchangeAlert: React.FC<{ currentRate: number; historyData: Array<{ 
   return (
     <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-4">
       <div className="flex items-center justify-between gap-2">
-        <h3 className="text-sm font-extrabold text-slate-800 dark:text-slate-100 flex items-center gap-2">
+        <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
           <Bell size={16} className="text-indigo-600" />
           Alert settimanale cambio CHF→EUR
         </h3>

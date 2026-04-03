@@ -203,21 +203,21 @@ const Pillar3Simulator: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl p-5 text-white shadow-lg">
               <div className="text-teal-100 text-xs font-bold uppercase mb-1">{t('pillar3.finalCapital')}</div>
-              <div className="text-2xl sm:text-3xl font-extrabold">CHF {results.finalCapital.toLocaleString('it-IT')}</div>
+              <div className="text-2xl sm:text-3xl font-bold">CHF {results.finalCapital.toLocaleString('it-IT')}</div>
               <div className="text-teal-100 text-xs mt-1">{t('pillar3.inYears', { years: inputs.projectionYears })}</div>
             </div>
 
             {inputs.type === '3a' && (
               <div className="bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl p-5 text-white shadow-lg">
                 <div className="text-amber-100 text-xs font-bold uppercase mb-1">{t('pillar3.annualTaxSaving')}</div>
-                <div className="text-2xl sm:text-3xl font-extrabold">CHF {results.annualTaxSaving.toLocaleString('it-IT')}</div>
+                <div className="text-2xl sm:text-3xl font-bold">CHF {results.annualTaxSaving.toLocaleString('it-IT')}</div>
                 <div className="text-amber-100 text-xs mt-1">{t('pillar3.total')}: CHF {results.totalTaxSaved.toLocaleString('it-IT')}</div>
               </div>
             )}
 
             <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-5 text-white shadow-lg">
               <div className="text-emerald-100 text-xs font-bold uppercase mb-1">{t('pillar3.totalReturn')}</div>
-              <div className="text-2xl sm:text-3xl font-extrabold">CHF {results.totalGains.toLocaleString('it-IT')}</div>
+              <div className="text-2xl sm:text-3xl font-bold">CHF {results.totalGains.toLocaleString('it-IT')}</div>
               <div className="text-emerald-100 text-xs mt-1">{t('pillar3.invested')}: CHF {results.totalContributed.toLocaleString('it-IT')}</div>
             </div>
           </div>

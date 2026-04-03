@@ -182,11 +182,11 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
                   <s.icon size={20} />
                 </div>
                 <div className="flex-1 min-w-0">
-                  <p className="font-medium text-slate-900 dark:text-white truncate">
+                  <p className="font-medium text-slate-900 dark:text-white line-clamp-2">
                     {s.title}
                   </p>
                   {s.description && (
-                    <p className="text-sm text-slate-500 dark:text-slate-400 truncate">
+                    <p className="text-sm text-slate-500 dark:text-slate-400 line-clamp-2">
                       {s.description}
                     </p>
                   )}

@@ -912,7 +912,7 @@ const UserProfile: React.FC = () => {
               )}
             </div>
             <div className="flex-1 min-w-0">
-              <h2 className="text-xl font-extrabold truncate">{displayName}</h2>
+              <h2 className="text-xl font-bold truncate">{displayName}</h2>
               {getAuthEmail(user) ? (
                 <p className="text-blue-100 text-sm truncate">{getAuthEmail(user)}</p>
               ) : getLinkedProviders(user).includes('facebook.com') ? (
@@ -1089,10 +1089,10 @@ const UserProfile: React.FC = () => {
                   </p>
                   <div className="flex items-baseline gap-1 mt-2">
                     {isExpired ? (
-                      <span className={`text-2xl font-extrabold ${numColor}`}>{t('profile.permit.expired')}</span>
+                      <span className={`text-2xl font-bold ${numColor}`}>{t('profile.permit.expired')}</span>
                     ) : (
                       <>
-                        <span className={`text-2xl font-extrabold tabular-nums ${numColor}`}>{diffDays}</span>
+                        <span className={`text-2xl font-bold tabular-nums ${numColor}`}>{diffDays}</span>
                         <span className={`text-sm font-medium ${textColor}`}>{t('profile.permit.daysLeft')}</span>
                         {diffMonths > 0 && <span className="text-xs text-slate-500 dark:text-slate-400 ml-1">({diffMonths} {t('profile.permit.months')})</span>}
                       </>

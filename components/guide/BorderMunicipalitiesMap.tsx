@@ -200,7 +200,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 key={`bc-${i}`}
                 center={[bc.lat, bc.lng]}
                 radius={4}
-                pathOptions={{ color: '#1e40af', fillColor: '#3b82f6', fillOpacity: 0.9, weight: 2 }}
+                pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
               >
                 <Popup>
                   <div className="text-xs">
@@ -585,7 +585,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   key={`bc-${i}`}
                   center={[bc.lat, bc.lng]}
                   radius={4}
-                  pathOptions={{ color: '#1e40af', fillColor: '#3b82f6', fillOpacity: 0.9, weight: 2 }}
+                  pathOptions={{ color: MAP_COLORS.primaryStroke, fillColor: MAP_COLORS.primary, fillOpacity: 0.9, weight: 2 }}
                 >
                   <Popup>
                     <div className="text-xs">

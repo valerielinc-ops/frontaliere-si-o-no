@@ -131,7 +131,7 @@ const ApiStatus: React.FC = () => {
       <div className="bg-gradient-to-br from-slate-700 to-slate-900 rounded-2xl p-5 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
           <Key size={32} />
-          <h2 className="text-2xl sm:text-3xl font-extrabold">Diagnostica API</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">Diagnostica API</h2>
         </div>
         <p className="text-slate-300 text-lg">
           Verifica lo stato di configurazione delle API esterne
