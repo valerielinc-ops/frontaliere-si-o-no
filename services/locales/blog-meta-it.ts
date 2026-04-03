@@ -1977,6 +1977,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tram-treno-luganese-passo-avanti.title': 'Il Tribunale federale amministrativo respinge gli ultimi ricorsi contro il progetto Rete tram-treno del Luganese',
     'blog.article.tram-treno-luganese-passo-avanti.excerpt': 'Il Tribunale federale amministrativo ha respinto gli ultimi ricorsi contro il progetto Rete tram-treno del Luganese',
     'blog.article.tram-treno-luganese-passo-avanti.imageAlt': 'Fotografia di un tram-treno in movimento lungo la riva del Lago di Lugano',
+    'blog.article.turismo-pasquale-ticino-2026.title': 'Il turismo pasquale promette gradite sorprese in Ticino',
+    'blog.article.turismo-pasquale-ticino-2026.excerpt': 'Le prenotazioni superano il 60% e gli operatori dell\'alberghiero sono entusiasti.',
+    'blog.article.turismo-pasquale-ticino-2026.imageAlt': 'Gruppo di turisti pasquali in un bar di Lugano.',
 };
 
 export default blogMetaIt;

@@ -1977,6 +1977,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tram-treno-luganese-passo-avanti.title': 'Federal Administrative Court Rejects Final Appeals Against Lugano Tram-Treno Project',
     'blog.article.tram-treno-luganese-passo-avanti.excerpt': 'The Federal Administrative Court has rejected the final appeals against the Lugano Tram-Treno project',
     'blog.article.tram-treno-luganese-passo-avanti.imageAlt': 'Photograph of a tram-train in motion along the shore of Lake Lugano',
+    'blog.article.turismo-pasquale-ticino-2026.title': 'Easter Tourism in Ticino Promises Pleasant Surprises',
+    'blog.article.turismo-pasquale-ticino-2026.excerpt': 'Bookings have exceeded 60% and hospitality operators are enthusiastic.',
+    'blog.article.turismo-pasquale-ticino-2026.imageAlt': 'Group of Easter tourists in a bar in Lugano.',
 };
 
 export default blogMetaEn;

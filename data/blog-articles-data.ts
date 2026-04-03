@@ -5803,4 +5803,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tram-treno-luganese-passo-avanti.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'turismo-pasquale-ticino-2026',
+    category: 'novita',
+    date: '2026-04-03T21:49:27.052Z',
+    image: '/images/blog/turismo-pasquale-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];

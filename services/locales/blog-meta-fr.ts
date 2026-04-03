@@ -1977,6 +1977,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tram-treno-luganese-passo-avanti.title': 'Le Tribunal fédéral administratif rejette les dernières recours contre le projet Réseau tram-train du Léman',
     'blog.article.tram-treno-luganese-passo-avanti.excerpt': 'Le Tribunal fédéral administratif a rejeté les dernières recours contre le projet Réseau tram-train du Léman',
     'blog.article.tram-treno-luganese-passo-avanti.imageAlt': 'Photographie d\'un tram-train en mouvement le long du lac de Lugano',
+    'blog.article.turismo-pasquale-ticino-2026.title': 'Le vacances de Pâques promettent des surprises agréables au Tessin',
+    'blog.article.turismo-pasquale-ticino-2026.excerpt': 'Les réservations dépassent 60% et les opérateurs hôteliers sont enthousiasmés.',
+    'blog.article.turismo-pasquale-ticino-2026.imageAlt': 'Groupe de touristes de Pâques dans un bar à Lugano.',
 };
 
 export default blogMetaFr;

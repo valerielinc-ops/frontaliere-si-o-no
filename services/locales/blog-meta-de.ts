@@ -1977,6 +1977,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tram-treno-luganese-passo-avanti.title': 'Das Bundesverwaltungsgericht wies die letzten Beschwerden gegen das Rete-Tram-Treno-Projekt des Luganer zurück',
     'blog.article.tram-treno-luganese-passo-avanti.excerpt': 'Das Bundesverwaltungsgericht wies die letzten Beschwerden gegen das Rete-Tram-Treno-Projekt des Luganer zurück',
     'blog.article.tram-treno-luganese-passo-avanti.imageAlt': 'Fotografie eines Tram-Trenns auf dem Zug in Bewegung entlang der Seeufer von Lugano',
+    'blog.article.turismo-pasquale-ticino-2026.title': 'Das osterliche Tourismusversprechen verspricht überraschende Highlights in Tessin',
+    'blog.article.turismo-pasquale-ticino-2026.excerpt': 'Die Buchungen übersteigen die 60-Prozent-Marke und die Betreiber des Beherbergungsgewerbes sind begeistert.',
+    'blog.article.turismo-pasquale-ticino-2026.imageAlt': 'Gruppe von Ostertouristen in einem Bar in Lugano.',
 };
 
 export default blogMetaDe;

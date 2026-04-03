@@ -10867,6 +10867,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-turismo-pasquale-ticino-2026': {
+    title: 'Il turismo pasquale promette gradite sorprese in Ticino | Frontaliere Ticino',
+    description: 'Le prenotazioni per la Pasqua sono aumentate del 16,7% rispetto allo scorso anno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, turismo, pasquale, promette, gradite',
+    ogTitle: 'Il turismo pasquale promette gradite sorprese in Ticino',
+    ogDescription: 'Le prenotazioni per la Pasqua sono aumentate del 16,7% rispetto allo scorso anno.',
+    canonicalPath: '/articoli-frontaliere/turismo-pasquale-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Il turismo pasquale promette gradite sorprese in Ticino",
+      "description": "Le prenotazioni per la Pasqua sono aumentate del 16,7% rispetto allo scorso anno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/turismo-pasquale-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Gruppo di turisti pasquali in un bar di Lugano."
+      },
+      "datePublished": "2026-04-03T21:49:27+00:00",
+      "dateModified": "2026-04-03T21:49:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turismo-pasquale-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1888,6 +1888,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-esame-complementare-passerella-aperte-pre-iscrizioni': { name: 'Esame complementare passerella', path: '/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni', parent: 'blog' },
     'blog-gasolio-costi-pullman-ticino-lago-como': { name: 'Lago di Como', path: '/articoli-frontaliere/gasolio-costi-pullman-ticino-lago-como', parent: 'blog' },
     'blog-tram-treno-luganese-passo-avanti': { name: 'Tram-treno Luganese', path: '/articoli-frontaliere/tram-treno-luganese-passo-avanti', parent: 'blog' },
+    'blog-turismo-pasquale-ticino-2026': { name: 'Turismo pasquale in Ticino', path: '/articoli-frontaliere/turismo-pasquale-ticino-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];
