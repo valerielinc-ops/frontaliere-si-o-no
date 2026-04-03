@@ -2,6 +2,7 @@ import React, { useMemo } from 'react';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import { CHAIN_COLORS, type Supermarket } from '@/data/supermarketData';
+import { MAP_COLORS } from '@/services/mapColors';
 
 interface Props {
   supermarkets: Supermarket[];
@@ -41,8 +42,8 @@ export default function SupermarketMap({ supermarkets }: Props) {
           radius={8}
           // Leaflet pathOptions — cannot use Tailwind, must remain hex values
           pathOptions={{
-            fillColor: CHAIN_COLORS[s.chain] || '#94a3b8',
-            color: s.country === 'CH' ? '#dc2626' : '#16a34a',
+            fillColor: CHAIN_COLORS[s.chain] || MAP_COLORS.neutral,
+            color: s.country === 'CH' ? MAP_COLORS.countryCH : MAP_COLORS.countryIT,
             weight: 2,
             fillOpacity: 0.85,
           }}
@@ -60,7 +61,7 @@ export default function SupermarketMap({ supermarkets }: Props) {
                 {/* Dynamic chain color — must use inline style as value comes from runtime map */}
                 <span
                   className="inline-block w-2.5 h-2.5 rounded-full mr-1"
-                  style={{ backgroundColor: CHAIN_COLORS[s.chain] || '#94a3b8' }}
+                  style={{ backgroundColor: CHAIN_COLORS[s.chain] || MAP_COLORS.neutral }}
                 />
                 {s.chain}
               </div>

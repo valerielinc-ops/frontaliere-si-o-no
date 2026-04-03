@@ -6,6 +6,7 @@ import { calculateMunicipalityTaxImpact, type MunicipalityTaxResult } from '@/se
 import { useExchangeRate } from '@/services/exchangeRateService';
 import { MapContainer, TileLayer, CircleMarker, Popup } from 'react-leaflet';
 import { MapPin, Filter, Info, AlertTriangle, TrendingDown, TrendingUp, ArrowUpDown, Award, DollarSign, Building2, Navigation, ChevronUp, ChevronDown, SlidersHorizontal } from 'lucide-react';
+import { MAP_COLORS } from '@/services/mapColors';
 import 'leaflet/dist/leaflet.css';
 
 import type { UserProfileData } from '@/components/pages/UserProfile';
@@ -107,19 +108,19 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
   const getColor = (m: Municipality): string => {
     switch (colorMode) {
       case 'irpef': {
-        if (m.irpefAddizionale <= 0.5) return '#22c55e'; // green
-        if (m.irpefAddizionale <= 0.65) return '#eab308'; // yellow
-        return '#ef4444'; // red
+        if (m.irpefAddizionale <= 0.5) return MAP_COLORS.success;
+        if (m.irpefAddizionale <= 0.65) return MAP_COLORS.warning;
+        return MAP_COLORS.danger;
       }
       case 'distance': {
-        if (m.distanceKm <= 5) return '#22c55e';
-        if (m.distanceKm <= 15) return '#eab308';
-        return '#ef4444';
+        if (m.distanceKm <= 5) return MAP_COLORS.success;
+        if (m.distanceKm <= 15) return MAP_COLORS.warning;
+        return MAP_COLORS.danger;
       }
       case 'rent': {
-        if (m.avgRentMonthly <= 500) return '#22c55e';
-        if (m.avgRentMonthly <= 650) return '#eab308';
-        return '#ef4444';
+        if (m.avgRentMonthly <= 500) return MAP_COLORS.success;
+        if (m.avgRentMonthly <= 650) return MAP_COLORS.warning;
+        return MAP_COLORS.danger;
       }
     }
   };

@@ -1,6 +1,7 @@
 import React from 'react';
 import { MapContainer, TileLayer, CircleMarker, Tooltip } from 'react-leaflet';
 import type { Municipality } from '@/data/municipalities';
+import { MAP_COLORS } from '@/services/mapColors';
 import 'leaflet/dist/leaflet.css';
 
 interface ScoredMunicipality extends Municipality {
@@ -9,9 +10,9 @@ interface ScoredMunicipality extends Municipality {
 }
 
 function scoreColor(score: number): string {
-  if (score >= 0.7) return '#10b981'; // emerald
-  if (score >= 0.5) return '#f59e0b'; // amber
-  return '#ef4444'; // red
+  if (score >= 0.7) return MAP_COLORS.positive;
+  if (score >= 0.5) return MAP_COLORS.caution;
+  return MAP_COLORS.negative;
 }
 
 export default function LivabilityMap({ municipalities }: { municipalities: ScoredMunicipality[] }) {

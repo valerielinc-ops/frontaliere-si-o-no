@@ -8,6 +8,7 @@ import { Analytics } from '../../services/analytics';
 import { borderCrossings as centralizedCrossings } from '../../data/borderCrossings';
 import { useTranslation } from '@/services/i18n';
 import { reportCaughtError } from '@/services/errorReporter';
+import { MAP_COLORS } from '@/services/mapColors';
 
 // Map centralized data to local format with coordinates tuple
 const borderCrossings = centralizedCrossings.map(c => ({
@@ -16,9 +17,9 @@ const borderCrossings = centralizedCrossings.map(c => ({
 }));
 
 const STATUS_COLORS: Record<string, string> = {
-  green: '#22c55e',
-  yellow: '#eab308',
-  red: '#ef4444',
+  green: MAP_COLORS.success,
+  yellow: MAP_COLORS.warning,
+  red: MAP_COLORS.danger,
 };
 
 const STATUS_BG_CLASSES: Record<string, string> = {
@@ -54,7 +55,7 @@ const POPUP_ROW_STYLE: React.CSSProperties = { display: 'flex', justifyContent: 
 const POPUP_CAPITALIZE_STYLE: React.CSSProperties = { textTransform: 'capitalize' };
 const POPUP_NAV_LINK_STYLE: React.CSSProperties = {
   marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
-  gap: '6px', width: '100%', padding: '8px', backgroundColor: '#4f46e5',
+  gap: '6px', width: '100%', padding: '8px', backgroundColor: MAP_COLORS.accent,
   color: 'white', borderRadius: '8px', fontSize: '13px', fontWeight: 700, textDecoration: 'none',
 };
 
