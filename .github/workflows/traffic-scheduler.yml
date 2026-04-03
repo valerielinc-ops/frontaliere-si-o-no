@@ -57,6 +57,6 @@ jobs:
 
       - name: Collect traffic data
         run: node scripts/collect-traffic.mjs
-
-      - name: Trigger deploy
-        run: bash scripts/lib/trigger-deploy.sh || true
+        # NOTE: No trigger-deploy here — traffic data goes to Firestore,
+        # not the static site. Deploying after every collection was causing
+        # a deploy cancellation storm (20+ dispatches in 5h window).
