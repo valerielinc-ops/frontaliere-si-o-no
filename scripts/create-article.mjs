@@ -261,7 +261,9 @@ const CREATE_ARTICLE_MIN_IT_WORDS = Math.max(
 );
 // Hard cap per body field — prevents LLM overshoot during expansion from
 // producing fields too large for free-tier translation models (output cap ~2048-4096 tokens).
-const MAX_BODY_FIELD_WORDS = 600;
+// 1000 words ≈ 1500 tokens output → well within model caps. Fields >700 words
+// are automatically sub-chunked during translation as a safety net.
+const MAX_BODY_FIELD_WORDS = 1000;
 const CREATE_ARTICLE_MIN_WORDS_RETRIES = Math.max(
   1,
   Number.parseInt(process.env.CREATE_ARTICLE_MIN_WORDS_RETRIES || '6', 10) || 6,
