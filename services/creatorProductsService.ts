@@ -712,19 +712,16 @@ export function getCreatorProductsForContext({
       keywordHits > 0
         ? `${product.searchQuery} ${product.keywordTags.filter((tag) => normalized.includes(tag)).slice(0, 2).join(' ')}`
         : product.searchQuery;
-    const searchUrl = buildAmazonSearchAffiliateUrl(contextualQuery, locale, partnerTag);
-    const fallbackDpUrl = buildAmazonAffiliateUrl(product.asin, locale, partnerTag);
-    const url = isValidAmazonAffiliateUrl(searchUrl) ? searchUrl : fallbackDpUrl;
-    // FRO-336: Enrich with real data from Creators API if available
+    // Always use direct product page URL (/dp/ASIN) — never search URLs.
+    // Search URLs can return empty results (e.g. "porta vignetta") and provide
+    // a worse UX than linking directly to the known product.
+    const dpUrl = buildAmazonAffiliateUrl(product.asin, locale, partnerTag);
     const apiData = _apiProductsByAsin.get(product.asin);
-    // Only use the direct DP URL from API when we have confirmed real product data
-    // (non-empty title). In fallback mode the JSON has empty titles and the DP URLs
-    // may point to products that don't exist on Amazon.it — prefer the search URL.
     const hasRealApiData = Boolean(apiData?.title && apiData.title.trim() !== '');
     return {
       ...product,
       score,
-      url: hasRealApiData ? (apiData!.affiliateUrl || url) : url,
+      url: hasRealApiData ? (apiData!.affiliateUrl || dpUrl) : dpUrl,
       partnerTag,
       query: contextualQuery.trim(),
       imageUrl: apiData?.imageUrl || buildAmazonImageUrl(product.imageId),

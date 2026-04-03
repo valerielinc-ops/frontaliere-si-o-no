@@ -67,49 +67,64 @@ async function ensureEnvVars() {
 // ── Curated ASINs with CDN image IDs (from creatorProductsService.ts) ───────────
 // imageId: the Amazon CDN image identifier from m.media-amazon.com/images/I/{imageId}
 const PRODUCTS = [
-  // Fisco & Finanza
+  // ── Fisco & Finanza (6) ──────────────────────────────────────
   { asin: '8820396246', imageId: '61T4a87qvXL' },
   { asin: 'B0F7DS11QM', imageId: '71EXhOHXu8L' },
-  { asin: 'B0DMVCCQVR', imageId: '51mDwIbT31L' },
+  { asin: 'B06XWTNH8S', imageId: '51yU7zDmyzL' },
   { asin: 'B005D7H39G', imageId: '61Mhyvb0TfL' },
   { asin: 'B0GPRG8139', imageId: '61XBQ8fh7VL' },
   { asin: 'B07RQWZY34', imageId: '61pwfbAqa4L' },
-  // Trasporto & Pendolarismo
-  { asin: 'B0CVXDGNWP', imageId: '71hjyQv4u3L' },
-  { asin: 'B0FMRG6J3T', imageId: '81xjrTmX5SL' },
-  { asin: 'B0F21QKF44', imageId: '613hCCJGB3L' },
-  { asin: 'B096RRKV2Y', imageId: '71OqETd1iDL' },
+  // ── Trasporto & Pendolarismo (6) ─────────────────────────────
+  { asin: 'B0CQX4WDLQ', imageId: '71IS4J1skrL' },
+  { asin: 'B0CR3P1SVL', imageId: '71Mav34qzBL' },
+  { asin: 'B0BVZFVH7Y', imageId: '81-LPKzIPKL' },
+  { asin: 'B0DC3VBHLV', imageId: '71u09aO9gJL' },
   { asin: 'B0FF4X2JB9', imageId: '61n+148j0uL' },
   { asin: 'B01BNITJOU', imageId: '21MjMFj7JAL' },
-  // Lavoro & Carriera
+  // ── Lavoro & Carriera (6) ────────────────────────────────────
   { asin: '8858345258', imageId: '51R75cc+GuL' },
   { asin: 'B0C5BCCCVG', imageId: '71PsXIVtmXL' },
   { asin: 'B09ZKXV1MY', imageId: '610JhJ3RWuL' },
-  { asin: 'B0F12Q56RZ', imageId: '71n1M3fhlJL' },
-  { asin: 'B08PV7XY8M', imageId: '616MA59OzuL' },
+  { asin: 'B0D41JQTF8', imageId: '61CYak3FNWL' },
+  { asin: 'B0FPLVBP1P', imageId: '71HFTqvlAjL' },
   { asin: 'B0CCNQP9F2', imageId: '61lKZJiIyVL' },
-  // Casa & Risparmio
+  // ── Casa & Risparmio (5) ─────────────────────────────────────
   { asin: 'B072QR1S3T', imageId: '71Y2r1pgBkL' },
   { asin: 'B0GG3RXDML', imageId: '71KneLITCuL' },
-  { asin: 'B0D8KH4LNB', imageId: '51IqMiHCMQL' },
+  { asin: 'B0D63H6KKV', imageId: '51SMg0amvSL' },
   { asin: 'B0CH4WGRQQ', imageId: '61MFmJpKvuL' },
-  { asin: 'B0DFC7Q2GK', imageId: '71dbom9FTrL' },
-  // Salute & Benessere
+  { asin: 'B0DFC9HXH4', imageId: '51Pu+hcSRHL' },
+  // ── Salute & Benessere (4) ───────────────────────────────────
   { asin: 'B0F6NDGT7W', imageId: '61FwkENkulL' },
-  { asin: 'B0CKF3PGDV', imageId: '61NaavrxwVL' },
-  { asin: 'B0GF1RX5RK', imageId: '615TKlZZ4hL' },
-  { asin: 'B07FRPXF44', imageId: '61mSrFlJh8L' },
-  // Produttività & Smart Working (extra)
-  { asin: 'B0FCS3SX38', imageId: '71Bzz-P3oDL' },
-  { asin: 'B0DP4VYQ9N', imageId: '61XXU2vYucL' },
+  { asin: 'B07NNTD7M8', imageId: '61CVqgCUmIL' },
+  { asin: 'B0B57DNFH4', imageId: '213Y6l0qBML' },
+  { asin: 'B09S7MCSJL', imageId: '81XLwFLl2nL' },
+  // ── Produttività & Smart Working (5) ─────────────────────────
+  { asin: 'B0C9LVG5SR', imageId: '71GKppxMfRL' },
+  { asin: 'B0DBQ8XJLC', imageId: '31MeaUYbcRL' },
   { asin: 'B0F1CN972G', imageId: '61DFtmDd6gL' },
-  { asin: 'B018INW0ZI', imageId: '71tIA7Z3y0L' },
+  { asin: 'B07VKSVLYC', imageId: '61vo7pTdOJL' },
   { asin: 'B07ZCYS2LJ', imageId: '51YklVyO9-L' },
-  // Viaggio & Frontiera (extra)
-  { asin: 'B0DTHW2PPQ', imageId: '61xb3t+4c0L' },
+  // ── Viaggio & Frontiera (4) ──────────────────────────────────
+  { asin: 'B0B2DRC76L', imageId: '61fyJNX1vGL' },
   { asin: 'B0FMRTXDHH', imageId: '81FgqqI9EML' },
   { asin: 'B0DMVVMF2C', imageId: '71INVW4QIRL' },
-  { asin: 'B07Q72ZQGG', imageId: '81qEnzfwvPL' },
+  { asin: 'B0BYF4YVZ9', imageId: '61WEr9b-whL' },
+  // ── Nuovi prodotti (14) ──────────────────────────────────────
+  { asin: '8896568137', imageId: '51GB9JkuuNL' },
+  { asin: 'B0CK3NH4ZN', imageId: '71lVXHAFcvL' },
+  { asin: 'B0BPSF9NGY', imageId: '61lI7Ow6-CL' },
+  { asin: 'B09GYCC1N7', imageId: '712m-iqcWVL' },
+  { asin: 'B08DDGLWVS', imageId: '81DEibjuo2L' },
+  { asin: 'B0DSFZDPFL', imageId: '41yqUaopBSL' },
+  { asin: 'B08G1GFZ91', imageId: '41vyDeUPhoL' },
+  { asin: 'B0D83YTLQ3', imageId: '811C9BIBt1L' },
+  { asin: 'B082FT7L5B', imageId: '71ryiGtcr5L' },
+  { asin: '8828844361', imageId: '51tX9pY5T8L' },
+  { asin: 'B0FNCPT3B5', imageId: '31v5b+opOZL' },
+  { asin: 'B0CBKHKCKK', imageId: '41sfk7YWYYL' },
+  { asin: 'B0B82PFNRP', imageId: '71wfOX6wskL' },
+  { asin: 'B0D1PML5CM', imageId: '61KZciHSrVL' },
 ];
 const ASINS = PRODUCTS.map(p => p.asin);
 const IMAGE_BY_ASIN = Object.fromEntries(PRODUCTS.map(p => [p.asin, p.imageId]));
