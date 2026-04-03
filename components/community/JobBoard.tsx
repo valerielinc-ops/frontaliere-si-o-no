@@ -2241,6 +2241,81 @@ function buildRelatedSearches(params: {
   return candidates.filter(isValidRelatedSearchTerm).slice(0, 10);
 }
 
+// --- Memoized JobCard to avoid re-renders on filter/sort ---
+interface JobCardProps {
+  job: JobListing;
+  jobHref: string;
+  salary: string | null;
+  logo: string | null;
+  isNew: boolean;
+  postedLabel: string;
+  locale: string;
+  t: (key: string, params?: Record<string, string>) => string;
+  onSelect: (job: JobListing) => void;
+}
+const JobCard = React.memo(({ job, jobHref, salary, logo, isNew, postedLabel, locale, t, onSelect }: JobCardProps) => (
+  <article
+    key={job.id}
+    className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
+      job.featured
+        ? 'border-amber-300 dark:border-amber-600 bg-amber-50/30 dark:bg-amber-950/10 hover:border-amber-400 dark:hover:border-amber-500'
+        : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 hover:border-indigo-300 dark:hover:border-indigo-700'
+    }`}
+  >
+    <a
+      href={jobHref}
+      onClick={(e) => { e.preventDefault(); onSelect(job); }}
+      className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
+    >
+      <div className="flex items-start gap-3">
+        <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
+          {logo ? (
+            <img src={logo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
+          ) : (
+            <span className="text-base sm:text-lg">{CATEGORY_EMOJI[job.category]}</span>
+          )}
+        </div>
+        <div className="min-w-0 flex-1">
+          <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-tight">
+            {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
+            {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-amber-500 fill-amber-500" />}
+            {isNew && (
+              <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
+                <Sparkles className="w-2.5 h-2.5" />
+                {t('jobBoard.badge.new')}
+              </span>
+            )}
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 line-clamp-2">
+            {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
+          </p>
+          {salary && (
+            <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-green-700 dark:text-green-400">
+              <Euro className="w-3.5 h-3.5" />
+              {salary}
+            </span>
+          )}
+        </div>
+      </div>
+
+      <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-2 sm:gap-1.5 text-xs text-slate-500 dark:text-slate-400">
+        <span className="inline-flex items-center gap-1">
+          <MapPin className="w-3 h-3" />
+          {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
+        </span>
+        <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
+          {t(contractTranslationKey(job))}
+        </span>
+        <span className="inline-flex items-center gap-1">
+          <Clock className="w-3 h-3" />
+          {postedLabel}
+        </span>
+      </div>
+    </a>
+  </article>
+));
+JobCard.displayName = 'JobCard';
+
 const JobBoard: React.FC<JobBoardProps> = ({
   onPostJob,
   initialJobSlug,
@@ -3595,72 +3670,20 @@ const JobBoard: React.FC<JobBoardProps> = ({
     Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
   };
 
-  const renderJobCard = (job: JobListing) => {
-    const salary = formatSalary(job);
-    const logo = companyLogoUrl(job);
-    const jobHref = buildJobPath(job);
-    return (
-      <article
-        key={job.id}
-        className={`rounded-xl border p-3 sm:p-4 transition-colors min-h-[72px] ${
-          job.featured
-            ? 'border-amber-300 dark:border-amber-600 bg-amber-50/30 dark:bg-amber-950/10 hover:border-amber-400 dark:hover:border-amber-500'
-            : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50 hover:border-indigo-300 dark:hover:border-indigo-700'
-        }`}
-      >
-        <a
-          href={jobHref}
-          onClick={(e) => { e.preventDefault(); openDetail(job); }}
-          className="block cursor-pointer focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 rounded-lg"
-        >
-          <div className="flex items-start gap-3">
-            <div className="w-10 h-10 sm:w-14 sm:h-14 rounded-lg bg-slate-100 dark:bg-slate-700 flex items-center justify-center overflow-hidden border border-slate-200 dark:border-slate-600 shrink-0">
-              {logo ? (
-                <img src={logo} alt={`Logo ${job.company}`} className="w-7 h-7 sm:w-10 sm:h-10 object-contain" width={40} height={40} loading="lazy" onError={(e) => { const el = e.currentTarget; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
-              ) : (
-                <span className="text-base sm:text-lg">{CATEGORY_EMOJI[job.category]}</span>
-              )}
-            </div>
-            <div className="min-w-0 flex-1">
-              <h2 className="text-sm sm:text-base font-bold text-slate-900 dark:text-white leading-tight">
-                {sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title)}
-                {job.featured && <Star className="inline-block w-3.5 h-3.5 ml-1.5 text-amber-500 fill-amber-500" />}
-                {isNewJob(job) && (
-                  <span className="ml-1.5 sm:ml-2 inline-flex items-center gap-0.5 px-1.5 py-0.5 text-xs font-bold uppercase tracking-wide rounded-full bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300">
-                    <Sparkles className="w-2.5 h-2.5" />
-                    {t('jobBoard.badge.new')}
-                  </span>
-                )}
-              </h2>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 line-clamp-2">
-                {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
-              </p>
-              {salary && (
-                <span className="mt-1 inline-flex items-center gap-1 text-xs sm:text-sm font-semibold text-green-700 dark:text-green-400">
-                  <Euro className="w-3.5 h-3.5" />
-                  {salary}
-                </span>
-              )}
-            </div>
-          </div>
-
-          <div className="mt-2 sm:mt-3 flex flex-wrap items-center gap-1.5 sm:gap-2 text-xs text-slate-500 dark:text-slate-400">
-            <span className="inline-flex items-center gap-1">
-              <MapPin className="w-3 h-3" />
-              {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : job.location}
-            </span>
-            <span className="px-1.5 py-0.5 rounded bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300">
-              {t(contractTranslationKey(job))}
-            </span>
-            <span className="inline-flex items-center gap-1">
-              <Clock className="w-3 h-3" />
-              {daysSincePosted(job.postedDate)}
-            </span>
-          </div>
-        </a>
-      </article>
-    );
-  };
+  const renderJobCard = (job: JobListing) => (
+    <JobCard
+      key={job.id}
+      job={job}
+      jobHref={buildJobPath(job)}
+      salary={formatSalary(job)}
+      logo={companyLogoUrl(job)}
+      isNew={isNewJob(job)}
+      postedLabel={daysSincePosted(job.postedDate)}
+      locale={locale}
+      t={t}
+      onSelect={openDetail}
+    />
+  );
 
   const handleAuthAndOpen = async (provider: 'google' | 'facebook') => {
     const authFn = provider === 'google' ? onGoogleAuthRequired : onFacebookAuthRequired;
