@@ -105,7 +105,7 @@ jobs:
           skipped=0
           failed=0
 
-          # Dispatch large crawlers first, then medium, then small
+          # Dispatch crawlers alphabetically; delay between each based on volume
           for wf in "${workflows[@]}"; do
             filename=$(basename "$wf")
             wf_name=$(head -1 "$wf" | sed 's/^name: //')
