@@ -767,6 +767,19 @@ export async function assembleJobsDataset({ withStats = false } = {}) {
       }
     }
 
+    // --- Quality score enrichment (persisted for frontend sorting) ---
+    let qsChanged = 0;
+    for (const job of assembled) {
+      const { total } = computeJobQualityScore(job);
+      if (job.qualityScore !== total) { qsChanged++; }
+      job.qualityScore = total;
+    }
+    if (qsChanged > 0) {
+      writeJson(DATA_JOBS, assembled);
+      writeJson(PUBLIC_JOBS, assembled);
+      console.log(`  📊 Quality score: computed for ${assembled.length} jobs (${qsChanged} changed)`);
+    }
+
     // --- Meta (derived from assembled jobs) ---
     const meta = generateMeta(assembled.length);
     writeJson(DATA_META, meta);
