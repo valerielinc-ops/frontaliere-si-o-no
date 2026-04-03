@@ -1,56 +1,18 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-04-03T09:17:45.792Z",
+  "generatedAt": "2026-04-03T21:13:45.413Z",
   "total": 8,
-  "newCount": 1,
-  "updatedCount": 7,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1846,
-  "avgDurationMs": 1846,
+  "durationMs": 2509,
+  "avgDurationMs": 2509,
   "durationHistory": [
-    1846
+    2509
   ],
-  "newJobs": [
-    {
-      "title": "ServiceNow Developer (ITSM - CMDB)",
-      "slug": "servicenow-developer-itsm-cmdb-fincons-group-lugano-switzerland",
-      "url": "https://fincons.applytojob.com/apply/9q4OLkyxDB/ServiceNow-Developer-ITSM-CMDB",
-      "applyUrl": "https://fincons.applytojob.com/apply/9q4OLkyxDB/ServiceNow-Developer-ITSM-CMDB",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-03",
-      "validThrough": "2026-07-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Mid Level",
-        "uniqueJobCode": "job_20260403064403_82EOJMNY54KZRWYT",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "_qualityScore": 70,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 4,
-        "completeness": 17
-      }
-    }
-  ],
+  "newJobs": [],
   "updatedJobs": [
     {
       "title": "Angular / Java - Senior Full-Stack Developer",
@@ -329,6 +291,47 @@
       },
       "salaryMin": 94000,
       "salaryMax": 127000,
+      "currency": "CHF",
+      "streetAddress": "Via Industria 3",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "ServiceNow Developer (ITSM - CMDB)",
+      "slug": "servicenow-developer-itsm-cmdb-fincons-group-lugano-switzerland",
+      "url": "https://fincons.applytojob.com/apply/9q4OLkyxDB/ServiceNow-Developer-ITSM-CMDB",
+      "applyUrl": "https://fincons.applytojob.com/apply/9q4OLkyxDB/ServiceNow-Developer-ITSM-CMDB",
+      "company": "Fincons Group",
+      "companyKey": "fincons-group",
+      "companyDomain": "finconsgroup.com",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "fincons-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-03",
+      "validThrough": "2026-07-02",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "metadata": {
+        "experienceRequirements": "Mid Level",
+        "uniqueJobCode": "job_20260403064403_82EOJMNY54KZRWYT",
+        "listingLocation": "Lugano, Switzerland",
+        "listingDepartment": ""
+      },
+      "salaryMin": 72500,
+      "salaryMax": 97500,
       "currency": "CHF",
       "streetAddress": "Via Industria 3",
       "_qualityScore": 99,
