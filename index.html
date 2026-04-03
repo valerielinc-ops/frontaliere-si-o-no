@@ -90,6 +90,12 @@
     <meta name="format-detection" content="telephone=no">
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="application-name" content="Frontaliere Ticino">
+    <link rel="manifest" href="/manifest.webmanifest">
+
+    <!-- Security Headers (meta-based, GitHub Pages doesn't support HTTP headers) -->
+    <meta http-equiv="X-Content-Type-Options" content="nosniff">
+    <meta name="referrer" content="strict-origin-when-cross-origin">
+    <meta http-equiv="Permissions-Policy" content="camera=(), microphone=(), geolocation=()">
 
     <!-- Google AdSense -->
     <meta name="google-adsense-account" content="ca-pub-8628054934855353">
@@ -115,8 +121,12 @@
     <!-- AdSense dns-prefetch removed: ads load only on blog article pages via AdSenseBanner component -->
 
 
-    <!-- PERFORMANCE: Preload critical font before CSS loads -->
+    <!-- PERFORMANCE: Preload critical fonts before CSS loads -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" href="/fonts/inter-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
     <script>
       // GitHub Pages SPA redirect handler + dark mode (merged for fewer parser-blocking scripts)
       (function() {

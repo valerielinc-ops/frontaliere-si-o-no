@@ -202,10 +202,8 @@ const PermitQuiz: React.FC = () => {
       <div className="max-w-2xl mx-auto">
         {/* Header */}
         <div className="text-center mb-8">
-          <div className="w-16 h-16 bg-gradient-to-br from-amber-500 to-orange-500 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <Sparkles size={28} className="text-white" />
-          </div>
-          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+          <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center justify-center gap-3">
+            <Sparkles size={24} className="text-amber-500" />
             {t('permitQuiz.results.title')}
           </h2>
           <p className="text-slate-600 dark:text-slate-400 mt-2">
@@ -226,7 +224,7 @@ const PermitQuiz: React.FC = () => {
               </div>
               <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-all duration-1000"
+                  className="h-full bg-gradient-to-r from-blue-500 to-blue-600 rounded-full transition-[width] duration-1000"
                   style={{ width: `${bPercent}%` }}
                 />
               </div>
@@ -242,7 +240,7 @@ const PermitQuiz: React.FC = () => {
               </div>
               <div className="h-4 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-all duration-1000"
+                  className="h-full bg-gradient-to-r from-emerald-500 to-emerald-600 rounded-full transition-[width] duration-1000"
                   style={{ width: `${gPercent}%` }}
                 />
               </div>
@@ -362,7 +360,7 @@ const PermitQuiz: React.FC = () => {
         </div>
         <div className="h-2 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-all duration-500"
+            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-[width] duration-500"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -391,7 +389,7 @@ const PermitQuiz: React.FC = () => {
               <button
                 key={opt.value}
                 onClick={() => handleAnswer(question.id, opt)}
-                className={`w-full text-left px-4 py-3 rounded-xl border transition-all ${
+                className={`w-full text-left px-4 py-3 rounded-xl border transition-colors ${
                   isSelected
                     ? 'border-amber-500 bg-amber-50 dark:bg-amber-900/30 dark:border-amber-600 ring-2 ring-amber-200 dark:ring-amber-800'
                     : 'border-slate-200 dark:border-slate-600 hover:border-amber-300 dark:hover:border-amber-700 hover:bg-amber-50/50 dark:hover:bg-amber-900/10'
@@ -429,7 +427,7 @@ const PermitQuiz: React.FC = () => {
         {currentAnswer && currentStep < totalQuestions - 1 && (
           <button
             onClick={() => setCurrentStep(prev => prev + 1)}
-            className="flex items-center gap-2 text-sm bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-xl transition-all"
+            className="flex items-center gap-2 text-sm bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-xl transition-colors"
             aria-label={t('permitQuiz.next')}
           >
             {t('permitQuiz.next')}
@@ -440,7 +438,7 @@ const PermitQuiz: React.FC = () => {
         {currentAnswer && currentStep === totalQuestions - 1 && (
           <button
             onClick={() => { setShowResults(true); Analytics.trackUIInteraction('permit_quiz', 'quiz', 'complete', `answers_${answers.length}`); }}
-            className="flex items-center gap-2 text-sm bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-xl transition-all"
+            className="flex items-center gap-2 text-sm bg-amber-600 hover:bg-amber-700 text-white px-4 py-2 rounded-xl transition-colors"
             aria-label={t('permitQuiz.showResults')}
           >
             {t('permitQuiz.showResults')}

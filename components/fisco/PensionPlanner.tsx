@@ -151,10 +151,8 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
     <div className="space-y-6 pb-12">
       {/* Header */}
       <div className="text-center space-y-3 mb-8">
-        <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl shadow-lg mb-4">
-          <PiggyBank size={32} className="text-white" />
-        </div>
-        <h1 className="text-3xl sm:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400">
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400 flex items-center justify-center gap-3">
+          <PiggyBank size={28} className="text-emerald-500" />
           {t('pension.title')}
         </h1>
         <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
@@ -393,7 +391,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 <button
                   key={option}
                   onClick={() => handleChange('repatriationPlan', option)}
-                  className={`w-full p-4 rounded-xl border-2 transition-all text-left ${
+                  className={`w-full p-4 rounded-xl border-2 transition-colors text-left ${
                     inputs.repatriationPlan === option
                       ? 'border-emerald-500 bg-emerald-50 dark:bg-emerald-900/20'
                       : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'
@@ -499,7 +497,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
               </div>
               <div className="mt-2 w-full bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
                 <div 
-                  className="bg-red-500 h-full rounded-full transition-all"
+                  className="bg-red-500 h-full rounded-full transition-[width]"
                   style={{ width: `${Math.min((result.yearsOfContributions.switzerland / 44) * 100, 100)}%` }}
                 />
               </div>
@@ -647,4 +645,4 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
   );
 };
 
-export default PensionPlanner;
+export default React.memo(PensionPlanner);

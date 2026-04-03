@@ -145,10 +145,8 @@ const TredicesimalCalculator: React.FC = () => {
     <div className="max-w-2xl mx-auto">
       {/* Header */}
       <div className="text-center mb-8">
-        <div className="w-14 h-14 bg-gradient-to-br from-amber-500 to-orange-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
-          <Gift size={24} className="text-white" />
-        </div>
-        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100">
+        <h2 className="text-2xl font-bold text-slate-800 dark:text-slate-100 flex items-center justify-center gap-3">
+          <Gift size={24} className="text-amber-500" />
           {t('tredicesima.title')}
         </h2>
         <p className="text-slate-600 dark:text-slate-400 mt-2 text-sm max-w-md mx-auto">
