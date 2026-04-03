@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T04:41:32.489Z",
-    "label": "before",
-    "total": 1500,
-    "needsRetranslation": 1132,
-    "incomplete": 1014,
-    "complete": 486,
-    "missingByLocale": {
-      "it": 475,
-      "en": 702,
-      "de": 438,
-      "fr": 860
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 28
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T04:41:34.879Z",
-    "label": "after",
-    "total": 1500,
-    "needsRetranslation": 1132,
-    "incomplete": 1014,
-    "complete": 486,
-    "missingByLocale": {
-      "it": 475,
-      "en": 702,
-      "de": 438,
-      "fr": 860
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 28
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T04:47:06.805Z",
     "label": "before",
     "total": 1500,
@@ -9770,6 +9658,98 @@
       {
         "company": "ALDI SUISSE",
         "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-03T05:17:23.446Z",
+    "label": "before",
+    "total": 1543,
+    "needsRetranslation": 118,
+    "incomplete": 85,
+    "complete": 1458,
+    "missingByLocale": {
+      "it": 46,
+      "en": 52,
+      "de": 31,
+      "fr": 61
+    },
+    "topPending": [
+      {
+        "company": "Città di Lugano",
+        "pending": 10
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 10
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 7
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 6
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+        "pending": 4
+      },
+      {
+        "company": "Eisberg AG",
+        "pending": 4
+      },
+      {
+        "company": "Schindler",
+        "pending": 4
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-03T05:24:51.725Z",
+    "label": "after",
+    "total": 1543,
+    "needsRetranslation": 47,
+    "incomplete": 11,
+    "complete": 1532,
+    "missingByLocale": {
+      "it": 10,
+      "en": 6,
+      "de": 5,
+      "fr": 8
+    },
+    "topPending": [
+      {
+        "company": "Eisberg AG",
+        "pending": 4
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "FFS Officine (Ferrovie Federali)",
+        "pending": 2
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 1
       }
     ]
   }
