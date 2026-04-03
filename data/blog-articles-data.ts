@@ -5731,14 +5731,14 @@ export const ARTICLES: Article[] = [
     id: 'permesso-g-vantaggi-svantaggi',
     category: 'pratico',
     date: '2026-04-03',
-    image: '/images/places/ponte-dogana.webp',
+    image: '/images/places/mendrisio.webp',
     hasCalculator: false,
   },
   {
     id: 'lamal-vs-ssn-decisione',
     category: 'pratico',
     date: '2026-04-03',
-    image: '/images/places/mendrisio-sunset.webp',
+    image: '/images/places/lac-lugano.webp',
     hasCalculator: false,
   },
   {
