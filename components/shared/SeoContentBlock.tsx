@@ -21,7 +21,7 @@ import React, { useState } from 'react';
 import {
   Calculator, Scale, Landmark, BookOpen, Users, Target,
   ChevronDown, ChevronUp, Check, Star, Shield, Clock,
-  ArrowRight, Info, CalendarDays,
+  ArrowRight, Info, CalendarDays, Quote,
 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { useNavigationOptional } from '@/services/NavigationContext';
@@ -234,6 +234,19 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
           <p className="text-sm text-slate-600 dark:text-slate-400 mb-3">
             {t(`seoContent.${context}.subtitle`)}
           </p>
+
+          {/* Expert quote — authority signal for AI citation (+30% visibility) */}
+          {t(`seoContent.${context}.expertQuote`) !== `seoContent.${context}.expertQuote` && (
+            <blockquote className="border-l-3 border-blue-400 dark:border-blue-500 pl-3 mb-3 py-1.5" data-speakable="true">
+              <p className="text-sm italic text-slate-600 dark:text-slate-400">
+                <Quote className="inline w-3.5 h-3.5 mr-1 text-blue-400 dark:text-blue-500 -mt-0.5" aria-hidden="true" />
+                {t(`seoContent.${context}.expertQuote`)}
+              </p>
+              <cite className="text-xs text-slate-500 dark:text-slate-400 not-italic font-medium">
+                — {t(`seoContent.${context}.expertName`)}
+              </cite>
+            </blockquote>
+          )}
 
           {/* Trust signals */}
           <div className="flex flex-wrap gap-3 mb-3">

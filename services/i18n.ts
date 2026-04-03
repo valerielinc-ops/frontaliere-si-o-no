@@ -22,6 +22,11 @@ const localeLoading: Partial<Record<Locale, Promise<void>>> = {};
 
 type ChunkLoader = () => Promise<{ default: Translations }>;
 
+// Above-the-fold critical keys for non-IT locales (tiny ~4KB, loaded first)
+const localeCriticalLoaders: Partial<Record<Locale, ChunkLoader>> = {
+  en: () => import('./locales/en-critical'),
+};
+
 const localeChunkLoaders: Record<string, Record<string, ChunkLoader>> = {
   en: {
     core:        () => import('./locales/en-core'),
@@ -185,11 +190,17 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
     return;
   }
 
-  // Load core + calculator first (critical path)
-  localeLoading[locale] = Promise.all([
-    chunks.core(),
-    chunks.calculator(),
-  ]).then(async ([core, calc]) => {
+  // Load critical above-the-fold keys first (tiny ~4KB, renders instantly),
+  // then core + calculator in parallel. Critical keys reduce flash-of-IT on EN pages.
+  const criticalLoader = localeCriticalLoaders[locale];
+  localeLoading[locale] = (async () => {
+    if (criticalLoader) {
+      const critical = await criticalLoader();
+      mergeLocaleTranslations(locale, critical.default);
+      localeTick++;
+      listeners.forEach(fn => fn(currentLocale));
+    }
+    const [core, calc] = await Promise.all([chunks.core(), chunks.calculator()]);
     mergeLocaleTranslations(locale, core.default);
     mergeLocaleTranslations(locale, calc.default);
     loadedLocaleChunks[locale].add('core');
@@ -221,7 +232,7 @@ export async function ensureLocaleLoaded(locale: Locale): Promise<void> {
     } else {
       setTimeout(loadRemaining, 100);
     }
-  });
+  })();
   await localeLoading[locale];
 }
 
