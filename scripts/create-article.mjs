@@ -259,6 +259,9 @@ const CREATE_ARTICLE_MIN_IT_WORDS = Math.max(
   600,
   Number.parseInt(process.env.CREATE_ARTICLE_MIN_IT_WORDS || '900', 10) || 900,
 );
+// Hard cap per body field — prevents LLM overshoot during expansion from
+// producing fields too large for free-tier translation models (output cap ~2048-4096 tokens).
+const MAX_BODY_FIELD_WORDS = 600;
 const CREATE_ARTICLE_MIN_WORDS_RETRIES = Math.max(
   1,
   Number.parseInt(process.env.CREATE_ARTICLE_MIN_WORDS_RETRIES || '6', 10) || 6,
@@ -1780,7 +1783,7 @@ ${currentText}
 TITOLO ARTICOLO: ${it.title || ''}
 
 ISTRUZIONI:
-- Riscrivi ed ESPANDI questo testo a MINIMO ${targetFieldWords} parole
+- Riscrivi ed ESPANDI questo testo a circa ${targetFieldWords} parole (MASSIMO ${MAX_BODY_FIELD_WORDS} parole — NON superare questo limite)
 - Mantieni lo stesso tono, stile e struttura
 - Aggiungi: esempi concreti con numeri reali, riferimenti a comuni ticinesi specifici, normative con date e importi, checklist operative, confronti tra scenari pratici
 - NON aggiungere frasi generiche o filler — solo informazioni utili e verificabili
@@ -1804,6 +1807,24 @@ ISTRUZIONI:
       if (expandedWords > currentWords) {
         it[field] = expandedClean;
         console.error(`    📝 ${field}: ${currentWords} → ${expandedWords} parole`);
+
+        // Hard cap: trim at paragraph boundary if LLM overshot the limit
+        if (expandedWords > MAX_BODY_FIELD_WORDS) {
+          const paragraphs = expandedClean.split(/\n\n+/);
+          let trimmed = '';
+          let trimmedWords = 0;
+          for (const p of paragraphs) {
+            const pWords = countWords(p);
+            if (trimmedWords + pWords > MAX_BODY_FIELD_WORDS && trimmed) break;
+            trimmed += (trimmed ? '\n\n' : '') + p;
+            trimmedWords += pWords;
+          }
+          // Only trim if we kept at least some content
+          if (trimmedWords >= currentWords && trimmedWords < expandedWords) {
+            it[field] = trimmed;
+            console.error(`    ✂️  ${field}: troncato a ${trimmedWords} parole (max ${MAX_BODY_FIELD_WORDS})`);
+          }
+        }
       } else {
         console.error(`    ⚠️  ${field}: espansione non ha aumentato le parole (${expandedWords} ≤ ${currentWords})`);
       }
@@ -1897,10 +1918,63 @@ async function translateArticle(data) {
 
     // Split into 4 parallel calls — one per field group — to stay within model output limits.
     // German/French expand ~30% vs Italian; some models cap output at ~2048-4096 tokens.
-    // Keeping each call to a single field ensures even the most limited model can complete it.
+    // Dynamic maxTokens based on input word count + sub-chunking for oversized fields.
 
     const makePrompt = (fields, schema) =>
       `Traduci il seguente contenuto giornalistico da italiano a ${langName} per il sito Frontaliere Ticino.\n\n${fields}\n\n${rules}\n\nRispondi con un JSON object (no markdown, no code fences):\n${schema}`;
+
+    // Scale maxTokens to input size: ~2 tokens/word in, ~2.5 tokens/word out (translation expansion)
+    const bodyTokens = (text) => Math.max(5000, Math.ceil(countWords(text || '') * 5));
+
+    // For body fields exceeding this threshold, split into sub-chunks and translate separately
+    const TRANSLATION_CHUNK_THRESHOLD = 700;
+
+    async function translateBodyField(bodyKey, bodyText, lang) {
+      const words = countWords(bodyText || '');
+
+      if (words <= TRANSLATION_CHUNK_THRESHOLD) {
+        // Normal single-call translation
+        return callWithRetry(makePrompt(
+          `CONTENUTO ITALIANO DA TRADURRE:\n- ${bodyKey}: ${bodyText}`,
+          `{"${bodyKey}": "..."}`,
+        ), bodyTokens(bodyText), `${lang}:${bodyKey.replace('body', 'b')}`);
+      }
+
+      // Sub-chunk: split at paragraph boundaries into ~500-word pieces
+      console.error(`    📦 ${lang}:${bodyKey} = ${words} parole → sub-chunking...`);
+      const paragraphs = (bodyText || '').split(/\n\n+/);
+      const chunks = [];
+      let currentChunk = '';
+      let currentWords = 0;
+      const chunkTarget = 500;
+
+      for (const p of paragraphs) {
+        const pWords = countWords(p);
+        if (currentWords + pWords > chunkTarget && currentChunk) {
+          chunks.push(currentChunk);
+          currentChunk = p;
+          currentWords = pWords;
+        } else {
+          currentChunk += (currentChunk ? '\n\n' : '') + p;
+          currentWords += pWords;
+        }
+      }
+      if (currentChunk) chunks.push(currentChunk);
+
+      // Translate each chunk in parallel
+      const translated = await Promise.all(
+        chunks.map((chunk, i) =>
+          callWithRetry(makePrompt(
+            `CONTENUTO ITALIANO DA TRADURRE (parte ${i + 1} di ${chunks.length}):\n- ${bodyKey}: ${chunk}`,
+            `{"${bodyKey}": "..."}`,
+          ), bodyTokens(chunk), `${lang}:${bodyKey.replace('body', 'b')}-p${i + 1}`),
+        ),
+      );
+
+      // Join translated chunks
+      const joined = translated.map((r) => r[bodyKey] || '').join('\n\n');
+      return { [bodyKey]: joined };
+    }
 
     const [partMeta, partB1, partB2, partB3] = await Promise.all([
       // Call 1: title + excerpt (small, ~300 tokens output)
@@ -1908,21 +1982,10 @@ async function translateArticle(data) {
         `CONTENUTO ITALIANO DA TRADURRE:\n- title: ${sourceContent.title}\n- excerpt: ${sourceContent.excerpt}`,
         '{"title": "...", "excerpt": "..."}',
       ), 1000, `${targetLang}:meta`),
-      // Call 2: body1 (one section, ~800 tokens max)
-      callWithRetry(makePrompt(
-        `CONTENUTO ITALIANO DA TRADURRE:\n- body1: ${sourceContent.body1}`,
-        '{"body1": "..."}',
-      ), 5000, `${targetLang}:b1`),
-      // Call 3: body2 (one section, ~800 tokens max)
-      callWithRetry(makePrompt(
-        `CONTENUTO ITALIANO DA TRADURRE:\n- body2: ${sourceContent.body2}`,
-        '{"body2": "..."}',
-      ), 5000, `${targetLang}:b2`),
-      // Call 4: body3 (one section, ~800 tokens max)
-      callWithRetry(makePrompt(
-        `CONTENUTO ITALIANO DA TRADURRE:\n- body3: ${sourceContent.body3}`,
-        '{"body3": "..."}',
-      ), 5000, `${targetLang}:b3`),
+      // Call 2-4: body fields with dynamic sizing + sub-chunking safety
+      translateBodyField('body1', sourceContent.body1, targetLang),
+      translateBodyField('body2', sourceContent.body2, targetLang),
+      translateBodyField('body3', sourceContent.body3, targetLang),
     ]);
 
     const [partA, partB] = [{ ...partMeta, ...partB1 }, { ...partB2, ...partB3 }];

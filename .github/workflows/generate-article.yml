@@ -2,11 +2,11 @@ name: Generate Blog Article
 
 on:
   schedule:
-    # Runs every 3 hours to preserve AI model quota (free-tier rate limits).
-    # Previous 30-min cadence (48 runs/day) exhausted all ~60 models in the
-    # fallback chain, causing 80%+ failure rate.  8 runs/day is sufficient
-    # for article freshness while staying within free-tier quotas.
-    - cron: '7 */3 * * *'
+    # Every 30 minutes.  Body expansion is now capped at 600 words/field
+    # and translation uses dynamic maxTokens + sub-chunking, so free-tier
+    # models no longer truncate.  Duplicate-check exits early (no API calls)
+    # for most runs, keeping actual model consumption low.
+    - cron: '7,37 * * * *'
   workflow_dispatch:
     inputs:
       url:
