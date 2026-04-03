@@ -1,24 +1,22 @@
 {
   "key": "banca-raiffeisen-vedeggio-cassarate",
   "label": "Raiffeisen VC",
-  "generatedAt": "2026-04-03T09:40:01.230Z",
+  "generatedAt": "2026-04-03T21:35:37.475Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 21010,
-  "avgDurationMs": 21010,
+  "unchangedCount": 1,
+  "durationMs": 15734,
+  "avgDurationMs": 15734,
   "durationHistory": [
-    21010
+    15734
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "company-q14jnx",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-gravesano-ticino-q14jnx",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata individuale",
       "location": "Gravesano, Ticino",
@@ -57,7 +55,7 @@
     },
     {
       "id": "company-yifl2t",
-      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-rivera-ticino-yifl2t",
+      "slug": "consulente-clientela-privata-individuale-banca-raiffeisen-vedeggio-cassarate-cadempino",
       "company": "Banca Raiffeisen Vedeggio Cassarate",
       "title": "Consulente clientela privata individuale",
       "location": "Rivera, Ticino",
@@ -93,7 +91,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-m99b74",
       "slug": "consulente-clientela-affluent-banca-raiffeisen-vedeggio-cassarate-cadempino",
