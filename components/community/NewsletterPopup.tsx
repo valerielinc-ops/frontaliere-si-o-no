@@ -246,6 +246,13 @@ const NewsletterPopup: React.FC = () => {
     }
   }, [user, visible]);
 
+  // Hide AdSense auto-ads while the popup is showing (they use z-index 2147483647)
+  useEffect(() => {
+    const isOpen = visible && queueActive;
+    document.body.classList.toggle('modal-open', isOpen);
+    return () => { document.body.classList.remove('modal-open'); };
+  }, [visible, queueActive]);
+
   // Google One Tap: prompt when the popup is actually visible (slot active).
   useEffect(() => {
     if (!visible || !queueActive) return;
@@ -359,7 +366,7 @@ const NewsletterPopup: React.FC = () => {
   if (!visible || !queueActive) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in" style={{ isolation: 'isolate' }}>
+    <div className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
       <div className="relative w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
         {/* Header gradient */}
         <div className="bg-gradient-to-r from-teal-600 to-emerald-700 p-4 sm:p-6 text-white">

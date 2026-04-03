@@ -21,6 +21,19 @@ main { display: block !important; }
 /* Hide reCAPTCHA badge — required notice is in privacy policy */
 .grecaptcha-badge { visibility: hidden !important; }
 
+/* Hide AdSense auto-ads when a high-priority modal is open.
+   AdSense overlays use z-index up to 2147483647, which covers our popups.
+   Toggled by adding .modal-open to <body> when newsletter/critical modals show. */
+body.modal-open ins.adsbygoogle,
+body.modal-open [id^="google_ads"],
+body.modal-open [id^="aswift_"],
+body.modal-open iframe[id^="aswift_"],
+body.modal-open div[data-ad-client],
+body.modal-open div[id^="google_ads_iframe"] {
+  visibility: hidden !important;
+  pointer-events: none !important;
+}
+
 /* ===== Non-critical CSS moved from inline <style> to reduce render-blocking ===== */
 
 /* Entrance animations — only needed after React mounts */
