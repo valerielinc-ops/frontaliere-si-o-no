@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-03T07:21:51.896Z",
+  "assembledAt": "2026-04-03T08:53:39.357Z",
   "jobs": [
     {
       "title": "Consulente Assicurativo per il Luganese",
@@ -20,7 +20,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60-100%",
@@ -62,7 +62,8 @@
       "previousSlugs": [
         "consulente-assicurativo-per-il-luganese",
         "consulente-assicurativo-per-il-luganese-axa-svizzera-axa"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -82,7 +83,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -143,7 +144,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80%",
@@ -206,7 +207,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -247,7 +248,8 @@
       "postalCode": "6901",
       "previousSlugs": [
         "senior-underwriter-responsabilita-civile-axa-svizzera-axa-assicurazioni"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -267,7 +269,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -311,6 +313,65 @@
       ]
     },
     {
+      "title": "Consulente Assicurativo",
+      "slug": "consulente-assicurativo",
+      "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": "() Agenzia principale Nicola Locarnini, Manno",
+      "addressLocality": "AXA",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "assicurazioni",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-03",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "workload": "50-100%",
+      "validThrough": "",
+      "description": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+      "titleByLocale": {
+        "it": "Consulente Assicurativo",
+        "fr": "Consulente Assicurativo",
+        "en": "Consulente Assicurativo",
+        "de": "Consulente Assicurativo"
+      },
+      "descriptionByLocale": {
+        "it": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "en": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "de": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "fr": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale."
+      },
+      "slugByLocale": {
+        "it": "consulente-assicurativo",
+        "en": "consulente-assicurativo",
+        "de": "consulente-assicurativo",
+        "fr": "consulente-assicurativo"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via della Posta 2",
+      "postalCode": "6901"
+    },
+    {
       "title": "Consulente Assicurativo per il Mendrisiotto",
       "slug": "consulente-assicurativo-per-il-mendrisiotto",
       "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo-per-il-mendrisiotto/feda0a6f-d9e7-4fd0-871d-d41b0556f7ec",
@@ -328,7 +389,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60%",
@@ -370,11 +431,12 @@
       "previousSlugs": [
         "consulente-assicurativo-per-il-mendrisiotto",
         "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiter:in Front Office Leistungen Ambulant",
-      "slug": "sachbearbeiter-in-front-office-leistungen-ambulant",
+      "slug": "addetto-a-front-office-prestazioni-ambulatoriali-axa-svizzera-general-guisan-strasse",
       "url": "https://jobs.axa.ch/posizioni-aperte/sachbearbeiter-in-front-office-leistungen-ambulant/bb1c8e7f-8175-43da-9a69-f875bbbe375b",
       "applyUrl": "https://jobs.axa.ch/apply/ats/bb1c8e7f-8175-43da-9a69-f875bbbe375b",
       "company": "AXA Svizzera",
@@ -390,28 +452,28 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
       "validThrough": "",
       "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nHast du Lust auf ein dynamisches und stark wachsendes Umfeld bei einer Top Arbeitgeberin? Bist du bereit die Ärmel hochzukrempeln, mit anzupacken und im jüngsten und gleichzeitig stark wachsenden Geschäftsfeld der AXA Schweiz – die Gesundheitsvorsorge – mitzuarbeiten? – JA? Dann bist du bei uns richtig!Die AXA-Gesundheitsvorsorge wurde im Sommer 2017 gegründet und zählt mittlerweile über 200'000 Kund:innen im Bestand. Das Angebot der Gesundheitsvorsorge umfasst Kranken-Zusatzversicherungen und innovative Services wie den Wechsel- und Rechnungsservice. Mit diesen schweizweit einzigartigen Services sparen unsere Kund:innen nicht nur bares Geld, wir übernehmen für sie auch den administrativen Aufwand. Zeit oder Geld sparen? Bei der AXA geht beides!In dieser verantwortungsvollen Position stellst du eine effiziente und qualitativ hochwertige Abwicklung im operativen Front Office sicher. Gemeinsam mit einem engagierten Team gewährleistest du einen erstklassigen Kundenservice und trägst aktiv zum nachhaltigen Erfolg des Bereichs Gesundheitsvorsorge bei. Es erwartet dich ein vielseitiges Aufgabenspektrum mit der Möglichkeit, dich bei entsprechender Eignung in bereichsübergreifende Projekte einzubringen.\n\nBei der Gesundheitsvorsorge arbeitest du im Bereich Vorsorge der AXA Schweiz. Mit unseren vielfältigen und fortschrittlichen Produkten schaffen wir für unsere Kundinnen und Kunden Freiräume und Sicherheit, damit sie ihr Leben unbeschwert gestalten können.\n\n## Dein Beitrag\n- Du übernimmst eine zentrale Drehscheibenfunktion und stehst telefonisch wie schriftlich im Austausch mit Versicherten, Leistungserbringern sowie weiteren Anspruchsgruppen. Dabei stellst du eine kompetente, lösungsorientierte Betreuung sicher\n- Du agierst als Gatekeeper für sämtliche Kundenanliegen im Bereich AXA Gesundheitsvorsorge\n- Du stellst eine hohe Servicequalität in den digitalen Kanälen sicher (Kundenportal, myAXA App dies bewerkstelligst du mit den Innovativen Tools, welche wir dir zur Verfügung stellen\n- Du arbeitest eng mit dem Back Office sowie mit internen Schnittstellen zusammen und förderst eine reibungslose, abteilungsübergreifende Zusammenarbeit\n- Du koordinierst Kundenanliegen eigenständig und leitest diese effizient an die zuständigen Fachbereiche weiter\n\n## Deine Fähigkeiten und Talente\n- Kaufmännische Ausbildung mit Erfahrung im Krankenversicherungsumfeld und/oder medizinische Grundausbildung (z. B. Pharmaassistent:in, Drogist:in, MPA, FaGe, Pflegefachperson)\n- Freude an anspruchsvollen Kundengesprächen sowie ausgeprägte Kommunikationsstärke\n- Sehr gute Deutschkenntnisse in Wort und Schrift; eine zweite Landessprache (Französisch oder Italienisch) ist zwingend erforderlich. Englischkenntnisse sind von Vorteil\n- Hohe Kundenorientierung mit dem Anspruch, eine exzellente Customer Experience sicherzustellen\n- Flexible, selbstständige und belastbare Persönlichkeit mit ausgeprägter Teamfähigkeit\n- Freude an der Arbeit in einem dynamischen und leistungsorientierten Umfeld\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
       "titleByLocale": {
-        "de": "Sachbearbeiter:in Front Office Leistungen Ambulant",
         "it": "Addetto/a Front Office Prestazioni Ambulatoriali",
         "en": "Front Office Customer Service Specialist Ambulant",
+        "de": "Sachbearbeiter:in Front Office Leistungen Ambulant",
         "fr": "Conseiller/ère Front Office Prestations Ambulantes"
       },
       "descriptionByLocale": {
-        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als Hast du Lust auf ein dynamisches und stark wachsendes Umfeld bei einer Top Arbeitgeberin? Bist du bereit die Ärmel hochzukrempeln, mit anzupacken und im jüngsten und gleichzeitig stark wachsenden Geschäftsfeld der AXA Schweiz – die Gesundheitsvorsorge – mitzuarbeiten? – JA? Dann bist du bei uns richtig!Die AXA-Gesundheitsvorsorge wurde im Sommer 2017 gegründet und zählt mittlerweile über 200'000 Kund:innen im Bestand. Das Angebot der Gesundheitsvorsorge umfasst Kranken-Zusatzversicherungen und innovative Services wie den Wechsel- und Rechnungsservice. Mit diesen schweizweit einzigartigen Services sparen unsere Kund:innen nicht nur bares Geld, wir übernehmen für sie auch den administrativen Aufwand. Zeit oder Geld sparen? Bei der AXA geht beides!In dieser verantwortungsvollen Position stellst du eine effiziente und qualitativ hochwertige Abwicklung im operativen Front Office sicher. Gemeinsam mit einem engagierten Team gewährleistest du einen erstklassigen Kundenservice und trägst aktiv zum nachhaltigen Erfolg des Bereichs Gesundheitsvorsorge bei. Es erwartet dich ein vielseitiges Aufgabenspektrum mit der Möglichkeit, dich bei entsprechender Eignung in bereichsübergreifende Projekte einzubringen. Bei der Gesundheitsvorsorge arbeitest du im Bereich Vorsorge der AXA Schweiz. Mit unseren vielfältigen und fortschrittlichen Produkten schaffen wir für unsere Kundinnen und Kunden Freiräume und Sicherheit, damit sie ihr Leben unbeschwert gestalten können. ## Dein Beitrag - Du übernimmst eine zentrale Drehscheibenfunktion und stehst telefonisch wie schriftlich im Austausch mit Versicherten, Leistungserbringern sowie weiteren Anspruchsgruppen. Dabei stellst du eine kompetente, lösungsorientierte Betreuung sicher - Du agierst als Gatekeeper für sämtliche Kundenanliegen im Bereich AXA Gesundheitsvorsorge - Du stellst eine hohe Servicequalität in den digitalen Kanälen sicher (Kundenportal, myAXA App dies bewerkstelligst du mit den Innovativen Tools, welche wir dir zur Verfügung stellen - Du arbeitest eng mit dem Back Office sowie mit internen Schnittstellen zusammen und förderst eine reibungslose, abteilungsübergreifende Zusammenarbeit - Du koordinierst Kundenanliegen eigenständig und leitest diese effizient an die zuständigen Fachbereiche weiter ## Deine Fähigkeiten und Talente - Kaufmännische Ausbildung mit Erfahrung im Krankenversicherungsumfeld und/oder medizinische Grundausbildung (z. B. Pharmaassistent:in, Drogist:in, MPA, FaGe, Pflegefachperson) - Freude an anspruchsvollen Kundengesprächen sowie ausgeprägte Kommunikationsstärke - Sehr gute Deutschkenntnisse in Wort und Schrift; eine zweite Landessprache (Französisch oder Italienisch) ist zwingend erforderlich. Englischkenntnisse sind von Vorteil - Hohe Kundenorientierung mit dem Anspruch, eine exzellente Customer Experience sicherzustellen - Flexible, selbstständige und belastbare Persönlichkeit mit ausgeprägter Teamfähigkeit - Freude an der Arbeit in einem dynamischen und leistungsorientierten Umfeld ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
         "it": "Unisciti ad AXA, la principale compagnia assicurativa della Svizzera - come Hai voglia di un ambiente dinamico e in forte crescita presso un datore di lavoro di primo piano? Sei pronto/a a rimboccarti le maniche, a dare il tuo contributo e a lavorare nel settore più giovane e allo stesso tempo in rapida espansione di AXA Svizzera – la prevenzione sanitaria? – SÌ? Allora sei nel posto giusto! La prevenzione sanitaria di AXA è stata fondata nell’estate del 2017 e oggi conta oltre 200.000 clienti attivi. L’offerta di prevenzione sanitaria include assicurazioni complementari per la salute e servizi innovativi come il servizio di cambio e fatturazione. Con questi servizi unici in Svizzera, i nostri clienti non risparmiano solo denaro, ma ci affidano anche la gestione amministrativa. Risparmiare tempo o denaro? Con AXA si può entrambe! In questa posizione di responsabilità garantisci un’efficiente e di alta qualità gestione delle attività operative del Front Office. Insieme a un team dedicato, assicuri un servizio clienti di prima classe e contribuisci attivamente al successo sostenibile del settore Prevenzione Sanitaria. Ti attende un ruolo vario con l’opportunità, in base alle tue capacità, di partecipare a progetti trasversali. Nel settore Prevenzione Sanitaria lavori nell’ambito della previdenza di AXA Svizzera. Con i nostri prodotti innovativi e diversificati, creiamo spazi di libertà e sicurezza per i nostri clienti, affinché possano vivere senza preoccupazioni. ## Il tuo contributo - Ricopri un ruolo centrale di collegamento e interagisci telefonicamente e per iscritto con assicurati, fornitori di servizi e altri stakeholder. Garantendo un’assistenza competente e orientata alla soluzione. - Agisci come gatekeeper per tutte le richieste dei clienti nel settore Prevenzione Sanitaria di AXA. - Garantisci un alto livello di qualità del servizio sui canali digitali (portale clienti, app myAXA) utilizzando gli strumenti innovativi messi a disposizione. - Collabori strettamente con il Back Office e con le interfacce interne, promuovendo una collaborazione fluida tra i reparti. - Coordinare autonomamente le richieste dei clienti e indirizzarle efficacemente ai reparti competenti. ## Le tue competenze e talenti - Formazione commerciale con esperienza nel settore delle assicurazioni sanitarie e/o formazione medica di base (ad esempio assistente farmaceutico/a, droghiere/a, MPA, FaGe, professionista sanitario/a) - Piacere nel gestire conversazioni complesse con i clienti e forte capacità comunicativa. - Ottima conoscenza del tedesco scritto e parlato; una seconda lingua nazionale (francese o italiano) è obbligatoria. Conoscenze di inglese sono un vantaggio. - Elevata orientamento al cliente con l’obiettivo di garantire un’eccellente esperienza cliente. - Personalità flessibile, autonoma e resiliente, con forte attitudine al lavoro di squadra. - Piacere nel lavorare in un ambiente dinamico e orientato alla performance. ## Il nostro processo di candidatura Conosci il nostro processo di candidatura e ottieni risposte alle domande più frequenti. Se durante il processo hai bisogno di supporto, contattaci pure. Il nostro team di recruiting sarà felice di aiutarti. ## Smart Working In AXA crediamo nella fiducia, nella flessibilità e nel lavoro di squadra. Al centro del nostro nuovo modello di lavoro “Smart Working” c’è il tuo contributo agli obiettivi aziendali, non il luogo in cui lavori. ## Diversità & Inclusione Per noi di AXA, la diversità, l’uguaglianza di opportunità e l’inclusione sono fondamentali. La nostra cultura aziendale promuove rispetto e apertura, affinché ogni persona possa esprimere al massimo il proprio potenziale.",
         "en": "Join AXA, Switzerland’s leading insurance company - as Are you excited about a dynamic and rapidly growing environment at a top employer? Are you ready to roll up your sleeves, get involved, and contribute to the youngest yet fast-growing sector of AXA Switzerland – health insurance? – YES? Then you are in the right place! AXA’s health insurance was founded in summer 2017 and now counts over 200,000 active customers. The health insurance offerings include supplementary health insurance and innovative services such as the switching and billing service. With these unique services across Switzerland, our customers not only save money but also entrust us with their administrative tasks. Saving time or money? With AXA, you get both! In this responsible position, you ensure efficient and high-quality handling of operational front office activities. Together with a dedicated team, you guarantee first-class customer service and actively contribute to the sustainable success of the health insurance division. You will face a versatile range of tasks with the opportunity, depending on your suitability, to participate in cross-departmental projects. In the health insurance sector, you work within AXA Switzerland’s Vorsorge (prevention) department. With our diverse and innovative products, we create space and security for our clients so they can live their lives carefree. ## Your Contribution - You take on a central coordinating role and communicate both by phone and in writing with insured persons, service providers, and other stakeholders. Ensuring competent, solution-oriented support. - You act as a gatekeeper for all customer inquiries in the AXA health insurance division. - You ensure high service quality across digital channels (customer portal, myAXA app) using the innovative tools we provide. - You work closely with the back office and internal interfaces, promoting smooth, cross-departmental collaboration. - You independently coordinate customer requests and efficiently forward them to the appropriate departments. ## Your Skills and Talents - Commercial training with experience in health insurance and/or basic medical training (e.g., pharmacy assistant, druggist, MPA, FaGe, nursing professional) - Enjoyment in handling demanding customer conversations and strong communication skills. - Excellent German language skills, both spoken and written; a second national language (French or Italian) is mandatory. English skills are an advantage. - High customer orientation with the aim of ensuring an excellent customer experience. - Flexible, independent, and resilient personality with strong team skills. - Enjoy working in a dynamic and performance-oriented environment. ## Our Application Process Learn about our application process and get answers to frequently asked questions. If you need support during the application process, just reach out. Our recruiting team is happy to assist you. ## Smart Working At AXA, we rely on trust, flexibility, and teamwork. The core of our new “Smart Working” model is your contribution to company goals, not the place where you work. ## Diversity & Inclusion Diversity, equal opportunities, and inclusion are close to our hearts at AXA. Our corporate culture promotes respect and openness so that everyone can reach their full potential.",
+        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als Hast du Lust auf ein dynamisches und stark wachsendes Umfeld bei einer Top Arbeitgeberin? Bist du bereit die Ärmel hochzukrempeln, mit anzupacken und im jüngsten und gleichzeitig stark wachsenden Geschäftsfeld der AXA Schweiz – die Gesundheitsvorsorge – mitzuarbeiten? – JA? Dann bist du bei uns richtig!Die AXA-Gesundheitsvorsorge wurde im Sommer 2017 gegründet und zählt mittlerweile über 200'000 Kund:innen im Bestand. Das Angebot der Gesundheitsvorsorge umfasst Kranken-Zusatzversicherungen und innovative Services wie den Wechsel- und Rechnungsservice. Mit diesen schweizweit einzigartigen Services sparen unsere Kund:innen nicht nur bares Geld, wir übernehmen für sie auch den administrativen Aufwand. Zeit oder Geld sparen? Bei der AXA geht beides!In dieser verantwortungsvollen Position stellst du eine effiziente und qualitativ hochwertige Abwicklung im operativen Front Office sicher. Gemeinsam mit einem engagierten Team gewährleistest du einen erstklassigen Kundenservice und trägst aktiv zum nachhaltigen Erfolg des Bereichs Gesundheitsvorsorge bei. Es erwartet dich ein vielseitiges Aufgabenspektrum mit der Möglichkeit, dich bei entsprechender Eignung in bereichsübergreifende Projekte einzubringen. Bei der Gesundheitsvorsorge arbeitest du im Bereich Vorsorge der AXA Schweiz. Mit unseren vielfältigen und fortschrittlichen Produkten schaffen wir für unsere Kundinnen und Kunden Freiräume und Sicherheit, damit sie ihr Leben unbeschwert gestalten können. ## Dein Beitrag - Du übernimmst eine zentrale Drehscheibenfunktion und stehst telefonisch wie schriftlich im Austausch mit Versicherten, Leistungserbringern sowie weiteren Anspruchsgruppen. Dabei stellst du eine kompetente, lösungsorientierte Betreuung sicher - Du agierst als Gatekeeper für sämtliche Kundenanliegen im Bereich AXA Gesundheitsvorsorge - Du stellst eine hohe Servicequalität in den digitalen Kanälen sicher (Kundenportal, myAXA App dies bewerkstelligst du mit den Innovativen Tools, welche wir dir zur Verfügung stellen - Du arbeitest eng mit dem Back Office sowie mit internen Schnittstellen zusammen und förderst eine reibungslose, abteilungsübergreifende Zusammenarbeit - Du koordinierst Kundenanliegen eigenständig und leitest diese effizient an die zuständigen Fachbereiche weiter ## Deine Fähigkeiten und Talente - Kaufmännische Ausbildung mit Erfahrung im Krankenversicherungsumfeld und/oder medizinische Grundausbildung (z. B. Pharmaassistent:in, Drogist:in, MPA, FaGe, Pflegefachperson) - Freude an anspruchsvollen Kundengesprächen sowie ausgeprägte Kommunikationsstärke - Sehr gute Deutschkenntnisse in Wort und Schrift; eine zweite Landessprache (Französisch oder Italienisch) ist zwingend erforderlich. Englischkenntnisse sind von Vorteil - Hohe Kundenorientierung mit dem Anspruch, eine exzellente Customer Experience sicherzustellen - Flexible, selbstständige und belastbare Persönlichkeit mit ausgeprägter Teamfähigkeit - Freude an der Arbeit in einem dynamischen und leistungsorientierten Umfeld ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
         "fr": "Rejoignez AXA, la principale compagnie d’assurance en Suisse - en tant que Envie d’évoluer dans un environnement dynamique et en forte croissance chez un employeur de premier plan ? Êtes-vous prêt(e) à retrousser vos manches, à vous impliquer et à contribuer au secteur le plus jeune et en même temps en pleine expansion d’AXA Suisse – la prévention santé ? – OUI ? Alors vous êtes au bon endroit ! La prévention santé d’AXA a été créée à l’été 2017 et compte aujourd’hui plus de 200’000 clients actifs. L’offre de prévention santé comprend des assurances complémentaires santé et des services innovants tels que le service de changement et de facturation. Avec ces services uniques en Suisse, nos clients économisent non seulement de l’argent, mais nous confient également la gestion administrative. Gagner du temps ou de l’argent ? Avec AXA, les deux ! Dans ce poste à responsabilité, vous assurez une gestion efficace et de haute qualité des activités opérationnelles du Front Office. Avec une équipe engagée, vous garantissez un service client de premier ordre et contribuez activement au succès durable du secteur Prévention Santé. Vous bénéficierez d’un large éventail de missions avec la possibilité, selon votre profil, de participer à des projets transversaux. Dans le domaine de la prévention santé, vous travaillez au sein du département prévoyance d’AXA Suisse. Grâce à nos produits variés et innovants, nous créons pour nos assurés un espace de liberté et de sécurité, leur permettant de vivre leur vie en toute sérénité. ## Votre contribution - Vous occupez un rôle central de coordination et échangez par téléphone et par écrit avec les assurés, les prestataires de services et autres parties prenantes. En assurant un accompagnement compétent et orienté solutions. - Vous agissez en tant que gardien pour toutes les demandes clients dans le secteur de la prévention santé d’AXA. - Vous garantissez une haute qualité de service sur les canaux digitaux (portail client, application myAXA) en utilisant les outils innovants mis à votre disposition. - Vous collaborez étroitement avec le back-office et les interfaces internes, favorisant une collaboration fluide entre les départements. - Vous coordonnez de manière autonome les demandes clients et les transmettez efficacement aux services compétents. ## Vos compétences et talents - Formation commerciale avec expérience dans le domaine des assurances santé et/ou formation médicale de base (par ex. assistant(e) en pharmacie, droguiste, MPA, FaGe, professionnel(le) de la santé) - Plaisir à gérer des échanges clients exigeants et forte capacité de communication. - Excellentes connaissances du allemand à l’oral et à l’écrit ; une deuxième langue nationale (français ou italien) est obligatoire. La maîtrise de l’anglais est un plus. - Forte orientation client avec l’objectif d’assurer une expérience client exceptionnelle. - Personnalité flexible, autonome et résiliente, avec un fort esprit d’équipe. - Plaisir à travailler dans un environnement dynamique et axé sur la performance. ## Notre processus de candidature Découvrez notre processus de candidature et obtenez des réponses aux questions fréquentes. Si vous avez besoin d’aide durant le processus, n’hésitez pas à nous contacter. Notre équipe de recrutement se fera un plaisir de vous accompagner. ## Smart Working Chez AXA, nous croyons en la confiance, la flexibilité et le travail d’équipe. Au cœur de notre nouveau modèle de travail « Smart Working » se trouve votre contribution aux objectifs de l’entreprise, et non le lieu où vous travaillez. ## Diversité & Inclusion La diversité, l’égalité des chances et l’inclusion sont des valeurs qui nous tiennent à cœur chez AXA. Notre culture d’entreprise favorise le respect et l’ouverture, afin que chaque personne puisse réaliser son plein potentiel."
       },
       "slugByLocale": {
-        "de": "sachbearbeiter-in-front-office-leistungen-ambulant",
-        "it": "addetto-a-front-office-prestazioni-ambulatoriali-axa-svizzera-80-winterthur-smart-working",
+        "it": "addetto-a-front-office-prestazioni-ambulatoriali-axa-svizzera-general-guisan-strasse",
         "en": "front-office-customer-service-specialist-ambulant-axa-svizzera-80-winterthur-smart-working",
+        "de": "sachbearbeiter-in-front-office-leistungen-ambulant",
         "fr": "conseiller-ere-front-office-prestations-ambulantes-axa-svizzera-80-winterthur-smart-working"
       },
       "salaryMin": 58000,
@@ -430,7 +492,8 @@
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
       "previousSlugs": [
-        "sachbearbeiter-in-front-office-leistungen-ambulant"
+        "sachbearbeiter-in-front-office-leistungen-ambulant",
+        "addetto-a-front-office-prestazioni-ambulatoriali-axa-svizzera-80-winterthur-smart-working"
       ]
     },
     {
@@ -451,7 +514,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -492,7 +555,8 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Specialist Corporate Law bei AXA-ARAG (all genders)",
@@ -512,7 +576,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -574,7 +638,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -635,7 +699,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
