@@ -1974,6 +1974,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.gasolio-costi-pullman-ticino-lago-como.title': 'Lago di Como: Pullman Turistici e Bus di Linea Sotto Pressione - Gasolio +40 Milioni/Mese',
     'blog.article.gasolio-costi-pullman-ticino-lago-como.excerpt': 'La crisi del gasolio colpisce duramente il trasporto pubblico e turistico attorno al Lago di Como, con costi aggiuntivi di 40 milioni di euro al mese.',
     'blog.article.gasolio-costi-pullman-ticino-lago-como.imageAlt': 'Pullman turistico a Chiasso con lo sfondo del Lago di Como',
+    'blog.article.tram-treno-luganese-passo-avanti.title': 'Il Tribunale federale amministrativo respinge gli ultimi ricorsi contro il progetto Rete tram-treno del Luganese',
+    'blog.article.tram-treno-luganese-passo-avanti.excerpt': 'Il Tribunale federale amministrativo ha respinto gli ultimi ricorsi contro il progetto Rete tram-treno del Luganese',
+    'blog.article.tram-treno-luganese-passo-avanti.imageAlt': 'Fotografia di un tram-treno in movimento lungo la riva del Lago di Lugano',
 };
 
 export default blogMetaIt;

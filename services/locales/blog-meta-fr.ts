@@ -1974,6 +1974,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.gasolio-costi-pullman-ticino-lago-como.title': 'Lac de Como: Pullman Touristiques et Bus de Ligne Sous Pression - Gazole +40 Millions/Euro/Mois',
     'blog.article.gasolio-costi-pullman-ticino-lago-como.excerpt': 'La crise du gazole frappe durement le transport public et touristique autour du Lac de Como, avec des coûts supplémentaires de 40 millions d\'euros par mois ⚠️',
     'blog.article.gasolio-costi-pullman-ticino-lago-como.imageAlt': 'Bus touristique à Chiasso avec le Lac de Côme en arrière-plan',
+    'blog.article.tram-treno-luganese-passo-avanti.title': 'Le Tribunal fédéral administratif rejette les dernières recours contre le projet Réseau tram-train du Léman',
+    'blog.article.tram-treno-luganese-passo-avanti.excerpt': 'Le Tribunal fédéral administratif a rejeté les dernières recours contre le projet Réseau tram-train du Léman',
+    'blog.article.tram-treno-luganese-passo-avanti.imageAlt': 'Photographie d\'un tram-train en mouvement le long du lac de Lugano',
 };
 
 export default blogMetaFr;

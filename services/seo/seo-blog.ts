@@ -10838,6 +10838,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tram-treno-luganese-passo-avanti': {
+    title: 'Il Tribunale federale amministrativo respinge gli ultimi ricorsi contro | Frontaliere Ticino',
+    description: 'Il Tribunale federale amministrativo di San Gallo ha respinto gli ultimi cinque ricorsi contro l\'autorizzazione dell\'Ufficio federale dei trasporti per il',
+    keywords: 'frontalieri, ticino, svizzera, italia, tribunale, federale, amministrativo, respinge',
+    ogTitle: 'Il Tribunale federale amministrativo respinge gli ultimi ricorsi contro il progetto Rete',
+    ogDescription: 'Il Tribunale federale amministrativo di San Gallo ha respinto gli ultimi cinque ricorsi contro l\'autorizzazione dell\'Ufficio federale dei trasporti per il',
+    canonicalPath: '/articoli-frontaliere/tram-treno-luganese-passo-avanti',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tribunale federale amministrativo respinge gli ultimi ricorsi contro il progetto Rete tram-treno del",
+      "description": "Il Tribunale federale amministrativo di San Gallo ha respinto gli ultimi cinque ricorsi contro l'autorizzazione dell'Ufficio federale dei trasporti per il",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tram-treno-luganese-passo-avanti.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia di un tram-treno in movimento lungo la riva del Lago di Lugano"
+      },
+      "datePublished": "2026-04-03T20:53:58+00:00",
+      "dateModified": "2026-04-03T20:53:58+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tram-treno-luganese-passo-avanti`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

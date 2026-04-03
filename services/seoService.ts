@@ -1887,6 +1887,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trasferimento-ufficio-postale-chiasso': { name: 'Trasferimento Ufficio Postale', path: '/articoli-frontaliere/trasferimento-ufficio-postale-chiasso', parent: 'blog' },
     'blog-esame-complementare-passerella-aperte-pre-iscrizioni': { name: 'Esame complementare passerella', path: '/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni', parent: 'blog' },
     'blog-gasolio-costi-pullman-ticino-lago-como': { name: 'Lago di Como', path: '/articoli-frontaliere/gasolio-costi-pullman-ticino-lago-como', parent: 'blog' },
+    'blog-tram-treno-luganese-passo-avanti': { name: 'Tram-treno Luganese', path: '/articoli-frontaliere/tram-treno-luganese-passo-avanti', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -5796,4 +5796,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/gasolio-costi-pullman-ticino-lago-como.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tram-treno-luganese-passo-avanti',
+    category: 'novita',
+    date: '2026-04-03T20:53:58.844Z',
+    image: '/images/blog/tram-treno-luganese-passo-avanti.jpg',
+    hasCalculator: true,
+  },
 ];

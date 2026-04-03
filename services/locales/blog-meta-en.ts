@@ -1974,6 +1974,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.gasolio-costi-pullman-ticino-lago-como.title': 'Lake Como: Tourist Coaches and Line Buses Under Pressure - Diesel Costs +40 Million Euros/Month',
     'blog.article.gasolio-costi-pullman-ticino-lago-como.excerpt': 'The diesel crisis is hitting hard the public and tourist transportation around Lake Como, with additional costs of 40 million euros per month.',
     'blog.article.gasolio-costi-pullman-ticino-lago-como.imageAlt': 'Tourist bus in Chiasso with Lake Como in the background',
+    'blog.article.tram-treno-luganese-passo-avanti.title': 'Federal Administrative Court Rejects Final Appeals Against Lugano Tram-Treno Project',
+    'blog.article.tram-treno-luganese-passo-avanti.excerpt': 'The Federal Administrative Court has rejected the final appeals against the Lugano Tram-Treno project',
+    'blog.article.tram-treno-luganese-passo-avanti.imageAlt': 'Photograph of a tram-train in motion along the shore of Lake Lugano',
 };
 
 export default blogMetaEn;
