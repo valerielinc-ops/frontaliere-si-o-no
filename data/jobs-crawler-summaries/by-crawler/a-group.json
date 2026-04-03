@@ -1,16 +1,16 @@
 {
   "key": "a-group",
   "label": "a-plus-plus-group",
-  "generatedAt": "2026-04-02T20:40:49.185Z",
+  "generatedAt": "2026-04-03T08:45:13.388Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2973,
-  "avgDurationMs": 2973,
+  "unchangedCount": 0,
+  "durationMs": 3314,
+  "avgDurationMs": 3314,
   "durationHistory": [
-    2973
+    3314
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,7 +34,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -69,7 +69,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -83,10 +83,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
       "slug": "tecnico-di-cantiere-ingegere-edile-o-geometra-a-plus-plus-group-massagno",
@@ -107,7 +104,7 @@
       "sector": "Architettura & Design",
       "source": "a-plus-plus-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
@@ -122,5 +119,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
