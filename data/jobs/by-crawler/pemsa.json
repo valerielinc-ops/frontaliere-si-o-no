@@ -1,7 +1,68 @@
 {
   "crawlerKey": "pemsa",
-  "assembledAt": "2026-04-02T21:35:01.959Z",
+  "assembledAt": "2026-04-03T09:39:20.121Z",
   "jobs": [
+    {
+      "title": "Metalcostruttore – Saldatore",
+      "slug": "metalcostruttore-saldatore-pemsa-bellinzona",
+      "url": "https://www.pemsa.ch/it/job/metalcostruttore-saldatore-2668847/",
+      "applyUrl": "https://www.pemsa.ch/it/job/metalcostruttore-saldatore-2668847/",
+      "company": "PEMSA",
+      "companyKey": "pemsa",
+      "companyDomain": "pemsa.ch",
+      "location": "Bellinzona",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "metallo",
+      "sector": "Edilizia e tecnica",
+      "source": "pemsa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-03",
+      "employmentType": "full-time",
+      "contractType": "temporary",
+      "validThrough": "2026-06-18",
+      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Metalcostruttore – Saldatore\n\n## Missione :\n- Incarico tramite agenzia a scopo assunzione fissa\n- Esperienza nel settore della carpenteria metallica\n- Automunito\n- Disponibilità immediata\n\n## Profilo :\n- Salda e assembla strutture metalliche\n- Lavora sia in officina che posa in cantiere\n- Padronanza di saldatura MIG, MAG, TIG\n- Lettura disegno",
+      "titleByLocale": {
+        "it": "Metalcostruttore – Saldatore",
+        "en": "Metalcostruttore – Saldatore",
+        "de": "Metalcostruttore – Saldatore",
+        "fr": "Metalcostruttore – Saldatore"
+      },
+      "descriptionByLocale": {
+        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Metalcostruttore – Saldatore\n\n## Missione :\n- Incarico tramite agenzia a scopo assunzione fissa\n- Esperienza nel settore della carpenteria metallica\n- Automunito\n- Disponibilità immediata\n\n## Profilo :\n- Salda e assembla strutture metalliche\n- Lavora sia in officina che posa in cantiere\n- Padronanza di saldatura MIG, MAG, TIG\n- Lettura disegno",
+        "en": "PEMSA, a staffing agency specialised in construction and technical trades, is looking for a Metalcostruttore – Saldatore in Bellinzona. PEMSA ensures optimal working conditions and professional support. Apply through the official portal.",
+        "de": "PEMSA, eine auf Bau und Technik spezialisierte Personalvermittlung, sucht ein Profil als Metalcostruttore – Saldatore in Bellinzona. PEMSA gewährleistet optimale Arbeitsbedingungen und professionelle Unterstützung. Bewirb dich über das offizielle Portal.",
+        "fr": "PEMSA, agence de recrutement spécialisée dans le bâtiment et la technique, recherche un profil Metalcostruttore – Saldatore à Bellinzona. PEMSA garantit des conditions de travail optimales et un accompagnement professionnel. Postulez via le portail officiel."
+      },
+      "slugByLocale": {
+        "it": "metalcostruttore-saldatore-pemsa-bellinzona",
+        "en": "metalcostruttore-saldatore-pemsa-bellinzona",
+        "de": "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona",
+        "fr": "metalcostruttore-saldatore-pemsa-bellinzona"
+      },
+      "needsRetranslation": true,
+      "previousSlugs": [
+        "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona"
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Industria 20",
+      "postalCode": "6807"
+    },
     {
       "title": "IMPERMEABILIZZATORI",
       "slug": "impermeabilizzatori-pemsa-locarno",
@@ -594,7 +655,8 @@
         "manutentore-elettromeccanico-macchinari-edili-e-silos-automatizzati-pemsa-cadempino",
         "manutentorelettrico-su-macchinari-edili-e-silos-automatizzati-pemsa-lugano",
         "technicien-de-maintenance-electrique-sur-des-machines-de-construction-et-des-silos-automatises-pemsa-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Costruttore stradale",
@@ -721,7 +783,8 @@
         "idraulico-impianti-sanitari-e-riscaldamento-pemsa-lugano",
         "ricerca-idraulico-impianti-riscaldamento-pemsa",
         "impianti-idraulici-riscaldamento-pemsa-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "IDRAULICO IMPIANTI SANITARI",
@@ -909,7 +972,8 @@
         "bauzimmerer-pemsa-bellinzona",
         "construction-carpenter-pemsa-bellinzona-s5255a",
         "macon-constructeur-pemsa-bellinzona-s5255a"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "IDRAULICO",
@@ -1033,7 +1097,8 @@
       "previousSlugs": [
         "meccanico-di-macchine-da-cantiere-pemsa-locarno",
         "construction-machine-mechanic-pemsa-locarno-f50cmm"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "IMPERMEABILIZZATORE",
@@ -1532,7 +1597,8 @@
       "postalCode": "6807",
       "previousSlugs": [
         "idraulico-impianti-riscaldamento-pemsa-mendrisio"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "IDRAULICO",
@@ -1848,195 +1914,6 @@
       ]
     },
     {
-      "title": "GIARDINIERE/MURATORE",
-      "slug": "giardiniere-muratore-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/giardiniere-muratore-2666295/",
-      "applyUrl": "https://www.pemsa.ch/it/job/giardiniere-muratore-2666295/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-18",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-02",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di giardiniere/muratore\n\n## Missione :\n- missione lunga durata nel Sopraceneri\n\n## Profilo :\n·        costruzione e manutenzione di spazi verdi\n·        esperienza sul territorio svizzero\n·        costruzione, rifinitura e riparazione di pareti, pavimenti, scale e altre strutture in muratura\n·        misurazione, taglio e posizionamento preciso dei materiali\n·        uso materiali come mattoni, blocchi di cemento, malta e intonaco\n·        taglio e cura di alberi, cespugli e aiuole\n·        lavori di assestamento e pulizia\n·        uso attrezzi e macchinari\n·        disponibilità immediata\n·        automunito",
-      "titleByLocale": {
-        "it": "GIARDINIERE/MURATORE",
-        "en": "GARDENER/BRICKLAYER",
-        "de": "GÄRTNER/MAURER",
-        "fr": "JARDINIER/MAÇON"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di giardiniere/muratore ## Missione : - missione lunga durata nel Sopraceneri ## Profilo : ·        costruzione e manutenzione di spazi verdi ·        esperienza sul territorio svizzero ·        costruzione, rifinitura e riparazione di pareti, pavimenti, scale e altre strutture in muratura ·        misurazione, taglio e posizionamento preciso dei materiali ·        uso materiali come mattoni, blocchi di cemento, malta e intonaco ·        taglio e cura di alberi, cespugli e aiuole ·        lavori di assestamento e pulizia ·        uso attrezzi e macchinari ·        disponibilità immediata ·        automunito",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been assisting hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. We won't lie to you, but we are demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of gardener/bricklayer ## Mission: - long-term mission in Sopraceneri ## Profile: · construction and maintenance of green spaces · experience on Swiss territory · construction, finishing and repair of walls, floors, stairs and other masonry structures · measuring, cutting and precise positioning of materials · use of materials such as bricks, concrete blocks, mortar and plaster · cutting and care of trees, bushes and flowerbeds · adjustment and cleaning work · use of tools and machinery · immediate availability · car",
-        "de": "Willst du die Freiheit eines befristeten Jobs und die Sicherheit eines festen? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen in den technischen Bereichen Bauwesen, Bauwesen und Industrie in der gesamten Schweiz und stellen ihnen das beste Talent zur Verfügung. Wir werden Sie nicht belügen, aber wir fordern es. Wenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position des Gärtners/Maurers bei ## Mission: - langfristige Mission in der Sopraceneri ## Profil: · Bau und Pflege von Grünflächen · Erfahrung auf Schweizer Gebiet · Bau, Fertigstellung und Reparatur von Wänden, Böden, Treppen und anderen Mauerwerksbauwerken · Messung, Schneiden und präzise Positionieren von Materialien · Verwendung von Materialien wie Ziegeln, Betonblöcken, Mörtel und Putz · Schneiden und Pflege von Bäumen, Büsche und Blumenbeete · Absetz- und Reinigungsarbeiten · Einsatz von Werkzeugen und Maschinen · sofortige Verfügbarkeit · Selbstfahrlöcher",
-        "fr": "Voulez-vous la liberté d’un emploi temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de jardinier/maçon ## Mission : - mission longue durée chez Sopraceneri ## Profil : · construction et entretien d'espaces verts · expérience sur le territoire suisse · construction, finition et réparation de murs, sols, escaliers et autres structures en maçonnerie · mesure, découpe et positionnement précis des matériaux · utilisation de matériaux tels que briques, blocs de béton, mortier et plâtre · coupe et entretien d'arbres, buissons et parterres de fleurs · ajustement et nettoyage travail · utilisation d'outils et de machines · disponibilité immédiate · voiture"
-      },
-      "slugByLocale": {
-        "it": "giardiniere-muratore-pemsa-locarno",
-        "en": "gardener-bricklayer-pemsa-locarno",
-        "de": "gartner-maurer-pemsa-locarno",
-        "fr": "jardinier-macon-pemsa-locarno"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "previousSlugs": [
-        "giardiniere-muratore-pemsa-locarno",
-        "gardener-bricklayer-pemsa-locarno-qwgr0v",
-        "gartner-maurer-pemsa-locarno-qwgr0v",
-        "jardinier-macon-pemsa-locarno-qwgr0v"
-      ]
-    },
-    {
-      "title": "MURATORE/CARPENTIERE",
-      "slug": "muratore-carpentiere-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/muratore-carpentiere-2666292/",
-      "applyUrl": "https://www.pemsa.ch/it/job/muratore-carpentiere-2666292/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-18",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-02",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di muratore/carpentiere\n\n## Missione :\n- missione lunga durata nel Sopraceneri\n\n## Profilo :\n·        esperienza su cantiere svizzeri\n·        capacità di lavoro in squadra \n·        lavori in muratura\n·        lavorazione del tondino per cemento armato, casseratura e legatura ferro\n·        esperienza in muri faccia a vista\n·   esperienza con i casseri interfama\n·        capacità di lavorare il legno\n·        uso attrezzi e macchinari da cantiere\n·        conoscenza preparazione materiali\n·        disponibilità immediata\n·        flessibile a spostamenti\n·        automunito",
-      "titleByLocale": {
-        "it": "MURATORE/CARPENTIERE",
-        "en": "MASON/CARPENTER",
-        "de": "MAURER/ZIMMERMANN",
-        "fr": "MAÇON/CHARPENTIER"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di muratore/carpentiere ## Missione : - missione lunga durata nel Sopraceneri ## Profilo : ·        esperienza su cantiere svizzeri ·        capacità di lavoro in squadra  ·        lavori in muratura ·        lavorazione del tondino per cemento armato, casseratura e legatura ferro ·        esperienza in muri faccia a vista ·   esperienza con i casseri interfama ·        capacità di lavorare il legno ·        uso attrezzi e macchinari da cantiere ·        conoscenza preparazione materiali ·        disponibilità immediata ·        flessibile a spostamenti ·        automunito",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been assisting hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. We won't lie to you, but we are demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of bricklayer/carpenter ## Mission: - long-term mission in the Sopraceneri ## Profile: · experience on Swiss construction sites · ability to work in a team · masonry work · processing of reinforcing rods, formwork and iron binding · experience in exposed walls · experience with interfama formwork · ability to work wood · use of construction site tools and machinery · knowledge of material preparation · availability immediate · flexible to travel · own car",
-        "de": "Willst du die Freiheit eines befristeten Jobs und die Sicherheit eines festen? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen in den technischen Bereichen Bauwesen, Bauwesen und Industrie in der gesamten Schweiz und stellen ihnen das beste Talent zur Verfügung. Wir werden Sie nicht belügen, aber wir fordern es. Wenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position des Maurer/Zimmermanns bei ## Mission: - langfristige Mission in der Sopraceneri ## Profil: · Erfahrung auf Schweizer Baustellen · Teamarbeit · Maurerarbeit · Bewehrungsverarbeitung für Stahlbeton, Schalungen und Eisenbindung · Erfahrung in freiliegenden Wänden · Erfahrung mit Interfama-Schalungen · Fähigkeit zur Arbeit mit Holz · Einsatz von Werkzeugen und Baumaschinen · Wissen in der Materialvorbereitung · Sofortige Verfügbarkeit · Flexible Reisemöglichkeiten · Auto",
-        "fr": "Voulez-vous la liberté d’un emploi temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de maçon/charpentier ## Mission : - mission de longue durée dans les Sopraceneri ## Profil : · expérience sur des chantiers suisses · capacité à travailler en équipe · travaux de maçonnerie · traitement des barres d'armature, des coffrages et des liaisons en fer · expérience des murs apparents · expérience du coffrage interfama · capacité à travailler le bois · utilisation des outils et des machines de chantier · connaissance de la préparation des matériaux · disponibilité immédiate · flexible pour voyager · propre voiture"
-      },
-      "slugByLocale": {
-        "it": "muratore-carpentiere-pemsa-locarno",
-        "en": "mason-carpenter-pemsa-locarno",
-        "de": "maurer-zimmermann-pemsa-locarno",
-        "fr": "macon-charpentier-pemsa-locarno"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "previousSlugs": [
-        "muratore-carpentiere-pemsa-locarno",
-        "mason-carpenter-pemsa-locarno-lprn55",
-        "maurer-zimmerer-pemsa-locarno-lprn55",
-        "macon-charpentier-pemsa-locarno-lprn55"
-      ]
-    },
-    {
-      "title": "CAPO CANTIERE",
-      "slug": "capo-cantiere-pemsa-locarno",
-      "url": "https://www.pemsa.ch/it/job/capo-cantiere-2666285/",
-      "applyUrl": "https://www.pemsa.ch/it/job/capo-cantiere-2666285/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Locarno",
-      "addressLocality": "Locarno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "edilizia",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-18",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-04-02",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di capo cantiere\n\n## Missione :\n- missione lunga durata nel Sopraceneri\n\n## Profilo :\n·        gestione operai e approvvigionamenti\n·        verifica avanzamento cantiere secondo progetto\n·        controllo materiale\n·        verifica norme sicurezza\n·        coordinamento con il direttore tecnico di cantiere e con il direttore dei lavori\n·        comprovata esperienza\n·        disponibilità immediata\n·        patente categoria B",
-      "titleByLocale": {
-        "it": "CAPO CANTIERE",
-        "en": "SITE MANAGER",
-        "de": "STANDORTLEITER",
-        "fr": "CHEF DE CHANTIER"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di capo cantiere ## Missione : - missione lunga durata nel Sopraceneri ## Profilo : ·        gestione operai e approvvigionamenti ·        verifica avanzamento cantiere secondo progetto ·        controllo materiale ·        verifica norme sicurezza ·        coordinamento con il direttore tecnico di cantiere e con il direttore dei lavori ·        comprovata esperienza ·        disponibilità immediata ·        patente categoria B",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been assisting hundreds of companies in the technical sectors of building, construction and industry throughout Switzerland, offering them the best talent. We won't lie to you, but we are demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of construction site manager ## Mission: - long-term mission in the Sopraceneri ## Profile: · management of workers and supplies · verification of construction progress according to project · material control · verification of safety regulations · coordination with the technical director of the construction site and with the director of works · proven experience · immediate availability · category B driving license",
-        "de": "Willst du die Freiheit eines befristeten Jobs und die Sicherheit eines festen? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen in den technischen Bereichen Bauwesen, Bauwesen und Industrie in der gesamten Schweiz und stellen ihnen das beste Talent zur Verfügung. Wir werden Sie nicht belügen, aber wir fordern es. Wenn Sie also motiviert und begeistert sind, treten Sie dem Clan für die Position des Standortleiters bei ## Mission: - langfristige Mission in der Sopraceneri ## Profil: · Verwaltung von Arbeitern und Materialien · Überprüfung des Fortschritts der Stelle gemäß Projekt · Materialkontrolle · Überprüfung von Standards Sicherheit · Koordination mit dem technischen Bauleiter und dem Bauleiter · nachgewiesene Erfahrung · sofortige Verfügbarkeit · Lizenz der Kategorie B",
-        "fr": "Voulez-vous la liberté d’un emploi temporaire et la sécurité d’un emploi permanent ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de chef de chantier ## Mission : - mission longue durée dans les Sopraceneri ## Profil : · gestion des ouvriers et des approvisionnements · vérification de l'avancement des travaux selon le projet · contrôle des matériaux · vérification des règles de sécurité · coordination avec le directeur technique du chantier et avec le directeur des travaux · expérience confirmée · disponibilité immédiate · permis de conduire de catégorie B"
-      },
-      "slugByLocale": {
-        "it": "capo-cantiere-pemsa-locarno",
-        "en": "site-manager-pemsa-locarno",
-        "de": "standortleiter-pemsa-locarno",
-        "fr": "chef-de-chantier-pemsa-locarno"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "previousSlugs": [
-        "capo-cantiere-pemsa-locarno",
-        "chef-de-chantier-pemsa-locarno-mj8eu2",
-        "site-foreman-pemsa-locarno-mj8eu2",
-        "bauleiter-pemsa-locarno-mj8eu2"
-      ]
-    },
-    {
       "title": "Selciatore",
       "slug": "selciatore-pemsa-bellinzona",
       "url": "https://www.pemsa.ch/it/job/selciatore-2665840/",
@@ -2160,7 +2037,8 @@
         "meccanico-di-mezzi-pesanti-pemsa-bellinzona-ens3sh",
         "meccanico-di-mezzi-pesanti-pemsa-bellinzona",
         "heavy-equipment-mechanic-pemsa-bellinzona-ens3sh"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Piastrellista",
@@ -2344,67 +2222,6 @@
       "previousSlugs": []
     },
     {
-      "title": "Metalcostruttore – Saldatore",
-      "slug": "metalcostruttore-saldatore-pemsa-bellinzona",
-      "url": "https://www.pemsa.ch/it/job/metalcostruttore-saldatore-2664887/",
-      "applyUrl": "https://www.pemsa.ch/it/job/metalcostruttore-saldatore-2664887/",
-      "company": "PEMSA",
-      "companyKey": "pemsa",
-      "companyDomain": "pemsa.ch",
-      "location": "Bellinzona",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "metallo",
-      "sector": "Edilizia e tecnica",
-      "source": "pemsa-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-11",
-      "employmentType": "full-time",
-      "contractType": "temporary",
-      "validThrough": "2026-05-26",
-      "description": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Metalcostruttore – Saldatore\n\n## Missione :\n- Incarico tramite agenzia a scopo assunzione fissa\n- Esperienza nel settore della carpenteria metallica\n- Automunito\n- Disponibilità immediata\n\n## Profilo :\n- Salda e assembla strutture metalliche\n- Lavora sia in officina che posa in cantiere\n- Padronanza di saldatura MIG, MAG, TIG\n- Lettura disegno",
-      "titleByLocale": {
-        "it": "Metalcostruttore – Saldatore",
-        "en": "Metal Builder – Welder",
-        "de": "Metalcostruttore – Saldatore",
-        "fr": "Metalcostruttore – Saldatore"
-      },
-      "descriptionByLocale": {
-        "it": "Vuoi la libertà di un lavoro temporaneo e la sicurezza di uno permanente? Da 30 anni, assistiamo centinaia di aziende nei settori tecnici dell'edilizia, delle costruzioni e dell'industria in tutta la Svizzera, offrendo loro i migliori talenti. Non ti mentiremo, ma siamo esigenti. Quindi, se sei una persona motivata ed entusiasta, si unisciti al clan per la posizione di Metalcostruttore – Saldatore ## Missione : - Incarico tramite agenzia a scopo assunzione fissa - Esperienza nel settore della carpenteria metallica - Automunito - Disponibilità immediata ## Profilo : - Salda e assembla strutture metalliche - Lavora sia in officina che posa in cantiere - Padronanza di saldatura MIG, MAG, TIG - Lettura disegno",
-        "en": "Do you want the freedom of a temporary job and the security of a permanent one? For 30 years, we have been assisting hundreds of companies in the technical fields of building, construction and industry throughout Switzerland, offering them the best talent. We won't lie to you, but we are demanding. So, if you are a motivated and enthusiastic person, join the clan for the position of Metal Constructor - Welder ## Mission : - Appointment through agency for the purpose of permanent employment - Experience in metal carpentry - Self-employed - Immediate availability ## Profile : - Welds and assembles metal structures - Works both in the shop and lays on site - Mastery of MIG, MAG, TIG welding - Reading drawing",
-        "de": "Möchten Sie die Freiheit einer temporären Anstellung und die Sicherheit einer Festanstellung? Seit 30 Jahren unterstützen wir Hunderte von Unternehmen in den technischen Bereichen des Bauwesens und der Industrie in der ganzen Schweiz und bieten ihnen die besten Talente. Wir werden Sie nicht anlügen, aber wir sind anspruchsvoll. Wenn Sie also eine motivierte und begeisterungsfähige Person sind, dann bewerben Sie sich bei uns als Metallbauer - Schweißer ## Aufgabe : - Vermittlung durch eine Agentur für eine Festanstellung - Erfahrung im Bereich Metallbau - Selbstständig - Sofortige Verfügbarkeit ## Profil : - Schweißen und Montieren von Metallkonstruktionen - Arbeiten sowohl in der Werkstatt als auch auf der Baustelle - Beherrschung des MIG-, MAG-, WIG-Schweißens - Lesen von Zeichnungen",
-        "fr": "Vous voulez la liberté d'un emploi temporaire et la sécurité d'un emploi fixe ? Depuis 30 ans, nous accompagnons des centaines d'entreprises des secteurs techniques du bâtiment, de la construction et de l'industrie dans toute la Suisse, en leur proposant les meilleurs talents. Nous ne vous mentirons pas, mais nous sommes exigeants. Alors, si vous êtes une personne motivée et enthousiaste, rejoignez le clan pour le poste de Constructeur métallique - Soudeur ## Mission : - Nomination par le biais d'une agence pour un emploi fixe - Expérience dans le secteur de la charpente métallique - Indépendant - Disponibilité immédiate ## Profil : - Soude et assemble des structures métalliques - Travaille en atelier et sur chantier - Maîtrise de la soudure MIG, MAG, TIG - Lecture de plans."
-      },
-      "slugByLocale": {
-        "it": "metalcostruttore-saldatore-pemsa-bellinzona",
-        "en": "metal-builder-welder-pemsa-bellinzona",
-        "de": "metalcostruttore-saldatore-pemsa-bellinzona",
-        "fr": "metalcostruttore-saldatore-pemsa-bellinzona"
-      },
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Industria 20",
-      "postalCode": "6807",
-      "previousSlugs": [
-        "metal-builder-amp-8211-welder-pemsa-bellinzona",
-        "metalcostruttore-amp-8211-saldatore-pemsa-bellinzona"
-      ]
-    },
-    {
       "title": "Fresatore Taglio Beton",
       "slug": "fresatore-taglio-beton-pemsa-bellinzona",
       "url": "https://www.pemsa.ch/it/job/fresatore-taglio-beton-2664877/",
@@ -2582,7 +2399,8 @@
       "previousSlugs": [
         "giardiniere-pemsa-bellinzona",
         "garten-pemsa-bellinzona"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Cartongessista – Gessatore",
@@ -2643,7 +2461,8 @@
       "previousSlugs": [
         "plasterer-amp-8211-chalk-pemsa-bellinzona",
         "cartongessista-amp-8211-gessatore-pemsa-bellinzona"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Muuratore – carpentiere edile",
@@ -2704,7 +2523,8 @@
       "previousSlugs": [
         "muuratore-amp-8211-construction-carpenter-pemsa-bellinzona",
         "muuratore-amp-8211-carpentiere-edile-pemsa-bellinzona"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Elettricista",
