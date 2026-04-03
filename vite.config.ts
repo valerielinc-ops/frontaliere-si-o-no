@@ -22,6 +22,7 @@ import { adminDataPlugin } from './build-plugins/adminDataPlugin';
 import { crawlerRegistryPlugin } from './build-plugins/crawlerRegistryPlugin';
 import { localeJobsSplitPlugin } from './build-plugins/localeJobsSplitPlugin';
 import { webpPlugin } from './build-plugins/webpPlugin';
+import { pdfWhitepapersPlugin } from './build-plugins/pdfWhitepapersPlugin';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -60,6 +61,7 @@ export default defineConfig(({ mode }) => {
         crawlerRegistryPlugin(__dirname),
         localeJobsSplitPlugin(__dirname),
         webpPlugin(__dirname),
+        pdfWhitepapersPlugin(__dirname),
         // flatContentPlugin MUST be last — it replaces noindex flat .html redirect
         // stubs with copies of the real index.html content. It must run after ALL
         // other plugins (especially jobsSeoPagesPlugin and staticPagesPlugin) have
