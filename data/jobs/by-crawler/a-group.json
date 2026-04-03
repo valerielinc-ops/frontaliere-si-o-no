@@ -1,10 +1,10 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-04-03T08:45:13.387Z",
+  "assembledAt": "2026-04-03T20:39:00.636Z",
   "jobs": [
     {
       "title": "Ingegnere edile Jr.",
-      "slug": "ingegnere-edile-jr-a-group-massagno",
+      "slug": "ingegnere-edile-jr-a-plus-plus-group-massagno",
       "url": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
       "applyUrl": "https://inrecruiting.intervieweb.it/a2plus/jobs/ingegnere-edile-jr-587606/en/",
       "company": "A++ Group",
@@ -40,7 +40,7 @@
         "fr": "Description du poste : Nous recherchons un(e) Ingénieur(e) civil(e) junior pour notre département Construction. Outre le travail de bureau, le/la candidat(e) se rendra régulièrement sur chantier pour inspecter l’avancement des travaux et participer aux réunions de coordination, en appui aux collègues seniors. Le poste est essentiel pour garantir la livraison rapide des solutions techniques demandées par le Chef de projet tout en maintenant des standards qualitatifs élevés. Responsabilités principales : - Aide à la préparation de demandes d’achat détaillées de matériaux. - Révision des soumissions de plans des fournisseurs et analyse des offres techniques. - Soutien à la rédaction des spécifications, fiches techniques et autres documents de construction. - Gestion de l’archivage des documents techniques. - Production de rapports techniques et de chantier."
       },
       "slugByLocale": {
-        "it": "ingegnere-edile-jr-a-group-massagno",
+        "it": "ingegnere-edile-jr-a-plus-plus-group-massagno",
         "en": "junior-civil-engineer-a-group-massagno",
         "de": "ingenieur-edile-jr-a-group-massagno",
         "fr": "ingenieur-civil-junior-a-group-massagno-s9epo4"
@@ -122,7 +122,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
