@@ -1962,6 +1962,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale',
     'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'Il Canton Ticino vorrebbe poter verificare i precedenti penali a ogni richiesta di permesso di dimora, ma il Consiglio federale frena.',
     'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'Una strada stretta e tortuosa che si inerpica tra le montagne',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso si Arma contro la Zanzara Tigre: Analisi della Strategia 2026',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'Il Comune di Chiasso affronta la minaccia della zanzara tigre con una nuova strategia. Andrea Mini (Plr) interroga il Municipio per una risposta efficace.',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Tecnico antizanzara in azione a Chiasso',
 };
 
 export default blogMetaIt;

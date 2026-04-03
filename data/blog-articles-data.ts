@@ -5762,4 +5762,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/permessi-dimora-diversi-opinioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'chiasso-zanzara-tigre-strategia-2026',
+    category: 'pratico',
+    date: '2026-04-03T16:07:43.564Z',
+    image: '/images/blog/chiasso-zanzara-tigre-strategia-2026.jpg',
+    hasCalculator: true,
+  },
 ];

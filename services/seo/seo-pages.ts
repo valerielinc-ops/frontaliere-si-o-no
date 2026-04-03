@@ -3379,7 +3379,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 641,
+        "numberOfItems": 642,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4018,7 +4018,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 638, "name": "La Lombardia guida la crescita dell'export calz...", "url": `${BASE_URL}/articoli-frontaliere/lombardia-export-calzature` },
           { "@type": "ListItem", "position": 639, "name": "La dogana di Chiasso diventa un centro tecnologico", "url": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-centro-tecnologico` },
           { "@type": "ListItem", "position": 640, "name": "Permessi dubbi, Roveredo insoddisfatta e preocc...", "url": `${BASE_URL}/articoli-frontaliere/permessi-dubbi-roveredo-insoddisfatta` },
-          { "@type": "ListItem", "position": 641, "name": "Permessi di dimora: diverse opinioni sulla cons...", "url": `${BASE_URL}/articoli-frontaliere/permessi-dimora-diversi-opinioni` }
+          { "@type": "ListItem", "position": 641, "name": "Permessi di dimora: diverse opinioni sulla cons...", "url": `${BASE_URL}/articoli-frontaliere/permessi-dimora-diversi-opinioni` },
+          { "@type": "ListItem", "position": 642, "name": "Chiasso contro la Zanzara Tigre: La Nuova Strat...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-zanzara-tigre-strategia-2026` }
         ]
       }
     ]

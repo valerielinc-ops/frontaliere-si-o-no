@@ -1962,6 +1962,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi di dimora: verschiedene Meinungen zur Abfrage des Strafregisterauszugs',
     'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'Der Kanton Tessin möchte in Zukunft bei jeder Anfrage nach einem Aufenthaltsbewilligung die Vorstrafen des Antragstellers überprüfen können, aber der Bundesrat hält Einzug.',
     'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'Eine schmale und windige Straße, die sich durch die Berge windet',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso Wappnet sich gegen die Tigermücke: Analyse der Strategie 2026',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'Der Gemeindebezirk Chiasso befasst sich mit der Bedrohung durch die Tigermücke mit einer neuen Strategie. Andrea Mini (Plr) befragt das Municipium nach einer effektiven Antwort.',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Techniker gegen Tigermücke in Chiasso',
 };
 
 export default blogMetaDe;

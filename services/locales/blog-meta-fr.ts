@@ -1962,6 +1962,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi de séjour : diverses opinions sur la consultation du casier judiciaire',
     'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'Le canton du Tessin voudrait pouvoir vérifier les antécédents pénals à chaque demande de permis de séjour, mais le Conseil fédéral freine.',
     'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'Une route étroite et sinueuse qui s\'élève entre les montagnes',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso se Prépare contre la Zanzare Tigre : Analyse de la Stratégie 2026',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'Le Commune de Chiasso affronte la menace de la zanzare tigre avec une nouvelle stratégie. Andrea Mini (Plr) interroge le Municipio pour une réponse efficace.',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Technicien anti-moustique tigre à Chiasso',
 };
 
 export default blogMetaFr;

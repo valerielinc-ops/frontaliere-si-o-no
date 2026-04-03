@@ -10722,6 +10722,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-chiasso-zanzara-tigre-strategia-2026': {
+    title: 'Chiasso si Arma contro la Zanzara Tigre: Analisi della Strategia 2026 | Frontaliere Ticino',
+    description: 'Chiasso lotta contro la zanzara tigre con una nuova strategia. Andrea Mini propone trattamenti e sensibilizzazione. Implicazioni per residenti e frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiasso, arma, contro, zanzara',
+    ogTitle: 'Chiasso si Arma contro la Zanzara Tigre',
+    ogDescription: 'La strategia del Comune di Chiasso per combattere la zanzara tigre: trattamenti e coinvolgimento dei privati.',
+    canonicalPath: '/articoli-frontaliere/chiasso-zanzara-tigre-strategia-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiasso contro la Zanzara Tigre: La Nuova Strategia",
+      "description": "Chiasso lotta contro la zanzara tigre con una nuova strategia. Andrea Mini propone trattamenti e sensibilizzazione. Implicazioni per residenti e frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/chiasso-zanzara-tigre-strategia-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tecnico antizanzara in azione a Chiasso"
+      },
+      "datePublished": "2026-04-03T16:07:43+00:00",
+      "dateModified": "2026-04-03T16:07:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/chiasso-zanzara-tigre-strategia-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

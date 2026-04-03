@@ -1962,6 +1962,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale',
     'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'The Canton Ticino would like to be able to verify criminal records at every request for a residence permit, but the Federal Council is holding back.',
     'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'A mountain road with a narrow and winding road',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso Takes Action Against the Tiger Mosquito: Analysis of the 2026 Strategy',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'The municipality of Chiasso is tackling the threat of the tiger mosquito with a new strategy. Andrea Mini (PLR) questions the municipality for an effective response.',
+    'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Technician fighting tiger mosquito in Chiasso',
 };
 
 export default blogMetaEn;
