@@ -3092,6 +3092,72 @@ ${alternates}
       }
       if (categoryPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${categoryPageCount} category listing pages`);
 
+      /* ── GSC-driven keyword landing pages ──────────────────────── */
+      let keywordPageCount = 0;
+      const keywordSitemapEntries: string[] = [];
+      const kwConfigPath = np.resolve(rootDir, 'data/keyword-pages-config.json');
+      if (fs.existsSync(kwConfigPath)) {
+        try {
+          const kwConfig = JSON.parse(fs.readFileSync(kwConfigPath, 'utf-8'));
+          const kwPages: any[] = Array.isArray(kwConfig?.pages) ? kwConfig.pages : [];
+          for (const kwPage of kwPages) {
+            const kwSlug = String(kwPage.slug || '').trim();
+            const kwFilterWords: string[] = Array.isArray(kwPage.filterKeywords) ? kwPage.filterKeywords : [];
+            if (!kwSlug || kwFilterWords.length === 0) continue;
+            // Match jobs where ALL filter keywords appear in title/description/company/location
+            const kwJobs = sortedForPagination.filter((j: any) => {
+              const haystack = [
+                String(j.title || ''), String(j.description || ''),
+                String(j.company || ''), String(j.location || ''),
+                ...(Object.values(j.titleByLocale || {}) as string[]),
+              ].join(' ').toLowerCase();
+              return kwFilterWords.every((kw: string) => haystack.includes(kw));
+            }).slice(0, 30);
+            if (kwJobs.length < 2) continue;
+            const itCopy = kwPage.copy?.it;
+            if (!itCopy) continue;
+            for (const locale of localeList) {
+              const kwFullSlug = `${searchRoutePrefix[locale]}-${kwSlug}`;
+              if (editorialSearchSlugsByLocale.get(locale)?.has(kwFullSlug)) continue;
+              const kwCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kwFullSlug}`.replace(/\/+/g, '/'));
+              const kwRelDir = kwCanonicalPath.slice(1).replace(/\/+$/, '');
+              if (activeJobDirs.has(kwRelDir)) continue;
+              const kwCanonicalUrl = `${BASE_URL}${kwCanonicalPath}`;
+              const kwTitle = locale === 'it' ? itCopy.title : `${itCopy.heading} | Frontaliere Ticino`;
+              const kwDesc = locale === 'it' ? itCopy.description : `${kwJobs.length} job openings for "${kwPage.query}" in Ticino. Updated daily.`;
+              const kwAlternates = localeList.map((al) => {
+                const alSlug = `${searchRoutePrefix[al]}-${kwSlug}`;
+                const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
+                return `    <link rel="alternate" hreflang="${al}" href="${BASE_URL}${withSlash(alPath)}">`;
+              }).join('\n');
+              const kwListHtml = kwJobs.map((job: any) => {
+                const jSlug = localizedSlug(job, locale);
+                const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+                const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+                return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
+              }).join('');
+              const kwCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: kwTitle, url: kwCanonicalUrl, description: kwDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
+              const kwHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(kwTitle)}</title>\n    <meta name="description" content="${esc(kwDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(kwTitle)}">\n    <meta property="og:description" content="${esc(kwDesc)}">\n    <meta property="og:url" content="${kwCanonicalUrl}">\n    <link rel="canonical" href="${kwCanonicalUrl}">\n${kwAlternates}\n    <script type="application/ld+json">${kwCollLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(itCopy.heading)}</h1>\n      <p>${esc(kwDesc)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+              const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
+              activeJobDirs.add(kwRelDir);
+              _md(kwOutDir);
+              _qw(np.join(kwOutDir, 'index.html'), kwHtml);
+              const kwFlatPath = kwCanonicalPath.replace(/\/+$/, '');
+              if (kwFlatPath) { const kwFlatFile = np.join(distDir, kwFlatPath.slice(1) + '.html'); _md(np.dirname(kwFlatFile)); _qw(kwFlatFile, buildFlatRedirect(kwCanonicalUrl, kwCanonicalPath)); }
+              keywordPageCount++;
+            }
+            // Sitemap entry (Italian canonical)
+            const kwItSlug = `${searchRoutePrefix.it}-${kwSlug}`;
+            const kwItPath = withSlash(`/${sectionByLocale.it}/${kwItSlug}`.replace(/\/+/g, '/'));
+            const kwSmAlternates = localeList.map((l) => { const ls = `${searchRoutePrefix[l]}-${kwSlug}`; const lp = `${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'); return `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`; }).join('\n');
+            keywordSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${kwItPath}</loc>\n${kwSmAlternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${kwItPath}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`);
+          }
+        } catch (e) {
+          console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m Failed to load keyword pages config: ${e}`);
+        }
+      }
+      if (keywordPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${keywordPageCount} GSC keyword landing pages`);
+
       /* ── Search landing pages from stats leaders ───────────────── */
       let searchEntries = '';
       const statsPath = np.resolve(rootDir, 'data/jobs-stats.json');
@@ -3595,7 +3661,8 @@ ${(() => {
 
       const paginationSitemap = paginationSitemapEntries.length > 0 ? '\n' + paginationSitemapEntries.join('\n') : '';
       const categorySitemap = categorySitemapEntries.length > 0 ? '\n' + categorySitemapEntries.join('\n') : '';
-      const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}\n</urlset>\n`;
+      const keywordSitemap = keywordSitemapEntries.length > 0 ? '\n' + keywordSitemapEntries.join('\n') : '';
+      const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}${keywordSitemap}\n</urlset>\n`;
       fs.writeFileSync(np.join(distDir, 'sitemap-jobs.xml'), sitemapJobs, 'utf-8');
 
       const sitemapIndexPath = np.join(distDir, 'sitemap.xml');

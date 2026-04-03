@@ -1,0 +1,38 @@
+name: Refresh Keyword Pages Config
+on:
+  schedule:
+    - cron: '30 3 * * 1'  # Every Monday at 03:30 UTC
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate keyword pages config
+        run: node scripts/generate-keyword-pages-config.mjs
+
+      - name: Commit if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/keyword-pages-config.json
+          if git diff --cached --quiet; then
+            echo "No changes to keyword config"
+          else
+            git commit -m "chore: refresh GSC keyword pages config
+
+          Co-authored-by: Copilot <223556219+Copilot@users.noreply.github.com>"
+            git push
+          fi
