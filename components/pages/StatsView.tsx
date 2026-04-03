@@ -169,7 +169,7 @@ export const StatsView: React.FC = () => {
                  {t('stats.permitsEstimated')}
                  <Info size={12} className="text-indigo-400 cursor-help" />
                </p>
-               <p className="text-lg font-bold text-slate-800 dark:text-slate-100 mt-2 truncate">{t('stats.permitG')}</p>
+               <p className="text-lg font-bold text-slate-800 dark:text-slate-100 mt-2 line-clamp-2">{t('stats.permitG')}</p>
                {/* Tooltip */}
                <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-20 w-56">
                  <div className="bg-slate-900 text-white text-xs rounded-xl p-3 shadow-xl">

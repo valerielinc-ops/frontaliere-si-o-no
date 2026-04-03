@@ -274,7 +274,7 @@ function LeaderList(props: { title: string; icon: React.ReactNode; items: JobBoa
             >
               <div className="min-w-0">
                 <div className="text-xs font-bold text-slate-500 dark:text-slate-400">#{index + 1}</div>
-                <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 truncate">{item.name}</div>
+                <div className="text-sm font-semibold text-slate-800 dark:text-slate-100 line-clamp-2">{item.name}</div>
               </div>
               <div className="shrink-0 text-sm font-bold text-indigo-600 dark:text-indigo-300">
                 {Number(item[props.valueKey] || 0).toLocaleString('it-IT')}
