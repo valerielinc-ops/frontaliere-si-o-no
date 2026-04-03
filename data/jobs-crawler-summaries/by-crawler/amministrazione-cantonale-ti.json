@@ -1,21 +1,22 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-03T09:51:27.130Z",
+  "generatedAt": "2026-04-03T21:47:06.794Z",
   "total": 24,
-  "newCount": 1,
+  "newCount": 0,
   "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 14,
-  "durationMs": 25822,
-  "avgDurationMs": 25822,
+  "unchangedCount": 15,
+  "durationMs": 23412,
+  "avgDurationMs": 23412,
   "durationHistory": [
-    25822
+    23412
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-213ie6",
-      "slug": "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale-",
+      "slug": "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso-il-liceo-cantonale--213ie6",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Requisiti:",
       "location": "Lugano",
@@ -31,47 +32,20 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-03T09:51:20.366Z",
       "needsRetranslation": true,
-      "_qualityScore": 74,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 15,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "id": "company-213if0",
-      "slug": "direttore-trice-a-tempo-parziale-50-job-sharing-a-tempo-pieno-100-presso-la-divisione-della-formazione-professionale-breganzona-orario-di-la-213if0",
-      "company": "Amministrazione Cantonale Ticino",
-      "title": "Direttore/trice a tempo parziale (50% job-sharing) – a tempo pieno (100%), presso la Divisione della formazione professionale, Breganzona",
-      "location": "Breganzona",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-03",
-      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4136",
-      "source": "Company Careers Crawler",
-      "salaryMin": 129366,
-      "salaryMax": 210292,
-      "companyKey": "amministrazione-cantonale-ti",
-      "companyDomain": "concorsi.ti.ch",
-      "crawledAt": "2026-03-31T21:48:48.088Z",
       "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
       "streetAddress": "Piazza Governo",
       "postalCode": "6501",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 15,
         "completeness": 25
       }
     },
@@ -353,6 +327,40 @@
   ],
   "removedJobs": [],
   "unchangedJobs": [
+    {
+      "id": "company-213if0",
+      "slug": "direttore-trice-a-tempo-parziale-50-job-sharing-a-tempo-pieno-100-presso-la-divisione-della-formazione-professionale-breganzona-orario-di-la-213if0",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Direttore/trice a tempo parziale (50% job-sharing) – a tempo pieno (100%), presso la Divisione della formazione professionale, Breganzona",
+      "location": "Breganzona",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-03",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4136",
+      "source": "Company Careers Crawler",
+      "salaryMin": 129366,
+      "salaryMax": 210292,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-03-31T21:48:48.088Z",
+      "sourceLang": "it",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
     {
       "id": "company-213j3w",
       "slug": "concorso-generale-2026-aiuto-cucina-presso-l-ufficio-della-refezione-e-dei-trasporti-scolastici-bellinzona-presso-l-ufficio-della-refezione--213j3w",
