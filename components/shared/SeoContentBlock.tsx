@@ -220,10 +220,10 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
             {t('seoContent.trust.free')}
           </span>
         </div>
-        <Info className="w-3.5 h-3.5 text-slate-500 dark:text-slate-500 shrink-0 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" aria-hidden="true" />
+        <Info className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" aria-hidden="true" />
         {expanded
-          ? <ChevronUp className="w-4 h-4 text-slate-500 dark:text-slate-500 shrink-0" aria-hidden="true" />
-          : <ChevronDown className="w-4 h-4 text-slate-500 dark:text-slate-500 shrink-0" aria-hidden="true" />
+          ? <ChevronUp className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden="true" />
+          : <ChevronDown className="w-4 h-4 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden="true" />
         }
       </button>
 
@@ -288,7 +288,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
           {/* Data updated label */}
           <div className="flex items-center gap-1.5 mt-3 pt-2 border-t border-slate-200/50 dark:border-slate-700/50">
-            <CalendarDays className="w-3.5 h-3.5 text-slate-500 dark:text-slate-500 shrink-0" aria-hidden="true" />
+            <CalendarDays className="w-3.5 h-3.5 text-slate-500 dark:text-slate-400 shrink-0" aria-hidden="true" />
             <span className="text-xs text-slate-500 dark:text-slate-400">
               {t('seoContent.dataUpdated')}
             </span>

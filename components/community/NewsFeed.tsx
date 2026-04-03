@@ -67,7 +67,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
       {/* Icon + label */}
       <div className="flex items-center gap-1.5 flex-shrink-0">
         <Newspaper size={13} className="text-red-500 dark:text-red-400" />
-        <span className="font-bold text-slate-500 dark:text-slate-500 hidden sm:inline">{t('newsfeed.title')}</span>
+        <span className="font-bold text-slate-500 dark:text-slate-400 hidden sm:inline">{t('newsfeed.title')}</span>
       </div>
 
       {/* Divider */}
@@ -95,7 +95,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
               tabIndex={i === idx ? 0 : -1}
               {...(i !== idx ? { inert: true } : {})}
             >
-              <span className="text-slate-500 dark:text-slate-500 mr-1.5 flex-shrink-0">{formatDate(art.date)}</span>
+              <span className="text-slate-500 dark:text-slate-400 mr-1.5 flex-shrink-0">{formatDate(art.date)}</span>
               <span className="truncate">{artTitle}</span>
             </a>
           );
@@ -114,7 +114,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
         >
           <ChevronLeft size={14} />
         </button>
-        <span className="text-xs text-slate-500 dark:text-slate-500 tabular-nums w-7 text-center">{idx + 1}/{count}</span>
+        <span className="text-xs text-slate-500 dark:text-slate-400 tabular-nums w-7 text-center">{idx + 1}/{count}</span>
         <button
           onClick={() => {
             next();

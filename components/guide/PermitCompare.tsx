@@ -761,7 +761,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
                     <th className="text-left py-2 pr-4 text-slate-600 dark:text-slate-400"></th>
                     <th className="text-right py-2 px-3 text-slate-600 dark:text-slate-400 whitespace-nowrap">
                       🇮🇹 {t('permitCompare.permitG')}
-                      <div className="text-xs font-normal text-slate-500 dark:text-slate-500">
+                      <div className="text-xs font-normal text-slate-500 dark:text-slate-400">
                         {gType === 'new_within_20km' ? t('permitCompare.gTypeNew20Short')
                           : gType === 'new_beyond_20km' ? t('permitCompare.gTypeBeyond20Short')
                           : t('permitCompare.gTypeOldShort')}
@@ -805,7 +805,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
               <p className="text-2xl font-bold text-amber-600 dark:text-amber-400 mt-1">
                 CHF {result.breakeven.toLocaleString()} / anno
               </p>
-              <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">{t('permitCompare.breakevenDesc')}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('permitCompare.breakevenDesc')}</p>
             </div>
 
             {/* Verdict */}
@@ -873,7 +873,7 @@ export default function PermitCompare({ userProfile }: { userProfile?: UserProfi
           </div>
 
           {/* Disclaimer */}
-          <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-500">
+          <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
             <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
             <p>{t('permitCompare.disclaimer')}</p>
           </div>

@@ -409,7 +409,7 @@ const TicineseDialect: React.FC = () => {
 
       <div className="flex flex-wrap gap-3 items-center">
         <div className="relative flex-1 min-w-[220px]">
-          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-500" />
+          <Search size={16} className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500 dark:text-slate-400" />
           <input
             type="text"
             value={searchTerm}

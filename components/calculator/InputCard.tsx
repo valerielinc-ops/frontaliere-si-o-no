@@ -44,11 +44,13 @@ const iconBgMap: Record<string, string> = {
   'text-cyan-600': 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600',
 };
 
-const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor = "text-indigo-600", action }: any) => (
+const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor = "text-indigo-600", action, sectionId }: any) => (
   <div
     onClick={onToggle}
     role="button"
     tabIndex={0}
+    aria-expanded={isOpen}
+    aria-controls={sectionId}
     onKeyDown={(e: React.KeyboardEvent) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); onToggle(); } }}
     className={`w-full flex items-center justify-between p-4 rounded-xl transition-[color,background-color,box-shadow] duration-300 group cursor-pointer ${isOpen ? 'bg-white dark:bg-slate-800 shadow-sm' : 'hover:bg-white/50 dark:hover:bg-slate-800/50'}`}
   >
@@ -94,6 +96,10 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
             if (max !== undefined) v = Math.min(max, v);
             onChange(v);
           }}
+          onKeyDown={(e: React.KeyboardEvent) => {
+            if (e.key === 'ArrowUp') { e.preventDefault(); onChange(max !== undefined ? Math.min(value + 1, max) : value + 1); }
+            if (e.key === 'ArrowDown') { e.preventDefault(); onChange(Math.max(value - 1, min)); }
+          }}
           min={min}
           max={max}
           className="w-full h-full min-h-[48px] bg-transparent text-center font-bold text-base text-slate-700 dark:text-slate-200 outline-none focus:ring-2 focus:ring-blue-500 appearance-none px-1 py-3"
@@ -115,11 +121,12 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
 const SegmentControl = ({ options, value, onChange, label, icon: Icon, iconColor = "text-slate-500 dark:text-slate-400", tooltip }: any) => (
   <div className="space-y-2">
     {label && <label className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
-    <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl relative h-11">
+    <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-xl relative h-11" role="group">
       {options.map((opt: any) => (
         <button
           key={opt.value}
           onClick={() => onChange(opt.value)}
+          aria-pressed={value === opt.value}
           className={`flex-1 flex items-center justify-center text-xs font-bold rounded-lg transition-[color,background-color,box-shadow,transform] duration-300 relative z-10 ${value === opt.value ? 'text-indigo-600 dark:text-indigo-300 bg-white dark:bg-slate-800 shadow-sm scale-[0.98]' : 'text-slate-600 dark:text-slate-400 hover:text-slate-700'}`}
         >
           {opt.label}
@@ -435,7 +442,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                     </button>
                  </div>
                  {salaryError && (
-                   <p className="text-xs text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
+                   <p role="alert" aria-live="polite" className="text-xs text-red-600 dark:text-red-400 font-semibold mt-1 flex items-center gap-1">
                      <AlertTriangle size={12} /> {salaryError}
                    </p>
                  )}
@@ -492,9 +499,12 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                     </span>
                     <button 
                       onClick={() => handleChange('spouseWorks', !inputs.spouseWorks)}
+                      role="switch"
+                      aria-checked={inputs.spouseWorks}
+                      aria-label={t('input.spouseWorks')}
                       className={`relative w-11 h-6 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 ${inputs.spouseWorks ? 'bg-indigo-500' : 'bg-slate-300 dark:bg-slate-600'}`}
                     >
-                      <span className={`block w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
+                      <span className={`block w-4 h-4 bg-white rounded-full shadow-md transform transition-transform duration-200 ease-in-out mt-1 ml-1 ${inputs.spouseWorks ? 'translate-x-5' : 'translate-x-0'}`}/>
                     </button>
                  </div>
               )}

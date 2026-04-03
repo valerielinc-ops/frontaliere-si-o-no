@@ -20,7 +20,7 @@ export const DataDeletion: React.FC = () => {
             </div>
             <div>
               <h1 className="text-2xl sm:text-3xl font-extrabold text-slate-800 dark:text-slate-100">Data Deletion</h1>
-              <p className="text-sm text-slate-500 dark:text-slate-500 mt-1">Facebook App Data Deletion Callback</p>
+              <p className="text-sm text-slate-500 dark:text-slate-400 mt-1">Facebook App Data Deletion Callback</p>
             </div>
           </div>
         </div>
@@ -44,7 +44,7 @@ export const DataDeletion: React.FC = () => {
           </div>
 
           {/* Explanation */}
-          <div className="space-y-4 text-slate-600 dark:text-slate-500">
+          <div className="space-y-4 text-slate-600 dark:text-slate-400">
             <div className="flex items-start gap-3">
               <Shield className="text-indigo-500 flex-shrink-0 mt-1" size={20} />
               <div>
@@ -82,7 +82,7 @@ export const DataDeletion: React.FC = () => {
           {/* What We Do Collect */}
           <div>
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">What We Do Collect:</h3>
-            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-500">
+            <ul className="space-y-2 text-sm text-slate-600 dark:text-slate-400">
               <li className="flex items-start gap-2">
                 <span className="text-slate-500 dark:text-slate-400">•</span>
                 <span><strong>Account Data (if signed in):</strong> Email address, display name, and profile photo from your Google or Facebook account, stored in Firebase Authentication and Firestore.</span>
@@ -108,18 +108,18 @@ export const DataDeletion: React.FC = () => {
           {/* Data Deletion Request */}
           <div className="bg-slate-50 dark:bg-slate-900/50 rounded-xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
             <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-3">Data Deletion Request</h3>
-            <p className="text-sm text-slate-600 dark:text-slate-500 mb-4">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">
               To delete all data associated with your account:
             </p>
-            <ol className="text-sm text-slate-600 dark:text-slate-500 space-y-2 list-decimal list-inside mb-4">
+            <ol className="text-sm text-slate-600 dark:text-slate-400 space-y-2 list-decimal list-inside mb-4">
               <li>Go to your <a href="/profilo-utente" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Profile page</a></li>
               <li>Click the <strong>"Delete Account"</strong> button</li>
               <li>Confirm the deletion when prompted</li>
             </ol>
-            <p className="text-sm text-slate-600 dark:text-slate-500">
+            <p className="text-sm text-slate-600 dark:text-slate-400">
               This will permanently remove your Firebase Auth account, Firestore profile, newsletter subscription, and all associated data. You can also revoke app access from your <a href="https://www.facebook.com/settings?tab=applications" target="_blank" rel="noopener noreferrer" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Facebook App Settings</a>.
             </p>
-            <p className="text-sm text-slate-600 dark:text-slate-500 mt-3">
+            <p className="text-sm text-slate-600 dark:text-slate-400 mt-3">
               For further questions, refer to our <a href="/privacy" className="text-indigo-600 dark:text-indigo-400 hover:underline font-semibold">Privacy Policy</a> or contact us via our Facebook page.
             </p>
           </div>
@@ -143,7 +143,7 @@ export const DataDeletion: React.FC = () => {
 
         {/* Contact */}
         <div className="mt-6 text-center">
-          <p className="text-sm text-slate-500 dark:text-slate-500">
+          <p className="text-sm text-slate-500 dark:text-slate-400">
             Questions? Contact us via{' '}
             <a 
               href="https://www.facebook.com/profile.php?id=61588174947294" 
@@ -154,7 +154,7 @@ export const DataDeletion: React.FC = () => {
               Facebook
             </a>
           </p>
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">
             © 2026 Frontaliere Ticino | <a href="/" className="hover:underline">Back to Home</a>
           </p>
         </div>

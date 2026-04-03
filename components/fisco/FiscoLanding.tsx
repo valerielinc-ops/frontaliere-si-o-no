@@ -155,7 +155,7 @@ const FiscoLanding: React.FC = () => {
 
       {/* ─── Cross-Section CTAs ────────────────────────────────────── */}
       <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 sm:gap-3">
-        <span className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider shrink-0">
+        <span className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider shrink-0">
           {t('fisco.landing.alsoExplore')}
         </span>
         <div className="flex flex-wrap gap-2">

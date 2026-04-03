@@ -618,7 +618,7 @@ export default function MortgageComparison() {
                 <span className="text-slate-600 dark:text-slate-400">{t('mortgage.estimatedTaxSaving')}</span>
                 <span className="font-bold text-emerald-600 dark:text-emerald-400">~{fmt(Math.round(chTaxSavings))}</span>
               </div>
-              <div className="text-xs text-slate-500 dark:text-slate-500 italic mt-1">
+              <div className="text-xs text-slate-500 dark:text-slate-400 italic mt-1">
                 {t('mortgage.chTaxNote')}
               </div>
             </div>
@@ -647,7 +647,7 @@ export default function MortgageComparison() {
                 <span className="text-slate-600 dark:text-slate-400">{t('mortgage.impostaSostitutiva')}</span>
                 <span className="font-semibold text-amber-600 dark:text-amber-400">{fmt(Math.round(itImpostaSostitutiva))}</span>
               </div>
-              <div className="text-xs text-slate-500 dark:text-slate-500 italic mt-1">
+              <div className="text-xs text-slate-500 dark:text-slate-400 italic mt-1">
                 {t('mortgage.itTaxNote')}
               </div>
             </div>
@@ -880,7 +880,7 @@ export default function MortgageComparison() {
       </div>
 
       {/* Data sources disclaimer */}
-      <div className="text-center text-xs text-slate-500 dark:text-slate-500 space-y-0.5 pb-4">
+      <div className="text-center text-xs text-slate-500 dark:text-slate-400 space-y-0.5 pb-4">
         <p>{t('mortgage.dataSource')}</p>
         <p>{t('mortgage.disclaimer')}</p>
       </div>

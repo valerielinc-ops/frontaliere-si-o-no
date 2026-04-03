@@ -135,7 +135,7 @@ const HealthPremiumStats: React.FC = () => {
 
       {/* Canton averages bar chart */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-        <h3 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-4">
+        <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-4">
           Premio medio per cantone (standard, adulti 26+)
         </h3>
         <div className="space-y-1.5 max-h-[500px] overflow-y-auto">
@@ -197,7 +197,7 @@ const HealthPremiumStats: React.FC = () => {
       {/* Full ranking table */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 mb-4">
-          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider flex items-center gap-2">
+          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider flex items-center gap-2">
             <MapPin size={16} /> Classifica completa ({filtered.length} comuni)
           </h3>
           <div className="flex items-center gap-2">

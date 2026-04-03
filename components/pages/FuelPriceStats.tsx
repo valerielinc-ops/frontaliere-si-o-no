@@ -173,7 +173,7 @@ function DetailSection({
             <MapPin size={14} />
             {municipalityLabel(row)}
           </div>
-          <h3 className="mt-2 text-xl font-black text-slate-900 dark:text-slate-100">{tt('fuelPrices.detailTitle', 'Dettaglio comune')}</h3>
+          <h3 className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">{tt('fuelPrices.detailTitle', 'Dettaglio comune')}</h3>
           <p className="mt-1 text-sm text-slate-500 dark:text-slate-400">
             {tt('fuelPrices.detailSubtitle', 'Qui trovi tutte le stazioni italiane rilevate e le migliori alternative svizzere nel raggio di confronto.')}
           </p>
@@ -189,12 +189,12 @@ function DetailSection({
       <div className="grid gap-3 sm:grid-cols-3">
         <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-4">
           <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.detailItalyBest', 'Miglior prezzo Italia')}</div>
-          <div className="mt-2 text-2xl font-black text-slate-900 dark:text-slate-100">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</div>
+          <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-slate-100">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</div>
           <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{row.italy.cheapestStation?.stationName || '—'}</p>
         </div>
         <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-4">
           <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.detailSwissBest', 'Miglior prezzo Svizzera')}</div>
-          <div className="mt-2 text-2xl font-black text-slate-900 dark:text-slate-100">
+          <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-slate-100">
             {row.swiss.minPriceChf != null ? formatMoney(row.swiss.minPriceChf, 'CHF', locale) : '—'}
           </div>
           <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">
@@ -203,14 +203,14 @@ function DetailSection({
         </div>
         <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800/50 p-4">
           <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.detailSaving50L', 'Risparmio su 50 litri')}</div>
-          <div className="mt-2 text-2xl font-black text-slate-900 dark:text-slate-100">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
+          <div className="mt-2 text-2xl font-bold text-slate-900 dark:text-slate-100">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
           <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{tt('fuelPrices.detailSavingHint', 'Stima teorica basata sul miglior prezzo italiano locale e sulla migliore opzione svizzera vicina.')}</p>
         </div>
       </div>
 
       <div className="grid gap-4 xl:grid-cols-2">
         <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/50 p-4">
-          <h4 className="text-sm font-black text-slate-900 dark:text-slate-100">{tt('fuelPrices.detailItalyStations', 'Stazioni italiane rilevate')}</h4>
+          <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">{tt('fuelPrices.detailItalyStations', 'Stazioni italiane rilevate')}</h4>
           <div className="mt-3 space-y-3">
             {row.italy.stations.slice(0, 12).map((station) => (
               <div key={`${station.id}-${station.priceEur}-${station.isSelf ? 'self' : 'served'}`} className="rounded-2xl border border-white dark:border-slate-700 bg-white dark:bg-slate-800 p-3">
@@ -220,7 +220,7 @@ function DetailSection({
                     <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">{station.address}</div>
                   </div>
                   <div className="text-right">
-                    <div className="font-black text-slate-900 dark:text-slate-100">{formatMoney(station.priceEur, 'EUR', locale)}</div>
+                    <div className="font-bold text-slate-900 dark:text-slate-100">{formatMoney(station.priceEur, 'EUR', locale)}</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">{station.isSelf ? tt('fuelPrices.self', 'Self') : tt('fuelPrices.served', 'Servito')}</div>
                   </div>
                 </div>
@@ -235,7 +235,7 @@ function DetailSection({
         </div>
 
         <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/50 p-4">
-          <h4 className="text-sm font-black text-slate-900 dark:text-slate-100">{tt('fuelPrices.detailSwissStations', 'Migliori opzioni svizzere vicine')}</h4>
+          <h4 className="text-sm font-bold text-slate-900 dark:text-slate-100">{tt('fuelPrices.detailSwissStations', 'Migliori opzioni svizzere vicine')}</h4>
           <div className="mt-3 space-y-3">
             {row.swiss.nearbyStations.slice(0, 12).map((station) => (
               <div key={station.id} className="rounded-2xl border border-white dark:border-slate-700 bg-white dark:bg-slate-800 p-3">
@@ -245,7 +245,7 @@ function DetailSection({
                     <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">{station.address}</div>
                   </div>
                   <div className="text-right">
-                    <div className="font-black text-slate-900 dark:text-slate-100">{formatMoney(station.sp95PriceChf, 'CHF', locale)}</div>
+                    <div className="font-bold text-slate-900 dark:text-slate-100">{formatMoney(station.sp95PriceChf, 'CHF', locale)}</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">{formatMoney(station.sp95PriceEur, 'EUR', locale)}</div>
                     <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">
                       {typeof station.distanceKm === 'number' ? `${formatNumber(station.distanceKm, locale)} km` : '—'}
@@ -379,7 +379,7 @@ export default function FuelPriceStats() {
               <Fuel size={14} />
               {tt('fuelPrices.badge', 'Osservatorio carburanti')}
             </div>
-            <h1 className="mt-3 text-3xl font-black tracking-tight text-slate-900 dark:text-white sm:text-4xl">
+            <h1 className="mt-3 text-3xl font-bold tracking-tight text-slate-900 dark:text-white sm:text-4xl">
               {tt('fuelPrices.title', 'Prezzi carburanti Italia-Svizzera')}
             </h1>
             <p className="mt-3 max-w-2xl text-sm leading-6 text-slate-600 dark:text-slate-300 sm:text-base">
@@ -402,17 +402,17 @@ export default function FuelPriceStats() {
       <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
           <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperItalyCount', 'Comuni dove conviene IT')}</div>
-          <div className="mt-2 text-3xl font-black text-emerald-600 dark:text-emerald-400">{data.summary.cheaperItalyCount}</div>
+          <div className="mt-2 text-3xl font-bold text-emerald-600 dark:text-emerald-400">{data.summary.cheaperItalyCount}</div>
           <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperItalyHint', 'Confronti in cui il prezzo italiano e piu basso del migliore prezzo svizzero vicino.')}</p>
         </div>
         <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
           <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperSwissCount', 'Comuni dove conviene CH')}</div>
-          <div className="mt-2 text-3xl font-black text-blue-600 dark:text-blue-400">{data.summary.cheaperSwissCount}</div>
+          <div className="mt-2 text-3xl font-bold text-blue-600 dark:text-blue-400">{data.summary.cheaperSwissCount}</div>
           <p className="mt-2 text-xs text-slate-500 dark:text-slate-400">{tt('fuelPrices.cheaperSwissHint', 'Confronti in cui la stazione svizzera piu conveniente batte il miglior prezzo locale italiano.')}</p>
         </div>
         <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
           <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.bestItalyToday', 'Miglior prezzo Italia')}</div>
-          <div className="mt-2 text-xl font-black text-slate-900 dark:text-slate-100">
+          <div className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">
             {data.summary.cheapestItalyMunicipality
               ? `${data.summary.cheapestItalyMunicipality.municipality} (${data.summary.cheapestItalyMunicipality.province})`
               : '—'}
@@ -423,7 +423,7 @@ export default function FuelPriceStats() {
         </div>
         <div className="rounded-3xl border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-800 p-5">
           <div className="text-xs font-semibold uppercase text-slate-500 dark:text-slate-400">{tt('fuelPrices.bestSwissToday', 'Miglior prezzo Svizzera')}</div>
-          <div className="mt-2 text-xl font-black text-slate-900 dark:text-slate-100">
+          <div className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">
             {data.summary.cheapestSwissStation ? data.summary.cheapestSwissStation.name : '—'}
           </div>
           <p className="mt-2 text-sm text-slate-500 dark:text-slate-400">
@@ -439,7 +439,7 @@ export default function FuelPriceStats() {
               <Route size={14} />
               {tt('fuelPrices.personalizedBadge', 'Confronto dal tuo comune')}
             </div>
-            <h2 className="mt-3 text-xl font-black text-slate-900 dark:text-slate-100 sm:text-2xl">{tt('fuelPrices.personalizedTitle', 'Dove ti conviene davvero fare benzina')}</h2>
+            <h2 className="mt-3 text-xl font-bold text-slate-900 dark:text-slate-100 sm:text-2xl">{tt('fuelPrices.personalizedTitle', 'Dove ti conviene davvero fare benzina')}</h2>
             <p className="mt-2 text-sm leading-6 text-slate-500 dark:text-slate-400">
               {tt('fuelPrices.personalizedSubtitle', 'Inserisci il tuo comune censito, quanti litri devi fare e un costo chilometrico stimato: il confronto considera sia il prezzo alla pompa sia la distanza andata e ritorno.')}
             </p>
@@ -514,7 +514,7 @@ export default function FuelPriceStats() {
               <div className="space-y-4">
                 <div>
                   <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.personalizedResult', 'Risultato personalizzato')}</div>
-                  <h3 className="mt-2 text-xl font-black text-slate-900 dark:text-slate-100">
+                  <h3 className="mt-2 text-xl font-bold text-slate-900 dark:text-slate-100">
                     {personalizedRecommendation.best.type === 'IT'
                       ? tt('fuelPrices.personalizedItaly', 'Per te conviene fare benzina in Italia')
                       : tt('fuelPrices.personalizedSwiss', 'Per te conviene fare benzina in Svizzera')}
@@ -528,7 +528,7 @@ export default function FuelPriceStats() {
                   <div className="flex items-start justify-between gap-3">
                     <div>
                       <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.bestOption', 'Opzione migliore')}</div>
-                      <div className="mt-2 text-lg font-black text-slate-900 dark:text-slate-100">{personalizedRecommendation.best.stationName}</div>
+                      <div className="mt-2 text-lg font-bold text-slate-900 dark:text-slate-100">{personalizedRecommendation.best.stationName}</div>
                       <div className="mt-1 text-sm text-slate-500 dark:text-slate-400">{personalizedRecommendation.best.stationMeta}</div>
                     </div>
                     <div className={`inline-flex rounded-full border px-3 py-1 text-xs font-semibold ${personalizedRecommendation.best.type === 'IT' ? 'border-emerald-200 dark:border-emerald-700 bg-emerald-50 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-300' : 'border-blue-200 dark:border-blue-700 bg-blue-50 dark:bg-blue-900/40 text-blue-700 dark:text-blue-300'}`}>
@@ -539,16 +539,16 @@ export default function FuelPriceStats() {
                   <div className="mt-4 grid gap-3 sm:grid-cols-3">
                     <div>
                       <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.pumpCost', 'Costo carburante')}</div>
-                      <div className="mt-1 font-black text-slate-900 dark:text-slate-100">{formatMoney(personalizedRecommendation.best.litersCostEur, 'EUR', locale, 2)}</div>
+                      <div className="mt-1 font-bold text-slate-900 dark:text-slate-100">{formatMoney(personalizedRecommendation.best.litersCostEur, 'EUR', locale, 2)}</div>
                     </div>
                     <div>
                       <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.travelCost', 'Costo spostamento')}</div>
-                      <div className="mt-1 font-black text-slate-900 dark:text-slate-100">{formatMoney(personalizedRecommendation.best.travelCostEur, 'EUR', locale, 2)}</div>
+                      <div className="mt-1 font-bold text-slate-900 dark:text-slate-100">{formatMoney(personalizedRecommendation.best.travelCostEur, 'EUR', locale, 2)}</div>
                       <div className="text-xs text-slate-500 dark:text-slate-400">{formatNumber(personalizedRecommendation.best.travelDistanceKm * 2, locale)} km A/R</div>
                     </div>
                     <div>
                       <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.effectiveTotal', 'Totale stimato')}</div>
-                      <div className="mt-1 font-black text-slate-900 dark:text-slate-100">{formatMoney(personalizedRecommendation.best.effectiveTotalEur, 'EUR', locale, 2)}</div>
+                      <div className="mt-1 font-bold text-slate-900 dark:text-slate-100">{formatMoney(personalizedRecommendation.best.effectiveTotalEur, 'EUR', locale, 2)}</div>
                     </div>
                   </div>
                 </div>
@@ -561,7 +561,7 @@ export default function FuelPriceStats() {
                           <div className="font-semibold text-slate-900 dark:text-slate-100">{option!.label}</div>
                           <div className="mt-1 text-xs text-slate-500 dark:text-slate-400">{option!.stationName}</div>
                         </div>
-                        <div className="text-sm font-black text-slate-900 dark:text-slate-100">{formatMoney(option!.effectiveTotalEur, 'EUR', locale, 2)}</div>
+                        <div className="text-sm font-bold text-slate-900 dark:text-slate-100">{formatMoney(option!.effectiveTotalEur, 'EUR', locale, 2)}</div>
                       </div>
                       <div className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
                         <div>{tt('fuelPrices.pricePerLiter', 'Prezzo/litro')}: {formatMoney(option!.pricePerLiterEur, 'EUR', locale)}</div>
@@ -587,7 +587,7 @@ export default function FuelPriceStats() {
         <div className="rounded-[2rem] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5 sm:p-6">
           <div className="flex flex-col gap-4">
             <div className="flex flex-col gap-2">
-              <h2 className="text-lg font-black text-slate-900 dark:text-slate-100 sm:text-xl">{tt('fuelPrices.compareByMunicipality', 'Confronto per comune')}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100 sm:text-xl">{tt('fuelPrices.compareByMunicipality', 'Confronto per comune')}</h2>
               <p className="text-sm text-slate-500 dark:text-slate-400">{tt('fuelPrices.compareHint', 'Tocca un comune per aprire subito sotto il dettaglio completo, anche da mobile.')}</p>
             </div>
 
@@ -645,7 +645,7 @@ export default function FuelPriceStats() {
                     <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
                       <div className="min-w-0">
                         <div className="flex items-center gap-2">
-                          <div className="text-base font-black text-slate-900 dark:text-slate-100">{municipalityLabel(row)}</div>
+                          <div className="text-base font-bold text-slate-900 dark:text-slate-100">{municipalityLabel(row)}</div>
                           <span className={`inline-flex rounded-full border px-2 py-1 text-xs font-semibold ${recommendationTone(row)}`}>
                             {tt(`fuelPrices.recommendation.${row.comparison.cheaperCountry.toLowerCase()}`, recommendationLabel(row.comparison.cheaperCountry))}
                           </span>
@@ -662,11 +662,11 @@ export default function FuelPriceStats() {
                       <div className="grid grid-cols-2 gap-3 sm:grid-cols-4 lg:min-w-[520px]">
                         <div>
                           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.tableItaly', 'Italia')}</div>
-                          <div className="mt-1 font-black text-slate-900 dark:text-slate-100">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</div>
+                          <div className="mt-1 font-bold text-slate-900 dark:text-slate-100">{formatMoney(row.italy.minPriceEur, 'EUR', locale)}</div>
                         </div>
                         <div>
                           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.tableSwiss', 'Svizzera')}</div>
-                          <div className="mt-1 font-black text-slate-900 dark:text-slate-100">
+                          <div className="mt-1 font-bold text-slate-900 dark:text-slate-100">
                             {row.swiss.minPriceChf != null ? formatMoney(row.swiss.minPriceChf, 'CHF', locale) : '—'}
                           </div>
                           <div className="text-xs text-slate-500 dark:text-slate-400">
@@ -675,7 +675,7 @@ export default function FuelPriceStats() {
                         </div>
                         <div>
                           <div className="text-xs font-semibold uppercase tracking-wide text-slate-500 dark:text-slate-400">{tt('fuelPrices.tableSaving', 'Risparmio 50L')}</div>
-                          <div className="mt-1 font-black text-slate-900 dark:text-slate-100">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
+                          <div className="mt-1 font-bold text-slate-900 dark:text-slate-100">{formatMoney(row.comparison.saving50LEur, 'EUR', locale, 2)}</div>
                         </div>
                         <div className="flex items-center justify-end lg:justify-start">
                           <span className="inline-flex items-center gap-2 text-sm font-semibold text-slate-700 dark:text-slate-200">
@@ -706,7 +706,7 @@ export default function FuelPriceStats() {
 
         <div className="space-y-6">
           <div className="rounded-[2rem] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-black text-slate-900 dark:text-slate-100">{tt('fuelPrices.bestDeals', 'Dove si risparmia di piu')}</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">{tt('fuelPrices.bestDeals', 'Dove si risparmia di piu')}</h2>
             <div className="mt-4 space-y-3">
               {data.rankings.bestCrossBorderSavings.slice(0, 6).map((item) => (
                 <div key={`${item.municipality}-${item.province}`} className="rounded-2xl border border-slate-100 dark:border-slate-700/50 bg-slate-50 dark:bg-slate-900/50 px-4 py-3">
@@ -722,7 +722,7 @@ export default function FuelPriceStats() {
                       </div>
                     </div>
                     <div className="text-right">
-                      <div className="text-sm font-black text-slate-900 dark:text-slate-100">{formatMoney(item.saving50LEur, 'EUR', locale, 2)}</div>
+                      <div className="text-sm font-bold text-slate-900 dark:text-slate-100">{formatMoney(item.saving50LEur, 'EUR', locale, 2)}</div>
                       <div className="text-xs text-slate-500 dark:text-slate-400">50L</div>
                     </div>
                   </div>
@@ -732,7 +732,7 @@ export default function FuelPriceStats() {
           </div>
 
           <div className="rounded-[2rem] border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-black text-slate-900 dark:text-slate-100">{tt('fuelPrices.sourceNotes', 'Fonti e metodo')}</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-slate-100">{tt('fuelPrices.sourceNotes', 'Fonti e metodo')}</h2>
             <ul className="mt-4 space-y-3 text-sm text-slate-600 dark:text-slate-300">
               <li>{tt('fuelPrices.noteItaly', 'Italia: dati ufficiali MIMIT del file prezzi alle 8 e anagrafica impianti attivi.')}</li>
               <li>{tt('fuelPrices.noteSwiss', 'Svizzera: dati SP95 ricavati dal feed pubblico TCS delle stazioni nell area di frontiera.')}</li>

@@ -311,17 +311,17 @@ const CostOfLiving: React.FC = () => {
       <div className="grid md:grid-cols-3 gap-4">
         <div className="bg-gradient-to-br from-red-500 to-red-700 rounded-xl p-5 text-white">
           <div className="text-xs font-bold uppercase tracking-wider text-white/70">🇨🇭 {cityCH.name}</div>
-          <div className="text-2xl sm:text-3xl font-black mt-1">€ {totalCH_EUR.toFixed(0)}</div>
+          <div className="text-2xl sm:text-3xl font-bold mt-1">€ {totalCH_EUR.toFixed(0)}</div>
           <div className="text-xs text-white/60">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</div>
         </div>
         <div className="bg-gradient-to-br from-green-500 to-emerald-700 rounded-xl p-5 text-white">
           <div className="text-xs font-bold uppercase tracking-wider text-white/70">🇮🇹 {cityIT.name}</div>
-          <div className="text-2xl sm:text-3xl font-black mt-1">€ {totalIT_EUR.toFixed(0)}</div>
+          <div className="text-2xl sm:text-3xl font-bold mt-1">€ {totalIT_EUR.toFixed(0)}</div>
           <div className="text-xs text-white/60">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</div>
         </div>
         <div className={`rounded-xl p-5 text-white ${totalSavings > 0 ? 'bg-gradient-to-br from-emerald-500 to-teal-700' : 'bg-gradient-to-br from-amber-500 to-orange-700'}`}>
           <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('costOfLiving.savings')}</div>
-          <div className="text-2xl sm:text-3xl font-black mt-1 flex items-center gap-2">
+          <div className="text-2xl sm:text-3xl font-bold mt-1 flex items-center gap-2">
             {totalSavings > 0 ? <TrendingDown size={24} /> : <TrendingUp size={24} />}
             € {Math.abs(totalSavings).toFixed(0)}
           </div>
@@ -359,11 +359,11 @@ const CostOfLiving: React.FC = () => {
                   <span className="font-bold text-sm text-slate-800 dark:text-slate-200">{cat.label}</span>
                 </div>
                 <div className="text-center">
-                  <div className="font-black text-sm">{valCH.toFixed(0)} CHF</div>
+                  <div className="font-bold text-sm">{valCH.toFixed(0)} CHF</div>
                   <div className="text-xs text-slate-500 dark:text-slate-400">≈ € {valCH_EUR.toFixed(0)}</div>
                 </div>
                 <div className="text-center">
-                  <div className="font-black text-sm">€ {valIT_EUR.toFixed(0)}</div>
+                  <div className="font-bold text-sm">€ {valIT_EUR.toFixed(0)}</div>
                   {cat.key === 'health' && valIT === 0 && (
                     <div className="text-xs text-emerald-500 font-bold">SSN</div>
                   )}

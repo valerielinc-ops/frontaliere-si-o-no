@@ -237,14 +237,14 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 <div className="flex items-center gap-2">
                   <input type="checkbox" id={`meal-vouchers-${offer.id}`} checked={offer.hasMealVouchers} onChange={(e) => updateOffer(offer.id, 'hasMealVouchers', e.target.checked)}
                     className="w-4 h-4 text-amber-600 rounded" />
-                  <label htmlFor={`meal-vouchers-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-500">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
+                  <label htmlFor={`meal-vouchers-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.mealVouchers')} (€{offer.mealVoucherValue}/{t('common.day') || 'gg'})</label>
                 </div>
               )}
 
               <div className="flex items-center gap-2">
                 <input type="checkbox" id={`parking-${offer.id}`} checked={offer.hasParking} onChange={(e) => updateOffer(offer.id, 'hasParking', e.target.checked)}
                   className="w-4 h-4 text-amber-600 rounded" />
-                <label htmlFor={`parking-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-500">{t('jobs.parking')}</label>
+                <label htmlFor={`parking-${offer.id}`} className="text-xs font-bold text-slate-600 dark:text-slate-400">{t('jobs.parking')}</label>
               </div>
             </div>
           </div>

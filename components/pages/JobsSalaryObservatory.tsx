@@ -242,7 +242,7 @@ function LeaderBlock(props: {
               }}
             >
               <div className="min-w-0">
-                <div className="text-xs font-bold text-slate-500 dark:text-slate-500">#{index + 1}</div>
+                <div className="text-xs font-bold text-slate-500 dark:text-slate-400">#{index + 1}</div>
                 <div className="truncate text-sm font-semibold text-slate-800 dark:text-slate-100">{item.name}</div>
               </div>
               <div className="shrink-0 text-right text-sm font-extrabold text-indigo-600 dark:text-indigo-300">

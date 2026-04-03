@@ -93,7 +93,7 @@ export default function LivabilityIndex() {
     if (rank === 1) return 'text-yellow-500';
     if (rank === 2) return 'text-slate-500';
     if (rank === 3) return 'text-amber-700';
-    return 'text-slate-500 dark:text-slate-500';
+    return 'text-slate-500 dark:text-slate-400';
   };
 
   const scoreBarColor = (score: number) => {
@@ -110,7 +110,7 @@ export default function LivabilityIndex() {
           <MapPin className="text-amber-600 dark:text-amber-400" size={28} />
           <h2 className="text-2xl font-bold text-slate-800 dark:text-white">{t('livability.title')}</h2>
         </div>
-        <p className="text-slate-600 dark:text-slate-500">{t('livability.subtitle')}</p>
+        <p className="text-slate-600 dark:text-slate-400">{t('livability.subtitle')}</p>
       </div>
 
       {/* Controls */}
@@ -160,7 +160,7 @@ export default function LivabilityIndex() {
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition ${
                 viewMode === 'table'
                   ? 'bg-white dark:bg-slate-600 text-amber-700 dark:text-amber-400 shadow'
-                  : 'text-slate-600 dark:text-slate-500 hover:text-slate-800 dark:hover:text-white'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
               }`}
               aria-label={t('livability.table')}
             >
@@ -171,7 +171,7 @@ export default function LivabilityIndex() {
               className={`flex items-center gap-1.5 px-3 py-1.5 rounded-md text-sm font-medium transition ${
                 viewMode === 'map'
                   ? 'bg-white dark:bg-slate-600 text-amber-700 dark:text-amber-400 shadow'
-                  : 'text-slate-600 dark:text-slate-500 hover:text-slate-800 dark:hover:text-white'
+                  : 'text-slate-600 dark:text-slate-400 hover:text-slate-800 dark:hover:text-white'
               }`}
               aria-label={t('livability.map')}
             >
@@ -181,7 +181,7 @@ export default function LivabilityIndex() {
         </div>
 
         {/* Weight legend */}
-        <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-500">
+        <div className="mt-3 flex flex-wrap gap-3 text-xs text-slate-500 dark:text-slate-400">
           <span>{t('livability.weightDistance')}</span>
           <span>{t('livability.weightRent')}</span>
           <span>{t('livability.weightIrpef')}</span>
@@ -192,8 +192,7 @@ export default function LivabilityIndex() {
 
       {/* Content */}
       {viewMode === 'table' ? (
-        <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden">
-          <div className="overflow-x-auto">
+        <div className="bg-white dark:bg-slate-800 rounded-xl shadow overflow-hidden" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 500px' }}>          <div className="overflow-x-auto">
             <table className="w-full text-sm">
               <thead className="bg-slate-50 dark:bg-slate-700">
                 <tr>
@@ -218,11 +217,11 @@ export default function LivabilityIndex() {
                       {m.rank <= 3 ? (
                         <Trophy size={16} className={medalColor(m.rank)} />
                       ) : (
-                        <span className="text-slate-500 dark:text-slate-500 font-mono">{m.rank}</span>
+                        <span className="text-slate-500 dark:text-slate-400 font-mono">{m.rank}</span>
                       )}
                     </td>
                     <td className="py-2.5 px-4 font-medium text-slate-800 dark:text-white">{m.name}</td>
-                    <td className="py-2.5 px-3 text-center text-slate-600 dark:text-slate-500">{m.province}</td>
+                    <td className="py-2.5 px-3 text-center text-slate-600 dark:text-slate-400">{m.province}</td>
                     <td className="py-2.5 px-3 text-right">
                       <div className="flex items-center justify-end gap-2">
                         <div className="w-16 bg-slate-100 dark:bg-slate-700 rounded-full h-2 overflow-hidden">
@@ -271,7 +270,7 @@ export default function LivabilityIndex() {
       )}
 
       {/* Disclaimer */}
-      <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-500">
+      <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
         <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
         <p>{t('livability.disclaimer')}</p>
       </div>

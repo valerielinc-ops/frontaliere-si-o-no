@@ -30,7 +30,7 @@ const CurrencyValue: React.FC<{ value: number; currency: string; className?: str
   <span className={`font-mono font-bold tracking-tight whitespace-nowrap ${className}`}>
     {!smallCurrency && (currency === 'EUR' ? '€ ' : 'CHF ')}
     {formatCurrency(value)}
-    {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-slate-500 dark:text-slate-500">{currency}</span>}
+    {smallCurrency && <span className="text-[0.7em] ml-1 font-sans font-normal text-slate-500 dark:text-slate-400">{currency}</span>}
   </span>
 );
 
@@ -116,7 +116,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           <div className="flex-1 pr-3 flex items-center gap-2 min-w-0">
             {!isTotal && !isNet && <div className={`w-2 h-2 rounded-full flex-shrink-0 ${dotColor}`}></div>}
             <div className="flex items-center gap-1.5 min-w-0">
-              <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-slate-900 dark:text-slate-100' : 'font-medium text-slate-600 dark:text-slate-500 group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
+              <div className={`truncate transition-colors ${isTotal || isNet ? 'font-bold text-base text-slate-900 dark:text-slate-100' : 'font-medium text-slate-600 dark:text-slate-400 group-hover:text-slate-900 dark:group-hover:text-slate-200'}`}>
                 {translateKey(item.label)}
               </div>
               
@@ -135,7 +135,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
           {/* Value Section */}
           <div className="text-right flex items-center justify-end gap-3 flex-shrink-0">
              {item.percentage !== 0 && !isNet && (
-                <div className="w-10 sm:w-12 text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-500 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
+                <div className="w-10 sm:w-12 text-[9px] sm:text-xs font-bold text-slate-600 dark:text-slate-400 bg-slate-100 dark:bg-slate-800 group-hover:bg-slate-200/70 rounded px-1 py-0.5 text-center flex-shrink-0 transition-colors hidden sm:block">
                   {Math.abs(item.percentage).toFixed(1)}%
                 </div>
              )}
@@ -145,7 +145,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                     <div className={`text-right font-mono font-bold whitespace-nowrap ${isNet ? 'text-lg text-emerald-700 dark:text-emerald-400' : (isNegative ? 'text-red-700 dark:text-red-400' : 'text-slate-800 dark:text-slate-100')}`}>
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amountEUR !== undefined && item.amountEUR !== 0 ? Math.abs(item.amountEUR) : (exchangeRate ? Math.abs(item.amount) * exchangeRate : Math.abs(item.amount))} currency="EUR" />
                     </div>
-                    <div className="text-xs font-mono text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap h-4">
+                    <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap h-4">
                        ≈ CHF {formatCurrency(Math.abs(item.amount))}
                     </div>
                   </>
@@ -155,7 +155,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
                         {isNegative ? '-' : ''} <CurrencyValue value={item.amount} currency={currency} />
                     </div>
                     {showEUR && (
-                        <div className="text-xs font-mono text-slate-500 dark:text-slate-500 font-medium whitespace-nowrap h-4">
+                        <div className="text-xs font-mono text-slate-500 dark:text-slate-400 font-medium whitespace-nowrap h-4">
                            {item.amountEUR !== undefined && item.amountEUR !== 0 ? `≈ € ${formatCurrency(Math.abs(item.amountEUR))}` : ''}
                         </div>
                     )}
@@ -589,7 +589,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                   {chResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
                         <p className="text-xs font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
-                        <ul className="text-xs text-slate-500 dark:text-slate-500 list-disc list-inside">
+                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
                             {chResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
                     </div>
@@ -647,7 +647,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                   {/* MOVED BLOCK: Swiss Net Salary (Pre-Italian Tax) */}
                   {itResident.swissNetIncomeMonthlyCHF && (
                     <div className="bg-slate-50 dark:bg-slate-900/50 p-4 rounded-2xl border border-slate-200 dark:border-slate-800 mt-2 relative overflow-hidden">
-                       <div className="text-xs text-slate-500 dark:text-slate-500 font-bold uppercase mb-1 relative z-10">
+                       <div className="text-xs text-slate-500 dark:text-slate-400 font-bold uppercase mb-1 relative z-10">
                           {t('results.swissPayslipNet')}
                        </div>
                        <div className="text-xl font-bold text-slate-700 dark:text-slate-200 relative z-10">
@@ -656,13 +656,13 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                        <ul className="mt-3 space-y-1.5 relative z-10">
                           {itResident.details.regime === "calc.regime.newFrontier" ? (
                               <>
-                                <li className="text-xs text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
+                                <li className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-indigo-500"></div> {t('results.concurrentTax')}</li>
                                 {itResident.details.franchigiaEUR ? (
-                                  <li className="text-xs text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
+                                  <li className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.franchiseApplied', { amount: formatCurrency(itResident.details.franchigiaEUR) })}</li>
                                 ) : null}
                               </>
                           ) : (
-                              <li className="text-xs text-slate-500 dark:text-slate-500 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
+                              <li className="text-xs text-slate-500 dark:text-slate-400 font-medium flex items-center gap-1.5"><div className="w-1.5 h-1.5 rounded-full bg-emerald-500"></div> {t('results.exclusiveSwissTax')}</li>
                           )}
                        </ul>
                     </div>
@@ -671,7 +671,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                   {itResident.details.notes.length > 0 && (
                     <div className="mt-4 p-3 bg-slate-50 dark:bg-slate-900/50 rounded-xl border border-dashed border-slate-200 dark:border-slate-800">
                         <p className="text-xs font-bold uppercase text-slate-500 mb-1">{t('results.notes')}</p>
-                        <ul className="text-xs text-slate-500 dark:text-slate-500 list-disc list-inside">
+                        <ul className="text-xs text-slate-500 dark:text-slate-400 list-disc list-inside">
                             {itResident.details.notes.map((note, i) => <li key={i}>{t(note.split('|')[0])}</li>)}
                         </ul>
                     </div>
@@ -686,7 +686,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
         <>
         {/* WHY CHOOSE ONE OR THE OTHER? */}
         <div className="mb-8">
-           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-6 flex items-center gap-2">
+           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-6 flex items-center gap-2">
               <Heart size={14} className="text-rose-500" /> {t('results.whyConvenient')}
            </h3>
            
@@ -696,7 +696,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                  <h4 className="flex items-center gap-2 text-blue-700 dark:text-blue-400 font-bold mb-4">
                     <ShieldCheck size={18} className="text-blue-500" /> {t('results.chooseSwissIf')}
                  </h4>
-                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-500 font-medium">
+                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.quality.title')}</b> {t('results.ch.quality')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.career.title')}</b> {t('results.ch.career')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-blue-500 shrink-0" /> <span><b>{t('results.ch.time.title')}</b> {t('results.ch.time')}</span></li>
@@ -709,7 +709,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
                  <h4 className="flex items-center gap-2 text-emerald-700 dark:text-emerald-400 font-bold mb-4">
                     <ShoppingBag size={18} className="text-emerald-500" /> {t('results.chooseItalyIf')}
                  </h4>
-                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-500 font-medium">
+                 <ul className="space-y-3 text-xs text-slate-600 dark:text-slate-400 font-medium">
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.cost.title')}</b> {t('results.it.cost')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.property.title')}</b> {t('results.it.property')}</span></li>
                     <li className="flex gap-3"><ChevronRight size={14} className="text-emerald-500 shrink-0" /> <span><b>{t('results.it.social.title')}</b> {t('results.it.social')}</span></li>
@@ -730,7 +730,7 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
         )}
 
         <div className="mb-8">
-           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+           <h3 className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-widest mb-4 flex items-center gap-2">
               <Calculator size={14} className="text-indigo-500" /> {t('results.monthlyReservesChart')}
            </h3>
            <Suspense fallback={<div className="h-64 bg-slate-100 dark:bg-slate-800 rounded-xl animate-pulse" />}>

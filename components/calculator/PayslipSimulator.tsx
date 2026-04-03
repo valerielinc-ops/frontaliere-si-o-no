@@ -122,7 +122,7 @@ const InfoTooltip = ({ text }: { text: string }) => (
 
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
-    {label && <label htmlFor={inputId} className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
+    {label && <label htmlFor={inputId} className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
     <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
@@ -236,7 +236,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <div className={`p-2 rounded-lg transition-colors ${showInfo ? 'bg-amber-100 text-amber-600' : 'bg-slate-100 dark:bg-slate-800 text-slate-500 dark:text-slate-400'}`}>
             <Info size={18} />
           </div>
-          <span className={`text-sm font-bold transition-colors ${showInfo ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-500'}`}>
+          <span className={`text-sm font-bold transition-colors ${showInfo ? 'text-slate-800 dark:text-slate-100' : 'text-slate-600 dark:text-slate-400'}`}>
             {t('payslip.lppAgeRates')}
           </span>
         </div>
@@ -303,7 +303,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm p-5 space-y-6">
             {/* Income Input — Prominent (matching InputCard) */}
             <div className="space-y-2">
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5">
+              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5">
                 <Coins size={14} className="text-amber-500"/> {t('payslip.grossSalary')}
                 <InfoTooltip text={t('payslip.grossMonthly') + ': CHF ' + fmt(grossAnnual / 12)} />
               </label>
@@ -335,7 +335,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <StepperInput inputId="payslip-age" label={t('payslip.age')} value={age} onChange={setAge} min={18} max={65} icon={User} iconColor="text-blue-500" tooltip={t('payslip.lppAgeRates')} />
               {/* Marital Status */}
               <div className="space-y-1.5">
-                <label htmlFor="payslip-status" className="text-xs font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wide flex items-center gap-1.5 h-4">
+                <label htmlFor="payslip-status" className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">
                   <Heart size={12} className="text-rose-500"/> {t('payslip.maritalStatus')}
                 </label>
                 <div className="relative">
@@ -404,10 +404,10 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <div key={d.key} className="flex items-center justify-between py-2.5 px-3 rounded-lg hover:bg-slate-50 dark:hover:bg-slate-700/30 transition-colors group">
                 <div className="flex-1">
                   <div className="text-sm font-semibold text-slate-700 dark:text-slate-200">{d.label}</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-500">{d.desc}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">{d.desc}</div>
                 </div>
                 <div className="text-right">
-                  <div className="text-xs text-slate-500 dark:text-slate-500">{pct(d.rate)}</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">{pct(d.rate)}</div>
                   <div className="text-sm font-semibold text-red-600 dark:text-red-400">-{fmt(d.amount)}</div>
                 </div>
               </div>
@@ -447,7 +447,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                       style={{ width: `${Math.max(widthPct, 1)}%` }}
                     />
                   </div>
-                  <span className="text-xs text-slate-500 dark:text-slate-500 w-12 text-right">{pct(d.rate)}</span>
+                  <span className="text-xs text-slate-500 dark:text-slate-400 w-12 text-right">{pct(d.rate)}</span>
                 </div>
               );
             })}
@@ -467,7 +467,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
           {renderAliquoteCard('lg:hidden mt-6')}
 
           {/* Disclaimer */}
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-4 leading-relaxed">
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-4 leading-relaxed">
             ⚠️ {t('payslip.disclaimer')}
           </p>
           <div className="flex items-center gap-1.5 mt-2 text-xs text-emerald-700 dark:text-emerald-400">

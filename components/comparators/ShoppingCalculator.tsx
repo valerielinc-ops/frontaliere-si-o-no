@@ -225,13 +225,13 @@ const ShoppingCalculator: React.FC = () => {
             </div>
             <div className="bg-gradient-to-br from-emerald-500 to-green-600 rounded-xl p-4 text-white">
               <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('shopping.avgSavings')}</div>
-              <div className="text-2xl sm:text-3xl font-black">{allProductStats.savingsPercent.toFixed(0)}%</div>
+              <div className="text-2xl sm:text-3xl font-bold">{allProductStats.savingsPercent.toFixed(0)}%</div>
               <div className="text-xs text-white/90">{t('shopping.buyingInItaly')}</div>
             </div>
             {stats.selectedCount > 0 && (
               <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl p-4 text-white">
                 <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('shopping.yourSavings')}</div>
-                <div className="text-2xl sm:text-3xl font-black">{'\u20AC'} {stats.savings.toFixed(2)}</div>
+                <div className="text-2xl sm:text-3xl font-bold">{'\u20AC'} {stats.savings.toFixed(2)}</div>
                 <div className="text-xs text-white/90">{t('shopping.perTrip')} ({stats.selectedCount} {t('shopping.products')})</div>
               </div>
             )}
@@ -309,7 +309,7 @@ const ShoppingCalculator: React.FC = () => {
                       </div>
                     </div>
                     {saving > 0 && (
-                      <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 text-xs font-black rounded-full whitespace-nowrap">
+                      <span className="px-2 py-0.5 bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-400 text-xs font-bold rounded-full whitespace-nowrap">
                         -{savingPercent.toFixed(0)}%
                       </span>
                     )}
@@ -317,19 +317,19 @@ const ShoppingCalculator: React.FC = () => {
                   <div className="flex items-center justify-between gap-2 text-sm">
                     <div className="text-center">
                       <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDEE\uD83C\uDDF9'} {product.storeIT}</div>
-                      <div className="font-black text-emerald-700 dark:text-emerald-400 text-lg">{'\u20AC'} {product.priceIT.toFixed(2)}</div>
+                      <div className="font-bold text-emerald-700 dark:text-emerald-400 text-lg">{'\u20AC'} {product.priceIT.toFixed(2)}</div>
                     </div>
                     <ArrowRight size={14} className="text-slate-500 dark:text-slate-400" />
                     <div className="text-center">
                       <div className="text-xs text-slate-500 dark:text-slate-400 uppercase">{'\uD83C\uDDE8\uD83C\uDDED'} {product.storeCH}</div>
-                      <div className="font-black text-red-600 dark:text-red-400 text-lg">{product.priceCH.toFixed(2)} CHF</div>
+                      <div className="font-bold text-red-600 dark:text-red-400 text-lg">{product.priceCH.toFixed(2)} CHF</div>
                       <div className="text-xs text-slate-500 dark:text-slate-400">{'\u2248'} {'\u20AC'} {priceCHinEUR.toFixed(2)}</div>
                     </div>
                   </div>
                   {isSelected && (
                     <div className="mt-3 flex items-center justify-center gap-3 border-t border-slate-200 dark:border-slate-700 pt-3" onClick={e => e.stopPropagation()}>
                       <button onClick={() => updateQuantity(product.id, qty - 1)} className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 font-bold text-lg flex items-center justify-center hover:bg-red-200 dark:hover:bg-red-800 text-slate-800 dark:text-white" aria-label="Decrease quantity">-</button>
-                      <span className="text-lg font-black w-8 text-center text-slate-800 dark:text-white">{qty}</span>
+                      <span className="text-lg font-bold w-8 text-center text-slate-800 dark:text-white">{qty}</span>
                       <button onClick={() => updateQuantity(product.id, qty + 1)} className="w-8 h-8 rounded-full bg-slate-200 dark:bg-slate-700 font-bold text-lg flex items-center justify-center hover:bg-emerald-200 dark:hover:bg-emerald-800 text-slate-800 dark:text-white" aria-label="Increase quantity">+</button>
                     </div>
                   )}
@@ -347,21 +347,21 @@ const ShoppingCalculator: React.FC = () => {
               <div className="grid md:grid-cols-4 gap-4">
                 <div className="bg-white/10 rounded-xl p-4">
                   <div className="text-xs uppercase tracking-wider text-white/60">{'\uD83C\uDDEE\uD83C\uDDF9'} {t('shopping.totalItaly')}</div>
-                  <div className="text-2xl font-black">{'\u20AC'} {stats.totalIT.toFixed(2)}</div>
+                  <div className="text-2xl font-bold">{'\u20AC'} {stats.totalIT.toFixed(2)}</div>
                 </div>
                 <div className="bg-white/10 rounded-xl p-4">
                   <div className="text-xs uppercase tracking-wider text-white/60">{'\uD83C\uDDE8\uD83C\uDDED'} {t('shopping.totalSwitzerland')}</div>
-                  <div className="text-2xl font-black">{stats.totalCH.toFixed(2)} CHF</div>
+                  <div className="text-2xl font-bold">{stats.totalCH.toFixed(2)} CHF</div>
                   <div className="text-xs text-white/50">{'\u2248'} {'\u20AC'} {stats.totalCHinEUR.toFixed(2)}</div>
                 </div>
                 <div className={`rounded-xl p-4 ${stats.savings > 0 ? 'bg-emerald-500/30' : 'bg-red-500/30'}`}>
                   <div className="text-xs uppercase tracking-wider text-white/60">{t('shopping.savings')}</div>
-                  <div className="text-2xl font-black">{'\u20AC'} {stats.savings.toFixed(2)}</div>
+                  <div className="text-2xl font-bold">{'\u20AC'} {stats.savings.toFixed(2)}</div>
                   <div className="text-xs text-white/90">{stats.savingsPercent.toFixed(0)}% {stats.savings > 0 ? t('shopping.cheaper') : t('shopping.moreExpensive')}</div>
                 </div>
                 <div className="bg-amber-500/30 rounded-xl p-4">
                   <div className="text-xs uppercase tracking-wider text-white/60">{t('shopping.annualSavings')}</div>
-                  <div className="text-2xl font-black">{'\u20AC'} {stats.annualSavings.toFixed(0)}</div>
+                  <div className="text-2xl font-bold">{'\u20AC'} {stats.annualSavings.toFixed(0)}</div>
                   <div className="text-xs text-white/90">{t('shopping.weeklyTrips')}</div>
                 </div>
               </div>
@@ -490,7 +490,7 @@ const ShoppingCalculator: React.FC = () => {
                         </div>
                       </div>
                       <div className="text-right">
-                        <div className="text-2xl font-black text-orange-700 dark:text-orange-400">{'\u20AC'} {zc.netConvenience.toFixed(0)}</div>
+                        <div className="text-2xl font-bold text-orange-700 dark:text-orange-400">{'\u20AC'} {zc.netConvenience.toFixed(0)}</div>
                         <div className="text-xs text-slate-500 dark:text-slate-400">{t('shopping.perWeeklyTrip')}</div>
                       </div>
                     </div>
@@ -605,7 +605,7 @@ const ShoppingCalculator: React.FC = () => {
             </a>
           ))}
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-500 mt-2">{t('shopping.disclaimer')}</p>
+        <p className="text-xs text-slate-500 dark:text-slate-400 mt-2">{t('shopping.disclaimer')}</p>
       </div>
       <Suspense fallback={null}><RelatedTools context="comparison" /></Suspense>
     </div>

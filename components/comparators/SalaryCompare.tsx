@@ -549,7 +549,7 @@ export default function SalaryCompare() {
                                     <span className="block">
                                       CHF {ch[1].toLocaleString()}
                                     </span>
-                                    <span className="text-slate-500 dark:text-slate-500">
+                                    <span className="text-slate-500 dark:text-slate-400">
                                       {ch[0].toLocaleString()}-
                                       {ch[2].toLocaleString()}
                                     </span>
@@ -558,7 +558,7 @@ export default function SalaryCompare() {
                                     <span className="block">
                                       {'\u20AC'} {it[1].toLocaleString()}
                                     </span>
-                                    <span className="text-slate-500 dark:text-slate-500">
+                                    <span className="text-slate-500 dark:text-slate-400">
                                       {it[0].toLocaleString()}-
                                       {it[2].toLocaleString()}
                                     </span>
@@ -738,7 +738,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-500 mt-0.5 font-mono">
+                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-mono">
                             <span>{(ch[0] / 1000).toFixed(0)}k</span>
                             <span>{(ch[2] / 1000).toFixed(0)}k</span>
                           </div>
@@ -771,7 +771,7 @@ export default function SalaryCompare() {
                               }}
                             />
                           </div>
-                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-500 mt-0.5 font-mono">
+                          <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-0.5 font-mono">
                             <span>{(it[0] / 1000).toFixed(0)}k</span>
                             <span>{(it[2] / 1000).toFixed(0)}k</span>
                           </div>
@@ -852,10 +852,10 @@ export default function SalaryCompare() {
 
       {/* ── Source + Disclaimer ── */}
       <div className="space-y-2">
-        <p className="text-xs text-slate-500 dark:text-slate-500 font-medium">
+        <p className="text-xs text-slate-500 dark:text-slate-400 font-medium">
           {t('salaryCompare.source')}
         </p>
-        <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-500">
+        <div className="flex items-start gap-2 text-xs text-slate-500 dark:text-slate-400">
           <AlertTriangle size={14} className="flex-shrink-0 mt-0.5" />
           <p>{t('salaryCompare.disclaimer')}</p>
         </div>

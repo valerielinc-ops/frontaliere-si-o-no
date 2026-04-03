@@ -884,8 +884,8 @@ export default function AdminPanel() {
         <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
           <Shield size={14} className="text-violet-600 dark:text-violet-400" />
           <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Configurazione crawler</span>
-          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
-          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
+          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
+          <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
         </summary>
         <div className="px-4 pb-4 space-y-4 border-t border-slate-200 dark:border-slate-700">
           {/* Genera parser AI */}
@@ -954,8 +954,8 @@ export default function AdminPanel() {
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Shield size={14} className="text-amber-600 dark:text-amber-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtri qualità</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Soglie minime per accettare un annuncio. Job sotto queste soglie vengono scartati.</p>
@@ -982,8 +982,8 @@ export default function AdminPanel() {
               <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${aiLocalizationEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
                 {aiLocalizationEnabledInput ? 'ON' : 'OFF'}
               </span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Traduzione automatica annunci in IT/EN/DE/FR tramite LLM (free-first, paid fallback).</p>
@@ -1017,8 +1017,8 @@ export default function AdminPanel() {
               <span className={`ml-2 px-1.5 py-0.5 rounded text-[10px] font-bold ${contentReuseEnabledInput ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300' : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
                 {contentReuseEnabledInput ? 'ON' : 'OFF'}
               </span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Se la descrizione di un job è molto simile al run precedente, riusa le traduzioni già fatte (risparmia crediti AI).</p>
@@ -1059,9 +1059,9 @@ export default function AdminPanel() {
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Shield size={14} className="text-slate-600 dark:text-slate-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Filtro domini</span>
-              <span className="ml-2 text-[10px] text-slate-500 dark:text-slate-500">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-2 text-[10px] text-slate-500 dark:text-slate-400">{domainWhitelistText.split('\n').filter(Boolean).length} whitelist · {domainBlacklistText.split('\n').filter(Boolean).length} blacklist</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Whitelist: se compilata, solo questi domini vengono crawlati. Blacklist: domini sempre esclusi.</p>
@@ -1085,8 +1085,8 @@ export default function AdminPanel() {
             <summary className="flex items-center gap-2 px-4 py-3 cursor-pointer select-none">
               <Database size={14} className="text-emerald-600 dark:text-emerald-400" />
               <span className="text-sm font-semibold text-slate-800 dark:text-slate-100">Priorità aziende &amp; seed URL</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 group-open:hidden">▸</span>
-              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-500 hidden group-open:inline">▾</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 group-open:hidden">▸</span>
+              <span className="ml-auto text-[10px] text-slate-500 dark:text-slate-400 hidden group-open:inline">▾</span>
             </summary>
             <div className="px-4 pb-4 space-y-3">
               <p className="text-[11px] text-slate-500 dark:text-slate-400">Priorità: punteggio numerico per ordinare le aziende nel crawl. Seed: URL career page iniziali.</p>
@@ -1609,7 +1609,7 @@ export default function AdminPanel() {
                       </span>
                       {latestSummaryAt && (
                         <span
-                          className="text-slate-500 dark:text-slate-500 text-[10px] font-mono whitespace-nowrap"
+                          className="text-slate-500 dark:text-slate-400 text-[10px] font-mono whitespace-nowrap"
                           title={`Dati aggiornati: ${latestSummaryAt}`}
                         >
                           {relativeTime(latestSummaryAt)}
@@ -1818,7 +1818,7 @@ export default function AdminPanel() {
                                     <span className="text-[10px] font-mono text-slate-600 dark:text-slate-400" title={s.avgDurationMs != null ? `Media: ${formatDurationMs(s.avgDurationMs)}` : undefined}>
                                       {formatDurationMs(s.durationMs)}
                                       {s.avgDurationMs != null && (
-                                        <span className="block text-[9px] text-slate-500 dark:text-slate-500">ø {formatDurationMs(s.avgDurationMs)}</span>
+                                        <span className="block text-[9px] text-slate-500 dark:text-slate-400">ø {formatDurationMs(s.avgDurationMs)}</span>
                                       )}
                                     </span>
                                   ) : '—'}
@@ -2446,7 +2446,7 @@ export default function AdminPanel() {
             <div className="flex items-center gap-2 flex-wrap">
               <h4 className="text-sm font-bold text-slate-800 dark:text-slate-100 truncate">{wf.title}</h4>
               {lastRunAgo && (
-                <span className="text-[10px] text-slate-500 dark:text-slate-500 font-mono whitespace-nowrap" title={wfState.updatedAt || ''}>
+                <span className="text-[10px] text-slate-500 dark:text-slate-400 font-mono whitespace-nowrap" title={wfState.updatedAt || ''}>
                   {lastRunAgo}
                 </span>
               )}
@@ -2592,7 +2592,7 @@ export default function AdminPanel() {
             )}
 
             {isFailure && !wfState.logExcerpt && (
-              <div className="text-[11px] italic text-slate-500 dark:text-slate-500">
+              <div className="text-[11px] italic text-slate-500 dark:text-slate-400">
                 Log non disponibile — apri il run su GitHub per i dettagli completi.
               </div>
             )}
@@ -2717,7 +2717,7 @@ export default function AdminPanel() {
               className={`flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-t-lg transition-colors ${
                 activeSection === tab.id
                   ? 'bg-white dark:bg-slate-800 text-violet-700 dark:text-violet-400 border border-b-0 border-slate-200 dark:border-slate-700'
-                  : 'text-slate-500 dark:text-slate-500 hover:text-slate-700 dark:hover:text-slate-300'
+                  : 'text-slate-500 dark:text-slate-400 hover:text-slate-700 dark:hover:text-slate-300'
               }`}
               aria-label={tab.label}
             >
@@ -2902,7 +2902,7 @@ export default function AdminPanel() {
           {/* Stats row */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-500 text-sm mb-1">
+              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm mb-1">
                 <Users size={16} />
                 Iscritti attivi
               </div>
@@ -2911,7 +2911,7 @@ export default function AdminPanel() {
               </div>
             </div>
             <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-500 text-sm mb-1">
+              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm mb-1">
                 <Calendar size={16} />
                 Ultimo invio
               </div>
@@ -2920,11 +2920,11 @@ export default function AdminPanel() {
               </div>
             </div>
             <div className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 p-4">
-              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-500 text-sm mb-1">
+              <div className="flex items-center gap-2 text-slate-600 dark:text-slate-400 text-sm mb-1">
                 <Mail size={16} />
                 Destinatari (anteprima)
               </div>
-              <div className="text-xs text-slate-600 dark:text-slate-500 mt-1 space-y-0.5">
+              <div className="text-xs text-slate-600 dark:text-slate-400 mt-1 space-y-0.5">
                 {nlLoading ? '…' : nlRecipients.length > 0
                   ? nlRecipients.map((e, i) => <div key={i} className="font-mono">{e}</div>)
                   : <span>Nessun iscritto</span>}
@@ -3076,7 +3076,7 @@ export default function AdminPanel() {
               <span className="ml-auto text-xs bg-amber-100 dark:bg-amber-900/40 text-amber-700 dark:text-amber-400 px-2 py-0.5 rounded-full font-medium">DRY RUN</span>
             </div>
             <div className="p-4 space-y-3">
-              <p className="text-xs text-slate-600 dark:text-slate-500">
+              <p className="text-xs text-slate-600 dark:text-slate-400">
                 Quando il sistema sarà attivo, i nuovi iscritti riceveranno questa email di conferma.
                 L'invio sarà gestito tramite GitHub Actions workflow dispatch.
                 Per ora i subscriber vengono salvati con <code className="text-xs bg-slate-100 dark:bg-slate-900 px-1 py-0.5 rounded">status: 'pending'</code>.
@@ -3178,7 +3178,7 @@ export default function AdminPanel() {
               { label: 'Invio a tutti (solo go-live)', cmd: 'NEWSLETTER_EXPERIMENTAL_MODE=false NEWSLETTER_ENABLE_SEND=true GOOGLE_APPLICATION_CREDENTIALS=path/to/sa.json node scripts/send-newsletter.mjs --send' },
             ].map(item => (
               <div key={item.label} className="flex items-center gap-2">
-                <span className="text-xs text-slate-500 dark:text-slate-500 w-24 shrink-0">{item.label}:</span>
+                <span className="text-xs text-slate-500 dark:text-slate-400 w-24 shrink-0">{item.label}:</span>
                 <CopyButton text={item.cmd} label={item.label} />
               </div>
             ))}

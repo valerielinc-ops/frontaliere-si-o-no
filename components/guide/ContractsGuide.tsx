@@ -304,7 +304,7 @@ const ContractsGuide = () => {
                         {/* Weekly hours */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
                           <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Clock size={14} className="text-slate-500 dark:text-slate-500 shrink-0" />
+                            <Clock size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
                             {t('contracts.table.weeklyHours')}
                           </td>
                           <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
@@ -317,7 +317,7 @@ const ContractsGuide = () => {
                         {/* Vacation */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
                           <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Palmtree size={14} className="text-slate-500 dark:text-slate-500 shrink-0" />
+                            <Palmtree size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
                             {t('contracts.table.vacation')}
                           </td>
                           <td className="py-2 px-2 text-center text-slate-900 dark:text-white">
@@ -337,7 +337,7 @@ const ContractsGuide = () => {
                         {/* 13th month */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
                           <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Gift size={14} className="text-slate-500 dark:text-slate-500 shrink-0" />
+                            <Gift size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
                             {t('contracts.table.thirteenthMonth')}
                           </td>
                           <td className="py-2 px-2 text-center">
@@ -367,7 +367,7 @@ const ContractsGuide = () => {
                         {/* Notice period */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
                           <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Bell size={14} className="text-slate-500 dark:text-slate-500 shrink-0" />
+                            <Bell size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
                             {t('contracts.table.noticePeriod')}
                           </td>
                           <td className="py-2 px-2 text-center text-xs text-slate-900 dark:text-white">
@@ -385,7 +385,7 @@ const ContractsGuide = () => {
                         {/* Probation */}
                         <tr className="border-b border-slate-100 dark:border-slate-700">
                           <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                            <Shield size={14} className="text-slate-500 dark:text-slate-500 shrink-0" />
+                            <Shield size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
                             {t('contracts.table.probation')}
                           </td>
                           <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
@@ -399,7 +399,7 @@ const ContractsGuide = () => {
                         {(sector.ch.minWageCHF || sector.it.minWageEUR) && (
                           <tr className="border-b border-slate-100 dark:border-slate-700">
                             <td className="py-2 px-2 text-slate-700 dark:text-slate-300 flex items-center gap-1.5">
-                              <ArrowRightLeft size={14} className="text-slate-500 dark:text-slate-500 shrink-0" />
+                              <ArrowRightLeft size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
                               {t('contracts.table.minWage')}
                             </td>
                             <td className="py-2 px-2 text-center font-semibold text-slate-900 dark:text-white">
@@ -594,7 +594,7 @@ const ContractsGuide = () => {
       </div>
 
       {/* Disclaimer */}
-      <div className="text-center text-xs text-slate-500 dark:text-slate-500 px-4">
+      <div className="text-center text-xs text-slate-500 dark:text-slate-400 px-4">
         {t('contracts.disclaimer')}
       </div>
     </div>

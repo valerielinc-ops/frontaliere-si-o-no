@@ -45,6 +45,19 @@ const STATUS_LABEL_KEYS: Record<string, string> = {
   red: 'traffic.status.red',
 };
 
+// Hoisted style objects for Leaflet Popup content (avoids new object per render — Vercel rule 5.5)
+const POPUP_HEADER_STYLE: React.CSSProperties = { display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' };
+const POPUP_DOT_STYLE: React.CSSProperties = { width: '16px', height: '16px', borderRadius: '50%', flexShrink: 0 };
+const POPUP_TITLE_STYLE: React.CSSProperties = { margin: 0 };
+const POPUP_BODY_STYLE: React.CSSProperties = { display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '14px' };
+const POPUP_ROW_STYLE: React.CSSProperties = { display: 'flex', justifyContent: 'space-between' };
+const POPUP_CAPITALIZE_STYLE: React.CSSProperties = { textTransform: 'capitalize' };
+const POPUP_NAV_LINK_STYLE: React.CSSProperties = {
+  marginTop: '12px', display: 'flex', alignItems: 'center', justifyContent: 'center',
+  gap: '6px', width: '100%', padding: '8px', backgroundColor: '#4f46e5',
+  color: 'white', borderRadius: '8px', fontSize: '13px', fontWeight: 700, textDecoration: 'none',
+};
+
 const createTrafficIcon = (status: 'green' | 'yellow' | 'red', waitTime: number) => {
   const color = STATUS_COLORS[status];
   const size = status === 'red' ? 42 : status === 'yellow' ? 36 : 30;
@@ -227,13 +240,13 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
             </div>
             <div className="flex items-center gap-2">
               <Clock size={16} className="text-slate-500 dark:text-slate-400" />
-              <span className="text-sm text-slate-600 dark:text-slate-500">
+              <span className="text-sm text-slate-600 dark:text-slate-400">
                 {lastRefresh.toLocaleTimeString('it-IT')}
               </span>
             </div>
           </div>
           <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-3 text-xs text-slate-500 dark:text-slate-500">
+            <div className="hidden sm:flex items-center gap-3 text-xs text-slate-500 dark:text-slate-400">
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-emerald-700 inline-block"></span> {t('traffic.status.green')}</span>
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span> {t('traffic.status.yellow')}</span>
               <span className="flex items-center gap-1"><span className="w-3 h-3 rounded-full bg-red-500 inline-block"></span> {t('traffic.status.red')}</span>
@@ -325,47 +338,47 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                 >
                   <Popup maxWidth={280}>
                     <div className="p-1">
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '8px', marginBottom: '8px' }}>
+                      <div style={POPUP_HEADER_STYLE}>
                         <div
                           className={`${STATUS_DOT_CLASSES[status]}`}
-                          style={{ width: '16px', height: '16px', borderRadius: '50%', flexShrink: 0 }}
+                          style={POPUP_DOT_STYLE}
                         />
-                        <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100" style={{ margin: 0 }}>{crossing.name}</h3>
+                        <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100" style={POPUP_TITLE_STYLE}>{crossing.name}</h3>
                       </div>
 
-                      <div style={{ display: 'flex', flexDirection: 'column', gap: '4px', fontSize: '14px' }}>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                      <div style={POPUP_BODY_STYLE}>
+                        <div style={POPUP_ROW_STYLE}>
                           <span className="text-slate-500 dark:text-slate-400">{t('traffic.wait')}</span>
                           <span className={`font-bold ${STATUS_TEXT_CLASSES[status]}`}>
                             {waitTime} min — {t(STATUS_LABEL_KEYS[status])}
                           </span>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <div style={POPUP_ROW_STYLE}>
                           <span className="text-slate-500 dark:text-slate-400">{t('traffic.type')}</span>
-                          <span className="font-bold" style={{ textTransform: 'capitalize' as const }}>{crossing.type}</span>
+                          <span className="font-bold" style={POPUP_CAPITALIZE_STYLE}>{crossing.type}</span>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <div style={POPUP_ROW_STYLE}>
                           <span className="text-slate-500 dark:text-slate-400">{t('traffic.zone')}</span>
                           <span className="font-bold">{crossing.canton} — {crossing.province}</span>
                         </div>
-                        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                        <div style={POPUP_ROW_STYLE}>
                           <span className="text-slate-500 dark:text-slate-400">{t('traffic.hours')}</span>
                           <span className="font-bold">{crossing.open24h ? '24/7' : t('traffic.limited')}</span>
                         </div>
                         {crossing.customsPresent && (
-                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <div style={POPUP_ROW_STYLE}>
                             <span className="text-slate-500 dark:text-slate-400">{t('traffic.customs')}</span>
                             <span className="font-bold text-blue-600 dark:text-blue-400">{t('traffic.customsPresent')}</span>
                           </div>
                         )}
                         {traffic?.direction && (
-                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <div style={POPUP_ROW_STYLE}>
                             <span className="text-slate-500 dark:text-slate-400">{t('traffic.direction')}</span>
                             <span className="font-bold">{traffic.direction}</span>
                           </div>
                         )}
                         {traffic?.source && (
-                          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                          <div style={POPUP_ROW_STYLE}>
                             <span className="text-slate-500 dark:text-slate-400">{t('traffic.source')}</span>
                             <span className="font-bold">
                               {traffic.source === 'mock' ? `🎲 ${t('traffic.simulated')}` : '📍 Google Maps'}
@@ -378,21 +391,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                         href={`https://www.google.com/maps/dir/?api=1&destination=${crossing.coordinates[0]},${crossing.coordinates[1]}&travelmode=driving`}
                         target="_blank"
                         rel="noopener noreferrer"
-                        style={{
-                          marginTop: '12px',
-                          display: 'flex',
-                          alignItems: 'center',
-                          justifyContent: 'center',
-                          gap: '6px',
-                          width: '100%',
-                          padding: '8px',
-                          backgroundColor: '#4f46e5',
-                          color: 'white',
-                          borderRadius: '8px',
-                          fontSize: '13px',
-                          fontWeight: 700,
-                          textDecoration: 'none',
-                        }}
+                        style={POPUP_NAV_LINK_STYLE}
                       >
                         {t('traffic.navigateHere')}
                       </a>
@@ -441,7 +440,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                   </div>
                   <div className="flex-1 min-w-0">
                     <h3 className="font-bold text-slate-800 dark:text-slate-100 truncate">{crossing.name}</h3>
-                    <p className="text-xs text-slate-500 dark:text-slate-500">{crossing.canton} — {crossing.province} · {crossing.type}</p>
+                    <p className="text-xs text-slate-500 dark:text-slate-400">{crossing.canton} — {crossing.province} · {crossing.type}</p>
                   </div>
                 </div>
 

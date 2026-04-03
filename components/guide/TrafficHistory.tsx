@@ -164,7 +164,7 @@ function getColorClass(minutes: number): string {
 function getTrendIcon(current: number, previous: number) {
   if (current > previous + 2) return <TrendingUp size={14} className="text-red-500" />;
   if (current < previous - 2) return <TrendingDown size={14} className="text-emerald-500" />;
-  return <Minus size={14} className="text-slate-500 dark:text-slate-500" />;
+  return <Minus size={14} className="text-slate-500 dark:text-slate-400" />;
 }
 
 export default function TrafficHistory() {

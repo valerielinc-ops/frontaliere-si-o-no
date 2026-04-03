@@ -234,7 +234,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
             className="w-full px-4 py-2.5 rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all resize-y min-h-[120px]"
             placeholder={t('contact.messagePlaceholder')}
           />
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-500">
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
             {t('contact.messageHint')}
           </p>
         </div>
@@ -269,7 +269,7 @@ const ContactPage: React.FC<ContactPageProps> = ({ prefill, onPrefillConsumed })
         </button>
 
         {/* reCAPTCHA notice */}
-        <p className="text-xs text-center text-slate-500 dark:text-slate-500">
+        <p className="text-xs text-center text-slate-500 dark:text-slate-400">
           {t('contact.recaptchaNotice')}
         </p>
         <div className="flex items-center justify-center gap-1.5 text-xs text-emerald-700 dark:text-emerald-400">

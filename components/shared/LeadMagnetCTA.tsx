@@ -1004,7 +1004,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
         {/* Footer: social proof + privacy */}
         <div className="flex items-center justify-between mt-3">
-          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-500">
+          <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400">
             <Users className="w-3.5 h-3.5 text-indigo-500" />
             <span>{t('leadMagnet.socialProof')}</span>
           </div>

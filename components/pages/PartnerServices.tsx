@@ -42,7 +42,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
             <h3 className="font-bold text-slate-800 dark:text-slate-100 text-base">
               {partner.name}
             </h3>
-            <p className="text-xs text-slate-500 dark:text-slate-500">
+            <p className="text-xs text-slate-500 dark:text-slate-400">
               {t(partner.taglineKey)}
             </p>
           </div>
@@ -54,7 +54,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
         )}
       </div>
 
-      <p className="text-sm text-slate-600 dark:text-slate-500 leading-relaxed flex-1">
+      <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed flex-1">
         {t(partner.descriptionKey)}
       </p>
 
@@ -89,7 +89,7 @@ const PartnerServices: React.FC = () => {
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2">
           {t('partners.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-500 max-w-lg mx-auto">
+        <p className="text-slate-600 dark:text-slate-400 max-w-lg mx-auto">
           {t('partners.subtitle')}
         </p>
       </div>
@@ -97,7 +97,7 @@ const PartnerServices: React.FC = () => {
       {/* Categories */}
       {partnersByCategory.map(({ cat, partners: categoryPartners }) => (
           <div key={cat.key}>
-            <h2 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-3 flex items-center gap-2">
+            <h2 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-3 flex items-center gap-2">
               <span>{cat.emoji}</span>
               {t(cat.labelKey)}
             </h2>

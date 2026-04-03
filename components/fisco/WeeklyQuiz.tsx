@@ -327,7 +327,7 @@ const WeeklyQuiz: React.FC = () => {
           <h3 className="text-2xl font-bold text-slate-900 dark:text-slate-100 mb-2">
             {t('quiz.completed')}
           </h3>
-          <p className="text-lg text-slate-600 dark:text-slate-500 mb-6">
+          <p className="text-lg text-slate-600 dark:text-slate-400 mb-6">
             {t('quiz.score', { score: String(score), total: String(questions.length) })}
           </p>
 
@@ -457,7 +457,7 @@ const WeeklyQuiz: React.FC = () => {
                 className={`w-full text-left p-4 rounded-xl border-2 transition-all ${optionClass}`}
               >
                 <div className="flex items-center gap-3">
-                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-black shrink-0 ${
+                  <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
                     showResult && isCorrect ? 'bg-emerald-500 text-white' :
                     showResult && isSelected ? 'bg-red-500 text-white' :
                     'bg-slate-200 dark:bg-slate-700 text-slate-600 dark:text-slate-400'

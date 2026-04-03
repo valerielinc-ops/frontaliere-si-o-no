@@ -91,7 +91,7 @@ const RistorniTracker: React.FC = () => {
         <h3 className="font-bold text-slate-800 dark:text-slate-200 mb-3 flex items-center gap-2">
           <Info size={18} className="text-violet-600" /> {t('ristorni.whatAre')}
         </h3>
-        <p className="text-sm text-slate-600 dark:text-slate-500 mb-4">{t('ristorni.explanation')}</p>
+        <p className="text-sm text-slate-600 dark:text-slate-400 mb-4">{t('ristorni.explanation')}</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div className="bg-blue-50 dark:bg-blue-900/20 rounded-xl p-3">
             <h4 className="font-bold text-xs text-blue-700 dark:text-blue-300 mb-1">{t('ristorni.oldAgreement')}</h4>
@@ -116,7 +116,7 @@ const RistorniTracker: React.FC = () => {
           <div className="px-4 pb-4 space-y-4 border-t border-slate-100 dark:border-slate-700 pt-4 animate-fade-in">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
-                <label htmlFor="ristorni-salary" className="block text-xs font-semibold text-slate-600 dark:text-slate-500 mb-1">
+                <label htmlFor="ristorni-salary" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
                   {t('ristorni.monthlySalary')} (CHF)
                 </label>
                 <input
@@ -128,7 +128,7 @@ const RistorniTracker: React.FC = () => {
                 />
               </div>
               <div>
-                <label htmlFor="ristorni-municipality" className="block text-xs font-semibold text-slate-600 dark:text-slate-500 mb-1">
+                <label htmlFor="ristorni-municipality" className="block text-xs font-semibold text-slate-600 dark:text-slate-400 mb-1">
                   {t('ristorni.municipality')}
                 </label>
                 <select
@@ -186,13 +186,13 @@ const RistorniTracker: React.FC = () => {
                     : 'bg-slate-50 dark:bg-slate-700/50'
                 }`}
               >
-                <span className="text-sm font-bold text-slate-500 dark:text-slate-500 w-6 text-center">{i + 1}</span>
+                <span className="text-sm font-bold text-slate-500 dark:text-slate-400 w-6 text-center">{i + 1}</span>
                 <div className="flex-1">
                   <div className="flex items-center gap-2">
                     <span className="font-semibold text-sm text-slate-800 dark:text-slate-200">{m.name}</span>
-                    <span className="text-xs text-slate-500 dark:text-slate-500">({m.province})</span>
+                    <span className="text-xs text-slate-500 dark:text-slate-400">({m.province})</span>
                   </div>
-                  <div className="flex gap-3 text-xs text-slate-500 dark:text-slate-500">
+                  <div className="flex gap-3 text-xs text-slate-500 dark:text-slate-400">
                     <span>{m.frontalieri.toLocaleString()} {t('ristorni.frontalieri')}</span>
                     <span>€{m.perCapita}/{t('ristorni.perCapita')}</span>
                   </div>
@@ -201,7 +201,7 @@ const RistorniTracker: React.FC = () => {
                   <p className="text-sm font-bold text-emerald-700 dark:text-emerald-300">
                     €{(m.estimatedRistorni / 1000000).toFixed(1)}M
                   </p>
-                  <p className="text-xs text-slate-500 dark:text-slate-500">/{t('ristorni.year')}</p>
+                  <p className="text-xs text-slate-500 dark:text-slate-400">/{t('ristorni.year')}</p>
                 </div>
               </div>
             ))}
@@ -222,7 +222,7 @@ const RistorniTracker: React.FC = () => {
             <div className="space-y-2">
               {HISTORICAL_RATES.map(rate => (
                 <div key={rate.year} className="flex items-center gap-3">
-                  <span className="text-sm font-bold text-slate-600 dark:text-slate-500 w-12">{rate.year}</span>
+                  <span className="text-sm font-bold text-slate-600 dark:text-slate-400 w-12">{rate.year}</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-6 overflow-hidden">
                     <div
                       className="h-full bg-gradient-to-r from-violet-500 to-purple-600 rounded-full flex items-center justify-end pr-2"
@@ -234,7 +234,7 @@ const RistorniTracker: React.FC = () => {
                 </div>
               ))}
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-500 mt-3">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-3">
               {t('ristorni.historicalNote')}
             </p>
           </div>

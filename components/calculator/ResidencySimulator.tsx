@@ -443,7 +443,7 @@ const ResidencySimulator: React.FC = () => {
             <MapPin className="w-4 h-4 text-slate-500 dark:text-slate-400" />
             <h3 className="font-bold text-sm text-slate-500 dark:text-slate-400">{fromLoc.name} ({t('residency.current')})</h3>
           </div>
-          <p className="text-2xl font-black text-slate-800 dark:text-slate-200">€{Math.round(result.fromMonthly).toLocaleString('it-IT')}</p>
+          <p className="text-2xl font-bold text-slate-800 dark:text-slate-200">€{Math.round(result.fromMonthly).toLocaleString('it-IT')}</p>
           <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.perMonth')}</p>
           <div className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
             <p>🏠 {t('residency.rent')}: {fromLoc.currency === 'CHF' ? 'CHF' : '€'}{fromLoc.avgRent}</p>
@@ -463,7 +463,7 @@ const ResidencySimulator: React.FC = () => {
             : 'bg-emerald-50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800'
         }`}>
           <TrendingUp className={`w-6 h-6 mb-2 ${result.monthlyDiff > 0 ? 'text-red-500 rotate-0' : 'text-emerald-500 rotate-180'}`} />
-          <p className={`text-3xl font-black ${result.monthlyDiff > 0 ? 'text-red-600 dark:text-red-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
+          <p className={`text-3xl font-bold ${result.monthlyDiff > 0 ? 'text-red-600 dark:text-red-400' : 'text-emerald-700 dark:text-emerald-400'}`}>
             {result.monthlyDiff > 0 ? '+' : ''}€{Math.round(result.monthlyDiff).toLocaleString('it-IT')}
           </p>
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('residency.monthlyDiff')}</p>
@@ -482,7 +482,7 @@ const ResidencySimulator: React.FC = () => {
             <MapPin className="w-4 h-4 text-indigo-400" />
             <h3 className="font-bold text-sm text-indigo-500">{toLoc.name} ({t('residency.new')})</h3>
           </div>
-          <p className="text-2xl font-black text-slate-800 dark:text-slate-200">€{Math.round(result.toMonthly).toLocaleString('it-IT')}</p>
+          <p className="text-2xl font-bold text-slate-800 dark:text-slate-200">€{Math.round(result.toMonthly).toLocaleString('it-IT')}</p>
           <p className="text-xs text-slate-500 dark:text-slate-400">{t('residency.perMonth')}</p>
           <div className="mt-3 space-y-1 text-xs text-slate-500 dark:text-slate-400">
             <p>🏠 {t('residency.rent')}: {toLoc.currency === 'CHF' ? 'CHF' : '€'}{toLoc.avgRent}</p>
@@ -504,7 +504,7 @@ const ResidencySimulator: React.FC = () => {
             <h3 className="font-bold text-slate-800 dark:text-slate-200">{t('residency.oneTimeCosts')}</h3>
           </div>
           <div className="flex items-center gap-2">
-            <span className="text-lg font-black text-amber-600 dark:text-amber-400">€{Math.round(result.totalOneTime).toLocaleString('it-IT')}</span>
+            <span className="text-lg font-bold text-amber-600 dark:text-amber-400">€{Math.round(result.totalOneTime).toLocaleString('it-IT')}</span>
             {showDetails ? <ChevronUp size={16} className="text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="text-slate-500 dark:text-slate-400" />}
           </div>
         </button>

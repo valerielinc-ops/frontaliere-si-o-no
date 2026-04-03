@@ -261,7 +261,7 @@ const FirstDayGuide: React.FC = () => {
             >
               <div className="p-4 flex items-center gap-3">
                 {/* Step number */}
-                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-black shrink-0 ${
+                <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${
                   isCompleted
                     ? 'bg-emerald-700 text-white'
                     : 'bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-400'
@@ -320,7 +320,7 @@ const FirstDayGuide: React.FC = () => {
                   {step.substeps && (
                     <div className="space-y-1.5">
                       {step.substeps.map((sub, i) => (
-                        <div key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-500">
+                        <div key={i} className="flex items-center gap-2 text-sm text-slate-600 dark:text-slate-400">
                           <AlertCircle className="w-3.5 h-3.5 text-amber-400 shrink-0" />
                           {t(`firstday.${sub}`)}
                         </div>

@@ -527,7 +527,7 @@ export default function WithholdingRatesHub() {
           <Coins className="h-4 w-4" />
           {copy.badge}
         </div>
-        <h1 className="mt-4 max-w-4xl text-3xl font-black leading-tight sm:text-4xl">{copy.title}</h1>
+        <h1 className="mt-4 max-w-4xl text-3xl font-bold leading-tight sm:text-4xl">{copy.title}</h1>
         <p className="mt-4 max-w-4xl text-sm leading-7 text-emerald-50 sm:text-base">{copy.intro}</p>
         <div className="mt-6 rounded-2xl border border-white/20 bg-white/10 p-4 text-sm leading-7 text-emerald-50">
           {copy.disclaimer}
@@ -548,7 +548,7 @@ export default function WithholdingRatesHub() {
 
       <section className="space-y-4">
         <div>
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">{copy.cardsTitle}</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.cardsTitle}</h2>
         </div>
         <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
           {SCENARIOS.map((scenario) => {
@@ -558,10 +558,10 @@ export default function WithholdingRatesHub() {
                 key={scenario.code}
                 className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm dark:border-slate-700 dark:bg-slate-800"
               >
-                <div className="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-black text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                <div className="inline-flex rounded-full bg-emerald-100 px-3 py-1 text-xs font-bold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
                   {scenario.badge}
                 </div>
-                <h3 className="mt-4 text-lg font-black text-slate-900 dark:text-white">{item.title}</h3>
+                <h3 className="mt-4 text-lg font-bold text-slate-900 dark:text-white">{item.title}</h3>
                 <p className="mt-2 text-sm font-semibold text-slate-700 dark:text-slate-200">{item.who}</p>
                 <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.detail}</p>
               </article>
@@ -573,24 +573,24 @@ export default function WithholdingRatesHub() {
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
         <div className="flex items-center gap-3">
           <Receipt className="h-5 w-5 text-emerald-600 dark:text-emerald-300" />
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">{copy.matrixTitle}</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.matrixTitle}</h2>
         </div>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.matrixIntro}</p>
         <div className="mt-5 overflow-x-auto">
           <table className="min-w-full border-separate border-spacing-0 overflow-hidden rounded-2xl">
             <thead>
               <tr>
-                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-black uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.scenario}</th>
-                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-black uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.who}</th>
-                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-black uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.low}</th>
-                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-black uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.medium}</th>
-                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-black uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.high}</th>
+                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.scenario}</th>
+                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.who}</th>
+                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.low}</th>
+                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.medium}</th>
+                <th className="bg-slate-100 px-4 py-3 text-left text-xs font-bold uppercase tracking-[0.12em] text-slate-600 dark:bg-slate-900 dark:text-slate-300">{copy.matrixColumns.high}</th>
               </tr>
             </thead>
             <tbody>
               {SCENARIOS.map((scenario) => (
                 <tr key={scenario.code}>
-                  <td className="border-t border-slate-200 px-4 py-4 text-sm font-black text-slate-900 dark:border-slate-700 dark:text-white">{scenario.badge}</td>
+                  <td className="border-t border-slate-200 px-4 py-4 text-sm font-bold text-slate-900 dark:border-slate-700 dark:text-white">{scenario.badge}</td>
                   <td className="border-t border-slate-200 px-4 py-4 text-sm text-slate-600 dark:border-slate-700 dark:text-slate-300">{copy.cards[scenario.code].who}</td>
                   {INCOME_STEPS.map((income) => (
                     <td key={income} className="border-t border-slate-200 px-4 py-4 text-sm font-semibold text-slate-800 dark:border-slate-700 dark:text-slate-200">
@@ -607,7 +607,7 @@ export default function WithholdingRatesHub() {
       <section className="rounded-3xl border border-emerald-200 bg-emerald-50 p-6 shadow-sm dark:border-emerald-800 dark:bg-emerald-950/40">
         <div className="flex items-center gap-3">
           <ExternalLink className="h-5 w-5 text-emerald-700 dark:text-emerald-300" />
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">{copy.officialSourcesTitle}</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.officialSourcesTitle}</h2>
         </div>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-700 dark:text-slate-300">{copy.officialSourcesIntro}</p>
         <div className="mt-5 grid gap-4 sm:grid-cols-2">
@@ -633,18 +633,18 @@ export default function WithholdingRatesHub() {
         <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
           <div className="flex items-center gap-3">
             <HelpCircle className="h-5 w-5 text-emerald-600 dark:text-emerald-300" />
-            <h2 className="text-2xl font-black text-slate-900 dark:text-white">{copy.fitTitle}</h2>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.fitTitle}</h2>
           </div>
           <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.fitIntro}</p>
           <div className="mt-5 space-y-3">
             {SCENARIOS.map((scenario) => (
               <div key={scenario.code} className="rounded-2xl border border-slate-200 p-4 dark:border-slate-700">
                 <div className="flex items-center gap-3">
-                  <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-xs font-black text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
+                  <div className="inline-flex h-8 w-8 items-center justify-center rounded-full bg-emerald-100 text-xs font-bold text-emerald-800 dark:bg-emerald-900/30 dark:text-emerald-300">
                     {scenario.code}
                   </div>
                   <div>
-                    <h3 className="text-sm font-black text-slate-900 dark:text-white">{copy.cards[scenario.code].title}</h3>
+                    <h3 className="text-sm font-bold text-slate-900 dark:text-white">{copy.cards[scenario.code].title}</h3>
                     <p className="text-sm text-slate-600 dark:text-slate-300">{copy.cards[scenario.code].who}</p>
                   </div>
                 </div>
@@ -656,7 +656,7 @@ export default function WithholdingRatesHub() {
         <article className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
           <div className="flex items-center gap-3">
             <CheckCircle2 className="h-5 w-5 text-emerald-600 dark:text-emerald-300" />
-            <h2 className="text-2xl font-black text-slate-900 dark:text-white">{copy.notesTitle}</h2>
+            <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.notesTitle}</h2>
           </div>
           <ul className="mt-5 space-y-3">
             {copy.notes.map((note) => (
@@ -671,7 +671,7 @@ export default function WithholdingRatesHub() {
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
         <div className="flex items-center gap-3">
           <Calculator className="h-5 w-5 text-emerald-600 dark:text-emerald-300" />
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">{copy.deepLinksTitle}</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.deepLinksTitle}</h2>
         </div>
         <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-300">{copy.deepLinksIntro}</p>
         <div className="mt-5 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
@@ -681,7 +681,7 @@ export default function WithholdingRatesHub() {
               href={buildPath(cta.route, locale)}
               className="group rounded-3xl border border-slate-200 p-5 no-underline transition hover:-translate-y-0.5 hover:border-emerald-300 dark:border-slate-700 dark:hover:border-emerald-700"
             >
-              <h3 className="text-base font-black text-slate-900 dark:text-white">{cta.title}</h3>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">{cta.title}</h3>
               <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">{cta.body}</p>
               <span className="mt-4 inline-flex items-center gap-2 text-sm font-bold text-emerald-700 dark:text-emerald-300">
                 {copy.openLabel}
@@ -695,12 +695,12 @@ export default function WithholdingRatesHub() {
       <section className="rounded-3xl border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-700 dark:bg-slate-800">
         <div className="flex items-center gap-3">
           <FileText className="h-5 w-5 text-emerald-600 dark:text-emerald-300" />
-          <h2 className="text-2xl font-black text-slate-900 dark:text-white">{copy.faqTitle}</h2>
+          <h2 className="text-2xl font-bold text-slate-900 dark:text-white">{copy.faqTitle}</h2>
         </div>
         <div className="mt-5 grid gap-4">
           {copy.faq.map((item) => (
             <article key={item.question} className="rounded-2xl border border-slate-200 p-5 dark:border-slate-700">
-              <h3 className="text-base font-black text-slate-900 dark:text-white">{item.question}</h3>
+              <h3 className="text-base font-bold text-slate-900 dark:text-white">{item.question}</h3>
               <p className="mt-2 text-sm leading-7 text-slate-600 dark:text-slate-300">{item.answer}</p>
             </article>
           ))}

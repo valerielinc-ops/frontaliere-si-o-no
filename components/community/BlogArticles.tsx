@@ -1542,7 +1542,7 @@ export default function BlogArticles({
               {t(partner.badgeKey)}
             </span>
           )}
-          <p className="text-xs text-slate-500 dark:text-slate-500 mt-1 leading-snug">{t(partner.taglineKey)}</p>
+          <p className="text-xs text-slate-500 dark:text-slate-400 mt-1 leading-snug">{t(partner.taglineKey)}</p>
           <span className="mt-1.5 inline-flex items-center gap-0.5 text-xs font-medium text-blue-600 dark:text-blue-400 group-hover:underline">
             {t('affiliate.cta')} <ExternalLink size={9} />
           </span>
@@ -1580,7 +1580,7 @@ export default function BlogArticles({
           {/* ── Left Rail (desktop only) ── */}
           <aside className="hidden xl:block">
             <div className="sticky top-6 space-y-3">
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {t('affiliate.sectionTitle')}
               </p>
               {sidePartners.slice(0, 2).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i} />)}
@@ -1651,7 +1651,7 @@ export default function BlogArticles({
           </div>
 
           {/* Meta bar */}
-          <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-500">
+          <div className="flex flex-wrap items-center gap-3 px-4 sm:px-6 py-3 bg-slate-50 dark:bg-slate-900/50 border-b border-slate-200 dark:border-slate-700 text-sm text-slate-600 dark:text-slate-400">
             <span className="flex items-center gap-1 font-medium text-indigo-700 dark:text-indigo-400">
               <PenLine size={14} />
               Valerie Linc
@@ -1785,7 +1785,7 @@ export default function BlogArticles({
 
           {/* Article body */}
           <div className="px-4 sm:px-6 py-6 space-y-5">
-            <p className="text-lg text-slate-600 dark:text-slate-500 italic border-l-4 border-indigo-500 pl-4">
+            <p className="text-lg text-slate-600 dark:text-slate-400 italic border-l-4 border-indigo-500 pl-4">
               {t(`blog.article.${article.id}.excerpt`)}
             </p>
 
@@ -1879,7 +1879,7 @@ export default function BlogArticles({
                           <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
                             {job.titleByLocale?.[locale] ?? job.title}
                           </p>
-                          <p className="text-xs text-slate-500 dark:text-slate-500 truncate">
+                          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
                             {job.company} · {job.location}
                           </p>
                         </div>
@@ -1965,7 +1965,7 @@ export default function BlogArticles({
                 </button>
               </div>
               {articleFeedback[article.id] && (
-                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">{t('blog.feedback.thanks')}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('blog.feedback.thanks')}</p>
               )}
             </div>
 
@@ -2033,7 +2033,7 @@ export default function BlogArticles({
                       <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">
                         {t(`blog.article.${related.id}.title`)}
                       </p>
-                      <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">{estimateReadingMinutes(related.id, t)} min</p>
+                      <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{estimateReadingMinutes(related.id, t)} min</p>
                     </div>
                   </a>
                 ))}
@@ -2112,7 +2112,7 @@ export default function BlogArticles({
                                 {views} {t('blog.trendingThisWeek.views')}
                               </span>
                               <span className="text-xs text-slate-500 dark:text-slate-400">·</span>
-                              <span className="text-xs text-slate-500 dark:text-slate-500">
+                              <span className="text-xs text-slate-500 dark:text-slate-400">
                                 {estimateReadingMinutes(tr.id, t)} min
                               </span>
                             </div>
@@ -2194,7 +2194,7 @@ export default function BlogArticles({
               {/* Desktop TOC */}
               {showToc && (
                 <nav className="max-h-[calc(100vh-8rem)] overflow-y-auto pb-3 mb-1" aria-label={t('blog.toc.title')}>
-                  <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                  <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2 flex items-center gap-1.5">
                     <List size={12} />
                     {t('blog.toc.title')}
                   </p>
@@ -2219,7 +2219,7 @@ export default function BlogArticles({
                 </nav>
               )}
 
-              <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
+              <p className="text-xs font-medium text-slate-500 dark:text-slate-400 uppercase tracking-wider">
                 {t('blog.resourcesTitle')}
               </p>
               {sidePartners.slice(2, 4).map((p, i) => <SideRailCard key={p.id} partner={p} idx={i + 2} />)}
@@ -2243,7 +2243,7 @@ export default function BlogArticles({
               {/* Donation mini-card */}
               <div className="rounded-xl border border-amber-200 dark:border-amber-800/50 bg-amber-50/80 dark:bg-amber-900/20 p-3 text-center space-y-2">
                 <Coffee size={18} className="mx-auto text-amber-600 dark:text-amber-400" />
-                <p className="text-xs leading-snug text-slate-600 dark:text-slate-500">
+                <p className="text-xs leading-snug text-slate-600 dark:text-slate-400">
                   {t('donation.message').slice(0, 80)}…
                 </p>
                 <a
@@ -2317,7 +2317,7 @@ export default function BlogArticles({
           <BookOpen size={28} className="text-indigo-600" />
           {t('blog.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-500">{t('blog.subtitle')}</p>
+        <p className="text-slate-600 dark:text-slate-400">{t('blog.subtitle')}</p>
       </div>
 
       {/* Category filter */}
@@ -2451,7 +2451,7 @@ export default function BlogArticles({
 
               {/* Card content */}
               <div className="p-4">
-                <div className="flex items-center gap-2 mb-2 text-xs text-slate-500 dark:text-slate-500">
+                <div className="flex items-center gap-2 mb-2 text-xs text-slate-500 dark:text-slate-400">
                   <span className="flex items-center gap-1">
                     <Calendar size={10} />
                     {formatDate(article.date)}
@@ -2464,7 +2464,7 @@ export default function BlogArticles({
                 <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-2">
                   {t(`blog.article.${article.id}.title`)}
                 </h3>
-                <p className="text-xs text-slate-500 dark:text-slate-500 line-clamp-3 mb-3">
+                <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-3 mb-3">
                   {t(`blog.article.${article.id}.excerpt`)}
                 </p>
                 <span className="inline-flex items-center gap-1 px-3 py-1.5 text-xs font-semibold text-white bg-indigo-600 dark:bg-indigo-500 rounded-lg group-hover:bg-indigo-700 dark:group-hover:bg-indigo-600 transition-colors">
@@ -2517,7 +2517,7 @@ export default function BlogArticles({
               }
               return pages.map((page, idx) =>
                 typeof page === 'string' ? (
-                  <span key={page} className="w-8 h-9 flex items-center justify-center text-slate-500 dark:text-slate-500 text-sm select-none">…</span>
+                  <span key={page} className="w-8 h-9 flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm select-none">…</span>
                 ) : (
                   <button
                     key={page}
@@ -2551,7 +2551,7 @@ export default function BlogArticles({
       {/* SEO content block */}
       <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 sm:p-6 border border-slate-200 dark:border-slate-700">
         <h3 className="font-semibold text-slate-700 dark:text-slate-200 mb-3">{t('blog.seoTitle')}</h3>
-        <p className="text-sm text-slate-600 dark:text-slate-500 leading-relaxed">
+        <p className="text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
           {t('blog.seoContent')}
         </p>
       </div>

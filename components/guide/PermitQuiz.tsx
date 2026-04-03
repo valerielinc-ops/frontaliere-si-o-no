@@ -282,7 +282,7 @@ const PermitQuiz: React.FC = () => {
                     {t(`permitQuiz.q.${a.questionId}.title`)}
                   </span>
                   <div className="flex items-center gap-2">
-                    <span className="text-xs text-slate-500 dark:text-slate-500">
+                    <span className="text-xs text-slate-500 dark:text-slate-400">
                       {t(`permitQuiz.q.${a.questionId}.opt.${a.value}`)}
                     </span>
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${

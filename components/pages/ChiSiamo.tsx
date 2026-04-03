@@ -107,7 +107,7 @@ export const ChiSiamo: React.FC = () => {
               pubblicazione ufficiale delle nuove tabelle e aliquote
             </BulletItem>
           </ul>
-          <p className="mt-4 text-xs text-slate-500 dark:text-slate-500">
+          <p className="mt-4 text-xs text-slate-500 dark:text-slate-400">
             Ultimo aggiornamento parametri: 2026. I dati sono forniti a scopo informativo e non
             sostituiscono la consulenza di un professionista fiscale abilitato.
           </p>
@@ -165,7 +165,7 @@ export const ChiSiamo: React.FC = () => {
           <p className="mt-2 text-sm font-medium text-indigo-600 dark:text-indigo-400">
             redazione@frontaliereticino.ch
           </p>
-          <p className="mt-1 text-xs text-slate-500 dark:text-slate-500">
+          <p className="mt-1 text-xs text-slate-500 dark:text-slate-400">
             Frontaliere Ticino · Ticino, Svizzera · Fondata nel 2024
           </p>
         </div>

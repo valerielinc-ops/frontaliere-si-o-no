@@ -150,7 +150,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
       {/* Header */}
       <div className="text-center mb-8">
         <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-slate-100 dark:bg-slate-800 mb-4">
-          <SearchX size={32} className="text-slate-500 dark:text-slate-500" />
+          <SearchX size={32} className="text-slate-500 dark:text-slate-400" />
         </div>
         <h1 className="text-2xl font-bold text-slate-900 dark:text-white mb-2">
           {t('notFound.title')}
@@ -235,7 +235,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
 
       {/* Search hint */}
       <div className="mt-6 text-center">
-        <p className="text-xs text-slate-500 dark:text-slate-500 flex items-center justify-center gap-1">
+        <p className="text-xs text-slate-500 dark:text-slate-400 flex items-center justify-center gap-1">
           <Search size={12} />
           {t('notFound.searchHint')}
         </p>

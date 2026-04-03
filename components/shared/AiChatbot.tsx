@@ -713,7 +713,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 </div>
                 <h3 className="text-base font-semibold text-slate-800 dark:text-white mb-2">{t('chatbot.title')}</h3>
                 <p className="text-sm text-slate-600 dark:text-slate-400 mb-3 leading-relaxed">{t('chatbot.authRequiredToSend')}</p>
-                <p className="text-xs text-slate-500 dark:text-slate-500">{t('chatbot.preAuthHint')}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400">{t('chatbot.preAuthHint')}</p>
                 <div className="mt-4 w-full max-w-xs space-y-2">
                   {[
                     t('chatbot.suggestion1'),
@@ -853,7 +853,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
                 <Send size={16} />
               </button>
             </div>
-            <p className="text-xs text-slate-500 dark:text-slate-500 mt-1.5 text-center">
+            <p className="text-xs text-slate-500 dark:text-slate-400 mt-1.5 text-center">
               {t('chatbot.disclaimer')}
             </p>
           </div>

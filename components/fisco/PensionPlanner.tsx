@@ -157,7 +157,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
         <h1 className="text-3xl sm:text-4xl font-extrabold text-emerald-700 dark:text-emerald-400">
           {t('pension.title')}
         </h1>
-        <p className="text-slate-600 dark:text-slate-500 max-w-2xl mx-auto">
+        <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">
           {t('pension.subtitle')}
         </p>
       </div>
@@ -181,7 +181,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
             </>
           )}
         </div>
-        <div className="flex gap-4 mt-2 text-xs text-slate-500 dark:text-slate-500">
+        <div className="flex gap-4 mt-2 text-xs text-slate-500 dark:text-slate-400">
           <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-blue-500 inline-block" /> LPP</span>
           <span className="flex items-center gap-1"><span className="w-2 h-2 rounded-full bg-red-500 inline-block" /> AVS</span>
           {inputs.hasItalianContributions && (
@@ -409,7 +409,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                         {option === 'return_it' && `🇮🇹 ${t('pension.returnIT')}`}
                         {option === 'undecided' && `🤔 ${t('pension.undecided')}`}
                       </div>
-                      <div className="text-xs text-slate-500 dark:text-slate-500 mt-1">
+                      <div className="text-xs text-slate-500 dark:text-slate-400 mt-1">
                         {option === 'stay_ch' && t('pension.stayCHDesc')}
                         {option === 'return_it' && t('pension.returnITDesc')}
                         {option === 'undecided' && t('pension.undecidedDesc')}
@@ -456,7 +456,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <PiggyBank className="text-blue-600" size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase tracking-wide">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
                     {t('pension.lppCapital')}
                   </div>
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
@@ -465,12 +465,12 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                 </div>
               </div>
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 dark:border-slate-700">
-                <span className="text-sm text-slate-600 dark:text-slate-500">{t('pension.monthlyAnnuity')}:</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">{t('pension.monthlyAnnuity')}:</span>
                 <span className="text-lg font-bold text-blue-600">
                   CHF {Math.round(result.lppMonthlyPension).toLocaleString('it-IT')}
                 </span>
               </div>
-              <div className="mt-2 text-xs text-slate-500 dark:text-slate-500">
+              <div className="mt-2 text-xs text-slate-500 dark:text-slate-400">
                 <InfoTooltip text="Tasso conversione 6.8% - Capitale può essere prelevato in parte o totalmente" />
                 {t('pension.conversionRate')}
               </div>
@@ -483,7 +483,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <Home className="text-red-600" size={20} />
                 </div>
                 <div>
-                  <div className="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase tracking-wide">
+                  <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
                     {t('pension.avsPension')}
                   </div>
                   <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
@@ -491,7 +491,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   </div>
                 </div>
               </div>
-              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500">
+              <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                 <Calculator size={12} />
                 <span>
                   {result.yearsOfContributions.switzerland} {t('pension.contributionsOf44')}
@@ -513,7 +513,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     <Globe className="text-green-700" size={20} />
                   </div>
                   <div>
-                    <div className="text-xs text-slate-500 dark:text-slate-500 font-semibold uppercase tracking-wide">
+                    <div className="text-xs text-slate-500 dark:text-slate-400 font-semibold uppercase tracking-wide">
                       {t('pension.inpsPension')}
                     </div>
                     <div className="text-2xl font-extrabold text-slate-800 dark:text-slate-100">
@@ -521,7 +521,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                     </div>
                   </div>
                 </div>
-                <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-500">
+                <div className="flex items-center gap-2 text-xs text-slate-500 dark:text-slate-400">
                   <Calculator size={12} />
                   <span>
                     {inputs.yearsWorkedIT} {t('pension.italianContributionYears')}
@@ -592,7 +592,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
                   <h3 className="font-bold text-slate-800 dark:text-slate-100 mb-2">
                     {inputs.repatriationPlan === 'stay_ch' ? `🇨🇭 ${t('pension.scenarioStayCH')}` : `🇮🇹 ${t('pension.scenarioReturnIT')}`}
                   </h3>
-                  <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-500">
+                  <ul className="text-sm space-y-1 text-slate-600 dark:text-slate-400">
                     {inputs.repatriationPlan === 'stay_ch' ? (
                       <>
                         <li>✓ {t('pension.stayCH1')}</li>

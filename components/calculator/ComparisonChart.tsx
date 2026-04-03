@@ -299,7 +299,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                           </button>
                        </div>
                     </div>
-                    <div className="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-500 mb-4">
+                    <div className="bg-slate-50 dark:bg-slate-900/50 p-3 rounded-xl border border-slate-100 dark:border-slate-800 text-xs text-slate-500 dark:text-slate-400 mb-4">
                        {t('chart.salary_simulation_desc')}
                        {analysisMode === 'NET' ? ` ${t('chart.shows_net_residual')}` : ` ${t('chart.shows_total_taxes')}`}
                     </div>

@@ -170,7 +170,7 @@ const App: React.FC = () => {
   } = useAuth();
   const [inputs, setInputs] = useState<SimulationInputs>(DEFAULT_INPUTS);
   const [result, setResult] = useState<SimulationResult | null>(null);
-  const [isDarkMode, setIsDarkMode] = useState(false);
+  const [isDarkMode, setIsDarkMode] = useState(() => document.documentElement.classList.contains('dark'));
   const [isFocusMode, setIsFocusMode] = useState(false);
   const [showDeferredHomeWidgets, setShowDeferredHomeWidgets] = useState(false);
   // Read initial route from URL path (or migrate legacy hash)
@@ -2020,6 +2020,15 @@ const App: React.FC = () => {
   const [ctaRotationIndex, setCtaRotationIndex] = useState(0);
   const ctaRotationKey = useMemo(() => ctaItems.map(i => i.analyticsLabel).join('|'), [ctaItems]);
 
+  // Memoize footer date string — avoids new Date() + toLocaleDateString() on every render (Vercel rule 5.1)
+  const footerDateStr = useMemo(() => {
+    const now = new Date();
+    const dateTimeAttr = now.toISOString().slice(0, 7);
+    const localeTag = locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : locale === 'en' ? 'en-GB' : 'it-IT';
+    const display = now.toLocaleDateString(localeTag, { month: 'long', year: 'numeric' });
+    return { dateTimeAttr, display };
+  }, [locale]);
+
   useEffect(() => {
     setCtaRotationIndex(0);
   }, [ctaRotationKey]);
@@ -2342,7 +2351,7 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('calculator'); }}
                   onMouseEnter={() => prefetchTab('calculator')}
                   aria-label={t('nav.simulator')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'calculator' ? 'text-blue-600 dark:text-blue-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Calculator size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.simulator')}</span>
@@ -2356,7 +2365,7 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('confronti'); }}
                   onMouseEnter={() => prefetchTab('confronti')}
                   aria-label={t('nav.confronti')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'confronti' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'confronti' ? 'text-violet-600 dark:text-violet-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Layers size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.confronti')}</span>
@@ -2370,7 +2379,7 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('fisco'); }}
                   onMouseEnter={() => prefetchTab('fisco')}
                   aria-label={t('nav.fisco')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'fisco' ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'fisco' ? 'text-emerald-700 dark:text-emerald-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <PiggyBank size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.fisco')}</span>
@@ -2384,7 +2393,7 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('guida'); }}
                   onMouseEnter={() => prefetchTab('guida')}
                   aria-label={t('nav.guida')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'guida' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'guida' ? 'text-indigo-600 dark:text-indigo-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BookOpen size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.guida')}</span>
@@ -2398,7 +2407,7 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('vita'); }}
                   onMouseEnter={() => prefetchTab('vita')}
                   aria-label={t('nav.vita')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'vita' ? 'text-amber-700 dark:text-amber-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'vita' ? 'text-amber-700 dark:text-amber-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <Home size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.vita')}</span>
@@ -2412,7 +2421,7 @@ const App: React.FC = () => {
                   onClick={(e) => { e.preventDefault(); handleTabChange('stats'); }}
                   onMouseEnter={() => prefetchTab('stats')}
                   aria-label={t('nav.stats')}
-                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-[13px] font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
+                  className={`relative flex-1 min-w-0 px-1.5 lg:px-2 py-3 text-xs font-semibold transition-colors flex items-center justify-center gap-1.5 group no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${activeTab === 'stats' ? 'text-purple-600 dark:text-purple-400' : 'text-slate-500 dark:text-slate-500 hover:text-slate-800 dark:hover:text-slate-200'}`}
                 >
                   <BarChart2 size={16} aria-hidden="true" />
                   <span className="hidden xl:inline whitespace-nowrap">{t('nav.stats')}</span>
@@ -2519,7 +2528,7 @@ const App: React.FC = () => {
                       setCalcolatoreSubTab(key);
                       Analytics.trackUIInteraction('calcolatore', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       calcolatoreSubTab === key
                         ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2555,7 +2564,7 @@ const App: React.FC = () => {
                       setConfrontiSubTab(key);
                       Analytics.trackComparatorView(key as any);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       confrontiSubTab === key
                         ? 'bg-violet-100 dark:bg-violet-900/30 text-violet-700 dark:text-violet-300 ring-1 ring-violet-300 dark:ring-violet-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2591,7 +2600,7 @@ const App: React.FC = () => {
                       setFiscoSubTab(key);
                       Analytics.trackUIInteraction('fisco', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       fiscoSubTab === key
                         ? 'bg-emerald-100 dark:bg-emerald-900/30 text-emerald-700 dark:text-emerald-300 ring-1 ring-emerald-300 dark:ring-emerald-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2627,7 +2636,7 @@ const App: React.FC = () => {
                       setGuidaSubTab(key);
                       Analytics.trackUIInteraction('guida', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       guidaSubTab === key
                         ? 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 ring-1 ring-indigo-300 dark:ring-indigo-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2663,7 +2672,7 @@ const App: React.FC = () => {
                       setVitaSubTab(key);
                       Analytics.trackUIInteraction('vita', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       vitaSubTab === key
                         ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-700 dark:text-amber-300 ring-1 ring-amber-300 dark:ring-amber-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2699,7 +2708,7 @@ const App: React.FC = () => {
                       setStatsSubTab(key);
                       Analytics.trackUIInteraction('statistiche', 'navigazione', 'tab_sezione', 'cambio', key);
                     }}
-                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-xs sm:text-[11px] font-semibold transition-all ${
+                    className={`flex flex-col items-center gap-0.5 px-1 py-1.5 rounded-xl text-[11px] sm:text-xs font-semibold transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 focus-visible:ring-offset-2 ${
                       statsSubTab === key
                         ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 ring-1 ring-purple-300 dark:ring-purple-700'
                         : 'text-slate-500 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800'
@@ -2715,7 +2724,7 @@ const App: React.FC = () => {
         )}
 
         {/* Main Content */}
-        <main className={`flex-grow mx-auto py-6 transition-all duration-500 relative z-10 ${
+        <main className={`flex-grow mx-auto py-4 lg:py-8 transition-all duration-500 relative z-10 ${
           activeTab === 'admin' ? 'w-full px-3 sm:px-6' : '!max-w-[2400px] !w-[95%] px-2 sm:px-4'
         }`}>
          <Suspense fallback={<LazyFallback />}>
@@ -2938,9 +2947,9 @@ const App: React.FC = () => {
 
           {/* Visible "last updated" date — AI freshness signal + user trust */}
           {!(['admin', 'profile', 'email-confirmed', 'privacy', 'terms', 'data-deletion'] as string[]).includes(activeTab) && (
-            <p className="text-xs text-slate-400 dark:text-slate-500 text-center mt-6">
-              <time dateTime={new Date().toISOString().slice(0, 7)}>
-                {t('stats.lastUpdate')}: {new Date().toLocaleDateString(locale === 'de' ? 'de-DE' : locale === 'fr' ? 'fr-FR' : locale === 'en' ? 'en-GB' : 'it-IT', { month: 'long', year: 'numeric' })}
+            <p className="text-xs text-slate-500 dark:text-slate-400 text-center mt-6">
+              <time dateTime={footerDateStr.dateTimeAttr}>
+                {t('stats.lastUpdate')}: {footerDateStr.display}
               </time>
             </p>
           )}
@@ -2962,7 +2971,7 @@ const App: React.FC = () => {
                 href={`https://github.com/valerielinc-ops/frontaliere-si-o-no/commit/${typeof __COMMIT_HASH__ !== 'undefined' ? __COMMIT_HASH__ : 'unknown'}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xs font-mono text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
+                className="text-xs font-mono text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 px-1 py-0.5 rounded transition-colors opacity-70 hover:opacity-100"
                 title="Versione del sito: commit GitHub deploy"
               >
                 <span>v</span>
@@ -2970,7 +2979,7 @@ const App: React.FC = () => {
               </a>
             </div>
 
-            <div className="text-center text-slate-500 dark:text-slate-500 text-sm space-y-3">
+            <div className="text-center text-slate-500 dark:text-slate-400 text-sm space-y-3">
             <p className="font-medium">
               {t('footer.copyright')}
               <span className="text-slate-300 dark:text-slate-600 mx-2">|</span> 
@@ -3185,7 +3194,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'calculator', calcolatoreSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setCalcolatoreSubTab(sub); setActiveTab('calculator'); pushRoute({ activeTab: 'calculator', calcolatoreSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-blue-600 dark:hover:text-blue-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3209,7 +3218,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'confronti', confrontiSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setConfrontiSubTab(sub); setActiveTab('confronti'); pushRoute({ activeTab: 'confronti', confrontiSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-violet-600 dark:hover:text-violet-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-violet-600 dark:hover:text-violet-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3235,7 +3244,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'fisco', fiscoSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setFiscoSubTab(sub); setActiveTab('fisco'); pushRoute({ activeTab: 'fisco', fiscoSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-emerald-700 dark:hover:text-emerald-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3259,7 +3268,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'guida', guidaSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setGuidaSubTab(sub); setActiveTab('guida'); pushRoute({ activeTab: 'guida', guidaSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-indigo-600 dark:hover:text-indigo-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3283,7 +3292,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'vita', vitaSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setVitaSubTab(sub); setActiveTab('vita'); pushRoute({ activeTab: 'vita', vitaSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-amber-700 dark:hover:text-amber-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3306,7 +3315,7 @@ const App: React.FC = () => {
                         <a
                           href={buildPath({ activeTab: 'stats', statsSubTab: sub })}
                           onClick={(e) => { e.preventDefault(); setStatsSubTab(sub); setActiveTab('stats'); pushRoute({ activeTab: 'stats', statsSubTab: sub }); }}
-                          className="block text-xs text-slate-500 dark:text-slate-500 hover:text-purple-600 dark:hover:text-purple-400 no-underline hover:underline leading-relaxed py-1"
+                          className="block text-xs text-slate-500 dark:text-slate-400 hover:text-purple-600 dark:hover:text-purple-400 no-underline hover:underline leading-relaxed py-1"
                         >{label}</a>
                       </li>
                     ))}
@@ -3315,7 +3324,7 @@ const App: React.FC = () => {
                 {/* Articoli / Blog */}
                 <div>
                   <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="text-[11px] font-bold text-rose-700 dark:text-rose-400 no-underline hover:underline">{t('nav.blog')}</a>
-                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-slate-500 dark:text-slate-500 hover:text-rose-600 dark:hover:text-rose-400 no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
+                  <a href={buildPath({ activeTab: 'blog' })} onClick={(e) => { e.preventDefault(); handleTabChange('blog'); }} className="block mt-1 text-xs text-slate-500 dark:text-slate-400 hover:text-rose-600 dark:hover:text-rose-400 no-underline hover:underline leading-relaxed py-1 cursor-pointer">{t('blog.subtitle')}</a>
                 </div>
               </div>
             </nav>
@@ -3345,7 +3354,7 @@ const App: React.FC = () => {
                   href={buildPath({ activeTab: tab })}
                   onClick={(e) => { e.preventDefault(); handleTabChange(tab); }}
                   className={`relative flex flex-col items-center justify-center gap-0.5 transition-colors no-underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1 ${
-                    isActive ? activeClass : 'text-slate-500 dark:text-slate-500'
+                    isActive ? activeClass : 'text-slate-500 dark:text-slate-400'
                   }`}
                 >
                   <Icon size={20} />

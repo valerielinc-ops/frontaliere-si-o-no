@@ -571,7 +571,7 @@ const NewsletterPopup: React.FC = () => {
                 )}
               </button>
 
-              <p className="text-xs text-center text-slate-500 dark:text-slate-500">
+              <p className="text-xs text-center text-slate-500 dark:text-slate-400">
                 {t('newsletter.unsubscribeNotice')}
                 {' '}
                 <button

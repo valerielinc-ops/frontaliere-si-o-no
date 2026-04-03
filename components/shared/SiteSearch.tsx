@@ -1148,7 +1148,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
               {query.trim() === '' ? (
                 <div className="px-4 py-6 text-center text-sm text-slate-500 dark:text-slate-400">
                   <p>{t('search.hint') || 'Digita per cercare tra tutte le sezioni del sito'}</p>
-                  <p className="text-xs mt-1.5 text-slate-300 dark:text-slate-500">
+                  <p className="text-xs mt-1.5 text-slate-300 dark:text-slate-400">
                     {t('search.examples') || 'Es: "cambio valuta", "pensione", "calendario festività", "permessi"'}
                   </p>
 
@@ -1263,7 +1263,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                               {result.section}
                             </span>
                           </div>
-                          <p className="text-xs text-slate-500 dark:text-slate-500 truncate mt-0.5">
+                          <p className="text-xs text-slate-500 dark:text-slate-400 truncate mt-0.5">
                             {result.description}
                           </p>
                         </div>

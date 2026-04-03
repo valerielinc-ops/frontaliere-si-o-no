@@ -1695,7 +1695,7 @@ export function WhatsNewBell({ onClick }: BellButtonProps) {
       {hasUnread && (
         <span
           aria-hidden="true"
-          className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-black min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 shadow-sm"
+          className="absolute -top-1 -right-1 bg-red-500 text-white text-xs font-bold min-w-[18px] h-[18px] rounded-full flex items-center justify-center px-1 shadow-sm"
         >
           {unread > 9 ? '9+' : unread}
         </span>

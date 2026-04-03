@@ -315,7 +315,7 @@ export default function SalaryQuiz() {
           <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 sm:p-6 text-white shadow-xl">
             <div className="text-center mb-6">
               <p className="text-emerald-100 text-sm mb-1">{t('salaryQuiz.resultSubtitle')}</p>
-              <div className="text-4xl sm:text-5xl font-black mb-1">
+              <div className="text-4xl sm:text-5xl font-bold mb-1">
                 CHF {result.medianGross.toLocaleString()}
               </div>
               <p className="text-emerald-200 text-sm">{t('salaryQuiz.grossPerMonth')}</p>

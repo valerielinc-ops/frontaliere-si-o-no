@@ -1179,7 +1179,7 @@ const UserProfile: React.FC = () => {
                   min={new Date().toISOString().split('T')[0]}
                   className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
                 />
-                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">{t('profile.permitExpiryHint')}</p>
+                <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('profile.permitExpiryHint')}</p>
               </div>
             )}
 

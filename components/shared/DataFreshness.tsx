@@ -28,7 +28,7 @@ const DataFreshness: React.FC<DataFreshnessProps> = ({ lastUpdated, source, sour
   if (variant === 'badge') {
     return (
       <div className="inline-flex items-center gap-1.5 px-2.5 py-1 bg-slate-100 dark:bg-slate-800 rounded-lg text-xs font-semibold text-slate-500 dark:text-slate-400">
-        <Calendar size={10} className="text-slate-500 dark:text-slate-500" />
+        <Calendar size={10} className="text-slate-500 dark:text-slate-400" />
         <span>{t('dataFreshness.updated')}: {formatDate(lastUpdated)}</span>
         {source && (
           <>
@@ -48,7 +48,7 @@ const DataFreshness: React.FC<DataFreshnessProps> = ({ lastUpdated, source, sour
 
   return (
     <div className="flex items-center gap-1.5 text-xs text-slate-500 dark:text-slate-400 font-medium">
-      <Calendar size={10} className="text-slate-500 dark:text-slate-500 flex-shrink-0" />
+      <Calendar size={10} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
       <span>{t('dataFreshness.updated')}: {formatDate(lastUpdated)}</span>
       {source && (
         <>

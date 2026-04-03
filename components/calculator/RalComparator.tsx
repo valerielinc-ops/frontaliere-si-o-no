@@ -332,9 +332,9 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
         <div className="text-center space-y-2">
           <div className="flex items-center justify-center gap-2">
             {diff > 0 ? <TrendingUp className="w-6 h-6 text-emerald-700 dark:text-emerald-400" /> : diff < 0 ? <TrendingDown className="w-6 h-6 text-red-600 dark:text-red-400" /> : <Minus className="w-6 h-6 text-slate-600 dark:text-slate-300" />}
-            <p className="text-sm font-bold text-slate-600 dark:text-slate-500">{t('ral.monthlyDifference')}</p>
+            <p className="text-sm font-bold text-slate-600 dark:text-slate-400">{t('ral.monthlyDifference')}</p>
           </div>
-          <p className={`text-4xl font-black ${diff > 0 ? 'text-emerald-700 dark:text-emerald-400' : diff < 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-600 dark:text-slate-300'}`}>
+          <p className={`text-4xl font-bold ${diff > 0 ? 'text-emerald-700 dark:text-emerald-400' : diff < 0 ? 'text-red-600 dark:text-red-400' : 'text-slate-600 dark:text-slate-300'}`}>
             {diff > 0 ? '+' : ''}{formatCurrency(diff)} /mese
           </p>
           <p className="text-sm text-slate-500 dark:text-slate-400">
@@ -356,7 +356,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-sm text-slate-600 dark:text-slate-500">RAL</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">RAL</span>
                 <span className="font-bold">{formatCurrency(itResult.ral)}</span>
               </div>
               <div className="flex justify-between text-red-600 dark:text-red-400">
@@ -374,7 +374,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               <hr className="border-slate-200 dark:border-slate-600" />
               <div className="flex justify-between">
                 <span className="font-bold text-slate-800 dark:text-slate-200">{t('ral.netAnnual')}</span>
-                <span className="font-black text-lg text-green-700 dark:text-green-400">{formatCurrency(itResult.netAnnual)}</span>
+                <span className="font-bold text-lg text-green-700 dark:text-green-400">{formatCurrency(itResult.netAnnual)}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.netMonthly')} (×13)</span>
@@ -402,7 +402,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
 
             <div className="space-y-2">
               <div className="flex justify-between">
-                <span className="text-sm text-slate-600 dark:text-slate-500">{t('ral.grossCHF')}</span>
+                <span className="text-sm text-slate-600 dark:text-slate-400">{t('ral.grossCHF')}</span>
                 <span className="font-bold">{formatCurrency(chResult.grossCHF, 'CHF')}</span>
               </div>
               <div className="flex justify-between text-sm text-slate-500 dark:text-slate-400">
@@ -428,7 +428,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               <hr className="border-slate-200 dark:border-slate-600" />
               <div className="flex justify-between">
                 <span className="font-bold text-slate-800 dark:text-slate-200">{t('ral.netAnnual')}</span>
-                <span className="font-black text-lg text-green-700 dark:text-green-400">{formatCurrency(chResult.netAnnual, 'CHF')}</span>
+                <span className="font-bold text-lg text-green-700 dark:text-green-400">{formatCurrency(chResult.netAnnual, 'CHF')}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-sm text-slate-500 dark:text-slate-400">{t('ral.netMonthly')} (×12)</span>

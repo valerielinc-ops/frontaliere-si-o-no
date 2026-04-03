@@ -338,7 +338,7 @@ const SalarySurvey: React.FC = () => {
           ) : totalResponses === 0 ? (
             <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 text-center">
               <AlertCircle className="w-12 h-12 text-slate-500 dark:text-slate-400 mx-auto mb-3" />
-              <p className="text-slate-600 dark:text-slate-500">{t('salary.noData')}</p>
+              <p className="text-slate-600 dark:text-slate-400">{t('salary.noData')}</p>
             </div>
           ) : (
             <>

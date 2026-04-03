@@ -264,15 +264,15 @@ const CommunityForum: React.FC = () => {
                 >
                   <ThumbsUp className="w-5 h-5" />
                 </button>
-                <span className="text-sm font-black text-slate-600 dark:text-slate-300">{selectedQuestion.upvotes}</span>
+                <span className="text-sm font-bold text-slate-600 dark:text-slate-300">{selectedQuestion.upvotes}</span>
               </div>
 
               {/* Content */}
               <div className="flex-1 min-w-0">
-                <h2 className="text-xl font-black text-slate-800 dark:text-slate-100 mb-2">
+                <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">
                   {selectedQuestion.title}
                 </h2>
-                <p className="text-sm text-slate-600 dark:text-slate-500 whitespace-pre-wrap leading-relaxed">
+                <p className="text-sm text-slate-600 dark:text-slate-400 whitespace-pre-wrap leading-relaxed">
                   {selectedQuestion.body}
                 </p>
                 <div className="flex flex-wrap items-center gap-2 mt-4">
@@ -560,7 +560,7 @@ const CommunityForum: React.FC = () => {
                 {/* Upvotes */}
                 <div className="flex flex-col items-center gap-0.5 pt-0.5">
                   <ThumbsUp className={`w-4 h-4 ${user && q.upvotedBy.includes(user.uid) ? 'text-emerald-500' : 'text-slate-300'}`} />
-                  <span className="text-xs font-black text-slate-500 dark:text-slate-400">{q.upvotes}</span>
+                  <span className="text-xs font-bold text-slate-500 dark:text-slate-400">{q.upvotes}</span>
                 </div>
 
                 {/* Content */}

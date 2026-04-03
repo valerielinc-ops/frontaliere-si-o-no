@@ -510,7 +510,7 @@ const WorkPermitsGuide: React.FC = () => {
               {permits.map(p => (
                 <th key={p.id} className="text-center py-3 font-bold">
                   <span className="text-lg">{p.icon}</span>
-                  <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-500'}`}>{p.name}</div>
+                  <div className={`text-xs mt-1 ${selectedPermit === p.id ? 'text-blue-600 dark:text-blue-400' : 'text-slate-600 dark:text-slate-400'}`}>{p.name}</div>
                 </th>
               ))}
             </tr>

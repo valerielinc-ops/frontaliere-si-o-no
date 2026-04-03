@@ -237,7 +237,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
               <hr className="border-slate-200 dark:border-slate-600" />
               <div className="flex justify-between">
                 <span className="font-bold">{t('leave.totalAllowance')}</span>
-                <span className="font-black text-lg text-emerald-700 dark:text-emerald-400">{fmt(chResult.totalAllowance, 'CHF')}</span>
+                <span className="font-bold text-lg text-emerald-700 dark:text-emerald-400">{fmt(chResult.totalAllowance, 'CHF')}</span>
               </div>
               <div className="flex justify-between text-slate-500 dark:text-slate-400">
                 <span>{t('leave.inEUR')}</span>
@@ -281,7 +281,7 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
               <hr className="border-slate-200 dark:border-slate-600" />
               <div className="flex justify-between">
                 <span className="font-bold">{t('leave.totalAllowance')}</span>
-                <span className="font-black text-lg text-emerald-700 dark:text-emerald-400">{fmt(itResult.totalAllowance)}</span>
+                <span className="font-bold text-lg text-emerald-700 dark:text-emerald-400">{fmt(itResult.totalAllowance)}</span>
               </div>
             </div>
 
@@ -307,12 +307,12 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-sm">
           <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
             <p className="text-slate-500 dark:text-slate-400">{t('leave.chIPG')}</p>
-            <p className="font-black text-lg">{fmt(chResult.totalAllowance, 'CHF')}</p>
+            <p className="font-bold text-lg">{fmt(chResult.totalAllowance, 'CHF')}</p>
             <p className="text-xs text-slate-500 dark:text-slate-400">≈ {fmt(totalFrontaliereEUR)}</p>
           </div>
           <div className="bg-white/60 dark:bg-slate-800/60 rounded-lg p-3">
             <p className="text-slate-500 dark:text-slate-400">{t('leave.monthlySalaryLoss')}</p>
-            <p className="font-black text-lg text-amber-600 dark:text-amber-400">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
+            <p className="font-bold text-lg text-amber-600 dark:text-amber-400">-{fmt(grossMonthlyCHF - chResult.maxMonthly / (leaveType === 'maternity' ? 3.5 : 1), 'CHF')}</p>
             <p className="text-xs text-slate-500 dark:text-slate-400">{t('leave.vsFullSalary')}</p>
           </div>
         </div>

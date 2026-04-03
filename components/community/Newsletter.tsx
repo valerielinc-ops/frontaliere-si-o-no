@@ -313,7 +313,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         <div className="bg-amber-50 dark:bg-amber-950/30 rounded-2xl border border-amber-200 dark:border-amber-800 p-5 sm:p-8 text-center">
           <Mail size={48} className="text-amber-500 mx-auto mb-4" />
           <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-2">{t('newsletter.doubleOptIn.title')}</h3>
-          <p className="text-slate-600 dark:text-slate-500 mb-3">
+          <p className="text-slate-600 dark:text-slate-400 mb-3">
             {t('newsletter.doubleOptIn.description')}
           </p>
           <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">

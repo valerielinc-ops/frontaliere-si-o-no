@@ -223,13 +223,13 @@ const GamificationWidget: React.FC = () => {
                   <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-400 to-orange-500 flex items-center justify-center shadow-sm">
                     <Trophy size={18} className="text-white" />
                   </div>
-                  <span className="absolute -top-1 -right-1 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800 text-[9px] font-black w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
+                  <span className="absolute -top-1 -right-1 bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800 text-[9px] font-bold w-5 h-5 rounded-full flex items-center justify-center shadow-sm">
                     {levelInfo.level}
                   </span>
                 </div>
                 <div className="flex-1 min-w-0">
                   <div className="text-sm font-bold text-slate-800 dark:text-slate-100">{levelTitle}</div>
-                  <div className="text-xs text-slate-500 dark:text-slate-500">{state.xp} XP</div>
+                  <div className="text-xs text-slate-500 dark:text-slate-400">{state.xp} XP</div>
                 </div>
                 <div className="flex items-center gap-2 flex-shrink-0">
                   {state.streak > 0 && (
