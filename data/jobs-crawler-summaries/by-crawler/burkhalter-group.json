@@ -1,16 +1,16 @@
 {
   "key": "burkhalter-group",
   "label": "burkhalter",
-  "generatedAt": "2026-04-02T20:56:01.009Z",
+  "generatedAt": "2026-04-03T09:00:25.321Z",
   "total": 95,
   "newCount": 0,
-  "updatedCount": 88,
+  "updatedCount": 91,
   "removedCount": 0,
-  "unchangedCount": 7,
-  "durationMs": 6107,
-  "avgDurationMs": 6107,
+  "unchangedCount": 4,
+  "durationMs": 7999,
+  "avgDurationMs": 7999,
   "durationHistory": [
-    6107
+    7999
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       "postedDate": "2026-02-26",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.449Z",
+      "crawledAt": "2026-04-03T09:00:24.762Z",
       "coordinates": [
         46.2496614,
         10.1292791
@@ -49,6 +49,45 @@
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Installatore di impianti idraulici e/o di riscaldamento (100%)",
+      "slug": "installatore-di-impianti-idraulici-e-o-di-riscaldamento-100-caotec-sa-brusio",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installatore-di-impianti-idraulici-e-o-di-riscaldamento-1594",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installatore-di-impianti-idraulici-e-o-di-riscaldamento-1594",
+      "company": "Caotec SA",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Brusio",
+      "addressLocality": "Brusio",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-02-26",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-04-03T09:00:24.763Z",
+      "coordinates": [
+        46.2496614,
+        10.1292791
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6928",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
+        "richness": 20,
         "translation": 25,
         "completeness": 25
       }
@@ -74,7 +113,7 @@
       "postedDate": "2026-02-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.450Z",
+      "crawledAt": "2026-04-03T09:00:24.764Z",
       "coordinates": [
         46.6199306,
         9.784457
@@ -113,7 +152,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.451Z",
+      "crawledAt": "2026-04-03T09:00:24.764Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -152,7 +191,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.451Z",
+      "crawledAt": "2026-04-03T09:00:24.765Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -191,7 +230,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.452Z",
+      "crawledAt": "2026-04-03T09:00:24.767Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -230,7 +269,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.453Z",
+      "crawledAt": "2026-04-03T09:00:24.767Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -269,7 +308,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.453Z",
+      "crawledAt": "2026-04-03T09:00:24.768Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -308,7 +347,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.454Z",
+      "crawledAt": "2026-04-03T09:00:24.769Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -347,7 +386,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.454Z",
+      "crawledAt": "2026-04-03T09:00:24.769Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -386,7 +425,7 @@
       "postedDate": "2026-02-02",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.455Z",
+      "crawledAt": "2026-04-03T09:00:24.769Z",
       "coordinates": [
         46.9150041,
         9.7611799
@@ -425,7 +464,7 @@
       "postedDate": "2026-01-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.455Z",
+      "crawledAt": "2026-04-03T09:00:24.769Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -464,7 +503,7 @@
       "postedDate": "2026-01-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.455Z",
+      "crawledAt": "2026-04-03T09:00:24.770Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -503,7 +542,7 @@
       "postedDate": "2026-01-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.455Z",
+      "crawledAt": "2026-04-03T09:00:24.770Z",
       "coordinates": [
         46.489223,
         9.845449
@@ -542,7 +581,7 @@
       "postedDate": "2026-01-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.456Z",
+      "crawledAt": "2026-04-03T09:00:24.770Z",
       "coordinates": [
         46.665138,
         9.1156719
@@ -581,7 +620,7 @@
       "postedDate": "2026-01-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.457Z",
+      "crawledAt": "2026-04-03T09:00:24.771Z",
       "coordinates": [
         46.1080222,
         7.9256477
@@ -620,7 +659,7 @@
       "postedDate": "2026-01-19",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.457Z",
+      "crawledAt": "2026-04-03T09:00:24.771Z",
       "coordinates": [
         46.5857467,
         9.9378046
@@ -659,7 +698,7 @@
       "postedDate": "2025-11-25",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.457Z",
+      "crawledAt": "2026-04-03T09:00:24.772Z",
       "coordinates": [
         46.2942876,
         7.8924291
@@ -698,7 +737,7 @@
       "postedDate": "2025-09-15",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.458Z",
+      "crawledAt": "2026-04-03T09:00:24.772Z",
       "coordinates": [
         46.8581986,
         9.5080121
@@ -737,7 +776,7 @@
       "postedDate": "2025-07-30",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.458Z",
+      "crawledAt": "2026-04-03T09:00:24.773Z",
       "coordinates": [
         46.7635608,
         9.7937703
@@ -750,6 +789,45 @@
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "title": "Heizungsinstallateur/in (100%)",
+      "slug": "heizungsinstallateur-in-100-spescha-gebaudetechnik-ag-lenzerheide",
+      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1001",
+      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1001",
+      "company": "Spescha Gebäudetechnik AG",
+      "companyKey": "burkhalter-group",
+      "companyDomain": "burkhalter.ch",
+      "location": "Lenzerheide",
+      "addressLocality": "Lenzerheide",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "Ingegneria & Tecnica",
+      "sector": "Impiantistica & Tecnologia Edilizia",
+      "source": "burkhalter-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2025-07-29",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "crawledAt": "2026-04-03T09:00:24.773Z",
+      "coordinates": [
+        46.7204645,
+        9.5593501
+      ],
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale",
+      "postalCode": "6928",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 20,
         "richness": 18,
         "translation": 25,
         "completeness": 25
@@ -776,7 +854,7 @@
       "postedDate": "2025-06-23",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.458Z",
+      "crawledAt": "2026-04-03T09:00:24.773Z",
       "coordinates": [
         46.1078893,
         7.0998918
@@ -815,7 +893,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.459Z",
+      "crawledAt": "2026-04-03T09:00:24.773Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -854,7 +932,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.459Z",
+      "crawledAt": "2026-04-03T09:00:24.774Z",
       "coordinates": [
         46.1078651,
         7.0997695
@@ -893,7 +971,7 @@
       "postedDate": "2025-06-13",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.459Z",
+      "crawledAt": "2026-04-03T09:00:24.774Z",
       "coordinates": [
         46.2693588,
         6.9555405
@@ -932,7 +1010,7 @@
       "postedDate": "2025-06-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.459Z",
+      "crawledAt": "2026-04-03T09:00:24.774Z",
       "coordinates": [
         46.8581986,
         9.5080121
@@ -971,7 +1049,7 @@
       "postedDate": "2025-05-21",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.459Z",
+      "crawledAt": "2026-04-03T09:00:24.774Z",
       "coordinates": [
         46.9709598,
         9.5592226
@@ -1010,7 +1088,7 @@
       "postedDate": "2025-04-24",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.460Z",
+      "crawledAt": "2026-04-03T09:00:24.774Z",
       "coordinates": [
         46.29387391848841,
         7.892500949590563
@@ -1049,7 +1127,7 @@
       "postedDate": "2025-04-03",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.460Z",
+      "crawledAt": "2026-04-03T09:00:24.775Z",
       "coordinates": [
         46.2942876,
         7.8924291
@@ -1088,7 +1166,7 @@
       "postedDate": "2025-04-01",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.460Z",
+      "crawledAt": "2026-04-03T09:00:24.775Z",
       "coordinates": [
         46.29387391848841,
         7.892500949590563
@@ -1105,127 +1183,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
-    {
-      "title": "Lüftungsmonteur/in - Quereinsteiger/in (100%)",
-      "slug": "luftungsmonteur-in-quereinsteiger-in-100-imwinkelried-luftung-und-klima-ag-visp",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsmonteur-in-1364",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/lueftungsmonteur-in-1364",
-      "company": "Imwinkelried Lüftung und Klima AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Visp",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-03-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.460Z",
-      "coordinates": [
-        46.2942876,
-        7.8924291
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Chef/fe de projet en technique du bâtiment Valais romand (80 - 100%)",
-      "slug": "chef-fe-de-projet-en-technique-du-batiment-valais-romand-80-100-imwinkelried-luftung-und-klima-ag-visp",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projet-en-technique-du-batiment-valais-romand-1300",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/chef-fe-de-projet-en-technique-du-batiment-valais-romand-1300",
-      "company": "Imwinkelried Lüftung und Klima AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Visp",
-      "addressLocality": "Visp",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "canton": "VS",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2024-09-29",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.461Z",
-      "coordinates": [
-        46.2942876,
-        7.8924291
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
     }
   ],
   "removedJobs": [],
   "unchangedJobs": [
-    {
-      "title": "Installatore di impianti idraulici e/o di riscaldamento (100%)",
-      "slug": "installatore-di-impianti-idraulici-e-o-di-riscaldamento-100-caotec-sa-brusio",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installatore-di-impianti-idraulici-e-o-di-riscaldamento-1594",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/installatore-di-impianti-idraulici-e-o-di-riscaldamento-1594",
-      "company": "Caotec SA",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Brusio",
-      "addressLocality": "Brusio",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-02-26",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.450Z",
-      "coordinates": [
-        46.2496614,
-        10.1292791
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "title": "Heizungsinstallateur/in (100%)",
       "slug": "heizungsinstallateur-in-100-m-kunz-ag-davos-davos-platz",
@@ -1247,7 +1208,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.452Z",
+      "crawledAt": "2026-04-03T09:00:24.766Z",
       "coordinates": [
         46.7895975,
         9.8161975
@@ -1286,7 +1247,7 @@
       "postedDate": "2026-02-12",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.454Z",
+      "crawledAt": "2026-04-03T09:00:24.768Z",
       "coordinates": [
         46.8823512,
         9.8788827
@@ -1299,84 +1260,6 @@
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Heizungsinstallateur/in (100%)",
-      "slug": "heizungsinstallateur-in-100-spescha-gebaudetechnik-ag-lenzerheide",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1001",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/heizungsinstallateur-in-1001",
-      "company": "Spescha Gebäudetechnik AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Lenzerheide",
-      "addressLocality": "Lenzerheide",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-07-29",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.458Z",
-      "coordinates": [
-        46.7204645,
-        9.5593501
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Telematik-Installateur/in (80 - 100%)",
-      "slug": "telematik-installateur-in-80-100-caviezel-ag-davos-platz",
-      "url": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/telematik-installateur-1228",
-      "applyUrl": "https://www.burkhalter.ch/en/jobs-and-careers/moechten-sie-bei-uns-arbeiten/detail/telematik-installateur-1228",
-      "company": "Caviezel AG",
-      "companyKey": "burkhalter-group",
-      "companyDomain": "burkhalter.ch",
-      "location": "Davos Platz",
-      "addressLocality": "Davos Platz",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "canton": "GR",
-      "country": "CH",
-      "category": "Ingegneria & Tecnica",
-      "sector": "Impiantistica & Tecnologia Edilizia",
-      "source": "burkhalter-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2024-04-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.463Z",
-      "coordinates": [
-        46.7902021,
-        9.8213899
-      ],
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
         "richness": 18,
         "translation": 25,
         "completeness": 25
@@ -1403,7 +1286,7 @@
       "postedDate": "2023-07-18",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.466Z",
+      "crawledAt": "2026-04-03T09:00:24.781Z",
       "coordinates": [
         46.7635608,
         9.7937703
@@ -1442,7 +1325,7 @@
       "postedDate": "2023-04-20",
       "employmentType": "full-time",
       "contractType": "full-time",
-      "crawledAt": "2026-04-02T20:56:00.470Z",
+      "crawledAt": "2026-04-03T09:00:24.784Z",
       "coordinates": [
         46.9709598,
         9.5592226
