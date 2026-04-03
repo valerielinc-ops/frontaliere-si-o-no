@@ -96,6 +96,9 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch-amazon-products.mjs
 
+      - name: Generate responsive image thumbnails
+        run: node scripts/generate-image-thumbnails.mjs
+
       - name: Build
         env:
           NODE_OPTIONS: '--max-old-space-size=4096'

@@ -157,6 +157,10 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: npm run test:articles
 
+      - name: Generate responsive image thumbnails
+        if: steps.changes.outputs.has_changes == 'true'
+        run: node scripts/generate-image-thumbnails.mjs
+
       - name: Build for production
         if: steps.changes.outputs.has_changes == 'true'
         env:
