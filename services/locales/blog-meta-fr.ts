@@ -1925,6 +1925,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Comme et le Lac, pour Pâques c\'est le boom : "Réservations à plus de 90 % en ville". Attention toutefois : "Craintes pour l\'été"',
     'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'Pâques à Côme et sur le Lac, c\'est un boom : réservations à plus de 90 %. Mais il y a des craintes pour l\'été.',
     'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lac de Lugano avec des personnes qui apprécient la paysage',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.title': 'Camion en panne au San Gottardo : circulation bloquée dans le Tessin',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.excerpt': 'Un camion s\'est arrêté au San Gottardo, provoquant une fermeture totale de la circulation dans les deux sens. La situation a impliqué de nombreux frontaliers et voyageurs en transit.',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.imageAlt': 'Panne de camion au San Gottardo avec circulation bloquée dans le Tessin',
 };
 
 export default blogMetaFr;

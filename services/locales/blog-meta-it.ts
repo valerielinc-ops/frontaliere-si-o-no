@@ -1925,6 +1925,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Como e il Lago, per Pasqua è boom: “Prenotazioni oltre il 90% in città”. Attenzione però: “Timori per l’estate”',
     'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'La Pasqua a Como e sul Lago è un boom: prenotazioni oltre il 90%. Ma ci sono timori per l’estate.',
     'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lago di Lugano con persone che godono del paesaggio',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.title': 'Camion in panne al San Gottardo: traffico fermo in Ticino',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.excerpt': 'Un camion si è fermato al San Gottardo, causando blocco totale del traffico sui due sensi. La situazione ha coinvolto numerosi frontalieri e viaggiatori in transito.',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.imageAlt': 'Camion in panne al San Gottardo con traffico bloccato in Ticino',
 };
 
 export default blogMetaIt;

@@ -5683,4 +5683,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/como-lago-pasqua-boom-prenotazioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'camion-panne-san-gottardo-traffico-bloccato',
+    category: 'fiscale',
+    date: '2026-04-03T03:23:23.315Z',
+    image: '/images/blog/camion-panne-san-gottardo-traffico-bloccato.jpg',
+    hasCalculator: true,
+  },
 ];

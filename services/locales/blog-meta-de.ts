@@ -1925,6 +1925,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Como und der See: Pascha ist ein Boom: \'Buchungen über 90 % in der Stadt\'. Achte jedoch: \'Bedenken für die Sommerzeit\'',
     'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'Pascha in Como und am See ist ein Boom: Buchungen über 90 %. Doch gibt es Bedenken für die Sommerzeit.',
     'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lake Lugano mit Menschen, die den Landschaft genießen',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.title': 'Lkw in Panne am San Gottardo: Stau in Tessin',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.excerpt': 'Ein Lkw hat am San Gottardo gehalten, was zu einer vollständigen Sperrung des Verkehrs in beiden Richtungen geführt hat. Die Situation hat zahlreiche Grenzgänger und Durchreisende betroffen.',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.imageAlt': 'LKW-Panne am San Gottardo mit Verkehrsstau im Tessin',
 };
 
 export default blogMetaDe;

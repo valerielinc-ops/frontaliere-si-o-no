@@ -10515,6 +10515,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-camion-panne-san-gottardo-traffico-bloccato': {
+    title: 'Camion in panne al San Gottardo: traffico fermo in Ticino | Frontaliere Ticino',
+    description: 'Un camion si ferma al San Gottardo causando blocco traffico totale. Approfondisci le cause, le conseguenze e i consigli pratici per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, camion, panne, gottardo, traffico',
+    ogTitle: 'Camion in panne al San Gottardo: traffico bloccato in Ticino',
+    ogDescription: 'Blocco totale del traffico al San Gottardo a causa di un camion in panne. Scopri le cause, le alternative e i consigli pratici per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/camion-panne-san-gottardo-traffico-bloccato',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Eventi di traffico in Ticino",
+      "description": "Un camion si ferma al San Gottardo causando blocco traffico totale. Approfondisci le cause, le conseguenze e i consigli pratici per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/camion-panne-san-gottardo-traffico-bloccato.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Camion in panne al San Gottardo con traffico bloccato in Ticino"
+      },
+      "datePublished": "2026-04-03T03:23:23+00:00",
+      "dateModified": "2026-04-03T03:23:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/camion-panne-san-gottardo-traffico-bloccato`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1925,6 +1925,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-lago-pasqua-boom-prenotazioni.title': 'Como and Lake Como for Easter is a Boom: \'Bookings Over 90% in City\'. But Be Wary: \'Summer Fears\'',
     'blog.article.como-lago-pasqua-boom-prenotazioni.excerpt': 'Easter in Como and Lake Como is a boom: bookings over 90%. However, there are fears for the summer.',
     'blog.article.como-lago-pasqua-boom-prenotazioni.imageAlt': 'Lake Lugano with people enjoying the landscape',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.title': 'Truck Breakdown at San Gottardo: Traffic Halted in Ticino',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.excerpt': 'A truck broke down at San Gottardo, causing a complete standstill of traffic in both directions. The situation has affected numerous cross-border workers and travelers passing through.',
+    'blog.article.camion-panne-san-gottardo-traffico-bloccato.imageAlt': 'Truck breakdown at San Gottardo with traffic blocked in Ticino',
 };
 
 export default blogMetaEn;

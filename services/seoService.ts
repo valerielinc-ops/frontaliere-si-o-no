@@ -1859,6 +1859,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mobilita-infermieri-ticino': { name: 'Mobilità internazionale', path: '/articoli-frontaliere/mobilita-infermieri-ticino', parent: 'blog' },
     'blog-san-gottardo-code-giovedi-santo': { name: 'San Gottardo, code da Giovedì Santo', path: '/articoli-frontaliere/san-gottardo-code-giovedi-santo', parent: 'blog' },
     'blog-como-lago-pasqua-boom-prenotazioni': { name: 'Como e il Lago', path: '/articoli-frontaliere/como-lago-pasqua-boom-prenotazioni', parent: 'blog' },
+    'blog-camion-panne-san-gottardo-traffico-bloccato': { name: 'Camion in panne al San Gottardo', path: '/articoli-frontaliere/camion-panne-san-gottardo-traffico-bloccato', parent: 'blog' },
   };
 
   const info = sectionNames[section];
