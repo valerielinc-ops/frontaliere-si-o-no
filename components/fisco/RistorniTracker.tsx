@@ -106,7 +106,7 @@ const RistorniTracker: React.FC = () => {
 
       {/* Personal calculator */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <button onClick={() => toggleSection('calculator')} className="w-full flex items-center justify-between p-4">
+        <button onClick={() => toggleSection('calculator')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'calculator'}>
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <Calculator size={18} className="text-violet-600" /> {t('ristorni.yourContribution')}
           </h3>
@@ -167,7 +167,7 @@ const RistorniTracker: React.FC = () => {
 
       {/* Municipality ranking */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <button onClick={() => toggleSection('ranking')} className="w-full flex items-center justify-between p-4">
+        <button onClick={() => toggleSection('ranking')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'ranking'}>
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <TrendingUp size={18} className="text-emerald-700" /> {t('ristorni.ranking')}
           </h3>
@@ -211,7 +211,7 @@ const RistorniTracker: React.FC = () => {
 
       {/* Historical trend */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <button onClick={() => toggleSection('history')} className="w-full flex items-center justify-between p-4">
+        <button onClick={() => toggleSection('history')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'history'}>
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <TrendingUp size={18} className="text-blue-600" /> {t('ristorni.historicalTrend')}
           </h3>

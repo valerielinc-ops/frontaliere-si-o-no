@@ -533,7 +533,7 @@ const CarTransferGuide: React.FC = () => {
             <div key={i} className="border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden">
               <button
                 onClick={() => setExpandedFaq(expandedFaq === i ? null : i)}
-                className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors"
+                className="w-full flex items-center justify-between p-4 text-left hover:bg-slate-50 dark:hover:bg-slate-700/50 transition-colors" aria-expanded={expandedFaq === i}
               >
                 <span className="text-sm font-semibold text-slate-700 dark:text-slate-300 pr-4">{item.q}</span>
                 {expandedFaq === i ? <ChevronUp size={16} className="shrink-0 text-slate-500 dark:text-slate-400" /> : <ChevronDown size={16} className="shrink-0 text-slate-500 dark:text-slate-400" />}

@@ -612,7 +612,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                 <div key={fk} className="rounded-xl border border-slate-200 dark:border-slate-600 overflow-hidden">
                   <button
                     onClick={() => setExpandedFaq(expandedFaq === fk ? null : fk)}
-                    className="w-full flex items-center justify-between p-3 text-left"
+                    className="w-full flex items-center justify-between p-3 text-left" aria-expanded={expandedFaq === fk}
                   >
                     <span className="text-sm font-medium text-slate-700 dark:text-slate-300 pr-2">{t(`renovation.faq.${fk}.q`)}</span>
                     {expandedFaq === fk

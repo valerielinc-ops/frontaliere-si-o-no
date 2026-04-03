@@ -479,7 +479,7 @@ const TicineseDialect: React.FC = () => {
 
             return (
               <div key={entry.key} className="bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-                <button onClick={() => handleExpand(entry.key)} className="w-full flex items-center justify-between p-4 text-left">
+                <button onClick={() => handleExpand(entry.key)} className="w-full flex items-center justify-between p-4 text-left" aria-expanded={isExpanded}>
                   <div className="flex items-center gap-3 min-w-0">
                     <span className={`text-xs font-bold px-2 py-0.5 rounded-full shrink-0 ${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`}>
                       {CATEGORY_ICONS[entry.category]} {tt(`dialect.category.${entry.category}`, entry.category)}

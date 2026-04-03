@@ -313,7 +313,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
 
       {/* Result */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <button onClick={() => toggleSection('result')} className="w-full flex items-center justify-between p-4">
+        <button onClick={() => toggleSection('result')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'result'}>
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <Euro size={18} className="text-emerald-700" /> {t('bonus.result')}
           </h3>
@@ -353,7 +353,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
 
       {/* Tax rate impact simulation */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <button onClick={() => toggleSection('taxImpact')} className="w-full flex items-center justify-between p-4">
+        <button onClick={() => toggleSection('taxImpact')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'taxImpact'}>
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <TrendingUp size={18} className="text-orange-600" /> {t('bonus.taxImpact')}
           </h3>
@@ -440,7 +440,7 @@ const BonusCalculator: React.FC<BonusCalcProps> = ({ userProfile }) => {
 
       {/* Info about bonus types */}
       <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
-        <button onClick={() => toggleSection('info')} className="w-full flex items-center justify-between p-4">
+        <button onClick={() => toggleSection('info')} className="w-full flex items-center justify-between p-4" aria-expanded={expandedSection === 'info'}>
           <h3 className="font-bold text-slate-800 dark:text-slate-200 flex items-center gap-2">
             <Info size={18} className="text-blue-600" /> {t('bonus.typesInfo')}
           </h3>

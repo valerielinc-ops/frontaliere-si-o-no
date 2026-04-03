@@ -281,6 +281,7 @@ const WorkPermitsGuide: React.FC = () => {
         <div
           role="button"
           tabIndex={0}
+          aria-expanded={isOpen}
           onClick={() => toggleSection(id)}
           onKeyDown={(e) => e.key === 'Enter' && toggleSection(id)}
           className="flex items-center justify-between p-4 cursor-pointer hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors"

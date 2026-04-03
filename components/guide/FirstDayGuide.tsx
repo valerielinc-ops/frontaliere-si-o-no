@@ -299,6 +299,7 @@ const FirstDayGuide: React.FC = () => {
                     onClick={() => setExpandedStep(isExpanded ? null : step.id)}
                     className="p-1 text-slate-500 hover:text-slate-600 dark:hover:text-slate-300"
                     aria-label={isExpanded ? 'Comprimi' : 'Espandi'}
+                    aria-expanded={isExpanded}
                   >
                     {isExpanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
                   </button>
