@@ -95,14 +95,16 @@ function isLikelyUntranslated(localeTitle, sourceTitle) {
 }
 
 /**
- * Check if a slug roughly corresponds to a title (Jaccard-based).
- * Returns true if the slug's meaningful tokens overlap sufficiently with the title.
+ * Check if a slug roughly corresponds to a title+company+location (Jaccard-based).
+ * Compares the full derived slug (with company+location) to avoid false negatives
+ * when the existing slug contains company/location tokens that dilute Jaccard
+ * against a title-only slugified string.
  */
-function slugMatchesTitle(slug, title) {
+function slugMatchesTitle(slug, title, company, location) {
   if (!slug || !title) return false;
-  const titleSlug = slugify(title);
-  if (!titleSlug) return false;
-  return slugJaccard(slug, titleSlug) >= 0.5;
+  const fullSlug = buildSlug(title, company, location);
+  if (!fullSlug) return false;
+  return slugJaccard(slug, fullSlug) >= 0.5;
 }
 
 async function main() {
@@ -148,8 +150,8 @@ async function main() {
         const sourceTitle = (tbl[sourceLang] || '').trim();
         if (sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
-        // If slug already matches title, skip
-        if (currentSlug && slugMatchesTitle(currentSlug, title)) continue;
+        // If slug already matches title+company+location, skip
+        if (currentSlug && slugMatchesTitle(currentSlug, title, company, location)) continue;
 
         // Generate new slug from locale title
         const newSlug = buildSlug(title, company, location);

@@ -889,9 +889,13 @@ export function isSlugStable(existingSlug, newSlug, threshold = 0.80) {
   return slugJaccard(existingSlug, newSlug) >= threshold;
 }
 
-/** Check if a slug plausibly matches a title (Jaccard-based, or prefix for short titles). */
-function slugMatchesTitle(slug, title) {
-  const slugified = title
+/** Check if a slug plausibly matches a title (Jaccard-based, or prefix for short titles).
+ *  When company/location are provided, they are appended to produce a full slug
+ *  for comparison — prevents false negatives when the slug contains company/location
+ *  tokens that dilute the Jaccard score against a title-only slugified string. */
+function slugMatchesTitle(slug, title, company = '', location = '') {
+  const parts = [title, company, location].filter(Boolean).join(' ');
+  const slugified = parts
     .toLowerCase()
     .normalize('NFD')
     .replace(/[\u0300-\u036f]/g, '')
@@ -1157,16 +1161,16 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         // EXPECTED in DE slugs — not foreign. Only flag them in IT/EN/FR slugs.
         const FOREIGN_WORD_PATTERN = /(?:^|-)([a-z]{15,})(?:-|$)/;
         const hasForeignWord = !isSourceLocale && locale !== 'de' && existingSlug && FOREIGN_WORD_PATTERN.test(existingSlug);
+        const staleCompany = String(job.company || '').trim();
+        const staleLocation = String(job.addressLocality || job.location || '').trim();
         const isStaleSlug = isSourceLocale
-          // Source locale: re-derive if slug doesn't start with a slug-ified prefix of current title
-          ? existingSlug && localizedTitle && !slugMatchesTitle(existingSlug, localizedTitle)
+          // Source locale: re-derive if slug doesn't match a slug-ified version of current title+company+location
+          ? existingSlug && localizedTitle && !slugMatchesTitle(existingSlug, localizedTitle, staleCompany, staleLocation)
           // Non-source locale: re-derive if slug matches untranslated base OR contains foreign words
           : (existingSlug && existingSlug === baseSlug && localizedTitle && localizedTitle !== baseTitle)
             || (hasForeignWord && localizedTitle);
         if (isStaleSlug) {
-          const company = String(job.company || '').trim();
-          const location = String(job.addressLocality || job.location || '').trim();
-          const parts = [localizedTitle, company, location].filter(Boolean).join('-');
+          const parts = [localizedTitle, staleCompany, staleLocation].filter(Boolean).join('-');
           const derived = parts
             .toLowerCase()
             .normalize('NFD')
