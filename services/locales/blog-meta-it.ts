@@ -1965,6 +1965,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso si Arma contro la Zanzara Tigre: Analisi della Strategia 2026',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'Il Comune di Chiasso affronta la minaccia della zanzara tigre con una nuova strategia. Andrea Mini (Plr) interroga il Municipio per una risposta efficace.',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Tecnico antizanzara in azione a Chiasso',
+    'blog.article.trasferimento-ufficio-postale-chiasso.title': 'Trasferimento Ufficio Postale Chiasso',
+    'blog.article.trasferimento-ufficio-postale-chiasso.excerpt': 'Il trasferimento dell\'Ufficio postale di Chiasso potrebbe essere un\'opportunità per il territorio',
+    'blog.article.trasferimento-ufficio-postale-chiasso.imageAlt': 'Ufficio postale di Chiasso',
 };
 
 export default blogMetaIt;

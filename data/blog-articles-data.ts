@@ -5769,4 +5769,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/chiasso-zanzara-tigre-strategia-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'trasferimento-ufficio-postale-chiasso',
+    category: 'novita',
+    date: '2026-04-03T16:56:10.603Z',
+    image: '/images/blog/trasferimento-ufficio-postale-chiasso.jpg',
+    hasCalculator: true,
+  },
 ];

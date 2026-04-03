@@ -10751,6 +10751,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trasferimento-ufficio-postale-chiasso': {
+    title: 'Trasferimento Ufficio Postale Chiasso | Frontaliere Ticino',
+    description: 'Il trasferimento dell\'Ufficio postale di Chiasso potrebbe essere un\'opportunità per il territorio. Scopri di più sulle novità e sui servizi offerti dalla Posta',
+    keywords: 'frontalieri, ticino, svizzera, italia, trasferimento, ufficio, postale, chiasso',
+    ogTitle: 'Trasferimento Ufficio Postale Chiasso',
+    ogDescription: 'Il trasferimento dell\'Ufficio postale di Chiasso potrebbe essere un\'opportunità per il territorio. Scopri di più sulle novità e sui servizi offerti dalla Posta',
+    canonicalPath: '/articoli-frontaliere/trasferimento-ufficio-postale-chiasso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasferimento Ufficio Postale Chiasso",
+      "description": "Il trasferimento dell'Ufficio postale di Chiasso potrebbe essere un'opportunità per il territorio. Scopri di più sulle novità e sui servizi offerti dalla Posta",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trasferimento-ufficio-postale-chiasso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio postale di Chiasso"
+      },
+      "datePublished": "2026-04-03T16:56:10+00:00",
+      "dateModified": "2026-04-03T16:56:10+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trasferimento-ufficio-postale-chiasso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

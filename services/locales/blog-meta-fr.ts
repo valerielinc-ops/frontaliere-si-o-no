@@ -1965,6 +1965,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso se Prépare contre la Zanzare Tigre : Analyse de la Stratégie 2026',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'Le Commune de Chiasso affronte la menace de la zanzare tigre avec une nouvelle stratégie. Andrea Mini (Plr) interroge le Municipio pour une réponse efficace.',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Technicien anti-moustique tigre à Chiasso',
+    'blog.article.trasferimento-ufficio-postale-chiasso.title': 'Transfert du Bureau de Poste de Chiasso',
+    'blog.article.trasferimento-ufficio-postale-chiasso.excerpt': 'Le transfert du Bureau de poste de Chiasso pourrait être une opportunité pour le territoire',
+    'blog.article.trasferimento-ufficio-postale-chiasso.imageAlt': 'Bureau de poste de Chiasso',
 };
 
 export default blogMetaFr;

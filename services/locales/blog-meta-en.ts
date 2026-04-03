@@ -1965,6 +1965,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso Takes Action Against the Tiger Mosquito: Analysis of the 2026 Strategy',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'The municipality of Chiasso is tackling the threat of the tiger mosquito with a new strategy. Andrea Mini (PLR) questions the municipality for an effective response.',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Technician fighting tiger mosquito in Chiasso',
+    'blog.article.trasferimento-ufficio-postale-chiasso.title': 'Transfer of Chiasso Post Office',
+    'blog.article.trasferimento-ufficio-postale-chiasso.excerpt': 'The transfer of the Chiasso post office could be an opportunity for the territory',
+    'blog.article.trasferimento-ufficio-postale-chiasso.imageAlt': 'Chiasso post office',
 };
 
 export default blogMetaEn;

@@ -1965,6 +1965,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.chiasso-zanzara-tigre-strategia-2026.title': 'Chiasso Wappnet sich gegen die Tigermücke: Analyse der Strategie 2026',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.excerpt': 'Der Gemeindebezirk Chiasso befasst sich mit der Bedrohung durch die Tigermücke mit einer neuen Strategie. Andrea Mini (Plr) befragt das Municipium nach einer effektiven Antwort.',
     'blog.article.chiasso-zanzara-tigre-strategia-2026.imageAlt': 'Techniker gegen Tigermücke in Chiasso',
+    'blog.article.trasferimento-ufficio-postale-chiasso.title': 'Übertragung des Postamts Chiasso',
+    'blog.article.trasferimento-ufficio-postale-chiasso.excerpt': 'Die Übertragung des Postamts von Chiasso könnte eine Chance für das Gebiet sein',
+    'blog.article.trasferimento-ufficio-postale-chiasso.imageAlt': 'Postamt Chiasso',
 };
 
 export default blogMetaDe;
