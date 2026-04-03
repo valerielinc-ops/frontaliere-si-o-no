@@ -315,6 +315,11 @@ export function buildJob(raw) {
     if (pctMatch && parseInt(pctMatch[1], 10) < 80) employmentType = 'PART_TIME';
   }
 
+  // Use consistent company identifier across ALL locales to prevent slug churn.
+  // "Ferrovia Retica (RhB)" slugifies to "ferrovia-retica-rhb" — this matches the
+  // stable form that hardenJobLocaleFields produces from the company name.
+  const baseSlug = slugify(`${title}-ferrovia-retica-rhb-${location}`);
+
   return {
     title,
     company: 'Ferrovia Retica (RhB)',
@@ -330,14 +335,10 @@ export function buildJob(raw) {
     description,
     postedDate: raw.datePosted || new Date().toISOString().slice(0, 10),
     source: 'company-website',
-    slug: slugify(`${title}-ferrovia-retica-${location}`),
-    slugByLocale: {
-      it: slugify(`${title}-ferrovia-retica-${location}`),
-      en: slugify(`${title}-rhaetian-railway-${location}`),
-      de: slugify(`${title}-rhaetische-bahn-${location}`),
-      fr: slugify(`${title}-chemin-de-fer-rhetique-${location}`),
-    },
-    titleByLocale: { it: title, en: title, de: title, fr: title },
+    sourceLang: 'de',
+    slug: baseSlug,
+    slugByLocale: { it: baseSlug, en: baseSlug, de: baseSlug, fr: baseSlug },
+    titleByLocale: { de: title },
     percentage: raw.percentage || '',
   };
 }

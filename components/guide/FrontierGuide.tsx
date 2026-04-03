@@ -1383,7 +1383,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     </div>
                   </div>
 
-                  <div className="mt-3 text-[10px] text-slate-500 dark:text-slate-500 space-y-1">
+                  <div className="mt-3 text-[10px] text-slate-500 dark:text-slate-400 space-y-1">
                     <p>🏠 <strong>{t('guide.livingCH.wealthTaxableAssets')}:</strong> {t('guide.livingCH.wealthTaxableAssetsDesc')}</p>
                     <p>🪪 <strong>{t('guide.livingCH.wealthPermitB')}:</strong> {t('guide.livingCH.wealthPermitBDesc')}</p>
                   </div>

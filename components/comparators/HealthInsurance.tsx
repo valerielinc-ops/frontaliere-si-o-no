@@ -232,7 +232,7 @@ const HealthInsurance: React.FC = () => {
       </div>
 
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-        <h3 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+        <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
           <Filter size={16} /> I tuoi parametri
         </h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -318,7 +318,7 @@ const HealthInsurance: React.FC = () => {
             {(() => { const bv = filtered.find(r => r.isBestValue); return bv ? (<><p className="text-2xl font-bold text-slate-800 dark:text-slate-100">{bv.premium.toFixed(2)} CHF</p><p className="text-xs text-slate-500">{bv.insurer.name}</p></>) : null; })()}
           </div>
           <div className="bg-slate-50 dark:bg-slate-800/50 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
-            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-500 mb-1">
+            <div className="flex items-center gap-2 text-slate-500 dark:text-slate-400 mb-1">
               <Info size={16} />
               <span className="text-xs font-bold uppercase tracking-wider">Risparmio max annuo</span>
             </div>
@@ -338,7 +338,7 @@ const HealthInsurance: React.FC = () => {
             value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)}
             className="w-full pl-9 pr-3 py-2 text-sm rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100" />
         </div>
-        <p className="text-xs text-slate-500 dark:text-slate-500">
+        <p className="text-xs text-slate-500 dark:text-slate-400">
           {filtered.length} assicurazioni trovate
         </p>
       </div>
@@ -357,7 +357,7 @@ const HealthInsurance: React.FC = () => {
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm ${
                     result.rank === 1 ? 'bg-emerald-100 dark:bg-emerald-900/50 text-emerald-700 dark:text-emerald-300'
                     : result.rank <= 3 ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300'
-                    : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-500'}`}>
+                    : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
                     {result.rank}
                   </div>
                   <div className="flex-1 min-w-0">
@@ -407,18 +407,18 @@ const HealthInsurance: React.FC = () => {
                   </div>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-4">
                     <div>
-                      <p className="text-xs font-bold text-slate-600 dark:text-slate-500 mb-2">Modelli disponibili</p>
+                      <p className="text-xs font-bold text-slate-600 dark:text-slate-400 mb-2">Modelli disponibili</p>
                       <div className="flex flex-wrap gap-1.5">
                         {result.insurer.models.map(m => (
                           <span key={m} className={`px-2 py-1 rounded-md text-xs font-bold ${
                             m === model ? 'bg-rose-100 dark:bg-rose-900/30 text-rose-700 dark:text-rose-300 ring-1 ring-rose-300'
-                            : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-500'}`}>
+                            : 'bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400'}`}>
                             {MODEL_LABELS[m]}</span>
                         ))}
                       </div>
                     </div>
                     <div>
-                      <p className="text-xs font-bold text-slate-600 dark:text-slate-500 mb-2">Confronto franchige</p>
+                      <p className="text-xs font-bold text-slate-600 dark:text-slate-400 mb-2">Confronto franchige</p>
                       <div className="space-y-1">
                         {(ageGroup === '0-18' ? FRANCHISES_CHILD : FRANCHISES).slice(0, 4).map(f => {
                           const p = calculatePremiumFromData(currentPremiums?.[result.insurer.id], model, f, ageGroup, withAccident);
@@ -456,7 +456,7 @@ const HealthInsurance: React.FC = () => {
       {/* Optimal franchise calculator */}
       {cheapest && (
         <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
             <Calculator size={16} /> Calcola la franchigia ottimale
           </h3>
           <p className="text-xs text-slate-500 dark:text-slate-400 mb-4">
@@ -574,7 +574,7 @@ const HealthInsurance: React.FC = () => {
       </div>
 
       <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700">
-        <h3 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-3">
+        <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-3">
           Modelli assicurativi
         </h3>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -595,7 +595,7 @@ const HealthInsurance: React.FC = () => {
       {/* Commune Rankings */}
       {data && data.rankings.cheapest.length > 0 && (
         <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700 shadow-sm">
-          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-500 uppercase tracking-wider mb-4 flex items-center gap-2">
+          <h3 className="text-sm font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wider mb-4 flex items-center gap-2">
             <Trophy size={16} /> Classifica comuni per premio medio
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

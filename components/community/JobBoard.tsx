@@ -3913,7 +3913,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Page numbers */}
         {pages.map((p, idx) =>
           p === 'ellipsis' ? (
-            <span key={`ellipsis-${idx}`} className="px-1 text-slate-500 dark:text-slate-500 select-none" aria-hidden>…</span>
+            <span key={`ellipsis-${idx}`} className="px-1 text-slate-500 dark:text-slate-400 select-none" aria-hidden>…</span>
           ) : (
             <button
               key={p}
@@ -4049,7 +4049,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <div className="text-xs font-semibold text-amber-800 dark:text-amber-200 mb-1">
             {t('jobBoard.salaryEstimate.frontaliere')}
           </div>
-          <div className="text-lg font-extrabold text-amber-900 dark:text-amber-100">
+          <div className="text-lg font-bold text-amber-900 dark:text-amber-100">
             {salaryEstimates.frontaliere.max
               ? t('jobBoard.salaryEstimate.monthly', { min: fmtNet(salaryEstimates.frontaliere.min), max: fmtNet(salaryEstimates.frontaliere.max) })
               : t('jobBoard.salaryEstimate.monthlySingle', { value: fmtNet(salaryEstimates.frontaliere.min) })}
@@ -4064,7 +4064,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <div className="text-xs font-semibold text-emerald-800 dark:text-emerald-200 mb-1">
             {t('jobBoard.salaryEstimate.resident')}
           </div>
-          <div className="text-lg font-extrabold text-emerald-900 dark:text-emerald-100">
+          <div className="text-lg font-bold text-emerald-900 dark:text-emerald-100">
             {salaryEstimates.resident.max
               ? t('jobBoard.salaryEstimate.monthly', { min: fmtNet(salaryEstimates.resident.min), max: fmtNet(salaryEstimates.resident.max) })
               : t('jobBoard.salaryEstimate.monthlySingle', { value: fmtNet(salaryEstimates.resident.min) })}
@@ -4091,7 +4091,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <div className="flex items-center gap-3">
             <img src="/icons/icon-192x192.png" alt="Frontaliere Ticino" width={40} height={40} className="flex-shrink-0 rounded-xl" loading="lazy" />
             <div>
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{t('jobBoard.authGateTitle')}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{t('jobBoard.authGateTitle')}</h2>
               <p className="text-xs font-medium text-indigo-600 dark:text-indigo-400">frontaliereticino.ch</p>
               <p className="text-sm text-slate-600 dark:text-slate-400">{t('jobBoard.authGateDescription')}</p>
             </div>
@@ -4261,19 +4261,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialJobTodayLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialJobTodayLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialJobTodayLanding.sections.last24Hours.label}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</div>
           </div>
           <div className="rounded-2xl border border-emerald-100 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">{editorialJobTodayLanding.sections.last3Days.label}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last3Days.jobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last3Days.jobs.length}</div>
           </div>
           <div className="rounded-2xl border border-amber-100 dark:border-amber-900/60 bg-amber-50 dark:bg-amber-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-amber-700 dark:text-amber-300">{editorialJobTodayLanding.sections.partTime.label}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.partTime.jobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.partTime.jobs.length}</div>
           </div>
         </section>
 
@@ -4293,7 +4293,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
           <div className="flex items-center justify-between gap-4 mb-4">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.cityHubLabel}</h2>
             <a
               href={buildPath({ activeTab: 'job-board' }, locale)}
               onClick={(e) => {
@@ -4321,7 +4321,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                 >
                   <span className="font-semibold text-slate-800 dark:text-slate-100">{city.name}</span>
-                  <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{city.count}</span>
+                  <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{city.count}</span>
                 </a>
               );
             })}
@@ -4330,7 +4330,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">{section.label}</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{section.label}</h2>
             <div className="space-y-3">
               {section.jobs.map((job) => renderJobCard(job))}
             </div>
@@ -4362,11 +4362,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialOfficialGazetteLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialOfficialGazetteLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.latestJobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.latestJobs.length}</div>
           </div>
           <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-slate-600 dark:text-slate-300">{editorialOfficialGazetteLanding.officialSourceLabel}</div>
@@ -4374,7 +4374,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               href={editorialOfficialGazetteLanding.officialSourceUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="mt-2 inline-flex items-center gap-2 text-sm font-extrabold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
+              className="mt-2 inline-flex items-center gap-2 text-sm font-bold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
             >
               concorsi.ti.ch
               <ArrowUpRight className="w-4 h-4" />
@@ -4421,7 +4421,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 lg:grid-cols-3">
           {editorialOfficialGazetteLanding.explainerCards.map((card) => (
             <article key={card.title} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{card.title}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{card.title}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{card.body}</p>
             </article>
           ))}
@@ -4430,7 +4430,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4450,7 +4450,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         ))}
 
         <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
             {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
           </h2>
           <div className="space-y-3">
@@ -4488,21 +4488,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-3">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialNursesHubLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialNursesHubLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialNursesHubLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialNursesHubLanding.latestJobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.latestJobs.length}</div>
           </div>
           <div className="rounded-2xl border border-emerald-100 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-emerald-700 dark:text-emerald-300">{editorialNursesHubLanding.variantTitle}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialNursesHubLanding.variants.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.variants.length}</div>
           </div>
         </section>
 
         {editorialNursesHubLanding.variants.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">{editorialNursesHubLanding.variantTitle}</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{editorialNursesHubLanding.variantTitle}</h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
               {editorialNursesHubLanding.variants.map((link) => {
                 const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
@@ -4518,7 +4518,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
                   </a>
                 );
               })}
@@ -4529,7 +4529,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 lg:grid-cols-3">
           {editorialNursesHubLanding.explainerCards.map((card) => (
             <article key={card.title} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{card.title}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{card.title}</h2>
               <p className="mt-3 text-sm leading-7 text-slate-600 dark:text-slate-300">{card.body}</p>
             </article>
           ))}
@@ -4538,7 +4538,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4558,7 +4558,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         ))}
 
         <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-          <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+          <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
             {locale === 'it' ? 'Domande frequenti' : locale === 'en' ? 'Frequently asked questions' : locale === 'de' ? 'Haufige Fragen' : 'Questions frequentes'}
           </h2>
           <div className="space-y-3">
@@ -4608,17 +4608,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialCareVariantLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialCareVariantLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialCareVariantLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialCareVariantLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialCareVariantLanding.latestJobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialCareVariantLanding.latestJobs.length}</div>
           </div>
         </section>
 
         {editorialCareVariantLanding.siblingLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? 'Altri percorsi sanitari' : locale === 'en' ? 'Other care paths' : locale === 'de' ? 'Weitere Pflegepfade' : 'Autres parcours sante'}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-4">
@@ -4636,7 +4636,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
                   </a>
                 );
               })}
@@ -4647,7 +4647,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4691,17 +4691,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialLocationLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialLocationLanding.latestJobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationLanding.latestJobs.length}</div>
           </div>
         </section>
 
         {editorialLocationLanding.relatedTypeLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Tipi di lavoro a ${editorialLocationLanding.location}` : locale === 'en' ? `Job types in ${editorialLocationLanding.location}` : locale === 'de' ? `Jobtypen in ${editorialLocationLanding.location}` : `Types d'emploi a ${editorialLocationLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -4719,7 +4719,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
                   </a>
                 );
               })}
@@ -4729,7 +4729,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {editorialLocationLanding.relatedSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Settori a ${editorialLocationLanding.location}` : locale === 'en' ? `Sectors in ${editorialLocationLanding.location}` : locale === 'de' ? `Branchen in ${editorialLocationLanding.location}` : `Secteurs a ${editorialLocationLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -4747,7 +4747,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
                   </a>
                 );
               })}
@@ -4758,7 +4758,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4814,17 +4814,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationTypeLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialLocationTypeLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationTypeLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationTypeLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialLocationTypeLanding.latestJobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationTypeLanding.latestJobs.length}</div>
           </div>
         </section>
 
         {editorialLocationTypeLanding.siblingTypeLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Altri tipi di lavoro a ${editorialLocationTypeLanding.location}` : locale === 'en' ? `Other job types in ${editorialLocationTypeLanding.location}` : locale === 'de' ? `Weitere Jobtypen in ${editorialLocationTypeLanding.location}` : `Autres types d'emploi a ${editorialLocationTypeLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -4842,7 +4842,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
                   </a>
                 );
               })}
@@ -4853,7 +4853,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -4909,17 +4909,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationSectorLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialLocationSectorLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationSectorLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationSectorLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialLocationSectorLanding.latestJobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationSectorLanding.latestJobs.length}</div>
           </div>
         </section>
 
         {editorialLocationSectorLanding.siblingSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? `Altri settori a ${editorialLocationSectorLanding.location}` : locale === 'en' ? `Other sectors in ${editorialLocationSectorLanding.location}` : locale === 'de' ? `Weitere Branchen in ${editorialLocationSectorLanding.location}` : `Autres secteurs a ${editorialLocationSectorLanding.location}`}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -4937,7 +4937,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
                   </a>
                 );
               })}
@@ -4948,7 +4948,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -5003,17 +5003,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
         <section className="grid gap-3 sm:grid-cols-2">
           <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialSectorRegionLanding.countsLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</div>
           </div>
           <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
             <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialSectorRegionLanding.latestLabel}</div>
-            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</div>
+            <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</div>
           </div>
         </section>
 
         {editorialSectorRegionLanding.siblingSectorLinks.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">
               {locale === 'it' ? 'Altri settori in Ticino' : locale === 'en' ? 'Other sectors in Ticino' : locale === 'de' ? 'Weitere Branchen im Tessin' : 'Autres secteurs au Tessin'}
             </h2>
             <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
@@ -5031,7 +5031,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
                   >
                     <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
-                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                    <span className="text-sm font-bold text-indigo-700 dark:text-indigo-300">{link.count}</span>
                   </a>
                 );
               })}
@@ -5042,7 +5042,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {editorialLandingSections.map((section) => (
           <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between gap-4 mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white">{section.label}</h2>
               <a
                 href={buildPath({ activeTab: 'job-board' }, locale)}
                 onClick={(e) => {
@@ -5842,7 +5842,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         {relatedJobs.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
-            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">{t('jobBoard.relatedTitle')}</h2>
+            <h2 className="text-lg font-bold text-slate-900 dark:text-white mb-4">{t('jobBoard.relatedTitle')}</h2>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
               {relatedJobs.map((job) => {
                 const jobLogo = companyLogoUrl(job);
@@ -5879,7 +5879,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {relatedArticles.length > 0 && (
           <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
             <div className="flex items-center justify-between mb-4">
-              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white flex items-center gap-2">
+              <h2 className="text-lg font-bold text-slate-900 dark:text-white flex items-center gap-2">
                 <BookOpen className="w-5 h-5 text-emerald-500" />
                 {t('jobBoard.relatedArticlesTitle')}
               </h2>
@@ -5997,7 +5997,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             )}
             {/* Keyboard shortcut hint — desktop only */}
             {!searchQuery && (
-              <kbd className="hidden sm:inline-flex items-center gap-0.5 mr-4 px-2 py-1 text-xs font-medium text-slate-500 dark:text-slate-500 bg-slate-100 dark:bg-slate-700 rounded-md border border-slate-200 dark:border-slate-600 select-none">
+              <kbd className="hidden sm:inline-flex items-center gap-0.5 mr-4 px-2 py-1 text-xs font-medium text-slate-500 dark:text-slate-400 bg-slate-100 dark:bg-slate-700 rounded-md border border-slate-200 dark:border-slate-600 select-none">
                 ⌘K
               </kbd>
             )}
@@ -6236,37 +6236,39 @@ const JobBoard: React.FC<JobBoardProps> = ({
       </div>
 
       <div className="space-y-3 min-h-[600px]" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 800px' }}>
-        {displayJobs.slice(0, 3).map((job) => renderJobCard(job))}
-
-        {/* In-feed ad — mobile (after 3rd job, conditional mount) */}
-        {displayJobs.length > 3 && isMobile && (
-          <React.Fragment key={`infeed-m-${adRefreshKey}`}>
-            <AdSenseBanner
-              adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
-              adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
-              adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
-              fullWidthResponsive={false}
-              className="my-3"
-            />
-          </React.Fragment>
-        )}
-
-        {displayJobs.length > 3 && renderJobCard(displayJobs[3])}
-
-        {/* In-feed ad — desktop (after 4th job, conditional mount) */}
-        {displayJobs.length > 4 && !isMobile && (
-          <React.Fragment key={`infeed-d-${adRefreshKey}`}>
-            <AdSenseBanner
-              adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
-              adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
-              adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
-              fullWidthResponsive={false}
-              className="my-3"
-            />
-          </React.Fragment>
-        )}
-
-        {displayJobs.slice(4).map((job) => renderJobCard(job))}
+        {displayJobs.map((job, idx) => {
+          const pos = idx + 1; // 1-based position
+          const AD_INTERVAL = 8; // Insert an in-feed ad every N jobs
+          const FIRST_AD_AFTER = 3; // First ad appears after this many jobs
+          const showAd = pos === FIRST_AD_AFTER || (pos > FIRST_AD_AFTER && (pos - FIRST_AD_AFTER) % AD_INTERVAL === 0);
+          return (
+            <React.Fragment key={job.id || job.slug || idx}>
+              {renderJobCard(job)}
+              {showAd && isMobile && (
+                <div key={`infeed-m-${idx}-${adRefreshKey}`}>
+                  <AdSenseBanner
+                    adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
+                    adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
+                    adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
+                    fullWidthResponsive={false}
+                    className="my-3"
+                  />
+                </div>
+              )}
+              {showAd && !isMobile && (
+                <div key={`infeed-d-${idx}-${adRefreshKey}`}>
+                  <AdSenseBanner
+                    adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
+                    adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
+                    adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
+                    fullWidthResponsive={false}
+                    className="my-3"
+                  />
+                </div>
+              )}
+            </React.Fragment>
+          );
+        })}
 
         {filteredJobs.length === 0 && (
           <div className="text-center py-12 text-slate-500 dark:text-slate-400">

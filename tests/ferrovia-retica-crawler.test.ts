@@ -203,11 +203,16 @@ describe('buildJob', () => {
     expect(job!.canton).toBe('GR');
   });
 
-  it('generates locale-specific slugs', () => {
+  it('generates consistent slugs across all locales to prevent churn', () => {
     const job = buildJob({ title: 'Macchinista', location: 'Poschiavo' });
-    expect(job!.slugByLocale.it).toContain('ferrovia-retica');
-    expect(job!.slugByLocale.en).toContain('rhaetian-railway');
-    expect(job!.slugByLocale.de).toContain('rhaetische-bahn');
+    expect(job!.slugByLocale.it).toContain('ferrovia-retica-rhb');
+    expect(job!.slugByLocale.en).toContain('ferrovia-retica-rhb');
+    expect(job!.slugByLocale.de).toContain('ferrovia-retica-rhb');
+    expect(job!.slugByLocale.fr).toContain('ferrovia-retica-rhb');
+    // All locales should have the same slug (no locale-specific company names)
+    expect(job!.slugByLocale.it).toBe(job!.slugByLocale.en);
+    expect(job!.slugByLocale.it).toBe(job!.slugByLocale.de);
+    expect(job!.slugByLocale.it).toBe(job!.slugByLocale.fr);
   });
 
   it('returns null for empty title', () => {

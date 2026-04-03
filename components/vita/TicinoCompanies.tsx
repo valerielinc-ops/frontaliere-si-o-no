@@ -789,7 +789,7 @@ const TicinoCompanies: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:flex-wrap items-stretch sm:items-center gap-2 sm:gap-3">
           <div className="flex items-center gap-2 text-sm">
             <Users size={14} className="text-slate-500 dark:text-slate-400 flex-shrink-0" />
-            <span className="text-slate-600 dark:text-slate-500 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
+            <span className="text-slate-600 dark:text-slate-400 font-medium whitespace-nowrap text-xs sm:text-sm">{t('companies.minEmployees')}:</span>
             <input type="range" min={0} max={1000} step={50} value={minEmployees}
               onChange={(e) => setMinEmployees(Number(e.target.value))}
               aria-label={t('companies.minEmployees') || 'Dipendenti minimi'}
@@ -849,9 +849,9 @@ const TicinoCompanies: React.FC = () => {
                     </span>
                   </div>
                 </div>
-                <p className="text-xs text-slate-600 dark:text-slate-500 mb-2 line-clamp-2">{company.description}</p>
+                <p className="text-xs text-slate-600 dark:text-slate-400 mb-2 line-clamp-2">{company.description}</p>
                 <div className="flex items-center justify-between text-xs">
-                  <div className="flex items-center gap-1 text-slate-600 dark:text-slate-500">
+                  <div className="flex items-center gap-1 text-slate-600 dark:text-slate-400">
                     <Users size={12} />
                     <span className="font-bold">{company.employees.toLocaleString('it-IT')}</span>
                   </div>
