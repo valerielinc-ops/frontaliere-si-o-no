@@ -128,7 +128,7 @@ const ConsultingPage: React.FC = () => {
             <div
               key={tier.id}
               onClick={() => setSelectedTier(tier.id)}
-              className={`relative rounded-2xl border-2 p-4 sm:p-6 cursor-pointer transition-all duration-200 ${
+              className={`relative rounded-2xl border-2 p-4 sm:p-6 cursor-pointer transition-colors duration-200 ${
                 tier.popular
                   ? 'border-amber-400 dark:border-amber-500 bg-amber-50/30 dark:bg-amber-950/20'
                   : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800/50'

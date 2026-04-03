@@ -261,7 +261,7 @@ export default function TrafficHistory() {
           <button
             key={name}
             onClick={() => setSelectedCrossing(name)}
-            className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-xl text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
               selectedCrossing === name
                 ? 'bg-blue-600 text-white shadow-lg'
                 : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-blue-400'

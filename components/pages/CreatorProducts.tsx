@@ -57,7 +57,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
               Analytics.trackExternalLink(p.url, `creator_pick_${p.id}`);
               Analytics.trackSelectContent('creator_pick_click', p.id);
             }}
-            className="group block rounded-lg border border-slate-200/70 dark:border-slate-700/70 bg-slate-50 dark:bg-slate-900/40 px-2.5 py-2.5 hover:border-indigo-300 dark:hover:border-indigo-700 hover:scale-[1.01] transition-all"
+            className="group block rounded-lg border border-slate-200/70 dark:border-slate-700/70 bg-slate-50 dark:bg-slate-900/40 px-2.5 py-2.5 hover:border-indigo-300 dark:hover:border-indigo-700 hover:scale-[1.01] transition-[color,background-color,border-color,transform]"
           >
             {showImage && (
               <div className="flex justify-center mb-2">

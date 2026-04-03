@@ -292,7 +292,7 @@ export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }
               <li key={link.href}>
                 <a
                   href={link.href}
-                  className="flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-sm transition-all"
+                  className="flex items-center gap-3 rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-900 px-4 py-3 hover:border-indigo-300 dark:hover:border-indigo-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]"
                 >
                   <span className="flex-1 min-w-0">
                     <span className="block font-medium text-sm text-slate-800 dark:text-slate-100 truncate">{link.title}</span>

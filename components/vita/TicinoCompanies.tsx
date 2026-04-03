@@ -826,7 +826,7 @@ const TicinoCompanies: React.FC = () => {
             filtered.map((company) => (
               <div
                 key={company.name}
-                className={`bg-white dark:bg-slate-800 rounded-xl border p-4 hover:shadow-md transition-all min-w-0 overflow-hidden cursor-pointer ${
+                className={`bg-white dark:bg-slate-800 rounded-xl border p-4 hover:shadow-md transition-[color,background-color,border-color,box-shadow] min-w-0 overflow-hidden cursor-pointer ${
                   hoveredCompany === company.name
                     ? 'border-violet-400 dark:border-violet-500 shadow-md ring-2 ring-violet-200 dark:ring-violet-800'
                     : 'border-slate-200 dark:border-slate-700'

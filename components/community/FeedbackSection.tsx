@@ -222,14 +222,14 @@ export const FeedbackSection: React.FC = () => {
               <button 
                 type="button"
                 onClick={() => setFormData(prev => ({...prev, type: 'BUG'}))}
-                className={`p-3 rounded-2xl border-2 transition-all flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'BUG' ? 'border-red-500 bg-red-50 dark:bg-red-900/20 text-red-600' : 'border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400'}`}
+                className={`p-3 rounded-2xl border-2 transition-colors flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'BUG' ? 'border-red-500 bg-red-50 dark:bg-red-900/20 text-red-600' : 'border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400'}`}
               >
                 <Bug size={16} /> Bug
               </button>
               <button 
                 type="button"
                 onClick={() => setFormData(prev => ({...prev, type: 'FEATURE'}))}
-                className={`p-3 rounded-2xl border-2 transition-all flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'FEATURE' ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600' : 'border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400'}`}
+                className={`p-3 rounded-2xl border-2 transition-colors flex items-center gap-2 justify-center font-bold text-xs ${formData.type === 'FEATURE' ? 'border-indigo-500 bg-indigo-50 dark:bg-indigo-900/20 text-indigo-600' : 'border-slate-100 dark:border-slate-800 text-slate-500 dark:text-slate-400'}`}
               >
                 <Lightbulb size={16} /> Feature
               </button>
@@ -240,7 +240,7 @@ export const FeedbackSection: React.FC = () => {
               <input 
                 value={formData.title}
                 onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-all text-sm"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm"
                 placeholder={t('feedback.titlePlaceholder')}
               />
             </div>
@@ -251,14 +251,14 @@ export const FeedbackSection: React.FC = () => {
                 value={formData.description}
                 onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
                 rows={5}
-                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-all text-sm resize-none"
+                className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm resize-none"
                 placeholder={t('feedback.detailsPlaceholder')}
               />
               <button 
                 type="button"
                 onClick={handleOptimize}
                 disabled={isOptimizing || !formData.description}
-                className="absolute right-3 bottom-3 p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transition-all disabled:opacity-50 disabled:shadow-none flex items-center gap-2 text-xs font-bold uppercase"
+                className="absolute right-3 bottom-3 p-2 bg-indigo-600 text-white rounded-xl shadow-lg shadow-indigo-500/30 hover:bg-indigo-700 transition-[color,background-color,border-color,opacity] disabled:opacity-50 disabled:shadow-none flex items-center gap-2 text-xs font-bold uppercase"
               >
                 {isOptimizing ? <Loader2 size={14} className="animate-spin" /> : <Sparkles size={14} />}
                 AI Help
@@ -274,7 +274,7 @@ export const FeedbackSection: React.FC = () => {
             <button 
               type="submit"
               disabled={isSubmitting || !formData.title}
-              className="w-full py-4 bg-slate-800 dark:bg-slate-100 dark:text-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-slate-900 dark:hover:bg-white transition-all shadow-xl shadow-slate-500/10 disabled:opacity-50"
+              className="w-full py-4 bg-slate-800 dark:bg-slate-100 dark:text-slate-900 text-white rounded-2xl font-bold flex items-center justify-center gap-2 hover:bg-slate-900 dark:hover:bg-white transition-[color,background-color,border-color,opacity] shadow-xl shadow-slate-500/10 disabled:opacity-50"
             >
               {isSubmitting ? <Loader2 size={18} className="animate-spin" /> : <Github size={18} />}
               {t('feedback.openIssue')}
@@ -310,7 +310,7 @@ export const FeedbackSection: React.FC = () => {
                   href={item.url}
                   target="_blank"
                   rel="noreferrer"
-                  className="block bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-4 rounded-2xl shadow-sm hover:shadow-md transition-all group hover:border-indigo-200 dark:hover:border-indigo-900"
+                  className="block bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 p-4 rounded-2xl shadow-sm hover:shadow-md transition-[color,background-color,border-color,box-shadow] group hover:border-indigo-200 dark:hover:border-indigo-900"
                   onClick={() => Analytics.trackSelectContent('issue', String(item.id))}
                 >
                   <div className="flex items-start justify-between gap-3">

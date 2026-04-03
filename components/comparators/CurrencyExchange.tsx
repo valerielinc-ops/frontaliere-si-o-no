@@ -430,7 +430,7 @@ const CurrencyExchange: React.FC = () => {
       <div className="flex gap-2 bg-white dark:bg-slate-800 rounded-2xl p-2 border border-slate-200 dark:border-slate-700 shadow-sm">
         <button
           onClick={() => { setExchangeSubTab('overview'); Analytics.trackCurrencyExchange('provider_view', 'overview'); }}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-[color,background-color,border-color,box-shadow] ${
             exchangeSubTab === 'overview'
               ? 'bg-emerald-700 text-white shadow-lg'
               : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
@@ -441,7 +441,7 @@ const CurrencyExchange: React.FC = () => {
         </button>
         <button
           onClick={() => { setExchangeSubTab('statistics'); Analytics.trackCurrencyExchange('provider_view', 'statistics'); }}
-          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-all ${
+          className={`flex-1 flex items-center justify-center gap-2 px-4 py-3 rounded-xl text-sm font-bold transition-[color,background-color,border-color,box-shadow] ${
             exchangeSubTab === 'statistics'
               ? 'bg-emerald-700 text-white shadow-lg'
               : 'text-slate-600 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700'
@@ -466,7 +466,7 @@ const CurrencyExchange: React.FC = () => {
           <button
             onClick={refresh}
             disabled={loading}
-            className="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-xl text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-all disabled:opacity-50"
+            className="flex items-center gap-2 px-3 py-2 bg-emerald-50 dark:bg-emerald-900/20 text-emerald-700 dark:text-emerald-400 rounded-xl text-xs font-bold hover:bg-emerald-100 dark:hover:bg-emerald-900/40 transition-[color,background-color,border-color,opacity] disabled:opacity-50"
           >
             <RefreshCw size={14} className={loading ? 'animate-spin' : ''} />
             {t('currency.refresh_rate')}
@@ -485,7 +485,7 @@ const CurrencyExchange: React.FC = () => {
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(Math.max(0, parseFloat(e.target.value) || 0))}
-                className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-lg"
+                className="w-full pl-14 pr-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:border-emerald-500 focus:ring-2 focus:ring-emerald-500/10 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-lg"
                 placeholder="1000"
               />
             </div>
@@ -532,7 +532,7 @@ const CurrencyExchange: React.FC = () => {
             {(['1m', '3m', '6m', '1y', '5y'] as const).map(p => (
               <button key={p}
                 onClick={() => setHistoryPeriod(p)}
-                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${historyPeriod === p ? 'bg-emerald-700 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
+                className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${historyPeriod === p ? 'bg-emerald-700 text-white shadow' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'}`}
               >
                 {p === '1m' ? '1M' : p === '3m' ? '3M' : p === '6m' ? '6M' : p === '1y' ? '1A' : '5A'}
               </button>
@@ -571,7 +571,7 @@ const CurrencyExchange: React.FC = () => {
             href={best.provider.referralUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6 hover:shadow-lg hover:border-emerald-400 transition-all cursor-pointer"
+            className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6 hover:shadow-lg hover:border-emerald-400 transition-[color,background-color,border-color,box-shadow] cursor-pointer"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-emerald-700 rounded-xl">
@@ -662,12 +662,12 @@ const CurrencyExchange: React.FC = () => {
             target: '_blank',
             rel: 'noopener noreferrer',
             'aria-label': result.provider.name,
-            className: `block min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-all cursor-pointer ${
+            className: `block min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
               isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700 hover:border-emerald-400'
             }`
           } : {
             'aria-label': result.provider.name,
-            className: `min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-all ${
+            className: `min-w-0 bg-white dark:bg-slate-800 rounded-xl sm:rounded-2xl border-2 p-3 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
               isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20' : isWorst ? 'border-red-500 ring-2 ring-red-500/20' : 'border-slate-200 dark:border-slate-700'
             }`
           };

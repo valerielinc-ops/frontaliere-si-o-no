@@ -399,7 +399,7 @@ const UnemploymentStats: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => Analytics.trackExternalLink(data.releaseUrl || data.sourceUrl, 'unemployment_source_seco')}
-                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-amber-50 dark:hover:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-600 shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-amber-50 dark:hover:bg-amber-900/30 text-amber-700 dark:text-amber-300 text-xs font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-600 shadow-sm"
               >
                 {t('stats.sourceSECO')} <ExternalLink size={12} />
               </a>

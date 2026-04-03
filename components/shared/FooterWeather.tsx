@@ -130,7 +130,7 @@ const WeatherPill: React.FC<{ weather: MiniWeather; label: string; flag?: string
     <button
       onClick={handleClick}
       title={`${label} ${Math.round(weather.temp)}° — apri dashboard mattutina`}
-      className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-xs font-medium transition-all cursor-pointer hover:scale-105 hover:shadow-md ${tempBg}`}
+      className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-full border text-xs font-medium transition-[color,background-color,border-color,box-shadow,transform] cursor-pointer hover:scale-105 hover:shadow-md ${tempBg}`}
     >
       {isUser ? (
         <Navigation className="w-3 h-3 text-violet-500" aria-hidden="true" />

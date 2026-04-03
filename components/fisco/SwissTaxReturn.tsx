@@ -97,7 +97,7 @@ const SwissTaxReturn: React.FC = () => {
           <button
             key={key}
             onClick={() => setActiveStep(key)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold transition-all ${
+            className={`flex items-center gap-2 px-3 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeStep === key
                 ? 'bg-red-100 dark:bg-red-900/30 text-red-700 dark:text-red-300 ring-1 ring-red-300 dark:ring-red-700'
                 : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
@@ -195,7 +195,7 @@ const SwissTaxReturn: React.FC = () => {
                   href={link.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50 dark:hover:bg-red-900/10 transition-all group"
+                  className="flex items-start gap-3 p-3 rounded-xl border border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-700 hover:bg-red-50 dark:hover:bg-red-900/10 transition-colors group"
                 >
                   <ExternalLink size={14} className="text-red-600 dark:text-red-400 mt-0.5 shrink-0" />
                   <div>
@@ -526,7 +526,7 @@ const SwissTaxReturn: React.FC = () => {
             </div>
             <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-6">
               <div
-                className="bg-red-700 h-2 rounded-full transition-all duration-300"
+                className="bg-red-700 h-2 rounded-full transition-[width] duration-300"
                 style={{ width: `${(checkedDocs.size / SWISS_DOCUMENTS.length) * 100}%` }}
               />
             </div>
@@ -534,7 +534,7 @@ const SwissTaxReturn: React.FC = () => {
               {SWISS_DOCUMENTS.map(doc => (
                 <label
                   key={doc.key}
-                  className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+                  className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
                     checkedDocs.has(doc.key)
                       ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
                       : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'

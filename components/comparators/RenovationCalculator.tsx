@@ -214,7 +214,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
             <div className="flex gap-2">
               <button
                 onClick={() => setPropertyType('prima_casa')}
-                className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   propertyType === 'prima_casa'
                     ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-2 border-orange-400 dark:border-orange-600'
                     : 'bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-400 border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
@@ -224,7 +224,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
               </button>
               <button
                 onClick={() => setPropertyType('seconda_casa')}
-                className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-all ${
+                className={`flex-1 px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
                   propertyType === 'seconda_casa'
                     ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300 border-2 border-orange-400 dark:border-orange-600'
                     : 'bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-400 border-2 border-transparent hover:border-slate-300 dark:hover:border-slate-600'
@@ -405,7 +405,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                               {/* Progress bar */}
                               <div className="w-full bg-slate-200 dark:bg-slate-600 rounded-full h-2 overflow-hidden">
                                 <div
-                                  className={`h-2 rounded-full transition-all ${
+                                  className={`h-2 rounded-full transition-[width] ${
                                     statusColor === 'emerald' ? 'bg-emerald-700' :
                                     statusColor === 'amber' ? 'bg-amber-500' :
                                     'bg-red-500'
@@ -523,7 +523,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                       selectedITBonus === b.key
                         ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
                         : 'bg-slate-50 dark:bg-slate-700/50 border-slate-200 dark:border-slate-600'
-                    } cursor-pointer transition-all`}
+                    } cursor-pointer transition-colors`}
                     onClick={() => setSelectedITBonus(b.key)}
                     role="button"
                     tabIndex={0}
@@ -571,7 +571,7 @@ const RenovationCalculator: React.FC<RenovationCalculatorProps> = ({ simulationR
                       selectedCategory === cat.key
                         ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
                         : 'bg-slate-50 dark:bg-slate-700/50 border-slate-200 dark:border-slate-600'
-                    } cursor-pointer transition-all`}
+                    } cursor-pointer transition-colors`}
                     onClick={() => setSelectedCategory(cat.key)}
                     role="button"
                     tabIndex={0}

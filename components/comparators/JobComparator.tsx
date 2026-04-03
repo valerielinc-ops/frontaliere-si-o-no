@@ -253,7 +253,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
         {offers.length < 4 && (
           <button
             onClick={addOffer}
-            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-slate-500 dark:text-slate-400 hover:text-amber-600 hover:border-amber-400 transition-all min-h-[200px]"
+            className="rounded-2xl border-2 border-dashed border-slate-300 dark:border-slate-600 p-4 sm:p-6 flex flex-col items-center justify-center gap-3 text-slate-500 dark:text-slate-400 hover:text-amber-600 hover:border-amber-400 transition-colors min-h-[200px]"
           >
             <Plus size={32} />
             <span className="font-bold">{t('jobs.addOffer')}</span>
@@ -273,7 +273,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
           return (
             <div
               key={r.offer.id}
-              className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 transition-all ${
+              className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 transition-[color,background-color,border-color,box-shadow] ${
                 isBest ? 'border-emerald-500 ring-2 ring-emerald-500/20 shadow-lg' : 'border-slate-200 dark:border-slate-700'
               }`}
             >

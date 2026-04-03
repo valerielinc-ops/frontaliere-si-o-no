@@ -92,7 +92,7 @@ export const StatsView: React.FC = () => {
                   fetchBFSData(true);
                 }}
                 disabled={loading}
-                className="p-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-500 hover:text-indigo-600 transition-all hover:rotate-180 disabled:opacity-50"
+                className="p-2 bg-white dark:bg-slate-800 rounded-xl shadow-sm border border-slate-100 dark:border-slate-700 text-slate-500 hover:text-indigo-600 transition-[color,background-color,border-color,opacity,transform] hover:rotate-180 disabled:opacity-50"
                 title={t('stats.refreshData')}
             >
                 <RefreshCw size={18} className={loading ? "animate-spin" : ""} />
@@ -320,7 +320,7 @@ export const StatsView: React.FC = () => {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => Analytics.trackExternalLink(SOURCE_LINK, 'stats_source_bfs')}
-                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-xs font-bold rounded-xl transition-all border border-slate-200 dark:border-slate-600 shadow-sm"
+                className="flex items-center gap-2 px-4 py-2 bg-white dark:bg-slate-700 hover:bg-indigo-50 dark:hover:bg-indigo-900/30 text-indigo-600 dark:text-indigo-300 text-xs font-bold rounded-xl transition-colors border border-slate-200 dark:border-slate-600 shadow-sm"
               >
                 {t('stats.sourceBFS')} <ExternalLink size={12} />
               </a>

@@ -33,7 +33,7 @@ const PartnerServiceCard: React.FC<{ partner: AffiliatePartner }> = ({ partner }
       target="_blank"
       rel="noopener noreferrer sponsored"
       onClick={handleClick}
-      className="group relative flex flex-col p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-all duration-200"
+      className="group relative flex flex-col p-5 bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] duration-200"
     >
       <div className="flex items-start justify-between mb-3">
         <div className="flex items-center gap-3">

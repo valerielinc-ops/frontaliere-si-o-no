@@ -326,7 +326,7 @@ const WorkPermitsGuide: React.FC = () => {
               setExpandedSection(null);
               Analytics.trackUIInteraction('guida', 'permessi', 'tipo_permesso', 'seleziona', p.id);
             }}
-            className={`p-4 rounded-2xl border-2 transition-all text-left ${
+            className={`p-4 rounded-2xl border-2 transition-[color,background-color,border-color,box-shadow] text-left ${
               selectedPermit === p.id
                 ? `border-transparent bg-gradient-to-br ${p.color} text-white shadow-lg scale-[1.02]`
                 : 'border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 hover:border-slate-300 dark:hover:border-slate-600'

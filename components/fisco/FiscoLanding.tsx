@@ -123,7 +123,7 @@ const FiscoLanding: React.FC = () => {
           <button
             key={key}
             onClick={() => handleToolClick(key)}
-            className="group relative flex flex-col items-start gap-2 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-all text-left"
+            className="group relative flex flex-col items-start gap-2 p-4 rounded-xl bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700 hover:shadow-md transition-[color,background-color,border-color,box-shadow] text-left"
           >
             {badge && (
               <span className={`absolute top-2.5 right-2.5 text-xs font-bold uppercase tracking-wider px-2 py-0.5 rounded-full ${

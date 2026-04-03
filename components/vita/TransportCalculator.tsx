@@ -362,7 +362,7 @@ const TransportCalculator: React.FC = () => {
         {results.map((result) => (
           <div
             key={result.name}
-            className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all ${
+            className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
               result.name === cheapest.name 
                 ? 'border-emerald-500 ring-2 ring-emerald-500/20' 
                 : 'border-slate-200 dark:border-slate-700'

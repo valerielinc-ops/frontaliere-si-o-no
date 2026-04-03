@@ -111,7 +111,7 @@ const FaqSection: React.FC = () => {
             setSelectedCategory('all');
             Analytics.trackUIInteraction('faq', 'filter', 'category', 'all');
           }}
-          className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+          className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
             selectedCategory === 'all'
               ? 'bg-blue-600 text-white'
               : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'
@@ -126,7 +126,7 @@ const FaqSection: React.FC = () => {
               setSelectedCategory(cat.key);
               Analytics.trackUIInteraction('faq', 'filter', 'category', 'select', cat.key);
             }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               selectedCategory === cat.key
                 ? 'bg-blue-600 text-white'
                 : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 border border-slate-200 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700'

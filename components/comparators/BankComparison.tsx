@@ -269,7 +269,7 @@ const BankComparison: React.FC = () => {
             target: '_blank',
             rel: 'noopener noreferrer',
             onClick: () => Analytics.trackBankComparison('link_click', bank.name, bank.country),
-            className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all cursor-pointer ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-slate-200 dark:border-slate-700'}`
+            className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-slate-200 dark:border-slate-700'}`
           } : {
             className: `bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 ${bank.acceptsFrontalieri ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-slate-200 dark:border-slate-700'}`
           };

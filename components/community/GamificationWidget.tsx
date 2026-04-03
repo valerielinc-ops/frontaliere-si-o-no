@@ -200,7 +200,7 @@ const GamificationWidget: React.FC = () => {
             setIsOpen(nextOpen);
             Analytics.trackUIInteraction('gamification', 'widget', 'toggle', isOpen ? 'close' : 'open');
           }}
-          className={`relative p-2 rounded-xl transition-all ${
+          className={`relative p-2 rounded-xl transition-colors ${
             hasUnreadAchievements
               ? 'bg-amber-50 dark:bg-amber-900/20 text-amber-600 dark:text-amber-400'
               : isOpen
@@ -248,7 +248,7 @@ const GamificationWidget: React.FC = () => {
               <div className="mt-2">
                 <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-1.5">
                   <div
-                    className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-full h-1.5 transition-all duration-500"
+                    className="bg-gradient-to-r from-amber-400 to-orange-500 rounded-full h-1.5 transition-[width] duration-500"
                     style={{ width: `${xpProgressPct}%` }}
                   />
                 </div>

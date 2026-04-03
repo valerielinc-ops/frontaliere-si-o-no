@@ -231,7 +231,7 @@ export default function SalaryQuiz() {
       {/* Progress bar */}
       <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full mb-8 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-all duration-500"
+          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-[width] duration-500"
           style={{ width: progressWidth }}
         />
       </div>
@@ -248,7 +248,7 @@ export default function SalaryQuiz() {
               <button
                 key={key}
                 onClick={() => handleSectorSelect(key)}
-                className="flex items-center gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all text-left group"
+                className="flex items-center gap-3 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors text-left group"
               >
                 <span className="text-2xl">{icon}</span>
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
@@ -272,7 +272,7 @@ export default function SalaryQuiz() {
               <button
                 key={level}
                 onClick={() => handleExperienceSelect(level)}
-                className="flex items-center justify-between p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
+                className="flex items-center justify-between p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
               >
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300">
                   {t(`salaryQuiz.experience.${level}`)}
@@ -296,7 +296,7 @@ export default function SalaryQuiz() {
               <button
                 key={prov}
                 onClick={() => handleProvinceSelect(prov)}
-                className="flex items-center gap-2 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-all group"
+                className="flex items-center gap-2 p-4 rounded-xl border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-400 dark:hover:border-emerald-500 hover:bg-emerald-50 dark:hover:bg-emerald-900/20 transition-colors group"
               >
                 <MapPin size={16} className="text-slate-500 dark:text-slate-400 group-hover:text-emerald-500" />
                 <span className="text-sm font-medium text-slate-700 dark:text-slate-300 group-hover:text-emerald-700 dark:group-hover:text-emerald-300 capitalize">
@@ -367,19 +367,19 @@ export default function SalaryQuiz() {
             <div className="flex flex-wrap gap-3">
               <button
                 onClick={() => handleShare('whatsapp')}
-                className="flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl font-semibold text-sm transition-all"
+                className="flex items-center gap-2 px-5 py-3 bg-[#25D366] hover:bg-[#20bd5a] text-white rounded-xl font-semibold text-sm transition-colors"
               >
                 💬 WhatsApp
               </button>
               <button
                 onClick={() => handleShare('facebook')}
-                className="flex items-center gap-2 px-5 py-3 bg-[#1877F2] hover:bg-[#1565d8] text-white rounded-xl font-semibold text-sm transition-all"
+                className="flex items-center gap-2 px-5 py-3 bg-[#1877F2] hover:bg-[#1565d8] text-white rounded-xl font-semibold text-sm transition-colors"
               >
                 📘 Facebook
               </button>
               <button
                 onClick={() => handleShare('copy')}
-                className="flex items-center gap-2 px-5 py-3 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl font-semibold text-sm transition-all"
+                className="flex items-center gap-2 px-5 py-3 bg-slate-200 dark:bg-slate-700 hover:bg-slate-300 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 rounded-xl font-semibold text-sm transition-colors"
               >
                 📋 {shared ? t('salaryQuiz.copied') : t('salaryQuiz.copyLink')}
               </button>
@@ -396,7 +396,7 @@ export default function SalaryQuiz() {
           {/* Reset button */}
           <button
             onClick={reset}
-            className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 font-semibold text-sm transition-all"
+            className="flex items-center gap-2 mx-auto px-6 py-3 rounded-xl bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-600 dark:text-slate-400 font-semibold text-sm transition-colors"
           >
             <RotateCcw size={16} />
             {t('salaryQuiz.tryAgain')}

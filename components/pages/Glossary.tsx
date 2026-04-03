@@ -190,7 +190,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
         <div className="flex gap-1.5 flex-wrap">
           <button
             onClick={() => { setSelectedCategory('all'); Analytics.trackGuideSection('glossary', 'view'); }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               selectedCategory === 'all'
                 ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
                 : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -204,7 +204,7 @@ const Glossary: React.FC<GlossaryProps> = ({ initialEntry }) => {
               <button
                 key={cat}
                 onClick={() => { setSelectedCategory(cat); Analytics.trackGuideSection(`glossary_${cat}`, 'view'); }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                   selectedCategory === cat
                     ? `${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'

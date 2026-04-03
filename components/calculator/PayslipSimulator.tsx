@@ -123,10 +123,10 @@ const InfoTooltip = ({ text }: { text: string }) => (
 const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconColor = "text-slate-500", tooltip, inputId, ariaLabel }: any) => (
   <div className="space-y-2">
     {label && <label htmlFor={inputId} className="text-xs font-bold text-slate-600 dark:text-slate-400 uppercase tracking-wide flex items-center gap-1.5 h-4">{Icon && <Icon size={12} className={iconColor}/>} {label} {tooltip && <InfoTooltip text={tooltip} />}</label>}
-    <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-all">
+    <div className="flex items-center bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl overflow-hidden h-12 shadow-sm focus-within:ring-2 focus-within:ring-indigo-500/20 focus-within:border-indigo-500 transition-[color,background-color,border-color,box-shadow,transform]">
       <button
         onClick={() => onChange(Math.max(min, value - 1))}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-all border-r border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,box-shadow,transform] border-r border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: diminuisci`}
         type="button"
       >
@@ -152,7 +152,7 @@ const StepperInput = ({ value, onChange, min = 0, max, label, icon: Icon, iconCo
       </div>
       <button
         onClick={() => onChange(max ? Math.min(max, value + 1) : value + 1)}
-        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-all border-l border-slate-100 dark:border-slate-800"
+        className="min-w-[48px] w-12 h-full flex items-center justify-center text-slate-500 dark:text-slate-400 hover:text-indigo-600 hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-90 transition-[color,background-color,border-color,transform] border-l border-slate-100 dark:border-slate-800"
         aria-label={`${ariaLabel || label || 'Valore'}: aumenta`}
         type="button"
       >
@@ -229,7 +229,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
     <div className={`bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 shadow-sm overflow-hidden ${extraClassName}`}>
       <button
         onClick={() => setShowInfo(!showInfo)}
-        className="w-full flex items-center justify-between p-4 rounded-xl transition-all duration-300 group cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50"
+        className="w-full flex items-center justify-between p-4 rounded-xl transition-colors duration-300 group cursor-pointer hover:bg-white/50 dark:hover:bg-slate-800/50"
         aria-label={t('payslip.lppAgeRates')}
       >
         <div className="flex items-center gap-3">
@@ -319,7 +319,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     const val = parseNumber(e.target.value);
                     handleSalaryChange(Math.max(SALARY_MIN, Math.min(SALARY_MAX, val)));
                   }}
-                  className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 rounded-2xl focus:ring-4 outline-none transition-all font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
+                  className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 rounded-2xl focus:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
                   placeholder="0"
                 />
               </div>
@@ -343,7 +343,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                     id="payslip-status"
                     value={maritalStatus}
                     onChange={e => setMaritalStatus(e.target.value as 'single' | 'married')}
-                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-all cursor-pointer text-slate-700 dark:text-slate-200"
+                    className="w-full h-11 pl-2.5 sm:pl-3 pr-8 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-xs font-semibold sm:font-bold appearance-none outline-none focus:border-indigo-500 focus:ring-2 focus:ring-indigo-500/10 transition-[color,background-color,border-color,box-shadow] cursor-pointer text-slate-700 dark:text-slate-200"
                   >
                     <option value="single">{t('payslip.single')}</option>
                     <option value="married">{t('payslip.married')}</option>
@@ -443,7 +443,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                   <span className="text-xs text-slate-600 dark:text-slate-400 w-32 sm:w-36 leading-tight">{d.label}</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                     <div
-                      className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-all duration-500"
+                      className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-[width] duration-500"
                       style={{ width: `${Math.max(widthPct, 1)}%` }}
                     />
                   </div>
@@ -455,7 +455,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-32 sm:w-36 leading-tight">{t('payslip.netSalary')}</span>
               <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                 <div
-                  className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full transition-all duration-500"
+                  className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full transition-[width] duration-500"
                   style={{ width: `${(result.netMonthly / result.grossMonthly) * 100}%` }}
                 />
               </div>

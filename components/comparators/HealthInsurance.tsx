@@ -348,7 +348,7 @@ const HealthInsurance: React.FC = () => {
           const isExpanded = expandedCard === result.insurer.id;
           return (
             <div key={result.insurer.id}
-              className={`bg-white dark:bg-slate-800 rounded-xl border-2 transition-all ${
+              className={`bg-white dark:bg-slate-800 rounded-xl border-2 transition-[color,background-color,border-color,box-shadow] ${
                 result.isBestPrice ? 'border-emerald-400 dark:border-emerald-600 shadow-lg'
                 : result.isBestValue ? 'border-blue-400 dark:border-blue-600 shadow-md'
                 : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'}`}>

@@ -222,7 +222,7 @@ const FirstDayGuide: React.FC = () => {
         </div>
         <div className="w-full h-3 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-all duration-500 ease-out"
+            className="h-full bg-gradient-to-r from-amber-500 to-orange-500 rounded-full transition-[width] duration-500 ease-out"
             style={{ width: `${progress}%` }}
           />
         </div>
@@ -253,7 +253,7 @@ const FirstDayGuide: React.FC = () => {
           return (
             <div
               key={step.id}
-              className={`rounded-xl border transition-all duration-200 ${
+              className={`rounded-xl border transition-colors duration-200 ${
                 isCompleted
                   ? 'bg-emerald-50/50 dark:bg-emerald-950/20 border-emerald-200 dark:border-emerald-800'
                   : `bg-white dark:bg-slate-800 ${colors.border}`

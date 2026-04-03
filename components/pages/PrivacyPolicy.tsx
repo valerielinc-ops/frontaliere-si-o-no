@@ -332,7 +332,7 @@ export const PrivacyPolicy: React.FC = () => {
       <div className="mt-8 text-center">
         <button 
           onClick={() => nav.navigateTo('calculator')}
-          className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-all shadow-lg hover:shadow-xl"
+          className="inline-flex items-center gap-2 px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-xl transition-[color,background-color,border-color,box-shadow] shadow-lg hover:shadow-xl"
         >
           <ArrowLeft size={18} />
           Torna al Simulatore

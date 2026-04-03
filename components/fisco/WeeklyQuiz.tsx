@@ -334,7 +334,7 @@ const WeeklyQuiz: React.FC = () => {
           {/* Score bar */}
           <div className="w-full max-w-xs mx-auto h-4 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden mb-6">
             <div
-              className={`h-full rounded-full transition-all duration-1000 ${
+              className={`h-full rounded-full transition-[width] duration-1000 ${
                 percentage === 100 ? 'bg-gradient-to-r from-amber-400 to-yellow-500' :
                 percentage >= 60 ? 'bg-gradient-to-r from-emerald-400 to-green-500' :
                 'bg-gradient-to-r from-red-400 to-orange-500'
@@ -421,7 +421,7 @@ const WeeklyQuiz: React.FC = () => {
         </div>
         <div className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full overflow-hidden">
           <div
-            className="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full transition-all duration-300"
+            className="h-full bg-gradient-to-r from-violet-500 to-purple-500 rounded-full transition-[width] duration-300"
             style={{ width: `${((currentIndex + 1) / questions.length) * 100}%` }}
           />
         </div>
@@ -454,7 +454,7 @@ const WeeklyQuiz: React.FC = () => {
                 key={i}
                 onClick={() => handleAnswer(i)}
                 disabled={selectedAnswer !== null}
-                className={`w-full text-left p-4 rounded-xl border-2 transition-all ${optionClass}`}
+                className={`w-full text-left p-4 rounded-xl border-2 transition-colors ${optionClass}`}
               >
                 <div className="flex items-center gap-3">
                   <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-bold shrink-0 ${

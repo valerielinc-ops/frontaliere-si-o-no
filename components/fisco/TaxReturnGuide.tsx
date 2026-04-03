@@ -91,7 +91,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
       <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
         <button
           onClick={() => handleCountryChange('italia')}
-          className={`relative overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 ${
+          className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
             countryTab === 'italia'
               ? 'bg-gradient-to-br from-emerald-600 to-green-700 text-white shadow-lg shadow-emerald-200 dark:shadow-emerald-900/40 ring-2 ring-emerald-400 dark:ring-emerald-500 scale-[1.02]'
               : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 hover:border-emerald-300 dark:hover:border-emerald-700'
@@ -118,7 +118,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
         </button>
         <button
           onClick={() => handleCountryChange('svizzera')}
-          className={`relative overflow-hidden rounded-2xl p-5 text-left transition-all duration-300 ${
+          className={`relative overflow-hidden rounded-2xl p-5 text-left transition-[color,background-color,border-color,box-shadow,transform] duration-300 ${
             countryTab === 'svizzera'
               ? 'bg-gradient-to-br from-red-600 to-red-700 text-white shadow-lg shadow-red-200 dark:shadow-red-900/40 ring-2 ring-red-400 dark:ring-red-500 scale-[1.02]'
               : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-slate-700 border-2 border-slate-200 dark:border-slate-700 hover:border-red-300 dark:hover:border-red-700'
@@ -176,7 +176,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
           <button
             key={key}
             onClick={() => setActiveStep(key)}
-            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-all ${
+            className={`flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-semibold transition-colors ${
               activeStep === key
                 ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 ring-1 ring-blue-300 dark:ring-blue-700'
                 : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
@@ -234,7 +234,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
             </div>
             <div className="w-full bg-slate-200 dark:bg-slate-700 rounded-full h-2 mb-6">
               <div
-                className="bg-emerald-700 h-2 rounded-full transition-all duration-300"
+                className="bg-emerald-700 h-2 rounded-full transition-[width] duration-300"
                 style={{ width: `${(checkedDocs.size / DOCUMENTS_CHECKLIST.length) * 100}%` }}
               />
             </div>
@@ -242,7 +242,7 @@ const TaxReturnGuide: React.FC<TaxReturnGuideProps> = ({ initialCountry, onCount
               {DOCUMENTS_CHECKLIST.map(doc => (
                 <label
                   key={doc.key}
-                  className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-all ${
+                  className={`flex items-start gap-3 p-3 rounded-xl border cursor-pointer transition-colors ${
                     checkedDocs.has(doc.key)
                       ? 'bg-emerald-50 dark:bg-emerald-900/20 border-emerald-300 dark:border-emerald-700'
                       : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'

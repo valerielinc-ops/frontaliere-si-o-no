@@ -176,7 +176,7 @@ const NotFoundSuggestions: React.FC<NotFoundSuggestionsProps> = ({ path, onNavig
               <button
                 key={`${s.tab}-${s.subTab || i}`}
                 onClick={() => onNavigate(s.tab, s.subTab)}
-                className="w-full flex items-center gap-4 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-sm transition-all text-left group"
+                className="w-full flex items-center gap-4 p-4 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] text-left group"
               >
                 <div className={`shrink-0 w-10 h-10 rounded-lg bg-slate-50 dark:bg-slate-700 flex items-center justify-center ${s.color}`}>
                   <s.icon size={20} />

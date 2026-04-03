@@ -395,7 +395,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 { key: 'tips', label: `💡 ${t('newsletter.tips')}`, desc: t('newsletter.tipsDesc') },
               ].map(pref => (
                 <label key={pref.key}
-                  className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-all border ${
+                  className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-colors border ${
                     preferences[pref.key as keyof typeof preferences]
                       ? 'border-teal-300 dark:border-teal-700 bg-teal-50 dark:bg-teal-950/30'
                       : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
@@ -431,7 +431,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
               {t('newsletter.protectedBy')}
             </div>
             <button type="submit" disabled={status === 'loading'}
-              className="px-8 py-3 bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold rounded-xl hover:from-teal-700 hover:to-emerald-800 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-lg"
+              className="px-8 py-3 bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold rounded-xl hover:from-teal-700 hover:to-emerald-800 transition-[color,background-color,border-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-lg"
             >
               {status === 'loading' ? (
                 <>

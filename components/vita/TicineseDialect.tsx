@@ -432,7 +432,7 @@ const TicineseDialect: React.FC = () => {
               setSelectedCategory('all');
               Analytics.trackUIInteraction('dialect', 'filter', 'category', 'all');
             }}
-            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
               selectedCategory === 'all'
                 ? 'bg-slate-800 dark:bg-slate-200 text-white dark:text-slate-800'
                 : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -449,7 +449,7 @@ const TicineseDialect: React.FC = () => {
                   setSelectedCategory(cat);
                   Analytics.trackUIInteraction('dialect', 'filter', 'category', 'select', cat);
                 }}
-                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-all ${
+                className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                   selectedCategory === cat
                     ? `${colors.bg} ${colors.text} ${colors.darkBg} ${colors.darkText}`
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600'

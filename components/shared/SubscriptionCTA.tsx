@@ -283,7 +283,7 @@ const SubscriptionCTA: React.FC = () => {
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-xl whitespace-nowrap"
+            className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-[color,background-color,border-color,box-shadow,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center gap-2 text-sm shadow-lg hover:shadow-xl whitespace-nowrap"
           >
             {status === 'loading' ? (
               <><Loader2 className="w-4 h-4 animate-spin" /> {t('newsletter.subscribing')}</>

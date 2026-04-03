@@ -506,13 +506,13 @@ const MobileOperators: React.FC = () => {
             target: '_blank',
             rel: 'noopener noreferrer',
             onClick: () => Analytics.trackMobileOperator('link_click', operator.name, operator.country),
-            className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all cursor-pointer ${
+            className: `block bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
               hasGoodRoaming 
                 ? 'border-emerald-500 ring-2 ring-emerald-500/20 hover:ring-emerald-500/40' 
                 : 'border-slate-200 dark:border-slate-700 hover:border-amber-400'
             }`
           } : {
-            className: `bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-all ${
+            className: `bg-white dark:bg-slate-800 rounded-2xl border-2 p-4 sm:p-6 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${
               hasGoodRoaming 
                 ? 'border-emerald-500 ring-2 ring-emerald-500/20' 
                 : 'border-slate-200 dark:border-slate-700'

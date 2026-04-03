@@ -35,7 +35,7 @@ export default function FaqAccordion({ title, items, className = '' }: FaqAccord
               <ChevronDown size={18} className={`flex-shrink-0 text-slate-500 transition-transform ${openIndex === i ? 'rotate-180' : ''}`} />
             </button>
             <div
-              className={`overflow-hidden transition-all duration-200 ${openIndex === i ? 'max-h-96' : 'max-h-0'}`}
+              className={`overflow-hidden transition-[max-height] duration-200 ${openIndex === i ? 'max-h-96' : 'max-h-0'}`}
               itemScope itemProp="acceptedAnswer" itemType="https://schema.org/Answer"
             >
               <div className="px-4 py-3 text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-900/30 border-t border-slate-100 dark:border-slate-700" itemProp="text">
