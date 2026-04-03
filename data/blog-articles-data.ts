@@ -10,6 +10,8 @@ export interface Article {
   id: BlogArticleId;
   category: 'fiscale' | 'pratico' | 'novita' | 'pensione';
   date: string;
+  /** ISO date when the article was last materially updated (omit if same as date) */
+  updatedAt?: string;
   image: string;
   hasCalculator: boolean;
 }

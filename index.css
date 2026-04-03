@@ -147,3 +147,13 @@ input[type=number] { -moz-appearance: textfield; }
     100% { opacity: 0; transform: translateY(8px); }
   }
 }
+
+/* Print styles for article view */
+@media print {
+  body { background: white !important; }
+  header, footer, nav, aside, .print\:hidden,
+  [aria-label="cookie"], [class*="adsense"], [class*="AdSense"] { display: none !important; }
+  article { max-width: 100% !important; border: none !important; box-shadow: none !important; }
+  a { color: inherit !important; text-decoration: underline; }
+  a[href]::after { content: " (" attr(href) ")"; font-size: 0.8em; color: #666; }
+}
