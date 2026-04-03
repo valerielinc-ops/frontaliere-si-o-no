@@ -359,7 +359,7 @@ const NewsletterPopup: React.FC = () => {
   if (!visible || !queueActive) return null;
 
   return (
-    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
+    <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in" style={{ isolation: 'isolate' }}>
       <div className="relative w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
         {/* Header gradient */}
         <div className="bg-gradient-to-r from-teal-600 to-emerald-700 p-4 sm:p-6 text-white">

@@ -134,6 +134,7 @@
     "validate:third-party-secrets": "node scripts/validate-third-party-secrets.mjs",
     "validate:sitemap-links": "node scripts/validate-sitemap-links.mjs",
     "validate:page-seo": "node scripts/validate-page-seo-quality.mjs",
+    "validate:spa-render": "node scripts/validate-spa-render.mjs",
     "newsletter:preview": "node scripts/send-newsletter.mjs --preview",
     "newsletter:analyze": "node scripts/send-newsletter.mjs --analyze",
     "newsletter:resend-check": "node scripts/check-resend-domain.mjs",
