@@ -1,6 +1,6 @@
 {
   "crawlerKey": "engel-voelkers",
-  "assembledAt": "2026-04-03T09:15:19.641Z",
+  "assembledAt": "2026-04-03T21:11:20.911Z",
   "jobs": [
     {
       "title": "Praktikum als Teamassistent/in (3–6 Monate) | Ascona",
@@ -40,7 +40,7 @@
       "slugByLocale": {
         "it": "praktikum-come-assistente-di-team-3-6-mesi-ascona-ticino-premium-properties-sa-ascona",
         "en": "internship-as-team-assistant-3-6-months-ascona-ticino-premium-properties-sa-ascona",
-        "de": "praktikum-als-teamassistent-in-3-6-monate-ascona-engel-voelkers-ascona",
+        "de": "praktikum-als-teamassistent-in-3-6-monate-ascona-ticino-premium-properties-sa-ascona",
         "fr": "stage-en-tant-qu-assistant-e-d-equipe-3-6-mois-ascona-ticino-premium-properties-sa-ascona"
       },
       "previousSlugs": [
@@ -66,7 +66,7 @@
     },
     {
       "title": "Stage Assistente Team (3-6 mesi) | Lugano",
-      "slug": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
+      "slug": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano",
       "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239",
       "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/c3bc26ca-013d-4028-ab5c-9fc4b1b71239",
       "company": "Ticino Premium Properties SA",
@@ -100,7 +100,7 @@
         "fr": "Pour renforcer notre équipe à Lugano, nous recherchons immédiatement ou sur rendez-vous un stagiaire pour assister l'équipe, motivé, précis et désireux de découvrir de près le monde de l'immobilier de luxe. Engel & Völkers Lugano est spécialisé dans le courtage de propriétés exclusives au Tessin – des appartements élégants en ville aux villas extraordinaires avec vue sur le lac. Professionnalisme, style et passion guident toutes nos activités. Vous entrerez au cœur opérationnel de notre bureau et soutiendrez l’équipe dans ses activités quotidiennes, en contribuant activement aux processus administratifs et marketing."
       },
       "slugByLocale": {
-        "it": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
+        "it": "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano",
         "en": "team-assistant-internship-3-6-months-lugano-ticino-premium-properties-sa-lugano",
         "de": "praktikum-als-teamassistent-3-6-monate-lugano-ticino-premium-properties-sa-lugano",
         "fr": "stage-d-assistant-d-equipe-3-6-mois-lugano-ticino-premium-properties-sa-lugano"
@@ -121,7 +121,8 @@
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
       "previousSlugs": [
-        "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano-4vyc5f"
+        "stage-assistente-team-3-6-mesi-lugano-ticino-premium-properties-sa-lugano-4vyc5f",
+        "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano"
       ]
     },
     {
@@ -182,7 +183,8 @@
         }
       },
       "streetAddress": "Via Nassa 17",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     }
   ]
 }
