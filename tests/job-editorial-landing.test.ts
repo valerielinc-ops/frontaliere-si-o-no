@@ -8,6 +8,7 @@ import {
   buildJobLocationTypeLandingModel,
   buildJobLocationSectorLandingModel,
   buildJobNursesHubLandingModel,
+  buildJobSectorRegionLandingModel,
   isJobTodayLandingSlug,
   JOB_NURSES_HUB_SLUGS,
   JOB_OFFICIAL_GAZETTE_LANDING_SLUGS,
@@ -370,5 +371,108 @@ describe('jobEditorialLanding', () => {
       sectorKey: 'finance',
     });
     expect(resolveEditorialJobLandingDescriptor('ricerca-random')).toBeNull();
+  });
+
+  it('resolves sector-region descriptors (sector-first pattern)', () => {
+    // Italian: ricerca-{sector}-ticino
+    expect(resolveEditorialJobLandingDescriptor('ricerca-sanita-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'health',
+    });
+    expect(resolveEditorialJobLandingDescriptor('ricerca-finanza-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'finance',
+    });
+    expect(resolveEditorialJobLandingDescriptor('ricerca-tecnologia-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'tech',
+    });
+    expect(resolveEditorialJobLandingDescriptor('ricerca-ingegneria-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'engineering',
+    });
+    expect(resolveEditorialJobLandingDescriptor('ricerca-amministrazione-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'admin',
+    });
+
+    // English: search-{sector}-ticino
+    expect(resolveEditorialJobLandingDescriptor('search-health-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'health',
+    });
+
+    // German: suche-{sector}-tessin
+    expect(resolveEditorialJobLandingDescriptor('suche-gesundheit-tessin')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'health',
+    });
+
+    // French: recherche-{sector}-tessin
+    expect(resolveEditorialJobLandingDescriptor('recherche-sante-tessin')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'health',
+    });
+
+    // SEO plugin alias slugs (Italian keys that differ from JOB_SECTOR_DEFS)
+    expect(resolveEditorialJobLandingDescriptor('ricerca-informatica-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'tech',
+    });
+    expect(resolveEditorialJobLandingDescriptor('ricerca-vendita-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'sales',
+    });
+    expect(resolveEditorialJobLandingDescriptor('ricerca-ristorazione-ticino')).toMatchObject({
+      kind: 'sector-region',
+      sectorKey: 'hospitality',
+    });
+
+    // Unknown sector should still return null
+    expect(resolveEditorialJobLandingDescriptor('ricerca-unknown-ticino')).toBeNull();
+    // Non-region suffix should still return null
+    expect(resolveEditorialJobLandingDescriptor('ricerca-sanita-roma')).toBeNull();
+  });
+
+  it('does not break existing location-first patterns', () => {
+    expect(resolveEditorialJobLandingDescriptor('ricerca-lugano')).toMatchObject({
+      kind: 'location',
+      location: 'Lugano',
+    });
+    expect(resolveEditorialJobLandingDescriptor('search-chiasso-finance')).toMatchObject({
+      kind: 'location-sector',
+      location: 'Chiasso',
+      sectorKey: 'finance',
+    });
+    expect(resolveEditorialJobLandingDescriptor('ricerca-lugano-apprendistato')).toMatchObject({
+      kind: 'location-type',
+      location: 'Lugano',
+      typeKey: 'apprenticeship',
+    });
+  });
+
+  it('builds a sector-region landing model', () => {
+    const healthJobs = [
+      job({ id: 'h1', category: 'health', location: 'Lugano' }),
+      job({ id: 'h2', category: 'health', location: 'Bellinzona' }),
+      job({ id: 'f1', category: 'finance', location: 'Lugano' }),
+    ];
+    const model = buildJobSectorRegionLandingModel({
+      jobs: healthJobs,
+      locale: 'it',
+      sectorKey: 'health',
+      now: '2025-07-01T12:00:00Z',
+      localizedSlug: (j) => String(j.slug),
+      baseUrl: 'https://frontaliereticino.ch',
+      sectionSlug: 'lavoro-ticino',
+      localePrefix: '',
+    });
+    expect(model.kind).toBe('sector-region');
+    expect(model.sectorKey).toBe('health');
+    expect(model.totalJobs).toBe(2);
+    expect(model.heading).toContain('Sanita');
+    expect(model.heading).toContain('Ticino');
+    expect(model.siblingSectorLinks.every((l) => l.key !== 'health')).toBe(true);
+    expect(model.siblingSectorLinks.find((l) => l.key === 'finance')).toBeTruthy();
   });
 });

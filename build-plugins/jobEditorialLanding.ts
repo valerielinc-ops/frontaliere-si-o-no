@@ -41,6 +41,13 @@ const SEARCH_ROUTE_PREFIX: Record<JobLandingLocale, string> = {
 const SUPPORTED_EDITORIAL_LOCATIONS = ['Lugano', 'Bellinzona', 'Mendrisio', 'Locarno', 'Chiasso'] as const;
 const SUPPORTED_EDITORIAL_LOCATION_SET = new Set<string>(SUPPORTED_EDITORIAL_LOCATIONS);
 
+// SEO plugin uses Italian sector keys that don't always match JOB_SECTOR_DEFS slugs
+const SECTOR_SLUG_ALIASES: Record<string, JobLandingSectorKey> = {
+  informatica: 'tech',
+  vendita: 'sales',
+  ristorazione: 'hospitality',
+};
+
 type JobLike = Record<string, any>;
 
 type LandingJobLink = {
@@ -1038,6 +1045,10 @@ function findSectorKeyBySlug(slug: string): JobLandingSectorKey | null {
   ) || null;
 }
 
+function findSectorKeyBySlugExtended(slug: string): JobLandingSectorKey | null {
+  return findSectorKeyBySlug(slug) || SECTOR_SLUG_ALIASES[normalizeSpace(slug)] || null;
+}
+
 function findCareClusterKeyBySlug(slug: string): JobCareClusterKey | null {
   const clean = normalizeSpace(slug);
   return (Object.keys(CARE_CLUSTER_DEFS) as JobCareClusterKey[]).find((key) =>
@@ -1147,12 +1158,12 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
     const sectorSlug = parts.slice(1, -1).join('-'); // everything between prefix and last part
     const regionSlug = parts[parts.length - 1];
     if (parts.length >= 3 && REGION_SLUGS.has(regionSlug)) {
-      const sectorKey = findSectorKeyBySlug(sectorSlug);
+      const sectorKey = findSectorKeyBySlugExtended(sectorSlug);
       if (sectorKey) return { kind: 'sector-region', sectorKey };
     }
     // Also try entire suffix as sector (ricerca-sanita → sector without region)
     const fullSuffix = parts.slice(1).join('-');
-    const directSectorKey = findSectorKeyBySlug(fullSuffix);
+    const directSectorKey = findSectorKeyBySlugExtended(fullSuffix);
     if (directSectorKey) return { kind: 'sector-region', sectorKey: directSectorKey };
     return null;
   }

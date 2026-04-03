@@ -23,6 +23,7 @@ import {
   buildJobNursesHubLandingModel,
   buildJobOfficialGazetteLandingModel,
   buildJobPartTimeLandingModel,
+  buildJobSectorRegionLandingModel,
   buildJobTodayLandingModel,
   resolveEditorialJobLandingDescriptor,
 } from '../build-plugins/jobEditorialLanding';
@@ -1852,6 +1853,17 @@ export function buildPath(route: AppRoute, locale?: Locale): string {
         jobs: [],
         locale: lang,
         location: descriptor.location,
+        sectorKey: descriptor.sectorKey,
+        localizedSlug: () => '',
+        baseUrl: '',
+        sectionSlug: table.jobBoard,
+        localePrefix: prefix,
+      }).slug;
+    }
+    if (descriptor.kind === 'sector-region') {
+      return buildJobSectorRegionLandingModel({
+        jobs: [],
+        locale: lang,
         sectorKey: descriptor.sectorKey,
         localizedSlug: () => '',
         baseUrl: '',
