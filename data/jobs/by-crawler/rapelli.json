@@ -133,8 +133,8 @@
       "slugByLocale": {
         "it": "supply-chain-planner-100-rapelli-stabio",
         "en": "supply-chain-planner-100-rapelli-stabio",
-        "de": "supply-chain-planner-100-rapelli-stabio",
-        "fr": "supply-chain-planner-100-rapelli-stabio"
+        "de": "lieferkette-planner-100-rapelli-orior-food-ag-stabio",
+        "fr": "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -187,7 +187,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "previousSlugs": [
+        "supply-chain-planner-100-rapelli-stabio"
+      ]
     },
     {
       "id": "rapelli-bdc3322ac1f6",

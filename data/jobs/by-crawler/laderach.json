@@ -636,10 +636,10 @@
       "id": "laderach-91c6602e7dce",
       "slug": "harrods-supervisor-laderach-england",
       "slugByLocale": {
-        "it": "harrods-supervisor-laderach-england",
+        "it": "harrods-supervisore-laderach-schweiz-ag-england",
         "en": "harrods-supervisor-laderach-schweiz-ag-england",
-        "de": "harrods-supervisor-laderach-england",
-        "fr": "harrods-supervisor-laderach-england"
+        "de": "harrods-vorgesetzter-laderach-schweiz-ag-england",
+        "fr": "harrods-superviseur-laderach-schweiz-ag-england"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -680,7 +680,9 @@
       "crawledAt": "2026-04-03T09:28:41.797Z",
       "needsRetranslation": true,
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "harrods-supervisor-laderach-england"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -2402,7 +2404,7 @@
         "it": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-baden",
         "en": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-schweiz-ag-baden",
         "de": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-baden",
-        "fr": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-schweiz-ag-baden"
+        "fr": "nachwuchstalent-im-commerce-de-detail-80-chocolaterie-baden-laderach-schweiz-ag-baden"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2443,7 +2445,9 @@
       "crawledAt": "2026-04-03T09:28:37.787Z",
       "needsRetranslation": true,
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-schweiz-ag-baden"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -2905,7 +2909,7 @@
         "it": "nachwuchstalent-per-commercio-al-dettaglio-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur",
         "en": "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur",
         "de": "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-winterthur",
-        "fr": "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur"
+        "fr": "nachwuchstalent-fur-commerce-de-detail-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2947,7 +2951,8 @@
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
-        "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-winterthur"
+        "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-winterthur",
+        "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3224,7 +3229,7 @@
         "it": "technical-it-architect-laderach-schweiz-ag-bilten",
         "en": "technical-it-architect-laderach-bilten",
         "de": "technical-it-architect-laderach-bilten",
-        "fr": "technical-it-architect-laderach-bilten"
+        "fr": "technical-it-architecte-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",

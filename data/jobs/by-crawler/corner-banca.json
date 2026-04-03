@@ -94,10 +94,10 @@
       "id": "corner-banca-422277a6cd4c",
       "slug": "it-card-management-analyst-specialist-corner-banca-lugano",
       "slugByLocale": {
-        "it": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "it": "it-card-management-analista-specialista-corner-banca-lugano",
         "en": "it-card-management-analyst-specialist-corner-banca-lugano",
         "de": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
+        "fr": "it-card-management-analyste-specialiste-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -138,7 +138,8 @@
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano"
+        "analista-specialista-gestione-carte-it-corner-banca-lugano",
+        "it-card-management-analyst-specialist-corner-banca-lugano"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -424,10 +425,10 @@
       "id": "corner-banca-363ccb9527a5",
       "slug": "credit-e-client-advisor-m-f-corner-banca-lugano",
       "slugByLocale": {
-        "it": "credit-e-client-advisor-m-f-corner-banca-lugano",
+        "it": "credit-client-consulente-m-f-corner-banca-lugano",
         "en": "credit-client-advisor-m-f-corner-banca-lugano",
-        "de": "credit-e-client-advisor-m-f-corner-banca-lugano",
-        "fr": "credit-e-client-advisor-m-f-corner-banca-lugano"
+        "de": "credit-client-berater-m-f-corner-banca-lugano",
+        "fr": "credit-client-conseiller-m-f-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -501,7 +502,8 @@
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "credit-client-consulente-m-f-corner-banca-lugano"
+        "credit-client-consulente-m-f-corner-banca-lugano",
+        "credit-e-client-advisor-m-f-corner-banca-lugano"
       ],
       "salaryMin": 54000,
       "salaryMax": 73000,

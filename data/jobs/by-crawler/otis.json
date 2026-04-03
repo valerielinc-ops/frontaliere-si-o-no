@@ -6,9 +6,9 @@
       "id": "otis-994d1f77a972",
       "slug": "supervisor-mod-bex-otis-1032",
       "slugByLocale": {
-        "it": "supervisor-mod-bex-otis-1032",
+        "it": "supervisore-mod-bex-otis-sa-1032",
         "en": "supervisor-mod-bex-otis-1032",
-        "de": "supervisor-mod-bex-otis-1032",
+        "de": "vorgesetzter-mod-bex-otis-sa-1032",
         "fr": "supervisor-mod-bex-otis-sa-1032"
       },
       "company": "Otis SA",
@@ -50,7 +50,9 @@
       "crawledAt": "2026-04-03T09:37:11.411Z",
       "needsRetranslation": true,
       "sourceLang": "fr",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "supervisor-mod-bex-otis-1032"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {

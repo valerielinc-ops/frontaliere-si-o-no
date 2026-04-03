@@ -23,9 +23,9 @@
       "crawledAt": "2026-04-03T09:19:11.181Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "fr": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -59,7 +59,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "administrative-employee-eoc-ente-ospedaliero-cantonale-novaggio",
+        "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
+        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-x29n45",
@@ -212,9 +217,9 @@
       "crawledAt": "2026-04-03T09:19:11.181Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -256,7 +261,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
+        "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
+        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-uil169",
@@ -279,9 +289,9 @@
       "crawledAt": "2026-04-03T09:19:11.181Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "employe-e-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo/a",
@@ -315,7 +325,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uil16d",
@@ -338,9 +353,9 @@
       "crawledAt": "2026-04-03T09:19:11.181Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "medical-office-assistant-eoc-ente-ospedaliero-cantonale-locarno",
-        "de": "medizinische-praxisassistent-in-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "assistant-e-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno"
+        "en": "medical-office-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "medizinische-praxisassistent-in-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "assistant-e-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -378,7 +393,10 @@
       "previousSlugs": [
         "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona-uil16d",
         "arzthelferin-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "medical-office-assistant-eoc-ente-ospedaliero-cantonale-locarno",
+        "medizinische-praxisassistent-in-eoc-ente-ospedaliero-cantonale-locarno",
+        "assistant-e-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno"
       ]
     },
     {
@@ -461,9 +479,9 @@
       "crawledAt": "2026-04-03T09:19:11.181Z",
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-in-anestesia-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "specialized-nurse-in-anesthesia-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "de": "fachkrankpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "en": "specialized-nurse-in-anesthesia-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "fachkrankpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a in anestesia",
@@ -501,7 +519,10 @@
       "previousSlugs": [
         "specialized-nurse-in-anesthesia-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fachkrankenpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "specialized-nurse-in-anesthesia-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "fachkrankpfleger-in-fur-anasthesie-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "infirmier-ere-specialise-e-en-anesthesie-eoc-ente-ospedaliero-cantonale-mendrisio"
       ]
     },
     {
@@ -1699,9 +1720,9 @@
       "crawledAt": "2026-04-03T09:19:11.181Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "de": "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "fr": "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "en": "employee-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "angestellte-r-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "employe-e-amministrativo-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Impiegato/a amministrativo",
@@ -1735,7 +1756,12 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+      ]
     },
     {
       "id": "company-uikyun",
@@ -2511,7 +2537,7 @@
       },
       "slugByLocale": {
         "it": "fisioterapista-diplomata-o-80-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "certified-physiotherapist-80-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "certified-physiotherapist-80-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "diplomierter-physiotherapeut-80-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "diplome-en-physiotherapie-80-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -5171,9 +5197,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomata-o-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "certified-physiotherapist-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "diplomierte-r-physiotherapeut-in-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "physiotherapeute-diplome-e-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "physiotherapeute-diplome-e-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomata/o",
@@ -6541,7 +6567,7 @@
         "it": "candidato-a-medico-anestesiologia-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "medical-candidate-anesthesiology-eoc-ente-ospedaliero-cantonale-mendrisio",
         "de": "medizinerkandidat-in-anasthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "fr": "candidat-e-medical-e-anesthesiologie-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "candidat-e-medical-e-anesthesiologie-eoc-ente-ospedaliero-cantonale-mendrisio"
       },
       "titleByLocale": {
         "it": "Candidato/a medico – Anestesiologia",
@@ -9473,9 +9499,9 @@
       "crawledAt": "2026-03-31T21:18:18.222Z",
       "slugByLocale": {
         "it": "fisioterapista-diplomata-o-80-100-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "certified-physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "en": "certified-physiotherapist-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "physiotherapeut-80-100-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "fr": "physiotherapeute-80-100-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Fisioterapista diplomata/o (80-100%)",
