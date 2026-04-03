@@ -493,8 +493,8 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           // are not applicable to Event schema
           if (!isEvent) {
             ldObj.datePublished = normalizeDateTime(en.datePub || en.dateMod || todayIso);
-            // Always use build date for dateModified — AI systems weight freshness heavily
-            ldObj.dateModified  = buildDateIso;
+            // Use datePublished for dateModified — avoids false freshness signals on every deploy
+            ldObj.dateModified  = normalizeDateTime(en.dateMod || en.datePub || todayIso);
 
             // articleBody excerpt + wordCount (Google Discover uses this for topic relevance)
             const fullBodyHtml = bodySections.join('\n');
