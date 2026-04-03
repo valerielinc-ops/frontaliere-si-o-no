@@ -74,14 +74,13 @@ describe('SPA does not override static HTML metadata for expired job pages', () 
   it('JobBoard.tsx skips dynamic JobPosting schema injection for expired jobs', () => {
     // The structured data useEffect (identified by jobposting-structured-data ID) must
     // include the expired job guard before generating listing-page schemas.
-    // The guard is placed near the top of the useEffect that builds JobPosting schemas,
-    // which is in the section containing CONTRACT_MAP and jobposting-structured-data.
+    // The guard checks initialJobSlug && !selectedJob to skip expired/orphan pages.
     const schemaEffectStart = jobBoardSource.indexOf("const CONTRACT_MAP: Record<string, string>");
     const schemaEffectEnd = jobBoardSource.indexOf('jobposting-structured-data');
     const schemaSection = jobBoardSource.slice(
       Math.max(0, schemaEffectStart - 500),
       schemaEffectEnd
     );
-    expect(schemaSection).toContain('hasSeededExpiredData');
+    expect(schemaSection).toContain('initialJobSlug && !selectedJob');
   });
 });
