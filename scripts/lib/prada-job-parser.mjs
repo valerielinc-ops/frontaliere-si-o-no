@@ -164,11 +164,46 @@ export function parsePradaDetailHtml(html) {
     /<section[^>]*class="[^"]*job[^"]*"[^>]*>([\s\S]*?)<\/section>/i,
   ];
 
-  for (const re of selectors) {
-    const m = html.match(re);
-    if (m && m[1] && m[1].length > 50) {
-      rawHtml = m[1];
-      break;
+  // Prada uses <span class="jobdescription"> with nested <span> tags inside.
+  // Regex can't handle nesting, so extract with depth tracking first.
+  const spanClassIdx = html.indexOf('class="jobdescription"');
+  if (spanClassIdx > 0) {
+    const tagStart = html.lastIndexOf('<', spanClassIdx);
+    const tagMatch = html.slice(tagStart).match(/^<(span|div)[^>]*>/i);
+    if (tagMatch) {
+      const tag = tagMatch[1].toLowerCase();
+      const contentStart = tagStart + tagMatch[0].length;
+      let depth = 1, pos = contentStart;
+      const openRe = new RegExp(`<${tag}[\\s>]`, 'gi');
+      const closeRe = new RegExp(`</${tag}>`, 'gi');
+      while (depth > 0 && pos < html.length) {
+        openRe.lastIndex = pos;
+        closeRe.lastIndex = pos;
+        const nextOpen = openRe.exec(html);
+        const nextClose = closeRe.exec(html);
+        if (!nextClose) break;
+        if (nextOpen && nextOpen.index < nextClose.index) {
+          depth++;
+          pos = nextOpen.index + nextOpen[0].length;
+        } else {
+          depth--;
+          if (depth === 0) {
+            rawHtml = html.slice(contentStart, nextClose.index);
+            break;
+          }
+          pos = nextClose.index + nextClose[0].length;
+        }
+      }
+    }
+  }
+
+  if (!rawHtml) {
+    for (const re of selectors) {
+      const m = html.match(re);
+      if (m && m[1] && m[1].length > 50) {
+        rawHtml = m[1];
+        break;
+      }
     }
   }
 
