@@ -1,18 +1,19 @@
 {
   "key": "engel-voelkers",
   "label": "Engel & Völkers",
-  "generatedAt": "2026-04-02T21:11:08.137Z",
+  "generatedAt": "2026-04-03T09:15:19.641Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19477,
-  "avgDurationMs": 19477,
+  "unchangedCount": 0,
+  "durationMs": 19563,
+  "avgDurationMs": 19563,
   "durationHistory": [
-    19477
+    19563
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Praktikum als Teamassistent/in (3–6 Monate) | Ascona",
       "slug": "praktikum-als-teamassistent-in-3-6-monate-ascona-engel-voelkers-ascona",
@@ -31,44 +32,12 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "internship",
       "contractType": "internship",
       "validThrough": "",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 20,
-        "completeness": 14
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "title": "Immobilienberater/in 100 % | Ascona",
-      "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
-      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
-      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
-      "company": "Ticino Premium Properties SA",
-      "companyKey": "engel-voelkers",
-      "companyDomain": "engelvoelkers.com",
-      "location": "Ascona",
-      "addressLocality": "Ascona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "sales",
-      "sector": "Immobiliare",
-      "source": "engelvoelkers-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
+      "salaryMin": 61500,
+      "salaryMax": 83500,
       "currency": "CHF",
       "streetAddress": "Via Nassa 17",
       "postalCode": "6900",
@@ -79,10 +48,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "Stage Assistente Team (3-6 mesi) | Lugano",
       "slug": "stage-assistente-team-3-6-mesi-lugano-engel-voelkers-lugano",
@@ -101,7 +67,7 @@
       "sector": "Immobiliare",
       "source": "engelvoelkers-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-02",
+      "postedDate": "2026-04-03",
       "employmentType": "internship",
       "contractType": "internship",
       "validThrough": "",
@@ -117,6 +83,43 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Immobilienberater/in 100 % | Ascona",
+      "slug": "immobilienberater-in-100-ascona-engel-voelkers-ascona",
+      "url": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
+      "applyUrl": "https://www.engelvoelkers.com/ch/it/azienda/carriera/offerte-di-lavoro/abf1e661-be5d-49ce-8b28-780c4c3ec23c",
+      "company": "Ticino Premium Properties SA",
+      "companyKey": "engel-voelkers",
+      "companyDomain": "engelvoelkers.com",
+      "location": "Ascona",
+      "addressLocality": "Ascona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "sales",
+      "sector": "Immobiliare",
+      "source": "engelvoelkers-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-03",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "salaryMin": 54000,
+      "salaryMax": 73000,
+      "currency": "CHF",
+      "streetAddress": "Via Nassa 17",
+      "postalCode": "6900",
+      "_qualityScore": 93,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 25
+      }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
