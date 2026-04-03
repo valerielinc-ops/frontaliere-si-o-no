@@ -410,7 +410,7 @@ function writeJson(filePath, value) {
 async function writeToFirestore(payload) {
   const admin = await import('firebase-admin');
   if (!admin.default.apps.length) {
-    admin.default.initializeApp();
+    admin.default.initializeApp({ projectId: process.env.GCLOUD_PROJECT || process.env.FIREBASE_PROJECT_ID || 'frontaliere-ticino' });
   }
   const db = admin.default.firestore();
 
