@@ -628,9 +628,9 @@ const deCore: Record<string, string> = {
     'jobBoard.pricing.featured': 'Hervorgehoben/Monat',
     'jobBoard.pricing.premium': 'Premium/Monat',
     'jobBoard.footerLink': 'Jobs Tessin',
-    'jobBoard.loadMore': 'Mehr laden',
-    'jobBoard.moreJobs': 'Stellen',
-    'jobBoard.showingNJobs': '{count} von {total} Stellen angezeigt',
+    'jobBoard.loadMore': 'Mehr Stellen laden',
+    'jobBoard.moreJobs': 'weitere Stellen',
+    'jobBoard.showingNJobs': 'Zeige {count} von {total} Stellen',
 
     // Job Alerts (FRO-332)
     'jobAlert.trigger': 'Bei neuen Jobs benachrichtigen',
