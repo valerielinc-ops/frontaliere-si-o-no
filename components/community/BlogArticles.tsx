@@ -1824,15 +1824,8 @@ export default function BlogArticles({
 
             <div className="space-y-4">
               {renderFormattedContent(articleBody1, navigators)}
-              {/* Amazon product picks — mobile/tablet inline (replaces affiliate card) */}
-              <div className="xl:hidden my-5">
-                <Suspense fallback={null}>
-                  <CreatorProducts contextText={creatorContextText} maxCards={2} />
-                </Suspense>
-              </div>
-              {renderFormattedContent(articleBody2, navigators)}
 
-              {/* In-article ad — mobile/tablet only (conditional mount) */}
+              {/* In-article ad — mobile/tablet only, placed between body1 and body2 for higher viewability */}
               {!isDesktopXl && (
                 <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
                   <AdSenseBanner
@@ -1845,6 +1838,14 @@ export default function BlogArticles({
                   />
                 </Suspense>
               )}
+
+              {/* Amazon product picks — mobile/tablet inline (replaces affiliate card) */}
+              <div className="xl:hidden my-5">
+                <Suspense fallback={null}>
+                  <CreatorProducts contextText={creatorContextText} maxCards={2} />
+                </Suspense>
+              </div>
+              {renderFormattedContent(articleBody2, navigators)}
 
               {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}
               {relatedJobs.length > 0 && (
