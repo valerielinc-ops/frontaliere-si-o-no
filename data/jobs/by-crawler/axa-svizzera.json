@@ -289,7 +289,7 @@
         "it": "consulente-per-la-sicurezza-axa-svizzera-axa",
         "en": "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
         "de": "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "fr": "consulente-assicurativo"
+        "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -349,8 +349,8 @@
       "slugByLocale": {
         "it": "consulente-per-la-sicurezza-axa-svizzera-axa",
         "en": "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "de": "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "fr": "consulente-assicurativo"
+        "de": "versicherungsberater-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
+        "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-nicola-locarnini-manno"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -368,7 +368,8 @@
       "streetAddress": "Via della Posta 2",
       "postalCode": "6901",
       "previousSlugs": [
-        "consulente-assicurativo"
+        "consulente-assicurativo",
+        "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
       ]
     },
     {
