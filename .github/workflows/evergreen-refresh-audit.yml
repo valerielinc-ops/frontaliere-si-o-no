@@ -1,0 +1,88 @@
+name: Evergreen Article Refresh Audit
+
+on:
+  schedule:
+    - cron: '0 9 1 * *' # 1st of every month at 09:00 UTC
+  workflow_dispatch:
+
+permissions:
+  issues: write
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Audit evergreen articles
+        id: audit
+        run: |
+          RESULT=$(node scripts/audit-evergreen-articles.mjs)
+          TOTAL=$(echo "$RESULT" | jq -r '.totalEvergreen')
+          STALE=$(echo "$RESULT" | jq -r '.staleCount')
+
+          echo "total=$TOTAL" >> "$GITHUB_OUTPUT"
+          echo "stale=$STALE" >> "$GITHUB_OUTPUT"
+
+          echo "## Evergreen Article Freshness Report"
+          echo ""
+          echo "- **Total evergreen articles**: $TOTAL"
+          echo "- **Stale (>6 months)**: $STALE"
+          echo ""
+
+          if [ "$STALE" -eq 0 ]; then
+            echo "✅ All evergreen articles are fresh"
+          else
+            echo "### Stale articles (oldest first):"
+            echo ""
+            echo "$RESULT" | jq -r '.stale[] | "- \(.id) (\(.category)) — \(.ageMonths) months old"'
+          fi
+
+          # Write article list to a temp file for issue body construction
+          echo "$RESULT" > audit-result.json
+
+      - name: Create GitHub issue
+        if: steps.audit.outputs.stale != '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          MONTH_YEAR=$(date -u +"%B %Y")
+          TOTAL=$(cat audit-result.json | jq -r '.totalEvergreen')
+          STALE=$(cat audit-result.json | jq -r '.staleCount')
+
+          # Build checklist
+          CHECKLIST=$(cat audit-result.json | jq -r '.stale[] | "- [ ] `\(.id)` (\(.category)) — \(.ageMonths) months old"')
+
+          BODY=$(cat <<EOF
+          ## Stale Evergreen Articles (>6 months old)
+
+          Found **${STALE}** articles that may need updating out of **${TOTAL}** total evergreen articles.
+
+          ### Articles to review:
+
+          ${CHECKLIST}
+
+          ### How to refresh
+          Run \`node scripts/create-article.mjs --refresh --id={article-id}\` to regenerate with latest data.
+
+          ---
+          *Generated automatically by the [Evergreen Refresh Audit](https://github.com/${{ github.repository }}/actions/workflows/evergreen-refresh-audit.yml) workflow.*
+          EOF
+          )
+
+          # Ensure labels exist
+          gh label create "content" --color "0E8A16" --description "Content updates" --force 2>/dev/null || true
+          gh label create "evergreen-refresh" --color "1D76DB" --description "Evergreen article refresh audit" --force 2>/dev/null || true
+
+          gh issue create \
+            --title "🔄 Evergreen Article Refresh - ${MONTH_YEAR}" \
+            --body "$BODY" \
+            --label "content,evergreen-refresh"
+
+          echo "✅ Created GitHub issue for ${STALE} stale articles"
