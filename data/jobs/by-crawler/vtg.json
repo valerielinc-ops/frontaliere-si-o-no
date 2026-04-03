@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-03T09:55:58.684Z",
+  "assembledAt": "2026-04-03T21:51:41.148Z",
   "jobs": [
     {
       "id": "company-84ss1r",
@@ -67,7 +67,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-h0fllu",
@@ -94,7 +95,7 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T21:53:35.437Z",
       "slugByLocale": {
-        "it": "supporto-operatore-trice-swiss-armed-forces-vtg-rivera",
+        "it": "supporto-operatore-trice-swiss-armed-forces-vtg-bellinzona",
         "en": "operator-in-support-swiss-armed-forces-vtg-bellinzona",
         "de": "operator-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "fr": "operateur-in-support-swiss-armed-forces-vtg-rivera"
@@ -118,8 +119,7 @@
         "operateur-in-support-swiss-armed-forces-vtg-rivera-h0fllu",
         "operator-in-support-swiss-armed-forces-vtg-rivera",
         "support-operateur-swiss-armed-forces-vtg-rivera",
-        "supporto-operatore-trice-swiss-armed-forces-vtg-rivera",
-        "supporto-operatore-trice-swiss-armed-forces-vtg-bellinzona"
+        "supporto-operatore-trice-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -166,7 +166,7 @@
       "companyDomain": "vtg.admin.ch",
       "crawledAt": "2026-03-31T21:53:35.437Z",
       "slugByLocale": {
-        "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
+        "it": "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-bellinzona",
         "en": "head-of-command-and-information-systems-swiss-armed-forces-vtg-rivera",
         "de": "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-bellinzona",
         "fr": "responsable-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
@@ -190,8 +190,7 @@
         "responsabile-sistemi-di-comando-e-informazione-swiss-armed-forces-vtg-rivera",
         "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-rivera",
         "leiter-in-fuhrungs-und-informationssysteme-swiss-armed-forces-vtg-rivera",
-        "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera",
-        "responsabile-fuhrungs-e-informationssysteme-swiss-armed-forces-vtg-bellinzona"
+        "chef-fe-des-systemes-de-commandement-et-d-information-swiss-armed-forces-vtg-rivera"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -307,7 +306,7 @@
       "slugByLocale": {
         "it": "apprendista-automobil-mechatroniker-in-cfc-specializzazione-personenwagen-swiss-armed-forces-vtg-bellinzona",
         "en": "apprentice-automotive-mechanic-efz-passenger-vehicle-sector-swiss-armed-forces-vtg-rivera",
-        "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-rivera-cn6k0h",
+        "de": "lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen-swiss-armed-forces-vtg-bellinzona",
         "fr": "apprenti-mecanicien-automobile-efz-secteur-vehicules-a-passagers-swiss-armed-forces-vtg-rivera"
       },
       "titleByLocale": {
@@ -377,7 +376,7 @@
       "slugByLocale": {
         "it": "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-bellinzona",
         "en": "street-transport-specialist-efz-swiss-armed-forces-vtg-claro-ti",
-        "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek",
+        "de": "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-bellinzona",
         "fr": "specialiste-du-transport-de-rue-efz-swiss-armed-forces-vtg-claro-ti"
       },
       "titleByLocale": {
@@ -396,7 +395,8 @@
       "sourceLang": "de",
       "previousSlugs": [
         "apprendista-specialista-in-trasporti-stradali-cfc-swiss-armed-forces-vtg-claro-ti",
-        "specialiste-du-transport-routier-efz-swiss-armed-forces-vtg-claro-ti"
+        "specialiste-du-transport-routier-efz-swiss-armed-forces-vtg-claro-ti",
+        "lernende-r-strassentransportfachmann-frau-efz-swiss-armed-forces-vtg-claro-ti-pm28ek"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
