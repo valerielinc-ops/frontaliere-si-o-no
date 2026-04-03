@@ -1,10 +1,9 @@
 name: Update Coop Jobs (Dedicated)
 
 on:
-  schedule:
-    # Runs at 06:00 UTC daily — before the orchestrator's 08:00 UTC run so Coop
-    # always gets fresh AI-model quotas (177 jobs × 4 locales = heavy quota consumer).
-    - cron: '0 6 * * *'
+  # No schedule — Coop is dispatched by orchestrate-crawlers.yml.
+  # A previous cron at 06:00 UTC ran outside the pipeline; AI quota spreading
+  # is obsolete now that all crawlers use skip_ai_translation=1.
   workflow_dispatch:
     inputs:
       strict_localization:

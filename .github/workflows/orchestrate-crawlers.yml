@@ -3,8 +3,7 @@ name: Orchestrate Job Crawlers
 on:
   schedule:
     # Run twice daily: morning + afternoon (UTC).
-    # Starts at 08:00 so the dedicated Coop crawler (06:00 UTC, heavy quota user)
-    # always gets first access to fresh daily AI-model quotas.
+    # All crawlers (including Coop) are dispatched here; no standalone crons.
     - cron: '0 8 * * *'
     - cron: '0 20 * * *'
   workflow_dispatch:
@@ -71,10 +70,9 @@ jobs:
           # Large crawlers (>50 jobs): 120s delay (2 minutes)
           # Medium crawlers (10-50 jobs): 60s delay (1 minute)
           # Small crawlers (<10 jobs): 20s delay
-          # Coop is excluded (runs at 06:00 UTC separately)
 
           # Known large crawlers (>50 estimated jobs per run)
-          LARGE_CRAWLERS="update-jobs-sbb update-jobs-migros update-jobs-post update-jobs-confederazione update-jobs-sunrise update-jobs-amag"
+          LARGE_CRAWLERS="update-jobs-coop update-jobs-sbb update-jobs-migros update-jobs-post update-jobs-confederazione update-jobs-sunrise update-jobs-amag"
           # Known medium crawlers (10-50 jobs)
           MEDIUM_CRAWLERS="update-jobs-allianz update-jobs-axpo update-jobs-axa update-jobs-raiffeisen update-jobs-hamilton update-jobs-volg update-jobs-hitachi update-jobs-trumpf update-jobs-agroscope update-jobs-bosch update-jobs-boggi update-jobs-kempinski update-jobs-colin-cie update-jobs-dot-life update-jobs-engelvoelkers update-jobs-stadt-chur update-jobs-cler update-jobs-guess update-jobs-giorgio-armani update-jobs-sintetica update-jobs-casale update-jobs-citta-di-lugano update-jobs-ferrovia-retica update-jobs-mikron update-jobs-rapelli update-jobs-bancastato update-jobs-denner"
 
@@ -82,8 +80,6 @@ jobs:
             local name="$1"
             local base="${name%.yml}"
             base="${base#update-jobs-}"
-            # Skip Coop — it has its own schedule
-            if [[ "$base" == "coop"* ]]; then echo "SKIP"; return; fi
             for lg in $LARGE_CRAWLERS; do
               if [[ "$lg" == "update-jobs-$base" ]]; then echo "120"; return; fi
             done
