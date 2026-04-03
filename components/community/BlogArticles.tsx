@@ -1,4 +1,4 @@
-import { useState, useEffect, useMemo, useCallback, lazy, Suspense, type FC, type ReactNode, type ReactElement } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense, type FC, type ReactNode, type ReactElement } from 'react';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath } from '@/services/router';
@@ -12,7 +12,7 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
   giPattern: new RegExp(kl.pattern.source, 'gi'),
 }));
 import { Analytics } from '@/services/analytics';
-import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User } from 'lucide-react';
+import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
@@ -293,9 +293,10 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       const lines = trimmed.split('\n');
       const heading = lines[0].replace(/^###\s+/, '').trim();
       const inlineBody = lines.slice(1).join('\n').trim();
+      const headingId = generateHeadingSlug(heading);
       renderedBlocks.push(
         <div key={`h3-${idx}`} className="space-y-1.5">
-          <h3 className="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-1">
+          <h3 id={headingId} className="text-lg font-semibold text-slate-800 dark:text-slate-200 mt-4 mb-1 scroll-mt-20">
             {renderInlineFormatting(heading, navigators)}
           </h3>
           {inlineBody && (
@@ -352,7 +353,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
 
       renderedBlocks.push(
         <div key={`heading-${idx}`} className="space-y-2">
-          <h2 className="text-xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3 mt-6 mb-2">
+          <h2 id={generateHeadingSlug(heading)} className="text-xl font-bold text-slate-900 dark:text-white border-l-4 border-indigo-500 pl-3 mt-6 mb-2 scroll-mt-20">
             {renderInlineFormatting(heading, navigators)}
           </h2>
           {inlineBody && (
@@ -494,6 +495,64 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
   }
 
   return <div className="space-y-5">{renderedBlocks}</div>;
+}
+
+/* ─── Heading extraction for TOC ─── */
+
+/** Convert heading text to a URL-friendly slug ID */
+function generateHeadingSlug(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/\*\*/g, '')
+    .replace(/\*/g, '')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1') // extract link text
+    .replace(/[^a-z0-9\u00C0-\u024F\s-]/g, '') // keep accented chars
+    .trim()
+    .replace(/\s+/g, '-')
+    .replace(/-+/g, '-')
+    .slice(0, 60);
+}
+
+interface TocHeading {
+  id: string;
+  text: string;
+  level: 2 | 3;
+}
+
+/** Extract H2/H3 headings from markdown body text segments */
+function extractHeadings(bodySegments: string[]): TocHeading[] {
+  const headings: TocHeading[] = [];
+  const usedIds = new Set<string>();
+  for (const body of bodySegments) {
+    if (!body || body.startsWith('blog.article.')) continue;
+    const blocks = body.split('\n\n');
+    for (const block of blocks) {
+      const trimmed = block.trim();
+      let level: 2 | 3 | null = null;
+      let raw = '';
+      if (trimmed.startsWith('### ')) {
+        level = 3;
+        raw = trimmed.split('\n')[0].replace(/^###\s+/, '').trim();
+      } else if (trimmed.startsWith('## ')) {
+        level = 2;
+        raw = trimmed.split('\n')[0].replace(/^##\s+/, '').trim();
+      }
+      if (level && raw) {
+        // Strip markdown formatting for display text
+        const text = raw.replace(/\*\*/g, '').replace(/\*/g, '').replace(/\[([^\]]+)\]\([^)]+\)/g, '$1');
+        let id = generateHeadingSlug(raw);
+        // Deduplicate IDs
+        if (usedIds.has(id)) {
+          let i = 2;
+          while (usedIds.has(`${id}-${i}`)) i++;
+          id = `${id}-${i}`;
+        }
+        usedIds.add(id);
+        headings.push({ id, text, level });
+      }
+    }
+  }
+  return headings;
 }
 
 const ARTICLES_PER_PAGE = 7; // 1 hero + 6 grid cards
@@ -838,6 +897,30 @@ export default function BlogArticles({
   });
   const [imageFallbackMap, setImageFallbackMap] = useState<Record<string, true>>({});
 
+  // Reading progress bar state
+  const [readingProgress, setReadingProgress] = useState(0);
+  const articleRef = useRef<HTMLElement>(null);
+
+  // TOC state
+  const [tocOpen, setTocOpen] = useState(false);
+  const [activeHeadingId, setActiveHeadingId] = useState<string | null>(null);
+
+  // Bookmark state
+  const [savedArticles, setSavedArticles] = useState<Set<string>>(() => {
+    try {
+      const stored = localStorage.getItem('frontaliere_saved_articles');
+      return stored ? new Set(JSON.parse(stored)) : new Set();
+    } catch { return new Set(); }
+  });
+
+  // Article feedback state ('useful' | 'not-useful' | null)
+  const [articleFeedback, setArticleFeedback] = useState<Record<string, 'useful' | 'not-useful'>>(() => {
+    try {
+      const stored = localStorage.getItem('frontaliere_article_feedback');
+      return stored ? JSON.parse(stored) : {};
+    } catch { return {}; }
+  });
+
   // Device breakpoints for conditional ad rendering (prevents CSS-hidden width=0 bug)
   const isMobile = useMediaQuery('(max-width: 639px)');      // sm breakpoint
   const isDesktopXl = useMediaQuery('(min-width: 1280px)');   // xl breakpoint
@@ -893,7 +976,48 @@ export default function BlogArticles({
     fetchTrendingArticles(validIds).then(setTrendingArticles).catch(() => {});
   }, [selectedArticle]);
 
-  // Inject BlogPosting JSON-LD when viewing a single article (E-E-A-T for AI systems)
+  // Reading progress bar — passive scroll listener for article view
+  useEffect(() => {
+    if (!selectedArticle || !bodyReady) {
+      setReadingProgress(0);
+      return;
+    }
+    const handleScroll = () => {
+      const el = articleRef.current;
+      if (!el) return;
+      const rect = el.getBoundingClientRect();
+      const windowH = window.innerHeight;
+      // 0% when top of article is at viewport top, 100% when bottom reaches viewport bottom
+      const total = rect.height - windowH;
+      if (total <= 0) { setReadingProgress(100); return; }
+      const scrolled = -rect.top;
+      setReadingProgress(Math.min(100, Math.max(0, (scrolled / total) * 100)));
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, [selectedArticle, bodyReady]);
+
+  // IntersectionObserver for TOC active heading tracking
+  useEffect(() => {
+    if (!selectedArticle || !bodyReady) return;
+    const el = articleRef.current;
+    if (!el) return;
+    const headingEls = el.querySelectorAll<HTMLElement>('h2[id], h3[id]');
+    if (headingEls.length < 3) return;
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            setActiveHeadingId(entry.target.id);
+          }
+        }
+      },
+      { rootMargin: '-80px 0px -60% 0px', threshold: 0 },
+    );
+    headingEls.forEach(h => observer.observe(h));
+    return () => observer.disconnect();
+  }, [selectedArticle, bodyReady]);
   useEffect(() => {
     if (!selectedArticle || articles.length === 0) return;
     const article = articles.find(a => a.id === selectedArticle);
@@ -910,7 +1034,7 @@ export default function BlogArticles({
       headline: title,
       description: excerpt.startsWith('blog.article.') ? title : excerpt,
       datePublished: `${article.date}T00:00:00+01:00`,
-      dateModified: `${article.date}T00:00:00+01:00`,
+      dateModified: `${(article.updatedAt || article.date).slice(0, 10)}T00:00:00+01:00`,
       author: {
         '@type': 'Person',
         name: 'Valerie Linc',
@@ -1200,6 +1324,30 @@ export default function BlogArticles({
     }
   };
 
+  const toggleBookmark = (articleId: BlogArticleId) => {
+    setSavedArticles(prev => {
+      const next = new Set(prev);
+      if (next.has(articleId)) next.delete(articleId);
+      else next.add(articleId);
+      try { localStorage.setItem('frontaliere_saved_articles', JSON.stringify([...next])); } catch { /* quota */ }
+      return next;
+    });
+  };
+
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const handleFeedback = (articleId: string, value: 'useful' | 'not-useful') => {
+    setArticleFeedback(prev => {
+      const next = { ...prev };
+      if (next[articleId] === value) delete next[articleId]; // toggle off
+      else next[articleId] = value;
+      try { localStorage.setItem('frontaliere_article_feedback', JSON.stringify(next)); } catch { /* quota */ }
+      return next;
+    });
+  };
+
   const formatDate = (dateStr: string): string => {
     const d = new Date(dateStr);
     return d.toLocaleDateString('it-IT', { day: 'numeric', month: 'long', year: 'numeric' });
@@ -1282,6 +1430,16 @@ export default function BlogArticles({
     const adEligible = bodyReady && presentSegments.length === 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
     const adEligibleInline = adEligible;
 
+    // TOC headings extracted from article body
+    const tocHeadings = extractHeadings(bodySegments);
+    const showToc = tocHeadings.length >= 3;
+
+    const handleTocClick = (headingId: string) => {
+      const el = document.getElementById(headingId);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      setTocOpen(false);
+    };
+
     /** Compact vertical card for desktop side rails */
     const SideRailCard: FC<{ partner: AffiliatePartner; idx: number }> = ({ partner, idx }) => {
       const handleAffClick = () => {
@@ -1314,6 +1472,17 @@ export default function BlogArticles({
 
     return (
       <div className="max-w-3xl xl:max-w-6xl mx-auto">
+        {/* Reading progress bar */}
+        <div
+          className="fixed top-0 left-0 z-50 h-[3px] bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-600 transition-[width] duration-150 ease-out"
+          style={{ width: `${readingProgress}%` }}
+          role="progressbar"
+          aria-valuenow={Math.round(readingProgress)}
+          aria-valuemin={0}
+          aria-valuemax={100}
+          aria-label={t('blog.toc.readingProgress')}
+        />
+
         {/* Back button — prominent */}
         <button
           onClick={handleBackToList}
@@ -1354,7 +1523,7 @@ export default function BlogArticles({
             </div>
           </aside>
 
-        <article className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-lg">
+        <article ref={articleRef} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 overflow-hidden shadow-lg">
           {/* Hero image */}
           <div className="relative overflow-hidden" style={{ aspectRatio: '2/1', contain: 'layout' }}>
             {(() => {
@@ -1411,6 +1580,12 @@ export default function BlogArticles({
               <Calendar size={14} />
               {formatDate(article.date)}
             </span>
+            {article.updatedAt && article.updatedAt !== article.date.slice(0, 10) && (
+              <span className="flex items-center gap-1 text-emerald-700 dark:text-emerald-400">
+                <RefreshCw size={12} />
+                {t('blog.updatedOn')} {formatDate(article.updatedAt)}
+              </span>
+            )}
             <span className="flex items-center gap-1">
               <Clock size={14} />
               {estimateReadingMinutes(article.id, t)} min
@@ -1490,6 +1665,29 @@ export default function BlogArticles({
                   <Share2 size={14} />
                 </button>
               )}
+              <span className="text-slate-300 dark:text-slate-600">|</span>
+              {/* Bookmark */}
+              <button
+                onClick={() => toggleBookmark(article.id)}
+                className={`inline-flex items-center justify-center w-7 h-7 rounded-lg transition-colors ${
+                  savedArticles.has(article.id)
+                    ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400'
+                    : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
+                }`}
+                aria-label={savedArticles.has(article.id) ? t('blog.bookmarkRemove') : t('blog.bookmarkAdd')}
+                title={savedArticles.has(article.id) ? t('blog.bookmarkRemove') : t('blog.bookmarkAdd')}
+              >
+                <BookmarkIcon size={14} fill={savedArticles.has(article.id) ? 'currentColor' : 'none'} />
+              </button>
+              {/* Print */}
+              <button
+                onClick={handlePrint}
+                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors print:hidden"
+                aria-label={t('blog.print')}
+                title={t('blog.print')}
+              >
+                <Printer size={14} />
+              </button>
             </div>
           </div>
 
@@ -1509,6 +1707,39 @@ export default function BlogArticles({
             <p className="text-lg text-slate-600 dark:text-slate-500 italic border-l-4 border-indigo-500 pl-4">
               {t(`blog.article.${article.id}.excerpt`)}
             </p>
+
+            {/* Mobile TOC — collapsible (hidden on xl where it shows in right rail) */}
+            {showToc && (
+              <div className="xl:hidden rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50/80 dark:bg-slate-900/50 overflow-hidden">
+                <button
+                  onClick={() => setTocOpen(prev => !prev)}
+                  className="w-full flex items-center justify-between px-4 py-3 text-sm font-semibold text-slate-700 dark:text-slate-200"
+                  aria-expanded={tocOpen}
+                  aria-controls="mobile-toc"
+                >
+                  <span className="flex items-center gap-2">
+                    <List size={16} className="text-indigo-500" />
+                    {t('blog.toc.title')} ({tocHeadings.length} {t('blog.toc.sections')})
+                  </span>
+                  <ChevronDown size={16} className={`text-slate-500 transition-transform duration-200 ${tocOpen ? 'rotate-180' : ''}`} />
+                </button>
+                {tocOpen && (
+                  <nav id="mobile-toc" className="px-4 pb-3 space-y-0.5" aria-label={t('blog.toc.title')}>
+                    {tocHeadings.map(h => (
+                      <button
+                        key={h.id}
+                        onClick={() => handleTocClick(h.id)}
+                        className={`block w-full text-left text-sm py-1.5 transition-colors rounded-md px-2 ${
+                          h.level === 3 ? 'pl-5 text-slate-500 dark:text-slate-400' : 'text-slate-600 dark:text-slate-300 font-medium'
+                        } hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20`}
+                      >
+                        {h.text}
+                      </button>
+                    ))}
+                  </nav>
+                )}
+              </div>
+            )}
 
             <div className="space-y-4">
               {renderFormattedContent(articleBody1, navigators)}
@@ -1624,6 +1855,38 @@ export default function BlogArticles({
                 })}
               </div>
             )}
+
+            {/* Article feedback — utile / non utile */}
+            <div className="mt-8 flex flex-col items-center gap-2 py-4 border-t border-slate-200 dark:border-slate-700">
+              <p className="text-sm font-medium text-slate-700 dark:text-slate-300">{t('blog.feedback.question')}</p>
+              <div className="flex items-center gap-3">
+                <button
+                  onClick={() => handleFeedback(article.id, 'useful')}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    articleFeedback[article.id] === 'useful'
+                      ? 'bg-emerald-100 dark:bg-emerald-900/40 text-emerald-700 dark:text-emerald-400 ring-1 ring-emerald-300 dark:ring-emerald-700'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-emerald-50 dark:hover:bg-emerald-900/20'
+                  }`}
+                  aria-label={t('blog.feedback.useful')}
+                >
+                  <ThumbsUp size={16} /> {t('blog.feedback.useful')}
+                </button>
+                <button
+                  onClick={() => handleFeedback(article.id, 'not-useful')}
+                  className={`inline-flex items-center gap-1.5 px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                    articleFeedback[article.id] === 'not-useful'
+                      ? 'bg-red-100 dark:bg-red-900/40 text-red-700 dark:text-red-400 ring-1 ring-red-300 dark:ring-red-700'
+                      : 'bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 hover:bg-red-50 dark:hover:bg-red-900/20'
+                  }`}
+                  aria-label={t('blog.feedback.notUseful')}
+                >
+                  <ThumbsDown size={16} /> {t('blog.feedback.notUseful')}
+                </button>
+              </div>
+              {articleFeedback[article.id] && (
+                <p className="text-xs text-slate-500 dark:text-slate-500 mt-1">{t('blog.feedback.thanks')}</p>
+              )}
+            </div>
 
             {/* Author bio for E-E-A-T */}
             <div className="mt-8 p-4 bg-slate-50 dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-700">
@@ -1831,6 +2094,34 @@ export default function BlogArticles({
           {/* ── Right Rail (desktop only) ── */}
           <aside className="hidden xl:block">
             <div className="sticky top-6 space-y-3">
+              {/* Desktop TOC */}
+              {showToc && (
+                <nav className="max-h-[calc(100vh-8rem)] overflow-y-auto pb-3 mb-1" aria-label={t('blog.toc.title')}>
+                  <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider mb-2 flex items-center gap-1.5">
+                    <List size={12} />
+                    {t('blog.toc.title')}
+                  </p>
+                  <ul className="space-y-0.5">
+                    {tocHeadings.map(h => (
+                      <li key={h.id}>
+                        <button
+                          onClick={() => handleTocClick(h.id)}
+                          className={`block w-full text-left text-[13px] leading-snug py-1 transition-colors rounded-sm ${
+                            h.level === 3 ? 'pl-3' : ''
+                          } ${
+                            activeHeadingId === h.id
+                              ? 'text-indigo-600 dark:text-indigo-400 font-medium border-l-2 border-indigo-500 pl-2'
+                              : `text-slate-600 dark:text-slate-400 hover:text-indigo-600 dark:hover:text-indigo-400 ${h.level === 3 ? 'font-normal' : 'font-medium'}`
+                          }`}
+                        >
+                          {h.text}
+                        </button>
+                      </li>
+                    ))}
+                  </ul>
+                </nav>
+              )}
+
               <p className="text-xs font-medium text-slate-500 dark:text-slate-500 uppercase tracking-wider">
                 {t('blog.resourcesTitle')}
               </p>
