@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense, type FC, type ReactNode, type ReactElement } from 'react';
+import { useState, useEffect, useRef, useMemo, useCallback, lazy, Suspense, memo, Fragment, type FC, type ReactNode, type ReactElement } from 'react';
 import { useTranslation, useLocale, loadBlogMeta, loadArticleBody } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
 import { buildPath } from '@/services/router';
@@ -921,7 +921,7 @@ const SEO_CLUSTER_ACTIONS: Record<SeoCluster, NavAction[]> = {
   generic: ['calculator', 'exchange', 'pension', 'job-board'],
 };
 
-export default function BlogArticles({
+function BlogArticles({
   selectedArticle = null,
   onSelectArticle,
 }: BlogArticlesProps) {
@@ -1821,7 +1821,7 @@ export default function BlogArticles({
 
             <div className="space-y-4">
               {bodySegments.map((segment, idx) => (
-                <React.Fragment key={idx}>
+                <Fragment key={idx}>
                   {/* Interstitials after body1 (index 0) */}
                   {idx === 1 && (
                     <>
@@ -1912,7 +1912,7 @@ export default function BlogArticles({
                   )}
 
                   {renderFormattedContent(segment, navigators)}
-                </React.Fragment>
+                </Fragment>
               ))}
             </div>
 
@@ -2606,3 +2606,5 @@ export default function BlogArticles({
     </div>
   );
 }
+
+export default memo(BlogArticles);

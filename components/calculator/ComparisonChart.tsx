@@ -95,7 +95,7 @@ const KpiCard = ({ title, value, subtext, icon: Icon, colorClass }: any) => (
   </div>
 );
 
-export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, isFocusMode }) => {
+const ComparisonChartBase: React.FC<Props> = ({ result, inputs, isDarkMode, isFocusMode }) => {
   const { t } = useTranslation();
   const [activeTab, setActiveTab] = useState<'overview' | 'breakdown' | 'projection' | 'breakeven'>('overview');
   const [analysisMode, setAnalysisMode] = useState<'NET' | 'TAX'>('NET');
@@ -252,7 +252,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
               <button
                 key={tab.id}
                 onClick={() => handleTabChange(tab.id as any)}
-                className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wide transition-all ${
+                className={`flex flex-col sm:flex-row items-center justify-center gap-1.5 py-3 px-1 rounded-xl text-[9px] sm:text-xs font-bold uppercase tracking-wide transition-[color,background-color,border-color,box-shadow,transform] ${
                   activeTab === tab.id 
                   ? 'bg-white dark:bg-slate-800 text-indigo-600 dark:text-indigo-400 shadow-sm scale-[0.98]' 
                   : 'text-slate-500 dark:text-slate-400 hover:text-slate-600 dark:hover:text-slate-300'
@@ -287,13 +287,13 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
                        <div className="flex bg-slate-100 dark:bg-slate-900 p-1 rounded-lg">
                           <button 
                             onClick={() => setAnalysisMode('NET')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'NET' ? 'bg-white dark:bg-slate-700 text-emerald-700 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
                           >
                             {t('chart.net')}
                           </button>
                           <button 
                             onClick={() => setAnalysisMode('TAX')}
-                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-all ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
+                            className={`px-3 py-1.5 rounded-md text-xs font-bold uppercase transition-[color,background-color,border-color,box-shadow] ${analysisMode === 'TAX' ? 'bg-white dark:bg-slate-700 text-red-500 shadow-sm' : 'text-slate-500 dark:text-slate-400 hover:text-slate-600'}`}
                           >
                             {t('chart.taxes_charges')}
                           </button>
@@ -391,3 +391,5 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
     </div>
   );
 };
+
+export const ComparisonChart = React.memo(ComparisonChartBase);

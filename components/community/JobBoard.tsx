@@ -6008,7 +6008,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {/* Hero search bar */}
         <div className="relative group">
           <div className="absolute inset-0 bg-gradient-to-r from-indigo-500/20 via-blue-500/20 to-violet-500/20 rounded-2xl blur-xl opacity-0 group-focus-within:opacity-100 transition-opacity duration-300" />
-          <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 group-focus-within:border-indigo-500 dark:group-focus-within:border-indigo-400 shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-indigo-500/10 transition-all duration-200">
+          <div className="relative flex items-center bg-white dark:bg-slate-800 rounded-2xl border-2 border-slate-200 dark:border-slate-700 group-focus-within:border-indigo-500 dark:group-focus-within:border-indigo-400 shadow-sm group-focus-within:shadow-lg group-focus-within:shadow-indigo-500/10 transition-[color,background-color,border-color,box-shadow] duration-200">
             <Search className="ml-4 w-5 h-5 text-slate-500 dark:text-slate-400 group-focus-within:text-indigo-500 dark:group-focus-within:text-indigo-400 transition-colors shrink-0" />
             <input
               ref={searchInputRef}
@@ -6069,7 +6069,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
               key={chip.id}
               type="button"
               onClick={chip.action}
-              className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-all ${
+              className={`px-3 py-1.5 text-xs font-medium rounded-full border transition-[color,background-color,border-color,box-shadow] ${
                 chip.active
                   ? 'bg-indigo-600 border-indigo-600 text-white shadow-sm shadow-indigo-600/20'
                   : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:border-indigo-300 dark:hover:border-indigo-600'
@@ -6097,7 +6097,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <button
             type="button"
             onClick={() => setFiltersExpanded(!filtersExpanded)}
-            className={`inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-xl border transition-all ${
+            className={`inline-flex items-center gap-2 px-3.5 py-2 text-sm font-medium rounded-xl border transition-colors ${
               filtersExpanded || activeFilterCount > 0
                 ? 'bg-indigo-50 dark:bg-indigo-950/30 border-indigo-300 dark:border-indigo-700 text-indigo-700 dark:text-indigo-300'
                 : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
@@ -6118,7 +6118,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <button
             type="button"
             onClick={() => setShowNewOnly(!showNewOnly)}
-            className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl border transition-all ${
+            className={`inline-flex items-center gap-1.5 px-3 py-2 text-sm font-medium rounded-xl border transition-[color,background-color,border-color,box-shadow] ${
               showNewOnly
                 ? 'bg-emerald-600 border-emerald-600 text-white hover:bg-emerald-700 shadow-sm shadow-emerald-600/20'
                 : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700'
@@ -6368,4 +6368,4 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
 };
 
-export default JobBoard;
+export default React.memo(JobBoard);

@@ -2543,7 +2543,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       {/* Welcome banner — shown once, auto-dismisses after 15s */}
       {showBanner && bannerQueueActive && (
         <div
-          className={`fixed bottom-20 md:bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[55] transition-colors duration-500 ${
+          className={`fixed bottom-20 md:bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[55] transition-[opacity,transform] duration-500 ${
             bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >

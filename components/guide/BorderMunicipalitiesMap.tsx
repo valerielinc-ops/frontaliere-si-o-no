@@ -786,4 +786,4 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
   );
 };
 
-export default BorderMunicipalitiesMap;
+export default React.memo(BorderMunicipalitiesMap);

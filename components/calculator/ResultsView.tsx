@@ -170,7 +170,7 @@ const BreakdownTable: React.FC<{ data: TaxBreakdownItem[]; currency: string; sho
   );
 };
 
-export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null, onProfileTagClick }) => {
+const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, onProfileTagClick }) => {
   const { t } = useTranslation();
   const nav = useNavigationOptional();
   const isDarkMode = nav?.isDarkMode;
@@ -767,3 +767,5 @@ export const ResultsView: React.FC<Props> = ({ result, inputs, focusArea = null,
     </div>
   );
 };
+
+export const ResultsView = React.memo(ResultsViewBase);

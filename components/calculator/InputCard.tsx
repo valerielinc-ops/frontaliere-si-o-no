@@ -911,3 +911,5 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
     </div>
   );
 };
+
+export const InputCard = React.memo(InputCardBase);
