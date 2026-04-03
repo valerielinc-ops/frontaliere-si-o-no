@@ -1,18 +1,19 @@
 {
   "key": "agie-charmilles",
   "label": "AGIE Charmilles",
-  "generatedAt": "2026-04-03T08:46:11.092Z",
+  "generatedAt": "2026-04-03T20:40:09.956Z",
   "total": 2,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3573,
-  "avgDurationMs": 3573,
+  "durationMs": 3629,
+  "avgDurationMs": 3629,
   "durationHistory": [
-    3573
+    3629
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "SAP ABAP / Fiori Developer",
       "slug": "sap-abap-fiori-developer-agie-charmilles-biel-bienne",
@@ -36,12 +37,18 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 74,
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 24,
-        "translation": 16,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 25
       }
     },
     {
@@ -67,16 +74,21 @@
       "contractType": "full-time",
       "validThrough": "",
       "workload": "100%",
-      "_qualityScore": 72,
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "streetAddress": "Via Goldau 7",
+      "postalCode": "6616",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 21,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }
