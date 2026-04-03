@@ -35,6 +35,14 @@ COMMIT_MSG="${1:?Usage: git-commit-data.sh [--slice-only] 'commit message' [extr
 shift
 EXTRA_PATHS=("$@")
 
+# ── Append GitHub Actions run URL to commit message for traceability ─────────
+if [ -n "${GITHUB_RUN_ID:-}" ] && [ -n "${GITHUB_REPOSITORY:-}" ]; then
+  RUN_URL="${GITHUB_SERVER_URL:-https://github.com}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}"
+  COMMIT_MSG="${COMMIT_MSG}
+
+Run: ${RUN_URL}"
+fi
+
 # ── Standard data files committed by every crawler ──────────────────────────
 if [ "$SLICE_ONLY" = true ]; then
   # Slice-only mode: only commit per-crawler slice files + ai-cache.
