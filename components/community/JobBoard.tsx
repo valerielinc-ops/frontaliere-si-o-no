@@ -2796,7 +2796,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     for (const job of jobs) {
       if (job.slug) slugIndex.set(job.slug, job);
       if (job.slugByLocale) {
-        for (const s of Object.values(job.slugByLocale)) {
+        for (const s of Object.values(job.slugByLocale) as (string | undefined)[]) {
           if (s) slugIndex.set(s, job);
         }
       }
