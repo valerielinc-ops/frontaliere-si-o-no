@@ -21,7 +21,7 @@
  *   LINEAR_API_KEY — for issue creation (optional)
  */
 
-import { readFileSync, existsSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, existsSync, writeFileSync, mkdirSync, appendFileSync } from 'node:fs';
 import { createSign } from 'node:crypto';
 import { join, dirname } from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -34,6 +34,11 @@ const MAX_INSPECT = 30;
 const FETCH_TIMEOUT_MS = 20_000;
 const DRY_RUN = process.argv.includes('--dry-run');
 const HISTORY_FILE = join(__dirname, '..', 'data', 'gsc-monitor-history.json');
+
+// Closed-loop thresholds
+const ALERT_EMAIL = 'valerielinc@gmail.com';
+const FAIL_RATE_THRESHOLD = 0.05; // 5% fail rate triggers alert
+const PERSISTENCE_WEEKS = 2; // failures persisting 2+ weeks → escalation
 
 // ── Helpers ─────────────────────────────────────────────────
 function sleep(ms) { return new Promise(r => setTimeout(r, ms)); }
@@ -220,6 +225,214 @@ function saveHistory(history) {
   }
 }
 
+// ── Persistence Detection ───────────────────────────────────
+function detectPersistentFailures(history, currentFailedUrls) {
+  if (history.runs.length < 2) return [];
+  const persistent = [];
+
+  for (const url of currentFailedUrls) {
+    const urlPath = new URL(url).pathname;
+    let consecutiveWeeks = 0;
+
+    // Check from most recent backward
+    for (let i = history.runs.length - 1; i >= 0; i--) {
+      const run = history.runs[i];
+      if (run.failedUrls?.some(u => u.includes(urlPath))) {
+        consecutiveWeeks++;
+      } else {
+        break;
+      }
+    }
+
+    if (consecutiveWeeks >= PERSISTENCE_WEEKS) {
+      persistent.push({ url, urlPath, weeks: consecutiveWeeks });
+    }
+  }
+
+  return persistent;
+}
+
+// ── Email Alert via Resend ──────────────────────────────────
+async function sendEmailAlert({ results, failedPages, persistentFailures, sample }) {
+  const resendKey = process.env.RESEND_API_KEY;
+  if (!resendKey) {
+    log('ℹ️', 'RESEND_API_KEY not set — skipping email alert');
+    return;
+  }
+
+  const failRate = sample.length > 0 ? results.FAIL / sample.length : 0;
+  const hasPersistent = persistentFailures.length > 0;
+
+  // Only send if fail rate exceeds threshold or there are persistent failures
+  if (failRate < FAIL_RATE_THRESHOLD && !hasPersistent) {
+    log('ℹ️', `Fail rate ${(failRate * 100).toFixed(1)}% < ${FAIL_RATE_THRESHOLD * 100}% — no email alert`);
+    return;
+  }
+
+  const date = new Date().toISOString().split('T')[0];
+  const subject = hasPersistent
+    ? `🚨 PERSISTENT SEO Issues — ${persistentFailures.length} page(s) failing ${PERSISTENCE_WEEKS}+ weeks`
+    : `⚠️ SEO Monitor Alert — ${results.FAIL} failure(s) detected (${date})`;
+
+  const html = [
+    '<div style="font-family: -apple-system, sans-serif; max-width: 600px; margin: 0 auto;">',
+    '<h2 style="color: #dc2626;">GSC Job Indexation Monitor</h2>',
+    `<p><strong>Date:</strong> ${date}</p>`,
+    '<table style="border-collapse: collapse; width: 100%;">',
+    '<tr><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">✅ PASS</td><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">' + results.PASS + '</td></tr>',
+    '<tr><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">⚠️ WARN</td><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">' + results.WARN + '</td></tr>',
+    '<tr style="background: #fef2f2;"><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">❌ FAIL</td><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">' + results.FAIL + '</td></tr>',
+    '<tr><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">🕒 STALE</td><td style="padding: 4px 12px; border: 1px solid #e2e8f0;">' + results.STALE + '</td></tr>',
+    '</table>',
+  ];
+
+  if (failedPages.length > 0) {
+    html.push('<h3>Failed Pages</h3>', '<ul>');
+    for (const p of failedPages.slice(0, 10)) {
+      const path = new URL(p.url).pathname;
+      html.push(`<li><code>${path}</code> — canonical: <code>${p.googleCanonical || 'unknown'}</code></li>`);
+    }
+    html.push('</ul>');
+  }
+
+  if (hasPersistent) {
+    html.push(
+      '<h3 style="color: #dc2626;">⚠️ Persistent Failures (failing ' + PERSISTENCE_WEEKS + '+ weeks)</h3>',
+      '<ul>'
+    );
+    for (const p of persistentFailures) {
+      html.push(`<li><code>${p.urlPath}</code> — ${p.weeks} consecutive weeks</li>`);
+    }
+    html.push('</ul>');
+  }
+
+  html.push(
+    '<hr style="border: none; border-top: 1px solid #e2e8f0; margin: 16px 0;">',
+    '<p style="color: #64748b; font-size: 12px;">Sent by Frontaliere Ticino SEO Monitor • <a href="https://github.com/saggesel/frontaliere-si-o-no/actions">View Actions</a></p>',
+    '</div>'
+  );
+
+  try {
+    const res = await fetchWithTimeout('https://api.resend.com/emails', {
+      method: 'POST',
+      headers: {
+        Authorization: `Bearer ${resendKey}`,
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        from: 'Frontaliere Ticino <alerts@frontaliereticino.ch>',
+        to: [ALERT_EMAIL],
+        subject,
+        html: html.join('\n'),
+      }),
+    });
+    if (res.ok) {
+      log('📧', `Email alert sent to ${ALERT_EMAIL}`);
+    } else {
+      const body = await res.text().catch(() => '');
+      log('⚠️', `Email send failed (${res.status}): ${body.slice(0, 100)}`);
+    }
+  } catch (err) {
+    log('⚠️', `Email alert error: ${err.message}`);
+  }
+}
+
+// ── Auto-Redeploy Trigger ───────────────────────────────────
+async function triggerRedeploy(failedPages) {
+  // Only trigger for canonical regressions (fixable by redeploy)
+  const canonicalFails = failedPages.filter(p =>
+    p.googleCanonical?.endsWith(LISTING_PATH) || p.canonical?.endsWith(LISTING_PATH)
+  );
+  if (canonicalFails.length === 0) return;
+
+  const pat = process.env.GITHUB_PAT || process.env.GH_TOKEN;
+  if (!pat) {
+    log('ℹ️', 'No GITHUB_PAT — cannot trigger auto-redeploy, falling back to IndexNow');
+    await submitToIndexNow(canonicalFails.map(p => p.url));
+    return;
+  }
+
+  log('🔄', `Triggering re-deploy for ${canonicalFails.length} canonical regression(s)`);
+  try {
+    const res = await fetchWithTimeout(
+      'https://api.github.com/repos/saggesel/frontaliere-si-o-no/actions/workflows/deploy.yml/dispatches',
+      {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${pat}`,
+          Accept: 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28',
+        },
+        body: JSON.stringify({ ref: 'main' }),
+      }
+    );
+    if (res.ok || res.status === 204) {
+      log('🚀', 'Re-deploy triggered successfully');
+    } else {
+      log('⚠️', `Re-deploy trigger failed (${res.status}) — submitting to IndexNow instead`);
+      await submitToIndexNow(canonicalFails.map(p => p.url));
+    }
+  } catch (err) {
+    log('⚠️', `Re-deploy trigger error: ${err.message}`);
+    await submitToIndexNow(canonicalFails.map(p => p.url));
+  }
+}
+
+// ── Step Summary ────────────────────────────────────────────
+function writeStepSummary({ results, sample, failedPages, warnPages, persistentFailures, history }) {
+  if (!process.env.GITHUB_STEP_SUMMARY) return;
+
+  const lines = [
+    '## 📊 Layer 3: GSC Job Indexation Monitor',
+    '',
+    `| Metric | Count |`,
+    `|--------|-------|`,
+    `| ✅ PASS | ${results.PASS} |`,
+    `| ⚠️ WARN | ${results.WARN} |`,
+    `| ❌ FAIL | ${results.FAIL} |`,
+    `| 🕒 STALE | ${results.STALE} |`,
+    `| ❓ UNKNOWN | ${results.UNKNOWN} |`,
+    '',
+    `**Inspected**: ${sample.length} pages (from ${MAX_ANALYTICS_PAGES} with impressions)`,
+    '',
+  ];
+
+  if (failedPages.length > 0) {
+    lines.push('### ❌ Failed Pages', '');
+    for (const p of failedPages) {
+      lines.push(`- \`${new URL(p.url).pathname}\` — canonical: \`${p.googleCanonical || 'unknown'}\``);
+    }
+    lines.push('');
+  }
+
+  if (persistentFailures?.length > 0) {
+    lines.push(`### 🚨 Persistent Failures (${PERSISTENCE_WEEKS}+ weeks)`, '');
+    for (const p of persistentFailures) {
+      lines.push(`- \`${p.urlPath}\` — ${p.weeks} consecutive weeks`);
+    }
+    lines.push('');
+  }
+
+  if (history.runs.length > 1) {
+    lines.push('### 📈 Trend', '', '| Date | PASS | FAIL | WARN | STALE |', '|------|------|------|------|-------|');
+    for (const run of history.runs.slice(-6)) {
+      lines.push(`| ${run.date} | ${run.PASS} | ${run.FAIL} | ${run.WARN} | ${run.STALE} |`);
+    }
+    lines.push('');
+  }
+
+  const failRate = sample.length > 0 ? results.FAIL / sample.length : 0;
+  if (results.FAIL > 0) {
+    lines.push(`> ⚠️ **Fail rate: ${(failRate * 100).toFixed(1)}%** — ${persistentFailures?.length > 0 ? 'PERSISTENT issues detected, escalated' : 'Linear issue created'}`);
+  } else {
+    lines.push('> ✅ All monitored job pages healthy');
+  }
+
+  try {
+    appendFileSync(process.env.GITHUB_STEP_SUMMARY, lines.join('\n') + '\n');
+  } catch { /* ignore */ }
+}
+
 // ── Main ────────────────────────────────────────────────────
 async function main() {
   log('📊', 'Layer 3: Weekly GSC Job Indexation Monitor\n');
@@ -308,14 +521,26 @@ async function main() {
   console.log(`  ❓ UNKNOWN: ${results.UNKNOWN}`);
   console.log(`${'═'.repeat(60)}\n`);
 
-  // Save history for trend tracking
+  // Save history for trend tracking (with failed URLs for persistence detection)
   const history = loadHistory();
+  const currentFailedUrls = failedPages.map(p => p.url);
   history.runs.push({
     date: new Date().toISOString().split('T')[0],
     inspected: sample.length,
     ...results,
+    failedUrls: currentFailedUrls,
   });
   if (!DRY_RUN) saveHistory(history);
+
+  // Detect persistent failures
+  const persistentFailures = detectPersistentFailures(history, currentFailedUrls);
+  if (persistentFailures.length > 0) {
+    log('🚨', `${persistentFailures.length} PERSISTENT failure(s) (${PERSISTENCE_WEEKS}+ weeks):`);
+    for (const p of persistentFailures) {
+      log('  ', `  ${p.urlPath} — ${p.weeks} consecutive weeks`);
+    }
+    console.log();
+  }
 
   // Print trend
   if (history.runs.length > 1) {
@@ -326,10 +551,23 @@ async function main() {
     console.log();
   }
 
+  // Write GitHub Step Summary
+  writeStepSummary({ results, sample, failedPages, warnPages, persistentFailures, history });
+
   // Act on failures
   if (failedPages.length > 0 && !DRY_RUN) {
-    log('🚨', `${failedPages.length} FAIL(s) detected — creating Linear issue`);
-    await createLinearIssue(failedPages, results);
+    const priority = persistentFailures.length > 0 ? 1 : 2;
+    const titlePrefix = persistentFailures.length > 0 ? '(PERSISTENT) ' : '';
+    log('🚨', `${failedPages.length} FAIL(s) detected — creating Linear issue (P${priority})`);
+    await createLinearIssue(failedPages, results, priority, titlePrefix);
+
+    // Auto-redeploy for canonical regressions
+    await triggerRedeploy(failedPages);
+
+    // Send email alert
+    await sendEmailAlert({ results, failedPages, persistentFailures, sample });
+  } else if (failedPages.length > 0 && DRY_RUN) {
+    log('ℹ️', 'DRY RUN — would create Linear issue + send email + trigger redeploy');
   }
 
   // Re-submit stale pages via IndexNow
@@ -340,7 +578,7 @@ async function main() {
 }
 
 // ── Linear Issue ────────────────────────────────────────────
-async function createLinearIssue(failedPages, results) {
+async function createLinearIssue(failedPages, results, priority = 1, titlePrefix = '') {
   const apiKey = process.env.LINEAR_API_KEY;
   if (!apiKey) {
     log('ℹ️', 'LINEAR_API_KEY not set — skipping');
@@ -369,9 +607,9 @@ async function createLinearIssue(failedPages, results) {
   try {
     const { createLinearIssue: create } = await import('./lib/linear-issue-creator.mjs');
     await create({
-      title: `[Monitor] ${failedPages.length} job page(s) with indexation issues`,
+      title: `[Monitor] ${titlePrefix}${failedPages.length} job page(s) with indexation issues`,
       description,
-      priority: 1,
+      priority,
       labels: ['Bug'],
       project: 'SEO',
     });

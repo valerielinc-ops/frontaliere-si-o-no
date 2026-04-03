@@ -331,6 +331,27 @@ async function main() {
   console.log(`  ❌ Errors:   ${errors}`);
   console.log(`${'═'.repeat(60)}\n`);
 
+  // Write GitHub Actions Step Summary
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const summaryLines = [
+      '## 🔍 Layer 1: SPA Render Validation',
+      '',
+      `| Metric | Count |`,
+      `|--------|-------|`,
+      `| ✅ Passed | ${passed} |`,
+      `| ⚠️ Warnings | ${warnings} |`,
+      `| ❌ Errors | ${errors} |`,
+      '',
+      `**Pages discovered**: ${pages.active.length} active, ${pages.expired.length} expired, ${pages.bridge.length} bridge, ${pages.company.length} company, ${pages.search.length} search`,
+      `**Pages tested**: ${tests.length}`,
+      '',
+      errors > 0 ? '> ❌ **BLOCKING** — critical SPA render issues found' : '> ✅ All SPA render checks passed',
+    ];
+    try {
+      appendFileSync(process.env.GITHUB_STEP_SUMMARY, summaryLines.join('\n') + '\n');
+    } catch { /* ignore in non-CI env */ }
+  }
+
   if (errors > 0) {
     console.error(`❌ BLOCKING: ${errors} critical SPA render issue(s) found. Fix before deploying.`);
     process.exit(1);

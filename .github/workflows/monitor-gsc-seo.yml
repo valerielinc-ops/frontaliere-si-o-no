@@ -46,6 +46,8 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Run GSC Job Indexation Monitor
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
         run: node scripts/monitor-gsc-job-indexation.mjs
 
       - name: Cleanup credentials

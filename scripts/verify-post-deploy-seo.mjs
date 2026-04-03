@@ -23,7 +23,7 @@
  *   LINEAR_API_KEY — for issue creation (optional)
  */
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, existsSync, appendFileSync } from 'node:fs';
 import { createSign } from 'node:crypto';
 
 const SITE_URL = 'https://frontaliereticino.ch';
@@ -271,6 +271,34 @@ async function main() {
 
   // Summary
   log('\n📋', `Results: ${passCount} passed, ${issues.length} issues, ${staleCount} stale/pending`);
+
+  // Write GitHub Actions Step Summary
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    const summaryLines = [
+      '## 🔍 Layer 2: Post-Deploy SEO Verification',
+      '',
+      `| Metric | Count |`,
+      `|--------|-------|`,
+      `| ✅ Passed | ${passCount} |`,
+      `| ❌ Issues | ${issues.length} |`,
+      `| 🕒 Stale | ${staleCount} |`,
+      '',
+      `**Inspected**: ${topPages.length} top job pages (by impressions)`,
+      '',
+    ];
+    if (issues.length > 0) {
+      summaryLines.push('### Issues Found', '');
+      for (const i of issues) {
+        summaryLines.push(`- **${i.issue}**: \`${new URL(i.url).pathname}\` (crawled: ${i.crawlTime || 'unknown'})`);
+      }
+      summaryLines.push('', '> ⚠️ SEO regressions detected — Linear issue created');
+    } else {
+      summaryLines.push('> ✅ No SEO regressions detected');
+    }
+    try {
+      appendFileSync(process.env.GITHUB_STEP_SUMMARY, summaryLines.join('\n') + '\n');
+    } catch { /* ignore */ }
+  }
 
   if (issues.length === 0) {
     log('✅', 'Post-deploy SEO verification passed — no regressions detected');
