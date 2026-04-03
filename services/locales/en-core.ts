@@ -628,6 +628,9 @@ const enCore: Record<string, string> = {
     'jobBoard.pricing.featured': 'Featured/month',
     'jobBoard.pricing.premium': 'Premium/month',
     'jobBoard.footerLink': 'Jobs Ticino',
+    'jobBoard.loadMore': 'Load more',
+    'jobBoard.moreJobs': 'jobs',
+    'jobBoard.showingNJobs': 'Showing {count} of {total} jobs',
 
     // Job Alerts (FRO-332)
     'jobAlert.trigger': 'Notify me about new jobs',

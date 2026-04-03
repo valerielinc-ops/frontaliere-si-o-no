@@ -667,6 +667,9 @@ const translations: Record<string, string> = {
     'jobBoard.pricing.featured': 'In evidenza/mese',
     'jobBoard.pricing.premium': 'Premium/mese',
     'jobBoard.footerLink': 'Lavoro Ticino',
+    'jobBoard.loadMore': 'Carica altri',
+    'jobBoard.moreJobs': 'offerte',
+    'jobBoard.showingNJobs': 'Mostrando {count} di {total} offerte',
 
     // Job Alerts (FRO-332)
     'jobAlert.trigger': 'Avvisami per nuovi lavori',

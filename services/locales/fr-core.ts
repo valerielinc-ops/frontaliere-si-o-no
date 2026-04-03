@@ -628,6 +628,9 @@ const frCore: Record<string, string> = {
     'jobBoard.pricing.featured': 'En vedette/mois',
     'jobBoard.pricing.premium': 'Premium/mois',
     'jobBoard.footerLink': 'Emplois Tessin',
+    'jobBoard.loadMore': 'Charger plus',
+    'jobBoard.moreJobs': 'offres',
+    'jobBoard.showingNJobs': 'Affichage de {count} sur {total} offres',
 
     // Job Alerts (FRO-332)
     'jobAlert.trigger': 'Me notifier des nouvelles offres',

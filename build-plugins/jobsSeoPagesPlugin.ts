@@ -2952,6 +2952,146 @@ ${alternates}
 
       }
 
+      /* ── Static paginated listing pages (/cerca-lavoro-ticino/pagina-N/) ── */
+      const paginationSlugs: Record<'it' | 'en' | 'de' | 'fr', string> = { it: 'pagina', en: 'page', de: 'seite', fr: 'page' };
+      const JOBS_PER_LISTING_PAGE = 20;
+      const MAX_LISTING_PAGES = 25;
+      const sortedForPagination = [...validJobs].sort((a: any, b: any) => {
+        const da = new Date(b.crawledAt || b.datePosted || 0).getTime();
+        const db = new Date(a.crawledAt || a.datePosted || 0).getTime();
+        if (da !== db) return da - db;
+        return (b.qualityScore ?? 0) - (a.qualityScore ?? 0);
+      });
+      const totalListingPages = Math.min(MAX_LISTING_PAGES, Math.ceil(sortedForPagination.length / JOBS_PER_LISTING_PAGE));
+      let paginationPageCount = 0;
+      const paginationSitemapEntries: string[] = [];
+      const pagCopy: Record<'it' | 'en' | 'de' | 'fr', { title: (n: number) => string; desc: (n: number, from: number, to: number) => string; heading: (n: number) => string }> = {
+        it: { title: (n) => `Lavoro in Ticino - Pagina ${n} | Frontaliere Ticino`, desc: (n, f, t) => `Pagina ${n}: annunci di lavoro dal ${f} al ${t} in Ticino. Offerte aggiornate quotidianamente.`, heading: (n) => `Offerte di lavoro in Ticino \u2014 Pagina ${n}` },
+        en: { title: (n) => `Jobs in Ticino - Page ${n} | Frontaliere Ticino`, desc: (n, f, t) => `Page ${n}: job listings ${f}\u2013${t} in Ticino. Updated daily from Swiss career portals.`, heading: (n) => `Job openings in Ticino \u2014 Page ${n}` },
+        de: { title: (n) => `Stellen im Tessin - Seite ${n} | Frontaliere Ticino`, desc: (n, f, t) => `Seite ${n}: Stellenangebote ${f}\u2013${t} im Tessin. T\u00e4glich aktualisiert.`, heading: (n) => `Stellenangebote im Tessin \u2014 Seite ${n}` },
+        fr: { title: (n) => `Emploi au Tessin - Page ${n} | Frontaliere Ticino`, desc: (n, f, t) => `Page ${n}: offres d'emploi ${f}\u2013${t} au Tessin. Mises \u00e0 jour quotidiennement.`, heading: (n) => `Offres d'emploi au Tessin \u2014 Page ${n}` },
+      };
+      for (let pageNum = 2; pageNum <= totalListingPages; pageNum++) {
+        const startIdx = (pageNum - 1) * JOBS_PER_LISTING_PAGE;
+        const pgJobs = sortedForPagination.slice(startIdx, startIdx + JOBS_PER_LISTING_PAGE);
+        if (pgJobs.length === 0) break;
+        for (const locale of localeList) {
+          const pgSlug = `${paginationSlugs[locale]}-${pageNum}`;
+          const pgCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${pgSlug}`.replace(/\/+/g, '/'));
+          const pgCanonicalUrl = `${BASE_URL}${pgCanonicalPath}`;
+          const pgCopy = pagCopy[locale];
+          const pgFrom = startIdx + 1;
+          const pgTo = Math.min(startIdx + JOBS_PER_LISTING_PAGE, sortedForPagination.length);
+          const pgTitle = pgCopy.title(pageNum);
+          const pgDesc = pgCopy.desc(pageNum, pgFrom, pgTo);
+          const pgAlternates = localeList.map((al) => {
+            const alSlug = `${paginationSlugs[al]}-${pageNum}`;
+            const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/');
+            return `    <link rel="alternate" hreflang="${al}" href="${BASE_URL}${withSlash(alPath)}">`;
+          }).join('\n');
+          const pgXDefault = `    <link rel="alternate" hreflang="x-default" href="${BASE_URL}${withSlash(`/${sectionByLocale.it}/${paginationSlugs.it}-${pageNum}`.replace(/\/+/g, '/'))}">`;
+          const pgSectionPath = `${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/');
+          const pgPrevHref = pageNum === 2 ? `${BASE_URL}${withSlash(pgSectionPath)}` : `${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${pageNum - 1}`.replace(/\/+/g, '/'))}`;
+          const pgNextHref = pageNum < totalListingPages ? `${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${pageNum + 1}`.replace(/\/+/g, '/'))}` : '';
+          const pgPrevLink = `    <link rel="prev" href="${pgPrevHref}">`;
+          const pgNextLink = pgNextHref ? `\n    <link rel="next" href="${pgNextHref}">` : '';
+          const pgListHtml = pgJobs.map((job: any) => {
+            const jSlug = localizedSlug(job, locale);
+            const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/');
+            const jHref = `${BASE_URL}${withSlash(jPath)}`;
+            const jTitle = String(job?.titleByLocale?.[locale] || job.title || '');
+            return `<li style="margin:0 0 10px 0"><a href="${jHref}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
+          }).join('');
+          const pgCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: pgTitle, url: pgCanonicalUrl, description: pgDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
+          const pgItemLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'ItemList', name: pgTitle, numberOfItems: pgJobs.length, itemListElement: pgJobs.slice(0, 10).map((job: any, i: number) => ({ '@type': 'ListItem', position: i + 1, name: String(job?.titleByLocale?.[locale] || job.title || ''), url: `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${localizedSlug(job, locale)}`.replace(/\/+/g, '/'))}` })) });
+          const pgMainUrl = `${BASE_URL}${withSlash(pgSectionPath)}`;
+          const pgNav: string[] = [`<a href="${pgMainUrl}">1</a>`];
+          for (let np2 = Math.max(2, pageNum - 2); np2 <= Math.min(totalListingPages, pageNum + 2); np2++) {
+            if (np2 === pageNum) { pgNav.push(`<strong>${np2}</strong>`); continue; }
+            pgNav.push(`<a href="${BASE_URL}${withSlash(`${pgSectionPath}/${paginationSlugs[locale]}-${np2}`.replace(/\/+/g, '/'))}">${np2}</a>`);
+          }
+          const pgHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(pgTitle)}</title>\n    <meta name="description" content="${esc(pgDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(pgTitle)}">\n    <meta property="og:description" content="${esc(pgDesc)}">\n    <meta property="og:url" content="${pgCanonicalUrl}">\n    <link rel="canonical" href="${pgCanonicalUrl}">\n${pgAlternates}\n${pgXDefault}\n${pgPrevLink}${pgNextLink}\n    <script type="application/ld+json">${pgCollLd}</script>\n    <script type="application/ld+json">${pgItemLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(pgCopy.heading(pageNum))}</h1>\n      <p>${esc(pgDesc)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${pgListHtml}</ul>\n      <nav style="margin:24px 0;text-align:center;font-size:14px">${pgNav.join(' &middot; ')}</nav>\n      <p><a href="${pgMainUrl}">${locale === 'it' ? 'Torna alla lista completa' : locale === 'en' ? 'Back to full listing' : locale === 'de' ? 'Zur\u00fcck zur Liste' : 'Retour \u00e0 la liste'}</a></p>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+          const pgOutDir = np.join(distDir, pgCanonicalPath.slice(1));
+          activeJobDirs.add(pgCanonicalPath.slice(1).replace(/\/+$/, ''));
+          _md(pgOutDir);
+          _qw(np.join(pgOutDir, 'index.html'), pgHtml);
+          const pgFlatPath = pgCanonicalPath.replace(/\/+$/, '');
+          if (pgFlatPath) { const pgFlatFile = np.join(distDir, pgFlatPath.slice(1) + '.html'); _md(np.dirname(pgFlatFile)); _qw(pgFlatFile, buildFlatRedirect(pgCanonicalUrl, pgCanonicalPath)); }
+          paginationPageCount++;
+        }
+        const pgItSlug = `${paginationSlugs.it}-${pageNum}`;
+        const pgItPath = withSlash(`/${sectionByLocale.it}/${pgItSlug}`.replace(/\/+/g, '/'));
+        const pgSmAlternates = localeList.map((l) => { const ls = `${paginationSlugs[l]}-${pageNum}`; const lp = `${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'); return `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`; }).join('\n');
+        paginationSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${pgItPath}</loc>\n${pgSmAlternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${pgItPath}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>daily</changefreq>\n    <priority>0.4</priority>\n  </url>`);
+      }
+      if (paginationPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${paginationPageCount} paginated listing pages (${totalListingPages - 1} pages \u00d7 4 locales)`);
+
+      /* ── Category listing pages (/cerca-lavoro-ticino/categoria-sanita/) ── */
+      const catSlugsMap: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
+        health: { it: 'sanita', en: 'health', de: 'gesundheit', fr: 'sante' },
+        finance: { it: 'finanza', en: 'finance', de: 'finanzen', fr: 'finance' },
+        tech: { it: 'informatica', en: 'tech', de: 'technik', fr: 'tech' },
+        engineering: { it: 'ingegneria', en: 'engineering', de: 'ingenieurwesen', fr: 'ingenierie' },
+        admin: { it: 'amministrazione', en: 'admin', de: 'verwaltung', fr: 'administration' },
+        hospitality: { it: 'ristorazione', en: 'hospitality', de: 'gastgewerbe', fr: 'hotellerie' },
+        sales: { it: 'vendita', en: 'sales', de: 'vertrieb', fr: 'vente' },
+        other: { it: 'altro', en: 'other', de: 'andere', fr: 'autre' },
+      };
+      const catPrefix: Record<'it' | 'en' | 'de' | 'fr', string> = { it: 'categoria', en: 'category', de: 'kategorie', fr: 'categorie' };
+      const catLabels: Record<string, Record<'it' | 'en' | 'de' | 'fr', string>> = {
+        health: { it: 'Sanit\u00e0', en: 'Healthcare', de: 'Gesundheit', fr: 'Sant\u00e9' },
+        finance: { it: 'Finanza', en: 'Finance', de: 'Finanzen', fr: 'Finance' },
+        tech: { it: 'Informatica', en: 'Technology', de: 'Technik', fr: 'Technologie' },
+        engineering: { it: 'Ingegneria', en: 'Engineering', de: 'Ingenieurwesen', fr: 'Ing\u00e9nierie' },
+        admin: { it: 'Amministrazione', en: 'Administration', de: 'Verwaltung', fr: 'Administration' },
+        hospitality: { it: 'Ristorazione', en: 'Hospitality', de: 'Gastgewerbe', fr: 'H\u00f4tellerie' },
+        sales: { it: 'Vendita', en: 'Sales', de: 'Vertrieb', fr: 'Vente' },
+        other: { it: 'Altro', en: 'Other', de: 'Andere', fr: 'Autre' },
+      };
+      let categoryPageCount = 0;
+      const categorySitemapEntries: string[] = [];
+      const CAT_PER_PAGE = 30;
+      for (const catKey of Object.keys(catSlugsMap)) {
+        const catJobs = sortedForPagination.filter((j: any) => String(j.category || '').toLowerCase() === catKey);
+        if (catJobs.length < 3) continue;
+        const catTotalPages = Math.min(10, Math.ceil(catJobs.length / CAT_PER_PAGE));
+        for (let catPage = 1; catPage <= catTotalPages; catPage++) {
+          const catStart = (catPage - 1) * CAT_PER_PAGE;
+          const catPageJobs = catJobs.slice(catStart, catStart + CAT_PER_PAGE);
+          if (catPageJobs.length === 0) break;
+          for (const locale of localeList) {
+            const catSlugL = catSlugsMap[catKey][locale];
+            const catPageSuffix = catPage > 1 ? `/${paginationSlugs[locale]}-${catPage}` : '';
+            const catFullSlug = `${catPrefix[locale]}-${catSlugL}${catPageSuffix}`;
+            const catCanonicalPath = withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${catFullSlug}`.replace(/\/+/g, '/'));
+            const catCanonicalUrl = `${BASE_URL}${catCanonicalPath}`;
+            const catLabel = catLabels[catKey][locale];
+            const catPageLabel = catPage > 1 ? ` - ${locale === 'de' ? 'Seite' : 'Pagina'} ${catPage}` : '';
+            const catTitle = locale === 'it' ? `Lavoro ${catLabel} in Ticino${catPageLabel} | Frontaliere Ticino` : locale === 'en' ? `${catLabel} Jobs in Ticino${catPageLabel} | Frontaliere Ticino` : locale === 'de' ? `${catLabel}-Stellen im Tessin${catPageLabel} | Frontaliere Ticino` : `Emploi ${catLabel} au Tessin${catPageLabel} | Frontaliere Ticino`;
+            const catDescription = locale === 'it' ? `${catJobs.length} offerte di lavoro ${catLabel.toLowerCase()} in Ticino. Aggiornate quotidianamente.` : locale === 'en' ? `${catJobs.length} ${catLabel.toLowerCase()} jobs in Ticino. Updated daily.` : locale === 'de' ? `${catJobs.length} ${catLabel}-Stellen im Tessin. T\u00e4glich aktualisiert.` : `${catJobs.length} offres ${catLabel.toLowerCase()} au Tessin. Mises \u00e0 jour quotidiennement.`;
+            const catAlternates = localeList.map((al) => { const alSlug = `${catPrefix[al]}-${catSlugsMap[catKey][al]}${catPage > 1 ? `/${paginationSlugs[al]}-${catPage}` : ''}`; const alPath = `${localePrefix[al]}/${sectionByLocale[al]}/${alSlug}`.replace(/\/+/g, '/'); return `    <link rel="alternate" hreflang="${al}" href="${BASE_URL}${withSlash(alPath)}">`; }).join('\n');
+            const catListHtml = catPageJobs.map((job: any) => { const jSlug = localizedSlug(job, locale); const jPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/${jSlug}`.replace(/\/+/g, '/'); const jTitle = String(job?.titleByLocale?.[locale] || job.title || ''); return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`; }).join('');
+            const catOtherLinks = Object.keys(catSlugsMap).filter((k) => k !== catKey).map((k) => { const kSlug = `${catPrefix[locale]}-${catSlugsMap[k][locale]}`; return `<a href="${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionByLocale[locale]}/${kSlug}`.replace(/\/+/g, '/'))}" style="text-decoration:none;color:#1e3a8a">${catLabels[k][locale]}</a>`; });
+            const catCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: catTitle, url: catCanonicalUrl, description: catDescription, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
+            const catHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(catTitle)}</title>\n    <meta name="description" content="${esc(catDescription)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(catTitle)}">\n    <meta property="og:description" content="${esc(catDescription)}">\n    <meta property="og:url" content="${catCanonicalUrl}">\n    <link rel="canonical" href="${catCanonicalUrl}">\n${catAlternates}\n    <script type="application/ld+json">${catCollLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(catTitle.replace(' | Frontaliere Ticino', ''))}</h1>\n      <p>${esc(catDescription)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${catListHtml}</ul>\n      <nav style="margin:20px 0;font-size:14px">${locale === 'it' ? 'Altre categorie' : locale === 'en' ? 'Other categories' : locale === 'de' ? 'Weitere Kategorien' : 'Autres cat\u00e9gories'}: ${catOtherLinks.join(' \u00b7 ')}</nav>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+            const catOutDir = np.join(distDir, catCanonicalPath.slice(1));
+            activeJobDirs.add(catCanonicalPath.slice(1).replace(/\/+$/, ''));
+            _md(catOutDir);
+            _qw(np.join(catOutDir, 'index.html'), catHtml);
+            const catFlatPath = catCanonicalPath.replace(/\/+$/, '');
+            if (catFlatPath) { const catFlatFile = np.join(distDir, catFlatPath.slice(1) + '.html'); _md(np.dirname(catFlatFile)); _qw(catFlatFile, buildFlatRedirect(catCanonicalUrl, catCanonicalPath)); }
+            categoryPageCount++;
+          }
+          if (catPage === 1) {
+            const catItSlug = `${catPrefix.it}-${catSlugsMap[catKey].it}`;
+            const catItPath = withSlash(`/${sectionByLocale.it}/${catItSlug}`.replace(/\/+/g, '/'));
+            const catSmAlternates = localeList.map((l) => { const ls = `${catPrefix[l]}-${catSlugsMap[catKey][l]}`; const lp = `${localePrefix[l]}/${sectionByLocale[l]}/${ls}`.replace(/\/+/g, '/'); return `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(lp)}" />`; }).join('\n');
+            categorySitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${catItPath}</loc>\n${catSmAlternates}\n    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${catItPath}" />\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.6</priority>\n  </url>`);
+          }
+        }
+      }
+      if (categoryPageCount > 0) console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${categoryPageCount} category listing pages`);
+
       /* ── Search landing pages from stats leaders ───────────────── */
       let searchEntries = '';
       const statsPath = np.resolve(rootDir, 'data/jobs-stats.json');
@@ -3018,7 +3158,7 @@ ${alternates}
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <title>${esc(title)}</title>
     <meta name="description" content="${esc(description)}">
-    <meta name="robots" content="noindex,follow">
+    <meta name="robots" content="${matchingJobs.length >= 3 ? 'index,follow' : 'noindex,follow'}">
     <meta property="og:type" content="website">
     <meta property="og:site_name" content="Frontaliere Ticino">
     <meta property="og:locale" content="${localeOg[locale]}">
@@ -3087,7 +3227,18 @@ ${(() => {
             searchPageCount++;
           }
 
-          // noindex pages must not appear in sitemaps — skip sitemap entry.
+          // Add indexable search pages (≥3 jobs) to sitemap
+          if (fallbackMatchingJobs.length >= 3) {
+            const sItSlug = `${searchRoutePrefix.it}-${key}`;
+            const sItPath = withSlash(`/${sectionByLocale.it}/${sItSlug}`.replace(/\/+/g, '/'));
+            const sAlternates = localeList.map((l) => {
+              const lSlug = `${searchRoutePrefix[l]}-${key}`;
+              const sp = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
+              return `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(sp)}" />`;
+            }).join('\n');
+            const sXDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${sItPath}" />`;
+            searchSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${sItPath}</loc>\n${sAlternates}\n${sXDefault}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`);
+          }
         }
 
         /* ── Combo search landing pages ────────────────────────────── */
@@ -3197,8 +3348,18 @@ ${(() => {
             searchPageCount++;
           }
 
-          // Combo search pages are indexable but excluded from sitemaps (low priority, discovered via internal links).
-          // Expired combos get soft-landing pages via orphan-indexed-job-slugs.json.
+          // Add qualifying combo pages to sitemap for discovery
+          if (matchingJobs.length >= 3) {
+            const cItSlug = `${searchRoutePrefix.it}-${comboKey}`;
+            const cItPath = withSlash(`/${sectionByLocale.it}/${cItSlug}`.replace(/\/+/g, '/'));
+            const cAlternates = localeList.map((l) => {
+              const lSlug = `${searchRoutePrefix[l]}-${comboKey}`;
+              const cp = `${localePrefix[l]}/${sectionByLocale[l]}/${lSlug}`.replace(/\/+/g, '/');
+              return `    <xhtml:link rel="alternate" hreflang="${l}" href="${BASE_URL}${withSlash(cp)}" />`;
+            }).join('\n');
+            const cXDefault = `    <xhtml:link rel="alternate" hreflang="x-default" href="${BASE_URL}${cItPath}" />`;
+            searchSitemapEntries.push(`  <url>\n    <loc>${BASE_URL}${cItPath}</loc>\n${cAlternates}\n${cXDefault}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.5</priority>\n  </url>`);
+          }
         };
 
         // Collect unique locations and companies from stats leaders
@@ -3432,7 +3593,9 @@ ${(() => {
         return `  <url>\n    <loc>${BASE_URL}${itPath}</loc>\n${alternateLinks}\n${xDefault}\n    <lastmod>${dateStamp}</lastmod>\n    <changefreq>weekly</changefreq>\n    <priority>0.7</priority>\n  </url>`;
       }).join('\n');
 
-      const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}\n</urlset>\n`;
+      const paginationSitemap = paginationSitemapEntries.length > 0 ? '\n' + paginationSitemapEntries.join('\n') : '';
+      const categorySitemap = categorySitemapEntries.length > 0 ? '\n' + categorySitemapEntries.join('\n') : '';
+      const sitemapJobs = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"\n        xmlns:xhtml="http://www.w3.org/1999/xhtml">\n${landingEntry}\n${companyEntries}\n${searchEntries}\n${jobEntries}${prevSlugSitemap}${paginationSitemap}${categorySitemap}\n</urlset>\n`;
       fs.writeFileSync(np.join(distDir, 'sitemap-jobs.xml'), sitemapJobs, 'utf-8');
 
       const sitemapIndexPath = np.join(distDir, 'sitemap.xml');
