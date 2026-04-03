@@ -898,7 +898,7 @@ export default function BlogArticles({
     const wordCount = estimateReadingMinutes(article.id, t) * 200; // reverse from ~200 wpm
     const jsonLd = {
       '@context': 'https://schema.org',
-      '@type': 'BlogPosting',
+      '@type': article.category === 'novita' ? 'NewsArticle' : 'BlogPosting',
       headline: title,
       description: excerpt.startsWith('blog.article.') ? title : excerpt,
       datePublished: `${article.date}T00:00:00+01:00`,
@@ -1992,9 +1992,9 @@ export default function BlogArticles({
                 </span>
                 <span className="text-xs text-white/60">{formatDate(pageArticles[0].date)}</span>
               </div>
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
+              <h2 className="text-xl sm:text-2xl font-bold text-white mb-2 leading-tight">
                 {t(`blog.article.${pageArticles[0].id}.title`)}
-              </h3>
+              </h2>
               <p className="text-white/90 text-sm line-clamp-2 max-w-2xl">
                 {t(`blog.article.${pageArticles[0].id}.excerpt`)}
               </p>
@@ -2065,9 +2065,9 @@ export default function BlogArticles({
                     {estimateReadingMinutes(article.id, t)} min
                   </span>
                 </div>
-                <h4 className="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-2">
+                <h3 className="text-sm font-bold text-slate-700 dark:text-slate-200 group-hover:text-indigo-600 dark:group-hover:text-indigo-400 transition-colors line-clamp-2 mb-2">
                   {t(`blog.article.${article.id}.title`)}
-                </h4>
+                </h3>
                 <p className="text-xs text-slate-500 dark:text-slate-500 line-clamp-3 mb-3">
                   {t(`blog.article.${article.id}.excerpt`)}
                 </p>
