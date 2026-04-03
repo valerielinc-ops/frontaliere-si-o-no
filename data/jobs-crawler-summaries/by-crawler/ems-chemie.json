@@ -1,18 +1,19 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-03T09:14:50.188Z",
+  "generatedAt": "2026-04-03T21:10:33.090Z",
   "total": 10,
-  "newCount": 10,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 8,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3441,
-  "avgDurationMs": 3441,
+  "unchangedCount": 2,
+  "durationMs": 2657,
+  "avgDurationMs": 2657,
   "durationHistory": [
-    3441
+    2657
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Anwendungstechniker Technische Fasern 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems",
       "company": "EMS-Chemie AG",
@@ -30,15 +31,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "slug": "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -58,43 +62,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "assistentin-der-geschaftsleitung-m-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
+      "slug": "assistentin-der-geschaftsleitung-m-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Laborant Forschung & Entwicklung (m/w/d) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/laborant-forschung-entwicklung-m-w-d/328dbdd3-2467-4bf1-ac3c-51bfdc7836b4",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "laborant-forschung-entwicklung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -114,43 +93,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
+      "slug": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "Key Account Manager (m/w/d) (Homeoffice) 100% | Domat/Ems | EMS-CHEMIE AG Domat/Ems",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/key-account-manager-m-w-d-homeoffice/4aa59321-0063-4499-bdf7-53a3dc75ec9c",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -170,15 +124,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "laboratorio-di-prova-dei-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "slug": "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -198,15 +155,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "responsabile-controlling-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "slug": "leiter-controlling-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -226,15 +186,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "responsabile-del-progetto-test-sui-materiali-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "slug": "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -254,15 +217,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "responsabile-contabilita-finanziaria-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "slug": "leiter-finanzbuchhaltung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -282,19 +248,21 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 64,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -316,16 +284,16 @@
       "source": "company-website",
       "slug": "anwendungstechniker-technische-fasern-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -346,18 +314,18 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "assistentin-der-geschaftsleitung-m-w-d-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
+      "slug": "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -378,18 +346,17 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "laborant-forschung-entwicklung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "slug": "tecnico-di-laboratorio-ricerca-e-sviluppo-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -410,18 +377,17 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "transportdisponent-sachbearbeiter-export-100-m-w-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
+      "slug": "dispatcher-dei-trasporti-impiegato-esportazione-100-m-f-100-romanshorn-eftec-ag-romanshorn-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -442,18 +408,17 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "key-account-manager-m-w-d-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-domat-ems",
+      "slug": "responsabile-conto-chiave-lunedi-mercoledi-giorno-homeoffice-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -476,16 +441,16 @@
       "source": "company-website",
       "slug": "laborant-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -508,16 +473,16 @@
       "source": "company-website",
       "slug": "leiter-controlling-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -540,16 +505,16 @@
       "source": "company-website",
       "slug": "projektleiter-materialprufung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -572,16 +537,16 @@
       "source": "company-website",
       "slug": "leiter-finanzbuchhaltung-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "needsRetranslation": true,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -602,18 +567,17 @@
       "category": "science",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "projektleiter-kunststoffanwendungen-automobil-m-w-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-ems",
+      "slug": "project-manager-applicazioni-plastiche-automobilistica-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 77,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     }
