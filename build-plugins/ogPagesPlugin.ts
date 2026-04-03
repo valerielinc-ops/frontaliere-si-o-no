@@ -34,6 +34,61 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         }
       } catch { /* non-fatal */ }
 
+      // Parse article categories from blog-articles-data.ts for FAQ schema filtering
+      const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
+      const articleCategoryById: Record<string, string> = {};
+      try {
+        const articleDataSrc = fs.readFileSync(np.resolve(rootDir, 'data/blog-articles-data.ts'), 'utf-8');
+        const catRx = /id:\s*'([^']+)'[\s\S]*?category:\s*'([^']+)'/g;
+        let cm: RegExpExecArray | null;
+        while ((cm = catRx.exec(articleDataSrc)) !== null) {
+          articleCategoryById[cm[1]] = cm[2];
+        }
+      } catch { /* non-fatal — FAQ extraction will be skipped for all articles */ }
+
+      /* ── FAQ extraction for article-specific FAQPage schema ─────── */
+      const FAQ_QUESTION_PREFIXES = ['Come', 'Cosa', 'Quando', 'Quanto', 'Dove', 'Chi', 'Perché', 'Quale',
+        'How', 'What', 'When', 'Where', 'Who', 'Why', 'Which', 'Can', 'Should', 'Is', 'Are', 'Do', 'Does',
+        'Wie', 'Was', 'Wann', 'Wo', 'Wer', 'Warum', 'Welche',
+        'Comment', 'Quoi', 'Quand', 'Où', 'Qui', 'Pourquoi', 'Quel', 'Quelle', 'Est-ce'];
+      const stripMarkdownForFaq = (text: string): string =>
+        text
+          .replace(/\*\*([^*]+)\*\*/g, '$1')
+          .replace(/\*([^*]+)\*/g, '$1')
+          .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+          .replace(/^#{1,6}\s+/gm, '')
+          .replace(/^[-*+]\s+/gm, '')
+          .replace(/^\d+\.\s+/gm, '')
+          .replace(/`([^`]+)`/g, '$1')
+          .replace(/\n{2,}/g, ' ')
+          .replace(/\n/g, ' ')
+          .replace(/\s{2,}/g, ' ')
+          .trim();
+
+      const extractArticleFaqPairs = (bodyText: string): Array<{ question: string; answer: string }> => {
+        const pairs: Array<{ question: string; answer: string }> = [];
+        const blocks = bodyText.split(/(?=^## )/m);
+        for (const block of blocks) {
+          const trimmed = block.trim();
+          if (!trimmed.startsWith('## ')) continue;
+          const nlIdx = trimmed.indexOf('\n');
+          if (nlIdx === -1) continue;
+          const heading = trimmed.slice(3, nlIdx).trim();
+          const isQuestion = heading.includes('?') ||
+            FAQ_QUESTION_PREFIXES.some(p => heading.startsWith(p));
+          if (!isQuestion) continue;
+          const answerRaw = trimmed.slice(nlIdx + 1).trim();
+          if (!answerRaw) continue;
+          const cleanAnswer = stripMarkdownForFaq(answerRaw);
+          if (!cleanAnswer) continue;
+          const truncated = cleanAnswer.length > 300
+            ? cleanAnswer.slice(0, 297) + '...'
+            : cleanAnswer;
+          pairs.push({ question: heading, answer: truncated });
+        }
+        return pairs;
+      };
+
       const resolveImagePath = (candidate: string, articleId: string): string => {
         const norm = (p: string) => (p.startsWith('/') ? p : `/${p}`).replace(/\/+/g, '/');
         const fileExists = (publicPath: string) => fs.existsSync(np.join(distDir, publicPath.replace(/^\/+/, '')));
@@ -248,6 +303,45 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         fr: parseBlogBodyLocale('fr'),
       } as const;
 
+      // Raw body parser preserving \n as actual newlines (for FAQ markdown extraction)
+      const unescapeTsStringRaw = (value: string): string =>
+        value
+          .replace(/\\'/g, '\'')
+          .replace(/\\"/g, '"')
+          .replace(/\\n/g, '\n')
+          .replace(/\\r/g, '')
+          .replace(/\\t/g, ' ')
+          .replace(/\\\\/g, '\\');
+
+      const parseBlogBodyRawLocale = (locale: 'it' | 'en' | 'de' | 'fr') => {
+        const out: Record<string, Record<string, string>> = {};
+        const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
+        let files: string[] = [];
+        try { files = fs.readdirSync(dir); } catch { return out; }
+        const rx = /'blog\.article\.([^']+)\.(body\d+)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+        for (const file of files) {
+          if (!file.endsWith('.ts')) continue;
+          let src = '';
+          try { src = fs.readFileSync(np.join(dir, file), 'utf-8'); } catch { continue; }
+          let m: RegExpExecArray | null;
+          while ((m = rx.exec(src)) !== null) {
+            const articleId = m[1];
+            const field = m[2];
+            const value = unescapeTsStringRaw(m[3]);
+            if (!out[articleId]) out[articleId] = {};
+            out[articleId][field] = value;
+          }
+        }
+        return out;
+      };
+
+      const blogBodyRawByLocale = {
+        it: parseBlogBodyRawLocale('it'),
+        en: parseBlogBodyRawLocale('en'),
+        de: parseBlogBodyRawLocale('de'),
+        fr: parseBlogBodyRawLocale('fr'),
+      } as const;
+
       const normalizeDateTime = (value: string): string => {
         if (!value) return value;
         if (/(Z|[+-]\d{2}:\d{2})$/.test(value)) return value;
@@ -263,6 +357,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 
       const LOC_TAG: Record<string, string> = { it: 'it_IT', en: 'en_US', de: 'de_DE', fr: 'fr_FR' };
       let count = 0;
+      let faqCount = 0;
 
       const assetsDir = np.join(distDir, 'assets');
       let entryJs = '', entryCss = '', vendorReactChunk = '';
@@ -530,11 +625,37 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             ],
           }).replace(/</g, '\\u003c');
 
-          // NOTE: Generic FAQPage schema removed from blog articles (2026-03-27).
-          // Bing flagged "conflicting markups" on every blog page because Article +
-          // FAQPage on the same page are considered competing schemas. The generic FAQs
-          // were not article-specific and added no SEO value — they confused crawlers.
-          // Article-specific FAQs should be added per-article in seo-blog.ts instead.
+          // Article-specific FAQPage schema extracted from body content H2 headings.
+          // Only for evergreen articles (fiscale, pratico, pensione) with ≥2 question-like headings.
+          // Previous generic FAQPage was removed 2026-03-27 for Bing "conflicting markups";
+          // article-specific FAQs are content-relevant and avoid that issue.
+          let faqLdTag = '';
+          const articleCategory = articleCategoryById[en.articleId] ?? '';
+          if (EVERGREEN_CATEGORIES.has(articleCategory)) {
+            const rawBody = blogBodyRawByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyRawByLocale.it?.[en.articleId];
+            if (rawBody) {
+              const rawBodyKeys = Object.keys(rawBody).sort((a, b) => {
+                const na = parseInt(a.replace('body', ''), 10);
+                const nb = parseInt(b.replace('body', ''), 10);
+                return na - nb;
+              });
+              const rawBodyText = rawBodyKeys.map(k => rawBody[k]).filter(Boolean).join('\n\n');
+              const faqPairs = extractArticleFaqPairs(rawBodyText);
+              if (faqPairs.length >= 2) {
+                const faqSchema = {
+                  '@context': 'https://schema.org',
+                  '@type': 'FAQPage',
+                  mainEntity: faqPairs.slice(0, 10).map(pair => ({
+                    '@type': 'Question',
+                    name: pair.question,
+                    acceptedAnswer: { '@type': 'Answer', text: pair.answer },
+                  })),
+                };
+                faqLdTag = `\n    <script type="application/ld+json">${JSON.stringify(faqSchema).replace(/</g, '\\u003c')}</script>`;
+                faqCount++;
+              }
+            }
+          }
 
           const headTags = `    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -565,7 +686,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
 ${href}
     <link rel="alternate" type="application/rss+xml" title="Frontaliere Ticino" href="${BASE_URL}/rss.xml">
     <script type="application/ld+json">${ldJsonStr}</script>
-    <script type="application/ld+json">${breadcrumbLd}</script>
+    <script type="application/ld+json">${breadcrumbLd}</script>${faqLdTag}
     <link rel="icon" type="image/svg+xml" href="/favicon.svg">`;
 
           const blogPreloads = [
@@ -671,7 +792,7 @@ ${headTags}
         }
       }
 
-      console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${entries.length} articles`);
+      console.log(`\x1b[36m[og-pages]\x1b[0m Generated ${count} OG landing pages for ${entries.length} articles (${faqCount} with FAQPage schema)`);
     },
   };
 }
