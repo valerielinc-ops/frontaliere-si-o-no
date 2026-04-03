@@ -1,16 +1,16 @@
 {
   "key": "corner-banca",
   "label": "Corner",
-  "generatedAt": "2026-04-02T21:05:36.370Z",
+  "generatedAt": "2026-04-03T09:09:51.080Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 2,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2346,
-  "avgDurationMs": 2346,
+  "durationMs": 2400,
+  "avgDurationMs": 2400,
   "durationHistory": [
-    2346
+    2400
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "postedDate": "2026-03-24",
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T21:05:34.415Z",
+      "crawledAt": "2026-04-03T09:09:48.991Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -59,7 +59,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T21:05:34.416Z",
+      "crawledAt": "2026-04-03T09:09:48.991Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -86,7 +86,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T21:05:34.416Z",
+      "crawledAt": "2026-04-03T09:09:48.992Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -113,7 +113,7 @@
       "postedDate": "2026-03-09",
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T21:05:34.417Z",
+      "crawledAt": "2026-04-03T09:09:48.992Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -140,7 +140,7 @@
       "postedDate": "2026-02-26",
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T21:05:34.418Z",
+      "crawledAt": "2026-04-03T09:09:48.993Z",
       "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -167,7 +167,7 @@
       "postedDate": "2026-02-03",
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T21:05:34.419Z",
+      "crawledAt": "2026-04-03T09:09:48.993Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -194,7 +194,7 @@
       "postedDate": "2025-10-02",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T21:05:34.421Z",
+      "crawledAt": "2026-04-03T09:09:48.993Z",
       "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -204,75 +204,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "corner-banca-b69f1f79bbe3",
-      "slug": "customer-advisor-40-corner-banca-wallisellen",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 40%",
-      "location": "Wallisellen",
-      "canton": "ZH",
-      "addressLocality": "Wallisellen",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-03",
-      "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T12:08:19.820Z",
-      "sourceLang": "en",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "corner-banca-1d94a13bc883",
-      "slug": "customer-advisor-100-corner-banca-lugano",
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Customer Advisor 100%",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "sales",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-02-26",
-      "url": "https://jobs.corner.ch/o/customer-advisor-100",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-02T12:08:19.818Z",
-      "sourceLang": "en",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
