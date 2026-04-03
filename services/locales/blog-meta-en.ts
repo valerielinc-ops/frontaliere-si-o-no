@@ -1983,6 +1983,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agente-sicurezza-investito-cadenazzo.title': 'Security Agent Struck in Cadenazzo: Serious Injuries',
     'blog.article.agente-sicurezza-investito-cadenazzo.excerpt': 'A security agent was struck by a car in Cadenazzo, Ticino. His life is in danger.',
     'blog.article.agente-sicurezza-investito-cadenazzo.imageAlt': 'Agent hit by car in Cadenazzo, Ticino.',
+    'blog.article.mozzarella-clandestina-2026-ricerca.title': 'Smuggling Mozzarella in Ticino: How to Conduct the Right Research?',
+    'blog.article.mozzarella-clandestina-2026-ricerca.excerpt': 'Discover how to conduct the right research to import mozzarella into Switzerland without any issues.',
+    'blog.article.mozzarella-clandestina-2026-ricerca.imageAlt': 'A man researches information on his computer while located in the Ticino valley',
 };
 
 export default blogMetaEn;

@@ -1983,6 +1983,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agente-sicurezza-investito-cadenazzo.title': 'Agente di sicurezza investito a Cadenazzo: gravi ferite',
     'blog.article.agente-sicurezza-investito-cadenazzo.excerpt': 'Un agente di sicurezza è stato investito da un\'auto a Cadenazzo, Ticino. La sua vita è in pericolo.',
     'blog.article.agente-sicurezza-investito-cadenazzo.imageAlt': 'Agente di sicurezza investito da un\'auto a Cadenazzo, Ticino.',
+    'blog.article.mozzarella-clandestina-2026-ricerca.title': 'Mozzarella \'clandestina\' in Ticino: come fare la ricerca giusta?',
+    'blog.article.mozzarella-clandestina-2026-ricerca.excerpt': 'Scopri come fare la ricerca giusta per importare mozzarella in Svizzera senza problemi.',
+    'blog.article.mozzarella-clandestina-2026-ricerca.imageAlt': 'Un uomo ricerca informazioni nel suo computer mentre si trova nella valle Ticinese',
 };
 
 export default blogMetaIt;

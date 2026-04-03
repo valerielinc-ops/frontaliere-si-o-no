@@ -5817,4 +5817,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/agente-sicurezza-investito-cadenazzo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'mozzarella-clandestina-2026-ricerca',
+    category: 'fiscale',
+    date: '2026-04-03T23:46:50.097Z',
+    image: '/images/blog/mozzarella-clandestina-2026-ricerca.jpg',
+    hasCalculator: true,
+  },
 ];

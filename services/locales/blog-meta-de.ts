@@ -1983,6 +1983,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agente-sicurezza-investito-cadenazzo.title': 'Sicherheitsbeamter wird in Cadenazzo von Auto erfasst: schwere Verletzungen',
     'blog.article.agente-sicurezza-investito-cadenazzo.excerpt': 'Ein Sicherheitsbeamter wurde in Cadenazzo, Kanton Tessin, von einem Auto erfasst. Sein Leben ist in Gefahr.',
     'blog.article.agente-sicurezza-investito-cadenazzo.imageAlt': 'Beamter von einem Auto in Cadenazzo, Tessin, getroffen.',
+    'blog.article.mozzarella-clandestina-2026-ricerca.title': 'Klauström Mozzarella im Tessin: Wie man die richtige Recherche durchführt?',
+    'blog.article.mozzarella-clandestina-2026-ricerca.excerpt': 'Erstelle eine erfolgreiche Recherche, um Mozzarella in die Schweiz zu importieren, ohne Probleme zu haben.',
+    'blog.article.mozzarella-clandestina-2026-ricerca.imageAlt': 'Ein Mann recherchiert Informationen auf seinem Computer während er sich im Tessin-Tal befindet',
 };
 
 export default blogMetaDe;

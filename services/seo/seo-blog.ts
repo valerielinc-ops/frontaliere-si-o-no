@@ -10925,6 +10925,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mozzarella-clandestina-2026-ricerca': {
+    title: 'Mozzarella \'clandestina\' in Ticino: come fare la ricerca giusta? | Frontaliere Ticino',
+    description: 'Scopri come fare la ricerca giusta per importare mozzarella in Svizzera senza problemi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozzarella, clandestina, fare, ricerca',
+    ogTitle: 'Mozzarella \'clandestina\' in Ticino: come fare la ricerca giusta?',
+    ogDescription: 'Scopri come fare la ricerca giusta per importare mozzarella in Svizzera senza problemi.',
+    canonicalPath: '/articoli-frontaliere/mozzarella-clandestina-2026-ricerca',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozzarella 'clandestina' in Ticino: come fare la ricerca giusta?",
+      "description": "Scopri come fare la ricerca giusta per importare mozzarella in Svizzera senza problemi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/mozzarella-clandestina-2026-ricerca.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un uomo ricerca informazioni nel suo computer mentre si trova nella valle Ticinese"
+      },
+      "datePublished": "2026-04-03T23:46:50+00:00",
+      "dateModified": "2026-04-03T23:46:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mozzarella-clandestina-2026-ricerca`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
