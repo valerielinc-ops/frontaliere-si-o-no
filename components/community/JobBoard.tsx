@@ -3067,10 +3067,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   useEffect(() => {
     if (jobs.length === 0) return;
-    // FRO: Skip dynamic schema injection for expired job pages — the build plugin
-    // already injected a static JobPosting JSON-LD with correct validThrough date.
-    // Overwriting it with listing-page schemas would destroy the expired job schema.
-    if (initialJobSlug && !selectedJob && (expiredJob || hasSeededExpiredData())) {
+    // FRO: Skip dynamic schema injection for expired/orphan/bridge job pages —
+    // the build plugin already injected a static JobPosting JSON-LD.
+    // If initialJobSlug is set but no active selectedJob found, it's an expired
+    // or orphan page — never inject listing-page schemas on those.
+    if (initialJobSlug && !selectedJob) {
       return;
     }
 
