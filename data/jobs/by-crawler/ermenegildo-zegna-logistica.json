@@ -27,9 +27,9 @@
       "slug": "it-sales-project-manager-zegna",
       "slugByLocale": {
         "en": "it-sales-project-manager-ermenegildo-zegna-group-stabio",
-        "it": "it-sales-project-manager-zegna",
-        "de": "it-sales-project-manager-zegna",
-        "fr": "it-sales-project-manager-zegna"
+        "it": "manager-progetti-it-sales-ermenegildo-zegna-group-stabio",
+        "de": "it-verkaufsprojektmanager-ermenegildo-zegna-group-stabio",
+        "fr": "manager-de-projets-it-vente-ermenegildo-zegna-group-stabio"
       },
       "department": "Corporate and Staff Functions/Information Technology",
       "category": "Corporate and Staff Functions/Information Technology",
@@ -46,7 +46,9 @@
       },
       "crawledAt": "",
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "it-sales-project-manager-zegna"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
