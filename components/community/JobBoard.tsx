@@ -6237,9 +6237,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
       <div className="space-y-3 min-h-[600px]" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 800px' }}>
         {displayJobs.map((job, idx) => {
-          const pos = idx + 1; // 1-based position
-          const AD_INTERVAL = 8; // Insert an in-feed ad every N jobs
-          const FIRST_AD_AFTER = 3; // First ad appears after this many jobs
+          const pos = idx + 1;
+          const AD_INTERVAL = 8;
+          const FIRST_AD_AFTER = 3;
           const showAd = pos === FIRST_AD_AFTER || (pos > FIRST_AD_AFTER && (pos - FIRST_AD_AFTER) % AD_INTERVAL === 0);
           return (
             <React.Fragment key={job.id || job.slug || idx}>
