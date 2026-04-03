@@ -1,6 +1,6 @@
 {
   "crawlerKey": "lidl-svizzera",
-  "assembledAt": "2026-04-03T07:28:22.011Z",
+  "assembledAt": "2026-04-03T09:30:12.625Z",
   "jobs": [
     {
       "id": "company-jb4io9",
@@ -141,7 +141,8 @@
       "addressLocality": "Cadenazzo",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-ancoue",
@@ -415,7 +416,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-biasca-3t5gz5"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-kscbfg",
@@ -482,7 +484,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-kscbfg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-zdpsyo",
