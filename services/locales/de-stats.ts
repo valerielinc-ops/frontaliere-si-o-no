@@ -328,6 +328,8 @@ const deStats: Record<string, string> = {
     'blog.toc.title': 'Inhaltsverzeichnis',
     'blog.toc.sections': 'Abschnitte',
     'blog.toc.readingProgress': 'Lesefortschritt',
+    'blog.prevArticle': 'Vorheriger Artikel',
+    'blog.nextArticle': 'Nächster Artikel',
     'blog.relatedArticles': 'Ähnliche Artikel',
     'blog.trendingThisWeek': 'Meistgelesen diese Woche',
     'blog.trendingThisWeek.views': 'Aufrufe',

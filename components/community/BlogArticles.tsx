@@ -379,7 +379,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       renderedBlocks.push(
         <div key={`data-${idx}`} className="bg-blue-50 dark:bg-blue-900/20 border border-blue-200 dark:border-blue-800 rounded-xl p-4 flex gap-3">
           <BarChart3 size={20} className="text-blue-600 dark:text-blue-400 shrink-0 mt-0.5" />
-          <p className="text-blue-800 dark:text-blue-200 text-sm leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
+          <p className="text-blue-800 dark:text-blue-200 leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
         </div>
       );
       continue;
@@ -390,7 +390,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       renderedBlocks.push(
         <div key={`tip-${idx}`} className="bg-amber-50 dark:bg-amber-900/20 border border-amber-200 dark:border-amber-800 rounded-xl p-4 flex gap-3">
           <Lightbulb size={20} className="text-amber-600 dark:text-amber-400 shrink-0 mt-0.5" />
-          <p className="text-amber-800 dark:text-amber-200 text-sm leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
+          <p className="text-amber-800 dark:text-amber-200 leading-relaxed">{renderInlineFormatting(trimmed.slice(2).trim(), navigators)}</p>
         </div>
       );
       continue;
@@ -402,7 +402,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       renderedBlocks.push(
         <div key={`warn-${idx}`} className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-xl p-4 flex gap-3">
           <AlertTriangle size={20} className="text-red-600 dark:text-red-400 shrink-0 mt-0.5" />
-          <p className="text-red-800 dark:text-red-200 text-sm leading-relaxed">{renderInlineFormatting(content, navigators)}</p>
+          <p className="text-red-800 dark:text-red-200 leading-relaxed">{renderInlineFormatting(content, navigators)}</p>
         </div>
       );
       continue;
@@ -414,7 +414,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       if (blockquoteCount < 2) {
         blockquoteCount += 1;
         renderedBlocks.push(
-          <blockquote key={`quote-${idx}`} className="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-4 rounded-r-lg italic text-indigo-800 dark:text-indigo-200 text-sm">
+          <blockquote key={`quote-${idx}`} className="bg-indigo-50 dark:bg-indigo-900/20 border-l-4 border-indigo-500 p-4 rounded-r-lg italic text-indigo-800 dark:text-indigo-200">
             {renderInlineFormatting(quote, navigators)}
           </blockquote>
         );
@@ -476,7 +476,7 @@ function renderFormattedContent(text: string, navigators?: NavigatorMap): ReactE
       renderedBlocks.push(
         <ul key={`list-${idx}`} className="space-y-2 pl-1">
           {items.map((item, i) => (
-            <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 text-sm leading-relaxed">
+            <li key={i} className="flex items-start gap-2 text-slate-700 dark:text-slate-300 leading-relaxed">
               <CheckCircle2 size={16} className="text-emerald-500 shrink-0 mt-0.5" />
               <span>{renderInlineFormatting(item, navigators)}</span>
             </li>
@@ -1684,7 +1684,7 @@ export default function BlogArticles({
               {/* WhatsApp */}
               <button
                 onClick={() => handleWhatsAppShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#25D366]/10 hover:bg-[#25D366]/20 text-[#25D366] transition-colors"
                 aria-label={t('blog.shareWhatsApp')}
                 title={t('blog.shareWhatsApp')}
               >
@@ -1693,7 +1693,7 @@ export default function BlogArticles({
               {/* Twitter/X */}
               <button
                 onClick={() => handleTwitterShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
                 aria-label={t('blog.shareTwitter')}
                 title={t('blog.shareTwitter')}
               >
@@ -1702,7 +1702,7 @@ export default function BlogArticles({
               {/* Facebook */}
               <button
                 onClick={() => handleFacebookShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#1877F2]/10 hover:bg-[#1877F2]/20 text-[#1877F2] transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#1877F2]/10 hover:bg-[#1877F2]/20 text-[#1877F2] transition-colors"
                 aria-label={t('blog.shareFacebook')}
                 title={t('blog.shareFacebook')}
               >
@@ -1711,7 +1711,7 @@ export default function BlogArticles({
               {/* Telegram */}
               <button
                 onClick={() => handleTelegramShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#0088cc]/10 hover:bg-[#0088cc]/20 text-[#0088cc] transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#0088cc]/10 hover:bg-[#0088cc]/20 text-[#0088cc] transition-colors"
                 aria-label={t('blog.shareTelegram')}
                 title={t('blog.shareTelegram')}
               >
@@ -1720,7 +1720,7 @@ export default function BlogArticles({
               {/* LinkedIn */}
               <button
                 onClick={() => handleLinkedInShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#0A66C2] transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-[#0A66C2]/10 hover:bg-[#0A66C2]/20 text-[#0A66C2] transition-colors"
                 aria-label={t('blog.shareLinkedIn')}
                 title={t('blog.shareLinkedIn')}
               >
@@ -1729,7 +1729,7 @@ export default function BlogArticles({
               {/* Email */}
               <button
                 onClick={() => handleEmailShare(article.id)}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors"
                 aria-label={t('blog.shareEmail')}
                 title={t('blog.shareEmail')}
               >
@@ -1739,7 +1739,7 @@ export default function BlogArticles({
               {typeof navigator !== 'undefined' && 'share' in navigator && (
                 <button
                   onClick={() => handleNativeShare(article.id)}
-                  className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 hover:bg-indigo-200 dark:hover:bg-indigo-800/50 text-indigo-700 dark:text-indigo-300 transition-colors"
+                  className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 hover:bg-indigo-200 dark:hover:bg-indigo-800/50 text-indigo-700 dark:text-indigo-300 transition-colors"
                   aria-label={t('blog.shareNative')}
                   title={t('blog.shareNative')}
                 >
@@ -1750,7 +1750,7 @@ export default function BlogArticles({
               {/* Bookmark */}
               <button
                 onClick={() => toggleBookmark(article.id)}
-                className={`inline-flex items-center justify-center w-7 h-7 rounded-lg transition-colors ${
+                className={`inline-flex items-center justify-center w-9 h-9 rounded-lg transition-colors ${
                   savedArticles.has(article.id)
                     ? 'bg-amber-100 dark:bg-amber-900/30 text-amber-600 dark:text-amber-400'
                     : 'bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300'
@@ -1763,7 +1763,7 @@ export default function BlogArticles({
               {/* Print */}
               <button
                 onClick={handlePrint}
-                className="inline-flex items-center justify-center w-7 h-7 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors print:hidden"
+                className="inline-flex items-center justify-center w-9 h-9 rounded-lg bg-slate-100 dark:bg-slate-800 hover:bg-slate-200 dark:hover:bg-slate-700 text-slate-700 dark:text-slate-300 transition-colors print:hidden"
                 aria-label={t('blog.print')}
                 title={t('blog.print')}
               >
@@ -1810,7 +1810,7 @@ export default function BlogArticles({
                       <button
                         key={h.id}
                         onClick={() => handleTocClick(h.id)}
-                        className={`block w-full text-left text-sm py-1.5 transition-colors rounded-md px-2 ${
+                        className={`block w-full text-left text-sm py-2.5 transition-colors rounded-md px-2 ${
                           h.level === 3 ? 'pl-5 text-slate-500 dark:text-slate-400' : 'text-slate-600 dark:text-slate-300 font-medium'
                         } hover:text-indigo-600 dark:hover:text-indigo-400 hover:bg-indigo-50 dark:hover:bg-indigo-900/20`}
                       >
@@ -1997,6 +1997,44 @@ export default function BlogArticles({
                 {t('blog.goToForum')} →
               </a>
             </div>
+
+            {/* Prev/Next article navigation */}
+            {(() => {
+              const currentIdx = articles.findIndex(a => a.id === article.id);
+              const prevArticle = currentIdx < articles.length - 1 ? articles[currentIdx + 1] : null;
+              const nextArticle = currentIdx > 0 ? articles[currentIdx - 1] : null;
+              if (!prevArticle && !nextArticle) return null;
+              return (
+                <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-8 grid grid-cols-1 sm:grid-cols-2 gap-3">
+                  {prevArticle ? (
+                    <a
+                      href={buildPath({ activeTab: 'blog', blogArticle: prevArticle.id })}
+                      onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }}
+                      className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group"
+                    >
+                      <ChevronLeft size={20} className="text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
+                      <div className="min-w-0">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('blog.prevArticle')}</p>
+                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
+                      </div>
+                    </a>
+                  ) : <div />}
+                  {nextArticle ? (
+                    <a
+                      href={buildPath({ activeTab: 'blog', blogArticle: nextArticle.id })}
+                      onClick={(e) => { e.preventDefault(); handleArticleClick(nextArticle.id); }}
+                      className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors text-right group"
+                    >
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('blog.nextArticle')}</p>
+                        <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p>
+                      </div>
+                      <ChevronRight size={20} className="text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
+                    </a>
+                  ) : <div />}
+                </div>
+              );
+            })()}
 
             {/* Related articles — FRO-301: moved above ads/trending for engagement */}
             <div className="border-t border-slate-200 dark:border-slate-700 pt-6 mt-8">
@@ -2277,26 +2315,26 @@ export default function BlogArticles({
           <div className="flex items-center gap-1">
             <button
               onClick={() => handleWhatsAppShare(selectedArticle)}
-              className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-[#25D366]/10 text-[#25D366]"
+              className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-[#25D366]/10 text-[#25D366]"
               aria-label={t('blog.shareWhatsApp')}
             >
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
             </button>
             {typeof navigator !== 'undefined' && 'share' in navigator ? (
               <button
                 onClick={() => handleNativeShare(selectedArticle)}
-                className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
+                className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300"
                 aria-label={t('blog.shareNative')}
               >
-                <Share2 size={16} />
+                <Share2 size={20} />
               </button>
             ) : (
               <button
                 onClick={() => handleCopyLink(selectedArticle)}
-                className="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
+                className="inline-flex items-center justify-center w-11 h-11 rounded-lg bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300"
                 aria-label={t('blog.copyLink')}
               >
-                {copied ? <Check size={16} className="text-emerald-500" /> : <Copy size={16} />}
+                {copied ? <Check size={20} className="text-emerald-500" /> : <Copy size={20} />}
               </button>
             )}
           </div>
@@ -2492,7 +2530,7 @@ export default function BlogArticles({
       {totalPages > 1 && (
         <div className="flex items-center justify-center gap-1 sm:gap-2">
           <button
-            onClick={() => setCurrentPage(p => Math.max(1, p - 1))}
+            onClick={() => { setCurrentPage(p => Math.max(1, p - 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             disabled={currentPage === 1}
             className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={t('blog.pagination.prev')}
@@ -2517,12 +2555,12 @@ export default function BlogArticles({
               }
               return pages.map((page, idx) =>
                 typeof page === 'string' ? (
-                  <span key={page} className="w-8 h-9 flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm select-none">…</span>
+                  <span key={page} className="w-10 h-11 flex items-center justify-center text-slate-500 dark:text-slate-400 text-sm select-none">…</span>
                 ) : (
                   <button
                     key={page}
-                    onClick={() => setCurrentPage(page)}
-                    className={`w-9 h-9 rounded-lg text-sm font-medium transition-colors ${
+                    onClick={() => { setCurrentPage(page); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
+                    className={`w-11 h-11 rounded-lg text-sm font-medium transition-colors ${
                       page === currentPage
                         ? 'bg-indigo-600 text-white shadow-md'
                         : 'bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700'
@@ -2537,7 +2575,7 @@ export default function BlogArticles({
             })()}
           </div>
           <button
-            onClick={() => setCurrentPage(p => Math.min(totalPages, p + 1))}
+            onClick={() => { setCurrentPage(p => Math.min(totalPages, p + 1)); window.scrollTo({ top: 0, behavior: 'smooth' }); }}
             disabled={currentPage === totalPages}
             className="inline-flex items-center gap-1 px-2 sm:px-4 py-2 rounded-lg text-sm font-medium bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-slate-700 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700 transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             aria-label={t('blog.pagination.next')}

@@ -328,6 +328,8 @@ const enStats: Record<string, string> = {
     'blog.toc.title': 'Table of contents',
     'blog.toc.sections': 'sections',
     'blog.toc.readingProgress': 'Reading progress',
+    'blog.prevArticle': 'Previous article',
+    'blog.nextArticle': 'Next article',
     'blog.relatedArticles': 'Related articles',
     'blog.trendingThisWeek': 'Most read this week',
     'blog.trendingThisWeek.views': 'views',

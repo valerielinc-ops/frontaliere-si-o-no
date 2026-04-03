@@ -328,6 +328,8 @@ const frStats: Record<string, string> = {
     'blog.toc.title': 'Table des matières',
     'blog.toc.sections': 'sections',
     'blog.toc.readingProgress': 'Progression de lecture',
+    'blog.prevArticle': 'Article précédent',
+    'blog.nextArticle': 'Article suivant',
     'blog.relatedArticles': 'Articles similaires',
     'blog.trendingThisWeek': 'Les plus lus cette semaine',
     'blog.trendingThisWeek.views': 'lectures',

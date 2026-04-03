@@ -339,6 +339,8 @@ const translations: Record<string, string> = {
     'blog.toc.title': 'Indice dei contenuti',
     'blog.toc.sections': 'sezioni',
     'blog.toc.readingProgress': 'Progresso lettura',
+    'blog.prevArticle': 'Articolo precedente',
+    'blog.nextArticle': 'Articolo successivo',
     'blog.relatedArticles': 'Articoli correlati',
     'blog.trendingThisWeek': 'Più letti questa settimana',
     'blog.trendingThisWeek.views': 'letture',
