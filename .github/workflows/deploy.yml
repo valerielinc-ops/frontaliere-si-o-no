@@ -96,7 +96,17 @@ jobs:
         continue-on-error: true
         run: node scripts/fetch-amazon-products.mjs
 
+      - name: Cache responsive image thumbnails
+        id: thumb-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            public/images/blog/thumbnails
+            public/images/places/thumbnails
+          key: thumbnails-v1-${{ hashFiles('public/images/blog/*.*', 'public/images/places/*.*') }}
+
       - name: Generate responsive image thumbnails
+        if: steps.thumb-cache.outputs.cache-hit != 'true'
         run: node scripts/generate-image-thumbnails.mjs
 
       - name: Build

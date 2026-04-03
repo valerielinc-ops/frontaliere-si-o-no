@@ -3082,9 +3082,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
     if (jobs.length === 0) return;
     // FRO: Skip dynamic schema injection for expired/orphan/bridge job pages —
     // the build plugin already injected a static JobPosting JSON-LD.
-    // If initialJobSlug is set but no active selectedJob found, it's an expired
-    // or orphan page — never inject listing-page schemas on those.
+    // Guard 1: slug set but no active job found → expired/orphan page.
     if (initialJobSlug && !selectedJob) {
+      return;
+    }
+    // Guard 2: page has __EXPIRED_JOB_DATA__ seeded by build plugin → expired page.
+    // This catches the case where an expired slug also appears in an active job's
+    // previousSlugs (slug rename history), making selectedJob non-null.
+    if (hasSeededExpiredData()) {
+      return;
+    }
+    // Guard 3: bridge page (old slug redirect) — build plugin handles schema.
+    if (bridgeTargetSlug) {
       return;
     }
 
@@ -3250,7 +3259,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const el = document.getElementById('jobposting-structured-data');
       if (el) el.remove();
     };
-  }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob]);
+  }, [jobs, pagedJobs, locale, selectedJob, initialJobSlug, expiredJob, bridgeTargetSlug]);
 
   const formatSalary = (job: JobListing) => {
     if (!job.salaryMin) return null;

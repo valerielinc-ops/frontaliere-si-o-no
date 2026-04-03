@@ -157,8 +157,18 @@ jobs:
         if: steps.changes.outputs.has_changes == 'true'
         run: npm run test:articles
 
-      - name: Generate responsive image thumbnails
+      - name: Cache responsive image thumbnails
         if: steps.changes.outputs.has_changes == 'true'
+        id: thumb-cache
+        uses: actions/cache@v4
+        with:
+          path: |
+            public/images/blog/thumbnails
+            public/images/places/thumbnails
+          key: thumbnails-v1-${{ hashFiles('public/images/blog/*.*', 'public/images/places/*.*') }}
+
+      - name: Generate responsive image thumbnails
+        if: steps.changes.outputs.has_changes == 'true' && steps.thumb-cache.outputs.cache-hit != 'true'
         run: node scripts/generate-image-thumbnails.mjs
 
       - name: Build for production
