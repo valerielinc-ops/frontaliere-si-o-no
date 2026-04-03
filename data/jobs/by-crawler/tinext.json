@@ -1,6 +1,6 @@
 {
   "crawlerKey": "tinext",
-  "assembledAt": "2026-04-03T09:51:16.140Z",
+  "assembledAt": "2026-04-03T10:05:17.122Z",
   "jobs": [
     {
       "title": "Freelance Java Developer | Full-remote",
@@ -39,7 +39,7 @@
       },
       "slugByLocale": {
         "it": "freelance-java-sviluppatore-full-remote-tinext-sa-morbio",
-        "en": "freelance-java-developer-full-remote-tinext-lugano-javadev",
+        "en": "freelance-java-developer-full-remote-tinext-sa-morbio",
         "de": "freelance-java-entwickler-vollzeit-tinext-sa-morbio",
         "fr": "developpeur-java-freelance-plein-temps-tinext-sa-morbio"
       },
@@ -126,7 +126,8 @@
         }
       },
       "streetAddress": "Via Cantonale 18",
-      "postalCode": "6928"
+      "postalCode": "6928",
+      "needsRetranslation": true
     }
   ]
 }
