@@ -1,23 +1,25 @@
 {
   "key": "dot-life",
   "label": "dot-life",
-  "generatedAt": "2026-04-02T21:09:17.691Z",
-  "total": 3,
-  "newCount": 1,
+  "generatedAt": "2026-04-03T09:13:25.626Z",
+  "total": 2,
+  "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 2,
-  "durationMs": 6412,
-  "avgDurationMs": 6412,
+  "durationMs": 4790,
+  "avgDurationMs": 4790,
   "durationHistory": [
-    6412
+    4790
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [
     {
-      "title": "Front office Supervisor",
-      "slug": "front-office-supervisor-dot-life-sa-paradiso-canton-ticino-svizzera",
-      "url": "https://www.linkedin.com/jobs/view/4366728002/",
-      "applyUrl": "https://www.linkedin.com/jobs/view/4366728002/",
+      "title": "Front office manager",
+      "slug": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
+      "url": "https://www.linkedin.com/jobs/view/4366745329/",
+      "applyUrl": "https://www.linkedin.com/jobs/view/4366745329/",
       "company": "DOT Life SA",
       "companyKey": "dot-life",
       "companyDomain": "dotlifestyle.ch",
@@ -35,18 +37,21 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "linkedInJobId": "4366728002",
-      "_qualityScore": 65,
+      "linkedInJobId": "4366745329",
+      "salaryMin": 72500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "streetAddress": "Via Balestra 12",
+      "postalCode": "6900",
+      "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 4,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Addetto alla selezione di personale acquisizione di talenti",
@@ -85,10 +90,10 @@
       }
     },
     {
-      "title": "Front office manager",
-      "slug": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
-      "url": "https://www.linkedin.com/jobs/view/4366745329/",
-      "applyUrl": "https://www.linkedin.com/jobs/view/4366745329/",
+      "title": "Front office Supervisor",
+      "slug": "front-office-supervisor-dot-life-sa-paradiso-canton-ticino-svizzera",
+      "url": "https://www.linkedin.com/jobs/view/4366728002/",
+      "applyUrl": "https://www.linkedin.com/jobs/view/4366728002/",
       "company": "DOT Life SA",
       "companyKey": "dot-life",
       "companyDomain": "dotlifestyle.ch",
@@ -106,17 +111,17 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
-      "linkedInJobId": "4366745329",
-      "salaryMin": 72500,
-      "salaryMax": 98500,
+      "linkedInJobId": "4366728002",
+      "salaryMin": 57500,
+      "salaryMax": 77500,
       "currency": "CHF",
       "streetAddress": "Via Balestra 12",
       "postalCode": "6900",
-      "_qualityScore": 91,
+      "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
+        "translation": 25,
         "completeness": 25
       }
     }

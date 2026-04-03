@@ -12,7 +12,7 @@
     "https://www.linkedin.com/jobs/search/?f_C=9425984&geoId=92000000"
   ],
   "notes": "Dedicated DOT Life crawler uses LinkedIn public guest endpoints for company 9425984 (DOT Life SA). No login required. Guest listing: https://www.linkedin.com/jobs-guest/jobs/api/seeMoreJobPostings/search?f_C=9425984&geoId=92000000&start=0. Guest detail: https://www.linkedin.com/jobs-guest/jobs/api/jobPosting/{jobId}. Canonicalizes to /jobs/view/{jobId}/ URLs.",
-  "updatedAt": "2026-04-02T21:09:17.655Z",
+  "updatedAt": "2026-04-03T09:13:25.596Z",
   "seedMetaByUrl": {
     "https://www.linkedin.com/jobs/view/4366703746/": {
       "location": "Paradiso, Canton Ticino, Svizzera",
@@ -27,13 +27,6 @@
       "company": "DOT Life SA",
       "postedDate": "2026-03-31",
       "linkedInJobId": "4366728002"
-    },
-    "https://www.linkedin.com/jobs/view/4366745329/": {
-      "location": "Paradiso, Canton Ticino, Svizzera",
-      "canton": "TI",
-      "company": "DOT Life SA",
-      "postedDate": "2026-03-31",
-      "linkedInJobId": "4366745329"
     }
   }
 }
