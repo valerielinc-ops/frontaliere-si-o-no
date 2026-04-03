@@ -1860,6 +1860,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-san-gottardo-code-giovedi-santo': { name: 'San Gottardo, code da Giovedì Santo', path: '/articoli-frontaliere/san-gottardo-code-giovedi-santo', parent: 'blog' },
     'blog-como-lago-pasqua-boom-prenotazioni': { name: 'Como e il Lago', path: '/articoli-frontaliere/como-lago-pasqua-boom-prenotazioni', parent: 'blog' },
     'blog-camion-panne-san-gottardo-traffico-bloccato': { name: 'Camion in panne al San Gottardo', path: '/articoli-frontaliere/camion-panne-san-gottardo-traffico-bloccato', parent: 'blog' },
+    'blog-aumento-inchieste-penali-2025': { name: 'Aumento inchieste penali', path: '/articoli-frontaliere/aumento-inchieste-penali-2025', parent: 'blog' },
   };
 
   const info = sectionNames[section];

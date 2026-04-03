@@ -1928,6 +1928,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.title': 'Truck Breakdown at San Gottardo: Traffic Halted in Ticino',
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.excerpt': 'A truck broke down at San Gottardo, causing a complete standstill of traffic in both directions. The situation has affected numerous cross-border workers and travelers passing through.',
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.imageAlt': 'Truck breakdown at San Gottardo with traffic blocked in Ticino',
+    'blog.article.aumento-inchieste-penali-2025.title': 'In Ticino, criminal investigations increase in 2025',
+    'blog.article.aumento-inchieste-penali-2025.excerpt': 'In 2025, 363 new criminal investigations were launched in Switzerland, marking a +9.3% rise compared to 2024. Terrorism and economic crimes are among the main causes.',
+    'blog.article.aumento-inchieste-penali-2025.imageAlt': 'Building of the Bellinzona prosecutor\'s office with the Alps in the background',
 };
 
 export default blogMetaEn;

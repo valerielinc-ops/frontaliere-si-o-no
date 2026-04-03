@@ -10544,6 +10544,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-inchieste-penali-2025': {
+    title: 'In Ticino aumentano le inchieste penali nel 2025 | Frontaliere Ticino',
+    description: 'Nel 2025, registrato un aumento del 9,3% delle inchieste penali in Svizzera. Impatti sulle normative e sui lavoratori transfrontalieri. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, aumentano, inchieste, penali, 2025',
+    ogTitle: 'Aumento Inchieste Penali in Svizzera nel 2025',
+    ogDescription: 'Maggiore cooperazione internazionale e intensificazione dei controlli in Svizzera. Cosa cambia per i frontalieri.',
+    canonicalPath: '/articoli-frontaliere/aumento-inchieste-penali-2025',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento Inchieste Penali in Svizzera nel 2025",
+      "description": "Nel 2025, registrato un aumento del 9,3% delle inchieste penali in Svizzera. Impatti sulle normative e sui lavoratori transfrontalieri. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-inchieste-penali-2025.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio della procura di Bellinzona con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-04-03T10:03:05+00:00",
+      "dateModified": "2026-04-03T10:03:05+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-inchieste-penali-2025`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

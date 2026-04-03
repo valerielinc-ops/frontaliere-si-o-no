@@ -5692,4 +5692,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/camion-panne-san-gottardo-traffico-bloccato.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'aumento-inchieste-penali-2025',
+    category: 'novita',
+    date: '2026-04-03T10:03:04.988Z',
+    image: '/images/blog/aumento-inchieste-penali-2025.jpg',
+    hasCalculator: true,
+  },
 ];

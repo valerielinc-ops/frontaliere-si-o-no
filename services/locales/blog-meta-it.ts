@@ -1928,6 +1928,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.title': 'Camion in panne al San Gottardo: traffico fermo in Ticino',
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.excerpt': 'Un camion si è fermato al San Gottardo, causando blocco totale del traffico sui due sensi. La situazione ha coinvolto numerosi frontalieri e viaggiatori in transito.',
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.imageAlt': 'Camion in panne al San Gottardo con traffico bloccato in Ticino',
+    'blog.article.aumento-inchieste-penali-2025.title': 'In Ticino aumentano le inchieste penali nel 2025',
+    'blog.article.aumento-inchieste-penali-2025.excerpt': 'Nel 2025, avviate in Svizzera 363 nuove inchieste penali, +9,3% rispetto al 2024. Terrorismo e crimini economici tra le principali cause.',
+    'blog.article.aumento-inchieste-penali-2025.imageAlt': 'Edificio della procura di Bellinzona con le Alpi sullo sfondo',
 };
 
 export default blogMetaIt;

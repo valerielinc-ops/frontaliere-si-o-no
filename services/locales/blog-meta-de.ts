@@ -1928,6 +1928,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.title': 'Lkw in Panne am San Gottardo: Stau in Tessin',
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.excerpt': 'Ein Lkw hat am San Gottardo gehalten, was zu einer vollständigen Sperrung des Verkehrs in beiden Richtungen geführt hat. Die Situation hat zahlreiche Grenzgänger und Durchreisende betroffen.',
     'blog.article.camion-panne-san-gottardo-traffico-bloccato.imageAlt': 'LKW-Panne am San Gottardo mit Verkehrsstau im Tessin',
+    'blog.article.aumento-inchieste-penali-2025.title': 'Im Tessin steigen die Strafuntersuchungen im Jahr 2025',
+    'blog.article.aumento-inchieste-penali-2025.excerpt': 'Im Jahr 2025 wurden in der Schweiz 363 neue Strafuntersuchungen eingeleitet, was einem Anstieg von +9,3 % im Vergleich zu 2024 entspricht. Terrorismus und Wirtschaftskriminalität gehören zu den Hauptursachen.',
+    'blog.article.aumento-inchieste-penali-2025.imageAlt': 'Gebäude der Staatsanwaltschaft Bellinzona mit den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;
