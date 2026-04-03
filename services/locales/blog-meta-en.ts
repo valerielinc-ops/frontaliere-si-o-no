@@ -1980,6 +1980,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.turismo-pasquale-ticino-2026.title': 'Easter Tourism in Ticino Promises Pleasant Surprises',
     'blog.article.turismo-pasquale-ticino-2026.excerpt': 'Bookings have exceeded 60% and hospitality operators are enthusiastic.',
     'blog.article.turismo-pasquale-ticino-2026.imageAlt': 'Group of Easter tourists in a bar in Lugano.',
+    'blog.article.agente-sicurezza-investito-cadenazzo.title': 'Security Agent Struck in Cadenazzo: Serious Injuries',
+    'blog.article.agente-sicurezza-investito-cadenazzo.excerpt': 'A security agent was struck by a car in Cadenazzo, Ticino. His life is in danger.',
+    'blog.article.agente-sicurezza-investito-cadenazzo.imageAlt': 'Agent hit by car in Cadenazzo, Ticino.',
 };
 
 export default blogMetaEn;

@@ -10896,6 +10896,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agente-sicurezza-investito-cadenazzo': {
+    title: 'Agente di sicurezza investito a Cadenazzo: gravi ferite | Frontaliere Ticino',
+    description: 'Un agente di sicurezza è stato investito da un\'auto a Cadenazzo, Ticino. La sua vita è in pericolo. Leggi l\'articolo per conoscere le ultime notizie.',
+    keywords: 'frontalieri, ticino, svizzera, italia, agente, sicurezza, investito, cadenazzo',
+    ogTitle: 'Agente di sicurezza investito a Cadenazzo: gravi ferite',
+    ogDescription: 'Un agente di sicurezza è stato investito da un\'auto a Cadenazzo, Ticino. La sua vita è in pericolo. Leggi l\'articolo per conoscere le ultime notizie.',
+    canonicalPath: '/articoli-frontaliere/agente-sicurezza-investito-cadenazzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Agente di sicurezza investito a Cadenazzo: gravi ferite",
+      "description": "Un agente di sicurezza è stato investito da un'auto a Cadenazzo, Ticino. La sua vita è in pericolo. Leggi l'articolo per conoscere le ultime notizie.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agente-sicurezza-investito-cadenazzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Agente di sicurezza investito da un'auto a Cadenazzo, Ticino."
+      },
+      "datePublished": "2026-04-03T22:47:07+00:00",
+      "dateModified": "2026-04-03T22:47:07+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agente-sicurezza-investito-cadenazzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

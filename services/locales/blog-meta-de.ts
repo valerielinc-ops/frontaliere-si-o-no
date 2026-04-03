@@ -1980,6 +1980,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.turismo-pasquale-ticino-2026.title': 'Das osterliche Tourismusversprechen verspricht überraschende Highlights in Tessin',
     'blog.article.turismo-pasquale-ticino-2026.excerpt': 'Die Buchungen übersteigen die 60-Prozent-Marke und die Betreiber des Beherbergungsgewerbes sind begeistert.',
     'blog.article.turismo-pasquale-ticino-2026.imageAlt': 'Gruppe von Ostertouristen in einem Bar in Lugano.',
+    'blog.article.agente-sicurezza-investito-cadenazzo.title': 'Sicherheitsbeamter wird in Cadenazzo von Auto erfasst: schwere Verletzungen',
+    'blog.article.agente-sicurezza-investito-cadenazzo.excerpt': 'Ein Sicherheitsbeamter wurde in Cadenazzo, Kanton Tessin, von einem Auto erfasst. Sein Leben ist in Gefahr.',
+    'blog.article.agente-sicurezza-investito-cadenazzo.imageAlt': 'Beamter von einem Auto in Cadenazzo, Tessin, getroffen.',
 };
 
 export default blogMetaDe;
