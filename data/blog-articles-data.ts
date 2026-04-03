@@ -5789,4 +5789,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/esame-complementare-passerella-aperte-pre-iscrizioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'gasolio-costi-pullman-ticino-lago-como',
+    category: 'pratico',
+    date: '2026-04-03T19:53:52.166Z',
+    image: '/images/blog/gasolio-costi-pullman-ticino-lago-como.jpg',
+    hasCalculator: true,
+  },
 ];

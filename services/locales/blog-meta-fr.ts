@@ -1971,6 +1971,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.title': 'Examen complémentaire passerelle : les pré-inscriptions sont ouvertes',
     'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.excerpt': 'Le Département de l\'éducation, de la culture et des sports annonce que les pré-inscriptions sont ouvertes pour le cours de préparation à l\'examen complémentaire passerelle 2026/2027.',
     'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.imageAlt': 'Étudiant qui étudie en bibliothèque à Lugano',
+    'blog.article.gasolio-costi-pullman-ticino-lago-como.title': 'Lac de Como: Pullman Touristiques et Bus de Ligne Sous Pression - Gazole +40 Millions/Euro/Mois',
+    'blog.article.gasolio-costi-pullman-ticino-lago-como.excerpt': 'La crise du gazole frappe durement le transport public et touristique autour du Lac de Como, avec des coûts supplémentaires de 40 millions d\'euros par mois ⚠️',
+    'blog.article.gasolio-costi-pullman-ticino-lago-como.imageAlt': 'Bus touristique à Chiasso avec le Lac de Côme en arrière-plan',
 };
 
 export default blogMetaFr;

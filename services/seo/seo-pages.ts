@@ -3379,7 +3379,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 644,
+        "numberOfItems": 645,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4021,7 +4021,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 641, "name": "Permessi di dimora: diverse opinioni sulla cons...", "url": `${BASE_URL}/articoli-frontaliere/permessi-dimora-diversi-opinioni` },
           { "@type": "ListItem", "position": 642, "name": "Chiasso contro la Zanzara Tigre: La Nuova Strat...", "url": `${BASE_URL}/articoli-frontaliere/chiasso-zanzara-tigre-strategia-2026` },
           { "@type": "ListItem", "position": 643, "name": "Trasferimento Ufficio Postale Chiasso", "url": `${BASE_URL}/articoli-frontaliere/trasferimento-ufficio-postale-chiasso` },
-          { "@type": "ListItem", "position": 644, "name": "Esame complementare passerella: aperte le pre-i...", "url": `${BASE_URL}/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni` }
+          { "@type": "ListItem", "position": 644, "name": "Esame complementare passerella: aperte le pre-i...", "url": `${BASE_URL}/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni` },
+          { "@type": "ListItem", "position": 645, "name": "Lago di Como: Pullman Turistici e Bus di Linea ...", "url": `${BASE_URL}/articoli-frontaliere/gasolio-costi-pullman-ticino-lago-como` }
         ]
       }
     ]

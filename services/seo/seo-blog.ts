@@ -10809,6 +10809,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-gasolio-costi-pullman-ticino-lago-como': {
+    title: 'Lago di Como: Pullman Turistici e Bus di Linea Sotto Pressione - Gasolio | Frontaliere Ticino',
+    description: 'La crisi del gasolio colpisce duramente il trasporto pubblico e turistico attorno al Lago di Como, con costi aggiuntivi di 40 milioni di euro al mese.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lago, como, pullman, turistici',
+    ogTitle: 'Lago di Como: Pullman Turistici e Bus di Linea Sotto Pres',
+    ogDescription: 'La crisi del gasolio colpisce duramente il trasporto pubblico e turistico attorno al Lago di Como, con costi aggiuntivi di 40 milioni di euro al mese.',
+    canonicalPath: '/articoli-frontaliere/gasolio-costi-pullman-ticino-lago-como',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lago di Como: Pullman Turistici e Bus di Linea Sotto Pres",
+      "description": "La crisi del gasolio colpisce duramente il trasporto pubblico e turistico attorno al Lago di Como, con costi aggiuntivi di 40 milioni di euro al mese.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/gasolio-costi-pullman-ticino-lago-como.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pullman turistico a Chiasso con lo sfondo del Lago di Como"
+      },
+      "datePublished": "2026-04-03T19:53:52+00:00",
+      "dateModified": "2026-04-03T19:53:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/gasolio-costi-pullman-ticino-lago-como`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

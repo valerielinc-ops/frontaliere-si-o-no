@@ -1971,6 +1971,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.title': 'Complementary Examination on the Catwalk: Pre-Enrollments Now Open',
     'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.excerpt': 'The Department of Education, Culture and Sport informs that pre-enrollments are now open for the course of preparation for the complementary examination on the catwalk 2026/2027.',
     'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.imageAlt': 'Student studying in library in Lugano',
+    'blog.article.gasolio-costi-pullman-ticino-lago-como.title': 'Lake Como: Tourist Coaches and Line Buses Under Pressure - Diesel Costs +40 Million Euros/Month',
+    'blog.article.gasolio-costi-pullman-ticino-lago-como.excerpt': 'The diesel crisis is hitting hard the public and tourist transportation around Lake Como, with additional costs of 40 million euros per month.',
+    'blog.article.gasolio-costi-pullman-ticino-lago-como.imageAlt': 'Tourist bus in Chiasso with Lake Como in the background',
 };
 
 export default blogMetaEn;
