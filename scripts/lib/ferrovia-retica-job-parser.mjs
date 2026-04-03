@@ -187,6 +187,38 @@ export function parseListingPage(html) {
 /* ── Detail page parser ────────────────────────────────────── */
 
 /**
+ * Extract the job content div from an RhB detail page.
+ * Targets the specific `JobDetailsPage_text` container which holds only
+ * the job description, requirements, and benefits — excluding navigation,
+ * breadcrumbs, share buttons, sidebar, contact cards, and related jobs.
+ *
+ * Returns the inner HTML of the content div, or falls back to <main>/<article>.
+ */
+function extractJobContentHtml(html) {
+  // Primary: RhB's React-rendered job content container
+  const textIdx = html.indexOf('JobDetailsPage_text');
+  if (textIdx >= 0) {
+    const divStart = html.lastIndexOf('<div', textIdx);
+    if (divStart >= 0) {
+      let depth = 0;
+      let i = divStart;
+      while (i < html.length) {
+        if (html.slice(i, i + 4) === '<div') depth++;
+        else if (html.slice(i, i + 6) === '</div>') {
+          depth--;
+          if (depth === 0) return html.slice(divStart, i + 6);
+        }
+        i++;
+      }
+    }
+  }
+  // Fallback: <main> or <article> (less precise)
+  const fallback = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
+    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
+  return fallback ? fallback[1] : html;
+}
+
+/**
  * Parse an RhB job detail page.
  * Returns { title, description, location, canton, sections[], requirements[] }
  */
@@ -197,9 +229,7 @@ export function parseDetailPage(html) {
   const title = h1Match ? normalizeSpace(stripHtml(h1Match[1])) : '';
   if (!title || title.length < 3) return null;
 
-  const mainMatch = html.match(/<main[^>]*>([\s\S]*?)<\/main>/i)
-    || html.match(/<article[^>]*>([\s\S]*?)<\/article>/i);
-  const contentHtml = mainMatch ? mainMatch[1] : html;
+  const contentHtml = extractJobContentHtml(html);
   const description = normalizeSpace(stripHtml(contentHtml));
 
   const sections = [];
