@@ -6,10 +6,10 @@
       "id": "prada-52ec1c7e9546",
       "slug": "prada-department-manager-m-f-d-prada-mendrisio",
       "slugByLocale": {
-        "it": "prada-department-manager-m-f-d-prada-mendrisio",
+        "it": "manager-departmentale-m-f-d-prada-group-mendrisio",
         "en": "prada-department-manager-m-f-d-prada-group-mendrisio",
-        "de": "prada-department-manager-m-f-d-prada-mendrisio",
-        "fr": "prada-department-manager-m-f-d-prada-mendrisio"
+        "de": "abteilungsleiter-m-f-d-prada-group-mendrisio",
+        "fr": "gestionnaire-de-departement-m-f-d-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -49,7 +49,9 @@
       "source": "Prada Group Dedicated Parser",
       "crawledAt": "2026-04-03T05:08:01.631Z",
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "prada-department-manager-m-f-d-prada-mendrisio"
+      ],
       "salaryMin": 72000,
       "salaryMax": 97000,
       "baseSalary": {
@@ -71,7 +73,7 @@
         "it": "miu-miu-in-store-crm-manager-harrods-prada-mendrisio",
         "en": "miu-miu-in-store-crm-manager-harrods-prada-mendrisio",
         "de": "miu-miu-in-store-crm-manager-harrods-prada-mendrisio",
-        "fr": "miu-miu-in-store-crm-manager-harrods-prada-mendrisio"
+        "fr": "responsable-crm-miu-miu-en-magasin-harrods-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -123,7 +125,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "miu-miu-in-store-crm-manager-harrods-prada-mendrisio"
+      ]
     },
     {
       "id": "prada-a3e15d85aaf4",
@@ -253,9 +258,9 @@
       "slug": "stage-hr-industrial-pelletteria-prada-group-mendrisio",
       "slugByLocale": {
         "it": "stage-hr-industrial-pelletteria-prada-group-mendrisio",
-        "en": "stage-hr-industrial-pelletteria-prada-mendrisio",
-        "de": "stage-hr-industrial-pelletteria-prada-mendrisio",
-        "fr": "stage-hr-industrial-pelletteria-prada-mendrisio"
+        "en": "industrial-tailoring-hr-specialist-prada-group-mendrisio",
+        "de": "industrieller-hr-spezialist-fur-schuhmacher-prada-group-mendrisio",
+        "fr": "specialiste-rh-pour-la-couture-industrielle-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -316,10 +321,10 @@
       "id": "prada-332f237b0ca4",
       "slug": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
       "slugByLocale": {
-        "it": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
+        "it": "mui-mui-direttore-del-negozio-saint-moritz-prada-group-mendrisio",
         "en": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
-        "de": "miu-miu-store-manager-saint-moritz-prada-mendrisio",
-        "fr": "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+        "de": "miu-miu-filialleiter-saint-moritz-prada-group-mendrisio",
+        "fr": "directeur-du-magasin-miu-miu-saint-moritz-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -371,7 +376,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "miu-miu-store-manager-saint-moritz-prada-mendrisio"
+      ]
     },
     {
       "id": "prada-e41a47cd1c53",
