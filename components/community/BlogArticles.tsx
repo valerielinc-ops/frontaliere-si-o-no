@@ -12,7 +12,7 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
   giPattern: new RegExp(kl.pattern.source, 'gi'),
 }));
 import { Analytics } from '@/services/analytics';
-import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown } from 'lucide-react';
+import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
@@ -1980,6 +1980,22 @@ export default function BlogArticles({
                   <p className="text-sm text-slate-600 dark:text-slate-400">{t('blog.authorBio')}</p>
                 </div>
               </div>
+            </div>
+
+            {/* Discuss in forum CTA */}
+            <div className="mt-6 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-xl border border-indigo-200 dark:border-indigo-800/40 flex items-center gap-3">
+              <MessageSquareMore size={20} className="text-indigo-600 dark:text-indigo-400 shrink-0" />
+              <div className="flex-1">
+                <p className="text-sm font-semibold text-indigo-800 dark:text-indigo-300">{t('blog.discussInForum')}</p>
+                <p className="text-xs text-indigo-700 dark:text-indigo-400 mt-0.5">{t('blog.discussInForumDesc')}</p>
+              </div>
+              <a
+                href={buildPath({ activeTab: 'forum' })}
+                onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('forum'); }}
+                className="shrink-0 px-4 py-2 bg-indigo-600 hover:bg-indigo-700 text-white text-sm font-medium rounded-lg transition-colors"
+              >
+                {t('blog.goToForum')} →
+              </a>
             </div>
 
             {/* Related articles — FRO-301: moved above ads/trending for engagement */}
