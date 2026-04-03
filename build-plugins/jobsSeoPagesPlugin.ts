@@ -3113,7 +3113,7 @@ ${alternates}
               ].join(' ').toLowerCase();
               return kwFilterWords.every((kw: string) => haystack.includes(kw));
             }).slice(0, 30);
-            if (kwJobs.length < 2) continue;
+            if (kwJobs.length < 3) continue;
             const itCopy = kwPage.copy?.it;
             if (!itCopy) continue;
             for (const locale of localeList) {
@@ -3137,7 +3137,14 @@ ${alternates}
                 return `<li style="margin:0 0 10px 0"><a href="${BASE_URL}${withSlash(jPath)}" style="text-decoration:none;color:#1e3a8a;font-weight:600">${esc(jTitle)}</a><div style="font-size:13px;color:#64748b">${esc(job.company)} \u00b7 ${esc(job.location)}</div></li>`;
               }).join('');
               const kwCollLd = JSON.stringify({ '@context': 'https://schema.org', '@type': 'CollectionPage', name: kwTitle, url: kwCanonicalUrl, description: kwDesc, inLanguage: locale, isPartOf: { '@type': 'WebSite', name: 'Frontaliere Ticino', url: BASE_URL } });
-              const kwHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(kwTitle)}</title>\n    <meta name="description" content="${esc(kwDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(kwTitle)}">\n    <meta property="og:description" content="${esc(kwDesc)}">\n    <meta property="og:url" content="${kwCanonicalUrl}">\n    <link rel="canonical" href="${kwCanonicalUrl}">\n${kwAlternates}\n    <script type="application/ld+json">${kwCollLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(itCopy.heading)}</h1>\n      <p>${esc(kwDesc)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
+              const kwCtaCopy: Record<string, string> = {
+                it: `Consulta le ${kwJobs.length} posizioni aperte qui sotto. Le offerte vengono aggiornate quotidianamente da aziende con sede in Ticino e Grigioni. Utilizza il nostro calcolatore per confrontare stipendio netto, tasse e costo della vita tra Svizzera e Italia.`,
+                en: `Browse the ${kwJobs.length} open positions listed below. Listings are updated daily from employers based in Ticino and Graubünden. Use our calculator to compare net salary, taxes, and cost of living between Switzerland and Italy.`,
+                de: `Entdecken Sie die ${kwJobs.length} offenen Stellen unten. Die Angebote werden täglich von Arbeitgebern im Tessin und Graubünden aktualisiert. Nutzen Sie unseren Rechner, um Nettolohn, Steuern und Lebenshaltungskosten zwischen der Schweiz und Italien zu vergleichen.`,
+                fr: `Consultez les ${kwJobs.length} postes ouverts ci-dessous. Les offres sont mises à jour quotidiennement par des employeurs basés au Tessin et dans les Grisons. Utilisez notre calculateur pour comparer salaire net, impôts et coût de la vie entre la Suisse et l'Italie.`,
+              };
+              const kwCta = kwCtaCopy[locale] || kwCtaCopy.it;
+              const kwHtml = `<!doctype html>\n<html lang="${locale}">\n  <head>\n    <meta charset="utf-8">\n    <meta name="viewport" content="width=device-width,initial-scale=1">\n    <title>${esc(kwTitle)}</title>\n    <meta name="description" content="${esc(kwDesc)}">\n    <meta name="robots" content="index,follow">\n    <meta property="og:type" content="website">\n    <meta property="og:locale" content="${localeOg[locale]}">\n    <meta property="og:title" content="${esc(kwTitle)}">\n    <meta property="og:description" content="${esc(kwDesc)}">\n    <meta property="og:url" content="${kwCanonicalUrl}">\n    <link rel="canonical" href="${kwCanonicalUrl}">\n${kwAlternates}\n    <script type="application/ld+json">${kwCollLd}</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all">` : ''}\n    ${GTAG_SNIPPET}\n  </head>\n  <body>\n    <div id="root">\n    <main class="static-job-page">\n      <h1>${esc(itCopy.heading)}</h1>\n      <p>${esc(kwDesc)}</p>\n      <p>${esc(kwCta)}</p>\n      <ul style="list-style:none;padding:0;margin:16px 0">${kwListHtml}</ul>\n    </main>\n    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}\n  </body>\n</html>`;
               const kwOutDir = np.join(distDir, kwCanonicalPath.slice(1));
               activeJobDirs.add(kwRelDir);
               _md(kwOutDir);
