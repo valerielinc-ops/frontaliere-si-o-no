@@ -5726,6 +5726,8 @@ export const ARTICLES: Article[] = [
     date: '2026-04-03T14:31:21.058Z',
     image: '/images/blog/permessi-dubbi-roveredo-insoddisfatta.jpg',
     hasCalculator: true,
+  },
+  {
     id: 'permesso-g-vantaggi-svantaggi',
     category: 'pratico',
     date: '2026-04-03',
