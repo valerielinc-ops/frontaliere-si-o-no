@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-04-03T09:31:53.797Z",
+  "assembledAt": "2026-04-03T21:27:44.136Z",
   "jobs": [
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
@@ -145,6 +145,7 @@
         "fr": "Apprenti/e Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -190,7 +191,7 @@
         "it": "manor-polydesigner-3d-afc-100-lugano",
         "en": "manor-polydesigner-3d-afc-100-lugano",
         "de": "manor-polydesigner-3d-afc-100-lugano",
-        "fr": "polydesigner-3d-afc-100-manor-ag-lugano"
+        "fr": "manor-polydesigner-3d-afc-100-lugano"
       },
       "titleByLocale": {
         "it": "Polydesigner 3D AFC 100%",
@@ -201,7 +202,6 @@
       "crawledAt": "",
       "needsRetranslation": true,
       "sourceLang": "it",
-      "previousSlugs": [],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
