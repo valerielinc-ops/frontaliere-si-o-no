@@ -1,20 +1,21 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-04-03T09:04:36.070Z",
+  "generatedAt": "2026-04-03T20:58:21.034Z",
   "total": 11,
-  "newCount": 11,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7581,
-  "avgDurationMs": 7581,
+  "unchangedCount": 9,
+  "durationMs": 6874,
+  "avgDurationMs": 6874,
   "durationHistory": [
-    7581
+    6874
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
-      "title": "Concorsi per l'assunzione di personale",
+      "title": "Concorsi per aziende (simap)",
       "company": "Città di Lugano",
       "companyKey": "citta-di-lugano",
       "url": "https://egov.lugano.ch/it/services/3",
@@ -30,317 +31,23 @@
       "category": "technology",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "concorsi-per-posti-di-lavoro-concorsi-per-aziende-e-altri-concorsi-aperti-dalla-citt-agrave-citta-di-lugano",
+      "slug": "concorsi-per-aziende-simap-citta-di-lugano",
       "deadline": "",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 68,
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 8,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "un/a collaboratore/trice tecnico/a presso la Divisione eventi e congressi (Palazzo dei congressi)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=5FC33274D9DB99E4C1258DCB00258C50",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "un-a-collaboratore-trice-tecnico-a-presso-la-divisione-eventi-e-congressi-palazzo-dei-congressi-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "un/a coordinatore/trice logistica eventi al 70% presso la Divisione eventi e congressi",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=FE95E876097731D5C1258DCB002536C1",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "un-a-coordinatore-trice-logistica-eventi-al-70-presso-la-divisione-eventi-e-congressi-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=C7868D4EFB575BB4C1258D9400375633",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "inservienti refezione scolastica presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=CFF7EAD652FAEC3FC1258D9400370C84",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "addetti/e pulizia urbana presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=906791D544553FECC1258D940036EB4D",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "operations",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "operai/e generici/che presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=DEE821FDCC15E6ABC1258D940036C117",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "operations",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "cassieri/e presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=B628C51863CAA220C1258D9400366BF2",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "administration",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "autisti/e veicoli leggeri o speciali presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=ADF56B554F29A767C1258D9400360863",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "logistics",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "autisti-e-veicoli-leggeri-o-speciali-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
-      }
-    },
-    {
-      "title": "operatori/trici pausa meridiana SI (a tempo parziale) presso l'Istituto scolastico (valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=F4E68F826632E9FAC1258D940035257D",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-03",
-      "source": "company-website",
-      "slug": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "_qualityScore": 76,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 10,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
     },
     {
@@ -360,7 +67,7 @@
       "category": "education",
       "postedDate": "2026-04-03",
       "source": "company-website",
-      "slug": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di",
+      "slug": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
       "_targetScope": {
         "canton": "TI",
@@ -368,16 +75,19 @@
       },
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 76,
+      "sourceLang": "it",
+      "salaryMin": 83500,
+      "salaryMax": 112500,
+      "currency": "CHF",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 10,
-        "completeness": 17
+        "translation": 16,
+        "completeness": 22
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
@@ -404,16 +114,15 @@
         "location": "Lugano"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 81,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
