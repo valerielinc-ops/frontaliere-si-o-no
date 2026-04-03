@@ -10693,6 +10693,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permessi-dimora-diversi-opinioni': {
+    title: 'Permessi di dimora: diverse opinioni sulla consultazione del casellario | Frontaliere Ticino',
+    description: 'La questione dei permessi di dimora è sempre più attuale, soprattutto dopo l\'operazione antimafia a Roveredo. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, dimora, diverse, opinioni',
+    ogTitle: 'Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale |',
+    ogDescription: 'La questione dei permessi di dimora è sempre più attuale, soprattutto dopo l\'operazione antimafia a Roveredo.',
+    canonicalPath: '/articoli-frontaliere/permessi-dimora-diversi-opinioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale",
+      "description": "La questione dei permessi di dimora è sempre più attuale, soprattutto dopo l'operazione antimafia a Roveredo. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permessi-dimora-diversi-opinioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una strada stretta e tortuosa che si inerpica tra le montagne"
+      },
+      "datePublished": "2026-04-03T15:22:15+00:00",
+      "dateModified": "2026-04-03T15:22:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permessi-dimora-diversi-opinioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

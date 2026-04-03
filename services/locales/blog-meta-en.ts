@@ -1959,6 +1959,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.guida-completa-frontaliere.title': 'Complete Guide to Becoming a Cross-Border Worker in Switzerland 2026',
     'blog.article.guida-completa-frontaliere.excerpt': 'From job search to first day: permits, taxes, pensions, insurance, and everything you need to work in Switzerland from Italy.',
     'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande in Bellinzona, a symbol of Ticino culture and gateway for cross-border workers.',
+    'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale',
+    'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'The Canton Ticino would like to be able to verify criminal records at every request for a residence permit, but the Federal Council is holding back.',
+    'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'A mountain road with a narrow and winding road',
 };
 
 export default blogMetaEn;

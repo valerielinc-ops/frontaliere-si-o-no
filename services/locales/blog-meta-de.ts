@@ -1959,6 +1959,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.guida-completa-frontaliere.title': 'Kompletter Leitfaden: Grenzgänger in der Schweiz werden 2026',
     'blog.article.guida-completa-frontaliere.excerpt': 'Von der Jobsuche bis zum ersten Arbeitstag: Bewilligungen, Steuern, Vorsorge, Versicherung und alles, was Sie brauchen, um von Italien aus in der Schweiz zu arbeiten.',
     'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande in Bellinzona, Symbol der Tessiner Kultur und Tor für Grenzgänger.',
+    'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi di dimora: verschiedene Meinungen zur Abfrage des Strafregisterauszugs',
+    'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'Der Kanton Tessin möchte in Zukunft bei jeder Anfrage nach einem Aufenthaltsbewilligung die Vorstrafen des Antragstellers überprüfen können, aber der Bundesrat hält Einzug.',
+    'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'Eine schmale und windige Straße, die sich durch die Berge windet',
 };
 
 export default blogMetaDe;

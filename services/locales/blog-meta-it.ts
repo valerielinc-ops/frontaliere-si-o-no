@@ -1959,6 +1959,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.guida-completa-frontaliere.title': 'Guida completa per diventare frontaliere in Svizzera nel 2026',
     'blog.article.guida-completa-frontaliere.excerpt': 'Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza, assicurazione e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
     'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande a Bellinzona, simbolo della cultura ticinese e porta d\'ingresso per i frontalieri.',
+    'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi di dimora: diverse opinioni sulla consultazione del casellario giudiziale',
+    'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'Il Canton Ticino vorrebbe poter verificare i precedenti penali a ogni richiesta di permesso di dimora, ma il Consiglio federale frena.',
+    'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'Una strada stretta e tortuosa che si inerpica tra le montagne',
 };
 
 export default blogMetaIt;

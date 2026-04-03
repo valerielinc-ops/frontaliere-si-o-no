@@ -1959,6 +1959,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.guida-completa-frontaliere.title': 'Guide complet pour devenir frontalier en Suisse en 2026',
     'blog.article.guida-completa-frontaliere.excerpt': 'De la recherche d\'emploi au premier jour : permis, impôts, retraite, assurance et tout ce qu\'il faut pour travailler en Suisse depuis l\'Italie.',
     'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande à Bellinzona, symbole de la culture tessinoise et porte d\'entrée pour les frontaliers.',
+    'blog.article.permessi-dimora-diversi-opinioni.title': 'Permessi de séjour : diverses opinions sur la consultation du casier judiciaire',
+    'blog.article.permessi-dimora-diversi-opinioni.excerpt': 'Le canton du Tessin voudrait pouvoir vérifier les antécédents pénals à chaque demande de permis de séjour, mais le Conseil fédéral freine.',
+    'blog.article.permessi-dimora-diversi-opinioni.imageAlt': 'Une route étroite et sinueuse qui s\'élève entre les montagnes',
 };
 
 export default blogMetaFr;

@@ -5755,4 +5755,11 @@ export const ARTICLES: Article[] = [
     image: '/images/places/castelgrande.webp',
     hasCalculator: false,
   },
+  {
+    id: 'permessi-dimora-diversi-opinioni',
+    category: 'pratico',
+    date: '2026-04-03T15:22:15.059Z',
+    image: '/images/blog/permessi-dimora-diversi-opinioni.jpg',
+    hasCalculator: true,
+  },
 ];

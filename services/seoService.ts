@@ -1865,6 +1865,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lombardia-export-calzature': { name: 'Economia', path: '/articoli-frontaliere/lombardia-export-calzature', parent: 'blog' },
     'blog-dogana-chiasso-centro-tecnologico': { name: 'Economia', path: '/articoli-frontaliere/dogana-chiasso-centro-tecnologico', parent: 'blog' },
     'blog-permessi-dubbi-roveredo-insoddisfatta': { name: 'Permessi dubbi, Roveredo insoddisfatta e', path: '/articoli-frontaliere/permessi-dubbi-roveredo-insoddisfatta', parent: 'blog' },
+    'blog-permessi-dimora-diversi-opinioni': { name: 'Permessi di dimora', path: '/articoli-frontaliere/permessi-dimora-diversi-opinioni', parent: 'blog' },
   };
 
   const info = sectionNames[section];
