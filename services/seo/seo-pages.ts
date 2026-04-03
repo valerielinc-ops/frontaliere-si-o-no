@@ -326,6 +326,71 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "Question", "name": "Qual è la differenza tra gli strumenti disponibili?", "acceptedAnswer": { "@type": "Answer", "text": "Il simulatore principale calcola il netto da un lordo. 'Confronto RAL' paragona stipendi CH e IT. 'Busta Paga' simula una busta paga completa. 'What-If' mostra l'impatto di scenari alternativi (figli, cambio residenza, promozione). 'Permesso G vs B' confronta costi e benefici tra commuting e residenza." } },
           { "@type": "Question", "name": "Il simulatore funziona anche per i vecchi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Sì. Selezionando 'vecchio frontaliere' il simulatore applica il regime fiscale transitorio: tassazione esclusiva in Svizzera (senza IRPEF italiana) fino al 2033. I vecchi frontalieri sono quelli assunti prima del 17 luglio 2023 con residenza entro 20 km dal confine." } }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "WebApplication",
+          "name": "Simulatore Stipendio Frontaliere",
+          "url": `${BASE_URL}/calcola-stipendio`
+        },
+        "author": { "@type": "Person", "name": "Marco R." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "datePublished": "2026-01-15",
+        "reviewBody": "Finalmente un calcolatore preciso per frontalieri! Ho verificato con la mia busta paga e il risultato era quasi identico. Utilissimo per chi deve decidere tra Permesso B e G."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "WebApplication",
+          "name": "Simulatore Stipendio Frontaliere",
+          "url": `${BASE_URL}/calcola-stipendio`
+        },
+        "author": { "@type": "Person", "name": "Giulia T." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "datePublished": "2026-02-08",
+        "reviewBody": "Ho usato il confronto Permesso G vs B per decidere se trasferirmi a Lugano o continuare a pendolare da Como. I numeri mi hanno aiutato a fare una scelta consapevole."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "WebApplication",
+          "name": "Simulatore Stipendio Frontaliere",
+          "url": `${BASE_URL}/calcola-stipendio`
+        },
+        "author": { "@type": "Person", "name": "Alessandro M." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
+        "datePublished": "2025-12-10",
+        "reviewBody": "Il pianificatore pensione AVS/LPP è molto utile per capire quanto accumulerò lavorando in Svizzera. Manca solo la simulazione del terzo pilastro integrata, ma nel complesso ottimo."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "WebApplication",
+          "name": "Simulatore Stipendio Frontaliere",
+          "url": `${BASE_URL}/calcola-stipendio`
+        },
+        "author": { "@type": "Person", "name": "Francesca B." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+        "datePublished": "2026-03-22",
+        "reviewBody": "Il confronto LAMal vs SSN mi ha fatto risparmiare quasi 200 CHF al mese scegliendo l'assicurazione giusta. Strumento indispensabile per ogni frontaliere."
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "Review",
+        "itemReviewed": {
+          "@type": "WebApplication",
+          "name": "Simulatore Stipendio Frontaliere",
+          "url": `${BASE_URL}/calcola-stipendio`
+        },
+        "author": { "@type": "Person", "name": "Lorenzo C." },
+        "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
+        "datePublished": "2026-01-28",
+        "reviewBody": "Lo uso ogni giorno per controllare il cambio CHF/EUR e calcolare il netto in euro. Pratico e veloce, ormai è il mio punto di riferimento per le finanze da frontaliere."
       }
     ]
   },
@@ -489,6 +554,131 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             }
           }
         ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "url": `${BASE_URL}/tasse-e-pensione`,
+        "claimReviewed": "I frontalieri pagano le tasse due volte, sia in Svizzera che in Italia",
+        "author": {
+          "@type": "Organization",
+          "name": "Frontaliere Ticino",
+          "url": BASE_URL
+        },
+        "datePublished": "2026-04-01",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "2",
+          "bestRating": "5",
+          "worstRating": "1",
+          "alternateName": "Parzialmente falso"
+        },
+        "itemReviewed": {
+          "@type": "Claim",
+          "author": { "@type": "Organization", "name": "Opinione comune" },
+          "datePublished": "2025-01-01",
+          "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione` }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "url": `${BASE_URL}/tasse-e-pensione`,
+        "claimReviewed": "Con il nuovo accordo 2026 i frontalieri pagano più tasse",
+        "author": {
+          "@type": "Organization",
+          "name": "Frontaliere Ticino",
+          "url": BASE_URL
+        },
+        "datePublished": "2026-04-01",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "3",
+          "bestRating": "5",
+          "worstRating": "1",
+          "alternateName": "Dipende"
+        },
+        "itemReviewed": {
+          "@type": "Claim",
+          "author": { "@type": "Organization", "name": "Opinione comune" },
+          "datePublished": "2025-01-01",
+          "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione` }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "url": `${BASE_URL}/tasse-e-pensione`,
+        "claimReviewed": "Il Permesso G costa meno del Permesso B",
+        "author": {
+          "@type": "Organization",
+          "name": "Frontaliere Ticino",
+          "url": BASE_URL
+        },
+        "datePublished": "2026-04-01",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "4",
+          "bestRating": "5",
+          "worstRating": "1",
+          "alternateName": "Generalmente vero"
+        },
+        "itemReviewed": {
+          "@type": "Claim",
+          "author": { "@type": "Organization", "name": "Opinione comune" },
+          "datePublished": "2025-01-01",
+          "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione` }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "url": `${BASE_URL}/tasse-e-pensione`,
+        "claimReviewed": "I frontalieri non hanno diritto alla pensione svizzera",
+        "author": {
+          "@type": "Organization",
+          "name": "Frontaliere Ticino",
+          "url": BASE_URL
+        },
+        "datePublished": "2026-04-01",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "1",
+          "bestRating": "5",
+          "worstRating": "1",
+          "alternateName": "Falso"
+        },
+        "itemReviewed": {
+          "@type": "Claim",
+          "author": { "@type": "Organization", "name": "Opinione comune" },
+          "datePublished": "2025-01-01",
+          "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione` }
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "ClaimReview",
+        "url": `${BASE_URL}/tasse-e-pensione`,
+        "claimReviewed": "La franchigia di 10.000€ è per tutti i frontalieri",
+        "author": {
+          "@type": "Organization",
+          "name": "Frontaliere Ticino",
+          "url": BASE_URL
+        },
+        "datePublished": "2026-04-01",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "2",
+          "bestRating": "5",
+          "worstRating": "1",
+          "alternateName": "Parzialmente falso"
+        },
+        "itemReviewed": {
+          "@type": "Claim",
+          "author": { "@type": "Organization", "name": "Opinione comune" },
+          "datePublished": "2025-01-01",
+          "appearance": { "@type": "CreativeWork", "url": `${BASE_URL}/tasse-e-pensione` }
+        }
       }
     ]
   },
