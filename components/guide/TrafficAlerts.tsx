@@ -205,7 +205,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
       <div className="bg-gradient-to-br from-orange-600 to-red-700 rounded-2xl p-5 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-4">
           <Car size={32} />
-          <h2 className="text-2xl sm:text-3xl font-extrabold">{t('traffic.title')}</h2>
+          <h2 className="text-2xl sm:text-3xl font-bold">{t('traffic.title')}</h2>
         </div>
         <p className="text-orange-100 text-lg">
           {t('traffic.subtitle')}
@@ -291,16 +291,16 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
               <TrendingUp size={18} className="text-emerald-700" />
               <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400">{t('traffic.fastest')}</span>
             </div>
-            <p className="text-lg font-extrabold text-slate-800 dark:text-slate-100">{fastest.crossingName}</p>
-            <p className="text-2xl font-extrabold text-emerald-700">{effectiveWait(fastest)} min</p>
+            <p className="text-lg font-bold text-slate-800 dark:text-slate-100">{fastest.crossingName}</p>
+            <p className="text-2xl font-bold text-emerald-700">{effectiveWait(fastest)} min</p>
           </div>
           <div className="bg-gradient-to-br from-red-50 to-orange-50 dark:from-red-950/30 dark:to-orange-950/30 rounded-xl border border-red-200 dark:border-red-800 p-4">
             <div className="flex items-center gap-2 mb-1">
               <AlertTriangle size={18} className="text-red-600" />
               <span className="text-xs font-bold text-red-700 dark:text-red-400">{t('traffic.slowest')}</span>
             </div>
-            <p className="text-lg font-extrabold text-slate-800 dark:text-slate-100">{slowest.crossingName}</p>
-            <p className="text-2xl font-extrabold text-red-600">{effectiveWait(slowest)} min</p>
+            <p className="text-lg font-bold text-slate-800 dark:text-slate-100">{slowest.crossingName}</p>
+            <p className="text-2xl font-bold text-red-600">{effectiveWait(slowest)} min</p>
           </div>
         </div>
       )}
@@ -343,7 +343,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                           className={`${STATUS_DOT_CLASSES[status]}`}
                           style={POPUP_DOT_STYLE}
                         />
-                        <h3 className="font-extrabold text-base text-slate-900 dark:text-slate-100" style={POPUP_TITLE_STYLE}>{crossing.name}</h3>
+                        <h3 className="font-bold text-base text-slate-900 dark:text-slate-100" style={POPUP_TITLE_STYLE}>{crossing.name}</h3>
                       </div>
 
                       <div style={POPUP_BODY_STYLE}>
@@ -435,7 +435,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                 }`}
               >
                 <div className="flex items-center gap-3 mb-3">
-                  <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center text-white font-extrabold text-sm shadow-md`}>
+                  <div className={`w-10 h-10 ${bgColor} rounded-full flex items-center justify-center text-white font-bold text-sm shadow-md`}>
                     {effectiveWait(traffic)}
                   </div>
                   <div className="flex-1 min-w-0">
