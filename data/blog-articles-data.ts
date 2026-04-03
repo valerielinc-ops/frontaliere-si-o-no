@@ -5720,4 +5720,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/dogana-chiasso-centro-tecnologico.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'permessi-dubbi-roveredo-insoddisfatta',
+    category: 'novita',
+    date: '2026-04-03T14:31:21.058Z',
+    image: '/images/blog/permessi-dubbi-roveredo-insoddisfatta.jpg',
+    hasCalculator: true,
+  },
 ];

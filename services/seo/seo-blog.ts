@@ -10664,6 +10664,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permessi-dubbi-roveredo-insoddisfatta': {
+    title: 'Permessi dubbi, Roveredo insoddisfatta e preoccupata della risposta di | Frontaliere Ticino',
+    description: 'Il Comune di Roveredo critica la valutazione del rischio per i permessi di soggiorno e chiede un cambio di prassi. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, permessi, dubbi, roveredo, insoddisfatta',
+    ogTitle: 'Permessi dubbi, Roveredo insoddisfatta e preoccupata dell',
+    ogDescription: 'Il Comune di Roveredo critica la valutazione del rischio per i permessi di soggiorno e chiede un cambio di prassi.',
+    canonicalPath: '/articoli-frontaliere/permessi-dubbi-roveredo-insoddisfatta',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permessi dubbi, Roveredo insoddisfatta e preoccupata dell",
+      "description": "Il Comune di Roveredo critica la valutazione del rischio per i permessi di soggiorno e chiede un cambio di prassi. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/permessi-dubbi-roveredo-insoddisfatta.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un gruppo di persone in attesa davanti a un ufficio di immigrazione in Ticino."
+      },
+      "datePublished": "2026-04-03T14:31:21+00:00",
+      "dateModified": "2026-04-03T14:31:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permessi-dubbi-roveredo-insoddisfatta`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

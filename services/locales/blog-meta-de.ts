@@ -1940,6 +1940,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.dogana-chiasso-centro-tecnologico.title': 'Die Zollstelle in Chiasso bereitet sich auf eine moderne Technologiezentrale vor',
     'blog.article.dogana-chiasso-centro-tecnologico.excerpt': 'Die Zollstelle in Chiasso, ein Treffpunkt für Güter und Menschen, entwickelt sich mit innovativen Projekten und fortschrittlichen Technologien.',
     'blog.article.dogana-chiasso-centro-tecnologico.imageAlt': 'Zollstelle Chiasso wird zu einem modernen Technologiezentrum',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.title': 'Zweifelhafte Genehmigungen, Roveredo ist unzufrieden und besorgt über die Antwort von Chur',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.excerpt': 'Der Gemeinde Roveredo wird die Risikobewertung für die Aufenthaltsgenehmigungen kritisiert und fordert einen Wechsel in der Praxis.',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.imageAlt': 'Bild von einer Gruppe von Menschen, die vor einem Zuwanderungsamt in der Schweiz anstehen.',
 };
 
 export default blogMetaDe;

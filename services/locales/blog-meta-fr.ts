@@ -1940,6 +1940,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.dogana-chiasso-centro-tecnologico.title': 'La douane de Chiasso se prépare à devenir un centre technologique moderne',
     'blog.article.dogana-chiasso-centro-tecnologico.excerpt': 'La douane de Chiasso, point de rencontre entre marchandises et personnes, évolue avec des projets innovants et des technologies avancées.',
     'blog.article.dogana-chiasso-centro-tecnologico.imageAlt': 'La douane de Chiasso se prépare à devenir un centre technologique moderne',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.title': 'Permessi dubbi, Roveredo insoddisfatta e preoccupata della risposta di Coira',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.excerpt': 'Il Comune di Roveredo critica la valutazione del rischio per i permessi di soggiorno e chiede un cambio di prassi.',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.imageAlt': 'Image d\'un groupe de personnes attendant devant un bureau d\'immigration en Suisse.',
 };
 
 export default blogMetaFr;

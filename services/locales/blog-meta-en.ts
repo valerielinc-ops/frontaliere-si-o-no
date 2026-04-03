@@ -1940,6 +1940,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.dogana-chiasso-centro-tecnologico.title': 'The Customs Office of Chiasso Prepares to Become a Modern Technological Hub',
     'blog.article.dogana-chiasso-centro-tecnologico.excerpt': 'The customs office of Chiasso, a meeting point between goods and people, is evolving with innovative projects and advanced technologies.',
     'blog.article.dogana-chiasso-centro-tecnologico.imageAlt': 'Chiasso Customs prepares to become a modern technological hub',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.title': 'Doubtful Permits, Roveredo Unhappy and Worried About Chur\'s Response',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.excerpt': 'The municipality of Roveredo criticizes the risk assessment for residence permits and requests a change in procedure.',
+    'blog.article.permessi-dubbi-roveredo-insoddisfatta.imageAlt': 'Image of a group of people waiting in front of an immigration office in Ticino.',
 };
 
 export default blogMetaEn;
