@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "product-category-specialist-100-rapelli-stabio",
         "en": "product-category-specialist-100-rapelli-stabio",
-        "de": "product-category-specialist-100-rapelli-stabio",
-        "fr": "product-category-specialist-100-rapelli-stabio"
+        "de": "produkt-kategoriespezialist-100-rapelli-orior-food-ag-stabio",
+        "fr": "specialiste-produit-categorie-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -61,14 +61,17 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "previousSlugs": [
+        "product-category-specialist-100-rapelli-stabio"
+      ]
     },
     {
       "id": "rapelli-eef49fb6a6c9",
       "slug": "controller-100-rapelli-stabio",
       "slugByLocale": {
         "it": "controller-100-rapelli-stabio",
-        "en": "controller-100-rapelli-stabio",
+        "en": "controller-rapelli-orior-food-ag-stabio",
         "de": "controller-100-rapelli-stabio",
         "fr": "controller-100-rapelli-orior-food-ag-stabio"
       },
@@ -110,7 +113,9 @@
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "crawledAt": "2026-04-02T21:35:52.988Z",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "controller-100-rapelli-stabio"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -131,8 +136,8 @@
       "slugByLocale": {
         "it": "buyer-ingredienti-trade-100-rapelli-stabio",
         "en": "buyer-ingredienti-trade-100-rapelli-stabio",
-        "de": "buyer-ingredienti-trade-100-rapelli-stabio",
-        "fr": "buyer-ingredienti-trade-100-rapelli-stabio"
+        "de": "einkaufer-zutaten-handel-100-rapelli-orior-food-ag-stabio",
+        "fr": "acheteur-ingredients-commerce-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -184,7 +189,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "previousSlugs": [
+        "buyer-ingredienti-trade-100-rapelli-stabio"
+      ]
     },
     {
       "id": "rapelli-59c1bdb72841",
@@ -193,7 +201,7 @@
         "it": "supply-chain-planner-100-rapelli-stabio",
         "en": "supply-chain-planner-100-rapelli-stabio",
         "de": "lieferkette-planner-100-rapelli-orior-food-ag-stabio",
-        "fr": "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio"
+        "fr": "planificateur-de-chaine-d-approvisionnement-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -247,7 +255,8 @@
       },
       "postalCode": "6855",
       "previousSlugs": [
-        "supply-chain-planner-100-rapelli-stabio"
+        "supply-chain-planner-100-rapelli-stabio",
+        "chaine-d-approvisionnement-planner-100-rapelli-orior-food-ag-stabio"
       ]
     },
     {
@@ -256,8 +265,8 @@
       "slugByLocale": {
         "it": "manutentore-maintenance-technician-100-rapelli-stabio",
         "en": "manutentore-maintenance-technician-100-rapelli-stabio",
-        "de": "manutentore-maintenance-technician-100-rapelli-stabio",
-        "fr": "manutentore-maintenance-technician-100-rapelli-stabio"
+        "de": "wartungstechniker-100-rapelli-orior-food-ag-stabio",
+        "fr": "technicien-de-maintenance-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -309,16 +318,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "previousSlugs": [
+        "manutentore-maintenance-technician-100-rapelli-stabio"
+      ]
     },
     {
       "id": "rapelli-1c1bde834f0d",
       "slug": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
       "slugByLocale": {
         "it": "collaboratore-pulizia-100-rapelli-orior-food-ag-stabio",
-        "en": "collaboratore-pulizia-100-rapelli-stabio",
-        "de": "collaboratore-pulizia-100-rapelli-stabio",
-        "fr": "collaboratore-pulizia-100-rapelli-stabio"
+        "en": "cleaning-assistant-100-rapelli-orior-food-ag-stabio",
+        "de": "reinigungshelfer-100-rapelli-orior-food-ag-stabio",
+        "fr": "assistant-de-nettoyage-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -380,8 +392,8 @@
       "slug": "tecnologo-alimentare-100-rapelli-stabio",
       "slugByLocale": {
         "it": "tecnologo-alimentare-100-rapelli-stabio",
-        "en": "tecnologo-alimentare-100-rapelli-stabio",
-        "de": "tecnologo-alimentare-100-rapelli-stabio",
+        "en": "food-technologist-100-rapelli-orior-food-ag-stabio",
+        "de": "lebensmitteltechnologe-100-rapelli-orior-food-ag-stabio",
         "fr": "tecnologo-alimentare-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
@@ -422,7 +434,9 @@
       "source": "Rapelli Dedicated Parser (ORIOR Careers)",
       "crawledAt": "2026-04-02T21:35:51.365Z",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "tecnologo-alimentare-100-rapelli-stabio"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -442,9 +456,9 @@
       "slug": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
       "slugByLocale": {
         "it": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
-        "en": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
-        "de": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio",
-        "fr": "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio"
+        "en": "internal-sales-collaborator-front-office-100-rapelli-orior-food-ag-stabio",
+        "de": "verkaufsmitarbeiter-in-innendienst-front-office-100-rapelli-orior-food-ag-stabio",
+        "fr": "collaborateur-colleuse-de-vente-interieure-front-office-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -496,7 +510,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "previousSlugs": [
+        "collaboratore-collaboratrice-vendita-interna-front-office-100-rapelli-stabio"
+      ]
     }
   ]
 }

@@ -475,9 +475,9 @@
       },
       "slugByLocale": {
         "de": "sachbearbeiter-in-front-office-leistungen-ambulant",
-        "it": "sachbearbeiter-in-front-office-leistungen-ambulant",
-        "en": "sachbearbeiter-in-front-office-leistungen-ambulant",
-        "fr": "sachbearbeiter-in-front-office-leistungen-ambulant"
+        "it": "addetto-a-front-office-prestazioni-ambulatoriali-axa-svizzera-80-winterthur-smart-working",
+        "en": "front-office-customer-service-specialist-ambulant-axa-svizzera-80-winterthur-smart-working",
+        "fr": "conseiller-ere-front-office-prestations-ambulantes-axa-svizzera-80-winterthur-smart-working"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -493,7 +493,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "sachbearbeiter-in-front-office-leistungen-ambulant"
+      ]
     },
     {
       "title": "Senior Specialist OpRisk & Internal Control (all genders)",
