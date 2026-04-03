@@ -1,24 +1,22 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-04-03T09:18:44.808Z",
+  "generatedAt": "2026-04-03T21:14:45.720Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 18913,
-  "avgDurationMs": 18913,
+  "unchangedCount": 1,
+  "durationMs": 19176,
+  "avgDurationMs": 19176,
   "durationHistory": [
-    18913
+    19176
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
       "id": "company-jqltq",
-      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-bellinzona-ticino-0jqltq",
+      "slug": "montatore-trice-di-impianti-sanitari-per-cucine-bagni-fust-cadenazzo",
       "company": "Fust",
       "title": "Montatore/trice di impianti sanitari per cucine & bagni",
       "location": "Bellinzona, Ticino",
@@ -57,7 +55,7 @@
     },
     {
       "id": "company-ie4nz4",
-      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-ie4nz4",
+      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-cadenazzo",
       "company": "Fust",
       "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
       "location": "Tenero-Contra, Ticino",
@@ -93,7 +91,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-dk43lj",
       "slug": "tecnico-di-consegna-a-domicilio-di-elettrodomestici-elettrici-per-la-casa-fust-cadenazzo",
