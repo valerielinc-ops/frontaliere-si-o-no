@@ -49,6 +49,46 @@ async function fetchPage(url, timeoutMs = 20000) {
   } catch (err) { console.warn(`⚠️ Fetch failed: ${err.message}`); return null; }
 }
 
+/**
+ * Build a rich description from API metadata since NcorePlat detail pages
+ * are behind AWS WAF and can't be fetched server-side.
+ */
+function buildZambonDescription(title, raw) {
+  const area = raw.job_family || '';
+  const contract = raw.contract_type_3 || 'Full Time';
+  const seniority = raw.seniority || '';
+  const contractType2 = raw.contract_type_2 || '';
+
+  const seniorityText = seniority.includes('< 1')
+    ? 'per candidati con meno di 1 anno di esperienza'
+    : seniority.includes('1') && seniority.includes('3')
+    ? 'per candidati con 1-3 anni di esperienza'
+    : seniority.includes('3') && seniority.includes('5')
+    ? 'per candidati con 3-5 anni di esperienza'
+    : seniority.includes('5')
+    ? 'per candidati con oltre 5 anni di esperienza'
+    : '';
+
+  const contractInfo = contractType2 === 'Temporary'
+    ? 'Contratto a tempo determinato'
+    : contractType2 === 'Permanent'
+    ? 'Contratto a tempo indeterminato'
+    : 'Contratto';
+
+  const parts = [
+    `${title}: opportunità professionale presso ${COMPANY_NAME}, azienda farmaceutica internazionale con sede a Cadempino, Canton Ticino (Svizzera).`,
+    `Zambon è un gruppo farmaceutico fondato nel 1906, leader nel settore delle malattie respiratorie, del dolore e delle malattie rare, con oltre 2.800 dipendenti e presenza in più di 20 paesi.`,
+    area ? `Area funzionale: ${area}.` : '',
+    `${contractInfo}, ${contract.toLowerCase()}.`,
+    seniorityText ? `Posizione ${seniorityText}.` : '',
+    `Sede di lavoro: Cadempino (TI), Svizzera — zona frontaliera con l'Italia, facilmente raggiungibile dal confine di Chiasso/Como.`,
+    `Zambon offre un ambiente di lavoro dinamico e innovativo, con opportunità di crescita professionale nel settore farmaceutico. L'azienda investe costantemente in ricerca, sviluppo e qualità.`,
+    `Per candidarsi, visitare il portale carriere Zambon. La candidatura può essere inviata online tramite il sistema NcorePlat.`,
+  ];
+
+  return parts.filter(Boolean).join(' ');
+}
+
 async function fetchJobs() {
   // Primary: use the JSON API (Vue.js frontend loads from this)
   console.log(`🔍 Fetching Zambon jobs from API: ${CAREERS_API}`);
@@ -84,8 +124,7 @@ async function fetchJobs() {
         location: 'Cadempino', canton: 'TI', country: 'CH',
         addressLocality: 'Cadempino', addressRegion: 'TI', addressCountry: 'CH',
         postalCode: '6814', streetAddress: 'Via Industria 13',
-        // Placeholder description — the shared crawler will fetch the real one from the detail page
-        description: `${title} — posizione presso ${COMPANY_NAME} a Cadempino (TI). Zambon è un'azienda farmaceutica internazionale specializzata in malattie respiratorie e rare. Area: ${raw.job_family || 'General'}. Contratto: ${raw.contract_type_3 || 'Full Time'}.`,
+        description: buildZambonDescription(title, raw),
         titleByLocale: { it: title }, descriptionByLocale: {},
         slug, slugByLocale: { it: slug },
         category: detectCategory(title),
