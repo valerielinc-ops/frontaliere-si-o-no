@@ -5,6 +5,12 @@ import { buildPath } from '@/services/router';
 import type { BlogArticleId } from '@/services/router';
 import { NAV_ACTION_ROUTES, KEYWORD_LINKS, type NavAction, type NavigatorMap } from '@/services/internalLinks';
 import { useNavigation } from '@/services/NavigationContext';
+
+// Pre-compiled gi-flag variants for keyword matching (Vercel rule 7.10)
+const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
+  ...kl,
+  giPattern: new RegExp(kl.pattern.source, 'gi'),
+}));
 import { Analytics } from '@/services/analytics';
 import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
@@ -814,6 +820,8 @@ export default function BlogArticles({
   const [bodyReady, setBodyReady] = useState(false);
   // FRO-314: Articles data loaded dynamically to reduce TBT on mobile
   const [articles, setArticles] = useState<Article[]>([]);
+  // Article ID → Article index for O(1) lookups (Vercel rule 7.13)
+  const articleById = useMemo(() => new Map(articles.map(a => [a.id, a])), [articles]);
   const [selectedCategory, setSelectedCategory] = useState<string>('all');
   const [copied, setCopied] = useState(false);
   const [currentPage, setCurrentPage] = useState(() => {
@@ -1027,8 +1035,8 @@ export default function BlogArticles({
 
     // Count keyword matches per NavAction
     const counts: Partial<Record<NavAction, number>> = {};
-    for (const { pattern, action } of KEYWORD_LINKS) {
-      const matches = body.match(new RegExp(pattern, 'gi'));
+    for (const { giPattern, action } of KEYWORD_LINKS_GI) {
+      const matches = body.match(giPattern);
       if (matches) {
         counts[action] = (counts[action] || 0) + matches.length;
       }
@@ -1693,7 +1701,7 @@ export default function BlogArticles({
               if (trendingFiltered.length === 0) return null;
               const trendingLookup = new Map(trendingFiltered.map(e => [e.id, e.views]));
               const trendingCards = trendingFiltered
-                .map(e => articles.find(a => a.id === e.id))
+                .map(e => articleById.get(e.id))
                 .filter(Boolean) as Article[];
               if (trendingCards.length === 0) return null;
               return (
@@ -2005,7 +2013,7 @@ export default function BlogArticles({
 
       {/* Article grid — newspaper 3-column layout */}
       {pageArticles.length > 1 && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 600px' }}>
           {pageArticles.slice(1, 1 + gridRevealCount).map((article, idx) => (
             <a
               key={article.id}
