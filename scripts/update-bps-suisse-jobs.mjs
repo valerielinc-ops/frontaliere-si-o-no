@@ -260,49 +260,52 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf-8');
 }
 
+function jobMatchKey(job = {}) {
+  return String(job.url || '').trim().toLowerCase().replace(/\/+$/, '') || String(job.slug || '').trim().toLowerCase();
+}
+
 function mergeJobs(discoveredJobs) {
-  let allJobs = [];
-  if (fs.existsSync(DATA_JOBS)) {
-    allJobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-    if (!Array.isArray(allJobs)) allJobs = [];
-  }
+  const existing = readExistingCrawlerJobs(BPS_KEY, DATA_JOBS);
+  const nonTargetJobs = existing.filter((job) => !isBpsJob(job));
+  const targetExisting = existing.filter(isBpsJob);
+  const beforeSnapshot = snapshotJobSlugs(targetExisting);
+  const existingByKey = new Map(targetExisting.map((job) => [jobMatchKey(job), job]));
 
-  const existingByUrl = new Map();
-  for (const j of allJobs) {
-    if (isBpsJob(j)) {
-      existingByUrl.set(String(j.url || '').toLowerCase().replace(/\/+$/, ''), j);
+  let added = 0;
+  let updated = 0;
+  const mergedTarget = discoveredJobs.map((job) => {
+    const prev = existingByKey.get(jobMatchKey(job));
+    if (!prev) {
+      added += 1;
+      return job;
     }
-  }
+    updated += 1;
+    return {
+      ...prev,
+      ...job,
+      postedDate: job.postedDate || prev.postedDate,
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+      salaryMin: prev.salaryMin || job.salaryMin,
+      salaryMax: prev.salaryMax || job.salaryMax,
+      currency: prev.currency || job.currency,
+      sourceLang: prev.sourceLang || job.sourceLang,
+      needsRetranslation: prev.needsRetranslation ?? job.needsRetranslation,
+    };
+  });
 
-  let added = 0, updated = 0;
-  for (const job of discoveredJobs) {
-    const key = String(job.url || '').toLowerCase().replace(/\/+$/, '');
-    const existing = existingByUrl.get(key);
-    if (existing) {
-      Object.assign(existing, {
-        title: job.title, company: job.company, companyKey: job.companyKey,
-        location: job.location, canton: job.canton, country: job.country,
-        category: job.category, description: job.description,
-        postedDate: job.postedDate || existing.postedDate, source: job.source,
-        _targetScope: job._targetScope,
-      });
-      if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
-      if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
-      updated++;
-      existingByUrl.delete(key);
-    } else {
-      allJobs.push(job);
-      added++;
-    }
-  }
+  const allJobs = [...nonTargetJobs, ...mergedTarget];
+  writeJson(DATA_JOBS, allJobs);
+  if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJson(PUBLIC_DATA_JOBS, allJobs);
 
-  const discoveredUrls = new Set(discoveredJobs.map((j) => String(j.url || '').toLowerCase().replace(/\/+$/, '')));
-  const removed = allJobs.filter((j) => isBpsJob(j) && !discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, ''))).length;
-  const finalJobs = allJobs.filter((j) => !isBpsJob(j) || discoveredUrls.has(String(j.url || '').toLowerCase().replace(/\/+$/, '')));
+  const afterSnapshot = snapshotJobSlugs(mergedTarget);
+  const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
+  printCrawlChangeSummary(diff, 'BPS Suisse');
+  writeCrawlChangeSummaryToGH(diff, 'BPS Suisse');
 
-  writeJson(DATA_JOBS, finalJobs);
-  if (fs.existsSync(PUBLIC_DATA_JOBS)) writeJson(PUBLIC_DATA_JOBS, finalJobs);
-  console.log(`  ➕ Added: ${added}\n  🔄 Updated: ${updated}\n  ➖ Removed: ${removed}\n  📦 Total: ${finalJobs.length}`);
+  console.log(`  ➕ Added: ${added}\n  🔄 Updated: ${updated}\n  ➖ Removed: ${targetExisting.length - updated}\n  📦 Total: ${mergedTarget.length}`);
+  return { total: mergedTarget.length, added, updated, diff };
 }
 
 /* ── Adapter ───────────────────────────────────────────────── */
@@ -331,12 +334,6 @@ async function main() {
   console.log(`  ${BPS_COMPANY_NAME} — Dedicated Crawler`);
   console.log('═══════════════════════════════════════════════');
 
-  let beforeMap = new Map();
-  if (fs.existsSync(DATA_JOBS)) {
-    const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-    if (Array.isArray(jobs)) beforeMap = snapshotJobSlugs(jobs.filter(isBpsJob));
-  }
-
   const discoveredJobs = await fetchJobs();
   if (discoveredJobs.length === 0) {
     console.log('ℹ️ No BPS Suisse job URLs discovered. Exiting OK.');
@@ -344,7 +341,8 @@ async function main() {
   }
 
   const seedUrls = discoveredJobs.map((j) => j.url);
-  mergeJobs(discoveredJobs);
+  const mergeResult = mergeJobs(discoveredJobs);
+  const diff = mergeResult.diff;
   updateAdapterConfig(seedUrls);
 
   console.log('\n🌐 Running base crawler for AI localization...');
@@ -357,14 +355,9 @@ async function main() {
   });
 
   // Stats
-  let diff = { newJobs: [], updatedJobs: [], removedJobs: [], unchangedCount: 0, unchangedJobs: [] };
   if (fs.existsSync(DATA_JOBS)) {
     const jobs = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
     const companyJobs = Array.isArray(jobs) ? jobs.filter(isBpsJob) : [];
-    const after = snapshotJobSlugs(companyJobs);
-    diff = computeCrawlDiff(beforeMap, after);
-    printCrawlChangeSummary(diff, 'BPS Suisse');
-    writeCrawlChangeSummaryToGH(diff, 'BPS Suisse');
     console.log(`\n🏦 Total BPS Suisse jobs: ${companyJobs.length}`);
     for (const j of companyJobs) console.log(`  • ${j.title} (${j.location})`);
   }
