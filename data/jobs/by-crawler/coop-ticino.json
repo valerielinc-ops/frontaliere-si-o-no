@@ -49,10 +49,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "kochin-koch-w-m-d-coop-landquart-graubunden-a6mxm2",
-        "en": "kochin-koch-w-m-d-coop-landquart-graubunden-a6mxm2",
+        "it": "cuoco-a-m-f-d-coop-genossenschaft-landquart",
+        "en": "chef-m-f-d-coop-genossenschaft-landquart",
         "de": "kochin-koch-w-m-d-coop-landquart-graubunden-a6mxm2",
-        "fr": "kochin-koch-w-m-d-coop-landquart-graubunden-a6mxm2"
+        "fr": "cuisinier-cuisiniere-h-f-d-coop-genossenschaft-landquart"
       },
       "addressLocality": "Landquart",
       "sourceLang": "de",
@@ -67,7 +67,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "kochin-koch-w-m-d-coop-landquart-graubunden-a6mxm2"
+      ]
     },
     {
       "id": "company-z82xrv",
@@ -116,10 +119,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
-        "en": "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
+        "it": "addetto-a-alle-vendite-food-coop-genossenschaft-disentis-muster",
+        "en": "sales-assistant-food-coop-genossenschaft-disentis-muster",
         "de": "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv",
-        "fr": "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv"
+        "fr": "vendeur-euse-food-coop-genossenschaft-disentis-muster"
       },
       "addressLocality": "Disentis/Mustér",
       "sourceLang": "de",
@@ -134,7 +137,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv"
+      ]
     },
     {
       "id": "company-qvpnyt",
@@ -183,10 +189,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt",
-        "en": "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt",
+        "it": "cuoco-a-con-funzione-aggiuntiva-di-vice-direttore-trice-coop-genossenschaft-chur",
+        "en": "chef-with-additional-role-as-deputy-manager-coop-genossenschaft-chur",
         "de": "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt",
-        "fr": "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt"
+        "fr": "chef-avec-fonction-supplementaire-de-directeur-trice-adjoint-e-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -201,7 +207,11 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "koch-kochin-con-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt",
+        "koch-kochin-mit-zusatzfunktion-stv-geschaftsfuhrer-in-coop-ristorante-chur-graubunden-qvpnyt"
+      ]
     },
     {
       "id": "company-kpq4or",
@@ -250,10 +260,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-jumbo-chur-graubunden-kpq4or",
-        "en": "verkaufer-in-kassen-services-jumbo-chur-graubunden-kpq4or",
+        "it": "venditore-a-cassa-service-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-associate-cash-services-jumbo-division-der-coop-genossenschaft-chur",
         "de": "verkaufer-in-kassen-services-jumbo-chur-graubunden-kpq4or",
-        "fr": "verkaufer-in-kassen-services-jumbo-chur-graubunden-kpq4or"
+        "fr": "vendeur-vendeuse-caisses-services-jumbo-division-der-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -268,7 +278,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-chur-graubunden-kpq4or"
+      ]
     },
     {
       "id": "company-3jk8b6",
@@ -317,10 +330,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-garden-jumbo-chur-graubunden-3jk8b6",
-        "en": "verkaufsberater-in-garden-jumbo-chur-graubunden-3jk8b6",
+        "it": "venditore-a-garden-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-garden-jumbo-chur-graubunden-3jk8b6",
-        "fr": "verkaufsberater-in-garden-jumbo-chur-graubunden-3jk8b6"
+        "fr": "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -335,7 +348,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-chur-graubunden-3jk8b6"
+      ]
     },
     {
       "id": "company-xzo8qe",
@@ -384,10 +400,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe",
-        "en": "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe",
+        "it": "venditore-a-coop-genossenschaft-chur",
+        "en": "sales-associate-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe",
-        "fr": "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe"
+        "fr": "vendeur-ere-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -402,7 +418,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-import-parfumerie-chur-graubunden-xzo8qe"
+      ]
     },
     {
       "id": "company-x19tlj",
