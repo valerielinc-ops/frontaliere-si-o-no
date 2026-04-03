@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "supervisore-mod-bex-otis-sa-1032",
         "en": "supervisor-mod-bex-otis-1032",
-        "de": "vorgesetzter-mod-bex-otis-sa-1032",
+        "de": "mod-bex-betriebsleiter-otis-sa-1032",
         "fr": "supervisor-mod-bex-otis-sa-1032"
       },
       "company": "Otis SA",
@@ -51,7 +51,8 @@
       "needsRetranslation": true,
       "sourceLang": "fr",
       "previousSlugs": [
-        "supervisor-mod-bex-otis-1032"
+        "supervisor-mod-bex-otis-1032",
+        "vorgesetzter-mod-bex-otis-sa-1032"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,

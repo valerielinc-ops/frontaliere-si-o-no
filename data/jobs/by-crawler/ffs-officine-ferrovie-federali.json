@@ -200,7 +200,7 @@
       "id": "sbb-f4d78cef9cf1",
       "slug": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
       "slugByLocale": {
-        "it": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
+        "it": "specialista-di-manovra-ffs-officine-ferrovie-federali-landquart",
         "en": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
         "de": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart",
         "fr": "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart"
@@ -287,7 +287,10 @@
       "streetAddress": "Via Officina 3",
       "postalCode": "6500",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "rangierspezialist-in-ffs-officine-ferrovie-federali-landquart"
+      ]
     },
     {
       "id": "sbb-bb290aa934e2",

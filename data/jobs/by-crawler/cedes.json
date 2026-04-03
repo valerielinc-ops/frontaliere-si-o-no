@@ -6,10 +6,10 @@
       "id": "cedes-08f2188aed4b",
       "slug": "packaging-line-worker-100-cedes-landquart",
       "slugByLocale": {
-        "it": "packaging-line-worker-100-cedes-landquart",
+        "it": "operatore-di-linea-di-confezionamento-100-cedes-ag-landquart",
         "en": "packaging-line-worker-100-cedes-landquart",
-        "de": "packaging-line-worker-100-cedes-landquart",
-        "fr": "packaging-line-worker-100-cedes-landquart"
+        "de": "packagelinearbeiter-100-cedes-ag-landquart",
+        "fr": "ouvrier-de-la-ligne-de-conditionnement-100-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes",
@@ -61,16 +61,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302"
+      "postalCode": "7302",
+      "previousSlugs": [
+        "packaging-line-worker-100-cedes-landquart"
+      ]
     },
     {
       "id": "cedes-3fa516c3ca31",
       "slug": "unsolicited-applications-cedes-landquart",
       "slugByLocale": {
-        "it": "unsolicited-applications-cedes-landquart",
+        "it": "candidature-non-richiesta-cedes-ag-landquart",
         "en": "unsolicited-applications-cedes-ag-landquart",
-        "de": "unsolicited-applications-cedes-landquart",
-        "fr": "unsolicited-applications-cedes-landquart"
+        "de": "unangeforderte-bewerbungen-cedes-ag-landquart",
+        "fr": "candidatures-non-sollicitees-cedes-ag-landquart"
       },
       "company": "CEDES AG",
       "companyKey": "cedes",
@@ -110,7 +113,9 @@
       "source": "CEDES Dedicated Parser",
       "crawledAt": "2026-04-02T20:58:24.007Z",
       "sourceLang": "en",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "unsolicited-applications-cedes-landquart"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
