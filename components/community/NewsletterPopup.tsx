@@ -6,6 +6,7 @@
  */
 
 import React, { useState, useEffect, useRef, useMemo, useCallback } from 'react';
+import { createPortal } from 'react-dom';
 import { X, Bell, Send, CheckCircle2, Loader2, AlertCircle, LogIn, Shield, TrendingUp, FileText, Lightbulb, Users, Mail } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
@@ -365,7 +366,12 @@ const NewsletterPopup: React.FC = () => {
 
   if (!visible || !queueActive) return null;
 
-  return (
+  // Render via portal to escape React root's stacking context.
+  // AdSense auto-ads are injected outside #root with z-index: 2147483647,
+  // so the popup must also be outside #root to compete in the same context.
+  const portalTarget = document.getElementById('modal-root') || document.body;
+
+  return createPortal(
     <div className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
       <div className="relative w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
         {/* Header gradient */}
@@ -600,7 +606,8 @@ const NewsletterPopup: React.FC = () => {
           )}
         </div>
       </div>
-    </div>
+    </div>,
+    portalTarget,
   );
 };
 
