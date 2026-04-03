@@ -5,6 +5,9 @@
 /* Prevent scrollbar appearance from causing layout shift (CLS) */
 html { scrollbar-gutter: stable; }
 
+/* Prevent 3rd-party widgets (Google Sign-In, AdSense) from causing horizontal overflow on mobile */
+body { overflow-x: hidden; }
+
 /* Prevent Google AdSense side-rail auto-ads from overriding page layout.
    AdSense injects display:grid + max-width:1120px on <main> for side-rail ads. */
 main { display: block !important; }
@@ -23,13 +26,21 @@ main { display: block !important; }
 
 /* Hide AdSense auto-ads when a high-priority modal is open.
    AdSense overlays use z-index up to 2147483647, which covers our popups.
+   Using display:none (not just visibility:hidden) to fully remove the ads'
+   stacking context — visibility:hidden keeps the element in the stacking
+   order and its z-index still competes with the modal.
    Toggled by adding .modal-open to <body> when newsletter/critical modals show. */
 body.modal-open ins.adsbygoogle,
 body.modal-open [id^="google_ads"],
 body.modal-open [id^="aswift_"],
 body.modal-open iframe[id^="aswift_"],
 body.modal-open div[data-ad-client],
-body.modal-open div[id^="google_ads_iframe"] {
+body.modal-open div[id^="google_ads_iframe"],
+body.modal-open .adsbygoogle[data-ad-status],
+body.modal-open iframe[src*="doubleclick"],
+body.modal-open iframe[src*="googlesyndication"],
+body.modal-open div[id^="div-gpt-ad"] {
+  display: none !important;
   visibility: hidden !important;
   pointer-events: none !important;
 }

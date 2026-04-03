@@ -440,7 +440,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               const widthPct = (d.amount / result.grossMonthly) * 100;
               return (
                 <div key={d.key + '-bar'} className="flex items-center gap-2">
-                  <span className="text-xs text-slate-600 dark:text-slate-400 w-28 truncate">{d.label}</span>
+                  <span className="text-xs text-slate-600 dark:text-slate-400 w-32 sm:w-36 leading-tight">{d.label}</span>
                   <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                     <div
                       className="h-full bg-red-400 dark:bg-red-500 rounded-full transition-all duration-500"
@@ -452,7 +452,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
               );
             })}
             <div className="flex items-center gap-2">
-              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-28 truncate">{t('payslip.netSalary')}</span>
+              <span className="text-xs font-bold text-emerald-700 dark:text-emerald-400 w-32 sm:w-36 leading-tight">{t('payslip.netSalary')}</span>
               <div className="flex-1 bg-slate-100 dark:bg-slate-700 rounded-full h-3 overflow-hidden">
                 <div
                   className="h-full bg-emerald-500 dark:bg-emerald-400 rounded-full transition-all duration-500"

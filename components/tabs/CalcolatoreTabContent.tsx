@@ -91,7 +91,7 @@ export default function CalcolatoreTabContent() {
                       <Briefcase size={16} className="text-white" />
                     </div>
                     <div className="min-w-0">
-                      <div className="text-sm font-bold leading-tight truncate">{t('jobBoard.homeCta.title')}</div>
+                      <div className="text-sm font-bold leading-tight line-clamp-2">{t('jobBoard.homeCta.title')}</div>
                       <div className="text-xs text-blue-100 line-clamp-1">{t('jobBoard.homeCta.desc')}</div>
                     </div>
                     <div className="ml-auto flex-shrink-0 text-xs font-semibold text-blue-100 whitespace-nowrap hidden lg:block">{t('jobBoard.homeCta.button')}</div>
@@ -174,7 +174,7 @@ export default function CalcolatoreTabContent() {
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <Briefcase size={18} className="text-white flex-shrink-0" />
-                      <span className="text-sm font-bold truncate">{t('jobBoard.homeCta.mobile.title')}</span>
+                      <span className="text-sm font-bold line-clamp-1">{t('jobBoard.homeCta.mobile.title')}</span>
                     </div>
                     <span className="text-xs font-semibold text-blue-100 flex-shrink-0">{t('jobBoard.homeCta.mobile.button')} →</span>
                   </a>

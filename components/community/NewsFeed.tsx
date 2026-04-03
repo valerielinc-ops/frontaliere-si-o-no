@@ -87,7 +87,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
                 Analytics.trackSelectContent('news_article', art.id);
                 Analytics.trackUIInteraction('newsfeed', 'ticker', 'headline', 'open_article', art.id);
               }}
-              className="absolute inset-0 flex items-center truncate font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-500 ease-in-out"
+              className="absolute inset-0 flex items-center font-medium text-slate-700 dark:text-slate-200 hover:text-blue-600 dark:hover:text-blue-400 transition-all duration-500 ease-in-out"
               style={{
                 transform: `translateX(${(i - idx) * 100}%)`,
                 opacity: i === idx ? 1 : 0,
@@ -96,7 +96,7 @@ const NewsFeed: React.FC<NewsFeedProps> = ({ onNavigate }) => {
               {...(i !== idx ? { inert: true } : {})}
             >
               <span className="text-slate-500 dark:text-slate-400 mr-1.5 flex-shrink-0">{formatDate(art.date)}</span>
-              <span className="truncate">{artTitle}</span>
+              <span className="line-clamp-1">{artTitle}</span>
             </a>
           );
         })}
