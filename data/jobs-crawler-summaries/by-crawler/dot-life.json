@@ -1,20 +1,18 @@
 {
   "key": "dot-life",
   "label": "dot-life",
-  "generatedAt": "2026-04-03T09:13:25.626Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-04-03T21:09:24.757Z",
+  "total": 3,
+  "newCount": 1,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 2,
-  "durationMs": 4790,
-  "avgDurationMs": 4790,
+  "durationMs": 5640,
+  "avgDurationMs": 5640,
   "durationHistory": [
-    4790
+    5640
   ],
-  "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [
+  "newJobs": [
     {
       "title": "Front office manager",
       "slug": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
@@ -38,20 +36,17 @@
       "contractType": "full-time",
       "validThrough": "",
       "linkedInJobId": "4366745329",
-      "salaryMin": 72500,
-      "salaryMax": 98500,
-      "currency": "CHF",
-      "streetAddress": "Via Balestra 12",
-      "postalCode": "6900",
-      "_qualityScore": 91,
+      "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 19,
-        "completeness": 25
+        "translation": 4,
+        "completeness": 14
       }
     }
   ],
+  "updatedJobs": [],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Addetto alla selezione di personale acquisizione di talenti",

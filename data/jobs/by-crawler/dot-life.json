@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dot-life",
-  "assembledAt": "2026-04-03T09:13:25.626Z",
+  "assembledAt": "2026-04-03T21:09:24.757Z",
   "jobs": [
     {
       "title": "Addetto alla selezione di personale acquisizione di talenti",
@@ -119,6 +119,66 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 77500,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Balestra 12",
+      "postalCode": "6900",
+      "needsRetranslation": true
+    },
+    {
+      "title": "Front office manager",
+      "slug": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
+      "url": "https://www.linkedin.com/jobs/view/4366745329/",
+      "applyUrl": "https://www.linkedin.com/jobs/view/4366745329/",
+      "company": "DOT Life SA",
+      "companyKey": "dot-life",
+      "companyDomain": "dotlifestyle.ch",
+      "location": "Paradiso, Canton Ticino, Svizzera",
+      "addressLocality": "Paradiso, Canton Ticino, Svizzera",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hospitality & Wellness",
+      "source": "dot-life-linkedin-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-03-31",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
+      "linkedInJobId": "4366745329",
+      "titleByLocale": {
+        "it": "Front office manager",
+        "en": "Front office manager",
+        "de": "Front office manager",
+        "fr": "Front office manager"
+      },
+      "descriptionByLocale": {
+        "it": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
+        "en": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
+        "de": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking.",
+        "fr": "Descrizione dell'azienda\n\nDescrizione del ruolo\n\nQualifiche\n\n- Competenze in amministrazione d'ufficio e gestione del front office per ottimizzare l'efficienza operativa e organizzativa.\n- Abilità in servizio clienti e soddisfazione del cliente, con focus sull'offerta di esperienze personalizzate e sul mantenimento di elevati standard di qualità.\n- Eccellenti capacità di comunicazione, con particolare attenzione alla costruzione di solide relazioni interpersonali e al lavoro collaborativo.\n- Conoscenza di altre lingue straniere rappresenta un vantaggio, così come la capacità di gestione team con competenze multitasking."
+      },
+      "slugByLocale": {
+        "it": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
+        "en": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
+        "de": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera",
+        "fr": "front-office-manager-dot-life-sa-paradiso-canton-ticino-svizzera"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 72500,
+      "salaryMax": 98500,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 72500,
+          "maxValue": 98500,
           "unitText": "YEAR"
         }
       },
