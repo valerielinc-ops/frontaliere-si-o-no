@@ -1943,6 +1943,22 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.title': 'Zweifelhafte Genehmigungen, Roveredo ist unzufrieden und besorgt über die Antwort von Chur',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.excerpt': 'Der Gemeinde Roveredo wird die Risikobewertung für die Aufenthaltsgenehmigungen kritisiert und fordert einen Wechsel in der Praxis.',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.imageAlt': 'Bild von einer Gruppe von Menschen, die vor einem Zuwanderungsamt in der Schweiz anstehen.',
+
+    'blog.article.permesso-g-vantaggi-svantaggi.title': 'Grenzgängerbewilligung G: Vor- und Nachteile 2026',
+    'blog.article.permesso-g-vantaggi-svantaggi.excerpt': 'Vollständige Analyse der Vor- und Nachteile der G-Bewilligung: Besteuerung, Sozialversicherung, Arbeitsrechte und wann sie gegenüber der B-Bewilligung sinnvoll ist.',
+    'blog.article.permesso-g-vantaggi-svantaggi.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz mit Autos im Transit.',
+
+    'blog.article.lamal-vs-ssn-decisione.title': 'KVG vs SSN: Welche Krankenversicherung als Grenzgänger wählen',
+    'blog.article.lamal-vs-ssn-decisione.excerpt': 'Entscheidungshilfe zwischen Schweizer KVG-Krankenversicherung und italienischem Gesundheitsdienst: Kosten, Deckung und Praxisszenarien.',
+    'blog.article.lamal-vs-ssn-decisione.imageAlt': 'Mendrisio bei Sonnenuntergang mit Blick auf die Tessiner Berge.',
+
+    'blog.article.trovare-lavoro-ticino.title': 'Arbeit im Tessin finden als Grenzgänger: Leitfaden 2026',
+    'blog.article.trovare-lavoro-ticino.excerpt': 'Jobportale, Branchen mit offenen Stellen, Schweizer Lebenslauf, Bewerbungstipps und Durchschnittslöhne: alles für die Jobsuche im Kanton Tessin.',
+    'blog.article.trovare-lavoro-ticino.imageAlt': 'Panoramablick auf Lugano mit See und Bergen, wirtschaftliches Herz des Tessins.',
+
+    'blog.article.guida-completa-frontaliere.title': 'Kompletter Leitfaden: Grenzgänger in der Schweiz werden 2026',
+    'blog.article.guida-completa-frontaliere.excerpt': 'Von der Jobsuche bis zum ersten Arbeitstag: Bewilligungen, Steuern, Vorsorge, Versicherung und alles, was Sie brauchen, um von Italien aus in der Schweiz zu arbeiten.',
+    'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande in Bellinzona, Symbol der Tessiner Kultur und Tor für Grenzgänger.',
 };
 
 export default blogMetaDe;

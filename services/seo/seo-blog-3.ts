@@ -2258,6 +2258,98 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-g-vantaggi-svantaggi': {
+    title: 'Permesso G: Vantaggi e Svantaggi per il Frontaliere 2026 | Frontaliere Ticino',
+    description: 'Analisi completa dei pro e contro del permesso G per frontalieri: tassazione, previdenza AVS/LPP, diritti lavorativi, e quando conviene rispetto al permesso B.',
+    keywords: 'permesso G, vantaggi, svantaggi, frontaliere, permesso B, tassazione, AVS, LPP, Svizzera, Italia',
+    ogTitle: 'Permesso G: vantaggi e svantaggi per il frontaliere nel 2026',
+    ogDescription: 'Analisi completa dei pro e contro del permesso G: tassazione, previdenza, diritti lavorativi e quando conviene rispetto al permesso B.',
+    canonicalPath: '/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Permesso G: Vantaggi e Svantaggi per il Frontaliere 2026",
+      "description": "Analisi completa dei pro e contro del permesso G per frontalieri: tassazione, previdenza AVS/LPP, diritti lavorativi, e quando conviene rispetto al permesso B.",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/ponte-dogana.webp`, "width": 1200, "height": 675 },
+      "datePublished": "2026-04-03",
+      "dateModified": BUILD_DATE_ISO,
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-lamal-vs-ssn-decisione': {
+    title: 'LAMal vs SSN: Quale Assicurazione Scegliere da Frontaliere | Frontaliere Ticino',
+    description: 'Guida alla scelta tra assicurazione sanitaria svizzera LAMal e Servizio Sanitario Nazionale italiano per frontalieri: costi, coperture e scenari concreti.',
+    keywords: 'LAMal, SSN, assicurazione sanitaria, frontaliere, cassa malati, sanità svizzera, Italia, confronto',
+    ogTitle: 'LAMal vs SSN: quale assicurazione scegliere da frontaliere',
+    ogDescription: 'Guida alla scelta tra assicurazione sanitaria svizzera LAMal e SSN italiano: costi, coperture e scenari concreti per frontalieri.',
+    canonicalPath: '/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "LAMal vs SSN: Quale Assicurazione Scegliere da Frontaliere",
+      "description": "Guida alla scelta tra assicurazione sanitaria svizzera LAMal e SSN italiano per frontalieri: costi, coperture e scenari concreti.",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio-sunset.webp`, "width": 1200, "height": 675 },
+      "datePublished": "2026-04-03",
+      "dateModified": BUILD_DATE_ISO,
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-trovare-lavoro-ticino': {
+    title: 'Come Trovare Lavoro in Ticino da Frontaliere: Guida 2026 | Frontaliere Ticino',
+    description: 'Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: guida completa per trovare lavoro in Canton Ticino dall\'Italia.',
+    keywords: 'lavoro Ticino, frontaliere, cercare lavoro, Svizzera, CV svizzero, stipendio, settori, job board',
+    ogTitle: 'Come trovare lavoro in Ticino da frontaliere: guida completa 2026',
+    ogDescription: 'Portali di ricerca, settori che assumono, CV svizzero e stipendi medi: tutto per trovare lavoro in Canton Ticino dall\'Italia.',
+    canonicalPath: '/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Come Trovare Lavoro in Ticino da Frontaliere: Guida 2026",
+      "description": "Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: guida completa per trovare lavoro in Canton Ticino.",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1200, "height": 675 },
+      "datePublished": "2026-04-03",
+      "dateModified": BUILD_DATE_ISO,
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-guida-completa-frontaliere': {
+    title: 'Guida Completa per Diventare Frontaliere in Svizzera 2026 | Frontaliere Ticino',
+    description: 'Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza, assicurazione e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
+    keywords: 'guida frontaliere, diventare frontaliere, Svizzera, Italia, permesso G, tasse, AVS, LAMal, primo giorno',
+    ogTitle: 'Guida completa per diventare frontaliere in Svizzera nel 2026',
+    ogDescription: 'Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
+    canonicalPath: '/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "BlogPosting",
+      "headline": "Guida Completa per Diventare Frontaliere in Svizzera 2026",
+      "description": "Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza, assicurazione e tutto quello che serve per lavorare in Svizzera dall\'Italia.",
+      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1200, "height": 675 },
+      "datePublished": "2026-04-03",
+      "dateModified": BUILD_DATE_ISO,
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_3;

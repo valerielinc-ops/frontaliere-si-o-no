@@ -1943,6 +1943,22 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.title': 'Doubtful Permits, Roveredo Unhappy and Worried About Chur\'s Response',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.excerpt': 'The municipality of Roveredo criticizes the risk assessment for residence permits and requests a change in procedure.',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.imageAlt': 'Image of a group of people waiting in front of an immigration office in Ticino.',
+
+    'blog.article.permesso-g-vantaggi-svantaggi.title': 'G Permit: Pros and Cons for Cross-Border Workers in 2026',
+    'blog.article.permesso-g-vantaggi-svantaggi.excerpt': 'Complete analysis of G permit advantages and disadvantages: taxation, social security, employment rights, and when it makes sense vs the B permit.',
+    'blog.article.permesso-g-vantaggi-svantaggi.imageAlt': 'Border crossing between Italy and Switzerland with cars in transit, a symbol of cross-border life.',
+
+    'blog.article.lamal-vs-ssn-decisione.title': 'LAMal vs SSN: Which Health Insurance to Choose as a Cross-Border Worker',
+    'blog.article.lamal-vs-ssn-decisione.excerpt': 'Decision guide for Swiss LAMal health insurance vs Italian National Health Service: costs, coverage, and real-world scenarios.',
+    'blog.article.lamal-vs-ssn-decisione.imageAlt': 'Mendrisio at sunset with Canton Ticino mountain views.',
+
+    'blog.article.trovare-lavoro-ticino.title': 'How to Find a Job in Ticino as a Cross-Border Worker: 2026 Guide',
+    'blog.article.trovare-lavoro-ticino.excerpt': 'Job portals, hiring sectors, Swiss CV format, interview tips and average salaries: everything you need to find work in Canton Ticino from Italy.',
+    'blog.article.trovare-lavoro-ticino.imageAlt': 'Panoramic view of Lugano with the lake and mountains, the economic heart of Ticino.',
+
+    'blog.article.guida-completa-frontaliere.title': 'Complete Guide to Becoming a Cross-Border Worker in Switzerland 2026',
+    'blog.article.guida-completa-frontaliere.excerpt': 'From job search to first day: permits, taxes, pensions, insurance, and everything you need to work in Switzerland from Italy.',
+    'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande in Bellinzona, a symbol of Ticino culture and gateway for cross-border workers.',
 };
 
 export default blogMetaEn;

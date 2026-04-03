@@ -1943,6 +1943,22 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.title': 'Permessi dubbi, Roveredo insoddisfatta e preoccupata della risposta di Coira',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.excerpt': 'Il Comune di Roveredo critica la valutazione del rischio per i permessi di soggiorno e chiede un cambio di prassi.',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.imageAlt': 'Immagine di un gruppo di persone in attesa davanti a un ufficio di immigrazione in Ticino.',
+
+    'blog.article.permesso-g-vantaggi-svantaggi.title': 'Permesso G: vantaggi e svantaggi per il frontaliere nel 2026',
+    'blog.article.permesso-g-vantaggi-svantaggi.excerpt': 'Analisi completa dei pro e contro del permesso G: tassazione, previdenza, diritti lavorativi e quando conviene rispetto al permesso B.',
+    'blog.article.permesso-g-vantaggi-svantaggi.imageAlt': 'Valico di frontiera tra Italia e Svizzera con auto in transito, simbolo della vita da frontaliere.',
+
+    'blog.article.lamal-vs-ssn-decisione.title': 'LAMal vs SSN: quale assicurazione scegliere da frontaliere',
+    'blog.article.lamal-vs-ssn-decisione.excerpt': 'Guida alla scelta tra assicurazione sanitaria svizzera LAMal e Servizio Sanitario Nazionale italiano: costi, coperture e scenari concreti.',
+    'blog.article.lamal-vs-ssn-decisione.imageAlt': 'Mendrisio al tramonto con vista sulle montagne del Canton Ticino.',
+
+    'blog.article.trovare-lavoro-ticino.title': 'Come trovare lavoro in Ticino da frontaliere: guida completa 2026',
+    'blog.article.trovare-lavoro-ticino.excerpt': 'Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: tutto per trovare lavoro in Canton Ticino dall\'Italia.',
+    'blog.article.trovare-lavoro-ticino.imageAlt': 'Vista panoramica di Lugano con il lago e le montagne, cuore economico del Ticino.',
+
+    'blog.article.guida-completa-frontaliere.title': 'Guida completa per diventare frontaliere in Svizzera nel 2026',
+    'blog.article.guida-completa-frontaliere.excerpt': 'Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza, assicurazione e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
+    'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande a Bellinzona, simbolo della cultura ticinese e porta d\'ingresso per i frontalieri.',
 };
 
 export default blogMetaIt;

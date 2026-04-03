@@ -655,6 +655,10 @@ export const BLOG_SLUGS: Record<BlogArticleId, Record<Locale, string>> = {
   'lombardia-export-calzature': { it: 'lombardia-export-calzature', en: 'lombardy-shoes-export', de: 'lombardien-schuh-export', fr: 'export-chaussures-lombardie' },
   'dogana-chiasso-centro-tecnologico': { it: 'dogana-chiasso-centro-tecnologico', en: 'chiasso-customs-technological-hub', de: 'zollstelle-chiasso-technologiezentrum', fr: 'douane-chiasso-centre-technologique' },
   'permessi-dubbi-roveredo-insoddisfatta': { it: 'permessi-dubbi-roveredo-insoddisfatta', en: 'permessi-dubbi-roveredo-insoddisfatta-en', de: 'permessi-dubbi-roveredo-enttuscht', fr: 'permessi-dubbi-roveredo-insatisfait' },
+  'permesso-g-vantaggi-svantaggi': { it: 'permesso-g-vantaggi-svantaggi-frontaliere', en: 'g-permit-pros-cons-cross-border-worker', de: 'grenzgaengerbewilligung-g-vor-nachteile', fr: 'permis-g-avantages-inconvenients-frontalier' },
+  'lamal-vs-ssn-decisione': { it: 'lamal-vs-ssn-guida-scelta-frontaliere', en: 'lamal-vs-ssn-decision-guide-cross-border', de: 'kvg-vs-ssn-entscheidungshilfe-grenzgaenger', fr: 'lamal-vs-ssn-guide-choix-frontalier' },
+  'trovare-lavoro-ticino': { it: 'trovare-lavoro-ticino-guida-frontaliere', en: 'find-job-ticino-guide-cross-border-worker', de: 'arbeit-finden-tessin-leitfaden-grenzgaenger', fr: 'trouver-emploi-tessin-guide-frontalier' },
+  'guida-completa-frontaliere': { it: 'guida-completa-diventare-frontaliere-svizzera', en: 'complete-guide-becoming-cross-border-worker-switzerland', de: 'kompletter-leitfaden-grenzgaenger-schweiz', fr: 'guide-complet-devenir-frontalier-suisse' },
 };
 export const REVERSE_BLOG: Record<Locale, Record<string, BlogArticleId>> = (() => {
   const result = { it: {}, en: {}, de: {}, fr: {} } as Record<Locale, Record<string, BlogArticleId>>;

@@ -1943,6 +1943,22 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.title': 'Permessi dubbi, Roveredo insoddisfatta e preoccupata della risposta di Coira',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.excerpt': 'Il Comune di Roveredo critica la valutazione del rischio per i permessi di soggiorno e chiede un cambio di prassi.',
     'blog.article.permessi-dubbi-roveredo-insoddisfatta.imageAlt': 'Image d\'un groupe de personnes attendant devant un bureau d\'immigration en Suisse.',
+
+    'blog.article.permesso-g-vantaggi-svantaggi.title': 'Permis G : avantages et inconvénients pour le frontalier en 2026',
+    'blog.article.permesso-g-vantaggi-svantaggi.excerpt': 'Analyse complète des avantages et inconvénients du permis G : fiscalité, prévoyance, droits professionnels et quand le préférer au permis B.',
+    'blog.article.permesso-g-vantaggi-svantaggi.imageAlt': 'Poste frontière entre l\'Italie et la Suisse avec des voitures en transit.',
+
+    'blog.article.lamal-vs-ssn-decisione.title': 'LAMal vs SSN : quelle assurance maladie choisir en tant que frontalier',
+    'blog.article.lamal-vs-ssn-decisione.excerpt': 'Guide de choix entre l\'assurance maladie suisse LAMal et le Service National de Santé italien : coûts, couvertures et scénarios concrets.',
+    'blog.article.lamal-vs-ssn-decisione.imageAlt': 'Mendrisio au coucher du soleil avec vue sur les montagnes du Tessin.',
+
+    'blog.article.trovare-lavoro-ticino.title': 'Comment trouver un emploi au Tessin en tant que frontalier : guide 2026',
+    'blog.article.trovare-lavoro-ticino.excerpt': 'Portails d\'emploi, secteurs qui recrutent, CV suisse, entretien et salaires moyens : tout pour trouver un emploi au canton du Tessin depuis l\'Italie.',
+    'blog.article.trovare-lavoro-ticino.imageAlt': 'Vue panoramique de Lugano avec le lac et les montagnes, cœur économique du Tessin.',
+
+    'blog.article.guida-completa-frontaliere.title': 'Guide complet pour devenir frontalier en Suisse en 2026',
+    'blog.article.guida-completa-frontaliere.excerpt': 'De la recherche d\'emploi au premier jour : permis, impôts, retraite, assurance et tout ce qu\'il faut pour travailler en Suisse depuis l\'Italie.',
+    'blog.article.guida-completa-frontaliere.imageAlt': 'Castelgrande à Bellinzona, symbole de la culture tessinoise et porte d\'entrée pour les frontaliers.',
 };
 
 export default blogMetaFr;
