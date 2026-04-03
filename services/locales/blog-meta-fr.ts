@@ -1934,6 +1934,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ticino-lombardia-manifatturiero.title': 'Ticino et Lombardie : système manufacturier pilier de l\'économie',
     'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Le conseiller régional Licata soutient le système manufacturier lombard et ticin ',
     'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Vue de Lugano avec zone industrielle',
+    'blog.article.lombardia-export-calzature.title': 'La Lombardie guide la croissance de l\'export calzéifère italien',
+    'blog.article.lombardia-export-calzature.excerpt': 'En 2025, la Lombardie enregistre un chiffre d\'affaires de 12,8 milliards d\'euros dans le secteur calzéifère, avec un export en croissance de 7,9%.',
+    'blog.article.lombardia-export-calzature.imageAlt': 'Chaussures italiennes avec drapeau lombard',
 };
 
 export default blogMetaFr;

@@ -1934,6 +1934,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticino-lombardia-manifatturiero.title': 'Ticino and Lombardy: manufacturing system is the backbone of the economy',
     'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Regional councillor Licata supports the Lombardy and Ticino manufacturing systems',
     'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Lugano view with industrial area',
+    'blog.article.lombardia-export-calzature.title': 'Lombardy Drives Italian Footwear Export Growth',
+    'blog.article.lombardia-export-calzature.excerpt': 'In 2025, Lombardy records a turnover of €12.8 billion in the footwear sector, with a growing export of 7.9%.',
+    'blog.article.lombardia-export-calzature.imageAlt': 'Italian shoes with Lombardy flag',
 };
 
 export default blogMetaEn;

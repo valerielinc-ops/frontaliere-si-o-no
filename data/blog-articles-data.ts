@@ -5706,4 +5706,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ticino-lombardia-manifatturiero.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lombardia-export-calzature',
+    category: 'novita',
+    date: '2026-04-03T12:04:48.798Z',
+    image: '/images/blog/lombardia-export-calzature.jpg',
+    hasCalculator: true,
+  },
 ];

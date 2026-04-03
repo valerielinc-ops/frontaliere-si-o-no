@@ -1934,6 +1934,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticino-lombardia-manifatturiero.title': 'Ticino e Lombardia: sistema manifatturiero pilastro dell\'economia',
     'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese',
     'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Vista di Lugano con zona industriale',
+    'blog.article.lombardia-export-calzature.title': 'La Lombardia guida la crescita dell\'export calzaturiero italiano',
+    'blog.article.lombardia-export-calzature.excerpt': 'Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%.',
+    'blog.article.lombardia-export-calzature.imageAlt': 'Scarpe italiane con bandiera lombarda',
 };
 
 export default blogMetaIt;

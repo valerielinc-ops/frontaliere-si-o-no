@@ -1934,6 +1934,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ticino-lombardia-manifatturiero.title': 'Tessin und Lombardei: das industrielle System Säule der Wirtschaft',
     'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Der Regionalrat Licata unterstützt das industrielle System in Lombardei und Tessin',
     'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Blick auf Lugano mit Industriegebiet',
+    'blog.article.lombardia-export-calzature.title': 'Lombardei führt den Exportwachstum der italienischen Schuhindustrie an',
+    'blog.article.lombardia-export-calzature.excerpt': 'Im Jahr 2025 erzielt die Lombardei mit einem Umsatz von 12,8 Milliarden Euro im Schuhsektor einen Exportanstieg von 7,9%.',
+    'blog.article.lombardia-export-calzature.imageAlt': 'Italienische Schuhe mit Lombardei-Flagge',
 };
 
 export default blogMetaDe;

@@ -10606,6 +10606,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lombardia-export-calzature': {
+    title: 'La Lombardia guida la crescita dell\'export calzaturiero italiano | Frontaliere Ticino',
+    description: 'Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, crescita, dell, export',
+    ogTitle: 'La Lombardia guida la crescita dell\'export calzaturiero italiano',
+    ogDescription: 'Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%.',
+    canonicalPath: '/articoli-frontaliere/lombardia-export-calzature',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Lombardia guida la crescita dell'export calzaturiero italiano",
+      "description": "Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lombardia-export-calzature.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scarpe italiane con bandiera lombarda"
+      },
+      "datePublished": "2026-04-03T12:04:48+00:00",
+      "dateModified": "2026-04-03T12:04:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-export-calzature`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1862,6 +1862,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-camion-panne-san-gottardo-traffico-bloccato': { name: 'Camion in panne al San Gottardo', path: '/articoli-frontaliere/camion-panne-san-gottardo-traffico-bloccato', parent: 'blog' },
     'blog-aumento-inchieste-penali-2025': { name: 'Aumento inchieste penali', path: '/articoli-frontaliere/aumento-inchieste-penali-2025', parent: 'blog' },
     'blog-ticino-lombardia-manifatturiero': { name: 'Ticino e Lombardia', path: '/articoli-frontaliere/ticino-lombardia-manifatturiero', parent: 'blog' },
+    'blog-lombardia-export-calzature': { name: 'Economia', path: '/articoli-frontaliere/lombardia-export-calzature', parent: 'blog' },
   };
 
   const info = sectionNames[section];
