@@ -76,6 +76,7 @@ import {
   buildJobNursesHubLandingModel,
   buildJobOfficialGazetteLandingModel,
   buildJobPartTimeLandingModel,
+  buildJobSectorRegionLandingModel,
   buildJobTodayLandingModel,
   resolveEditorialJobLandingDescriptor,
 } from '../../build-plugins/jobEditorialLanding';
@@ -1178,11 +1179,43 @@ const FALLBACK_INLINE_FIELD_SPLIT_LABELS = [
   'Francese',
 ];
 
+// Pre-compiled RegExps for description normalization (Vercel rule 7.10)
+const INLINE_HEADING_REGEXPS = [...FALLBACK_INLINE_HEADING_KEYS]
+  .sort((a, b) => b.length - a.length)
+  .map((key) => {
+    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`(^|[\\n\\.;:!?]\\s+|\\s{2,})(?=${escaped}\\b)`, 'gi');
+  });
+
+const INLINE_FIELD_LABEL_REGEXPS = [...FALLBACK_INLINE_FIELD_KEYS]
+  .sort((a, b) => b.length - a.length)
+  .map((key) => {
+    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    return new RegExp(`\\s+(?=${escaped}(?:\\s*:|\\b))`, 'gi');
+  });
+
+const INLINE_FIELD_SPLIT_REGEXP = new RegExp(
+  `\\s+(?=(?:${FALLBACK_INLINE_FIELD_SPLIT_LABELS.map((label) => label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(?:\\s*:|\\b))`,
+  'g',
+);
+
+const HEADING_PREFIX_REGEXP_CACHE = new Map<string, RegExp[]>();
+function getHeadingPrefixRegexps(group: { id: string; keys: string[] }): RegExp[] {
+  let cached = HEADING_PREFIX_REGEXP_CACHE.get(group.id);
+  if (!cached) {
+    cached = [...group.keys]
+      .sort((a, b) => b.length - a.length)
+      .map((key) => {
+        const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+        return new RegExp(`^\\s*#*\\s*${escaped}\\s*[:\\-]?\\s*`, 'i');
+      });
+    HEADING_PREFIX_REGEXP_CACHE.set(group.id, cached);
+  }
+  return cached;
+}
+
 function fallbackSplitInlineFieldItems(text: string): string[] {
-  const inlineFieldSplitRegex = new RegExp(
-    `\\s+(?=(?:${FALLBACK_INLINE_FIELD_SPLIT_LABELS.map((label) => label.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})(?:\\s*:|\\b))`,
-    'g'
-  );
+  const inlineFieldSplitRegex = INLINE_FIELD_SPLIT_REGEXP;
   const candidate = fallbackCleanSpaces(text);
   const parts = candidate
     .split(inlineFieldSplitRegex)
@@ -1303,30 +1336,24 @@ function fallbackRemoveHeadingPrefix(line: string, sectionId: FallbackSectionId)
   const group = FALLBACK_HEADING_MAP.find((g) => g.id === sectionId);
   if (!group) return line;
   let out = line;
-  const keys = [...group.keys].sort((a, b) => b.length - a.length);
-  for (const key of keys) {
-    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    out = out.replace(new RegExp(`^\\s*#*\\s*${escaped}\\s*[:\\-]?\\s*`, 'i'), '');
+  for (const rx of getHeadingPrefixRegexps(group)) {
+    out = out.replace(rx, '');
   }
   return out.replace(/^#+\s*/, '').trim();
 }
 
 function fallbackSplitByInlineHeadings(text: string): string {
   let out = String(text || '');
-  const keys = [...FALLBACK_INLINE_HEADING_KEYS].sort((a, b) => b.length - a.length);
-  for (const key of keys) {
-    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    out = out.replace(new RegExp(`(^|[\\n\\.;:!?]\\s+|\\s{2,})(?=${escaped}\\b)`, 'gi'), '$1\n');
+  for (const rx of INLINE_HEADING_REGEXPS) {
+    out = out.replace(rx, '$1\n');
   }
   return out;
 }
 
 function fallbackSplitByInlineFieldLabels(text: string): string {
   let out = String(text || '');
-  const keys = [...FALLBACK_INLINE_FIELD_KEYS].sort((a, b) => b.length - a.length);
-  for (const key of keys) {
-    const escaped = key.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-    out = out.replace(new RegExp(`\\s+(?=${escaped}(?:\\s*:|\\b))`, 'gi'), '\n');
+  for (const rx of INLINE_FIELD_LABEL_REGEXPS) {
+    out = out.replace(rx, '\n');
   }
   return out;
 }
@@ -2044,6 +2071,34 @@ function readSearchQueryFromUrl(): string {
   }
 }
 
+function readPageFromUrl(): number {
+  if (typeof window === 'undefined') return 1;
+  try {
+    const params = new URLSearchParams(window.location.search || '');
+    const p = parseInt(params.get('page') || '', 10);
+    return p >= 1 ? p : 1;
+  } catch {
+    return 1;
+  }
+}
+
+/** Update URL query params without pushing to history (avoids bloating back stack). */
+function syncQueryParamsToUrl(updates: Record<string, string | null>) {
+  if (typeof window === 'undefined') return;
+  try {
+    const params = new URLSearchParams(window.location.search || '');
+    for (const [key, value] of Object.entries(updates)) {
+      if (value === null || value === '') params.delete(key);
+      else params.set(key, value);
+    }
+    const qs = params.toString();
+    const newUrl = `${window.location.pathname}${qs ? `?${qs}` : ''}${window.location.hash}`;
+    if (newUrl !== `${window.location.pathname}${window.location.search}${window.location.hash}`) {
+      window.history.replaceState(window.history.state, '', newUrl);
+    }
+  } catch { /* non-critical */ }
+}
+
 const RELATED_SEARCH_STOPWORDS = new Set([
   'della', 'delle', 'dello', 'degli', 'dell', 'alla', 'alle', 'allo', 'agli', 'con', 'per', 'nel', 'nella', 'nelle',
   'sul', 'sulla', 'sulle', 'dei', 'del', 'di', 'da', 'tra', 'fra', 'che', 'chi', 'con', 'su', 'il', 'lo', 'la', 'i', 'gli', 'le',
@@ -2282,7 +2337,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
     setSelectedDateRange('all');
     setShowNewOnly(false);
   }, []);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(() => readPageFromUrl());
+  // Counter incremented on page/search changes to force ad slot remount
+  const [adRefreshKey, setAdRefreshKey] = useState(0);
   const [authGateOpen, setAuthGateOpen] = useState(false);
   const [pendingJob, setPendingJob] = useState<JobListing | null>(null);
   const [authBusy, setAuthBusy] = useState<'google' | 'facebook' | 'email' | null>(null);
@@ -2313,12 +2370,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
 
   useEffect(() => {
-    const syncSearchQueryFromUrl = () => {
+    const syncFromUrl = () => {
       const next = parseSearchSlugFilter(initialJobSlug) || readSearchQueryFromUrl();
       setSearchQuery((prev) => (prev === next ? prev : next));
+      setPage(readPageFromUrl());
+      setAdRefreshKey((k) => k + 1);
     };
-    window.addEventListener('popstate', syncSearchQueryFromUrl);
-    return () => window.removeEventListener('popstate', syncSearchQueryFromUrl);
+    window.addEventListener('popstate', syncFromUrl);
+    return () => window.removeEventListener('popstate', syncFromUrl);
   }, [initialJobSlug]);
 
   useEffect(() => {
@@ -2491,6 +2550,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
       jobs,
       locale,
       location: editorialLandingDescriptor.location,
+      sectorKey: editorialLandingDescriptor.sectorKey,
+      now: new Date().toISOString(),
+      localizedSlug: deriveLocalizedJobSlug,
+      baseUrl,
+      sectionSlug: getJobBoardSectionSlug(locale),
+      localePrefix: locale === 'it' ? '' : `/${locale}`,
+    });
+  }, [editorialLandingDescriptor, jobs, locale]);
+
+  const editorialSectorRegionLanding = useMemo(() => {
+    if (editorialLandingDescriptor?.kind !== 'sector-region') return null;
+    const baseUrl = typeof window !== 'undefined' ? window.location.origin : PUBLIC_SITE_URL;
+    return buildJobSectorRegionLandingModel({
+      jobs,
+      locale,
       sectorKey: editorialLandingDescriptor.sectorKey,
       now: new Date().toISOString(),
       localizedSlug: deriveLocalizedJobSlug,
@@ -2717,9 +2791,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }, [deferredSearchQuery, sortedJobs, locale]);
 
   const editorialLandingSections = useMemo(() => {
+    // Build slug→job index for O(1) lookups (Vercel rule 7.13)
+    const slugIndex = new Map<string, JobListing>();
+    for (const job of jobs) {
+      if (job.slug) slugIndex.set(job.slug, job);
+      if (job.slugByLocale) {
+        for (const s of Object.values(job.slugByLocale)) {
+          if (s) slugIndex.set(s, job);
+        }
+      }
+      if (job.previousSlugs) {
+        for (const s of job.previousSlugs) {
+          if (s) slugIndex.set(s, job);
+        }
+      }
+      // Index derived locale slugs (covers fallback generation in matchesRouteSlug)
+      for (const loc of (['it', 'en', 'de', 'fr'] as const)) {
+        const derived = deriveLocalizedJobSlug(job, loc);
+        if (derived) slugIndex.set(derived, job);
+      }
+    }
+
     const resolveJobFromHref = (href: string): JobListing | null => {
       const slug = href.split('/').filter(Boolean).pop() || '';
-      return jobs.find((job) => matchesRouteSlug(job, slug)) || null;
+      return slugIndex.get(slug) || null;
     };
 
     if (editorialOfficialGazetteLanding) {
@@ -2817,6 +2912,21 @@ const JobBoard: React.FC<JobBoardProps> = ({
       ];
     }
 
+    if (editorialSectorRegionLanding) {
+      return [
+        {
+          id: 'sector-region-feed',
+          label: editorialSectorRegionLanding.feed.label,
+          jobs: editorialSectorRegionLanding.feed.jobs.map((item) => resolveJobFromHref(item.href)).filter(Boolean) as JobListing[],
+        },
+        {
+          id: 'sector-region-latest',
+          label: editorialSectorRegionLanding.latestLabel,
+          jobs: editorialSectorRegionLanding.latestJobs.map((item) => resolveJobFromHref(item.href)).filter(Boolean) as JobListing[],
+        },
+      ];
+    }
+
     if (editorialPartTimeLanding) {
       return [
         {
@@ -2847,19 +2957,30 @@ const JobBoard: React.FC<JobBoardProps> = ({
       ];
     }
     return [];
-  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialPartTimeLanding, editorialCareVariantLanding, jobs]);
+  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialPartTimeLanding, editorialCareVariantLanding, jobs]);
 
   useEffect(() => {
     if (skipPageReset.current) { skipPageReset.current = false; return; }
     setPage(1);
+    syncQueryParamsToUrl({ page: null });
+    setAdRefreshKey((k) => k + 1);
   }, [deferredSearchQuery, selectedCategory, selectedContract, selectedCompany, selectedDateRange, showNewOnly]);
+
+  // Sync search query to URL (?q=) and track in GA4
+  useEffect(() => {
+    if (!deferredSearchQuery.trim()) {
+      syncQueryParamsToUrl({ q: null });
+      return;
+    }
+    // Only sync if query didn't come from a slug route (avoid overwriting /ricerca-X URLs)
+    if (!searchSlugFilter) {
+      syncQueryParamsToUrl({ q: deferredSearchQuery.trim() });
+    }
+    Analytics.trackSearch(deferredSearchQuery.trim(), { resultsCount: filteredJobs.length, searchSource: 'job-board' });
+  }, [deferredSearchQuery, searchSlugFilter, filteredJobs.length]);
 
   const totalPages = Math.max(1, Math.ceil(filteredJobs.length / pageSize));
   const currentPage = Math.min(page, totalPages);
-
-  useEffect(() => {
-    if (page > totalPages) setPage(totalPages);
-  }, [page, totalPages]);
 
   const pagedJobs = useMemo(() => {
     const start = (currentPage - 1) * pageSize;
@@ -3275,7 +3396,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       return;
     }
 
-    const editorialLandingModel = editorialOfficialGazetteLanding || editorialJobTodayLanding || editorialLocationLanding || editorialLocationTypeLanding || editorialLocationSectorLanding || editorialNursesHubLanding || editorialPartTimeLanding || editorialCareVariantLanding;
+    const editorialLandingModel = editorialOfficialGazetteLanding || editorialJobTodayLanding || editorialLocationLanding || editorialLocationTypeLanding || editorialLocationSectorLanding || editorialSectorRegionLanding || editorialNursesHubLanding || editorialPartTimeLanding || editorialCareVariantLanding;
     if (editorialLandingModel) {
       const canonicalPath = buildPath({ activeTab: 'job-board', jobSlug: editorialLandingModel.slug }, locale);
       const editorialCanonicalHref = `${window.location.origin}${canonicalPath}`;
@@ -3288,7 +3409,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
       const ogUrl = document.querySelector('meta[property="og:url"]');
       if (ogUrl) ogUrl.setAttribute('content', editorialCanonicalHref);
     }
-  }, [locale, selectedJob, expiredJob, initialJobSlug, jobs, companySlugFilter, searchSlugFilter, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
+  }, [locale, selectedJob, expiredJob, initialJobSlug, jobs, companySlugFilter, searchSlugFilter, editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialCareVariantLanding]);
 
   // Track job page views in Firestore (for newsletter popularity ranking)
   useEffect(() => {
@@ -3711,6 +3832,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const goToPage = (p: number) => {
     setPage(p);
+    setAdRefreshKey((k) => k + 1);
+    syncQueryParamsToUrl({ page: p > 1 ? String(p) : null });
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -4813,6 +4936,100 @@ const JobBoard: React.FC<JobBoardProps> = ({
                 className="text-sm font-bold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
               >
                 {editorialLocationSectorLanding.openAllLabel}
+              </a>
+            </div>
+            <div className="space-y-3">
+              {section.jobs.map((job) => renderJobCard(job))}
+            </div>
+          </section>
+        ))}
+        {authGateModalJsx}
+      </div>
+    );
+  }
+
+  if (editorialSectorRegionLanding) {
+    return (
+      <div className="space-y-6">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
+            {editorialSectorRegionLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
+          </p>
+          <h1 className="mt-3 text-3xl sm:text-4xl font-extrabold tracking-tight text-slate-900 dark:text-white">
+            {editorialSectorRegionLanding.heading}
+          </h1>
+          <p className="mt-4 max-w-4xl text-sm sm:text-base leading-7 text-slate-700 dark:text-slate-300">
+            {editorialSectorRegionLanding.description}
+          </p>
+          <p className="mt-3 max-w-4xl text-sm leading-7 text-slate-600 dark:text-slate-400">
+            {editorialSectorRegionLanding.intro}
+          </p>
+          <button
+            type="button"
+            onClick={() => {
+              onJobRouteChange?.('');
+              window.scrollTo({ top: 0, behavior: 'smooth' });
+            }}
+            className="mt-4 inline-flex items-center gap-2 rounded-full border border-indigo-200 dark:border-indigo-700 px-4 py-2 text-sm font-bold text-indigo-700 dark:text-indigo-300"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            {editorialSectorRegionLanding.openAllLabel}
+          </button>
+        </section>
+
+        <section className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-2xl border border-indigo-100 dark:border-indigo-900/60 bg-indigo-50 dark:bg-indigo-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialSectorRegionLanding.countsLabel}</div>
+            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</div>
+          </div>
+          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialSectorRegionLanding.latestLabel}</div>
+            <div className="mt-2 text-3xl font-extrabold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</div>
+          </div>
+        </section>
+
+        {editorialSectorRegionLanding.siblingSectorLinks.length > 0 && (
+          <section className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+            <h2 className="text-lg font-extrabold text-slate-900 dark:text-white mb-4">
+              {locale === 'it' ? 'Altri settori in Ticino' : locale === 'en' ? 'Other sectors in Ticino' : locale === 'de' ? 'Weitere Branchen im Tessin' : 'Autres secteurs au Tessin'}
+            </h2>
+            <div className="grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+              {editorialSectorRegionLanding.siblingSectorLinks.map((link) => {
+                const targetSlug = link.href.split('/').filter(Boolean).pop() || '';
+                return (
+                  <a
+                    key={link.href}
+                    href={buildPath({ activeTab: 'job-board', jobSlug: targetSlug }, locale)}
+                    onClick={(e) => {
+                      e.preventDefault();
+                      onJobRouteChange?.(targetSlug);
+                      window.scrollTo({ top: 0, behavior: 'smooth' });
+                    }}
+                    className="flex items-center justify-between gap-3 rounded-2xl border border-slate-200 dark:border-slate-700 px-4 py-3 no-underline hover:border-indigo-300 dark:hover:border-indigo-600 transition-colors"
+                  >
+                    <span className="font-semibold text-slate-800 dark:text-slate-100">{link.label}</span>
+                    <span className="text-sm font-extrabold text-indigo-700 dark:text-indigo-300">{link.count}</span>
+                  </a>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {editorialLandingSections.map((section) => (
+          <section key={section.id} id={section.id} className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-5">
+            <div className="flex items-center justify-between gap-4 mb-4">
+              <h2 className="text-lg font-extrabold text-slate-900 dark:text-white">{section.label}</h2>
+              <a
+                href={buildPath({ activeTab: 'job-board' }, locale)}
+                onClick={(e) => {
+                  e.preventDefault();
+                  onJobRouteChange?.('');
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }}
+                className="text-sm font-bold text-indigo-700 dark:text-indigo-300 no-underline hover:underline"
+              >
+                {editorialSectorRegionLanding.openAllLabel}
               </a>
             </div>
             <div className="space-y-3">
@@ -5993,31 +6210,35 @@ const JobBoard: React.FC<JobBoardProps> = ({
         {renderPagination()}
       </div>
 
-      <div className="space-y-3 min-h-[600px]">
+      <div className="space-y-3 min-h-[600px]" style={{ contentVisibility: 'auto', containIntrinsicSize: 'auto 800px' }}>
         {pagedJobs.slice(0, 3).map((job) => renderJobCard(job))}
 
         {/* In-feed ad — mobile (after 3rd job, conditional mount) */}
         {pagedJobs.length > 3 && isMobile && (
-          <AdSenseBanner
-            adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
-            adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
-            adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
-            fullWidthResponsive={false}
-            className="my-3"
-          />
+          <React.Fragment key={`infeed-m-${adRefreshKey}`}>
+            <AdSenseBanner
+              adSlot={AD_SLOTS.JOBLIST_INFEED_MOBILE.slot}
+              adFormat={AD_SLOTS.JOBLIST_INFEED_MOBILE.format}
+              adLayoutKey={AD_SLOTS.JOBLIST_INFEED_MOBILE.layoutKey}
+              fullWidthResponsive={false}
+              className="my-3"
+            />
+          </React.Fragment>
         )}
 
         {pagedJobs.length > 3 && renderJobCard(pagedJobs[3])}
 
         {/* In-feed ad — desktop (after 4th job, conditional mount) */}
         {pagedJobs.length > 4 && !isMobile && (
-          <AdSenseBanner
-            adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
-            adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
-            adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
-            fullWidthResponsive={false}
-            className="my-3"
-          />
+          <React.Fragment key={`infeed-d-${adRefreshKey}`}>
+            <AdSenseBanner
+              adSlot={AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}
+              adFormat={AD_SLOTS.JOBLIST_INFEED_DESKTOP.format}
+              adLayoutKey={AD_SLOTS.JOBLIST_INFEED_DESKTOP.layoutKey}
+              fullWidthResponsive={false}
+              className="my-3"
+            />
+          </React.Fragment>
         )}
 
         {pagedJobs.slice(4).map((job) => renderJobCard(job))}
@@ -6037,11 +6258,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
       {/* AdSense — end-of-list multiplex */}
       {filteredJobs.length > 0 && (
-        <AdSenseBanner
-          adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
-          adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
-          className="mt-6 mb-4"
-        />
+        <React.Fragment key={`endlist-${adRefreshKey}`}>
+          <AdSenseBanner
+            adSlot={AD_SLOTS.JOBLIST_END_MULTIPLEX.slot}
+            adFormat={AD_SLOTS.JOBLIST_END_MULTIPLEX.format}
+            className="mt-6 mb-4"
+          />
+        </React.Fragment>
       )}
 
       {authGateModalJsx}
