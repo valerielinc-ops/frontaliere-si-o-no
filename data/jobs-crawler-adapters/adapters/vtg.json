@@ -18,12 +18,14 @@
     "https://jobs.admin.ch/offene-stellen/dein-beruf-sollte-mehr-bieten-werde-berufsunteroffizier-in/0dcc8a3a-b28d-430b-9824-d69013c2b60a",
     "https://jobs.admin.ch/offene-stellen/lernende-r-automobil-mechatroniker-in-efz-fachrichtung-personenwagen/bc15c8a6-d6a3-47d3-9845-848a7da7c7cb",
     "https://jobs.admin.ch/offene-stellen/lernende-r-strassentransportfachmann-frau-efz/bfa3b444-a567-4bd0-81f6-3b2334dc20f1",
+    "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-sattlerei-textilcenter-sursee/d78fcbed-121e-49d1-afc5-5d8233c9b57d",
+    "https://jobs.admin.ch/offene-stellen/feuerwehrfrau-mann-schadenwehr-gotthard/7cf62a64-f195-44f3-8ef8-3280ec1c4654",
+    "https://jobs.admin.ch/offene-stellen/fachlehrer-in-bergfuehrer-in/99ea4e40-3f5a-4e9c-87d1-e58d362d7d6d",
     "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-kompetenzstelle-pu-ec-idas-avionik/f2801304-c2ce-417e-9a07-90565dfdb6ec",
     "https://jobs.admin.ch/offene-stellen/stabsmitarbeiter-in-swissint/7fb7a26d-a571-4c42-8988-d14d200fc643",
     "https://jobs.admin.ch/offene-stellen/spezialist-in-technik-klima-und-kaeltetechnik-1/e752ef7c-350d-4f3f-be96-8b2591656fab",
     "https://jobs.admin.ch/offene-stellen/spezialist-in-technik-mechanik-fachrichtung-kran/f673f1d5-7a3f-4a89-a68b-26d5df99e61d",
     "https://jobs.admin.ch/offene-stellen/chef-in-schneiderei-textilcenter-sursee/c0ffccfe-740e-41ae-bfae-d6a2d1f4df97",
-    "https://jobs.admin.ch/offene-stellen/geraeteausruestungsmechaniker-in/df97ed81-a546-433d-acb8-a3d429d4d1d6",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/08bd5111-01a7-4e80-ba33-f5e8dd4285aa",
     "https://jobs.admin.ch/offene-stellen/lernende-r-polymechaniker-in-efz/5a31aeb1-e828-43b0-8e1a-bc7f299e43b0",
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-textilpflege-efz-fachrichtung-waescherei/b71731c1-5327-425c-be51-139945c2892d",
@@ -96,6 +98,21 @@
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2025-10-14"
     },
+    "https://jobs.admin.ch/offene-stellen/mitarbeiter-in-sattlerei-textilcenter-sursee/d78fcbed-121e-49d1-afc5-5d8233c9b57d": {
+      "location": "Sursee",
+      "company": "Swiss Armed Forces (VTG)",
+      "postedDate": "2026-04-02"
+    },
+    "https://jobs.admin.ch/offene-stellen/feuerwehrfrau-mann-schadenwehr-gotthard/7cf62a64-f195-44f3-8ef8-3280ec1c4654": {
+      "location": "Göschenen",
+      "company": "Swiss Armed Forces (VTG)",
+      "postedDate": "2026-04-02"
+    },
+    "https://jobs.admin.ch/offene-stellen/fachlehrer-in-bergfuehrer-in/99ea4e40-3f5a-4e9c-87d1-e58d362d7d6d": {
+      "location": "Andermatt",
+      "company": "Swiss Armed Forces (VTG)",
+      "postedDate": "2026-04-02"
+    },
     "https://jobs.admin.ch/offene-stellen/sachbearbeiter-in-kompetenzstelle-pu-ec-idas-avionik/f2801304-c2ce-417e-9a07-90565dfdb6ec": {
       "location": "Alpnach",
       "company": "Swiss Armed Forces (VTG)",
@@ -120,11 +137,6 @@
       "location": "Sursee",
       "company": "Swiss Armed Forces (VTG)",
       "postedDate": "2026-03-12"
-    },
-    "https://jobs.admin.ch/offene-stellen/geraeteausruestungsmechaniker-in/df97ed81-a546-433d-acb8-a3d429d4d1d6": {
-      "location": "Emmen",
-      "company": "Swiss Armed Forces (VTG)",
-      "postedDate": "2026-03-03"
     },
     "https://jobs.admin.ch/offene-stellen/lernende-r-fachmann-frau-betriebsunterhalt-efz-fachrichtung-hausdienst/08bd5111-01a7-4e80-ba33-f5e8dd4285aa": {
       "location": "Emmen",
@@ -248,5 +260,5 @@
     }
   },
   "notes": "Swiss Armed Forces (VTG) — Prospective.ch JobBooster (Career Center 1000624, jobs.admin.ch). VTG verwaltungseinheit IDs: 1083433,1132413,1526654,1132414,1083406. Regions: TI (1083341), Ostschweiz (1083334,1083319). Seed URLs auto-discovered from API.",
-  "updatedAt": "2026-04-02T21:51:23.885Z"
+  "updatedAt": "2026-04-03T09:55:26.212Z"
 }
