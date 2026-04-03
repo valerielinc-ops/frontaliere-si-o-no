@@ -525,7 +525,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
               >
                   {inputs.frontierWorkerType === 'NEW' && <div className="absolute top-2 right-2 bg-blue-500 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
                   <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'NEW' ? 'text-blue-700 dark:text-blue-300' : 'text-slate-600 dark:text-slate-300'}`}>{t('input.newFrontier')}</span>
-                  <span className="text-[9px] text-slate-600 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">{t('input.postDate')}</span>
               </button>
               <button 
                 onClick={() => { handleChange('frontierWorkerType', 'OLD'); if (inputs.frontierWorkerType !== 'OLD') showFrontierEasterEgg('OLD'); }} 
@@ -533,7 +533,7 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
               >
                    {inputs.frontierWorkerType === 'OLD' && <div className="absolute top-2 right-2 bg-emerald-700 text-white rounded-full p-0.5"><Check size={10} strokeWidth={4} /></div>}
                   <span className={`font-bold text-sm ${inputs.frontierWorkerType === 'OLD' ? 'text-emerald-700 dark:text-emerald-300' : 'text-slate-600 dark:text-slate-300'}`}>{t('input.oldFrontier')}</span>
-                  <span className="text-[9px] text-slate-600 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
+                  <span className="text-[11px] text-slate-600 dark:text-slate-400 font-medium">{t('input.preDate')}</span>
               </button>
            </div>
            

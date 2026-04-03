@@ -2510,7 +2510,7 @@ const App: React.FC = () => {
         {/* Sub-navigation for Calcolatore */}
         {activeTab === 'calculator' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
               <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
                 {([
                   { key: 'calculator' as const, icon: Calculator, label: t('simulator.calculator') },
@@ -2546,7 +2546,7 @@ const App: React.FC = () => {
         {/* Sub-navigation for Confronti */}
         {activeTab === 'confronti' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
               <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
                 {([
                   { key: 'exchange' as const, icon: ArrowRightLeft, label: t('comparators.exchange') },
@@ -2582,7 +2582,7 @@ const App: React.FC = () => {
         {/* Sub-navigation for Fisco & Previdenza */}
         {activeTab === 'fisco' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
               <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
                 {([
                   { key: 'tax-return' as const, icon: FileText, label: t('comparators.taxReturn') },
@@ -2618,7 +2618,7 @@ const App: React.FC = () => {
         {/* Sub-navigation for Guida Pratica */}
         {activeTab === 'guida' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
               <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
                 {([
                   { key: 'first-day' as const, icon: Rocket, label: t('guide.tabs.firstDay') },
@@ -2654,7 +2654,7 @@ const App: React.FC = () => {
         {/* Sub-navigation for Vita in Ticino */}
         {activeTab === 'vita' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
               <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1">
                 {([
                   { key: 'living-ch' as const, icon: Home, label: t('guide.tabs.livingCH') },
@@ -2690,7 +2690,7 @@ const App: React.FC = () => {
         {/* Sub-navigation for Stats */}
         {activeTab === 'stats' && (
           <div className="border-t border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900">
-            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5">
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-2.5 overflow-x-auto">
               <div className="grid grid-cols-4 sm:grid-cols-4 md:grid-cols-8 gap-1.5 max-w-6xl mx-auto">
                 {([
                   { key: 'overview' as const, icon: Database, label: t('stats.tabOverview') },
@@ -3358,7 +3358,7 @@ const App: React.FC = () => {
                   }`}
                 >
                   <Icon size={20} />
-                  <span className="text-xs font-semibold leading-none truncate max-w-[56px]">{label}</span>
+                  <span className="text-[10px] font-semibold leading-tight text-center w-full line-clamp-2">{label}</span>
                   {isActive && (
                     <span className={`absolute top-0 left-1/2 -translate-x-1/2 w-8 h-0.5 ${barClass} rounded-full`} />
                   )}

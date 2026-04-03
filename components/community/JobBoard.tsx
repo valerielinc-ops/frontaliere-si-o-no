@@ -3623,7 +3623,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                   </span>
                 )}
               </h2>
-              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 truncate">
+              <p className="text-xs sm:text-sm text-slate-600 dark:text-slate-300 mt-0.5 line-clamp-2">
                 {job.company} · {isMultiLocation(job.location) ? t('jobBoard.location.multiLocation') : `${job.location} (${job.canton})`}
               </p>
               {salary && (
@@ -4097,8 +4097,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
           <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700">
             <Briefcase size={16} className="text-indigo-600 dark:text-indigo-400 flex-shrink-0" />
             <div className="min-w-0">
-              <p className="text-sm font-semibold text-slate-900 dark:text-white truncate">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
-              <p className="text-xs text-slate-500 dark:text-slate-400 truncate">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
+              <p className="text-sm font-semibold text-slate-900 dark:text-white line-clamp-2">{sanitizeJobTitle(pendingJob.titleByLocale?.[locale] ?? pendingJob.title)}</p>
+              <p className="text-xs text-slate-500 dark:text-slate-400 line-clamp-2">{pendingJob.company}{pendingJob.location ? ` — ${pendingJob.location}` : ''}</p>
             </div>
           </div>
         )}
