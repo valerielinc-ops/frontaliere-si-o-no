@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-04-02T21:26:22.998Z",
+  "generatedAt": "2026-04-03T09:30:43.256Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 21873,
-  "avgDurationMs": 21873,
+  "durationMs": 25169,
+  "avgDurationMs": 25169,
   "durationHistory": [
-    21873
+    25169
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -334,18 +334,18 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 8692780,
-      "salaryMax": 10257480,
+      "salaryMin": 77526,
+      "salaryMax": 102575,
       "salaryCurrency": "CHF",
       "salaryClass": "15",
       "crawledAt": "",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "ec13b7ab90e4c5949a44",
+        "textHash": "74ef3c0f137b598fc88f",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-04-01T21:30:24.715Z"
+        "extractedAt": "2026-04-03T09:30:43.192Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
@@ -377,18 +377,18 @@
       "sector": "Ospedaliero/Medicale/Sanitario/Educativo",
       "role": "Medicina/Salute",
       "source": "arca24",
-      "salaryMin": 7314005,
-      "salaryMax": 8630545,
+      "salaryMin": 65680,
+      "salaryMax": 86305,
       "salaryCurrency": "CHF",
       "salaryClass": "12",
       "crawledAt": "",
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "7c5289c47057ec4c7cba",
+        "textHash": "5f6d725c193244bd6f56",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-03-29T09:37:00.117Z"
+        "extractedAt": "2026-04-03T09:30:43.193Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
