@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-04-03T09:49:59.746Z",
+  "assembledAt": "2026-04-03T21:46:06.107Z",
   "jobs": [
     {
       "id": "company-l4u53i",
@@ -123,7 +123,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u53h",
@@ -395,11 +396,12 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti31",
-      "slug": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il",
+      "slug": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Collaboratrice / Collaboratore tecnica/o informatica/o di dipartimento",
       "location": "Locarno. Entrata in servizio il",
@@ -434,7 +436,7 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
-        "it": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il",
+        "it": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-manno",
         "en": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il",
         "de": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il",
         "fr": "collaboratrice-collaboratore-tecnica-o-informatica-o-di-dipartimento-supsi-dti-locarno-entrata-in-servizio-il"
@@ -777,7 +779,7 @@
     },
     {
       "id": "company-knv2mj",
-      "slug": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
+      "slug": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
       "company": "SUPSI / DTI",
       "title": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
       "location": "USI SUPSInido del Campus Est di Viganello",
@@ -807,7 +809,7 @@
       "companyDomain": "supsi.ch",
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
-        "it": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
+        "it": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
         "en": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
         "de": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
         "fr": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno"
@@ -861,10 +863,10 @@
       "previousSlugs": [
         "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
         "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-vig",
-        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
         "apprentice-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
         "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
-        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-s"
+        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-s",
+        "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello"
       ],
       "country": "CH",
       "sourceLang": "it",
@@ -885,7 +887,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u53f",
@@ -924,7 +927,7 @@
         "it": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano",
         "en": "phd-position-in-molecular-modelling-of-materials-for-energy-and-sustainability-supsi-dti-lugano",
         "de": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f",
-        "fr": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f"
+        "fr": "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-manno"
       },
       "titleByLocale": {
         "fr": "Dottoranda / Dottorando in modellazione molecolare di materiali per l’energia e la sostenibilità",
@@ -1003,9 +1006,9 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f",
-        "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano"
-      ]
+        "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-hm5vuy",
@@ -1137,7 +1140,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano-hm5vuy"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4wp0m",
@@ -1246,7 +1250,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti2z",
