@@ -187,12 +187,19 @@ async function mergeJobs(discoveredJobs) {
   const merged = []; let added = 0, updated = 0;
   for (const d of discoveredJobs) {
     const key = canonicalizeUrl(d.url); const old = existingByUrl.get(key);
-    if (old) { merged.push({
+    if (old) {
+      const mergedDescByLocale = mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30);
+      // Force-update Italian description when the new source is significantly richer
+      if (d.description && d.description.length > (old.description || '').length * 1.5) {
+        mergedDescByLocale.it = d.description;
+      }
+      merged.push({
       ...old,
       ...d,
       titleByLocale: mergeLocaleTextMap(old.titleByLocale, d.titleByLocale, 3),
-      descriptionByLocale: mergeLocaleTextMap(old.descriptionByLocale, d.descriptionByLocale, 30),
+      descriptionByLocale: mergedDescByLocale,
       slugByLocale: mergeLocaleTextMap(old.slugByLocale, d.slugByLocale, 3),
+      needsRetranslation: true,
       previousSlugs: [...new Set([...(old.previousSlugs || []), ...(d.previousSlugs || [])])].slice(0, 20),
     }); updated++; }
     else { merged.push(d); added++; }
@@ -202,6 +209,7 @@ async function mergeJobs(discoveredJobs) {
   fs.mkdirSync(path.dirname(PUBLIC_JOBS), { recursive: true });
   fs.writeFileSync(PUBLIC_JOBS, JSON.stringify(final, null, 2) + '\n');
   console.log(`📦 Merge: ➕ ${added}, 🔄 ${updated}, 📊 ${final.length} total`);
+  return merged;
 }
 
 function updateAdapterConfig(seedUrls) {
@@ -222,7 +230,7 @@ async function main() {
   const discovered = await fetchJobs();
   if (!discovered.length) { console.log('⚠️ No Zambon jobs discovered.'); return; }
   updateAdapterConfig(discovered.map((j) => j.url));
-  await mergeJobs(discovered);
+  const mergedCompanyJobs = await mergeJobs(discovered);
   console.log('\n🌐 Running base crawler for AI localization...');
   await runDedicatedBaseCrawler({ root: ROOT, companyKeys: COMPANY_KEY, localizeOnlyCompanyKeys: COMPANY_KEY, forceLocalizeKeys: COMPANY_KEY, disableWorkdayForce: true, localizeExistingOnly: true });
   validateDedicatedLocaleCoverage({ strictEnvVar: 'JOBS_ZAMBON_STRICT', label: COMPANY_NAME, dataJobsPath: DATA_JOBS, isTargetJob: isCompanyJob, locales: LOCALES, isTrustedDomain, untrustedDomainReason: 'url_not_zambon_domain', failWhenNoJobs: false });
@@ -230,7 +238,7 @@ async function main() {
   const diff = computeCrawlDiff(beforeSnapshot, afterSnapshot);
   printCrawlChangeSummary(diff, COMPANY_NAME); writeCrawlChangeSummaryToGH(diff, COMPANY_NAME);
   const _dur = getCrawlerElapsedMs();
-  const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
+  const _sliceJobs = mergedCompanyJobs;
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
   writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _dur, avgDurationMs: _dur, durationHistory: [_dur], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
   await assembleJobsDataset();
