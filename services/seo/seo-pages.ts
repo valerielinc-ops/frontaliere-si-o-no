@@ -238,10 +238,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   comparatori: {
     title: 'Comparatori Servizi CH-IT | Frontaliere Ticino',
-    description: 'Confronta servizi tra Svizzera e Italia: tassi di cambio CHF/EUR in tempo reale (Wise, Revolut), operatori mobili con roaming, trasporti frontalieri.',
+    description: 'I frontalieri risparmiano 100–300 CHF/mese scegliendo bene: cambio valuta (Wise batte le banche del 2%), mobili con roaming da 19 €/mese. 8 confronti.',
     keywords: 'cambio chf eur, cambio valuta svizzera, wise revolut confronto, operatori mobili svizzera, roaming svizzera italia, trasporti frontalieri, assicurazione sanitaria ticino, banche svizzera italia, traffico valichi doganali',
     ogTitle: 'Comparatori Servizi Frontalieri',
-    ogDescription: '📊 Confronta i migliori servizi per frontalieri: tassi cambio valuta in tempo reale, operatori mobili con roaming, trasporti, assicurazioni e banche CH-IT.',
+    ogDescription: 'Risparmia 100–300 CHF/mese sui servizi da frontaliere: cambio valuta, operatori mobili con roaming CH-IT, trasporti, assicurazioni sanitarie e conti bancari a confronto.',
     canonicalPath: '/compara-servizi',
     structuredData: [
       {
@@ -286,10 +286,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   calcolatore: {
     title: 'Calcolatore Stipendio Frontaliere | Simulazioni e Strumenti',
-    description: 'Tutti gli strumenti per frontalieri: calcolo stipendio netto, confronto RAL, simulazione busta paga, bonus, congedo parentale, permesso G vs B e What-If.',
+    description: 'Con 60.000 CHF lordi/anno un frontaliere netta circa 3.200–3.500 €/mese dopo AVS (5,3%), imposta alla fonte (8–10%) e IRPEF con franchigia 10.000 € (2026).',
     keywords: 'calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
     ogTitle: 'Calcolatore Stipendio Frontaliere 2026 | Strumenti Gratuiti',
-    ogDescription: 'Tutti gli strumenti per calcolare stipendio netto, confrontare RAL, simulare busta paga e bonus per frontalieri Svizzera-Italia.',
+    ogDescription: 'Un frontaliere con 60.000 CHF lordi/anno netta circa 3.200–3.500 €/mese dopo contributi svizzeri e tasse italiane. Usa 8 simulatori gratuiti per calcolare il tuo netto esatto (accordo 2026).',
     canonicalPath: '/calcola-stipendio',
     structuredData: [
       {
@@ -397,10 +397,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   guide: {
     title: 'Guida Completa Frontaliere | Permessi, Dogana, Primo Giorno',
-    description: 'Guida completa per frontalieri Svizzera-Italia: permessi di lavoro G e B, tempi dogana valichi, primo giorno di lavoro, trasferimento auto, disoccupazione.',
+    description: 'Oltre 78.000 frontalieri lavorano in Ticino. Guida 2026: permesso G (20 km, 5 anni), tempi dogana, primo giorno, trasferimento auto e disoccupazione.',
     keywords: 'guida frontaliere svizzera, permesso g come ottenerlo, primo giorno frontaliere, dogana svizzera tempi, trasferire auto svizzera, disoccupazione frontaliere, comuni di frontiera svizzera',
     ogTitle: 'Guida Completa Frontaliere | Tutto Quello che Devi Sapere',
-    ogDescription: 'La guida definitiva per frontalieri: permessi, dogane, primo giorno, auto e disoccupazione. Aggiornata 2026.',
+    ogDescription: 'Oltre 78.000 frontalieri lavorano in Ticino ogni giorno. Guida aggiornata 2026: permesso G (20 km, 5 anni), dogana, primo giorno, trasferimento auto e disoccupazione transfrontaliera.',
     canonicalPath: '/guida-frontaliere',
     structuredData: [
       {
@@ -478,10 +478,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   fisco: {
     title: 'Fisco e Previdenza Frontalieri | Tasse, Pensione, Pilastro 3',
-    description: 'Tutto su fisco e previdenza per frontalieri: dichiarazione redditi, ristorni fiscali, calendario scadenze, pensione AVS/LPP, terzo pilastro 3a, quiz.',
+    description: 'Dal 2024 i nuovi frontalieri pagano imposta alla fonte CH (6–15%) più IRPEF con franchigia 10.000 €. I vecchi mantengono il regime pre-2024. Guida completa.',
     keywords: 'tasse frontalieri 2026, dichiarazione redditi frontaliere, ristorni fiscali ticino, pensione frontaliere avs lpp, terzo pilastro 3a frontaliere, scadenze fiscali frontaliere, quiz fiscale frontaliere',
     ogTitle: 'Fisco e Previdenza Frontalieri 2026 | Guida Completa',
-    ogDescription: 'Tasse, pensione e previdenza per frontalieri: dichiarazione redditi, ristorni, AVS/LPP, terzo pilastro e scadenze fiscali.',
+    ogDescription: 'Nuovo accordo 2026: nuovi frontalieri pagano 6–15% di imposta alla fonte CH + IRPEF IT con franchigia 10.000 €. Vecchi frontalieri mantengono il regime pre-2024. Guida a tasse, pensione e previdenza.',
     canonicalPath: '/tasse-e-pensione',
     structuredData: [
       {
@@ -804,10 +804,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   vita: {
     title: 'Vita in Ticino per Frontalieri | Trasporti, Casa, Servizi',
-    description: 'Vita in Ticino per frontalieri: trasporti e pendolarismo, vivere in Svizzera vs Italia, aziende, scuole, attrazioni, asili nido e comuni di frontiera.',
+    description: 'Vivere in Ticino costa il 40–60% in più dell\'Italia ma elimina 1–2 ore di pendolarismo. Affitto Lugano da 1.500 CHF vs 600 € a Como. Guida pratica.',
     keywords: 'vivere in ticino frontaliere, trasporti frontalieri svizzera, aziende ticino lavoro, scuole svizzera italiana, asili nido ticino, comuni frontiera svizzera italia, vivere svizzera vs italia',
     ogTitle: 'Vita in Ticino per Frontalieri 2026 | Guida Pratica',
-    ogDescription: 'Tutto sulla vita in Ticino: trasporti, casa, servizi, scuole, aziende e confronto Svizzera vs Italia per frontalieri.',
+    ogDescription: 'Vivere in Ticino costa il 40–60% in più dell\'Italia ma elimina il pendolarismo. Affitto a Lugano da 1.500 CHF vs 600 € a Como. Guida pratica: trasporti, casa, scuole, servizi e confronto permesso B vs G.',
     canonicalPath: '/vivere-in-ticino',
     structuredData: [
       {
@@ -850,10 +850,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   exchange: {
     title: 'Cambio CHF/EUR Oggi | Confronto Wise, Revolut, PostFinance',
-    description: 'Confronto tassi di cambio CHF/EUR in tempo reale. Scopri le commissioni di Wise, Revolut, PostFinance, UBS, Credit Suisse e N26 per trasferimenti.',
+    description: 'Cambio CHF/EUR: Wise e Revolut applicano 0,3–0,5% di commissione, le banche 1–3%. Su 5.000 CHF/mese risparmi fino a 150 CHF. Confronta 6 provider in tempo reale.',
     keywords: 'cambio chf eur oggi, wise tasso cambio, revolut commissioni, postfinance cambio valuta, ubs credit suisse cambio, n26 trasferimenti, miglior cambio svizzera italia, commissioni cambio valuta',
     ogTitle: 'Cambio CHF/EUR in Tempo Reale',
-    ogDescription: '💱 Confronta i tassi di cambio CHF/EUR di 6 provider (Wise, Revolut, PostFinance). Risparmia sulle commissioni con il confronto in tempo reale!',
+    ogDescription: 'Cambio CHF/EUR: Wise e Revolut applicano 0,3–0,5% di commissione, le banche tradizionali 1–3%. Su uno stipendio di 5.000 CHF/mese risparmi fino a 150 CHF. Confronta 6 provider in tempo reale.',
     canonicalPath: '/compara-servizi/cambio-franco-euro',
     structuredData: [
       {
@@ -936,10 +936,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   health: {
     title: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
-    description: 'Premi LAMal frontaliere 2026: confronto casse malati Ticino per frontalieri. Helsana, CSS, Swica, Visana, Sanitas — premi, franchigie e coperture a confronto.',
+    description: 'Premi LAMal frontalieri Ticino 2026: da CHF 200/mese (Assura Telmed) a CHF 600/mese. Diritto d\'opzione LAMal vs SSN entro 3 mesi. Confronta 14 casse malati.',
     keywords: 'premi lamal frontaliere 2026, casse malati frontaliere ticino, assicurazione sanitaria ticino, premi assicurazione frontalieri, helsana css confronto, swica visana sanitas, franchigia assicurazione svizzera, cassa malati frontalieri, premi lamal ticino',
     ogTitle: 'Premi LAMal Frontaliere Ticino 2026 | Casse Malati',
-    ogDescription: '🏥 Premi LAMal frontaliere Ticino 2026: confronta casse malati (Helsana, CSS, Swica). Franchigie da CHF 300. Trova la più conveniente!',
+    ogDescription: 'Premi LAMal frontalieri Ticino 2026: da CHF 200/mese (Assura Telmed) a CHF 600/mese. Scegli tra LAMal e SSN entro 3 mesi dall\'assunzione — confronta 14 casse malati con franchigie da CHF 300 a 2.500.',
     canonicalPath: '/compara-servizi/confronta-casse-malati',
     structuredData: [
       {
@@ -989,10 +989,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   pension: {
     title: 'Pensione Frontalieri AVS e LPP | Calcolo Previdenza CH-IT',
-    description: 'Pensione frontalieri AVS e LPP: calcola contributi 1° e 2° pilastro svizzero, INPS Italia, proiezioni cumulative e totalizzazione CH-IT. Età pensionabile 2026.',
+    description: 'Un frontaliere versa il 5,3% in AVS e il 5–9% in LPP. Con 30 anni a 70.000 CHF/anno, la rendita AVS è circa 1.800 CHF/mese. Calcola la pensione CH-IT.',
     keywords: 'pensione frontalieri, calcolo lpp, avs svizzera, inps italia, secondo pilastro svizzera, contributi pensionistici, totalizzazione pensione, età pensionabile svizzera, previdenza frontalieri, cassa pensione ticino',
     ogTitle: 'Pensione Frontalieri AVS e LPP | Calcolo Previdenza CH-IT',
-    ogDescription: '👴 Pensione frontalieri AVS e LPP: calcola contributi svizzeri e INPS, proiezioni cumulative e totalizzazione CH-IT!',
+    ogDescription: 'Pensione frontalieri: AVS (5,3% del lordo) + LPP (5–9%) + INPS italiano. Con 30 anni a 70.000 CHF, la rendita AVS è circa 1.800 CHF/mese. Calcola la tua previdenza combinata CH-IT.',
     canonicalPath: '/tasse-e-pensione/calcola-previdenza',
     structuredData: [
       {
@@ -1057,10 +1057,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   stats: {
     title: 'Statistiche Frontalieri e Lavoro Ticino | Frontaliere Ticino',
-    description: 'Statistiche frontalieri Svizzera-Italia e osservatorio lavoro Ticino: trend BFS, numero offerte attive, annunci aggiunti o rimossi, aziende più attive e.',
+    description: 'Oltre 78.000 frontalieri in Ticino (BFS 2024) e 4.000+ offerte attive. Statistiche aggiornate: aziende, località, settori in crescita e trend giornalieri.',
     keywords: 'statistiche frontalieri, lavoro ticino, offerte lavoro ticino, aziende che assumono ticino, trend offerte lavoro, bfs frontalieri, annunci lavoro svizzera italiana, statistiche lavoro ticino 2026',
     ogTitle: 'Statistiche Frontalieri e Lavoro Ticino | BFS e Job Board',
-    ogDescription: '📈 BFS + job board: offerte attive in Ticino, aziende più attive, località con più annunci e trend giornalieri del cerca lavoro.',
+    ogDescription: 'Oltre 78.000 frontalieri in Ticino (BFS 2024) e 4.000+ offerte lavoro attive. Statistiche aggiornate: aziende che assumono, località, settori in crescita e trend giornalieri.',
     canonicalPath: '/statistiche',
     structuredData: [
       {
@@ -1243,10 +1243,10 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   permits: {
     title: 'Permessi Lavoro Svizzera G, B, C, L | Guida Completa 2026',
-    description: 'Guida completa ai permessi di lavoro in Svizzera: permesso G (frontalieri), B (dimora), C (domicilio) e L (breve durata). Requisiti, documenti, costi.',
+    description: 'Il permesso G richiede residenza entro 20 km dal confine, contratto svizzero e rientro settimanale; dura 5 anni. Confronta G, B, C e L: requisiti e costi.',
     keywords: 'permesso g svizzera, permesso b svizzera, permesso c svizzera, permesso l svizzera, permesso frontaliere requisiti, permesso dimora svizzera, documenti permesso lavoro svizzera',
     ogTitle: 'Permessi Lavoro Svizzera | Guida G, B, C, L per Frontalieri',
-    ogDescription: '🛂 Guida completa ai permessi di lavoro svizzeri: requisiti, documenti, costi e diritti per ogni tipo di permesso.',
+    ogDescription: 'Permesso G: residenza entro 20 km, contratto CH, rientro settimanale, durata 5 anni. Permesso B: dimora in Svizzera. Confronta G, B, C e L con requisiti, documenti e costi aggiornati 2026.',
     canonicalPath: '/guida-frontaliere/permessi-di-lavoro',
     structuredData: [
       {
