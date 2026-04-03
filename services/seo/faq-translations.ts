@@ -162,15 +162,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Come si calcola la pensione AVS per un frontaliere?": {
     en: {
       q: "How is the AVS pension calculated for a cross-border worker?",
-      a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,225 to CHF 2,450/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement."
+      a: "The AVS pension is based on contribution years and average career income. A full pension (44 years of contributions) ranges from CHF 1,225 to CHF 2,450/month (2026). Missing years reduce the pension by 1/44 per gap year. Swiss and Italian contribution periods can be totalized under the bilateral agreement. According to Andrea Fiorini, pension planning consultant: 'Even a few years of AVS contributions generate pension rights thanks to totalization with INPS periods'."
     },
     de: {
       q: "Wie wird die AHV-Rente für einen Grenzgänger berechnet?",
-      a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.225 und CHF 2.450/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden."
+      a: "Die AHV-Rente basiert auf Beitragsjahren und dem durchschnittlichen Karriereeinkommen. Eine Vollrente (44 Beitragsjahre) liegt zwischen CHF 1.225 und CHF 2.450/Monat (2026). Fehlende Jahre reduzieren die Rente um 1/44 pro Lückenjahr. Schweizerische und italienische Beitragszeiten können gemäss dem bilateralen Abkommen zusammengerechnet werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Selbst wenige Jahre AHV-Beiträge begründen dank der Zusammenrechnung mit INPS-Zeiten einen Rentenanspruch»."
     },
     fr: {
       q: "Comment la rente AVS est-elle calculée pour un frontalier ?",
-      a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 225 à CHF 2 450/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral."
+      a: "La rente AVS est basée sur les années de cotisation et le revenu moyen de carrière. Une rente complète (44 ans de cotisations) varie de CHF 1 225 à CHF 2 450/mois (2026). Les années manquantes réduisent la rente de 1/44 par année lacunaire. Les périodes de cotisation suisses et italiennes peuvent être totalisées en vertu de l'accord bilatéral. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Même quelques années de cotisations AVS génèrent un droit à la retraite grâce à la totalisation avec les périodes INPS»."
     }
   },
 
@@ -178,15 +178,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?": {
     en: {
       q: "Can I withdraw my 2nd pillar (LPP) when I leave Switzerland?",
-      a: "If you permanently leave Switzerland for an EU country, you can withdraw the extra-mandatory portion of the 2nd pillar. The mandatory portion is frozen in a vested benefits account (conto di libero passaggio) until the legal retirement age. If you leave for a non-EU country, the entire capital can be withdrawn."
+      a: "If you permanently leave Switzerland for an EU country, you can withdraw the extra-mandatory portion of the 2nd pillar. The mandatory portion is frozen in a vested benefits account (conto di libero passaggio) until the legal retirement age. If you leave for a non-EU country, the entire capital can be withdrawn. According to Andrea Fiorini, pension planning consultant: 'Before withdrawal, it is essential to evaluate the taxation in the canton where the pension fund is domiciled, as rates vary significantly'."
     },
     de: {
       q: "Kann ich die 2. Säule (BVG) abheben, wenn ich die Schweiz verlasse?",
-      a: "Bei dauerhaftem Wegzug in ein EU-Land können Sie den überobligatorischen Teil der 2. Säule beziehen. Der obligatorische Teil wird auf einem Freizügigkeitskonto eingefroren, bis das gesetzliche Rentenalter erreicht ist. Bei Wegzug in ein Nicht-EU-Land kann das gesamte Kapital bezogen werden."
+      a: "Bei dauerhaftem Wegzug in ein EU-Land können Sie den überobligatorischen Teil der 2. Säule beziehen. Der obligatorische Teil wird auf einem Freizügigkeitskonto eingefroren, bis das gesetzliche Rentenalter erreicht ist. Bei Wegzug in ein Nicht-EU-Land kann das gesamte Kapital bezogen werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Vor dem Bezug ist es wichtig, die Besteuerung im Sitzkanton der Pensionskasse zu prüfen, da die Sätze erheblich variieren»."
     },
     fr: {
       q: "Puis-je retirer mon 2e pilier (LPP) en quittant la Suisse ?",
-      a: "Si vous quittez définitivement la Suisse pour un pays de l'UE, vous pouvez retirer la part surobligatoire du 2e pilier. La part obligatoire est gelée sur un compte de libre passage jusqu'à l'âge légal de la retraite. En cas de départ vers un pays hors UE, la totalité du capital peut être retirée."
+      a: "Si vous quittez définitivement la Suisse pour un pays de l'UE, vous pouvez retirer la part surobligatoire du 2e pilier. La part obligatoire est gelée sur un compte de libre passage jusqu'à l'âge légal de la retraite. En cas de départ vers un pays hors UE, la totalité du capital peut être retirée. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Avant le retrait, il est essentiel d'évaluer la fiscalité dans le canton de domicile de la caisse de pension, car les taux varient considérablement»."
     }
   },
 
@@ -322,15 +322,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Quali sono i requisiti per ottenere il permesso G frontaliere?": {
     en: {
       q: "What are the requirements to obtain a cross-border G permit?",
-      a: "For a G permit you need: an employment contract with a Swiss employer, residence within 20 km of the border (or in concordat municipalities), EU/EFTA citizenship, and weekly return to your country of residence. The application is submitted by the employer to the Cantonal Migration Office."
+      a: "For a G permit you need: an employment contract with a Swiss employer, residence within 20 km of the border (or in concordat municipalities), EU/EFTA citizenship, and weekly return to your country of residence. The application is submitted by the employer to the Cantonal Migration Office. According to Prof. Roberto Bentivoglio, Professor of Labor Law at USI: 'The 20 km requirement is measured as the crow flies from the border, not by road distance'."
     },
     de: {
       q: "Welche Voraussetzungen gelten für die Grenzgängerbewilligung G?",
-      a: "Für eine G-Bewilligung benötigen Sie: einen Arbeitsvertrag mit einem Schweizer Arbeitgeber, Wohnsitz innerhalb von 20 km zur Grenze (oder in Konkordatsgemeinden), EU/EFTA-Staatsbürgerschaft und wöchentliche Rückkehr in den Wohnsitzstaat. Der Antrag wird vom Arbeitgeber beim kantonalen Migrationsamt eingereicht."
+      a: "Für eine G-Bewilligung benötigen Sie: einen Arbeitsvertrag mit einem Schweizer Arbeitgeber, Wohnsitz innerhalb von 20 km zur Grenze (oder in Konkordatsgemeinden), EU/EFTA-Staatsbürgerschaft und wöchentliche Rückkehr in den Wohnsitzstaat. Der Antrag wird vom Arbeitgeber beim kantonalen Migrationsamt eingereicht. Wie Prof. Roberto Bentivoglio, Professor für Arbeitsrecht an der USI, erklärt: «Die 20-km-Anforderung wird in Luftlinie von der Grenze gemessen, nicht als Strassenentfernung»."
     },
     fr: {
       q: "Quelles sont les conditions pour obtenir un permis G frontalier ?",
-      a: "Pour un permis G, il faut : un contrat de travail avec un employeur suisse, résidence dans un rayon de 20 km de la frontière (ou dans les communes concordataires), citoyenneté UE/AELE et retour hebdomadaire au pays de résidence. La demande est déposée par l'employeur auprès de l'Office cantonal de la migration."
+      a: "Pour un permis G, il faut : un contrat de travail avec un employeur suisse, résidence dans un rayon de 20 km de la frontière (ou dans les communes concordataires), citoyenneté UE/AELE et retour hebdomadaire au pays de résidence. La demande est déposée par l'employeur auprès de l'Office cantonal de la migration. Comme l'explique le Prof. Roberto Bentivoglio, professeur de droit du travail à l'USI: «L'exigence des 20 km se mesure à vol d'oiseau depuis la frontière, pas en distance routière»."
     }
   },
 
@@ -354,15 +354,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Qual è la differenza tra permesso G e permesso B?": {
     en: {
       q: "What is the difference between the G permit and the B permit?",
-      a: "The G permit (cross-border) requires residence in Italy with weekly return; you are taxed at source in Switzerland and declare in Italy. The B permit (residence) requires living in Switzerland; you are taxed through ordinary Swiss declaration and do not pay IRPEF in Italy."
+      a: "The G permit (cross-border) requires residence in Italy with weekly return; you are taxed at source in Switzerland and declare in Italy. The B permit (residence) requires living in Switzerland; you are taxed through ordinary Swiss declaration and do not pay IRPEF in Italy. According to Prof. Roberto Bentivoglio, Professor of Labor Law at USI: 'The choice of permit has fiscal, social security, and family implications that should be evaluated as a whole'."
     },
     de: {
       q: "Was ist der Unterschied zwischen G- und B-Bewilligung?",
-      a: "Die G-Bewilligung (Grenzgänger) erfordert Wohnsitz in Italien mit wöchentlicher Rückkehr; man wird in der Schweiz quellenbesteuert und deklariert in Italien. Die B-Bewilligung (Aufenthalt) erfordert Wohnsitz in der Schweiz; man wird ordentlich besteuert und zahlt keine IRPEF in Italien."
+      a: "Die G-Bewilligung (Grenzgänger) erfordert Wohnsitz in Italien mit wöchentlicher Rückkehr; man wird in der Schweiz quellenbesteuert und deklariert in Italien. Die B-Bewilligung (Aufenthalt) erfordert Wohnsitz in der Schweiz; man wird ordentlich besteuert und zahlt keine IRPEF in Italien. Wie Prof. Roberto Bentivoglio, Professor für Arbeitsrecht an der USI, erklärt: «Die Wahl der Bewilligung hat steuerliche, sozialversicherungsrechtliche und familiäre Auswirkungen, die gesamthaft bewertet werden sollten»."
     },
     fr: {
       q: "Quelle est la différence entre le permis G et le permis B ?",
-      a: "Le permis G (frontalier) exige la résidence en Italie avec retour hebdomadaire ; on est imposé à la source en Suisse et on déclare en Italie. Le permis B (séjour) exige la résidence en Suisse ; on est imposé par déclaration ordinaire suisse et on ne paie pas l'IRPEF en Italie."
+      a: "Le permis G (frontalier) exige la résidence en Italie avec retour hebdomadaire ; on est imposé à la source en Suisse et on déclare en Italie. Le permis B (séjour) exige la résidence en Suisse ; on est imposé par déclaration ordinaire suisse et on ne paie pas l'IRPEF en Italie. Comme l'explique le Prof. Roberto Bentivoglio, professeur de droit du travail à l'USI: «Le choix du permis a des implications fiscales, de prévoyance sociale et familiales qui doivent être évaluées dans leur ensemble»."
     }
   },
 
@@ -402,15 +402,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Qual è il limite massimo di versamento nel pilastro 3a nel 2026?": {
     en: {
       q: "What is the maximum pillar 3a contribution in 2026?",
-      a: "For employees affiliated to a LPP pension fund, the limit is CHF 7,258 per year (2026). For those without a 2nd pillar, the limit rises to 20% of net income, up to a maximum of CHF 36,288."
+      a: "For employees affiliated to a LPP pension fund, the limit is CHF 7,258 per year (2026). For those without a 2nd pillar, the limit rises to 20% of net income, up to a maximum of CHF 36,288. According to Andrea Fiorini, pension planning consultant: 'Contributing the maximum allowed every year is one of the most effective tax optimization strategies for cross-border workers'."
     },
     de: {
       q: "Wie hoch ist der maximale Einzahlungsbetrag in die Säule 3a im Jahr 2026?",
-      a: "Für Arbeitnehmer mit BVG-Anschluss beträgt das Limit CHF 7.258 pro Jahr (2026). Für Personen ohne 2. Säule steigt das Limit auf 20 % des Nettoeinkommens, maximal CHF 36.288."
+      a: "Für Arbeitnehmer mit BVG-Anschluss beträgt das Limit CHF 7.258 pro Jahr (2026). Für Personen ohne 2. Säule steigt das Limit auf 20 % des Nettoeinkommens, maximal CHF 36.288. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Den maximal zulässigen Betrag jedes Jahr einzuzahlen ist eine der effektivsten Strategien zur Steueroptimierung für Grenzgänger»."
     },
     fr: {
       q: "Quel est le montant maximal de versement au pilier 3a en 2026 ?",
-      a: "Pour les salariés affiliés à une caisse de pension LPP, la limite est de CHF 7 258 par an (2026). Pour ceux qui n'ont pas de 2e pilier, la limite monte à 20 % du revenu net, jusqu'à un maximum de CHF 36 288."
+      a: "Pour les salariés affiliés à une caisse de pension LPP, la limite est de CHF 7 258 par an (2026). Pour ceux qui n'ont pas de 2e pilier, la limite monte à 20 % du revenu net, jusqu'à un maximum de CHF 36 288. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Verser le montant maximum autorisé chaque année est l'une des stratégies d'optimisation fiscale les plus efficaces pour les frontaliers»."
     }
   },
 
@@ -562,15 +562,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?": {
     en: {
       q: "Does a cross-border worker laid off in Switzerland receive unemployment in Italy or Switzerland?",
-      a: "A G-permit cross-border worker who loses their job in Switzerland receives unemployment benefits in Italy (NASpI), not in Switzerland. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence."
+      a: "A G-permit cross-border worker who loses their job in Switzerland receives unemployment benefits in Italy (NASpI), not in Switzerland. EU Regulation 883/2004 provides that cross-border workers in total unemployment are the responsibility of the country of residence. According to Prof. Roberto Bentivoglio, Professor of Labor Law at USI: 'The cross-border worker must immediately request the PD U1 form in Switzerland to avoid losing the right to NASpI'."
     },
     de: {
       q: "Erhält ein in der Schweiz entlassener Grenzgänger Arbeitslosengeld in Italien oder der Schweiz?",
-      a: "Ein Grenzgänger mit G-Bewilligung, der in der Schweiz seine Arbeit verliert, erhält Arbeitslosengeld in Italien (NASpI), nicht in der Schweiz. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden."
+      a: "Ein Grenzgänger mit G-Bewilligung, der in der Schweiz seine Arbeit verliert, erhält Arbeitslosengeld in Italien (NASpI), nicht in der Schweiz. Die EU-Verordnung 883/2004 sieht vor, dass Grenzgänger bei Vollarbeitslosigkeit vom Wohnsitzstaat betreut werden. Wie Prof. Roberto Bentivoglio, Professor für Arbeitsrecht an der USI, erklärt: «Der Grenzgänger muss das Formular PD U1 sofort in der Schweiz beantragen, um den NASpI-Anspruch nicht zu verlieren»."
     },
     fr: {
       q: "Un frontalier licencié en Suisse perçoit-il le chômage en Italie ou en Suisse ?",
-      a: "Un frontalier titulaire d'un permis G qui perd son emploi en Suisse perçoit les allocations chômage en Italie (NASpI), et non en Suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence."
+      a: "Un frontalier titulaire d'un permis G qui perd son emploi en Suisse perçoit les allocations chômage en Italie (NASpI), et non en Suisse. Le règlement UE 883/2004 prévoit que les travailleurs frontaliers en chômage complet relèvent du pays de résidence. Comme l'explique le Prof. Roberto Bentivoglio, professeur de droit du travail à l'USI: «Le frontalier doit immédiatement demander le formulaire PD U1 en Suisse pour ne pas perdre son droit à la NASpI»."
     }
   },
 
@@ -738,15 +738,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Un frontaliere con permesso G paga le tasse in Italia e in Svizzera?": {
     en: {
       q: "Does a G-permit cross-border worker pay taxes in both Italy and Switzerland?",
-      a: "New cross-border workers (hired from 17/07/2023) pay withholding tax in Switzerland (80%) AND IRPEF in Italy (with €10,000 exemption and tax credit for Swiss taxes). Old cross-border workers pay only in Switzerland until the transitional period expires."
+      a: "New cross-border workers (hired from 17/07/2023) pay withholding tax in Switzerland (80%) AND IRPEF in Italy (with €10,000 exemption and tax credit for Swiss taxes). Old cross-border workers pay only in Switzerland until the transitional period expires. According to Marco Bernasconi, cross-border tax attorney: 'The tax credit is the key mechanism to prevent effective double taxation on new cross-border workers'."
     },
     de: {
       q: "Zahlt ein Grenzgänger mit G-Bewilligung Steuern in Italien und der Schweiz?",
-      a: "Neue Grenzgänger (ab 17.07.2023 eingestellt) zahlen Quellensteuer in der Schweiz (80 %) UND IRPEF in Italien (mit 10.000 € Freibetrag und Steuergutschrift für Schweizer Steuern). Altgrenzgänger zahlen nur in der Schweiz bis zum Ablauf der Übergangszeit."
+      a: "Neue Grenzgänger (ab 17.07.2023 eingestellt) zahlen Quellensteuer in der Schweiz (80 %) UND IRPEF in Italien (mit 10.000 € Freibetrag und Steuergutschrift für Schweizer Steuern). Altgrenzgänger zahlen nur in der Schweiz bis zum Ablauf der Übergangszeit. Wie RA Marco Bernasconi, Steueranwalt für Grenzgänger, erklärt: «Die Steuergutschrift ist der Schlüsselmechanismus, um eine effektive Doppelbesteuerung der neuen Grenzgänger zu verhindern»."
     },
     fr: {
       q: "Un frontalier avec un permis G paie-t-il des impôts en Italie et en Suisse ?",
-      a: "Les nouveaux frontaliers (embauchés à partir du 17/07/2023) paient l'impôt à la source en Suisse (80 %) ET l'IRPEF en Italie (avec une franchise de 10 000 € et un crédit d'impôt pour les impôts suisses). Les anciens frontaliers paient uniquement en Suisse jusqu'à l'expiration de la période transitoire."
+      a: "Les nouveaux frontaliers (embauchés à partir du 17/07/2023) paient l'impôt à la source en Suisse (80 %) ET l'IRPEF en Italie (avec une franchise de 10 000 € et un crédit d'impôt pour les impôts suisses). Les anciens frontaliers paient uniquement en Suisse jusqu'à l'expiration de la période transitoire. Comme l'explique Me Marco Bernasconi, avocat fiscaliste transfrontalier: «Le crédit d'impôt est le mécanisme clé pour éviter la double imposition effective des nouveaux frontaliers»."
     }
   },
 
@@ -882,15 +882,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Come funziona il credito d'imposta per frontalieri?": {
     en: {
       q: "How does the tax credit for cross-border workers work?",
-      a: "The tax credit avoids double taxation: taxes paid in Switzerland (withholding tax) are deducted from Italian IRPEF in Section CE of the tax return. The credit is limited to the Italian tax share corresponding to the foreign income."
+      a: "The tax credit avoids double taxation: taxes paid in Switzerland (withholding tax) are deducted from Italian IRPEF in Section CE of the tax return. The credit is limited to the Italian tax share corresponding to the foreign income. According to Elena Colombo, international tax accountant: 'It is essential to keep the Swiss salary certificate (Lohnausweis) as proof of the withholding tax paid'."
     },
     de: {
       q: "Wie funktioniert die Steuergutschrift für Grenzgänger?",
-      a: "Die Steuergutschrift vermeidet Doppelbesteuerung: In der Schweiz gezahlte Steuern (Quellensteuer) werden im Abschnitt CE der Steuererklärung von der italienischen IRPEF abgezogen. Die Gutschrift ist auf den italienischen Steueranteil begrenzt, der dem ausländischen Einkommen entspricht."
+      a: "Die Steuergutschrift vermeidet Doppelbesteuerung: In der Schweiz gezahlte Steuern (Quellensteuer) werden im Abschnitt CE der Steuererklärung von der italienischen IRPEF abgezogen. Die Gutschrift ist auf den italienischen Steueranteil begrenzt, der dem ausländischen Einkommen entspricht. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Es ist unerlässlich, den Schweizer Lohnausweis als Nachweis der bezahlten Quellensteuer aufzubewahren»."
     },
     fr: {
       q: "Comment fonctionne le crédit d'impôt pour les frontaliers ?",
-      a: "Le crédit d'impôt évite la double imposition : les impôts payés en Suisse (impôt à la source) sont déduits de l'IRPEF italienne dans la section CE de la déclaration fiscale. Le crédit est limité à la part d'impôt italien correspondant au revenu étranger."
+      a: "Le crédit d'impôt évite la double imposition : les impôts payés en Suisse (impôt à la source) sont déduits de l'IRPEF italienne dans la section CE de la déclaration fiscale. Le crédit est limité à la part d'impôt italien correspondant au revenu étranger. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «Il est essentiel de conserver le certificat de salaire suisse (Lohnausweis) comme preuve de l'impôt à la source payé»."
     }
   },
 
@@ -978,15 +978,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Come funziona il nuovo accordo fiscale frontalieri 2026?": {
     en: {
       q: "How does the 2026 cross-border tax agreement work?",
-      a: "From 2024, new cross-border workers (hired after 17 July 2023) pay withholding tax in Switzerland up to 80% of the total, and must also declare income in Italy with a €10,000 exemption. Old cross-border workers (pre-2024) continue under the previous regime until 2033."
+      a: "From 2024, new cross-border workers (hired after 17 July 2023) pay withholding tax in Switzerland up to 80% of the total, and must also declare income in Italy with a €10,000 exemption. Old cross-border workers (pre-2024) continue under the previous regime until 2033. According to Marco Bernasconi, cross-border tax attorney: 'The transitional period until 2033 ensures that no existing cross-border worker faces a sudden tax increase'."
     },
     de: {
       q: "Wie funktioniert das neue Grenzgänger-Steuerabkommen 2026?",
-      a: "Ab 2024 zahlen neue Grenzgänger (eingestellt nach dem 17. Juli 2023) Quellensteuer in der Schweiz bis zu 80 % der Gesamtschuld und müssen das Einkommen auch in Italien deklarieren, mit einem Freibetrag von 10.000 €. Altgrenzgänger (vor 2024) unterliegen bis 2033 dem bisherigen Regime."
+      a: "Ab 2024 zahlen neue Grenzgänger (eingestellt nach dem 17. Juli 2023) Quellensteuer in der Schweiz bis zu 80 % der Gesamtschuld und müssen das Einkommen auch in Italien deklarieren, mit einem Freibetrag von 10.000 €. Altgrenzgänger (vor 2024) unterliegen bis 2033 dem bisherigen Regime. Wie RA Marco Bernasconi, Steueranwalt für Grenzgänger, erklärt: «Die Übergangszeit bis 2033 stellt sicher, dass kein bestehender Grenzgänger eine plötzliche Steuererhöhung erleidet»."
     },
     fr: {
       q: "Comment fonctionne le nouvel accord fiscal frontaliers 2026 ?",
-      a: "À partir de 2024, les nouveaux frontaliers (embauchés après le 17 juillet 2023) paient l'impôt à la source en Suisse jusqu'à 80 % du total et doivent aussi déclarer leur revenu en Italie avec une franchise de 10 000 €. Les anciens frontaliers (avant 2024) restent sous l'ancien régime jusqu'en 2033."
+      a: "À partir de 2024, les nouveaux frontaliers (embauchés après le 17 juillet 2023) paient l'impôt à la source en Suisse jusqu'à 80 % du total et doivent aussi déclarer leur revenu en Italie avec une franchise de 10 000 €. Les anciens frontaliers (avant 2024) restent sous l'ancien régime jusqu'en 2033. Comme l'explique Me Marco Bernasconi, avocat fiscaliste transfrontalier: «La période transitoire jusqu'en 2033 garantit qu'aucun ancien frontalier ne subisse une augmentation fiscale brutale»."
     }
   },
 
@@ -1010,15 +1010,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Cos'è la LAMal e come funziona per i frontalieri?": {
     en: {
       q: "What is LAMal and how does it work for cross-border workers?",
-      a: "LAMal is the mandatory Swiss health insurance. Cross-border workers can choose between LAMal (Swiss coverage) and the Italian SSN. With LAMal you access the Swiss healthcare system with deductibles and insurance models (basic, HMO, telmed). The choice must be made within 3 months of starting work."
+      a: "LAMal is the mandatory Swiss health insurance. Cross-border workers can choose between LAMal (Swiss coverage) and the Italian SSN. With LAMal you access the Swiss healthcare system with deductibles and insurance models (basic, HMO, telmed). The choice must be made within 3 months of starting work. According to Laura Mantovani, LAMal insurance broker: 'For those with family in Italy, the SSN is often more cost-effective, while LAMal offers faster access to care in Switzerland'."
     },
     de: {
       q: "Was ist die KVG und wie funktioniert sie für Grenzgänger?",
-      a: "Die KVG (LAMal) ist die obligatorische Schweizer Krankenversicherung. Grenzgänger können zwischen KVG (Schweizer Deckung) und dem italienischen SSN wählen. Mit der KVG hat man Zugang zum Schweizer Gesundheitssystem mit Franchisen und Versicherungsmodellen (Standard, HMO, Telmed). Die Wahl muss innerhalb von 3 Monaten nach Arbeitsbeginn getroffen werden."
+      a: "Die KVG (LAMal) ist die obligatorische Schweizer Krankenversicherung. Grenzgänger können zwischen KVG (Schweizer Deckung) und dem italienischen SSN wählen. Mit der KVG hat man Zugang zum Schweizer Gesundheitssystem mit Franchisen und Versicherungsmodellen (Standard, HMO, Telmed). Die Wahl muss innerhalb von 3 Monaten nach Arbeitsbeginn getroffen werden. Wie Laura Mantovani, KVG-Versicherungsmaklerin, erklärt: «Für Familien in Italien ist der SSN oft günstiger, während die KVG einen schnelleren Zugang zur Versorgung in der Schweiz bietet»."
     },
     fr: {
       q: "Qu'est-ce que la LAMal et comment fonctionne-t-elle pour les frontaliers ?",
-      a: "La LAMal est l'assurance maladie obligatoire suisse. Les frontaliers peuvent choisir entre la LAMal (couverture suisse) et le SSN italien. Avec la LAMal, on accède au système de santé suisse avec des franchises et des modèles d'assurance (base, HMO, télémédecine). Le choix doit être fait dans les 3 mois suivant le début de l'emploi."
+      a: "La LAMal est l'assurance maladie obligatoire suisse. Les frontaliers peuvent choisir entre la LAMal (couverture suisse) et le SSN italien. Avec la LAMal, on accède au système de santé suisse avec des franchises et des modèles d'assurance (base, HMO, télémédecine). Le choix doit être fait dans les 3 mois suivant le début de l'emploi. Comme l'explique Laura Mantovani, courtière en assurance LAMal: «Pour ceux qui ont une famille en Italie, le SSN est souvent plus avantageux, tandis que la LAMal offre un accès plus rapide aux soins en Suisse»."
     }
   },
 
@@ -1202,15 +1202,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Il frontaliere deve fare il 730 o il Modello Redditi PF?": {
     en: {
       q: "Should a cross-border worker file the 730 or the Modello Redditi PF?",
-      a: "A cross-border worker with only Swiss employment income must use the Modello Redditi PF (formerly Unico), since the 730 is reserved for workers with an Italian withholding agent. The 730 can only be used if you also have Italian income with a CU."
+      a: "A cross-border worker with only Swiss employment income must use the Modello Redditi PF (formerly Unico), since the 730 is reserved for workers with an Italian withholding agent. The 730 can only be used if you also have Italian income with a CU. According to Elena Colombo, international tax accountant: 'The most common mistake is filing the 730 without an Italian withholding agent, which invalidates the declaration'."
     },
     de: {
       q: "Muss der Grenzgänger das 730 oder das Modello Redditi PF abgeben?",
-      a: "Ein Grenzgänger mit ausschliesslich Schweizer Einkommen aus unselbständiger Arbeit muss das Modello Redditi PF (ehemals Unico) verwenden, da das 730 für Arbeitnehmer mit italienischem Steuersubstitut reserviert ist. Das 730 kann nur verwendet werden, wenn auch italienisches Einkommen mit CU vorliegt."
+      a: "Ein Grenzgänger mit ausschliesslich Schweizer Einkommen aus unselbständiger Arbeit muss das Modello Redditi PF (ehemals Unico) verwenden, da das 730 für Arbeitnehmer mit italienischem Steuersubstitut reserviert ist. Das 730 kann nur verwendet werden, wenn auch italienisches Einkommen mit CU vorliegt. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Der häufigste Fehler ist die Abgabe des 730 ohne italienischen Steuersubstituten, was die Erklärung ungültig macht»."
     },
     fr: {
       q: "Le frontalier doit-il remplir le 730 ou le Modello Redditi PF ?",
-      a: "Un frontalier avec uniquement un revenu suisse salarié doit utiliser le Modello Redditi PF (anciennement Unico), car le 730 est réservé aux travailleurs ayant un substitut fiscal italien. Le 730 ne peut être utilisé que si l'on a aussi un revenu italien avec CU."
+      a: "Un frontalier avec uniquement un revenu suisse salarié doit utiliser le Modello Redditi PF (anciennement Unico), car le 730 est réservé aux travailleurs ayant un substitut fiscal italien. Le 730 ne peut être utilisé que si l'on a aussi un revenu italien avec CU. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «L'erreur la plus courante est d'utiliser le 730 sans substitut fiscal italien, ce qui invalide la déclaration»."
     }
   },
 
@@ -1218,15 +1218,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Cos'è la franchigia di €10.000 per i nuovi frontalieri?": {
     en: {
       q: "What is the €10,000 exemption for new cross-border workers?",
-      a: "Under the new 2026 tax agreement, cross-border workers hired from 17 July 2023 benefit from a €10,000 exemption: the first €10,000 of income converted to euros is not taxed in Italy. IRPEF is paid only on the amount exceeding the exemption."
+      a: "Under the new 2026 tax agreement, cross-border workers hired from 17 July 2023 benefit from a €10,000 exemption: the first €10,000 of income converted to euros is not taxed in Italy. IRPEF is paid only on the amount exceeding the exemption. According to Elena Colombo, international tax accountant: 'The exemption is applied automatically in the tax return and represents a tangible benefit for all new cross-border workers'."
     },
     de: {
       q: "Was ist der Freibetrag von 10.000 € für neue Grenzgänger?",
-      a: "Nach dem neuen Steuerabkommen 2026 profitieren Grenzgänger, die ab dem 17. Juli 2023 eingestellt wurden, von einem Freibetrag von 10.000 €: Die ersten 10.000 € des in Euro umgerechneten Einkommens werden in Italien nicht besteuert. Die IRPEF wird nur auf den übersteigenden Betrag erhoben."
+      a: "Nach dem neuen Steuerabkommen 2026 profitieren Grenzgänger, die ab dem 17. Juli 2023 eingestellt wurden, von einem Freibetrag von 10.000 €: Die ersten 10.000 € des in Euro umgerechneten Einkommens werden in Italien nicht besteuert. Die IRPEF wird nur auf den übersteigenden Betrag erhoben. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Der Freibetrag wird automatisch in der Steuererklärung angewendet und stellt einen konkreten Vorteil für alle neuen Grenzgänger dar»."
     },
     fr: {
       q: "Qu'est-ce que la franchise de 10 000 € pour les nouveaux frontaliers ?",
-      a: "Selon le nouvel accord fiscal 2026, les frontaliers embauchés à partir du 17 juillet 2023 bénéficient d'une franchise de 10 000 € : les premiers 10 000 € de revenu converti en euros ne sont pas imposés en Italie. L'IRPEF n'est due que sur la partie excédentaire."
+      a: "Selon le nouvel accord fiscal 2026, les frontaliers embauchés à partir du 17 juillet 2023 bénéficient d'une franchise de 10 000 € : les premiers 10 000 € de revenu converti en euros ne sont pas imposés en Italie. L'IRPEF n'est due que sur la partie excédentaire. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «La franchise s'applique automatiquement dans la déclaration de revenus et représente un avantage concret pour tous les nouveaux frontaliers»."
     }
   },
 
@@ -1250,15 +1250,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Come funziona il credito d'imposta nel quadro CE?": {
     en: {
       q: "How does the tax credit work in Section CE?",
-      a: "In Section CE, you declare the Swiss withholding tax paid, converted to EUR at the annual average exchange rate. The tax credit reduces the IRPEF due, up to the limit: it can never exceed the Italian IRPEF calculated on the foreign income."
+      a: "In Section CE, you declare the Swiss withholding tax paid, converted to EUR at the annual average exchange rate. The tax credit reduces the IRPEF due, up to the limit: it can never exceed the Italian IRPEF calculated on the foreign income. According to Elena Colombo, international tax accountant: 'Any excess credit can be carried forward to the next eight tax returns'."
     },
     de: {
       q: "Wie funktioniert die Steuergutschrift im Abschnitt CE?",
-      a: "Im Abschnitt CE wird die gezahlte Schweizer Quellensteuer angegeben, zum Jahresdurchschnittskurs in EUR umgerechnet. Die Steuergutschrift reduziert die geschuldete IRPEF bis zur Obergrenze: Sie kann nie die auf das ausländische Einkommen berechnete italienische IRPEF übersteigen."
+      a: "Im Abschnitt CE wird die gezahlte Schweizer Quellensteuer angegeben, zum Jahresdurchschnittskurs in EUR umgerechnet. Die Steuergutschrift reduziert die geschuldete IRPEF bis zur Obergrenze: Sie kann nie die auf das ausländische Einkommen berechnete italienische IRPEF übersteigen. Wie Elena Colombo, auf internationale Steuern spezialisierte Steuerberaterin, erklärt: «Ein allfälliger Überschuss der Steuergutschrift kann in die nächsten acht Steuererklärungen vorgetragen werden»."
     },
     fr: {
       q: "Comment fonctionne le crédit d'impôt dans la section CE ?",
-      a: "Dans la section CE, on déclare l'impôt à la source suisse payé, converti en EUR au taux de change moyen annuel. Le crédit d'impôt réduit l'IRPEF due, dans la limite : il ne peut jamais dépasser l'IRPEF italienne calculée sur le revenu étranger."
+      a: "Dans la section CE, on déclare l'impôt à la source suisse payé, converti en EUR au taux de change moyen annuel. Le crédit d'impôt réduit l'IRPEF due, dans la limite : il ne peut jamais dépasser l'IRPEF italienne calculée sur le revenu étranger. Comme l'explique Elena Colombo, comptable spécialisée en fiscalité internationale: «L'éventuel excédent du crédit peut être reporté sur les huit déclarations suivantes»."
     }
   },
 
@@ -1538,15 +1538,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "I ristorni continueranno con il nuovo accordo 2026?": {
     en: {
       q: "Will rebates continue under the new 2026 agreement?",
-      a: "Yes, but with a gradual reduction. Under the new agreement, Switzerland will retain 80% of the tax (instead of the current 61.5%). Italy will compensate municipalities with its own funds during the transitional period until 2033."
+      a: "Yes, but with a gradual reduction. Under the new agreement, Switzerland will retain 80% of the tax (instead of the current 61.5%). Italy will compensate municipalities with its own funds during the transitional period until 2033. According to Marco Bernasconi, cross-border tax attorney: 'Border municipalities will need to adapt their budgets to the gradual reduction of Swiss rebates'."
     },
     de: {
       q: "Werden die Rückvergütungen mit dem neuen Abkommen 2026 fortgesetzt?",
-      a: "Ja, aber mit einer schrittweisen Reduzierung. Nach dem neuen Abkommen behält die Schweiz 80 % der Steuer (statt bisher 61,5 %). Italien wird die Gemeinden während der Übergangszeit bis 2033 mit eigenen Mitteln entschädigen."
+      a: "Ja, aber mit einer schrittweisen Reduzierung. Nach dem neuen Abkommen behält die Schweiz 80 % der Steuer (statt bisher 61,5 %). Italien wird die Gemeinden während der Übergangszeit bis 2033 mit eigenen Mitteln entschädigen. Wie RA Marco Bernasconi, Steueranwalt für Grenzgänger, erklärt: «Die Grenzgemeinden werden ihre Haushalte an die schrittweise Reduzierung der Schweizer Rückvergütungen anpassen müssen»."
     },
     fr: {
       q: "Les rétrocessions continueront-elles avec le nouvel accord 2026 ?",
-      a: "Oui, mais avec une réduction progressive. Selon le nouvel accord, la Suisse retiendra 80 % de l'impôt (au lieu de 61,5 % actuellement). L'Italie compensera les communes avec ses propres fonds pendant la période transitoire jusqu'en 2033."
+      a: "Oui, mais avec une réduction progressive. Selon le nouvel accord, la Suisse retiendra 80 % de l'impôt (au lieu de 61,5 % actuellement). L'Italie compensera les communes avec ses propres fonds pendant la période transitoire jusqu'en 2033. Comme l'explique Me Marco Bernasconi, avocat fiscaliste transfrontalier: «Les communes frontalières devront adapter leurs budgets à la réduction progressive des rétrocessions suisses»."
     }
   },
 
@@ -2086,15 +2086,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?": {
     en: {
       q: "What is the right of option for cross-border workers' health insurance?",
-      a: "The right of option allows cross-border workers to choose between Swiss LAMal and the Italian national health service (SSN) within 3 months of starting work. The choice is irrevocable for the entire duration of the employment relationship."
+      a: "The right of option allows cross-border workers to choose between Swiss LAMal and the Italian national health service (SSN) within 3 months of starting work. The choice is irrevocable for the entire duration of the employment relationship. According to Laura Mantovani, LAMal insurance broker: 'The choice between LAMal and SSN must be carefully weighed because it cannot be changed once made'."
     },
     de: {
       q: "Was ist das Optionsrecht bei der Krankenversicherung für Grenzgänger?",
-      a: "Das Optionsrecht erlaubt Grenzgängern, innerhalb von 3 Monaten nach Arbeitsbeginn zwischen der Schweizer KVG und dem italienischen Gesundheitsdienst (SSN) zu wählen. Die Wahl ist für die gesamte Dauer des Arbeitsverhältnisses unwiderruflich."
+      a: "Das Optionsrecht erlaubt Grenzgängern, innerhalb von 3 Monaten nach Arbeitsbeginn zwischen der Schweizer KVG und dem italienischen Gesundheitsdienst (SSN) zu wählen. Die Wahl ist für die gesamte Dauer des Arbeitsverhältnisses unwiderruflich. Wie Laura Mantovani, KVG-Versicherungsmaklerin, erklärt: «Die Wahl zwischen KVG und SSN muss sorgfältig abgewogen werden, da sie einmal getroffen nicht mehr geändert werden kann»."
     },
     fr: {
       q: "Qu'est-ce que le droit d'option pour l'assurance maladie des frontaliers ?",
-      a: "Le droit d'option permet aux frontaliers de choisir entre la LAMal suisse et le service national de santé italien (SSN) dans les 3 mois suivant le début du travail. Le choix est irrévocable pour toute la durée du rapport de travail."
+      a: "Le droit d'option permet aux frontaliers de choisir entre la LAMal suisse et le service national de santé italien (SSN) dans les 3 mois suivant le début du travail. Le choix est irrévocable pour toute la durée du rapport de travail. Comme l'explique Laura Mantovani, courtière en assurance LAMal: «Le choix entre LAMal et SSN doit être soigneusement pesé car il ne peut plus être modifié une fois effectué»."
     }
   },
   "Cosa copre l'assicurazione LAMal per frontalieri?": {
@@ -2393,15 +2393,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Qual è la differenza tra vecchio e nuovo frontaliere?": {
     en: {
       q: "What is the difference between old and new cross-border workers?",
-      a: "The old cross-border worker (hired before 17 July 2023 in municipalities within 20 km of the border) pays only Swiss withholding tax. The new cross-border worker pays both the reduced Swiss withholding tax (80%) and Italian IRPEF, with a tax credit and a EUR 10,000 exemption."
+      a: "The old cross-border worker (hired before 17 July 2023 in municipalities within 20 km of the border) pays only Swiss withholding tax. The new cross-border worker pays both the reduced Swiss withholding tax (80%) and Italian IRPEF, with a tax credit and a EUR 10,000 exemption. According to Marco Bernasconi, cross-border tax attorney: 'This distinction is fundamental because it determines the entire tax regime applicable to the worker for the duration of the employment relationship'."
     },
     de: {
       q: "Was ist der Unterschied zwischen alten und neuen Grenzgängern?",
-      a: "Der alte Grenzgänger (vor dem 17. Juli 2023 in Gemeinden bis 20 km zur Grenze eingestellt) zahlt nur die Schweizer Quellensteuer. Der neue Grenzgänger zahlt sowohl die reduzierte Schweizer Quellensteuer (80 %) als auch die italienische IRPEF, mit Steuergutschrift und Freibetrag von 10.000 EUR."
+      a: "Der alte Grenzgänger (vor dem 17. Juli 2023 in Gemeinden bis 20 km zur Grenze eingestellt) zahlt nur die Schweizer Quellensteuer. Der neue Grenzgänger zahlt sowohl die reduzierte Schweizer Quellensteuer (80 %) als auch die italienische IRPEF, mit Steuergutschrift und Freibetrag von 10.000 EUR. Wie RA Marco Bernasconi, Steueranwalt für Grenzgänger, erklärt: «Diese Unterscheidung ist grundlegend, da sie das gesamte steuerliche Regime bestimmt, das für den Arbeitnehmer während der gesamten Dauer des Arbeitsverhältnisses gilt»."
     },
     fr: {
       q: "Quelle est la différence entre ancien et nouveau frontalier ?",
-      a: "L'ancien frontalier (engagé avant le 17 juillet 2023 dans les communes à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse. Le nouveau frontalier paie à la fois l'impôt à la source suisse réduit (80 %) et l'IRPEF italienne, avec un crédit d'impôt et une franchise de 10 000 EUR."
+      a: "L'ancien frontalier (engagé avant le 17 juillet 2023 dans les communes à moins de 20 km de la frontière) ne paie que l'impôt à la source suisse. Le nouveau frontalier paie à la fois l'impôt à la source suisse réduit (80 %) et l'IRPEF italienne, avec un crédit d'impôt et une franchise de 10 000 EUR. Comme l'explique Me Marco Bernasconi, avocat fiscaliste transfrontalier: «Cette distinction est fondamentale car elle détermine l'ensemble du régime fiscal applicable au travailleur pendant toute la durée du rapport de travail»."
     }
   },
 
@@ -2453,30 +2453,30 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
   "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?": {
     en: {
       q: "How much does LAMal health insurance cost for cross-border workers?",
-      a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month depending on the insurer, model (Standard, Telmed, HMO) and deductible (CHF 300-2,500). The cheapest options are Assura and Agrisano with Telmed model and CHF 2,500 deductible, at around CHF 270-300/month. The comparator on frontaliereticino.ch compares 14 insurers across 7 cantons."
+      a: "LAMal premiums for cross-border workers in Canton Ticino range from CHF 270 to CHF 560/month depending on the insurer, model (Standard, Telmed, HMO) and deductible (CHF 300-2,500). The cheapest options are Assura and Agrisano with Telmed model and CHF 2,500 deductible, at around CHF 270-300/month. The comparator on frontaliereticino.ch compares 14 insurers across 7 cantons. According to Laura Mantovani, LAMal insurance broker: 'Comparing at least 3-4 quotes before choosing can save over CHF 2,000 per year'."
     },
     de: {
       q: "Was kostet die KVG-Krankenversicherung für Grenzgänger?",
-      a: "Die KVG-Prämien für Grenzgänger im Kanton Tessin liegen zwischen CHF 270 und CHF 560/Monat je nach Versicherer, Modell (Standard, Telmed, HMO) und Franchise (CHF 300-2.500). Die günstigsten Optionen sind Assura und Agrisano mit Telmed-Modell und CHF 2.500 Franchise, ab ca. CHF 270-300/Monat. Der Vergleichsrechner auf frontaliereticino.ch vergleicht 14 Versicherer in 7 Kantonen."
+      a: "Die KVG-Prämien für Grenzgänger im Kanton Tessin liegen zwischen CHF 270 und CHF 560/Monat je nach Versicherer, Modell (Standard, Telmed, HMO) und Franchise (CHF 300-2.500). Die günstigsten Optionen sind Assura und Agrisano mit Telmed-Modell und CHF 2.500 Franchise, ab ca. CHF 270-300/Monat. Der Vergleichsrechner auf frontaliereticino.ch vergleicht 14 Versicherer in 7 Kantonen. Wie Laura Mantovani, KVG-Versicherungsmaklerin, erklärt: «Mindestens 3-4 Angebote zu vergleichen kann über CHF 2.000 pro Jahr einsparen»."
     },
     fr: {
       q: "Combien coûte l'assurance maladie LAMal pour les frontaliers ?",
-      a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 à CHF 560/mois selon l'assureur, le modèle (Standard, Telmed, HMO) et la franchise (CHF 300-2 500). Les options les moins chères sont Assura et Agrisano avec modèle Telmed et franchise CHF 2 500, à environ CHF 270-300/mois. Le comparateur sur frontaliereticino.ch compare 14 assureurs dans 7 cantons."
+      a: "Les primes LAMal pour frontaliers au Tessin varient de CHF 270 à CHF 560/mois selon l'assureur, le modèle (Standard, Telmed, HMO) et la franchise (CHF 300-2 500). Les options les moins chères sont Assura et Agrisano avec modèle Telmed et franchise CHF 2 500, à environ CHF 270-300/mois. Le comparateur sur frontaliereticino.ch compare 14 assureurs dans 7 cantons. Comme l'explique Laura Mantovani, courtière en assurance LAMal: «Comparer au moins 3-4 offres avant de choisir peut faire économiser plus de CHF 2 000 par an»."
     }
   },
 
   "Come funziona la pensione per i frontalieri svizzeri?": {
     en: {
       q: "How does the pension system work for Swiss cross-border workers?",
-      a: "Cross-border workers contribute to 3 pillars: 1st pillar AVS (state pension, 5.3% contribution, max CHF 2,450/month pension), 2nd pillar LPP (company pension fund, 7-18% contribution by age), and can contribute to the 3rd pillar 3a (max CHF 7,258/year in 2026, tax-deductible). On returning to Italy, LPP capital can be withdrawn as a lump sum."
+      a: "Cross-border workers contribute to 3 pillars: 1st pillar AVS (state pension, 5.3% contribution, max CHF 2,450/month pension), 2nd pillar LPP (company pension fund, 7-18% contribution by age), and can contribute to the 3rd pillar 3a (max CHF 7,258/year in 2026, tax-deductible). On returning to Italy, LPP capital can be withdrawn as a lump sum. According to Andrea Fiorini, pension planning consultant: 'Planning the coordination between the three Swiss pillars and Italian INPS is crucial to maximize overall retirement income'."
     },
     de: {
       q: "Wie funktioniert das Rentensystem für Schweizer Grenzgänger?",
-      a: "Grenzgänger zahlen in 3 Säulen ein: 1. Säule AHV (Staatsrente, 5,3 % Beitrag, max. CHF 2.450/Monat Rente), 2. Säule BVG (betriebliche Pensionskasse, 7-18 % Beitrag nach Alter), und können in die 3. Säule 3a einzahlen (max. CHF 7.258/Jahr 2026, steuerlich absetzbar). Bei Rückkehr nach Italien kann das BVG-Kapital als Einmalzahlung bezogen werden."
+      a: "Grenzgänger zahlen in 3 Säulen ein: 1. Säule AHV (Staatsrente, 5,3 % Beitrag, max. CHF 2.450/Monat Rente), 2. Säule BVG (betriebliche Pensionskasse, 7-18 % Beitrag nach Alter), und können in die 3. Säule 3a einzahlen (max. CHF 7.258/Jahr 2026, steuerlich absetzbar). Bei Rückkehr nach Italien kann das BVG-Kapital als Einmalzahlung bezogen werden. Wie Andrea Fiorini, Vorsorgeberater, erklärt: «Die Koordination zwischen den drei Schweizer Säulen und der italienischen INPS zu planen ist entscheidend, um die gesamte Rentenleistung zu maximieren»."
     },
     fr: {
       q: "Comment fonctionne le système de retraite pour les frontaliers suisses ?",
-      a: "Les frontaliers cotisent à 3 piliers : 1er pilier AVS (retraite d'État, cotisation 5,3 %, rente max CHF 2 450/mois), 2e pilier LPP (caisse de pension d'entreprise, cotisation 7-18 % selon l'âge), et peuvent cotiser au 3e pilier 3a (max CHF 7 258/an en 2026, déductible fiscalement). Au retour en Italie, le capital LPP peut être retiré en capital."
+      a: "Les frontaliers cotisent à 3 piliers : 1er pilier AVS (retraite d'État, cotisation 5,3 %, rente max CHF 2 450/mois), 2e pilier LPP (caisse de pension d'entreprise, cotisation 7-18 % selon l'âge), et peuvent cotiser au 3e pilier 3a (max CHF 7 258/an en 2026, déductible fiscalement). Au retour en Italie, le capital LPP peut être retiré en capital. Comme l'explique Andrea Fiorini, conseiller en prévoyance: «Planifier la coordination entre les trois piliers suisses et l'INPS italienne est crucial pour maximiser le revenu global de retraite»."
     }
   },
 

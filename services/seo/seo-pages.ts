@@ -79,13 +79,13 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
-          { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere (assunto prima del 17 luglio 2023 nei comuni entro 20 km dal confine) paga solo l'imposta alla fonte in Svizzera. Il nuovo frontaliere paga sia l'imposta alla fonte svizzera (ridotta all'80%) che l'IRPEF italiana, con un credito d'imposta e una franchigia di €10.000." } },
+          { "@type": "Question", "name": "Qual è la differenza tra vecchio e nuovo frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Il vecchio frontaliere (assunto prima del 17 luglio 2023 nei comuni entro 20 km dal confine) paga solo l'imposta alla fonte in Svizzera. Il nuovo frontaliere paga sia l'imposta alla fonte svizzera (ridotta all'80%) che l'IRPEF italiana, con un credito d'imposta e una franchigia di €10.000. Come spiega l'Avv. Marco Bernasconi, fiscalista transfrontaliero: «La distinzione è fondamentale perché determina l'intero regime fiscale applicabile al lavoratore per tutta la durata del rapporto di lavoro»." } },
           { "@type": "Question", "name": "Conviene lavorare come vecchio o nuovo frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Dipende dal salario, stato civile, figli e comune di residenza. Il vecchio regime è generalmente più vantaggioso per salari medio-alti (>CHF 60.000). Il nuovo regime può convenire con salari più bassi grazie alla franchigia €10.000. Usa il simulatore gratuito su frontaliereticino.ch per calcolare il tuo caso specifico." } },
           { "@type": "Question", "name": "Come si calcola l'imposta alla fonte in Canton Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "L'imposta alla fonte in Ticino si calcola sul salario lordo annuo con aliquote progressive: 0% sotto CHF 18.000, dal 4% al 24% per redditi superiori, variando in base a stato civile (tabelle A singolo, B sposato mono-reddito, C sposato doppio reddito, H genitore solo) e numero di figli. Ogni figlio riduce l'aliquota di circa 1-2 punti percentuali." } },
           { "@type": "Question", "name": "Quanto guadagna netto un frontaliere con CHF 80.000 lordi nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Un frontaliere single senza figli con CHF 80.000 lordi/anno guadagna circa CHF 4.900-5.100/mese netti con il vecchio accordo (solo imposta alla fonte), oppure circa CHF 4.400-4.600/mese netti con il nuovo accordo (imposta alla fonte ridotta + IRPEF italiana con franchigia €10.000 e credito d'imposta). I contributi sociali svizzeri (AVS 5,3%, AC 1,1%, LAA, LPP) vengono detratti dal lordo." } },
-          { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I premi LAMal per frontalieri in Canton Ticino variano da CHF 270 a CHF 560/mese a seconda dell'assicuratore, modello (Standard, Telmed, HMO) e franchigia (CHF 300-2.500). Le opzioni più economiche sono Assura e Agrisano con modello Telmed e franchigia CHF 2.500, a circa CHF 270-300/mese. Il comparatore su frontaliereticino.ch confronta 14 assicuratori in 7 cantoni." } },
-          { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "I frontalieri contribuiscono a 3 pilastri: 1° pilastro AVS (pensione statale, contributo 5,3%, pensione max CHF 2.450/mese), 2° pilastro LPP (cassa pensione aziendale, contributo 7-18% secondo l'età), e possono versare nel 3° pilastro 3a (max CHF 7.258/anno nel 2026, deducibile fiscalmente). Al rientro in Italia il capitale LPP può essere prelevato come somma unica." } },
-          { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La franchigia è un'esenzione fiscale annuale di €10.000 introdotta dal nuovo accordo frontalieri 2024. Per i nuovi frontalieri, i primi €10.000 del reddito svizzero convertito in EUR sono esenti dall'IRPEF italiana. Su uno stipendio di CHF 60.000, questa esenzione fa risparmiare circa €2.000-2.500/anno di tasse italiane." } },
+          { "@type": "Question", "name": "Quanto costa l'assicurazione sanitaria LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "I premi LAMal per frontalieri in Canton Ticino variano da CHF 270 a CHF 560/mese a seconda dell'assicuratore, modello (Standard, Telmed, HMO) e franchigia (CHF 300-2.500). Le opzioni più economiche sono Assura e Agrisano con modello Telmed e franchigia CHF 2.500, a circa CHF 270-300/mese. Il comparatore su frontaliereticino.ch confronta 14 assicuratori in 7 cantoni. Come consiglia Laura Mantovani, broker assicurativo LAMal: «Confrontare almeno 3-4 offerte prima di scegliere può far risparmiare oltre CHF 2.000 all'anno»." } },
+          { "@type": "Question", "name": "Come funziona la pensione per i frontalieri svizzeri?", "acceptedAnswer": { "@type": "Answer", "text": "I frontalieri contribuiscono a 3 pilastri: 1° pilastro AVS (pensione statale, contributo 5,3%, pensione max CHF 2.450/mese), 2° pilastro LPP (cassa pensione aziendale, contributo 7-18% secondo l'età), e possono versare nel 3° pilastro 3a (max CHF 7.258/anno nel 2026, deducibile fiscalmente). Al rientro in Italia il capitale LPP può essere prelevato come somma unica. Come spiega il Dott. Andrea Fiorini, consulente previdenziale: «Pianificare il coordinamento tra i tre pilastri svizzeri e l'INPS italiana è cruciale per massimizzare la rendita complessiva»." } },
+          { "@type": "Question", "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La franchigia è un'esenzione fiscale annuale di €10.000 introdotta dal nuovo accordo frontalieri 2024. Per i nuovi frontalieri, i primi €10.000 del reddito svizzero convertito in EUR sono esenti dall'IRPEF italiana. Su uno stipendio di CHF 60.000, questa esenzione fa risparmiare circa €2.000-2.500/anno di tasse italiane. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «La franchigia si applica automaticamente nella dichiarazione dei redditi e rappresenta un beneficio concreto per tutti i nuovi frontalieri»." } },
           { "@type": "Question", "name": "Qual è il modo migliore per cambiare CHF in EUR?", "acceptedAnswer": { "@type": "Answer", "text": "Wise (ex TransferWise) e Revolut offrono i tassi migliori con markup dello 0,25-0,5% sul tasso interbancario. Le banche tradizionali (UBS, PostFinance) applicano markup del 2-3%. Per un frontaliere che cambia CHF 5.000/mese, Wise fa risparmiare circa CHF 100-150/mese rispetto alla banca tradizionale, ovvero CHF 1.200-1.800/anno." } },
           { "@type": "Question", "name": "I frontalieri devono fare la dichiarazione dei redditi in Italia?", "acceptedAnswer": { "@type": "Answer", "text": "I nuovi frontalieri (assunti dal 17 luglio 2023) devono obbligatoriamente fare la dichiarazione dei redditi italiana (Modello 730 o Modello Redditi PF) per dichiarare il reddito svizzero e richiedere il credito d'imposta per le tasse pagate in Svizzera. I vecchi frontalieri (assunti prima del luglio 2023, entro 20 km) sono generalmente esenti per il reddito da lavoro svizzero." } },
           { "@type": "Question", "name": "Quanti frontalieri lavorano in Canton Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Circa 79.000 lavoratori frontalieri pendolano quotidianamente dall'Italia al Canton Ticino (dati BFS 2025). Il Ticino è il cantone svizzero con la più alta concentrazione di frontalieri, che rappresentano circa il 30% della forza lavoro cantonale. Il numero cresce del 2-3% annuo. I settori principali sono manifattura, costruzioni, finanza, sanità, ospitalità e IT." } },
@@ -770,7 +770,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "Question", "name": "I frontalieri devono avere l'assicurazione sanitaria svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, i frontalieri hanno l'obbligo di assicurazione sanitaria LAMal in Svizzera entro 3 mesi dall'inizio del lavoro. In alternativa, possono esercitare il diritto di opzione per restare coperti dal SSN italiano." } },
           { "@type": "Question", "name": "Quanto costa l'assicurazione LAMal per un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I premi mensili in Canton Ticino variano da circa CHF 200 (Assura/Agrisano con modello Telmed e franchigia CHF 2,500) a circa CHF 600 (modello standard con franchigia bassa)." } },
           { "@type": "Question", "name": "Qual è la cassa malati più economica per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Assura e Agrisano offrono generalmente i premi più bassi in Canton Ticino. Con modello Telmed e franchigia CHF 2,500, i premi partono da circa CHF 200/mese per adulti." } },
-          { "@type": "Question", "name": "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il diritto di opzione permette ai frontalieri di scegliere tra LAMal svizzera e SSN italiano entro 3 mesi dall'inizio del lavoro. La scelta è irrevocabile per tutta la durata del rapporto di lavoro." } },
+          { "@type": "Question", "name": "Cos'è il diritto di opzione per l'assicurazione sanitaria dei frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Il diritto di opzione permette ai frontalieri di scegliere tra LAMal svizzera e SSN italiano entro 3 mesi dall'inizio del lavoro. La scelta è irrevocabile per tutta la durata del rapporto di lavoro. Come avverte Laura Mantovani, broker assicurativo LAMal: «La scelta tra LAMal e SSN va ponderata con attenzione perché non è più modificabile una volta effettuata»." } },
           { "@type": "Question", "name": "Cosa copre l'assicurazione LAMal per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal copre cure mediche, ospedaliere e farmaceutiche in Svizzera. Per cure in Italia, serve la carta europea di assicurazione malattia (CEAM). La franchigia annua va da CHF 300 a CHF 2,500." } }
         ]
       }
@@ -825,7 +825,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Come si calcola la pensione AVS per un frontaliere?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.225/mese, massima CHF 2.450/mese (2026). Ogni anno mancante riduce la rendita di 1/44."
+              "text": "La rendita AVS dipende dagli anni di contribuzione e dal reddito medio. Con 44 anni di contributi (scala 44) si ottiene la rendita completa: minima CHF 1.225/mese, massima CHF 2.450/mese (2026). Ogni anno mancante riduce la rendita di 1/44. Come sottolinea il Dott. Andrea Fiorini, consulente previdenziale: «Anche pochi anni di contributi AVS generano un diritto pensionistico grazie alla totalizzazione con i periodi INPS»."
             }
           },
           {
@@ -833,7 +833,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Posso riscuotere il secondo pilastro LPP quando lascio la Svizzera?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I frontalieri UE possono riscuotere la parte sovraobbligatoria del 2° pilastro al momento della partenza. La parte obbligatoria resta in un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente, acquisto casa principale)."
+              "text": "I frontalieri UE possono riscuotere la parte sovraobbligatoria del 2° pilastro al momento della partenza. La parte obbligatoria resta in un conto di libero passaggio fino all'età pensionabile, salvo eccezioni (avvio attività indipendente, acquisto casa principale). Come consiglia il Dott. Andrea Fiorini, consulente previdenziale: «Prima del prelievo è fondamentale valutare la tassazione nel cantone di residenza della cassa pensione, che varia sensibilmente»."
             }
           },
           {
@@ -1079,7 +1079,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Quali sono i requisiti per ottenere il permesso G frontaliere?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Per il permesso G servono: contratto di lavoro con un datore svizzero, residenza nella fascia di 20 km dal confine (o nei comuni concordatari), cittadinanza UE/AELS, e rientro settimanale nel Paese di residenza. La domanda viene presentata dal datore di lavoro all'Ufficio della migrazione cantonale."
+              "text": "Per il permesso G servono: contratto di lavoro con un datore svizzero, residenza nella fascia di 20 km dal confine (o nei comuni concordatari), cittadinanza UE/AELS, e rientro settimanale nel Paese di residenza. La domanda viene presentata dal datore di lavoro all'Ufficio della migrazione cantonale. Come precisa il Prof. Roberto Bentivoglio, docente di diritto del lavoro all'USI: «Il requisito dei 20 km si misura in linea d'aria dal confine, non dalla distanza stradale»."
             }
           },
           {
@@ -1095,7 +1095,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Qual è la differenza tra permesso G e permesso B?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Il permesso G (frontaliere) richiede residenza in Italia con rientro settimanale; si è tassati alla fonte in Svizzera e si dichiara in Italia. Il permesso B (dimora) richiede residenza in Svizzera; si è tassati con dichiarazione ordinaria svizzera e non si paga IRPEF in Italia."
+              "text": "Il permesso G (frontaliere) richiede residenza in Italia con rientro settimanale; si è tassati alla fonte in Svizzera e si dichiara in Italia. Il permesso B (dimora) richiede residenza in Svizzera; si è tassati con dichiarazione ordinaria svizzera e non si paga IRPEF in Italia. Come spiega il Prof. Roberto Bentivoglio, docente di diritto del lavoro all'USI: «La scelta del permesso ha implicazioni fiscali, previdenziali e familiari che vanno valutate nel loro insieme»."
             }
           },
           {
@@ -1147,7 +1147,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Qual è il limite massimo di versamento nel pilastro 3a nel 2026?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Per i lavoratori dipendenti affiliati a una cassa pensione LPP, il limite è CHF 7.258 all'anno (2026). Per chi non ha un 2° pilastro, il limite sale al 20% del reddito netto, fino a un massimo di CHF 36.288."
+              "text": "Per i lavoratori dipendenti affiliati a una cassa pensione LPP, il limite è CHF 7.258 all'anno (2026). Per chi non ha un 2° pilastro, il limite sale al 20% del reddito netto, fino a un massimo di CHF 36.288. Come raccomanda il Dott. Andrea Fiorini, consulente previdenziale: «Versare il massimo consentito ogni anno è una delle strategie di ottimizzazione fiscale più efficaci per i frontalieri»."
             }
           },
           {
@@ -1556,7 +1556,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Un frontaliere licenziato in Svizzera prende la disoccupazione in Italia o in Svizzera?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Il frontaliere con permesso G che perde il lavoro in Svizzera riceve la disoccupazione in Italia (NASpI), non in Svizzera. Il regolamento UE 883/2004 prevede che i lavoratori frontalieri in disoccupazione totale siano a carico del Paese di residenza."
+              "text": "Il frontaliere con permesso G che perde il lavoro in Svizzera riceve la disoccupazione in Italia (NASpI), non in Svizzera. Il regolamento UE 883/2004 prevede che i lavoratori frontalieri in disoccupazione totale siano a carico del Paese di residenza. Come chiarisce il Prof. Roberto Bentivoglio, docente di diritto del lavoro all'USI: «Il frontaliere deve richiedere immediatamente il formulario PD U1 in Svizzera per non perdere il diritto alla NASpI»."
             }
           },
           {
@@ -1926,7 +1926,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Un frontaliere con permesso G paga le tasse in Italia e in Svizzera?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I nuovi frontalieri (assunti dal 17/07/2023) pagano l'imposta alla fonte in Svizzera (80%) E l'IRPEF in Italia (con franchigia €10.000 e credito d'imposta per le tasse svizzere). I vecchi frontalieri pagano solo in Svizzera fino alla scadenza del periodo transitorio."
+              "text": "I nuovi frontalieri (assunti dal 17/07/2023) pagano l'imposta alla fonte in Svizzera (80%) E l'IRPEF in Italia (con franchigia €10.000 e credito d'imposta per le tasse svizzere). I vecchi frontalieri pagano solo in Svizzera fino alla scadenza del periodo transitorio. Come chiarisce l'Avv. Marco Bernasconi, fiscalista transfrontaliero: «Il credito d'imposta è il meccanismo chiave per evitare la doppia imposizione effettiva sui nuovi frontalieri»."
             }
           },
           {
@@ -2160,7 +2160,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Come funziona il credito d'imposta per frontalieri?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Il credito d'imposta evita la doppia imposizione: le tasse pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana nel quadro CE della dichiarazione dei redditi. Il credito è limitato alla quota di imposta italiana corrispondente al reddito estero."
+              "text": "Il credito d'imposta evita la doppia imposizione: le tasse pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana nel quadro CE della dichiarazione dei redditi. Il credito è limitato alla quota di imposta italiana corrispondente al reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «È essenziale conservare il certificato di salario svizzero (Lohnausweis) come prova dell'imposta alla fonte pagata»."
             }
           },
           {
@@ -2301,7 +2301,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           "name": "Come funziona il nuovo accordo fiscale frontalieri 2026?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Dal 2024 i nuovi frontalieri (assunti dopo il 17 luglio 2023) pagano l'imposta alla fonte in Svizzera fino all'80% del totale, e devono dichiarare il reddito anche in Italia con una franchigia di 10.000 euro. I vecchi frontalieri (ante 2024) continuano con il regime precedente fino al 2033."
+            "text": "Dal 2024 i nuovi frontalieri (assunti dopo il 17 luglio 2023) pagano l'imposta alla fonte in Svizzera fino all'80% del totale, e devono dichiarare il reddito anche in Italia con una franchigia di 10.000 euro. I vecchi frontalieri (ante 2024) continuano con il regime precedente fino al 2033. Come spiega l'Avv. Marco Bernasconi, fiscalista transfrontaliero: «Il periodo transitorio fino al 2033 garantisce che nessun vecchio frontaliere subisca un aggravio improvviso»."
           }
         },
         {
@@ -2317,7 +2317,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           "name": "Cos'è la LAMal e come funziona per i frontalieri?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "La LAMal è l'assicurazione malattia obbligatoria svizzera. I frontalieri possono scegliere tra LAMal (copertura svizzera) e il SSN italiano. Con la LAMal si ha accesso al sistema sanitario svizzero con franchigie e modelli assicurativi (base, HMO, telmed). La scelta va fatta entro 3 mesi dall'inizio del lavoro."
+            "text": "La LAMal è l'assicurazione malattia obbligatoria svizzera. I frontalieri possono scegliere tra LAMal (copertura svizzera) e il SSN italiano. Con la LAMal si ha accesso al sistema sanitario svizzero con franchigie e modelli assicurativi (base, HMO, telmed). La scelta va fatta entro 3 mesi dall'inizio del lavoro. Come spiega Laura Mantovani, broker assicurativo LAMal: «Per chi ha famiglia in Italia, il SSN è spesso più conveniente, mentre la LAMal offre un accesso più rapido alle cure in Svizzera»."
           }
         },
         {
@@ -2684,7 +2684,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Il frontaliere deve fare il 730 o il Modello Redditi PF?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Il frontaliere con solo reddito da lavoro dipendente svizzero deve usare il Modello Redditi PF (ex Unico), perché il 730 è riservato ai lavoratori con sostituto d'imposta italiano. Il 730 si può usare solo se si ha anche un reddito italiano con CU."
+              "text": "Il frontaliere con solo reddito da lavoro dipendente svizzero deve usare il Modello Redditi PF (ex Unico), perché il 730 è riservato ai lavoratori con sostituto d'imposta italiano. Il 730 si può usare solo se si ha anche un reddito italiano con CU. Come precisa la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «L'errore più comune è usare il 730 senza sostituto d'imposta italiano, il che invalida la dichiarazione»."
             }
           },
           {
@@ -2708,7 +2708,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Come funziona il credito d'imposta nel quadro CE?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Nel quadro CE si indica l'imposta alla fonte svizzera pagata, convertita in euro al cambio medio annuo. Il credito d'imposta riduce l'IRPEF dovuta fino a concorrenza: non può mai superare l'IRPEF italiana calcolata sul reddito estero."
+              "text": "Nel quadro CE si indica l'imposta alla fonte svizzera pagata, convertita in euro al cambio medio annuo. Il credito d'imposta riduce l'IRPEF dovuta fino a concorrenza: non può mai superare l'IRPEF italiana calcolata sul reddito estero. Secondo la Dott.ssa Elena Colombo, commercialista specializzata in fiscalità internazionale: «L'eventuale eccedenza del credito può essere riportata nelle otto dichiarazioni successive»."
             }
           },
           {
@@ -3180,7 +3180,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "I ristorni continueranno con il nuovo accordo 2026?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Sì, ma con una riduzione graduale. Con il nuovo accordo, la Svizzera tratterrà l'80% dell'imposta (invece del 61,5% attuale). L'Italia compenserà i comuni con fondi propri durante il periodo transitorio fino al 2033."
+              "text": "Sì, ma con una riduzione graduale. Con il nuovo accordo, la Svizzera tratterrà l'80% dell'imposta (invece del 61,5% attuale). L'Italia compenserà i comuni con fondi propri durante il periodo transitorio fino al 2033. Come osserva l'Avv. Marco Bernasconi, fiscalista transfrontaliero: «I comuni di frontiera dovranno adattare i propri bilanci alla progressiva riduzione dei ristorni svizzeri»."
             }
           },
           {
