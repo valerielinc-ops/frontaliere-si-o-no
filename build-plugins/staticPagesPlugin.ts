@@ -144,6 +144,167 @@ function buildDedicatedFaqHtml(
   return { html, jsonLd: JSON.stringify(jsonLdObj) };
 }
 
+// ── Unique editorial content for 19 salary landing pages ──────────────
+// Each key is the canonicalPath WITHOUT trailing slash.
+// Values are arrays of HTML blocks pushed into editorialBlocks[].
+const SALARY_LANDING_EDITORIAL: Record<string, string[]> = {
+  // ────────── 60'000 CHF ──────────
+  '/calcola-stipendio/stipendio-netto-60000-chf': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 60'000 CHF lordi: panoramica generale</h2>`,
+    `Con un reddito lordo annuo di CHF 60'000 il frontaliere in Ticino si colloca nella fascia d'ingresso più comune del mercato del lavoro transfrontaliero. Le deduzioni sociali obbligatorie svizzere — AVS/AI/IPG al 5,3 %, assicurazione contro la disoccupazione (AC) all'1,1 %, infortuni non professionali (LAA), indennità giornaliera malattia (IJM) e previdenza professionale (LPP) secondo la fascia d'età — riducono il lordo di circa il 12-13 % prima ancora dell'imposta alla fonte.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Da lordo a netto: cosa aspettarsi</h2>`,
+    `L'imposta alla fonte cantonale ticinese varia in base a stato civile e numero di figli. Per un lavoratore celibe senza figli (tabella A) lo stipendio netto mensile si attesta indicativamente tra CHF 3'800 e CHF 4'100. Se sposato con coniuge a carico il netto può salire leggermente grazie alla tabella C con aliquota marginale inferiore. Utilizza il simulatore per inserire i tuoi parametri personali e ottenere una stima precisa, inclusa la conversione automatica in euro al tasso di cambio corrente.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-60000-chf-nuovo-frontaliere-2026': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo frontaliere 2026: netto su CHF 60'000</h2>`,
+    `Se hai iniziato a lavorare in Svizzera dal 17 luglio 2023, rientri nel Nuovo Accordo fiscale Italia-Svizzera. Con un lordo di CHF 60'000 l'imposta alla fonte trattenuta in Ticino rappresenta solo la prima componente del prelievo: in Italia dovrai dichiarare il reddito estero e versare l'IRPEF, beneficiando però di una franchigia di € 10'000 e del credito d'imposta per le imposte già pagate in Svizzera.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Doppia imposizione e credito d'imposta</h2>`,
+    `Il meccanismo del credito d'imposta evita la doppia tassazione integrale: l'IRPEF dovuta viene ridotta dell'imposta alla fonte svizzera già trattenuta. Tuttavia, per redditi di CHF 60'000 la differenza di aliquota tra Italia e Svizzera genera comunque un carico aggiuntivo: il netto effettivo è tipicamente inferiore di CHF 100-200 al mese rispetto al vecchio regime. Il simulatore calcola entrambi gli scenari così da quantificare il divario esatto per la tua situazione personale.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-60000-chf-vecchio-frontaliere': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vecchio frontaliere: netto su CHF 60'000</h2>`,
+    `Chi ha iniziato l'attività transfrontaliera prima del 17 luglio 2023 resta nel cosiddetto "vecchio regime". Il vantaggio principale è la semplicità: l'unico prelievo fiscale è l'imposta alla fonte cantonale svizzera, senza obbligo di dichiarazione IRPEF in Italia sul reddito da lavoro dipendente in Svizzera. Su un lordo di CHF 60'000 il netto mensile si aggira indicativamente tra CHF 3'900 e CHF 4'200 a seconda della classificazione (tabella A, B o C).`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Perché il vecchio regime è più favorevole a questo livello</h2>`,
+    `A CHF 60'000 la differenza tra vecchio e nuovo regime risulta significativa: il vecchio frontaliere paga esclusivamente l'imposta alla fonte svizzera, mentre il nuovo deve integrare con IRPEF italiana. La franchigia di € 10'000 riduce la base imponibile italiana ma non la annulla. Il risultato è un risparmio netto per il vecchio regime stimato intorno a CHF 100-250 mensili. Il simulatore confronta i due scenari fianco a fianco con tutti i parametri aggiornati al 2026.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-60000-chf-sposato-2-figli': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Sposato con 2 figli: netto su CHF 60'000</h2>`,
+    `Per un frontaliere sposato con due figli a carico e un lordo di CHF 60'000, la tassazione svizzera è calcolata con la tabella C dell'imposta alla fonte, che prevede aliquote sensibilmente ridotte rispetto alla tabella A per celibi. Ogni figlio genera inoltre un abbattimento sulla ritenuta e il diritto agli assegni familiari svizzeri: in Ticino l'importo è di CHF 200 per figlio al mese fino ai 16 anni, elevato a CHF 250 per figli in formazione.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Impatto reale sulla busta paga familiare</h2>`,
+    `Con tabella C e due figli, il netto mensile indicativo si colloca tra CHF 4'100 e CHF 4'300 al mese, a cui si sommano gli assegni familiari (CHF 400 complessivi). In Italia le detrazioni per figli a carico e l'assegno unico universale completano il quadro. Il simulatore combina contributi svizzeri, imposta alla fonte con la corretta tabella familiare, IRPEF e assegni per restituire il netto effettivo complessivo del nucleo.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-60000-chf-residenza-entro-20km': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Residenza entro 20 km: netto su CHF 60'000</h2>`,
+    `Se risiedi in un comune italiano entro 20 km dalla frontiera svizzera — come Como, Varese, Lavena Ponte Tresa o Luino — rientri nella fascia territoriale che attiva il meccanismo di ripartizione fiscale 80/20 per i nuovi frontalieri. La Svizzera trattiene l'80 % dell'imposta alla fonte; il restante 20 % viene retrocesso all'Italia. Per i vecchi frontalieri la retrocessione avviene con il meccanismo storico dei ristorni ai comuni di frontiera.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Effetto pratico sulla busta paga a CHF 60'000</h2>`,
+    `In termini di netto mensile, la residenza entro 20 km con un lordo di CHF 60'000 produce cifre nell'ordine di CHF 3'800-4'100 per un celibe, dopo contributi sociali e imposta alla fonte. La componente italiana (IRPEF con credito d'imposta e franchigia) varia in base al comune di residenza e alla data di inizio lavoro. Il simulatore consente di selezionare il tuo comune per una stima personalizzata che tenga conto della retrocessione fiscale effettiva.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-60000-chf-residenza-oltre-20km': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Residenza oltre 20 km: netto su CHF 60'000</h2>`,
+    `Se risiedi oltre 20 km dalla frontiera svizzera — ad esempio a Milano, Bergamo, Monza o Novara — l'intero importo dell'imposta alla fonte rimane alla Svizzera senza ripartizione. Per i nuovi frontalieri questo significa tassazione completa in Svizzera più obbligo di dichiarazione IRPEF in Italia, con franchigia di € 10'000 e credito d'imposta. Il carico fiscale complessivo è generalmente superiore rispetto a chi risiede entro 20 km.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Conviene pendolare da oltre 20 km con CHF 60'000?</h2>`,
+    `Il netto indicativo per un celibe si attesta tra CHF 3'700 e CHF 4'000 al mese. A questo importo vanno sottratti costi di trasporto più elevati (abbonamento ferroviario, carburante, pedaggio autostradale) tipici della maggiore distanza. Il simulatore permette di includere i costi di pendolarismo e confrontare il saldo finale con uno scenario di residenza entro 20 km, così da valutare se la distanza dal confine è finanziariamente sostenibile.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  // ────────── 80'000 CHF ──────────
+  '/calcola-stipendio/stipendio-netto-80000-chf': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 80'000 CHF lordi: la fascia intermedia</h2>`,
+    `CHF 80'000 lordi annui rappresentano lo stipendio mediano per profili qualificati in Ticino: tecnici specializzati, impiegati amministrativi senior, sviluppatori software e professionisti sanitari. Le deduzioni sociali svizzere (AVS 5,3 %, AC 1,1 %, LAA, IJM, LPP) incidono per circa CHF 10'000-10'500 annui. L'imposta alla fonte cantonale ticinese assorbe un ulteriore 7-12 % in base alla tabella di classificazione.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stima del netto mensile a CHF 80'000</h2>`,
+    `Per un celibe senza figli il netto mensile indicativo si colloca tra CHF 5'000 e CHF 5'300 al mese. La progressione rispetto ai CHF 60'000 lordi non è lineare: l'aliquota marginale dell'imposta alla fonte aumenta con il reddito, riducendo proporcionalmente il guadagno netto di ogni franco aggiuntivo. Il simulatore applica le tabelle cantonali 2026 in vigore e converte automaticamente il risultato in euro per un confronto con il mercato italiano.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-80000-chf-nuovo-frontaliere-2026': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo frontaliere 2026: doppia imposizione su CHF 80'000</h2>`,
+    `Con un lordo di CHF 80'000 il peso del Nuovo Accordo fiscale diventa più tangibile rispetto a fasce di reddito inferiori. L'imposta alla fonte svizzera viene trattenuta in busta paga; successivamente, in Italia dovrai dichiarare il reddito e calcolare l'IRPEF applicando la franchigia di € 10'000 e il credito per le imposte pagate in Svizzera. L'aliquota marginale IRPEF al 35 % (scaglione 28'001-50'000 €) incide in modo apprezzabile su questo livello retributivo.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quanto resta in tasca: stima netta mensile</h2>`,
+    `Il netto per un nuovo frontaliere celibe con CHF 80'000 lordi si aggira intorno a CHF 4'800-5'100 al mese, una volta integrata la componente IRPEF italiana. La franchigia € 10'000 attenua la doppia imposizione ma non la elimina. Prova il simulatore inserendo i tuoi dati personali: il calcolo tiene conto di entrambe le legislazioni e restituisce il saldo finale in franchi e in euro.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-80000-chf-vecchio-frontaliere': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vecchio frontaliere: tassazione semplificata a CHF 80'000</h2>`,
+    `Per chi ha avviato il rapporto di lavoro prima del 17 luglio 2023, il regime fiscale resta quello storico: l'unico prelievo è l'imposta alla fonte cantonale svizzera. Nessun obbligo di dichiarazione IRPEF in Italia sul reddito da lavoro dipendente svizzero. A CHF 80'000 lordi questo comporta un notevole vantaggio: l'assenza dell'IRPEF italiana — che per questa fascia salirebbe al 35 % marginale — si traduce in un netto più elevato di diverse centinaia di franchi al mese.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Netto mensile stimato nel vecchio regime</h2>`,
+    `Un frontaliere celibe nel vecchio regime con CHF 80'000 lordi può aspettarsi un netto mensile nell'ordine di CHF 5'100-5'400, sensibilmente più alto rispetto a un nuovo frontaliere con lo stesso stipendio. Il differenziale cresce con l'aumentare del reddito per effetto della progressività IRPEF. Usa il simulatore per confrontare i due regimi con i tuoi parametri specifici di età, stato civile e comune di residenza.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-80000-chf-sposato-2-figli': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Sposato con 2 figli: netto familiare a CHF 80'000</h2>`,
+    `Un reddito lordo di CHF 80'000 per un frontaliere sposato con due figli beneficia della tabella C dell'imposta alla fonte, con aliquote notevolmente ridotte rispetto al celibe. In Ticino la tabella C per questa fascia applica un'aliquota effettiva del 4-6 % anziché il 9-11 % della tabella A. A questo si aggiungono gli assegni familiari cantonali: CHF 200 per figlio al mese (CHF 250 se in formazione), per un totale di CHF 400 mensili con due figli.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Budget familiare: dal lordo al disponibile</h2>`,
+    `Il netto mensile indicativo per questa configurazione è compreso tra CHF 5'400 e CHF 5'700, senza considerare gli assegni familiari che portano il disponibile effettivo oltre CHF 5'800. In Italia, il nucleo familiare con due figli minori beneficia anche dell'assegno unico universale. Il simulatore calcola ogni componente — deduzioni svizzere, IF tabella C, assegni e detrazioni italiane — per restituire il quadro economico completo della famiglia frontaliera.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-80000-chf-residenza-entro-20km': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Entro 20 km dal confine: netto su CHF 80'000</h2>`,
+    `Per chi risiede in un comune entro 20 km dalla frontiera — ad esempio Como, Varese, Ponte Chiasso, Stabio o Lavena Ponte Tresa — il Nuovo Accordo prevede che la Svizzera trattenga l'80 % dell'imposta alla fonte e retroceda il 20 % all'Italia. Il vecchio frontaliere beneficia invece del meccanismo di ristorno ai comuni di frontiera. A CHF 80'000 questa ripartizione modifica l'equilibrio fiscale in modo apprezzabile rispetto alla fascia dei 60'000.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Calcolo pratico della busta paga entro 20 km</h2>`,
+    `Con residenza entro 20 km e CHF 80'000 lordi, il netto mensile indicativo per un celibe è compreso tra CHF 5'000 e CHF 5'300 dopo contributi e imposta alla fonte. La componente IRPEF per i nuovi frontalieri può ridursi grazie alla retrocessione del 20 %. L'elenco dei comuni che rientrano nella fascia dei 20 km è determinato per via geodesica e include gran parte delle province di Como, Varese e Verbano-Cusio-Ossola. Verifica il tuo comune nel simulatore.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-80000-chf-residenza-oltre-20km': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Oltre 20 km dal confine: netto su CHF 80'000</h2>`,
+    `Risiedere oltre 20 km dalla frontiera — in città come Milano, Bergamo, Lecco, Busto Arsizio o Novara — comporta che l'intera imposta alla fonte resti in Svizzera, senza alcuna retrocessione. I nuovi frontalieri devono inoltre dichiarare il reddito in Italia e versare l'IRPEF con franchigia € 10'000, scontando il credito d'imposta per quanto già trattenuto. A CHF 80'000 la combinazione di IF integrale e IRPEF italiana è il caso fiscale più gravoso.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Bilancio mensile per i pendolari da lontano</h2>`,
+    `Il netto indicativo si colloca tra CHF 4'800 e CHF 5'100 al mese per un celibe nuovo frontaliere. Oltre all'aspetto fiscale, chi vive oltre 20 km affronta costi di pendolarismo più rilevanti: abbonamenti Trenord o autostradali, carburante, eventuale parcheggio di frontiera. Il simulatore consente di confrontare direttamente lo scenario "oltre 20 km" con quello "entro 20 km" a parità di reddito, includendo anche una stima dei costi di trasporto.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  // ────────── 100'000 CHF ──────────
+  '/calcola-stipendio/stipendio-netto-100000-chf': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 100'000 CHF lordi: fascia alta in Ticino</h2>`,
+    `Un lordo annuo di CHF 100'000 posiziona il frontaliere nella fascia dei profili senior: manager di linea, ingegneri con esperienza, quadri intermedi nel settore farmaceutico e bancario. Le deduzioni sociali obbligatorie ammontano a circa CHF 12'500-13'000 annui; il contributo LPP cresce con l'età e con questa base salariale inizia a pesare in modo più rilevante, soprattutto per gli over 45.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Netto mensile indicativo per CHF 100'000</h2>`,
+    `Per un celibe senza figli il netto si attesta indicativamente tra CHF 6'000 e CHF 6'400 al mese; la progressività dell'imposta alla fonte ticinese assorbe una quota crescente rispetto alle fasce inferiori. L'aliquota effettiva della ritenuta alla fonte può raggiungere il 13-15 % in tabella A. Il simulatore applica le tabelle 2026 per il Canton Ticino e calcola la busta paga mese per mese, incluso il tredicesimo dove previsto dal contratto collettivo.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-100000-chf-nuovo-frontaliere-2026': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Nuovo frontaliere 2026: impatto del doppio prelievo su CHF 100'000</h2>`,
+    `A CHF 100'000 lordi il Nuovo Accordo fiscale produce l'effetto più marcato: la franchigia di € 10'000 copre solo una frazione ridotta della base imponibile italiana. L'IRPEF si applica a scaglioni progressivi fino al 43 % (per la parte oltre € 50'000), generando un'integrazione fiscale italiana consistente anche dopo il credito d'imposta per l'imposta alla fonte svizzera.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Quanto si perde rispetto al vecchio regime</h2>`,
+    `Il netto indicativo per un nuovo frontaliere celibe con CHF 100'000 scende a circa CHF 5'700-6'100 al mese, contro i CHF 6'200-6'500 del vecchio regime. La differenza — nell'ordine di CHF 300-500 mensili — riflette l'intero peso dell'integrazione IRPEF dopo la franchigia e il credito. Il simulatore mette a confronto i due scenari con un dettaglio mensile, mostrando esattamente dove si concentra la perdita e come mitigarla con le deduzioni disponibili.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-100000-chf-vecchio-frontaliere': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Vecchio frontaliere: il massimo vantaggio a CHF 100'000</h2>`,
+    `Per chi ha iniziato prima del 17 luglio 2023, CHF 100'000 lordi vengono tassati esclusivamente in Svizzera tramite l'imposta alla fonte. L'assenza di IRPEF italiana sul reddito svizzero rappresenta un vantaggio netto crescente con il salario: a questo livello retributivo, l'aliquota marginale IRPEF che il nuovo frontaliere deve invece pagare supera il 35-43 %, generando un differenziale significativo sulla busta paga finale.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stima netta mensile: vecchio regime a CHF 100'000</h2>`,
+    `Il netto mensile indicativo per un vecchio frontaliere celibe con CHF 100'000 è compreso tra CHF 6'200 e CHF 6'500. L'imposta alla fonte ticinese assorbe circa il 13-15 % lordo in tabella A, ma non interviene alcun prelievo italiano. Questo scenario è il più favorevole in assoluto per redditi alti. Il simulatore permette di confrontare in tempo reale vecchio e nuovo regime, evidenziando la convenienza residua e il suo eventuale esaurimento nel tempo.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-100000-chf-sposato-2-figli': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Famiglia con 2 figli e CHF 100'000: tassazione agevolata</h2>`,
+    `A CHF 100'000 lordi la tabella C dell'imposta alla fonte per coniuge e figli a carico riduce sensibilmente l'aliquota effettiva: invece del 13-15 % della tabella A, si applica circa il 6-9 %. La differenza si amplifica a redditi più elevati perché la progressività della tabella A penalizza di più il celibe. I due figli generano inoltre CHF 400 mensili di assegni familiari ticinesi (CHF 200 per figlio) che si aggiungono al netto.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Reddito familiare complessivo: tutte le voci</h2>`,
+    `Il netto mensile indicativo per questa configurazione è compreso tra CHF 6'500 e CHF 6'800, esclusi gli assegni familiari. Sommando questi ultimi il disponibile effettivo supera CHF 7'000. In Italia il nucleo familiare beneficia anche dell'assegno unico universale per i figli minori e delle detrazioni IRPEF per carichi di famiglia. Il simulatore integra tutti questi elementi — svizzeri e italiani — per una visione completa del reddito familiare transfrontaliero.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-100000-chf-residenza-entro-20km': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Entro 20 km dal confine con CHF 100'000: ripartizione 80/20</h2>`,
+    `Per i nuovi frontalieri con residenza entro 20 km dalla frontiera (province di Como, Varese, Verbania) e un lordo di CHF 100'000, la Svizzera trattiene l'80 % dell'imposta alla fonte e retrocede il restante 20 % all'Italia. Questo meccanismo riduce la base del credito d'imposta utilizzabile in sede di dichiarazione IRPEF, rendendo il calcolo più articolato rispetto al caso "oltre 20 km" dove non c'è ripartizione.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stima netta e lista dei comuni di frontiera</h2>`,
+    `Il netto mensile indicativo per un celibe nuovo frontaliere entro 20 km si colloca tra CHF 6'000 e CHF 6'400. I principali comuni rientranti nella fascia includono Como, Chiasso (CH), Varese, Luino, Lavena Ponte Tresa, Ponte Tresa e Campione d'Italia. Il simulatore consente di selezionare il comune di residenza e calcola automaticamente se rientra nel raggio dei 20 km, applicando le regole di retrocessione corrette per la tua situazione.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  '/calcola-stipendio/stipendio-netto-100000-chf-residenza-oltre-20km': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Oltre 20 km con CHF 100'000: scenario di massima tassazione</h2>`,
+    `Residenza oltre 20 km dalla frontiera (Milano, Bergamo, Monza, Brescia, Novara) e CHF 100'000 lordi: è la combinazione con il carico fiscale più elevato per un nuovo frontaliere. L'imposta alla fonte resta interamente in Svizzera — nessuna retrocessione — e l'IRPEF italiana si applica con aliquote fino al 43 % dopo la franchigia di € 10'000 e il credito d'imposta. L'addizionale regionale lombarda o piemontese aggiunge un ulteriore 1,6-1,7 %.`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Netto mensile e sostenibilità del pendolarismo</h2>`,
+    `Il netto indicativo scende a circa CHF 5'700-6'100 al mese per un celibe; rispetto al caso "entro 20 km" la perdita è di CHF 200-300 mensili dovuta alla mancata retrocessione. A questo si aggiungono i costi di trasporto, che per un pendolare da Milano possono superare CHF 400-500 mensili tra treno, autostrada e parcheggio. Il simulatore confronta i due scenari di residenza includendo le spese di pendolarismo per una valutazione economica completa.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+
+  // ────────── 120'000 CHF ──────────
+  '/calcola-stipendio/stipendio-netto-120000-chf': [
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stipendio netto con 120'000 CHF lordi: fascia dirigenziale</h2>`,
+    `CHF 120'000 lordi annui collocano il frontaliere nella fascia dei profili dirigenziali e delle figure altamente specializzate: direttori di funzione, responsabili R&D, medici specialisti e consulenti senior. A questo livello le deduzioni sociali obbligatorie raggiungono circa CHF 15'000-16'000 annui, con il LPP che pesa in modo particolarmente rilevante per i lavoratori sopra i 45 anni (accrediti del 18 % del salario coordinato).`,
+    `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Da lordo a netto: gli scaglioni che contano a CHF 120'000</h2>`,
+    `L'imposta alla fonte ticinese per questa fascia raggiunge aliquote effettive del 15-17 % in tabella A. Il netto mensile indicativo per un celibe si attesta tra CHF 7'000 e CHF 7'400 nel vecchio regime (solo IF svizzera). Con il Nuovo Accordo 2026 l'integrazione IRPEF italiana — con aliquota marginale al 43 % oltre € 50'000 — può ridurre il netto di CHF 400-600 al mese. Il simulatore consente di confrontare i due regimi e di valutare l'impatto delle diverse tabelle di classificazione sulla tua busta paga effettiva.`,
+    `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">Amministrazione federale delle contribuzioni (AFC)</a></p>`,
+  ],
+};
+
 const HOME_CRITICAL_STATIC_PATHS = new Set([
   '/',
   '/en/',
@@ -1240,6 +1401,9 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `Questo strumento è particolarmente utile durante la negoziazione salariale: una RAL di 80.000 CHF può corrispondere a netti mensili molto diversi a seconda di stato civile, figli, cantone e fascia d'età per il LPP. Conoscere il netto atteso prima di firmare permette confronti realistici con stipendi italiani equivalenti.`,
               `Il risultato include la conversione CHF-EUR al tasso di cambio corrente e il confronto con la retribuzione netta di un ruolo equivalente in Lombardia/Piemonte, tenendo conto di IRPEF, contributi INPS e addizionali regionali, così da valutare concretamente il vantaggio economico del lavoro in Svizzera.`,
             );
+          // ── Salary landing page editorial content (19 pages) ──
+          } else if (SALARY_LANDING_EDITORIAL[canonicalPath.replace(/\/+$/, '')]) {
+            editorialBlocks.push(...SALARY_LANDING_EDITORIAL[canonicalPath.replace(/\/+$/, '')]);
           } else if (canonicalPath.startsWith('/calcola-stipendio/')) {
             editorialBlocks.push(
               `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Come calcolare lo stipendio netto in Svizzera</h2>`,
