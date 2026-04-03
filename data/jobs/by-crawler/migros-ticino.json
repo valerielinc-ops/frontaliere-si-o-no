@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-04-03T09:33:21.051Z",
+  "assembledAt": "2026-04-03T21:29:01.663Z",
   "jobs": [
     {
       "id": "company-nlbz63",
@@ -97,11 +97,12 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-cewp3w",
-      "slug": "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w",
+      "slug": "consulente-clienti-privati-tutti-generi-banca-migros-bellinzona",
       "company": "Banca Migros",
       "title": "Consulente Clienti privati (tutti generi)",
       "location": "Lugano",
@@ -145,7 +146,7 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-03-31T21:31:33.102Z",
       "slugByLocale": {
-        "it": "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w",
+        "it": "consulente-clienti-privati-tutti-generi-banca-migros-bellinzona",
         "en": "private-client-consultant-banca-migros-lugano",
         "de": "kundendienstberater-banca-migros-lugano",
         "fr": "conseiller-client-banca-migros-lugano"
@@ -198,11 +199,12 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-2ai39p",
-      "slug": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
+      "slug": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-bellinzona",
       "company": "Scuola Club Migros",
       "title": "Insegnante Tai Chi (f/m/d) - Scuola Club Lugano",
       "location": "Lugano",
@@ -244,7 +246,7 @@
       "companyDomain": "migros.ch",
       "crawledAt": "2026-03-31T21:31:33.102Z",
       "slugByLocale": {
-        "it": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
+        "it": "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-bellinzona",
         "en": "tai-chi-teacher-f-m-d-scuola-club-lugano-scuola-club-migros-lugano",
         "de": "tai-chi-lehrer-m-w-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p",
         "fr": "enseignant-de-tai-chi-h-f-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
@@ -295,7 +297,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "insegnante-tai-chi-f-m-d-scuola-club-lugano-scuola-club-migros-lugano-2ai39p"
-      ]
+      ],
+      "needsRetranslation": true
     }
   ]
 }
