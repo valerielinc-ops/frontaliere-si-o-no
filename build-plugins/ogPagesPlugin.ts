@@ -37,6 +37,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
       // Parse article categories from blog-articles-data.ts for FAQ schema filtering
       const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
       const articleCategoryById: Record<string, string> = {};
+      const articleUpdatedAtById: Record<string, string> = {};
       try {
         const articleDataSrc = fs.readFileSync(np.resolve(rootDir, 'data/blog-articles-data.ts'), 'utf-8');
         const catRx = /id:\s*'([^']+)'[\s\S]*?category:\s*'([^']+)'/g;
@@ -44,7 +45,27 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         while ((cm = catRx.exec(articleDataSrc)) !== null) {
           articleCategoryById[cm[1]] = cm[2];
         }
+        // Parse updatedAt for dateModified support
+        const uaRx = /id:\s*'([^']+)'[\s\S]*?updatedAt:\s*'([^']+)'/g;
+        let um: RegExpExecArray | null;
+        while ((um = uaRx.exec(articleDataSrc)) !== null) {
+          articleUpdatedAtById[um[1]] = um[2];
+        }
       } catch { /* non-fatal — FAQ extraction will be skipped for all articles */ }
+
+      // Parse sitemap-blog.xml for <lastmod> dates (fallback for dateModified)
+      const sitemapLastmodBySlug: Record<string, string> = {};
+      try {
+        const sitemapSrc = fs.readFileSync(np.resolve(rootDir, 'public/sitemap-blog.xml'), 'utf-8');
+        const urlBlocks = [...sitemapSrc.matchAll(/<url>\s*[\s\S]*?<\/url>/g)];
+        for (const block of urlBlocks) {
+          const locMatch = block[0].match(/<loc>[^<]*\/articoli-frontaliere\/([^/<]+)\/?<\/loc>/);
+          const lmMatch = block[0].match(/<lastmod>(\d{4}-\d{2}-\d{2})<\/lastmod>/);
+          if (locMatch && lmMatch) {
+            sitemapLastmodBySlug[locMatch[1]] = lmMatch[1];
+          }
+        }
+      } catch { /* non-fatal */ }
 
       /* ── FAQ extraction for article-specific FAQPage schema ─────── */
       const FAQ_QUESTION_PREFIXES = ['Come', 'Cosa', 'Quando', 'Quanto', 'Dove', 'Chi', 'Perché', 'Quale',
@@ -180,7 +201,14 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         const imRaw = b.match(/\/images\/[^'"`\s,}]+/)?.[0] ?? DEFAULT_IMG;
         const im = resolveImagePath(imRaw, articleId);
         const datePub = b.match(/"datePublished":\s*"([^"]+)"/)?.[1] ?? '';
-        const dateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
+        // dateModified: prefer updatedAt from blog-articles-data.ts, then sitemap <lastmod>,
+        // then the SEO metadata literal (if any). BUILD_DATE_ISO in seo-blog.ts is a variable
+        // reference that the regex can't capture, so we need these external sources.
+        const seoDateMod = b.match(/"dateModified":\s*"([^"]+)"/)?.[1] ?? '';
+        const articleSlug = cp.replace('/articoli-frontaliere/', '').replace(/\/$/, '');
+        const dateMod = articleUpdatedAtById[articleId]
+          || sitemapLastmodBySlug[articleSlug]
+          || seoDateMod;
 
         // Extract source structuredData @type and author format
         const sdType = b.match(/"@type":\s*"([^"]+)"/)?.[1] ?? '';
