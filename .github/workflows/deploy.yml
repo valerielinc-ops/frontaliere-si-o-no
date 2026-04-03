@@ -131,6 +131,13 @@ jobs:
       - name: Validate structured data completeness (blocking)
         run: node scripts/validate-structured-data-completeness.mjs
 
+      - name: Install Playwright browsers for SPA render validation
+        run: npx playwright install --with-deps chromium
+
+      - name: Validate SPA render — canonical, schema, robots (blocking)
+        timeout-minutes: 5
+        run: node scripts/validate-spa-render.mjs
+
       - name: Build size summary
         run: |
           echo "=== Build size summary ==="
@@ -199,6 +206,12 @@ jobs:
         continue-on-error: true
         timeout-minutes: 5
         run: node scripts/submit-google-indexing.js
+
+      - name: Post-deploy SEO verification (Layer 2)
+        if: success()
+        continue-on-error: true
+        timeout-minutes: 5
+        run: node scripts/verify-post-deploy-seo.mjs
 
       - name: Report failure to Linear
         if: failure()

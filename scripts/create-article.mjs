@@ -909,6 +909,29 @@ function assertTaxHealthConsistency(contentIt, sourceContext = null, pageContent
   }
 }
 
+/**
+ * Fact-check: warn about numbers/percentages in the article not found in source.
+ * Non-blocking — logs warnings for human review.
+ */
+function factCheckNumbers(contentIt, pageContent = '') {
+  const articleText = [
+    contentIt?.body1 || '', contentIt?.body2 || '', contentIt?.body3 || '',
+  ].join(' ');
+  const articleNumbers = new Set(
+    (articleText.match(/\b\d[\d.,]*%|\b\d[\d.,]+\b/g) || [])
+      .filter(n => {
+        const val = parseFloat(n.replace(/[.,]/g, ''));
+        return val > 10 && (val < 2020 || val > 2030);
+      })
+  );
+  if (articleNumbers.size === 0 || !pageContent) return;
+  const sourceText = pageContent.toLowerCase();
+  const unsourced = [...articleNumbers].filter(n => !sourceText.includes(n));
+  if (unsourced.length > 0) {
+    console.error(`  ⚠️  Fact-check: ${unsourced.length} numeri nell'articolo non trovati nella fonte: ${unsourced.slice(0, 8).join(', ')}`);
+  }
+}
+
 // ── LLM call with body2 validation (model fallback via centralized ai-models.mjs) ──
 async function callLLM(messages, opts = {}) {
   const maxBody2Retries = 5;
@@ -4140,6 +4163,9 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       }
       throw consistencyErr;
     }
+
+    // Step 3a.0b: Fact-check — warn about numbers not found in source
+    factCheckNumbers(data.content.it, pageContent);
 
     const itWords = italianBodyWordCount(data);
     lastWordCount = itWords;

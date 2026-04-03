@@ -154,6 +154,24 @@ export type JobLocationSectorLandingModel = {
   openAllLabel: string;
 };
 
+export type JobSectorRegionLandingModel = {
+  kind: 'sector-region';
+  slug: string;
+  sectorKey: JobLandingSectorKey;
+  title: string;
+  heading: string;
+  description: string;
+  intro: string;
+  updatedLabel: string;
+  countsLabel: string;
+  totalJobs: number;
+  feed: LandingSection;
+  latestLabel: string;
+  latestJobs: LandingJobLink[];
+  siblingSectorLinks: SectorLink[];
+  openAllLabel: string;
+};
+
 export type JobOfficialGazetteLandingModel = {
   kind: 'official-gazette';
   slug: string;
@@ -249,7 +267,8 @@ export type EditorialLandingDescriptor =
   | { kind: 'care-variant'; clusterKey: JobCareClusterKey }
   | { kind: 'location'; location: string }
   | { kind: 'location-type'; location: string; typeKey: JobLandingTypeKey }
-  | { kind: 'location-sector'; location: string; sectorKey: JobLandingSectorKey };
+  | { kind: 'location-sector'; location: string; sectorKey: JobLandingSectorKey }
+  | { kind: 'sector-region'; sectorKey: JobLandingSectorKey };
 
 const TODAY_COPY: Record<JobLandingLocale, {
   title: string;
@@ -1122,7 +1141,21 @@ export function resolveEditorialJobLandingDescriptor(value: string): EditorialLa
 
   const locationPart = parts[1];
   const location = SUPPORTED_EDITORIAL_LOCATIONS.find((entry) => slugifyTerm(entry) === locationPart);
-  if (!location) return null;
+  if (!location) {
+    // Try sector-region pattern: ricerca-{sector}-ticino / search-{sector}-ticino
+    const REGION_SLUGS = new Set(['ticino', 'tessin']);
+    const sectorSlug = parts.slice(1, -1).join('-'); // everything between prefix and last part
+    const regionSlug = parts[parts.length - 1];
+    if (parts.length >= 3 && REGION_SLUGS.has(regionSlug)) {
+      const sectorKey = findSectorKeyBySlug(sectorSlug);
+      if (sectorKey) return { kind: 'sector-region', sectorKey };
+    }
+    // Also try entire suffix as sector (ricerca-sanita → sector without region)
+    const fullSuffix = parts.slice(1).join('-');
+    const directSectorKey = findSectorKeyBySlug(fullSuffix);
+    if (directSectorKey) return { kind: 'sector-region', sectorKey: directSectorKey };
+    return null;
+  }
   if (parts.length === 2) return { kind: 'location', location };
 
   const typeSlug = parts.slice(2).join('-');
@@ -1482,6 +1515,120 @@ export function buildJobLocationSectorLandingModel(options: {
     latestLabel: copy.latestLabel(label, location),
     latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
     parentLocationHref: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${buildLocationSlug(locale, location)}`.replace(/\/+/g, '/')}`),
+    siblingSectorLinks,
+    openAllLabel: copy.openAll,
+  };
+}
+
+const SECTOR_REGION_COPY: Record<JobLandingLocale, {
+  heading: (label: string) => string;
+  title: (label: string) => string;
+  description: (label: string, count: number) => string;
+  intro: (label: string) => string;
+  countsLabel: string;
+  updatedLabel: string;
+  feedLabel: (label: string) => string;
+  latestLabel: (label: string) => string;
+  openAll: string;
+}> = {
+  it: {
+    heading: (label) => `Lavoro ${label} in Ticino`,
+    title: (label) => `Lavoro ${label} in Ticino | Offerte aggiornate`,
+    description: (label, count) => `Scopri ${count} offerte di lavoro nel settore ${label.toLowerCase()} in Ticino. Posizioni attive aggiornate ogni giorno per frontalieri.`,
+    intro: (label) => `Tutte le offerte nel settore ${label.toLowerCase()} disponibili nel Canton Ticino, ideale per chi cerca lavoro come frontaliere.`,
+    countsLabel: 'annunci attivi',
+    updatedLabel: 'Aggiornamento',
+    feedLabel: (label) => `${label} attivi in Ticino`,
+    latestLabel: (label) => `Nuovi annunci ${label.toLowerCase()} in Ticino`,
+    openAll: 'Vedi tutte le offerte in Ticino',
+  },
+  en: {
+    heading: (label) => `${label} Jobs in Ticino`,
+    title: (label) => `${label} Jobs in Ticino | Updated Listings`,
+    description: (label, count) => `Browse ${count} ${label.toLowerCase()} job openings in Ticino. Updated daily for cross-border workers.`,
+    intro: (label) => `All ${label.toLowerCase()} positions available in Canton Ticino for cross-border workers.`,
+    countsLabel: 'active listings',
+    updatedLabel: 'Updated',
+    feedLabel: (label) => `${label} jobs in Ticino`,
+    latestLabel: (label) => `Latest ${label.toLowerCase()} jobs in Ticino`,
+    openAll: 'View all Ticino jobs',
+  },
+  de: {
+    heading: (label) => `${label}-Jobs im Tessin`,
+    title: (label) => `${label}-Jobs im Tessin | Aktuelle Stellenangebote`,
+    description: (label, count) => `Entdecken Sie ${count} offene Stellen im Bereich ${label} im Tessin. Taglich aktualisiert fur Grenzganger.`,
+    intro: (label) => `Alle Stellenangebote im Bereich ${label} im Kanton Tessin fur Grenzganger.`,
+    countsLabel: 'aktive Inserate',
+    updatedLabel: 'Aktualisiert',
+    feedLabel: (label) => `${label}-Stellen im Tessin`,
+    latestLabel: (label) => `Neueste ${label}-Stellen im Tessin`,
+    openAll: 'Alle Stellen im Tessin ansehen',
+  },
+  fr: {
+    heading: (label) => `Emplois ${label} au Tessin`,
+    title: (label) => `Emplois ${label} au Tessin | Offres a jour`,
+    description: (label, count) => `Decouvrez ${count} offres d'emploi dans le secteur ${label.toLowerCase()} au Tessin. Mises a jour quotidiennement pour les frontaliers.`,
+    intro: (label) => `Toutes les offres dans le secteur ${label.toLowerCase()} disponibles au Tessin pour les frontaliers.`,
+    countsLabel: 'annonces actives',
+    updatedLabel: 'Mis a jour',
+    feedLabel: (label) => `Emplois ${label} au Tessin`,
+    latestLabel: (label) => `Derniers emplois ${label.toLowerCase()} au Tessin`,
+    openAll: 'Voir toutes les offres au Tessin',
+  },
+};
+
+export function buildJobSectorRegionLandingModel(options: {
+  jobs: JobLike[];
+  locale: JobLandingLocale;
+  sectorKey: JobLandingSectorKey;
+  now?: string | Date;
+  localizedSlug: (job: JobLike, locale: JobLandingLocale) => string;
+  baseUrl: string;
+  sectionSlug: string;
+  localePrefix: string;
+}): JobSectorRegionLandingModel {
+  const locale = options.locale;
+  const sectorKey = options.sectorKey;
+  const sectorDef = getSectorDef(sectorKey);
+  const label = sectorDef.label[locale];
+  const copy = SECTOR_REGION_COPY[locale];
+  const now = options.now instanceof Date ? options.now : new Date(options.now || new Date().toISOString());
+  const baseUrl = options.baseUrl.replace(/\/+$/, '');
+  const sectorSlug = sectorDef.slug[locale];
+  const slug = `${SEARCH_ROUTE_PREFIX[locale]}-${sectorSlug}-${locale === 'de' ? 'tessin' : 'ticino'}`;
+  const matches = options.jobs.filter((job) => sectorDef.matcher(job));
+  const latestJobs = matches.filter((job) => isInLast3Days(getJobFreshnessDate(job), now));
+  const siblingSectorLinks = (Object.keys(JOB_SECTOR_DEFS) as JobLandingSectorKey[])
+    .filter((k) => k !== sectorKey)
+    .map((k) => {
+      const def = getSectorDef(k);
+      const count = options.jobs.filter((job) => def.matcher(job)).length;
+      if (count === 0) return null;
+      const kSlug = def.slug[locale];
+      const kRegion = locale === 'de' ? 'tessin' : 'ticino';
+      return {
+        key: k,
+        label: def.label[locale],
+        count,
+        href: ensureTrailingSlash(`${baseUrl}${`${options.localePrefix}/${options.sectionSlug}/${SEARCH_ROUTE_PREFIX[locale]}-${kSlug}-${kRegion}`.replace(/\/+/g, '/')}`),
+      };
+    })
+    .filter(Boolean) as SectorLink[];
+
+  return {
+    kind: 'sector-region',
+    slug,
+    sectorKey,
+    title: copy.title(label),
+    heading: copy.heading(label),
+    description: copy.description(label, matches.length),
+    intro: copy.intro(label),
+    updatedLabel: copy.updatedLabel,
+    countsLabel: copy.countsLabel,
+    totalJobs: matches.length,
+    feed: { label: copy.feedLabel(label), jobs: toLinkedJobs(matches, now, locale, { ...options, baseUrl }, 18) },
+    latestLabel: copy.latestLabel(label),
+    latestJobs: toLinkedJobs(latestJobs, now, locale, { ...options, baseUrl }, 12),
     siblingSectorLinks,
     openAllLabel: copy.openAll,
   };

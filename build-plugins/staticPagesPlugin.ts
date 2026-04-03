@@ -1766,11 +1766,11 @@ export function staticPagesPlugin(rootDir: string): Plugin {
             rootHtml = isBlogDetailPage
               ? `<div style="max-width:56rem;margin:0 auto;padding:1rem">${heroImg}<article><h1 style="font-size:1.25rem;font-weight:700;margin-bottom:.5rem">${esc(seoData.ogT)}</h1><p style="color:#64748b;font-size:.875rem">${esc(seoData.desc)}</p><div style="margin-top:.75rem;font-size:.95rem;line-height:1.7;color:#334155">${blogArticleHtml}</div>${adPlaceholder}${relatedHtml}</article>${adPlaceholder}<div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:1.5rem">${`<div style="${sp};height:12rem"></div>`.repeat(3)}</div><nav style="margin-top:1.5rem;font-size:.75rem;color:#64748b">${navHtml}</nav></div>`
               : (() => {
-                // FRO-330: SSG article cards — render first 6 articles with real titles for Speed Index
+                // FRO-330: SSG article cards — render first 20 articles with real titles for crawlers
                 const blogListSlug = firstSeg;
                 const localePrefix = localePrefixes.includes(urlSegs[0] ?? '') ? urlSegs[0] : '';
                 const cardLocale = (localePrefix || 'it') as 'it' | 'en' | 'de' | 'fr';
-                const top6 = blogArticlesStatic.slice(0, 6);
+                const topArticles = blogArticlesStatic.slice(0, 20);
                 const CATEGORY_COLORS: Record<string, string> = {
                   fiscale: 'background:#eef2ff;color:#4338ca',
                   pratico: 'background:#ecfdf5;color:#059669',
@@ -1783,7 +1783,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
                   novita: { it: 'Novità', en: 'News', de: 'News', fr: 'Actualité' },
                   pensione: { it: 'Pensione', en: 'Pension', de: 'Rente', fr: 'Retraite' },
                 };
-                const articleCardsHtml = top6.map(art => {
+                const articleCardsHtml = topArticles.map(art => {
                   const artSlug = articleIdToSlug[cardLocale]?.[art.id] ?? art.id;
                   const artPath = localePrefix ? `/${localePrefix}/${blogListSlug}/${artSlug}` : `/${blogListSlug}/${artSlug}`;
                   const artSeo = seoMap.get(artPath);

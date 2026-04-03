@@ -274,6 +274,8 @@ export default function AdSenseBanner({
         maxHeight: isCollapsed ? 0 : undefined,
         opacity: isVisible ? 1 : 0,
         overflow: 'hidden',
+        zIndex: 0,
+        position: 'relative',
         ...(isVisible ? {} : { pointerEvents: 'none' as const }),
       }}
       aria-hidden={!isVisible}

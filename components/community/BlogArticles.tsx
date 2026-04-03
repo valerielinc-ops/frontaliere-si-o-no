@@ -601,6 +601,51 @@ export function estimateReadingMinutes(articleId: string, t: (key: string) => st
   return Math.max(2, Math.min(30, Math.round(words / WORDS_PER_MINUTE)));
 }
 
+/* ─── FAQ schema extraction for evergreen articles ─── */
+
+const EVERGREEN_CATEGORIES = new Set(['fiscale', 'pratico', 'pensione']);
+const QUESTION_PREFIXES = ['Come', 'Cosa', 'Quando', 'Quanto', 'Dove', 'Chi', 'Perché', 'Quale'];
+
+function stripMarkdown(text: string): string {
+  return text
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1')
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, '$1')
+    .replace(/^#{1,6}\s+/gm, '')
+    .replace(/^[-*+]\s+/gm, '')
+    .replace(/^\d+\.\s+/gm, '')
+    .replace(/`([^`]+)`/g, '$1')
+    .replace(/\n{2,}/g, ' ')
+    .replace(/\n/g, ' ')
+    .replace(/\s{2,}/g, ' ')
+    .trim();
+}
+
+export function extractFaqPairs(bodyText: string): Array<{ question: string; answer: string }> {
+  const pairs: Array<{ question: string; answer: string }> = [];
+  const blocks = bodyText.split(/(?=^## )/m);
+
+  for (const block of blocks) {
+    const trimmed = block.trim();
+    if (!trimmed.startsWith('## ')) continue;
+    const nlIdx = trimmed.indexOf('\n');
+    if (nlIdx === -1) continue;
+    const heading = trimmed.slice(3, nlIdx).trim();
+    const isQuestion = heading.includes('?') ||
+      QUESTION_PREFIXES.some(p => heading.startsWith(p));
+    if (!isQuestion) continue;
+    const answerRaw = trimmed.slice(nlIdx + 1).trim();
+    if (!answerRaw) continue;
+    const cleanAnswer = stripMarkdown(answerRaw);
+    if (!cleanAnswer) continue;
+    const truncated = cleanAnswer.length > 300
+      ? cleanAnswer.slice(0, 297) + '...'
+      : cleanAnswer;
+    pairs.push({ question: heading, answer: truncated });
+  }
+  return pairs;
+}
+
 /** Deterministic hash for a string → stable positive integer */
 function slugHash(s: string): number {
   let h = 0;
@@ -1082,9 +1127,45 @@ export default function BlogArticles({
       document.head.appendChild(el);
     }
     el.textContent = JSON.stringify(jsonLd);
+
+    // FAQ schema for evergreen (non-novita) articles with question-like H2 headings
+    const faqScriptId = 'faq-schema';
+    if (EVERGREEN_CATEGORIES.has(article.category)) {
+      const bodyTexts = [
+        t(`blog.article.${article.id}.body1`),
+        t(`blog.article.${article.id}.body2`),
+        t(`blog.article.${article.id}.body3`),
+      ].filter(b => b && !b.startsWith('blog.article.'));
+      const faqPairs = extractFaqPairs(bodyTexts.join('\n\n'));
+      if (faqPairs.length >= 2) {
+        const faqSchema = {
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: faqPairs.slice(0, 10).map(pair => ({
+            '@type': 'Question',
+            name: pair.question,
+            acceptedAnswer: { '@type': 'Answer', text: pair.answer },
+          })),
+        };
+        let faqEl = document.getElementById(faqScriptId) as HTMLScriptElement | null;
+        if (!faqEl) {
+          faqEl = document.createElement('script');
+          faqEl.id = faqScriptId;
+          faqEl.type = 'application/ld+json';
+          document.head.appendChild(faqEl);
+        }
+        faqEl.textContent = JSON.stringify(faqSchema);
+      } else {
+        document.getElementById(faqScriptId)?.remove();
+      }
+    } else {
+      document.getElementById(faqScriptId)?.remove();
+    }
+
     return () => {
       const existing = document.getElementById(scriptId);
       if (existing) existing.remove();
+      document.getElementById(faqScriptId)?.remove();
     };
   }, [selectedArticle, articles, locale, t]);
 
