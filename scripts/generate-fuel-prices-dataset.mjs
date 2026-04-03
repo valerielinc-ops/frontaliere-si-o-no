@@ -405,9 +405,54 @@ function writeJson(filePath, value) {
   fs.writeFileSync(filePath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
 }
 
+// ─── Firestore write ────────────────────────────────────────
+
+async function writeToFirestore(payload) {
+  const admin = await import('firebase-admin');
+  if (!admin.default.apps.length) {
+    admin.default.initializeApp();
+  }
+  const db = admin.default.firestore();
+
+  const metadataDoc = {
+    generatedAt: payload.generatedAt,
+    sources: payload.sources,
+    summary: payload.summary,
+    rankings: payload.rankings,
+    municipalities: payload.municipalities.map((m) => ({
+      municipality: m.municipality, province: m.province,
+      lat: m.lat, lng: m.lng, distanceKm: m.distanceKm, fascia: m.fascia,
+      comparison: m.comparison,
+    })),
+  };
+
+  const italyDoc = {
+    municipalities: payload.municipalities
+      .filter((m) => m.italy.stationCount > 0)
+      .map((m) => ({ municipality: m.municipality, province: m.province, italy: m.italy })),
+  };
+
+  const switzerlandDoc = {
+    municipalities: payload.municipalities
+      .filter((m) => m.swiss.optionCount > 0)
+      .map((m) => ({ municipality: m.municipality, province: m.province, swiss: m.swiss })),
+  };
+
+  const batch = db.batch();
+  const col = db.collection('fuelPrices');
+  batch.set(col.doc('metadata'), metadataDoc);
+  batch.set(col.doc('italy'), italyDoc);
+  batch.set(col.doc('switzerland'), switzerlandDoc);
+  await batch.commit();
+
+  console.log('🔥 Firestore: wrote 3 docs (metadata: ' + JSON.stringify(metadataDoc).length + ' B, italy: ' + JSON.stringify(italyDoc).length + ' B, switzerland: ' + JSON.stringify(switzerlandDoc).length + ' B)');
+}
+
 async function main() {
   const municipalities = readMunicipalities();
   if (!municipalities.length) throw new Error('Unable to read municipalities dataset');
+
+  const saveLocal = process.argv.includes('--save-local');
 
   try {
     const [pricesText, stationsText, ecbXml, swissDocs] = await Promise.all([
@@ -431,14 +476,17 @@ async function main() {
       exchangeRate,
     });
 
-    writeJson(DATA_OUT, payload);
-    writeJson(PUBLIC_OUT, payload);
-    console.log(`⛽ Fuel dataset generated: ${payload.summary.municipalityCount} municipalities, ${payload.summary.municipalitiesWithItalyPrices} with Italian prices, ${payload.summary.municipalitiesWithSwissComparison} with IT/CH comparison.`);
-  } catch (error) {
-    if (fs.existsSync(PUBLIC_OUT)) {
-      console.warn(`⚠️ Fuel dataset refresh failed, keeping existing snapshot. ${error instanceof Error ? error.message : String(error)}`);
-      return;
+    await writeToFirestore(payload);
+
+    if (saveLocal) {
+      writeJson(DATA_OUT, payload);
+      writeJson(PUBLIC_OUT, payload);
+      console.log('💾 Local JSON files written (--save-local)');
     }
+
+    console.log('⛽ Fuel dataset generated: ' + payload.summary.municipalityCount + ' municipalities, ' + payload.summary.municipalitiesWithItalyPrices + ' with Italian prices, ' + payload.summary.municipalitiesWithSwissComparison + ' with IT/CH comparison.');
+  } catch (error) {
+    console.error('⚠️ Fuel dataset refresh failed. ' + (error instanceof Error ? error.message : String(error)));
     throw error;
   }
 }

@@ -3088,7 +3088,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         { "@type": "PropertyValue", "name": "Differenza prezzo", "value": "Risparmio percentuale IT vs CH" },
         { "@type": "PropertyValue", "name": "Ranking stazioni", "value": "Classifica per prezzo più conveniente" }
       ],
-      "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/data/fuel-prices.json` }]
+      "distribution": [{ "@type": "DataDownload", "encodingFormat": "application/json", "contentUrl": `${BASE_URL}/api/fuel-prices` }]
     }
   },
 

@@ -77,6 +77,11 @@ service cloud.firestore {
       allow update: if request.auth != null && request.auth.uid == uid;
     }
 
+    // Fuel prices — public read only (writes via Admin SDK from CI)
+    match /fuelPrices/{docId} {
+      allow read: if true;
+    }
+
     // Config — public read + write for exchange rate cache (best-effort client-side caching)
     match /config/{docId} {
       allow read, write: if true;

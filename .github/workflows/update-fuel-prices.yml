@@ -2,8 +2,10 @@ name: Update Fuel Prices (Italy + Switzerland)
 
 on:
   schedule:
-    # Every hour at :37 (offset to avoid congestion at :00)
-    - cron: '37 * * * *'
+    # Hourly at :37 — write to Firestore only (fresh data, no commit)
+    - cron: '37 1-5,7-23 * * *'
+    # Daily at 06:37 UTC — write to Firestore AND commit repo cache
+    - cron: '37 6 * * *'
   workflow_dispatch: {}
 
 concurrency:
@@ -29,28 +31,7 @@ jobs:
         with:
           node-version: 22
 
-      - name: Generate fuel prices dataset
-        run: node scripts/generate-fuel-prices-dataset.mjs
-
-      - name: Commit and push if changed
-        id: commit
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "github-actions[bot]@users.noreply.github.com"
-          git add data/fuel-prices.json public/data/fuel-prices.json
-          if git diff --cached --quiet; then
-            echo "ℹ️ No fuel price changes detected."
-            echo "has_changes=false" >> "$GITHUB_OUTPUT"
-          else
-            git commit -m "⛽ Auto-update fuel prices (Italy + Switzerland)"
-            git pull --rebase origin main
-            git push origin main
-            echo "has_changes=true" >> "$GITHUB_OUTPUT"
-          fi
-
-      # FRO-349: Trigger deploy after data push (GITHUB_TOKEN pushes don't trigger workflows)
       - name: Prepare Firebase credentials
-        if: steps.commit.outputs.has_changes == 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -59,9 +40,43 @@ jobs:
             echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
           fi
 
-      - name: Install firebase-admin for Remote Config
-        if: steps.commit.outputs.has_changes == 'true'
+      - name: Install firebase-admin
         run: npm install firebase-admin
+
+      - name: Detect daily run
+        id: schedule
+        run: |
+          if [ "$(date -u +%H)" = "06" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "daily=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "daily=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate and upload fuel prices to Firestore
+        run: |
+          if [ "${{ steps.schedule.outputs.daily }}" = "true" ]; then
+            node scripts/generate-fuel-prices-dataset.mjs --save-local
+          else
+            node scripts/generate-fuel-prices-dataset.mjs
+          fi
+
+      # Daily: commit repo cache + trigger deploy
+      - name: Commit repo cache (daily only)
+        id: commit
+        if: steps.schedule.outputs.daily == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f data/fuel-prices.json public/data/fuel-prices.json
+          if git diff --cached --quiet; then
+            echo "No fuel price changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "⛽ Daily fuel prices cache update"
+            git pull --rebase origin main
+            git push origin main
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
 
       - name: Load secrets from Remote Config
         if: steps.commit.outputs.has_changes == 'true'

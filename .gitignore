@@ -58,6 +58,10 @@ data/jobs-stats.json
 public/data/jobs.json
 public/data/jobs-stats.json
 
+# Fuel prices — daily cache, primary data lives in Firestore
+data/fuel-prices.json
+public/data/fuel-prices.json
+
 # Generated at build time from data/jobs.json (see localeJobsSplitPlugin in vite.config.ts)
 public/data/jobs-it.json
 public/data/jobs-en.json
