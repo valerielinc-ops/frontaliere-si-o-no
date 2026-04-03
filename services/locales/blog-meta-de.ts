@@ -1931,6 +1931,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.aumento-inchieste-penali-2025.title': 'Im Tessin steigen die Strafuntersuchungen im Jahr 2025',
     'blog.article.aumento-inchieste-penali-2025.excerpt': 'Im Jahr 2025 wurden in der Schweiz 363 neue Strafuntersuchungen eingeleitet, was einem Anstieg von +9,3 % im Vergleich zu 2024 entspricht. Terrorismus und Wirtschaftskriminalität gehören zu den Hauptursachen.',
     'blog.article.aumento-inchieste-penali-2025.imageAlt': 'Gebäude der Staatsanwaltschaft Bellinzona mit den Alpen im Hintergrund',
+    'blog.article.ticino-lombardia-manifatturiero.title': 'Tessin und Lombardei: das industrielle System Säule der Wirtschaft',
+    'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Der Regionalrat Licata unterstützt das industrielle System in Lombardei und Tessin',
+    'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Blick auf Lugano mit Industriegebiet',
 };
 
 export default blogMetaDe;

@@ -10573,6 +10573,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ticino-lombardia-manifatturiero': {
+    title: 'Ticino e Lombardia: sistema manifatturiero pilastro dell\'economia | Frontaliere Ticino',
+    description: 'Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese come pilastro dell\'economia. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, sistema, manifatturiero, pilastro',
+    ogTitle: 'Ticino e Lombardia: sistema manifatturiero pilastro dell\'economia',
+    ogDescription: 'Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese come pilastro dell\'economia',
+    canonicalPath: '/articoli-frontaliere/ticino-lombardia-manifatturiero',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ticino e Lombardia: sistema manifatturiero pilastro dell'economia",
+      "description": "Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese come pilastro dell'economia. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ticino-lombardia-manifatturiero.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di Lugano con zona industriale"
+      },
+      "datePublished": "2026-04-03T11:25:19+00:00",
+      "dateModified": "2026-04-03T11:25:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ticino-lombardia-manifatturiero`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

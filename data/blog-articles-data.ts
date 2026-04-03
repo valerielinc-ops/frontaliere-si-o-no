@@ -5699,4 +5699,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/aumento-inchieste-penali-2025.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ticino-lombardia-manifatturiero',
+    category: 'novita',
+    date: '2026-04-03T11:25:19.456Z',
+    image: '/images/blog/ticino-lombardia-manifatturiero.jpg',
+    hasCalculator: true,
+  },
 ];

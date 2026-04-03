@@ -3379,7 +3379,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 636,
+        "numberOfItems": 637,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4013,7 +4013,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 633, "name": "San Gottardo, code da Giovedì Santo: niente sor...", "url": `${BASE_URL}/articoli-frontaliere/san-gottardo-code-giovedi-santo` },
           { "@type": "ListItem", "position": 634, "name": "{\"@context\": \"https://schema.org\", \"@type\": \"Ar...", "url": `${BASE_URL}/articoli-frontaliere/como-lago-pasqua-boom-prenotazioni` },
           { "@type": "ListItem", "position": 635, "name": "Eventi di traffico in Ticino", "url": `${BASE_URL}/articoli-frontaliere/camion-panne-san-gottardo-traffico-bloccato` },
-          { "@type": "ListItem", "position": 636, "name": "Aumento Inchieste Penali in Svizzera nel 2025", "url": `${BASE_URL}/articoli-frontaliere/aumento-inchieste-penali-2025` }
+          { "@type": "ListItem", "position": 636, "name": "Aumento Inchieste Penali in Svizzera nel 2025", "url": `${BASE_URL}/articoli-frontaliere/aumento-inchieste-penali-2025` },
+          { "@type": "ListItem", "position": 637, "name": "Ticino e Lombardia: sistema manifatturiero pila...", "url": `${BASE_URL}/articoli-frontaliere/ticino-lombardia-manifatturiero` }
         ]
       }
     ]

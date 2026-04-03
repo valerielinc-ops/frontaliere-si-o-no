@@ -1931,6 +1931,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-inchieste-penali-2025.title': 'In Ticino, criminal investigations increase in 2025',
     'blog.article.aumento-inchieste-penali-2025.excerpt': 'In 2025, 363 new criminal investigations were launched in Switzerland, marking a +9.3% rise compared to 2024. Terrorism and economic crimes are among the main causes.',
     'blog.article.aumento-inchieste-penali-2025.imageAlt': 'Building of the Bellinzona prosecutor\'s office with the Alps in the background',
+    'blog.article.ticino-lombardia-manifatturiero.title': 'Ticino and Lombardy: manufacturing system is the backbone of the economy',
+    'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Regional councillor Licata supports the Lombardy and Ticino manufacturing systems',
+    'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Lugano view with industrial area',
 };
 
 export default blogMetaEn;

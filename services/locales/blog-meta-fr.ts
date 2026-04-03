@@ -1931,6 +1931,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-inchieste-penali-2025.title': 'Au Tessin, les enquêtes pénales augmentent en 2025',
     'blog.article.aumento-inchieste-penali-2025.excerpt': 'En 2025, 363 nouvelles enquêtes pénales ont été ouvertes en Suisse, soit +9,3% par rapport à 2024. Le terrorisme et les crimes économiques figurent parmi les principales causes.',
     'blog.article.aumento-inchieste-penali-2025.imageAlt': 'Bâtiment du procureur de Bellinzone avec les Alpes en arrière-plan',
+    'blog.article.ticino-lombardia-manifatturiero.title': 'Ticino et Lombardie : système manufacturier pilier de l\'économie',
+    'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Le conseiller régional Licata soutient le système manufacturier lombard et ticin ',
+    'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Vue de Lugano avec zone industrielle',
 };
 
 export default blogMetaFr;

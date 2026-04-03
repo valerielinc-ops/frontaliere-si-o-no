@@ -1931,6 +1931,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-inchieste-penali-2025.title': 'In Ticino aumentano le inchieste penali nel 2025',
     'blog.article.aumento-inchieste-penali-2025.excerpt': 'Nel 2025, avviate in Svizzera 363 nuove inchieste penali, +9,3% rispetto al 2024. Terrorismo e crimini economici tra le principali cause.',
     'blog.article.aumento-inchieste-penali-2025.imageAlt': 'Edificio della procura di Bellinzona con le Alpi sullo sfondo',
+    'blog.article.ticino-lombardia-manifatturiero.title': 'Ticino e Lombardia: sistema manifatturiero pilastro dell\'economia',
+    'blog.article.ticino-lombardia-manifatturiero.excerpt': 'Il consigliere regionale Licata sostiene il sistema manifatturiero lombardo e ticinese',
+    'blog.article.ticino-lombardia-manifatturiero.imageAlt': 'Vista di Lugano con zona industriale',
 };
 
 export default blogMetaIt;
