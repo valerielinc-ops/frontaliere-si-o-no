@@ -1968,6 +1968,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trasferimento-ufficio-postale-chiasso.title': 'Trasferimento Ufficio Postale Chiasso',
     'blog.article.trasferimento-ufficio-postale-chiasso.excerpt': 'Il trasferimento dell\'Ufficio postale di Chiasso potrebbe essere un\'opportunità per il territorio',
     'blog.article.trasferimento-ufficio-postale-chiasso.imageAlt': 'Ufficio postale di Chiasso',
+    'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.title': 'Esame complementare passerella: aperte le pre-iscrizioni',
+    'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.excerpt': 'Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passerella 2026/2027.',
+    'blog.article.esame-complementare-passerella-aperte-pre-iscrizioni.imageAlt': 'Studente che studia in biblioteca a Lugano',
 };
 
 export default blogMetaIt;

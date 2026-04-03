@@ -5782,4 +5782,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/trasferimento-ufficio-postale-chiasso.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'esame-complementare-passerella-aperte-pre-iscrizioni',
+    category: 'novita',
+    date: '2026-04-03T19:01:37.721Z',
+    image: '/images/blog/esame-complementare-passerella-aperte-pre-iscrizioni.jpg',
+    hasCalculator: true,
+  },
 ];

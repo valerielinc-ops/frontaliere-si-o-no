@@ -10780,6 +10780,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-esame-complementare-passerella-aperte-pre-iscrizioni': {
+    title: 'Esame complementare passerella: aperte le pre-iscrizioni | Frontaliere Ticino',
+    description: 'Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer',
+    keywords: 'frontalieri, ticino, svizzera, italia, esame, complementare, passerella, aperte',
+    ogTitle: 'Esame complementare passerella: aperte le pre-iscrizioni',
+    ogDescription: 'Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer',
+    canonicalPath: '/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Esame complementare passerella: aperte le pre-iscrizioni",
+      "description": "Il Dipartimento dell6educazione, della cultura e dello sport comunica che sono aperte le pre-iscrizioni al corso di preparazione all’esame complementare passer",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/esame-complementare-passerella-aperte-pre-iscrizioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Studente che studia in biblioteca a Lugano"
+      },
+      "datePublished": "2026-04-03T19:01:37+00:00",
+      "dateModified": "2026-04-03T19:01:37+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

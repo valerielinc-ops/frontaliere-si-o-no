@@ -1885,6 +1885,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-permessi-dimora-diversi-opinioni': { name: 'Permessi di dimora', path: '/articoli-frontaliere/permessi-dimora-diversi-opinioni', parent: 'blog' },
     'blog-chiasso-zanzara-tigre-strategia-2026': { name: 'Chiasso & Zanzara Tigre', path: '/articoli-frontaliere/chiasso-zanzara-tigre-strategia-2026', parent: 'blog' },
     'blog-trasferimento-ufficio-postale-chiasso': { name: 'Trasferimento Ufficio Postale', path: '/articoli-frontaliere/trasferimento-ufficio-postale-chiasso', parent: 'blog' },
+    'blog-esame-complementare-passerella-aperte-pre-iscrizioni': { name: 'Esame complementare passerella', path: '/articoli-frontaliere/esame-complementare-passerella-aperte-pre-iscrizioni', parent: 'blog' },
   };
 
   const info = sectionNames[section];
