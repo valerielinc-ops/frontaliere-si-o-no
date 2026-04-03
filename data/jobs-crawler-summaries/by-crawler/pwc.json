@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-04-03T09:39:18.201Z",
+  "generatedAt": "2026-04-03T21:35:07.769Z",
   "total": 117,
   "newCount": 1,
   "updatedCount": 107,
   "removedCount": 0,
   "unchangedCount": 9,
-  "durationMs": 1899,
-  "avgDurationMs": 1899,
+  "durationMs": 2338,
+  "avgDurationMs": 2338,
   "durationHistory": [
-    1899
+    2338
   ],
   "newJobs": [
     {
@@ -303,6 +303,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -337,6 +338,7 @@
       "salaryMax": 136500,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -404,6 +406,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -539,6 +542,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "3001",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -573,6 +577,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -641,6 +646,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -675,6 +681,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -743,6 +750,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -810,6 +818,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -912,6 +921,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -980,6 +990,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1048,6 +1059,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1152,6 +1164,7 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "6900",
+      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1220,6 +1233,7 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,

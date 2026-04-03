@@ -1,6 +1,6 @@
 {
   "crawlerKey": "pwc",
-  "assembledAt": "2026-04-03T09:40:27.471Z",
+  "assembledAt": "2026-04-03T21:36:16.462Z",
   "jobs": [
     {
       "title": "Transfer Pricing Manager Financial Services 80 – 100%",
@@ -58,7 +58,8 @@
       },
       "previousSlugs": [
         "transfer-pricing-manager-financial-services-80-100-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit (Assistant) Manager - Financial Services - Competence Center",
@@ -114,7 +115,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate – Risk Consulting with Focus on Internal Controls, and Internal Audit (Trade, Industries and Services)",
@@ -290,7 +292,8 @@
       "previousSlugs": [
         "manager-risikoberatung-tis-pwc-switzerland-zurich-dcc4zn",
         "manager-risk-consulting-tis-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Transfer Pricing Internship",
@@ -351,7 +354,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Student:in im Tax Student Team",
@@ -411,7 +415,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "(Senior) Manager Public Sector Strategy & Transformation (mit Fokus auf digitaler Transformation und neuen Technologien)",
@@ -471,7 +476,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3001"
+      "postalCode": "3001",
+      "needsRetranslation": true
     },
     {
       "title": "Career Start in Audit - Financial Services - Liechtenstein",
@@ -654,7 +660,8 @@
         "junior-projektportfoliomanager-pwc-switzerland-zurich-d0fo89",
         "junior-projektportfoliomanager-pwc-switzerland-zurich",
         "junior-project-portfolio-manager-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager Fund Tax Reporting 80 - 100%",
@@ -838,7 +845,8 @@
         "senior-manager-operations-manufacturing-strategy-transformation-80-100-pwc-switzerland-zurich",
         "senior-manager-operazioni-strategia-e-trasformazione-manifatturiera-80-100-pwc-switzerland-zurich",
         "senior-manager-operations-und-manufacturing-strategie-und-transformation-80-100-pwc-switzerland-zurich-lus0vg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Stage de 6 mois en Audit Trade, Industries and Services - Lausanne ou Genève - dès octobre 2026",
@@ -899,7 +907,8 @@
         "stage-di-6-mesi-in-audit-trade-industries-and-services-losanna-o-ginevra-da-ottobre-2026-pwc-switzerland-geneve",
         "stage-de-6-mois-en-audit-trade-industries-and-services-lausanne-ou-geneve-des-octobre-2026-pwc-geneva",
         "stage-de-6-mois-en-audit-trade-industries-and-services-lausanne-ou-geneve-des-octobre-2026-pwc-switzerland-geneve-7ypb7w"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Career Start in Audit – Vorsorgespezialist:in – September 2026",
@@ -1084,7 +1093,8 @@
         "berufseinstieg-in-digital-assurance-it-audit-und-prozessanalyse-finanzdienstleistungen-pwc-switzerland-zurich-sgxmpk",
         "career-start-in-digital-assurance-it-audit-and-process-analytics-financial-services-pwc-zurich",
         "career-start-in-digital-assurance-it-audit-and-process-analytics-financial-services-pwc-switzerland-zurich-sgxmpk"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate in Digital Assurance, IT Audit and Process Analytics (Financial Services)",
@@ -1207,7 +1217,8 @@
         "leiter-der-audit-abteilung-fur-handel-industrie-und-dienstleistungen-pwc-switzerland-neuchatel-h3x7ix",
         "manager-en-audit-trade-industries-and-services-neuchatel-pwc-neuchatel",
         "manager-of-audit-trade-industries-and-services-neuchatel-pwc-switzerland-neuchatel"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Digital Audit und Process Analytics - Career Start im Bereich Trade, Industries & Services - Herbst 2026",
@@ -1328,7 +1339,8 @@
       "previousSlugs": [
         "audit-senior-manager-handel-industrie-dienstleistungen-us-gaap-pwc-switzerland-lausanne-5abdeo",
         "audit-senior-manager-trade-industries-services-us-gaap-pwc-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Karriereeinstieg in die Steuerberatung Zürich",
@@ -1429,7 +1441,7 @@
       },
       "slugByLocale": {
         "it": "audit-senior-manager-commercio-industrie-e-servizi-us-gaap-pwc-switzerland-geneva",
-        "en": "audit-senior-manager-trade-industries-services-us-gaap-pwc-switzerland-geneve-7pthxc",
+        "en": "audit-senior-manager-trade-industries-services-us-gaap-pwc-switzerland-geneva",
         "de": "audit-senior-manager-handel-industrie-dienstleistungen-us-gaap-pwc-switzerland-geneve",
         "fr": "audit-senior-manager-trade-industries-services-us-gaap-pwc-switzerland-geneve-7pthxc"
       },
@@ -1751,7 +1763,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "(Senior) Manager Deals Tax",
@@ -2032,11 +2045,12 @@
         "it": "assistant-manager-audit-gestione-delle-attivita-pwc-switzerland-geneva",
         "en": "assistant-manager-audit-asset-management-pwc-switzerland-geneve-2z283b",
         "de": "assistent-manager-audit-asset-management-pwc-switzerland-geneve-2z283b",
-        "fr": "assistant-manager-audit-asset-management-pwc-switzerland-geneve-2z283b"
+        "fr": "assistant-manager-audit-asset-management-pwc-switzerland-geneva"
       },
       "previousSlugs": [
         "assistent-manager-audit-asset-management-pwc-switzerland-geneva",
-        "assistant-manager-audit-asset-management-pwc-geneva"
+        "assistant-manager-audit-asset-management-pwc-geneva",
+        "assistant-manager-audit-asset-management-pwc-switzerland-geneve-2z283b"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -2050,7 +2064,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Manager en Regulatory Risk & Compliance",
@@ -2089,7 +2104,7 @@
       },
       "slugByLocale": {
         "it": "manager-en-regulatory-risk-compliance-pwc-switzerland-geneve",
-        "en": "manager-en-regulatory-risk-compliance-pwc-switzerland-geneve-ih462g",
+        "en": "manager-en-regulatory-risk-compliance-pwc-switzerland-geneva",
         "de": "manager-fur-regulatory-risk-compliance-pwc-switzerland-geneve",
         "fr": "manager-en-regulatory-risk-compliance-pwc-switzerland-geneve-ih462g"
       },
@@ -2109,8 +2124,10 @@
       "previousSlugs": [
         "manager-en-regulatory-risk-compliance-pwc-geneva",
         "manager-in-regulatory-risk-compliance-pwc-switzerland-geneva",
-        "manager-di-regulatory-risk-compliance-pwc-switzerland-geneva"
-      ]
+        "manager-di-regulatory-risk-compliance-pwc-switzerland-geneva",
+        "manager-en-regulatory-risk-compliance-pwc-switzerland-geneve-ih462g"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit - Career Start nel settore Trade, Industries & Services - Autunno 2026",
@@ -2232,7 +2249,8 @@
         "audit-des-processus-metier-et-informatique-secteur-financial-services-stagiaire-6-9-mois-pwc-switzerland-geneve",
         "audit-des-processus-metier-et-informatique-secteur-financial-services-stagiaire-6-9-mois-pwc-geneve",
         "audit-dei-processi-business-e-it-settore-servizi-finanziari-tirocinio-6-9-mesi-pwc-switzerland-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate in Audit, Trade, Industries and Services - Geneva or Lausanne - US GAAP",
@@ -2292,7 +2310,8 @@
         "senior-associate-in-audit-trade-industries-and-services-geneva-or-lausanne-us-gaap-pwc-geneva",
         "senior-associate-in-audit-trade-industries-and-services-ginevra-o-losanna-us-gaap-pwc-switzerland-geneva",
         "senior-associate-en-audit-trade-industries-and-services-geneve-ou-lausanne-us-gaap-pwc-switzerland-geneve-5ckhm9"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate in Audit, Trade, Industries and Services - Geneva or Lausanne",
@@ -2353,7 +2372,8 @@
         "senior-associate-in-audit-trade-industries-and-services-geneva-or-lausanne-pwc-geneve",
         "senior-associate-in-audit-trade-industries-and-services-ginevra-o-losanna-pwc-switzerland-geneve",
         "senior-associate-in-audit-trade-industries-and-services-geneva-or-lausanne-pwc-switzerland-geneve-r2bg03"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager in Audit Trade, Industries & Services - US GAAP",
@@ -2392,7 +2412,7 @@
       },
       "slugByLocale": {
         "it": "manager-nella-revisione-contabile-commerciale-industrie-e-servizi-us-gaap-pwc-switzerland-geneva",
-        "en": "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve-q5fsui",
+        "en": "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneva",
         "de": "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve",
         "fr": "manager-en-audit-commerce-industries-services-us-gaap-pwc-switzerland-geneve"
       },
@@ -2411,8 +2431,10 @@
       },
       "previousSlugs": [
         "manager-in-audit-trade-industries-services-us-gaap-pwc-geneva",
-        "manager-im-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve"
-      ]
+        "manager-im-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve",
+        "manager-in-audit-trade-industries-services-us-gaap-pwc-switzerland-geneve-q5fsui"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Associate / Senior Associate - Cloud, Data and AI (CD&AI) - Cloud & AI Engineer",
@@ -2470,7 +2492,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services / US GAAP",
@@ -2509,12 +2532,13 @@
       },
       "slugByLocale": {
         "it": "senior-associate-assistant-manager-audit-commercio-industrie-e-servizi-us-gaap-pwc-switzerland-geneva",
-        "en": "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-switzerland-geneve-6kn7sj",
+        "en": "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-switzerland-geneva",
         "de": "audit-senior-associate-assistent-manager-trade-industries-services-us-gaap-pwc-switzerland-geneva",
         "fr": "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-switzerland-geneve-6kn7sj"
       },
       "previousSlugs": [
-        "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-geneva"
+        "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-geneva",
+        "audit-senior-associate-assistant-manager-trade-industries-services-us-gaap-pwc-switzerland-geneve-6kn7sj"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -2588,7 +2612,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "Associate Strategy & Business Transformation Public Sector",
@@ -2708,7 +2733,8 @@
           "maxValue": 136500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Stage de 3 mois en Audit - Financial Services - janvier à mars 2027",
@@ -2749,7 +2775,7 @@
         "it": "tirocinio-di-3-mesi-in-audit-servizi-finanziari-gennaio-a-marzo-2027-pwc-switzerland-geneva",
         "en": "3-month-internship-in-audit-financial-services-january-to-march-2027-pwc-switzerland-geneve",
         "de": "3-monatiges-praktikum-in-audit-finanzdienstleistungen-januar-bis-marz-2027-pwc-switzerland-geneve",
-        "fr": "stage-de-3-mois-en-audit-financial-services-janvier-a-mars-2027-pwc-switzerland-geneve-2580e5"
+        "fr": "stage-de-3-mois-en-audit-financial-services-janvier-a-mars-2027-pwc-switzerland-geneva"
       },
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -2766,8 +2792,10 @@
       },
       "previousSlugs": [
         "stage-de-3-mois-en-audit-financial-services-janvier-a-mars-2027-pwc-geneva",
-        "stage-di-3-mesi-in-audit-financial-services-gennaio-a-marzo-2027-pwc-switzerland-geneva"
-      ]
+        "stage-di-3-mesi-in-audit-financial-services-gennaio-a-marzo-2027-pwc-switzerland-geneva",
+        "stage-de-3-mois-en-audit-financial-services-janvier-a-mars-2027-pwc-switzerland-geneve-2580e5"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Transfer Pricing Associate / Senior Associate",
@@ -2885,7 +2913,8 @@
       "postalCode": "8001",
       "previousSlugs": [
         "manager-sap-master-data-governance-consulting-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit Senior Associate / Assistant Manager - Trade, Industries & Services / US GAAP",
@@ -3309,7 +3338,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager Transaction Services",
@@ -3368,7 +3398,8 @@
       "postalCode": "8001",
       "previousSlugs": [
         "manager-senior-manager-transaction-services-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate / Manager Financial Services Consulting - Liquidity & Funding",
@@ -3607,7 +3638,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "title": "Tax Accounting Senior Associate",
@@ -3666,7 +3698,8 @@
       "previousSlugs": [
         "senior-associate-steuerbilanz-pwc-switzerland-zurich-glfuxt",
         "tax-accounting-senior-associate-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager and Senior Manager in Life Sciences R&D Management Consulting",
@@ -3705,7 +3738,7 @@
       },
       "slugByLocale": {
         "it": "manager-e-senior-manager-nella-consulenza-gestionale-di-r-s-nelle-scienze-della-vita-pwc-switzerland-zurich",
-        "en": "manager-and-senior-manager-in-life-sciences-r-d-management-consulting-pwc-switzerland-basel-tvjzcl",
+        "en": "manager-and-senior-manager-in-life-sciences-r-d-management-consulting-pwc-switzerland-zurich",
         "de": "manager-und-senior-manager-in-life-sciences-r-d-management-consulting-pwc-switzerland-basel",
         "fr": "manager-et-senior-manager-en-life-sciences-r-d-management-consulting-pwc-switzerland-basel"
       },
@@ -3727,8 +3760,10 @@
         "manager-and-senior-manager-in-life-sciences-r-d-management-consulting-pwc-zurich",
         "manager-e-senior-manager-in-life-sciences-r-d-management-consulting-pwc-switzerland-zurich",
         "manager-and-senior-manager-in-life-sciences-r-d-management-consulting-pwc-switzerland-basel",
-        "manager-e-senior-manager-nella-consulenza-gestionale-di-r-s-nelle-scienze-della-vita-pwc-switzerland-basel"
-      ]
+        "manager-e-senior-manager-nella-consulenza-gestionale-di-r-s-nelle-scienze-della-vita-pwc-switzerland-basel",
+        "manager-and-senior-manager-in-life-sciences-r-d-management-consulting-pwc-switzerland-basel-tvjzcl"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Cybersecurity & Privacy Senior Associate",
@@ -3767,7 +3802,7 @@
       },
       "slugByLocale": {
         "it": "senior-associate-per-cybersecurity-e-privacy-pwc-switzerland-geneva",
-        "en": "cybersecurity-privacy-senior-associate-pwc-switzerland-geneve-m9wdu2",
+        "en": "cybersecurity-privacy-senior-associate-pwc-switzerland-geneva",
         "de": "senior-associate-fur-cybersicherheit-und-datenschutz-pwc-switzerland-geneve",
         "fr": "senior-associate-en-cybersecurite-et-protection-des-donnees-pwc-switzerland-geneve"
       },
@@ -3906,7 +3941,8 @@
       "postalCode": "8001",
       "previousSlugs": [
         "ai-business-transformation-senior-manager-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Associate / Senior Associate – Deals – Separation and Integration",
@@ -4025,7 +4061,8 @@
       "postalCode": "8001",
       "previousSlugs": [
         "manager-senior-manager-in-sap-group-reporting-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Asset Management Audit - Manager",
@@ -4064,7 +4101,7 @@
       },
       "slugByLocale": {
         "it": "audit-della-gestione-delle-risorse-manager-pwc-switzerland-geneva",
-        "en": "asset-management-audit-manager-pwc-switzerland-geneve-5le8k9",
+        "en": "asset-management-audit-manager-pwc-switzerland-geneva",
         "de": "asset-management-audit-manager-pwc-switzerland-geneve-5le8k9",
         "fr": "audit-de-la-gestion-des-actifs-gestionnaire-pwc-switzerland-geneve"
       },
@@ -4083,8 +4120,10 @@
       },
       "previousSlugs": [
         "asset-management-audit-manager-pwc-geneva",
-        "audit-della-gestione-delle-risorse-manager-pwc-switzerland-geneve"
-      ]
+        "audit-della-gestione-delle-risorse-manager-pwc-switzerland-geneve",
+        "asset-management-audit-manager-pwc-switzerland-geneve-5le8k9"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Digital Audit Manager (Financial Services)",
@@ -4203,7 +4242,8 @@
       "postalCode": "6003",
       "previousSlugs": [
         "corporate-tax-manager-zentralschweiz-pwc-luzern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Regulatory Risk and Compliance",
@@ -4262,7 +4302,8 @@
       "postalCode": "1201",
       "previousSlugs": [
         "senior-associate-regulatory-risk-and-compliance-pwc-geneve"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "U.S. Tax Manager – Private Clients",
@@ -4322,7 +4363,8 @@
       "previousSlugs": [
         "u-s-tax-manager-clienti-privati-pwc-switzerland-zurich",
         "u-s-tax-manager-private-clients-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Career Start in Audit – Insurance – Oktober 2026",
@@ -4362,7 +4404,7 @@
       "slugByLocale": {
         "it": "career-start-in-audit-assicurazioni-ottobre-2026-pwc-switzerland-zurich",
         "en": "career-start-in-audit-insurance-oktober-2026-pwc-switzerland-basel-7us1mn",
-        "de": "career-start-in-audit-insurance-oktober-2026-pwc-switzerland-basel-7us1mn",
+        "de": "career-start-in-audit-insurance-oktober-2026-pwc-switzerland-zurich",
         "fr": "debut-de-carriere-en-audit-assurance-octobre-2026-pwc-switzerland-basel"
       },
       "salaryMin": 58000,
@@ -4380,7 +4422,8 @@
       },
       "postalCode": "8001",
       "previousSlugs": [
-        "career-start-in-audit-insurance-oktober-2026-pwc-zurich"
+        "career-start-in-audit-insurance-oktober-2026-pwc-zurich",
+        "career-start-in-audit-insurance-oktober-2026-pwc-switzerland-basel-7us1mn"
       ],
       "needsRetranslation": true
     },
@@ -4421,7 +4464,7 @@
       },
       "slugByLocale": {
         "it": "career-start-in-audit-banche-autunno-2026-pwc-switzerland-zurich",
-        "en": "career-start-in-audit-banking-herbst-2026-pwc-switzerland-bern-sw9ll4",
+        "en": "career-start-in-audit-banking-herbst-2026-pwc-switzerland-zurich",
         "de": "career-start-in-audit-banking-herbst-2026-pwc-switzerland-bern-sw9ll4",
         "fr": "debut-de-carriere-en-audit-secteur-bancaire-herbst-2026-pwc-switzerland-bern"
       },
@@ -4440,7 +4483,8 @@
       },
       "postalCode": "8001",
       "previousSlugs": [
-        "career-start-in-audit-banking-herbst-2026-pwc-zurich"
+        "career-start-in-audit-banking-herbst-2026-pwc-zurich",
+        "career-start-in-audit-banking-herbst-2026-pwc-switzerland-bern-sw9ll4"
       ],
       "needsRetranslation": true
     },
@@ -4564,7 +4608,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Associate - Supply Chain Cyber Security Specialist - Cyber Risk Advisory",
@@ -4623,7 +4668,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager/Director in SAP Supply Chain Operations Consulting",
@@ -4862,7 +4908,8 @@
       "postalCode": "1003",
       "previousSlugs": [
         "career-start-in-audit-trade-industries-and-services-lausanne-sion-october-2026-pwc-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Kauffrau/Kaufmann EFZ Treuhand",
@@ -4964,13 +5011,14 @@
       },
       "slugByLocale": {
         "it": "audit-senior-associate-assistant-manager-commercio-industrie-e-servizi-2026-pwc-switzerland-zurich",
-        "en": "audit-senior-associate-assistant-manager-trade-industries-services-2026-pwc-switzerland-bern-6hetif",
+        "en": "audit-senior-associate-assistant-manager-trade-industries-services-2026-pwc-switzerland-zurich",
         "de": "audit-senior-associate-assistent-manager-trade-industries-services-2026-pwc-switzerland-zurich",
         "fr": "audit-senior-associate-assistant-manager-commerce-industries-services-2026-pwc-switzerland-bern"
       },
       "previousSlugs": [
         "verification-associe-principal-gestionnaire-adjoint-commerce-industries-et-services-2026-pwc-switzerland-bern",
-        "audit-senior-associate-assistant-manager-trade-industries-services-2026-pwc-zurich"
+        "audit-senior-associate-assistant-manager-trade-industries-services-2026-pwc-zurich",
+        "audit-senior-associate-assistant-manager-trade-industries-services-2026-pwc-switzerland-bern-6hetif"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -5047,7 +5095,8 @@
         "stagista-mpc-3-1-servizio-e-amministrazione-pwc-switzerland-lausanne",
         "stagiaire-mpc-3-1-service-et-administration-pwc-switzerland-lausanne",
         "stagiaire-mpc-3-1-service-et-administration-pwc-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Apprenti(e) employé(e) de commerce - Service et administration",
@@ -5107,7 +5156,8 @@
       "previousSlugs": [
         "lehrling-facharbeiter-service-und-administration-pwc-switzerland-lausanne",
         "apprenti-e-employe-e-de-commerce-service-et-administration-pwc-lausanne"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit - Career Start im Bereich Trade, Industries & Services - Herbst 2026",
@@ -5147,7 +5197,7 @@
       "slugByLocale": {
         "it": "audit-inizio-carriera-nel-settore-trade-industries-services-autunno-2026-pwc-switzerland-zurich",
         "en": "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-bern-gikalb",
-        "de": "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-bern-gikalb",
+        "de": "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-zurich",
         "fr": "verification-debut-de-carriere-dans-le-commerce-les-industries-et-les-services-automne-2026-pwc-switzerland-bern"
       },
       "salaryMin": 58000,
@@ -5165,7 +5215,8 @@
       },
       "postalCode": "8001",
       "previousSlugs": [
-        "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-zurich"
+        "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-zurich",
+        "audit-career-start-im-bereich-trade-industries-services-herbst-2026-pwc-switzerland-bern-gikalb"
       ],
       "needsRetranslation": true
     },
@@ -5225,7 +5276,8 @@
       },
       "previousSlugs": [
         "associate-senior-associate-cloud-data-ai-cd-ai-data-engineering-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Life Transformation Aktuar/-in – Manager/in",
@@ -5325,7 +5377,7 @@
       },
       "slugByLocale": {
         "it": "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-zurich",
-        "en": "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel-ki2xlt",
+        "en": "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-zurich",
         "de": "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel-ki2xlt",
         "fr": "verificateur-principal-tresorerie-et-commerce-des-marchandises-pwc-switzerland-basel"
       },
@@ -5344,8 +5396,10 @@
       },
       "previousSlugs": [
         "senior-auditor-treasury-and-commodity-trading-pwc-zurich",
-        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel"
-      ]
+        "auditore-senior-commercio-del-tesoro-e-della-commodita-pwc-switzerland-basel",
+        "senior-auditor-treasury-and-commodity-trading-pwc-switzerland-basel-ki2xlt"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit – Career Start im Bereich Financial Services - Herbst 2026",
@@ -5385,7 +5439,7 @@
       "slugByLocale": {
         "it": "audit-inizio-carriera-nel-settore-financial-services-autunno-2026-pwc-switzerland-zurich",
         "en": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
-        "de": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe",
+        "de": "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-zurich",
         "fr": "audit-debut-de-carriere-dans-les-services-financiers-automne-2026-pwc-switzerland-bern"
       },
       "salaryMin": 58000,
@@ -5403,7 +5457,8 @@
       },
       "postalCode": "8001",
       "previousSlugs": [
-        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich"
+        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-zurich",
+        "audit-career-start-im-bereich-financial-services-herbst-2026-pwc-switzerland-bern-r55tbe"
       ],
       "needsRetranslation": true
     },
@@ -5646,7 +5701,8 @@
       "previousSlugs": [
         "associe-principal-en-conseil-en-douanes-et-commerce-pwc-switzerland-zurich",
         "senior-associate-customs-trade-consulting-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Manager FS Risk Consulting focus Technology",
@@ -5744,11 +5800,13 @@
       },
       "slugByLocale": {
         "it": "manager-senior-manager-in-life-sciences-quality-management-consulting-pwc-zurich",
-        "en": "manager-senior-manager-in-life-sciences-quality-management-consulting-pwc-switzerland-basel-xzdlvv",
+        "en": "manager-senior-manager-in-life-sciences-quality-management-consulting-pwc-switzerland-zurich",
         "de": "manager-senior-manager-in-life-sciences-qualitat-management-consulting-pwc-switzerland-zurich",
         "fr": "manager-senior-manager-in-life-sciences-qualite-management-consulting-pwc-switzerland-zurich"
       },
-      "previousSlugs": [],
+      "previousSlugs": [
+        "manager-senior-manager-in-life-sciences-quality-management-consulting-pwc-switzerland-basel-xzdlvv"
+      ],
       "salaryMin": 100500,
       "salaryMax": 136500,
       "currency": "CHF",
@@ -5762,7 +5820,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager Cyber Technology and Transformation",
@@ -5801,7 +5860,7 @@
       },
       "slugByLocale": {
         "it": "manager-senior-manager-cyber-technology-and-transformation-pwc-zurich",
-        "en": "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj",
+        "en": "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-zurich",
         "de": "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj",
         "fr": "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-zurich"
       },
@@ -5820,8 +5879,10 @@
       },
       "postalCode": "8001",
       "previousSlugs": [
-        "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve"
-      ]
+        "gestionnaire-gestionnaire-principal-cybertechnologie-et-transformation-pwc-switzerland-geneve",
+        "manager-senior-manager-cyber-technology-and-transformation-pwc-switzerland-geneve-b0p3fj"
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Senior Cyber Security Architect (Manager/Senior Manager)",
@@ -5881,7 +5942,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager Accounting",
@@ -5942,7 +6004,8 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "4001"
+      "postalCode": "4001",
+      "needsRetranslation": true
     },
     {
       "title": "Mandatsleiter:in Treuhand",
@@ -6062,7 +6125,8 @@
       "previousSlugs": [
         "senior-manager-insurance-consulting-pwc-zurich",
         "senior-manager-versicherungsberatung-pwc-switzerland-zurich-voteg3"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Corporate Tax (Senior) Manager",
@@ -6101,7 +6165,7 @@
       },
       "slugByLocale": {
         "it": "responsabile-delle-tasse-societarie-senior-pwc-switzerland-geneva",
-        "en": "corporate-tax-senior-manager-pwc-switzerland-geneve-dc5mep",
+        "en": "corporate-tax-senior-manager-pwc-switzerland-geneva",
         "de": "unternehmenssteuer-senior-manager-pwc-switzerland-geneve",
         "fr": "gestionnaire-de-l-impot-des-societes-senior-pwc-switzerland-geneve"
       },
@@ -6120,7 +6184,8 @@
       },
       "previousSlugs": [
         "corporate-tax-senior-manager-pwc-geneva",
-        "responsabile-delle-tasse-societarie-senior-pwc-switzerland-geneve"
+        "responsabile-delle-tasse-societarie-senior-pwc-switzerland-geneve",
+        "corporate-tax-senior-manager-pwc-switzerland-geneve-dc5mep"
       ],
       "needsRetranslation": true
     },
@@ -6300,7 +6365,8 @@
       "postalCode": "8001",
       "previousSlugs": [
         "tax-manager-international-m-a-and-structuring-financial-services-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager Capital Markets",
@@ -6358,7 +6424,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Manager / Senior Manager - Cloud, Data & AI (CD&AI) - Data Engineering",
@@ -6417,7 +6484,8 @@
       "postalCode": "8001",
       "previousSlugs": [
         "manager-senior-manager-cloud-data-ai-cd-ai-data-engineering-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Cyber Cloud Security Lead",
@@ -6475,7 +6543,8 @@
       },
       "previousSlugs": [
         "cyber-cloud-security-lead-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Audit (Assistant) Manager - eingeschränkte Revisionen - 70%-100%",
@@ -6897,7 +6966,8 @@
       "previousSlugs": [
         "verrechnungspreismanager-senior-manager-pwc-switzerland-zurich",
         "transfer-pricing-manager-senior-manager-pwc-zurich"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Manager - Insurance Consulting (P&C Retail & Commercial)",
