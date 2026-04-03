@@ -1,10 +1,8 @@
 name: Update Tinext Jobs (Dedicated)
 
 on:
-  schedule:
-    # Runs daily at 09:15 UTC — after orchestrator's 08:00 run so dedicated
-    # Coop crawler (06:00 UTC) has priority access to fresh AI-model quotas.
-    - cron: '15 9 * * *'
+  # No schedule — Tinext is dispatched by orchestrate-crawlers.yml.
+  # A previous cron at 09:15 UTC caused a post-translate run (FRO pipeline bug).
   workflow_dispatch:
     inputs:
       strict_localization:
