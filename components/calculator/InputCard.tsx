@@ -578,13 +578,13 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('CH')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
+                        <button onClick={() => resetExpenses('CH')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
-                        <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-xs font-bold uppercase hover:from-blue-700 hover:to-indigo-700 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
+                        <button onClick={() => loadAllPresets('CH')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-blue-600 to-blue-700 text-white text-xs font-bold uppercase hover:from-blue-700 hover:to-blue-800 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
                           <Home size={12}/> {t('input.prefill')}
                         </button>
-                        <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-xs font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
+                        <button onClick={() => setShowPresets(showPresets === 'CH' ? null : 'CH')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'CH' ? 'bg-blue-100 text-blue-700' : 'bg-blue-50 dark:bg-blue-900/30 text-blue-600 hover:bg-blue-100'}`}>
                           <Plus size={14}/>
                         </button>
                       </div>
@@ -647,13 +647,13 @@ export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, foc
                         </div>
                       </div>
                       <div className="flex items-center gap-1.5">
-                        <button onClick={() => resetExpenses('IT')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
+                        <button onClick={() => resetExpenses('IT')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400 hover:bg-red-100 dark:hover:bg-red-900/30 hover:text-red-600 transition-colors text-xs font-bold uppercase flex items-center justify-center gap-1" title={t('input.clearAll')} aria-label={t('input.clearAll')}>
                           <RotateCcw size={12}/>
                         </button>
                         <button onClick={() => loadAllPresets('IT')} className="px-2 py-1.5 rounded-lg bg-gradient-to-r from-red-600 to-orange-600 text-white text-xs font-bold uppercase hover:from-red-700 hover:to-orange-700 transition-[color,background-color,box-shadow] shadow-sm hover:shadow-md flex items-center gap-1">
                           <Home size={12}/> {t('input.prefill')}
                         </button>
-                        <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`p-1.5 rounded-lg transition-colors flex items-center gap-1 text-xs font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
+                        <button onClick={() => setShowPresets(showPresets === 'IT' ? null : 'IT')} className={`min-w-[44px] min-h-[44px] p-2.5 rounded-lg transition-colors flex items-center justify-center gap-1 text-xs font-bold uppercase ${showPresets === 'IT' ? 'bg-red-100 text-red-700' : 'bg-red-50 dark:bg-red-900/30 text-red-600 hover:bg-red-100'}`}>
                           <Plus size={14}/>
                         </button>
                       </div>

@@ -630,7 +630,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                   {t('bordermap.fascia')} {selectedMunicipality.fascia}
                 </span>
               </div>
-              <div className="grid grid-cols-4 gap-4 text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                 <div className="p-3 bg-slate-50 dark:bg-slate-900 rounded-lg">
                   <p className="text-xs text-slate-500 dark:text-slate-400">{t('bordermap.mode.irpef')}</p>
                   <p className="text-xl font-bold text-slate-800 dark:text-slate-200">{selectedMunicipality.irpefAddizionale}%</p>

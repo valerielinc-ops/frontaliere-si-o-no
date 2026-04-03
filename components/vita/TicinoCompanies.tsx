@@ -805,7 +805,7 @@ const TicinoCompanies: React.FC = () => {
               <option value="name">{t('companies.sortName')}</option>
               <option value="city">{t('companies.sortCity')}</option>
             </select>
-            <button onClick={() => setSortDesc(!sortDesc)} aria-label={sortDesc ? (t('companies.sortAscending') || 'Ordine crescente') : (t('companies.sortDescending') || 'Ordine decrescente')} className="p-1.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
+            <button onClick={() => setSortDesc(!sortDesc)} aria-label={sortDesc ? (t('companies.sortAscending') || 'Ordine crescente') : (t('companies.sortDescending') || 'Ordine decrescente')} className="min-w-[44px] min-h-[44px] p-2.5 rounded-lg bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600 transition-colors">
               {sortDesc ? '↓' : '↑'}
             </button>
           </div>
@@ -900,7 +900,7 @@ const TicinoCompanies: React.FC = () => {
                     <div className="p-1">
                       <div className="flex items-center gap-2 mb-2">
                         {company.website ? (
-                          <img src={`https://logo.clearbit.com/${new URL(company.website).hostname}`} alt="" width={28} height={28} style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
+                          <img src={`https://logo.clearbit.com/${new URL(company.website).hostname}`} alt={`Logo ${company.name}`} width={28} height={28} style={{ width: 28, height: 28, borderRadius: 6, objectFit: 'contain' }} loading="lazy" onError={(e) => { const el = e.target as HTMLImageElement; if (el.src.includes('logo.clearbit.com')) { el.src = `https://www.google.com/s2/favicons?domain=${el.src.replace('https://logo.clearbit.com/', '')}&sz=128`; } else { el.style.display = 'none'; } }} />
                         ) : (
                           <span className="text-2xl">{SECTOR_ICONS[company.sector] || '🏢'}</span>
                         )}

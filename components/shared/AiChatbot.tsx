@@ -678,7 +678,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
       {!isOpen && !popupBlocked && (
         <button
           onClick={handleToggle}
-          className={`fixed right-4 z-[53] w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center group ${hasBottomOverlay ? 'bottom-40 md:bottom-6' : 'bottom-20 md:bottom-6'}`}
+          className={`fixed right-4 z-[53] w-14 h-14 rounded-full bg-blue-600 hover:bg-blue-700 text-white shadow-lg hover:shadow-xl transition-all flex items-center justify-center group ${hasBottomOverlay ? 'bottom-44 md:bottom-6' : 'bottom-24 md:bottom-6'}`}
           aria-label={t('chatbot.openLabel')}
         >
           <MessageCircle size={24} className="group-hover:scale-110 transition-transform" />
@@ -688,7 +688,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
 
       {/* Chat panel */}
       {isOpen && queueActive && (
-        <div className={`fixed right-4 z-[53] w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden animate-fade-in ${hasBottomOverlay ? 'bottom-44 md:bottom-4' : 'bottom-20 md:bottom-4'}`}>
+        <div className={`fixed right-4 z-[53] w-[360px] max-w-[calc(100vw-2rem)] h-[500px] max-h-[calc(100vh-6rem)] bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 flex flex-col overflow-hidden animate-fade-in ${hasBottomOverlay ? 'bottom-48 md:bottom-4' : 'bottom-24 md:bottom-4'}`}>
           {/* Header */}
           <div className="flex items-center justify-between px-4 py-3 bg-blue-600 text-white rounded-t-2xl shrink-0">
             <div className="flex items-center gap-2">

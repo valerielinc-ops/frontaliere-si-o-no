@@ -242,7 +242,7 @@ export const ComparisonChart: React.FC<Props> = ({ result, inputs, isDarkMode, i
 
       {/* Main Chart Container */}
       <div className="bg-white dark:bg-slate-800 rounded-3xl p-1 shadow-sm border border-slate-100 dark:border-slate-700">
-         <div className="grid grid-cols-4 gap-1 p-1 bg-slate-50 dark:bg-slate-900/50 rounded-2xl">
+         <div className="grid grid-cols-2 sm:grid-cols-4 gap-1 p-1 bg-slate-50 dark:bg-slate-900/50 rounded-2xl">
             {[
               { id: 'overview', label: t('chart.tab_comparison'), icon: BarChart3 },
               { id: 'breakdown', label: t('chart.tab_details'), icon: PieIcon },

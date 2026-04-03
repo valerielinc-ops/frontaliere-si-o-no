@@ -503,7 +503,8 @@ const WorkPermitsGuide: React.FC = () => {
           <Globe size={20} className="text-blue-600" />
           {t('permits.comparisonTitle')}
         </h3>
-        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white dark:from-slate-900 sm:hidden z-10" />
         <table className="w-full text-sm min-w-[600px]">
           <thead>
             <tr className="border-b-2 border-slate-200 dark:border-slate-700">

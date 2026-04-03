@@ -64,6 +64,7 @@ const CROSSING_PATTERNS: Record<string, TrafficPattern> = {
 const CROSSING_NAMES = Object.keys(CROSSING_PATTERNS);
 const DAY_NAMES_IT = ['Dom', 'Lun', 'Mar', 'Mer', 'Gio', 'Ven', 'Sab'];
 const HOURS = Array.from({ length: 24 }, (_, i) => i);
+const PEAK_HOURS = new Set([5, 6, 7, 8, 9, 17, 18, 19, 20, 21]);
 
 /* ─── Firestore fetch + aggregation ─── */
 
@@ -310,13 +311,15 @@ export default function TrafficHistory() {
           {t('trafficHistory.heatmapTitle')}
         </h3>
 
-        <div className="overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
-        <div className="min-w-[600px]">
+        <div className="relative overflow-x-auto -mx-4 px-4 sm:mx-0 sm:px-0">
+        {/* Scroll hint gradient for mobile */}
+        <div className="pointer-events-none absolute right-0 top-0 bottom-0 w-8 bg-gradient-to-l from-white dark:from-slate-800 sm:hidden z-10" />
+        <div className="min-w-[600px] sm:min-w-0">
           {/* Hour headers */}
           <div className="flex items-center mb-1">
             <div className="w-12 shrink-0" />
             {HOURS.filter(h => h >= 5 && h <= 21).map(h => (
-              <div key={h} className="flex-1 text-center text-xs text-slate-500 dark:text-slate-400 font-mono">
+              <div key={h} className={`flex-1 text-center text-xs text-slate-500 dark:text-slate-400 font-mono ${!PEAK_HOURS.has(h) ? 'hidden sm:block' : ''}`}>
                 {h}
               </div>
             ))}
@@ -331,7 +334,7 @@ export default function TrafficHistory() {
               {row.hours.filter(h => h.hour >= 5 && h.hour <= 21).map(cell => (
                 <div
                   key={cell.hour}
-                  className={`flex-1 text-center text-xs font-mono rounded-sm mx-px py-1 cursor-default ${getColorClass(cell.wait)}`}
+                  className={`flex-1 text-center text-xs font-mono rounded-sm mx-px py-1 cursor-default ${getColorClass(cell.wait)} ${!PEAK_HOURS.has(cell.hour) ? 'hidden sm:block' : ''}`}
                   title={`${row.dayName} ${cell.hour}:00 — ${cell.wait} min`}
                 >
                   {cell.wait > 0 ? cell.wait : ''}

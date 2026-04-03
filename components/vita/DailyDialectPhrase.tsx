@@ -15,7 +15,7 @@ const DailyDialectPhrase: React.FC = () => {
 
   const phrase = t(phraseKey);
 
-  if (phrase === phraseKey) return <div className="h-[34px]" />;
+  if (phrase === phraseKey) return <div className="min-h-[34px]" />;
 
   return (
     <a
@@ -26,7 +26,7 @@ const DailyDialectPhrase: React.FC = () => {
           nav.navigateTo('dialetto');
         }
       }}
-      className="flex items-center gap-2 h-[34px] bg-orange-50/80 dark:bg-orange-900/15 backdrop-blur-sm rounded-xl border border-orange-200/60 dark:border-orange-800/30 px-3 text-xs hover:border-orange-300/80 dark:hover:border-orange-700/50 transition-colors"
+      className="flex items-center gap-2 min-h-[34px] bg-orange-50/80 dark:bg-orange-900/15 backdrop-blur-sm rounded-xl border border-orange-200/60 dark:border-orange-800/30 px-3 text-xs hover:border-orange-300/80 dark:hover:border-orange-700/50 transition-colors"
       aria-label={t('dialect.openPage')}
     >
       <Sparkles size={13} className="text-orange-500 dark:text-orange-400 flex-shrink-0" />

@@ -24,7 +24,7 @@ const WeeklyFact: React.FC = () => {
 
   // If fact key returns the raw key render invisible placeholder
   // to prevent CLS (skeleton reserves h-[34px], collapsing to 0 causes layout shift)
-  if (factText === factKey) return <div className="h-[34px]" />;
+  if (factText === factKey) return <div className="min-h-[34px]" />;
 
   const handleShare = async () => {
     const shareText = `💡 ${t('weeklyFact.title')}: ${factText}${factSource !== `weeklyFact.sources.${weekIndex}` ? ` (${factSource})` : ''} — frontaliereticino.ch`;
@@ -54,7 +54,7 @@ const WeeklyFact: React.FC = () => {
   };
 
   return (
-    <div className="flex items-center gap-2 h-[34px] bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200/60 dark:border-amber-800/30 px-3 text-xs">
+    <div className="flex items-center gap-2 min-h-[34px] bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200/60 dark:border-amber-800/30 px-3 text-xs">
       <Lightbulb size={13} className="text-amber-500 dark:text-amber-400 flex-shrink-0" />
       <span className="font-bold text-amber-700 dark:text-amber-400 flex-shrink-0 hidden sm:inline">{t('weeklyFact.title')}:</span>
       <p className="flex-1 min-w-0 line-clamp-2 text-amber-800 dark:text-amber-200">{factText}</p>
