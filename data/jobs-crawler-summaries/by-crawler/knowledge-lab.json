@@ -1,16 +1,16 @@
 {
   "key": "knowledge-lab",
   "label": "Knowledge Lab",
-  "generatedAt": "2026-04-03T09:27:52.797Z",
+  "generatedAt": "2026-04-03T21:23:37.279Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 445,
-  "avgDurationMs": 445,
+  "durationMs": 375,
+  "avgDurationMs": 375,
   "durationHistory": [
-    445
+    375
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -41,6 +41,7 @@
       "currency": "CHF",
       "streetAddress": "Via Giuseppe Buffi 13",
       "postalCode": "6900",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
