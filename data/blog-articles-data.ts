@@ -5713,4 +5713,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lombardia-export-calzature.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'dogana-chiasso-centro-tecnologico',
+    category: 'novita',
+    date: '2026-04-03T13:27:44.156Z',
+    image: '/images/blog/dogana-chiasso-centro-tecnologico.jpg',
+    hasCalculator: true,
+  },
 ];

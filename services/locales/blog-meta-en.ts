@@ -1937,6 +1937,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lombardia-export-calzature.title': 'Lombardy Drives Italian Footwear Export Growth',
     'blog.article.lombardia-export-calzature.excerpt': 'In 2025, Lombardy records a turnover of €12.8 billion in the footwear sector, with a growing export of 7.9%.',
     'blog.article.lombardia-export-calzature.imageAlt': 'Italian shoes with Lombardy flag',
+    'blog.article.dogana-chiasso-centro-tecnologico.title': 'The Customs Office of Chiasso Prepares to Become a Modern Technological Hub',
+    'blog.article.dogana-chiasso-centro-tecnologico.excerpt': 'The customs office of Chiasso, a meeting point between goods and people, is evolving with innovative projects and advanced technologies.',
+    'blog.article.dogana-chiasso-centro-tecnologico.imageAlt': 'Chiasso Customs prepares to become a modern technological hub',
 };
 
 export default blogMetaEn;

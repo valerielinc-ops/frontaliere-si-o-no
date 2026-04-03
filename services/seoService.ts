@@ -1863,6 +1863,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-inchieste-penali-2025': { name: 'Aumento inchieste penali', path: '/articoli-frontaliere/aumento-inchieste-penali-2025', parent: 'blog' },
     'blog-ticino-lombardia-manifatturiero': { name: 'Ticino e Lombardia', path: '/articoli-frontaliere/ticino-lombardia-manifatturiero', parent: 'blog' },
     'blog-lombardia-export-calzature': { name: 'Economia', path: '/articoli-frontaliere/lombardia-export-calzature', parent: 'blog' },
+    'blog-dogana-chiasso-centro-tecnologico': { name: 'Economia', path: '/articoli-frontaliere/dogana-chiasso-centro-tecnologico', parent: 'blog' },
   };
 
   const info = sectionNames[section];

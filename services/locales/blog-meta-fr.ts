@@ -1937,6 +1937,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lombardia-export-calzature.title': 'La Lombardie guide la croissance de l\'export calzéifère italien',
     'blog.article.lombardia-export-calzature.excerpt': 'En 2025, la Lombardie enregistre un chiffre d\'affaires de 12,8 milliards d\'euros dans le secteur calzéifère, avec un export en croissance de 7,9%.',
     'blog.article.lombardia-export-calzature.imageAlt': 'Chaussures italiennes avec drapeau lombard',
+    'blog.article.dogana-chiasso-centro-tecnologico.title': 'La douane de Chiasso se prépare à devenir un centre technologique moderne',
+    'blog.article.dogana-chiasso-centro-tecnologico.excerpt': 'La douane de Chiasso, point de rencontre entre marchandises et personnes, évolue avec des projets innovants et des technologies avancées.',
+    'blog.article.dogana-chiasso-centro-tecnologico.imageAlt': 'La douane de Chiasso se prépare à devenir un centre technologique moderne',
 };
 
 export default blogMetaFr;

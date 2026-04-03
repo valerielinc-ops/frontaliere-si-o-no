@@ -1937,6 +1937,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lombardia-export-calzature.title': 'Lombardei führt den Exportwachstum der italienischen Schuhindustrie an',
     'blog.article.lombardia-export-calzature.excerpt': 'Im Jahr 2025 erzielt die Lombardei mit einem Umsatz von 12,8 Milliarden Euro im Schuhsektor einen Exportanstieg von 7,9%.',
     'blog.article.lombardia-export-calzature.imageAlt': 'Italienische Schuhe mit Lombardei-Flagge',
+    'blog.article.dogana-chiasso-centro-tecnologico.title': 'Die Zollstelle in Chiasso bereitet sich auf eine moderne Technologiezentrale vor',
+    'blog.article.dogana-chiasso-centro-tecnologico.excerpt': 'Die Zollstelle in Chiasso, ein Treffpunkt für Güter und Menschen, entwickelt sich mit innovativen Projekten und fortschrittlichen Technologien.',
+    'blog.article.dogana-chiasso-centro-tecnologico.imageAlt': 'Zollstelle Chiasso wird zu einem modernen Technologiezentrum',
 };
 
 export default blogMetaDe;

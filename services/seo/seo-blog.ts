@@ -10635,6 +10635,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dogana-chiasso-centro-tecnologico': {
+    title: 'La dogana di Chiasso si prepara a diventare un moderno centro | Frontaliere Ticino',
+    description: 'Scopri come la dogana di Chiasso si evolve in un moderno centro tecnologico con progetti innovativi e tecnologie avanzate. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, dogana, chiasso, prepara, diventare',
+    ogTitle: 'La dogana di Chiasso si prepara a diventare un moderno centro tecnologico',
+    ogDescription: 'La dogana di Chiasso, punto di incontro tra merci e persone, si evolve con progetti innovativi e tecnologie avanzate.',
+    canonicalPath: '/articoli-frontaliere/dogana-chiasso-centro-tecnologico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La dogana di Chiasso diventa un centro tecnologico",
+      "description": "Scopri come la dogana di Chiasso si evolve in un moderno centro tecnologico con progetti innovativi e tecnologie avanzate. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/dogana-chiasso-centro-tecnologico.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La dogana di Chiasso si prepara a diventare un moderno centro tecnologico"
+      },
+      "datePublished": "2026-04-03T13:27:44+00:00",
+      "dateModified": "2026-04-03T13:27:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/dogana-chiasso-centro-tecnologico`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

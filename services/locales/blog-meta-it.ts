@@ -1937,6 +1937,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lombardia-export-calzature.title': 'La Lombardia guida la crescita dell\'export calzaturiero italiano',
     'blog.article.lombardia-export-calzature.excerpt': 'Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%.',
     'blog.article.lombardia-export-calzature.imageAlt': 'Scarpe italiane con bandiera lombarda',
+    'blog.article.dogana-chiasso-centro-tecnologico.title': 'La dogana di Chiasso si prepara a diventare un moderno centro tecnologico',
+    'blog.article.dogana-chiasso-centro-tecnologico.excerpt': 'La dogana di Chiasso, punto di incontro tra merci e persone, si evolve con progetti innovativi e tecnologie avanzate.',
+    'blog.article.dogana-chiasso-centro-tecnologico.imageAlt': 'La dogana di Chiasso si prepara a diventare un moderno centro tecnologico',
 };
 
 export default blogMetaIt;
