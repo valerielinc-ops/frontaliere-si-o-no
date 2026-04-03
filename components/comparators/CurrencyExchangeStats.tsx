@@ -331,6 +331,12 @@ const EnhancedHistoricalStats: React.FC<{ historyData: Array<{ date: string; rat
 
 const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate: number }> }> = ({ historyData }) => {
   const { t } = useTranslation();
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
+  useEffect(() => {
+    const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => obs.disconnect();
+  }, []);
   const timing = useMemo(() => analyzeTimingPatterns(historyData), [historyData]);
   const volatility = useMemo(() => analyzeVolatility(historyData), [historyData]);
 
@@ -408,12 +414,13 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
         <div className="h-[180px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={timing.dayOfWeek.filter(d => d.sampleCount > 0)} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-              <XAxis dataKey="day" tick={{ fontSize: 12 }} tickFormatter={(v: string) => t(`currency.${v}`)} />
-              <YAxis domain={[dayMin * 0.999, dayMax * 1.001]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(4)} />
+              <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
+              <XAxis dataKey="day" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: string) => t(`currency.${v}`)} />
+              <YAxis domain={[dayMin * 0.999, dayMax * 1.001]} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => v.toFixed(4)} />
               <Tooltip
                 formatter={(v: number) => [v.toFixed(5), t('currency.average')]}
                 labelFormatter={(label: string) => t(`currency.${label}`)}
+                contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }}
               />
               <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
                 {timing.dayOfWeek.filter(d => d.sampleCount > 0).map((entry) => (
@@ -432,12 +439,13 @@ const ExchangeTimingSection: React.FC<{ historyData: Array<{ date: string; rate:
         <div className="h-[200px]">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={timing.monthOfYear} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-              <XAxis dataKey="month" tick={{ fontSize: 11 }} tickFormatter={(v: string) => t(`currency.${v}`)} />
-              <YAxis domain={[monthMin * 0.998, monthMax * 1.002]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(4)} />
+              <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
+              <XAxis dataKey="month" tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: string) => t(`currency.${v}`)} />
+              <YAxis domain={[monthMin * 0.998, monthMax * 1.002]} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => v.toFixed(4)} />
               <Tooltip
                 formatter={(v: number) => [v.toFixed(5), t('currency.average')]}
                 labelFormatter={(label: string) => t(`currency.${label}`)}
+                contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }}
               />
               <Bar dataKey="avgRate" radius={[6, 6, 0, 0]}>
                 {timing.monthOfYear.map((entry) => (
@@ -573,6 +581,12 @@ const WeightedAverageStats: React.FC<{
   period: string;
 }> = ({ historyData, currentRate, period }) => {
   const { t } = useTranslation();
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
+  useEffect(() => {
+    const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => obs.disconnect();
+  }, []);
   const stats = useMemo(() => {
     if (historyData.length < 5) return null;
 
@@ -634,7 +648,7 @@ const WeightedAverageStats: React.FC<{
   const periodLabel = period === '5y' ? t('currency.period_5y') : period === '1y' ? t('currency.period_1y') : period === '6m' ? t('currency.period_6m') : period === '3m' ? t('currency.period_3m') : t('currency.period_1m');
 
   return (
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/20 dark:to-indigo-950/20 rounded-2xl border border-blue-200 dark:border-blue-800 p-4 sm:p-6 space-y-5">
+    <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/20 dark:to-blue-900/20 rounded-2xl border border-blue-200 dark:border-blue-800 p-4 sm:p-6 space-y-5">
       <div className="flex items-center gap-3">
         <div className="p-2 bg-blue-100 dark:bg-blue-900/40 rounded-xl">
           <BarChart3 size={24} className="text-blue-600 dark:text-blue-400" />
@@ -680,13 +694,13 @@ const WeightedAverageStats: React.FC<{
           <div className="h-[200px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={stats.yearlyAvgs} margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
-                <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-                <XAxis dataKey="year" tick={{ fontSize: 12 }} />
+                <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
+                <XAxis dataKey="year" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} />
                 <YAxis domain={[
                   Math.min(...stats.yearlyAvgs.map(d => d.avg)) * 0.998,
                   Math.max(...stats.yearlyAvgs.map(d => d.avg)) * 1.002
-                ]} tick={{ fontSize: 11 }} tickFormatter={(v: number) => v.toFixed(3)} />
-                <Tooltip formatter={(v: number) => [v.toFixed(5), t('currency.average')]} />
+                ]} tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => v.toFixed(3)} />
+                <Tooltip formatter={(v: number) => [v.toFixed(5), t('currency.average')]} contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }} />
                 <Bar dataKey="avg" radius={[8, 8, 0, 0]}>
                   {stats.yearlyAvgs.map((entry, i) => (
                     <Cell key={entry.year} fill={i === stats.yearlyAvgs.length - 1 ? '#6366f1' : '#94a3b8'} />

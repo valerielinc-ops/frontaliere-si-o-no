@@ -431,7 +431,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
                 tabIndex={0}
                 onClick={() => setSelectedCrossing(isSelected ? null : crossing.name)}
                 onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') setSelectedCrossing(isSelected ? null : crossing.name); }}
-                className={`text-left bg-white dark:bg-slate-800 rounded-xl border-2 p-4 hover:shadow-md transition-all cursor-pointer ${
+                className={`text-left bg-white dark:bg-slate-800 rounded-xl border-2 p-4 hover:shadow-md transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
                   isSelected ? `${borderColor} ring-2 ring-offset-1` : 'border-slate-200 dark:border-slate-700'
                 }`}
               >
@@ -487,7 +487,7 @@ const TrafficAlerts: React.FC<TrafficAlertsProps> = ({ initialCrossingId }) => {
       )}
 
       {/* Tips */}
-      <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
+      <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30 rounded-2xl border border-blue-200 dark:border-blue-800 p-6">
         <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Navigation size={24} className="text-blue-600" />
           {t('traffic.tipsTitle')}

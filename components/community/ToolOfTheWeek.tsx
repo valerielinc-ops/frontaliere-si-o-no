@@ -30,7 +30,7 @@ interface ToolDef {
 }
 
 const ALL_TOOLS: ToolDef[] = [
-  { id: 'calculator', icon: '🧮', slug: '/calcola-stipendio', tab: 'calculator', subTab: 'salary', titleKey: 'toolOfWeek.tools.calculator', descKey: 'toolOfWeek.tools.calculatorDesc', color: 'from-blue-500 to-indigo-600' },
+  { id: 'calculator', icon: '🧮', slug: '/calcola-stipendio', tab: 'calculator', subTab: 'salary', titleKey: 'toolOfWeek.tools.calculator', descKey: 'toolOfWeek.tools.calculatorDesc', color: 'from-blue-500 to-blue-600' },
   { id: 'exchange', icon: '💱', slug: '/comparatori/cambio-valuta', tab: 'confronti', subTab: 'exchange', titleKey: 'toolOfWeek.tools.exchange', descKey: 'toolOfWeek.tools.exchangeDesc', color: 'from-emerald-500 to-teal-600' },
   { id: 'health', icon: '🏥', slug: '/comparatori/casse-malati', tab: 'confronti', subTab: 'health', titleKey: 'toolOfWeek.tools.health', descKey: 'toolOfWeek.tools.healthDesc', color: 'from-red-500 to-pink-600' },
   { id: 'pension', icon: '🏦', slug: '/fisco/pensione', tab: 'fisco', subTab: 'pension', titleKey: 'toolOfWeek.tools.pension', descKey: 'toolOfWeek.tools.pensionDesc', color: 'from-violet-500 to-purple-600' },

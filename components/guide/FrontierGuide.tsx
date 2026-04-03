@@ -41,7 +41,7 @@ const LazyLeafletMap = ({ children }: { children: (leaflet: { MapContainer: any,
   if (!leaflet) return <div className="flex items-center justify-center h-[500px]"><span className="text-slate-500 dark:text-slate-400 text-sm">Loading map…</span></div>;
   return <>{children(leaflet)}</>;
 };
-import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink, Rocket, X } from 'lucide-react';
+import { MapPin, Clock, TrendingUp, Home, Car, ShoppingCart, FileText, AlertCircle, CheckCircle2, Info, ArrowRight, Building2, Landmark, Shield, Users, Navigation, Timer, BarChart3, Euro, Heart, Briefcase, Calendar, Mountain, GraduationCap, Baby, BookOpen, LifeBuoy, Search, Filter, Star, ExternalLink, Rocket, X, SmilePlus, Backpack } from 'lucide-react';
 import { Analytics } from '../../services/analytics';
 
 const TaxCalendar = lazy(() => import('@/components/fisco/TaxCalendar'));
@@ -207,12 +207,12 @@ interface SchoolEntry {
 
 
 
-const SCHOOL_TYPE_CONFIG: Record<SchoolEntry['type'], { label: string; emoji: string; color: string }> = {
-  nido: { label: 'Nido (0-3)', emoji: '🍼', color: 'purple' },
-  infanzia: { label: 'Infanzia (3-6)', emoji: '🧒', color: 'emerald' },
-  elementare: { label: 'Elementare (6-11)', emoji: '📚', color: 'blue' },
-  media: { label: 'Media (11-15)', emoji: '🎒', color: 'amber' },
-  superiore: { label: 'Superiore (15-19)', emoji: '🎓', color: 'teal' },
+const SCHOOL_TYPE_CONFIG: Record<SchoolEntry['type'], { label: string; Icon: React.ComponentType<{ size?: number; className?: string }>; color: string }> = {
+  nido: { label: 'Nido (0-3)', Icon: Baby, color: 'purple' },
+  infanzia: { label: 'Infanzia (3-6)', Icon: SmilePlus, color: 'emerald' },
+  elementare: { label: 'Elementare (6-11)', Icon: BookOpen, color: 'blue' },
+  media: { label: 'Media (11-15)', Icon: Backpack, color: 'amber' },
+  superiore: { label: 'Superiore (15-19)', Icon: GraduationCap, color: 'teal' },
 };
 
 const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
@@ -290,7 +290,7 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
               onClick={() => setSchoolTypeFilter(key)}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${schoolTypeFilter === key ? 'bg-indigo-600 text-white' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'}`}
             >
-              {cfg.emoji} {cfg.label}
+              <cfg.Icon size={14} className="shrink-0" /> {cfg.label}
             </button>
           ))}
         </div>
@@ -321,13 +321,13 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
             return (
               <div key={type}>
                 <div className="flex items-center gap-2 mb-2">
-                  <span className="text-lg">{cfg.emoji}</span>
+                  <cfg.Icon size={18} className="text-slate-600 dark:text-slate-300" />
                   <h4 className="font-bold text-sm text-slate-700 dark:text-slate-300">{cfg.label}</h4>
                   <span className="text-[10px] font-bold bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 px-2 py-0.5 rounded-full">{schools.length}</span>
                 </div>
                 <div className="space-y-1.5">
                   {schools.map((school, i) => (
-                    <div key={i} className="bg-slate-50 dark:bg-slate-900 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-all">
+                    <div key={i} className="bg-slate-50 dark:bg-slate-900 rounded-xl p-3 border border-slate-200 dark:border-slate-700 hover:shadow-sm transition-[color,background-color,border-color,box-shadow]">
                       <div className="flex items-start justify-between gap-2">
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center gap-2 flex-wrap">
@@ -716,7 +716,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     role="button"
                     tabIndex={0}
                     aria-expanded={isSelected}
-                    className={`bg-gradient-to-br ${m.type === 'new' ? 'from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30 border-blue-200 dark:border-blue-800' : 'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border-orange-200 dark:border-orange-800'} rounded-2xl border-2 p-5 hover:shadow-lg transition-all cursor-pointer select-none ${isSelected ? 'ring-2 ring-indigo-500 ring-offset-2 shadow-lg' : ''}`}
+                    className={`bg-gradient-to-br ${m.type === 'new' ? 'from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30 border-blue-200 dark:border-blue-800' : 'from-orange-50 to-red-50 dark:from-orange-950/30 dark:to-red-950/30 border-orange-200 dark:border-orange-800'} rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] cursor-pointer select-none ${isSelected ? 'ring-2 ring-blue-500 ring-offset-2 shadow-lg' : ''}`}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div className="flex-1">
@@ -1105,7 +1105,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 return (
                   <div 
                     key={idx} 
-                    className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-5 hover:shadow-lg transition-all ${isRecommended ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-slate-200 dark:border-slate-700'}`}
+                    className={`bg-white dark:bg-slate-800 rounded-2xl border-2 p-5 hover:shadow-lg transition-[color,background-color,border-color,box-shadow] ${isRecommended ? 'border-emerald-500 ring-2 ring-emerald-500/20' : 'border-slate-200 dark:border-slate-700'}`}
                   >
                     {isRecommended && (
                       <div className="mb-3 px-3 py-1.5 bg-emerald-700 text-white text-xs font-bold rounded-full inline-flex items-center gap-1.5">
@@ -2543,7 +2543,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
       {/* Welcome banner — shown once, auto-dismisses after 15s */}
       {showBanner && bannerQueueActive && (
         <div
-          className={`fixed bottom-20 md:bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[55] transition-all duration-500 ${
+          className={`fixed bottom-20 md:bottom-4 left-4 right-4 sm:left-auto sm:right-6 sm:max-w-md z-[55] transition-colors duration-500 ${
             bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >

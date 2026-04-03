@@ -229,7 +229,7 @@ const ShoppingCalculator: React.FC = () => {
               <div className="text-xs text-white/90">{t('shopping.buyingInItaly')}</div>
             </div>
             {stats.selectedCount > 0 && (
-              <div className="bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl p-4 text-white">
+              <div className="bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl p-4 text-white">
                 <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('shopping.yourSavings')}</div>
                 <div className="text-2xl sm:text-3xl font-bold">{'\u20AC'} {stats.savings.toFixed(2)}</div>
                 <div className="text-xs text-white/90">{t('shopping.perTrip')} ({stats.selectedCount} {t('shopping.products')})</div>
@@ -256,7 +256,7 @@ const ShoppingCalculator: React.FC = () => {
                   <button
                     key={cat}
                     onClick={() => { setSelectedCategory(cat); Analytics.trackUIInteraction('guida', 'spesa', 'filtro_categoria', 'click', cat); }}
-                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
+                    className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                       selectedCategory === cat
                         ? 'bg-orange-600 text-white'
                         : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
@@ -294,7 +294,7 @@ const ShoppingCalculator: React.FC = () => {
                 <div
                   key={product.id}
                   onClick={() => !isSelected && toggleProduct(product.id)}
-                  className={`bg-white dark:bg-slate-800 rounded-xl p-4 border-2 transition-all cursor-pointer ${
+                  className={`bg-white dark:bg-slate-800 rounded-xl p-4 border-2 transition-[color,background-color,border-color,box-shadow] cursor-pointer ${
                     isSelected
                       ? 'border-orange-500 ring-2 ring-orange-500/20 shadow-lg'
                       : 'border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600'

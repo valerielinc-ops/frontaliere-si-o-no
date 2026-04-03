@@ -10,7 +10,7 @@ export const EmailConfirmed: React.FC = () => {
     {
       id: 'calculator',
       icon: Calculator,
-      colorClass: 'from-blue-500 to-indigo-600',
+      colorClass: 'from-blue-500 to-blue-600',
       titleKey: 'emailConfirmed.cta.calculator.title',
       descKey: 'emailConfirmed.cta.calculator.desc',
       href: buildPath({ activeTab: 'calculator' }),
@@ -71,7 +71,7 @@ export const EmailConfirmed: React.FC = () => {
               <a
                 key={feature.id}
                 href={feature.href}
-                className="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-700 p-4 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-all group"
+                className="flex items-center gap-4 rounded-xl border border-slate-200 dark:border-slate-700 p-4 hover:border-blue-300 dark:hover:border-blue-600 hover:shadow-md transition-[color,background-color,border-color,box-shadow] group"
               >
                 <div className={`p-2.5 bg-gradient-to-br ${feature.colorClass} rounded-xl shadow-md flex-shrink-0`}>
                   <feature.icon className="text-white" size={22} />

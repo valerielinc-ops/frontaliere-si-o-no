@@ -85,7 +85,7 @@ export default function CalcolatoreTabContent() {
                   <a
                     href="/cerca-lavoro-ticino/"
                     onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'desktop'); navigateTo('job-board' as any); }}
-                    className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all hover:shadow-md text-left cursor-pointer"
+                    className="w-full flex items-center gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-xl text-white transition-[color,background-color,border-color,box-shadow] hover:shadow-md text-left cursor-pointer"
                   >
                     <div className="p-1.5 bg-white/20 rounded-lg flex-shrink-0">
                       <Briefcase size={16} className="text-white" />
@@ -140,12 +140,12 @@ export default function CalcolatoreTabContent() {
 
             {/* Desktop: side-by-side layout */}
             <div className="hidden md:grid grid-cols-12 gap-6 h-full">
-              <div className="transition-all duration-500 ease-in-out md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
+              <div className="transition-[width] duration-300 ease-out md:col-span-4 lg:col-span-4 xl:col-span-3 h-full">
                 <Suspense fallback={<SkeletonInputCard />}>
                   <InputCard inputs={inputs} setInputs={setInputs} onCalculate={handleCalculate} />
                 </Suspense>
               </div>
-              <div className="transition-all duration-500 ease-in-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">
+              <div className="transition-[width] duration-300 ease-out md:col-span-8 lg:col-span-8 xl:col-span-9 h-full">
                 {result && (
                   <Suspense fallback={<LazyFallback />}>
                     <ResultsView result={result} inputs={inputs} />
@@ -170,7 +170,7 @@ export default function CalcolatoreTabContent() {
                   <a
                     href="/cerca-lavoro-ticino/"
                     onClick={(e) => { e.preventDefault(); Analytics.trackSelectContent('job_board_cta', 'mobile'); navigateTo('job-board' as any); }}
-                    className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 rounded-xl text-white transition-all active:scale-[0.98]"
+                    className="w-full flex items-center justify-between gap-3 px-4 py-3 bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 rounded-xl text-white transition-[color,background-color,border-color,transform] active:scale-[0.98]"
                   >
                     <div className="flex items-center gap-2.5 min-w-0">
                       <Briefcase size={18} className="text-white flex-shrink-0" />

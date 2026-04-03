@@ -594,7 +594,7 @@ const TfrCalculator: React.FC = () => {
       </div>
 
       {/* ── Related tools CTA ── */}
-      <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-5 space-y-3">
+      <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-5 space-y-3">
         <h3 className="font-bold text-sm text-slate-900 dark:text-white">{t('tfr.relatedTitle')}</h3>
         <div className="flex flex-wrap gap-2">
           <a

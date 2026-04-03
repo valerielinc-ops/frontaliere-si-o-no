@@ -1,4 +1,4 @@
-import React, { useState, useMemo, lazy, Suspense } from 'react';
+import React, { useState, useEffect, useMemo, lazy, Suspense } from 'react';
 import { Shield, TrendingUp, Calculator, Info, AlertCircle, Landmark, PiggyBank, Percent, Clock, Star, Building, Banknote, BarChart3, CheckCircle2, XCircle } from 'lucide-react';
 
 const RelatedTools = lazy(() => import('@/components/shared/RelatedTools'));
@@ -21,6 +21,12 @@ const MAX_3A_NO_LPP = 36288; // Max per autonomi senza 2° pilastro
 
 const Pillar3Simulator: React.FC = () => {
   const { t } = useTranslation();
+  const [isDark, setIsDark] = useState(() => document.documentElement.classList.contains('dark'));
+  useEffect(() => {
+    const obs = new MutationObserver(() => setIsDark(document.documentElement.classList.contains('dark')));
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ['class'] });
+    return () => obs.disconnect();
+  }, []);
   const [inputs, setInputs] = useState<Pillar3Inputs>({
     type: '3a',
     annualContribution: 7258,
@@ -109,7 +115,7 @@ const Pillar3Simulator: React.FC = () => {
             <div className="space-y-3">
               <button
                 onClick={() => { handleChange('type', '3a'); handleChange('annualContribution', MAX_3A_2026); }}
-                className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
+                className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
                   inputs.type === '3a' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
                 }`}
               >
@@ -121,7 +127,7 @@ const Pillar3Simulator: React.FC = () => {
               
               <button
                 onClick={() => handleChange('type', '3b')}
-                className={`w-full p-4 rounded-xl border-2 text-left transition-all ${
+                className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
                   inputs.type === '3b' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
                 }`}
               >
@@ -240,10 +246,10 @@ const Pillar3Simulator: React.FC = () => {
                     <stop offset="95%" stopColor="#f59e0b" stopOpacity={0}/>
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" opacity={0.3} />
-                <XAxis dataKey="age" tick={{ fontSize: 12 }} label={{ value: t('pillar3.age'), position: 'insideBottom', offset: -5 }} />
-                <YAxis tick={{ fontSize: 12 }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
-                <Tooltip formatter={(value: number) => [`CHF ${value.toLocaleString('it-IT')}`, '']} labelFormatter={(label) => `${t('pillar3.age')}: ${label}`} />
+                <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} opacity={0.3} />
+                <XAxis dataKey="age" tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} label={{ value: t('pillar3.age'), position: 'insideBottom', offset: -5, fill: isDark ? '#94a3b8' : '#64748b' }} />
+                <YAxis tick={{ fontSize: 12, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v) => `${(v / 1000).toFixed(0)}k`} />
+                <Tooltip formatter={(value: number) => [`CHF ${value.toLocaleString('it-IT')}`, '']} labelFormatter={(label) => `${t('pillar3.age')}: ${label}`} contentStyle={{ borderRadius: '12px', backgroundColor: isDark ? '#1e293b' : '#ffffff', color: isDark ? '#e2e8f0' : '#1e293b', border: 'none' }} />
                 <Legend />
                 <Area type="monotone" dataKey="withPillar" name={t('pillar3.capitalPillar3')} stroke="#14b8a6" fill="url(#colorPillar)" strokeWidth={2} />
                 {inputs.type === '3a' && (

@@ -293,7 +293,7 @@ const MorningDashboard: React.FC = () => {
     <div className="space-y-6">
       {/* Welcome Back Banner for signed-in users */}
       {user && (
-        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-4 sm:p-6">
+        <div className="bg-gradient-to-r from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 border border-blue-200 dark:border-blue-800 rounded-2xl p-4 sm:p-6">
           <div className="flex items-center gap-3">
             <div className="text-2xl">👋</div>
             <div>

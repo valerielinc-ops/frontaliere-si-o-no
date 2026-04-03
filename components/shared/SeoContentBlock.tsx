@@ -54,7 +54,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
 }> = {
   calculator: {
     Icon: Calculator,
-    gradient: 'from-blue-50 to-indigo-50 dark:from-blue-950/30 dark:to-indigo-950/30',
+    gradient: 'from-blue-50 to-blue-100 dark:from-blue-950/30 dark:to-blue-900/30',
     collapsedBg: 'bg-blue-50/60 dark:bg-blue-950/20',
     iconBg: 'bg-blue-100 dark:bg-blue-900/40',
     iconText: 'text-blue-600 dark:text-blue-400',
@@ -193,7 +193,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
 
   return (
     <section
-      className={`mb-4 rounded-xl border border-slate-200/60 dark:border-slate-700/60 overflow-hidden transition-all ${
+      className={`mb-4 rounded-xl border border-slate-200/60 dark:border-slate-700/60 overflow-hidden transition-colors ${
         expanded
           ? `bg-gradient-to-br ${config.gradient}`
           : config.collapsedBg
@@ -274,7 +274,7 @@ const SeoContentBlock: React.FC<SeoContentBlockProps> = ({ context }) => {
                   setExpanded(false);
                   nav?.navigateTo(feature.tab, feature.subTab);
                 }}
-                className="flex items-center gap-2 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg text-left hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm transition-all cursor-pointer group/card"
+                className="flex items-center gap-2 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg text-left hover:bg-white dark:hover:bg-slate-800 hover:shadow-sm transition-[color,background-color,border-color,box-shadow] cursor-pointer group/card"
               >
                 <ArrowRight className={`w-3.5 h-3.5 shrink-0 ${config.iconText} group-hover/card:translate-x-0.5 transition-transform`} aria-hidden="true" />
                 <div className="min-w-0">

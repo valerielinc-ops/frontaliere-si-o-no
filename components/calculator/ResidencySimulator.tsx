@@ -607,7 +607,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
   const hasActiveFilters = searchQuery || filterProvince || filterFascia;
 
   return (
-    <div className="bg-gradient-to-br from-violet-50 to-indigo-50 dark:from-violet-950/20 dark:to-indigo-950/20 rounded-2xl p-4 sm:p-6 border border-violet-200 dark:border-violet-800 space-y-4">
+    <div className="bg-gradient-to-br from-violet-50 to-violet-100 dark:from-violet-950/20 dark:to-violet-900/20 rounded-2xl p-4 sm:p-6 border border-violet-200 dark:border-violet-800 space-y-4">
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-3">
           <Star className="w-6 h-6 text-violet-600 dark:text-violet-400" />
@@ -624,7 +624,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
           <button
             key={p}
             onClick={() => setPriority(p)}
-            className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${
+            className={`px-4 py-2 rounded-lg text-sm font-medium transition-[color,background-color,border-color,box-shadow] ${
               priority === p
                 ? 'bg-violet-600 text-white shadow-md'
                 : 'bg-white dark:bg-slate-800 text-slate-700 dark:text-slate-300 border border-slate-200 dark:border-slate-700 hover:border-violet-400'
@@ -657,7 +657,7 @@ function BestMunicipalitySection({ grossMonthlyCHF, chfEurRate }: { grossMonthly
           </div>
           <button
             onClick={() => setShowFilters(!showFilters)}
-            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-all ${
+            className={`flex items-center gap-1.5 px-3 py-2 rounded-lg text-sm font-medium border transition-colors ${
               showFilters || hasActiveFilters
                 ? 'bg-violet-100 dark:bg-violet-900/40 border-violet-300 dark:border-violet-700 text-violet-700 dark:text-violet-300'
                 : 'bg-white dark:bg-slate-800 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:border-violet-400'

@@ -1552,7 +1552,7 @@ export default function BlogArticles({
       <div className="max-w-3xl xl:max-w-6xl mx-auto">
         {/* Reading progress bar */}
         <div
-          className="fixed top-0 left-0 z-50 h-[3px] bg-gradient-to-r from-indigo-500 via-blue-500 to-indigo-600 transition-[width] duration-150 ease-out"
+          className="fixed top-0 left-0 z-50 h-[3px] bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 transition-[width] duration-150 ease-out"
           style={{ width: `${readingProgress}%` }}
           role="progressbar"
           aria-valuenow={Math.round(readingProgress)}
@@ -2022,7 +2022,7 @@ export default function BlogArticles({
                       onClick={(e) => { e.preventDefault(); handleArticleClick(prevArticle.id); }}
                       className="flex items-center gap-3 p-4 bg-slate-50 dark:bg-slate-900/50 rounded-xl hover:bg-slate-100 dark:hover:bg-slate-700/50 transition-colors group"
                     >
-                      <ChevronLeft size={20} className="text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
+                      <ChevronLeft size={20} className="text-slate-600 dark:text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
                       <div className="min-w-0">
                         <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('blog.prevArticle')}</p>
                         <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${prevArticle.id}.title`)}</p>
@@ -2039,7 +2039,7 @@ export default function BlogArticles({
                         <p className="text-xs text-slate-500 dark:text-slate-400 mb-1">{t('blog.nextArticle')}</p>
                         <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 line-clamp-2">{t(`blog.article.${nextArticle.id}.title`)}</p>
                       </div>
-                      <ChevronRight size={20} className="text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
+                      <ChevronRight size={20} className="text-slate-600 dark:text-slate-400 group-hover:text-indigo-500 shrink-0 transition-colors" />
                     </a>
                   ) : <div />}
                 </div>

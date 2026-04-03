@@ -172,7 +172,7 @@ const TechInput: React.FC<{
 const SALARY_MIN = 0;
 const SALARY_MAX = 1_000_000;
 
-export const InputCard: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusField = null, focusRequestId = 0 }) => {
+const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusField = null, focusRequestId = 0 }) => {
   const { t } = useTranslation();
   const nav = useNavigationOptional();
   const isFocusMode = nav?.isFocusMode;

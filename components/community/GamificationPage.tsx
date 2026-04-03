@@ -38,7 +38,7 @@ const GamificationPage: React.FC = () => {
 
   const categoryColors: Record<string, string> = {
     all: 'from-amber-500 to-orange-500',
-    explorer: 'from-blue-500 to-indigo-500',
+    explorer: 'from-blue-500 to-blue-600',
     calculator: 'from-emerald-500 to-teal-500',
     expert: 'from-purple-500 to-violet-500',
     social: 'from-pink-500 to-rose-500',
@@ -116,7 +116,7 @@ const GamificationPage: React.FC = () => {
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-bold whitespace-nowrap rounded-xl transition-all ${
+              className={`flex items-center gap-2 px-4 py-2.5 text-sm font-bold whitespace-nowrap rounded-xl transition-[color,background-color,border-color,box-shadow] ${
                 selectedCategory === cat
                   ? `bg-gradient-to-r ${categoryColors[cat]} text-white shadow-md`
                   : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 border border-slate-200 dark:border-slate-700'
@@ -144,7 +144,7 @@ const GamificationPage: React.FC = () => {
           return (
             <div
               key={achievement.id}
-              className={`relative flex items-start gap-4 p-4 rounded-2xl transition-all ${
+              className={`relative flex items-start gap-4 p-4 rounded-2xl transition-[color,background-color,border-color,box-shadow] ${
                 isUnlocked
                   ? 'bg-white dark:bg-slate-800 border-2 border-amber-300 dark:border-amber-700 shadow-md'
                   : 'bg-white/60 dark:bg-slate-800/60 border border-slate-200 dark:border-slate-700 opacity-70'
@@ -216,7 +216,7 @@ const GamificationPage: React.FC = () => {
             return (
               <div
                 key={lvl}
-                className={`p-3 rounded-xl text-center transition-all ${
+                className={`p-3 rounded-xl text-center transition-[color,background-color,border-color,box-shadow] ${
                   isCurrent
                     ? 'bg-gradient-to-br from-amber-100 to-orange-100 dark:from-amber-900/30 dark:to-orange-900/30 border-2 border-amber-400 dark:border-amber-700 shadow-sm'
                     : isReached

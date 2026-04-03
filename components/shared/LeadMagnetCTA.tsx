@@ -71,7 +71,7 @@ const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: stri
     border: 'border-emerald-200 dark:border-emerald-800',
   },
   salary_guide: {
-    gradient: 'from-blue-50 to-indigo-50 dark:from-blue-900/20 dark:to-indigo-900/20',
+    gradient: 'from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20',
     iconBg: 'bg-blue-100 dark:bg-blue-800',
     iconText: 'text-blue-600 dark:text-blue-300',
     border: 'border-blue-200 dark:border-blue-800',
@@ -897,7 +897,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-lg hover:from-amber-600 hover:to-orange-700 transition-all disabled:opacity-50 flex items-center gap-1.5 text-sm shadow-md whitespace-nowrap"
+            className="px-4 py-2 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-lg hover:from-amber-600 hover:to-orange-700 transition-[color,background-color,border-color,opacity] disabled:opacity-50 flex items-center gap-1.5 text-sm shadow-md whitespace-nowrap"
           >
             {status === 'loading' ? (
               <Loader2 className="w-4 h-4 animate-spin" />
@@ -980,7 +980,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
           <button
             type="submit"
             disabled={status === 'loading'}
-            className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-all disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-md whitespace-nowrap"
+            className="px-5 py-2.5 bg-gradient-to-r from-amber-500 to-orange-600 text-white font-bold rounded-xl hover:from-amber-600 hover:to-orange-700 transition-[color,background-color,border-color,opacity] disabled:opacity-50 flex items-center justify-center gap-2 text-sm shadow-md whitespace-nowrap"
           >
             {status === 'loading' ? (
               <><Loader2 className="w-4 h-4 animate-spin" /> {t('newsletter.subscribing')}</>

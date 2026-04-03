@@ -73,7 +73,7 @@ export const SkeletonTable: React.FC<{ rows?: number; cols?: number }> = ({ rows
 export const SkeletonComparator: React.FC = () => (
   <div className="min-h-[80vh] space-y-6">
     {/* Real heading for early LCP */}
-    <div className="bg-gradient-to-br from-blue-50 to-indigo-50 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
+    <div className="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-slate-800 dark:to-slate-900 rounded-2xl p-6">
       <h2 className="text-2xl font-bold text-slate-900 dark:text-slate-100">Confronta Servizi per Frontalieri</h2>
       <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">Assicurazioni, banche, cambio valuta e trasporti a confronto</p>
     </div>
