@@ -27,6 +27,8 @@ interface JobExpiredViewProps {
   job: ExpiredJob;
   relatedJobs?: RelatedJob[];
   onBack?: () => void;
+  /** When true the user is already authenticated — hide the sign-in block. */
+  hasAccess?: boolean;
 }
 
 const SECTION_BY_LOCALE: Record<string, string> = {
@@ -88,7 +90,7 @@ const EMAIL_CTA_COPY: Record<string, string> = {
 
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
-export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExpiredViewProps) {
+export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp }: JobExpiredViewProps) {
   const [locale] = useLocale();
   const googleButtonRef = useRef<HTMLDivElement>(null);
   const [googleButtonReady, setGoogleButtonReady] = useState(false);
@@ -96,6 +98,9 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExp
   const [emailInput, setEmailInput] = useState('');
   const [emailBusy, setEmailBusy] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
+
+  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
+  const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
 
   const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
   const prefix = PREFIX_BY_LOCALE[locale] ?? '';
@@ -110,11 +115,11 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExp
     : null;
 
   useEffect(() => {
+    if (alreadySignedIn) return;
     const container = googleButtonRef.current;
     if (!container) return;
     let cancelled = false;
 
-    // Save redirect path so One Tap / Google Sign-In navigates back to this page after auth
     sessionStorage.setItem('auth_redirect_path', window.location.pathname);
 
     container.innerHTML = '';
@@ -126,11 +131,12 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExp
         if (!cancelled) reportCaughtError(err, 'jobExpiredView.renderGoogleButton');
       });
     return () => { cancelled = true; };
-  }, [listingPath]);
+  }, [alreadySignedIn, listingPath]);
 
   useEffect(() => {
+    if (alreadySignedIn) return;
     isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
-  }, []);
+  }, [alreadySignedIn]);
 
   const handleEmailSubmit = async (e: { preventDefault(): void }) => {
     e.preventDefault();
@@ -213,7 +219,8 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExp
         </p>
       )}
 
-      {/* Google Sign-In block */}
+      {/* Google Sign-In block — hidden when user is already authenticated */}
+      {!alreadySignedIn && (
       <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-5 text-center space-y-3">
         <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
           {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
@@ -263,6 +270,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack }: JobExp
         </form>
         {emailError && <p className="text-xs text-red-600 dark:text-red-300">{emailError}</p>}
       </div>
+      )}
 
       {/* AdSense */}
       <AdSenseUnit slot="5196931137" className="my-2" />

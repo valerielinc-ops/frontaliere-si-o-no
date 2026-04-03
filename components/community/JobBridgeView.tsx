@@ -38,6 +38,8 @@ interface JobBridgeViewProps {
   jobData?: BridgeJobData;
   relatedJobs?: RelatedJob[];
   onBack?: () => void;
+  /** When true the user is already authenticated — hide the sign-in block. */
+  hasAccess?: boolean;
 }
 
 const SECTION_BY_LOCALE: Record<string, string> = {
@@ -107,7 +109,7 @@ const EMAIL_CTA_COPY: Record<string, string> = {
 const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 const COUNTDOWN_SECONDS = 3;
 
-export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], onBack }: JobBridgeViewProps) {
+export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], onBack, hasAccess: hasAccessProp }: JobBridgeViewProps) {
   const [locale] = useLocale();
   const googleButtonRef = useRef<HTMLDivElement>(null);
   const [googleButtonReady, setGoogleButtonReady] = useState(false);
@@ -116,6 +118,9 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
   const [emailInput, setEmailInput] = useState('');
   const [emailBusy, setEmailBusy] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
+
+  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
+  const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
 
   const prefix = PREFIX_BY_LOCALE[locale] ?? '';
   const sectionSlug = SECTION_BY_LOCALE[locale] ?? SECTION_BY_LOCALE.it;
@@ -240,7 +245,8 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
         </div>
       )}
 
-      {/* Google Sign-In block */}
+      {/* Google Sign-In block — hidden when user is already authenticated */}
+      {!alreadySignedIn && (
       <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900/60 p-5 text-center space-y-3">
         <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
           {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
@@ -290,6 +296,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
         </form>
         {emailError && <p className="text-xs text-red-600 dark:text-red-300">{emailError}</p>}
       </div>
+      )}
 
       {/* AdSense */}
       <AdSenseUnit slot="5196931137" className="my-2" />

@@ -4067,6 +4067,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
           job={expiredJob}
           relatedJobs={[]}
           onBack={backToList}
+          hasAccess={hasAccess}
         />
       );
     }
@@ -4842,11 +4843,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
           job={expiredJob}
           relatedJobs={relatedJobsForNotFound}
           onBack={backToList}
+          hasAccess={hasAccess}
         />
       );
     }
     // Orphan: GSC slug / legacy URL with no data — show derived title + sign-in
-    return <JobOrphanView slug={initialJobSlug} onBack={backToList} />;
+    return <JobOrphanView slug={initialJobSlug} onBack={backToList} hasAccess={hasAccess} />;
   }
 
   if (selectedJob) {

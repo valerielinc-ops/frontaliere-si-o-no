@@ -20,6 +20,8 @@ import AdSenseUnit from '@/components/shared/AdSenseUnit';
 interface JobOrphanViewProps {
   slug: string;
   onBack?: () => void;
+  /** When true the user is already authenticated — hide the sign-in block. */
+  hasAccess?: boolean;
 }
 
 const SECTION_BY_LOCALE: Record<string, string> = {
@@ -156,7 +158,7 @@ function extractActiveJobLinks(html: string): Array<{ href: string; title: strin
   return links;
 }
 
-export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
+export default function JobOrphanView({ slug, onBack, hasAccess: hasAccessProp }: JobOrphanViewProps) {
   const [locale] = useLocale();
   const googleButtonRef = useRef<HTMLDivElement>(null);
   const [googleButtonReady, setGoogleButtonReady] = useState(false);
@@ -164,6 +166,9 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
   const [emailInput, setEmailInput] = useState('');
   const [emailBusy, setEmailBusy] = useState(false);
   const [emailError, setEmailError] = useState<string | null>(null);
+
+  // Hide login block if user is already authenticated (prop) or has email access (localStorage)
+  const alreadySignedIn = hasAccessProp || !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY);
 
   const [staticBodyHtml] = useState(() => getStaticBodyHtml());
 
@@ -178,6 +183,7 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
   );
 
   useEffect(() => {
+    if (alreadySignedIn) return;
     const container = googleButtonRef.current;
     if (!container) return;
     let cancelled = false;
@@ -191,11 +197,12 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
         if (!cancelled) reportCaughtError(err, 'jobOrphanView.renderGoogleButton');
       });
     return () => { cancelled = true; };
-  }, [listingPath]);
+  }, [alreadySignedIn, listingPath]);
 
   useEffect(() => {
+    if (alreadySignedIn) return;
     isLinkedInSignInAvailable().then(setLinkedInAvailable).catch(() => {});
-  }, []);
+  }, [alreadySignedIn]);
 
   const handleEmailSubmit = async (e: { preventDefault(): void }) => {
     e.preventDefault();
@@ -301,7 +308,8 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
         </div>
       )}
 
-      {/* Sign-in / alert block */}
+      {/* Sign-in / alert block — hidden when user is already authenticated */}
+      {!alreadySignedIn && (
       <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-gradient-to-b from-slate-50 to-white dark:from-slate-900/60 dark:to-slate-900/40 p-5 text-center space-y-3">
         <p className="text-sm font-semibold text-slate-800 dark:text-slate-100">
           {SIGNUP_COPY[locale] ?? SIGNUP_COPY.it}
@@ -350,6 +358,7 @@ export default function JobOrphanView({ slug, onBack }: JobOrphanViewProps) {
         </form>
         {emailError && <p className="text-xs text-red-600 dark:text-red-300">{emailError}</p>}
       </div>
+      )}
 
       {/* AdSense */}
       <AdSenseUnit slot="5196931137" className="my-2" />
