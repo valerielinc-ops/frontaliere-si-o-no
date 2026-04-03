@@ -945,6 +945,23 @@ const SEO_SECTION_DESCRIPTION_KEY_MAP: Record<string, string> = {
   consulting: 'consulting.subtitle',
   partners: 'partners.subtitle',
   holidays: 'holidays.seoDescription',
+  health: 'seo.health.description',
+  exchange: 'seo.exchange.description',
+  traffic: 'seo.traffic.description',
+  pension: 'seo.pension.description',
+  pillar3: 'seo.pillar3.description',
+  permits: 'seo.permits.description',
+  'cost-of-living': 'seo.costOfLiving.description',
+  'tax-return': 'seo.taxReturn.description',
+  banks: 'seo.banks.description',
+  mobile: 'seo.mobile.description',
+  transport: 'seo.transport.description',
+  shopping: 'seo.shopping.description',
+  guide: 'seo.guide.description',
+  fisco: 'seo.fisco.description',
+  stats: 'seo.stats.description',
+  vita: 'seo.vita.description',
+  blog: 'seo.blog.description',
 };
 
 function translateIfExists(key: string | undefined): string | null {

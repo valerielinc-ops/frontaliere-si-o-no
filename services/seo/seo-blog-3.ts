@@ -2265,20 +2265,33 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     ogTitle: 'Permesso G: vantaggi e svantaggi per il frontaliere nel 2026',
     ogDescription: 'Analisi completa dei pro e contro del permesso G: tassazione, previdenza, diritti lavorativi e quando conviene rispetto al permesso B.',
     canonicalPath: '/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Permesso G: Vantaggi e Svantaggi per il Frontaliere 2026",
-      "description": "Analisi completa dei pro e contro del permesso G per frontalieri: tassazione, previdenza AVS/LPP, diritti lavorativi, e quando conviene rispetto al permesso B.",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/ponte-dogana.webp`, "width": 1200, "height": 675 },
-      "datePublished": "2026-04-03",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Permesso G: Vantaggi e Svantaggi per il Frontaliere 2026",
+        "description": "Analisi completa dei pro e contro del permesso G per frontalieri: tassazione, previdenza AVS/LPP, diritti lavorativi, e quando conviene rispetto al permesso B.",
+        "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/ponte-dogana.webp`, "width": 1200, "height": 675 },
+        "datePublished": "2026-04-03",
+        "dateModified": BUILD_DATE_ISO,
+        "inLanguage": "it",
+        "author": {"@id": "https://frontaliereticino.ch/#organization"},
+        "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+        "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/permesso-g-vantaggi-svantaggi-frontaliere`,
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Quali sono i principali vantaggi del permesso G?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G consente di lavorare in Svizzera mantenendo la residenza in Italia: tassazione vantaggiosa per vecchi frontalieri (solo imposta alla fonte), contributi AVS/LPP svizzeri, stessi diritti lavorativi dei residenti, e possibilità di rientro giornaliero." } },
+          { "@type": "Question", "name": "Qual è la differenza tra permesso G e permesso B?", "acceptedAnswer": { "@type": "Answer", "text": "Il permesso G è per frontalieri che risiedono in Italia e rientrano quotidianamente; il permesso B è per residenti in Svizzera. Il G mantiene il legame con il sistema italiano (SSN, proprietà), il B dà accesso completo ai servizi svizzeri ma richiede trasferimento di residenza." } },
+          { "@type": "Question", "name": "I nuovi frontalieri pagano le tasse due volte?", "acceptedAnswer": { "@type": "Answer", "text": "I frontalieri assunti dopo il 17 luglio 2023 pagano l'imposta alla fonte in Svizzera e l'IRPEF in Italia, ma con una franchigia di €10.000 e un credito d'imposta che evita la doppia imposizione effettiva." } },
+          { "@type": "Question", "name": "Quanto costa il pendolarismo da frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "I costi variano da CHF 200-500/mese per il carburante e l'usura dell'auto, più eventuali pedaggi e vignetta autostradale svizzera (CHF 40/anno). Il treno TILO offre abbonamenti mensili da CHF 150-300." } },
+          { "@type": "Question", "name": "Posso passare da permesso G a permesso B?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, è possibile trasferire la residenza in Svizzera e passare al permesso B in qualsiasi momento, purché si trovi un alloggio in Svizzera e si comunichi il cambio alle autorità competenti." } }
+        ]
+      }
+    ]
   },
 
   'blog-lamal-vs-ssn-decisione': {
@@ -2288,20 +2301,33 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     ogTitle: 'LAMal vs SSN: quale assicurazione scegliere da frontaliere',
     ogDescription: 'Guida alla scelta tra assicurazione sanitaria svizzera LAMal e SSN italiano: costi, coperture e scenari concreti per frontalieri.',
     canonicalPath: '/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "LAMal vs SSN: Quale Assicurazione Scegliere da Frontaliere",
-      "description": "Guida alla scelta tra assicurazione sanitaria svizzera LAMal e SSN italiano per frontalieri: costi, coperture e scenari concreti.",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio-sunset.webp`, "width": 1200, "height": 675 },
-      "datePublished": "2026-04-03",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "LAMal vs SSN: Quale Assicurazione Scegliere da Frontaliere",
+        "description": "Guida alla scelta tra assicurazione sanitaria svizzera LAMal e SSN italiano per frontalieri: costi, coperture e scenari concreti.",
+        "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio-sunset.webp`, "width": 1200, "height": 675 },
+        "datePublished": "2026-04-03",
+        "dateModified": BUILD_DATE_ISO,
+        "inLanguage": "it",
+        "author": {"@id": "https://frontaliereticino.ch/#organization"},
+        "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+        "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lamal-vs-ssn-guida-scelta-frontaliere`,
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Qual è la differenza tra LAMal e SSN per un frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "LAMal è l'assicurazione sanitaria obbligatoria svizzera con premi fissi (CHF 200-600/mese) e franchigia; il SSN italiano è basato su contributi proporzionali al reddito (~7.5%) senza franchigia. Il frontaliere ha diritto di opzione entro 3 mesi dall'inizio dell'attività." } },
+          { "@type": "Question", "name": "Quanto costa la LAMal per un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I premi LAMal per frontalieri in Canton Ticino variano da CHF 200 a CHF 600 al mese a seconda della cassa malati, del modello assicurativo (standard, telmed, HMO) e della franchigia scelta (CHF 300-2.500 per adulti)." } },
+          { "@type": "Question", "name": "Posso curarmi in Svizzera con il SSN italiano?", "acceptedAnswer": { "@type": "Answer", "text": "Con il SSN italiano e la tessera TEAM si ha copertura per emergenze in tutta l'UE e Svizzera, ma le cure programmate in Svizzera non sono coperte. Per cure non urgenti serve la LAMal o un'assicurazione privata." } },
+          { "@type": "Question", "name": "Quando conviene scegliere la LAMal rispetto al SSN?", "acceptedAnswer": { "@type": "Answer", "text": "La LAMal conviene per single con reddito superiore a CHF 5.000/mese, per chi necessita di cure frequenti in Svizzera, e per chi vuole accesso diretto a specialisti svizzeri senza lunghe attese." } },
+          { "@type": "Question", "name": "Il diritto di opzione LAMal/SSN è irreversibile?", "acceptedAnswer": { "@type": "Answer", "text": "La scelta iniziale è valida per tutto il periodo di lavoro in Svizzera con lo stesso datore. Si può cambiare in caso di nuovo rapporto di lavoro, cambio di cantone o variazioni familiari significative." } }
+        ]
+      }
+    ]
   },
 
   'blog-trovare-lavoro-ticino': {
@@ -2311,20 +2337,33 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     ogTitle: 'Come trovare lavoro in Ticino da frontaliere: guida completa 2026',
     ogDescription: 'Portali di ricerca, settori che assumono, CV svizzero e stipendi medi: tutto per trovare lavoro in Canton Ticino dall\'Italia.',
     canonicalPath: '/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Come Trovare Lavoro in Ticino da Frontaliere: Guida 2026",
-      "description": "Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: guida completa per trovare lavoro in Canton Ticino.",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1200, "height": 675 },
-      "datePublished": "2026-04-03",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Come Trovare Lavoro in Ticino da Frontaliere: Guida 2026",
+        "description": "Portali di ricerca, settori che assumono, CV svizzero, colloquio e stipendi medi: guida completa per trovare lavoro in Canton Ticino.",
+        "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1200, "height": 675 },
+        "datePublished": "2026-04-03",
+        "dateModified": BUILD_DATE_ISO,
+        "inLanguage": "it",
+        "author": {"@id": "https://frontaliereticino.ch/#organization"},
+        "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+        "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trovare-lavoro-ticino-guida-frontaliere`,
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Quali sono i portali migliori per cercare lavoro in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I principali portali sono job.ticino.ch (cantonale), jobs.ch e jobup.ch (nazionali), LinkedIn, e il job board di Frontaliere Ticino con oltre 4.000 offerte. Le agenzie interinali come Adecco, Manpower e Randstad hanno sedi a Lugano e Mendrisio." } },
+          { "@type": "Question", "name": "Qual è lo stipendio medio in Ticino per un frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio mediano in Canton Ticino è di circa CHF 5.400/mese (BFS, 2024). Varia per settore: finanza CHF 7.000-9.000, IT CHF 6.500-8.500, pharma CHF 6.000-8.000, commercio CHF 5.000-6.500, ospitalità CHF 4.500-5.500." } },
+          { "@type": "Question", "name": "Il CV svizzero è diverso da quello italiano?", "acceptedAnswer": { "@type": "Answer", "text": "Sì: il CV svizzero include foto, è lungo 2-3 pagine, richiede referenze verificabili, usa formato cronologico inverso e include i certificati di lavoro (Arbeitszeugnis). La lettera motivazionale è quasi sempre richiesta." } },
+          { "@type": "Question", "name": "Quali settori assumono di più frontalieri in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con più domanda sono: servizi finanziari e bancari, farmaceutico e biotech, IT e software, ingegneria e manifattura, commercio al dettaglio, e sanità. Lugano, Mendrisio e Chiasso concentrano la maggior parte delle opportunità." } },
+          { "@type": "Question", "name": "Serve parlare tedesco per lavorare in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "No, il Ticino è italofono. L'italiano è la lingua principale. Tuttavia, conoscere inglese e/o tedesco è un vantaggio competitivo, soprattutto in finanza, pharma e aziende internazionali." } }
+        ]
+      }
+    ]
   },
 
   'blog-guida-completa-frontaliere': {
@@ -2334,20 +2373,33 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     ogTitle: 'Guida completa per diventare frontaliere in Svizzera nel 2026',
     ogDescription: 'Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza e tutto quello che serve per lavorare in Svizzera dall\'Italia.',
     canonicalPath: '/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "BlogPosting",
-      "headline": "Guida Completa per Diventare Frontaliere in Svizzera 2026",
-      "description": "Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza, assicurazione e tutto quello che serve per lavorare in Svizzera dall\'Italia.",
-      "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1200, "height": 675 },
-      "datePublished": "2026-04-03",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
+    structuredData: [
+      {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Guida Completa per Diventare Frontaliere in Svizzera 2026",
+        "description": "Dalla ricerca del lavoro al primo giorno: permessi, tasse, previdenza, assicurazione e tutto quello che serve per lavorare in Svizzera dall\'Italia.",
+        "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1200, "height": 675 },
+        "datePublished": "2026-04-03",
+        "dateModified": BUILD_DATE_ISO,
+        "inLanguage": "it",
+        "author": {"@id": "https://frontaliereticino.ch/#organization"},
+        "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+        "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/guida-completa-diventare-frontaliere-svizzera`,
+        "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "Come si diventa frontaliere in Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "Servono: un contratto di lavoro svizzero, la residenza in un comune entro 20 km dal confine, il permesso G rilasciato dall'ufficio migrazione cantonale, e l'iscrizione AVS/LPP. Il processo richiede circa 2-4 settimane dalla firma del contratto." } },
+          { "@type": "Question", "name": "Quali documenti servono per il permesso G?", "acceptedAnswer": { "@type": "Answer", "text": "Contratto di lavoro, passaporto o carta d'identità validi, foto tessera, attestato di domicilio dal comune italiano, e il formulario 60-023 compilato dal datore di lavoro. L'ufficio migrazione cantonale rilascia il permesso in 5-10 giorni lavorativi." } },
+          { "@type": "Question", "name": "Quanto guadagna in media un frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio mediano in Canton Ticino è di circa CHF 5.400/mese lordi (BFS 2024). Dopo le deduzioni sociali (AVS 5.3%, AD 1.1%, LAA, LPP) e l'imposta alla fonte (8-15%), il netto è circa CHF 3.800-4.500 per un single." } },
+          { "@type": "Question", "name": "Quali tasse paga un frontaliere nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "I vecchi frontalieri (ante 17/07/2023) pagano solo l'imposta alla fonte svizzera (8-15%). I nuovi frontalieri pagano l'imposta alla fonte svizzera + IRPEF italiana con €10.000 di franchigia e credito d'imposta per evitare la doppia imposizione." } },
+          { "@type": "Question", "name": "Quanto costa vivere da frontaliere tra Italia e Svizzera?", "acceptedAnswer": { "@type": "Answer", "text": "I costi fissi includono: pendolarismo €200-400/mese, assicurazione sanitaria (LAMal CHF 200-600 o SSN ~7.5% del reddito), vignetta svizzera CHF 40/anno. Vivere in Italia riduce i costi abitativi del 40-60% rispetto alla Svizzera." } }
+        ]
+      }
+    ]
   },
 
 };

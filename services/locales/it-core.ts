@@ -2330,6 +2330,13 @@ Regole:
     'seoContent.stats.check4': 'Andamento storico cambio CHF-EUR e dati comunità frontaliera',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3440.title': 'Ottimizzazione AI SEO e Nuovi Articoli Pilastro',
+    'whatsNew.v3440.pillarArticles.title': '4 Guide Approfondite per Frontalieri',
+    'whatsNew.v3440.pillarArticles.desc': 'Nuovi articoli pilastro: Permesso G pro/contro, LAMal vs SSN, Trovare lavoro in Ticino e Guida completa per diventare frontaliere.',
+    'whatsNew.v3440.expertQuotes.title': 'Citazioni di Esperti nelle FAQ',
+    'whatsNew.v3440.expertQuotes.desc': 'Aggiunte citazioni di specialisti fiscali, previdenziali e assicurativi per rafforzare l\'autorevolezza delle risposte.',
+    'whatsNew.v3440.enAiReference.title': 'Referenza AI in Inglese',
+    'whatsNew.v3440.enAiReference.desc': 'Creato documento di riferimento completo in inglese per migliorare la visibilità nei motori di ricerca AI internazionali.',
     'whatsNew.v3430.title': 'Miglioramenti e Nuove Funzionalità per un\'Esperienza Migliore',
     'whatsNew.v3430.newsletter.title': 'Più Opzioni per le Sezioni delle Newsletter',
     'whatsNew.v3430.newsletter.desc': 'Ora puoi includere facilmente la sezione \'Lavori\' nelle tue newsletter, rendendole più complete.',
@@ -2839,5 +2846,24 @@ Regole:
     'input.expenseName': 'Nome spesa',
     'input.expenseAmount': 'Importo spesa',
     'input.toggleFrequency': 'Cambia frequenza mensile/annuale',
+
+    // SEO section descriptions (used for localized meta tags)
+    'seo.health.description': 'Confronta le casse malati LAMal per frontalieri in Canton Ticino: premi, modelli, franchige e risparmi reali per il 2026.',
+    'seo.exchange.description': 'Tasso di cambio CHF/EUR in tempo reale per frontalieri: storico, previsioni, e calcolo netto dopo la conversione valutaria.',
+    'seo.traffic.description': 'Traffico in tempo reale ai valichi di confine Ticino-Italia: Chiasso, Brogeda, Stabio, Ponte Tresa e tempi di attesa.',
+    'seo.pension.description': 'Simulatore pensione AVS/LPP per frontalieri: calcola la tua rendita svizzera, coordinamento con INPS e strategie previdenziali.',
+    'seo.pillar3.description': 'Terzo pilastro 3a per frontalieri: deducibilità fiscale, limiti 2026, migliori fornitori e strategie di risparmio previdenziale.',
+    'seo.permits.description': 'Guida ai permessi di lavoro svizzeri per frontalieri: permesso G, permesso B, requisiti, procedure e differenze pratiche.',
+    'seo.costOfLiving.description': 'Confronto costo della vita Ticino vs Italia: affitti, spesa, trasporti e qualità della vita per famiglie di frontalieri.',
+    'seo.taxReturn.description': 'Guida alla dichiarazione dei redditi per frontalieri: IRPEF, credito d\'imposta, Quadro CE e scadenze fiscali 2026.',
+    'seo.banks.description': 'Confronto conti bancari per frontalieri in Svizzera: costi, tassi di cambio, carte e servizi delle principali banche ticinesi.',
+    'seo.mobile.description': 'Confronto operatori mobili transfrontalieri: piani con roaming Italia-Svizzera, costi e copertura per frontalieri.',
+    'seo.transport.description': 'Confronto trasporti per frontalieri: auto, treno TILO, bus, abbonamenti e costi di pendolarismo Italia-Svizzera.',
+    'seo.shopping.description': 'Calcolatore spesa transfrontaliera: confronto prezzi, franchigia doganale e consigli per risparmiare tra Italia e Svizzera.',
+    'seo.guide.description': 'Guida completa per frontalieri: tutto quello che serve sapere per lavorare in Svizzera dall\'Italia nel 2026.',
+    'seo.fisco.description': 'Sezione fiscale per frontalieri: imposta alla fonte, IRPEF, nuovo accordo 2026, simulatore fiscale e pianificazione previdenziale.',
+    'seo.stats.description': 'Statistiche frontalieri in tempo reale: stipendi, occupazione, traffico, prezzi benzina e osservatorio mercato del lavoro.',
+    'seo.vita.description': 'Vivere da frontaliere: comuni migliori, scuole, aziende ticinesi, eventi e qualità della vita in Canton Ticino.',
+    'seo.blog.description': 'Articoli e guide per frontalieri: tassazione, previdenza, mercato del lavoro, assicurazioni e novità normative 2026.',
 };
 export default translations;

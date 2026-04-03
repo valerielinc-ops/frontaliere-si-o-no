@@ -2241,6 +2241,13 @@ Regeln:
     'seoContent.stats.check4': 'Historische CHF-EUR Kursentwicklung und Gemeinschaftsdaten',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3440.title': 'AI-SEO-Optimierung und Neue Pillar-Artikel',
+    'whatsNew.v3440.pillarArticles.title': '4 Ausführliche Ratgeber für Grenzgänger',
+    'whatsNew.v3440.pillarArticles.desc': 'Neue Pillar-Artikel: G-Bewilligung Vor-/Nachteile, KVG vs SSN, Arbeit im Tessin finden und Kompletter Leitfaden für Grenzgänger.',
+    'whatsNew.v3440.expertQuotes.title': 'Expertenzitate in den FAQ',
+    'whatsNew.v3440.expertQuotes.desc': 'Zitate von Steuer-, Vorsorge- und Versicherungsspezialisten hinzugefügt, um die Autorität unserer FAQ-Antworten zu stärken.',
+    'whatsNew.v3440.enAiReference.title': 'Englisches AI-Referenzdokument',
+    'whatsNew.v3440.enAiReference.desc': 'Umfassendes englisches Referenzdokument erstellt, um die Sichtbarkeit in internationalen KI-Suchmaschinen zu verbessern.',
     'whatsNew.v3430.title': 'Verbesserungen und neue Funktionen für eine bessere Erfahrung',
     'whatsNew.v3430.newsletter.title': 'Mehr Optionen für Newsletter-Bereiche',
     'whatsNew.v3430.newsletter.desc': 'Sie können jetzt ganz einfach den Bereich \'Jobs\' in Ihre Newsletter aufnehmen, um diese umfassender zu gestalten.',
@@ -2750,6 +2757,25 @@ Regeln:
     'input.expenseName': 'Ausgabenbezeichnung',
     'input.expenseAmount': 'Ausgabenbetrag',
     'input.toggleFrequency': 'Häufigkeit monatlich/jährlich wechseln',
+
+    // SEO section descriptions
+    'seo.health.description': 'KVG-Krankenkassenvergleich für Grenzgänger im Kanton Tessin: Prämien, Modelle, Franchisen und Einsparungen 2026.',
+    'seo.exchange.description': 'CHF/EUR-Wechselkurs live für Grenzgänger: historische Daten, Prognosen und Nettolohn nach Währungsumrechnung.',
+    'seo.traffic.description': 'Grenzverkehr Tessin-Italien live: Chiasso, Brogeda, Stabio, Ponte Tresa — Wartezeiten und Stau-Informationen.',
+    'seo.pension.description': 'AHV/BVG-Rentenrechner für Grenzgänger: Berechnen Sie Ihre Schweizer Rente, INPS-Koordination und Vorsorgestrategien.',
+    'seo.pillar3.description': 'Säule 3a für Grenzgänger: Steuerabzüge, Grenzen 2026, beste Anbieter und Vorsorge-Sparstrategien.',
+    'seo.permits.description': 'Arbeitsbewilligungen Schweiz für Grenzgänger: G-Bewilligung, B-Bewilligung, Anforderungen und praktische Unterschiede.',
+    'seo.costOfLiving.description': 'Lebenshaltungskosten Tessin vs Italien: Miete, Einkauf, Transport und Lebensqualität für Grenzgänger-Familien.',
+    'seo.taxReturn.description': 'Steuererklärung für Grenzgänger: IRPEF, Steuergutschrift, Formulare und Fristen 2026.',
+    'seo.banks.description': 'Bankkontovergleich für Grenzgänger in der Schweiz: Gebühren, Wechselkurse, Karten und Dienstleistungen.',
+    'seo.mobile.description': 'Grenzüberschreitender Mobilfunkvergleich: Roaming-Pläne Italien-Schweiz, Kosten und Abdeckung für Pendler.',
+    'seo.transport.description': 'Transportvergleich für Grenzgänger: Auto, TILO-Zug, Bus, Abos und Pendelkosten Italien-Schweiz.',
+    'seo.shopping.description': 'Grenzüberschreitender Einkaufsrechner: Preisvergleich, Zollfreibeträge und Spartipps zwischen Italien und Schweiz.',
+    'seo.guide.description': 'Kompletter Leitfaden für Grenzgänger: alles Wissenswerte zum Arbeiten in der Schweiz aus Italien im Jahr 2026.',
+    'seo.fisco.description': 'Steuerbereich für Grenzgänger: Quellensteuer, IRPEF, neues Abkommen 2026, Steuerrechner und Vorsorgeplanung.',
+    'seo.stats.description': 'Echtzeit-Grenzgängerstatistiken: Löhne, Beschäftigung, Verkehr, Benzinpreise und Arbeitsmarkt-Observatorium.',
+    'seo.vita.description': 'Leben als Grenzgänger: beste Gemeinden, Schulen, Tessiner Unternehmen, Events und Lebensqualität im Kanton Tessin.',
+    'seo.blog.description': 'Artikel und Leitfäden für Grenzgänger: Besteuerung, Vorsorge, Arbeitsmarkt, Versicherungen und Neuerungen 2026.',
 };
 
 export default deCore;

@@ -587,12 +587,20 @@ import type { Article } from '@/data/blog-articles-data';
 /** Average Italian reading speed ≈ 230 wpm. Strip HTML/markdown, count words, clamp 2–30 min. */
 const WORDS_PER_MINUTE = 230;
 
+/** Collect all bodyN translations for an article (body1, body2, … up to body20). */
+function collectBodyParts(articleId: string, t: (key: string) => string): string[] {
+  const parts: string[] = [];
+  for (let i = 1; i <= 20; i++) {
+    const key = `blog.article.${articleId}.body${i}`;
+    const val = t(key);
+    if (val === key) break;
+    parts.push(val);
+  }
+  return parts;
+}
+
 export function estimateReadingMinutes(articleId: string, t: (key: string) => string): number {
-  const raw = [
-    t(`blog.article.${articleId}.body1`),
-    t(`blog.article.${articleId}.body2`),
-    t(`blog.article.${articleId}.body3`),
-  ].join(' ');
+  const raw = collectBodyParts(articleId, t).join(' ');
   // If body translations aren't loaded yet, t() returns the key string — use a default
   if (raw.startsWith('blog.article.')) return 5;
   // Strip HTML tags and markdown-style formatting, then count words
@@ -1131,11 +1139,7 @@ export default function BlogArticles({
     // FAQ schema for evergreen (non-novita) articles with question-like H2 headings
     const faqScriptId = 'faq-schema';
     if (EVERGREEN_CATEGORIES.has(article.category)) {
-      const bodyTexts = [
-        t(`blog.article.${article.id}.body1`),
-        t(`blog.article.${article.id}.body2`),
-        t(`blog.article.${article.id}.body3`),
-      ].filter(b => b && !b.startsWith('blog.article.'));
+      const bodyTexts = collectBodyParts(article.id, t);
       const faqPairs = extractFaqPairs(bodyTexts.join('\n\n'));
       if (faqPairs.length >= 2) {
         const faqSchema = {
@@ -1225,11 +1229,7 @@ export default function BlogArticles({
     const title = t(`blog.article.${articleId}.title`);
     const excerpt = t(`blog.article.${articleId}.excerpt`);
     // Concatenate all body sections
-    const body = [
-      t(`blog.article.${articleId}.body1`),
-      t(`blog.article.${articleId}.body2`),
-      t(`blog.article.${articleId}.body3`),
-    ].join(' ');
+    const body = collectBodyParts(articleId, t).join(' ');
     const contextText = `${articleId} ${title} ${excerpt} ${body}`;
 
     const cluster: SeoCluster =
@@ -1496,11 +1496,8 @@ export default function BlogArticles({
 
     const sidePartners = getPartnersForCategory(article.category, 4);
     const creatorContextText = `${article.category} ${t(`blog.article.${article.id}.title`)} ${t(`blog.article.${article.id}.excerpt`)}`;
-    const articleBody1 = t(`blog.article.${article.id}.body1`);
-    const articleBody2 = t(`blog.article.${article.id}.body2`);
-    const articleBody3 = t(`blog.article.${article.id}.body3`);
-    const bodySegments = [articleBody1, articleBody2, articleBody3];
-    const presentSegments = bodySegments.filter((b) => b && !b.startsWith('blog.article.'));
+    const bodySegments = collectBodyParts(article.id, t);
+    const presentSegments = bodySegments;
     const combinedBody = presentSegments.join(' ');
     const bodyWordCount = combinedBody.split(/\s+/).filter(Boolean).length;
     const bodyCharCount = combinedBody.trim().length;
@@ -1508,7 +1505,7 @@ export default function BlogArticles({
     // 220 words + 1400 chars minimum ensures AdSense policy compliance
     // and avoids thin-content penalties. Articles below this threshold
     // should be enriched via AI expansion (FRO-292) rather than lowering the bar.
-    const adEligible = bodyReady && presentSegments.length === 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
+    const adEligible = bodyReady && presentSegments.length >= 3 && bodyWordCount >= 220 && bodyCharCount >= 1400;
     const adEligibleInline = adEligible;
 
     // TOC headings extracted from article body
@@ -1823,88 +1820,100 @@ export default function BlogArticles({
             )}
 
             <div className="space-y-4">
-              {renderFormattedContent(articleBody1, navigators)}
+              {bodySegments.map((segment, idx) => (
+                <React.Fragment key={idx}>
+                  {/* Interstitials after body1 (index 0) */}
+                  {idx === 1 && (
+                    <>
+                      {/* In-article ad — mobile/tablet only, placed between body1 and body2 for higher viewability */}
+                      {!isDesktopXl && (
+                        <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
+                          <AdSenseBanner
+                            adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
+                            adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
+                            adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
+                            fullWidthResponsive={false}
+                            enabled={adEligibleInline}
+                            className="my-4"
+                          />
+                        </Suspense>
+                      )}
 
-              {/* In-article ad — mobile/tablet only, placed between body1 and body2 for higher viewability */}
-              {!isDesktopXl && (
-                <Suspense fallback={adEligibleInline ? <div style={{ minHeight: AD_SLOTS.ARTICLE_INLINE_MOBILE.placeholderMinHeight, contain: 'content' }} className="my-4" /> : null}>
-                  <AdSenseBanner
-                    adSlot={AD_SLOTS.ARTICLE_INLINE_MOBILE.slot}
-                    adFormat={AD_SLOTS.ARTICLE_INLINE_MOBILE.format}
-                    adLayout={AD_SLOTS.ARTICLE_INLINE_MOBILE.layout}
-                    fullWidthResponsive={false}
-                    enabled={adEligibleInline}
-                    className="my-4"
-                  />
-                </Suspense>
-              )}
+                      {/* Amazon product picks — mobile/tablet inline (replaces affiliate card) */}
+                      <div className="xl:hidden my-5">
+                        <Suspense fallback={null}>
+                          <CreatorProducts contextText={creatorContextText} maxCards={2} />
+                        </Suspense>
+                      </div>
+                    </>
+                  )}
 
-              {/* Amazon product picks — mobile/tablet inline (replaces affiliate card) */}
-              <div className="xl:hidden my-5">
-                <Suspense fallback={null}>
-                  <CreatorProducts contextText={creatorContextText} maxCards={2} />
-                </Suspense>
-              </div>
-              {renderFormattedContent(articleBody2, navigators)}
-
-              {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}
-              {relatedJobs.length > 0 && (
-                <div className="my-4 p-4 bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 border border-indigo-200/60 dark:border-indigo-800/40 rounded-xl">
-                  <div className="flex items-center justify-between mb-3">
-                    <p className="text-sm font-bold text-indigo-800 dark:text-indigo-300 flex items-center gap-1.5">
-                      <Briefcase size={15} className="text-indigo-500" />
-                      {t('blog.inlineJobs.title')}
-                    </p>
-                    <a
-                      href={buildPath({ activeTab: 'job-board' })}
-                      onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); Analytics.trackUIInteraction('blog_inline_jobs', 'link', 'click', 'view_all'); }}
-                      className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
-                    >
-                      {t('blog.relatedJobs.viewAll')} →
-                    </a>
-                  </div>
-                  <div className="space-y-2">
-                    {relatedJobs.slice(0, 2).map(job => {
-                      const logo = jobLogoUrl(job);
-                      return (
-                      <a
-                        key={job.id}
-                        href={buildPath({ activeTab: 'job-board', jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
-                        onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
-                        className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-colors group"
-                      >
-                        <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0 overflow-hidden">
-                          {logo ? <img src={logo} alt={`Logo ${job.company}`} width={24} height={24} className="w-6 h-6 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Building2 size={14} className="text-indigo-600 dark:text-indigo-400" />}
+                  {/* Interstitials after body2 (index 1) */}
+                  {idx === 2 && (
+                    <>
+                      {/* Inline job teaser — shows 1-2 relevant jobs mid-article */}
+                      {relatedJobs.length > 0 && (
+                        <div className="my-4 p-4 bg-gradient-to-r from-indigo-50 to-blue-50 dark:from-indigo-950/30 dark:to-blue-950/20 border border-indigo-200/60 dark:border-indigo-800/40 rounded-xl">
+                          <div className="flex items-center justify-between mb-3">
+                            <p className="text-sm font-bold text-indigo-800 dark:text-indigo-300 flex items-center gap-1.5">
+                              <Briefcase size={15} className="text-indigo-500" />
+                              {t('blog.inlineJobs.title')}
+                            </p>
+                            <a
+                              href={buildPath({ activeTab: 'job-board' })}
+                              onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board'); Analytics.trackUIInteraction('blog_inline_jobs', 'link', 'click', 'view_all'); }}
+                              className="text-xs text-indigo-600 dark:text-indigo-400 hover:underline font-medium"
+                            >
+                              {t('blog.relatedJobs.viewAll')} →
+                            </a>
+                          </div>
+                          <div className="space-y-2">
+                            {relatedJobs.slice(0, 2).map(job => {
+                              const logo = jobLogoUrl(job);
+                              return (
+                              <a
+                                key={job.id}
+                                href={buildPath({ activeTab: 'job-board', jobSlug: job.slugByLocale?.[locale] ?? job.slug ?? job.id })}
+                                onClick={(e) => { if (e.metaKey || e.ctrlKey || e.shiftKey || e.button !== 0) return; e.preventDefault(); nav.navigateTo('job-board', job.slugByLocale?.[locale] ?? job.slug ?? job.id); Analytics.trackUIInteraction('blog_inline_jobs', 'card', 'click', job.id); }}
+                                className="flex items-center gap-3 p-2.5 bg-white/70 dark:bg-slate-800/50 rounded-lg hover:bg-white dark:hover:bg-slate-700/50 transition-colors group"
+                              >
+                                <div className="w-8 h-8 rounded-lg bg-indigo-100 dark:bg-indigo-900/50 flex items-center justify-center shrink-0 overflow-hidden">
+                                  {logo ? <img src={logo} alt={`Logo ${job.company}`} width={24} height={24} className="w-6 h-6 object-contain" loading="lazy" onError={handleBlogLogoError} /> : <Building2 size={14} className="text-indigo-600 dark:text-indigo-400" />}
+                                </div>
+                                <div className="min-w-0 flex-1">
+                                  <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
+                                    {job.titleByLocale?.[locale] ?? job.title}
+                                  </p>
+                                  <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
+                                    {job.company} · {job.location}
+                                  </p>
+                                </div>
+                                <ChevronRight size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
+                              </a>
+                              );
+                            })}
+                          </div>
                         </div>
-                        <div className="min-w-0 flex-1">
-                          <p className="text-sm font-semibold text-slate-700 dark:text-slate-200 truncate group-hover:text-indigo-700 dark:group-hover:text-indigo-300 transition-colors">
-                            {job.titleByLocale?.[locale] ?? job.title}
-                          </p>
-                          <p className="text-xs text-slate-500 dark:text-slate-400 truncate">
-                            {job.company} · {job.location}
-                          </p>
-                        </div>
-                        <ChevronRight size={14} className="text-slate-500 dark:text-slate-400 shrink-0" />
-                      </a>
-                      );
-                    })}
-                  </div>
-                </div>
-              )}
+                      )}
 
-              {/* Inline lead magnet CTA — contextual variant based on article category */}
-              <Suspense fallback={null}>
-                <LeadMagnetCTA
-                  variant={
-                    article.category === 'fiscale' ? 'tax_checklist'
-                    : article.category === 'pensione' ? 'pension'
-                    : article.category === 'pratico' ? 'relocation'
-                    : 'generic'
-                  }
-                  compact
-                />
-              </Suspense>
-              {renderFormattedContent(articleBody3, navigators)}
+                      {/* Inline lead magnet CTA — contextual variant based on article category */}
+                      <Suspense fallback={null}>
+                        <LeadMagnetCTA
+                          variant={
+                            article.category === 'fiscale' ? 'tax_checklist'
+                            : article.category === 'pensione' ? 'pension'
+                            : article.category === 'pratico' ? 'relocation'
+                            : 'generic'
+                          }
+                          compact
+                        />
+                      </Suspense>
+                    </>
+                  )}
+
+                  {renderFormattedContent(segment, navigators)}
+                </React.Fragment>
+              ))}
             </div>
 
             {/* Contextual CTA widgets */}

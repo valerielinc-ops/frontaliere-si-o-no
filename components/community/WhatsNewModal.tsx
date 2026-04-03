@@ -27,6 +27,29 @@ interface Release {
 
 export const RELEASES: Release[] = [
   {
+    version: '3.44.0',
+    date: '2026-04-03',
+    titleKey: 'whatsNew.v3440.title',
+    items: [
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3440.pillarArticles.title',
+        descKey: 'whatsNew.v3440.pillarArticles.desc',
+        link: { tab: 'blog' },
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3440.expertQuotes.title',
+        descKey: 'whatsNew.v3440.expertQuotes.desc',
+      },
+      {
+        type: 'feature',
+        titleKey: 'whatsNew.v3440.enAiReference.title',
+        descKey: 'whatsNew.v3440.enAiReference.desc',
+      },
+    ],
+  },
+  {
     version: '3.43.0',
     date: '2026-03-24',
     titleKey: 'whatsNew.v3430.title',

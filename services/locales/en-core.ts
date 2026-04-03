@@ -2241,6 +2241,13 @@ Rules:
     'seoContent.stats.check4': 'Historical CHF-EUR exchange trends and community data',
 
     // ─── What's New / Feature Announcements ─────────────────────────────
+    'whatsNew.v3440.title': 'AI SEO Optimization & New Pillar Articles',
+    'whatsNew.v3440.pillarArticles.title': '4 In-Depth Guides for Cross-Border Workers',
+    'whatsNew.v3440.pillarArticles.desc': 'New pillar articles: G Permit pros/cons, LAMal vs SSN, Finding work in Ticino, and Complete guide to becoming a cross-border worker.',
+    'whatsNew.v3440.expertQuotes.title': 'Expert Quotes in FAQs',
+    'whatsNew.v3440.expertQuotes.desc': 'Added quotes from tax, pension, and insurance specialists to strengthen the authority of our FAQ answers.',
+    'whatsNew.v3440.enAiReference.title': 'English AI Reference Document',
+    'whatsNew.v3440.enAiReference.desc': 'Created a comprehensive English reference document to improve visibility in international AI search engines.',
     'whatsNew.v3430.title': 'Improvements and New Features for a Better Experience',
     'whatsNew.v3430.newsletter.title': 'More Options for Newsletter Sections',
     'whatsNew.v3430.newsletter.desc': 'You can now easily include the \'Jobs\' section in your newsletters, making them more comprehensive.',
@@ -2750,6 +2757,25 @@ Rules:
     'input.expenseName': 'Expense name',
     'input.expenseAmount': 'Expense amount',
     'input.toggleFrequency': 'Toggle monthly/annual frequency',
+
+    // SEO section descriptions (used for localized meta tags)
+    'seo.health.description': 'Compare LAMal health insurance plans for cross-border workers in Canton Ticino: premiums, models, deductibles and real savings for 2026.',
+    'seo.exchange.description': 'Live CHF/EUR exchange rate for cross-border workers: historical data, forecasts, and net salary after currency conversion.',
+    'seo.traffic.description': 'Live border crossing traffic at Ticino-Italy checkpoints: Chiasso, Brogeda, Stabio, Ponte Tresa — wait times and congestion.',
+    'seo.pension.description': 'AVS/LPP pension simulator for cross-border workers: calculate your Swiss pension, INPS coordination and retirement strategies.',
+    'seo.pillar3.description': 'Pillar 3a for cross-border workers: tax deductions, 2026 limits, best providers and retirement savings strategies.',
+    'seo.permits.description': 'Swiss work permits guide for cross-border workers: G permit, B permit, requirements, procedures and practical differences.',
+    'seo.costOfLiving.description': 'Cost of living comparison Ticino vs Italy: rent, groceries, transport and quality of life for cross-border worker families.',
+    'seo.taxReturn.description': 'Tax return guide for cross-border workers: IRPEF, tax credit, Form CE and 2026 fiscal deadlines.',
+    'seo.banks.description': 'Bank account comparison for cross-border workers in Switzerland: fees, exchange rates, cards and services from Ticino banks.',
+    'seo.mobile.description': 'Cross-border mobile operator comparison: Italy-Switzerland roaming plans, costs and coverage for cross-border commuters.',
+    'seo.transport.description': 'Transport comparison for cross-border workers: car, TILO train, bus, passes and Italy-Switzerland commuting costs.',
+    'seo.shopping.description': 'Cross-border shopping calculator: price comparison, customs allowance and tips to save between Italy and Switzerland.',
+    'seo.guide.description': 'Complete guide for cross-border workers: everything you need to know to work in Switzerland from Italy in 2026.',
+    'seo.fisco.description': 'Tax section for cross-border workers: withholding tax, IRPEF, 2026 new agreement, tax simulator and pension planning.',
+    'seo.stats.description': 'Real-time cross-border worker statistics: salaries, employment, traffic, fuel prices and job market observatory.',
+    'seo.vita.description': 'Living as a cross-border worker: best municipalities, schools, Ticino companies, events and quality of life in Canton Ticino.',
+    'seo.blog.description': 'Articles and guides for cross-border workers: taxation, pensions, job market, insurance and 2026 regulatory updates.',
 };
 
 export default enCore;

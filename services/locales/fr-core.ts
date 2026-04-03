@@ -2241,6 +2241,13 @@ Règles :
     'seoContent.stats.check4': 'Historique du change CHF-EUR et données communauté frontalière',
 
     // ─── What's New / Feature Announcements ─────────────────────────────────
+    'whatsNew.v3440.title': 'Optimisation SEO IA et Nouveaux Articles Piliers',
+    'whatsNew.v3440.pillarArticles.title': '4 Guides Approfondis pour Frontaliers',
+    'whatsNew.v3440.pillarArticles.desc': 'Nouveaux articles piliers : Permis G avantages/inconvénients, LAMal vs SSN, Trouver un emploi au Tessin et Guide complet pour devenir frontalier.',
+    'whatsNew.v3440.expertQuotes.title': 'Citations d\'Experts dans les FAQ',
+    'whatsNew.v3440.expertQuotes.desc': 'Ajout de citations de spécialistes fiscaux, de prévoyance et d\'assurance pour renforcer l\'autorité de nos réponses FAQ.',
+    'whatsNew.v3440.enAiReference.title': 'Document de Référence IA en Anglais',
+    'whatsNew.v3440.enAiReference.desc': 'Création d\'un document de référence complet en anglais pour améliorer la visibilité dans les moteurs de recherche IA internationaux.',
     'whatsNew.v3430.title': 'Améliorations et Nouvelles Fonctionnalités pour une Meilleure Expérience',
     'whatsNew.v3430.newsletter.title': 'Plus d\'Options pour les Sections de Newsletter',
     'whatsNew.v3430.newsletter.desc': 'Vous pouvez désormais inclure facilement la section \'Emplois\' dans vos newsletters, les rendant plus complètes.',
@@ -2750,6 +2757,25 @@ Règles :
     'input.expenseName': 'Nom de la dépense',
     'input.expenseAmount': 'Montant de la dépense',
     'input.toggleFrequency': 'Basculer fréquence mensuelle/annuelle',
+
+    // SEO section descriptions
+    'seo.health.description': 'Comparez les caisses maladie LAMal pour frontaliers au Tessin : primes, modèles, franchises et économies réelles 2026.',
+    'seo.exchange.description': 'Taux de change CHF/EUR en temps réel pour frontaliers : historique, prévisions et salaire net après conversion.',
+    'seo.traffic.description': 'Trafic aux postes-frontière Tessin-Italie en direct : Chiasso, Brogeda, Stabio, Ponte Tresa et temps d\'attente.',
+    'seo.pension.description': 'Simulateur retraite AVS/LPP pour frontaliers : calculez votre rente suisse, coordination INPS et stratégies de prévoyance.',
+    'seo.pillar3.description': '3e pilier pour frontaliers : déductions fiscales, limites 2026, meilleurs prestataires et stratégies d\'épargne retraite.',
+    'seo.permits.description': 'Guide des permis de travail suisses pour frontaliers : permis G, permis B, exigences, procédures et différences pratiques.',
+    'seo.costOfLiving.description': 'Comparaison coût de la vie Tessin vs Italie : loyers, courses, transports et qualité de vie pour familles frontalières.',
+    'seo.taxReturn.description': 'Guide déclaration d\'impôts pour frontaliers : IRPEF, crédit d\'impôt, formulaires et échéances fiscales 2026.',
+    'seo.banks.description': 'Comparaison comptes bancaires pour frontaliers en Suisse : frais, taux de change, cartes et services bancaires tessinois.',
+    'seo.mobile.description': 'Comparaison opérateurs mobiles transfrontaliers : forfaits roaming Italie-Suisse, coûts et couverture pour pendulaires.',
+    'seo.transport.description': 'Comparaison transports pour frontaliers : voiture, train TILO, bus, abonnements et coûts de pendularisme Italie-Suisse.',
+    'seo.shopping.description': 'Calculateur courses transfrontalières : comparaison prix, franchise douanière et astuces pour économiser entre Italie et Suisse.',
+    'seo.guide.description': 'Guide complet pour frontaliers : tout ce qu\'il faut savoir pour travailler en Suisse depuis l\'Italie en 2026.',
+    'seo.fisco.description': 'Section fiscale pour frontaliers : impôt à la source, IRPEF, nouvel accord 2026, simulateur fiscal et planification retraite.',
+    'seo.stats.description': 'Statistiques frontaliers en temps réel : salaires, emploi, trafic, prix carburant et observatoire du marché du travail.',
+    'seo.vita.description': 'Vivre en tant que frontalier : meilleures communes, écoles, entreprises tessinoises, événements et qualité de vie au Tessin.',
+    'seo.blog.description': 'Articles et guides pour frontaliers : fiscalité, prévoyance, marché du travail, assurances et nouveautés réglementaires 2026.',
 };
 
 export default frCore;
