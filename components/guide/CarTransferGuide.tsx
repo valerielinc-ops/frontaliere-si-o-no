@@ -513,7 +513,7 @@ const CarTransferGuide: React.FC = () => {
                   <div className="space-y-2">
                     {phase.items.map((item, ii) => (
                       <label key={ii} className="flex items-start gap-3 p-3 bg-slate-50 dark:bg-slate-900 rounded-lg cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
-                        <input type="checkbox" className="mt-1 h-4 w-4 rounded border-slate-300 dark:border-slate-600 text-blue-600 focus:ring-blue-500" />
+                        <input type="checkbox" className="mt-1 h-4 w-4 rounded border-slate-300 dark:border-slate-600 text-blue-600 focus:ring-blue-500" aria-label={item} />
                         <span className="text-sm text-slate-700 dark:text-slate-300">{item}</span>
                       </label>
                     ))}

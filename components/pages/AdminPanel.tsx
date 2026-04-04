@@ -901,6 +901,7 @@ export default function AdminPanel() {
                   value={parserCompanyName}
                   onChange={(e) => setParserCompanyName(e.target.value)}
                   placeholder="es. VF International"
+                  aria-label="Nome azienda"
                   className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
                 />
               </label>
@@ -911,6 +912,7 @@ export default function AdminPanel() {
                   value={parserCompanyWebsite}
                   onChange={(e) => setParserCompanyWebsite(e.target.value)}
                   placeholder="https://azienda.ch"
+                  aria-label="URL sito azienda"
                   className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
                 />
               </label>
@@ -921,6 +923,7 @@ export default function AdminPanel() {
                   value={parserCompanyKey}
                   onChange={(e) => setParserCompanyKey(e.target.value)}
                   placeholder="es. vf-international"
+                  aria-label="Company key"
                   className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-white dark:bg-slate-900 text-slate-800 dark:text-slate-100"
                 />
               </label>
@@ -963,11 +966,13 @@ export default function AdminPanel() {
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   <span className="flex items-center gap-1">Punteggio qualità minimo <span className="text-[10px] text-slate-500 dark:text-slate-400">(4–10)</span></span>
                   <input type="number" min={4} max={10} value={minQualityScoreInput} onChange={e => setMinQualityScoreInput(Number(e.target.value))}
+                    aria-label="Punteggio qualità minimo"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   <span className="flex items-center gap-1">Lunghezza descrizione minima <span className="text-[10px] text-slate-500 dark:text-slate-400">(80–600 car.)</span></span>
                   <input type="number" min={80} max={600} value={minDescriptionCharsInput} onChange={e => setMinDescriptionCharsInput(Number(e.target.value))}
+                    aria-label="Lunghezza descrizione minima"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
               </div>
@@ -1003,6 +1008,7 @@ export default function AdminPanel() {
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   <span className="flex items-center gap-1">Max job tradotti per run <span className="text-[10px] text-slate-500 dark:text-slate-400">(0–100)</span></span>
                   <input type="number" min={0} max={100} value={aiLocalizationMaxJobsPerRunInput} onChange={e => setAiLocalizationMaxJobsPerRunInput(Number(e.target.value))}
+                    aria-label="Max job tradotti per run"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
               </div>
@@ -1038,16 +1044,19 @@ export default function AdminPanel() {
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   <span>Similarità min <span className="text-[10px] text-slate-500 dark:text-slate-400">(0.70–1.00)</span></span>
                   <input type="number" min={0.7} max={1} step={0.01} value={contentReuseSimilarityThresholdInput} onChange={e => setContentReuseSimilarityThresholdInput(Number(e.target.value))}
+                    aria-label="Soglia similarità minima"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   <span>Char sorgente min <span className="text-[10px] text-slate-500 dark:text-slate-400">(120–8000)</span></span>
                   <input type="number" min={120} max={8000} value={contentReuseMinSourceCharsInput} onChange={e => setContentReuseMinSourceCharsInput(Number(e.target.value))}
+                    aria-label="Caratteri sorgente minimi"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   <span>Delta lunghezza max <span className="text-[10px] text-slate-500 dark:text-slate-400">(0.02–1.00)</span></span>
                   <input type="number" min={0.02} max={1} step={0.01} value={contentReuseMaxLengthDeltaRatioInput} onChange={e => setContentReuseMaxLengthDeltaRatioInput(Number(e.target.value))}
+                    aria-label="Delta lunghezza massimo"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 text-sm" />
                 </label>
               </div>
@@ -1069,11 +1078,13 @@ export default function AdminPanel() {
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   Domain Whitelist <span className="text-[10px] text-slate-500 dark:text-slate-400">(1 host per riga)</span>
                   <textarea rows={5} value={domainWhitelistText} onChange={e => setDomainWhitelistText(e.target.value)} placeholder="esempio.com"
+                    aria-label="Domain Whitelist"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   Domain Blacklist <span className="text-[10px] text-slate-500 dark:text-slate-400">(1 host per riga)</span>
                   <textarea rows={5} value={domainBlacklistText} onChange={e => setDomainBlacklistText(e.target.value)} placeholder="esempio-da-escludere.com"
+                    aria-label="Domain Blacklist"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>
@@ -1094,11 +1105,13 @@ export default function AdminPanel() {
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   Priorità per dominio <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"host": score}`})</span>
                   <textarea rows={6} value={companyPriorityByDomainText} onChange={e => setCompanyPriorityByDomainText(e.target.value)}
+                    aria-label="Priorità per dominio"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   Priorità per nome <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"name": score}`})</span>
                   <textarea rows={6} value={companyPriorityByNameText} onChange={e => setCompanyPriorityByNameText(e.target.value)}
+                    aria-label="Priorità per nome"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>
@@ -1106,11 +1119,13 @@ export default function AdminPanel() {
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   Seed URL per dominio <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"host": ["url1","url2"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByDomainText} onChange={e => setSourceSeedsByDomainText(e.target.value)}
+                    aria-label="Seed URL per dominio"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
                 <label className="text-xs text-slate-600 dark:text-slate-400">
                   Seed URL per nome azienda <span className="text-[10px] text-slate-500 dark:text-slate-400">(JSON: {`{"name": ["url1"]}`})</span>
                   <textarea rows={6} value={sourceSeedsByNameText} onChange={e => setSourceSeedsByNameText(e.target.value)}
+                    aria-label="Seed URL per nome azienda"
                     className="mt-1 w-full px-3 py-2 rounded-lg border border-slate-300 dark:border-slate-600 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-100 font-mono text-xs" />
                 </label>
               </div>

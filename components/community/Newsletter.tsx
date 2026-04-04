@@ -406,7 +406,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                   <input type="checkbox"
                     checked={preferences[pref.key as keyof typeof preferences]}
                     onChange={(e) => setPreferences(prev => ({ ...prev, [pref.key]: e.target.checked }))}
-                    className="mt-1 w-4 h-4 rounded text-teal-600 focus:ring-teal-500" />
+                    className="mt-1 w-4 h-4 rounded text-teal-600 focus:ring-teal-500"
+                    aria-label={pref.label} />
                   <div>
                     <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">{pref.desc}</div>

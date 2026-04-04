@@ -255,6 +255,7 @@ const BankComparison: React.FC = () => {
               checked={showOnlyFrontalieri}
               onChange={(e) => setShowOnlyFrontalieri(e.target.checked)}
               className="w-4 h-4"
+              aria-label="Mostra solo banche per frontalieri"
             />
             <span className="text-sm font-bold">{t('banks.onlyFrontalieri')}</span>
           </label>
