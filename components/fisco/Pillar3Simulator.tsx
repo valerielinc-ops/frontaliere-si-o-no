@@ -147,8 +147,8 @@ const Pillar3Simulator: React.FC = () => {
             </h3>
 
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.annualContribution')}</label>
-              <input type="number" value={inputs.annualContribution}
+              <label htmlFor="p3-contribution" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.annualContribution')}</label>
+              <input id="p3-contribution" type="number" value={inputs.annualContribution}
                 onChange={(e) => handleChange('annualContribution', Math.min(Number(e.target.value), inputs.type === '3a' ? MAX_3A_2026 : 100000))}
                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
                 max={inputs.type === '3a' ? MAX_3A_2026 : 100000} min={0} step={100} />
@@ -156,26 +156,26 @@ const Pillar3Simulator: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentCapital')}</label>
-              <input type="number" value={inputs.currentCapital}
+              <label htmlFor="p3-capital" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentCapital')}</label>
+              <input id="p3-capital" type="number" value={inputs.currentCapital}
                 onChange={(e) => handleChange('currentCapital', Number(e.target.value))}
                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
                 min={0} step={1000} />
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 flex items-center gap-2">
+              <label htmlFor="p3-return" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 flex items-center gap-2">
                 {t('pillar3.expectedReturn')}
               </label>
-              <input type="range" min={0} max={6} step={0.25} value={inputs.expectedReturn}
+              <input id="p3-return" type="range" min={0} max={6} step={0.25} value={inputs.expectedReturn}
                 onChange={(e) => handleChange('expectedReturn', Number(e.target.value))}
                 className="w-full accent-teal-600" />
               <div className="text-center font-bold text-teal-600">{inputs.expectedReturn}%</div>
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.projectionYears')}</label>
-              <input type="range" min={5} max={40} step={5} value={inputs.projectionYears}
+              <label htmlFor="p3-years" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.projectionYears')}</label>
+              <input id="p3-years" type="range" min={5} max={40} step={5} value={inputs.projectionYears}
                 onChange={(e) => handleChange('projectionYears', Number(e.target.value))}
                 className="w-full accent-teal-600" />
               <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
@@ -186,16 +186,16 @@ const Pillar3Simulator: React.FC = () => {
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.marginalRate')}</label>
-              <input type="range" min={10} max={50} step={1} value={inputs.marginalTaxRate}
+              <label htmlFor="p3-tax-rate" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.marginalRate')}</label>
+              <input id="p3-tax-rate" type="range" min={10} max={50} step={1} value={inputs.marginalTaxRate}
                 onChange={(e) => handleChange('marginalTaxRate', Number(e.target.value))}
                 className="w-full accent-teal-600" />
               <div className="text-center font-bold text-teal-600">{inputs.marginalTaxRate}%</div>
             </div>
 
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentAge')}</label>
-              <input type="number" value={inputs.age}
+              <label htmlFor="p3-age" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentAge')}</label>
+              <input id="p3-age" type="number" value={inputs.age}
                 onChange={(e) => handleChange('age', Number(e.target.value))}
                 className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
                 min={18} max={65} />
