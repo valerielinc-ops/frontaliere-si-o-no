@@ -91,8 +91,8 @@
       "crawledAt": "2026-04-04T21:10:41.924Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -131,7 +131,9 @@
       "previousSlugs": [
         "administrative-employee-eoc-ente-ospedaliero-cantonale-bellinzona",
         "verwaltungsmitarbeiter-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona"
+        "employe-administratif-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
+        "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
@@ -1076,8 +1078,8 @@
       "crawledAt": "2026-04-04T09:11:03.832Z",
       "slugByLocale": {
         "it": "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano",
+        "en": "employee-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "angestellte-r-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -1117,7 +1119,9 @@
         "impiegato-a-amministrativo-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "administrative-employee-eoc-ente-ospedaliero-cantonale-novaggio",
         "sachbearbeiter-in-verwaltung-eoc-ente-ospedaliero-cantonale-novaggio",
-        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio"
+        "employe-e-administratif-ve-eoc-ente-ospedaliero-cantonale-novaggio",
+        "administrative-clerk-eoc-ente-ospedaliero-cantonale-lugano",
+        "verwaltungsangestellte-r-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
@@ -1217,7 +1221,7 @@
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "krankenpfleger-in-in-allgemeinpflege-eoc-ente-ospedaliero-cantonale-mendrisio",
         "fr": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -1264,7 +1268,8 @@
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-mendrisio",
         "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-mendrisio",
         "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-mendrisio",
-        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-mendrisio"
+        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-mendrisio",
+        "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
@@ -1436,7 +1441,7 @@
       "slugByLocale": {
         "it": "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-lugano",
-        "de": "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-lugano",
+        "de": "krankenpfleger-in-in-allgemeinpflege-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
@@ -1476,7 +1481,8 @@
         "infermiere-a-in-cure-generali-eoc-ente-ospedaliero-cantonale-locarno",
         "nurse-in-general-care-eoc-ente-ospedaliero-cantonale-locarno",
         "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-locarno",
-        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-locarno"
+        "infirmiere-en-soins-generaux-eoc-ente-ospedaliero-cantonale-locarno",
+        "krankenschwester-in-der-allgemeinen-pflege-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
@@ -1502,9 +1508,9 @@
       "crawledAt": "2026-04-04T09:11:03.832Z",
       "slugByLocale": {
         "it": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-lugano-uikz1r",
+        "en": "specialized-nurse-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "fachkrankenschwester-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "infirmiere-specialisee-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "infirmier-ere-specialise-e-eoc-ente-ospedaliero-cantonale-locarno"
       },
       "titleByLocale": {
         "it": "Infermiere/a specializzato/a",
@@ -1550,7 +1556,9 @@
         "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno",
         "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-locarno-uikzmg",
         "spezialisierte-pflegefachkraft-eoc-ente-ospedaliero-cantonale-locarno",
-        "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno"
+        "infirmier-specialise-eoc-ente-ospedaliero-cantonale-locarno",
+        "infermiere-a-specializzato-a-eoc-ente-ospedaliero-cantonale-lugano-uikz1r",
+        "infirmiere-specialisee-eoc-ente-ospedaliero-cantonale-lugano"
       ]
     },
     {
