@@ -2010,6 +2010,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.banche-sindacati-piattaforma-aumento.title': 'Les banques et les syndicats s\'accordent sur l\'augmentation des salaires et la réduction de l\'horaire',
     'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'La plateforme approuvée prévoit une augmentation de 518 euros mensuels et une réduction de l\'horaire hebdomadaire de 37 à 35 heures 📊💡',
     'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lac de Lugano et montagnes ticinoises',
+    'blog.article.addiofrontalierelongo.title': 'Adieu à Salvatore Longo, le frontalière de Luino décédé en service à Cadenazzo',
+    'blog.article.addiofrontalierelongo.excerpt': 'Salvatore Longo, 62 ans, est décédé en service en dirigeant le trafic à Cadenazzo.',
+    'blog.article.addiofrontalierelongo.imageAlt': 'Adieu à Salvatore Longo, le frontalier de Luino décédé sur son lieu de travail à Cadenazzo',
 };
 
 export default blogMetaFr;

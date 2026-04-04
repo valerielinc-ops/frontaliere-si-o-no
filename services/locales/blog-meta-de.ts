@@ -2010,6 +2010,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.banche-sindacati-piattaforma-aumento.title': 'Banken und Gewerkschaften einigen sich über Lohnerhöhung und Arbeitszeitreduzierung',
     'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'Die von der Plattform genehmigte Vereinbarung sieht einen Lohnerhöhung von 518 Euro monatlich und eine Reduzierung der wöchentlichen Arbeitszeit von 37 auf 35 Stunden vor.',
     'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lago di Lugano und Ticineser Berge',
+    'blog.article.addiofrontalierelongo.title': 'Abschied von Salvatore Longo, dem Frontalier von Luino, der auf der Arbeit in Cadenazzo starb',
+    'blog.article.addiofrontalierelongo.excerpt': 'Salvatore Longo, 62 Jahre alt, ist auf der Arbeit gestorben, als er den Verkehr in Cadenazzo leitete.',
+    'blog.article.addiofrontalierelongo.imageAlt': 'Abschied von Salvatore Longo, dem Luino-Grenzgänger, der am Arbeitsplatz in Cadenazzo starb',
 };
 
 export default blogMetaDe;

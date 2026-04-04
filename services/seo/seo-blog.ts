@@ -11186,6 +11186,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-addiofrontalierelongo': {
+    title: 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a | Frontaliere Ticino',
+    description: 'Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo. L\'incidente è avvenuto venerdì 3 aprile alle 14.30 in via San Gottardo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, addio, salvatore, longo, luino',
+    ogTitle: 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo',
+    ogDescription: 'Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo. L&#39;incidente è avvenuto venerdì 3 aprile alle 14.30 in via San',
+    canonicalPath: '/articoli-frontaliere/addiofrontalierelongo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo",
+      "description": "Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo. L'incidente è avvenuto venerdì 3 aprile alle 14.30 in via San Gottardo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/addiofrontalierelongo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo"
+      },
+      "datePublished": "2026-04-04T11:41:51+00:00",
+      "dateModified": "2026-04-04T11:41:51+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/addiofrontalierelongo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

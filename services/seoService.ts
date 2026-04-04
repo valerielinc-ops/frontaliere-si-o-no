@@ -1899,6 +1899,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-aumento-mezzi-pubblici-ticino': { name: 'Aumento prezzi mezzi pubblici Ticino', path: '/articoli-frontaliere/aumento-mezzi-pubblici-ticino', parent: 'blog' },
     'blog-frontaliere-ticino-investito-cantiere': { name: 'Frontaliere investito in un cantiere a', path: '/articoli-frontaliere/frontaliere-ticino-investito-cantiere', parent: 'blog' },
     'blog-banche-sindacati-piattaforma-aumento': { name: 'Lavoro e economia', path: '/articoli-frontaliere/banche-sindacati-piattaforma-aumento', parent: 'blog' },
+    'blog-addiofrontalierelongo': { name: 'Necrologie', path: '/articoli-frontaliere/addiofrontalierelongo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

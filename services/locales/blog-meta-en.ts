@@ -2010,6 +2010,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.banche-sindacati-piattaforma-aumento.title': 'Banks and Unions Agree on Wage Increase and Reduced Working Hours',
     'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'The approved platform foresees a monthly wage increase of 518 euros and a reduction of the weekly working hours from 37 to 35 hours.',
     'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lago di Lugano e montagne ticinesi',
+    'blog.article.addiofrontalierelongo.title': 'Farewell to Salvatore Longo, the Luino border worker who died on the job in Cadenazzo',
+    'blog.article.addiofrontalierelongo.excerpt': 'Salvatore Longo, 62 years old, died on the job while directing traffic in Cadenazzo.',
+    'blog.article.addiofrontalierelongo.imageAlt': 'Farewell to Salvatore Longo, the Luino borderer who died on the job in Cadenazzo',
 };
 
 export default blogMetaEn;

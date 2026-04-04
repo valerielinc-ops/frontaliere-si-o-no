@@ -5880,4 +5880,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/banche-sindacati-piattaforma-aumento.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'addiofrontalierelongo',
+    category: 'novita',
+    date: '2026-04-04T11:41:51.882Z',
+    image: '/images/blog/addiofrontalierelongo.jpg',
+    hasCalculator: true,
+  },
 ];

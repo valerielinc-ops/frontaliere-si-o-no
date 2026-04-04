@@ -2010,6 +2010,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.banche-sindacati-piattaforma-aumento.title': 'Banche e sindacati si accordano sull\'aumento stipendi e riduzione orario',
     'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell\'orario settimanale da 37 a 35 ore.',
     'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lago di Lugano e montagne ticinesi',
+    'blog.article.addiofrontalierelongo.title': 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo',
+    'blog.article.addiofrontalierelongo.excerpt': 'Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo.',
+    'blog.article.addiofrontalierelongo.imageAlt': 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo',
 };
 
 export default blogMetaIt;
