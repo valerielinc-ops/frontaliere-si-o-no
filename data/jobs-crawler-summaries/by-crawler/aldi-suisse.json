@@ -1,19 +1,58 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-04-04T08:37:45.904Z",
+  "generatedAt": "2026-04-04T20:37:26.766Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5027,
-  "avgDurationMs": 5027,
+  "unchangedCount": 2,
+  "durationMs": 5802,
+  "avgDurationMs": 5802,
   "durationHistory": [
-    5027
+    5802
   ],
   "newJobs": [],
   "updatedJobs": [
+    {
+      "id": "aldi-suisse-95f4c78eeb47",
+      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Lernender Detailhandel (m/w/d)",
+      "location": "en in elf Ländern weltweit. Seit dem",
+      "postalCode": "6928",
+      "canton": "TI",
+      "addressLocality": "en in elf Ländern weltweit. Seit dem",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "streetAddress": "Centro Monda 8",
+      "employmentType": "FULL_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-04",
+      "url": "https://www.jobs.aldi.ch/job/1224938701",
+      "source": "ALDI Suisse Dedicated Parser",
+      "crawledAt": "2026-04-04T20:37:25.090Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 43000,
+      "salaryMax": 58000,
+      "_qualityScore": 92,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 21,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
       "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -37,7 +76,7 @@
       "postedDate": "2026-04-04",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-04T08:37:43.925Z",
+      "crawledAt": "2026-04-04T20:37:25.092Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 54000,
@@ -73,7 +112,7 @@
       "postedDate": "2026-04-04",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-04T08:37:43.924Z",
+      "crawledAt": "2026-04-04T20:37:25.091Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 54000,
@@ -85,44 +124,6 @@
         "translation": 21,
         "completeness": 25
       }
-    },
-    {
-      "id": "aldi-suisse-95f4c78eeb47",
-      "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Lernender Detailhandel (m/w/d)",
-      "location": "en in elf Ländern weltweit. Seit dem",
-      "postalCode": "6928",
-      "canton": "TI",
-      "addressLocality": "en in elf Ländern weltweit. Seit dem",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "streetAddress": "Centro Monda 8",
-      "employmentType": "FULL_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-04",
-      "url": "https://www.jobs.aldi.ch/job/1224938701",
-      "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-04T08:37:43.922Z",
-      "needsRetranslation": true,
-      "sourceLang": "de",
-      "salaryMin": 43000,
-      "salaryMax": 58000,
-      "_qualityScore": 92,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 21,
-        "completeness": 25
-      }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-04-04T08:37:45.904Z",
+  "assembledAt": "2026-04-04T20:37:26.765Z",
   "jobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
@@ -86,7 +86,7 @@
       "postedDate": "2026-04-04",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-04T08:37:43.925Z",
+      "crawledAt": "2026-04-04T20:37:25.092Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
@@ -183,7 +183,7 @@
       "postedDate": "2026-04-04",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-04T08:37:43.924Z",
+      "crawledAt": "2026-04-04T20:37:25.091Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "previousSlugs": [
@@ -207,7 +207,7 @@
       "id": "aldi-suisse-95f4c78eeb47",
       "slug": "lernender-detailhandel-m-w-d-aldi-suisse",
       "slugByLocale": {
-        "it": "apprendista-commercio-al-dettaglio-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+        "it": "lernender-detailhandel-m-w-d-aldi-suisse",
         "en": "lernender-detailhandel-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-2zsseh",
         "de": "lernender-detailhandel-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-2zsseh",
         "fr": "lernender-detailhandel-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-2zsseh"
@@ -277,7 +277,7 @@
       "postedDate": "2026-04-04",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-04T08:37:43.922Z",
+      "crawledAt": "2026-04-04T20:37:25.090Z",
       "needsRetranslation": true,
       "sourceLang": "de",
       "salaryMin": 43000,
@@ -291,10 +291,7 @@
           "maxValue": 58000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugs": [
-        "lernender-detailhandel-m-w-d-aldi-suisse"
-      ]
+      }
     }
   ]
 }
