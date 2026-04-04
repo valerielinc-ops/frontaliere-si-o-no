@@ -1998,6 +1998,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.medici-manca-verbano-ticino-2026.title': 'De Varese au Verbano manquent 172 médecins de base : un ambulatoire temporaire a été activé à Laveno',
     'blog.article.medici-manca-verbano-ticino-2026.excerpt': 'Il y a 172 postes vacants de médecins de médecine générale dans le territoire de l\'Asst Sette Laghi.',
     'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Médecins à Ticino et Varese',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'L\'Italie réduit les accises, les détaillants de carburant inquiets',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'Le réduction des accises décidée par le gouvernement italien inquiète les détaillants de carburant du Tessin.',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Station essence à Lugano',
 };
 
 export default blogMetaFr;

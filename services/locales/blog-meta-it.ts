@@ -1998,6 +1998,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.medici-manca-verbano-ticino-2026.title': 'Da Varese al Verbano mancano 172 medici di base: attivato un ambulatorio temporaneo a Laveno',
     'blog.article.medici-manca-verbano-ticino-2026.excerpt': 'Sono 172 gli incarichi vacanti dei medici di medicina generale nel territorio dell’Asst Sette Laghi.',
     'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Medici in Ticino e Varese',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'L\'Italia taglia le accise, benzinai preoccupati',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'Il taglio delle accise deciso dal governo italiano preoccupa i benzinai ticinesi.',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Pompa di benzina in Lugano',
 };
 
 export default blogMetaIt;

@@ -5852,4 +5852,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/medici-manca-verbano-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'italia-taglia-accise-benzinai-preoccupati',
+    category: 'novita',
+    date: '2026-04-04T08:10:06.262Z',
+    image: '/images/blog/italia-taglia-accise-benzinai-preoccupati.jpg',
+    hasCalculator: true,
+  },
 ];

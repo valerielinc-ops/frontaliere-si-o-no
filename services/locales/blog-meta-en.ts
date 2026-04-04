@@ -1998,6 +1998,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.medici-manca-verbano-ticino-2026.title': 'From Varese to Verbano: 172 general practitioners missing, temporary outpatient clinic activated in Laveno',
     'blog.article.medici-manca-verbano-ticino-2026.excerpt': 'There are 172 vacant positions for general practitioners in the Asst Sette Laghi territory.',
     'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Medics in Ticino and Varese',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'Italy Cuts Fuel Taxes, Gas Station Owners Concerned',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'The Italian government\'s decision to cut fuel taxes is causing concern among gas station owners in Ticino.',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Gas station in Lugano',
 };
 
 export default blogMetaEn;

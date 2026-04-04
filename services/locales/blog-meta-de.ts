@@ -1998,6 +1998,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.medici-manca-verbano-ticino-2026.title': 'Von Varese ins Verbano fehlen 172 Allgemeinmediziner: Notarztpraxis vorübergehend in Laveno eröffnet',
     'blog.article.medici-manca-verbano-ticino-2026.excerpt': '172 Stellen für Allgemeinmediziner sind im Gebiet der Asst Sette Laghi vakant.',
     'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Ärzte in Ticino und Varese',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'Italien senkt Benzinsteuer, Tankstellenbesitzer besorgt',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'Der von der italienischen Regierung beschlossene Senkung der Benzinsteuer beunruhigt die Tankstellenbesitzer im Tessin.',
+    'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Tankstelle in Lugano',
 };
 
 export default blogMetaDe;

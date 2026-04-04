@@ -11070,6 +11070,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-italia-taglia-accise-benzinai-preoccupati': {
+    title: 'L\'Italia taglia le accise, benzinai preoccupati | Frontaliere Ticino',
+    description: 'Il taglio delle accise deciso dal governo italiano preoccupa i benzinai ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, taglia, accise, benzinai, preoccupati',
+    ogTitle: 'L\'Italia taglia le accise, benzinai preoccupati',
+    ogDescription: 'Il taglio delle accise deciso dal governo italiano preoccupa i benzinai ticinesi.',
+    canonicalPath: '/articoli-frontaliere/italia-taglia-accise-benzinai-preoccupati',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'Italia taglia le accise, benzinai preoccupati",
+      "description": "Il taglio delle accise deciso dal governo italiano preoccupa i benzinai ticinesi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/italia-taglia-accise-benzinai-preoccupati.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pompa di benzina in Lugano"
+      },
+      "datePublished": "2026-04-04T08:10:06+00:00",
+      "dateModified": "2026-04-04T08:10:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/italia-taglia-accise-benzinai-preoccupati`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
