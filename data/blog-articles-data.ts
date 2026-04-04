@@ -5824,4 +5824,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/mozzarella-clandestina-2026-ricerca.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'varese-soroptimist-studio-fibrosi-polmonare',
+    category: 'novita',
+    date: '2026-04-04T02:57:14.152Z',
+    image: '/images/blog/varese-soroptimist-studio-fibrosi-polmonare.jpg',
+    hasCalculator: true,
+  },
 ];

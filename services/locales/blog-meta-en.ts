@@ -1986,6 +1986,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mozzarella-clandestina-2026-ricerca.title': 'Smuggling Mozzarella in Ticino: How to Conduct the Right Research?',
     'blog.article.mozzarella-clandestina-2026-ricerca.excerpt': 'Discover how to conduct the right research to import mozzarella into Switzerland without any issues.',
     'blog.article.mozzarella-clandestina-2026-ricerca.imageAlt': 'A man researches information on his computer while located in the Ticino valley',
+    'blog.article.varese-soroptimist-studio-fibrosi-polmonare.title': 'Varese - Soroptimist Varese funds a scholarship for a study on pulmonary fibrosis in memory of Maria Vittoria Tenconi',
+    'blog.article.varese-soroptimist-studio-fibrosi-polmonare.excerpt': 'The biennial scholarship of 50,000 euros has been awarded to Caterina Barbieri for research on pulmonary fibrosis.',
+    'blog.article.varese-soroptimist-studio-fibrosi-polmonare.imageAlt': 'Panorama of Lake Maggiore at Bellinzona',
 };
 
 export default blogMetaEn;

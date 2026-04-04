@@ -10954,6 +10954,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-varese-soroptimist-studio-fibrosi-polmonare': {
+    title: 'Varese - Soroptimist Varese finanzia una borsa di studio sulla fibrosi | Frontaliere Ticino',
+    description: 'La borsa di studio biennale del valore di 50.000 euro è stata assegnata a Caterina Barbieri per la ricerca sulla fibrosi polmonare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, soroptimist, finanzia, borsa',
+    ogTitle: 'Varese - Soroptimist Varese finanzia una borsa di studio sulla fibrosi polmonare in',
+    ogDescription: 'La borsa di studio biennale del valore di 50.000 euro è stata assegnata a Caterina Barbieri per la ricerca sulla fibrosi polmonare.',
+    canonicalPath: '/articoli-frontaliere/varese-soroptimist-studio-fibrosi-polmonare',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\": \"http://schema.org\", \"@type\": \"NewsArticle\", \"headline\": \"Varese - Soroptimist Varese",
+      "description": "La borsa di studio biennale del valore di 50.000 euro è stata assegnata a Caterina Barbieri per la ricerca sulla fibrosi polmonare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/varese-soroptimist-studio-fibrosi-polmonare.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama del Lago Maggiore a Bellinzona"
+      },
+      "datePublished": "2026-04-04T02:57:14+00:00",
+      "dateModified": "2026-04-04T02:57:14+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/varese-soroptimist-studio-fibrosi-polmonare`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

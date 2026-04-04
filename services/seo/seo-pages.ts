@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 649,
+        "numberOfItems": 650,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4216,7 +4216,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 646, "name": "Tribunale federale amministrativo respinge gli ...", "url": `${BASE_URL}/articoli-frontaliere/tram-treno-luganese-passo-avanti` },
           { "@type": "ListItem", "position": 647, "name": "Il turismo pasquale promette gradite sorprese i...", "url": `${BASE_URL}/articoli-frontaliere/turismo-pasquale-ticino-2026` },
           { "@type": "ListItem", "position": 648, "name": "Agente di sicurezza investito a Cadenazzo: grav...", "url": `${BASE_URL}/articoli-frontaliere/agente-sicurezza-investito-cadenazzo` },
-          { "@type": "ListItem", "position": 649, "name": "Mozzarella 'clandestina' in Ticino: come fare l...", "url": `${BASE_URL}/articoli-frontaliere/mozzarella-clandestina-2026-ricerca` }
+          { "@type": "ListItem", "position": 649, "name": "Mozzarella 'clandestina' in Ticino: come fare l...", "url": `${BASE_URL}/articoli-frontaliere/mozzarella-clandestina-2026-ricerca` },
+          { "@type": "ListItem", "position": 650, "name": "{\"@context\": \"http://schema.org\", \"@type\": \"New...", "url": `${BASE_URL}/articoli-frontaliere/varese-soroptimist-studio-fibrosi-polmonare` }
         ]
       }
     ]

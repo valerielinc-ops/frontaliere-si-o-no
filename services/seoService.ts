@@ -1891,6 +1891,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-turismo-pasquale-ticino-2026': { name: 'Turismo pasquale in Ticino', path: '/articoli-frontaliere/turismo-pasquale-ticino-2026', parent: 'blog' },
     'blog-agente-sicurezza-investito-cadenazzo': { name: 'Agente di sicurezza investito a Cadenazzo', path: '/articoli-frontaliere/agente-sicurezza-investito-cadenazzo', parent: 'blog' },
     'blog-mozzarella-clandestina-2026-ricerca': { name: 'Mozzarella clandestina in Ticino', path: '/articoli-frontaliere/mozzarella-clandestina-2026-ricerca', parent: 'blog' },
+    'blog-varese-soroptimist-studio-fibrosi-polmonare': { name: 'Varese - Frontaliere Ticino', path: '/articoli-frontaliere/varese-soroptimist-studio-fibrosi-polmonare', parent: 'blog' },
   };
 
   const info = sectionNames[section];

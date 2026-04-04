@@ -1986,6 +1986,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mozzarella-clandestina-2026-ricerca.title': 'Klauström Mozzarella im Tessin: Wie man die richtige Recherche durchführt?',
     'blog.article.mozzarella-clandestina-2026-ricerca.excerpt': 'Erstelle eine erfolgreiche Recherche, um Mozzarella in die Schweiz zu importieren, ohne Probleme zu haben.',
     'blog.article.mozzarella-clandestina-2026-ricerca.imageAlt': 'Ein Mann recherchiert Informationen auf seinem Computer während er sich im Tessin-Tal befindet',
+    'blog.article.varese-soroptimist-studio-fibrosi-polmonare.title': 'Varese - Soroptimist Varese finanziert ein Stipendium für eine Forschung auf dem Gebiet der Pulmonalfibrose zu Ehren von Maria Vittoria Tenconi',
+    'blog.article.varese-soroptimist-studio-fibrosi-polmonare.excerpt': 'Die zweijährige Forschungsstiftung im Wert von 50.000 Euro wurde an Caterina Barbieri vergeben, um eine Untersuchung zur Pulmonalfibrose durchzuführen.',
+    'blog.article.varese-soroptimist-studio-fibrosi-polmonare.imageAlt': 'Panorama des Lago Maggiore bei Bellinzona',
 };
 
 export default blogMetaDe;
