@@ -2016,6 +2016,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.title': 'Autodiebe fliehen mit 40 Autoschlüsseln und einer Skoda im Tessin',
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.excerpt': 'Zwei Jugendliche haben einen Schweizer Garagenzaun geöffnet und sind mit einer Skoda und 40 Autoschlüsseln geflohen',
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.imageAlt': 'Bild eines Jungen, der mit einer Skoda flieht',
+    'blog.article.incendi-boschivi-ticino-2026.title': 'Hoches Risiko von Waldbränden im Kanton Tessin',
+    'blog.article.incendi-boschivi-ticino-2026.excerpt': 'Der Kanton Tessin befindet sich in Alarmbereitschaft wegen des hohen Risikos von Waldbränden. Die Situation ist kritisch aufgrund der mangelnden Niederschläge und des starken Windes.',
+    'blog.article.incendi-boschivi-ticino-2026.imageAlt': 'Waldbrand in Tessin',
 };
 
 export default blogMetaDe;

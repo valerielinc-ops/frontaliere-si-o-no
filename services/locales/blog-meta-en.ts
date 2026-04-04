@@ -2016,6 +2016,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.title': 'Car thieves flee with 40 keys and a Skoda in Ticino',
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.excerpt': 'Two teenagers broke into a Swiss garage and fled with a Skoda and 40 keys',
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.imageAlt': 'Image of a boy escaping with a Skoda',
+    'blog.article.incendi-boschivi-ticino-2026.title': 'High Risk of Forest Fires in Ticino',
+    'blog.article.incendi-boschivi-ticino-2026.excerpt': 'The Canton of Ticino is on high alert due to the high risk of forest fires. The situation is critical due to the lack of precipitation and strong winds.',
+    'blog.article.incendi-boschivi-ticino-2026.imageAlt': 'Forest fire in Ticino',
 };
 
 export default blogMetaEn;

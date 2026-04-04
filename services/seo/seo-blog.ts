@@ -11244,6 +11244,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendi-boschivi-ticino-2026': {
+    title: 'Forte pericolo di incendi nei boschi del Ticino | Frontaliere Ticino',
+    description: 'Il Canton Ticino è in allerta per il forte pericolo di incendi boschivi. La situazione è critica a causa della mancanza di precipitazioni e del forte vento.',
+    keywords: 'frontalieri, ticino, svizzera, italia, forte, pericolo, incendi, boschi',
+    ogTitle: 'Forte pericolo di incendi nei boschi del Ticino',
+    ogDescription: 'Il Canton Ticino è in allerta per il forte pericolo di incendi boschivi. La situazione è critica a causa della mancanza di precipitazioni e del forte vento.',
+    canonicalPath: '/articoli-frontaliere/incendi-boschivi-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Forte pericolo di incendi nei boschi del Ticino",
+      "description": "Il Canton Ticino è in allerta per il forte pericolo di incendi boschivi. La situazione è critica a causa della mancanza di precipitazioni e del forte vento.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendi-boschivi-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Incendio boschivo in Ticino"
+      },
+      "datePublished": "2026-04-04T14:11:00+00:00",
+      "dateModified": "2026-04-04T14:11:00+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendi-boschivi-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

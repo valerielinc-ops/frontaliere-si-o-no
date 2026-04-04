@@ -2016,6 +2016,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.title': 'Ladri di auto scappano con 40 chiavi e una Skoda in Ticino',
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.excerpt': 'Due adolescenti hanno forzato la porta di un garage svizzero e sono fuggiti con una Skoda e 40 chiavi',
     'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.imageAlt': 'Immagine di un ragazzo che fugge con una Skoda',
+    'blog.article.incendi-boschivi-ticino-2026.title': 'Forte pericolo di incendi nei boschi del Ticino',
+    'blog.article.incendi-boschivi-ticino-2026.excerpt': 'Il Canton Ticino è in allerta per il forte pericolo di incendi boschivi. La situazione è critica a causa della mancanza di precipitazioni e del forte vento.',
+    'blog.article.incendi-boschivi-ticino-2026.imageAlt': 'Incendio boschivo in Ticino',
 };
 
 export default blogMetaIt;

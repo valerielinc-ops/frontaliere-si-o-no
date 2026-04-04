@@ -5894,4 +5894,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'incendi-boschivi-ticino-2026',
+    category: 'novita',
+    date: '2026-04-04T14:11:00.588Z',
+    image: '/images/blog/incendi-boschivi-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];
