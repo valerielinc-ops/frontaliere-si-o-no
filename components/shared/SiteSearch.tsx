@@ -1219,7 +1219,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
                     <p className="text-xs font-semibold text-slate-500 dark:text-slate-400 uppercase tracking-wider mb-2">
                       {t('search.noResults.browseCategories') || 'Esplora per categoria'}
                     </p>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-2">
                       {categoryLinks.map((cat) => {
                         const CatIcon = cat.icon;
                         return (

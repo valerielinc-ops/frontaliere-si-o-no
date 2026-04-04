@@ -572,7 +572,7 @@ const WeatherCard: React.FC<WeatherCardProps> = ({ location, loading, flag, t })
         </div>
       </div>
 
-      <div className="grid grid-cols-3 gap-1.5 sm:gap-2 text-xs">
+      <div className="grid grid-cols-1 sm:grid-cols-3 gap-1.5 sm:gap-2 text-xs">
         <div className="flex items-center gap-1 text-slate-500 dark:text-slate-400">
           <Thermometer className="w-3 h-3" />
           <span>{t('morning.weather.feels')} {Math.round(current.apparentTemperature)}°</span>

@@ -3905,7 +3905,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
     const pages = buildPageNumbers();
     const btnBase = 'inline-flex items-center justify-center rounded-lg border font-medium transition-colors focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed';
-    const btnSize = 'min-w-[36px] h-9 px-2 text-sm sm:min-w-[40px] sm:h-10 sm:px-3 sm:text-sm';
+    const btnSize = 'min-w-[44px] h-11 px-2 text-sm sm:min-w-[44px] sm:h-11 sm:px-3 sm:text-sm';
     const btnIdle = 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 bg-white dark:bg-slate-800 hover:bg-slate-50 dark:hover:bg-slate-700';
     const btnActive = 'border-indigo-500 bg-indigo-600 text-white hover:bg-indigo-700 dark:border-indigo-400 dark:bg-indigo-500 dark:hover:bg-indigo-600';
 
