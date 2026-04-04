@@ -365,8 +365,9 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
         <form onSubmit={handleSubscribe} className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm space-y-5">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.emailLabel')}</label>
+              <label htmlFor="newsletter-email" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.emailLabel')}</label>
               <EmailInput
+                id="newsletter-email"
                 value={email}
                 onChange={(val) => { setEmail(val); setStatus('idle'); }}
                 placeholder="mario.rossi@gmail.com"
@@ -374,8 +375,9 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
               />
             </div>
             <div>
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.nameLabel')}</label>
+              <label htmlFor="newsletter-name" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('newsletter.nameLabel')}</label>
               <input type="text" value={name}
+                id="newsletter-name"
                 onChange={(e) => setName(e.target.value)}
                 placeholder="Mario"
                 autoComplete="given-name"

@@ -534,18 +534,21 @@ const TicineseDialect: React.FC = () => {
             value={newPhrase.phrase}
             onChange={(e) => setNewPhrase(prev => ({ ...prev, phrase: e.target.value }))}
             placeholder={tt('dialect.userPhrase', 'Frase in dialetto')}
+            aria-label={tt('dialect.userPhrase', 'Frase in dialetto')}
             className="px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900"
           />
           <input
             value={newPhrase.italian}
             onChange={(e) => setNewPhrase(prev => ({ ...prev, italian: e.target.value }))}
             placeholder={tt('dialect.userItalian', 'Traduzione')}
+            aria-label={tt('dialect.userItalian', 'Traduzione')}
             className="px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900"
           />
           <input
             value={newPhrase.meaning}
             onChange={(e) => setNewPhrase(prev => ({ ...prev, meaning: e.target.value }))}
             placeholder={tt('dialect.userMeaning', 'Significato/contesto')}
+            aria-label={tt('dialect.userMeaning', 'Significato/contesto')}
             className="px-3 py-2 text-xs rounded-lg border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-900"
           />
         </div>

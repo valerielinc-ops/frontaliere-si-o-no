@@ -236,8 +236,9 @@ export const FeedbackSection: React.FC = () => {
             </div>
 
             <div className="space-y-1">
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase ml-1">{t('feedback.titleLabel')}</label>
+              <label htmlFor="feedback-title" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase ml-1">{t('feedback.titleLabel')}</label>
               <input 
+                id="feedback-title"
                 value={formData.title}
                 onChange={e => setFormData(prev => ({...prev, title: e.target.value}))}
                 className="w-full bg-slate-50 dark:bg-slate-950 border border-slate-200 dark:border-slate-800 px-4 py-3 rounded-2xl outline-none focus:ring-4 focus:ring-indigo-50 dark:focus:ring-indigo-900/20 focus:border-indigo-500 transition-[color,background-color,border-color,box-shadow] text-sm"
@@ -246,8 +247,9 @@ export const FeedbackSection: React.FC = () => {
             </div>
 
             <div className="space-y-1 relative">
-              <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase ml-1">{t('feedback.detailsLabel')}</label>
+              <label htmlFor="feedback-details" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase ml-1">{t('feedback.detailsLabel')}</label>
               <textarea 
+                id="feedback-details"
                 value={formData.description}
                 onChange={e => setFormData(prev => ({...prev, description: e.target.value}))}
                 rows={5}
