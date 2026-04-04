@@ -76,12 +76,12 @@ const FaqSection: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-r from-cyan-500 to-blue-600 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-gradient-to-r from-blue-500 to-blue-600 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-2">
           <HelpCircle size={28} />
           <h2 className="text-2xl font-bold">{t('faq.title')}</h2>
         </div>
-        <p className="text-cyan-100 text-sm">{t('faq.subtitle')}</p>
+        <p className="text-blue-100 text-sm">{t('faq.subtitle')}</p>
       </div>
 
       {/* Search */}

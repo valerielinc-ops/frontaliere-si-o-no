@@ -357,7 +357,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
       {/* Header */}
       <div className="p-5 border-b border-slate-100 dark:border-slate-800 flex items-center justify-between bg-white/50 dark:bg-slate-900/50 z-10">
         <div className="flex items-center gap-3">
-            <div className="p-2.5 bg-gradient-to-br from-teal-500 to-emerald-600 text-white rounded-xl shadow-lg shadow-teal-500/20">
+            <div className="p-2.5 bg-gradient-to-br from-blue-500 to-emerald-600 text-white rounded-xl shadow-lg shadow-blue-500/20">
               <Wand2 size={20} />
             </div>
             <div>
@@ -559,14 +559,14 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
            <h3 className="text-xs font-bold text-slate-600 dark:text-slate-300 uppercase tracking-widest flex items-center gap-2"><Castle size={14} className="text-purple-500"/> {t('input.familyHealth')}</h3>
            
            <div className="grid grid-cols-2 gap-4">
-              <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-cyan-500" />
+              <StepperInput inputId="input-familyMembers" label={t('input.familyMembers')} value={inputs.familyMembers} onChange={(v: number) => handleChange('familyMembers', v)} min={1} icon={Users} iconColor="text-blue-500" />
               <StepperInput inputId="input-children" label={t('input.dependentChildren')} value={inputs.children} onChange={(v: number) => handleChange('children', v)} min={0} icon={Baby} iconColor="text-pink-500" tooltip={t('input.childrenTooltip')} />
            </div>
         </div>
 
         {/* SECTION 4: EXPENSES (COLLAPSIBLE) */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700 overflow-hidden shadow-sm">
-           <SectionHeader title={t('input.fixedExpenses')} icon={Receipt} isOpen={openSections.expenses} onToggle={() => toggleSection('expenses')} iconColor="text-teal-500" />
+           <SectionHeader title={t('input.fixedExpenses')} icon={Receipt} isOpen={openSections.expenses} onToggle={() => toggleSection('expenses')} iconColor="text-blue-500" />
            
            {openSections.expenses && (
              <div className="p-5 pt-0 space-y-6 animate-fade-in border-t border-slate-50 dark:border-slate-800/50 mt-2 pt-4">
@@ -856,7 +856,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
              isOpen={openSections.rates} 
              onToggle={() => toggleSection('rates')} 
              subtext={t('input.ratesAndCoefficients')} 
-             iconColor="text-cyan-600"
+             iconColor="text-blue-600"
              action={
                openSections.rates && (
                  <button onClick={handleResetTech} className="text-[9px] font-bold text-slate-600 dark:text-slate-400 hover:text-red-500 bg-slate-100 dark:bg-slate-900/50 px-2 py-1 rounded transition-colors" title={t('input.resetDefaults')}>

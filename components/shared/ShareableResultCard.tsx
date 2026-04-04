@@ -46,7 +46,7 @@ export interface ShareableCardProps {
 const ACCENT_GRADIENTS: Record<string, string> = {
   blue: 'from-blue-600 to-blue-700',
   violet: 'from-violet-600 to-purple-700',
-  emerald: 'from-emerald-600 to-teal-700',
+  emerald: 'from-emerald-600 to-blue-700',
   amber: 'from-amber-500 to-orange-600',
 };
 

@@ -296,7 +296,7 @@ export default function MortgageComparison() {
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
       <div className="text-center space-y-2">
-        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium">
+        <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-amber-100 dark:bg-amber-900/30 text-purple-700 dark:text-purple-300 text-sm font-medium">
           <Home size={16} />
           {t('mortgage.badge')}
         </div>
@@ -406,7 +406,7 @@ export default function MortgageComparison() {
               id="chRate"
               value={chRateKey}
               onChange={(e) => { setChRateKey(e.target.value as ChRateKey); setChCustomRate(null); }}
-              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-2 px-3 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-2 px-3 focus:ring-2 focus:ring-purple-500 focus:border-amber-500 transition-colors"
               aria-label={t('mortgage.chRate')}
             >
               {Object.entries(CH_RATES).map(([key, { label, rate }]) => (
@@ -424,7 +424,7 @@ export default function MortgageComparison() {
                 placeholder={CH_RATES[chRateKey].rate.toString()}
                 value={chCustomRate ?? ''}
                 onChange={(e) => setChCustomRate(e.target.value ? Number(e.target.value) : null)}
-                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus:ring-2 focus:ring-purple-500 focus:border-amber-500"
               />
               <span className="text-xs font-medium text-slate-600 dark:text-slate-400">%</span>
             </div>
@@ -440,7 +440,7 @@ export default function MortgageComparison() {
               id="itRate"
               value={itRateKey}
               onChange={(e) => { setItRateKey(e.target.value as ItRateKey); setItCustomRate(null); }}
-              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-2 px-3 focus:ring-2 focus:ring-purple-500 focus:border-purple-500 transition-colors"
+              className="w-full rounded-lg border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-2 px-3 focus:ring-2 focus:ring-purple-500 focus:border-amber-500 transition-colors"
               aria-label={t('mortgage.itRate')}
             >
               {Object.entries(IT_RATES).map(([key, { label, rate }]) => (
@@ -458,7 +458,7 @@ export default function MortgageComparison() {
                 placeholder={IT_RATES[itRateKey].rate.toString()}
                 value={itCustomRate ?? ''}
                 onChange={(e) => setItCustomRate(e.target.value ? Number(e.target.value) : null)}
-                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+                className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus:ring-2 focus:ring-purple-500 focus:border-amber-500"
               />
               <span className="text-xs font-medium text-slate-600 dark:text-slate-400">%</span>
             </div>
@@ -479,7 +479,7 @@ export default function MortgageComparison() {
             max={1.5}
             value={exchangeRate}
             onChange={(e) => setExchangeRate(Number(e.target.value))}
-            className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus:ring-2 focus:ring-purple-500 focus:border-purple-500"
+            className="w-20 rounded border border-slate-400 dark:border-slate-500 bg-white dark:bg-slate-700 text-slate-800 dark:text-slate-200 text-sm py-1 px-2 focus:ring-2 focus:ring-purple-500 focus:border-amber-500"
           />
           <button
             onClick={handleReset}
@@ -880,7 +880,7 @@ export default function MortgageComparison() {
               </ul>
             </div>
             {/* Frontaliero-specific */}
-            <div className="bg-purple-50/50 dark:bg-purple-900/10 rounded-xl p-4">
+            <div className="bg-amber-50/50 dark:bg-amber-900/10 rounded-xl p-4">
               <h3 className="text-sm font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2 mb-2">
                 🔑 {t('mortgage.frontalieroRulesTitle')}
               </h3>

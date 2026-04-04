@@ -50,7 +50,7 @@ function getWeatherMiniIcon(code: number, size = 16): React.ReactNode {
 
 function getTempColor(temp: number): string {
   if (temp <= -5) return 'text-blue-700 dark:text-blue-400';
-  if (temp <= 0) return 'text-cyan-700 dark:text-cyan-400';
+  if (temp <= 0) return 'text-blue-700 dark:text-blue-400';
   if (temp <= 10) return 'text-sky-700 dark:text-sky-400';
   if (temp <= 20) return 'text-emerald-700 dark:text-emerald-400';
   if (temp <= 30) return 'text-orange-700 dark:text-orange-400';

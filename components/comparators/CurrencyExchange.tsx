@@ -64,7 +64,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 1000000,
     transferTime: '1-2 giorni lavorativi',
     transferTimeKey: '1_2_business_days',
-    color: 'from-emerald-500 to-teal-600',
+    color: 'from-emerald-500 to-blue-600',
     features: ['Tasso medio di mercato reale', 'Trasparenza totale', 'Commissione scalare Wise aggiornata', 'Iscriviti da qui: bonus referral'],
     featureKeys: ['feature_real_market_rate', 'feature_total_transparency', 'feature_wise_volume_discount', 'feature_wise_referral_bonus'],
     type: 'service',
@@ -96,7 +96,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 100000,
     transferTime: 'Istantaneo',
     transferTimeKey: 'instant',
-    color: 'from-rose-500 to-pink-600',
+    color: 'from-rose-500 to-orange-600',
     features: ['100% digitale', 'Nessuna commissione dichiarata', 'Spread nascosto ~0.9%'],
     featureKeys: ['feature_100_digital', 'feature_no_declared_commission', 'feature_hidden_spread_09'],
     type: 'neobank'
@@ -126,7 +126,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 1000000,
     transferTime: '2-4 giorni lavorativi',
     transferTimeKey: '2_4_business_days',
-    color: 'from-red-500 to-pink-600',
+    color: 'from-red-500 to-orange-600',
     features: ['Commissioni fisse + spread', 'Tasso molto sfavorevole', 'Costi nascosti elevati'],
     featureKeys: ['feature_fixed_commission_spread', 'feature_very_unfavorable_rate', 'feature_high_hidden_costs'],
     type: 'traditional'
@@ -187,7 +187,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 500000,
     transferTime: '2-4 giorni lavorativi',
     transferTimeKey: '2_4_business_days',
-    color: 'from-green-600 to-teal-700',
+    color: 'from-green-600 to-blue-700',
     features: ['Commissione 4 CHF + 0.3%', 'Spread nascosto ~2.8%', 'Gruppo Crédit Agricole'],
     featureKeys: ['feature_commission_4chf_03', 'feature_hidden_spread_28', 'feature_credit_agricole_group'],
     type: 'traditional',
@@ -233,7 +233,7 @@ const providers: ExchangeProvider[] = [
     maxAmount: 500000,
     transferTime: '1-2 giorni lavorativi',
     transferTimeKey: '1_2_business_days',
-    color: 'from-teal-500 to-blue-600',
+    color: 'from-blue-500 to-blue-600',
     features: ['Servizio svizzero specializzato', 'Spread competitivo ~0.35%', 'Bonifico diretto su conto italiano', '🎁 Da frontalieticino.ch: 25€ in regalo con 3000 CHF di ordini nei primi 30 giorni'],
     featureKeys: ['feature_swiss_specialized_service', 'feature_competitive_spread_035', 'feature_direct_transfer_italy', 'feature_cambiavalute_referral_bonus'],
     type: 'service',
@@ -403,7 +403,7 @@ const CurrencyExchange: React.FC = () => {
   return (
     <div className="max-w-7xl mx-auto space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-emerald-700 to-teal-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white">
+      <div className="bg-gradient-to-br from-emerald-700 to-blue-800 rounded-2xl sm:rounded-3xl p-4 sm:p-8 text-white">
         <div className="flex items-center gap-3 sm:gap-4 mb-4">
           <ArrowRightLeft size={28} className="sm:w-8 sm:h-8" />
           <div>
@@ -571,7 +571,7 @@ const CurrencyExchange: React.FC = () => {
             href={best.provider.referralUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6 hover:shadow-lg hover:border-emerald-400 transition-[color,background-color,border-color,box-shadow] cursor-pointer"
+            className="bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-950/30 dark:to-blue-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6 hover:shadow-lg hover:border-emerald-400 transition-[color,background-color,border-color,box-shadow] cursor-pointer"
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-emerald-700 rounded-xl">
@@ -593,7 +593,7 @@ const CurrencyExchange: React.FC = () => {
             </div>
           </a>
         ) : (
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6">
+          <div className="bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-950/30 dark:to-blue-950/30 rounded-xl sm:rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-3 sm:p-6">
             <div className="flex items-center gap-3 mb-3">
               <div className="p-2 bg-emerald-700 rounded-xl">
                 <TrendingUp className="text-white" size={20} />
@@ -769,7 +769,7 @@ const CurrencyExchange: React.FC = () => {
       {/* Moved to Statistics subtab */}
 
       {/* Educational Section */}
-      <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-6">
+      <div className="bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-950/30 dark:to-blue-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-6">
         <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Info size={20} className="text-blue-600" />
           {t('currency.how_hidden_spread_works')}

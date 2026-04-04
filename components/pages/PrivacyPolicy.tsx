@@ -234,8 +234,8 @@ export const PrivacyPolicy: React.FC = () => {
         {/* Section 7: Your Rights */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
           <div className="flex items-center gap-3 mb-4">
-            <div className="p-2 bg-cyan-100 dark:bg-cyan-900/30 rounded-xl">
-              <CheckCircle2 className="text-cyan-600 dark:text-cyan-400" size={24} />
+            <div className="p-2 bg-blue-100 dark:bg-blue-900/30 rounded-xl">
+              <CheckCircle2 className="text-blue-600 dark:text-blue-400" size={24} />
             </div>
             <h2 className="text-xl font-bold text-slate-800 dark:text-slate-100">I Tuoi Diritti (GDPR)</h2>
           </div>

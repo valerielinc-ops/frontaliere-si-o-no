@@ -2316,7 +2316,7 @@ const App: React.FC = () => {
               {/* Logo Section */}
               <a href={buildPath({ activeTab: 'calculator' })} onClick={(e) => { e.preventDefault(); handleLogoClick(); handleTabChange('calculator'); }} className="flex items-center gap-3 cursor-pointer no-underline" aria-label="Frontaliere Ticino — Analisi Fiscale 2026">
                 <div className="relative group">
-                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
+                  <div className="absolute -inset-1 bg-gradient-to-r from-blue-600 to-blue-700 rounded-xl blur opacity-25 group-hover:opacity-50 transition duration-200"></div>
                   <div className="relative bg-white dark:bg-slate-900 p-2 rounded-xl text-blue-600 dark:text-blue-500 ring-1 ring-slate-200 dark:ring-slate-800">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" className="w-[22px] h-[22px] transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5 transition-transform">
                       <rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b" />
@@ -3094,7 +3094,7 @@ const App: React.FC = () => {
               <a
                 href={buildPath({ activeTab: 'glossario' })}
                 onClick={(e) => { e.preventDefault(); navigateTo('glossario' as any); }}
-                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-teal-600 dark:hover:text-teal-400 transition-colors no-underline"
+                className="inline-flex items-center gap-1 text-xs text-slate-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 transition-colors no-underline"
               >
                 <BookA className="w-3.5 h-3.5" />
                 {t('glossary.title')}

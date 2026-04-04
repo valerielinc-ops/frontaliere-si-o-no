@@ -4266,7 +4266,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialJobTodayLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialJobTodayLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -4286,8 +4286,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialJobTodayLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialJobTodayLanding.sections.last24Hours.label}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialJobTodayLanding.sections.last24Hours.label}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialJobTodayLanding.sections.last24Hours.jobs.length}</div>
           </div>
           <div className="rounded-2xl border border-emerald-100 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 p-4">
@@ -4367,7 +4367,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialOfficialGazetteLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialOfficialGazetteLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -4387,8 +4387,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialOfficialGazetteLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialOfficialGazetteLanding.latestLabel}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialOfficialGazetteLanding.latestLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialOfficialGazetteLanding.latestJobs.length}</div>
           </div>
           <div className="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-800 p-4">
@@ -4493,7 +4493,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialNursesHubLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialNursesHubLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -4513,8 +4513,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialNursesHubLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialNursesHubLanding.latestLabel}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialNursesHubLanding.latestLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialNursesHubLanding.latestJobs.length}</div>
           </div>
           <div className="rounded-2xl border border-emerald-100 dark:border-emerald-900/60 bg-emerald-50 dark:bg-emerald-950/20 p-4">
@@ -4602,7 +4602,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const parentSlug = editorialCareVariantLanding.parentHubHref.split('/').filter(Boolean).pop() || '';
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialCareVariantLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -4633,8 +4633,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialCareVariantLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialCareVariantLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialCareVariantLanding.latestLabel}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialCareVariantLanding.latestLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialCareVariantLanding.latestJobs.length}</div>
           </div>
         </section>
@@ -4696,7 +4696,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialLocationLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialLocationLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -4716,8 +4716,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationLanding.latestLabel}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialLocationLanding.latestLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationLanding.latestJobs.length}</div>
           </div>
         </section>
@@ -4808,7 +4808,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const parentSlug = editorialLocationTypeLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialLocationTypeLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -4839,8 +4839,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationTypeLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationTypeLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationTypeLanding.latestLabel}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialLocationTypeLanding.latestLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationTypeLanding.latestJobs.length}</div>
           </div>
         </section>
@@ -4903,7 +4903,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     const parentSlug = editorialLocationSectorLanding.parentLocationHref.split('/').filter(Boolean).pop() || '';
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialLocationSectorLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -4934,8 +4934,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialLocationSectorLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationSectorLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialLocationSectorLanding.latestLabel}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialLocationSectorLanding.latestLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialLocationSectorLanding.latestJobs.length}</div>
           </div>
         </section>
@@ -4997,7 +4997,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   if (editorialSectorRegionLanding) {
     return (
       <div className="space-y-6">
-        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-cyan-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
+        <section className="rounded-3xl border border-indigo-100 dark:border-indigo-900/60 bg-gradient-to-br from-indigo-50 via-white to-blue-50 dark:from-slate-900 dark:via-slate-900 dark:to-slate-800 p-6 sm:p-8">
           <p className="text-xs font-bold uppercase tracking-[0.18em] text-indigo-700 dark:text-indigo-300">
             {editorialSectorRegionLanding.updatedLabel} · {new Date().toLocaleDateString('it-CH')}
           </p>
@@ -5028,8 +5028,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
             <div className="text-xs font-bold uppercase tracking-wide text-indigo-700 dark:text-indigo-300">{editorialSectorRegionLanding.countsLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialSectorRegionLanding.totalJobs}</div>
           </div>
-          <div className="rounded-2xl border border-cyan-100 dark:border-cyan-900/60 bg-cyan-50 dark:bg-cyan-950/20 p-4">
-            <div className="text-xs font-bold uppercase tracking-wide text-cyan-700 dark:text-cyan-300">{editorialSectorRegionLanding.latestLabel}</div>
+          <div className="rounded-2xl border border-blue-100 dark:border-blue-900/60 bg-blue-50 dark:bg-blue-950/20 p-4">
+            <div className="text-xs font-bold uppercase tracking-wide text-blue-700 dark:text-blue-300">{editorialSectorRegionLanding.latestLabel}</div>
             <div className="mt-2 text-3xl font-bold text-slate-900 dark:text-white">{editorialSectorRegionLanding.latestJobs.length}</div>
           </div>
         </section>
@@ -5505,7 +5505,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 sm:gap-6">
           <article className="lg:col-span-8 space-y-4 sm:space-y-5">
-            <header className="rounded-3xl border border-blue-100 dark:border-slate-700 bg-gradient-to-br from-cyan-50 via-white to-emerald-50 dark:from-cyan-950/40 dark:via-slate-900 dark:to-emerald-950/40 p-4 sm:p-6">
+            <header className="rounded-3xl border border-blue-100 dark:border-slate-700 bg-gradient-to-br from-blue-50 via-white to-emerald-50 dark:from-blue-950/40 dark:via-slate-900 dark:to-emerald-950/40 p-4 sm:p-6">
               <div className="flex items-start gap-3 sm:gap-4">
                 <a
                   href={applyUrl}
@@ -5593,7 +5593,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
                     {canonicalHighlights.map((item, i) => (
                       <span
                         key={i}
-                        className="text-xs px-2.5 py-1 rounded-full bg-cyan-50 dark:bg-cyan-900/20 text-cyan-700 dark:text-cyan-300 border border-cyan-100 dark:border-cyan-800"
+                        className="text-xs px-2.5 py-1 rounded-full bg-blue-50 dark:bg-blue-900/20 text-blue-700 dark:text-blue-300 border border-blue-100 dark:border-blue-800"
                       >
                         {item}
                       </span>
@@ -5781,12 +5781,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </div>
 
             {canonicalContent.process.length > 0 && timelineSections.length === 0 && (
-              <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-cyan-500">
+              <div className="rounded-xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 border-l-4 border-l-blue-500">
                 <div className="flex items-center gap-2 text-sm font-bold text-slate-900 dark:text-white">
-                  <Calendar size={15} className="text-cyan-600 dark:text-cyan-300" />
+                  <Calendar size={15} className="text-blue-600 dark:text-blue-300" />
                   {canonicalCopy.process}
                 </div>
-                <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-cyan-500 dark:marker:text-cyan-400">
+                <ul className="mt-2 space-y-1.5 pl-4 list-disc marker:text-blue-500 dark:marker:text-blue-400">
                   {canonicalContent.process.map((item, i) => (
                     <li key={i} className="text-xs leading-relaxed text-slate-600 dark:text-slate-300">{item}</li>
                   ))}

@@ -496,7 +496,7 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
         {/* Banner with Fun Animation */}
         <div className={`p-4 sm:p-6 rounded-3xl text-white shadow-lg mb-8 relative overflow-hidden transition-colors duration-500 group ${
             isBetterFrontaliere 
-            ? 'bg-gradient-to-r from-emerald-500 via-teal-500 to-emerald-600' 
+            ? 'bg-gradient-to-r from-emerald-500 via-blue-500 to-emerald-600' 
             : 'bg-gradient-to-r from-blue-600 via-indigo-600 to-blue-700'
         }`}>
            {/* Confetti / Particle Background Effect */}

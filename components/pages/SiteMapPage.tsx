@@ -91,7 +91,7 @@ export default function SiteMapPage() {
       ],
     },
     {
-      icon: <BarChart3 className="w-5 h-5 text-cyan-600" />,
+      icon: <BarChart3 className="w-5 h-5 text-blue-600" />,
       title: t('sitemap.section.stats'),
       links: [
         { label: t('sitemap.link.overview'), route: { activeTab: 'stats' } },

@@ -31,7 +31,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
       id: 'G',
       name: t('permits.g.name'),
       fullName: t('permits.g.fullName'),
-      color: 'from-teal-500 to-emerald-600',
+      color: 'from-blue-500 to-emerald-600',
       icon: '🔵',
       duration: t('permits.g.duration'),
       forWhom: t('permits.g.forWhom'),
@@ -81,7 +81,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
       id: 'B',
       name: t('permits.b.name'),
       fullName: t('permits.b.fullName'),
-      color: 'from-emerald-500 to-teal-600',
+      color: 'from-emerald-500 to-blue-600',
       icon: '🟢',
       duration: t('permits.b.duration'),
       forWhom: t('permits.b.forWhom'),
@@ -183,7 +183,7 @@ function getPermits(t: (key: string) => string): PermitType[] {
       id: 'L',
       name: t('permits.l.name'),
       fullName: t('permits.l.fullName'),
-      color: 'from-purple-500 to-pink-600',
+      color: 'from-amber-500 to-orange-600',
       icon: '🟣',
       duration: t('permits.l.duration'),
       forWhom: t('permits.l.forWhom'),
@@ -304,14 +304,14 @@ const WorkPermitsGuide: React.FC = () => {
   return (
     <div className="space-y-6 animate-fade-in">
       {/* Header */}
-      <div className="bg-gradient-to-br from-teal-600 via-teal-500 to-emerald-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+      <div className="bg-gradient-to-br from-blue-600 via-blue-500 to-emerald-600 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-white/20 dark:bg-white/8 rounded-2xl">
             <Shield size={32} />
           </div>
           <div>
             <h1 className="text-2xl sm:text-3xl font-extrabold">{t('permits.pageTitle')}</h1>
-            <p className="text-teal-100 mt-1">{t('permits.pageSubtitle')}</p>
+            <p className="text-blue-100 mt-1">{t('permits.pageSubtitle')}</p>
           </div>
         </div>
       </div>

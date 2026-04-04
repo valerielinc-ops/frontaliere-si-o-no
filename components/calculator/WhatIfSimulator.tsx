@@ -48,7 +48,7 @@ const getScenarios = (t: (key: string) => string, profile?: UserProfileData | nu
     title: hasChildren ? t('whatif.scenario.child.hasKids') : t('whatif.scenario.child'),
     description: hasChildren ? t('whatif.scenario.child.hasKids.desc') : t('whatif.scenario.child.desc'),
     storyPrompt: hasChildren ? t('whatif.story.child.hasKids') : t('whatif.story.child'),
-    color: 'pink',
+    color: 'rose',
     fields: [
       { key: 'children', label: t('whatif.field.children'), type: 'slider', min: 0, max: 5, step: 1 },
       { key: 'familyMembers', label: t('whatif.field.familyMembers'), type: 'slider', min: 1, max: 6, step: 1 },
@@ -117,7 +117,7 @@ const getScenarios = (t: (key: string) => string, profile?: UserProfileData | nu
     title: t('whatif.scenario.exchange'),
     description: t('whatif.scenario.exchange.desc'),
     storyPrompt: t('whatif.story.exchange'),
-    color: 'teal',
+    color: 'blue',
     fields: [
       { key: 'customExchangeRate', label: t('whatif.field.exchangeRate'), type: 'slider', min: exchangeMin, max: exchangeMax, step: 0.01 },
     ],
@@ -128,7 +128,7 @@ const getScenarios = (t: (key: string) => string, profile?: UserProfileData | nu
     title: t('whatif.scenario.parttime'),
     description: t('whatif.scenario.parttime.desc'),
     storyPrompt: t('whatif.story.parttime'),
-    color: 'teal',
+    color: 'blue',
     fields: [
       { key: 'annualIncomeCHF', label: t('whatif.field.partTimePercent'), type: 'slider', min: Math.round(baseInputsRef * 0.4), max: baseInputsRef, step: Math.round(baseInputsRef * 0.05) || 1000 },
     ],

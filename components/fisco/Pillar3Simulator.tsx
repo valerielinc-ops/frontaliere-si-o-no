@@ -108,7 +108,7 @@ const Pillar3Simulator: React.FC = () => {
           {/* Type Selection */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
             <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-              <Shield size={20} className="text-teal-600" />
+              <Shield size={20} className="text-blue-600" />
               {t('pillar3.pillarType')}
             </h3>
             
@@ -116,7 +116,7 @@ const Pillar3Simulator: React.FC = () => {
               <button
                 onClick={() => { handleChange('type', '3a'); handleChange('annualContribution', MAX_3A_2026); }}
                 className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
-                  inputs.type === '3a' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                  inputs.type === '3a' ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
                 }`}
               >
                 <div className="font-bold text-slate-800 dark:text-slate-100">🏛️ {t('pillar3.type3a')}</div>
@@ -128,7 +128,7 @@ const Pillar3Simulator: React.FC = () => {
               <button
                 onClick={() => handleChange('type', '3b')}
                 className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
-                  inputs.type === '3b' ? 'border-teal-500 bg-teal-50 dark:bg-teal-900/20' : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
+                  inputs.type === '3b' ? 'border-blue-500 bg-blue-50 dark:bg-blue-900/20' : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
                 }`}
               >
                 <div className="font-bold text-slate-800 dark:text-slate-100">💰 {t('pillar3.type3b')}</div>
@@ -142,7 +142,7 @@ const Pillar3Simulator: React.FC = () => {
           {/* Parameters */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm space-y-4">
             <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 flex items-center gap-2">
-              <Calculator size={20} className="text-teal-600" />
+              <Calculator size={20} className="text-blue-600" />
               {t('pillar3.parameters')}
             </h3>
 
@@ -150,16 +150,16 @@ const Pillar3Simulator: React.FC = () => {
               <label htmlFor="p3-contribution" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.annualContribution')}</label>
               <input id="p3-contribution" type="number" value={inputs.annualContribution}
                 onChange={(e) => handleChange('annualContribution', Math.min(Number(e.target.value), inputs.type === '3a' ? MAX_3A_2026 : 100000))}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500"
                 max={inputs.type === '3a' ? MAX_3A_2026 : 100000} min={0} step={100} />
-              {inputs.type === '3a' && <p className="text-xs text-teal-600 mt-1">Max 2026: CHF {MAX_3A_2026.toLocaleString('it-IT')}</p>}
+              {inputs.type === '3a' && <p className="text-xs text-blue-600 mt-1">Max 2026: CHF {MAX_3A_2026.toLocaleString('it-IT')}</p>}
             </div>
 
             <div>
               <label htmlFor="p3-capital" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentCapital')}</label>
               <input id="p3-capital" type="number" value={inputs.currentCapital}
                 onChange={(e) => handleChange('currentCapital', Number(e.target.value))}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500"
                 min={0} step={1000} />
             </div>
 
@@ -169,18 +169,18 @@ const Pillar3Simulator: React.FC = () => {
               </label>
               <input id="p3-return" type="range" min={0} max={6} step={0.25} value={inputs.expectedReturn}
                 onChange={(e) => handleChange('expectedReturn', Number(e.target.value))}
-                className="w-full accent-teal-600" />
-              <div className="text-center font-bold text-teal-600">{inputs.expectedReturn}%</div>
+                className="w-full accent-blue-600" />
+              <div className="text-center font-bold text-blue-600">{inputs.expectedReturn}%</div>
             </div>
 
             <div>
               <label htmlFor="p3-years" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.projectionYears')}</label>
               <input id="p3-years" type="range" min={5} max={40} step={5} value={inputs.projectionYears}
                 onChange={(e) => handleChange('projectionYears', Number(e.target.value))}
-                className="w-full accent-teal-600" />
+                className="w-full accent-blue-600" />
               <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
                 <span>5</span>
-                <span className="font-bold text-teal-600 text-base">{inputs.projectionYears} {t('pillar3.years')}</span>
+                <span className="font-bold text-blue-600 text-base">{inputs.projectionYears} {t('pillar3.years')}</span>
                 <span>40</span>
               </div>
             </div>
@@ -189,15 +189,15 @@ const Pillar3Simulator: React.FC = () => {
               <label htmlFor="p3-tax-rate" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.marginalRate')}</label>
               <input id="p3-tax-rate" type="range" min={10} max={50} step={1} value={inputs.marginalTaxRate}
                 onChange={(e) => handleChange('marginalTaxRate', Number(e.target.value))}
-                className="w-full accent-teal-600" />
-              <div className="text-center font-bold text-teal-600">{inputs.marginalTaxRate}%</div>
+                className="w-full accent-blue-600" />
+              <div className="text-center font-bold text-blue-600">{inputs.marginalTaxRate}%</div>
             </div>
 
             <div>
               <label htmlFor="p3-age" className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase mb-1 block">{t('pillar3.currentAge')}</label>
               <input id="p3-age" type="number" value={inputs.age}
                 onChange={(e) => handleChange('age', Number(e.target.value))}
-                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full px-4 py-2.5 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-blue-500"
                 min={18} max={65} />
             </div>
           </div>
@@ -207,10 +207,10 @@ const Pillar3Simulator: React.FC = () => {
         <div className="lg:col-span-2 space-y-4">
           {/* Summary Cards */}
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-            <div className="bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl p-5 text-white shadow-lg">
-              <div className="text-teal-100 text-xs font-bold uppercase mb-1">{t('pillar3.finalCapital')}</div>
+            <div className="bg-gradient-to-br from-blue-500 to-emerald-600 rounded-2xl p-5 text-white shadow-lg">
+              <div className="text-blue-100 text-xs font-bold uppercase mb-1">{t('pillar3.finalCapital')}</div>
               <div className="text-2xl sm:text-3xl font-bold">CHF {results.finalCapital.toLocaleString('it-IT')}</div>
-              <div className="text-teal-100 text-xs mt-1">{t('pillar3.inYears', { years: inputs.projectionYears })}</div>
+              <div className="text-blue-100 text-xs mt-1">{t('pillar3.inYears', { years: inputs.projectionYears })}</div>
             </div>
 
             {inputs.type === '3a' && (
@@ -221,7 +221,7 @@ const Pillar3Simulator: React.FC = () => {
               </div>
             )}
 
-            <div className="bg-gradient-to-br from-emerald-600 to-teal-700 rounded-2xl p-5 text-white shadow-lg">
+            <div className="bg-gradient-to-br from-emerald-600 to-blue-700 rounded-2xl p-5 text-white shadow-lg">
               <div className="text-emerald-100 text-xs font-bold uppercase mb-1">{t('pillar3.totalReturn')}</div>
               <div className="text-2xl sm:text-3xl font-bold">CHF {results.totalGains.toLocaleString('it-IT')}</div>
               <div className="text-emerald-100 text-xs mt-1">{t('pillar3.invested')}: CHF {results.totalContributed.toLocaleString('it-IT')}</div>
@@ -231,7 +231,7 @@ const Pillar3Simulator: React.FC = () => {
           {/* Chart */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 shadow-sm">
             <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
-              <TrendingUp size={20} className="text-teal-600" />
+              <TrendingUp size={20} className="text-blue-600" />
               {t('pillar3.growthProjection')}
             </h3>
             <ResponsiveContainer width="100%" height={350}>
@@ -298,7 +298,7 @@ const Pillar3Simulator: React.FC = () => {
                 <thead>
                   <tr className="border-b border-blue-200 dark:border-blue-700">
                     <th className="text-left py-2 text-slate-600 dark:text-slate-400">{t('pillar3.feature')}</th>
-                    <th className="text-center py-2 text-teal-600 font-bold">{t('pillar3.type3aShort')}</th>
+                    <th className="text-center py-2 text-blue-600 font-bold">{t('pillar3.type3aShort')}</th>
                     <th className="text-center py-2 text-rose-600 font-bold">{t('pillar3.type3bShort')}</th>
                   </tr>
                 </thead>

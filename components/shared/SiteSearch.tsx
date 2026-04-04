@@ -135,7 +135,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'vita',
       subTab: 'transport',
       icon: Car,
-      color: 'text-teal-600',
+      color: 'text-blue-600',
       keywords: ['trasporto', 'pendolare', 'treno', 'auto', 'benzina', 'abbonamento', 'arcobaleno', 'tilo', 'transport', 'commute', 'train', 'car', 'pendeln'],
     },
     {
@@ -179,7 +179,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'calculator',
       subTab: 'ral',
       icon: Scale,
-      color: 'text-cyan-600',
+      color: 'text-blue-600',
       keywords: ['ral', 'stipendio', 'confronto', 'salario', 'lordo', 'annuo', 'comparison', 'salary', 'gross', 'vergleich', 'comparaison', 'italia', 'svizzera'],
     },
     {
@@ -201,7 +201,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'guida',
       subTab: 'border-map',
       icon: Map,
-      color: 'text-teal-600',
+      color: 'text-blue-600',
       keywords: ['mappa', 'map', 'comuni', 'municipalities', 'interattiva', 'interactive', 'irpef', 'affitto', 'rent', 'distanza', 'karte', 'carte', 'confine', 'border', 'addizionale', 'tassa', 'confronto', 'impatto fiscale'],
     },
     {
@@ -421,7 +421,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'vita',
       subTab: 'companies',
       icon: BriefcaseBusiness,
-      color: 'text-cyan-600',
+      color: 'text-blue-600',
       keywords: ['aziende', 'companies', 'datore', 'employer', 'ticino', 'unternehmen', 'entreprise', 'lavoro', 'impresa'],
     },
     {
@@ -432,7 +432,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       tab: 'vita',
       subTab: 'places',
       icon: Compass,
-      color: 'text-teal-500',
+      color: 'text-blue-500',
       keywords: ['posti', 'visitare', 'places', 'visit', 'turismo', 'tourism', 'escursioni', 'ausflüge', 'excursions', 'lugano', 'locarno', 'bellinzona'],
     },
     {
@@ -651,7 +651,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
       section: t('glossary.title') || 'Glossario',
       tab: 'glossario',
       icon: Newspaper,
-      color: 'text-teal-600',
+      color: 'text-blue-600',
       keywords: ['glossario', 'glossary', 'glossar', 'glossaire', 'termini', 'definizioni', 'avs', 'lpp', 'lamal', 'irpef', 'imposta alla fonte', 'pilastro', 'frontaliere'],
     },
     // ─── Dialetto ───
@@ -896,7 +896,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
           tab: 'glossario',
           subTab: termId,
           icon: BookA,
-          color: 'text-teal-600',
+          color: 'text-blue-600',
           keywords: [title.toLowerCase(), 'glossario', 'definizione', termId.toLowerCase().replace(/([A-Z])/g, ' $1').trim()],
         });
       }
@@ -1024,7 +1024,7 @@ const SiteSearch: React.FC<SiteSearchProps> = ({ onNavigate }) => {
     { label: t('nav.confronti') || 'Confronti', tab: 'confronti', icon: Layers, color: 'text-violet-600' },
     { label: t('nav.fisco') || 'Fisco', tab: 'fisco', icon: PiggyBank, color: 'text-emerald-700' },
     { label: t('nav.guida') || 'Guida', tab: 'guida', icon: BookOpen, color: 'text-indigo-600' },
-    { label: t('nav.vita') || 'Vita', tab: 'vita', subTab: 'transport' as string | undefined, icon: Home, color: 'text-teal-600' },
+    { label: t('nav.vita') || 'Vita', tab: 'vita', subTab: 'transport' as string | undefined, icon: Home, color: 'text-blue-600' },
     { label: t('nav.stats') || 'Statistiche', tab: 'stats', subTab: 'overview' as string | undefined, icon: BarChart2, color: 'text-purple-600' },
   ], [t]);
 

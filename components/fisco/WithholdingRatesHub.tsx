@@ -522,7 +522,7 @@ export default function WithholdingRatesHub() {
 
   return (
     <div className="space-y-8">
-      <section className="rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-teal-700 p-6 sm:p-8 text-white shadow-xl shadow-emerald-900/20">
+      <section className="rounded-3xl bg-gradient-to-br from-emerald-600 via-emerald-700 to-blue-700 p-6 sm:p-8 text-white shadow-xl shadow-emerald-900/20">
         <div className="inline-flex items-center gap-2 rounded-full bg-white/15 px-3 py-1 text-xs font-bold uppercase tracking-[0.14em]">
           <Coins className="h-4 w-4" />
           {copy.badge}

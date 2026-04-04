@@ -96,7 +96,7 @@ export default function NaspiCalculator() {
     v.toLocaleString('it-CH', { style: 'currency', currency: 'EUR', minimumFractionDigits: 2, maximumFractionDigits: 2 });
 
   return (
-    <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-5 space-y-5">
+    <div className="bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-950/30 dark:to-blue-950/30 rounded-2xl border border-emerald-200 dark:border-emerald-800 p-5 space-y-5">
       {/* Header */}
       <div className="flex items-center gap-3">
         <div className="p-2.5 bg-emerald-100 dark:bg-emerald-900/50 rounded-xl">

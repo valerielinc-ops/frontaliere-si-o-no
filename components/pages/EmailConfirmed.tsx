@@ -18,7 +18,7 @@ export const EmailConfirmed: React.FC = () => {
     {
       id: 'jobs',
       icon: Briefcase,
-      colorClass: 'from-emerald-500 to-teal-600',
+      colorClass: 'from-emerald-500 to-blue-600',
       titleKey: 'emailConfirmed.cta.jobs.title',
       descKey: 'emailConfirmed.cta.jobs.desc',
       href: buildPath({ activeTab: 'job-board' }),
@@ -39,7 +39,7 @@ export const EmailConfirmed: React.FC = () => {
         {/* Success Header */}
         <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-6 sm:p-8 shadow-xl text-center">
           <div className="flex justify-center mb-5">
-            <div className="p-4 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-full shadow-lg">
+            <div className="p-4 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-full shadow-lg">
               <CheckCircle2 className="text-white" size={40} />
             </div>
           </div>

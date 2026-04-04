@@ -156,7 +156,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'prepagato',
-    color: 'from-rose-600 to-pink-700',
+    color: 'from-rose-600 to-orange-700',
     features: ['200 GB + 5G Full Speed', 'SIM e spedizione gratis', 'Rete WindTre', 'Roaming CH costoso'],
     website: 'https://www.verymobile.it/offerte'
   },
@@ -291,7 +291,7 @@ const operators: MobileOperator[] = [
     },
     setupCost: 0,
     contractType: 'prepagato',
-    color: 'from-teal-600 to-blue-700',
+    color: 'from-blue-600 to-blue-700',
     features: ['Rete Swisscom', 'Roaming UE incluso', 'Buon prezzo'],
     website: 'https://www.wingo.ch/it'
   },

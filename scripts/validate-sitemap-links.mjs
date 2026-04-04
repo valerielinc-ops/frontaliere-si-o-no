@@ -55,6 +55,10 @@ function urlToDistPath(url) {
   }
   // Strip leading slash
   const rel = pathname.startsWith('/') ? pathname.slice(1) : pathname;
+  // If the URL has a file extension (e.g. .pdf, .xml), check the file directly
+  if (path.extname(rel)) {
+    return path.join(DIST, rel);
+  }
   return path.join(DIST, rel, 'index.html');
 }
 

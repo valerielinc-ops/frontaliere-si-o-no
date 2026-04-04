@@ -18,7 +18,7 @@ const transportOptions: TransportOption[] = [
   { type: 'car-diesel', name: 'Auto Diesel', icon: <Car size={20} />, color: 'from-slate-600 to-gray-700' },
   { type: 'car-electric', name: 'Auto Elettrica', icon: <Zap size={20} />, color: 'from-green-500 to-emerald-600' },
   { type: 'train', name: 'Treno', icon: <Train size={20} />, color: 'from-blue-500 to-blue-700' },
-  { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'from-rose-500 to-pink-600' }
+  { type: 'ebike', name: 'eBike', icon: <Bike size={20} />, color: 'from-rose-500 to-orange-600' }
 ];
 
 const TransportCalculator: React.FC = () => {
@@ -138,7 +138,7 @@ const TransportCalculator: React.FC = () => {
       costPerMonth: costsElectricCH.total,
       costPerYear: costsElectricCH.total * 12,
       details: costsElectricCH,
-      color: 'from-green-600 to-teal-700',
+      color: 'from-green-600 to-blue-700',
       icon: <Zap size={24} />,
       fuelLocation: 'CH'
     },
@@ -158,7 +158,7 @@ const TransportCalculator: React.FC = () => {
       costPerMonth: ebikeCostPerMonth + ebikePurchaseCost,
       costPerYear: (ebikeCostPerMonth + ebikePurchaseCost) * 12,
       details: null,
-      color: 'from-rose-500 to-pink-600',
+      color: 'from-rose-500 to-orange-600',
       icon: <Bike size={24} />,
       fuelLocation: null
     }

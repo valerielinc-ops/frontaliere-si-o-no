@@ -132,11 +132,10 @@ const createCustomIcon = (L: any, type: 'new' | 'old' | 'both') => {
 
 const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
   const colorClasses = {
-    blue: "from-teal-500 to-emerald-600 border-teal-200 dark:border-teal-800",
-    green: "from-emerald-500 to-teal-600 border-emerald-200 dark:border-emerald-800",
-    purple: "from-purple-500 to-pink-600 border-purple-200 dark:border-purple-800",
-    orange: "from-orange-500 to-red-600 border-orange-200 dark:border-orange-800",
-    teal: "from-teal-500 to-cyan-600 border-teal-200 dark:border-teal-800"
+    blue: "from-blue-600 to-blue-700 border-blue-200 dark:border-blue-800",
+    green: "from-emerald-500 to-emerald-700 border-emerald-200 dark:border-emerald-800",
+    amber: "from-amber-500 to-orange-600 border-amber-200 dark:border-amber-800",
+    orange: "from-orange-500 to-red-600 border-orange-200 dark:border-orange-800"
   };
 
   return (
@@ -156,7 +155,7 @@ const InfoCard = ({ icon: Icon, title, children, color = "blue" }: any) => {
 
 const SectionHeader = ({ icon: Icon, title, subtitle }: any) => (
   <div className="flex items-center gap-4 mb-6">
-    <div className="p-3 bg-gradient-to-br from-teal-500 to-emerald-600 rounded-2xl shadow-lg">
+    <div className="p-3 bg-gradient-to-br from-blue-500 to-emerald-600 rounded-2xl shadow-lg">
       <Icon className="text-white" size={28} />
     </div>
     <div>
@@ -208,11 +207,11 @@ interface SchoolEntry {
 
 
 const SCHOOL_TYPE_CONFIG: Record<SchoolEntry['type'], { label: string; Icon: React.ComponentType<{ size?: number; className?: string }>; color: string }> = {
-  nido: { label: 'Nido (0-3)', Icon: Baby, color: 'purple' },
+  nido: { label: 'Nido (0-3)', Icon: Baby, color: 'amber' },
   infanzia: { label: 'Infanzia (3-6)', Icon: SmilePlus, color: 'emerald' },
   elementare: { label: 'Elementare (6-11)', Icon: BookOpen, color: 'blue' },
   media: { label: 'Media (11-15)', Icon: Backpack, color: 'amber' },
-  superiore: { label: 'Superiore (15-19)', Icon: GraduationCap, color: 'teal' },
+  superiore: { label: 'Superiore (15-19)', Icon: GraduationCap, color: 'blue' },
 };
 
 const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
@@ -252,12 +251,12 @@ const SchoolDirectory: React.FC<{ t: (key: string) => string }> = ({ t }) => {
   return (
     <div className="bg-white dark:bg-slate-800 rounded-2xl border-2 border-indigo-200 dark:border-indigo-800 overflow-hidden">
       {/* Header */}
-      <div className="bg-gradient-to-r from-teal-600 to-emerald-600 p-5 text-white">
+      <div className="bg-gradient-to-r from-blue-600 to-emerald-600 p-5 text-white">
         <div className="flex items-center gap-3">
           <BookOpen size={24} />
           <div>
             <h3 className="text-lg font-bold">{t('guide.schools.directoryTitle') || 'Elenco Scuole del Ticino'}</h3>
-            <p className="text-teal-100 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
+            <p className="text-blue-100 text-xs">{filteredSchools.length} {t('guide.schools.schoolsFound') || 'scuole trovate'}</p>
           </div>
         </div>
       </div>
@@ -444,7 +443,7 @@ const MunicipalityDetailPanel: React.FC<MunicipalityDetailPanelProps> = ({ munic
           Analytics.trackUIInteraction('guida', 'municipalities', 'cta_compare', 'click', municipality.name);
           window.dispatchEvent(new CustomEvent('navigate-tab', { detail: { tab: 'guida', subTab: 'border' } }));
         }}
-        className="flex-1 flex items-center justify-center gap-2 bg-teal-600 hover:bg-teal-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
+        className="flex-1 flex items-center justify-center gap-2 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 px-4 rounded-xl transition-colors"
       >
         <BarChart3 size={16} />
         {t('guide.municipalities.detail.ctaCompare')}
@@ -658,7 +657,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   onClick={() => setFilterType('all')}
                   className={`px-3 py-1.5 rounded-lg text-xs font-semibold transition-colors ${
                     filterType === 'all'
-                      ? 'bg-purple-600 text-white shadow-md'
+                      ? 'bg-amber-600 text-white shadow-md'
                       : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                   }`}
                 >
@@ -781,7 +780,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           {/* Mappa Interattiva */}
           <div className="bg-white dark:bg-slate-800 rounded-2xl border border-slate-200 dark:border-slate-700 p-4 sm:p-6 overflow-hidden">
             <div className="flex items-center gap-3 mb-4">
-              <div className="p-2 bg-gradient-to-br from-emerald-500 to-teal-600 rounded-xl">
+              <div className="p-2 bg-gradient-to-br from-emerald-500 to-blue-600 rounded-xl">
                 <MapPin className="text-white" size={20} />
               </div>
               <h3 className="text-xl font-bold text-slate-800 dark:text-slate-100">{t('guide.municipalities.mapTitle')}</h3>
@@ -797,7 +796,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <span className="text-slate-700 dark:text-slate-300">{t('guide.legendOldOnly')}</span>
               </div>
               <div className="flex items-center gap-2">
-                <div className="w-4 h-4 rounded-full bg-purple-600"></div>
+                <div className="w-4 h-4 rounded-full bg-amber-600"></div>
                 <span className="text-slate-700 dark:text-slate-300">{t('guide.legendBoth')}</span>
               </div>
             </div>
@@ -938,14 +937,14 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                   }).length;
                   Analytics.trackBorderFilter('evening', count);
                 }}
-                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'evening' ? 'bg-purple-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
+                className={`px-4 py-2.5 rounded-xl text-sm font-bold transition-colors ${borderFilter === 'evening' ? 'bg-amber-500 text-white shadow-lg' : 'bg-slate-100 dark:bg-slate-900 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-800'}`}
               >
                 🌆 {t('guide.border.fastEvening')}
               </button>
             </div>
 
             {/* Time selector */}
-            <div className="mt-4 p-4 bg-gradient-to-r from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
+            <div className="mt-4 p-4 bg-gradient-to-r from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
               <div className="text-sm font-bold text-slate-700 dark:text-slate-300 mb-2">
                 💡 {t('guide.border.timeAdvice')}:
               </div>
@@ -972,7 +971,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                     }).length;
                     Analytics.trackBorderTimeSelection('evening', count);
                   }}
-                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'evening' ? 'bg-purple-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}
+                  className={`flex-1 px-3 py-2 rounded-lg text-xs font-bold transition-colors ${selectedTime === 'evening' ? 'bg-amber-500 text-white' : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'}`}
                 >
                   🌆 {t('guide.border.evening')} (17-19)
                 </button>
@@ -1176,7 +1175,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             </p>
           </InfoCard>
 
-          <InfoCard icon={Car} title={t('guide.border.commutingTips')} color="purple">
+          <InfoCard icon={Car} title={t('guide.border.commutingTips')} color="amber">
             <ul className="space-y-2">
               <li className="flex items-start gap-2">
                 <CheckCircle2 size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
@@ -1237,7 +1236,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </ul>
             </InfoCard>
 
-            <InfoCard icon={Shield} title={t('guide.livingCH.insuranceTitle')} color="purple">
+            <InfoCard icon={Shield} title={t('guide.livingCH.insuranceTitle')} color="amber">
               <ul className="space-y-2">
                 <li className="flex items-start gap-2">
                   <AlertCircle size={16} className="text-purple-600 flex-shrink-0 mt-0.5" />
@@ -1327,7 +1326,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           <div className="grid md:grid-cols-1 gap-6">
-            <InfoCard icon={Euro} title={t('guide.livingCH.investTitle')} color="teal">
+            <InfoCard icon={Euro} title={t('guide.livingCH.investTitle')} color="blue">
               <div className="space-y-4">
                 <div className="p-4 bg-emerald-50 dark:bg-emerald-900/20 rounded-xl border-2 border-emerald-200 dark:border-emerald-800">
                   <div className="flex items-center gap-2 mb-2">
@@ -1392,9 +1391,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
             </InfoCard>
 
-            <InfoCard icon={ShoppingCart} title={t('guide.livingCH.taxFreeTitle')} color="purple">
+            <InfoCard icon={ShoppingCart} title={t('guide.livingCH.taxFreeTitle')} color="amber">
               <div className="space-y-4">
-                <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border-2 border-purple-200 dark:border-purple-800">
+                <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl border-2 border-amber-200 dark:border-amber-800">
                   <div className="flex items-center gap-2 mb-2">
                     <CheckCircle2 size={18} className="text-purple-600" />
                     <strong className="text-purple-700 dark:text-purple-300">✨ {t('guide.livingCH.taxFreeRight')}</strong>
@@ -1447,7 +1446,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           {/* Religious Places in Ticino */}
-          <InfoCard icon={Landmark} title={t('guide.livingCH.religiousTitle')} color="purple">
+          <InfoCard icon={Landmark} title={t('guide.livingCH.religiousTitle')} color="amber">
             <div className="space-y-4">
               <p className="text-sm text-slate-700 dark:text-slate-300">{t('guide.livingCH.religiousIntro')}</p>
 
@@ -1491,7 +1490,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* SEO content */}
-              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+              <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-800">
                 <p className="text-xs text-purple-700 dark:text-purple-300 leading-relaxed">
                   {t('guide.livingCH.religiousSeo')}
                 </p>
@@ -1531,7 +1530,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </ul>
             </InfoCard>
 
-            <InfoCard icon={Heart} title={t('guide.livingIT.healthTitle')} color="purple">
+            <InfoCard icon={Heart} title={t('guide.livingIT.healthTitle')} color="amber">
               <div className="space-y-3">
                 <div>
                   <strong className="text-purple-600">{t('guide.livingIT.healthOpt1')}</strong>
@@ -1598,34 +1597,34 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             </InfoCard>
           </div>
 
-          <div className="bg-gradient-to-br from-teal-50 to-emerald-50 dark:from-teal-950/30 dark:to-emerald-950/30 rounded-2xl border-2 border-teal-200 dark:border-teal-800 p-6">
+          <div className="bg-gradient-to-br from-blue-50 to-emerald-50 dark:from-blue-950/30 dark:to-emerald-950/30 rounded-2xl border-2 border-blue-200 dark:border-blue-800 p-6">
             <div className="flex items-start gap-3">
-              <Info size={24} className="text-teal-600 flex-shrink-0" />
-              <div className="space-y-3 text-sm text-teal-800 dark:text-teal-200">
+              <Info size={24} className="text-blue-600 flex-shrink-0" />
+              <div className="space-y-3 text-sm text-blue-800 dark:text-blue-200">
                 <p className="font-bold">📋 {t('guide.livingIT.checklistTitle')}</p>
                 <div className="grid sm:grid-cols-2 gap-2 text-xs">
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600" />
+                    <CheckCircle2 size={14} className="text-blue-600" />
                     <span>{t('guide.livingIT.check1')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600" />
+                    <CheckCircle2 size={14} className="text-blue-600" />
                     <span>{t('guide.livingIT.check2')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600" />
+                    <CheckCircle2 size={14} className="text-blue-600" />
                     <span>{t('guide.livingIT.check3')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600" />
+                    <CheckCircle2 size={14} className="text-blue-600" />
                     <span>{t('guide.livingIT.check4')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600" />
+                    <CheckCircle2 size={14} className="text-blue-600" />
                     <span>{t('guide.livingIT.check5')}</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600" />
+                    <CheckCircle2 size={14} className="text-blue-600" />
                     <span>{t('guide.livingIT.check6')}</span>
                   </div>
                 </div>
@@ -1634,7 +1633,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           {/* Religious Places in Italian border region */}
-          <InfoCard icon={Landmark} title={t('guide.livingIT.religiousTitle')} color="purple">
+          <InfoCard icon={Landmark} title={t('guide.livingIT.religiousTitle')} color="amber">
             <div className="space-y-4">
               <p className="text-sm text-slate-700 dark:text-slate-300">{t('guide.livingIT.religiousIntro')}</p>
 
@@ -1678,7 +1677,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
               </div>
 
               {/* SEO content */}
-              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+              <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-800">
                 <p className="text-xs text-purple-700 dark:text-purple-300 leading-relaxed">
                   {t('guide.livingIT.religiousSeo')}
                 </p>
@@ -1799,24 +1798,24 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
           {/* Città e Cultura */}
           <div className="grid md:grid-cols-2 gap-6">
-            <InfoCard icon={Building2} title={t('guide.places.citiesTitle')} color="purple">
+            <InfoCard icon={Building2} title={t('guide.places.citiesTitle')} color="amber">
               <div className="space-y-4">
-                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
                   <img src="/images/places/lugano-view.webp" alt="Lugano" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏙️ Lugano</div>
                   <p className="text-xs">{t('guide.places.luganoDesc')}</p>
                 </div>
-                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
                   <img src="/images/places/locarno.webp" alt="Locarno & Ascona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🌴 Locarno & Ascona</div>
                   <p className="text-xs">{t('guide.places.locarnoDesc')}</p>
                 </div>
-                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
                   <img src="/images/places/bellinzona.webp" alt="Bellinzona" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏰 Bellinzona</div>
                   <p className="text-xs">{t('guide.places.bellinzonaDesc')}</p>
                 </div>
-                <div className="p-3 bg-purple-50 dark:bg-purple-900/20 rounded-xl">
+                <div className="p-3 bg-amber-50 dark:bg-amber-900/20 rounded-xl">
                   <img src="/images/places/mendrisio.webp" alt="Mendrisio" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
                   <div className="font-bold text-purple-700 dark:text-purple-300 mb-1">🏘️ Mendrisio</div>
                   <p className="text-xs">{t('guide.places.mendrisioDesc')}</p>
@@ -1852,26 +1851,26 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
 
           {/* Attività e Famiglie */}
           <div className="grid md:grid-cols-2 gap-6">
-            <InfoCard icon={Users} title={t('guide.places.familyTitle')} color="teal">
+            <InfoCard icon={Users} title={t('guide.places.familyTitle')} color="blue">
               <div className="space-y-4">
-                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
                   <img src="/images/places/swissminiatur.webp" alt="Swissminiatur" className="w-full h-32 object-cover rounded-lg mb-2" loading="lazy" width={400} height={128} />
-                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🌿 Swissminiatur</div>
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🌿 Swissminiatur</div>
                   <p className="text-xs">{t('guide.places.swissminiatur')}</p>
                   <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Melide · 💰 CHF 19/adulto</div>
                 </div>
-                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
-                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🦁 Parco Civico Lugano</div>
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🦁 Parco Civico Lugano</div>
                   <p className="text-xs">{t('guide.places.parcoCivico')}</p>
                   <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Lugano · 💰 {t('guide.places.free')}</div>
                 </div>
-                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
-                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🏊 Lido di Lugano</div>
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🏊 Lido di Lugano</div>
                   <p className="text-xs">{t('guide.places.lidoLugano')}</p>
                   <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Lugano · 💰 CHF 10/adulto</div>
                 </div>
-                <div className="p-3 bg-teal-50 dark:bg-teal-900/20 rounded-xl">
-                  <div className="font-bold text-teal-700 dark:text-teal-300 mb-1">🚂 Ferrovia Monte Generoso</div>
+                <div className="p-3 bg-blue-50 dark:bg-blue-900/20 rounded-xl">
+                  <div className="font-bold text-blue-700 dark:text-blue-300 mb-1">🚂 Ferrovia Monte Generoso</div>
                   <p className="text-xs">{t('guide.places.ferroviaGeneroso')}</p>
                   <div className="mt-1 text-xs text-slate-500 dark:text-slate-400"><MapPin size={12} className="inline" /> Capolago · 💰 CHF 70/A-R</div>
                 </div>
@@ -1901,7 +1900,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           {/* Consiglio per frontalieri */}
-          <div className="bg-gradient-to-br from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-6">
+          <div className="bg-gradient-to-br from-emerald-50 to-blue-50 dark:from-emerald-950/30 dark:to-blue-950/30 rounded-2xl border-2 border-emerald-200 dark:border-emerald-800 p-6">
             <div className="flex items-start gap-3">
               <Info size={24} className="text-emerald-700 flex-shrink-0" />
               <div className="space-y-3 text-sm text-emerald-800 dark:text-emerald-200">
@@ -1938,9 +1937,9 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </div>
 
           {/* Nido (0-3 anni) */}
-          <InfoCard icon={Baby} title={t('guide.schools.nidoTitle')} color="purple">
+          <InfoCard icon={Baby} title={t('guide.schools.nidoTitle')} color="amber">
             <div className="space-y-4">
-              <div className="p-4 bg-purple-50 dark:bg-purple-900/20 rounded-xl border border-purple-200 dark:border-purple-800">
+              <div className="p-4 bg-amber-50 dark:bg-amber-900/20 rounded-xl border border-amber-200 dark:border-amber-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
                     <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
@@ -2114,21 +2113,21 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </InfoCard>
 
           {/* Liceo / Scuole superiori (15-19 anni) */}
-          <InfoCard icon={Landmark} title={t('guide.schools.highSchoolTitle')} color="teal">
+          <InfoCard icon={Landmark} title={t('guide.schools.highSchoolTitle')} color="blue">
             <div className="space-y-4">
-              <div className="p-4 bg-teal-50 dark:bg-teal-900/20 rounded-xl border border-teal-200 dark:border-teal-800">
+              <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800">
                 <div className="grid sm:grid-cols-3 gap-3 mb-3">
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
                     <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.age')}</div>
-                    <div className="font-bold text-teal-600">15-19 {t('guide.schools.years')}</div>
+                    <div className="font-bold text-blue-600">15-19 {t('guide.schools.years')}</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
                     <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.cost')}</div>
-                    <div className="font-bold text-teal-600">{t('guide.schools.free')} / CHF 500-1'500</div>
+                    <div className="font-bold text-blue-600">{t('guide.schools.free')} / CHF 500-1'500</div>
                   </div>
                   <div className="text-center p-2 bg-white dark:bg-slate-800 rounded-lg">
                     <div className="text-xs text-slate-500 dark:text-slate-400">{t('guide.schools.hours')}</div>
-                    <div className="font-bold text-teal-600">8:00-16:30</div>
+                    <div className="font-bold text-blue-600">8:00-16:30</div>
                   </div>
                 </div>
                 <p className="text-xs">{t('guide.schools.highSchoolDesc')}</p>
@@ -2137,19 +2136,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <p className="font-bold text-slate-700 dark:text-slate-300">🏫 {t('guide.schools.highSchoolTypes')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>{t('guide.schools.liceoTitle')}:</strong> {t('guide.schools.liceoDesc')}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>{t('guide.schools.smsTitle')}:</strong> {t('guide.schools.smsDesc')}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>{t('guide.schools.scTitle')}:</strong> {t('guide.schools.scDesc')}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <CheckCircle2 size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <CheckCircle2 size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>{t('guide.schools.spcTitle')}:</strong> {t('guide.schools.spcDesc')}</span>
                   </div>
                 </div>
@@ -2158,19 +2157,19 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <p className="font-bold text-slate-700 dark:text-slate-300">📍 {t('guide.schools.mainHighSchools')}:</p>
                 <div className="grid sm:grid-cols-2 gap-2">
                   <div className="flex items-start gap-2">
-                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <MapPin size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>Mendrisio:</strong> {t('guide.schools.highSchoolMendrisio')}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <MapPin size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>Lugano:</strong> {t('guide.schools.highSchoolLugano')}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <MapPin size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>Bellinzona:</strong> {t('guide.schools.highSchoolBellinzona')}</span>
                   </div>
                   <div className="flex items-start gap-2">
-                    <MapPin size={14} className="text-teal-600 flex-shrink-0 mt-0.5" />
+                    <MapPin size={14} className="text-blue-600 flex-shrink-0 mt-0.5" />
                     <span><strong>Locarno:</strong> {t('guide.schools.highSchoolLocarno')}</span>
                   </div>
                 </div>
@@ -2450,7 +2449,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
           </InfoCard>
 
           {/* Comparison Table */}
-          <InfoCard icon={BarChart3} title={t('guide.unemployment.comparison.title')} color="purple">
+          <InfoCard icon={BarChart3} title={t('guide.unemployment.comparison.title')} color="amber">
             <div className="overflow-x-auto">
               <table className="w-full text-sm">
                 <thead>
@@ -2548,7 +2547,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
             bannerVisible ? 'translate-y-0 opacity-100' : 'translate-y-8 opacity-0'
           }`}
         >
-          <div className="bg-gradient-to-br from-teal-600 to-emerald-700 text-white rounded-2xl shadow-2xl p-4 sm:p-5 border border-teal-400/30">
+          <div className="bg-gradient-to-br from-blue-600 to-emerald-700 text-white rounded-2xl shadow-2xl p-4 sm:p-5 border border-blue-400/30">
             <button
               onClick={dismissBanner}
               className="absolute top-2 right-2 p-2 text-white/70 hover:text-white hover:bg-white/20 rounded-full transition-colors"
@@ -2564,7 +2563,7 @@ const FrontierGuide: React.FC<FrontierGuideProps> = ({ activeSection: externalSe
                 <h3 className="text-sm sm:text-base font-bold leading-tight">
                   {t('guide.title')}
                 </h3>
-                <p className="text-xs sm:text-sm text-teal-100 leading-relaxed">
+                <p className="text-xs sm:text-sm text-blue-100 leading-relaxed">
                   {t('guide.subtitle')}
                 </p>
               </div>
