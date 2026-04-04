@@ -2028,6 +2028,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.contrabbando-pokemon-ticino.title': 'Svizzero fermato con 900 pacchetti di figurine Pokèmon',
     'blog.article.contrabbando-pokemon-ticino.excerpt': 'Un uomo di 33 anni è stato fermato alla dogana con un carico di 900 pacchetti di figurine Pokèmon del valore di 6.900 euro.',
     'blog.article.contrabbando-pokemon-ticino.imageAlt': 'Valico di frontiera nel Canton Ticino',
+    'blog.article.sconto-benzina-ticino.title': 'Sconto benzina: Italia allunga lo sconto',
+    'blog.article.sconto-benzina-ticino.excerpt': 'Il governo Meloni estende il taglio delle accise fino al 1° maggio',
+    'blog.article.sconto-benzina-ticino.imageAlt': 'Stazione di servizio a Lugano',
 };
 
 export default blogMetaIt;

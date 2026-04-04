@@ -5922,4 +5922,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/contrabbando-pokemon-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'sconto-benzina-ticino',
+    category: 'fiscale',
+    date: '2026-04-04T18:59:11.303Z',
+    image: '/images/blog/sconto-benzina-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

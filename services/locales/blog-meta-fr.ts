@@ -2028,6 +2028,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.contrabbando-pokemon-ticino.title': 'Suisse arrêté avec 900 paquets de figurines Pokèmon',
     'blog.article.contrabbando-pokemon-ticino.excerpt': 'Un homme de 33 ans a été arrêté à la douane avec un chargement de 900 paquets de figurines Pokèmon d\'une valeur de 6 900 euros.',
     'blog.article.contrabbando-pokemon-ticino.imageAlt': 'Poste frontière dans le canton du Tessin',
+    'blog.article.sconto-benzina-ticino.title': 'Remise sur l\'essence : l\'Italie prolonge la réduction',
+    'blog.article.sconto-benzina-ticino.excerpt': 'Le gouvernement Meloni étend la baisse des accises jusqu\'au 1er mai',
+    'blog.article.sconto-benzina-ticino.imageAlt': 'Station service à Lugano',
 };
 
 export default blogMetaFr;

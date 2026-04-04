@@ -2028,6 +2028,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.contrabbando-pokemon-ticino.title': 'Swiss man stopped with 900 packages of Pokémon figures',
     'blog.article.contrabbando-pokemon-ticino.excerpt': 'A 33-year-old man was stopped at customs with a shipment of 900 packages of Pokémon figures worth 6,900 euros.',
     'blog.article.contrabbando-pokemon-ticino.imageAlt': 'Border crossing in Ticino, Switzerland',
+    'blog.article.sconto-benzina-ticino.title': 'Fuel discount: Italy extends the discount',
+    'blog.article.sconto-benzina-ticino.excerpt': 'The Meloni government extends the cut in excise duties until May 1st',
+    'blog.article.sconto-benzina-ticino.imageAlt': 'Gas station in Lugano',
 };
 
 export default blogMetaEn;
