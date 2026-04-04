@@ -2025,6 +2025,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.abolizione-imposta-valore-locativo-2029.title': 'Abolizione de l\'imposition sur la valeur locative à partir de 2029',
     'blog.article.abolizione-imposta-valore-locativo-2029.excerpt': 'À partir du 1er janvier 2029, l\'imposition sur la valeur locative pour les habitations à usage propre sera abolie, comme décidé par le Conseil fédéral.',
     'blog.article.abolizione-imposta-valore-locativo-2029.imageAlt': 'Vue aérienne de Lugano avec des bâtiments résidentiels et le lac',
+    'blog.article.contrabbando-pokemon-ticino.title': 'Suisse arrêté avec 900 paquets de figurines Pokèmon',
+    'blog.article.contrabbando-pokemon-ticino.excerpt': 'Un homme de 33 ans a été arrêté à la douane avec un chargement de 900 paquets de figurines Pokèmon d\'une valeur de 6 900 euros.',
+    'blog.article.contrabbando-pokemon-ticino.imageAlt': 'Poste frontière dans le canton du Tessin',
 };
 
 export default blogMetaFr;

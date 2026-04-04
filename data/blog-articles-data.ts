@@ -5915,4 +5915,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/abolizione-imposta-valore-locativo-2029.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'contrabbando-pokemon-ticino',
+    category: 'fiscale',
+    date: '2026-04-04T17:43:44.962Z',
+    image: '/images/blog/contrabbando-pokemon-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

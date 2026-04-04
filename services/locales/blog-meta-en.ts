@@ -2025,6 +2025,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.abolizione-imposta-valore-locativo-2029.title': 'Abolition of Property Value Tax from 2029',
     'blog.article.abolizione-imposta-valore-locativo-2029.excerpt': 'As of January 1, 2029, the property value tax will be abolished for private residences, as decided by the Federal Council.',
     'blog.article.abolizione-imposta-valore-locativo-2029.imageAlt': 'Aerial view of Lugano with residential buildings and the lake',
+    'blog.article.contrabbando-pokemon-ticino.title': 'Swiss man stopped with 900 packages of Pokémon figures',
+    'blog.article.contrabbando-pokemon-ticino.excerpt': 'A 33-year-old man was stopped at customs with a shipment of 900 packages of Pokémon figures worth 6,900 euros.',
+    'blog.article.contrabbando-pokemon-ticino.imageAlt': 'Border crossing in Ticino, Switzerland',
 };
 
 export default blogMetaEn;

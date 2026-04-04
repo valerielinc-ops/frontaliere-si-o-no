@@ -2025,6 +2025,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.abolizione-imposta-valore-locativo-2029.title': 'Abschaffung der Vermögenssteuer zum 1. Januar 2029',
     'blog.article.abolizione-imposta-valore-locativo-2029.excerpt': 'Ab dem 1. Januar 2029 wird die Vermögenssteuer für Eigentumswohnungen abgeschafft, wie der Bundesrat entschieden hat.',
     'blog.article.abolizione-imposta-valore-locativo-2029.imageAlt': 'Luftaufnahme von Lugano mit Wohngebäuden und dem See',
+    'blog.article.contrabbando-pokemon-ticino.title': 'Schweizer wegen 900 Päckchen Pokémon-Figuren gestoppt',
+    'blog.article.contrabbando-pokemon-ticino.excerpt': 'Ein 33-jähriger Mann wurde an der Zollstation mit einer Ladung von 900 Päckchen Pokémon-Figuren im Wert von 6.900 Euro gestoppt',
+    'blog.article.contrabbando-pokemon-ticino.imageAlt': 'Grenzübergang im Kanton Tessin',
 };
 
 export default blogMetaDe;

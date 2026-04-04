@@ -1904,6 +1904,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendi-boschivi-ticino-2026': { name: 'Ambiente', path: '/articoli-frontaliere/incendi-boschivi-ticino-2026', parent: 'blog' },
     'blog-benzina-ticino-taglio-accise': { name: 'Benzina Ticino Taglio Accise', path: '/articoli-frontaliere/benzina-ticino-taglio-accise', parent: 'blog' },
     'blog-abolizione-imposta-valore-locativo-2029': { name: 'Fisco Ticino', path: '/articoli-frontaliere/abolizione-imposta-valore-locativo-2029', parent: 'blog' },
+    'blog-contrabbando-pokemon-ticino': { name: 'Contrabbando di Pokémon', path: '/articoli-frontaliere/contrabbando-pokemon-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

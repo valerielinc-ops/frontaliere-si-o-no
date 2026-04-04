@@ -11331,6 +11331,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-contrabbando-pokemon-ticino': {
+    title: 'Svizzero fermato con 900 pacchetti di figurine Pokèmon | Frontaliere Ticino',
+    description: 'Un uomo di 33 anni è stato fermato alla dogana con un carico di 900 pacchetti di figurine Pokémon del valore di 6.900 euro. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, svizzero, fermato, pacchetti, figurine',
+    ogTitle: 'Contrabbando di Pokémon: Svizzero fermato alla dogana',
+    ogDescription: 'Un uomo di 33 anni è stato fermato alla dogana con un carico di 900 pacchetti di figurine Pokémon del valore di 6.900 euro.',
+    canonicalPath: '/articoli-frontaliere/contrabbando-pokemon-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contrabbando di Pokémon: Svizzero fermato alla dogana",
+      "description": "Un uomo di 33 anni è stato fermato alla dogana con un carico di 900 pacchetti di figurine Pokémon del valore di 6.900 euro. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/contrabbando-pokemon-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di frontiera nel Canton Ticino"
+      },
+      "datePublished": "2026-04-04T17:43:44+00:00",
+      "dateModified": "2026-04-04T17:43:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbando-pokemon-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
