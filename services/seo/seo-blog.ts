@@ -11041,6 +11041,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-medici-manca-verbano-ticino-2026': {
+    title: 'Da Varese al Verbano mancano 172 medici di base: attivato un ambulatorio | Frontaliere Ticino',
+    description: 'Situazione critica per i medici di medicina generale nel territorio dell’Asst Sette Laghi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, varese, verbano, mancano, medici',
+    ogTitle: 'Mancano 172 medici di base a Varese e Verbano',
+    ogDescription: 'Situazione critica per i medici di medicina generale nel territorio dell’Asst Sette Laghi.',
+    canonicalPath: '/articoli-frontaliere/medici-manca-verbano-ticino-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mancano 172 medici di base a Varese e Verbano",
+      "description": "Situazione critica per i medici di medicina generale nel territorio dell’Asst Sette Laghi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/medici-manca-verbano-ticino-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Medici in Ticino e Varese"
+      },
+      "datePublished": "2026-04-04T07:17:08+00:00",
+      "dateModified": "2026-04-04T07:17:08+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/medici-manca-verbano-ticino-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

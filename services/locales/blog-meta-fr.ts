@@ -1995,6 +1995,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Vacances de Pâques : la colonne au Saint-Gothard atteint 21 kilomètres',
     'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Les automobilistes sont en file d\'attente pour les vacances de Pâques au Saint-Gothard : 21 kilomètres de circulation bloquée',
     'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilistes en file pour les vacances de P8re5t al San Gottardo',
+    'blog.article.medici-manca-verbano-ticino-2026.title': 'De Varese au Verbano manquent 172 médecins de base : un ambulatoire temporaire a été activé à Laveno',
+    'blog.article.medici-manca-verbano-ticino-2026.excerpt': 'Il y a 172 postes vacants de médecins de médecine générale dans le territoire de l\'Asst Sette Laghi.',
+    'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Médecins à Ticino et Varese',
 };
 
 export default blogMetaFr;

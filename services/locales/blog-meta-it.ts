@@ -1995,6 +1995,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Vacanze di Pasqua: colonna al San Gottardo tocca i 21 chilometri',
     'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo: 21 chilometri di traffico bloccato',
     'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo',
+    'blog.article.medici-manca-verbano-ticino-2026.title': 'Da Varese al Verbano mancano 172 medici di base: attivato un ambulatorio temporaneo a Laveno',
+    'blog.article.medici-manca-verbano-ticino-2026.excerpt': 'Sono 172 gli incarichi vacanti dei medici di medicina generale nel territorio dell’Asst Sette Laghi.',
+    'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Medici in Ticino e Varese',
 };
 
 export default blogMetaIt;

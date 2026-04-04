@@ -5845,4 +5845,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/vacanze-di-pasqua-san-gottardo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'medici-manca-verbano-ticino-2026',
+    category: 'novita',
+    date: '2026-04-04T07:17:08.660Z',
+    image: '/images/blog/medici-manca-verbano-ticino-2026.jpg',
+    hasCalculator: true,
+  },
 ];

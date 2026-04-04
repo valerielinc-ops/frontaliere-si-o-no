@@ -1995,6 +1995,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Ostern: Stau am San Gottardo erreicht 21 Kilometer',
     'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Autofahrer stehen in der Schlange für den Osternurlaub am San Gottardo: 21 Kilometer Stau',
     'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilisten in der Schlange für Ostern am San Gottardo',
+    'blog.article.medici-manca-verbano-ticino-2026.title': 'Von Varese ins Verbano fehlen 172 Allgemeinmediziner: Notarztpraxis vorübergehend in Laveno eröffnet',
+    'blog.article.medici-manca-verbano-ticino-2026.excerpt': '172 Stellen für Allgemeinmediziner sind im Gebiet der Asst Sette Laghi vakant.',
+    'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Ärzte in Ticino und Varese',
 };
 
 export default blogMetaDe;

@@ -1995,6 +1995,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Easter Holidays: Traffic Jam at the Gotthard Reaches 21 Kilometers',
     'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Drivers stuck in traffic for the Easter holidays at the Gotthard: 21 kilometers of standstill traffic',
     'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilists in queue for Easter holidays at San Gottardo',
+    'blog.article.medici-manca-verbano-ticino-2026.title': 'From Varese to Verbano: 172 general practitioners missing, temporary outpatient clinic activated in Laveno',
+    'blog.article.medici-manca-verbano-ticino-2026.excerpt': 'There are 172 vacant positions for general practitioners in the Asst Sette Laghi territory.',
+    'blog.article.medici-manca-verbano-ticino-2026.imageAlt': 'Medics in Ticino and Varese',
 };
 
 export default blogMetaEn;
