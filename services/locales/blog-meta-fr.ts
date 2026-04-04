@@ -2034,6 +2034,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.title': 'Une femme de 88 ans se défend contre un voleur et fait arrêter la malhonnête',
     'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.excerpt': 'Une dame âgée de 88 ans s\'est défendée contre une tentative de vol sur la route de Muttenz, en Suisse, et a fait arrêter la malhonnête',
     'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.imageAlt': 'Une femme de 88 ans se défend contre un pickpocket',
+    'blog.article.supsi-bachelor-sostenibilita-2027.title': 'SUPSI lance un bachelor en Durabilité en 2027 : focus sur le Tessin',
+    'blog.article.supsi-bachelor-sostenibilita-2027.excerpt': 'La SUPSI activera un nouveau bachelor en \'Durabilité et transition systémique\' en septembre 2027, avec les inscriptions ouvertes à partir du 27 avril 2026 pour l\'année passerelle.',
+    'blog.article.supsi-bachelor-sostenibilita-2027.imageAlt': 'Vue aérienne de Lugano avec le campus SUPSI en focus, architecture durable et espaces verts',
 };
 
 export default blogMetaFr;

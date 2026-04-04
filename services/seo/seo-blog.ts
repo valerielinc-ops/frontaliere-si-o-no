@@ -11418,6 +11418,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-supsi-bachelor-sostenibilita-2027': {
+    title: 'SUPSI lancia bachelor in Sostenibilità nel 2027: focus su Ticino | Frontaliere Ticino',
+    description: 'La SUPSI lancia un nuovo bachelor in Sostenibilità nel 2027: costi, requisiti e opportunità per frontalieri e residenti in Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, supsi, lancia, bachelor, sostenibilità',
+    ogTitle: 'SUPSI lancia bachelor in Sostenibilità: dettagli 2027',
+    ogDescription: 'Tutte le informazioni sul nuovo corso SUPSI per professionisti della transizione ecologica in Ticino',
+    canonicalPath: '/articoli-frontaliere/supsi-bachelor-sostenibilita-2027',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La SUPSI attiverà un nuovo bachelor in 'Sostenibilità e transizione sistemica' a settembre 2027",
+      "description": "La SUPSI lancia un nuovo bachelor in Sostenibilità nel 2027: costi, requisiti e opportunità per frontalieri e residenti in Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/supsi-bachelor-sostenibilita-2027.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con campus SUPSI in primo piano, architettura sostenibile e spazi verdi"
+      },
+      "datePublished": "2026-04-04T22:50:20+00:00",
+      "dateModified": "2026-04-04T22:50:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/supsi-bachelor-sostenibilita-2027`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

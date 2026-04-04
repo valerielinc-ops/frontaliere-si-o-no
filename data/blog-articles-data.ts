@@ -5936,4 +5936,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'supsi-bachelor-sostenibilita-2027',
+    category: 'novita',
+    date: '2026-04-04T22:50:20.495Z',
+    image: '/images/blog/supsi-bachelor-sostenibilita-2027.jpg',
+    hasCalculator: true,
+  },
 ];
