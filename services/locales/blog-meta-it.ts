@@ -2013,6 +2013,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.addiofrontalierelongo.title': 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo',
     'blog.article.addiofrontalierelongo.excerpt': 'Salvatore Longo, 62 anni, è morto sul lavoro mentre dirigeva il traffico a Cadenazzo.',
     'blog.article.addiofrontalierelongo.imageAlt': 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a Cadenazzo',
+    'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.title': 'Ladri di auto scappano con 40 chiavi e una Skoda in Ticino',
+    'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.excerpt': 'Due adolescenti hanno forzato la porta di un garage svizzero e sono fuggiti con una Skoda e 40 chiavi',
+    'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.imageAlt': 'Immagine di un ragazzo che fugge con una Skoda',
 };
 
 export default blogMetaIt;

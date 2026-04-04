@@ -2013,6 +2013,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.addiofrontalierelongo.title': 'Abschied von Salvatore Longo, dem Frontalier von Luino, der auf der Arbeit in Cadenazzo starb',
     'blog.article.addiofrontalierelongo.excerpt': 'Salvatore Longo, 62 Jahre alt, ist auf der Arbeit gestorben, als er den Verkehr in Cadenazzo leitete.',
     'blog.article.addiofrontalierelongo.imageAlt': 'Abschied von Salvatore Longo, dem Luino-Grenzgänger, der am Arbeitsplatz in Cadenazzo starb',
+    'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.title': 'Autodiebe fliehen mit 40 Autoschlüsseln und einer Skoda im Tessin',
+    'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.excerpt': 'Zwei Jugendliche haben einen Schweizer Garagenzaun geöffnet und sind mit einer Skoda und 40 Autoschlüsseln geflohen',
+    'blog.article.ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.imageAlt': 'Bild eines Jungen, der mit einer Skoda flieht',
 };
 
 export default blogMetaDe;

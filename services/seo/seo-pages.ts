@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 658,
+        "numberOfItems": 659,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4225,7 +4225,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 655, "name": "Contro l'aumento dei prezzi dei mezzi pubblici ...", "url": `${BASE_URL}/articoli-frontaliere/aumento-mezzi-pubblici-ticino` },
           { "@type": "ListItem", "position": 656, "name": "Frontaliere investito in un cantiere a Cadenazz...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-investito-cantiere` },
           { "@type": "ListItem", "position": 657, "name": "Banche e sindacati si accordano sull'aumento st...", "url": `${BASE_URL}/articoli-frontaliere/banche-sindacati-piattaforma-aumento` },
-          { "@type": "ListItem", "position": 658, "name": "Addio a Salvatore Longo, il frontaliere di Luin...", "url": `${BASE_URL}/articoli-frontaliere/addiofrontalierelongo` }
+          { "@type": "ListItem", "position": 658, "name": "Addio a Salvatore Longo, il frontaliere di Luin...", "url": `${BASE_URL}/articoli-frontaliere/addiofrontalierelongo` },
+          { "@type": "ListItem", "position": 659, "name": "Ladri di auto scappano con 40 chiavi e una Skod...", "url": `${BASE_URL}/articoli-frontaliere/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda` }
         ]
       }
     ]

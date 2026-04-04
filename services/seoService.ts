@@ -1900,6 +1900,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-frontaliere-ticino-investito-cantiere': { name: 'Frontaliere investito in un cantiere a', path: '/articoli-frontaliere/frontaliere-ticino-investito-cantiere', parent: 'blog' },
     'blog-banche-sindacati-piattaforma-aumento': { name: 'Lavoro e economia', path: '/articoli-frontaliere/banche-sindacati-piattaforma-aumento', parent: 'blog' },
     'blog-addiofrontalierelongo': { name: 'Necrologie', path: '/articoli-frontaliere/addiofrontalierelongo', parent: 'blog' },
+    'blog-ladri-di-auto-scappano-con-40-chiavi-e-una-skoda': { name: 'Ticino', path: '/articoli-frontaliere/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda', parent: 'blog' },
   };
 
   const info = sectionNames[section];

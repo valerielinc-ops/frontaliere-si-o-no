@@ -5887,4 +5887,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/addiofrontalierelongo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ladri-di-auto-scappano-con-40-chiavi-e-una-skoda',
+    category: 'fiscale',
+    date: '2026-04-04T13:23:20.870Z',
+    image: '/images/blog/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.jpg',
+    hasCalculator: true,
+  },
 ];

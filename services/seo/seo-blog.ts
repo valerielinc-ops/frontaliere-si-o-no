@@ -11215,6 +11215,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ladri-di-auto-scappano-con-40-chiavi-e-una-skoda': {
+    title: 'Ladri di auto scappano con 40 chiavi e una Skoda in Ticino | Frontaliere Ticino',
+    description: 'Due adolescenti hanno forzato la porta di un garage svizzero e sono fuggiti con una Skoda e 40 chiavi. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, ladri, auto, scappano, chiavi',
+    ogTitle: 'Ladri di auto scappano con 40 chiavi e una Skoda in Ticino',
+    ogDescription: 'Due adolescenti hanno forzato la porta di un garage svizzero e sono fuggiti con una Skoda e 40 chiavi',
+    canonicalPath: '/articoli-frontaliere/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ladri di auto scappano con 40 chiavi e una Skoda in Ticino - Frontaliere Ticino",
+      "description": "Due adolescenti hanno forzato la porta di un garage svizzero e sono fuggiti con una Skoda e 40 chiavi. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Immagine di un ragazzo che fugge con una Skoda"
+      },
+      "datePublished": "2026-04-04T13:23:20+00:00",
+      "dateModified": "2026-04-04T13:23:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ladri-di-auto-scappano-con-40-chiavi-e-una-skoda`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
