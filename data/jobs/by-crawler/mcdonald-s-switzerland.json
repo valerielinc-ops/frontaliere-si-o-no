@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mcdonald-s-switzerland",
-  "assembledAt": "2026-04-03T21:27:56.878Z",
+  "assembledAt": "2026-04-04T09:24:03.057Z",
   "jobs": [
     {
       "url": "https://jobs.mcdonalds.ch/de/details-offre/8199",
@@ -202,7 +202,8 @@
       "postalCode": "6830",
       "addressLocality": "Chiasso",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     }
   ]
 }
