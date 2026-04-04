@@ -268,8 +268,8 @@
       "slugByLocale": {
         "it": "stage-hr-industrial-pelletteria-prada-group-mendrisio",
         "en": "stage-hr-industrial-pelletteria-prada-group-mendrisio",
-        "de": "stage-personalwesen-industrial-pelletteria-prada-group-mendrisio",
-        "fr": "stage-ressources-humaines-industrial-pelletteria-prada-group-mendrisio"
+        "de": "industrieller-hr-spezialist-fur-schuhmacher-prada-group-mendrisio",
+        "fr": "specialiste-rh-pour-la-couture-industrielle-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -322,7 +322,10 @@
         }
       },
       "postalCode": "6850",
-      "previousSlugs": []
+      "previousSlugs": [
+        "stage-personalwesen-industrial-pelletteria-prada-group-mendrisio",
+        "stage-ressources-humaines-industrial-pelletteria-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-332f237b0ca4",
