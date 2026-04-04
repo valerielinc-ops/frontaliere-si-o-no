@@ -5859,4 +5859,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/italia-taglia-accise-benzinai-preoccupati.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'aumento-mezzi-pubblici-ticino',
+    category: 'pratico',
+    date: '2026-04-04T08:59:43.094Z',
+    image: '/images/blog/aumento-mezzi-pubblici-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

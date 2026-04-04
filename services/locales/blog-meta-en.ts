@@ -2001,6 +2001,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'Italy Cuts Fuel Taxes, Gas Station Owners Concerned',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'The Italian government\'s decision to cut fuel taxes is causing concern among gas station owners in Ticino.',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Gas station in Lugano',
+    'blog.article.aumento-mezzi-pubblici-ticino.title': 'Against the increase in public transport prices, let\'s implement our motion',
+    'blog.article.aumento-mezzi-pubblici-ticino.excerpt': 'The Greens are asking for a 25% reduction in the costs of the Arcobaleno subscription',
+    'blog.article.aumento-mezzi-pubblici-ticino.imageAlt': 'Lago di Lugano with public transport price increase',
 };
 
 export default blogMetaEn;

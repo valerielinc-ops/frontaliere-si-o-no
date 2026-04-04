@@ -2001,6 +2001,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'L\'Italie réduit les accises, les détaillants de carburant inquiets',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'Le réduction des accises décidée par le gouvernement italien inquiète les détaillants de carburant du Tessin.',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Station essence à Lugano',
+    'blog.article.aumento-mezzi-pubblici-ticino.title': 'Contre l\'augmentation des prix des transports publics, mettons en œuvre notre proposition',
+    'blog.article.aumento-mezzi-pubblici-ticino.excerpt': 'Les Verts demandent une réduction de 25% des coûts de l\'abonnement Arcobaleno',
+    'blog.article.aumento-mezzi-pubblici-ticino.imageAlt': 'Lac de Lugano avec augmentation des prix des transports publics',
 };
 
 export default blogMetaFr;

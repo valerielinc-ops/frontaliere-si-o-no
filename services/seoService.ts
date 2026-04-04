@@ -1896,6 +1896,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-vacanze-di-pasqua-san-gottardo': { name: 'Vacanze di Pasqua: colonna al San Gottardo', path: '/articoli-frontaliere/vacanze-di-pasqua-san-gottardo', parent: 'blog' },
     'blog-medici-manca-verbano-ticino-2026': { name: 'Medici in Ticino e Varese', path: '/articoli-frontaliere/medici-manca-verbano-ticino-2026', parent: 'blog' },
     'blog-italia-taglia-accise-benzinai-preoccupati': { name: 'L\'Italia taglia le accise, benzinai preo', path: '/articoli-frontaliere/italia-taglia-accise-benzinai-preoccupati', parent: 'blog' },
+    'blog-aumento-mezzi-pubblici-ticino': { name: 'Aumento prezzi mezzi pubblici Ticino', path: '/articoli-frontaliere/aumento-mezzi-pubblici-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

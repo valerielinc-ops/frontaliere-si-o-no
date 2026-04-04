@@ -2001,6 +2001,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'Italien senkt Benzinsteuer, Tankstellenbesitzer besorgt',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'Der von der italienischen Regierung beschlossene Senkung der Benzinsteuer beunruhigt die Tankstellenbesitzer im Tessin.',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Tankstelle in Lugano',
+    'blog.article.aumento-mezzi-pubblici-ticino.title': 'Gegen die Preiserhöhungen bei öffentlichen Verkehrsmitteln: Wir wollen unsere Resolution umsetzen',
+    'blog.article.aumento-mezzi-pubblici-ticino.excerpt': 'Die Grünen fordern eine Reduzierung von 25% der Kosten des Arcobaleno-Abonnements',
+    'blog.article.aumento-mezzi-pubblici-ticino.imageAlt': 'Lago di Lugano mit Preissteigerung der öffentlichen Verkehrsmittel',
 };
 
 export default blogMetaDe;

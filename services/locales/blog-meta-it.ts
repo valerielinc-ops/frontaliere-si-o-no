@@ -2001,6 +2001,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.italia-taglia-accise-benzinai-preoccupati.title': 'L\'Italia taglia le accise, benzinai preoccupati',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.excerpt': 'Il taglio delle accise deciso dal governo italiano preoccupa i benzinai ticinesi.',
     'blog.article.italia-taglia-accise-benzinai-preoccupati.imageAlt': 'Pompa di benzina in Lugano',
+    'blog.article.aumento-mezzi-pubblici-ticino.title': 'Contro l\'aumento dei prezzi dei mezzi pubblici, si implementi la nostra mozione',
+    'blog.article.aumento-mezzi-pubblici-ticino.excerpt': 'I Verdi chiedono una riduzione del 25% dei costi dell\'abbonamento Arcobaleno',
+    'blog.article.aumento-mezzi-pubblici-ticino.imageAlt': 'Lago di Lugano con aumento dei prezzi dei mezzi pubblici',
 };
 
 export default blogMetaIt;

@@ -11099,6 +11099,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-aumento-mezzi-pubblici-ticino': {
+    title: 'Contro l\'aumento dei prezzi dei mezzi pubblici, si implementi la nostra | Frontaliere Ticino',
+    description: 'I Verdi chiedono una riduzione del 25% dei costi dell\'abbonamento Arcobaleno. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, contro, aumento, prezzi, mezzi',
+    ogTitle: 'Contro l\'aumento dei prezzi dei mezzi pubblici in Ticino',
+    ogDescription: 'I Verdi chiedono una riduzione del 25% dei costi dell\'abbonamento Arcobaleno',
+    canonicalPath: '/articoli-frontaliere/aumento-mezzi-pubblici-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Contro l'aumento dei prezzi dei mezzi pubblici in Ticino",
+      "description": "I Verdi chiedono una riduzione del 25% dei costi dell'abbonamento Arcobaleno. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/aumento-mezzi-pubblici-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano con aumento dei prezzi dei mezzi pubblici"
+      },
+      "datePublished": "2026-04-04T08:59:43+00:00",
+      "dateModified": "2026-04-04T08:59:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/aumento-mezzi-pubblici-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 654,
+        "numberOfItems": 655,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4221,7 +4221,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 651, "name": "Accordi Svizzera-UE verso ratifica nel 2026", "url": `${BASE_URL}/articoli-frontaliere/accordi-svizzera-ue-2026` },
           { "@type": "ListItem", "position": 652, "name": "Vacanze di Pasqua: colonna al San Gottardo tocc...", "url": `${BASE_URL}/articoli-frontaliere/vacanze-di-pasqua-san-gottardo` },
           { "@type": "ListItem", "position": 653, "name": "Mancano 172 medici di base a Varese e Verbano", "url": `${BASE_URL}/articoli-frontaliere/medici-manca-verbano-ticino-2026` },
-          { "@type": "ListItem", "position": 654, "name": "L'Italia taglia le accise, benzinai preoccupati", "url": `${BASE_URL}/articoli-frontaliere/italia-taglia-accise-benzinai-preoccupati` }
+          { "@type": "ListItem", "position": 654, "name": "L'Italia taglia le accise, benzinai preoccupati", "url": `${BASE_URL}/articoli-frontaliere/italia-taglia-accise-benzinai-preoccupati` },
+          { "@type": "ListItem", "position": 655, "name": "Contro l'aumento dei prezzi dei mezzi pubblici ...", "url": `${BASE_URL}/articoli-frontaliere/aumento-mezzi-pubblici-ticino` }
         ]
       }
     ]
