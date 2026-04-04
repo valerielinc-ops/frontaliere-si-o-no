@@ -2019,6 +2019,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendi-boschivi-ticino-2026.title': 'Forte pericolo di incendi nei boschi del Ticino',
     'blog.article.incendi-boschivi-ticino-2026.excerpt': 'Il Canton Ticino è in allerta per il forte pericolo di incendi boschivi. La situazione è critica a causa della mancanza di precipitazioni e del forte vento.',
     'blog.article.incendi-boschivi-ticino-2026.imageAlt': 'Incendio boschivo in Ticino',
+    'blog.article.benzina-ticino-taglio-accise.title': 'Prezzo della benzina troppo basso in Italia: maxi esodo dalla Svizzera e allarme dei gestori ticinesi',
+    'blog.article.benzina-ticino-taglio-accise.excerpt': 'Il taglio delle accise sui carburanti in Italia genera un esodo di automobilisti ticinesi verso il confine italiano.',
+    'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Fotografia del lago Lugano con un\'auto che si ferma a rifornire la benzina al valico di Gaggiolo',
 };
 
 export default blogMetaIt;

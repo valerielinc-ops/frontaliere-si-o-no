@@ -2019,6 +2019,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendi-boschivi-ticino-2026.title': 'Hoches Risiko von Waldbränden im Kanton Tessin',
     'blog.article.incendi-boschivi-ticino-2026.excerpt': 'Der Kanton Tessin befindet sich in Alarmbereitschaft wegen des hohen Risikos von Waldbränden. Die Situation ist kritisch aufgrund der mangelnden Niederschläge und des starken Windes.',
     'blog.article.incendi-boschivi-ticino-2026.imageAlt': 'Waldbrand in Tessin',
+    'blog.article.benzina-ticino-taglio-accise.title': 'Preis der Benzinpreise zu niedrig in Italien: Großes Exil aus der Schweiz und Alarmsignal der ticinensischen Betreiber',
+    'blog.article.benzina-ticino-taglio-accise.excerpt': 'Der Abbau der Steuern auf Kraftstoffe in Italien löst einen Ausfluss von Automobilisten aus dem Tessin in Richtung italienischer Grenze aus.',
+    'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Lago Lugano mit einem Auto, das zum Tanken an der Gaggiolo-Grenze hält',
 };
 
 export default blogMetaDe;

@@ -11273,6 +11273,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-benzina-ticino-taglio-accise': {
+    title: 'Prezzo della benzina troppo basso in Italia: maxi esodo dalla Svizzera e | Frontaliere Ticino',
+    description: 'Il taglio delle accise sui carburanti in Italia genera un esodo di automobilisti ticinesi verso il confine italiano. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzo, benzina, troppo, basso',
+    ogTitle: 'Benzina Ticino Taglio Accise',
+    ogDescription: 'Il taglio delle accise sui carburanti in Italia genera un esodo di automobilisti ticinesi verso il confine italiano.',
+    canonicalPath: '/articoli-frontaliere/benzina-ticino-taglio-accise',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Benzina Ticino Taglio Accise: esodo dalla Svizzera e allarme dei gestori ticinesi",
+      "description": "Il taglio delle accise sui carburanti in Italia genera un esodo di automobilisti ticinesi verso il confine italiano. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/benzina-ticino-taglio-accise.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Fotografia del lago Lugano con un'auto che si ferma a rifornire la benzina al valico di Gaggiolo"
+      },
+      "datePublished": "2026-04-04T14:53:03+00:00",
+      "dateModified": "2026-04-04T14:53:03+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/benzina-ticino-taglio-accise`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

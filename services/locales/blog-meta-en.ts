@@ -2019,6 +2019,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendi-boschivi-ticino-2026.title': 'High Risk of Forest Fires in Ticino',
     'blog.article.incendi-boschivi-ticino-2026.excerpt': 'The Canton of Ticino is on high alert due to the high risk of forest fires. The situation is critical due to the lack of precipitation and strong winds.',
     'blog.article.incendi-boschivi-ticino-2026.imageAlt': 'Forest fire in Ticino',
+    'blog.article.benzina-ticino-taglio-accise.title': 'Fuel Prices Too Low in Italy: Massive Exodus from Switzerland and Warning from Ticino Operators',
+    'blog.article.benzina-ticino-taglio-accise.excerpt': 'The reduction of fuel taxes in Italy is causing an exodus of Ticinese motorists to the Italian border.',
+    'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Lago Lugano with a car stopping to refuel at the Gaggiolo border crossing',
 };
 
 export default blogMetaEn;

@@ -5901,4 +5901,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/incendi-boschivi-ticino-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'benzina-ticino-taglio-accise',
+    category: 'novita',
+    date: '2026-04-04T14:53:03.811Z',
+    image: '/images/blog/benzina-ticino-taglio-accise.jpg',
+    hasCalculator: true,
+  },
 ];

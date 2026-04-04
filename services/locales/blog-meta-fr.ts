@@ -2019,6 +2019,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendi-boschivi-ticino-2026.title': 'Forte pericolo di incendi nei boschi del Ticino',
     'blog.article.incendi-boschivi-ticino-2026.excerpt': 'Il Canton Ticino è in allerta per il forte pericolo di incendi boschivi. La situazione è critica a causa della mancanza di precipitazioni e del forte vento.',
     'blog.article.incendi-boschivi-ticino-2026.imageAlt': 'Incendie de forêt au Tessin',
+    'blog.article.benzina-ticino-taglio-accise.title': 'Prix de l\'essence trop bas en Italie: maxi exode de la Suisse et inquiétude des gestionnaires tessinois',
+    'blog.article.benzina-ticino-taglio-accise.excerpt': 'La suppression des droits de douane sur les carburants en Italie provoque un exode de conducteurs tessinois vers la frontière italienne.',
+    'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Lac Lugano avec une voiture s’arrêtant pour ravitailler à la frontière de Gaggiolo',
 };
 
 export default blogMetaFr;
