@@ -161,6 +161,20 @@ export default function MortgageComparison() {
   const [showAmortization, setShowAmortization] = useState(false);
   const [showRules, setShowRules] = useState(false);
 
+  const [isDark, setIsDark] = useState(() =>
+    document.documentElement.classList.contains('dark')
+  );
+  useEffect(() => {
+    const observer = new MutationObserver(() => {
+      setIsDark(document.documentElement.classList.contains('dark'));
+    });
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class'],
+    });
+    return () => observer.disconnect();
+  }, []);
+
   // ─ Derived values
   const loanAmount = propertyValue * (1 - downPaymentPct / 100);
   const months = durationYears * 12;
@@ -664,14 +678,15 @@ export default function MortgageComparison() {
         <div className="h-64 sm:h-80">
           <ResponsiveContainer width="100%" height="100%">
             <BarChart data={yearlyChartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis dataKey="year" tick={{ fontSize: 11 }} label={{ value: t('mortgage.year'), position: 'insideBottom', offset: -3, style: { fontSize: 11 } }} />
-              <YAxis tick={{ fontSize: 10 }} tickFormatter={(v: number) => `€${(v / 1000).toFixed(0)}k`} />
+              <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} label={{ value: t('mortgage.year'), position: 'insideBottom', offset: -3, style: { fontSize: 11 }, fill: isDark ? '#94a3b8' : '#64748b' }} />
+              <YAxis tick={{ fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => `€${(v / 1000).toFixed(0)}k`} />
               <RechartsTooltip
+                contentStyle={{ borderRadius: '8px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: isDark ? '1px solid #334155' : '1px solid #e2e8f0' }}
                 formatter={(value: number, name: string) => [fmt(value), name]}
                 labelFormatter={(y: number) => `${t('mortgage.year')} ${y}`}
               />
-              <Legend wrapperStyle={{ fontSize: 11 }} />
+              <Legend wrapperStyle={{ fontSize: 11, color: isDark ? '#94a3b8' : '#64748b' }} />
               <Bar dataKey="chInterest" name="🇨🇭 Interessi" stackId="ch" fill="#ef4444" radius={[0, 0, 0, 0]} />
               <Bar dataKey="chPrincipal" name="🇨🇭 Capitale" stackId="ch" fill="#fca5a5" radius={[4, 4, 0, 0]} />
               <Bar dataKey="itInterest" name="🇮🇹 Interessi" stackId="it" fill="#22c55e" radius={[0, 0, 0, 0]} />
@@ -690,14 +705,15 @@ export default function MortgageComparison() {
         <div className="h-56 sm:h-72">
           <ResponsiveContainer width="100%" height="100%">
             <LineChart data={balanceChartData} margin={{ top: 5, right: 10, left: 0, bottom: 5 }}>
-              <CartesianGrid strokeDasharray="3 3" stroke="#e2e8f0" />
-              <XAxis dataKey="year" tick={{ fontSize: 11 }} label={{ value: t('mortgage.year'), position: 'insideBottom', offset: -3, style: { fontSize: 11 } }} />
-              <YAxis tick={{ fontSize: 10 }} tickFormatter={(v: number) => `€${(v / 1000).toFixed(0)}k`} />
+              <CartesianGrid strokeDasharray="3 3" stroke={isDark ? '#334155' : '#e2e8f0'} />
+              <XAxis dataKey="year" tick={{ fontSize: 11, fill: isDark ? '#94a3b8' : '#64748b' }} label={{ value: t('mortgage.year'), position: 'insideBottom', offset: -3, style: { fontSize: 11 }, fill: isDark ? '#94a3b8' : '#64748b' }} />
+              <YAxis tick={{ fontSize: 10, fill: isDark ? '#94a3b8' : '#64748b' }} tickFormatter={(v: number) => `€${(v / 1000).toFixed(0)}k`} />
               <RechartsTooltip
+                contentStyle={{ borderRadius: '8px', backgroundColor: isDark ? '#1e293b' : '#fff', color: isDark ? '#e2e8f0' : '#1e293b', border: isDark ? '1px solid #334155' : '1px solid #e2e8f0' }}
                 formatter={(value: number, name: string) => [fmt(value), name]}
                 labelFormatter={(y: number) => `${t('mortgage.year')} ${y}`}
               />
-              <Legend wrapperStyle={{ fontSize: 11 }} />
+              <Legend wrapperStyle={{ fontSize: 11, color: isDark ? '#94a3b8' : '#64748b' }} />
               <Line type="monotone" dataKey="ch" name="🇨🇭 Debito residuo" stroke="#ef4444" strokeWidth={2} dot={false} />
               <Line type="monotone" dataKey="it" name="🇮🇹 Debito residuo" stroke="#22c55e" strokeWidth={2} dot={false} />
             </LineChart>
