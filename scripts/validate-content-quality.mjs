@@ -13,7 +13,7 @@
  */
 
 import { readFileSync, existsSync, readdirSync } from 'fs';
-import { join } from 'path';
+import { join, extname } from 'path';
 
 const DIST = 'dist';
 const DOMAIN = 'https://frontaliereticino.ch/';
@@ -94,13 +94,18 @@ function main() {
   let errors = 0;
 
   for (const { sitemap, url, path } of urls) {
-    const filePath = join(DIST, path, 'index.html');
+    // URLs with file extensions (e.g. .pdf) resolve directly, others get /index.html
+    const hasExt = extname(path).length > 0;
+    const filePath = hasExt ? join(DIST, path) : join(DIST, path, 'index.html');
 
     if (!existsSync(filePath)) {
       missing.push({ sitemap, path });
       errors++;
       continue;
     }
+
+    // Skip content checks for non-HTML files (PDFs, etc.)
+    if (hasExt && !path.endsWith('.html')) continue;
 
     const html = readFileSync(filePath, 'utf-8');
 
