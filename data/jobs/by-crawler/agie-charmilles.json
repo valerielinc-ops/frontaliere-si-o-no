@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agie-charmilles",
-  "assembledAt": "2026-04-04T08:35:56.410Z",
+  "assembledAt": "2026-04-04T20:35:33.571Z",
   "jobs": [
     {
       "title": "SAP ABAP / Fiori Developer",
@@ -61,7 +61,8 @@
         }
       },
       "streetAddress": "Via Goldau 7",
-      "postalCode": "6616"
+      "postalCode": "6616",
+      "needsRetranslation": true
     },
     {
       "title": "HR IT Business Partner (SAP HCM + other)",
@@ -122,7 +123,8 @@
         }
       },
       "streetAddress": "Via Goldau 7",
-      "postalCode": "6616"
+      "postalCode": "6616",
+      "needsRetranslation": true
     }
   ]
 }
