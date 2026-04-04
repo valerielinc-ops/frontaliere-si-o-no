@@ -1,16 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-04-03T21:34:08.998Z",
+  "generatedAt": "2026-04-04T09:30:09.536Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3505,
-  "avgDurationMs": 3505,
+  "durationMs": 3600,
+  "avgDurationMs": 3600,
   "durationHistory": [
-    3505
+    3600
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,10 +33,10 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-03",
+      "postedDate": "2026-04-04",
       "url": "https://careers.pkb.ch/jobs.php?source=&lan=en&language=en",
       "source": "PKB Dedicated Parser",
-      "crawledAt": "2026-04-03T21:34:07.205Z",
+      "crawledAt": "2026-04-04T09:30:07.961Z",
       "_qualityScore": 65,
       "_qualityBreakdown": {
         "cleanliness": 25,
