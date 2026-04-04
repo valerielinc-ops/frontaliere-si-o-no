@@ -160,6 +160,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 onChange={(e) => updateOffer(offer.id, 'companyName', e.target.value)}
                 className="text-lg font-bold text-slate-800 dark:text-slate-100 bg-transparent border-none outline-none focus:ring-2 focus:ring-amber-500 w-full"
                 placeholder={t('jobs.companyName')}
+                aria-label="Nome azienda"
               />
               {offers.length > 2 && (
                 <button onClick={() => removeOffer(offer.id)} className="p-1.5 text-red-400 hover:text-red-600 hover:bg-red-50 dark:hover:bg-red-950/30 rounded-lg transition-colors focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2" aria-label={t('jobs.removeOffer')}>
@@ -208,7 +209,7 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                 </label>
                 <input type="number" value={offer.grossSalaryCHF} onChange={(e) => updateOffer(offer.id, 'grossSalaryCHF', Number(e.target.value))}
                   className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-bold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                  min={0} step={1000} />
+                  min={0} step={1000} aria-label="Stipendio lordo annuo" />
               </div>
 
               <div className="grid grid-cols-2 gap-2">
@@ -216,20 +217,20 @@ const JobComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
                   <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.distance')}</label>
                   <input type="number" value={offer.distanceKm} onChange={(e) => updateOffer(offer.id, 'distanceKm', Number(e.target.value))}
                     className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    min={0} />
+                    min={0} aria-label="Distanza in km" />
                 </div>
                 <div>
                   <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.travelTime')}</label>
                   <input type="number" value={offer.travelTimeMin} onChange={(e) => updateOffer(offer.id, 'travelTimeMin', Number(e.target.value))}
                     className="w-full px-3 py-2 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-lg font-semibold text-slate-800 dark:text-slate-200 focus:outline-none focus:ring-2 focus:ring-amber-500"
-                    min={0} />
+                    min={0} aria-label="Tempo di viaggio in minuti" />
                 </div>
               </div>
 
               <div>
                 <label className="text-xs font-bold text-slate-500 dark:text-slate-400 uppercase">{t('jobs.homeOffice')}</label>
                 <input type="range" min={0} max={5} value={offer.homeOfficeDays} onChange={(e) => updateOffer(offer.id, 'homeOfficeDays', Number(e.target.value))}
-                  className="w-full accent-amber-600" />
+                  className="w-full accent-amber-600" aria-label="Giorni di home office a settimana" />
                 <div className="text-center text-sm font-bold text-slate-700 dark:text-slate-300">{offer.homeOfficeDays} {t('jobs.days')}</div>
               </div>
 
