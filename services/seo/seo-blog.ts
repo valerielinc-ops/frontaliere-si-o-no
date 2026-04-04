@@ -11012,6 +11012,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-vacanze-di-pasqua-san-gottardo': {
+    title: 'Vacanze di Pasqua: colonna al San Gottardo tocca i 21 chilometri | Frontaliere Ticino',
+    description: 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo: 21 chilometri di traffico bloccato. Come percorso alternativo, il TCS consiglia di utilizzare',
+    keywords: 'frontalieri, ticino, svizzera, italia, vacanze, pasqua, colonna, gottardo',
+    ogTitle: 'OG title | Frontaliere Ticino: Vacanze di Pasqua al San Gottardo, 21 chilometri di',
+    ogDescription: 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo: 21 chilometri di traffico bloccato. Come percorso alternativo, il TCS consiglia di utilizzare',
+    canonicalPath: '/articoli-frontaliere/vacanze-di-pasqua-san-gottardo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vacanze di Pasqua: colonna al San Gottardo tocca i 21 chilometri",
+      "description": "Automobilisti in coda per le vacanze di Pasqua al San Gottardo: 21 chilometri di traffico bloccato. Come percorso alternativo, il TCS consiglia di utilizzare",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/vacanze-di-pasqua-san-gottardo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Automobilisti in coda per le vacanze di Pasqua al San Gottardo"
+      },
+      "datePublished": "2026-04-04T06:05:52+00:00",
+      "dateModified": "2026-04-04T06:05:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vacanze-di-pasqua-san-gottardo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -5838,4 +5838,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/accordi-svizzera-ue-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'vacanze-di-pasqua-san-gottardo',
+    category: 'novita',
+    date: '2026-04-04T06:05:52.535Z',
+    image: '/images/blog/vacanze-di-pasqua-san-gottardo.jpg',
+    hasCalculator: true,
+  },
 ];

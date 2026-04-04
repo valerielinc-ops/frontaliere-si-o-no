@@ -1893,6 +1893,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-mozzarella-clandestina-2026-ricerca': { name: 'Mozzarella clandestina in Ticino', path: '/articoli-frontaliere/mozzarella-clandestina-2026-ricerca', parent: 'blog' },
     'blog-varese-soroptimist-studio-fibrosi-polmonare': { name: 'Varese - Frontaliere Ticino', path: '/articoli-frontaliere/varese-soroptimist-studio-fibrosi-polmonare', parent: 'blog' },
     'blog-accordi-svizzera-ue-2026': { name: 'Accordi Svizzera-UE verso ratifica nel 2', path: '/articoli-frontaliere/accordi-svizzera-ue-2026', parent: 'blog' },
+    'blog-vacanze-di-pasqua-san-gottardo': { name: 'Vacanze di Pasqua: colonna al San Gottardo', path: '/articoli-frontaliere/vacanze-di-pasqua-san-gottardo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

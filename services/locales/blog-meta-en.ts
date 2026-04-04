@@ -1992,6 +1992,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.accordi-svizzera-ue-2026.title': 'Switzerland-EU Agreements Set for Ratification in 2026',
     'blog.article.accordi-svizzera-ue-2026.excerpt': 'The Bilateral III package between Switzerland and the EU could be approved by 2026. The confirmation comes from Bernd Lange, president of the European Commission.',
     'blog.article.accordi-svizzera-ue-2026.imageAlt': 'Panoramic view of Lake Lugano and Ticino mountains on a sunny day',
+    'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Easter Holidays: Traffic Jam at the Gotthard Reaches 21 Kilometers',
+    'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Drivers stuck in traffic for the Easter holidays at the Gotthard: 21 kilometers of standstill traffic',
+    'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilists in queue for Easter holidays at San Gottardo',
 };
 
 export default blogMetaEn;

@@ -1992,6 +1992,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.accordi-svizzera-ue-2026.title': 'Schweiz‑EU‑Abkommen Richtung Ratifizierung 2026',
     'blog.article.accordi-svizzera-ue-2026.excerpt': 'Das Bilaterale‑III‑Paket zwischen der Schweiz und der EU könnte bis 2026 verabschiedet werden. Die Bestätigung kommt von Bernd Lange, Präsident der Europäischen Kommission.',
     'blog.article.accordi-svizzera-ue-2026.imageAlt': 'Panoramablick auf den Lago di Lugano und die Berge im Tessin bei Sonnenschein',
+    'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Ostern: Stau am San Gottardo erreicht 21 Kilometer',
+    'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Autofahrer stehen in der Schlange für den Osternurlaub am San Gottardo: 21 Kilometer Stau',
+    'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilisten in der Schlange für Ostern am San Gottardo',
 };
 
 export default blogMetaDe;

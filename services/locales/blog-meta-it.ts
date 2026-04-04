@@ -1992,6 +1992,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.accordi-svizzera-ue-2026.title': 'Accordi Svizzera-UE verso ratifica nel 2026',
     'blog.article.accordi-svizzera-ue-2026.excerpt': 'Il pacchetto Bilaterali III tra Svizzera e UE potrebbe essere approvato entro il 2026. La conferma arriva da Bernd Lange, presidente della commissione europea.',
     'blog.article.accordi-svizzera-ue-2026.imageAlt': 'Vista panoramica del Lago di Lugano e delle montagne del Ticino in un giorno soleggiato',
+    'blog.article.vacanze-di-pasqua-san-gottardo.title': 'Vacanze di Pasqua: colonna al San Gottardo tocca i 21 chilometri',
+    'blog.article.vacanze-di-pasqua-san-gottardo.excerpt': 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo: 21 chilometri di traffico bloccato',
+    'blog.article.vacanze-di-pasqua-san-gottardo.imageAlt': 'Automobilisti in coda per le vacanze di Pasqua al San Gottardo',
 };
 
 export default blogMetaIt;
