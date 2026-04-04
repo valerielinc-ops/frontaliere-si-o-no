@@ -2004,6 +2004,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.aumento-mezzi-pubblici-ticino.title': 'Against the increase in public transport prices, let\'s implement our motion',
     'blog.article.aumento-mezzi-pubblici-ticino.excerpt': 'The Greens are asking for a 25% reduction in the costs of the Arcobaleno subscription',
     'blog.article.aumento-mezzi-pubblici-ticino.imageAlt': 'Lago di Lugano with public transport price increase',
+    'blog.article.frontaliere-ticino-investito-cantiere.title': 'Border Guard Struck in Construction Site in Cadenazzo, Ticino',
+    'blog.article.frontaliere-ticino-investito-cantiere.excerpt': 'Salvatore Longo, a border guard from Luino, has passed away after being hit by a vehicle in a construction site in Cadenazzo, Ticino',
+    'blog.article.frontaliere-ticino-investito-cantiere.imageAlt': 'A cross-border worker hit by a vehicle in a Cadenazzo construction site, Ticino',
 };
 
 export default blogMetaEn;

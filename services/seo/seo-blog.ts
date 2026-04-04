@@ -11128,6 +11128,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-ticino-investito-cantiere': {
+    title: 'Frontaliere investito in un cantiere a Cadenazzo, Ticino | Frontaliere Ticino',
+    description: 'Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, investito, cantiere, cadenazzo, salvatore',
+    ogTitle: 'Frontaliere investito in un cantiere a Cadenazzo, Ticino',
+    ogDescription: 'Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-investito-cantiere',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontaliere investito in un cantiere a Cadenazzo, Ticino",
+      "description": "Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-investito-cantiere.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un frontaliere investito in un cantiere a Cadenazzo, Ticino"
+      },
+      "datePublished": "2026-04-04T09:53:43+00:00",
+      "dateModified": "2026-04-04T09:53:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-investito-cantiere`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

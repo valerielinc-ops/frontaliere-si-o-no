@@ -5866,4 +5866,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/aumento-mezzi-pubblici-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frontaliere-ticino-investito-cantiere',
+    category: 'novita',
+    date: '2026-04-04T09:53:43.886Z',
+    image: '/images/blog/frontaliere-ticino-investito-cantiere.jpg',
+    hasCalculator: true,
+  },
 ];

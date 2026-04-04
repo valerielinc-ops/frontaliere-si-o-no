@@ -2004,6 +2004,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.aumento-mezzi-pubblici-ticino.title': 'Contro l\'aumento dei prezzi dei mezzi pubblici, si implementi la nostra mozione',
     'blog.article.aumento-mezzi-pubblici-ticino.excerpt': 'I Verdi chiedono una riduzione del 25% dei costi dell\'abbonamento Arcobaleno',
     'blog.article.aumento-mezzi-pubblici-ticino.imageAlt': 'Lago di Lugano con aumento dei prezzi dei mezzi pubblici',
+    'blog.article.frontaliere-ticino-investito-cantiere.title': 'Frontaliere investito in un cantiere a Cadenazzo, Ticino',
+    'blog.article.frontaliere-ticino-investito-cantiere.excerpt': 'Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino',
+    'blog.article.frontaliere-ticino-investito-cantiere.imageAlt': 'Un frontaliere investito in un cantiere a Cadenazzo, Ticino',
 };
 
 export default blogMetaIt;

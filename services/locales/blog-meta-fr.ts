@@ -2004,6 +2004,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.aumento-mezzi-pubblici-ticino.title': 'Contre l\'augmentation des prix des transports publics, mettons en œuvre notre proposition',
     'blog.article.aumento-mezzi-pubblici-ticino.excerpt': 'Les Verts demandent une réduction de 25% des coûts de l\'abonnement Arcobaleno',
     'blog.article.aumento-mezzi-pubblici-ticino.imageAlt': 'Lac de Lugano avec augmentation des prix des transports publics',
+    'blog.article.frontaliere-ticino-investito-cantiere.title': 'Frontalière blessée dans un chantier à Cadenazzo, Tessin',
+    'blog.article.frontaliere-ticino-investito-cantiere.excerpt': 'Salvatore Longo, une frontalière de Luino, est décédée après avoir été frappée par un véhicule dans un chantier à Cadenazzo, Tessin',
+    'blog.article.frontaliere-ticino-investito-cantiere.imageAlt': 'Un frontalier percuté par un véhicule dans un chantier de Cadenazzo, Tessin',
 };
 
 export default blogMetaFr;
