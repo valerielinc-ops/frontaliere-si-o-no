@@ -5873,4 +5873,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frontaliere-ticino-investito-cantiere.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'banche-sindacati-piattaforma-aumento',
+    category: 'pratico',
+    date: '2026-04-04T10:50:54.818Z',
+    image: '/images/blog/banche-sindacati-piattaforma-aumento.jpg',
+    hasCalculator: true,
+  },
 ];

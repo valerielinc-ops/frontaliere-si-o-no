@@ -1898,6 +1898,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-italia-taglia-accise-benzinai-preoccupati': { name: 'L\'Italia taglia le accise, benzinai preo', path: '/articoli-frontaliere/italia-taglia-accise-benzinai-preoccupati', parent: 'blog' },
     'blog-aumento-mezzi-pubblici-ticino': { name: 'Aumento prezzi mezzi pubblici Ticino', path: '/articoli-frontaliere/aumento-mezzi-pubblici-ticino', parent: 'blog' },
     'blog-frontaliere-ticino-investito-cantiere': { name: 'Frontaliere investito in un cantiere a', path: '/articoli-frontaliere/frontaliere-ticino-investito-cantiere', parent: 'blog' },
+    'blog-banche-sindacati-piattaforma-aumento': { name: 'Lavoro e economia', path: '/articoli-frontaliere/banche-sindacati-piattaforma-aumento', parent: 'blog' },
   };
 
   const info = sectionNames[section];

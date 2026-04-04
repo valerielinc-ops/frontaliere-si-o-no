@@ -2007,6 +2007,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-investito-cantiere.title': 'Frontalière blessée dans un chantier à Cadenazzo, Tessin',
     'blog.article.frontaliere-ticino-investito-cantiere.excerpt': 'Salvatore Longo, une frontalière de Luino, est décédée après avoir été frappée par un véhicule dans un chantier à Cadenazzo, Tessin',
     'blog.article.frontaliere-ticino-investito-cantiere.imageAlt': 'Un frontalier percuté par un véhicule dans un chantier de Cadenazzo, Tessin',
+    'blog.article.banche-sindacati-piattaforma-aumento.title': 'Les banques et les syndicats s\'accordent sur l\'augmentation des salaires et la réduction de l\'horaire',
+    'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'La plateforme approuvée prévoit une augmentation de 518 euros mensuels et une réduction de l\'horaire hebdomadaire de 37 à 35 heures 📊💡',
+    'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lac de Lugano et montagnes ticinoises',
 };
 
 export default blogMetaFr;

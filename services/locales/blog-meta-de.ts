@@ -2007,6 +2007,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-investito-cantiere.title': 'Frontalier getötet bei einem Baustellenunfall in Cadenazzo, Tessin',
     'blog.article.frontaliere-ticino-investito-cantiere.excerpt': 'Salvatore Longo, ein Frontalier aus Luino, ist nach einem Verkehrsunfall auf einer Baustelle in Cadenazzo, Tessin, gestorben.',
     'blog.article.frontaliere-ticino-investito-cantiere.imageAlt': 'Ein Grenzgänger wurde in einem Bauzaun in Cadenazzo, Tessin, angefahren',
+    'blog.article.banche-sindacati-piattaforma-aumento.title': 'Banken und Gewerkschaften einigen sich über Lohnerhöhung und Arbeitszeitreduzierung',
+    'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'Die von der Plattform genehmigte Vereinbarung sieht einen Lohnerhöhung von 518 Euro monatlich und eine Reduzierung der wöchentlichen Arbeitszeit von 37 auf 35 Stunden vor.',
+    'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lago di Lugano und Ticineser Berge',
 };
 
 export default blogMetaDe;

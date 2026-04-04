@@ -2007,6 +2007,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-investito-cantiere.title': 'Frontaliere investito in un cantiere a Cadenazzo, Ticino',
     'blog.article.frontaliere-ticino-investito-cantiere.excerpt': 'Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino',
     'blog.article.frontaliere-ticino-investito-cantiere.imageAlt': 'Un frontaliere investito in un cantiere a Cadenazzo, Ticino',
+    'blog.article.banche-sindacati-piattaforma-aumento.title': 'Banche e sindacati si accordano sull\'aumento stipendi e riduzione orario',
+    'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell\'orario settimanale da 37 a 35 ore.',
+    'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lago di Lugano e montagne ticinesi',
 };
 
 export default blogMetaIt;

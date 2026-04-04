@@ -11157,6 +11157,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-banche-sindacati-piattaforma-aumento': {
+    title: 'Banche e sindacati si accordano sull\'aumento stipendi e riduzione orario | Frontaliere Ticino',
+    description: 'La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell\'orario settimanale da 37 a 35 ore. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, banche, sindacati, accordano, sull',
+    ogTitle: 'Banche e sindacati si accordano sull\'aumento stipendi e riduzione orario',
+    ogDescription: 'La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell\'orario settimanale da 37 a 35 ore.',
+    canonicalPath: '/articoli-frontaliere/banche-sindacati-piattaforma-aumento',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Banche e sindacati si accordano sull'aumento stipendi e riduzione orario",
+      "description": "La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell'orario settimanale da 37 a 35 ore. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/banche-sindacati-piattaforma-aumento.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lago di Lugano e montagne ticinesi"
+      },
+      "datePublished": "2026-04-04T10:50:54+00:00",
+      "dateModified": "2026-04-04T10:50:54+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-sindacati-piattaforma-aumento`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

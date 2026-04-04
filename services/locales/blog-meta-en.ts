@@ -2007,6 +2007,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-investito-cantiere.title': 'Border Guard Struck in Construction Site in Cadenazzo, Ticino',
     'blog.article.frontaliere-ticino-investito-cantiere.excerpt': 'Salvatore Longo, a border guard from Luino, has passed away after being hit by a vehicle in a construction site in Cadenazzo, Ticino',
     'blog.article.frontaliere-ticino-investito-cantiere.imageAlt': 'A cross-border worker hit by a vehicle in a Cadenazzo construction site, Ticino',
+    'blog.article.banche-sindacati-piattaforma-aumento.title': 'Banks and Unions Agree on Wage Increase and Reduced Working Hours',
+    'blog.article.banche-sindacati-piattaforma-aumento.excerpt': 'The approved platform foresees a monthly wage increase of 518 euros and a reduction of the weekly working hours from 37 to 35 hours.',
+    'blog.article.banche-sindacati-piattaforma-aumento.imageAlt': 'Lago di Lugano e montagne ticinesi',
 };
 
 export default blogMetaEn;
