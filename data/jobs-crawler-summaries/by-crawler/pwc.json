@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-04-03T21:35:07.769Z",
-  "total": 117,
+  "generatedAt": "2026-04-04T09:31:21.854Z",
+  "total": 116,
   "newCount": 1,
-  "updatedCount": 107,
-  "removedCount": 0,
+  "updatedCount": 106,
+  "removedCount": 1,
   "unchangedCount": 9,
-  "durationMs": 2338,
-  "avgDurationMs": 2338,
+  "durationMs": 2287,
+  "avgDurationMs": 2287,
   "durationHistory": [
-    2338
+    2287
   ],
   "newJobs": [
     {
@@ -303,7 +303,6 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -338,7 +337,6 @@
       "salaryMax": 136500,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -406,7 +404,6 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -542,7 +539,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "3001",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -577,7 +573,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -646,7 +641,6 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -681,7 +675,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -750,7 +743,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -818,7 +810,6 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -921,7 +912,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -990,7 +980,6 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1034,8 +1023,44 @@
       }
     },
     {
+      "title": "Director in Quality & Regulatory Management - Advisory Services",
+      "slug": "director-in-quality-regulatory-management-advisory-services-pwc-zurich",
+      "url": "https://jobs.pwc.ch/job-vacancies/director-in-quality-regulatory-management-advisory-services/9cef594b-b3b6-4cbc-b9a8-e4eaaddd8a45",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Director-in-Quality---Regulatory-Management---Advisory-Services_710305WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Basel",
+      "addressLocality": "Zürich",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "consulting",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-03-03",
+      "validThrough": "2036-02-28",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "salaryMin": 100500,
+      "salaryMax": 136500,
+      "currency": "CHF",
+      "postalCode": "8001",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
+  "removedJobs": [
+    {
       "title": "Associate in Mergers & Acquisitions Deals Tax",
-      "slug": "associate-in-mergers-acquisitions-deals-tax-pwc-zurich",
+      "slug": "associato-a-in-fusioni-e-acquisizioni-fiscalita-delle-operazioni-pwc-switzerland-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/associate-in-mergers-acquisitions-deals-tax/5466baa4-cdda-4110-a195-30ac5e21067d",
       "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Zrich/FY26---TLW---TLW-OC-Deals---Zrich---Associate-2---Start-01052026_703181WD-1/apply",
       "company": "PwC Switzerland",
@@ -1059,7 +1084,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1069,7 +1093,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Audit (Assistant) Manager - Financial Services - Competence Center",
@@ -1164,7 +1187,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "6900",
-      "needsRetranslation": true,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1233,7 +1255,6 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
