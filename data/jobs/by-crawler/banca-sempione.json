@@ -19,8 +19,8 @@
       "slugByLocale": {
         "it": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
         "en": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
-        "de": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker",
-        "fr": "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker"
+        "de": "global-wealth-management-privatbanker-banca-del-sempione-lugano",
+        "fr": "global-wealth-management-banquier-prive-banca-del-sempione-lugano"
       },
       "titleByLocale": {
         "it": "Global Wealth Management – Consulente alla Clientela / Private Banker",
@@ -54,7 +54,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "banca-del-sempione-global-wealth-management-consulente-alla-clientela-private-banker"
+      ]
     }
   ]
 }

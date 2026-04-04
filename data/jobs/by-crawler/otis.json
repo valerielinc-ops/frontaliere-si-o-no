@@ -68,9 +68,9 @@
       "id": "otis-2ad7ac1459d1",
       "slug": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032",
       "slugByLocale": {
-        "it": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032",
+        "it": "vivier-dei-talenti-vaud-tecnico-montatore-manutentore-otis-sa-1032",
         "en": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032",
-        "de": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032",
+        "de": "vivier-der-talente-vaud-techniker-monteur-instandsetzer-otis-sa-1032",
         "fr": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
       },
       "company": "Otis SA",
@@ -124,16 +124,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1032"
+      "postalCode": "1032",
+      "previousSlugs": [
+        "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
+      ]
     },
     {
       "id": "otis-40bff711697f",
       "slug": "aufzugsmonteur-m-w-d-otis-st-gallen",
       "slugByLocale": {
-        "it": "aufzugsmonteur-m-w-d-otis-st-gallen",
+        "it": "montatore-di-ascensori-m-w-d-otis-sa-st-gallen",
         "en": "aufzugsmonteur-m-w-d-otis-st-gallen",
         "de": "aufzugsmonteur-m-w-d-otis-st-gallen",
-        "fr": "aufzugsmonteur-m-w-d-otis-st-gallen"
+        "fr": "monteur-d-ascenseur-m-w-d-otis-sa-st-gallen"
       },
       "company": "Otis SA",
       "companyKey": "otis",
@@ -185,7 +188,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6500"
+      "postalCode": "6500",
+      "previousSlugs": [
+        "aufzugsmonteur-m-w-d-otis-st-gallen"
+      ]
     }
   ]
 }
