@@ -2031,6 +2031,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sconto-benzina-ticino.title': 'Sconto benzina: Italia allunga lo sconto',
     'blog.article.sconto-benzina-ticino.excerpt': 'Il governo Meloni estende il taglio delle accise fino al 1° maggio',
     'blog.article.sconto-benzina-ticino.imageAlt': 'Stazione di servizio a Lugano',
+    'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.title': 'Anziana di 88 anni si difende da una scippatrice e la fa arrestare',
+    'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.excerpt': 'Una anziana signora di 88 anni si è difesa da un tentativo di scippo sulla strada di Muttenz, in Svizzera, e ha fatto arrestare la malvivente',
+    'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.imageAlt': 'Anziana signora di 88 anni difende se stessa da una scippatrice',
 };
 
 export default blogMetaIt;

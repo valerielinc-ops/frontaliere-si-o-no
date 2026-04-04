@@ -2031,6 +2031,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sconto-benzina-ticino.title': 'Benzin-Rabatt: Italien verlängert den Rabatt',
     'blog.article.sconto-benzina-ticino.excerpt': 'Die Regierung Meloni verlängert die Kürzung der Verbrauchssteuern bis zum 1. Mai',
     'blog.article.sconto-benzina-ticino.imageAlt': 'Tankstelle in Lugano',
+    'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.title': '88-Jährige Frau verteidigt sich erfolgreich gegen einen Taschendieb und bringt die Schurkin zur Stelle',
+    'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.excerpt': 'Eine 88-jährige Frau hat sich erfolgreich gegen einen Versuch, ihr zu entreißen, auf der Strasse in Muttenz, Schweiz, gewehrt und die Ganze hat die Polizei zur Stelle gerufen.',
+    'blog.article.anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.imageAlt': '88-jährige Frau verteidigt sich gegen einen Taschendieb',
 };
 
 export default blogMetaDe;

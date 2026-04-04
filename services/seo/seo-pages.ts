@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 664,
+        "numberOfItems": 665,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4231,7 +4231,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 661, "name": "Benzina Ticino Taglio Accise: esodo dalla Svizz...", "url": `${BASE_URL}/articoli-frontaliere/benzina-ticino-taglio-accise` },
           { "@type": "ListItem", "position": 662, "name": "Abolizione imposta sul valore locativo dal 2029...", "url": `${BASE_URL}/articoli-frontaliere/abolizione-imposta-valore-locativo-2029` },
           { "@type": "ListItem", "position": 663, "name": "Contrabbando di Pokémon: Svizzero fermato alla ...", "url": `${BASE_URL}/articoli-frontaliere/contrabbando-pokemon-ticino` },
-          { "@type": "ListItem", "position": 664, "name": "Sconto benzina: Italia allunga lo sconto", "url": `${BASE_URL}/articoli-frontaliere/sconto-benzina-ticino` }
+          { "@type": "ListItem", "position": 664, "name": "Sconto benzina: Italia allunga lo sconto", "url": `${BASE_URL}/articoli-frontaliere/sconto-benzina-ticino` },
+          { "@type": "ListItem", "position": 665, "name": "Anziana di 88 anni si difende da una scippatric...", "url": `${BASE_URL}/articoli-frontaliere/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare` }
         ]
       }
     ]

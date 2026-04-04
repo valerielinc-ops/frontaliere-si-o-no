@@ -11389,6 +11389,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare': {
+    title: 'Anziana di 88 anni si difende da una scippatrice e la fa arrestare | Frontaliere Ticino',
+    description: 'Un\'anziana signora di 88 anni si è difesa da un tentativo di scippo a Muttenz, in Svizzera, e ha fatto arrestare la malvivente. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, anziana, anni, difende, scippatrice',
+    ogTitle: 'Anziana di 88 anni si difende da una scippatrice e la fa arrestare',
+    ogDescription: 'Un\'anziana signora di 88 anni si è difesa da un tentativo di scippo a Muttenz, in Svizzera, e ha fatto arrestare la malvivente',
+    canonicalPath: '/articoli-frontaliere/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Anziana di 88 anni si difende da una scippatrice e la fa arrestare",
+      "description": "Un'anziana signora di 88 anni si è difesa da un tentativo di scippo a Muttenz, in Svizzera, e ha fatto arrestare la malvivente. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Anziana signora di 88 anni difende se stessa da una scippatrice"
+      },
+      "datePublished": "2026-04-04T20:51:23+00:00",
+      "dateModified": "2026-04-04T20:51:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

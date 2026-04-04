@@ -5929,4 +5929,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/sconto-benzina-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare',
+    category: 'novita',
+    date: '2026-04-04T20:51:23.959Z',
+    image: '/images/blog/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare.jpg',
+    hasCalculator: true,
+  },
 ];
