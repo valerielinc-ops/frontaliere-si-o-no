@@ -429,7 +429,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                           const clamped = Math.max(SALARY_MIN, Math.min(SALARY_MAX, val));
                           handleChange('annualIncomeCHF', clamped);
                         }}
-                        aria-label={t('input.annualIncome') || 'Reddito annuo lordo CHF'}
+                        aria-label="Reddito annuo lordo CHF"
                         className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-x-0 focus:ring-4 focus:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
                         placeholder="0"
                       />
