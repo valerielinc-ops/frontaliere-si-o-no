@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T05:29:32.492Z",
-    "label": "before",
-    "total": 1500,
-    "needsRetranslation": 1128,
-    "incomplete": 1004,
-    "complete": 496,
-    "missingByLocale": {
-      "it": 470,
-      "en": 692,
-      "de": 434,
-      "fr": 850
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 28
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T05:29:54.066Z",
-    "label": "after",
-    "total": 1500,
-    "needsRetranslation": 1127,
-    "incomplete": 1003,
-    "complete": 497,
-    "missingByLocale": {
-      "it": 470,
-      "en": 692,
-      "de": 434,
-      "fr": 850
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 28
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T05:35:08.188Z",
     "label": "before",
     "total": 1500,
@@ -9698,6 +9586,90 @@
       {
         "company": "EOC – Ente Ospedaliero Cantonale",
         "pending": 2
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-04T07:20:10.983Z",
+    "label": "before",
+    "total": 1509,
+    "needsRetranslation": 75,
+    "incomplete": 42,
+    "complete": 1467,
+    "missingByLocale": {
+      "it": 26,
+      "en": 18,
+      "de": 22,
+      "fr": 30
+    },
+    "topPending": [
+      {
+        "company": "Cornèr Banca",
+        "pending": 6
+      },
+      {
+        "company": "Prada Group",
+        "pending": 6
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Denner",
+        "pending": 4
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Schindler",
+        "pending": 4
+      },
+      {
+        "company": "FFS Officine (Ferrovie Federali)",
+        "pending": 3
+      },
+      {
+        "company": "Manor AG",
+        "pending": 3
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-04T07:20:52.145Z",
+    "label": "after",
+    "total": 1509,
+    "needsRetranslation": 47,
+    "incomplete": 11,
+    "complete": 1498,
+    "missingByLocale": {
+      "it": 10,
+      "en": 5,
+      "de": 7,
+      "fr": 11
+    },
+    "topPending": [
+      {
+        "company": "Prada Group",
+        "pending": 6
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
       }
     ]
   }
