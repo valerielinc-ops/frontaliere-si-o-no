@@ -321,6 +321,7 @@ const PayslipSimulator: React.FC<PayslipProps> = ({ userProfile }) => {
                   }}
                   className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 rounded-2xl focus:ring-4 outline-none transition-[color,background-color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
                   placeholder="0"
+                  aria-label="Stipendio lordo annuale in CHF"
                 />
               </div>
               {salaryError && (

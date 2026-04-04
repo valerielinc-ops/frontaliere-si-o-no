@@ -230,6 +230,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               min={15000}
               max={500000}
               step={1000}
+              aria-label="RAL lorda annuale in euro"
             />
           </div>
           <input
@@ -244,6 +245,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               Analytics.trackInputChange('ral_gross_salary_slider', value);
             }}
             className="w-full mt-2 accent-green-600"
+            aria-label="Regola RAL lorda annuale"
           />
           <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400 mt-1">
             <span>€15k</span>
@@ -270,6 +272,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               Analytics.trackInputChange('ral_marital_status', value);
             }}
             className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+            aria-label="Stato civile"
           >
             <option value="SINGLE">{t('ral.single')}</option>
             <option value="MARRIED">{t('ral.married')}</option>
@@ -286,6 +289,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               Analytics.trackInputChange('ral_children', value);
             }}
             className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+            aria-label="Numero di figli a carico"
           >
             {[0, 1, 2, 3, 4].map(n => <option key={n} value={n}>{n}</option>)}
           </select>
@@ -300,6 +304,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
               Analytics.trackInputChange('ral_age_group', e.target.value);
             }}
             className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 font-bold"
+            aria-label="Fascia di età"
           >
             <option value="25-34">25-34</option>
             <option value="35-44">35-44</option>
@@ -322,6 +327,7 @@ const RalComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({ use
             min={0}
             max={1500}
             step={10}
+            aria-label="Costo assicurazione sanitaria mensile in CHF"
           />
           <p className="text-xs text-slate-500 dark:text-slate-400 mt-1">{t('ral.healthInsuranceNote')}</p>
         </div>

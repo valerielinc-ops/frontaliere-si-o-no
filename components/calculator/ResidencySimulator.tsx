@@ -421,6 +421,7 @@ const ResidencySimulator: React.FC = () => {
               value={grossMonthlyCHF}
               onChange={(e) => setGrossMonthlyCHF(+e.target.value)}
               className="w-full px-3 py-2.5 rounded-lg bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-sm font-bold"
+              aria-label="Stipendio lordo mensile in CHF"
             />
           </div>
           <div>

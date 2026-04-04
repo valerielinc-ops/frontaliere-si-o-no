@@ -189,10 +189,12 @@ const ParentalLeaveCalculator: React.FC<ParentalLeaveProps> = ({ userProfile }) 
             min={3000}
             max={25000}
             step={100}
+            aria-label="Stipendio lordo mensile in CHF"
           />
           <input type="range" min={3000} max={15000} step={100} value={grossMonthlyCHF}
             onChange={(e) => setGrossMonthlyCHF(Number(e.target.value))}
             className="w-full mt-2 accent-pink-600"
+            aria-label="Regola stipendio lordo mensile"
           />
         </div>
 
