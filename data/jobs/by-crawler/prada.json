@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "stage-hr-industrial-pelletteria-prada-group-mendrisio",
         "en": "stage-hr-industrial-pelletteria-prada-group-mendrisio",
-        "de": "stage-hr-industrial-pelletteria-prada-group-mendrisio",
-        "fr": "stage-hr-industrial-pelletteria-prada-group-mendrisio"
+        "de": "industrieller-hr-spezialist-fur-schuhmacher-prada-group-mendrisio",
+        "fr": "specialiste-rh-pour-la-couture-industrielle-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -61,16 +61,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "stage-hr-industrial-pelletteria-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-43741dc7c313",
       "slug": "prada-department-manager-m-f-d-prada-group-mendrisio",
       "slugByLocale": {
-        "it": "prada-department-manager-m-f-d-prada-group-mendrisio",
+        "it": "responsabile-di-dipartimento-prada-m-f-d-prada-group-mendrisio",
         "en": "prada-department-manager-m-f-d-prada-group-mendrisio",
         "de": "prada-department-manager-m-f-d-prada-group-mendrisio",
-        "fr": "prada-department-manager-m-f-d-prada-group-mendrisio"
+        "fr": "responsable-de-departement-prada-m-f-d-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -122,7 +125,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "prada-department-manager-m-f-d-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-b429e5e8e828",
@@ -130,7 +136,7 @@
       "slugByLocale": {
         "it": "prada-client-advisor-part-time-oslo-prada-group-mendrisio",
         "en": "prada-client-advisor-part-time-oslo-prada-group-mendrisio",
-        "de": "prada-client-advisor-part-time-oslo-prada-group-mendrisio",
+        "de": "prada-kundenberater-teilzeit-oslo-prada-group-mendrisio",
         "fr": "prada-client-conseiller-temps-partiel-oslo-prada-group-mendrisio"
       },
       "company": "Prada Group",
@@ -253,9 +259,9 @@
       "id": "prada-62c0aafcb046",
       "slug": "prada-client-advisor-russian-speaker-monaco-cdd-h-f-prada-group-mendrisio",
       "slugByLocale": {
-        "it": "prada-client-advisor-russian-speaker-monaco-cdd-h-f-prada-group-mendrisio",
+        "it": "prada-consulente-al-cliente-russo-parlante-monaco-cdd-h-f-prada-group-mendrisio",
         "en": "prada-client-advisor-russian-speaker-monaco-cdd-h-f-prada-group-mendrisio",
-        "de": "prada-client-advisor-russian-speaker-monaco-cdd-h-f-prada-group-mendrisio",
+        "de": "prada-kundenberater-russischsprachiger-monaco-cdd-h-f-prada-group-mendrisio",
         "fr": "prada-client-advisor-russian-speaker-monaco-cdd-h-f-prada-group-mendrisio"
       },
       "company": "Prada Group",
@@ -308,7 +314,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "prada-client-advisor-russian-speaker-monaco-cdd-h-f-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-5ec3fa096045",
