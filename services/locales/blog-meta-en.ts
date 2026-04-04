@@ -2037,6 +2037,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.supsi-bachelor-sostenibilita-2027.title': 'SUPSI launches bachelor\'s in Sustainability in 2027: focus on Ticino',
     'blog.article.supsi-bachelor-sostenibilita-2027.excerpt': 'SUPSI will introduce a new bachelor\'s program in \'Sustainability and Systemic Transition\' in September 2027, with enrollment opening on April 27, 2026 for the bridge year.',
     'blog.article.supsi-bachelor-sostenibilita-2027.imageAlt': 'Aerial view of Lugano with SUPSI campus in focus, sustainable architecture and green spaces',
+    'blog.article.lavena-ponte-tresa-bicicletta-grave.title': 'Lavena Ponte Tresa: Child thrown off bicycle seat is in critical condition',
+    'blog.article.lavena-ponte-tresa-bicicletta-grave.excerpt': 'A 2-year-old and 9-month-old child was rescued by an eliambulance in Lavena Ponte Tresa after being thrown off the bicycle seat.',
+    'blog.article.lavena-ponte-tresa-bicicletta-grave.imageAlt': 'A child in Lavena Ponte Tresa falls off a bicycle and is rescued by an air ambulance.',
 };
 
 export default blogMetaEn;

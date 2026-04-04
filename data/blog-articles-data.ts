@@ -5943,4 +5943,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/supsi-bachelor-sostenibilita-2027.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavena-ponte-tresa-bicicletta-grave',
+    category: 'pratico',
+    date: '2026-04-04T23:45:06.383Z',
+    image: '/images/blog/lavena-ponte-tresa-bicicletta-grave.jpg',
+    hasCalculator: true,
+  },
 ];

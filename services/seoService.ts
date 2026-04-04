@@ -1908,6 +1908,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-sconto-benzina-ticino': { name: 'Sconto benzina', path: '/articoli-frontaliere/sconto-benzina-ticino', parent: 'blog' },
     'blog-anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare': { name: 'Frontalieri Ticino', path: '/articoli-frontaliere/anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare', parent: 'blog' },
     'blog-supsi-bachelor-sostenibilita-2027': { name: 'SUPSI Sostenibilità', path: '/articoli-frontaliere/supsi-bachelor-sostenibilita-2027', parent: 'blog' },
+    'blog-lavena-ponte-tresa-bicicletta-grave': { name: 'Frontalieri Ticino - Lavena Ponte Tresa', path: '/articoli-frontaliere/lavena-ponte-tresa-bicicletta-grave', parent: 'blog' },
   };
 
   const info = sectionNames[section];

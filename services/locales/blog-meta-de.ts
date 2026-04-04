@@ -2037,6 +2037,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.supsi-bachelor-sostenibilita-2027.title': 'SUPSI lanciert 2027 Bachelor in Nachhaltigkeit: Fokus auf Tessin',
     'blog.article.supsi-bachelor-sostenibilita-2027.excerpt': 'Die SUPSI wird im September 2027 einen neuen Bachelor in \'Nachhaltigkeit und Systemwandel\' anbieten, mit Anmeldungen ab dem 27. April 2026 für das Brückenjahr.',
     'blog.article.supsi-bachelor-sostenibilita-2027.imageAlt': 'Luftaufnahme von Lugano mit SUPSI-Campus im Fokus, nachhaltige Architektur und Grünflächen',
+    'blog.article.lavena-ponte-tresa-bicicletta-grave.title': 'Lavena Ponte Tresa: Kind geworfen aus dem Fahrradkorb ist schwer verletzt',
+    'blog.article.lavena-ponte-tresa-bicicletta-grave.excerpt': 'Ein 2-jähriges und 9-monatiges Kind wurde in Lavena Ponte Tresa nach einem Sturz aus dem Fahrradkorb von der Hubschrauber-Notfallambulanz gerettet.',
+    'blog.article.lavena-ponte-tresa-bicicletta-grave.imageAlt': 'Ein Kind in Lavena Ponte Tresa fällt von seinem Fahrrad ab und wird von einem Hubschrauberrettungssystem gerettet.',
 };
 
 export default blogMetaDe;

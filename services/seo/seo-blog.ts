@@ -11447,6 +11447,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavena-ponte-tresa-bicicletta-grave': {
+    title: 'Lavena Ponte Tresa: bambino sbalzato dal sellino della bicicletta è | Frontaliere Ticino',
+    description: 'Un bambino di 2 anni e 9 mesi è stato soccorso dall\'eliambulanza a Lavena Ponte Tresa dopo essere stato sbalzato dal sellino della bicicletta. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavena, ponte, tresa, bambino',
+    ogTitle: 'Lavena Ponte Tresa: bambino sbalzato dal sellino della bicicletta è grave',
+    ogDescription: 'Un bambino di 2 anni e 9 mesi è stato soccorso dall\'eliambulanza a Lavena Ponte Tresa dopo essere stato sbalzato dal sellino della bicicletta.',
+    canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-bicicletta-grave',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavena Ponte Tresa: bambino sbalzato dal sellino della bicicletta è grave",
+      "description": "Un bambino di 2 anni e 9 mesi è stato soccorso dall'eliambulanza a Lavena Ponte Tresa dopo essere stato sbalzato dal sellino della bicicletta. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavena-ponte-tresa-bicicletta-grave.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un bambino a Lavena Ponte Tresa cade dalla bicicletta e viene soccorso dall'eliambulanza."
+      },
+      "datePublished": "2026-04-04T23:45:06+00:00",
+      "dateModified": "2026-04-04T23:45:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavena-ponte-tresa-bicicletta-grave`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
