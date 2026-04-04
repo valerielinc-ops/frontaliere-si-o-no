@@ -909,7 +909,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
       {/* Easter egg toast — discreet bottom-right, rendered via portal */}
       {easterEgg && easterEggVisible && createPortal(
         <div className="fixed bottom-28 md:bottom-16 right-4 sm:right-6 z-[70] animate-fade-in cursor-pointer" role="button" tabIndex={0} onClick={dismissEasterEgg} onKeyDown={(e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); dismissEasterEgg(); } }} aria-label="Chiudi notifica">
-          <div className="bg-slate-800/90 dark:bg-slate-700/90 backdrop-blur-sm rounded-xl shadow-lg px-4 py-2.5 max-w-xs">
+          <div className="bg-slate-800 dark:bg-slate-700 rounded-xl shadow-lg px-4 py-2.5 max-w-xs">
             <p className="text-xs font-medium text-white">{easterEgg}</p>
           </div>
         </div>,

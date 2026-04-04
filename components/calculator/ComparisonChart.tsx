@@ -44,7 +44,7 @@ const CHART_COLORS = {
 const CustomTooltip = ({ active, payload, label, isDarkMode, currency = "CHF" }: any) => {
   if (active && payload && payload.length) {
     return (
-      <div className={`p-4 border rounded-2xl shadow-xl min-w-[180px] z-50 pointer-events-none backdrop-blur-md ${isDarkMode ? 'bg-slate-900/95 border-slate-700 shadow-slate-950/50' : 'bg-white/95 border-slate-100 shadow-slate-200/50'}`}>
+      <div className={`p-4 border rounded-2xl shadow-xl min-w-[180px] z-50 pointer-events-none ${isDarkMode ? 'bg-slate-900 border-slate-700 shadow-slate-950/50' : 'bg-white border-slate-100 shadow-slate-200/50'}`}>
         {label && <p className={`font-bold mb-3 text-xs uppercase tracking-wider border-b pb-2 ${isDarkMode ? 'text-slate-500 dark:text-slate-400 border-slate-700' : 'text-slate-500 dark:text-slate-400 border-slate-100'}`}>{label}</p>}
         <div className="space-y-2">
           {payload.map((entry: any, index: number) => (

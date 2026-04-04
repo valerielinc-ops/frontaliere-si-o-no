@@ -1634,7 +1634,7 @@ function BlogArticles({
                 <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                   article.category === 'novita'
                     ? 'bg-orange-500/80 text-white'
-                    : 'bg-white/20 text-white backdrop-blur-sm'
+                    : 'bg-white/25 text-white'
                 }`}>
                   {article.category === 'novita'
                     ? t('blog.contentType.news')
@@ -2313,7 +2313,7 @@ function BlogArticles({
         </div>
 
         {/* FRO-301: Sticky bottom nav on mobile — reduces bounce from social referrals */}
-        <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 backdrop-blur-sm border-t border-slate-200 dark:border-slate-700 px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
+        <div className="sm:hidden fixed bottom-0 inset-x-0 z-40 bg-white/95 dark:bg-slate-900/95 border-t border-slate-200 dark:border-slate-700 px-4 py-2.5 pb-[calc(0.625rem+env(safe-area-inset-bottom))] flex items-center justify-between">
           <button
             onClick={handleBackToList}
             className="inline-flex items-center gap-1.5 text-sm font-semibold text-slate-700 dark:text-slate-200"
@@ -2424,7 +2424,7 @@ function BlogArticles({
                 <span className={`px-2 py-0.5 rounded-full text-xs font-semibold ${
                   pageArticles[0].category === 'novita'
                     ? 'bg-orange-500/80 text-white'
-                    : 'bg-white/20 text-white backdrop-blur-sm'
+                    : 'bg-white/25 text-white'
                 }`}>
                   {pageArticles[0].category === 'novita'
                     ? t('blog.contentType.news')
@@ -2488,7 +2488,7 @@ function BlogArticles({
                   <span className={`px-1.5 py-0.5 rounded-full text-[9px] font-semibold ${
                     article.category === 'novita'
                       ? 'bg-orange-500/90 text-white'
-                      : 'bg-white/80 dark:bg-slate-900/70 text-slate-600 dark:text-slate-300 backdrop-blur-sm'
+                      : 'bg-white dark:bg-slate-800 text-slate-600 dark:text-slate-300'
                   }`}>
                     {article.category === 'novita'
                       ? t('blog.contentType.news')

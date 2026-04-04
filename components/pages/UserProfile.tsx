@@ -792,7 +792,7 @@ const UserProfile: React.FC = () => {
         <div className="bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-200 dark:border-slate-700 overflow-hidden">
           {/* Header */}
           <div className="bg-gradient-to-br from-blue-600 via-indigo-600 to-purple-600 p-4 sm:p-8 text-center text-white">
-            <div className="w-20 h-20 mx-auto bg-white/20 rounded-full flex items-center justify-center mb-4 backdrop-blur-sm">
+            <div className="w-20 h-20 mx-auto bg-white/25 dark:bg-slate-800/40 rounded-full flex items-center justify-center mb-4">
               <User size={40} className="text-white/90" />
             </div>
             <h1 className="text-2xl font-extrabold">{t('profile.title')}</h1>
