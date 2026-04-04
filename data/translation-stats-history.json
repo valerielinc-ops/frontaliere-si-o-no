@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T05:35:08.188Z",
-    "label": "before",
-    "total": 1500,
-    "needsRetranslation": 1127,
-    "incomplete": 1003,
-    "complete": 497,
-    "missingByLocale": {
-      "it": 470,
-      "en": 692,
-      "de": 434,
-      "fr": 850
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 28
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T05:44:03.558Z",
-    "label": "after",
-    "total": 1500,
-    "needsRetranslation": 1127,
-    "incomplete": 1003,
-    "complete": 497,
-    "missingByLocale": {
-      "it": 470,
-      "en": 692,
-      "de": 434,
-      "fr": 850
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "VOLG",
-        "pending": 31
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 28
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Grand Hotel des Bains Kempinski St. Moritz",
-        "pending": 17
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T05:44:46.046Z",
     "label": "before",
     "total": 1500,
@@ -9670,6 +9558,118 @@
       {
         "company": "Amministrazione Cantonale Ticino",
         "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-04T09:49:05.559Z",
+    "label": "before",
+    "total": 1531,
+    "needsRetranslation": 814,
+    "incomplete": 377,
+    "complete": 1154,
+    "missingByLocale": {
+      "it": 279,
+      "en": 308,
+      "de": 102,
+      "fr": 329
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 122
+      },
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 65
+      },
+      {
+        "company": "VOLG",
+        "pending": 44
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 26
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Denner",
+        "pending": 11
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "Lombardi Group",
+        "pending": 9
+      },
+      {
+        "company": "Prada Group",
+        "pending": 8
+      },
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-04T09:50:19.284Z",
+    "label": "after",
+    "total": 1531,
+    "needsRetranslation": 306,
+    "incomplete": 280,
+    "complete": 1251,
+    "missingByLocale": {
+      "it": 182,
+      "en": 211,
+      "de": 101,
+      "fr": 233
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 65
+      },
+      {
+        "company": "VOLG",
+        "pending": 44
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 26
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 25
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Denner",
+        "pending": 11
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "Lombardi Group",
+        "pending": 9
+      },
+      {
+        "company": "Prada Group",
+        "pending": 8
+      },
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 8
       }
     ]
   }
