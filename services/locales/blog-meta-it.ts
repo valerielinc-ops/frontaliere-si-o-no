@@ -1989,6 +1989,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.varese-soroptimist-studio-fibrosi-polmonare.title': 'Varese - Soroptimist Varese finanzia una borsa di studio sulla fibrosi polmonare in memoria di Maria Vittoria Tenconi',
     'blog.article.varese-soroptimist-studio-fibrosi-polmonare.excerpt': 'La borsa di studio biennale del valore di 50.000 euro è stata assegnata a Caterina Barbieri per la ricerca sulla fibrosi polmonare.',
     'blog.article.varese-soroptimist-studio-fibrosi-polmonare.imageAlt': 'Panorama del Lago Maggiore a Bellinzona',
+    'blog.article.accordi-svizzera-ue-2026.title': 'Accordi Svizzera-UE verso ratifica nel 2026',
+    'blog.article.accordi-svizzera-ue-2026.excerpt': 'Il pacchetto Bilaterali III tra Svizzera e UE potrebbe essere approvato entro il 2026. La conferma arriva da Bernd Lange, presidente della commissione europea.',
+    'blog.article.accordi-svizzera-ue-2026.imageAlt': 'Vista panoramica del Lago di Lugano e delle montagne del Ticino in un giorno soleggiato',
 };
 
 export default blogMetaIt;

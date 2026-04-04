@@ -10983,6 +10983,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-accordi-svizzera-ue-2026': {
+    title: 'Accordi Svizzera-UE verso ratifica nel 2026 | Frontaliere Ticino',
+    description: 'Il pacchetto Bilaterali III tra Svizzera e UE potrebbe essere approvato entro il 2026. La conferma arriva da Bernd Lange, presidente della commissione europea.',
+    keywords: 'frontalieri, ticino, svizzera, italia, accordi, svizzera-ue, verso, ratifica',
+    ogTitle: 'Accordi Svizzera-UE verso ratifica nel 2026',
+    ogDescription: 'Il pacchetto Bilaterali III tra Svizzera e UE potrebbe essere approvato entro il 2026. La conferma arriva da Bernd Lange, presidente della commissione europea.',
+    canonicalPath: '/articoli-frontaliere/accordi-svizzera-ue-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Accordi Svizzera-UE verso ratifica nel 2026",
+      "description": "Il pacchetto Bilaterali III tra Svizzera e UE potrebbe essere approvato entro il 2026. La conferma arriva da Bernd Lange, presidente della commissione europea.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/accordi-svizzera-ue-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica del Lago di Lugano e delle montagne del Ticino in un giorno soleggiato"
+      },
+      "datePublished": "2026-04-04T05:01:34+00:00",
+      "dateModified": "2026-04-04T05:01:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/accordi-svizzera-ue-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

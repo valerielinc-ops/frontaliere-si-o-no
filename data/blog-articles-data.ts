@@ -5831,4 +5831,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/varese-soroptimist-studio-fibrosi-polmonare.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'accordi-svizzera-ue-2026',
+    category: 'novita',
+    date: '2026-04-04T05:01:34.224Z',
+    image: '/images/blog/accordi-svizzera-ue-2026.jpg',
+    hasCalculator: true,
+  },
 ];
