@@ -11302,6 +11302,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-abolizione-imposta-valore-locativo-2029': {
+    title: 'Abolizione imposta sul valore locativo dal 2029 | Frontaliere Ticino',
+    description: 'Dal 1° gennaio 2029 sarà abolita l\'imposta sul valore locativo per le abitazioni a uso proprio. Scopri come prepararti alla riforma. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, abolizione, imposta, valore, locativo',
+    ogTitle: 'Abolizione imposta sul valore locativo 2029 | Frontaliere Ticino',
+    ogDescription: 'Scopri come la riforma fiscale del 2029 influenzerà i proprietari di abitazioni in Ticino.',
+    canonicalPath: '/articoli-frontaliere/abolizione-imposta-valore-locativo-2029',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Abolizione imposta sul valore locativo dal 2029: cosa cambia per i proprietari in Ticino",
+      "description": "Dal 1° gennaio 2029 sarà abolita l'imposta sul valore locativo per le abitazioni a uso proprio. Scopri come prepararti alla riforma. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/abolizione-imposta-valore-locativo-2029.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea di Lugano con edifici residenziali e il lago"
+      },
+      "datePublished": "2026-04-04T16:59:11+00:00",
+      "dateModified": "2026-04-04T16:59:11+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/abolizione-imposta-valore-locativo-2029`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

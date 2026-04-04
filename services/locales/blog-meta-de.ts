@@ -2022,6 +2022,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.benzina-ticino-taglio-accise.title': 'Preis der Benzinpreise zu niedrig in Italien: Großes Exil aus der Schweiz und Alarmsignal der ticinensischen Betreiber',
     'blog.article.benzina-ticino-taglio-accise.excerpt': 'Der Abbau der Steuern auf Kraftstoffe in Italien löst einen Ausfluss von Automobilisten aus dem Tessin in Richtung italienischer Grenze aus.',
     'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Lago Lugano mit einem Auto, das zum Tanken an der Gaggiolo-Grenze hält',
+    'blog.article.abolizione-imposta-valore-locativo-2029.title': 'Abschaffung der Vermögenssteuer zum 1. Januar 2029',
+    'blog.article.abolizione-imposta-valore-locativo-2029.excerpt': 'Ab dem 1. Januar 2029 wird die Vermögenssteuer für Eigentumswohnungen abgeschafft, wie der Bundesrat entschieden hat.',
+    'blog.article.abolizione-imposta-valore-locativo-2029.imageAlt': 'Luftaufnahme von Lugano mit Wohngebäuden und dem See',
 };
 
 export default blogMetaDe;

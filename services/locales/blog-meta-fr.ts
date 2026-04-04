@@ -2022,6 +2022,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.benzina-ticino-taglio-accise.title': 'Prix de l\'essence trop bas en Italie: maxi exode de la Suisse et inquiétude des gestionnaires tessinois',
     'blog.article.benzina-ticino-taglio-accise.excerpt': 'La suppression des droits de douane sur les carburants en Italie provoque un exode de conducteurs tessinois vers la frontière italienne.',
     'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Lac Lugano avec une voiture s’arrêtant pour ravitailler à la frontière de Gaggiolo',
+    'blog.article.abolizione-imposta-valore-locativo-2029.title': 'Abolizione de l\'imposition sur la valeur locative à partir de 2029',
+    'blog.article.abolizione-imposta-valore-locativo-2029.excerpt': 'À partir du 1er janvier 2029, l\'imposition sur la valeur locative pour les habitations à usage propre sera abolie, comme décidé par le Conseil fédéral.',
+    'blog.article.abolizione-imposta-valore-locativo-2029.imageAlt': 'Vue aérienne de Lugano avec des bâtiments résidentiels et le lac',
 };
 
 export default blogMetaFr;

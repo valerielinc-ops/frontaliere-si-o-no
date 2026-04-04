@@ -2022,6 +2022,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.benzina-ticino-taglio-accise.title': 'Fuel Prices Too Low in Italy: Massive Exodus from Switzerland and Warning from Ticino Operators',
     'blog.article.benzina-ticino-taglio-accise.excerpt': 'The reduction of fuel taxes in Italy is causing an exodus of Ticinese motorists to the Italian border.',
     'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Lago Lugano with a car stopping to refuel at the Gaggiolo border crossing',
+    'blog.article.abolizione-imposta-valore-locativo-2029.title': 'Abolition of Property Value Tax from 2029',
+    'blog.article.abolizione-imposta-valore-locativo-2029.excerpt': 'As of January 1, 2029, the property value tax will be abolished for private residences, as decided by the Federal Council.',
+    'blog.article.abolizione-imposta-valore-locativo-2029.imageAlt': 'Aerial view of Lugano with residential buildings and the lake',
 };
 
 export default blogMetaEn;

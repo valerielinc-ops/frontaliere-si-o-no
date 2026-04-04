@@ -2022,6 +2022,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.benzina-ticino-taglio-accise.title': 'Prezzo della benzina troppo basso in Italia: maxi esodo dalla Svizzera e allarme dei gestori ticinesi',
     'blog.article.benzina-ticino-taglio-accise.excerpt': 'Il taglio delle accise sui carburanti in Italia genera un esodo di automobilisti ticinesi verso il confine italiano.',
     'blog.article.benzina-ticino-taglio-accise.imageAlt': 'Fotografia del lago Lugano con un\'auto che si ferma a rifornire la benzina al valico di Gaggiolo',
+    'blog.article.abolizione-imposta-valore-locativo-2029.title': 'Abolizione imposta sul valore locativo dal 2029',
+    'blog.article.abolizione-imposta-valore-locativo-2029.excerpt': 'Dal 1° gennaio 2029 sarà abolita l\'imposta sul valore locativo per le abitazioni a uso proprio, come deciso dal Consiglio federale.',
+    'blog.article.abolizione-imposta-valore-locativo-2029.imageAlt': 'Vista aerea di Lugano con edifici residenziali e il lago',
 };
 
 export default blogMetaIt;

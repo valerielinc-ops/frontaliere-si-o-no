@@ -5908,4 +5908,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/benzina-ticino-taglio-accise.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'abolizione-imposta-valore-locativo-2029',
+    category: 'fiscale',
+    date: '2026-04-04T16:59:11.648Z',
+    image: '/images/blog/abolizione-imposta-valore-locativo-2029.jpg',
+    hasCalculator: true,
+  },
 ];
