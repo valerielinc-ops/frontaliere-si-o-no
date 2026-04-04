@@ -1,72 +1,19 @@
 {
   "key": "migros-ticino",
   "label": "Migros",
-  "generatedAt": "2026-04-03T21:29:01.664Z",
+  "generatedAt": "2026-04-04T09:25:08.031Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 3,
-  "durationMs": 10359,
-  "avgDurationMs": 10359,
+  "unchangedCount": 1,
+  "durationMs": 11287,
+  "avgDurationMs": 11287,
   "durationHistory": [
-    10359
+    11287
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "company-nlbz63",
-      "slug": "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63",
-      "company": "Scuola Club Migros",
-      "title": "Insegnante Pilates Reformer e Cadillac (f/m/d) - Scuola Club Bellinzona",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "category": "other",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-24",
-      "url": "https://jobs.migros.ch/it/le-nostre-imprese/job/scuola-club-migros/insegnante-pilates-reformer-e-cadillac-fmd-scuola-club-bellinzona/2f319a16-3762-4fb8-ba33-827d4c609b9c",
-      "source": "Company Careers Crawler",
-      "_migrosResponsibilities": [
-        "Preparazione, attuazione e follow-up delle lezioni",
-        "Progettazione delle lezioni orientata alla pratica e secondo i criteri dell’educazione per gli adulti",
-        "Strutturazione delle lezioni tenendo conto delle diverse esigenze dei partecipanti",
-        "Coordinamento regolare con i tuoi referenti dell'amministrazione della Scuola Club",
-        "Partecipazione ai corsi di perfezionamento"
-      ],
-      "_migrosBenefits": [
-        "Parte del Gruppo Migros: Come parte del gruppo Migros, benefici di strutture stabili, diverse opportunità di carriera e vantaggi attraenti",
-        "Luogo di lavoro centrale: Le nostre sedi sono situate in posizione centrale",
-        "Orario di lavoro flessibile: I nostri orari di lavoro flessibili supportano un equilibrio sano tra lavoro e vita privata",
-        "Abbonamento per il cellulare: Condizioni commerciali scontate per l'abbonamento privato al telefono cellulare",
-        "Banca Migros: Conto privato e d'investimento con tassi d'interesse preferenziali e gestione gratuita del conto",
-        "Vasta scelta di corsi di formazione continua: Generosa offerta di formazione interna gratuita, partecipazione gratuita a corsi selezionati (lingue nazionali e corsi sulla salute) e partecipazione finanziaria al programma generale dei corsi."
-      ],
-      "_migrosWorkPercentage": "",
-      "companyKey": "migros-ticino",
-      "companyDomain": "migros.ch",
-      "crawledAt": "2026-03-31T21:31:33.102Z",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "streetAddress": "Via Lugano 2",
-      "postalCode": "6500",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
+  "updatedJobs": [
     {
       "id": "company-cewp3w",
       "slug": "consulente-clienti-privati-tutti-generi-banca-migros-lugano-cewp3w",
@@ -130,6 +77,60 @@
       "featured": false,
       "postedDate": "2026-03-09",
       "url": "https://jobs.migros.ch/it/le-nostre-imprese/job/scuola-club-migros/insegnante-tai-chi-fmd-scuola-club-lugano/c4f86f9c-47ad-4a51-a844-cfd9e42848a2",
+      "source": "Company Careers Crawler",
+      "_migrosResponsibilities": [
+        "Preparazione, attuazione e follow-up delle lezioni",
+        "Progettazione delle lezioni orientata alla pratica e secondo i criteri dell’educazione per gli adulti",
+        "Strutturazione delle lezioni tenendo conto delle diverse esigenze dei partecipanti",
+        "Coordinamento regolare con i tuoi referenti dell'amministrazione della Scuola Club",
+        "Partecipazione ai corsi di perfezionamento"
+      ],
+      "_migrosBenefits": [
+        "Parte del Gruppo Migros: Come parte del gruppo Migros, benefici di strutture stabili, diverse opportunità di carriera e vantaggi attraenti",
+        "Luogo di lavoro centrale: Le nostre sedi sono situate in posizione centrale",
+        "Orario di lavoro flessibile: I nostri orari di lavoro flessibili supportano un equilibrio sano tra lavoro e vita privata",
+        "Abbonamento per il cellulare: Condizioni commerciali scontate per l'abbonamento privato al telefono cellulare",
+        "Banca Migros: Conto privato e d'investimento con tassi d'interesse preferenziali e gestione gratuita del conto",
+        "Vasta scelta di corsi di formazione continua: Generosa offerta di formazione interna gratuita, partecipazione gratuita a corsi selezionati (lingue nazionali e corsi sulla salute) e partecipazione finanziaria al programma generale dei corsi."
+      ],
+      "_migrosWorkPercentage": "",
+      "companyKey": "migros-ticino",
+      "companyDomain": "migros.ch",
+      "crawledAt": "2026-03-31T21:31:33.102Z",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "streetAddress": "Via Lugano 2",
+      "postalCode": "6500",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "company-nlbz63",
+      "slug": "insegnante-pilates-reformer-e-cadillac-f-m-d-scuola-club-bellinzona-scuola-club-migros-bellinzona-nlbz63",
+      "company": "Scuola Club Migros",
+      "title": "Insegnante Pilates Reformer e Cadillac (f/m/d) - Scuola Club Bellinzona",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "category": "other",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-24",
+      "url": "https://jobs.migros.ch/it/le-nostre-imprese/job/scuola-club-migros/insegnante-pilates-reformer-e-cadillac-fmd-scuola-club-bellinzona/2f319a16-3762-4fb8-ba33-827d4c609b9c",
       "source": "Company Careers Crawler",
       "_migrosResponsibilities": [
         "Preparazione, attuazione e follow-up delle lezioni",
