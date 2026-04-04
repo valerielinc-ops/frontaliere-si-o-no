@@ -198,7 +198,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
 
   if (compact) {
     return (
-      <div className="bg-gradient-to-r from-blue-600 to-emerald-700 rounded-2xl p-4 sm:p-6 text-white">
+      <div className="bg-gradient-to-r from-teal-600 to-emerald-700 rounded-2xl p-4 sm:p-6 text-white">
         <div className="flex items-center gap-3 mb-3">
           <Bell size={20} />
           <h3 className="font-bold text-lg">{t('newsletter.title')}</h3>
@@ -225,7 +225,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 />
               </div>
               <button type="submit" disabled={status === 'loading'}
-                className="px-5 py-2.5 bg-white text-blue-700 font-bold text-sm rounded-xl hover:bg-blue-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
+                className="px-5 py-2.5 bg-white text-teal-700 font-bold text-sm rounded-xl hover:bg-teal-50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2"
                 aria-label={t('newsletter.subscribeFree')}
               >
                 {status === 'loading' ? <Loader2 size={16} className="animate-spin" /> : <Send size={16} />}
@@ -279,7 +279,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
 
   return (
     <div className="space-y-6 animate-fade-in">
-      <div className="bg-gradient-to-br from-blue-600 via-emerald-600 to-green-700 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
+      <div className="bg-gradient-to-br from-teal-600 via-emerald-600 to-green-700 rounded-3xl p-5 sm:p-8 text-white shadow-2xl">
         <div className="flex items-center gap-4 mb-4">
           <div className="p-3 bg-white/20 rounded-2xl">
             <Mail size={32} />
@@ -327,7 +327,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
             return (
               <button
                 onClick={() => openEmailProvider(email)}
-                className="inline-flex items-center gap-2 px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-semibold rounded-xl transition-colors"
+                className="inline-flex items-center gap-2 px-5 py-2.5 bg-teal-600 hover:bg-teal-700 text-white text-sm font-semibold rounded-xl transition-colors"
               >
                 <Mail size={16} />
                 {t('newsletter.openEmailProvider', { provider: provider.name })}
@@ -350,7 +350,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                     setResendStatus('error');
                   }
                 }}
-                className="text-xs font-medium text-blue-600 dark:text-blue-400 hover:text-blue-700 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="text-xs font-medium text-teal-600 dark:text-teal-400 hover:text-teal-700 underline underline-offset-2 disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {resendStatus === 'sending' ? '...' :
                  resendStatus === 'sent' ? t('newsletter.resendConfirmationSent') :
@@ -371,7 +371,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 value={email}
                 onChange={(val) => { setEmail(val); setStatus('idle'); }}
                 placeholder="mario.rossi@gmail.com"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500"
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500"
               />
             </div>
             <div>
@@ -382,7 +382,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 placeholder="Mario"
                 autoComplete="given-name"
                 name="name"
-                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500" />
+                className="w-full px-4 py-3 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500" />
             </div>
           </div>
 
@@ -399,14 +399,14 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
                 <label key={pref.key}
                   className={`flex items-start gap-3 p-3 rounded-xl cursor-pointer transition-colors border ${
                     preferences[pref.key as keyof typeof preferences]
-                      ? 'border-blue-300 dark:border-blue-700 bg-blue-50 dark:bg-blue-950/30'
+                      ? 'border-teal-300 dark:border-teal-700 bg-teal-50 dark:bg-teal-950/30'
                       : 'border-slate-200 dark:border-slate-700 hover:border-slate-300'
                   }`}
                 >
                   <input type="checkbox"
                     checked={preferences[pref.key as keyof typeof preferences]}
                     onChange={(e) => setPreferences(prev => ({ ...prev, [pref.key]: e.target.checked }))}
-                    className="mt-1 w-4 h-4 rounded text-blue-600 focus:ring-blue-500" />
+                    className="mt-1 w-4 h-4 rounded text-teal-600 focus:ring-teal-500" />
                   <div>
                     <div className="font-bold text-sm text-slate-800 dark:text-slate-100">{pref.label}</div>
                     <div className="text-xs text-slate-500 dark:text-slate-400">{pref.desc}</div>
@@ -433,7 +433,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false }) => {
               {t('newsletter.protectedBy')}
             </div>
             <button type="submit" disabled={status === 'loading'}
-              className="px-8 py-3 bg-gradient-to-r from-blue-600 to-emerald-700 text-white font-bold rounded-xl hover:from-blue-700 hover:to-emerald-800 transition-[color,background-color,border-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-lg"
+              className="px-8 py-3 bg-gradient-to-r from-teal-600 to-emerald-700 text-white font-bold rounded-xl hover:from-teal-700 hover:to-emerald-800 transition-[color,background-color,border-color,opacity] disabled:opacity-50 disabled:cursor-not-allowed flex items-center gap-2 shadow-lg"
             >
               {status === 'loading' ? (
                 <>

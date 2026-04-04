@@ -195,7 +195,7 @@ export default function SalaryCompare() {
   }[] = [
     { id: 'sectors', label: t('salaryCompare.tabSectors'), icon: <BarChart3 size={16} />, cls: 'text-amber-700 dark:text-amber-400' },
     { id: 'professions', label: t('salaryCompare.tabProfessions'), icon: <Briefcase size={16} />, cls: 'text-blue-700 dark:text-blue-400' },
-    { id: 'survey', label: t('salary.title'), icon: <Users size={16} />, cls: 'text-blue-700 dark:text-blue-400' },
+    { id: 'survey', label: t('salary.title'), icon: <Users size={16} />, cls: 'text-teal-700 dark:text-teal-400' },
   ];
 
   return (
@@ -257,7 +257,7 @@ export default function SalaryCompare() {
         <Suspense
           fallback={
             <div className="flex justify-center py-8">
-              <div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent" />
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-teal-500 border-t-transparent" />
             </div>
           }
         >

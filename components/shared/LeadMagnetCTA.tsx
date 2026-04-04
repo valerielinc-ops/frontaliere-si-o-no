@@ -65,7 +65,7 @@ const VARIANT_ICONS: Record<LeadMagnetVariant, typeof FileText> = {
 
 const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: string; iconText: string; border: string }> = {
   tax_checklist: {
-    gradient: 'from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20',
+    gradient: 'from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20',
     iconBg: 'bg-emerald-100 dark:bg-emerald-800',
     iconText: 'text-emerald-600 dark:text-emerald-300',
     border: 'border-emerald-200 dark:border-emerald-800',
@@ -83,16 +83,16 @@ const VARIANT_COLORS: Record<LeadMagnetVariant, { gradient: string; iconBg: stri
     border: 'border-amber-200 dark:border-amber-800',
   },
   insurance: {
-    gradient: 'from-blue-50 to-emerald-50 dark:from-blue-900/20 dark:to-emerald-900/20',
-    iconBg: 'bg-blue-100 dark:bg-blue-800',
-    iconText: 'text-blue-600 dark:text-blue-300',
-    border: 'border-blue-200 dark:border-blue-800',
+    gradient: 'from-teal-50 to-emerald-50 dark:from-teal-900/20 dark:to-emerald-900/20',
+    iconBg: 'bg-teal-100 dark:bg-teal-800',
+    iconText: 'text-teal-600 dark:text-teal-300',
+    border: 'border-teal-200 dark:border-teal-800',
   },
   pension: {
-    gradient: 'from-blue-50 to-sky-50 dark:from-blue-900/20 dark:to-sky-900/20',
-    iconBg: 'bg-blue-100 dark:bg-blue-800',
-    iconText: 'text-blue-600 dark:text-blue-300',
-    border: 'border-blue-200 dark:border-blue-800',
+    gradient: 'from-cyan-50 to-sky-50 dark:from-cyan-900/20 dark:to-sky-900/20',
+    iconBg: 'bg-cyan-100 dark:bg-cyan-800',
+    iconText: 'text-cyan-600 dark:text-cyan-300',
+    border: 'border-cyan-200 dark:border-cyan-800',
   },
   generic: {
     gradient: 'from-amber-50 via-orange-50 to-rose-50 dark:from-amber-900/20 dark:via-orange-900/20 dark:to-rose-900/20',
@@ -847,7 +847,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
   // ─── Success state ─────────────────────────────────────────────────
   if (status === 'success') {
     return (
-      <div className={`mt-6 p-5 bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-center`}>
+      <div className={`mt-6 p-5 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border border-emerald-200 dark:border-emerald-800 rounded-2xl text-center`}>
         <CheckCircle2 className="w-10 h-10 text-emerald-500 mx-auto mb-2" />
         <p className="font-bold text-slate-800 dark:text-slate-100">{t('leadMagnet.success.title')}</p>
         <p className="text-sm text-slate-600 dark:text-slate-400 mt-1">{t('leadMagnet.success.desc')}</p>
@@ -891,7 +891,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-3 py-2 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button
@@ -974,7 +974,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button

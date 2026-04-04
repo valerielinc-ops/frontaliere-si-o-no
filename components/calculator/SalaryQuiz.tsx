@@ -216,7 +216,7 @@ export default function SalaryQuiz() {
     <div className="max-w-2xl mx-auto">
       {/* Header */}
       <div className="text-center mb-8">
-        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-blue-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
+        <div className="inline-flex items-center gap-2 bg-gradient-to-r from-emerald-500 to-teal-500 text-white px-4 py-2 rounded-full text-sm font-bold mb-4">
           <TrendingUp size={16} />
           {t('salaryQuiz.badge')}
         </div>
@@ -231,7 +231,7 @@ export default function SalaryQuiz() {
       {/* Progress bar */}
       <div className="h-2 bg-slate-200 dark:bg-slate-700 rounded-full mb-8 overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-emerald-500 to-blue-500 rounded-full transition-[width] duration-500"
+          className="h-full bg-gradient-to-r from-emerald-500 to-teal-500 rounded-full transition-[width] duration-500"
           style={{ width: progressWidth }}
         />
       </div>
@@ -312,7 +312,7 @@ export default function SalaryQuiz() {
       {step === 'result' && result && (
         <div className="animate-fade-in space-y-6">
           {/* Result card */}
-          <div className="bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl p-4 sm:p-6 text-white shadow-xl">
+          <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 sm:p-6 text-white shadow-xl">
             <div className="text-center mb-6">
               <p className="text-emerald-100 text-sm mb-1">{t('salaryQuiz.resultSubtitle')}</p>
               <div className="text-4xl sm:text-5xl font-bold mb-1">

@@ -144,10 +144,10 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
       <div className="lg:hidden space-y-3">
         {/* Compact header */}
         <div className="flex items-center gap-2.5">
-          <div className="p-1.5 bg-blue-100 dark:bg-blue-900/50 rounded-lg">
-            <MapPin className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+          <div className="p-1.5 bg-teal-100 dark:bg-teal-900/50 rounded-lg">
+            <MapPin className="w-5 h-5 text-teal-600 dark:text-teal-400" />
           </div>
-          <h2 className="text-lg font-bold text-blue-900 dark:text-blue-100">{t('bordermap.title')}</h2>
+          <h2 className="text-lg font-bold text-teal-900 dark:text-teal-100">{t('bordermap.title')}</h2>
         </div>
 
         {/* Inline filter pills + province dropdown */}
@@ -162,7 +162,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               onClick={() => setColorMode(mode)}
               className={`px-2.5 py-1 rounded-lg text-xs font-bold transition-colors ${
                 colorMode === mode
-                  ? 'bg-blue-600 text-white'
+                  ? 'bg-teal-600 text-white'
                   : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300'
               }`}
             >
@@ -241,7 +241,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
           <div className="bg-white dark:bg-slate-800 rounded-xl p-4 border border-slate-200 dark:border-slate-700">
             <div className="flex items-center justify-between mb-2">
               <h3 className="text-base font-bold text-slate-800 dark:text-slate-200">{selectedMunicipality.name}</h3>
-              <span className="text-xs px-2 py-0.5 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-bold">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 font-bold">
                 {t('bordermap.fascia')} {selectedMunicipality.fascia}
               </span>
             </div>
@@ -384,14 +384,14 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
         {/* Left column: settings & info */}
         <div className="space-y-4">
           {/* Header */}
-          <div className="bg-gradient-to-br from-blue-50 to-blue-50 dark:from-blue-950/30 dark:to-blue-950/30 rounded-2xl p-6 border border-blue-200 dark:border-blue-800">
+          <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-2xl p-6 border border-teal-200 dark:border-teal-800">
             <div className="flex items-center gap-3 mb-2">
-              <div className="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-xl">
-                <MapPin className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+              <div className="p-2 bg-teal-100 dark:bg-teal-900/50 rounded-xl">
+                <MapPin className="w-6 h-6 text-teal-600 dark:text-teal-400" />
               </div>
-              <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100">{t('bordermap.title')}</h2>
+              <h2 className="text-2xl font-bold text-teal-900 dark:text-teal-100">{t('bordermap.title')}</h2>
             </div>
-            <p className="text-blue-700 dark:text-blue-300 text-sm">{t('bordermap.subtitle')}</p>
+            <p className="text-teal-700 dark:text-teal-300 text-sm">{t('bordermap.subtitle')}</p>
           </div>
 
           {/* Controls */}
@@ -410,7 +410,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                 onClick={() => setColorMode(mode)}
                 className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors ${
                   colorMode === mode
-                    ? 'bg-blue-600 text-white'
+                    ? 'bg-teal-600 text-white'
                     : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-200 dark:hover:bg-slate-600'
                 }`}
               >
@@ -626,7 +626,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
             <div className="bg-white dark:bg-slate-800 rounded-xl p-5 border border-slate-200 dark:border-slate-700">
               <div className="flex items-center justify-between mb-3">
                 <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">{selectedMunicipality.name}</h3>
-                <span className="text-xs px-2 py-1 rounded-full bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 font-bold">
+                <span className="text-xs px-2 py-1 rounded-full bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300 font-bold">
                   {t('bordermap.fascia')} {selectedMunicipality.fascia}
                 </span>
               </div>
@@ -710,7 +710,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
                     <span className={`text-xs px-1.5 py-0.5 rounded font-bold ${
                       m.fascia === '2'
                         ? 'bg-orange-100 dark:bg-orange-900/30 text-orange-700 dark:text-orange-300'
-                        : 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
+                        : 'bg-teal-100 dark:bg-teal-900/30 text-teal-700 dark:text-teal-300'
                     }`}>
                       {t('bordermap.fascia')} {m.fascia}
                     </span>
@@ -747,7 +747,7 @@ const BorderMunicipalitiesMap: React.FC<Props> = ({ userProfile }) => {
               </div>
 
               {/* Fascia note — franchigia applies to all fascia (Art. 1 c.175 L.147/2013) */}
-              <p className="text-xs text-blue-600 dark:text-blue-400 mb-2">✓ {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
+              <p className="text-xs text-teal-600 dark:text-teal-400 mb-2">✓ {t('bordermap.withFranchigia', { fascia: m.fascia })}</p>
 
               {/* Campione special note */}
               {isCampione && (

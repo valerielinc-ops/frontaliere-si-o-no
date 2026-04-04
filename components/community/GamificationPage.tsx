@@ -39,8 +39,8 @@ const GamificationPage: React.FC = () => {
   const categoryColors: Record<string, string> = {
     all: 'from-amber-500 to-orange-500',
     explorer: 'from-blue-500 to-blue-600',
-    calculator: 'from-emerald-500 to-blue-500',
-    expert: 'from-amber-500 to-violet-500',
+    calculator: 'from-emerald-500 to-teal-500',
+    expert: 'from-purple-500 to-violet-500',
     social: 'from-pink-500 to-rose-500',
   };
 

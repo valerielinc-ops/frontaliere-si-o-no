@@ -169,7 +169,7 @@ const CATEGORY_COLORS: Record<DialectCategory, { bg: string; text: string; darkB
   espressioni: { bg: 'bg-amber-100', text: 'text-amber-700', darkBg: 'dark:bg-amber-900/30', darkText: 'dark:text-amber-300' },
   proverbi: { bg: 'bg-violet-100', text: 'text-violet-700', darkBg: 'dark:bg-violet-900/30', darkText: 'dark:text-violet-300' },
   cibo: { bg: 'bg-emerald-100', text: 'text-emerald-700', darkBg: 'dark:bg-emerald-900/30', darkText: 'dark:text-emerald-300' },
-  lavoro: { bg: 'bg-blue-100', text: 'text-blue-700', darkBg: 'dark:bg-blue-900/30', darkText: 'dark:text-blue-300' },
+  lavoro: { bg: 'bg-teal-100', text: 'text-teal-700', darkBg: 'dark:bg-teal-900/30', darkText: 'dark:text-teal-300' },
   natura: { bg: 'bg-sky-100', text: 'text-sky-700', darkBg: 'dark:bg-sky-900/30', darkText: 'dark:text-sky-300' },
 };
 
@@ -508,7 +508,7 @@ const TicineseDialect: React.FC = () => {
                       </div>
                     )}
                     <div className="flex items-center gap-2">
-                      <button onClick={() => pronounce(entry)} className="inline-flex items-center gap-1.5 text-xs text-blue-700 dark:text-blue-300 hover:underline">
+                      <button onClick={() => pronounce(entry)} className="inline-flex items-center gap-1.5 text-xs text-teal-700 dark:text-teal-300 hover:underline">
                         <Volume2 size={14} className={playingKey === entry.key ? 'animate-pulse' : ''} /> {tt('dialect.playAudio', 'Ascolta')}
                       </button>
                       <button onClick={() => handleShare(entry)} className="inline-flex items-center gap-1.5 text-xs text-orange-600 dark:text-orange-400 hover:underline">

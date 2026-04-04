@@ -486,7 +486,7 @@ const AiChatbot: React.FC<AiChatbotProps> = ({ isLoggedIn, onSignIn, onSignInFac
       return;
     }
     eagerAuth();
-    // On mobile, One Tap / GIS iframe can overlap and intercept touches from CTA buttons.
+    // On mobile, One Tap / GIS iframe can overlap and steal touches from CTA buttons.
     // Keep the explicit CTA buttons only for reliable tapping.
     let timer: ReturnType<typeof setTimeout> | null = null;
     if (!isMobileDevice) {

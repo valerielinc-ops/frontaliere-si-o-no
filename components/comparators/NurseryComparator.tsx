@@ -243,7 +243,7 @@ const NurseryComparator: React.FC<{ userProfile?: UserProfileData | null }> = ({
                         nursery.type === 'public'
                           ? 'bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300'
                           : nursery.type === 'aziendali'
-                          ? 'bg-amber-100 dark:bg-amber-900/30 text-purple-700 dark:text-purple-300'
+                          ? 'bg-purple-100 dark:bg-purple-900/30 text-purple-700 dark:text-purple-300'
                           : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400'
                       }`}>
                         {t(`nursery.type${nursery.type.charAt(0).toUpperCase() + nursery.type.slice(1)}`)}

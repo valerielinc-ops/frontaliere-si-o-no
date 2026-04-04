@@ -153,7 +153,7 @@ const SubscriptionCTA: React.FC = () => {
       <div className={`mt-6 p-5 rounded-2xl text-center border ${
         status === 'pending'
           ? 'bg-gradient-to-r from-amber-50 to-orange-50 dark:from-amber-900/20 dark:to-orange-900/20 border-amber-200 dark:border-amber-800'
-          : 'bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 border-emerald-200 dark:border-emerald-800'
+          : 'bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 border-emerald-200 dark:border-emerald-800'
       }`}>
         {status === 'pending' ? (
           <>
@@ -277,7 +277,7 @@ const SubscriptionCTA: React.FC = () => {
               value={email}
               onChange={(val) => { setEmail(val); setStatus('idle'); }}
               placeholder={t('newsletter.emailPlaceholder')}
-              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-500 text-slate-800 dark:text-slate-100 text-sm"
+              className="w-full px-4 py-2.5 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-xl focus:outline-none focus:ring-2 focus:ring-teal-500 text-slate-800 dark:text-slate-100 text-sm"
             />
           </div>
           <button

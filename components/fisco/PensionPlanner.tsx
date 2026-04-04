@@ -425,7 +425,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
           {/* Summary Cards */}
           <div className="grid grid-cols-1 gap-4">
             {/* Total Monthly Pension */}
-            <div className="bg-gradient-to-br from-emerald-500 to-blue-600 rounded-2xl p-4 sm:p-6 shadow-lg text-white">
+            <div className="bg-gradient-to-br from-emerald-500 to-teal-600 rounded-2xl p-4 sm:p-6 shadow-lg text-white">
               <div className="flex items-start justify-between mb-4">
                 <div>
                   <div className="text-emerald-100 text-sm font-semibold uppercase tracking-wide mb-1">
@@ -564,7 +564,7 @@ const PensionPlanner: React.FC<{ userProfile?: UserProfileData | null }> = ({ us
               )}
 
               <div className="border-t-2 border-emerald-500 pt-3 mt-3">
-                <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-blue-50 dark:from-emerald-900/20 dark:to-blue-900/20 rounded-xl">
+                <div className="flex items-center justify-between p-4 bg-gradient-to-r from-emerald-50 to-teal-50 dark:from-emerald-900/20 dark:to-teal-900/20 rounded-xl">
                   <span className="text-base font-bold text-slate-800 dark:text-slate-100">{t('pension.monthlyTotal')}</span>
                   <span className="text-2xl font-bold text-emerald-700">
                     CHF {Math.round(result.totalMonthlyPensionCHF).toLocaleString('it-IT')}

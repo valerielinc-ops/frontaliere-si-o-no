@@ -84,7 +84,7 @@ function getBanks(t: (key: string) => string): Bank[] {
       cardType: 'Visa Debit (virtuale + fisica)',
       pros: [t('banks.revolut.pro1'), t('banks.revolut.pro2'), t('banks.revolut.pro3'), t('banks.revolut.pro4')],
       cons: [t('banks.revolut.con1'), t('banks.revolut.con2'), t('banks.revolut.con3')],
-      color: 'from-rose-500 to-orange-600',
+      color: 'from-rose-500 to-pink-600',
       website: 'https://www.revolut.com',
       acceptsFrontalieri: true
     },
@@ -97,7 +97,7 @@ function getBanks(t: (key: string) => string): Bank[] {
       cardType: 'Visa Debit',
       pros: [t('banks.wise.pro1'), t('banks.wise.pro2'), t('banks.wise.pro3'), t('banks.wise.pro4')],
       cons: [t('banks.wise.con1'), t('banks.wise.con2'), t('banks.wise.con3')],
-      color: 'from-emerald-500 to-blue-600',
+      color: 'from-emerald-500 to-teal-600',
       website: 'https://wise.com/invite/ihpn/luigis147',
       acceptsFrontalieri: true
     },
@@ -123,7 +123,7 @@ function getBanks(t: (key: string) => string): Bank[] {
       cardType: t('banks.fineco.cardType'),
       pros: [t('banks.fineco.pro1'), t('banks.fineco.pro2'), t('banks.fineco.pro3'), t('banks.fineco.pro4')],
       cons: [t('banks.fineco.con1'), t('banks.fineco.con2'), t('banks.fineco.con3')],
-      color: 'from-blue-500 to-blue-600',
+      color: 'from-teal-500 to-blue-600',
       website: 'https://fineco.mobi/passaparola',
       acceptsFrontalieri: true
     },
@@ -162,7 +162,7 @@ function getBanks(t: (key: string) => string): Bank[] {
       cardType: 'Mastercard Debit (virtuale + fisica)',
       pros: [t('banks.n26.pro1'), t('banks.n26.pro2'), t('banks.n26.pro3')],
       cons: [t('banks.n26.con1'), t('banks.n26.con2'), t('banks.n26.con3')],
-      color: 'from-blue-500 to-blue-700',
+      color: 'from-teal-500 to-teal-700',
       website: 'https://n26.com',
       acceptsFrontalieri: true
     },

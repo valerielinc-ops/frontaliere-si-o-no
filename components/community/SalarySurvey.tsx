@@ -205,14 +205,14 @@ const SalarySurvey: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="bg-gradient-to-br from-blue-50 to-blue-50 dark:from-blue-950/30 dark:to-blue-950/30 rounded-2xl p-4 sm:p-6 border border-blue-200 dark:border-blue-800">
+      <div className="bg-gradient-to-br from-teal-50 to-cyan-50 dark:from-teal-950/30 dark:to-cyan-950/30 rounded-2xl p-4 sm:p-6 border border-teal-200 dark:border-teal-800">
         <div className="flex items-center gap-3 mb-2">
-          <div className="p-2 bg-blue-100 dark:bg-blue-900/50 rounded-xl">
-            <BarChart3 className="w-6 h-6 text-blue-600 dark:text-blue-400" />
+          <div className="p-2 bg-teal-100 dark:bg-teal-900/50 rounded-xl">
+            <BarChart3 className="w-6 h-6 text-teal-600 dark:text-teal-400" />
           </div>
-          <h2 className="text-2xl font-bold text-blue-900 dark:text-blue-100">{t('salary.title')}</h2>
+          <h2 className="text-2xl font-bold text-teal-900 dark:text-teal-100">{t('salary.title')}</h2>
         </div>
-        <p className="text-blue-700 dark:text-blue-300 text-sm">{t('salary.subtitle')}</p>
+        <p className="text-teal-700 dark:text-teal-300 text-sm">{t('salary.subtitle')}</p>
       </div>
 
       {/* Privacy notice */}
@@ -304,7 +304,7 @@ const SalarySurvey: React.FC = () => {
           <button
             onClick={handleSubmit}
             disabled={!sector || !experience || !salary || parseInt(salary) < 1000 || submitting}
-            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-bold transition-colors"
+            className="w-full flex items-center justify-center gap-2 px-6 py-3 bg-teal-600 hover:bg-teal-700 disabled:opacity-50 disabled:cursor-not-allowed text-white rounded-xl font-bold transition-colors"
           >
             <Send className="w-4 h-4" />
             {submitting ? t('salary.submitting') : t('salary.submit')}
@@ -333,7 +333,7 @@ const SalarySurvey: React.FC = () => {
         <div className="space-y-4 animate-fade-in">
           {loadingResults ? (
             <div className="flex items-center justify-center py-12">
-              <div className="animate-spin rounded-full h-8 w-8 border-2 border-blue-500 border-t-transparent" />
+              <div className="animate-spin rounded-full h-8 w-8 border-2 border-teal-500 border-t-transparent" />
             </div>
           ) : totalResponses === 0 ? (
             <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 sm:p-8 border border-slate-200 dark:border-slate-700 text-center">
@@ -345,7 +345,7 @@ const SalarySurvey: React.FC = () => {
               {/* Summary */}
               <div className="bg-white dark:bg-slate-800 rounded-2xl p-5 border border-slate-200 dark:border-slate-700">
                 <div className="flex items-center gap-2 mb-3">
-                  <Users className="w-5 h-5 text-blue-500" />
+                  <Users className="w-5 h-5 text-teal-500" />
                   <span className="font-bold text-slate-800 dark:text-slate-200">
                     {t('salary.totalResponses', { count: String(totalResponses) })}
                   </span>
@@ -382,10 +382,10 @@ const SalarySurvey: React.FC = () => {
                           <span className="font-bold text-slate-700 dark:text-slate-300">{formatCHF(agg.p25)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
-                          <span className="text-blue-600 dark:text-blue-400 font-bold flex items-center gap-1">
+                          <span className="text-teal-600 dark:text-teal-400 font-bold flex items-center gap-1">
                             <TrendingUp className="w-4 h-4" /> {t('salary.medianLabel')}
                           </span>
-                          <span className="font-bold text-blue-700 dark:text-blue-300 text-lg">{formatCHF(agg.median)}</span>
+                          <span className="font-bold text-teal-700 dark:text-teal-300 text-lg">{formatCHF(agg.median)}</span>
                         </div>
                         <div className="flex justify-between text-sm">
                           <span className="text-slate-500 dark:text-slate-400">75° percentile</span>
@@ -400,14 +400,14 @@ const SalarySurvey: React.FC = () => {
                       {/* Simple bar chart */}
                       <div className="mt-4 h-8 bg-slate-100 dark:bg-slate-700 rounded-full overflow-hidden relative">
                         <div
-                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-blue-200 to-blue-400 dark:from-blue-800 dark:to-blue-600 rounded-full"
+                          className="absolute inset-y-0 left-0 bg-gradient-to-r from-teal-200 to-teal-400 dark:from-teal-800 dark:to-teal-600 rounded-full"
                           style={{
                             left: `${(agg.p25 / agg.p75) * 30}%`,
                             width: `${Math.max(20, ((agg.p75 - agg.p25) / agg.p75) * 100)}%`,
                           }}
                         />
                         <div
-                          className="absolute inset-y-0 w-1 bg-blue-600 dark:bg-blue-300 rounded"
+                          className="absolute inset-y-0 w-1 bg-teal-600 dark:bg-teal-300 rounded"
                           style={{ left: `${(agg.median / agg.p75) * 70}%` }}
                         />
                       </div>

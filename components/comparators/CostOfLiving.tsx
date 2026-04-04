@@ -319,7 +319,7 @@ const CostOfLiving: React.FC = () => {
           <div className="text-2xl sm:text-3xl font-bold mt-1">€ {totalIT_EUR.toFixed(0)}</div>
           <div className="text-xs text-white/60">{showAnnual ? t('costOfLiving.perYear') : t('costOfLiving.perMonth')}</div>
         </div>
-        <div className={`rounded-xl p-5 text-white ${totalSavings > 0 ? 'bg-gradient-to-br from-emerald-500 to-blue-700' : 'bg-gradient-to-br from-amber-500 to-orange-700'}`}>
+        <div className={`rounded-xl p-5 text-white ${totalSavings > 0 ? 'bg-gradient-to-br from-emerald-500 to-teal-700' : 'bg-gradient-to-br from-amber-500 to-orange-700'}`}>
           <div className="text-xs font-bold uppercase tracking-wider text-white/70">{t('costOfLiving.savings')}</div>
           <div className="text-2xl sm:text-3xl font-bold mt-1 flex items-center gap-2">
             {totalSavings > 0 ? <TrendingDown size={24} /> : <TrendingUp size={24} />}

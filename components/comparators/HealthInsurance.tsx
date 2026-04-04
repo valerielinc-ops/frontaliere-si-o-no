@@ -505,7 +505,7 @@ const HealthInsurance: React.FC = () => {
       )}
 
       {/* CMU vs LAMal comparison for French border workers */}
-      <div className="bg-gradient-to-br from-rose-50 to-orange-50 dark:from-rose-950/30 dark:to-orange-950/30 rounded-2xl border border-rose-200 dark:border-rose-800 p-6">
+      <div className="bg-gradient-to-br from-rose-50 to-pink-50 dark:from-rose-950/30 dark:to-pink-950/30 rounded-2xl border border-rose-200 dark:border-rose-800 p-6">
         <h3 className="text-lg font-bold text-slate-800 dark:text-slate-100 mb-4 flex items-center gap-2">
           <Globe size={20} className="text-rose-700" />
           CMU francese vs LAMal

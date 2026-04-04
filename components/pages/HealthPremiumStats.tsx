@@ -120,7 +120,7 @@ const HealthPremiumStats: React.FC = () => {
   return (
     <div className="space-y-6 pb-8">
       {/* Header */}
-      <div className="bg-gradient-to-br from-rose-600 to-orange-700 rounded-2xl p-4 sm:p-8 text-white">
+      <div className="bg-gradient-to-br from-rose-600 to-pink-700 rounded-2xl p-4 sm:p-8 text-white">
         <div className="flex items-center gap-3 mb-3">
           <Heart size={28} />
           <h2 className="text-2xl sm:text-3xl font-bold">Premi Cassa Malati per Comune</h2>

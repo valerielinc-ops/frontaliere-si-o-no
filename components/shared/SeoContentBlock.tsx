@@ -72,7 +72,7 @@ const CONTEXT_CONFIG: Record<SeoContext, {
   },
   fisco: {
     Icon: Landmark,
-    gradient: 'from-emerald-50 to-blue-50 dark:from-emerald-950/30 dark:to-blue-950/30',
+    gradient: 'from-emerald-50 to-teal-50 dark:from-emerald-950/30 dark:to-teal-950/30',
     collapsedBg: 'bg-emerald-50/60 dark:bg-emerald-950/20',
     iconBg: 'bg-emerald-100 dark:bg-emerald-900/40',
     iconText: 'text-emerald-600 dark:text-emerald-400',
@@ -99,10 +99,10 @@ const CONTEXT_CONFIG: Record<SeoContext, {
   },
   stats: {
     Icon: Target,
-    gradient: 'from-blue-50 to-sky-50 dark:from-blue-950/30 dark:to-sky-950/30',
-    collapsedBg: 'bg-blue-50/60 dark:bg-blue-950/20',
-    iconBg: 'bg-blue-100 dark:bg-blue-900/40',
-    iconText: 'text-blue-600 dark:text-blue-400',
+    gradient: 'from-cyan-50 to-sky-50 dark:from-cyan-950/30 dark:to-sky-950/30',
+    collapsedBg: 'bg-cyan-50/60 dark:bg-cyan-950/20',
+    iconBg: 'bg-cyan-100 dark:bg-cyan-900/40',
+    iconText: 'text-cyan-600 dark:text-cyan-400',
     features: 3,
     checklist: 4,
   },

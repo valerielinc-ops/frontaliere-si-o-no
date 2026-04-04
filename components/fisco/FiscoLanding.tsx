@@ -73,7 +73,7 @@ const FiscoLanding: React.FC = () => {
   return (
     <div className="space-y-6 mb-8">
       {/* ─── Hero Section ──────────────────────────────────────────── */}
-      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-50 via-blue-50 to-blue-50 dark:from-emerald-950/40 dark:via-blue-950/30 dark:to-blue-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
+      <div className="relative overflow-hidden rounded-2xl bg-gradient-to-br from-emerald-50 via-teal-50 to-cyan-50 dark:from-emerald-950/40 dark:via-teal-950/30 dark:to-cyan-950/20 border border-emerald-200/60 dark:border-emerald-800/40">
         <div className="relative px-5 py-6 sm:px-8 sm:py-8">
           <div className="flex items-start gap-4">
             <div className="shrink-0 w-12 h-12 sm:w-14 sm:h-14 rounded-xl bg-emerald-100 dark:bg-emerald-900/50 flex items-center justify-center">
