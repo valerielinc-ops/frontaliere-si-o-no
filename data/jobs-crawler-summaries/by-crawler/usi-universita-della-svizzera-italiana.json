@@ -1,18 +1,49 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-04-04T09:47:16.935Z",
-  "total": 24,
-  "newCount": 0,
+  "generatedAt": "2026-04-04T21:48:15.286Z",
+  "total": 25,
+  "newCount": 1,
   "updatedCount": 10,
   "removedCount": 0,
   "unchangedCount": 14,
-  "durationMs": 112972,
-  "avgDurationMs": 112972,
+  "durationMs": 224040,
+  "avgDurationMs": 224040,
   "durationHistory": [
-    112972
+    224040
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-modellistica-2026.pdf",
+      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-modellistica-2026.pdf",
+      "title": "Collaboratore/Collaboratrice scientifico/a per la Modellistica",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Mendrisio",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "collaboratore-collaboratrice-scientifico-a-per-la-modellistica-usi",
+      "department": "Accademia di architettura",
+      "category": "staff",
+      "datePosted": "2026-04-04",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Mendrisio"
+      },
+      "sourceLang": "it",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 23,
+        "completeness": 9
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/hru/hru-associate-full-professor-2025.pdf",
