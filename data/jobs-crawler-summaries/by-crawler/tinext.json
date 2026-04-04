@@ -1,16 +1,16 @@
 {
   "key": "tinext",
   "label": "tinext",
-  "generatedAt": "2026-04-04T09:43:18.101Z",
+  "generatedAt": "2026-04-04T21:42:26.328Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 921,
-  "avgDurationMs": 921,
+  "unchangedCount": 1,
+  "durationMs": 661,
+  "avgDurationMs": 661,
   "durationHistory": [
-    921
+    661
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -48,7 +48,10 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Executive Assistant",
       "slug": "executive-assistant-tinext-lugano-exass",
@@ -84,7 +87,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
