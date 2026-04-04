@@ -37,11 +37,11 @@ const InfoTooltip = ({ text }: { text: string }) => (
 
 const iconBgMap: Record<string, string> = {
   'text-indigo-600': 'bg-indigo-100 dark:bg-indigo-900/30 text-indigo-600',
-  'text-teal-500': 'bg-teal-100 dark:bg-teal-900/30 text-teal-500',
+  'text-blue-500': 'bg-blue-100 dark:bg-blue-900/30 text-blue-500',
   'text-gray-500': 'bg-slate-100 dark:bg-slate-900/30 text-slate-500 dark:text-slate-400',
   'text-orange-500': 'bg-orange-100 dark:bg-orange-900/30 text-orange-500',
   'text-amber-700': 'bg-amber-100 dark:bg-amber-900/30 text-amber-700',
-  'text-cyan-600': 'bg-cyan-100 dark:bg-cyan-900/30 text-cyan-600',
+  'text-blue-600': 'bg-blue-100 dark:bg-blue-900/30 text-blue-600',
 };
 
 const SectionHeader = ({ title, icon: Icon, isOpen, onToggle, subtext, iconColor = "text-indigo-600", action, sectionId }: any) => (
@@ -161,6 +161,7 @@ const TechInput: React.FC<{
                   if (isNaN(val)) val = 0;
                   onChange(isPercentage ? val / 100 : val);
               }}
+              aria-label={label}
               className="w-full h-11 bg-white dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 text-sm font-bold text-slate-700 dark:text-slate-200 outline-none focus:border-indigo-500 focus:ring-4 focus:ring-indigo-500/10 transition-[color,border-color,box-shadow]"
             />
             {suffix && <span className="absolute right-3 top-3.5 text-xs font-bold text-slate-600 dark:text-slate-300 pointer-events-none">{suffix}</span>}
@@ -428,6 +429,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                           const clamped = Math.max(SALARY_MIN, Math.min(SALARY_MAX, val));
                           handleChange('annualIncomeCHF', clamped);
                         }}
+                        aria-label={t('input.annualIncome') || 'Reddito annuo lordo CHF'}
                         className={`w-full pl-14 pr-4 py-4 bg-slate-50 dark:bg-slate-900 border-2 border-x-0 focus:ring-4 focus:ring-inset outline-none transition-[color,border-color,box-shadow] font-bold text-slate-800 dark:text-slate-100 text-2xl tracking-tight ${salaryError ? 'border-red-400 focus:border-red-500 focus:ring-red-500/10' : 'border-slate-100 dark:border-slate-700 focus:border-indigo-500 focus:ring-indigo-500/10'}`}
                         placeholder="0"
                       />
@@ -698,7 +700,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                             {exp.tooltip && <InfoTooltip text={t(exp.tooltip)} />}
                           </div>
                           <input type="number" value={exp.amount || ''} onChange={e => updateExpense('IT', exp.id, { amount: Number(e.target.value) })} placeholder="0" aria-label={t('input.expenseAmount') || 'Importo spesa IT'} className="w-14 sm:w-16 bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-800 rounded-lg px-1 sm:px-2 py-2 text-xs font-mono font-bold outline-none focus:border-indigo-500 text-right transition-colors" />
-                          <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 dark:text-slate-400 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0">{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
+                          <button onClick={() => updateExpense('IT', exp.id, { frequency: exp.frequency === 'MONTHLY' ? 'ANNUAL' : 'MONTHLY' })} className="px-1.5 sm:px-2 py-2 bg-slate-100 dark:bg-slate-800 rounded-lg text-[9px] font-bold uppercase text-slate-600 dark:text-slate-400 w-10 sm:w-12 text-center hover:bg-slate-200 transition-colors flex-shrink-0" aria-label={t('input.toggleFrequency') || 'Cambia frequenza mensile/annuale'}>{exp.frequency === 'MONTHLY' ? '/m' : '/a'}</button>
                           <button onClick={() => removeExpense('IT', exp.id)} className="p-2 sm:p-2.5 -m-1 text-slate-300 hover:text-red-500 transition-colors flex-shrink-0" aria-label={t('input.removeExpense')}><X size={14}/></button>
                         </div>
                      ))}
@@ -731,6 +733,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                            step="0.001" 
                            value={inputs.customExchangeRate} 
                            onChange={(e) => handleChange('customExchangeRate', Number(e.target.value))} 
+                           aria-label={t('input.exchangeRate') || 'Tasso di cambio CHF/EUR'}
                            className="w-full h-11 bg-slate-50 dark:bg-slate-900 px-3 rounded-xl border border-slate-200 dark:border-slate-700 outline-none text-base font-bold focus:border-indigo-500 transition-colors" 
                         />
                      </div>
@@ -797,6 +800,9 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                     {/* Beautiful Toggle Switch */}
                     <button 
                       onClick={() => handleChange('enableOldFrontierHealthTax', !inputs.enableOldFrontierHealthTax)}
+                      aria-label={t('input.ssnHealthTax') || 'Contributo SSN sanitario'}
+                      role="switch"
+                      aria-checked={inputs.enableOldFrontierHealthTax}
                       className={`relative flex-shrink-0 w-14 h-7 rounded-full transition-colors duration-300 ease-in-out focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-amber-500 shadow-inner ${inputs.enableOldFrontierHealthTax ? 'bg-gradient-to-r from-amber-500 to-orange-500' : 'bg-slate-300 dark:bg-slate-600'}`}
                     >
                       <span className={`block w-5 h-5 bg-white rounded-full shadow-lg transform transition-transform duration-300 ease-[cubic-bezier(0.34,1.56,0.64,1)] mt-1 ml-1 ${inputs.enableOldFrontierHealthTax ? 'translate-x-7' : 'translate-x-0'}`}/>
@@ -824,6 +830,7 @@ const InputCardBase: React.FC<Props> = ({ inputs, setInputs, onCalculate, focusF
                                step="0.1"
                                min="0"
                                max="100"
+                               aria-label={t('input.netIncomePercentage') || 'Percentuale reddito netto per contributo SSN'}
                                className="w-14 text-right bg-slate-50 dark:bg-slate-900 text-slate-800 dark:text-slate-200 border border-slate-200 dark:border-slate-700 rounded px-2 py-1 text-xs font-bold focus:outline-none focus:ring-1 focus:ring-amber-500" 
                              />
                              <span className="text-xs font-bold text-slate-600 dark:text-slate-400">%</span>

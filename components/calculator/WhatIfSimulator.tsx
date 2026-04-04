@@ -153,12 +153,10 @@ const getScenarios = (t: (key: string) => string, profile?: UserProfileData | nu
 ]; };
 
 const colorMap: Record<string, { bg: string; text: string; border: string; light: string }> = {
-  pink: { bg: 'bg-pink-500', text: 'text-pink-600', border: 'border-pink-200 dark:border-pink-800', light: 'bg-pink-50 dark:bg-pink-950/30' },
   emerald: { bg: 'bg-emerald-700', text: 'text-emerald-700', border: 'border-emerald-200 dark:border-emerald-800', light: 'bg-emerald-50 dark:bg-emerald-950/30' },
   blue: { bg: 'bg-blue-500', text: 'text-blue-600', border: 'border-blue-200 dark:border-blue-800', light: 'bg-blue-50 dark:bg-blue-950/30' },
   rose: { bg: 'bg-rose-500', text: 'text-rose-600', border: 'border-rose-200 dark:border-rose-800', light: 'bg-rose-50 dark:bg-rose-950/30' },
   amber: { bg: 'bg-amber-500', text: 'text-amber-600', border: 'border-amber-200 dark:border-amber-800', light: 'bg-amber-50 dark:bg-amber-950/30' },
-  teal: { bg: 'bg-teal-500', text: 'text-teal-600', border: 'border-teal-200 dark:border-teal-800', light: 'bg-teal-50 dark:bg-teal-950/30' },
   orange: { bg: 'bg-orange-500', text: 'text-orange-600', border: 'border-orange-200 dark:border-orange-800', light: 'bg-orange-50 dark:bg-orange-950/30' },
 };
 
@@ -369,6 +367,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                         step={field.step}
                         value={currentVal as number}
                         onChange={(e) => handleFieldChange(field.key, Number(e.target.value))}
+                        aria-label={field.label}
                         className="w-full h-2 bg-slate-200 dark:bg-slate-700 rounded-full appearance-none cursor-pointer accent-amber-500"
                       />
                       <div className="flex justify-between text-xs text-slate-500 dark:text-slate-400">
@@ -388,6 +387,7 @@ const WhatIfSimulator: React.FC<WhatIfSimulatorProps> = ({ baseInputs, baseResul
                     <select
                       value={currentVal as string}
                       onChange={(e) => handleFieldChange(field.key, e.target.value)}
+                      aria-label={field.label}
                       className="w-full px-4 py-2.5 bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-700 rounded-xl text-slate-800 dark:text-slate-200 font-semibold focus:outline-none focus:ring-2 focus:ring-amber-500"
                     >
                       {field.options?.map(opt => (
