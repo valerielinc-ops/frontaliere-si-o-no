@@ -660,6 +660,7 @@ const translations: Record<string, string> = {
     'jobBoard.publishCta': 'Richiedi pubblicazione',
     'jobBoard.relatedTitle': 'Annunci correlati',
     'jobBoard.relatedArticlesTitle': 'Articoli correlati',
+    'jobBoard.allJobsCta': 'Tutte le offerte di lavoro in Ticino',
     'jobBoard.cta.title': 'Sei un\'azienda ticinese?',
     'jobBoard.cta.description': 'Pubblica le tue offerte di lavoro e raggiungi migliaia di frontalieri qualificati. Piani a partire da €50/mese.',
     'jobBoard.cta.button': 'Pubblica un\'offerta',

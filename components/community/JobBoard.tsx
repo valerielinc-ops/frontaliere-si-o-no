@@ -5958,6 +5958,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
             </div>
           </section>
         )}
+
+        {/* Internal link to job listing — SEO anchor for head-term "lavoro ticino" */}
+        <nav className="text-center py-4">
+          <a
+            href={buildPath({ activeTab: 'job-board' }, locale)}
+            onClick={(e) => { e.preventDefault(); backToList(); }}
+            className="inline-flex items-center gap-2 text-sm font-semibold text-indigo-700 dark:text-indigo-300 hover:underline"
+          >
+            <Briefcase className="w-4 h-4" />
+            {t('jobBoard.allJobsCta')}
+          </a>
+        </nav>
       </div>
     );
   }

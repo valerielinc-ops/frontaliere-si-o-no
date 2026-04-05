@@ -621,6 +621,7 @@ const frCore: Record<string, string> = {
     'jobBoard.publishCta': 'Demander la publication',
     'jobBoard.relatedTitle': 'Offres similaires',
     'jobBoard.relatedArticlesTitle': 'Articles similaires',
+    'jobBoard.allJobsCta': 'Toutes les offres d\'emploi au Tessin',
     'jobBoard.cta.title': 'Vous êtes une entreprise tessinoise ?',
     'jobBoard.cta.description': 'Publiez vos offres d\'emploi et touchez des milliers de frontaliers qualifiés. Forfaits à partir de 50€/mois.',
     'jobBoard.cta.button': 'Publier une offre',

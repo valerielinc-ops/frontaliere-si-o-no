@@ -7940,17 +7940,17 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-tassa-transito-svizzera-2023': {
-    title: 'Nuova tariffa di transito in Svizzera: cosa cambia? | Frontaliere Ticino',
-    description: 'Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, nuova, tariffa, transito, cosa',
-    ogTitle: 'Nuova tariffa di transito in Svizzera: cosa cambia?',
-    ogDescription: 'Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico.',
+    title: 'Tassa di transito Svizzera 2026: cosa cambia per i frontalieri? | Frontaliere Ticino',
+    description: 'Il Parlamento approva una nuova tassa di transito in Svizzera. Regole aggiornate 2026, costi e impatto sui frontalieri in Ticino.',
+    keywords: 'tassa transito svizzera 2026, transit fee switzerland, frontalieri, ticino, svizzera, italia, tariffa, transito',
+    ogTitle: 'Tassa di transito Svizzera 2026: cosa cambia per i frontalieri?',
+    ogDescription: 'Il Parlamento approva una nuova tassa di transito in Svizzera. Regole aggiornate 2026, costi e impatto sui frontalieri in Ticino.',
     canonicalPath: '/articoli-frontaliere/tassa-transito-svizzera-2023',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Nuova tariffa di transito in Svizzera: cosa cambia?",
-      "description": "Il Parlamento approva una nuova tassa per il transito in Svizzera, un passo controverso per ridurre il traffico. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "headline": "Tassa di transito Svizzera 2026: cosa cambia per i frontalieri?",
+      "description": "Il Parlamento approva una nuova tassa di transito in Svizzera. Regole aggiornate 2026, costi e impatto sui frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/tassa-transito-svizzera-2023.webp`,

@@ -621,6 +621,7 @@ const enCore: Record<string, string> = {
     'jobBoard.publishCta': 'Request publication',
     'jobBoard.relatedTitle': 'Related jobs',
     'jobBoard.relatedArticlesTitle': 'Related articles',
+    'jobBoard.allJobsCta': 'All job offers in Ticino',
     'jobBoard.cta.title': 'Are you a Ticino company?',
     'jobBoard.cta.description': 'Post your job offers and reach thousands of qualified cross-border workers. Plans from €50/month.',
     'jobBoard.cta.button': 'Post a job',

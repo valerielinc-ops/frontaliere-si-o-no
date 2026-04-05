@@ -621,6 +621,7 @@ const deCore: Record<string, string> = {
     'jobBoard.publishCta': 'Veröffentlichung anfragen',
     'jobBoard.relatedTitle': 'Ähnliche Stellen',
     'jobBoard.relatedArticlesTitle': 'Verwandte Artikel',
+    'jobBoard.allJobsCta': 'Alle Stellenangebote im Tessin',
     'jobBoard.cta.title': 'Sind Sie ein Tessiner Unternehmen?',
     'jobBoard.cta.description': 'Veröffentlichen Sie Ihre Stellenangebote und erreichen Sie Tausende qualifizierter Grenzgänger. Pläne ab €50/Monat.',
     'jobBoard.cta.button': 'Stelle ausschreiben',
