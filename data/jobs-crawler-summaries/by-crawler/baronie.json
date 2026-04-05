@@ -1,16 +1,16 @@
 {
   "key": "baronie",
   "label": "Baronie",
-  "generatedAt": "2026-04-04T20:46:15.434Z",
+  "generatedAt": "2026-04-05T08:48:31.132Z",
   "total": 1,
   "newCount": 0,
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 12736,
-  "avgDurationMs": 12736,
+  "durationMs": 13429,
+  "avgDurationMs": 13429,
   "durationHistory": [
-    12736
+    13429
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "sector": "Alimentare / Cioccolato",
       "source": "baronie-dedicated-crawler",
       "sourceLang": "en",
-      "postedDate": "2026-04-04",
+      "postedDate": "2026-04-05",
       "employmentType": "full-time",
       "contractType": "permanent",
       "validThrough": "",
@@ -41,7 +41,6 @@
       "currency": "CHF",
       "streetAddress": "Via Cantonale",
       "postalCode": "6613",
-      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
