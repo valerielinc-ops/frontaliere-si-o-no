@@ -11840,6 +11840,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-corso-pastori-ticino': {
+    title: 'Corso per pastori in Ticino | Frontaliere Ticino',
+    description: 'Un nuovo corso per pastori in Ticino, per rispondere alla crescente richiesta di professionisti qualificati. Scopri di più. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, corso, pastori, nuovo, sviluppato',
+    ogTitle: 'Corso per pastori in Ticino',
+    ogDescription: 'Un nuovo corso per pastori in Ticino, per rispondere alla crescente richiesta di professionisti qualificati.',
+    canonicalPath: '/articoli-frontaliere/corso-pastori-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Corso per pastori in Ticino",
+      "description": "Un nuovo corso per pastori in Ticino, per rispondere alla crescente richiesta di professionisti qualificati. Scopri di più. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/corso-pastori-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pastore al lavoro in Ticino"
+      },
+      "datePublished": "2026-04-05T19:00:43+00:00",
+      "dateModified": "2026-04-05T19:00:43+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/corso-pastori-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

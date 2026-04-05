@@ -2076,6 +2076,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'The Monte Ceneri Tunnel has been closed due to technical issues',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'The Monte Ceneri Tunnel was closed a few minutes before noon on the A2 in the direction of Ticino.',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'The Monte Ceneri tunnel was closed due to technical issues',
+    'blog.article.corso-pastori-ticino.title': 'Course for Shepherds in Ticino',
+    'blog.article.corso-pastori-ticino.excerpt': 'A new course for shepherds in Ticino, developed by the Unione Contadini Ticinesi, to meet the growing demand for qualified professionals.',
+    'blog.article.corso-pastori-ticino.imageAlt': 'Shepherd at work in Ticino',
 };
 
 export default blogMetaEn;

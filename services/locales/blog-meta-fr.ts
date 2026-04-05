@@ -2076,6 +2076,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'La galerie du Monte Ceneri est fermée en raison de problèmes techniques',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'La galerie du Monte Ceneri a été fermée quelques minutes avant midi dans la direction du Tessin sur l\'A2',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'Le tunnel de la galleria du Monte Ceneri a été fermé en raison de problèmes techniques',
+    'blog.article.corso-pastori-ticino.title': 'Cours pour bergers au Tessin',
+    'blog.article.corso-pastori-ticino.excerpt': 'Un nouveau cours pour bergers au Tessin, élaboré par l\'Union des paysans tessinois, pour répondre à la demande croissante de professionnels qualifiés.',
+    'blog.article.corso-pastori-ticino.imageAlt': 'Berger au travail dans le Tessin',
 };
 
 export default blogMetaFr;

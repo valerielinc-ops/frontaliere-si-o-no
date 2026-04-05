@@ -6034,4 +6034,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/galleria-del-ceneri-chiusa-per-problemi-tecnici.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'corso-pastori-ticino',
+    category: 'novita',
+    date: '2026-04-05T19:00:43.944Z',
+    image: '/images/blog/corso-pastori-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

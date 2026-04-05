@@ -2076,6 +2076,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'La galleria del Monte Ceneri è stata chiusa pochi minuti prima di mezzogiorno sulla A2 in direzione del Ticino',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici',
+    'blog.article.corso-pastori-ticino.title': 'Corso per pastori in Ticino',
+    'blog.article.corso-pastori-ticino.excerpt': 'Un nuovo corso per pastori in Ticino, sviluppato dall\'Unione Contadini Ticinesi, per rispondere alla crescente richiesta di professionisti qualificati.',
+    'blog.article.corso-pastori-ticino.imageAlt': 'Pastore al lavoro in Ticino',
 };
 
 export default blogMetaIt;

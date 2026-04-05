@@ -2076,6 +2076,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'Die Tunnelgalerie am Monte Ceneri ist wegen technischer Probleme geschlossen worden',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'Die Tunnelgalerie am Monte Ceneri wurde wenige Minuten vor der Mittagszeit auf der A2 in Richtung Tessin geschlossen',
     'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'Die Tunnel der Monte Ceneri-Galleria wurde wegen technischer Probleme geschlossen',
+    'blog.article.corso-pastori-ticino.title': 'Kurs für Hirten im Tessin',
+    'blog.article.corso-pastori-ticino.excerpt': 'Ein neuer Kurs für Hirten im Tessin, entwickelt von der Unione Contadini Ticinesi, um der wachsenden Nachfrage nach qualifizierten Fachleuten zu entsprechen.',
+    'blog.article.corso-pastori-ticino.imageAlt': 'Hirte bei der Arbeit im Tessin',
 };
 
 export default blogMetaDe;
