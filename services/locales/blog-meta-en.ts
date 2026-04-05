@@ -2043,6 +2043,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo Reports: Permits Are Not an Accident',
     'blog.article.roveredo-permessi-anticrimine.excerpt': 'The Municipality of Roveredo opposes the version presented by the Graubünden government regarding the issuance of residence permits, highlighting risks and critical issues in inter-cantonal control.',
     'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Roveredo border office with security signs and border crossing scene',
+    'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: \'The Meaning of Easter? A Message of Hope\'',
+    'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'The apostolic administrator of the diocese of Lugano reflects on the world\'s sufferings and the meaning of the cross for young people.',
+    'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'A family celebrating Easter in Lugano',
 };
 
 export default blogMetaEn;

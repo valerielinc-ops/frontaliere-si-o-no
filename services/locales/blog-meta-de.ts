@@ -2043,6 +2043,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo protesta: die Erlaubnisse sind kein Unfall',
     'blog.article.roveredo-permessi-anticrimine.excerpt': 'Das Gemeindeamt von Roveredo widerspricht der Version des grössten Kantons über die Ausstellung von Aufenthaltsbewilligungen, indem es Risiken und Schwierigkeiten bei der grenzüberschreitenden Kontrolle hervorhebt. 💡',
     'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Grenzamt Roveredo mit Sicherheitszeichen und Grenzübergang',
+    'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: «Der Sinn der Ostern? Eine Botschaft des Erwachens»',
+    'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'Der Apostolische Administrator der Diözese Lugano reflektiert über die Leiden, denen die Welt gegenübersteht, und die Bedeutung der Kreuzigung für die Jugendlichen.',
+    'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'Eine Familie feiert Ostern in Lugano',
 };
 
 export default blogMetaDe;

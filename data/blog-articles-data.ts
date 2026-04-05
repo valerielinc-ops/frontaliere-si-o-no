@@ -5957,4 +5957,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/roveredo-permessi-anticrimine.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'pasqua-messaggio-di-avvenire',
+    category: 'novita',
+    date: '2026-04-05T05:28:47.639Z',
+    image: '/images/blog/pasqua-messaggio-di-avvenire.jpg',
+    hasCalculator: false,
+  },
 ];

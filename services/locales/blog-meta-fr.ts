@@ -2043,6 +2043,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo dénonce : les permis de séjour ne sont pas un accident',
     'blog.article.roveredo-permessi-anticrimine.excerpt': 'Le Conseil municipal de Roveredo s\'oppose à la version du gouvernement grison sur l\'octroi des permis de séjour, mettant en évidence les risques et les critiques dans le contrôle intercantonale. 📊💡⚠️',
     'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Bureau des permis à Roveredo avec panneaux de sécurité et passage frontalier',
+    'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: «Le sens de Pâques? Un message d\'avenir»',
+    'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'L\'amministratrice apostolique de la diocèse de Lugano réfléchit sur les souffrances auxquelles le monde est confronté et sur le sens de la croix pour les jeunes.',
+    'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'Une famille célébrant Pâques à Lugano',
 };
 
 export default blogMetaFr;

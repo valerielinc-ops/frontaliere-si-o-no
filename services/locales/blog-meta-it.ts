@@ -2043,6 +2043,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo denuncia: i permessi non sono un incidente',
     'blog.article.roveredo-permessi-anticrimine.excerpt': 'Il Municipio di Roveredo si oppone alla versione del Governo grigionese sul rilascio dei permessi di dimora, evidenziando rischi e criticità nel controllo intercantonale.',
     'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Ufficio permessi a Roveredo con segnali di sicurezza e valico di frontiera',
+    'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: «Il significato della Pasqua? Un messaggio di avvenire»',
+    'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'L\'amministratore apostolico della diocesi di Lugano riflette sulle sofferenze cui è confrontato il mondo e sul senso della croce per i giovani.',
+    'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'Una famiglia che celebra la Pasqua a Lugano',
 };
 
 export default blogMetaIt;

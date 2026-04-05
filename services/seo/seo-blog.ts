@@ -11505,6 +11505,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pasqua-messaggio-di-avvenire': {
+    title: 'Alain de Raemy: «Il significato della Pasqua? Un messaggio di avvenire» | Frontaliere Ticino',
+    description: 'L\'amministratore apostolico della diocesi di Lugano riflette sulle sofferenze cui è confrontato il mondo e sul senso della croce per i giovani. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, alain, raemy, significato, pasqua',
+    ogTitle: 'Alain de Raemy: il significato della Pasqua',
+    ogDescription: 'L\'amministratore apostolico della diocesi di Lugano riflette sulle sofferenze cui è confrontato il mondo e sul senso della croce per i giovani.',
+    canonicalPath: '/articoli-frontaliere/pasqua-messaggio-di-avvenire',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Alain de Raemy: «Il significato della Pasqua? Un messaggio di avvenire»",
+      "description": "L'amministratore apostolico della diocesi di Lugano riflette sulle sofferenze cui è confrontato il mondo e sul senso della croce per i giovani. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/pasqua-messaggio-di-avvenire.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una famiglia che celebra la Pasqua a Lugano"
+      },
+      "datePublished": "2026-04-05T05:28:47+00:00",
+      "dateModified": "2026-04-05T05:28:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pasqua-messaggio-di-avvenire`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
