@@ -73,6 +73,10 @@ jobs:
           ENABLE_URL_INSPECTION: ${{ inputs.enable_url_inspection == true && '1' || '0' }}
           ENABLE_WAYBACK: ${{ inputs.enable_wayback == true && '1' || '0' }}
 
+      - name: Assemble jobs dataset (needed by reconcile)
+        if: ${{ inputs.dry_run != true }}
+        run: node scripts/assemble-jobs-dataset.mjs
+
       - name: Reconcile orphan + expired slugs with active jobs
         if: ${{ inputs.dry_run != true }}
         run: node scripts/reconcile-job-slugs.mjs
