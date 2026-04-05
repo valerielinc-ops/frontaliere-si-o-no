@@ -1,16 +1,16 @@
 {
   "key": "tsmg",
   "label": "TSMG",
-  "generatedAt": "2026-04-05T09:47:02.244Z",
+  "generatedAt": "2026-04-05T21:46:09.332Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 6,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12818,
-  "avgDurationMs": 12818,
+  "unchangedCount": 1,
+  "durationMs": 15273,
+  "avgDurationMs": 15273,
   "durationHistory": [
-    12818
+    15273
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -24,41 +24,6 @@
       "companyDomain": "tsmg.co",
       "location": "Bellinzona",
       "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "tsmg-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-04-05",
-      "employmentType": "part-time",
-      "contractType": "part-time",
-      "validThrough": "",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale 1",
-      "postalCode": "6928",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
-      "slug": "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-lugano-741da2fa",
-      "url": "https://jobs.lever.co/tsmg/741da2fa-326b-4c2f-859a-a4d720598dea",
-      "applyUrl": "https://jobs.lever.co/tsmg/741da2fa-326b-4c2f-859a-a4d720598dea/apply",
-      "company": "TSMG",
-      "companyKey": "tsmg",
-      "companyDomain": "tsmg.co",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
       "canton": "TI",
@@ -261,5 +226,41 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [
+    {
+      "title": "Tester conversazioni vocali AI (Italian native speaker - Switzerland regional variant)",
+      "slug": "tester-conversazioni-vocali-ai-italian-native-speaker-switzerland-regional-variant-tsmg-lugano-741da2fa",
+      "url": "https://jobs.lever.co/tsmg/741da2fa-326b-4c2f-859a-a4d720598dea",
+      "applyUrl": "https://jobs.lever.co/tsmg/741da2fa-326b-4c2f-859a-a4d720598dea/apply",
+      "company": "TSMG",
+      "companyKey": "tsmg",
+      "companyDomain": "tsmg.co",
+      "location": "Lugano",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "source": "tsmg-dedicated-crawler",
+      "sourceLang": "en",
+      "postedDate": "2026-04-05",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "validThrough": "",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "currency": "CHF",
+      "streetAddress": "Via Cantonale 1",
+      "postalCode": "6928",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ]
 }
