@@ -1,16 +1,16 @@
 {
   "key": "bps-suisse",
   "label": "BPS Suisse",
-  "generatedAt": "2026-04-04T20:48:57.817Z",
+  "generatedAt": "2026-04-05T08:51:06.296Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 4,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 4878,
-  "avgDurationMs": 4878,
+  "unchangedCount": 0,
+  "durationMs": 4819,
+  "avgDurationMs": 4819,
   "durationHistory": [
-    4878
+    4819
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,9 +35,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-04-04",
+      "postedDate": "2026-04-05",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-04T20:48:54.302Z",
+      "crawledAt": "2026-04-05T08:51:02.806Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -53,48 +53,6 @@
         "completeness": 25
       }
     },
-    {
-      "id": "bps-suisse-50c6746342c9",
-      "title": "Seniorkundenberater Mit F Uuml Hrungserfahrung",
-      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
-      "companyKey": "bps-suisse",
-      "companyDomain": "bps-suisse.ch",
-      "url": "https://www.bps-suisse.ch/carriera-seniorkundenberater_mit_f_uuml_hrungserfahrung23.php",
-      "applyUrl": "https://www.bps-suisse.ch/carriera-seniorkundenberater_mit_f_uuml_hrungserfahrung23.php",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via Giacomo Bentina 5",
-      "employmentType": "FULL_TIME",
-      "slug": "seniorkundenberater-mit-f-uuml-hrungserfahrung-bps-suisse-lugano",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "postedDate": "2026-04-04",
-      "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-04T20:48:56.143Z",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "sourceLang": "de",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "bps-suisse-ec1de76eae01",
       "title": "Collaboratore Trice Gestione Crediti",
@@ -116,9 +74,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-04-04",
+      "postedDate": "2026-04-05",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-04T20:48:55.046Z",
+      "crawledAt": "2026-04-05T08:51:03.683Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -155,9 +113,9 @@
       "category": "finance",
       "contract": "full-time",
       "currency": "CHF",
-      "postedDate": "2026-04-04",
+      "postedDate": "2026-04-05",
       "source": "bps-suisse-careers-crawler",
-      "crawledAt": "2026-04-04T20:48:55.842Z",
+      "crawledAt": "2026-04-05T08:51:04.419Z",
       "_targetScope": {
         "canton": "TI",
         "location": "Lugano"
@@ -172,6 +130,47 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "id": "bps-suisse-50c6746342c9",
+      "title": "Seniorkundenberater Mit F Uuml Hrungserfahrung",
+      "company": "BPS (Banca Popolare di Sondrio) SUISSE",
+      "companyKey": "bps-suisse",
+      "companyDomain": "bps-suisse.ch",
+      "url": "https://www.bps-suisse.ch/carriera-seniorkundenberater_mit_f_uuml_hrungserfahrung23.php",
+      "applyUrl": "https://www.bps-suisse.ch/carriera-seniorkundenberater_mit_f_uuml_hrungserfahrung23.php",
+      "location": "Lugano",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6900",
+      "streetAddress": "Via Giacomo Bentina 5",
+      "employmentType": "FULL_TIME",
+      "slug": "seniorkundenberater-mit-f-uuml-hrungserfahrung-bps-suisse-lugano",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "postedDate": "2026-04-05",
+      "source": "bps-suisse-careers-crawler",
+      "crawledAt": "2026-04-05T08:51:04.693Z",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Lugano"
+      },
+      "sourceLang": "de",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
+      }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
