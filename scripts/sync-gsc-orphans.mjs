@@ -547,11 +547,11 @@ function enrichFromLocalSources(orphans) {
       slug: orphan.slug,
       locale: orphan.locale,
       path: orphan.path,
-      queries: orphan.queries
-        .sort((a, b) => b.impressions - a.impressions)
-        .slice(0, 20), // Keep top 20 queries
-      totalImpressions: orphan.totalImpressions,
-      totalClicks: orphan.totalClicks,
+      queries: Array.isArray(orphan.queries)
+        ? orphan.queries.sort((a, b) => b.impressions - a.impressions).slice(0, 20)
+        : [],
+      totalImpressions: orphan.totalImpressions || 0,
+      totalClicks: orphan.totalClicks || 0,
       topQuery: null,
       title: '',
       titleByLocale: { it: '', en: '', de: '', fr: '' },
