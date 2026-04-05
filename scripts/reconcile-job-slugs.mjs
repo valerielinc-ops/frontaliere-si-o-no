@@ -37,6 +37,7 @@ const DATA_EXPIRED = path.resolve(ROOT, 'data', 'expired-jobs.json');
 const DATA_ORPHAN_ENRICHED = path.resolve(ROOT, 'data', 'orphan-enriched-data.json');
 const DATA_ORPHAN_SLUGS = path.resolve(ROOT, 'data', 'orphan-indexed-job-slugs.json');
 const DATA_SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'by-crawler');
+const DATA_EXPIRED_SLICES_DIR = path.resolve(ROOT, 'data', 'jobs', 'expired', 'by-crawler');
 const DATA_ADAPTERS_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'adapters');
 
 // ─── Stop words ──────────────────────────────────────────────────────────────
@@ -630,7 +631,7 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
  * @param {boolean} [options.dryRun=false]
  * @param {boolean} [options.verbose=false]
  * @param {number} [options.max=Infinity]
- * @returns {{ mergedCount: number, skippedCount: number, updatedJobs: Map<string, object>, updatedExpired: object[] }}
+ * @returns {{ mergedCount: number, skippedCount: number, updatedJobs: Map<string, object>, updatedExpired: object[], reconciledIds: Set<string> }}
  */
 export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
   const { dryRun = false, verbose = false, max = Infinity } = options;
@@ -750,7 +751,7 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
         return !reconciledIds.has(id);
       });
 
-  return { mergedCount, skippedCount, updatedJobs, updatedExpired };
+  return { mergedCount, skippedCount, updatedJobs, updatedExpired, reconciledIds };
 }
 
 // ─── Per-Crawler Slice Updater ───────────────────────────────────────────────
@@ -794,6 +795,42 @@ function updateCrawlerSlices(updatedJobs) {
       writeJson(slicePath, slice);
       console.log(`💾 Updated slice: ${ck}.json`);
     }
+  }
+}
+
+// ─── Expired Per-Crawler Slice Updater ───────────────────────────────────────
+
+/**
+ * Remove reconciled entries from expired per-crawler slice files.
+ * Without this, reconciled expired jobs reappear on next assembleExpiredJobs().
+ * @param {Set<string>} reconciledIds - IDs of expired entries that were reconciled
+ */
+function updateExpiredCrawlerSlices(reconciledIds) {
+  if (!reconciledIds?.size || !fs.existsSync(DATA_EXPIRED_SLICES_DIR)) return;
+
+  const files = fs.readdirSync(DATA_EXPIRED_SLICES_DIR).filter((f) => f.endsWith('.json'));
+  let totalRemoved = 0;
+
+  for (const file of files) {
+    const slicePath = path.join(DATA_EXPIRED_SLICES_DIR, file);
+    const entries = readJson(slicePath, []);
+    if (!Array.isArray(entries) || entries.length === 0) continue;
+
+    const filtered = entries.filter((ej) => {
+      const id = ej.slug || ej.id || JSON.stringify(ej.slugByLocale);
+      return !reconciledIds.has(id);
+    });
+
+    const removed = entries.length - filtered.length;
+    if (removed > 0) {
+      writeJson(slicePath, filtered);
+      totalRemoved += removed;
+      console.log(`💾 Updated expired slice: ${file} (removed ${removed} reconciled)`);
+    }
+  }
+
+  if (totalRemoved > 0) {
+    console.log(`🗑️  Removed ${totalRemoved} reconciled entries from expired slices`);
   }
 }
 
@@ -859,6 +896,9 @@ if (isDirectRun) {
 
       // Update per-crawler slices
       updateCrawlerSlices(allUpdatedJobs);
+
+      // Remove reconciled entries from expired per-crawler slices
+      updateExpiredCrawlerSlices(expiredResult.reconciledIds);
 
       // Write remaining orphan slugs
       writeJson(DATA_ORPHAN_SLUGS, orphanResult.remainingOrphans);
