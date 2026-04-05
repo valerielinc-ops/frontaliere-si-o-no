@@ -236,6 +236,9 @@ function validateEvent(schema, filePath) {
     if (!isNonEmpty(schema.offers.availability)) {
       errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
     }
+    if (!isNonEmpty(schema.offers.validFrom)) {
+      errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
+    }
   }
 
   return errors;
