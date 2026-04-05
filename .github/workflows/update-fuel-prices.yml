@@ -41,7 +41,7 @@ jobs:
           fi
 
       - name: Install firebase-admin
-        run: npm install firebase-admin
+        run: npm install --no-save firebase-admin
 
       - name: Detect daily run
         id: schedule
@@ -73,7 +73,9 @@ jobs:
             echo "has_changes=false" >> "$GITHUB_OUTPUT"
           else
             git commit -m "⛽ Daily fuel prices cache update"
+            git stash --include-untracked || true
             git pull --rebase origin main
+            git stash pop || true
             git push origin main
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
           fi
