@@ -191,7 +191,7 @@ const frGuide: Record<string, string> = {
     'guide.tabs.livingCH': 'Vivre en CH',
     'guide.tabs.livingIT': 'Vivre en IT',
     'guide.tabs.calendar': 'Échéances fiscales',
-    'guide.tabs.holidays': 'Jours fériés Tessin',
+    'guide.tabs.holidays': 'Jours fériés Tessin 2026',
     'guide.tabs.permits': 'Permis de travail',
     'guide.tabs.companies': 'Entreprises tessinoises',
     'guide.tabs.shopping': 'Courses transfrontalières',

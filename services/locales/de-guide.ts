@@ -191,7 +191,7 @@ const deGuide: Record<string, string> = {
     'guide.tabs.livingCH': 'Leben in CH',
     'guide.tabs.livingIT': 'Leben in IT',
     'guide.tabs.calendar': 'Steuerfristen',
-    'guide.tabs.holidays': 'Feiertage Tessin',
+    'guide.tabs.holidays': 'Feiertage Tessin 2026',
     'guide.tabs.permits': 'Arbeitsbewilligungen',
     'guide.tabs.companies': 'Tessiner Firmen',
     'guide.tabs.shopping': 'Grenzgänger-Einkauf',

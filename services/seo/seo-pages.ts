@@ -1787,19 +1787,19 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   holidays: {
-    title: 'Festività Canton Ticino 2026: Calendario Completo Giorni Festivi',
-    description: 'I 15 giorni festivi del Canton Ticino 2026: festività ufficiali e facoltative, ponti, Pasqua, Ascensione, Corpus Domini. Confronto con festività italiane per frontalieri.',
-    keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino, ponti svizzera 2026, festività svizzere, giorni festivi svizzera italia confronto',
-    ogTitle: 'Festività Ticino 2026 | Calendario Giorni Festivi per Frontalieri',
-    ogDescription: '📅 Tutti i 15 giorni festivi del Canton Ticino 2026: festività ufficiali, facoltative, ponti e confronto con festività italiane.',
+    title: 'Festività Ticino 2026: Tutti i Giorni Festivi del Canton Ticino',
+    description: 'Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali e facoltative, ponti e confronto con festività italiane per frontalieri.',
+    keywords: 'festività ticino 2026, giorni festivi ticino 2026, festivi ticino 2026, feste ticino 2026, festività canton ticino, giorni festivi canton ticino, ferie svizzera frontalieri, calendario festivo ticino 2026, ponti svizzera 2026, festività svizzere 2026, giorni festivi svizzera italia confronto',
+    ogTitle: 'Festività Ticino 2026 | Tutti i Giorni Festivi Canton Ticino',
+    ogDescription: '📅 Giorni festivi Ticino 2026: tutti i 15 giorni festivi del Canton Ticino, feste ufficiali, facoltative, ponti e confronto con festività italiane.',
     canonicalPath: '/tasse-e-pensione/festivita-ticino',
     structuredData: [
       {
         "@context": "https://schema.org",
         "@type": "Article",
-        "headline": "Festività Canton Ticino 2026: Calendario Giorni Festivi per Frontalieri",
+        "headline": "Festività Ticino 2026: Tutti i Giorni Festivi del Canton Ticino",
         "url": `${BASE_URL}/tasse-e-pensione/festivita-ticino`,
-        "description": "Calendario completo delle festività ufficiali del Canton Ticino 2026: giorni festivi cantonali e federali, ponti e confronto con Italia",
+        "description": "Giorni festivi Ticino 2026: tutti i 15 giorni festivi ufficiali del Canton Ticino, feste cantonali e federali, ponti e confronto con Italia",
         "inLanguage": "it",
         "author": {"@id": "https://frontaliereticino.ch/#organization"},
         "datePublished": "2026-01-01T00:00:00+01:00",
