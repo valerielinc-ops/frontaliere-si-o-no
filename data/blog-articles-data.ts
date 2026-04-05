@@ -5992,4 +5992,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nestle-200-posti-lombardia.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'la-quinta-svizzera-che-ha-un-debole-per-milano',
+    category: 'novita',
+    date: '2026-04-05T11:42:47.756Z',
+    image: '/images/blog/la-quinta-svizzera-che-ha-un-debole-per-milano.jpg',
+    hasCalculator: true,
+  },
 ];

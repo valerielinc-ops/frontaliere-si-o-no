@@ -2058,6 +2058,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.nestle-200-posti-lombardia.title': 'Nestle Opens Office in Lombardy and Offers 200 Job Positions: Here Are the Required Profiles',
     'blog.article.nestle-200-posti-lombardia.excerpt': 'Nestle has announced the opening of a new office in Lombardy and offers 200 job positions: here are the required profiles',
     'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle opens new site in Lombardy and offers 200 job openings',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'The \'Fifth Switzerland\' that has a weakness for Milan',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Almost seven thousand Confederates live in the capital of the meneghino and in the municipalities of its province.',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'A panoramic view of Lugano and the surrounding mountains, shot with a DSLR and a wide-aperture lens.',
 };
 
 export default blogMetaEn;

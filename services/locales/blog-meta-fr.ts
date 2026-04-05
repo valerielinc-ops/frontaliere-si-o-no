@@ -2058,6 +2058,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.nestle-200-posti-lombardia.title': 'Nestlé ouvre une nouvelle siège en Lombardie et offre 200 postes de travail : voici les profils recherchés',
     'blog.article.nestle-200-posti-lombardia.excerpt': 'Nestlé a annoncé l\'ouverture d\'une nouvelle siège en Lombardie et offre 200 postes de travail : voici les profils recherchés',
     'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle ouvre un nouveau site en Lombardie et offres 200 postes de travail',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'La \'Cinquième Suisse\' qui a un faible pour Milan',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Sont presque sept mille les confédérés qui vivent dans la capitale lombarde et dans les communes de sa province.',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Vue panoramique de Lugano et des montagnes avoisinantes, prise avec un DSLR et un objectif à grande ouverture.',
 };
 
 export default blogMetaFr;

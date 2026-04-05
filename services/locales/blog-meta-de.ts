@@ -2058,6 +2058,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nestle-200-posti-lombardia.title': 'Nestle eröffnet Standort in der Lombardei und bietet 200 Arbeitsplätze an: hier sind die gesuchten Profil',
     'blog.article.nestle-200-posti-lombardia.excerpt': 'Nestle hat die Eröffnung einer neuen Standort in der Lombardei und bietet 200 Arbeitsplätze an: hier sind die gesuchten Profil',
     'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle er6fftet in Lombardia und bietet 200 Stellen an',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'Die "Fünfte Schweiz" mit einer Schwäche für Mailand',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Fast siebtausend Konföderierte leben in der Hauptstadt des Meneghino und in den Gemeinden ihrer Provinz.',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Ein realistisches Panorama von Lugano und den umliegenden Bergen, aufgenommen mit einer DSLR und einem großen Tiefenschärfeobjektiv.',
 };
 
 export default blogMetaDe;

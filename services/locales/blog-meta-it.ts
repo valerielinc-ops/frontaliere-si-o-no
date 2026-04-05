@@ -2058,6 +2058,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nestle-200-posti-lombardia.title': 'Nestle apre sede in Lombardia e offre 200 posti di lavoro: ecco i profili ricercati',
     'blog.article.nestle-200-posti-lombardia.excerpt': 'Nestle ha annunciato l\'apertura di una nuova sede in Lombardia e offre 200 posti di lavoro: ecco i profili ricercati',
     'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle apre sede in Lombardia e offre 200 posti di lavoro',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'La \'Quinta Svizzera\' che ha un debole per Milano',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Sono quasi settemila i confederati che vivono nel capoluogo meneghino e nei comuni della sua provincia.',
+    'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Una scena fotorealistica con un panorama di Lugano e le montagne circostanti, girata con un DSLR e un obiettivo a grande apertura.',
 };
 
 export default blogMetaIt;

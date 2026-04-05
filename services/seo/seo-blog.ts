@@ -11666,6 +11666,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-la-quinta-svizzera-che-ha-un-debole-per-milano': {
+    title: 'La \'Quinta Svizzera\' che ha un debole per Milano | Frontaliere Ticino',
+    description: 'Sono quasi settemila i confederati che vivono nel capoluogo meneghino e nei comuni della sua provincia. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, quinta, debole, milano, sono',
+    ogTitle: 'La \'Quinta Svizzera\' che ha un debole per Milano',
+    ogDescription: 'Sono quasi settemila i confederati che vivono nel capoluogo meneghino e nei comuni della sua provincia.',
+    canonicalPath: '/articoli-frontaliere/la-quinta-svizzera-che-ha-un-debole-per-milano',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La 'Quinta Svizzera' che ha un debole per Milano e le implicazioni per l'economia e la società",
+      "description": "Sono quasi settemila i confederati che vivono nel capoluogo meneghino e nei comuni della sua provincia. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/la-quinta-svizzera-che-ha-un-debole-per-milano.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Una scena fotorealistica con un panorama di Lugano e le montagne circostanti, girata con un DSLR e un obiettivo a grande apertura."
+      },
+      "datePublished": "2026-04-05T11:42:47+00:00",
+      "dateModified": "2026-04-05T11:42:47+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/la-quinta-svizzera-che-ha-un-debole-per-milano`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
