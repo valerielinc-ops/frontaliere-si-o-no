@@ -549,12 +549,28 @@ export function reconcileOrphanSlugs(activeJobs, orphanSlugs, enrichedData, opti
 
     if (verbose) console.log(`\n🔎 [${processed}] "${orphanSlug}"`);
 
-    const match = findBestMatch(orphanSlug, enrichment, activeJobs, index, knownCompanyKeys, { verbose });
+    // Try primary slug first, then any cross-locale slugs from enrichment
+    const slugsToTry = [orphanSlug];
+    if (enrichment?.slugByLocale) {
+      for (const locSlug of Object.values(enrichment.slugByLocale)) {
+        if (locSlug && locSlug !== orphanSlug && !index.allSlugSet.has(locSlug)) {
+          slugsToTry.push(locSlug);
+        }
+      }
+    }
+
+    let match = null;
+    for (const trySlug of slugsToTry) {
+      const m = findBestMatch(trySlug, enrichment, activeJobs, index, knownCompanyKeys, { verbose: verbose && trySlug === orphanSlug });
+      if (m && (!match || m.score > match.score)) {
+        match = m;
+      }
+    }
 
     if (!match) {
       skippedCount++;
       remainingOrphans.push(entry);
-      if (verbose) console.log(`  ⏭️ No match found`);
+      if (verbose) console.log(`  ⏭️ No match found (tried ${slugsToTry.length} slug variants)`);
       continue;
     }
 
@@ -661,11 +677,25 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
     const primarySlug = ej.slugByLocale?.it || ej.slug;
     if (verbose) console.log(`\n👻 [${processed}] expired: "${primarySlug}"`);
 
-    const match = findBestMatch(primarySlug, enrichment, activeJobs, index, knownCompanyKeys, { verbose });
+    // Try all locale slugs for matching (not just IT), keep the best result
+    const localeSlugsToTry = [
+      primarySlug,
+      ...(ej.slugByLocale
+        ? Object.values(ej.slugByLocale).filter((s) => s && s !== primarySlug)
+        : []),
+    ];
+
+    let match = null;
+    for (const trySlug of localeSlugsToTry) {
+      const m = findBestMatch(trySlug, enrichment, activeJobs, index, knownCompanyKeys, { verbose: verbose && trySlug === primarySlug });
+      if (m && (!match || m.score > match.score)) {
+        match = m;
+      }
+    }
 
     if (!match) {
       skippedCount++;
-      if (verbose) console.log(`  ⏭️ No match found for expired job`);
+      if (verbose) console.log(`  ⏭️ No match found for expired job (tried ${localeSlugsToTry.length} locale slugs)`);
       continue;
     }
 

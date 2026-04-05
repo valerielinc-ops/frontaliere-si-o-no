@@ -47,6 +47,17 @@ const LOCALE_PREFIXES = {
 
 const ALL_PREFIXES = Object.values(LOCALE_PREFIXES).flat();
 
+// Non-job slug prefixes that should be filtered out of the orphan pool.
+// These are company pages, search pages, etc. — not actual job detail pages.
+const NON_JOB_SLUG_PREFIXES = [
+  'ricerca-', 'search-', 'suche-', 'recherche-',
+  'azienda-', 'company-', 'unternehmen-', 'entreprise-',
+];
+
+function isNonJobSlug(slug) {
+  return NON_JOB_SLUG_PREFIXES.some((prefix) => slug.startsWith(prefix));
+}
+
 // ── Helpers ──────────────────────────────────────────────
 function dataPath(...segments) {
   return path.join(ROOT, 'data', ...segments);
@@ -341,10 +352,13 @@ function buildKnownSlugsSet() {
 function identifyOrphans(gscMap, knownSlugs) {
   const orphans = [];
   let matchedCount = 0;
+  let filteredNonJob = 0;
 
   for (const [, entry] of gscMap) {
     if (knownSlugs.has(entry.slug)) {
       matchedCount++;
+    } else if (isNonJobSlug(entry.slug)) {
+      filteredNonJob++;
     } else {
       orphans.push(entry);
     }
@@ -353,6 +367,7 @@ function identifyOrphans(gscMap, knownSlugs) {
   orphans.sort((a, b) => b.totalImpressions - a.totalImpressions);
 
   console.log(`  🔗 Matched (not orphan): ${matchedCount}`);
+  if (filteredNonJob > 0) console.log(`  🏷️  Filtered non-job slugs: ${filteredNonJob}`);
   console.log(`  🚨 Orphans found: ${orphans.length}`);
 
   if (orphans.length > 0) {
@@ -369,8 +384,119 @@ function identifyOrphans(gscMap, knownSlugs) {
 // STEP 3 — Enrich from local sources
 // ══════════════════════════════════════════════════════════
 
+function buildSlugInfoExtractor() {
+  // Build company slug lookup from crawler adapters
+  const adapterDir = path.join(ROOT, 'data/jobs-crawler-adapters/adapters');
+  const companySlugMap = [];
+  const seenCompanySlugs = new Set();
+  try {
+    for (const f of fs.readdirSync(adapterDir).filter((n) => n.endsWith('.json'))) {
+      const d = readJsonSafe(path.join(adapterDir, f));
+      const name = d?.companyName || d?.company || '';
+      if (!name) continue;
+      const adapterSlug = f.replace('.json', '');
+      companySlugMap.push({ slug: adapterSlug, name });
+      seenCompanySlugs.add(adapterSlug);
+      const nameSlug = name
+        .toLowerCase()
+        .replace(/[–—]/g, '-')
+        .replace(/[()]/g, '')
+        .replace(/[^a-z0-9\s-]/g, '')
+        .replace(/\s+/g, '-')
+        .replace(/-{2,}/g, '-')
+        .replace(/^-|-$/g, '');
+      if (nameSlug && nameSlug !== adapterSlug && !seenCompanySlugs.has(nameSlug)) {
+        companySlugMap.push({ slug: nameSlug, name });
+        seenCompanySlugs.add(nameSlug);
+      }
+    }
+  } catch { /* adapters dir missing */ }
+  companySlugMap.sort((a, b) => b.slug.length - a.slug.length);
+
+  // Build location lookup from swiss postal codes
+  const plzData = readJsonSafe(path.join(ROOT, 'data/swiss-postal-codes.json')) || {};
+  const locationNames = Object.keys(plzData).sort((a, b) => b.length - a.length);
+  const locationSlugPairs = locationNames.map((name) => ({
+    name,
+    slug: name.toLowerCase().replace(/\s+/g, '-'),
+    postalCode: plzData[name],
+  }));
+
+  const slugStopFragments = new Set([
+    'm-f', 'f-m', 'm-w', 'f-m-d', 'm-w-d', 'm-f-d', 'w-m-d', 'w-m',
+    '100', '80', '60', '80-100', '60-100', '60-80',
+    'afc', 'cfp', 'a', 'o', 'e', 'm', 'f', 'd', 'w',
+  ]);
+
+  const broadLocations = {
+    'grigioni': 'Grigioni', 'graubunden': 'Graubünden', 'st-moritz': 'St. Moritz',
+    'coira': 'Coira', 'chur': 'Chur', 'davos': 'Davos', 'berna': 'Berna',
+    'zurigo': 'Zurigo', 'zurich': 'Zürich', 'basilea': 'Basilea', 'ginevra': 'Ginevra',
+    'losanna': 'Losanna', 'lucerna': 'Lucerna', 'anniviers': 'Anniviers',
+    'domat-ems': 'Domat/Ems',
+  };
+
+  console.log(`  📚 Slug info extractor: ${companySlugMap.length} company patterns, ${locationSlugPairs.length} locations`);
+
+  return function extractInfoFromSlug(slug) {
+    let remaining = slug;
+    let company = '';
+    let companyKey = '';
+    let location = '';
+
+    // 1. Match company (longest slug match first)
+    for (const c of companySlugMap) {
+      if (remaining.includes(c.slug)) {
+        company = c.name;
+        companyKey = c.slug;
+        remaining = remaining.replace(c.slug, '').replace(/^-+|-+$/g, '').replace(/-{2,}/g, '-');
+        break;
+      }
+    }
+
+    // 2. Match location (end of slug preferred)
+    for (const loc of locationSlugPairs) {
+      if (remaining.endsWith(loc.slug) || remaining.endsWith('-' + loc.slug)) {
+        location = loc.name.split(' ').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        remaining = remaining.replace(new RegExp('-?' + loc.slug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'), '');
+        break;
+      }
+      if (!location && remaining.includes('-' + loc.slug + '-')) {
+        location = loc.name.split(' ').map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+        remaining = remaining.replace('-' + loc.slug + '-', '-').replace(/^-+|-+$/g, '');
+      }
+    }
+
+    // Broader Swiss locations
+    if (!location) {
+      for (const [locSlug, locName] of Object.entries(broadLocations)) {
+        if (locName && (remaining.endsWith(locSlug) || remaining.endsWith('-' + locSlug))) {
+          location = locName;
+          remaining = remaining.replace(new RegExp('-?' + locSlug.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '$'), '');
+          break;
+        }
+      }
+    }
+
+    // 3. Build title from remaining
+    remaining = remaining.replace(/^\d+-/, '');
+    const parts = remaining.split('-').filter((p) => p && !slugStopFragments.has(p));
+    const title = parts
+      .join(' ')
+      .replace(/amp\s/g, '& ')
+      .replace(/\bdot\b/g, '.')
+      .replace(/^./, (c) => c.toUpperCase())
+      .trim();
+
+    return { title: title || slug, company, companyKey, location };
+  };
+}
+
 function enrichFromLocalSources(orphans) {
   console.log('\n🔍 Step 3: Enriching from local sources...');
+
+  // Build slug info extractor for company/location/title extraction
+  const extractInfoFromSlug = buildSlugInfoExtractor();
 
   // Load translation cache (all files)
   const translationCache = new Map();
@@ -414,6 +540,7 @@ function enrichFromLocalSources(orphans) {
   let enrichedFromCache = 0;
   let enrichedFromRegistry = 0;
   let enrichedFromKnown = 0;
+  let enrichedFromSlugParsing = 0;
 
   const enriched = orphans.map((orphan) => {
     const result = {
@@ -513,7 +640,26 @@ function enrichFromLocalSources(orphans) {
       enrichedFromKnown++;
     }
 
-    // Derive title from slug if still empty
+    // Extract company/location/title from slug structure when not already enriched
+    if (!result.companyKey && orphan.slug) {
+      const info = extractInfoFromSlug(orphan.slug);
+      if (info.companyKey) {
+        result.companyKey = info.companyKey;
+        if (!result.company) result.company = info.company;
+        enrichedFromSlugParsing++;
+      }
+      if (info.location && !result.location) {
+        result.location = info.location;
+      }
+      if (!result.title && info.title) {
+        result.title = info.title;
+      }
+      if (info.companyKey || info.location) {
+        result.source.push('slug-parsing');
+      }
+    }
+
+    // Final fallback: simple de-slugify if title still empty
     if (!result.title && orphan.slug) {
       result.title = orphan.slug
         .replace(/-/g, ' ')
@@ -526,6 +672,7 @@ function enrichFromLocalSources(orphans) {
   console.log(`  ✅ Enriched from translation cache: ${enrichedFromCache}`);
   console.log(`  ✅ Enriched from slug registry: ${enrichedFromRegistry}`);
   console.log(`  ✅ Enriched from all-known-slugs: ${enrichedFromKnown}`);
+  console.log(`  ✅ Enriched from slug parsing (company/location): ${enrichedFromSlugParsing}`);
 
   return enriched;
 }
