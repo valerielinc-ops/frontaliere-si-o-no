@@ -5,7 +5,7 @@
  * article generator, company parser, etc.).
  *
  * Features:
- * - Extended fallback chain with 74 FREE models across 10 providers
+ * - Extended fallback chain with 91 FREE models across 10 providers
  * - **Scored model selection**: models gain/lose score based on success/failure,
  *   so models that keep working float to the top and broken ones sink down,
  *   avoiding repeated failures that slow the crawl
@@ -100,6 +100,9 @@ export const AI_MODELS = Object.freeze({
   GROQ_KIMI_K2:     'groq/moonshotai/kimi-k2-instruct',
   GROQ_GPT_OSS_120B:'groq/openai/gpt-oss-120b',
   GROQ_GPT_OSS_20B: 'groq/openai/gpt-oss-20b',
+  GROQ_LLAMA_4_MAV: 'groq/meta-llama/llama-4-maverick-17b-128e-instruct',
+  GROQ_QWQ_32B:     'groq/qwen/qwq-32b',
+  GROQ_COMPOUND:    'groq/compound-beta',
 
   // ── OpenRouter (OpenAI-compatible, free models with :free suffix) ──
   // Rate limits: 20 req/min, 200 req/day (free tier, no credit card)
@@ -121,6 +124,14 @@ export const AI_MODELS = Object.freeze({
   OR_GEMMA_3_12B:      'openrouter/google/gemma-3-12b-it:free',
   OR_NV_NEMOTRON_9B:   'openrouter/nvidia/nemotron-nano-9b-v2:free',
   OR_TRINITY_MINI:     'openrouter/arcee-ai/trinity-mini:free',
+  OR_DEEPSEEK_V3:      'openrouter/deepseek/deepseek-chat-v3-0324:free',
+  OR_QWEN_2_5_72B:     'openrouter/qwen/qwen-2.5-72b-instruct:free',
+  OR_PHI_4:            'openrouter/microsoft/phi-4:free',
+  OR_PHI_4_REASON:     'openrouter/microsoft/phi-4-reasoning:free',
+  OR_KIMI_K2:          'openrouter/moonshotai/kimi-k2:free',
+  OR_DEEPSEEK_R1:      'openrouter/deepseek/deepseek-r1:free',
+  OR_LLAMA_4_MAVERICK: 'openrouter/meta-llama/llama-4-maverick-17b-128e-instruct:free',
+  OR_MISTRAL_SM_31:    'openrouter/mistralai/mistral-small-3.2-24b-instruct:free',
 
   // ── Groq additional models (OpenAI-compatible, ultra-fast inference) ──
   GROQ_GEMMA2_9B:      'groq/gemma2-9b-it',
@@ -150,6 +161,10 @@ export const AI_MODELS = Object.freeze({
   // ── HuggingFace Inference Router (OpenAI-compatible, free tier) ──
   HF_MISTRAL_7B:   'hf/mistralai/Mistral-7B-Instruct-v0.3',
   HF_ZEPHYR_7B:    'hf/HuggingFaceH4/zephyr-7b-beta',
+  HF_LLAMA_3_3_70B:'hf/meta-llama/Llama-3.3-70B-Instruct',
+  HF_QWEN_2_5_72B: 'hf/Qwen/Qwen2.5-72B-Instruct',
+  HF_GEMMA_3_27B:  'hf/google/gemma-3-27b-it',
+  HF_MISTRAL_SM:   'hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503',
 
   // ── SambaNova Cloud (OpenAI-compatible, free tier, ultra-fast inference) ──
   // Free tier: rate-limited but no cost. Very fast inference (full-stack silicon)
@@ -250,6 +265,22 @@ export const DEFAULT_CHAIN = [
   // ── Extended capacity: additional Groq models (1000 req/day each) ──
   AI_MODELS.GROQ_LLAMA3_8B,      // 67. Llama 3 8B              (Groq)
   AI_MODELS.GROQ_LLAMA3_70B,     // 68. Llama 3 70B             (Groq)
+  // ── Extended capacity: new models (2026-04) ──
+  AI_MODELS.OR_DEEPSEEK_V3,      // 69. DeepSeek V3              (OpenRouter free)
+  AI_MODELS.OR_QWEN_2_5_72B,     // 70. Qwen 2.5 72B             (OpenRouter free)
+  AI_MODELS.OR_PHI_4,            // 71. Microsoft Phi-4           (OpenRouter free)
+  AI_MODELS.OR_PHI_4_REASON,     // 72. Phi-4 Reasoning           (OpenRouter free)
+  AI_MODELS.OR_KIMI_K2,          // 73. Moonshot Kimi K2          (OpenRouter free)
+  AI_MODELS.OR_DEEPSEEK_R1,      // 74. DeepSeek R1               (OpenRouter free)
+  AI_MODELS.OR_LLAMA_4_MAVERICK, // 75. Llama 4 Maverick          (OpenRouter free)
+  AI_MODELS.OR_MISTRAL_SM_31,    // 76. Mistral Small 3.2         (OpenRouter free)
+  AI_MODELS.GROQ_LLAMA_4_MAV,    // 77. Llama 4 Maverick          (Groq)
+  AI_MODELS.GROQ_QWQ_32B,        // 78. QwQ 32B reasoning         (Groq)
+  AI_MODELS.GROQ_COMPOUND,       // 79. Compound Beta             (Groq)
+  AI_MODELS.HF_LLAMA_3_3_70B,    // 80. Llama 3.3 70B             (HuggingFace)
+  AI_MODELS.HF_QWEN_2_5_72B,     // 81. Qwen 2.5 72B              (HuggingFace)
+  AI_MODELS.HF_GEMMA_3_27B,      // 82. Gemma 3 27B               (HuggingFace)
+  AI_MODELS.HF_MISTRAL_SM,       // 83. Mistral Small 3.1          (HuggingFace)
 ];
 
 // ── Provider constants ───────────────────────────────────────
