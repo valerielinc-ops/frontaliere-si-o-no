@@ -6020,4 +6020,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/frontaliere-ticino-10-milioni-voto.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'congestione-a2-san-gottardo-frontalieri',
+    category: 'pratico',
+    date: '2026-04-05T16:55:34.404Z',
+    image: '/images/blog/congestione-a2-san-gottardo-frontalieri.jpg',
+    hasCalculator: true,
+  },
 ];

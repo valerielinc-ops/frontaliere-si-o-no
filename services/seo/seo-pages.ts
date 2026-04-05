@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 677,
+        "numberOfItems": 678,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4244,7 +4244,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 674, "name": "La 'Quinta Svizzera' che ha un debole per Milan...", "url": `${BASE_URL}/articoli-frontaliere/la-quinta-svizzera-che-ha-un-debole-per-milano` },
           { "@type": "ListItem", "position": 675, "name": "Comuni ticinesi investono nel settore turistico...", "url": `${BASE_URL}/articoli-frontaliere/comuni-investono-turismo-ticino` },
           { "@type": "ListItem", "position": 676, "name": "Tanti agricoltori verso la pensione: il ricambi...", "url": `${BASE_URL}/articoli-frontaliere/agriscambio` },
-          { "@type": "ListItem", "position": 677, "name": "Iniziativa popolare svizzera 'No ad una Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-10-milioni-voto` }
+          { "@type": "ListItem", "position": 677, "name": "Iniziativa popolare svizzera 'No ad una Svizzer...", "url": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-10-milioni-voto` },
+          { "@type": "ListItem", "position": 678, "name": "Congestione Stradale A2: Frontalieri alla Difesa", "url": `${BASE_URL}/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri` }
         ]
       }
     ]

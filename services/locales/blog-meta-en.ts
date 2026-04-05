@@ -2070,6 +2070,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Initiative on 10 million: vote on June 14, 2026',
     'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'The Canton of Ticino at the center of the debate on the initiative aimed at limiting demographic growth in Switzerland.',
     'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Aerial view of Lake Lugano with commuters crossing the border at dawn',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.title': '21 km of Traffic Jam on the A2 at San Gottardo: The Consequences for Ticino Cross-Border Workers',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'The A2 has become a mobile parking lot for cross-border workers heading to Switzerland. The 21 km traffic jam heading south at the San Gottardo pass is putting the patience of thousands of Italian-Swiss workers to the test.',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Traffic congestion on A2 highway southbound at San Gottardo',
 };
 
 export default blogMetaEn;

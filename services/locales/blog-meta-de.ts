@@ -2070,6 +2070,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Initiative auf 10 Millionen: Stimmabgabe am 14. Juni 2026',
     'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'Der Kanton Tessin steht im Mittelpunkt des Diskurses über die Initiative, die eine Begrenzung der Bevölkerungszunahme in der Schweiz anstrebt.',
     'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Luftaufnahme des Luganersees mit Pendler, die bei Sonnenaufgang die Grenze überqueren',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.title': 'Kilometerlänge von 21 km auf der A2 bei San Gottardo: Die Folgen für die Frontalierer aus dem Tessin',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'Die A2 ist zu einem mobilen Parkplatz für Frontalierer geworden, die in die Schweiz reisen. Die Stauung von 21 km in Richtung Süden am San-Gottardo-Pass fordert die Geduld von Tausenden italo-schweizerischen Arbeitnehmern.',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Verkehrsaufhörung auf der A2 nach Süden bei San Gottardo',
 };
 
 export default blogMetaDe;

@@ -11782,6 +11782,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-congestione-a2-san-gottardo-frontalieri': {
+    title: 'Coda di 21 Km sull\'A2 al San Gottardo: Le Consequenze per i Frontalieri | Frontaliere Ticino',
+    description: 'La coda di 21 km sull\'A2 verso San Gottardo colpisce frontalieri. Analisi, dati e azioni pratiche per mitigare gli effetti. Dati aggiornati 2026 per frontalieri',
+    keywords: 'frontalieri, ticino, svizzera, italia, coda, sull, gottardo, consequenze',
+    ogTitle: 'Congestione A2 San Gottardo: Guía per Frontalieri',
+    ogDescription: 'Tutto su come gestire la congestione sull\'A2 per i frontalieri che lavorano in Svizzera.',
+    canonicalPath: '/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Congestione Stradale A2: Frontalieri alla Difesa",
+      "description": "La coda di 21 km sull'A2 verso San Gottardo colpisce frontalieri. Analisi, dati e azioni pratiche per mitigare gli effetti. Dati aggiornati 2026 per frontalieri",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/congestione-a2-san-gottardo-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Coda di traffico sull'A2 verso sud presso San Gottardo"
+      },
+      "datePublished": "2026-04-05T16:55:34+00:00",
+      "dateModified": "2026-04-05T16:55:34+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

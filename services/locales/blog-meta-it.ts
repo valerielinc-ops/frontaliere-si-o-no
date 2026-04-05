@@ -2070,6 +2070,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Iniziativa sui 10 milioni: voto il 14 giugno 2026',
     'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'Il Canton Ticino al centro del dibattito sull\'iniziativa che vuole limitare la crescita demografica in Svizzera.',
     'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Vista aerea del lago di Lugano con frontalieri che attraversano il confine all\'alba',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.title': 'Coda di 21 Km sull\'A2 al San Gottardo: Le Consequenze per i Frontalieri Ticinesi',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'La A2 è diventata un parcheggio mobile per i frontalieri diretti in Svizzera. La coda di 21 km verso sud al valico di San Gottardo sta mettendo alla prova la pazienza di migliaia di lavoratori italo-svizzeri.',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Coda di traffico sull\'A2 verso sud presso San Gottardo',
 };
 
 export default blogMetaIt;

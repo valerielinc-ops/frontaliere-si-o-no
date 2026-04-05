@@ -2070,6 +2070,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Initiative sur 10 millions : vote le 14 juin 2026',
     'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'Le canton du Tessin au cœur du débat sur l\'initiative qui souhaite limiter la croissance démographique en Suisse.',
     'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Vue aérienne du lac de Lugano avec des frontaliers traversant la frontière à l\'aube',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.title': 'Une queue de 21 Km sur l\'A2 au San Gottardo : Les Conséquences pour les Frontaliers Tessinois',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'L\'A2 est devenue un parking mobile pour les frontaliers se rendant en Suisse. La queue de 21 km vers le sud au col de San Gottardo met à l\'épreuve la patience de milliers de travailleurs italo-suisse.',
+    'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Congestion sur l\'A2 vers le sud au San Gottardo',
 };
 
 export default blogMetaFr;
