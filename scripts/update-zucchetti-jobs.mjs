@@ -128,8 +128,8 @@ async function fetchZucchettiListings() {
   for (const row of target) {
     console.log(`  📄 ${row.title} (${row.location})`);
   }
-  if (target.length < 1) {
-    throw new Error(`Expected at least 1 Zucchetti job in Ticino/Grigioni, found ${target.length}`);
+  if (target.length === 0) {
+    console.log('ℹ️ No Zucchetti jobs in Ticino/Grigioni right now — writing empty slice.');
   }
   return target;
 }
@@ -248,7 +248,7 @@ function validateLocales() {
     locales: LOCALES,
     isTrustedDomain,
     untrustedDomainReason: 'url_not_zucchetti_domain',
-    failWhenNoJobs: true,
+    failWhenNoJobs: false,
     noJobsMessage: 'No Zucchetti jobs found after dedicated crawl.',
     detectSourceLang: (text) => detectLang(text, 'en'),
   });

@@ -150,7 +150,7 @@ function validateSwatchLocaleCoverage(companyKeys) {
 
 async function main() {
   setCrawlerStartTime();
-  registerCrawlerSummaryGuard(ck, ck);
+  registerCrawlerSummaryGuard('swatchgroup', 'Swatch Group');
   const companyKeys = loadSwatchCompanyKeys();
   if (companyKeys.length === 0) {
     console.log('ℹ️ Nessun adapter swatchgroup.com trovato. Niente da fare.');
