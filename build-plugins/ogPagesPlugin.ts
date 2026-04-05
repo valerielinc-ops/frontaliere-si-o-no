@@ -580,7 +580,17 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             const organizer = parseNestedObj('organizer');
             if (organizer) ldObj.organizer = organizer;
             const offers = parseNestedObj('offers');
-            if (offers) ldObj.offers = offers;
+            if (offers) {
+              // Ensure validFrom is always present (Google recommended field)
+              if (!offers.validFrom && startDate) {
+                try {
+                  const sd = new Date(startDate as string);
+                  sd.setDate(sd.getDate() - 30);
+                  offers.validFrom = sd.toISOString().replace('Z', '+01:00').replace(/\.\d{3}/, '');
+                } catch { /* skip */ }
+              }
+              ldObj.offers = offers;
+            }
             const performer = parseNestedObj('performer');
             if (performer) ldObj.performer = performer;
           } else {

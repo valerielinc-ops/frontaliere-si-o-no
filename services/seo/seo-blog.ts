@@ -611,6 +611,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-20T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/mostra-hic-sunt-leones-confini-svizzera-frontalieri`
       },
       "performer": {
@@ -668,6 +669,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-17T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/carnevale-2026-lugano-laboratori-creativi-figli-frontalieri`
       },
       "performer": {
@@ -725,6 +727,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2025-03-19T00:00:00+02:00",
         "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-ticino-sentimento-osservazione-lac-lugano`
       },
       "performer": {
@@ -782,6 +785,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-19T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/arca-russa-chiasso-evento-culturale-frontalieri`
       },
       "performer": {
@@ -839,6 +843,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-17T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/mostra-rsi-storia-ticino-frontalieri`
       },
       "performer": {
@@ -896,6 +901,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-17T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/vacanze-carnevale-bambini-ticino-laboratori-museo-erba-lugano`
       },
       "performer": {
@@ -953,6 +959,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2025-12-17T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/mostra-daniela-rebuzzi-caslano-arte-ticino`
       },
       "performer": {
@@ -1010,6 +1017,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-19T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/mostra-arte-corpi-in-prestito-agno-ticino`
       },
       "performer": {
@@ -1067,6 +1075,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-17T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-storia-svizzera-italiana-foto-archivio-airolo`
       },
       "performer": {
@@ -1124,6 +1133,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2025-10-09T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/mostra-rauschenberg-bruzella-mendrisiotto-arte-gratuita-frontalieri`
       },
       "performer": {
@@ -1181,6 +1191,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2025-12-26T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/mostra-nakba-giubiasco-riflessione-culturale-ticino`
       },
       "performer": {
@@ -1238,6 +1249,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-20T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/de-andre-a-locarno-conferenza-anime-salve-per-frontalieri`
       },
       "performer": {
@@ -1295,6 +1307,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2025-03-19T00:00:00+02:00",
         "url": `${BASE_URL}/articoli-frontaliere/masi-lugano-mostra-sentimento-osservazione-identita-ticino`
       },
       "performer": {
@@ -1352,6 +1365,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-17T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/rsi-mostra-una-storia-ticino-archivio-fotografico-airolo`
       },
       "performer": {
@@ -1409,6 +1423,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-01-20T00:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/carnevale-chiescia-bosc-2026-ludiano-valle-blenio`
       },
       "performer": {
@@ -6352,6 +6367,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
         "price": "0",
         "priceCurrency": "CHF",
         "availability": "https://schema.org/InStock",
+        "validFrom": "2026-02-19T21:00:00+01:00",
         "url": `${BASE_URL}/articoli-frontaliere/walter-bonatti-in-capo-al-mondo`
       },
       "performer": {
