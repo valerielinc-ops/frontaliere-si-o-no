@@ -958,6 +958,29 @@ async function main() {
     }
   }
 
+  // Step 2c: Merge with previously known orphans
+  // Existing orphans that are still not in knownSlugs must be preserved —
+  // GSC Search Analytics only covers ~18 months and the domain/URL-prefix
+  // property switch can return different result sets.
+  const existingEnriched = readJsonSafe(dataPath('orphan-enriched-data.json'));
+  if (Array.isArray(existingEnriched) && existingEnriched.length > 0) {
+    const currentKeys = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
+    let preserved = 0;
+    for (const prev of existingEnriched) {
+      if (!prev.slug) continue;
+      const key = `${prev.locale || 'it'}:${prev.slug}`;
+      // Skip if already in the new set or now matched to a real job
+      if (currentKeys.has(key) || knownSlugs.has(prev.slug)) continue;
+      currentKeys.add(key);
+      // Mark source so we can distinguish fresh GSC data from carried-over entries
+      if (!prev.source) prev.source = 'previous-run';
+      orphans.push(prev);
+      preserved++;
+    }
+    console.log(`  📋 Preserved ${preserved} previously-known orphans not in current GSC results`);
+    console.log(`  📊 Total orphans after merge: ${orphans.length}`);
+  }
+
   // Step 3: Enrich from local sources
   const enrichedOrphans = enrichFromLocalSources(orphans);
 
