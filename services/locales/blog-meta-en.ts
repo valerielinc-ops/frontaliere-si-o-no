@@ -2079,6 +2079,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.corso-pastori-ticino.title': 'Course for Shepherds in Ticino',
     'blog.article.corso-pastori-ticino.excerpt': 'A new course for shepherds in Ticino, developed by the Unione Contadini Ticinesi, to meet the growing demand for qualified professionals.',
     'blog.article.corso-pastori-ticino.imageAlt': 'Shepherd at work in Ticino',
+    'blog.article.diventare-pastore-ticino.title': 'Becoming a Pastor in Ticino',
+    'blog.article.diventare-pastore-ticino.excerpt': 'The Canton of Ticino offers a training program to become a pastor, open to anyone interested.',
+    'blog.article.diventare-pastore-ticino.imageAlt': 'Shepherd in Ticino',
 };
 
 export default blogMetaEn;

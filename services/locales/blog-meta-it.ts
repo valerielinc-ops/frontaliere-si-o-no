@@ -2079,6 +2079,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.corso-pastori-ticino.title': 'Corso per pastori in Ticino',
     'blog.article.corso-pastori-ticino.excerpt': 'Un nuovo corso per pastori in Ticino, sviluppato dall\'Unione Contadini Ticinesi, per rispondere alla crescente richiesta di professionisti qualificati.',
     'blog.article.corso-pastori-ticino.imageAlt': 'Pastore al lavoro in Ticino',
+    'blog.article.diventare-pastore-ticino.title': 'Diventare pastore in Ticino',
+    'blog.article.diventare-pastore-ticino.excerpt': 'Il Canton Ticino offre una formazione per diventare pastore, rivolta a chiunque sia interessato.',
+    'blog.article.diventare-pastore-ticino.imageAlt': 'Pastore in Ticino',
 };
 
 export default blogMetaIt;

@@ -6041,4 +6041,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/corso-pastori-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'diventare-pastore-ticino',
+    category: 'novita',
+    date: '2026-04-05T19:42:23.581Z',
+    image: '/images/blog/diventare-pastore-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

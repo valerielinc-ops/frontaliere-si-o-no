@@ -1922,6 +1922,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-congestione-a2-san-gottardo-frontalieri': { name: 'Congestione A2 - San Gottardo', path: '/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri', parent: 'blog' },
     'blog-galleria-del-ceneri-chiusa-per-problemi-tecnici': { name: 'Viabilità', path: '/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici', parent: 'blog' },
     'blog-corso-pastori-ticino': { name: 'Corso pastori Ticino', path: '/articoli-frontaliere/corso-pastori-ticino', parent: 'blog' },
+    'blog-diventare-pastore-ticino': { name: 'Formazione pastore', path: '/articoli-frontaliere/diventare-pastore-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

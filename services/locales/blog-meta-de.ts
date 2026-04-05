@@ -2079,6 +2079,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.corso-pastori-ticino.title': 'Kurs für Hirten im Tessin',
     'blog.article.corso-pastori-ticino.excerpt': 'Ein neuer Kurs für Hirten im Tessin, entwickelt von der Unione Contadini Ticinesi, um der wachsenden Nachfrage nach qualifizierten Fachleuten zu entsprechen.',
     'blog.article.corso-pastori-ticino.imageAlt': 'Hirte bei der Arbeit im Tessin',
+    'blog.article.diventare-pastore-ticino.title': 'Pastor in Tessin werden',
+    'blog.article.diventare-pastore-ticino.excerpt': 'Der Kanton Tessin bietet eine Ausbildung zum Pastor an, die sich an jeden interessierten richtet.',
+    'blog.article.diventare-pastore-ticino.imageAlt': 'Hirte in Tessin',
 };
 
 export default blogMetaDe;

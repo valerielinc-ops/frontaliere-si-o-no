@@ -11869,6 +11869,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-diventare-pastore-ticino': {
+    title: 'Diventare pastore in Ticino | Frontaliere Ticino',
+    description: 'Scopri come diventare pastore in Ticino con la nostra formazione e corsi. Iscriviti ora e scopri le opportunità di carriera nel settore agricolo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, diventare, pastore, canton, offre',
+    ogTitle: 'Diventare pastore in Ticino',
+    ogDescription: 'Scopri come diventare pastore in Ticino con la nostra formazione e corsi.',
+    canonicalPath: '/articoli-frontaliere/diventare-pastore-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Diventare pastore in Ticino",
+      "description": "Scopri come diventare pastore in Ticino con la nostra formazione e corsi. Iscriviti ora e scopri le opportunità di carriera nel settore agricolo.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/diventare-pastore-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Pastore in Ticino"
+      },
+      "datePublished": "2026-04-05T19:42:23+00:00",
+      "dateModified": "2026-04-05T19:42:23+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/diventare-pastore-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

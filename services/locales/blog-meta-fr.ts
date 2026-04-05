@@ -2079,6 +2079,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.corso-pastori-ticino.title': 'Cours pour bergers au Tessin',
     'blog.article.corso-pastori-ticino.excerpt': 'Un nouveau cours pour bergers au Tessin, élaboré par l\'Union des paysans tessinois, pour répondre à la demande croissante de professionnels qualifiés.',
     'blog.article.corso-pastori-ticino.imageAlt': 'Berger au travail dans le Tessin',
+    'blog.article.diventare-pastore-ticino.title': 'Devenir pasteur au Tessin',
+    'blog.article.diventare-pastore-ticino.excerpt': 'Le Canton du Tessin propose une formation pour devenir pasteur, ouverte à tous ceux qui s\'intéressent à cette profession.',
+    'blog.article.diventare-pastore-ticino.imageAlt': 'Berger en Tessin',
 };
 
 export default blogMetaFr;
