@@ -11608,6 +11608,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate': {
+    title: 'Auto si ribalta sulla SP1 tra Varese e Gavirate: due ventenni ferite | Frontaliere Ticino',
+    description: 'Due giovani sono stati feriti nella tarda serata di sabato 4 aprile quando un\'auto si è ribaltata sulla SP1 tra Varese e Gavirate. Una delle due ragazze è stata',
+    keywords: 'frontalieri, ticino, svizzera, italia, auto, ribalta, sulla, varese',
+    ogTitle: 'Auto si ribalta sulla SP1 tra Varese e Gavirate: due vent',
+    ogDescription: 'Due giovani sono stati feriti nella tarda serata di sabato 4 aprile quando un\'auto si è ribaltata sulla SP1 tra Varese e Gavirate. Una delle due ragazze è stata',
+    canonicalPath: '/articoli-frontaliere/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Auto si ribalta sulla SP1 tra Varese e Gavirate: due vent",
+      "description": "Due giovani sono stati feriti nella tarda serata di sabato 4 aprile quando un'auto si è ribaltata sulla SP1 tra Varese e Gavirate. Una delle due ragazze è stata",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "auto ribaltata sulla SP1 tra Varese e Gavirate"
+      },
+      "datePublished": "2026-04-05T09:54:32+00:00",
+      "dateModified": "2026-04-05T09:54:32+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

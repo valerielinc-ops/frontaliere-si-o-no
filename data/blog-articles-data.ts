@@ -5978,4 +5978,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/traffico-san-gottardo-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate',
+    category: 'novita',
+    date: '2026-04-05T09:54:32.858Z',
+    image: '/images/blog/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.jpg',
+    hasCalculator: true,
+  },
 ];

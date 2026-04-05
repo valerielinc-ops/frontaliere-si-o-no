@@ -2052,6 +2052,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-san-gottardo-2026.title': 'Traffico paralizzato al San Gottardo: "Qualcuno sa come arrivare in Italia?"',
     'blog.article.traffico-san-gottardo-2026.excerpt': 'La colonna di auto ferme al portale nord della galleria del San Gottardo ha raggiunto i 21 chilometri con picchi di oltre 3 ore e mezza di attesa',
     'blog.article.traffico-san-gottardo-2026.imageAlt': 'Traffico al San Gottardo',
+    'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.title': 'Auto si ribalta sulla SP1 tra Varese e Gavirate: due ventenni ferite, una è in gravi condizioni',
+    'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.excerpt': 'Due giovani sono stati feriti nella tarda serata di sabato 4 aprile quando un\'auto si è ribaltata sulla SP1 tra Varese e Gavirate. Una delle due ragazze è stata trasportata al pronto soccorso del San Gerardo di Monza in elicottero in codice rosso.',
+    'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.imageAlt': 'auto ribaltata sulla SP1 tra Varese e Gavirate',
 };
 
 export default blogMetaIt;

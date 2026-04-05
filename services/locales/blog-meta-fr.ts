@@ -2052,6 +2052,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-san-gottardo-2026.title': 'Trafic paralysé au Saint-Gothard : "Quelqu\'un sait comment arriver en Italie ?"',
     'blog.article.traffico-san-gottardo-2026.excerpt': 'La file d\'attente de voitures arrêtées au portail nord du tunnel du Saint-Gothard a atteint 21 kilomètres avec des pics de plus de 3 heures et demie d\'attente',
     'blog.article.traffico-san-gottardo-2026.imageAlt': 'San Gottardo circulation',
+    'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.title': 'Une voiture se renverse sur la SP1 entre Varese et Gavirate : deux jeunes de 20 ans blessés, l\'une est en grave condition',
+    'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.excerpt': 'Deux jeunes ont été blessés dans la soirée du samedi 4 avril lorsque leur voiture s\'est renversée sur la SP1 entre Varese et Gavirate. L\'une des deux jeunes filles a été transportée au centre hospitalier universitaire du San Gerardo de Monza en hélicoptère en code rouge.',
+    'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.imageAlt': 'accident de la route entre Varese et Gavirate',
 };
 
 export default blogMetaFr;
