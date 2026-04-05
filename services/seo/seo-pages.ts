@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 672,
+        "numberOfItems": 673,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4239,7 +4239,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 669, "name": "Alain de Raemy: «Il significato della Pasqua? U...", "url": `${BASE_URL}/articoli-frontaliere/pasqua-messaggio-di-avvenire` },
           { "@type": "ListItem", "position": 670, "name": "Tramonto a Cadenazzo: morto il vigilante travol...", "url": `${BASE_URL}/articoli-frontaliere/tramonto-a-cadenazzo` },
           { "@type": "ListItem", "position": 671, "name": "Traffico paralizzato al San Gottardo: \"Qualcuno...", "url": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-2026` },
-          { "@type": "ListItem", "position": 672, "name": "Auto si ribalta sulla SP1 tra Varese e Gavirate...", "url": `${BASE_URL}/articoli-frontaliere/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate` }
+          { "@type": "ListItem", "position": 672, "name": "Auto si ribalta sulla SP1 tra Varese e Gavirate...", "url": `${BASE_URL}/articoli-frontaliere/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate` },
+          { "@type": "ListItem", "position": 673, "name": "Nestle apre sede in Lombardia e offre 200 posti...", "url": `${BASE_URL}/articoli-frontaliere/nestle-200-posti-lombardia` }
         ]
       }
     ]

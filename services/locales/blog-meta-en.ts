@@ -2055,6 +2055,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.title': 'Car overturns on SP1 between Varese and Gavirate: two 20-year-olds injured, one in critical condition',
     'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.excerpt': 'Two young people were injured in the late evening of Saturday, April 4, when a car overturned on the SP1 between Varese and Gavirate. One of the two girls was airlifted to the San Gerardo hospital in Monza in red code.',
     'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.imageAlt': 'car accident on SP1 between Varese and Gavirate',
+    'blog.article.nestle-200-posti-lombardia.title': 'Nestle Opens Office in Lombardy and Offers 200 Job Positions: Here Are the Required Profiles',
+    'blog.article.nestle-200-posti-lombardia.excerpt': 'Nestle has announced the opening of a new office in Lombardy and offers 200 job positions: here are the required profiles',
+    'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle opens new site in Lombardy and offers 200 job openings',
 };
 
 export default blogMetaEn;

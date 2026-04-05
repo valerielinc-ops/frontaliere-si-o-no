@@ -1914,6 +1914,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-tramonto-a-cadenazzo': { name: 'Tramonto a Cadenazzo', path: '/articoli-frontaliere/tramonto-a-cadenazzo', parent: 'blog' },
     'blog-traffico-san-gottardo-2026': { name: 'Traffico paralizzato al San Gottardo', path: '/articoli-frontaliere/traffico-san-gottardo-2026', parent: 'blog' },
     'blog-auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate': { name: 'Auto si ribalta sulla SP1 tra Varese e G', path: '/articoli-frontaliere/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate', parent: 'blog' },
+    'blog-nestle-200-posti-lombardia': { name: 'Nestle apre sede in Lombardia e offre 20', path: '/articoli-frontaliere/nestle-200-posti-lombardia', parent: 'blog' },
   };
 
   const info = sectionNames[section];

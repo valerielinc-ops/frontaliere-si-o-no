@@ -11637,6 +11637,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nestle-200-posti-lombardia': {
+    title: 'Nestle apre sede in Lombardia e offre 200 posti di lavoro: ecco i | Frontaliere Ticino',
+    description: 'Nestle ha annunciato l\'apertura di una nuova sede in Lombardia e offre 200 posti di lavoro: ecco i profili ricercati. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, nestle, apre, sede, lombardia',
+    ogTitle: 'Nestle apre sede in Lombardia e offre 200 posti di lavoro',
+    ogDescription: 'Nestle ha annunciato l\'apertura di una nuova sede in Lombardia e offre 200 posti di lavoro: ecco i profili ricercati',
+    canonicalPath: '/articoli-frontaliere/nestle-200-posti-lombardia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nestle apre sede in Lombardia e offre 200 posti di lavoro",
+      "description": "Nestle ha annunciato l'apertura di una nuova sede in Lombardia e offre 200 posti di lavoro: ecco i profili ricercati. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nestle-200-posti-lombardia.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nestle apre sede in Lombardia e offre 200 posti di lavoro"
+      },
+      "datePublished": "2026-04-05T10:53:36+00:00",
+      "dateModified": "2026-04-05T10:53:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nestle-200-posti-lombardia`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

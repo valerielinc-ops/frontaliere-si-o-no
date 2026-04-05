@@ -5985,4 +5985,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nestle-200-posti-lombardia',
+    category: 'novita',
+    date: '2026-04-05T10:53:36.899Z',
+    image: '/images/blog/nestle-200-posti-lombardia.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -2055,6 +2055,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.title': 'Auto si ribalta sulla SP1 tra Varese e Gavirate: due ventenni ferite, una è in gravi condizioni',
     'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.excerpt': 'Due giovani sono stati feriti nella tarda serata di sabato 4 aprile quando un\'auto si è ribaltata sulla SP1 tra Varese e Gavirate. Una delle due ragazze è stata trasportata al pronto soccorso del San Gerardo di Monza in elicottero in codice rosso.',
     'blog.article.auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate.imageAlt': 'auto ribaltata sulla SP1 tra Varese e Gavirate',
+    'blog.article.nestle-200-posti-lombardia.title': 'Nestle apre sede in Lombardia e offre 200 posti di lavoro: ecco i profili ricercati',
+    'blog.article.nestle-200-posti-lombardia.excerpt': 'Nestle ha annunciato l\'apertura di una nuova sede in Lombardia e offre 200 posti di lavoro: ecco i profili ricercati',
+    'blog.article.nestle-200-posti-lombardia.imageAlt': 'Nestle apre sede in Lombardia e offre 200 posti di lavoro',
 };
 
 export default blogMetaIt;
