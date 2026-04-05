@@ -16,6 +16,9 @@ Allow: /manifest.webmanifest
 Disallow: /*?debug=*
 Disallow: /*?status=*
 
+# Canonical host (www → non-www redirect)
+Host: https://frontaliereticino.ch
+
 # Sitemap locations (index includes pages, blog, glossario, and news sub-sitemaps)
 Sitemap: https://frontaliereticino.ch/sitemap.xml
 
