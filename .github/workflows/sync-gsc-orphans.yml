@@ -85,8 +85,7 @@ jobs:
         id: changes
         run: |
           for f in data/orphan-enriched-data.json data/orphan-indexed-job-slugs.json \
-                   data/gsc-orphan-queries.json data/url-inspection-results.json \
-                   data/expired-jobs.json public/data/expired-jobs.json; do
+                   data/gsc-orphan-queries.json data/url-inspection-results.json; do
             [ -f "$f" ] && git add "$f"
           done
           for d in data/jobs/by-crawler data/jobs/expired/by-crawler; do
