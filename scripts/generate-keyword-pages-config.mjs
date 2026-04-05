@@ -149,6 +149,14 @@ for (const cluster of topClusters) {
   const filterKeywords = extractKeywords(query);
   if (filterKeywords.length === 0) continue;
 
+  // Build SEO-friendly title: "Keyword Phrase - Offerte di Lavoro Ticino | Frontaliere Ticino"
+  const titleCaseQuery = titleCase(query);
+  const hasLocationInQuery = /\b(lugano|bellinzona|mendrisio|locarno|chiasso|stabio|ticino|tessin)\b/i.test(query);
+  const titleSuffix = hasLocationInQuery ? '' : ' in Ticino';
+  const seoTitle = `${titleCaseQuery}${titleSuffix} - Posizioni Aperte | Frontaliere Ticino`;
+  // Cap title at ~60 chars for SERP display
+  const finalTitle = seoTitle.length > 70 ? `${titleCaseQuery}${titleSuffix} | Frontaliere Ticino` : seoTitle;
+
   keywordPages.push({
     slug,
     query: cluster.representative,
@@ -159,9 +167,9 @@ for (const cluster of topClusters) {
     allQueries: cluster.queries.map(q => q.query),
     copy: {
       it: {
-        title: `${capitalize(query)} | Frontaliere Ticino`,
-        description: `Offerte di lavoro per "${query}" in Ticino. Annunci aggiornati quotidianamente da aziende svizzere.`,
-        heading: capitalize(query),
+        title: finalTitle,
+        description: `Offerte di lavoro per "${query}"${titleSuffix}. Annunci da aziende svizzere aggiornati quotidianamente con link diretto alla candidatura.`,
+        heading: `${titleCaseQuery}${titleSuffix}`,
       },
     },
   });
@@ -169,6 +177,16 @@ for (const cluster of topClusters) {
 
 function capitalize(s) {
   return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+// Title case but keep Italian prepositions lowercase (di, in, per, a, al, etc.)
+const LOWERCASE_WORDS = new Set(['di', 'in', 'per', 'a', 'al', 'e', 'il', 'la', 'le', 'i', 'un', 'una', 'del', 'della', 'delle', 'dei', 'degli', 'da', 'con', 'su', 'lo', 'gli', 'nel', 'nella']);
+function titleCase(s) {
+  return s.split(/\s+/).map((word, idx) => {
+    if (idx === 0) return capitalize(word);
+    if (LOWERCASE_WORDS.has(word.toLowerCase())) return word.toLowerCase();
+    return capitalize(word);
+  }).join(' ');
 }
 
 // 6. Write config
