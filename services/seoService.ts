@@ -1911,6 +1911,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavena-ponte-tresa-bicicletta-grave': { name: 'Frontalieri Ticino - Lavena Ponte Tresa', path: '/articoli-frontaliere/lavena-ponte-tresa-bicicletta-grave', parent: 'blog' },
     'blog-roveredo-permessi-anticrimine': { name: 'Roveredo denuncia', path: '/articoli-frontaliere/roveredo-permessi-anticrimine', parent: 'blog' },
     'blog-pasqua-messaggio-di-avvenire': { name: 'Pasqua', path: '/articoli-frontaliere/pasqua-messaggio-di-avvenire', parent: 'blog' },
+    'blog-tramonto-a-cadenazzo': { name: 'Tramonto a Cadenazzo', path: '/articoli-frontaliere/tramonto-a-cadenazzo', parent: 'blog' },
   };
 
   const info = sectionNames[section];

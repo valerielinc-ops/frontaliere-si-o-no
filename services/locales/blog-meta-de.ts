@@ -2046,6 +2046,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: «Der Sinn der Ostern? Eine Botschaft des Erwachens»',
     'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'Der Apostolische Administrator der Diözese Lugano reflektiert über die Leiden, denen die Welt gegenübersteht, und die Bedeutung der Kreuzigung für die Jugendlichen.',
     'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'Eine Familie feiert Ostern in Lugano',
+    'blog.article.tramonto-a-cadenazzo.title': 'Sonnenuntergang in Cadenazzo: Wachmann von Auto erfasst und getötet',
+    'blog.article.tramonto-a-cadenazzo.excerpt': 'Ein Verkehrsunfall in Cadenazzo hat den Tod eines Wachmanns zur Folge',
+    'blog.article.tramonto-a-cadenazzo.imageAlt': 'Sonnenuntergang in Cadenazzo',
 };
 
 export default blogMetaDe;

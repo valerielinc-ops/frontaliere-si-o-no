@@ -5964,4 +5964,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/pasqua-messaggio-di-avvenire.jpg',
     hasCalculator: false,
   },
+  {
+    id: 'tramonto-a-cadenazzo',
+    category: 'novita',
+    date: '2026-04-05T07:03:12.457Z',
+    image: '/images/blog/tramonto-a-cadenazzo.jpg',
+    hasCalculator: true,
+  },
 ];

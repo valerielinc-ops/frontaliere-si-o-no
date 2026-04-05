@@ -11534,6 +11534,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tramonto-a-cadenazzo': {
+    title: 'Tramonto a Cadenazzo: morto il vigilante travolto da un\'auto | Frontaliere Ticino',
+    description: 'Un incidente stradale a Cadenazzo ha causato la morte di un vigilante. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tramonto, cadenazzo, morto, vigilante',
+    ogTitle: 'Tramonto a Cadenazzo: morto il vigilante',
+    ogDescription: 'Un incidente stradale a Cadenazzo ha causato la morte di un vigilante',
+    canonicalPath: '/articoli-frontaliere/tramonto-a-cadenazzo',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tramonto a Cadenazzo: morto il vigilante travolto da un'auto",
+      "description": "Un incidente stradale a Cadenazzo ha causato la morte di un vigilante. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tramonto-a-cadenazzo.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Tramonto a Cadenazzo"
+      },
+      "datePublished": "2026-04-05T07:03:12+00:00",
+      "dateModified": "2026-04-05T07:03:12+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tramonto-a-cadenazzo`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

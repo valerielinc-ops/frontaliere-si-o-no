@@ -2046,6 +2046,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: «Il significato della Pasqua? Un messaggio di avvenire»',
     'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'L\'amministratore apostolico della diocesi di Lugano riflette sulle sofferenze cui è confrontato il mondo e sul senso della croce per i giovani.',
     'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'Una famiglia che celebra la Pasqua a Lugano',
+    'blog.article.tramonto-a-cadenazzo.title': 'Tramonto a Cadenazzo: morto il vigilante travolto da un\'auto',
+    'blog.article.tramonto-a-cadenazzo.excerpt': 'Un incidente stradale a Cadenazzo ha causato la morte di un vigilante',
+    'blog.article.tramonto-a-cadenazzo.imageAlt': 'Tramonto a Cadenazzo',
 };
 
 export default blogMetaIt;

@@ -2046,6 +2046,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: \'The Meaning of Easter? A Message of Hope\'',
     'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'The apostolic administrator of the diocese of Lugano reflects on the world\'s sufferings and the meaning of the cross for young people.',
     'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'A family celebrating Easter in Lugano',
+    'blog.article.tramonto-a-cadenazzo.title': 'Sunset in Cadenazzo: Vigilante Killed in Car Accident',
+    'blog.article.tramonto-a-cadenazzo.excerpt': 'A road accident in Cadenazzo has resulted in the death of a security guard',
+    'blog.article.tramonto-a-cadenazzo.imageAlt': 'Sunset in Cadenazzo',
 };
 
 export default blogMetaEn;

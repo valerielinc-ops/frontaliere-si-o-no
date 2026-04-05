@@ -2046,6 +2046,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pasqua-messaggio-di-avvenire.title': 'Alain de Raemy: «Le sens de Pâques? Un message d\'avenir»',
     'blog.article.pasqua-messaggio-di-avvenire.excerpt': 'L\'amministratrice apostolique de la diocèse de Lugano réfléchit sur les souffrances auxquelles le monde est confronté et sur le sens de la croix pour les jeunes.',
     'blog.article.pasqua-messaggio-di-avvenire.imageAlt': 'Une famille célébrant Pâques à Lugano',
+    'blog.article.tramonto-a-cadenazzo.title': 'Coucher de soleil à Cadenazzo : mort de la sentinelle renversée par une voiture',
+    'blog.article.tramonto-a-cadenazzo.excerpt': 'Un accident de la route à Cadenazzo a entraîné la mort d\'une sentinelle de sécurité',
+    'blog.article.tramonto-a-cadenazzo.imageAlt': 'Coucher du soleil à Cadenazzo',
 };
 
 export default blogMetaFr;
