@@ -1,6 +1,6 @@
 {
   "crawlerKey": "citta-di-lugano",
-  "assembledAt": "2026-04-05T08:56:01.733Z",
+  "assembledAt": "2026-04-05T20:55:24.352Z",
   "jobs": [
     {
       "title": "Concorsi per l'assunzione di personale",
@@ -23,7 +23,7 @@
       "slug": "concorsi-per-l-assunzione-di-personale-citta-di-lugano-lugano",
       "slugByLocale": {
         "it": "concorsi-per-l-assunzione-di-personale-citta-di-lugano-lugano",
-        "en": "job-openings-for-staff-citta-di-lugano-lugano",
+        "en": "concorsi-per-l-assunzione-di-personale-city-of-lugano",
         "de": "stellenangebote-fur-mitarbeiter-citta-di-lugano-lugano",
         "fr": "offres-d-emploi-pour-le-personnel-citta-di-lugano-lugano"
       },
@@ -123,7 +123,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "un/a coordinatore/trice logistica eventi al 70% presso la Divisione eventi e congressi",
@@ -181,7 +182,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "addetti/e pulizie presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
@@ -205,7 +207,7 @@
       "slugByLocale": {
         "it": "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
         "en": "cleaners-at-the-lugano-municipal-administration-valid-for-2026-citta-di-lugano-lugano",
-        "de": "reinigungskrafte-bei-der-luganer-gemeindeverwaltung-gultig-fur-2026-citta-di-lugano-lugano",
+        "de": "addetti-e-pulizie-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
         "fr": "agents-de-nettoyage-a-l-administration-municipale-de-lugano-valable-pour-2026-citta-di-lugano-lugano"
       },
       "titleByLocale": {
@@ -269,7 +271,7 @@
       "slugByLocale": {
         "it": "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
         "en": "school-meals-assistants-at-the-municipal-administration-valid-for-2026-citta-di-lugano-lugano",
-        "de": "schulmahlzeitshelfer-bei-der-kommunalen-verwaltung-gultig-fur-2026-citta-di-lugano-lugano",
+        "de": "inservienti-refezione-scolastica-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
         "fr": "aide-a-la-restauration-scolaire-a-l-administration-communale-valable-pour-2026-citta-di-lugano-lugano"
       },
       "titleByLocale": {
@@ -333,7 +335,7 @@
       "slugByLocale": {
         "it": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
         "en": "urban-cleaning-staff-at-the-municipal-administration-valid-for-2026-citta-di-lugano-lugano",
-        "de": "stadtreinigungspersonal-bei-der-kommunalen-verwaltung-gultig-fur-2026-citta-di-lugano-lugano",
+        "de": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-stadt-lugano",
         "fr": "personnel-d-entretien-urbain-a-l-administration-communale-valable-pour-2026-citta-di-lugano-lugano"
       },
       "titleByLocale": {
@@ -588,9 +590,9 @@
       "slug": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano",
       "slugByLocale": {
         "it": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-citta-di-lugano",
-        "en": "midday-break-operators-si-part-time-at-the-school-institute-valid-for-2026-citta-di-lugano-lugano",
-        "de": "si-meridian-break-operatoren-teilzeit-an-der-schule-gultig-fur-das-jahr-2026-citta-di-lugano-lugano",
-        "fr": "operateurs-de-pause-meridien-si-a-temps-partiel-a-l-ecole-valable-pour-l-annee-2026-citta-di-lugano-lugano"
+        "en": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-city-of-lugano",
+        "de": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-stadt-lugano",
+        "fr": "operatori-trici-pausa-meridiana-si-a-tempo-parziale-presso-l-istituto-scolastico-valido-per-l-anno-2026-ville-de-lugano"
       },
       "titleByLocale": {
         "it": "operatori/trici pausa meridiana SI (a tempo parziale) presso l'Istituto scolastico (valido per l'anno 2026)",
@@ -652,7 +654,7 @@
       "slugByLocale": {
         "it": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di",
         "en": "early-childhood-educators-at-the-extracurricular-services-of-the-social-affairs-division-valid-for-the-year-2026-citta-d",
-        "de": "fruhpadagoginnen-und-padagogen-in-den-au-erschulischen-diensten-der-abteilung-fur-soziale-angelegenheiten-gultig-fur-das",
+        "de": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-stadt-lugano",
         "fr": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-ville-de-lugano"
       },
       "titleByLocale": {
@@ -691,7 +693,8 @@
           "maxValue": 112500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
