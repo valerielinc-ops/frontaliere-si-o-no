@@ -2064,6 +2064,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.comuni-investono-turismo-ticino.title': 'Ticinese Municipalities Invest in Tourism Sector: Here Are the Details',
     'blog.article.comuni-investono-turismo-ticino.excerpt': 'Recent months have seen several Ticinese municipalities invest in tourist infrastructure.',
     'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Ticino tourism: Comunes investing in tourism. Photo of a hotel in Lugano.',
+    'blog.article.agriscambio.title': 'Many farmers nearing retirement: the challenge of succession',
+    'blog.article.agriscambio.excerpt': 'Ticinese farmers nearing retirement: who is ready to pass on the torch?',
+    'blog.article.agriscambio.imageAlt': 'A farmer in Ticino works in a farm.',
 };
 
 export default blogMetaEn;

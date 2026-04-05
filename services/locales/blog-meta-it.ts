@@ -2064,6 +2064,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.comuni-investono-turismo-ticino.title': 'Comuni ticinesi investono nel settore turistico: ecco i dettagli',
     'blog.article.comuni-investono-turismo-ticino.excerpt': 'Gli ultimi mesi hanno visto diversi comuni ticinesi investire in infrastrutture turistiche.',
     'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Comuni ticinesi investono nel settore turistico. Foto di un albergo in Lugano.',
+    'blog.article.agriscambio.title': 'Tanti agricoltori verso la pensione: il ricambio è una sfida',
+    'blog.article.agriscambio.excerpt': 'Agricoltori ticinesi verso la pensione: chi è pronto a passare la testimone?',
+    'blog.article.agriscambio.imageAlt': 'Un agricoltore ticinese lavora in una fattoria.',
 };
 
 export default blogMetaIt;

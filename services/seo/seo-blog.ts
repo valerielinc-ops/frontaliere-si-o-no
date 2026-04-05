@@ -11724,6 +11724,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-agriscambio': {
+    title: 'Tanti agricoltori verso la pensione: il ricambio è una sfida | Frontaliere Ticino',
+    description: 'Agricoltori ticinesi verso la pensione: chi è pronto a passare la testimone?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tanti, agricoltori, verso, pensione',
+    ogTitle: 'Tanti agricoltori verso la pensione: il ricambio è una sfida',
+    ogDescription: 'Agricoltori ticinesi verso la pensione: chi è pronto a passare la testimone?. Dati aggiornati 2026 per frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/agriscambio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tanti agricoltori verso la pensione: il ricambio è una sfida",
+      "description": "Agricoltori ticinesi verso la pensione: chi è pronto a passare la testimone?. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/agriscambio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un agricoltore ticinese lavora in una fattoria."
+      },
+      "datePublished": "2026-04-05T14:13:44+00:00",
+      "dateModified": "2026-04-05T14:13:44+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agriscambio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

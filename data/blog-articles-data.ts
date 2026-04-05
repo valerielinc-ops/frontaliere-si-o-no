@@ -6006,4 +6006,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/comuni-investono-turismo-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'agriscambio',
+    category: 'pensione',
+    date: '2026-04-05T14:13:44.864Z',
+    image: '/images/blog/agriscambio.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 675,
+        "numberOfItems": 676,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4242,7 +4242,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 672, "name": "Auto si ribalta sulla SP1 tra Varese e Gavirate...", "url": `${BASE_URL}/articoli-frontaliere/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate` },
           { "@type": "ListItem", "position": 673, "name": "Nestle apre sede in Lombardia e offre 200 posti...", "url": `${BASE_URL}/articoli-frontaliere/nestle-200-posti-lombardia` },
           { "@type": "ListItem", "position": 674, "name": "La 'Quinta Svizzera' che ha un debole per Milan...", "url": `${BASE_URL}/articoli-frontaliere/la-quinta-svizzera-che-ha-un-debole-per-milano` },
-          { "@type": "ListItem", "position": 675, "name": "Comuni ticinesi investono nel settore turistico...", "url": `${BASE_URL}/articoli-frontaliere/comuni-investono-turismo-ticino` }
+          { "@type": "ListItem", "position": 675, "name": "Comuni ticinesi investono nel settore turistico...", "url": `${BASE_URL}/articoli-frontaliere/comuni-investono-turismo-ticino` },
+          { "@type": "ListItem", "position": 676, "name": "Tanti agricoltori verso la pensione: il ricambi...", "url": `${BASE_URL}/articoli-frontaliere/agriscambio` }
         ]
       }
     ]

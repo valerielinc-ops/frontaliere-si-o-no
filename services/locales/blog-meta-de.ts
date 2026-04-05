@@ -2064,6 +2064,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comuni-investono-turismo-ticino.title': 'Ticinesi Gemeinden investieren in den Tourismussektor: hier sind die Details',
     'blog.article.comuni-investono-turismo-ticino.excerpt': 'In den letzten Monaten haben verschiedene Gemeinden im Tessin in touristische Infrastrukture investiert.',
     'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Ticino Urlaub: Gemeinden investieren im Tourismus. Foto eines Hotels in Lugano.',
+    'blog.article.agriscambio.title': 'Viele Bauern vor der Pensionierung: die Nachfolge ist eine Herausforderung',
+    'blog.article.agriscambio.excerpt': 'Tessiner Bauern vor der Pensionierung: Wer ist bereit, den Wandel weiterzuführen?',
+    'blog.article.agriscambio.imageAlt': 'Ein Landwirt in Ticino arbeitet auf einer Farm.',
 };
 
 export default blogMetaDe;

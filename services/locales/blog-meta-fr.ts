@@ -2064,6 +2064,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.comuni-investono-turismo-ticino.title': 'Communes tessinoises investissent dans le secteur touristique : voici les détails',
     'blog.article.comuni-investono-turismo-ticino.excerpt': 'Les derniers mois ont vu plusieurs communes tessinoises investir dans des infrastructures touristiques.',
     'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Tourisme du Tessin: Communes investissent dans le tourisme. Photo d&#39;un hôtel à Lugano.',
+    'blog.article.agriscambio.title': 'De nombreux agriculteurs sur le point de prendre la retraite : le renouvellement est un défi',
+    'blog.article.agriscambio.excerpt': 'Agriculteurs tessinois sur le point de prendre la retraite : qui est prêt à passer le relais ?',
+    'blog.article.agriscambio.imageAlt': 'Un fermier ticin travaille sur une ferme.',
 };
 
 export default blogMetaFr;
