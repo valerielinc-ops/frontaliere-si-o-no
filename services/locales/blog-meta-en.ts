@@ -2085,6 +2085,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.varese-si-ubriaca-infortuna.title': 'Varese: gets drunk, gets injured, injures a security guard. Treated and arrested',
     'blog.article.varese-si-ubriaca-infortuna.excerpt': 'A man got drunk, got injured and injured a security guard in Varese.',
     'blog.article.varese-si-ubriaca-infortuna.imageAlt': 'A person crossing the street with difficulty',
+    'blog.article.trump-intesa-o-inferno.title': 'Trump: \'Intesa o sarà l\'inferno\'. Il giallo dell\'ultimatum spostato a martedì',
+    'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
+    'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump announces a deadline for China',
 };
 
 export default blogMetaEn;

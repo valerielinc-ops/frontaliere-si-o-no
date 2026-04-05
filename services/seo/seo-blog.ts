@@ -11927,6 +11927,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-trump-intesa-o-inferno': {
+    title: 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a | Frontaliere Ticino',
+    description: 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, trump, intesa, inferno, giallo',
+    ogTitle: 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a marted8',
+    ogDescription: 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
+    canonicalPath: '/articoli-frontaliere/trump-intesa-o-inferno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "L'ultimatum di Trump: un nuovo colpo per la tensione tra gli Stati Uniti e la Cina",
+      "description": "Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/trump-intesa-o-inferno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Trump annuncia un ultimato alla Cina"
+      },
+      "datePublished": "2026-04-05T21:49:52+00:00",
+      "dateModified": "2026-04-05T21:49:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/trump-intesa-o-inferno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

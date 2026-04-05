@@ -1948,6 +1948,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-corso-pastori-ticino': { name: 'Corso pastori Ticino', path: '/articoli-frontaliere/corso-pastori-ticino', parent: 'blog' },
     'blog-diventare-pastore-ticino': { name: 'Formazione pastore', path: '/articoli-frontaliere/diventare-pastore-ticino', parent: 'blog' },
     'blog-varese-si-ubriaca-infortuna': { name: 'Varese: si ubriaca, s\'infortuna, ferisce', path: '/articoli-frontaliere/varese-si-ubriaca-infortuna', parent: 'blog' },
+    'blog-trump-intesa-o-inferno': { name: 'Tensione tra Stati Uniti e Cina', path: '/articoli-frontaliere/trump-intesa-o-inferno', parent: 'blog' },
   };
 
   const info = sectionNames[section];

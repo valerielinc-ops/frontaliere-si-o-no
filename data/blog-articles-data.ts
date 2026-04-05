@@ -6055,4 +6055,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/varese-si-ubriaca-infortuna.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'trump-intesa-o-inferno',
+    category: 'novita',
+    date: '2026-04-05T21:49:52.642Z',
+    image: '/images/blog/trump-intesa-o-inferno.jpg',
+    hasCalculator: true,
+  },
 ];
