@@ -823,8 +823,8 @@
       "slug": "collaboratore-collaboratrice-scientifico-a-per-la-modellistica-usi",
       "slugByLocale": {
         "it": "collaboratore-collaboratrice-scientifico-a-per-la-modellistica-usi",
-        "en": "scientific-collaborator-for-modelling-usi-mendrisio",
-        "de": "wissenschaftlicher-mitarbeiter-fur-modellierung-usi-mendrisio",
+        "en": "scientific-collaborator-for-modeling-usi-universita-della-svizzera-italiana-mendrisio",
+        "de": "wissenschaftliche-r-mitarbeiter-in-fur-modellbau-usi-universita-della-svizzera-italiana-mendrisio",
         "fr": "collaborateur-scientifique-pour-la-modelisation-usi-mendrisio"
       },
       "department": "Accademia di architettura",
@@ -856,7 +856,11 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "previousSlugs": [
+        "scientific-collaborator-for-modelling-usi-mendrisio",
+        "wissenschaftlicher-mitarbeiter-fur-modellierung-usi-mendrisio"
+      ]
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/cds/cds-coordinatore-scient-2026.pdf",
