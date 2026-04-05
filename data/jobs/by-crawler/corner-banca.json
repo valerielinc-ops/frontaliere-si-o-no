@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-05T09:03:26.035Z",
+  "assembledAt": "2026-04-05T21:02:42.787Z",
   "jobs": [
     {
       "id": "corner-banca-fe61b84a0935",
@@ -67,7 +67,7 @@
       "postedDate": "2026-02-26",
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-05T09:03:24.355Z",
+      "crawledAt": "2026-04-05T21:02:41.025Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
@@ -134,7 +134,7 @@
       "postedDate": "2026-02-03",
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-05T09:03:24.355Z",
+      "crawledAt": "2026-04-05T21:02:41.025Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
@@ -213,7 +213,8 @@
       "postedDate": "2025-10-02",
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-05T09:03:24.355Z",
+      "crawledAt": "2026-04-05T21:02:41.025Z",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 61000,
       "salaryMax": 83000,
@@ -224,99 +225,6 @@
           "@type": "QuantitativeValue",
           "minValue": 61000,
           "maxValue": 83000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-0454316cb6c7",
-      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-      "titleByLocale": {
-        "it": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-        "de": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
-        "fr": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk"
-      },
-      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
-      "descriptionByLocale": {
-        "it": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
-        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
-        "de": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
-        "fr": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate"
-      },
-      "requirements": [
-        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
-        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
-        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
-        "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
-        "Languages: Italian / English native proficiency / French / German is a plus",
-        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-        "Resident in Ticino or willing to relocate"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
-          "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
-          "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
-          "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
-          "Languages: Italian / English native proficiency / French / German is a plus",
-          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "en": [
-          "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
-          "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
-          "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
-          "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
-          "Languages: Italian / English native proficiency / French / German is a plus",
-          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
-          "Resident in Ticino or willing to relocate"
-        ],
-        "de": [],
-        "fr": []
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-05T09:03:24.354Z",
-      "needsRetranslation": true,
-      "sourceLang": "en",
-      "previousSlugs": [
-        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
-        "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45",
-        "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano-jzwq45"
-      ],
-      "salaryMin": 109000,
-      "salaryMax": 147000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 147000,
           "unitText": "YEAR"
         }
       },
@@ -402,7 +310,7 @@
       "postedDate": "2026-03-09",
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-05T09:03:24.354Z",
+      "crawledAt": "2026-04-05T21:02:41.024Z",
       "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -499,7 +407,7 @@
       "postedDate": "2026-03-24",
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-05T09:03:24.353Z",
+      "crawledAt": "2026-04-05T21:02:41.023Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
@@ -596,11 +504,102 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-05T09:03:24.353Z",
+      "crawledAt": "2026-04-05T21:02:41.023Z",
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano"
+      ],
+      "salaryMin": 109000,
+      "salaryMax": 147000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 109000,
+          "maxValue": 147000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-0454316cb6c7",
+      "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+      "titleByLocale": {
+        "it": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "en": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "de": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk",
+        "fr": "Risk Manager - Asset Liability Management (ALM) and Liquidity Risk"
+      },
+      "description": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
+      "descriptionByLocale": {
+        "it": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
+        "en": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
+        "de": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate",
+        "fr": "The selected candidate will be responsible for managing risks related to Asset Liability Management (ALM) and liquidity risk, ensuring that the company maintains a solid financial position and can navigate market challenges effectively.\n\nKey Responsibilities:\n\nConduct in-depth analysis of risks related to ALM and liquidity risk, identifying potential vulnerabilities and developing mitigation strategies\n\nMonitor the company's daily liquidity position, ensuring compliance with regulatory and internal requirements in alignment with Basel framework and FINMA ordinance\n\nCollaborate with treasury and finance departments to optimize liquidity management practices, including cash flow forecasting, liquidity buffer management and funding strategies/ contingency plan\n\nAssess and manage the company's exposure to interest rate risk in the banking book (IRRBB), developing strategies to mitigate adverse impacts on earnings and capital\n\nConduct liquidity stress testing and scenario analysis to evaluate the impact of adverse market conditions on the company’s liquidity position\n\nPrepare detailed and accurate reports on liquidity risk and ALM for senior management, Committee, Regulators, providing clear analysis and recommendations\n\nAbility to work under pressure in a dynamic environment setting priorities and meet tiny deadlines\n\nTechnical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing\n\nAnalytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)\n\nCommunication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders\n\nExperience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department\n\nLanguages: Italian / English native proficiency / French / German is a plus\n\nProfessional certification in risk management (e.g., FRM, PRM) is a plus\n\nResident in Ticino or willing to relocate"
+      },
+      "requirements": [
+        "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+        "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+        "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+        "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+        "Languages: Italian / English native proficiency / French / German is a plus",
+        "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+        "Resident in Ticino or willing to relocate"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+          "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+          "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+          "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "en": [
+          "Technical Skills: Advanced knowledge of ALM and liquidity risk, interest rate risk management tools and methodologies, including scenario analysis and stress testing",
+          "Analytical Skills: Excellent analytical skills and attention to detail, with the ability to interpret and synthesize large volumes of complex data using programming knowledge (Phyton, R, SQL)",
+          "Communication Skills: Strong written and verbal communication skills, with the ability to present technical information clearly and concisely to non-technical stakeholders",
+          "Experience: At least 5 years of experience in risk management, with a particular focus on ALM/ liquidity risk or treasury department",
+          "Languages: Italian / English native proficiency / French / German is a plus",
+          "Professional certification in risk management (e.g., FRM, PRM) is a plus",
+          "Resident in Ticino or willing to relocate"
+        ],
+        "de": [],
+        "fr": []
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-18",
+      "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "crawledAt": "2026-04-05T21:02:41.023Z",
+      "needsRetranslation": true,
+      "sourceLang": "en",
+      "previousSlugs": [
+        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano"
       ],
       "salaryMin": 109000,
       "salaryMax": 147000,
