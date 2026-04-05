@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T07:13:58.387Z",
-    "label": "before",
-    "total": 1501,
-    "needsRetranslation": 850,
-    "incomplete": 816,
-    "complete": 685,
-    "missingByLocale": {
-      "it": 373,
-      "en": 565,
-      "de": 298,
-      "fr": 677
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 103
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PEMSA",
-        "pending": 40
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 26
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 25
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 15
-      },
-      {
-        "company": "VF International (The North Face, Timberland)",
-        "pending": 14
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T07:51:39.561Z",
-    "label": "after",
-    "total": 1501,
-    "needsRetranslation": 746,
-    "incomplete": 697,
-    "complete": 804,
-    "missingByLocale": {
-      "it": 323,
-      "en": 517,
-      "de": 254,
-      "fr": 603
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 175
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 89
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 85
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 26
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 16
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      },
-      {
-        "company": "Casale SA",
-        "pending": 10
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T08:06:35.973Z",
     "label": "before",
     "total": 1458,
@@ -9670,6 +9558,110 @@
       {
         "company": "ALDI SUISSE",
         "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-05T05:22:42.962Z",
+    "label": "before",
+    "total": 1530,
+    "needsRetranslation": 122,
+    "incomplete": 92,
+    "complete": 1438,
+    "missingByLocale": {
+      "it": 45,
+      "en": 49,
+      "de": 34,
+      "fr": 59
+    },
+    "topPending": [
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 18
+      },
+      {
+        "company": "Denner",
+        "pending": 11
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 7
+      },
+      {
+        "company": "Allianz Suisse",
+        "pending": 6
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 6
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Schindler",
+        "pending": 4
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-05T05:23:13.591Z",
+    "label": "after",
+    "total": 1530,
+    "needsRetranslation": 47,
+    "incomplete": 16,
+    "complete": 1514,
+    "missingByLocale": {
+      "it": 12,
+      "en": 7,
+      "de": 8,
+      "fr": 11
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 2
+      },
+      {
+        "company": "FFS Officine (Ferrovie Federali)",
+        "pending": 2
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 1
       }
     ]
   }
