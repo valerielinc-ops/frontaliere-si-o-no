@@ -2061,6 +2061,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'La \'Quinta Svizzera\' che ha un debole per Milano',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Sono quasi settemila i confederati che vivono nel capoluogo meneghino e nei comuni della sua provincia.',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Una scena fotorealistica con un panorama di Lugano e le montagne circostanti, girata con un DSLR e un obiettivo a grande apertura.',
+    'blog.article.comuni-investono-turismo-ticino.title': 'Comuni ticinesi investono nel settore turistico: ecco i dettagli',
+    'blog.article.comuni-investono-turismo-ticino.excerpt': 'Gli ultimi mesi hanno visto diversi comuni ticinesi investire in infrastrutture turistiche.',
+    'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Comuni ticinesi investono nel settore turistico. Foto di un albergo in Lugano.',
 };
 
 export default blogMetaIt;

@@ -2061,6 +2061,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'The \'Fifth Switzerland\' that has a weakness for Milan',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Almost seven thousand Confederates live in the capital of the meneghino and in the municipalities of its province.',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'A panoramic view of Lugano and the surrounding mountains, shot with a DSLR and a wide-aperture lens.',
+    'blog.article.comuni-investono-turismo-ticino.title': 'Ticinese Municipalities Invest in Tourism Sector: Here Are the Details',
+    'blog.article.comuni-investono-turismo-ticino.excerpt': 'Recent months have seen several Ticinese municipalities invest in tourist infrastructure.',
+    'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Ticino tourism: Comunes investing in tourism. Photo of a hotel in Lugano.',
 };
 
 export default blogMetaEn;

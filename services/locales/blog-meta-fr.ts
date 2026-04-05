@@ -2061,6 +2061,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'La \'Cinquième Suisse\' qui a un faible pour Milan',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Sont presque sept mille les confédérés qui vivent dans la capitale lombarde et dans les communes de sa province.',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Vue panoramique de Lugano et des montagnes avoisinantes, prise avec un DSLR et un objectif à grande ouverture.',
+    'blog.article.comuni-investono-turismo-ticino.title': 'Communes tessinoises investissent dans le secteur touristique : voici les détails',
+    'blog.article.comuni-investono-turismo-ticino.excerpt': 'Les derniers mois ont vu plusieurs communes tessinoises investir dans des infrastructures touristiques.',
+    'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Tourisme du Tessin: Communes investissent dans le tourisme. Photo d&#39;un hôtel à Lugano.',
 };
 
 export default blogMetaFr;

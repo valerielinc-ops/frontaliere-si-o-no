@@ -1916,6 +1916,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate': { name: 'Auto si ribalta sulla SP1 tra Varese e G', path: '/articoli-frontaliere/auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate', parent: 'blog' },
     'blog-nestle-200-posti-lombardia': { name: 'Nestle apre sede in Lombardia e offre 20', path: '/articoli-frontaliere/nestle-200-posti-lombardia', parent: 'blog' },
     'blog-la-quinta-svizzera-che-ha-un-debole-per-milano': { name: 'La \'Quinta Svizzera\' e la Lombardia', path: '/articoli-frontaliere/la-quinta-svizzera-che-ha-un-debole-per-milano', parent: 'blog' },
+    'blog-comuni-investono-turismo-ticino': { name: 'Comuni ticinesi investono nel settore tu', path: '/articoli-frontaliere/comuni-investono-turismo-ticino', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -5999,4 +5999,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/la-quinta-svizzera-che-ha-un-debole-per-milano.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'comuni-investono-turismo-ticino',
+    category: 'novita',
+    date: '2026-04-05T13:27:30.590Z',
+    image: '/images/blog/comuni-investono-turismo-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

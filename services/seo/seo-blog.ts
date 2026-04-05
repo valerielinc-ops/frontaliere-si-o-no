@@ -11695,6 +11695,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-comuni-investono-turismo-ticino': {
+    title: 'Comuni ticinesi investono nel settore turistico: ecco i dettagli | Frontaliere Ticino',
+    description: 'Gli ultimi mesi hanno visto diversi comuni ticinesi investire in infrastrutture turistiche. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, comuni, ticinesi, investono, settore',
+    ogTitle: 'Comuni ticinesi investono nel settore turistico: ecco i d',
+    ogDescription: 'Gli ultimi mesi hanno visto diversi comuni ticinesi investire in infrastrutture turistiche.',
+    canonicalPath: '/articoli-frontaliere/comuni-investono-turismo-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Comuni ticinesi investono nel settore turistico: ecco i d",
+      "description": "Gli ultimi mesi hanno visto diversi comuni ticinesi investire in infrastrutture turistiche. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/comuni-investono-turismo-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Comuni ticinesi investono nel settore turistico. Foto di un albergo in Lugano."
+      },
+      "datePublished": "2026-04-05T13:27:30+00:00",
+      "dateModified": "2026-04-05T13:27:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/comuni-investono-turismo-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

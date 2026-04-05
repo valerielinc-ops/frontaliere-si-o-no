@@ -2061,6 +2061,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.title': 'Die "Fünfte Schweiz" mit einer Schwäche für Mailand',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.excerpt': 'Fast siebtausend Konföderierte leben in der Hauptstadt des Meneghino und in den Gemeinden ihrer Provinz.',
     'blog.article.la-quinta-svizzera-che-ha-un-debole-per-milano.imageAlt': 'Ein realistisches Panorama von Lugano und den umliegenden Bergen, aufgenommen mit einer DSLR und einem großen Tiefenschärfeobjektiv.',
+    'blog.article.comuni-investono-turismo-ticino.title': 'Ticinesi Gemeinden investieren in den Tourismussektor: hier sind die Details',
+    'blog.article.comuni-investono-turismo-ticino.excerpt': 'In den letzten Monaten haben verschiedene Gemeinden im Tessin in touristische Infrastrukture investiert.',
+    'blog.article.comuni-investono-turismo-ticino.imageAlt': 'Ticino Urlaub: Gemeinden investieren im Tourismus. Foto eines Hotels in Lugano.',
 };
 
 export default blogMetaDe;
