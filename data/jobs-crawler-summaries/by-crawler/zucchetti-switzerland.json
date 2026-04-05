@@ -1,55 +1,19 @@
 {
   "key": "zucchetti-switzerland",
   "label": "zucchetti",
-  "generatedAt": "2026-04-05T12:29:16.454Z",
+  "generatedAt": "2026-04-05T21:49:17.680Z",
   "total": 0,
   "newCount": 0,
   "updatedCount": 0,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 787,
-  "avgDurationMs": 787,
+  "durationMs": 705,
+  "avgDurationMs": 705,
   "durationHistory": [
-    787
+    705
   ],
   "newJobs": [],
   "updatedJobs": [],
-  "removedJobs": [
-    {
-      "title": "Software Developer (m/f/d)",
-      "slug": "software-sviluppatore-m-f-d-zucchetti-switzerland-sa-mendrisio-switzerland",
-      "url": "https://zinrec.intervieweb.it/zucchettidach/jobs/software-developer-mfd-108010/de/",
-      "applyUrl": "https://zinrec.intervieweb.it/zucchettidach/jobs/software-developer-mfd-108010/de/",
-      "company": "Zucchetti Switzerland SA",
-      "companyKey": "zucchetti-switzerland",
-      "companyDomain": "zucchetti.com",
-      "location": "Mendrisio, Switzerland",
-      "addressLocality": "Mendrisio, Switzerland",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "zucchetti-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-03-29",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "streetAddress": "Via Cantonale",
-      "postalCode": "6928",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 23,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
