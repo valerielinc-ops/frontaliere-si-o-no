@@ -24,9 +24,9 @@
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "slugByLocale": {
         "it": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "en": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "de": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "fr": "manor-collaboratore-trice-servizio-manora-50-locarno"
+        "en": "service-collaborator-manora-50-manor-ag-locarno",
+        "de": "service-mitarbeiter-manora-50-manor-ag-locarno",
+        "fr": "collaborateur-service-manora-50-manor-ag-locarno"
       },
       "titleByLocale": {
         "it": "Collaboratore/trice servizio (Manora) 50%",
@@ -54,7 +54,10 @@
       "addressLocality": "Lugano",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "manor-collaboratore-trice-servizio-manora-50-locarno"
+      ]
     },
     {
       "title": "Collaborateur/trice service (Manora) 50%",

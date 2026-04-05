@@ -25,7 +25,7 @@
       "crawledAt": "2026-04-04T21:10:41.924Z",
       "slugByLocale": {
         "it": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46",
+        "en": "catering-assistant-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "kuchenhilfe-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "assistant-de-restauration-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -67,7 +67,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-trice-della-ristorazione-eoc-ente-ospedaliero-cantonale-novaggio-x29n46"
+      ]
     },
     {
       "id": "company-uil3cp",
@@ -420,8 +423,8 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
-        "de": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno"
+        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
+        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -466,7 +469,9 @@
         "nursing-internship-eoc-ente-ospedaliero-cantonale-bellinzona",
         "pflegepraktikum-eoc-ente-ospedaliero-cantonale-bellinzona",
         "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
+        "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
+        "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno"
       ]
     },
     {
@@ -490,9 +495,9 @@
       "crawledAt": "2026-04-04T21:10:41.924Z",
       "slugByLocale": {
         "it": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "medical-assistant-hospital-doctor-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
+        "fr": "assistant-medical-medecin-hospitalier-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Medico assistente / Medico ospedaliero",
@@ -508,7 +513,8 @@
       },
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d"
+        "medico-assistente-medico-ospedaliero-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-x29n4d",
+        "medico-assistente-medico-ospedaliero-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 80000,
@@ -551,9 +557,9 @@
       "crawledAt": "2026-04-04T21:10:41.924Z",
       "slugByLocale": {
         "it": "operatore-trice-socio-sanitario-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "socio-sanitary-operator-operator-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "sozialarbeiter-eoc-ente-ospedaliero-cantonale-novaggio",
-        "fr": "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+        "fr": "operateur-operatrice-socio-sanitaire-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
         "it": "Operatore/trice socio sanitario/a",
@@ -586,7 +592,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "social-and-health-worker-eoc-ente-ospedaliero-cantonale-novaggio",
+        "agent-de-sante-sociale-eoc-ente-ospedaliero-cantonale-novaggio"
+      ]
     },
     {
       "id": "company-x29n58",
@@ -670,7 +680,7 @@
       "crawledAt": "2026-04-04T21:10:41.924Z",
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
-        "en": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
+        "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-novaggio",
         "de": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
       },
@@ -688,7 +698,8 @@
       },
       "requirementsByLocale": {},
       "previousSlugs": [
-        "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z"
+        "stage-servizio-infermieristico-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offer-x29n5z",
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 58000,
@@ -735,7 +746,7 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierte-physiotherapeutin-diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -760,7 +771,8 @@
         "fr": []
       },
       "previousSlugs": [
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63"
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 80000,
@@ -828,14 +840,15 @@
       "slugByLocale": {
         "it": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierte-physiotherapeutin-diplomierter-physiotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "fisioterapista-diplomato-a-eoc-novaggio",
         "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n6r",
-        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63"
+        "fisioterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-o-x29n63",
+        "fisioterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -880,7 +893,7 @@
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierte-ergotherapeutin-diplomierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "titleByLocale": {
@@ -904,7 +917,8 @@
         "fr": []
       },
       "previousSlugs": [
-        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t"
+        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "sourceLang": "it",
       "salaryMin": 80000,
@@ -970,14 +984,15 @@
       "slugByLocale": {
         "it": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
         "en": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
-        "de": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio",
+        "de": "diplomierte-ergotherapeutin-diplomierter-ergotherapeut-eoc-ente-ospedaliero-cantonale-novaggio",
         "fr": "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       },
       "sourceLang": "it",
       "previousSlugs": [
         "ergoterapista-diplomato-a-eoc-novaggio",
         "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6w",
-        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t"
+        "ergoterapista-diplomato-a-permette-di-combinare-efficacemente-approccio-locale-e-visione-d-insieme-garantendo-alla-popolazione-un-offerta-os-x29n6t",
+        "ergoterapista-diplomato-a-eoc-ente-ospedaliero-cantonale-novaggio"
       ],
       "salaryMin": 80000,
       "salaryMax": 108000,
@@ -1369,8 +1384,8 @@
       "slugByLocale": {
         "it": "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-bellinzona",
         "en": "nursing-service-internship-eoc-ente-ospedaliero-cantonale-locarno",
-        "de": "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
-        "fr": "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno"
+        "de": "pflegepraktikum-eoc-ente-ospedaliero-cantonale-lugano",
+        "fr": "stage-en-soins-infirmiers-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Stage servizio infermieristico",
@@ -1416,7 +1431,9 @@
         "nursing-service-internship-eoc-ente-ospedaliero-cantonale-lugano",
         "praktikum-im-pflegedienst-eoc-ente-ospedaliero-cantonale-lugano",
         "stage-en-service-infirmier-eoc-ente-ospedaliero-cantonale-lugano",
-        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno"
+        "stage-servizio-infermieristico-eoc-ente-ospedaliero-cantonale-locarno",
+        "pflegedienst-praktikum-eoc-ente-ospedaliero-cantonale-locarno",
+        "stage-de-service-infirmier-eoc-ente-ospedaliero-cantonale-locarno"
       ]
     },
     {
@@ -1655,7 +1672,7 @@
       "crawledAt": "2026-04-04T09:11:03.832Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou",
+        "en": "medical-office-assistant-eoc-ente-ospedaliero-cantonale-locarno",
         "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-locarno",
         "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-locarno"
       },
@@ -1692,7 +1709,8 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "previousSlugs": [
-        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno"
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno",
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-locarno-uikzou"
       ]
     },
     {
