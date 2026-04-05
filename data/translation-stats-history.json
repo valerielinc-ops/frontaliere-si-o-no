@@ -1,117 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T09:27:53.701Z",
-    "label": "before",
-    "total": 1318,
-    "needsRetranslation": 896,
-    "incomplete": 614,
-    "complete": 704,
-    "missingByLocale": {
-      "it": 245,
-      "en": 441,
-      "de": 249,
-      "fr": 522
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 94
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 82
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 26
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 16
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      },
-      {
-        "company": "Casale SA",
-        "pending": 10
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T10:01:48.591Z",
-    "label": "after",
-    "total": 1318,
-    "needsRetranslation": 802,
-    "incomplete": 592,
-    "complete": 726,
-    "missingByLocale": {
-      "it": 230,
-      "en": 424,
-      "de": 243,
-      "fr": 502
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "Caotec SA",
-        "pending": 94
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 85
-      },
-      {
-        "company": "PwC Switzerland",
-        "pending": 79
-      },
-      {
-        "company": "USI – Università della Svizzera italiana",
-        "pending": 28
-      },
-      {
-        "company": "Convit Holding GmbH",
-        "pending": 26
-      },
-      {
-        "company": "Hamilton Bonaduz AG",
-        "pending": 13
-      },
-      {
-        "company": "LIS – Lugano Istituti Sociali",
-        "pending": 13
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 11
-      },
-      {
-        "company": "Casale SA",
-        "pending": 10
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T10:24:11.392Z",
     "label": "before",
     "total": 1318,
@@ -9626,6 +9514,118 @@
       {
         "company": "Rapelli - ORIOR Food AG",
         "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-05T13:16:23.608Z",
+    "label": "before",
+    "total": 1524,
+    "needsRetranslation": 305,
+    "incomplete": 278,
+    "complete": 1246,
+    "missingByLocale": {
+      "it": 183,
+      "en": 202,
+      "de": 92,
+      "fr": 224
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 65
+      },
+      {
+        "company": "VOLG",
+        "pending": 44
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 25
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 25
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Denner",
+        "pending": 11
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "Lombardi Group",
+        "pending": 9
+      },
+      {
+        "company": "Prada Group",
+        "pending": 8
+      },
+      {
+        "company": "Rapelli - ORIOR Food AG",
+        "pending": 8
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-05T13:17:07.222Z",
+    "label": "after",
+    "total": 1524,
+    "needsRetranslation": 216,
+    "incomplete": 190,
+    "complete": 1334,
+    "missingByLocale": {
+      "it": 104,
+      "en": 121,
+      "de": 70,
+      "fr": 142
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 57
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 25
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Denner",
+        "pending": 11
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 9
+      },
+      {
+        "company": "Lombardi Group",
+        "pending": 9
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 7
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 7
+      },
+      {
+        "company": "Allianz Suisse",
+        "pending": 6
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 6
       }
     ]
   }
