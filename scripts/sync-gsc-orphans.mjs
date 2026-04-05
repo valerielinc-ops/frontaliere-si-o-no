@@ -26,6 +26,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 const SITE_URL = 'https://frontaliereticino.ch';
+let resolvedSiteUrl = SITE_URL;
 const DRY_RUN = process.argv.includes('--dry-run');
 
 // ── Env ──────────────────────────────────────────────────
@@ -108,6 +109,41 @@ async function getAccessToken() {
   return data.access_token;
 }
 
+// ── Auto-detect GSC site property ────────────────────────
+async function detectSiteProperty(accessToken) {
+  try {
+    const res = await fetch('https://www.googleapis.com/webmasters/v3/sites', {
+      headers: { Authorization: `Bearer ${accessToken}` },
+    });
+    if (!res.ok) {
+      console.warn(`⚠️  GSC site list failed (${res.status}) — using default ${SITE_URL}`);
+      return;
+    }
+    const data = await res.json();
+    const sites = (data.siteEntry || []).map(s => s.siteUrl);
+
+    // Prefer exact URL-prefix match
+    const urlPrefix = sites.find(s => s === SITE_URL || s === SITE_URL + '/');
+    if (urlPrefix) {
+      resolvedSiteUrl = urlPrefix.replace(/\/$/, '');
+      console.log(`✅ GSC site found: ${resolvedSiteUrl} (URL-prefix)`);
+      return;
+    }
+
+    // Try domain property
+    const domain = sites.find(s => s.startsWith('sc-domain:') && SITE_URL.includes(s.replace('sc-domain:', '')));
+    if (domain) {
+      resolvedSiteUrl = domain;
+      console.log(`✅ GSC site found: ${domain} (domain property)`);
+      return;
+    }
+
+    console.warn(`⚠️  No matching GSC site found. Registered: ${sites.join(', ') || '(none)'}`);
+  } catch (err) {
+    console.warn(`⚠️  GSC site detection failed: ${err.message}`);
+  }
+}
+
 // ══════════════════════════════════════════════════════════
 // STEP 1 — Import from GSC
 // ══════════════════════════════════════════════════════════
@@ -139,7 +175,7 @@ async function fetchGscJobUrls(accessToken) {
 
     while (true) {
       const res = await fetch(
-        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(SITE_URL)}/searchAnalytics/query`,
+        `https://www.googleapis.com/webmasters/v3/sites/${encodeURIComponent(resolvedSiteUrl)}/searchAnalytics/query`,
         {
           method: 'POST',
           headers: {
@@ -545,7 +581,7 @@ async function enrichUrlInspection(enrichedOrphans, accessToken) {
           },
           body: JSON.stringify({
             inspectionUrl,
-            siteUrl: SITE_URL,
+            siteUrl: resolvedSiteUrl,
           }),
         },
       );
@@ -863,12 +899,16 @@ async function main() {
   let accessToken;
   try {
     accessToken = await getAccessToken();
-    console.log('✅ GSC OAuth token obtained\n');
+    console.log('✅ GSC OAuth token obtained');
   } catch (err) {
     console.error('❌ Cannot get GSC access token:', err.message);
     console.error('   Set GSC_CLIENT_ID, GSC_CLIENT_SECRET, GSC_REFRESH_TOKEN');
     process.exit(1);
   }
+
+  // Detect correct GSC site property (URL-prefix vs domain)
+  await detectSiteProperty(accessToken);
+  console.log();
 
   // Step 1: Fetch GSC data
   const gscMap = await fetchGscJobUrls(accessToken);
