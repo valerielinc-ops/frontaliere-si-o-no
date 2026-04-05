@@ -659,8 +659,9 @@ export function reconcileExpiredSlugs(activeJobs, expiredJobs, options = {}) {
       ...(ej.previousSlugs || []),
     ].filter(Boolean);
 
-    // Skip if any slug already known to an active job
+    // Already reconciled: slugs are known to an active job — remove from expired
     if (expSlugs.some((s) => index.allSlugSet.has(s))) {
+      reconciledIds.add(ej.slug || ej.id || JSON.stringify(ej.slugByLocale));
       skippedCount++;
       continue;
     }
@@ -884,25 +885,29 @@ if (isDirectRun) {
       ...orphanResult.updatedJobs,
     ]);
 
-    if (allUpdatedJobs.size > 0) {
-      // Write active jobs
-      writeJson(DATA_JOBS, activeJobs);
-      writeJson(PUBLIC_JOBS, activeJobs);
-      console.log(`💾 Wrote ${DATA_JOBS} and ${PUBLIC_JOBS}`);
+    const hasExpiredCleanup = expiredResult.reconciledIds?.size > 0;
+
+    if (allUpdatedJobs.size > 0 || hasExpiredCleanup) {
+      if (allUpdatedJobs.size > 0) {
+        // Write active jobs (only if previousSlugs changed)
+        writeJson(DATA_JOBS, activeJobs);
+        writeJson(PUBLIC_JOBS, activeJobs);
+        console.log(`💾 Wrote ${DATA_JOBS} and ${PUBLIC_JOBS}`);
+
+        // Update per-crawler slices
+        updateCrawlerSlices(allUpdatedJobs);
+
+        // Write remaining orphan slugs
+        writeJson(DATA_ORPHAN_SLUGS, orphanResult.remainingOrphans);
+        console.log(`💾 Wrote ${DATA_ORPHAN_SLUGS} (${orphanResult.remainingOrphans.length} remaining)`);
+      }
 
       // Write expired jobs (with reconciled entries removed)
       writeJson(DATA_EXPIRED, expiredResult.updatedExpired);
-      console.log(`💾 Wrote ${DATA_EXPIRED}`);
-
-      // Update per-crawler slices
-      updateCrawlerSlices(allUpdatedJobs);
+      console.log(`💾 Wrote ${DATA_EXPIRED} (${expiredResult.updatedExpired.length} remaining)`);
 
       // Remove reconciled entries from expired per-crawler slices
       updateExpiredCrawlerSlices(expiredResult.reconciledIds);
-
-      // Write remaining orphan slugs
-      writeJson(DATA_ORPHAN_SLUGS, orphanResult.remainingOrphans);
-      console.log(`💾 Wrote ${DATA_ORPHAN_SLUGS} (${orphanResult.remainingOrphans.length} remaining)`);
     } else {
       console.log('ℹ️  No changes — all files untouched');
     }
