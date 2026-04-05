@@ -1949,6 +1949,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-diventare-pastore-ticino': { name: 'Formazione pastore', path: '/articoli-frontaliere/diventare-pastore-ticino', parent: 'blog' },
     'blog-varese-si-ubriaca-infortuna': { name: 'Varese: si ubriaca, s\'infortuna, ferisce', path: '/articoli-frontaliere/varese-si-ubriaca-infortuna', parent: 'blog' },
     'blog-trump-intesa-o-inferno': { name: 'Tensione tra Stati Uniti e Cina', path: '/articoli-frontaliere/trump-intesa-o-inferno', parent: 'blog' },
+    'blog-coop-richiama-formaggi-salmonelle': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/coop-richiama-formaggi-salmonelle', parent: 'blog' },
   };
 
   const info = sectionNames[section];

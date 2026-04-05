@@ -2088,6 +2088,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.trump-intesa-o-inferno.title': 'Trump: "Intesa o sar0 l\'inferno". Il giallo dell\'ultimatum spostato a marted8',
     'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
     'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump annuncia un ultimato alla Cina',
+    'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop richiama formaggi: possono contenere salmonelle',
+    'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop ha richiamato alcuni formaggi per la presenza di salmonelle, particolarmente pericolosi per le persone immunodepresse, le donne in gravidanza, le bambine e i bambini e le persone anziane',
+    'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Formaggio Ticinese con salmone',
 };
 
 export default blogMetaIt;

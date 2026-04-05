@@ -2088,6 +2088,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.trump-intesa-o-inferno.title': 'Trump : «Accord ou c&#39;est l&#39;enfer». Le mystère de l&#39;ultimatum reporté au mardi',
     'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annonce un ultimatum à la Chine pendant la Pâques en Suisse italienne',
     'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump annonce un ultimatum à la Chine',
+    'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop rappelle les fromages : ils peuvent contenir des salmonelles',
+    'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop a rappelé certains fromages en raison de la présence de salmonelles, particulièrement dangereuses pour les personnes immunodéprimées, les femmes enceintes, les fillettes et les garçons et les personnes âgées.',
+    'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Fromage ticinois au saumon',
 };
 
 export default blogMetaFr;

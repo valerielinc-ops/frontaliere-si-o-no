@@ -6062,4 +6062,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/trump-intesa-o-inferno.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'coop-richiama-formaggi-salmonelle',
+    category: 'novita',
+    date: '2026-04-05T23:46:19.813Z',
+    image: '/images/blog/coop-richiama-formaggi-salmonelle.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -2088,6 +2088,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.trump-intesa-o-inferno.title': 'Trump: "Einigung oder das Inferno". Das Rätsel um den Ultimatumtermin wird auf Dienstag verschoben',
     'blog.article.trump-intesa-o-inferno.excerpt': 'Trump gibt China während der Osterfeiertage in Tessin ein Ultimatum',
     'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump kündigt ein Ultimatum an',
+    'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop erinnert an Käse: Salmonellen können enthalten sein',
+    'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop hat einige Käse zurückgerufen, da sie Salmonellen enthalten, die besonders gefährlich für Menschen mit einer geschwächten Immunabwehr, Schwangere, Mädchen und Jungen, ältere Menschen sind',
+    'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Ticiner Käse mit Lachs',
 };
 
 export default blogMetaDe;

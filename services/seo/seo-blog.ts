@@ -11956,6 +11956,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-coop-richiama-formaggi-salmonelle': {
+    title: 'Coop richiama formaggi: possono contenere salmonelle | Frontaliere Ticino',
+    description: 'Coop richiama formaggi per la presenza di salmonelle, particolarmente pericolosi per le persone immunodepresse, le donne in gravidanza, le bambine e i bambini e',
+    keywords: 'frontalieri, ticino, svizzera, italia, coop, richiama, formaggi, possono',
+    ogTitle: 'Coop richiama formaggi: possono contenere salmonelle',
+    ogDescription: 'Coop richiama formaggi per la presenza di salmonelle, particolarmente pericolosi per le persone immunodepresse, le donne in gravidanza, le bambine e i bambini e',
+    canonicalPath: '/articoli-frontaliere/coop-richiama-formaggi-salmonelle',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Coop richiama formaggi: possono contenere salmonelle",
+      "description": "Coop richiama formaggi per la presenza di salmonelle, particolarmente pericolosi per le persone immunodepresse, le donne in gravidanza, le bambine e i bambini e",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/coop-richiama-formaggi-salmonelle.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Formaggio Ticinese con salmone"
+      },
+      "datePublished": "2026-04-05T23:46:19+00:00",
+      "dateModified": "2026-04-05T23:46:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/coop-richiama-formaggi-salmonelle`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

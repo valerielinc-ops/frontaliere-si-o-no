@@ -2088,6 +2088,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.trump-intesa-o-inferno.title': 'Trump: \'Intesa o sarà l\'inferno\'. Il giallo dell\'ultimatum spostato a martedì',
     'blog.article.trump-intesa-o-inferno.excerpt': 'Trump annuncia un ultimatum alla Cina durante la Pasqua in Ticino',
     'blog.article.trump-intesa-o-inferno.imageAlt': 'Trump announces a deadline for China',
+    'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop Recalls Cheeses: May Contain Salmonella',
+    'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop has recalled some cheeses due to the presence of salmonella, which can be particularly hazardous for immunocompromised individuals, pregnant women, young girls and boys, and the elderly.',
+    'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Ticinese cheese with salmon',
 };
 
 export default blogMetaEn;
