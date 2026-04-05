@@ -2040,6 +2040,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-bicicletta-grave.title': 'Lavena Ponte Tresa: bambino sbalzato dal sellino della bicicletta è grave',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.excerpt': 'Un bambino di 2 anni e 9 mesi è stato soccorso dall\'eliambulanza a Lavena Ponte Tresa dopo essere stato sbalzato dal sellino della bicicletta.',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.imageAlt': 'Un bambino a Lavena Ponte Tresa cade dalla bicicletta e viene soccorso dall\'eliambulanza.',
+    'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo denuncia: i permessi non sono un incidente',
+    'blog.article.roveredo-permessi-anticrimine.excerpt': 'Il Municipio di Roveredo si oppone alla versione del Governo grigionese sul rilascio dei permessi di dimora, evidenziando rischi e criticità nel controllo intercantonale.',
+    'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Ufficio permessi a Roveredo con segnali di sicurezza e valico di frontiera',
 };
 
 export default blogMetaIt;

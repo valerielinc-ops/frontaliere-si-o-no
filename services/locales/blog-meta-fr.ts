@@ -2040,6 +2040,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-bicicletta-grave.title': 'Lavena Ponte Tresa: l\'enfant renversé de sa bicyclette est grave',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.excerpt': 'Un enfant de 2 ans et 9 mois a été secouru par une eliambulance à Lavena Ponte Tresa après avoir été renversé de sa bicyclette.',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.imageAlt': 'Un enfant à Lavena Ponte Tresa tombe de sa bicyclette et est secouru par un ravitailleur aérien.',
+    'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo dénonce : les permis de séjour ne sont pas un accident',
+    'blog.article.roveredo-permessi-anticrimine.excerpt': 'Le Conseil municipal de Roveredo s\'oppose à la version du gouvernement grison sur l\'octroi des permis de séjour, mettant en évidence les risques et les critiques dans le contrôle intercantonale. 📊💡⚠️',
+    'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Bureau des permis à Roveredo avec panneaux de sécurité et passage frontalier',
 };
 
 export default blogMetaFr;

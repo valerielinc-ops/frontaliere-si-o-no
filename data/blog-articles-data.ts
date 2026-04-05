@@ -5950,4 +5950,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavena-ponte-tresa-bicicletta-grave.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'roveredo-permessi-anticrimine',
+    category: 'fiscale',
+    date: '2026-04-05T03:34:27.220Z',
+    image: '/images/blog/roveredo-permessi-anticrimine.jpg',
+    hasCalculator: true,
+  },
 ];

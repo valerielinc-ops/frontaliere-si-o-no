@@ -2040,6 +2040,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-bicicletta-grave.title': 'Lavena Ponte Tresa: Kind geworfen aus dem Fahrradkorb ist schwer verletzt',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.excerpt': 'Ein 2-jähriges und 9-monatiges Kind wurde in Lavena Ponte Tresa nach einem Sturz aus dem Fahrradkorb von der Hubschrauber-Notfallambulanz gerettet.',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.imageAlt': 'Ein Kind in Lavena Ponte Tresa fällt von seinem Fahrrad ab und wird von einem Hubschrauberrettungssystem gerettet.',
+    'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo protesta: die Erlaubnisse sind kein Unfall',
+    'blog.article.roveredo-permessi-anticrimine.excerpt': 'Das Gemeindeamt von Roveredo widerspricht der Version des grössten Kantons über die Ausstellung von Aufenthaltsbewilligungen, indem es Risiken und Schwierigkeiten bei der grenzüberschreitenden Kontrolle hervorhebt. 💡',
+    'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Grenzamt Roveredo mit Sicherheitszeichen und Grenzübergang',
 };
 
 export default blogMetaDe;

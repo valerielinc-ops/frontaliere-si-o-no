@@ -2040,6 +2040,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavena-ponte-tresa-bicicletta-grave.title': 'Lavena Ponte Tresa: Child thrown off bicycle seat is in critical condition',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.excerpt': 'A 2-year-old and 9-month-old child was rescued by an eliambulance in Lavena Ponte Tresa after being thrown off the bicycle seat.',
     'blog.article.lavena-ponte-tresa-bicicletta-grave.imageAlt': 'A child in Lavena Ponte Tresa falls off a bicycle and is rescued by an air ambulance.',
+    'blog.article.roveredo-permessi-anticrimine.title': 'Roveredo Reports: Permits Are Not an Accident',
+    'blog.article.roveredo-permessi-anticrimine.excerpt': 'The Municipality of Roveredo opposes the version presented by the Graubünden government regarding the issuance of residence permits, highlighting risks and critical issues in inter-cantonal control.',
+    'blog.article.roveredo-permessi-anticrimine.imageAlt': 'Roveredo border office with security signs and border crossing scene',
 };
 
 export default blogMetaEn;

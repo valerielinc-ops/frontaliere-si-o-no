@@ -11476,6 +11476,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roveredo-permessi-anticrimine': {
+    title: 'Roveredo denuncia: i permessi non sono un incidente | Frontaliere Ticino',
+    description: 'Il Municipio di Roveredo si oppone alla versione del Governo grigionese sul rilascio dei permessi di dimora, evidenziando rischi e criticità nel controllo inter',
+    keywords: 'frontalieri, ticino, svizzera, italia, roveredo, denuncia, permessi, sono',
+    ogTitle: 'Roveredo denuncia: i permessi non sono un incidente',
+    ogDescription: 'Il Municipio di Roveredo si oppone alla versione del Governo grigionese sul rilascio dei permessi di dimora, evidenziando rischi e criticità nel controllo inter',
+    canonicalPath: '/articoli-frontaliere/roveredo-permessi-anticrimine',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roveredo denuncia: i permessi non sono un incidente",
+      "description": "Il Municipio di Roveredo si oppone alla versione del Governo grigionese sul rilascio dei permessi di dimora, evidenziando rischi e criticità nel controllo inter",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/roveredo-permessi-anticrimine.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio permessi a Roveredo con segnali di sicurezza e valico di frontiera"
+      },
+      "datePublished": "2026-04-05T03:34:27+00:00",
+      "dateModified": "2026-04-05T03:34:27+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/roveredo-permessi-anticrimine`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
