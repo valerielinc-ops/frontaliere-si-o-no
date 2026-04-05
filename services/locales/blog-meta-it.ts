@@ -2049,6 +2049,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tramonto-a-cadenazzo.title': 'Tramonto a Cadenazzo: morto il vigilante travolto da un\'auto',
     'blog.article.tramonto-a-cadenazzo.excerpt': 'Un incidente stradale a Cadenazzo ha causato la morte di un vigilante',
     'blog.article.tramonto-a-cadenazzo.imageAlt': 'Tramonto a Cadenazzo',
+    'blog.article.traffico-san-gottardo-2026.title': 'Traffico paralizzato al San Gottardo: "Qualcuno sa come arrivare in Italia?"',
+    'blog.article.traffico-san-gottardo-2026.excerpt': 'La colonna di auto ferme al portale nord della galleria del San Gottardo ha raggiunto i 21 chilometri con picchi di oltre 3 ore e mezza di attesa',
+    'blog.article.traffico-san-gottardo-2026.imageAlt': 'Traffico al San Gottardo',
 };
 
 export default blogMetaIt;

@@ -2049,6 +2049,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tramonto-a-cadenazzo.title': 'Sunset in Cadenazzo: Vigilante Killed in Car Accident',
     'blog.article.tramonto-a-cadenazzo.excerpt': 'A road accident in Cadenazzo has resulted in the death of a security guard',
     'blog.article.tramonto-a-cadenazzo.imageAlt': 'Sunset in Cadenazzo',
+    'blog.article.traffico-san-gottardo-2026.title': 'Traffic Paralysed at San Gottardo: \'Does Anyone Know How to Get to Italy?\'',
+    'blog.article.traffico-san-gottardo-2026.excerpt': 'The column of cars stuck at the north portal of the San Gottardo tunnel has reached 21 kilometres with peaks of over 3 hours and 30 minutes of waiting time 📊💡⚠️',
+    'blog.article.traffico-san-gottardo-2026.imageAlt': 'Traffic San Gottardo',
 };
 
 export default blogMetaEn;

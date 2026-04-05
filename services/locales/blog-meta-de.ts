@@ -2049,6 +2049,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tramonto-a-cadenazzo.title': 'Sonnenuntergang in Cadenazzo: Wachmann von Auto erfasst und getötet',
     'blog.article.tramonto-a-cadenazzo.excerpt': 'Ein Verkehrsunfall in Cadenazzo hat den Tod eines Wachmanns zur Folge',
     'blog.article.tramonto-a-cadenazzo.imageAlt': 'Sonnenuntergang in Cadenazzo',
+    'blog.article.traffico-san-gottardo-2026.title': 'Traffico paralizzato am San Gottardo: "Wer weiß, wie man nach Italien kommt?"',
+    'blog.article.traffico-san-gottardo-2026.excerpt': 'Die Kolonne der verstopften Autos am Nordportal der Gotthard-Autobahn hat 21 Kilometer erreicht, mit Spitzenwartezeiten von über 3 Stunden und 30 Minuten.',
+    'blog.article.traffico-san-gottardo-2026.imageAlt': 'San Gottardo Verkehr',
 };
 
 export default blogMetaDe;

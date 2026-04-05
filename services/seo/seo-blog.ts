@@ -11579,6 +11579,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-san-gottardo-2026': {
+    title: 'Traffico paralizzato al San Gottardo: "Qualcuno sa come arrivare in | Frontaliere Ticino',
+    description: 'La colonna di auto ferme al portale nord della galleria del San Gottardo ha raggiunto i 21 chilometri con picchi di oltre 3 ore e mezza di attesa',
+    keywords: 'frontalieri, ticino, svizzera, italia, traffico, paralizzato, gottardo, qualcuno',
+    ogTitle: 'Traffico paralizzato al San Gottardo: "Qualcuno sa come a',
+    ogDescription: 'La colonna di auto ferme al portale nord della galleria del San Gottardo ha raggiunto i 21 chilometri con picchi di oltre 3 ore e mezza di attesa',
+    canonicalPath: '/articoli-frontaliere/traffico-san-gottardo-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico paralizzato al San Gottardo: \"Qualcuno sa come a",
+      "description": "La colonna di auto ferme al portale nord della galleria del San Gottardo ha raggiunto i 21 chilometri con picchi di oltre 3 ore e mezza di attesa",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/traffico-san-gottardo-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico al San Gottardo"
+      },
+      "datePublished": "2026-04-05T09:02:26+00:00",
+      "dateModified": "2026-04-05T09:02:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1912,6 +1912,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-roveredo-permessi-anticrimine': { name: 'Roveredo denuncia', path: '/articoli-frontaliere/roveredo-permessi-anticrimine', parent: 'blog' },
     'blog-pasqua-messaggio-di-avvenire': { name: 'Pasqua', path: '/articoli-frontaliere/pasqua-messaggio-di-avvenire', parent: 'blog' },
     'blog-tramonto-a-cadenazzo': { name: 'Tramonto a Cadenazzo', path: '/articoli-frontaliere/tramonto-a-cadenazzo', parent: 'blog' },
+    'blog-traffico-san-gottardo-2026': { name: 'Traffico paralizzato al San Gottardo', path: '/articoli-frontaliere/traffico-san-gottardo-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

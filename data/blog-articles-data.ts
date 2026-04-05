@@ -5971,4 +5971,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tramonto-a-cadenazzo.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'traffico-san-gottardo-2026',
+    category: 'novita',
+    date: '2026-04-05T09:02:26.136Z',
+    image: '/images/blog/traffico-san-gottardo-2026.jpg',
+    hasCalculator: true,
+  },
 ];

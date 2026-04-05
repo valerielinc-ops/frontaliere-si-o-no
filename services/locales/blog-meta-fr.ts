@@ -2049,6 +2049,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tramonto-a-cadenazzo.title': 'Coucher de soleil à Cadenazzo : mort de la sentinelle renversée par une voiture',
     'blog.article.tramonto-a-cadenazzo.excerpt': 'Un accident de la route à Cadenazzo a entraîné la mort d\'une sentinelle de sécurité',
     'blog.article.tramonto-a-cadenazzo.imageAlt': 'Coucher du soleil à Cadenazzo',
+    'blog.article.traffico-san-gottardo-2026.title': 'Trafic paralysé au Saint-Gothard : "Quelqu\'un sait comment arriver en Italie ?"',
+    'blog.article.traffico-san-gottardo-2026.excerpt': 'La file d\'attente de voitures arrêtées au portail nord du tunnel du Saint-Gothard a atteint 21 kilomètres avec des pics de plus de 3 heures et demie d\'attente',
+    'blog.article.traffico-san-gottardo-2026.imageAlt': 'San Gottardo circulation',
 };
 
 export default blogMetaFr;
