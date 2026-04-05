@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-04-05T09:10:52.289Z",
+  "assembledAt": "2026-04-05T21:10:00.217Z",
   "jobs": [
     {
       "title": "Standortleiter/in Zugvorbereitung & Reinigung / Nord- & Mittelbünden (50-100%)",
@@ -285,7 +285,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/in Anlagebuchhaltung (50-100%)",
