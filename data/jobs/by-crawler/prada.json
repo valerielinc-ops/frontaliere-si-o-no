@@ -9,7 +9,7 @@
         "it": "prada-client-advisor-part-time-oslo-prada-group-mendrisio",
         "en": "prada-client-advisor-part-time-oslo-prada-group-mendrisio",
         "de": "prada-client-advisor-part-time-oslo-prada-group-mendrisio",
-        "fr": "prada-client-advisor-part-time-oslo-prada-group-mendrisio"
+        "fr": "prada-client-conseiller-temps-partiel-oslo-prada-group-mendrisio"
       },
       "company": "Prada Group",
       "companyKey": "prada",
@@ -62,7 +62,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6850"
+      "postalCode": "6850",
+      "previousSlugs": [
+        "prada-client-advisor-part-time-oslo-prada-group-mendrisio"
+      ]
     },
     {
       "id": "prada-6786f1b74381",
