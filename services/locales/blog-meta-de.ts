@@ -2067,6 +2067,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.agriscambio.title': 'Viele Bauern vor der Pensionierung: die Nachfolge ist eine Herausforderung',
     'blog.article.agriscambio.excerpt': 'Tessiner Bauern vor der Pensionierung: Wer ist bereit, den Wandel weiterzuführen?',
     'blog.article.agriscambio.imageAlt': 'Ein Landwirt in Ticino arbeitet auf einer Farm.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Initiative auf 10 Millionen: Stimmabgabe am 14. Juni 2026',
+    'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'Der Kanton Tessin steht im Mittelpunkt des Diskurses über die Initiative, die eine Begrenzung der Bevölkerungszunahme in der Schweiz anstrebt.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Luftaufnahme des Luganersees mit Pendler, die bei Sonnenaufgang die Grenze überqueren',
 };
 
 export default blogMetaDe;

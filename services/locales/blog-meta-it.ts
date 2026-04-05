@@ -2067,6 +2067,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.agriscambio.title': 'Tanti agricoltori verso la pensione: il ricambio è una sfida',
     'blog.article.agriscambio.excerpt': 'Agricoltori ticinesi verso la pensione: chi è pronto a passare la testimone?',
     'blog.article.agriscambio.imageAlt': 'Un agricoltore ticinese lavora in una fattoria.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Iniziativa sui 10 milioni: voto il 14 giugno 2026',
+    'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'Il Canton Ticino al centro del dibattito sull\'iniziativa che vuole limitare la crescita demografica in Svizzera.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Vista aerea del lago di Lugano con frontalieri che attraversano il confine all\'alba',
 };
 
 export default blogMetaIt;

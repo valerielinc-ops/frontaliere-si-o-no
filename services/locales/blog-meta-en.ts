@@ -2067,6 +2067,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.agriscambio.title': 'Many farmers nearing retirement: the challenge of succession',
     'blog.article.agriscambio.excerpt': 'Ticinese farmers nearing retirement: who is ready to pass on the torch?',
     'blog.article.agriscambio.imageAlt': 'A farmer in Ticino works in a farm.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Initiative on 10 million: vote on June 14, 2026',
+    'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'The Canton of Ticino at the center of the debate on the initiative aimed at limiting demographic growth in Switzerland.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Aerial view of Lake Lugano with commuters crossing the border at dawn',
 };
 
 export default blogMetaEn;

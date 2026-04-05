@@ -6013,4 +6013,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/agriscambio.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'frontaliere-ticino-10-milioni-voto',
+    category: 'novita',
+    date: '2026-04-05T15:47:31.201Z',
+    image: '/images/blog/frontaliere-ticino-10-milioni-voto.jpg',
+    hasCalculator: true,
+  },
 ];

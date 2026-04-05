@@ -2067,6 +2067,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.agriscambio.title': 'De nombreux agriculteurs sur le point de prendre la retraite : le renouvellement est un défi',
     'blog.article.agriscambio.excerpt': 'Agriculteurs tessinois sur le point de prendre la retraite : qui est prêt à passer le relais ?',
     'blog.article.agriscambio.imageAlt': 'Un fermier ticin travaille sur une ferme.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.title': 'Initiative sur 10 millions : vote le 14 juin 2026',
+    'blog.article.frontaliere-ticino-10-milioni-voto.excerpt': 'Le canton du Tessin au cœur du débat sur l\'initiative qui souhaite limiter la croissance démographique en Suisse.',
+    'blog.article.frontaliere-ticino-10-milioni-voto.imageAlt': 'Vue aérienne du lac de Lugano avec des frontaliers traversant la frontière à l\'aube',
 };
 
 export default blogMetaFr;

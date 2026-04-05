@@ -11753,6 +11753,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-frontaliere-ticino-10-milioni-voto': {
+    title: 'Iniziativa sui 10 milioni: voto il 14 giugno 2026 | Frontaliere Ticino',
+    description: 'Analisi dell\'iniziativa popolare svizzera del 14 giugno 2026 che propone di limitare la crescita demografica, con focus sul Canton Ticino e i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, iniziativa, milioni, voto, giugno',
+    ogTitle: 'Iniziativa 10 milioni: cosa cambia per i frontalieri',
+    ogDescription: 'Tutte le informazioni sull\'iniziativa popolare svizzera del 14 giugno 2026 e il suo impatto sui lavoratori frontalieri in Ticino.',
+    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-10-milioni-voto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Iniziativa popolare svizzera 'No ad una Svizzera con 10 milioni di abitanti': impatto sul Canton",
+      "description": "Analisi dell'iniziativa popolare svizzera del 14 giugno 2026 che propone di limitare la crescita demografica, con focus sul Canton Ticino e i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/frontaliere-ticino-10-milioni-voto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista aerea del lago di Lugano con frontalieri che attraversano il confine all'alba"
+      },
+      "datePublished": "2026-04-05T15:47:31+00:00",
+      "dateModified": "2026-04-05T15:47:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-10-milioni-voto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
