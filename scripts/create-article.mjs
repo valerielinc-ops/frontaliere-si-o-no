@@ -2239,7 +2239,10 @@ function sanitizeBoldFormatting(data) {
     for (const field of ['body1', 'body2', 'body3']) {
       let text = String(data.content[locale][field] || '');
       const boldMatches = [...text.matchAll(/\*\*([^*]+)\*\*/g)];
-      if (boldMatches.length === 0) continue;
+      if (boldMatches.length === 0) {
+        data.content[locale][field] = text;
+        continue;
+      }
 
       let kept = 0;
       for (const match of boldMatches) {

@@ -22,7 +22,7 @@ COMMIT_AUTHOR=$(git log -1 --pretty=format:'%an')
 # ── Skip non-user-facing commits ──
 # Auto-generated commits (blog articles, crawler updates, etc.)
 case "$COMMIT_MSG" in
-  "📰 Auto-generated"*|"💼 Auto-update"*|"🤖 Auto-"*|"Merge "*|"merge "*) exit 0 ;;
+  "📰 Auto-generated"*|"💼 Auto-update"*|"🤖 Auto-"*|"⛽ "*|"🔗 "*|"🌐 "*|"Merge "*|"merge "*) exit 0 ;;
 esac
 
 # Non-user-facing conventional commit types
