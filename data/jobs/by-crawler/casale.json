@@ -1,6 +1,6 @@
 {
   "crawlerKey": "casale",
-  "assembledAt": "2026-04-05T08:52:50.032Z",
+  "assembledAt": "2026-04-05T20:52:17.396Z",
   "jobs": [
     {
       "url": "https://recruit.casale.ch/o/apprenticeship-laboratory-technician-in-chemistry-afc-chemical-and-pharmaceutical-technologist-afc",
@@ -661,7 +661,8 @@
           "maxValue": 89000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     }
   ]
 }
