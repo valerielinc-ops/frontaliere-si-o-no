@@ -167,6 +167,21 @@ function validateSchemas(html) {
     }
   }
 
+  // Check for duplicate same-type primary schemas (e.g., two FAQPage blocks)
+  // Google flags "campo duplicato" when it sees the same @type twice on one page.
+  const typeCounts = {};
+  for (const t of primaryTypes) {
+    typeCounts[t] = (typeCounts[t] || 0) + 1;
+  }
+  for (const [type, count] of Object.entries(typeCounts)) {
+    if (count > 1 && type !== 'BreadcrumbList' && type !== 'SpeakableSpecification') {
+      issues.push({
+        type: 'conflicting-schemas',
+        detail: `Duplicate "${type}" schema (found ${count}× in JSON-LD)`,
+      });
+    }
+  }
+
   // Check for conflicting primary schemas
   const uniquePrimary = [...new Set(primaryTypes)];
   if (uniquePrimary.length > 1) {
@@ -177,6 +192,18 @@ function validateSchemas(html) {
       issues.push({
         type: 'conflicting-schemas',
         detail: `Multiple primary schemas: ${uniquePrimary.join(', ')}`,
+      });
+    }
+  }
+
+  // Check for FAQPage microdata alongside JSON-LD FAQPage (causes Google "campo duplicato")
+  if (primaryTypes.includes('FAQPage')) {
+    const hasMicrodataFaq = html.includes('itemType="https://schema.org/FAQPage"') ||
+                            html.includes("itemType='https://schema.org/FAQPage'");
+    if (hasMicrodataFaq) {
+      issues.push({
+        type: 'conflicting-schemas',
+        detail: 'FAQPage defined in both JSON-LD and microdata — Google sees duplicates',
       });
     }
   }
