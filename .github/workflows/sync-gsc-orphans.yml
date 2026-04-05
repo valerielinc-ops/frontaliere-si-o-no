@@ -50,30 +50,32 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Load Firebase Remote Config env
-        run: node scripts/load-rc-env.mjs
+      - name: Prepare Firebase credentials
         env:
-          FIREBASE_API_KEY: ${{ secrets.FIREBASE_API_KEY }}
-          FIREBASE_PROJECT_ID: ${{ secrets.FIREBASE_PROJECT_ID }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — will use file config only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
 
       - name: Sync GSC orphan slugs + enrich
         run: |
           node scripts/sync-gsc-orphans.mjs \
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
         env:
-          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
-          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
           ENABLE_URL_INSPECTION: ${{ inputs.enable_url_inspection == true && '1' || '0' }}
           ENABLE_WAYBACK: ${{ inputs.enable_wayback == true && '1' || '0' }}
 
       - name: Reconcile orphan + expired slugs with active jobs
         if: ${{ inputs.dry_run != true }}
         run: node scripts/reconcile-job-slugs.mjs
-        env:
-          GSC_CLIENT_ID: ${{ secrets.GSC_CLIENT_ID }}
-          GSC_CLIENT_SECRET: ${{ secrets.GSC_CLIENT_SECRET }}
-          GSC_REFRESH_TOKEN: ${{ secrets.GSC_REFRESH_TOKEN }}
 
       - name: Check for changes
         id: changes
