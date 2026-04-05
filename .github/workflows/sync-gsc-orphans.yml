@@ -80,10 +80,14 @@ jobs:
       - name: Check for changes
         id: changes
         run: |
-          git add -A data/orphan-enriched-data.json data/orphan-indexed-job-slugs.json \
-                     data/gsc-orphan-queries.json data/url-inspection-results.json \
-                     data/expired-jobs.json data/jobs/by-crawler/ data/jobs/expired/by-crawler/ \
-                     public/data/expired-jobs.json
+          for f in data/orphan-enriched-data.json data/orphan-indexed-job-slugs.json \
+                   data/gsc-orphan-queries.json data/url-inspection-results.json \
+                   data/expired-jobs.json public/data/expired-jobs.json; do
+            [ -f "$f" ] && git add "$f"
+          done
+          for d in data/jobs/by-crawler data/jobs/expired/by-crawler; do
+            [ -d "$d" ] && git add "$d"
+          done
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
             echo "📭 No changes to commit"
