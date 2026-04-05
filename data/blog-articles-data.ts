@@ -6027,4 +6027,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/congestione-a2-san-gottardo-frontalieri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'galleria-del-ceneri-chiusa-per-problemi-tecnici',
+    category: 'pratico',
+    date: '2026-04-05T17:43:48.541Z',
+    image: '/images/blog/galleria-del-ceneri-chiusa-per-problemi-tecnici.jpg',
+    hasCalculator: true,
+  },
 ];

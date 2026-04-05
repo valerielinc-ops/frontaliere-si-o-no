@@ -2073,6 +2073,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.congestione-a2-san-gottardo-frontalieri.title': 'Kilometerlänge von 21 km auf der A2 bei San Gottardo: Die Folgen für die Frontalierer aus dem Tessin',
     'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'Die A2 ist zu einem mobilen Parkplatz für Frontalierer geworden, die in die Schweiz reisen. Die Stauung von 21 km in Richtung Süden am San-Gottardo-Pass fordert die Geduld von Tausenden italo-schweizerischen Arbeitnehmern.',
     'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Verkehrsaufhörung auf der A2 nach Süden bei San Gottardo',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'Die Tunnelgalerie am Monte Ceneri ist wegen technischer Probleme geschlossen worden',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'Die Tunnelgalerie am Monte Ceneri wurde wenige Minuten vor der Mittagszeit auf der A2 in Richtung Tessin geschlossen',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'Die Tunnel der Monte Ceneri-Galleria wurde wegen technischer Probleme geschlossen',
 };
 
 export default blogMetaDe;

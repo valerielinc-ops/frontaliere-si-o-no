@@ -2073,6 +2073,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.congestione-a2-san-gottardo-frontalieri.title': 'Coda di 21 Km sull\'A2 al San Gottardo: Le Consequenze per i Frontalieri Ticinesi',
     'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'La A2 è diventata un parcheggio mobile per i frontalieri diretti in Svizzera. La coda di 21 km verso sud al valico di San Gottardo sta mettendo alla prova la pazienza di migliaia di lavoratori italo-svizzeri.',
     'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Coda di traffico sull\'A2 verso sud presso San Gottardo',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'La galleria del Monte Ceneri è stata chiusa pochi minuti prima di mezzogiorno sulla A2 in direzione del Ticino',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici',
 };
 
 export default blogMetaIt;

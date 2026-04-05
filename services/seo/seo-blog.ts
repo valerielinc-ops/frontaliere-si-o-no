@@ -11811,6 +11811,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-galleria-del-ceneri-chiusa-per-problemi-tecnici': {
+    title: 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici | Frontaliere Ticino',
+    description: 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici sulla A2 in direzione del Ticino. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, galleria, monte, ceneri, stata',
+    ogTitle: 'Galleria del Ceneri chiusa per problemi tecnici',
+    ogDescription: 'La galleria del Monte Ceneri è stata chiusa per problemi tecnici sulla A2 in direzione del Ticino',
+    canonicalPath: '/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Galleria del Ceneri chiusa per problemi tecnici",
+      "description": "La galleria del Monte Ceneri è stata chiusa per problemi tecnici sulla A2 in direzione del Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/galleria-del-ceneri-chiusa-per-problemi-tecnici.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La galleria del Monte Ceneri è stata chiusa per problemi tecnici"
+      },
+      "datePublished": "2026-04-05T17:43:48+00:00",
+      "dateModified": "2026-04-05T17:43:48+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

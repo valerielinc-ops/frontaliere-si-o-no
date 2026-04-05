@@ -1920,6 +1920,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-agriscambio': { name: 'Tanti agricoltori verso la pensione', path: '/articoli-frontaliere/agriscambio', parent: 'blog' },
     'blog-frontaliere-ticino-10-milioni-voto': { name: 'Iniziativa 10 milioni', path: '/articoli-frontaliere/frontaliere-ticino-10-milioni-voto', parent: 'blog' },
     'blog-congestione-a2-san-gottardo-frontalieri': { name: 'Congestione A2 - San Gottardo', path: '/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri', parent: 'blog' },
+    'blog-galleria-del-ceneri-chiusa-per-problemi-tecnici': { name: 'Viabilità', path: '/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici', parent: 'blog' },
   };
 
   const info = sectionNames[section];

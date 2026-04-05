@@ -2073,6 +2073,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.congestione-a2-san-gottardo-frontalieri.title': '21 km of Traffic Jam on the A2 at San Gottardo: The Consequences for Ticino Cross-Border Workers',
     'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'The A2 has become a mobile parking lot for cross-border workers heading to Switzerland. The 21 km traffic jam heading south at the San Gottardo pass is putting the patience of thousands of Italian-Swiss workers to the test.',
     'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Traffic congestion on A2 highway southbound at San Gottardo',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'The Monte Ceneri Tunnel has been closed due to technical issues',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'The Monte Ceneri Tunnel was closed a few minutes before noon on the A2 in the direction of Ticino.',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'The Monte Ceneri tunnel was closed due to technical issues',
 };
 
 export default blogMetaEn;

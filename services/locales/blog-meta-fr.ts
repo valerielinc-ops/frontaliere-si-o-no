@@ -2073,6 +2073,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.congestione-a2-san-gottardo-frontalieri.title': 'Une queue de 21 Km sur l\'A2 au San Gottardo : Les Conséquences pour les Frontaliers Tessinois',
     'blog.article.congestione-a2-san-gottardo-frontalieri.excerpt': 'L\'A2 est devenue un parking mobile pour les frontaliers se rendant en Suisse. La queue de 21 km vers le sud au col de San Gottardo met à l\'épreuve la patience de milliers de travailleurs italo-suisse.',
     'blog.article.congestione-a2-san-gottardo-frontalieri.imageAlt': 'Congestion sur l\'A2 vers le sud au San Gottardo',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.title': 'La galerie du Monte Ceneri est fermée en raison de problèmes techniques',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.excerpt': 'La galerie du Monte Ceneri a été fermée quelques minutes avant midi dans la direction du Tessin sur l\'A2',
+    'blog.article.galleria-del-ceneri-chiusa-per-problemi-tecnici.imageAlt': 'Le tunnel de la galleria du Monte Ceneri a été fermé en raison de problèmes techniques',
 };
 
 export default blogMetaFr;
