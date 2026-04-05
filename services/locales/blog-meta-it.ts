@@ -2082,6 +2082,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.diventare-pastore-ticino.title': 'Diventare pastore in Ticino',
     'blog.article.diventare-pastore-ticino.excerpt': 'Il Canton Ticino offre una formazione per diventare pastore, rivolta a chiunque sia interessato.',
     'blog.article.diventare-pastore-ticino.imageAlt': 'Pastore in Ticino',
+    'blog.article.varese-si-ubriaca-infortuna.title': 'Varese: si ubriaca, s\'infortuna, ferisce un vigilante. Curato e arrestato',
+    'blog.article.varese-si-ubriaca-infortuna.excerpt': 'Un uomo si è ubriacato, ha avuto un infortunio e ha ferito un vigilante a Varese.',
+    'blog.article.varese-si-ubriaca-infortuna.imageAlt': 'Una persona che attraversa la strada con difficoltà',
 };
 
 export default blogMetaIt;

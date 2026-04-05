@@ -1947,6 +1947,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-galleria-del-ceneri-chiusa-per-problemi-tecnici': { name: 'Viabilità', path: '/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici', parent: 'blog' },
     'blog-corso-pastori-ticino': { name: 'Corso pastori Ticino', path: '/articoli-frontaliere/corso-pastori-ticino', parent: 'blog' },
     'blog-diventare-pastore-ticino': { name: 'Formazione pastore', path: '/articoli-frontaliere/diventare-pastore-ticino', parent: 'blog' },
+    'blog-varese-si-ubriaca-infortuna': { name: 'Varese: si ubriaca, s\'infortuna, ferisce', path: '/articoli-frontaliere/varese-si-ubriaca-infortuna', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -2082,6 +2082,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.diventare-pastore-ticino.title': 'Devenir pasteur au Tessin',
     'blog.article.diventare-pastore-ticino.excerpt': 'Le Canton du Tessin propose une formation pour devenir pasteur, ouverte à tous ceux qui s\'intéressent à cette profession.',
     'blog.article.diventare-pastore-ticino.imageAlt': 'Berger en Tessin',
+    'blog.article.varese-si-ubriaca-infortuna.title': 'Varese: s\'ivre, s\'accidente, blesse un agent de sécurité. Soigné et arrêté',
+    'blog.article.varese-si-ubriaca-infortuna.excerpt': 'Un homme s\'est ivre, a eu un accident et a blessé un agent de sécurité à Varese.',
+    'blog.article.varese-si-ubriaca-infortuna.imageAlt': 'Une personne qui traverse la rue avec difficulté',
 };
 
 export default blogMetaFr;

@@ -2082,6 +2082,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.diventare-pastore-ticino.title': 'Becoming a Pastor in Ticino',
     'blog.article.diventare-pastore-ticino.excerpt': 'The Canton of Ticino offers a training program to become a pastor, open to anyone interested.',
     'blog.article.diventare-pastore-ticino.imageAlt': 'Shepherd in Ticino',
+    'blog.article.varese-si-ubriaca-infortuna.title': 'Varese: gets drunk, gets injured, injures a security guard. Treated and arrested',
+    'blog.article.varese-si-ubriaca-infortuna.excerpt': 'A man got drunk, got injured and injured a security guard in Varese.',
+    'blog.article.varese-si-ubriaca-infortuna.imageAlt': 'A person crossing the street with difficulty',
 };
 
 export default blogMetaEn;

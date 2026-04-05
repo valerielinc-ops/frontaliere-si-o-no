@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 681,
+        "numberOfItems": 682,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4248,7 +4248,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 678, "name": "Congestione Stradale A2: Frontalieri alla Difesa", "url": `${BASE_URL}/articoli-frontaliere/congestione-a2-san-gottardo-frontalieri` },
           { "@type": "ListItem", "position": 679, "name": "Galleria del Ceneri chiusa per problemi tecnici", "url": `${BASE_URL}/articoli-frontaliere/galleria-del-ceneri-chiusa-per-problemi-tecnici` },
           { "@type": "ListItem", "position": 680, "name": "Corso per pastori in Ticino", "url": `${BASE_URL}/articoli-frontaliere/corso-pastori-ticino` },
-          { "@type": "ListItem", "position": 681, "name": "Diventare pastore in Ticino", "url": `${BASE_URL}/articoli-frontaliere/diventare-pastore-ticino` }
+          { "@type": "ListItem", "position": 681, "name": "Diventare pastore in Ticino", "url": `${BASE_URL}/articoli-frontaliere/diventare-pastore-ticino` },
+          { "@type": "ListItem", "position": 682, "name": "Varese: si ubriaca, s'infortuna, ferisce un vig...", "url": `${BASE_URL}/articoli-frontaliere/varese-si-ubriaca-infortuna` }
         ]
       }
     ]

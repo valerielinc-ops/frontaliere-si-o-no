@@ -6048,4 +6048,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/diventare-pastore-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'varese-si-ubriaca-infortuna',
+    category: 'pratico',
+    date: '2026-04-05T20:50:48.974Z',
+    image: '/images/blog/varese-si-ubriaca-infortuna.jpg',
+    hasCalculator: true,
+  },
 ];
