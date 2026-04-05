@@ -2391,11 +2391,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   jobboard: {
-    title: 'Offerte di Lavoro per Frontalieri Svizzera 2026 | Ticino',
-    description: 'Offerte di lavoro per frontalieri Svizzera: posizioni aggiornate ogni giorno in banche, tech, farmaceutica, sanità e industria in Ticino. Oltre 100 aziende attive.',
-    keywords: 'offerte di lavoro per frontalieri svizzera, lavoro frontaliere ticino, offerte di lavoro frontalieri ticino 2026, lavoro ticino, offerte lavoro frontalieri, lavoro svizzera frontalieri, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
-    ogTitle: 'Offerte di Lavoro per Frontalieri Svizzera 2026',
-    ogDescription: '💼 Offerte di lavoro per frontalieri Svizzera: posizioni aggiornate in banche, tech, farmaceutica, sanità e industria. Oltre 100 aziende. Candidati gratis!',
+    title: 'Offerte di Lavoro Ticino 2026 | Aggiornate Ogni Giorno',
+    description: 'Offerte di lavoro Ticino: 1500+ posti vacanti aggiornati ogni giorno. Cerca lavoro in banche, tech, farmaceutica e sanità da 100+ aziende. Candidatura diretta.',
+    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
+    ogTitle: 'Offerte di Lavoro Ticino 2026 | Aggiornate Ogni Giorno',
+    ogDescription: 'Oltre 1500 offerte di lavoro in Ticino aggiornate ogni giorno. Posizioni in banche, tech, farmaceutica, sanità e industria. 100+ aziende. Candidati gratis!',
     canonicalPath: '/cerca-lavoro-ticino',
     structuredData: [
       {

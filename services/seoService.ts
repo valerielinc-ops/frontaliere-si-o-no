@@ -146,6 +146,7 @@ let lastSerpExposureContext: { section: string; path: string; variant: SerpExper
 let serpOverrideWarned = false;
 let jobsBySlugCache: Map<string, any> | null = null;
 let jobsBySlugPromise: Promise<Map<string, any>> | null = null;
+let totalActiveJobCount: number | null = null;
 
 function normalizeSeoText(input: string): string {
   return String(input || '').replace(/\s+/g, ' ').trim();
@@ -282,6 +283,29 @@ async function loadJobsBySlug(): Promise<Map<string, any>> {
     return out;
   })();
   return jobsBySlugPromise;
+}
+
+/**
+ * Get the total number of unique active jobs from the loaded dataset.
+ * Returns a rounded-down label like "1500+" for SEO titles, or null if
+ * data hasn't loaded yet (fallback to static title).
+ */
+async function getActiveJobCountLabel(): Promise<string | null> {
+  if (totalActiveJobCount !== null) {
+    const rounded = Math.floor(totalActiveJobCount / 100) * 100;
+    return `${rounded}+`;
+  }
+  try {
+    const map = await loadJobsBySlug();
+    // Count distinct job objects (map contains multiple slugs per job)
+    const uniqueJobs = new Set<any>();
+    for (const job of map.values()) uniqueJobs.add(job);
+    totalActiveJobCount = uniqueJobs.size;
+    const rounded = Math.floor(totalActiveJobCount / 100) * 100;
+    return rounded > 0 ? `${rounded}+` : null;
+  } catch {
+    return null;
+  }
 }
 
 async function resolveJobSeoBySlug(
@@ -2047,16 +2071,29 @@ export async function updateMetaTags(section: string): Promise<void> {
     fr: 'Découvrez 64 mots, expressions et proverbes du dialecte tessinois pour la vie quotidienne des frontaliers.',
   };
 
+  // Dynamic job count for the main job board listing page title.
+  // At runtime, replace the static "Offerte di Lavoro Ticino 2026" with
+  // a count like "1500+ Offerte di Lavoro Ticino 2026" when data is available.
+  const isJobboardListing = sectionKey === 'jobboard' && !isJobDetailPage;
+  let jobCountLabel: string | null = null;
+  if (isJobboardListing) {
+    try { jobCountLabel = await getActiveJobCountLabel(); } catch { /* keep null */ }
+  }
+
   const baseMetaTitle = jobSeo
     ? jobSeo.title
     : isDialectPage
       ? dialectTitleByLocale[locale]
-      : (hasLocalizedTitle ? localizedTitle : localizedSeoContent.title);
+      : isJobboardListing && jobCountLabel && locale === 'it'
+        ? `${jobCountLabel} Offerte di Lavoro Ticino ${new Date().getFullYear()} | Aggiornate Ogni Giorno`
+        : (hasLocalizedTitle ? localizedTitle : localizedSeoContent.title);
   const baseMetaDescription = jobSeo
     ? jobSeo.description
     : isDialectPage
       ? dialectDescriptionByLocale[locale]
-      : (hasLocalizedExcerpt ? localizedExcerpt : localizedSeoContent.description);
+      : isJobboardListing && jobCountLabel && locale === 'it'
+        ? `Offerte di lavoro Ticino: ${jobCountLabel} posti vacanti aggiornati ogni giorno. Cerca lavoro in banche, tech, farmaceutica e sanità da 100+ aziende. Candidatura diretta.`
+        : (hasLocalizedExcerpt ? localizedExcerpt : localizedSeoContent.description);
   // Never apply SERP experiment suffixes ("| simulazione | 2026") to individual
   // job detail pages — these have their own structured title pattern:
   // "{JobTitle} — {Company} | Frontaliere Ticino"
