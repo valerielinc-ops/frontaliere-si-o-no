@@ -411,17 +411,19 @@ jobs:
           echo "exists=true" >> "$GITHUB_OUTPUT"
 
       # Trigger deploy.yml (GITHUB_TOKEN pushes don't trigger other workflows)
+      # Uses env: block to safely pass values containing quotes/special chars
       - name: Trigger deploy workflow
         id: trigger_deploy
         if: steps.commit.outputs.committed == 'true' && steps.verify_article.outputs.exists == 'true'
+        env:
+          DEPLOY_ARTICLE_ID: ${{ steps.generate.outputs.article_id }}
+          DEPLOY_ARTICLE_URL: ${{ steps.generate.outputs.article_url }}
+          DEPLOY_ARTICLE_OG_TITLE: ${{ steps.generate.outputs.og_title }}
+          DEPLOY_ARTICLE_OG_DESCRIPTION: ${{ steps.generate.outputs.og_description }}
+          DEPLOY_ARTICLE_OG_IMAGE: ${{ steps.generate.outputs.og_image }}
+          DEPLOY_ARTICLE_CATEGORY: ${{ steps.generate.outputs.category }}
         run: |
           EXPECTED_SHA="$(git rev-parse HEAD)" \
-          DEPLOY_ARTICLE_ID="${{ steps.generate.outputs.article_id }}" \
-          DEPLOY_ARTICLE_URL="${{ steps.generate.outputs.article_url }}" \
-          DEPLOY_ARTICLE_OG_TITLE="${{ steps.generate.outputs.og_title }}" \
-          DEPLOY_ARTICLE_OG_DESCRIPTION="${{ steps.generate.outputs.og_description }}" \
-          DEPLOY_ARTICLE_OG_IMAGE="${{ steps.generate.outputs.og_image }}" \
-          DEPLOY_ARTICLE_CATEGORY="${{ steps.generate.outputs.category }}" \
           bash scripts/lib/trigger-deploy.sh
 
       # ── Notify Google Indexing API ────────────────────────────────────
