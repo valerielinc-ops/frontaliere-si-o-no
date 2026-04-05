@@ -82,9 +82,9 @@
       "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
       "slugByLocale": {
         "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "de": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "fr": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano"
+        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
+        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
+        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -171,7 +171,10 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano"
+      ]
     },
     {
       "id": "corner-banca-fe61b84a0935",
@@ -179,7 +182,7 @@
       "slugByLocale": {
         "it": "employee-card-onboarding-corner-banca-lugano",
         "en": "employee-card-onboarding-corner-banca-lugano",
-        "de": "employee-card-onboarding-corner-banca-lugano",
+        "de": "kartenaufnahme-corner-banca-lugano",
         "fr": "employee-card-onboarding-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
@@ -241,7 +244,8 @@
       "crawledAt": "2026-04-04T09:01:41.051Z",
       "sourceLang": "en",
       "previousSlugs": [
-        "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        "addetto-all-emission-carte-cliente-corner-banca-lugano",
+        "employee-card-onboarding-corner-banca-lugano"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -266,7 +270,7 @@
       "slugByLocale": {
         "it": "it-card-management-analyst-specialist-corner-banca-lugano",
         "en": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "de": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "de": "it-kartenmanagement-analyst-spezialist-corner-banca-lugano",
         "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
@@ -308,7 +312,8 @@
       "needsRetranslation": true,
       "sourceLang": "en",
       "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano"
+        "analista-specialista-gestione-carte-it-corner-banca-lugano",
+        "it-card-management-analyst-specialist-corner-banca-lugano"
       ],
       "salaryMin": 72500,
       "salaryMax": 97500,
@@ -526,10 +531,10 @@
       "id": "corner-banca-0454316cb6c7",
       "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
       "slugByLocale": {
-        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "it": "responsabile-del-rischio-gestione-dell-attivita-e-della-passivita-alm-e-del-rischio-di-liquidita-corner-banca-lugano",
         "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
         "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
+        "fr": "responsable-des-risques-gestion-de-l-actif-et-du-passif-alm-et-risque-de-liquidite-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -593,7 +598,8 @@
       "crawledAt": "2026-04-04T09:01:41.050Z",
       "sourceLang": "en",
       "previousSlugs": [
-        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano"
+        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
+        "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
       ],
       "salaryMin": 109000,
       "salaryMax": 147000,
