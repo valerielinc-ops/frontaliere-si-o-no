@@ -1,6 +1,6 @@
 {
   "crawlerKey": "allianz-suisse",
-  "assembledAt": "2026-04-06T09:06:17.252Z",
+  "assembledAt": "2026-04-06T20:42:36.668Z",
   "jobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
@@ -405,9 +405,9 @@
       },
       "slugByLocale": {
         "it": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
-        "en": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
+        "en": "allianz-recruitment-allianz-suisse-region-graubunden",
         "de": "allianz-bewerbermanagement-allianz-suisse-region-graubunden",
-        "fr": "allianz-bewerbermanagement-allianz-suisse-region-graubunden"
+        "fr": "allianz-recrutement-allianz-suisse-region-graubunden"
       },
       "previousSlugs": [
         "allianz-gestione-candidati-allianz-suisse-region-graubunden",
@@ -427,7 +427,8 @@
         }
       },
       "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     }
   ]
 }

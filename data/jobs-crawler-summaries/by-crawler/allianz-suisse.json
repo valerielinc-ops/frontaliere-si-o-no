@@ -1,19 +1,21 @@
 {
   "key": "allianz-suisse",
   "label": "Tessin",
-  "generatedAt": "2026-04-06T09:06:17.253Z",
+  "generatedAt": "2026-04-06T20:42:36.668Z",
   "total": 7,
   "newCount": 0,
-  "updatedCount": 7,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 12464,
-  "avgDurationMs": 12464,
+  "unchangedCount": 7,
+  "durationMs": 13266,
+  "avgDurationMs": 13266,
   "durationHistory": [
-    12464
+    13266
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Responsabile vendite nel servizio esterno (f/m/d), 100%, Bellinzona",
       "slug": "responsabile-vendite-nel-servizio-esterno-f-m-d-100-bellinzona",
@@ -41,11 +43,11 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "_qualityScore": 88,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -76,11 +78,11 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "_qualityScore": 88,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -111,6 +113,7 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -146,11 +149,11 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "_qualityScore": 88,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -181,6 +184,7 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -216,6 +220,7 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
+      "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -251,15 +256,13 @@
       "currency": "CHF",
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
-      "_qualityScore": 88,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 20,
+        "translation": 25,
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
