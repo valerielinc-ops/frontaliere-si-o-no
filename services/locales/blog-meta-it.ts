@@ -2127,6 +2127,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.locarno-magadino-trasporto.title': 'Locarno-Magadino via lago: o cambiamo nave o perdiamo il servizio',
     'blog.article.locarno-magadino-trasporto.excerpt': 'Il servizio di trasporto lacustre tra Locarno e Magadino rischia di essere sospeso se non si trova una soluzione per sostituire la nave attuale.',
     'blog.article.locarno-magadino-trasporto.imageAlt': 'Nave sul Lago Maggiore a Locarno',
+    'blog.article.prezzi-benzina-ticino.title': 'Prezzi benzina in Svizzera: +10% a +22%',
+    'blog.article.prezzi-benzina-ticino.excerpt': 'Dopo un mese di conflitto, i prezzi della benzina in Svizzera sono saliti tra il 10 e il 22%',
+    'blog.article.prezzi-benzina-ticino.imageAlt': 'Panorama di Lugano',
 };
 
 export default blogMetaIt;

@@ -2127,6 +2127,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.locarno-magadino-trasporto.title': 'Locarno-Magadino via lago: entweder ändern wir das Schiff oder verlieren den Service',
     'blog.article.locarno-magadino-trasporto.excerpt': 'Der Transportdienst auf dem See zwischen Locarno und Magadino riskiert, ausgesetzt zu werden, wenn keine Lösung gefunden wird, um das aktuelle Schiff zu ersetzen.',
     'blog.article.locarno-magadino-trasporto.imageAlt': 'Schiff auf dem Lago Maggiore in Locarno',
+    'blog.article.prezzi-benzina-ticino.title': 'Benzinpreise in der Schweiz: +10% bis +22%',
+    'blog.article.prezzi-benzina-ticino.excerpt': 'Nach einem Monat des Konflikts sind die Benzinpreise in der Schweiz um 10 bis 22% gestiegen',
+    'blog.article.prezzi-benzina-ticino.imageAlt': 'Lugano Panorama',
 };
 
 export default blogMetaDe;

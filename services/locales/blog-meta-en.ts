@@ -2127,6 +2127,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.locarno-magadino-trasporto.title': 'Locarno-Magadino via lake: either we change boat or we lose the service',
     'blog.article.locarno-magadino-trasporto.excerpt': 'The lake transport service between Locarno and Magadino is at risk of being suspended if a solution is not found to replace the current boat.',
     'blog.article.locarno-magadino-trasporto.imageAlt': 'Boat on Lake Maggiore in Locarno',
+    'blog.article.prezzi-benzina-ticino.title': 'Gasoline prices in Switzerland: +10% to +22%',
+    'blog.article.prezzi-benzina-ticino.excerpt': 'After a month of conflict, gasoline prices in Switzerland have risen between 10% and 22%',
+    'blog.article.prezzi-benzina-ticino.imageAlt': 'Lugano panorama',
 };
 
 export default blogMetaEn;

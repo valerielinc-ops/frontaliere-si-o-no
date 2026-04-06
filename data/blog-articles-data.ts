@@ -6153,4 +6153,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/locarno-magadino-trasporto.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'prezzi-benzina-ticino',
+    category: 'pratico',
+    date: '2026-04-06T20:09:35.706Z',
+    image: '/images/blog/prezzi-benzina-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

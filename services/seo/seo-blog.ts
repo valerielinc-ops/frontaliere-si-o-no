@@ -12333,6 +12333,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prezzi-benzina-ticino': {
+    title: 'Prezzi benzina in Svizzera: +10% a +22% | Frontaliere Ticino',
+    description: 'I prezzi della benzina in Svizzera sono aumentati tra il 10% e il 22% dopo un mese di conflitto in Medio Oriente. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, prezzi, benzina, dopo, mese',
+    ogTitle: 'Prezzi benzina in Svizzera: aumento del 10% al 22%',
+    ogDescription: 'I prezzi della benzina in Svizzera sono saliti a causa del conflitto in Medio Oriente.',
+    canonicalPath: '/articoli-frontaliere/prezzi-benzina-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Aumento prezzi benzina in Svizzera",
+      "description": "I prezzi della benzina in Svizzera sono aumentati tra il 10% e il 22% dopo un mese di conflitto in Medio Oriente. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prezzi-benzina-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano"
+      },
+      "datePublished": "2026-04-06T20:09:35+00:00",
+      "dateModified": "2026-04-06T20:09:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prezzi-benzina-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
