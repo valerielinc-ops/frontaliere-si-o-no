@@ -1959,6 +1959,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fuga-da-dubai-ticino-alternativa': { name: 'Fuga da Dubai, il Ticino come alternativ', path: '/articoli-frontaliere/fuga-da-dubai-ticino-alternativa', parent: 'blog' },
     'blog-traffico-san-gottardo-attesa': { name: 'Traffico', path: '/articoli-frontaliere/traffico-san-gottardo-attesa', parent: 'blog' },
     'blog-tax-free-come-cresce': { name: 'Economia', path: '/articoli-frontaliere/tax-free-come-cresce', parent: 'blog' },
+    'blog-traffico-san-gottardo-pasquetta-2026': { name: 'Traffico Gottardo', path: '/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

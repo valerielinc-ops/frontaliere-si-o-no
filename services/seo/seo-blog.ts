@@ -12246,6 +12246,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-san-gottardo-pasquetta-2026': {
+    title: '10 km di coda al San Gottardo: disagi record per Pasquetta | Frontaliere Ticino',
+    description: 'Disagi record al San Gottardo: 10 km di coda e 2 ore di ritardo per i frontalieri nel rientro da Pasquetta 2026. Consigli pratici. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, coda, gottardo, disagi, record',
+    ogTitle: '10 km di coda al San Gottardo: disagi record 2026',
+    ogDescription: 'Analisi e soluzioni per i frontalieri bloccati nel rientro pasquale al confine svizzero',
+    canonicalPath: '/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Crisi traffico San Gottardo Pasquetta 2026: impatti sui frontalieri",
+      "description": "Disagi record al San Gottardo: 10 km di coda e 2 ore di ritardo per i frontalieri nel rientro da Pasquetta 2026. Consigli pratici. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/traffico-san-gottardo-pasquetta-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico al San Gottardo durante Pasquetta 2026"
+      },
+      "datePublished": "2026-04-06T17:12:31+00:00",
+      "dateModified": "2026-04-06T17:12:31+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

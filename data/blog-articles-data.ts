@@ -6132,4 +6132,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tax-free-come-cresce.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'traffico-san-gottardo-pasquetta-2026',
+    category: 'pratico',
+    date: '2026-04-06T17:12:31.814Z',
+    image: '/images/blog/traffico-san-gottardo-pasquetta-2026.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -2118,6 +2118,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tax-free-come-cresce.title': 'A Como il Tax Free continua a crescere grazie ai clienti ticinesi',
     'blog.article.tax-free-come-cresce.excerpt': 'Lo scorso anno un aumento del 6 per cento. Chi arriva dal Ticino lo fa soprattutto per acquisti nella grande distribuzione.',
     'blog.article.tax-free-come-cresce.imageAlt': 'Centro commerciale vicino al confine italo-svizzero',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.title': '10 km di coda al San Gottardo: disagi record per Pasquetta',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.excerpt': 'Rientro da Pasquetta bloccato: 10 km di coda al San Gottardo e 2 ore di ritardo. Chiuso il raccordo di Airolo.',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.imageAlt': 'Traffico al San Gottardo durante Pasquetta 2026',
 };
 
 export default blogMetaIt;

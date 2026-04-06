@@ -2118,6 +2118,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tax-free-come-cresce.title': 'In Como, il Tax Free continua a crescere grazie ai clienti ticinesi',
     'blog.article.tax-free-come-cresce.excerpt': 'Lo scorso anno un aumento del 6 per cento. Chi arriva dal Ticino lo fa soprattutto per acquisti nella grande distribuzione.',
     'blog.article.tax-free-come-cresce.imageAlt': 'Shopping center near the Italian-Swiss border',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.title': '10 km of traffic jam at the San Gottardo: record disruptions for Easter Monday',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.excerpt': 'Easter Monday return trip blocked: 10 km of traffic jam at the San Gottardo and 2 hours of delay. The Airolo bypass is closed.',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.imageAlt': 'San Gottardo tunnel traffic jam Easter Monday 2026',
 };
 
 export default blogMetaEn;

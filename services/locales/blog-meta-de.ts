@@ -2118,6 +2118,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tax-free-come-cresce.title': 'In Como der Tax Free-Shopping weiter auf dem Vormarsch dank der Kunden aus dem Tessin',
     'blog.article.tax-free-come-cresce.excerpt': 'Im letzten Jahr ein Plus von 6 Prozent. Die Kunden aus dem Tessin kommen vor allem für Einkäufe im Grosshandel.',
     'blog.article.tax-free-come-cresce.imageAlt': 'Einkaufszentrum nahe der italienisch-schweizerischen Grenze',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.title': '10 km von Stau am San Gottardo: Rekord-Störungen am Ostermontag',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.excerpt': 'Der Rückweg von Ostermontag ist blockiert: 10 km von Stau am San Gottardo und 2 Stunden Verspätung. Der Autobahnzubringer von Airolo ist geschlossen.',
+    'blog.article.traffico-san-gottardo-pasquetta-2026.imageAlt': 'Stau am Gotthard-Tunnel an Ostermontag 2026',
 };
 
 export default blogMetaDe;
