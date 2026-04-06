@@ -41,6 +41,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   deriveLocalizedSlug,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferSwissTargetCanton } from './lib/target-swiss-locations.mjs';
 
@@ -397,6 +398,7 @@ function mergeSchindlerJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(SCHINDLER_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonSchindler = allJobs.filter((job) => !isSchindlerJob(job));
+  const schindlerExisting = allJobs.filter(isSchindlerJob);
 
   // Deduplicate by URL
   const byUrl = new Map();
@@ -405,7 +407,10 @@ function mergeSchindlerJobs(parsedJobs) {
     if (!key) continue;
     byUrl.set(key, job);
   }
-  const cleanJobs = [...byUrl.values()].sort(
+  const deduped = [...byUrl.values()];
+
+  // Preserve existing locale translations and slugs
+  const cleanJobs = mergePreserveLocaleData(schindlerExisting, deduped).sort(
     (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonSchindler, ...cleanJobs];

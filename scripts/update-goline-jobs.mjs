@@ -23,6 +23,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseGolineOpportunitiesPage, buildGolineLocalizedContent } from './lib/goline-job-parser.mjs';
 
@@ -196,7 +197,7 @@ function mergeJobs(discoveredJobs) {
   const targetExisting = existing.filter(isTargetJob);
   const beforeSnapshot = snapshotJobSlugs(targetExisting);
 
-  const mergedTarget = discoveredJobs;
+  const mergedTarget = mergePreserveLocaleData(targetExisting, discoveredJobs);
   const allJobs = [...nonTargetJobs, ...mergedTarget];
   writeJson(DATA_JOBS, allJobs);
   writeJson(PUBLIC_JOBS, allJobs);
