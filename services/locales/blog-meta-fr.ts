@@ -2091,6 +2091,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop rappelle les fromages : ils peuvent contenir des salmonelles',
     'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop a rappelé certains fromages en raison de la présence de salmonelles, particulièrement dangereuses pour les personnes immunodéprimées, les femmes enceintes, les fillettes et les garçons et les personnes âgées.',
     'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Fromage ticinois au saumon',
+    'blog.article.scambio-abiti-bellinzona.title': 'À Bellinzona, l\'échange de vêtements unit socialité et durabilité',
+    'blog.article.scambio-abiti-bellinzona.excerpt': 'L\'initiative de l\'association Meteora favorise la convivialité, la solidarité et l\'attention à l\'environnement.',
+    'blog.article.scambio-abiti-bellinzona.imageAlt': 'Image de personnes participant à un échange de vêtements à Bellinzona.',
 };
 
 export default blogMetaFr;

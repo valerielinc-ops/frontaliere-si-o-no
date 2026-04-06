@@ -6069,4 +6069,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/coop-richiama-formaggi-salmonelle.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'scambio-abiti-bellinzona',
+    category: 'novita',
+    date: '2026-04-06T03:37:09.733Z',
+    image: '/images/blog/scambio-abiti-bellinzona.jpg',
+    hasCalculator: true,
+  },
 ];

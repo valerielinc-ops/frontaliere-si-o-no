@@ -2091,6 +2091,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop richiama formaggi: possono contenere salmonelle',
     'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop ha richiamato alcuni formaggi per la presenza di salmonelle, particolarmente pericolosi per le persone immunodepresse, le donne in gravidanza, le bambine e i bambini e le persone anziane',
     'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Formaggio Ticinese con salmone',
+    'blog.article.scambio-abiti-bellinzona.title': 'A Bellinzona lo scambio abiti unisce socialità e sostenibilità',
+    'blog.article.scambio-abiti-bellinzona.excerpt': 'L\'iniziativa dell\'associazione Meteora promuove convivialità, solidarietà e attenzione all\'ambiente.',
+    'blog.article.scambio-abiti-bellinzona.imageAlt': 'Scena di persone che partecipano allo scambio abiti a Bellinzona.',
 };
 
 export default blogMetaIt;

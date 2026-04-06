@@ -2091,6 +2091,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop erinnert an Käse: Salmonellen können enthalten sein',
     'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop hat einige Käse zurückgerufen, da sie Salmonellen enthalten, die besonders gefährlich für Menschen mit einer geschwächten Immunabwehr, Schwangere, Mädchen und Jungen, ältere Menschen sind',
     'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Ticiner Käse mit Lachs',
+    'blog.article.scambio-abiti-bellinzona.title': 'In Bellinzona: Der Modeaustausch verbindet Sozialität und Nachhaltigkeit',
+    'blog.article.scambio-abiti-bellinzona.excerpt': 'Die Initiative der Meteora-Vereinigung fördert Zusammenhalt, Solidarität und Umweltbewusstsein.',
+    'blog.article.scambio-abiti-bellinzona.imageAlt': 'Bild von Menschen, die an einem Kleidungsaustausch in Bellinzona teilnehmen.',
 };
 
 export default blogMetaDe;

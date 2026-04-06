@@ -2091,6 +2091,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.coop-richiama-formaggi-salmonelle.title': 'Coop Recalls Cheeses: May Contain Salmonella',
     'blog.article.coop-richiama-formaggi-salmonelle.excerpt': 'Coop has recalled some cheeses due to the presence of salmonella, which can be particularly hazardous for immunocompromised individuals, pregnant women, young girls and boys, and the elderly.',
     'blog.article.coop-richiama-formaggi-salmonelle.imageAlt': 'Ticinese cheese with salmon',
+    'blog.article.scambio-abiti-bellinzona.title': 'In Bellinzona, the exchange of clothes unites sociality and sustainability',
+    'blog.article.scambio-abiti-bellinzona.excerpt': 'The initiative of the association Meteora promotes conviviality, solidarity, and environmental awareness.',
+    'blog.article.scambio-abiti-bellinzona.imageAlt': 'Scene of people participating in the clothing swap in Bellinzona.',
 };
 
 export default blogMetaEn;

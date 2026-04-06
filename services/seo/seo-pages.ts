@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 684,
+        "numberOfItems": 685,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4251,7 +4251,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 681, "name": "Diventare pastore in Ticino", "url": `${BASE_URL}/articoli-frontaliere/diventare-pastore-ticino` },
           { "@type": "ListItem", "position": 682, "name": "Varese: si ubriaca, s'infortuna, ferisce un vig...", "url": `${BASE_URL}/articoli-frontaliere/varese-si-ubriaca-infortuna` },
           { "@type": "ListItem", "position": 683, "name": "L'ultimatum di Trump: un nuovo colpo per la ten...", "url": `${BASE_URL}/articoli-frontaliere/trump-intesa-o-inferno` },
-          { "@type": "ListItem", "position": 684, "name": "Coop richiama formaggi: possono contenere salmo...", "url": `${BASE_URL}/articoli-frontaliere/coop-richiama-formaggi-salmonelle` }
+          { "@type": "ListItem", "position": 684, "name": "Coop richiama formaggi: possono contenere salmo...", "url": `${BASE_URL}/articoli-frontaliere/coop-richiama-formaggi-salmonelle` },
+          { "@type": "ListItem", "position": 685, "name": "A Bellinzona lo scambio abiti unisce socialità ...", "url": `${BASE_URL}/articoli-frontaliere/scambio-abiti-bellinzona` }
         ]
       }
     ]

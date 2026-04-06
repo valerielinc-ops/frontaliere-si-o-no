@@ -11985,6 +11985,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-scambio-abiti-bellinzona': {
+    title: 'A Bellinzona lo scambio abiti unisce socialità e sostenibilità | Frontaliere Ticino',
+    description: 'L\'iniziativa dell\'associazione Meteora promuove convivialità, solidarietà e attenzione all\'ambiente. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, bellinzona, scambio, abiti, unisce',
+    ogTitle: 'A Bellinzona lo scambio abiti unisce socialità e sostenibilità',
+    ogDescription: 'L\'iniziativa dell\'associazione Meteora promuove convivialità, solidarietà e attenzione all\'ambiente.',
+    canonicalPath: '/articoli-frontaliere/scambio-abiti-bellinzona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Bellinzona lo scambio abiti unisce socialità e sostenibilità",
+      "description": "L'iniziativa dell'associazione Meteora promuove convivialità, solidarietà e attenzione all'ambiente. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/scambio-abiti-bellinzona.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena di persone che partecipano allo scambio abiti a Bellinzona."
+      },
+      "datePublished": "2026-04-06T03:37:09+00:00",
+      "dateModified": "2026-04-06T03:37:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/scambio-abiti-bellinzona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
