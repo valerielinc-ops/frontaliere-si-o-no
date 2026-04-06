@@ -31,7 +31,11 @@ const BATCH_SIZE = 500; // conservative batch size
 // Runs after deploy (GitHub Actions). All channels are enabled by default.
 
 const ARTICLE_URL = (process.env.ARTICLE_URL || '').trim();
-const BING_RECENT_NEWS_FALLBACK = Math.max(1, Math.min(5, Number(process.env.BING_RECENT_NEWS_FALLBACK || 5)));
+// Default 0: do NOT resubmit recent news articles to Bing URL Submission API
+// on routine deploys. Bing URL Submission quota is ~10 URLs/day and was being
+// burned daily by 20-URL fallback submissions of already-indexed news items.
+// Set to a positive number (1-5) to opt back in. See docs/bing-quota-investigation.md.
+const BING_RECENT_NEWS_FALLBACK = Math.max(0, Math.min(5, Number(process.env.BING_RECENT_NEWS_FALLBACK ?? 0)));
 
 // ── Helpers ─────────────────────────────────────────────────
 function sleep(ms) {
@@ -147,7 +151,12 @@ function getBingUrlsSubset() {
     console.warn(`⚠️  ARTICLE_URL non trovato nelle sub-sitemaps, fallback a news sitemap: ${ARTICLE_URL}`);
   }
 
-  // Fallback: last 1–5 items from news sitemap (resolve alternates if present)
+  // Fallback: last 1–5 items from news sitemap (resolve alternates if present).
+  // Disabled by default (BING_RECENT_NEWS_FALLBACK=0) to preserve the scarce
+  // Bing URL Submission daily quota (~10/day) for actual new content.
+  if (BING_RECENT_NEWS_FALLBACK <= 0) {
+    return { urls: [], reason: 'recent-news-fallback-disabled' };
+  }
   let newsXml = '';
   try {
     newsXml = readXml(['public', 'sitemap-news.xml']);

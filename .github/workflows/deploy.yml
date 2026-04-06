@@ -227,6 +227,14 @@ jobs:
       - name: Submit to IndexNow (Bing, Yandex)
         if: success()
         continue-on-error: true
+        # Forward ARTICLE_URL when the deploy was triggered by article-generation,
+        # so the Bing URL Submission API receives only the new article (4 hreflang
+        # alternates) instead of re-submitting already-indexed news items every
+        # deploy. Routine deploys leave ARTICLE_URL empty and skip the Bing URL
+        # Submission channel entirely — IndexNow fan-out (quota-free) still runs.
+        # See docs/bing-quota-investigation.md.
+        env:
+          ARTICLE_URL: ${{ github.event.inputs.article_url }}
         run: node scripts/submit-indexnow.js
 
       - name: Google Search Console — sitemap ping & inspection
