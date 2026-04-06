@@ -6146,4 +6146,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controlli-auto-immatricolate-grigioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'locarno-magadino-trasporto',
+    category: 'novita',
+    date: '2026-04-06T19:15:36.327Z',
+    image: '/images/blog/locarno-magadino-trasporto.jpg',
+    hasCalculator: true,
+  },
 ];

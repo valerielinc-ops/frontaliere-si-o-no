@@ -2124,6 +2124,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-auto-immatricolate-grigioni.title': 'Controlli più severi per auto immatricolate in Grigioni',
     'blog.article.controlli-auto-immatricolate-grigioni.excerpt': 'Il Ticino intensifica i controlli sulle auto con targhe grigionesi ma stazionate nel cantone, per contrastare l\'elusione fiscale.',
     'blog.article.controlli-auto-immatricolate-grigioni.imageAlt': 'Auto con targa grigionese parcheggiata a Lugano, Ticino',
+    'blog.article.locarno-magadino-trasporto.title': 'Locarno-Magadino via lago: o cambiamo nave o perdiamo il servizio',
+    'blog.article.locarno-magadino-trasporto.excerpt': 'Il servizio di trasporto lacustre tra Locarno e Magadino rischia di essere sospeso se non si trova una soluzione per sostituire la nave attuale.',
+    'blog.article.locarno-magadino-trasporto.imageAlt': 'Nave sul Lago Maggiore a Locarno',
 };
 
 export default blogMetaIt;

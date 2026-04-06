@@ -12304,6 +12304,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-locarno-magadino-trasporto': {
+    title: 'Locarno-Magadino via lago: o cambiamo nave o perdiamo il servizio | Frontaliere Ticino',
+    description: 'Il servizio di trasporto lacustre tra Locarno e Magadino rischia di essere sospeso. Scopri cosa sta succedendo e come risolvere il problema. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, locarno-magadino, lago, cambiamo, nave',
+    ogTitle: 'Trasporto lacustre Locarno-Magadino | Frontaliere Ticino',
+    ogDescription: 'Il servizio di trasporto lacustre tra Locarno e Magadino rischia di essere sospeso. Scopri cosa sta succedendo e come risolvere il problema.',
+    canonicalPath: '/articoli-frontaliere/locarno-magadino-trasporto',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Trasporto lacustre Locarno-Magadino",
+      "description": "Il servizio di trasporto lacustre tra Locarno e Magadino rischia di essere sospeso. Scopri cosa sta succedendo e come risolvere il problema. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/locarno-magadino-trasporto.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Nave sul Lago Maggiore a Locarno"
+      },
+      "datePublished": "2026-04-06T19:15:36+00:00",
+      "dateModified": "2026-04-06T19:15:36+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/locarno-magadino-trasporto`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2124,6 +2124,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-auto-immatricolate-grigioni.title': 'Stricter Controls for Cars Registered in Grisons',
     'blog.article.controlli-auto-immatricolate-grigioni.excerpt': 'The Ticino intensifies controls on cars with Grisons license plates but parked in the canton, to counter tax evasion 📊💡⚠️.',
     'blog.article.controlli-auto-immatricolate-grigioni.imageAlt': 'Car with Grisons license plate parked in Lugano, Ticino',
+    'blog.article.locarno-magadino-trasporto.title': 'Locarno-Magadino via lake: either we change boat or we lose the service',
+    'blog.article.locarno-magadino-trasporto.excerpt': 'The lake transport service between Locarno and Magadino is at risk of being suspended if a solution is not found to replace the current boat.',
+    'blog.article.locarno-magadino-trasporto.imageAlt': 'Boat on Lake Maggiore in Locarno',
 };
 
 export default blogMetaEn;

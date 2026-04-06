@@ -2124,6 +2124,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-auto-immatricolate-grigioni.title': 'Contrôles plus sévères pour les voitures immatriculées en Grisons',
     'blog.article.controlli-auto-immatricolate-grigioni.excerpt': 'Le Tessin renforce les contrôles sur les voitures avec plaques d\'immatriculation grisonnes mais stationnées dans le canton, pour lutter contre l\'évasion fiscale.',
     'blog.article.controlli-auto-immatricolate-grigioni.imageAlt': 'Voiture avec plaque grisonne garée à Lugano, Tessin',
+    'blog.article.locarno-magadino-trasporto.title': 'Locarno-Magadino via lac : soit on change de bateau, soit on perd le service',
+    'blog.article.locarno-magadino-trasporto.excerpt': 'Le service de transport lacustre entre Locarno et Magadino risque d\'etre suspendu si l\'on ne trouve pas de solution pour remplacer le bateau actuel.',
+    'blog.article.locarno-magadino-trasporto.imageAlt': 'Bateau sur le Lac Majeur à Locarno',
 };
 
 export default blogMetaFr;
