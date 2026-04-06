@@ -8,6 +8,6 @@
     "browser_scraping"
   ],
   "seedUrls": [],
-  "notes": "Grace La Margna St. Moritz — 5*-superior boutique hotel in St. Moritz (GR). Jobs via hotelcareer.com (StepStone). Requires Playwright browser-based scraping due to Cloudflare protection.",
-  "updatedAt": "2026-03-16T00:00:00.000Z"
+  "notes": "Grace La Margna St. Moritz \u2014 5*-superior boutique hotel in St. Moritz (GR). Jobs via hotelcareer.com (StepStone). Requires Playwright browser-based scraping due to Cloudflare protection. KNOWN ISSUE 2026-04-06: Cloudflare challenge tightened, crawler blocked. Hotel website grace-lamargna.ch also unreachable. 15 existing jobs preserved in slice. Will retry when Cloudflare conditions improve.",
+  "updatedAt": "2026-04-06T17:40:00.000Z"
 }

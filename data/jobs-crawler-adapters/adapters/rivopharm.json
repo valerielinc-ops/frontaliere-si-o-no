@@ -2,7 +2,7 @@
   "companyKey": "rivopharm",
   "companyName": "Rivopharm SA",
   "companyHost": "rivopharm.com",
-  "enabled": true,
+  "enabled": false,
   "priority": 10,
   "crawlerModes": [
     "html"
@@ -10,6 +10,6 @@
   "seedUrls": [
     "https://rivopharm.com/careers"
   ],
-  "notes": "Custom HTML parser on rivopharm.com/careers — Manno TI.",
-  "updatedAt": "2026-03-25T13:14:38.577Z"
+  "notes": "DISABLED 2026-04-06: rivopharm.com/careers returns 404. Company removed careers section entirely from website. No alternative careers page found. Based in Manno, TI.",
+  "updatedAt": "2026-04-06T17:40:00.000Z"
 }

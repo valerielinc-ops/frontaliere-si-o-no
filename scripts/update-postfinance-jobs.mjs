@@ -271,7 +271,86 @@ function cleanTitle(rawTitle = '') {
 }
 
 /**
- * Parse a PostFinance /PostFinance/job/ detail page (meta tags only — no JSON-LD).
+ * Decode common HTML entities into plain text.
+ */
+function decodeHtmlEntities(text = '') {
+  return String(text)
+    .replace(/&nbsp;/gi, ' ')
+    .replace(/&amp;/gi, '&')
+    .replace(/&quot;/gi, '"')
+    .replace(/&apos;/gi, "'")
+    .replace(/&lt;/gi, '<')
+    .replace(/&gt;/gi, '>')
+    .replace(/&#x([0-9a-fA-F]+);/g, (_, hex) => {
+      try { return String.fromCodePoint(parseInt(hex, 16)); } catch { return ''; }
+    })
+    .replace(/&#(\d+);/g, (_, dec) => {
+      try { return String.fromCodePoint(parseInt(dec, 10)); } catch { return ''; }
+    });
+}
+
+/**
+ * Strip inner HTML tags, decode entities, and collapse whitespace.
+ */
+function htmlToText(fragment = '') {
+  return decodeHtmlEntities(
+    String(fragment)
+      .replace(/<\s*br\s*\/?>/gi, '\n')
+      .replace(/<\/(p|li|ul|ol|div|h[1-6])\s*>/gi, '\n')
+      .replace(/<[^>]+>/g, ''),
+  )
+    .replace(/[ \t]+/g, ' ')
+    .replace(/\n[ \t]+/g, '\n')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+/**
+ * Extract the full job description from a SuccessFactors PostFinance HTML page.
+ *
+ * The page renders the description inside one of multiple
+ * `<div class="joblayouttoken">` blocks. Each block contains a
+ * `<span class="rtltextaligneligible">` with field content. Most spans
+ * hold short single-value fields (city, dates, salary, etc.) — but the
+ * description span uniquely contains rich HTML (`<p>`, `<ul>`, `<li>`).
+ *
+ * Strategy: collect all `rtltextaligneligible` spans, score them by the
+ * length of their plain-text content, prefer those that contain `<p>` or
+ * `<li>` tags (paragraph-style content), and return the longest one.
+ */
+export function extractPostFinanceBodyDescription(html = '') {
+  if (!html || typeof html !== 'string') return '';
+
+  // Match all rtltextaligneligible spans (multiline, non-greedy).
+  const spanRe = /<span[^>]*class="[^"]*rtltextaligneligible[^"]*"[^>]*>([\s\S]*?)<\/span>/gi;
+  const candidates = [];
+  let match;
+  while ((match = spanRe.exec(html)) !== null) {
+    const inner = match[1];
+    const hasParagraph = /<p[\s>]|<li[\s>]|<ul[\s>]|<ol[\s>]/i.test(inner);
+    const text = htmlToText(inner);
+    if (text.length > 0) {
+      candidates.push({ text, length: text.length, hasParagraph });
+    }
+  }
+
+  if (candidates.length === 0) return '';
+
+  // Prefer paragraph-style candidates first, then fall back to longest plain text.
+  const paragraphCandidates = candidates.filter((c) => c.hasParagraph);
+  const pool = paragraphCandidates.length > 0 ? paragraphCandidates : candidates;
+  pool.sort((a, b) => b.length - a.length);
+  return pool[0].text;
+}
+
+/**
+ * Parse a PostFinance /PostFinance/job/ detail page.
+ *
+ * Pages do not expose JSON-LD; the `<meta name="description">` is the SEO
+ * snippet (truncated to ~150 chars and often just the job title). We extract
+ * the full description from the HTML body via
+ * {@link extractPostFinanceBodyDescription} and only fall back to the meta
+ * tag when body extraction yields too little content.
  */
 function parsePostFinanceMetaPage(html, url) {
   const ogTitle = extractMeta(html, 'og:title');
@@ -281,7 +360,10 @@ function parsePostFinanceMetaPage(html, url) {
   const canonical = extractCanonical(html);
 
   const title = cleanTitle(ogTitle || htmlTitle || '');
-  const description = ogDesc || metaDesc || '';
+
+  const bodyDescription = extractPostFinanceBodyDescription(html);
+  const metaDescription = ogDesc || metaDesc || '';
+  const description = bodyDescription.length >= 150 ? bodyDescription : metaDescription;
 
   return {
     title,
@@ -291,6 +373,8 @@ function parsePostFinanceMetaPage(html, url) {
     hasJsonLd: false,
   };
 }
+
+export { parsePostFinanceMetaPage };
 
 // ──────────────────────────────────────────────────────────────
 // PostCH listing page scan (for supplementary /v2/ URLs)
@@ -859,7 +943,12 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ PostFinance crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+// Only run the crawler pipeline when invoked directly from the CLI
+// (not when imported by tests or other modules that want helper exports).
+const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (_isMain) {
+  main().catch((err) => {
+    console.error(`❌ PostFinance crawler failed: ${err?.message || err}`);
+    process.exit(1);
+  });
+}
