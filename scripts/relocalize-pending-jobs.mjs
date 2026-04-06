@@ -32,6 +32,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectJobTitleLocaleDetails } from './lib/job-locale-utils.mjs';
 import { captureLostSlugs, normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';
+import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -136,8 +137,36 @@ export function isIncomplete(job) {
       // At least one other locale was translated → this is an international title, skip
     }
 
-    // Description identical to source (not translated)
+    // Description identical to source (not translated) — exact match
     if (desc.length > 0 && desc.toLowerCase() === sourceDesc && locale !== (job.sourceLang || 'it')) return true;
+
+    // Description near-identical to source (whitespace-normalized match) — catches
+    // crawler-seeded copies where the description got stripped of newlines but
+    // still contains the raw untranslated source text.
+    if (desc.length >= MIN_DESC_CHARS && locale !== (job.sourceLang || 'it')) {
+      const normDesc = normalizeForLengthComparison(desc).toLowerCase();
+      const normSource = normalizeForLengthComparison(baseDesc).toLowerCase();
+      if (normSource.length >= MIN_DESC_CHARS && normDesc === normSource) return true;
+    }
+
+    // Cross-locale description contamination: description text detected as a
+    // DIFFERENT language than the locale slot it sits in. This catches:
+    //   1. Crawler seed-copies of source text that weren't translated
+    //   2. AI translation that wrote to the wrong locale slot
+    //   3. Locale slots polluted with a different translation pass
+    // Only flag when detection is confident (>=0.55) and the detected language
+    // is actually one of our supported locales (avoid false positives on short
+    // or mixed-language text).
+    if (desc.length >= MIN_DESC_CHARS) {
+      const detected = detectLanguageWithConfidence(desc, locale);
+      if (
+        detected.confidence >= 0.55 &&
+        detected.lang !== locale &&
+        LOCALES.includes(detected.lang)
+      ) {
+        return true;
+      }
+    }
 
     // Thin translation: locale description is suspiciously short compared to the source.
     // A faithful translation should be ≥70% of source length (normalized whitespace).
