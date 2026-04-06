@@ -1955,6 +1955,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-acqua-non-potabile-lavizzara': { name: 'Lavizzara', path: '/articoli-frontaliere/acqua-non-potabile-lavizzara', parent: 'blog' },
     'blog-nuova-direttrice-servizi-sociali-bellinzona': { name: 'Servizi sociali Bellinzona', path: '/articoli-frontaliere/nuova-direttrice-servizi-sociali-bellinzona', parent: 'blog' },
     'blog-riaperta-galleria-monte-ceneri': { name: 'Riaperta la galleria del Monte Ceneri', path: '/articoli-frontaliere/riaperta-galleria-monte-ceneri', parent: 'blog' },
+    'blog-ucraini-in-ticino-aiuti-incognite': { name: 'Ucraini in Ticino', path: '/articoli-frontaliere/ucraini-in-ticino-aiuti-incognite', parent: 'blog' },
   };
 
   const info = sectionNames[section];

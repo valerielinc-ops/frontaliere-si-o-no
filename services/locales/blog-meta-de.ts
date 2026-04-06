@@ -2106,6 +2106,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.riaperta-galleria-monte-ceneri.title': 'Galleria del Monte Ceneri wieder geöffnet: Normalverkehr aufgenommen',
     'blog.article.riaperta-galleria-monte-ceneri.excerpt': 'Die Galleria del Monte Ceneri ist nach der vorübergehenden Schließung wieder geöffnet worden.',
     'blog.article.riaperta-galleria-monte-ceneri.imageAlt': 'Der Monte-Ceneri-Tunnel wurde nach einer vorübergehenden Schließung wieder geöffnet.',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.title': 'Ukrainier im Tessin, die S-Erlaubnis zwischen Hilfen und Unsicherheiten',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.excerpt': 'Die S-Erlaubnis wurde etwa 70.000 Personen in der Schweiz erteilt, während das Tessin etwa 3.000 ukrainische Flüchtlinge beherbergt',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.imageAlt': 'Ukrainer in Ticino',
 };
 
 export default blogMetaDe;

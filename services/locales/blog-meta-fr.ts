@@ -2106,6 +2106,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.riaperta-galleria-monte-ceneri.title': 'Riaperta la galleria del Monte Ceneri: tornata alla normalità la circolazione',
     'blog.article.riaperta-galleria-monte-ceneri.excerpt': 'La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea.',
     'blog.article.riaperta-galleria-monte-ceneri.imageAlt': 'Le tunnel du Monte Ceneri a été rouvert après une fermeture temporaire.',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.title': 'Ukrainiens au Tessin, le permis S entre aides et incertitudes',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.excerpt': 'Le permis S a été accordé à environ 70 000 personnes en Suisse, tandis que le Tessin accueille environ 3 000 réfugiés ukrainiens',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.imageAlt': 'Ukrainiens en Ticino',
 };
 
 export default blogMetaFr;

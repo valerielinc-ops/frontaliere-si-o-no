@@ -2106,6 +2106,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.riaperta-galleria-monte-ceneri.title': 'Monte Ceneri Tunnel Reopened: Traffic Returns to Normal',
     'blog.article.riaperta-galleria-monte-ceneri.excerpt': 'The Monte Ceneri Tunnel has been reopened following a temporary closure.',
     'blog.article.riaperta-galleria-monte-ceneri.imageAlt': 'The Monte Ceneri tunnel has been reopened after a temporary closure.',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.title': 'Ukrainians in Ticino, the S Permit between aid and uncertainties',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.excerpt': 'The S Permit has been granted to approximately 70,000 people in Switzerland, while the Ticino region hosts around 3,000 Ukrainian refugees',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.imageAlt': 'Ukrainians in Ticino',
 };
 
 export default blogMetaEn;

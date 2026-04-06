@@ -2106,6 +2106,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.riaperta-galleria-monte-ceneri.title': 'Riaperta la galleria del Monte Ceneri: tornata alla normalità la circolazione',
     'blog.article.riaperta-galleria-monte-ceneri.excerpt': 'La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea.',
     'blog.article.riaperta-galleria-monte-ceneri.imageAlt': 'La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea.',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.title': 'Ucraini in Ticino, il permesso S tra aiuti e incognite',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.excerpt': 'Il Permesso S è stato concesso a circa 70.000 persone in Svizzera, mentre il Ticino ospita circa 3000 profughi ucraini',
+    'blog.article.ucraini-in-ticino-aiuti-incognite.imageAlt': 'Ucraini in Ticino',
 };
 
 export default blogMetaIt;

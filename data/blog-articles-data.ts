@@ -6104,4 +6104,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/riaperta-galleria-monte-ceneri.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'ucraini-in-ticino-aiuti-incognite',
+    category: 'novita',
+    date: '2026-04-06T11:57:25.930Z',
+    image: '/images/blog/ucraini-in-ticino-aiuti-incognite.jpg',
+    hasCalculator: true,
+  },
 ];

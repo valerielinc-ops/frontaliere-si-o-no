@@ -12130,6 +12130,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-ucraini-in-ticino-aiuti-incognite': {
+    title: 'Ucraini in Ticino, il permesso S tra aiuti e incognite | Frontaliere Ticino',
+    description: 'Il Permesso S è stato concesso a circa 70.000 persone in Svizzera, mentre il Ticino ospita circa 3000 profughi ucraini. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, ucraini, permesso, aiuti, incognite',
+    ogTitle: 'Ucraini in Ticino, il permesso S tra aiuti e incognite',
+    ogDescription: 'Il Permesso S è stato concesso a circa 70.000 persone in Svizzera, mentre il Ticino ospita circa 3000 profughi ucraini',
+    canonicalPath: '/articoli-frontaliere/ucraini-in-ticino-aiuti-incognite',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Ucraini in Ticino, il permesso S tra aiuti e incognite",
+      "description": "Il Permesso S è stato concesso a circa 70.000 persone in Svizzera, mentre il Ticino ospita circa 3000 profughi ucraini. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/ucraini-in-ticino-aiuti-incognite.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ucraini in Ticino"
+      },
+      "datePublished": "2026-04-06T11:57:25+00:00",
+      "dateModified": "2026-04-06T11:57:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/ucraini-in-ticino-aiuti-incognite`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
