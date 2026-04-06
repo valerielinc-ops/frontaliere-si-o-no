@@ -1963,6 +1963,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-controlli-auto-immatricolate-grigioni': { name: 'Controlli auto Grigioni', path: '/articoli-frontaliere/controlli-auto-immatricolate-grigioni', parent: 'blog' },
     'blog-locarno-magadino-trasporto': { name: 'Trasporto lacustre', path: '/articoli-frontaliere/locarno-magadino-trasporto', parent: 'blog' },
     'blog-prezzi-benzina-ticino': { name: 'Prezzi benzina', path: '/articoli-frontaliere/prezzi-benzina-ticino', parent: 'blog' },
+    'blog-lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone': { name: 'Lavizzara', path: '/articoli-frontaliere/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone', parent: 'blog' },
   };
 
   const info = sectionNames[section];

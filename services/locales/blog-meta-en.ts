@@ -2130,6 +2130,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.prezzi-benzina-ticino.title': 'Gasoline prices in Switzerland: +10% to +22%',
     'blog.article.prezzi-benzina-ticino.excerpt': 'After a month of conflict, gasoline prices in Switzerland have risen between 10% and 22%',
     'blog.article.prezzi-benzina-ticino.imageAlt': 'Lugano panorama',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.title': 'Lavizzara: issues with water network, no potable water in various areas',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.excerpt': 'The water network in Lavizzara has been affected by issues, resulting in the lack of potable water in various areas',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.imageAlt': 'No potable water in Lavizzara',
 };
 
 export default blogMetaEn;

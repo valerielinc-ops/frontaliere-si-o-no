@@ -12362,6 +12362,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone': {
+    title: 'Lavizzara: problemi alla rete idrica, niente acqua potabile in varie | Frontaliere Ticino',
+    description: 'La rete idrica di Lavizzara è stata colpita da problemi, causando la mancanza di acqua potabile in varie zone. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavizzara, problemi, alla, rete',
+    ogTitle: 'Lavizzara: problemi alla rete idrica, niente acqua potabi',
+    ogDescription: 'La rete idrica di Lavizzara è stata colpita da problemi, causando la mancanza di acqua potabile in varie zone',
+    canonicalPath: '/articoli-frontaliere/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavizzara: problemi alla rete idrica, niente acqua potabi",
+      "description": "La rete idrica di Lavizzara è stata colpita da problemi, causando la mancanza di acqua potabile in varie zone. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Acqua non potabile a Lavizzara"
+      },
+      "datePublished": "2026-04-06T20:55:16+00:00",
+      "dateModified": "2026-04-06T20:55:16+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

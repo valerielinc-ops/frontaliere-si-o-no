@@ -2130,6 +2130,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prezzi-benzina-ticino.title': 'Prezzi benzina in Svizzera: +10% a +22%',
     'blog.article.prezzi-benzina-ticino.excerpt': 'Dopo un mese di conflitto, i prezzi della benzina in Svizzera sono saliti tra il 10 e il 22%',
     'blog.article.prezzi-benzina-ticino.imageAlt': 'Panorama di Lugano',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.title': 'Lavizzara: problemi alla rete idrica, niente acqua potabile in varie zone',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.excerpt': 'La rete idrica di Lavizzara è stata colpita da problemi, causando la mancanza di acqua potabile in varie zone',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.imageAlt': 'Acqua non potabile a Lavizzara',
 };
 
 export default blogMetaIt;

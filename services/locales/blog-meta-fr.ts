@@ -2130,6 +2130,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.prezzi-benzina-ticino.title': 'Prix de l\'essence en Suisse: +10% à +22%',
     'blog.article.prezzi-benzina-ticino.excerpt': 'Après un mois de conflit, les prix de l\'essence en Suisse ont augmenté de 10 à 22%',
     'blog.article.prezzi-benzina-ticino.imageAlt': 'Panorama de Lugano',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.title': 'Lavizzara: problèmes dans la réseaux d\'eau, pas d\'eau potable dans certaines zones',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.excerpt': 'La réseaux d\'eau de Lavizzara a été touché par des problèmes, causant l\'absence d\'eau potable dans certaines zones',
+    'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.imageAlt': 'Eau non potable à Lavizzara',
 };
 
 export default blogMetaFr;

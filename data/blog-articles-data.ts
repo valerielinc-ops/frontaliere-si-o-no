@@ -6160,4 +6160,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/prezzi-benzina-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone',
+    category: 'pratico',
+    date: '2026-04-06T20:55:16.722Z',
+    image: '/images/blog/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.jpg',
+    hasCalculator: true,
+  },
 ];
