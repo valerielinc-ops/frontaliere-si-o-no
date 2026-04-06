@@ -1936,10 +1936,14 @@ async function translateArticle(data) {
 
       if (words <= TRANSLATION_CHUNK_THRESHOLD) {
         // Normal single-call translation
-        return callWithRetry(makePrompt(
+        const result = await callWithRetry(makePrompt(
           `CONTENUTO ITALIANO DA TRADURRE:\n- ${bodyKey}: ${bodyText}`,
           `{"${bodyKey}": "..."}`,
         ), bodyTokens(bodyText), `${lang}:${bodyKey.replace('body', 'b')}`);
+        if (result && typeof result[bodyKey] === 'string') {
+          result[bodyKey] = sanitizeBodyText(result[bodyKey]);
+        }
+        return result;
       }
 
       // Sub-chunk: split at paragraph boundaries into ~500-word pieces
@@ -1975,7 +1979,7 @@ async function translateArticle(data) {
 
       // Join translated chunks
       const joined = translated.map((r) => r[bodyKey] || '').join('\n\n');
-      return { [bodyKey]: joined };
+      return { [bodyKey]: sanitizeBodyText(joined) };
     }
 
     const [partMeta, partB1, partB2, partB3] = await Promise.all([
@@ -3417,6 +3421,63 @@ async function generateArticleImage(data) {
 }
 
 // ── Step 4: Modify source files ─────────────────────────────
+
+/**
+ * Sanitize AI-generated body text before it's serialized into TypeScript.
+ *
+ * The LLM occasionally produces stray `}` characters — typically at the end of
+ * a sentence where a German low quote („ ") was mis-closed with `}`. Blog
+ * body content is plain markdown and should never contain unbalanced braces;
+ * when they slip through they (a) break string-unaware parsers like the old
+ * i18n-completeness test and (b) look broken in the rendered article.
+ *
+ * This is defense in depth: the test parser is now string-aware, but we still
+ * refuse to write corrupted output to source files. Strategy:
+ *   - Walk the text, tracking `{` depth
+ *   - Drop any `}` that appears while depth is already 0
+ *   - Leave balanced `{...}` pairs intact (in case of anchors, placeholders)
+ */
+function sanitizeBodyText(s) {
+  if (typeof s !== 'string' || s.length === 0) return s;
+  const out = [];
+  let depth = 0;
+  let droppedCount = 0;
+  for (let i = 0; i < s.length; i++) {
+    const ch = s[i];
+    if (ch === '{') {
+      depth++;
+      out.push(ch);
+    } else if (ch === '}') {
+      if (depth === 0) {
+        droppedCount++;
+        continue; // stray — skip
+      }
+      depth--;
+      out.push(ch);
+    } else {
+      out.push(ch);
+    }
+  }
+  // If braces are still unbalanced (more `{` than `}`), strip the trailing
+  // unmatched opens as well — they'd otherwise leave an open brace in the
+  // serialized TS string that could hide downstream issues.
+  if (depth > 0) {
+    let i = out.length - 1;
+    let toStrip = depth;
+    while (i >= 0 && toStrip > 0) {
+      if (out[i] === '{') {
+        out[i] = '';
+        toStrip--;
+      }
+      i--;
+    }
+    droppedCount += depth;
+  }
+  if (droppedCount > 0) {
+    console.error(`    ⚠️  sanitizeBodyText: removed ${droppedCount} stray brace char(s)`);
+  }
+  return out.join('');
+}
 
 function escapeForSingleQuoteTS(s) {
   return String(s || '').replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/\n/g, '\\n').replace(/\r/g, '');

@@ -164,31 +164,107 @@ function extractLocaleKeys(locale: string): Set<string> {
   return keys;
 }
 
-function extractKeysFromObject(filePath: string, searchStart: string, keys: Set<string>): void {
-  const content = fs.readFileSync(filePath, 'utf8');
-  
-  const objStart = content.indexOf(searchStart);
-  if (objStart === -1) throw new Error(`Object starting with '${searchStart}' not found in ${filePath}`);
-  
-  // Find the matching closing brace (track depth)
+/**
+ * Find the matching closing brace of an object literal, starting at `objStart`.
+ *
+ * This is a string-aware scanner: it correctly skips `{` and `}` characters that
+ * appear inside string literals (`'...'`, `"..."`, `` `...` ``), line comments
+ * (`// ...`), and block comments (`/* ... *\/`). Without this, a stray `}` inside
+ * a translated string value would terminate parsing early and make subsequent
+ * sibling keys invisible to the test — masking real missing translations.
+ *
+ * Template literals track `${...}` expression depth so that braces inside
+ * interpolated expressions are counted as code, while braces in the literal
+ * text portions are treated as string content.
+ *
+ * Returns `[startIdx, endIdx]` (both inclusive) or `[-1, -1]` if no matching
+ * brace is found.
+ */
+function findObjectBounds(content: string, objStart: number): [number, number] {
   let depth = 0;
   let startIdx = -1;
-  let endIdx = -1;
+  // Template literal expression stack: each entry is the depth at which the
+  // current `${` was opened. When depth returns to that value at a `}`, the
+  // expression is closing and we pop back into template-text mode.
+  const templateExprStack: number[] = [];
+  // Mode: 'code' | 'line-comment' | 'block-comment' | 'sq-string' | 'dq-string' | 'tpl-string'
+  type Mode = 'code' | 'line-comment' | 'block-comment' | 'sq-string' | 'dq-string' | 'tpl-string';
+  let mode: Mode = 'code';
+
   for (let i = objStart; i < content.length; i++) {
-    if (content[i] === '{') {
+    const ch = content[i];
+    const next = content[i + 1];
+
+    if (mode === 'line-comment') {
+      if (ch === '\n') mode = 'code';
+      continue;
+    }
+    if (mode === 'block-comment') {
+      if (ch === '*' && next === '/') {
+        mode = 'code';
+        i++;
+      }
+      continue;
+    }
+    if (mode === 'sq-string') {
+      if (ch === '\\') { i++; continue; }
+      if (ch === "'") mode = 'code';
+      continue;
+    }
+    if (mode === 'dq-string') {
+      if (ch === '\\') { i++; continue; }
+      if (ch === '"') mode = 'code';
+      continue;
+    }
+    if (mode === 'tpl-string') {
+      if (ch === '\\') { i++; continue; }
+      if (ch === '`') { mode = 'code'; continue; }
+      if (ch === '$' && next === '{') {
+        // Enter template expression: push current depth so we know when to pop.
+        templateExprStack.push(depth);
+        mode = 'code';
+        i++; // skip the '{' — it's not an object brace, it's an expression delimiter
+      }
+      continue;
+    }
+
+    // mode === 'code'
+    if (ch === '/' && next === '/') { mode = 'line-comment'; i++; continue; }
+    if (ch === '/' && next === '*') { mode = 'block-comment'; i++; continue; }
+    if (ch === "'") { mode = 'sq-string'; continue; }
+    if (ch === '"') { mode = 'dq-string'; continue; }
+    if (ch === '`') { mode = 'tpl-string'; continue; }
+
+    if (ch === '{') {
       if (depth === 0) startIdx = i;
       depth++;
-    } else if (content[i] === '}') {
+    } else if (ch === '}') {
+      // If we're closing a template-literal expression, pop back into template string mode.
+      if (templateExprStack.length > 0 && templateExprStack[templateExprStack.length - 1] === depth) {
+        templateExprStack.pop();
+        mode = 'tpl-string';
+        continue;
+      }
       depth--;
       if (depth === 0) {
-        endIdx = i;
-        break;
+        return [startIdx, i];
       }
     }
   }
-  
+
+  return [startIdx, -1];
+}
+
+function extractKeysFromObject(filePath: string, searchStart: string, keys: Set<string>): void {
+  const content = fs.readFileSync(filePath, 'utf8');
+
+  const objStart = content.indexOf(searchStart);
+  if (objStart === -1) throw new Error(`Object starting with '${searchStart}' not found in ${filePath}`);
+
+  const [startIdx, endIdx] = findObjectBounds(content, objStart);
+
   if (startIdx === -1 || endIdx === -1) throw new Error(`Could not parse object in ${filePath}`);
-  
+
   const section = content.slice(startIdx, endIdx + 1);
   const keyRegex = /'([^']+)':\s*['"`]/g;
   let match;
