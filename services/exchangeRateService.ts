@@ -88,8 +88,11 @@ async function getFirestoreRate(): Promise<CacheEntry | null> {
   return null;
 }
 
+// Cache Firestore write permission failures to avoid repeated attempts
+let firestoreWriteBlocked = false;
+
 async function saveFirestoreRate(rate: number): Promise<void> {
-  if (IS_TEST_ENV) return;
+  if (IS_TEST_ENV || firestoreWriteBlocked) return;
   try {
     const { getFirestore, doc, setDoc, serverTimestamp } = await import('firebase/firestore');
     const { getApp } = await import('@/services/firebase');
@@ -100,34 +103,54 @@ async function saveFirestoreRate(rate: number): Promise<void> {
       updatedAt: new Date().toISOString(),
       source: 'twelvedata',
     });
-  } catch {
-    // Permission denied is expected for anonymous clients — config writes are admin-only
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
+      firestoreWriteBlocked = true;
+      reportCaughtError(e, 'exchangeRate.firestoreWrite', { apiEndpoint: 'config/exchange_rate' });
+    }
+    // Other transient errors (network, etc.) are silently ignored — next fetch will retry
   }
 }
 
 // ─── TwelveData API ──────────────────────────────────────────
 
+const TWELVEDATA_MAX_RETRIES = 2;
+const TWELVEDATA_RETRY_DELAYS = [1000, 2000]; // exponential backoff: 1s, 2s
+
 async function fetchFromTwelveData(): Promise<number | null> {
   if (IS_TEST_ENV) return null;
-  try {
-    const { getConfigValue } = await import('@/services/firebase');
-    const apiKey = await getConfigValue('TWELVEDATA_API_KEY');
-    if (!apiKey) return null;
+  const { getConfigValue } = await import('@/services/firebase');
+  const apiKey = await getConfigValue('TWELVEDATA_API_KEY');
+  if (!apiKey) return null;
+
+  for (let attempt = 0; attempt <= TWELVEDATA_MAX_RETRIES; attempt++) {
     const controller = new AbortController();
     const timeoutId = setTimeout(() => controller.abort(), 5000);
-    const res = await fetch(`${TWELVEDATA_URL}&apikey=${apiKey}`, { signal: controller.signal });
-    clearTimeout(timeoutId);
-    const data = await res.json();
-    // TwelveData returns { symbol: "CHF/EUR", rate: 0.9412, ... }
-    if (data?.rate) {
-      return parseFloat(data.rate);
+    try {
+      const res = await fetch(`${TWELVEDATA_URL}&apikey=${apiKey}`, { signal: controller.signal });
+      const data = await res.json();
+      if (data?.rate) {
+        return parseFloat(data.rate);
+      }
+      if (data?.code === 429 || data?.status === 'error') {
+        console.warn('⚠️ TwelveData rate limit or error:', data.message);
+        return null; // Don't retry rate limits
+      }
+    } catch (e) {
+      // Don't report abort (timeout) or network errors on non-final attempts
+      const isAbort = e instanceof DOMException && e.name === 'AbortError';
+      if (attempt < TWELVEDATA_MAX_RETRIES && !isAbort) {
+        await new Promise(r => setTimeout(r, TWELVEDATA_RETRY_DELAYS[attempt]));
+        continue;
+      }
+      // Final attempt — report but skip AbortError (timeouts are expected)
+      if (!isAbort) {
+        reportCaughtError(e, 'exchangeRate.twelveDataFetch', { apiEndpoint: TWELVEDATA_URL });
+      }
+    } finally {
+      clearTimeout(timeoutId);
     }
-    if (data?.code === 429 || data?.status === 'error') {
-      console.warn('⚠️ TwelveData rate limit or error:', data.message);
-      return null;
-    }
-  } catch (e) {
-    reportCaughtError(e, 'exchangeRate.twelveDataFetch', { apiEndpoint: TWELVEDATA_URL });
   }
   return null;
 }
@@ -314,7 +337,7 @@ async function getHistoryFromFirestore(period: HistoryPeriod): Promise<{ points:
 
 /** Save history to Firestore (fire-and-forget) */
 async function saveHistoryToFirestore(period: HistoryPeriod, points: HistoryPoint[]): Promise<void> {
-  if (IS_TEST_ENV || points.length === 0) return;
+  if (IS_TEST_ENV || firestoreWriteBlocked || points.length === 0) return;
   try {
     const { getFirestore, doc, setDoc } = await import('firebase/firestore');
     const { getApp } = await import('@/services/firebase');
@@ -326,8 +349,11 @@ async function saveHistoryToFirestore(period: HistoryPeriod, points: HistoryPoin
       updatedAt: new Date().toISOString(),
       period,
     });
-  } catch {
-    // Permission denied is expected for anonymous clients — history writes are best-effort
+  } catch (e) {
+    const msg = e instanceof Error ? e.message : String(e);
+    if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
+      firestoreWriteBlocked = true;
+    }
   }
 }
 
@@ -335,41 +361,47 @@ async function saveHistoryToFirestore(period: HistoryPeriod, points: HistoryPoin
 async function fetchFrankfurter(baseUrl: string, startStr: string, endStr: string): Promise<HistoryPoint[]> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 8000);
-  const res = await fetch(
-    `${baseUrl}/v2/rates?base=CHF&quotes=EUR&from=${startStr}&to=${endStr}`,
-    { signal: controller.signal }
-  );
-  clearTimeout(timeoutId);
-  if (!res.ok) throw new Error(`HTTP ${res.status}`);
-  const data = await res.json();
-  if (!Array.isArray(data) || data.length === 0) throw new Error('No rates in response');
-  return data.map((entry: { date: string; rate: number }) => ({
-    date: entry.date,
-    rate: entry.rate,
-  }));
+  try {
+    const res = await fetch(
+      `${baseUrl}/v2/rates?base=CHF&quotes=EUR&from=${startStr}&to=${endStr}`,
+      { signal: controller.signal }
+    );
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const data = await res.json();
+    if (!Array.isArray(data) || data.length === 0) throw new Error('No rates in response');
+    return data.map((entry: { date: string; rate: number }) => ({
+      date: entry.date,
+      rate: entry.rate,
+    }));
+  } finally {
+    clearTimeout(timeoutId);
+  }
 }
 
 /** Fetch from ECB Data API */
 async function fetchEcbHistory(startStr: string, endStr: string): Promise<HistoryPoint[]> {
   const controller = new AbortController();
   const timeoutId = setTimeout(() => controller.abort(), 10000);
-  const ecbRes = await fetch(
-    `https://data-api.ecb.europa.eu/service/data/EXR/D.CHF.EUR.SP00.A?startPeriod=${startStr}&endPeriod=${endStr}&format=csvdata`,
-    { signal: controller.signal }
-  );
-  clearTimeout(timeoutId);
-  const csv = await ecbRes.text();
-  const lines = csv.split('\n');
-  const points: HistoryPoint[] = [];
-  for (let i = 1; i < lines.length; i++) {
-    const cols = lines[i].split(',');
-    if (cols.length < 8) continue;
-    const date = cols[6];
-    const obsValue = parseFloat(cols[7]);
-    if (!date || isNaN(obsValue) || obsValue === 0) continue;
-    points.push({ date, rate: +(1 / obsValue).toFixed(6) });
+  try {
+    const ecbRes = await fetch(
+      `https://data-api.ecb.europa.eu/service/data/EXR/D.CHF.EUR.SP00.A?startPeriod=${startStr}&endPeriod=${endStr}&format=csvdata`,
+      { signal: controller.signal }
+    );
+    const csv = await ecbRes.text();
+    const lines = csv.split('\n');
+    const points: HistoryPoint[] = [];
+    for (let i = 1; i < lines.length; i++) {
+      const cols = lines[i].split(',');
+      if (cols.length < 8) continue;
+      const date = cols[6];
+      const obsValue = parseFloat(cols[7]);
+      if (!date || isNaN(obsValue) || obsValue === 0) continue;
+      points.push({ date, rate: +(1 / obsValue).toFixed(6) });
+    }
+    return points;
+  } finally {
+    clearTimeout(timeoutId);
   }
-  return points;
 }
 
 /**

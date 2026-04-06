@@ -38,10 +38,10 @@ export class ErrorBoundary extends Component<Props, State> {
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error:', error, errorInfo);
 
-    // Auto-recover from stale chunk errors (e.g., after deployment the old SW
-    // cache serves HTML referencing JS/CSS chunks that no longer exist on the
-    // server).  Clear all SW caches and force-reload instead of showing the
-    // generic error UI.
+    // Chunk errors are handled by lazyRetry (clear caches + retry import).
+    // If we reach ErrorBoundary, lazyRetry already exhausted its retry.
+    // Do NOT auto-reload — it creates a double-retry loop.
+    // Just show the error UI with a manual refresh button.
     const msg = error?.message || '';
     const isChunkError =
       msg.includes('dynamically imported module') ||
@@ -50,37 +50,13 @@ export class ErrorBoundary extends Component<Props, State> {
       error?.name === 'ChunkLoadError';
 
     if (isChunkError) {
-      // Guard: max 1 auto-reload per session
-      const retried = sessionStorage.getItem('_ebChunkReload');
-      if (!retried) {
-        sessionStorage.setItem('_ebChunkReload', '1');
-        // Track the force reload decision BEFORE reloading
-        Analytics.trackForceReload({
-          source: 'error_boundary',
-          reason: `chunk_error: ${msg.slice(0, 80)}`,
-          reloadCount: 1,
-          pagePath: window.location.pathname + window.location.search,
-          blocked: false,
-        });
-        if (typeof caches !== 'undefined') {
-          caches.keys()
-            .then(names => Promise.all(names.map(n => caches.delete(n))))
-            .then(() => window.location.reload());
-        } else {
-          window.location.reload();
-        }
-        return; // Skip error tracking — reload will fix it
-      }
-      // Already retried — fall through to show error UI
-      // Track that the reload guard BLOCKED a second reload attempt
-      Analytics.trackForceReload({
-        source: 'error_boundary',
-        reason: `chunk_error_blocked: ${msg.slice(0, 80)}`,
-        reloadCount: 2,
+      Analytics.trackAppError('chunk_load', {
+        message: `[ErrorBoundary] ${error.name}: ${msg.slice(0, 120)}`,
+        stack: error.stack?.slice(0, 500) || '',
         pagePath: window.location.pathname + window.location.search,
-        blocked: true,
+        fatal: true,
       });
-      sessionStorage.removeItem('_ebChunkReload');
+      // Fall through to show error UI — user can manually refresh
     }
 
     const fp = ErrorBoundary.fingerprint(error);

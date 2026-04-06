@@ -481,6 +481,13 @@
          Placed before <script type="module"> which is deferred by spec, so these
          handlers are registered before any module JS executes. -->
     <script>
+      // Unregister any leftover service workers from previous deploys.
+      // Stale SWs can serve outdated cached assets that reference non-existent chunk hashes.
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistrations().then(function(registrations) {
+          registrations.forEach(function(r) { r.unregister(); });
+        });
+      }
       // TRACKING: Every resource error is stored in sessionStorage._resourceErrors
       // (JSON array). Force reloads are stored in _forceReloadInfo. Both are
       // read and reported by Analytics.initGlobalErrorTracking() once React boots.
