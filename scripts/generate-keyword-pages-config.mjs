@@ -51,6 +51,21 @@ function similarity(a, b) {
   return union === 0 ? 0 : intersection / union;
 }
 
+function capitalize(s) {
+  return s.charAt(0).toUpperCase() + s.slice(1);
+}
+
+// Title case but keep Italian prepositions lowercase (di, in, per, a, al, etc.)
+// Declared before the generation loop so titleCase() can access LOWERCASE_WORDS.
+const LOWERCASE_WORDS = new Set(['di', 'in', 'per', 'a', 'al', 'e', 'il', 'la', 'le', 'i', 'un', 'una', 'del', 'della', 'delle', 'dei', 'degli', 'da', 'con', 'su', 'lo', 'gli', 'nel', 'nella']);
+function titleCase(s) {
+  return s.split(/\s+/).map((word, idx) => {
+    if (idx === 0) return capitalize(word);
+    if (LOWERCASE_WORDS.has(word.toLowerCase())) return word.toLowerCase();
+    return capitalize(word);
+  }).join(' ');
+}
+
 // ── Main ─────────────────────────────────────────────────────────────────
 
 if (!fs.existsSync(GSC_PATH)) {
@@ -61,16 +76,30 @@ if (!fs.existsSync(GSC_PATH)) {
 const gscData = JSON.parse(fs.readFileSync(GSC_PATH, 'utf-8'));
 
 // 1. Aggregate queries across all slugs
+let skippedInvalidQueries = 0;
 const queryAgg = new Map();
 for (const queries of Object.values(gscData)) {
+  if (!Array.isArray(queries)) continue;
   for (const q of queries) {
+    // Guard: q may be null/undefined, q.query may be missing/empty/non-string.
+    // GSC exports occasionally include anonymized or malformed entries — skip them.
+    if (!q || typeof q.query !== 'string') {
+      skippedInvalidQueries++;
+      continue;
+    }
     const key = q.query.toLowerCase().trim();
-    if (!key) continue;
+    if (!key) {
+      skippedInvalidQueries++;
+      continue;
+    }
     const existing = queryAgg.get(key) || { clicks: 0, impressions: 0 };
-    existing.clicks += q.clicks;
-    existing.impressions += q.impressions;
+    existing.clicks += Number(q.clicks) || 0;
+    existing.impressions += Number(q.impressions) || 0;
     queryAgg.set(key, existing);
   }
+}
+if (skippedInvalidQueries > 0) {
+  console.warn(`⚠️  Skipped ${skippedInvalidQueries} GSC entries with missing/empty query field`);
 }
 
 // 2. Filter to qualifying queries (≥3 clicks OR ≥30 impressions)
@@ -173,20 +202,6 @@ for (const cluster of topClusters) {
       },
     },
   });
-}
-
-function capitalize(s) {
-  return s.charAt(0).toUpperCase() + s.slice(1);
-}
-
-// Title case but keep Italian prepositions lowercase (di, in, per, a, al, etc.)
-const LOWERCASE_WORDS = new Set(['di', 'in', 'per', 'a', 'al', 'e', 'il', 'la', 'le', 'i', 'un', 'una', 'del', 'della', 'delle', 'dei', 'degli', 'da', 'con', 'su', 'lo', 'gli', 'nel', 'nella']);
-function titleCase(s) {
-  return s.split(/\s+/).map((word, idx) => {
-    if (idx === 0) return capitalize(word);
-    if (LOWERCASE_WORDS.has(word.toLowerCase())) return word.toLowerCase();
-    return capitalize(word);
-  }).join(' ');
 }
 
 // 6. Write config

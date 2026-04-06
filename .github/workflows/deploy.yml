@@ -173,33 +173,51 @@ jobs:
       - name: Wait for live article metadata
         if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_url != '' && github.event.inputs.og_title != ''
         id: wait_live_meta
+        # Pass dispatch inputs via env vars to avoid shell injection / escape issues
+        # when article titles contain smart quotes, apostrophes, backticks, or $.
+        env:
+          ARTICLE_URL: ${{ github.event.inputs.article_url }}
+          OG_TITLE: ${{ github.event.inputs.og_title }}
+          OG_IMAGE: ${{ github.event.inputs.og_image }}
         run: |
           node scripts/wait-for-live-article-meta.mjs \
-            "${{ github.event.inputs.article_url }}" \
-            "${{ github.event.inputs.og_title }}" \
-            "${{ github.event.inputs.og_image }}"
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_IMAGE"
 
       - name: Post to Facebook Page
         if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
+        env:
+          ARTICLE_ID: ${{ github.event.inputs.article_id }}
+          ARTICLE_URL: ${{ github.event.inputs.article_url }}
+          OG_TITLE: ${{ github.event.inputs.og_title }}
+          OG_DESCRIPTION: ${{ github.event.inputs.og_description }}
+          ARTICLE_CATEGORY: ${{ github.event.inputs.article_category }}
         run: |
           node scripts/post-to-facebook.mjs \
-            "${{ github.event.inputs.article_id }}" \
-            "${{ github.event.inputs.article_url }}" \
-            "${{ github.event.inputs.og_title }}" \
-            "${{ github.event.inputs.og_description }}" \
-            "${{ github.event.inputs.article_category }}"
+            "$ARTICLE_ID" \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_DESCRIPTION" \
+            "$ARTICLE_CATEGORY"
 
       - name: Post to LinkedIn Company Page
         if: success() && github.event_name == 'workflow_dispatch' && github.event.inputs.article_id != '' && steps.wait_live_meta.outcome == 'success'
         continue-on-error: true
+        env:
+          ARTICLE_ID: ${{ github.event.inputs.article_id }}
+          ARTICLE_URL: ${{ github.event.inputs.article_url }}
+          OG_TITLE: ${{ github.event.inputs.og_title }}
+          OG_DESCRIPTION: ${{ github.event.inputs.og_description }}
+          ARTICLE_CATEGORY: ${{ github.event.inputs.article_category }}
         run: |
           node scripts/post-to-linkedin.mjs \
-            "${{ github.event.inputs.article_id }}" \
-            "${{ github.event.inputs.article_url }}" \
-            "${{ github.event.inputs.og_title }}" \
-            "${{ github.event.inputs.og_description }}" \
-            "${{ github.event.inputs.article_category }}"
+            "$ARTICLE_ID" \
+            "$ARTICLE_URL" \
+            "$OG_TITLE" \
+            "$OG_DESCRIPTION" \
+            "$ARTICLE_CATEGORY"
 
       - name: Google Indexing API — JobPosting only
         if: success()

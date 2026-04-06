@@ -2051,9 +2051,55 @@ function validateTitle(title) {
 
 // ── Step 3: Validate Gemini response ────────────────────────
 function validate(data) {
-  const required = ['id', 'category', 'image', 'slugs', 'content'];
-  for (const key of required) {
-    if (!data[key]) throw new Error(`Campo mancante nella risposta AI: ${key}`);
+  // `content` is the only truly irreplaceable field — everything else can be
+  // synthesized from it. Smaller fallback models (Cerebras llama-3.1-8b, etc.)
+  // frequently omit top-level metadata (`id`, `category`, `image`, `slugs`)
+  // but still produce usable localized `content`. Fail ONLY if content is missing.
+  if (!data || typeof data !== 'object') {
+    throw new Error(`Campo mancante nella risposta AI: data (non è un oggetto)`);
+  }
+  if (!data.content || typeof data.content !== 'object') {
+    throw new Error(`Campo mancante nella risposta AI: content`);
+  }
+  const itContent = data.content.it || data.content;
+  if (!itContent || !itContent.title) {
+    throw new Error(`Campo mancante nella risposta AI: content.it.title`);
+  }
+
+  // Synthesize id from the Italian title if the model omitted it.
+  if (!data.id) {
+    const generatedId = String(itContent.title)
+      .toLowerCase()
+      .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, '-')
+      .replace(/-+/g, '-')
+      .replace(/^-|-$/g, '')
+      .slice(0, 80);
+    if (!generatedId) {
+      throw new Error(`Campo mancante nella risposta AI: id (impossibile sintetizzare dal titolo "${itContent.title}")`);
+    }
+    console.error(`⚠️  Campo "id" mancante — sintetizzato dal titolo IT: "${generatedId}"`);
+    data.id = generatedId;
+  }
+
+  // Default category to 'novita' (generic news) if missing — the mapping below
+  // will normalize it further.
+  if (!data.category) {
+    console.error(`⚠️  Campo "category" mancante — uso fallback "novita"`);
+    data.category = 'novita';
+  }
+
+  // Default image to the first available place image; the downstream image
+  // validation block will pick a better fallback via keyword matching or hash.
+  if (!data.image) {
+    console.error(`⚠️  Campo "image" mancante — uso fallback "${PLACES_IMAGES[0]}"`);
+    data.image = PLACES_IMAGES[0];
+  }
+
+  // Ensure slugs is an object so the per-locale fallback loop below can populate it.
+  if (!data.slugs || typeof data.slugs !== 'object') {
+    console.error(`⚠️  Campo "slugs" mancante — sarà derivato dai titoli per locale`);
+    data.slugs = {};
   }
 
   // Synthesize seo from content.it if the model omitted it (common with smaller fallback models)
