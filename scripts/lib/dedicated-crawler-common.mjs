@@ -4088,6 +4088,91 @@ export function mergeLocaleRequirementsMap(a = {}, b = {}) {
   return out;
 }
 
+/**
+ * Merge freshly-parsed jobs with existing jobs, preserving locale translations,
+ * slugs, previousSlugs, and stable IDs. Used by dedicated crawlers that build
+ * fresh job objects on each run and would otherwise lose existing translations.
+ *
+ * @param {object[]} existingJobs  – Jobs from the current slice/dataset for this company
+ * @param {object[]} freshJobs     – Newly parsed jobs (may only have one locale filled)
+ * @param {object}   [opts]
+ * @param {Function} [opts.matchKey] – (job) => string – key for matching (default: normalized URL)
+ * @returns {object[]} Merged jobs array (fresh data wins for source fields, existing wins for translations)
+ */
+export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
+  const matchKey = opts.matchKey || ((job) =>
+    String(job?.url || '').trim().replace(/\/+$/, '').toLowerCase()
+  );
+
+  const existingByKey = new Map();
+  for (const job of existingJobs) {
+    const k = matchKey(job);
+    if (k) existingByKey.set(k, job);
+  }
+
+  return freshJobs.map((fresh) => {
+    const k = matchKey(fresh);
+    const old = k ? existingByKey.get(k) : null;
+    if (!old) return fresh;
+
+    // Preserve stable ID from existing job
+    if (old.id) fresh.id = old.id;
+
+    // Merge locale maps: keep existing translations, update source-locale slot
+    fresh.titleByLocale = mergeLocaleTextMap(
+      old.titleByLocale, fresh.titleByLocale || {}, 3
+    );
+    fresh.descriptionByLocale = mergeLocaleTextMap(
+      old.descriptionByLocale, fresh.descriptionByLocale || {}, 30
+    );
+    fresh.slugByLocale = mergeLocaleTextMap(
+      old.slugByLocale, fresh.slugByLocale || {}, 3
+    );
+
+    // Preserve requirement locale maps
+    if (old.requirementsByLocale && !fresh.requirementsByLocale) {
+      fresh.requirementsByLocale = old.requirementsByLocale;
+    } else if (old.requirementsByLocale && fresh.requirementsByLocale) {
+      fresh.requirementsByLocale = mergeLocaleRequirementsMap(
+        old.requirementsByLocale, fresh.requirementsByLocale
+      );
+    }
+
+    // Preserve previousSlugs
+    if (old.previousSlugs?.length) {
+      fresh.previousSlugs = [...new Set([
+        ...(old.previousSlugs || []),
+        ...(fresh.previousSlugs || []),
+      ])];
+    }
+
+    // Preserve slug (use existing if stable)
+    if (old.slug && fresh.slug && old.slug !== fresh.slug) {
+      if (isSlugStable(old.slug, fresh.slug)) {
+        fresh.slug = old.slug;
+      } else {
+        // Slug genuinely changed — capture old one
+        fresh.previousSlugs = [...new Set([
+          ...(fresh.previousSlugs || []),
+          old.slug,
+        ])];
+      }
+    }
+
+    // Preserve needsRetranslation only if still relevant
+    if (old.needsRetranslation && !fresh.needsRetranslation) {
+      fresh.needsRetranslation = true;
+    }
+
+    // Preserve sourceLang from existing
+    if (old.sourceLang && !fresh.sourceLang) {
+      fresh.sourceLang = old.sourceLang;
+    }
+
+    return fresh;
+  });
+}
+
 function tokenizeForSimilarity(text = '') {
   return new Set(
     normalizeSpace(String(text || '').toLowerCase())
