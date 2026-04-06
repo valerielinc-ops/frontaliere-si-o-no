@@ -11,7 +11,7 @@ import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, printPublishedJobUrls, writeJobsSummary, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchHilconaJobUrls, fetchHilconaDetailPage, slugify, inferEmploymentType } from './lib/hilcona-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -36,9 +36,12 @@ function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((job) => !isCompanyJob(job));
+  const companyExisting = allJobs.filter((job) => isCompanyJob(job));
   const byUrl = new Map();
   for (const job of parsedJobs) { const key = String(job?.url || '').trim().replace(/\/+$/, ''); if (!key) continue; byUrl.set(key, job); }
-  const clean = [...byUrl.values()].sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  const deduped = [...byUrl.values()];
+  const merged = mergePreserveLocaleData(companyExisting, deduped);
+  const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   return writeJobsFiles([...others, ...clean]), clean;
 }
 

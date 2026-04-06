@@ -40,6 +40,7 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import { inferEmploymentType } from './lib/aldi-suisse-job-parser.mjs';
 
@@ -125,12 +126,15 @@ function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(ALDI_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isAldiJob(j));
+  const companyExisting = allJobs.filter((j) => isAldiJob(j));
   const byUrl = new Map();
   for (const job of parsedJobs) {
     const k = String(job?.url || '').trim().replace(/\/+$/, '');
     if (k) byUrl.set(k, job);
   }
-  const clean = [...byUrl.values()].sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  const deduped = [...byUrl.values()];
+  const merged = mergePreserveLocaleData(companyExisting, deduped);
+  const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
 }

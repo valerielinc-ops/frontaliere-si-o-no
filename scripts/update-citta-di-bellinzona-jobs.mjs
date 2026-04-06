@@ -12,7 +12,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { fetchBellinzonaJobs, slugify, inferEmploymentType } from './lib/citta-di-bellinzona-job-parser.mjs';
 import {
   buildPdfBackedDescription,
@@ -41,9 +41,12 @@ function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((j) => !isCompanyJob(j));
+  const companyExisting = allJobs.filter((j) => isCompanyJob(j));
   const byUrl = new Map();
   for (const job of parsedJobs) { const k = String(job?.url || '').trim().replace(/\/+$/, ''); if (k) byUrl.set(k, job); }
-  const clean = [...byUrl.values()].sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  const deduped = [...byUrl.values()];
+  const merged = mergePreserveLocaleData(companyExisting, deduped);
+  const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
   writeJobsFiles([...others, ...clean]);
   return clean;
 }

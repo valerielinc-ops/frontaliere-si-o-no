@@ -34,6 +34,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   deriveLocalizedSlug,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   fetchPradaJobUrls,
@@ -65,15 +66,17 @@ function mergeCompanyJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const others = allJobs.filter((job) => !isCompanyJob(job));
+  const companyExisting = allJobs.filter((job) => isCompanyJob(job));
   const byUrl = new Map();
   for (const job of parsedJobs) {
     const key = String(job?.url || '').trim().replace(/\/+$/, '');
     if (!key) continue;
     byUrl.set(key, job);
   }
-  const clean = [...byUrl.values()].sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
-  const merged = [...others, ...clean];
-  writeJobsFiles(merged);
+  const deduped = [...byUrl.values()];
+  const merged = mergePreserveLocaleData(companyExisting, deduped);
+  const clean = merged.sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  writeJobsFiles([...others, ...clean]);
   return clean;
 }
 
