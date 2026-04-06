@@ -2112,6 +2112,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fuga-da-dubai-ticino-alternativa.title': 'Fuite de Dubaï, le Tessin comme alternative ?',
     'blog.article.fuga-da-dubai-ticino-alternativa.excerpt': 'Le conflit au Moyen-Orient pousse les entrepreneurs loin du Golfe persique, en quête de nouvelles destinations',
     'blog.article.fuga-da-dubai-ticino-alternativa.imageAlt': 'investisseurs de Dubaï en Suisse',
+    'blog.article.traffico-san-gottardo-attesa.title': 'Attente di plusieurs heures au portail nord du San Gottardo',
+    'blog.article.traffico-san-gottardo-attesa.excerpt': 'Le trafic vers le sud a causé de forts inconvénients au San Gottardo dans l\'après-midi de la Jeudi saint, avec une file d\'attente de 15 kilomètres au portail nord et des temps d\'attente jusqu\'à deux heures et demie.',
+    'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Embouteillage au San Gottardo',
 };
 
 export default blogMetaFr;

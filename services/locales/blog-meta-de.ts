@@ -2112,6 +2112,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.fuga-da-dubai-ticino-alternativa.title': 'Flucht aus Dubai, der Tessin als Alternative?',
     'blog.article.fuga-da-dubai-ticino-alternativa.excerpt': 'Der Konflikt im Nahen Osten treibt Unternehmer weg vom Persischen Golf, in die Suche nach neuen Zielen.',
     'blog.article.fuga-da-dubai-ticino-alternativa.imageAlt': 'Investoren aus Dubai in Ticino',
+    'blog.article.traffico-san-gottardo-attesa.title': 'Stau am Nordportal des San Gottardo',
+    'blog.article.traffico-san-gottardo-attesa.excerpt': 'Der Verkehr nach Süden hat am späten Gründonnerstag erhebliche Schwierigkeiten am San Gottardo verursacht, mit einer Stauzeit von 15 Kilometern am Nordportal und Wartezeiten von bis zu zweieinhalb Stunden.',
+    'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Verkehrsstau am San Gottardo',
 };
 
 export default blogMetaDe;

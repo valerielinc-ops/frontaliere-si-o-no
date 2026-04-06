@@ -6118,4 +6118,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/fuga-da-dubai-ticino-alternativa.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'traffico-san-gottardo-attesa',
+    category: 'novita',
+    date: '2026-04-06T15:04:20.485Z',
+    image: '/images/blog/traffico-san-gottardo-attesa.jpg',
+    hasCalculator: true,
+  },
 ];

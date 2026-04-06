@@ -2112,6 +2112,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fuga-da-dubai-ticino-alternativa.title': 'Fuga da Dubai, il Ticino come alternativa?',
     'blog.article.fuga-da-dubai-ticino-alternativa.excerpt': 'Il conflitto in Medio Oriente spinge imprenditori lontano dal Golfo persico, in cerca di nuove destinazioni',
     'blog.article.fuga-da-dubai-ticino-alternativa.imageAlt': 'investitori da Dubai in Ticino',
+    'blog.article.traffico-san-gottardo-attesa.title': 'Ore di attesa al portale nord del San Gottardo',
+    'blog.article.traffico-san-gottardo-attesa.excerpt': 'Il traffico verso sud ha causato forti disagi al San Gottardo nel pomeriggio del Giovedì Santo, con una coda di 15 chilometri al portale nord e tempi di attesa fino a due ore e mezza.',
+    'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Traffico intenso al San Gottardo',
 };
 
 export default blogMetaIt;

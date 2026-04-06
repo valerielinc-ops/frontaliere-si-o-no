@@ -12188,6 +12188,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-traffico-san-gottardo-attesa': {
+    title: 'Ore di attesa al portale nord del San Gottardo | Frontaliere Ticino',
+    description: 'Ore di attesa al portale nord del San Gottardo, traffico intenso verso sud. Scopri i percorsi alternativi e come pianificare il tuo viaggio. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, attesa, portale, nord, gottardo',
+    ogTitle: 'Traffico San Gottardo',
+    ogDescription: 'Informazioni sul traffico al San Gottardo e consigli per ridurre i tempi di attesa.',
+    canonicalPath: '/articoli-frontaliere/traffico-san-gottardo-attesa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Traffico intenso al San Gottardo",
+      "description": "Ore di attesa al portale nord del San Gottardo, traffico intenso verso sud. Scopri i percorsi alternativi e come pianificare il tuo viaggio. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/traffico-san-gottardo-attesa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Traffico intenso al San Gottardo"
+      },
+      "datePublished": "2026-04-06T15:04:20+00:00",
+      "dateModified": "2026-04-06T15:04:20+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-attesa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

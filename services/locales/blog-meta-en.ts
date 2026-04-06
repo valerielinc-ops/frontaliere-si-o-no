@@ -2112,6 +2112,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fuga-da-dubai-ticino-alternativa.title': 'Escape from Dubai, Ticino as an alternative?',
     'blog.article.fuga-da-dubai-ticino-alternativa.excerpt': 'The conflict in the Middle East is pushing entrepreneurs away from the Persian Gulf, in search of new destinations',
     'blog.article.fuga-da-dubai-ticino-alternativa.imageAlt': 'investors from Dubai in Ticino',
+    'blog.article.traffico-san-gottardo-attesa.title': 'Long Hours of Waiting at the North Portal of the San Gottardo',
+    'blog.article.traffico-san-gottardo-attesa.excerpt': 'Traffic heading south caused significant disruptions to the San Gottardo in the afternoon of Holy Thursday, with a 15-kilometer queue at the north portal and waiting times of up to two and a half hours.',
+    'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Traffic jam at San Gottardo',
 };
 
 export default blogMetaEn;

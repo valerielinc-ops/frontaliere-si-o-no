@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 691,
+        "numberOfItems": 692,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4258,7 +4258,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 688, "name": "Nuova direttrice per i Servizi sociali di Belli...", "url": `${BASE_URL}/articoli-frontaliere/nuova-direttrice-servizi-sociali-bellinzona` },
           { "@type": "ListItem", "position": 689, "name": "Riaperta la galleria del Monte Ceneri: tornata ...", "url": `${BASE_URL}/articoli-frontaliere/riaperta-galleria-monte-ceneri` },
           { "@type": "ListItem", "position": 690, "name": "Ucraini in Ticino, il permesso S tra aiuti e in...", "url": `${BASE_URL}/articoli-frontaliere/ucraini-in-ticino-aiuti-incognite` },
-          { "@type": "ListItem", "position": 691, "name": "Fuga da Dubai, il Ticino come alternativa?", "url": `${BASE_URL}/articoli-frontaliere/fuga-da-dubai-ticino-alternativa` }
+          { "@type": "ListItem", "position": 691, "name": "Fuga da Dubai, il Ticino come alternativa?", "url": `${BASE_URL}/articoli-frontaliere/fuga-da-dubai-ticino-alternativa` },
+          { "@type": "ListItem", "position": 692, "name": "Traffico intenso al San Gottardo", "url": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-attesa` }
         ]
       }
     ]
