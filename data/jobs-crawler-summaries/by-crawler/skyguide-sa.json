@@ -1,19 +1,21 @@
 {
   "key": "skyguide-sa",
   "label": "Skyguide",
-  "generatedAt": "2026-04-05T21:38:49.816Z",
+  "generatedAt": "2026-04-06T10:05:47.492Z",
   "total": 2,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3978,
-  "avgDurationMs": 3978,
+  "unchangedCount": 2,
+  "durationMs": 2844,
+  "avgDurationMs": 2844,
   "durationHistory": [
-    3978
+    2844
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Formazione controllore/a del traffico aereo - Locarno",
       "slug": "formazione-controllore-a-del-traffico-aereo-locarno-skyguide-locarno-ch",
@@ -84,7 +86,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
