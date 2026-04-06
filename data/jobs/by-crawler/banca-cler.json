@@ -1,6 +1,6 @@
 {
   "crawlerKey": "banca-cler",
-  "assembledAt": "2026-04-06T09:23:42.082Z",
+  "assembledAt": "2026-04-06T21:00:14.690Z",
   "jobs": [
     {
       "title": "Marktgebietsleiterin Zentral (w/m)",
@@ -44,7 +44,7 @@
         "de": "marktgebietsleiterin-zentral-w-m-banca-cler-bellinzona",
         "fr": "directeur-du-marche-central-w-m-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-04-06T09:23:29.243Z",
+      "crawledAt": "2026-04-06T20:59:55.958Z",
       "id": "company-i7npcw",
       "contract": "full-time",
       "currency": "CHF",
@@ -114,7 +114,7 @@
         "de": "geschaftsstellenleiterin-schaffhausen-w-m-banca-cler-bellinzona",
         "fr": "gestionnaire-de-branche-schaffhouse-h-f-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-04-06T09:23:28.790Z",
+      "crawledAt": "2026-04-06T20:59:55.461Z",
       "id": "company-g1x21d",
       "contract": "full-time",
       "currency": "CHF",
@@ -140,7 +140,8 @@
         }
       },
       "streetAddress": "Via Pretorio 13",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     },
     {
       "title": "Kundenberaterin Basis Basel (w/m)",
@@ -184,7 +185,7 @@
         "de": "kundenberaterin-basis-basel-w-m-banca-cler-bellinzona",
         "fr": "conseillere-clientele-base-bale-f-h-banca-cler-bellinzona-vlfwqx"
       },
-      "crawledAt": "2026-04-06T09:23:28.363Z",
+      "crawledAt": "2026-04-06T20:59:54.910Z",
       "id": "company-vlfwqx",
       "contract": "full-time",
       "currency": "CHF",
@@ -253,7 +254,7 @@
         "de": "kundenberaterin-basis-chur-w-m-80-100-bank-cler-bellinzona",
         "fr": "conseillere-clientele-de-base-a-coire-f-m-80-100-bank-cler-chur-07od0f"
       },
-      "crawledAt": "2026-04-06T09:23:27.942Z",
+      "crawledAt": "2026-04-06T20:59:54.402Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
@@ -324,7 +325,7 @@
         "de": "kundenberaterin-basis-zurich-w-m-banca-cler-bellinzona",
         "fr": "conseiller-client-base-zurich-m-f-banca-cler-bellinzona"
       },
-      "crawledAt": "2026-04-06T09:23:27.508Z",
+      "crawledAt": "2026-04-06T20:59:53.826Z",
       "id": "company-67xwtt",
       "contract": "full-time",
       "currency": "CHF",
@@ -349,7 +350,8 @@
         }
       },
       "streetAddress": "Via Pretorio 13",
-      "postalCode": "6900"
+      "postalCode": "6900",
+      "needsRetranslation": true
     }
   ]
 }
