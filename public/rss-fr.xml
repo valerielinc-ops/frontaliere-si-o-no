@@ -8,13 +8,22 @@
     <link>https://frontaliereticino.ch</link>
     <description>Actualités et guides pour les frontaliers au Tessin</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 06 Apr 2026 22:51:35 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 06 Apr 2026 23:51:18 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Français</title>
       <link>https://frontaliereticino.ch</link>
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-fr.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Titolo giornalistico con keyword (max 60 chars)</title>
+      <link>https://frontaliereticino.ch/fr/articoli-frontaliere/frontalier-ticino-scrapata-airogno/</link>
+      <description><![CDATA[Sottotitolo con dati concreti (max 160 chars)]]></description>
+      <pubDate>Mon, 06 Apr 2026 23:51:18 GMT</pubDate>
+      <guid isPermaLink="true">https://frontaliereticino.ch/fr/articoli-frontaliere/frontalier-ticino-scrapata-airogno/</guid>
+      <category>Notizie</category>
+      <media:content url="https://frontaliereticino.ch/images/blog/fronteria-ticino-scarpata-airogno.jpg" medium="image"/>
+    </item>
     <item>
       <title>Conflit au Moyen-Orient : impact milliardaire sur l&apos;énergie au Tessin et en Italie</title>
       <link>https://frontaliereticino.ch/fr/articoli-frontaliere/conflit-proche-orient-energie-tessin/</link>
@@ -455,15 +464,6 @@
       <guid isPermaLink="true">https://frontaliereticino.ch/fr/articoli-frontaliere/vacances-de-p8re5t-san-gottardo/</guid>
       <category>Notizie</category>
       <media:content url="https://frontaliereticino.ch/images/blog/vacanze-di-pasqua-san-gottardo.jpg" medium="image"/>
-    </item>
-    <item>
-      <title>Accords Suisse-UE en vue d&apos;une ratification en 2026</title>
-      <link>https://frontaliereticino.ch/fr/articoli-frontaliere/accords-suisses-ue-2026/</link>
-      <description><![CDATA[Le paquet Bilatéraux III entre la Suisse et l'UE pourrait être approuvé d'ici 2026. La confirmation vient de Bernd Lange, président de la commission européenne.]]></description>
-      <pubDate>Sat, 04 Apr 2026 05:01:34 GMT</pubDate>
-      <guid isPermaLink="true">https://frontaliereticino.ch/fr/articoli-frontaliere/accords-suisses-ue-2026/</guid>
-      <category>Notizie</category>
-      <media:content url="https://frontaliereticino.ch/images/blog/accordi-svizzera-ue-2026.jpg" medium="image"/>
     </item>
   </channel>
 </rss>

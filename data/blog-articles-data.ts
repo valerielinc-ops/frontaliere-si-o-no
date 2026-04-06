@@ -6181,4 +6181,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/conflitto-medio-oriente-energia-ticino.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'fronteria-ticino-scarpata-airogno',
+    category: 'pratico',
+    date: '2026-04-06T23:51:18.909Z',
+    image: '/images/blog/fronteria-ticino-scarpata-airogno.jpg',
+    hasCalculator: true,
+  },
 ];

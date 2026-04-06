@@ -2139,6 +2139,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.conflitto-medio-oriente-energia-ticino.title': 'Conflitto in Medio Oriente: impatto miliardario sull’energia in Ticino e Italia',
     'blog.article.conflitto-medio-oriente-energia-ticino.excerpt': 'Il diesel supera i 2 CHF/litro in Ticino dopo l’attacco all’Iran. Rincari energetici per famiglie e imprese: 5 miliardi all’anno in Svizzera.',
     'blog.article.conflitto-medio-oriente-energia-ticino.imageAlt': 'Bellinzona con traffico di frontalieri e auto svizzere e italiane al mattino.',
+    'blog.article.fronteria-ticino-scarpata-airogno.title': 'Titolo giornalistico con keyword (max 60 chars)',
+    'blog.article.fronteria-ticino-scarpata-airogno.excerpt': 'Sottotitolo con dati concreti (max 160 chars)',
+    'blog.article.fronteria-ticino-scarpata-airogno.imageAlt': 'Un uomo cade dalla scarpata ad Arogno, ma non è in pericolo di vita.',
 };
 
 export default blogMetaIt;

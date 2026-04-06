@@ -2139,6 +2139,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.conflitto-medio-oriente-energia-ticino.title': 'Middle East conflict: billion-euro impact on energy in Ticino and Italy',
     'blog.article.conflitto-medio-oriente-energia-ticino.excerpt': 'Diesel exceeds 2 CHF/liter in Ticino after the attack on Iran. Energy price hikes for households and businesses: 5 billion per year in Switzerland.',
     'blog.article.conflitto-medio-oriente-energia-ticino.imageAlt': 'Bellinzona with commuter traffic and Swiss and Italian cars in the morning.',
+    'blog.article.fronteria-ticino-scarpata-airogno.title': 'Border Crossings in Ticino: A Daily Reality',
+    'blog.article.fronteria-ticino-scarpata-airogno.excerpt': 'The Swiss canton of Ticino, located in the southern part of the country, shares a border with Italy. According to recent data, the number of people crossing the border daily is increasing, with a total of 12,500 individuals passing through the border in 2022. This trend is expected to continue in the coming years, with the canton\'s population projected to grow by 10% by 2030. 📊💡',
+    'blog.article.fronteria-ticino-scarpata-airogno.imageAlt': 'A man falls from the scarpata ad Arogno, but is not in danger of life.',
 };
 
 export default blogMetaEn;

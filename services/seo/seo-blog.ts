@@ -12449,6 +12449,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fronteria-ticino-scarpata-airogno': {
+    title: 'Titolo giornalistico con keyword (max 60 chars) | Frontaliere Ticino',
+    description: 'Meta description 150-160 chars. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, titolo, giornalistico, keyword, chars',
+    ogTitle: 'OG title (max 60 chars)',
+    ogDescription: 'OG desc (max 160 chars)',
+    canonicalPath: '/articoli-frontaliere/fronteria-ticino-scarpata-airogno',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Headline JSON-LD",
+      "description": "Meta description 150-160 chars. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fronteria-ticino-scarpata-airogno.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un uomo cade dalla scarpata ad Arogno, ma non è in pericolo di vita."
+      },
+      "datePublished": "2026-04-06T23:51:18+00:00",
+      "dateModified": "2026-04-06T23:51:18+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fronteria-ticino-scarpata-airogno`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

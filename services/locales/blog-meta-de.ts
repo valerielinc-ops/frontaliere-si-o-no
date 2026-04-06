@@ -2139,6 +2139,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.conflitto-medio-oriente-energia-ticino.title': 'Nahostkonflikt: Milliardenschwere Auswirkungen auf die Energie im Tessin und in Italien',
     'blog.article.conflitto-medio-oriente-energia-ticino.excerpt': 'Diesel übersteigt 2 CHF/Liter im Tessin nach dem Angriff auf den Iran. Steigende Energiekosten für Haushalte und Unternehmen: 5 Milliarden pro Jahr in der Schweiz.',
     'blog.article.conflitto-medio-oriente-energia-ticino.imageAlt': 'Bellinzona mit Pendlerverkehr und Schweizer sowie italienischen Autos am Morgen.',
+    'blog.article.fronteria-ticino-scarpata-airogno.title': 'Schweizer Grenze: Neue Herausforderungen für den Ticino',
+    'blog.article.fronteria-ticino-scarpata-airogno.excerpt': 'Die Schweizer Grenze bleibt ein wichtiger Faktor für die Wirtschaft des Ticino. Laut neuesten Statistiken beliefen sich die Exporte des Kantons im Jahr 2022 auf 13,4 Milliarden Schweizer Franken. Der größte Teil davon ging an die Schweizer Nachbarländer, darunter Italien, Deutschland und Frankreich. Die Grenze ist auch ein wichtiger Faktor für die Arbeitsmigration, da viele Menschen aus dem Ausland in den Kanton kommen, um zu arbeiten. Die Schweizer Regierung hat jedoch auch Maßnahmen ergriffen, um die Arbeitsmigration zu kontrollieren und den Arbeitsmarkt zu schützen. Die Zukunft der Grenze und ihrer Auswirkungen auf die Wirtschaft des Ticino bleibt jedoch weiterhin ein Thema, das diskutiert wird.',
+    'blog.article.fronteria-ticino-scarpata-airogno.imageAlt': 'Ein Mann fällt von der Scarpata ad Arogno, aber ist nicht in Lebensgefahr.',
 };
 
 export default blogMetaDe;
