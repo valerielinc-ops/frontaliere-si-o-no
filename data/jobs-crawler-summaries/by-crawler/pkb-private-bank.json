@@ -1,88 +1,16 @@
 {
   "key": "pkb-private-bank",
   "label": "PKB",
-  "generatedAt": "2026-04-06T09:58:15.831Z",
-  "total": 1,
+  "generatedAt": "2026-04-06T21:34:57.137Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3798,
-  "avgDurationMs": 3798,
-  "durationHistory": [
-    3798
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "id": "pkb-private-bank-178b665b7fb0",
-      "slug": "disclaimer-pkb-private-bank-lugano",
-      "company": "PKB Private Bank",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "title": "Disclaimer",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via S. Balestra 1",
-      "category": "finance",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-06",
-      "url": "https://careers.pkb.ch/jobs.php?source=&lan=en&language=en",
-      "source": "PKB Dedicated Parser",
-      "crawledAt": "2026-04-06T09:58:13.878Z",
-      "sourceLang": "it",
-      "_qualityScore": 80,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "pkb-private-bank-178b665b7fb0",
-      "slug": "disclaimer-pkb-private-bank-lugano",
-      "company": "PKB Private Bank",
-      "companyKey": "pkb-private-bank",
-      "companyDomain": "pkb.ch",
-      "title": "Disclaimer",
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Via S. Balestra 1",
-      "category": "finance",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-30",
-      "url": "https://careers.pkb.ch/jobs.php?source=&lan=en&language=en",
-      "source": "PKB Dedicated Parser",
-      "crawledAt": "2026-03-30T20:43:55.437Z",
-      "sourceLang": "it",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "needsRetranslation": true,
-      "_qualityScore": 85,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
