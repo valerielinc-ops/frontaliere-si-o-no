@@ -1,16 +1,16 @@
 {
   "key": "pwc",
   "label": "PwC Switzerland",
-  "generatedAt": "2026-04-05T21:32:15.686Z",
+  "generatedAt": "2026-04-06T09:59:19.281Z",
   "total": 115,
   "newCount": 1,
-  "updatedCount": 105,
+  "updatedCount": 108,
   "removedCount": 0,
-  "unchangedCount": 9,
-  "durationMs": 2343,
-  "avgDurationMs": 2343,
+  "unchangedCount": 6,
+  "durationMs": 2473,
+  "avgDurationMs": 2473,
   "durationHistory": [
-    2343
+    2473
   ],
   "newJobs": [
     {
@@ -303,11 +303,11 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 87,
+      "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -337,11 +337,11 @@
       "salaryMax": 136500,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 84,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -404,6 +404,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -505,11 +506,11 @@
       "salaryMin": 46500,
       "salaryMax": 62500,
       "currency": "CHF",
-      "_qualityScore": 81,
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 19,
+        "translation": 25,
         "completeness": 19
       }
     },
@@ -573,11 +574,11 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -641,11 +642,45 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Manager en Audit Trade, Industries and Services - Neuchâtel",
+      "slug": "manager-en-audit-trade-industries-and-services-neuchatel-pwc-neuchatel",
+      "url": "https://jobs.pwc.ch/job-vacancies/manager-en-audit-trade-industries-and-services-neuchatel/bcb7acea-fdf1-411b-afef-17b8387cc0c8",
+      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Neuchtel/FY27---ASR---ASR-TIS-NE---Neuchtel---Manager---Start-01092026_711674WD/apply",
+      "company": "PwC Switzerland",
+      "companyKey": "pwc",
+      "companyDomain": "pwc.ch",
+      "location": "Neuchâtel",
+      "addressLocality": "Neuchâtel",
+      "addressRegion": "CH",
+      "addressCountry": "CH",
+      "canton": "",
+      "country": "CH",
+      "category": "audit",
+      "sector": "Consulenza",
+      "source": "pwc-dedicated-crawler",
+      "sourceLang": "fr",
+      "postedDate": "2026-03-12",
+      "validThrough": "2036-03-08",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "postalCode": "2000",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -675,11 +710,11 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 90,
+      "_qualityScore": 92,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -743,11 +778,11 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -810,11 +845,11 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 88,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 23,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -912,11 +947,11 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 86,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -980,11 +1015,12 @@
       "salaryMax": 97000,
       "currency": "CHF",
       "postalCode": "8001",
-      "_qualityScore": 86,
+      "needsRetranslation": true,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -1020,39 +1056,6 @@
         "richness": 18,
         "translation": 25,
         "completeness": 22
-      }
-    },
-    {
-      "title": "Assistant Manager - Audit Asset management",
-      "slug": "assistant-manager-audit-asset-management-pwc-geneva",
-      "url": "https://jobs.pwc.ch/job-vacancies/assistant-manager-audit-asset-management/9388fcd6-e7e4-4724-bf63-acc19d0dbbd4",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Genve/Assistant-Manager---Audit-Asset-management_710428WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Genève",
-      "addressLocality": "Geneva",
-      "addressRegion": "CH",
-      "addressCountry": "CH",
-      "canton": "",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-03-03",
-      "validThrough": "2036-02-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 19
       }
     }
   ],
@@ -1092,74 +1095,6 @@
       }
     },
     {
-      "title": "Manager en Audit Trade, Industries and Services - Neuchâtel",
-      "slug": "manager-en-audit-trade-industries-and-services-neuchatel-pwc-neuchatel",
-      "url": "https://jobs.pwc.ch/job-vacancies/manager-en-audit-trade-industries-and-services-neuchatel/bcb7acea-fdf1-411b-afef-17b8387cc0c8",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Neuchtel/FY27---ASR---ASR-TIS-NE---Neuchtel---Manager---Start-01092026_711674WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Neuchâtel",
-      "addressLocality": "Neuchâtel",
-      "addressRegion": "CH",
-      "addressCountry": "CH",
-      "canton": "",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "fr",
-      "postedDate": "2026-03-12",
-      "validThrough": "2036-03-08",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "postalCode": "2000",
-      "_qualityScore": 86,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 21,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Audit - Career Start nel settore Trade, Industries & Services - Autunno 2026",
-      "slug": "audit-career-start-nel-settore-trade-industries-services-autunno-2026-pwc-lugano",
-      "url": "https://jobs.pwc.ch/job-vacancies/audit-career-start-nel-settore-trade-industries-services-autunno-2026/623f5d8c-377c-4c98-a20a-8dd2e443ad69",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Campus_Careers/job/Lugano/Audit---Career-Start-nel-settore-Trade--Industries---Services---Autunno-2026_691184WD-2/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "CH",
-      "addressCountry": "CH",
-      "canton": "",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-02",
-      "validThrough": "2036-02-28",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "postalCode": "6900",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Manager SAP Master Data Governance Consulting",
       "slug": "manager-sap-master-data-governance-consulting-pwc-zurich",
       "url": "https://jobs.pwc.ch/job-vacancies/manager-sap-master-data-governance-consulting/4020adce-ebc7-4b71-8622-725f63f5e078",
@@ -1189,40 +1124,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 23,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Digital Audit Manager (Financial Services)",
-      "slug": "digital-audit-manager-financial-services-pwc-zurich",
-      "url": "https://jobs.pwc.ch/job-vacancies/digital-audit-manager-financial-services/711b54a7-94f2-4e92-9a35-7db1c9e7cdd8",
-      "applyUrl": "https://pwc.wd3.myworkdayjobs.com/Global_Experienced_Careers/job/Zrich/Digital-Audit-Manager---Financial-Services-_679491WD/apply",
-      "company": "PwC Switzerland",
-      "companyKey": "pwc",
-      "companyDomain": "pwc.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "CH",
-      "addressCountry": "CH",
-      "canton": "",
-      "country": "CH",
-      "category": "audit",
-      "sector": "Consulenza",
-      "source": "pwc-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2025-11-05",
-      "validThrough": "2035-11-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "postalCode": "8001",
-      "_qualityScore": 88,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
         "translation": 23,
         "completeness": 22
       }
