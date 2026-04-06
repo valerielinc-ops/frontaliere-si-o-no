@@ -12159,6 +12159,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-fuga-da-dubai-ticino-alternativa': {
+    title: 'Fuga da Dubai, il Ticino come alternativa? | Frontaliere Ticino',
+    description: 'Il conflitto in Medio Oriente spinge imprenditori lontano dal Golfo persico, in cerca di nuove destinazioni. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, fuga, dubai, alternativa, conflitto',
+    ogTitle: 'Fuga da Dubai, il Ticino come alternativa?',
+    ogDescription: 'Il conflitto in Medio Oriente spinge imprenditori lontano dal Golfo persico, in cerca di nuove destinazioni',
+    canonicalPath: '/articoli-frontaliere/fuga-da-dubai-ticino-alternativa',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Fuga da Dubai, il Ticino come alternativa?",
+      "description": "Il conflitto in Medio Oriente spinge imprenditori lontano dal Golfo persico, in cerca di nuove destinazioni. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/fuga-da-dubai-ticino-alternativa.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "investitori da Dubai in Ticino"
+      },
+      "datePublished": "2026-04-06T13:43:52+00:00",
+      "dateModified": "2026-04-06T13:43:52+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fuga-da-dubai-ticino-alternativa`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

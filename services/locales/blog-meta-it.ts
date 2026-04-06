@@ -2109,6 +2109,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ucraini-in-ticino-aiuti-incognite.title': 'Ucraini in Ticino, il permesso S tra aiuti e incognite',
     'blog.article.ucraini-in-ticino-aiuti-incognite.excerpt': 'Il Permesso S è stato concesso a circa 70.000 persone in Svizzera, mentre il Ticino ospita circa 3000 profughi ucraini',
     'blog.article.ucraini-in-ticino-aiuti-incognite.imageAlt': 'Ucraini in Ticino',
+    'blog.article.fuga-da-dubai-ticino-alternativa.title': 'Fuga da Dubai, il Ticino come alternativa?',
+    'blog.article.fuga-da-dubai-ticino-alternativa.excerpt': 'Il conflitto in Medio Oriente spinge imprenditori lontano dal Golfo persico, in cerca di nuove destinazioni',
+    'blog.article.fuga-da-dubai-ticino-alternativa.imageAlt': 'investitori da Dubai in Ticino',
 };
 
 export default blogMetaIt;

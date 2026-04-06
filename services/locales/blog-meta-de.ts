@@ -2109,6 +2109,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ucraini-in-ticino-aiuti-incognite.title': 'Ukrainier im Tessin, die S-Erlaubnis zwischen Hilfen und Unsicherheiten',
     'blog.article.ucraini-in-ticino-aiuti-incognite.excerpt': 'Die S-Erlaubnis wurde etwa 70.000 Personen in der Schweiz erteilt, während das Tessin etwa 3.000 ukrainische Flüchtlinge beherbergt',
     'blog.article.ucraini-in-ticino-aiuti-incognite.imageAlt': 'Ukrainer in Ticino',
+    'blog.article.fuga-da-dubai-ticino-alternativa.title': 'Flucht aus Dubai, der Tessin als Alternative?',
+    'blog.article.fuga-da-dubai-ticino-alternativa.excerpt': 'Der Konflikt im Nahen Osten treibt Unternehmer weg vom Persischen Golf, in die Suche nach neuen Zielen.',
+    'blog.article.fuga-da-dubai-ticino-alternativa.imageAlt': 'Investoren aus Dubai in Ticino',
 };
 
 export default blogMetaDe;

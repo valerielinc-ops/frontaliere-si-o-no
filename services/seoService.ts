@@ -1956,6 +1956,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-nuova-direttrice-servizi-sociali-bellinzona': { name: 'Servizi sociali Bellinzona', path: '/articoli-frontaliere/nuova-direttrice-servizi-sociali-bellinzona', parent: 'blog' },
     'blog-riaperta-galleria-monte-ceneri': { name: 'Riaperta la galleria del Monte Ceneri', path: '/articoli-frontaliere/riaperta-galleria-monte-ceneri', parent: 'blog' },
     'blog-ucraini-in-ticino-aiuti-incognite': { name: 'Ucraini in Ticino', path: '/articoli-frontaliere/ucraini-in-ticino-aiuti-incognite', parent: 'blog' },
+    'blog-fuga-da-dubai-ticino-alternativa': { name: 'Fuga da Dubai, il Ticino come alternativ', path: '/articoli-frontaliere/fuga-da-dubai-ticino-alternativa', parent: 'blog' },
   };
 
   const info = sectionNames[section];

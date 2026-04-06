@@ -2109,6 +2109,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ucraini-in-ticino-aiuti-incognite.title': 'Ukrainiens au Tessin, le permis S entre aides et incertitudes',
     'blog.article.ucraini-in-ticino-aiuti-incognite.excerpt': 'Le permis S a été accordé à environ 70 000 personnes en Suisse, tandis que le Tessin accueille environ 3 000 réfugiés ukrainiens',
     'blog.article.ucraini-in-ticino-aiuti-incognite.imageAlt': 'Ukrainiens en Ticino',
+    'blog.article.fuga-da-dubai-ticino-alternativa.title': 'Fuite de Dubaï, le Tessin comme alternative ?',
+    'blog.article.fuga-da-dubai-ticino-alternativa.excerpt': 'Le conflit au Moyen-Orient pousse les entrepreneurs loin du Golfe persique, en quête de nouvelles destinations',
+    'blog.article.fuga-da-dubai-ticino-alternativa.imageAlt': 'investisseurs de Dubaï en Suisse',
 };
 
 export default blogMetaFr;

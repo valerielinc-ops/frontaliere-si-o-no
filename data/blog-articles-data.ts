@@ -6111,4 +6111,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/ucraini-in-ticino-aiuti-incognite.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'fuga-da-dubai-ticino-alternativa',
+    category: 'novita',
+    date: '2026-04-06T13:43:52.055Z',
+    image: '/images/blog/fuga-da-dubai-ticino-alternativa.jpg',
+    hasCalculator: true,
+  },
 ];
