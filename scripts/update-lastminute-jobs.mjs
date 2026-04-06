@@ -38,6 +38,7 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   extractSrIdFromUrl,
@@ -643,14 +644,13 @@ async function enrichFromSmartRecruitersApi(seedUrls) {
       if (detail.description.length > (existing.description || '').length * 0.8) {
         existing.description = detail.description;
         existing.requirements = Array.isArray(detail.requirements) ? detail.requirements : [];
-        existing.descriptionByLocale = {
-          ...(existing.descriptionByLocale || {}),
-          en: detail.description, // SR API content is in English
-        };
-        // Clear stale translations so AI re-translates from rich English
-        delete existing.descriptionByLocale.it;
-        delete existing.descriptionByLocale.de;
-        delete existing.descriptionByLocale.fr;
+        existing.descriptionByLocale = mergeLocaleTextMap(
+          existing.descriptionByLocale,
+          { en: detail.description },
+          30,
+        );
+        // Mark for re-translation so AI refreshes IT/DE/FR from the richer English
+        existing.needsRetranslation = true;
         existing.title = detail.title || existing.title;
         if (detail.applyUrl) existing.applyUrl = detail.applyUrl;
         existing.location = detail.location || existing.location || 'Chiasso';

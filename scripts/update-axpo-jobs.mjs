@@ -306,7 +306,7 @@ function mergeJobs(discoveredJobs) {
       return job;
     }
     updated += 1;
-    // If description changed substantially, clear stale locale translations
+    // If description changed substantially, mark for re-translation
     const prevDesc = (prev.description || '').trim();
     const newDesc = (job.description || '').trim();
     const descChanged =
@@ -314,14 +314,17 @@ function mergeJobs(discoveredJobs) {
       prevDesc.length > 0 &&
       Math.abs(newDesc.length - prevDesc.length) > 100;
 
-    const prevLocaleDescs = descChanged ? {} : (prev.descriptionByLocale || {});
-
     return {
       ...prev,
       ...job,
       titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: { ...prevLocaleDescs, ...(job.descriptionByLocale || {}) },
+      descriptionByLocale: mergeLocaleTextMap(
+        descChanged ? {} : prev.descriptionByLocale,
+        job.descriptionByLocale,
+        30,
+      ),
       slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+      ...(descChanged ? { needsRetranslation: true } : {}),
     };
   });
 

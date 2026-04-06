@@ -52,6 +52,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   isTicinoRelevant,
@@ -504,9 +505,9 @@ function mergeJobs(discoveredJobs) {
     return {
       ...prev,
       ...job,
-      titleByLocale: { ...prevTitles, ...(job.titleByLocale || {}) },
-      descriptionByLocale: { ...prevDescs, ...(job.descriptionByLocale || {}) },
-      slugByLocale: { ...prevSlugs, ...(job.slugByLocale || {}) },
+      titleByLocale: mergeLocaleTextMap(prevTitles, job.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(prevDescs, job.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(prevSlugs, job.slugByLocale, 3),
     };
   });
 

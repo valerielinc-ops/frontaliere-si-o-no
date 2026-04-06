@@ -34,6 +34,7 @@ import {
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
   detectLang,
+  mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAllianzListingPage,
@@ -316,18 +317,9 @@ function mergeJobs(discoveredJobs) {
       applyUrl: job.applyUrl || prev.applyUrl,
       postedDate: job.postedDate || prev.postedDate,
       contractType: job.contractType || prev.contractType,
-      titleByLocale: {
-        ...(prev.titleByLocale || {}),
-        ...Object.fromEntries(Object.entries(job.titleByLocale || {}).filter(([, v]) => v)),
-      },
-      descriptionByLocale: {
-        ...(prev.descriptionByLocale || {}),
-        ...Object.fromEntries(Object.entries(job.descriptionByLocale || {}).filter(([, v]) => v)),
-      },
-      slugByLocale: {
-        ...(prev.slugByLocale || {}),
-        ...Object.fromEntries(Object.entries(job.slugByLocale || {}).filter(([, v]) => v)),
-      },
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale, job.descriptionByLocale, 30),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
       source: job.source,
     };
   });

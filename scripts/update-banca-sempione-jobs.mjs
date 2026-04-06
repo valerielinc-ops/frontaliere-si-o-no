@@ -366,13 +366,10 @@ function mergeBancaSempioneJobs(discoveredJobs) {
       existing.descriptionIt = job.descriptionIt;
       existing.postedDate = job.postedDate || existing.postedDate;
       existing.source = job.source;
-      // Preserve AI-generated locale data if present
-      if (!existing.slugByLocale || Object.keys(existing.slugByLocale).length === 0) {
-        existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
-      }
-      if (!existing.titleByLocale || Object.keys(existing.titleByLocale).length === 0) {
-        existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
-      }
+      // Always merge locale data to preserve AI translations
+      existing.slugByLocale = mergeLocaleTextMap(existing.slugByLocale, job.slugByLocale, 3);
+      existing.titleByLocale = mergeLocaleTextMap(existing.titleByLocale, job.titleByLocale, 2);
+      existing.descriptionByLocale = mergeLocaleTextMap(existing.descriptionByLocale, job.descriptionByLocale, 30);
       updated++;
       existingByUrl.delete(key); // track processed
     } else {
