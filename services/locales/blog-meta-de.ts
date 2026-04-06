@@ -2100,6 +2100,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.acqua-non-potabile-lavizzara.title': 'Lavizzara: Wasser in einigen Orten nicht trinkbar',
     'blog.article.acqua-non-potabile-lavizzara.excerpt': 'Der Gemeinderat von Lavizzara hat das Wasser aus Piano di Peccia bis auf Weiteres für nicht trinkbar erklärt, was mehrere Ortschaften des Tals betrifft.',
     'blog.article.acqua-non-potabile-lavizzara.imageAlt': 'Tessin Landschaft mit See und Bergen, Panoramablick auf Natur und traditionelle Häuser',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.title': 'Neue Leiterin für die Sozialdienste von Bellinzona',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.excerpt': 'Federica Giudici ist die neue Leiterin der Sozialdienste von Bellinzona',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.imageAlt': 'Federica Giudici, neue Direktorin der sozialen Dienste in Bellinzona',
 };
 
 export default blogMetaDe;

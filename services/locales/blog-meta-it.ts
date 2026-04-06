@@ -2100,6 +2100,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.acqua-non-potabile-lavizzara.title': 'Lavizzara: acqua non potabile in alcune località',
     'blog.article.acqua-non-potabile-lavizzara.excerpt': 'Il Municipio di Lavizzara ha dichiarato l\'acqua di Piano di Peccia non potabile fino a nuovo avviso, coinvolgendo diverse frazioni della vallata.',
     'blog.article.acqua-non-potabile-lavizzara.imageAlt': 'Paesaggio ticinese con lago e montagne, vista panoramica sulla natura e case tradizionali',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.title': 'Nuova direttrice per i Servizi sociali di Bellinzona',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.excerpt': 'Federica Giudici è stata nominata nuova direttrice dei Servizi sociali di Bellinzona',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.imageAlt': 'Federica Giudici, nuova direttrice dei Servizi sociali di Bellinzona',
 };
 
 export default blogMetaIt;

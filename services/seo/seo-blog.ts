@@ -12072,6 +12072,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-nuova-direttrice-servizi-sociali-bellinzona': {
+    title: 'Nuova direttrice per i Servizi sociali di Bellinzona | Frontaliere Ticino',
+    description: 'Federica Giudici è stata nominata nuova direttrice dei Servizi sociali di Bellinzona. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, nuova, direttrice, servizi, sociali',
+    ogTitle: 'Nuova direttrice per i Servizi sociali di Bellinzona',
+    ogDescription: 'Federica Giudici è stata nominata nuova direttrice dei Servizi sociali di Bellinzona',
+    canonicalPath: '/articoli-frontaliere/nuova-direttrice-servizi-sociali-bellinzona',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Nuova direttrice per i Servizi sociali di Bellinzona",
+      "description": "Federica Giudici è stata nominata nuova direttrice dei Servizi sociali di Bellinzona. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/nuova-direttrice-servizi-sociali-bellinzona.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Federica Giudici, nuova direttrice dei Servizi sociali di Bellinzona"
+      },
+      "datePublished": "2026-04-06T09:21:15+00:00",
+      "dateModified": "2026-04-06T09:21:15+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/nuova-direttrice-servizi-sociali-bellinzona`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

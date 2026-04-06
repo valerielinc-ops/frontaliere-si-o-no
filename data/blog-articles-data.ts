@@ -6090,4 +6090,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/acqua-non-potabile-lavizzara.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'nuova-direttrice-servizi-sociali-bellinzona',
+    category: 'novita',
+    date: '2026-04-06T09:21:15.809Z',
+    image: '/images/blog/nuova-direttrice-servizi-sociali-bellinzona.jpg',
+    hasCalculator: true,
+  },
 ];

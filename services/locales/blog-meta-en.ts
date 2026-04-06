@@ -2100,6 +2100,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.acqua-non-potabile-lavizzara.title': 'Lavizzara: Non-Potable Water in Certain Areas',
     'blog.article.acqua-non-potabile-lavizzara.excerpt': 'The Lavizzara Municipality has declared the water from Piano di Peccia non suitable for drinking until further notice, affecting several hamlets in the valley.',
     'blog.article.acqua-non-potabile-lavizzara.imageAlt': 'Ticino landscape with lake and mountains, panoramic view of nature and traditional houses',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.title': 'New Director for Bellinzona\'s Social Services',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.excerpt': 'Federica Giudici has been appointed as the new director of Bellinzona\'s Social Services',
+    'blog.article.nuova-direttrice-servizi-sociali-bellinzona.imageAlt': 'Federica Giudici, new director of Social Services in Bellinzona',
 };
 
 export default blogMetaEn;
