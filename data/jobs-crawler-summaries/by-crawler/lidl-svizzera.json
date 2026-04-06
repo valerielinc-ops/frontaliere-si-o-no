@@ -1,18 +1,19 @@
 {
   "key": "lidl-svizzera",
   "label": "Lidl",
-  "generatedAt": "2026-04-06T09:49:51.897Z",
+  "generatedAt": "2026-04-06T21:26:24.754Z",
   "total": 11,
-  "newCount": 7,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 11,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22437,
-  "avgDurationMs": 22437,
+  "durationMs": 19613,
+  "avgDurationMs": 19613,
   "durationHistory": [
-    22437
+    19613
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-tyv50x",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-minusio-tyv50x",
@@ -37,12 +38,21 @@
       "crawledAt": "2026-04-06T09:49:50.291Z",
       "needsRetranslation": true,
       "country": "CH",
-      "_qualityScore": 65,
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 4,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -69,12 +79,21 @@
       "crawledAt": "2026-04-06T09:49:50.291Z",
       "needsRetranslation": true,
       "country": "CH",
-      "_qualityScore": 63,
+      "sourceLang": "de",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 2,
-        "completeness": 14
+        "translation": 4,
+        "completeness": 25
       }
     },
     {
@@ -101,12 +120,21 @@
       "crawledAt": "2026-04-06T09:49:50.291Z",
       "needsRetranslation": true,
       "country": "CH",
-      "_qualityScore": 63,
+      "sourceLang": "de",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 2,
-        "completeness": 14
+        "translation": 4,
+        "completeness": 25
       }
     },
     {
@@ -133,12 +161,21 @@
       "crawledAt": "2026-04-06T09:49:50.291Z",
       "needsRetranslation": true,
       "country": "CH",
-      "_qualityScore": 65,
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 4,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -165,12 +202,21 @@
       "crawledAt": "2026-04-06T09:49:50.291Z",
       "needsRetranslation": true,
       "country": "CH",
-      "_qualityScore": 65,
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 4,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -197,12 +243,21 @@
       "crawledAt": "2026-04-06T09:49:50.291Z",
       "needsRetranslation": true,
       "country": "CH",
-      "_qualityScore": 65,
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 4,
-        "completeness": 14
+        "completeness": 25
       }
     },
     {
@@ -229,16 +284,23 @@
       "crawledAt": "2026-04-06T09:49:50.291Z",
       "needsRetranslation": true,
       "country": "CH",
-      "_qualityScore": 65,
+      "sourceLang": "it",
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 7",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 76,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
         "translation": 4,
-        "completeness": 14
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-7p9uz6",
       "slug": "apprendistato-nel-commercio-al-dettaglio-cfp-o-afc-inizio-2026-lidl-svizzera-locarno-7p9uz6",
