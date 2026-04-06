@@ -134,10 +134,10 @@
       "id": "davos-klosters-bergbahnen-5684cfff3552",
       "slug": "collaboratore-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "collaboratore-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos",
+        "it": "collaboratore-collaboratrice-gruppi-eventi-davos-klosters-bergbahnen-ag-davos",
         "en": "mitarbeiter-in-gruppen-events-davos-klosters-bergbahnen-davos",
         "de": "mitarbeiter-in-gruppen-events-davos-klosters-bergbahnen-davos",
-        "fr": "mitarbeiter-in-gruppen-events-davos-klosters-bergbahnen-davos"
+        "fr": "coordinateur-coordinateure-groupes-evenements-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -178,7 +178,8 @@
       "crawledAt": "2026-04-05T21:03:47.012Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "mitarbeiter-in-gruppen-events-davos-klosters-bergbahnen-davos"
+        "mitarbeiter-in-gruppen-events-davos-klosters-bergbahnen-davos",
+        "collaboratore-trice-gruppen-events-davos-klosters-bergbahnen-ag-davos"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -262,10 +263,10 @@
       "id": "davos-klosters-bergbahnen-e3676e5fd118",
       "slug": "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
       "slugByLocale": {
-        "it": "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
-        "en": "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
+        "it": "responsabile-manutenzione-e-infrastrutture-edilizia-davos-klosters-bergbahnen-ag-davos",
+        "en": "head-of-building-maintenance-infrastructure-davos-klosters-bergbahnen-ag-davos",
         "de": "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-davos",
-        "fr": "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
+        "fr": "responsable-de-l-entretien-et-de-l-infrastructure-des-batiments-davos-klosters-bergbahnen-ag-davos"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -306,7 +307,9 @@
       "crawledAt": "2026-04-05T21:03:46.539Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-davos"
+        "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-davos",
+        "responsabile-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos",
+        "leiter-in-gebaudeunterhalt-infrastruktur-davos-klosters-bergbahnen-ag-davos"
       ],
       "salaryMin": 72000,
       "salaryMax": 97000,
@@ -326,10 +329,10 @@
       "id": "davos-klosters-bergbahnen-c03615bee673",
       "slug": "chef-de-service-davos-klosters-bergbahnen-davos",
       "slugByLocale": {
-        "it": "chef-de-service-davos-klosters-bergbahnen-davos",
+        "it": "capo-servizio-davos-klosters-bergbahnen-ag-davos",
         "en": "chef-de-service-davos-klosters-bergbahnen-davos",
         "de": "chef-de-service-davos-klosters-bergbahnen-davos",
-        "fr": "chef-de-service-davos-klosters-bergbahnen-davos"
+        "fr": "chef-de-service-note-the-title-is-already-in-french-so-there-s-no-need-for-translation-davos-klosters-bergbahnen-ag-davo"
       },
       "company": "Davos Klosters Bergbahnen AG",
       "companyKey": "davos-klosters-bergbahnen",
@@ -381,7 +384,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7270"
+      "postalCode": "7270",
+      "previousSlugs": [
+        "chef-de-service-davos-klosters-bergbahnen-davos"
+      ]
     },
     {
       "id": "davos-klosters-bergbahnen-04875753134f",
