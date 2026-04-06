@@ -1,16 +1,16 @@
 {
   "key": "ffs-officine-ferrovie-federali",
   "label": "SBB",
-  "generatedAt": "2026-04-06T10:03:55.111Z",
+  "generatedAt": "2026-04-06T21:40:37.410Z",
   "total": 5,
   "newCount": 0,
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 93233,
-  "avgDurationMs": 93233,
+  "durationMs": 68653,
+  "avgDurationMs": 68653,
   "durationHistory": [
-    93233
+    68653
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "postedDate": "2026-03-31",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/gestore-immobiliare-con-responsabilita-per-il-partner-management-m-f-d/fc920ba5-21e7-4d5e-b4f9-ff0a96e4f27e",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-06T10:02:29.133Z",
+      "crawledAt": "2026-04-06T21:39:36.296Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -61,7 +61,7 @@
       "postedDate": "2026-03-30",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/polimeccanico-a-o-operatore-trice-in-automazione/393cdbc2-cf24-42ef-8889-4596d8f569fd",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-06T10:02:28.523Z",
+      "crawledAt": "2026-04-06T21:39:37.872Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -89,12 +89,12 @@
       "postedDate": "2026-02-24",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/rangierspezialist-in/d30a361d-1d2c-4850-9396-a9275f04e39c",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-06T10:03:55.016Z",
-      "_qualityScore": 89,
+      "crawledAt": "2026-04-06T21:40:37.304Z",
+      "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -117,7 +117,7 @@
       "postedDate": "2026-01-28",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-kundenbegleiter-in-teilzeit/4870d92b-eccd-4e47-9fc6-faa69f6f5ae3",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-06T10:03:48.709Z",
+      "crawledAt": "2026-04-06T21:39:56.240Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -145,7 +145,7 @@
       "postedDate": "2026-01-18",
       "url": "https://jobs.sbb.ch/v2/offene-stellen/quereinstieg-lokfuehrer-in-personenverkehr-12-2026/487416de-186e-4114-81be-57d23b61e08b",
       "source": "SBB Dedicated Parser (API + login.org)",
-      "crawledAt": "2026-04-06T10:03:44.081Z",
+      "crawledAt": "2026-04-06T21:39:45.682Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
