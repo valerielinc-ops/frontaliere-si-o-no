@@ -67,8 +67,8 @@
       "slugByLocale": {
         "it": "buyer-ingredienti-trade-100-rapelli-stabio",
         "en": "buyer-ingredienti-trade-100-rapelli-stabio",
-        "de": "buyer-ingredienti-trade-100-rapelli-stabio",
-        "fr": "buyer-ingredienti-trade-100-rapelli-stabio"
+        "de": "einkaufer-zutaten-handel-100-rapelli-orior-food-ag-stabio",
+        "fr": "acheteur-ingredients-commerce-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -120,7 +120,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "previousSlugs": [
+        "buyer-ingredienti-trade-100-rapelli-stabio"
+      ]
     },
     {
       "id": "rapelli-59c1bdb72841",
@@ -424,8 +427,8 @@
       "slugByLocale": {
         "it": "product-category-specialist-100-rapelli-stabio",
         "en": "product-category-specialist-100-rapelli-stabio",
-        "de": "product-category-specialist-100-rapelli-stabio",
-        "fr": "product-category-specialist-100-rapelli-stabio"
+        "de": "produkt-kategoriespezialist-100-rapelli-orior-food-ag-stabio",
+        "fr": "specialiste-produit-categorie-100-rapelli-orior-food-ag-stabio"
       },
       "company": "Rapelli - ORIOR Food AG",
       "companyKey": "rapelli",
@@ -477,7 +480,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "6855"
+      "postalCode": "6855",
+      "previousSlugs": [
+        "product-category-specialist-100-rapelli-stabio"
+      ]
     }
   ]
 }
