@@ -578,7 +578,7 @@
         "it": "harrods-30hr-sales-associate-laderach-england",
         "en": "harrods-30hr-sales-associate-laderach-england",
         "de": "harrods-30hr-sales-associate-laderach-england",
-        "fr": "harrods-30hr-sales-associate-laderach-england"
+        "fr": "harrods-associe-de-vente-30h-laderach-schweiz-ag-england"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -630,7 +630,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "harrods-30hr-sales-associate-laderach-england"
+      ]
     },
     {
       "id": "laderach-91c6602e7dce",
@@ -697,10 +700,10 @@
       "id": "laderach-b9e131d8679c",
       "slug": "harrods-deputy-store-manager-laderach-england",
       "slugByLocale": {
-        "it": "harrods-deputy-store-manager-laderach-england",
+        "it": "harrods-vice-direttore-negozio-laderach-schweiz-ag-england",
         "en": "harrods-deputy-store-manager-laderach-england",
         "de": "harrods-deputy-store-manager-laderach-england",
-        "fr": "harrods-deputy-store-manager-laderach-england"
+        "fr": "harrods-directeur-adjoint-de-magasin-laderach-schweiz-ag-england"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -752,16 +755,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "harrods-deputy-store-manager-laderach-england"
+      ]
     },
     {
       "id": "laderach-64b82059a475",
       "slug": "filialleiter-chocolaterie-uster-w-m-d-laderach-uster",
       "slugByLocale": {
-        "it": "filialleiter-chocolaterie-uster-w-m-d-laderach-uster",
-        "en": "filialleiter-chocolaterie-uster-w-m-d-laderach-uster",
+        "it": "responsabile-della-filiale-di-chocolaterie-uster-d-m-f-laderach-schweiz-ag-uster",
+        "en": "branch-manager-chocolaterie-uster-w-m-d-laderach-schweiz-ag-uster",
         "de": "filialleiter-chocolaterie-uster-w-m-d-laderach-uster",
-        "fr": "filialleiter-chocolaterie-uster-w-m-d-laderach-uster"
+        "fr": "responsable-de-la-succursale-de-chocolaterie-uster-f-h-m-laderach-schweiz-ag-uster"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -813,16 +819,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8610"
+      "postalCode": "8610",
+      "previousSlugs": [
+        "filialleiter-chocolaterie-uster-w-m-d-laderach-uster"
+      ]
     },
     {
       "id": "laderach-43d1d38ea87f",
       "slug": "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-schweiz-ag-luzern",
       "slugByLocale": {
-        "it": "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-schweiz-ag-luzern",
-        "en": "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-schweiz-ag-luzern",
+        "it": "vice-direttore-filiale-chocolaterie-lucerna-m-f-d-laderach-schweiz-ag-luzern",
+        "en": "deputy-branch-manager-chocolaterie-lucerne-w-m-d-laderach-schweiz-ag-luzern",
         "de": "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-luzern",
-        "fr": "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-schweiz-ag-luzern"
+        "fr": "directeur-adjoint-de-succursale-chocolaterie-lucerne-h-f-d-laderach-schweiz-ag-luzern"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -863,7 +872,8 @@
       "crawledAt": "2026-04-05T21:21:31.003Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-luzern"
+        "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-luzern",
+        "stellvertretender-filialleiter-chocolaterie-luzern-w-m-d-laderach-schweiz-ag-luzern"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -883,10 +893,10 @@
       "id": "laderach-7fd2fd0d8496",
       "slug": "broadgate-circle-deputy-store-manager-laderach-england",
       "slugByLocale": {
-        "it": "broadgate-circle-deputy-store-manager-laderach-england",
+        "it": "broadgate-circle-vice-responsabile-negozio-laderach-schweiz-ag-england",
         "en": "broadgate-circle-deputy-store-manager-laderach-england",
         "de": "broadgate-circle-deputy-store-manager-laderach-england",
-        "fr": "broadgate-circle-deputy-store-manager-laderach-england"
+        "fr": "broadgate-circle-adjoint-au-responsable-de-magasin-laderach-schweiz-ag-england"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -938,16 +948,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "broadgate-circle-deputy-store-manager-laderach-england"
+      ]
     },
     {
       "id": "laderach-e2213c0c5cc0",
       "slug": "sales-assistant-verkaufer-in-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-frankfurt-am-main",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-frankfurt-am-main",
-        "en": "sales-assistant-verkaufer-in-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-frankfurt-am-main",
+        "it": "assistente-vendite-commesso-part-time-studente-m-f-laderach-schweiz-ag-frankfurt-am-main",
+        "en": "sales-assistant-part-time-salesperson-student-m-f-laderach-schweiz-ag-frankfurt-am-main",
         "de": "sales-assistant-verkaufer-in-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-frankfurt-am-main",
-        "fr": "sales-assistant-verkaufer-in-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-frankfurt-am-main"
+        "fr": "assistant-commercial-vendeur-a-temps-partiel-etudiant-h-f-laderach-schweiz-ag-frankfurt-am-main"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -999,16 +1012,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "sales-assistant-verkaufer-in-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-frankfurt-am-main"
+      ]
     },
     {
       "id": "laderach-ff91379595a2",
       "slug": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-berlin",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-berlin",
-        "en": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-berlin",
+        "it": "assistente-vendite-venditore-a-tempo-pieno-e-parziale-laderach-schweiz-ag-berlin",
+        "en": "sales-assistant-full-time-and-part-time-salesperson-laderach-schweiz-ag-berlin",
         "de": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-berlin",
-        "fr": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-berlin"
+        "fr": "assistant-commercial-vendeur-a-temps-plein-et-partiel-laderach-schweiz-ag-berlin"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1049,7 +1065,8 @@
       "crawledAt": "2026-04-05T21:21:30.571Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-berlin"
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-berlin",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-berlin"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1069,10 +1086,10 @@
       "id": "laderach-73b643392f16",
       "slug": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-konstanz",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-konstanz",
-        "en": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-konstanz",
+        "it": "assistente-vendite-venditore-a-tempo-pieno-e-parziale-m-f-laderach-schweiz-ag-konstanz",
+        "en": "sales-assistant-full-time-and-part-time-salesperson-m-f-laderach-schweiz-ag-konstanz",
         "de": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-konstanz",
-        "fr": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-konstanz"
+        "fr": "assistant-commercial-vendeur-a-temps-plein-et-partiel-h-f-laderach-schweiz-ag-konstanz"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1113,7 +1130,8 @@
       "crawledAt": "2026-04-05T21:21:30.405Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-konstanz"
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-konstanz",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-konstanz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1194,10 +1212,10 @@
       "id": "laderach-902aa445f0bc",
       "slug": "packaging-development-design-engineer-w-m-d-laderach-bilten",
       "slugByLocale": {
-        "it": "packaging-development-design-engineer-w-m-d-laderach-bilten",
+        "it": "ingegnere-di-sviluppo-e-progettazione-di-imballaggi-m-f-laderach-schweiz-ag-bilten",
         "en": "packaging-development-design-engineer-w-m-d-laderach-bilten",
         "de": "packaging-development-design-engineer-w-m-d-laderach-bilten",
-        "fr": "packaging-development-design-engineer-w-m-d-laderach-bilten"
+        "fr": "ingenieur-de-developpement-et-de-conception-d-emballages-h-f-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1249,13 +1267,16 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "packaging-development-design-engineer-w-m-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-4c601ef3a9ca",
       "slug": "filialleiter-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
       "slugByLocale": {
-        "it": "filialleiter-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
+        "it": "responsabile-del-negozio-di-cioccolato-house-of-laderach-m-f-d-laderach-schweiz-ag-bilten",
         "en": "filialleiter-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
         "de": "filialleiter-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
         "fr": "filialleiter-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
@@ -1310,7 +1331,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "filialleiter-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-92a743fbde4c",
@@ -1377,7 +1401,7 @@
       "id": "laderach-d658950ecc4a",
       "slug": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz",
       "slugByLocale": {
-        "it": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz",
+        "it": "addetto-magazzino-supporto-negozio-20-40-chocolaterie-st-moritz-m-f-d-laderach-schweiz-ag-sankt-moritz",
         "en": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz",
         "de": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz",
         "fr": "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz"
@@ -1421,7 +1445,8 @@
       "crawledAt": "2026-04-05T21:21:29.649Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz"
+        "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-sankt-moritz",
+        "lagermitarbeiter-store-support-20-40-chocolaterie-st-moritz-w-m-d-laderach-schweiz-ag-sankt-moritz"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1505,10 +1530,10 @@
       "id": "laderach-b0239d19779b",
       "slug": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-karlsruhe",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-karlsruhe",
-        "en": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-karlsruhe",
+        "it": "addetto-alle-vendite-venditore-a-tempo-pieno-e-part-time-m-f-d-laderach-schweiz-ag-karlsruhe",
+        "en": "sales-assistant-salesperson-full-time-and-part-time-m-f-d-laderach-schweiz-ag-karlsruhe",
         "de": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-karlsruhe",
-        "fr": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-karlsruhe"
+        "fr": "assistant-commercial-vendeur-a-temps-plein-et-partiel-h-f-d-laderach-schweiz-ag-karlsruhe"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1549,7 +1574,8 @@
       "crawledAt": "2026-04-05T21:21:29.353Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-karlsruhe"
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-karlsruhe",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-karlsruhe"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1569,8 +1595,8 @@
       "id": "laderach-3c048c6ca2a6",
       "slug": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-flughafen",
       "slugByLocale": {
-        "it": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-flughafen",
-        "en": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-flughafen",
+        "it": "venditore-40-60-chocolaterie-aeroporto-di-zurigo-m-f-d-laderach-schweiz-ag-zurich-flughafen",
+        "en": "sales-associate-40-60-chocolaterie-zurich-airport-m-f-d-laderach-schweiz-ag-zurich-flughafen",
         "de": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-flughafen",
         "fr": "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-flughafen"
       },
@@ -1624,7 +1650,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugs": [
+        "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich-flughafen"
+      ]
     },
     {
       "id": "laderach-50f9d5881d16",
@@ -1633,7 +1662,7 @@
         "it": "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-schweiz-ag-glarus",
         "en": "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-schweiz-ag-glarus",
         "de": "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-glarus",
-        "fr": "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-schweiz-ag-glarus"
+        "fr": "hr-generaliste-avec-activites-de-projet-80-100-laderach-schweiz-ag-glarus"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -1674,7 +1703,8 @@
       "crawledAt": "2026-04-05T21:21:29.055Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-glarus"
+        "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-glarus",
+        "hr-generalist-mit-projekttatigkeiten-80-100-w-m-d-laderach-schweiz-ag-glarus"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -1999,10 +2029,10 @@
       "id": "laderach-777780e04e73",
       "slug": "project-manager-r-d-couverture-laderach-bilten",
       "slugByLocale": {
-        "it": "project-manager-r-d-couverture-laderach-bilten",
+        "it": "responsabile-del-progetto-r-d-couverture-laderach-schweiz-ag-bilten",
         "en": "project-manager-r-d-couverture-laderach-bilten",
         "de": "project-manager-r-d-couverture-laderach-bilten",
-        "fr": "project-manager-r-d-couverture-laderach-bilten"
+        "fr": "gestionnaire-de-projet-r-d-couverture-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2054,7 +2084,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "project-manager-r-d-couverture-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-17469fb1e645",
@@ -2124,7 +2157,7 @@
         "it": "senior-powerbi-dwh-spezialist-laderach-porto",
         "en": "senior-powerbi-dwh-spezialist-laderach-porto",
         "de": "senior-powerbi-dwh-spezialist-laderach-porto",
-        "fr": "senior-powerbi-dwh-spezialist-laderach-porto"
+        "fr": "senior-power-bi-dwh-specialiste-laderach-schweiz-ag-porto"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2176,16 +2209,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "senior-powerbi-dwh-spezialist-laderach-porto"
+      ]
     },
     {
       "id": "laderach-3bd5f669b444",
       "slug": "verkaufer-20-40-auf-abruf-chocolaterie-schaffhausen-w-m-d-laderach-schaffhausen",
       "slugByLocale": {
-        "it": "verkaufer-20-40-auf-abruf-chocolaterie-schaffhausen-w-m-d-laderach-schaffhausen",
-        "en": "verkaufer-20-40-auf-abruf-chocolaterie-schaffhausen-w-m-d-laderach-schaffhausen",
+        "it": "venditore-20-40-su-richiesta-chocolaterie-schaffhausen-u-m-d-laderach-schweiz-ag-schaffhausen",
+        "en": "sales-associate-20-40-on-call-chocolaterie-schaffhausen-m-f-d-laderach-schweiz-ag-schaffhausen",
         "de": "verkaufer-20-40-auf-abruf-chocolaterie-schaffhausen-w-m-d-laderach-schaffhausen",
-        "fr": "verkaufer-20-40-auf-abruf-chocolaterie-schaffhausen-w-m-d-laderach-schaffhausen"
+        "fr": "vendeur-20-40-sur-appel-chocolaterie-schaffhausen-h-f-d-laderach-schweiz-ag-schaffhausen"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2237,16 +2273,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8200"
+      "postalCode": "8200",
+      "previousSlugs": [
+        "verkaufer-20-40-auf-abruf-chocolaterie-schaffhausen-w-m-d-laderach-schaffhausen"
+      ]
     },
     {
       "id": "laderach-302c97642b08",
       "slug": "filialleitung-in-vollzeit-m-w-d-laderach-bonn",
       "slugByLocale": {
-        "it": "filialleitung-in-vollzeit-m-w-d-laderach-bonn",
-        "en": "filialleitung-in-vollzeit-m-w-d-laderach-bonn",
+        "it": "direzione-filiale-a-tempo-pieno-laderach-schweiz-ag-bonn",
+        "en": "store-manager-full-time-laderach-schweiz-ag-bonn",
         "de": "filialleitung-in-vollzeit-m-w-d-laderach-bonn",
-        "fr": "filialleitung-in-vollzeit-m-w-d-laderach-bonn"
+        "fr": "gestionnaire-de-magasin-a-temps-plein-laderach-schweiz-ag-bonn"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2298,16 +2337,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "filialleitung-in-vollzeit-m-w-d-laderach-bonn"
+      ]
     },
     {
       "id": "laderach-94c8c511bcd9",
       "slug": "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-zurich",
       "slugByLocale": {
-        "it": "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-zurich",
-        "en": "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-zurich",
+        "it": "2-responsabile-filiale-chocolaterie-staldehofen-zh-h-m-d-laderach-schweiz-ag-zurich",
+        "en": "2nd-assistant-store-manager-chocolaterie-staldehofen-zh-m-f-d-laderach-schweiz-ag-zurich",
         "de": "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-zurich",
-        "fr": "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-zurich"
+        "fr": "2eme-responsable-de-magasin-chocolaterie-staldehofen-zh-h-f-d-laderach-schweiz-ag-zurich"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2359,16 +2401,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugs": [
+        "2-stv-filialleiter-chocolaterie-staldehofen-zh-w-m-d-laderach-zurich"
+      ]
     },
     {
       "id": "laderach-dc688519a1fb",
       "slug": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-baden",
       "slugByLocale": {
         "it": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-baden",
-        "en": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-schweiz-ag-baden",
+        "en": "junior-talent-in-retail-80-chocolaterie-baden-laderach-schweiz-ag-baden",
         "de": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-baden",
-        "fr": "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-schweiz-ag-baden"
+        "fr": "talent-junior-dans-le-detail-80-chocolaterie-baden-laderach-schweiz-ag-baden"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2408,7 +2453,9 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-04-05T21:21:27.315Z",
       "sourceLang": "de",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "nachwuchstalent-im-detailhandel-80-chocolaterie-baden-laderach-schweiz-ag-baden"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -2427,10 +2474,10 @@
       "id": "laderach-dae76a882703",
       "slug": "verkaufer-30-38-5h-woche-chocolaterie-kitzbuhel-w-m-d-laderach-kitzbuhel",
       "slugByLocale": {
-        "it": "verkaufer-30-38-5h-woche-chocolaterie-kitzbuhel-w-m-d-laderach-kitzbuhel",
-        "en": "verkaufer-30-38-5h-woche-chocolaterie-kitzbuhel-w-m-d-laderach-kitzbuhel",
+        "it": "venditore-30-38-5h-settimana-chocolaterie-kitzbuhel-u-m-d-laderach-schweiz-ag-kitzbuhel",
+        "en": "sales-associate-30-38-5h-week-chocolaterie-kitzbuhel-m-f-d-laderach-schweiz-ag-kitzbuhel",
         "de": "verkaufer-30-38-5h-woche-chocolaterie-kitzbuhel-w-m-d-laderach-kitzbuhel",
-        "fr": "verkaufer-30-38-5h-woche-chocolaterie-kitzbuhel-w-m-d-laderach-kitzbuhel"
+        "fr": "vendeur-30-38-5h-semaine-chocolaterie-kitzbuhel-h-f-d-laderach-schweiz-ag-kitzbuhel"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2482,16 +2529,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "verkaufer-30-38-5h-woche-chocolaterie-kitzbuhel-w-m-d-laderach-kitzbuhel"
+      ]
     },
     {
       "id": "laderach-0d03500a1e30",
       "slug": "battersea-power-station-15hrs-pt-sales-associate-laderach-england",
       "slugByLocale": {
-        "it": "battersea-power-station-15hrs-pt-sales-associate-laderach-england",
+        "it": "battersea-power-station-15-ore-pt-venditore-aiuto-venditore-laderach-schweiz-ag-england",
         "en": "battersea-power-station-15hrs-pt-sales-associate-laderach-england",
-        "de": "battersea-power-station-15hrs-pt-sales-associate-laderach-england",
-        "fr": "battersea-power-station-15hrs-pt-sales-associate-laderach-england"
+        "de": "battersea-power-station-15-stunden-pt-verkaufer-verkauferin-laderach-schweiz-ag-england",
+        "fr": "battersea-power-station-15-heures-pt-vendeur-vendeuse-laderach-schweiz-ag-england"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2543,16 +2593,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "battersea-power-station-15hrs-pt-sales-associate-laderach-england"
+      ]
     },
     {
       "id": "laderach-f140fedcb8fb",
       "slug": "verkaufer-60-80-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
       "slugByLocale": {
-        "it": "verkaufer-60-80-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
-        "en": "verkaufer-60-80-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
+        "it": "venditore-60-80-in-orario-chocolaterie-house-of-laderach-h-m-d-laderach-schweiz-ag-bilten",
+        "en": "sales-associate-60-80-in-hourly-chocolaterie-house-of-laderach-m-f-d-laderach-schweiz-ag-bilten",
         "de": "verkaufer-60-80-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten",
-        "fr": "verkaufer-60-80-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+        "fr": "vendeur-60-80-en-heure-chocolaterie-house-of-laderach-h-f-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2604,16 +2657,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "verkaufer-60-80-im-stundenlohn-chocolaterie-house-of-laderach-w-m-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-3fe0929241f0",
       "slug": "ausbildung-kaufmann-frau-per-burokommunikation-laderach-schweiz-ag-koln",
       "slugByLocale": {
-        "it": "ausbildung-kaufmann-frau-per-burokommunikation-laderach-schweiz-ag-koln",
-        "en": "ausbildung-kaufmann-frau-fur-burokommunikation-laderach-schweiz-ag-koln",
+        "it": "abituriente-per-la-gestione-dell-ufficio-laderach-schweiz-ag-koln",
+        "en": "aptitude-for-office-administration-laderach-schweiz-ag-koln",
         "de": "ausbildung-kaufmann-frau-fur-burokommunikation-laderach-koln",
-        "fr": "ausbildung-kaufmann-frau-fur-burokommunikation-laderach-schweiz-ag-koln"
+        "fr": "aptitude-pour-l-administration-de-bureau-laderach-schweiz-ag-koln"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2654,7 +2710,9 @@
       "crawledAt": "2026-04-05T21:21:26.735Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ausbildung-kaufmann-frau-fur-burokommunikation-laderach-koln"
+        "ausbildung-kaufmann-frau-fur-burokommunikation-laderach-koln",
+        "ausbildung-kaufmann-frau-per-burokommunikation-laderach-schweiz-ag-koln",
+        "ausbildung-kaufmann-frau-fur-burokommunikation-laderach-schweiz-ag-koln"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2739,7 +2797,7 @@
       "slug": "stv-filialleiter-100-chocolaterie-house-of-laderach-bilten-w-m-d-laderach-bilten",
       "slugByLocale": {
         "it": "stv-filialleiter-100-chocolaterie-house-of-laderach-bilten-w-m-d-laderach-bilten",
-        "en": "stv-filialleiter-100-chocolaterie-house-of-laderach-bilten-w-m-d-laderach-bilten",
+        "en": "assistant-store-manager-100-chocolaterie-house-of-laderach-bilten-m-f-d-laderach-schweiz-ag-bilten",
         "de": "stv-filialleiter-100-chocolaterie-house-of-laderach-bilten-w-m-d-laderach-bilten",
         "fr": "stv-filialleiter-100-chocolaterie-house-of-laderach-bilten-w-m-d-laderach-bilten"
       },
@@ -2793,16 +2851,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "stv-filialleiter-100-chocolaterie-house-of-laderach-bilten-w-m-d-laderach-bilten"
+      ]
     },
     {
       "id": "laderach-b2cb55cad066",
       "slug": "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-interlaken",
       "slugByLocale": {
-        "it": "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-interlaken",
-        "en": "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-interlaken",
+        "it": "vice-direttore-chocolaterie-interlaken-h-m-d-laderach-schweiz-ag-interlaken",
+        "en": "assistant-store-manager-chocolaterie-interlaken-m-f-d-laderach-schweiz-ag-interlaken",
         "de": "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-interlaken",
-        "fr": "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-interlaken"
+        "fr": "assistant-directeur-chocolaterie-interlaken-h-f-d-laderach-schweiz-ag-interlaken"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2854,16 +2915,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "3800"
+      "postalCode": "3800",
+      "previousSlugs": [
+        "stv-filialleiter-chocolaterie-interlaken-w-m-d-laderach-interlaken"
+      ]
     },
     {
       "id": "laderach-7e7d9c9e38aa",
       "slug": "nachwuchstalent-per-commercio-al-dettaglio-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur",
       "slugByLocale": {
         "it": "nachwuchstalent-per-commercio-al-dettaglio-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur",
-        "en": "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur",
+        "en": "junior-talent-for-retail-80-chocolate-winterthur-laderach-schweiz-ag-winterthur",
         "de": "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-winterthur",
-        "fr": "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur"
+        "fr": "jeune-talent-pour-le-detail-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2904,7 +2968,8 @@
       "crawledAt": "2026-04-05T21:21:26.149Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-winterthur"
+        "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-winterthur",
+        "nachwuchstalent-fur-detailhandel-80-chocolaterie-winterthur-laderach-schweiz-ag-winterthur"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -2924,10 +2989,10 @@
       "id": "laderach-50f6fd34dc3a",
       "slug": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-leipzig",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-leipzig",
-        "en": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-leipzig",
+        "it": "assistente-vendita-venditore-a-tempo-parziale-m-w-d-laderach-schweiz-ag-leipzig",
+        "en": "sales-assistant-sales-assistant-part-time-m-w-d-laderach-schweiz-ag-leipzig",
         "de": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-leipzig",
-        "fr": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-leipzig"
+        "fr": "assistant-commercial-vendeur-a-temps-partiel-m-w-d-laderach-schweiz-ag-leipzig"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -2979,7 +3044,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-leipzig"
+      ]
     },
     {
       "id": "laderach-4e71c4154404",
@@ -3049,9 +3117,9 @@
       "id": "laderach-f440d1018714",
       "slug": "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-schweiz-ag-sion",
       "slugByLocale": {
-        "it": "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-schweiz-ag-sion",
-        "en": "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-sion",
-        "de": "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-sion",
+        "it": "formazione-nel-commercio-al-dettaglio-dal-2026-f-m-d-laderach-schweiz-ag-sion",
+        "en": "learning-place-in-retail-trade-from-2026-f-m-d-laderach-schweiz-ag-sion",
+        "de": "lernort-im-einzelhandel-ab-2026-f-m-d-laderach-schweiz-ag-sion",
         "fr": "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-sion"
       },
       "company": "Läderach (Schweiz) AG",
@@ -3093,7 +3161,8 @@
       "crawledAt": "2026-04-05T21:21:25.706Z",
       "sourceLang": "fr",
       "previousSlugs": [
-        "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-sion"
+        "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-sion",
+        "place-d-apprentissage-dans-le-commerce-de-detail-des-2026-f-m-d-laderach-schweiz-ag-sion"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3113,10 +3182,10 @@
       "id": "laderach-a9b3e68ee0c4",
       "slug": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-hannover",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-hannover",
-        "en": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-hannover",
+        "it": "assistente-vendita-venditore-a-tempo-parziale-m-w-d-laderach-schweiz-ag-hannover",
+        "en": "sales-assistant-sales-assistant-part-time-m-w-d-laderach-schweiz-ag-hannover",
         "de": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-hannover",
-        "fr": "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-hannover"
+        "fr": "assistant-commercial-vendeur-a-temps-partiel-m-w-d-laderach-schweiz-ag-hannover"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3168,7 +3237,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7000"
+      "postalCode": "7000",
+      "previousSlugs": [
+        "sales-assistant-verkaufer-in-teilzeit-m-w-d-laderach-hannover"
+      ]
     },
     {
       "id": "laderach-9561474c31e5",
@@ -3238,10 +3310,10 @@
       "id": "laderach-cae8f55b1396",
       "slug": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-hamburg",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-hamburg",
-        "en": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-hamburg",
+        "it": "assistente-vendite-venditore-in-tempo-pieno-e-parziale-m-f-d-laderach-schweiz-ag-hamburg",
+        "en": "sales-assistant-salesperson-in-full-time-and-part-time-m-f-d-laderach-schweiz-ag-hamburg",
         "de": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-hamburg",
-        "fr": "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-hamburg"
+        "fr": "assistant-commercial-vendeur-en-temps-plein-et-en-temps-partiel-m-f-d-laderach-schweiz-ag-hamburg"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3282,7 +3354,8 @@
       "crawledAt": "2026-04-05T21:21:25.269Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-hamburg"
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-hamburg",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-hamburg"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3302,10 +3375,10 @@
       "id": "laderach-ed6b2cec35b0",
       "slug": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-bern",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-bern",
-        "en": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-bern",
+        "it": "lavoro-di-dettaglio-efz-presso-laderach-schweiz-ag-laderach-schweiz-ag-bern",
+        "en": "retail-sales-assistant-efz-at-laderach-switzerland-ag-laderach-schweiz-ag-bern",
         "de": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-bern",
-        "fr": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-bern"
+        "fr": "assistant-de-vente-au-detail-efz-chez-laderach-suisse-ag-laderach-schweiz-ag-bern"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3346,7 +3419,8 @@
       "crawledAt": "2026-04-05T21:21:25.119Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-bern"
+        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-bern",
+        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-bern"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -3366,10 +3440,10 @@
       "id": "laderach-3f96b4ff64b5",
       "slug": "sales-assistant-verkaufer-in-voll-e-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-schweiz-ag-stuttgart",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-voll-e-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-schweiz-ag-stuttgart",
-        "en": "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart",
+        "it": "assistente-vendite-studente-a-aiuti-laderach-schweiz-ag-stuttgart",
+        "en": "sales-assistant-student-assistant-laderach-schweiz-ag-stuttgart",
         "de": "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart",
-        "fr": "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart"
+        "fr": "assistant-commercial-etudiant-e-aide-laderach-schweiz-ag-stuttgart"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3410,7 +3484,8 @@
       "crawledAt": "2026-04-05T21:21:24.976Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart"
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-stuttgart",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-studentische-hilfskraft-aushilfe-m-w-d-laderach-schweiz-ag-stuttgart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3430,10 +3505,10 @@
       "id": "laderach-04c23fb77c81",
       "slug": "sales-assistant-verkaufer-in-voll-e-teilzeit-aushilfen-m-w-d-laderach-schweiz-ag-munchen",
       "slugByLocale": {
-        "it": "sales-assistant-verkaufer-in-voll-e-teilzeit-aushilfen-m-w-d-laderach-schweiz-ag-munchen",
-        "en": "sales-assistant-verkaufer-in-voll-und-teilzeit-aushilfen-m-w-d-laderach-munchen",
+        "it": "assistente-vendita-venditore-a-tempo-pieno-e-part-time-laderach-schweiz-ag-munchen",
+        "en": "sales-assistant-sales-assistant-in-full-and-part-time-relief-m-w-d-laderach-schweiz-ag-munchen",
         "de": "sales-assistant-verkaufer-in-voll-und-teilzeit-aushilfen-m-w-d-laderach-munchen",
-        "fr": "sales-assistant-verkaufer-in-voll-und-teilzeit-aushilfen-m-w-d-laderach-munchen"
+        "fr": "assistant-commercial-vendeur-en-temps-partiel-et-en-temps-plein-laderach-schweiz-ag-munchen"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3474,7 +3549,8 @@
       "crawledAt": "2026-04-05T21:21:24.830Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sales-assistant-verkaufer-in-voll-und-teilzeit-aushilfen-m-w-d-laderach-munchen"
+        "sales-assistant-verkaufer-in-voll-und-teilzeit-aushilfen-m-w-d-laderach-munchen",
+        "sales-assistant-verkaufer-in-voll-e-teilzeit-aushilfen-m-w-d-laderach-schweiz-ag-munchen"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3494,10 +3570,10 @@
       "id": "laderach-c384e804c0ca",
       "slug": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-luzern",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-luzern",
+        "it": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-luzern",
         "en": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern",
         "de": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern",
-        "fr": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern"
+        "fr": "stage-dans-le-detail-efz-a-partir-d-aout-2026-h-f-d-laderach-schweiz-ag-luzern"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3538,7 +3614,8 @@
       "crawledAt": "2026-04-05T21:21:24.685Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern"
+        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-luzern",
+        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-luzern"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -3558,10 +3635,10 @@
       "id": "laderach-3a866bb03fb4",
       "slug": "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-zurich-flughafen",
       "slugByLocale": {
-        "it": "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-zurich-flughafen",
-        "en": "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-zurich-flughafen",
+        "it": "vice-direttore-chocolaterie-aeroporto-airside-zurigo-h-m-d-laderach-schweiz-ag-zurich-flughafen",
+        "en": "assistant-store-manager-chocolaterie-airport-airside-zurich-m-f-d-laderach-schweiz-ag-zurich-flughafen",
         "de": "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-zurich-flughafen",
-        "fr": "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-zurich-flughafen"
+        "fr": "adjoint-e-au-directeur-de-la-chocolaterie-aeroport-airside-zurich-h-f-d-laderach-schweiz-ag-zurich-flughafen"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3613,16 +3690,19 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "8001"
+      "postalCode": "8001",
+      "previousSlugs": [
+        "stv-filialleiter-chocolaterie-flughafen-airside-zurich-w-m-d-laderach-zurich-flughafen"
+      ]
     },
     {
       "id": "laderach-e475b0514c24",
       "slug": "zusatzausbildung-specializzazione-confiserie-per-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
       "slugByLocale": {
-        "it": "zusatzausbildung-specializzazione-confiserie-per-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
-        "en": "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
+        "it": "formazione-di-perfezionamento-in-confetteria-per-agosto-2026-h-m-d-laderach-schweiz-ag-ennenda",
+        "en": "advanced-training-in-confectionery-for-august-2026-m-f-d-laderach-schweiz-ag-ennenda",
         "de": "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-ennenda",
-        "fr": "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-schweiz-ag-ennenda"
+        "fr": "formation-de-perfectionnement-en-confiserie-pour-aout-2026-h-m-d-laderach-schweiz-ag-ennenda"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3663,7 +3743,9 @@
       "crawledAt": "2026-04-05T21:21:24.389Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-ennenda"
+        "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-ennenda",
+        "zusatzausbildung-specializzazione-confiserie-per-august-2026-w-m-d-laderach-schweiz-ag-ennenda",
+        "zusatzausbildung-fachrichtung-confiserie-fur-august-2026-w-m-d-laderach-schweiz-ag-ennenda"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3683,10 +3765,10 @@
       "id": "laderach-fb6f7ff0a099",
       "slug": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-stuttgart",
       "slugByLocale": {
-        "it": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-stuttgart",
-        "en": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-stuttgart",
+        "it": "vice-direzione-filiale-a-tempo-pieno-m-w-d-laderach-schweiz-ag-stuttgart",
+        "en": "assistant-store-manager-full-time-m-w-d-laderach-schweiz-ag-stuttgart",
         "de": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-stuttgart",
-        "fr": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-stuttgart"
+        "fr": "assistant-directeur-de-magasin-a-temps-plein-m-w-d-laderach-schweiz-ag-stuttgart"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3727,7 +3809,8 @@
       "crawledAt": "2026-04-05T21:21:24.239Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-stuttgart"
+        "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-stuttgart",
+        "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-stuttgart"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3747,10 +3830,10 @@
       "id": "laderach-088295e50507",
       "slug": "ganzjahrig-sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-neueroffnung-sylt-laderach-schweiz-ag-sylt",
       "slugByLocale": {
-        "it": "ganzjahrig-sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-neueroffnung-sylt-laderach-schweiz-ag-sylt",
-        "en": "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-neueroffnung-sylt-laderach-sylt",
+        "it": "assistente-vendite-a-tempo-pieno-e-part-time-m-w-d-nuova-apertura-a-sylt-laderach-schweiz-ag-sylt",
+        "en": "full-time-and-part-time-sales-assistant-salesperson-m-w-d-new-opening-on-sylt-laderach-schweiz-ag-sylt",
         "de": "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-neueroffnung-sylt-laderach-sylt",
-        "fr": "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-neueroffnung-sylt-laderach-sylt"
+        "fr": "assistant-commercial-a-temps-plein-et-a-temps-partiel-m-w-d-nouvelle-ouverture-a-sylt-laderach-schweiz-ag-sylt"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3791,7 +3874,8 @@
       "crawledAt": "2026-04-05T21:21:24.092Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-neueroffnung-sylt-laderach-sylt"
+        "ganzjahrig-sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-neueroffnung-sylt-laderach-sylt",
+        "ganzjahrig-sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-neueroffnung-sylt-laderach-schweiz-ag-sylt"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3811,10 +3895,10 @@
       "id": "laderach-2227d05ea4c8",
       "slug": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zermatt",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zermatt",
+        "it": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zermatt",
         "en": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt",
         "de": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt",
-        "fr": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt"
+        "fr": "apprentissage-en-detail-efz-a-partir-d-aout-2026-h-f-d-laderach-schweiz-ag-zermatt"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3855,7 +3939,8 @@
       "crawledAt": "2026-04-05T21:21:23.943Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt"
+        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zermatt",
+        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zermatt"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -3875,10 +3960,10 @@
       "id": "laderach-063dc7835d6c",
       "slug": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
       "slugByLocale": {
-        "it": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
-        "en": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
+        "it": "vice-direttore-di-filiale-a-tempo-pieno-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
+        "en": "assistant-store-manager-full-time-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
         "de": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-freiburg-im-breisgau",
-        "fr": "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau"
+        "fr": "assistant-directeur-de-magasin-a-temps-plein-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3919,7 +4004,8 @@
       "crawledAt": "2026-04-05T21:21:23.793Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-freiburg-im-breisgau"
+        "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-freiburg-im-breisgau",
+        "stellvertretende-filialleitung-in-vollzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -3939,10 +4025,10 @@
       "id": "laderach-b0ad38dd5f6e",
       "slug": "sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
       "slugByLocale": {
-        "it": "sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
-        "en": "sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-freiburg-im-breisgau",
+        "it": "assistente-vendite-venditore-in-tempo-pieno-e-parziale-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
+        "en": "sales-assistant-sales-representative-in-full-and-part-time-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau",
         "de": "sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-freiburg-im-breisgau",
-        "fr": "sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-freiburg-im-breisgau"
+        "fr": "assistant-commercial-vendeur-en-temps-plein-et-a-temps-partiel-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -3983,7 +4069,8 @@
       "crawledAt": "2026-04-05T21:21:23.640Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-freiburg-im-breisgau"
+        "sales-assitant-verkaufer-in-voll-und-teilzeit-m-w-d-laderach-freiburg-im-breisgau",
+        "sales-assitant-verkaufer-in-voll-e-teilzeit-m-w-d-laderach-schweiz-ag-freiburg-im-breisgau"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -4003,10 +4090,10 @@
       "id": "laderach-de717e2e4065",
       "slug": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zug",
       "slugByLocale": {
-        "it": "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zug",
+        "it": "tirocinio-nel-dettaglio-efz-da-agosto-2026-h-m-d-laderach-schweiz-ag-zug",
         "en": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug",
         "de": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug",
-        "fr": "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug"
+        "fr": "stage-en-detail-efz-a-partir-d-aout-2026-h-f-d-laderach-schweiz-ag-zug"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach",
@@ -4047,7 +4134,8 @@
       "crawledAt": "2026-04-05T21:21:23.488Z",
       "sourceLang": "de",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug"
+        "lehrstelle-im-detailhandel-efz-ab-august-2026-w-m-d-laderach-zug",
+        "apprendistato-im-commercio-al-dettaglio-cfc-ab-august-2026-w-m-d-laderach-schweiz-ag-zug"
       ],
       "salaryMin": 46500,
       "salaryMax": 62500,

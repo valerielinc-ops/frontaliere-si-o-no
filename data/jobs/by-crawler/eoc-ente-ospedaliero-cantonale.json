@@ -950,7 +950,7 @@
       "crawledAt": "2026-04-05T21:12:05.635Z",
       "slugByLocale": {
         "it": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona",
-        "en": "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171",
+        "en": "domestic-economy-assistant-eoc-ente-ospedaliero-cantonale-bellinzona",
         "de": "mitarbeiter-im-bereich-hauswirtschaft-eoc-ente-ospedaliero-cantonale-bellinzona",
         "fr": "collaborateur-en-economie-domestique-eoc-ente-ospedaliero-cantonale-bellinzona"
       },
@@ -985,7 +985,10 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "collaboratore-trice-economia-domestica-eoc-ente-ospedaliero-cantonale-bellinzona-uil171"
+      ]
     },
     {
       "id": "company-uikzov",
@@ -1066,9 +1069,9 @@
       "crawledAt": "2026-04-05T21:12:05.635Z",
       "slugByLocale": {
         "it": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano",
-        "en": "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
+        "en": "medical-study-assistant-eoc-ente-ospedaliero-cantonale-lugano",
         "de": "arzthelferin-eoc-ente-ospedaliero-cantonale-lugano",
-        "fr": "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+        "fr": "assistant-d-etude-medicale-eoc-ente-ospedaliero-cantonale-lugano"
       },
       "titleByLocale": {
         "it": "Assistente di studio medico",
@@ -1101,7 +1104,11 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "assistente-di-studio-medico-eoc-ente-ospedaliero-cantonale-lugano-uil2r1",
+        "assistante-de-cabinet-medical-eoc-ente-ospedaliero-cantonale-lugano"
+      ]
     },
     {
       "id": "company-x29n60",
