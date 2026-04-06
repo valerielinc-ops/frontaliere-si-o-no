@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ferrovia-retica",
-  "assembledAt": "2026-04-06T19:20:29.403Z",
+  "assembledAt": "2026-04-06T21:13:29.028Z",
   "jobs": [
     {
       "title": "Standortleiter/in Zugvorbereitung & Reinigung / Nord- & Mittelbünden (50-100%)",
@@ -285,7 +285,8 @@
           "maxValue": 97000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Spezialist/in Anlagebuchhaltung (50-100%)",
@@ -473,7 +474,7 @@
       "source": "company-website",
       "slug": "kunden-e-reiseberater-in-railservice-80-100-ferrovia-retica-rhb-bernina",
       "slugByLocale": {
-        "it": "consulente-clienti-e-viaggi-railservice-80-100-ferrovia-retica-bernina",
+        "it": "kunden-und-reiseberater-in-railservice-80-100-ferrovia-retica-rhb-bernina",
         "en": "customer-and-travel-advisor-railservice-80-100-ferrovia-retica-rhb-bernina",
         "de": "kunden-und-reiseberater-in-railservice-80-100-rhaetische-bahn-bernina",
         "fr": "conseiller-clientele-et-voyages-railservice-80-100-ferrovia-retica-rhb-bernina"
