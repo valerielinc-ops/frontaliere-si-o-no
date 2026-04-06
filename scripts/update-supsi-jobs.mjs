@@ -56,7 +56,6 @@ const SUPSI_COMPANY_NAME = 'SUPSI / DTI';
 const SUPSI_COMPANY_DOMAIN = 'supsi.ch';
 const SUPSI_HOST = 'www.supsi.ch';
 const SUPSI_LISTING_URL = 'https://www.supsi.ch/lavora-con-noi';
-const SUPSI_LEGACY_LISTING_URL = 'https://www.supsi.ch/home/bachelor-master/diploma-master/offerte-lavoro.html';
 const SUPSI_LOCALES = ['it', 'en', 'de', 'fr'];
 const execFileAsync = promisify(execFile);
 
@@ -322,6 +321,33 @@ function buildPaginationActionUrl(baseActionUrl, total, page) {
   return url.href;
 }
 
+/**
+ * Load previously discovered SUPSI seed URLs + metadata from the adapter file.
+ * Used as a graceful-degradation fallback when the SUPSI listing page is
+ * temporarily unreachable from CI runners — lets the shared crawler re-verify
+ * known jobs instead of crashing the whole pipeline on transient network issues.
+ * Returns null when no cached adapter exists or the cache is empty.
+ *
+ * Exported for unit tests. The optional `adapterPath` parameter allows tests
+ * to inject a fixture file; production code uses the default SUPSI adapter path.
+ */
+export function loadCachedSupsiSeeds(adapterPath = path.resolve(ADAPTERS_DIR, `${SUPSI_KEY}.json`)) {
+  if (!fs.existsSync(adapterPath)) return null;
+  try {
+    const parsed = JSON.parse(fs.readFileSync(adapterPath, 'utf-8')) || {};
+    const cachedSeedUrls = Array.isArray(parsed.seedDetailUrls)
+      ? parsed.seedDetailUrls.filter((u) => typeof u === 'string' && u.trim())
+      : [];
+    if (cachedSeedUrls.length === 0) return null;
+    const cachedMeta = parsed.seedMetaByUrl && typeof parsed.seedMetaByUrl === 'object'
+      ? parsed.seedMetaByUrl
+      : {};
+    return { seedUrls: cachedSeedUrls, seedMetaByUrl: { ...cachedMeta } };
+  } catch {
+    return null;
+  }
+}
+
 async function fetchSupsiJobDetailUrls() {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 30000;
   const userAgent =
@@ -333,30 +359,36 @@ async function fetchSupsiJobDetailUrls() {
 
   console.log('🔍 Fetching SUPSI jobs from listing...');
   let listingHtml = '';
-  let listingSourceUrl = SUPSI_LISTING_URL;
-  const candidateListingUrls = [SUPSI_LISTING_URL, SUPSI_LEGACY_LISTING_URL];
   let lastListingErr = null;
-  for (const candidateUrl of candidateListingUrls) {
-    try {
-      const html = await fetchSupsiPage(candidateUrl, { timeoutMs, userAgent });
-      if (/Page not found - SUPSI/i.test(html) || /<title>\s*404/i.test(html)) {
-        throw new Error('HTML 404 page');
-      }
-      listingHtml = html;
-      listingSourceUrl = candidateUrl;
-      break;
-    } catch (err) {
-      lastListingErr = err;
+  try {
+    const html = await fetchSupsiPage(SUPSI_LISTING_URL, { timeoutMs, userAgent });
+    if (/Page not found - SUPSI/i.test(html) || /<title>\s*404/i.test(html)) {
+      throw new Error('HTML 404 page');
     }
+    listingHtml = html;
+  } catch (err) {
+    lastListingErr = err;
   }
+
   if (!listingHtml) {
-    throw lastListingErr || new Error('Unable to fetch SUPSI listing page');
+    // Graceful degradation: SUPSI's website is occasionally unreachable from GH
+    // runners (no HTTP response, TCP-level timeout). Rather than crashing the
+    // whole pipeline, fall back to the adapter's previously-discovered detail
+    // URLs so the shared crawler can re-verify known jobs. Stale/expired jobs
+    // still get cleaned up in the scoped housekeeping step.
+    const cached = loadCachedSupsiSeeds();
+    if (!cached) {
+      throw lastListingErr || new Error('Unable to fetch SUPSI listing page');
+    }
+    const errMsg = lastListingErr?.message || String(lastListingErr || 'unknown error');
+    console.warn(
+      `  ⚠️ SUPSI listing unreachable (${errMsg}) — falling back to ${cached.seedUrls.length} cached detail URL(s) from adapter.`
+    );
+    return { seedUrls: cached.seedUrls, seedMetaByUrl: cached.seedMetaByUrl, fromCache: true };
   }
+
   const paginationLinks = extractPaginationLinks(listingHtml);
   const maxPage = Math.max(1, extractMaxPage(listingHtml));
-  if (listingSourceUrl !== SUPSI_LISTING_URL) {
-    console.warn(`  ⚠️ SUPSI listing fallback used: ${listingSourceUrl}`);
-  }
 
   const page1 = parseTeasersFromHtml(listingHtml);
   console.log(`  📄 page 1: ${page1.length} teaser(s)`);
@@ -417,9 +449,18 @@ async function fetchSupsiJobDetailUrls() {
   return { seedUrls, seedMetaByUrl };
 }
 
-function updateSupsiAdapter({ seedUrls, seedMetaByUrl }) {
+function updateSupsiAdapter({ seedUrls, seedMetaByUrl, fromCache = false }) {
   const adapterPath = path.resolve(ADAPTERS_DIR, `${SUPSI_KEY}.json`);
   const nextSeedUrls = Array.isArray(seedUrls) && seedUrls.length > 0 ? seedUrls : [SUPSI_LISTING_URL];
+
+  // Cache-fallback mode: the listing was unreachable, so the seedUrls/meta we
+  // have are unchanged snapshots from the previous successful run. Skip the
+  // adapter rewrite to avoid bumping `updatedAt` and leave the on-disk adapter
+  // byte-identical — this keeps git clean and avoids spurious commits.
+  if (fromCache) {
+    console.log('🧩 Adapter unchanged (using cached seeds — listing unreachable).');
+    return;
+  }
 
   let current = {};
   if (fs.existsSync(adapterPath)) {
@@ -885,8 +926,8 @@ async function main() {
   console.log('🚀 SUPSI dedicated crawler start');
   const beforeSnapshot = snapshotJobSlugs(loadSupsiJobs());
 
-  const { seedUrls, seedMetaByUrl } = await fetchSupsiJobDetailUrls();
-  updateSupsiAdapter({ seedUrls, seedMetaByUrl });
+  const { seedUrls, seedMetaByUrl, fromCache = false } = await fetchSupsiJobDetailUrls();
+  updateSupsiAdapter({ seedUrls, seedMetaByUrl, fromCache });
 
   await runDedicatedSupsiCrawler();
   const post = await postProcessSupsiJobs();
@@ -947,7 +988,12 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ SUPSI crawler failed: ${err?.stack || err?.message || err}`);
-  process.exit(1);
-});
+// Only run the crawler pipeline when invoked directly from the CLI
+// (not when imported by tests or other modules that want helper exports).
+const _isMain = process.argv[1] && fileURLToPath(import.meta.url) === path.resolve(process.argv[1]);
+if (_isMain) {
+  main().catch((err) => {
+    console.error(`❌ SUPSI crawler failed: ${err?.stack || err?.message || err}`);
+    process.exit(1);
+  });
+}
