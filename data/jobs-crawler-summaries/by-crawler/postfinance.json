@@ -1,19 +1,21 @@
 {
   "key": "postfinance",
   "label": "PostFinance",
-  "generatedAt": "2026-04-06T18:57:02.445Z",
+  "generatedAt": "2026-04-06T21:35:43.607Z",
   "total": 1,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 3797,
-  "avgDurationMs": 3797,
+  "unchangedCount": 1,
+  "durationMs": 9160,
+  "avgDurationMs": 9160,
   "durationHistory": [
-    3797
+    9160
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
       "applyUrl": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
@@ -52,7 +54,5 @@
         "completeness": 17
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
