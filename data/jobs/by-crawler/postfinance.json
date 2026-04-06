@@ -1,0 +1,66 @@
+{
+  "crawlerKey": "postfinance",
+  "assembledAt": "2026-04-06T17:23:26.815Z",
+  "jobs": [
+    {
+      "url": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
+      "applyUrl": "https://job.post.ch/PostFinance/job/Bellinzona-Compliance-Officer-%28wmd%29/1378566933/",
+      "title": "Compliance Officer (w/m/d)",
+      "company": "PostFinance",
+      "companyKey": "postfinance",
+      "location": "Bellinzona",
+      "canton": "TI",
+      "country": "CH",
+      "description": "Posizione aperta presso PostFinance a Bellinzona. Ruolo: Compliance Officer (w/m/d). PostFinance è una sussidiaria della Posta Svizzera.",
+      "descriptionByLocale": {
+        "it": "Posizione aperta presso PostFinance a Bellinzona. Ruolo: Compliance Officer (w/m/d). PostFinance è una sussidiaria della Posta Svizzera.",
+        "en": "Posizione aperta presso PostFinance a Bellinzona. Ruolo: Compliance Officer (w/m/d). PostFinance è una sussidiaria della Posta Svizzera.",
+        "de": "Posizione aperta presso PostFinance a Bellinzona. Ruolo: Compliance Officer (w/m/d). PostFinance è una sussidiaria della Posta Svizzera.",
+        "fr": "Posizione aperta presso PostFinance a Bellinzona. Ruolo: Compliance Officer (w/m/d). PostFinance è una sussidiaria della Posta Svizzera."
+      },
+      "titleByLocale": {
+        "it": "Compliance Officer (w/m/d)",
+        "fr": "Compliance Officer (w/m/d)",
+        "en": "Compliance Officer (w/m/d)",
+        "de": "Compliance Officer (w/m/d)"
+      },
+      "slug": "compliance-officer-w-m-d-postfinance",
+      "slugByLocale": {
+        "it": "compliance-officer-w-m-d-postfinance",
+        "en": "compliance-officer-w-m-d-postfinance",
+        "de": "compliance-officer-w-m-d-postfinance",
+        "fr": "compliance-officer-w-m-d-postfinance-bellinzona"
+      },
+      "department": "",
+      "category": "servizi-finanziari",
+      "datePosted": "2026-04-06",
+      "validThrough": "",
+      "source": "postfinance-careers-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Finanza",
+      "workload": "",
+      "needsRetranslation": true,
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Bellinzona"
+      },
+      "crawledAt": "",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "postalCode": "6500"
+    }
+  ]
+}
