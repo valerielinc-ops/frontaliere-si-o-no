@@ -48,6 +48,7 @@
     "jobs:update:schindler": "node scripts/update-schindler-jobs.mjs",
     "jobs:update:zegna": "node scripts/update-zegna-jobs.mjs",
     "jobs:update:postch": "node scripts/update-postch-jobs.mjs",
+    "jobs:update:postfinance": "node scripts/update-postfinance-jobs.mjs",
     "jobs:update:cambiavalute": "node scripts/update-cambiavalute-jobs.mjs",
     "jobs:update:dxt": "node scripts/update-dxt-jobs.mjs",
     "jobs:update:linnea": "node scripts/update-linnea-jobs.mjs",

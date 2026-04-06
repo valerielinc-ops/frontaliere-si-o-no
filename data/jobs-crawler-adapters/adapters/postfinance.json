@@ -1,22 +1,17 @@
 {
   "companyKey": "postfinance",
   "companyName": "PostFinance",
-  "companyHost": "postfinance.ch",
+  "companyHost": "jobs.postfinance.ch",
   "enabled": true,
-  "priority": 0,
+  "priority": 8,
   "crawlerModes": [
-    "generic_ats",
     "html",
-    "jsonld"
+    "sitemap"
   ],
   "seedUrls": [
-    "https://www.postfinance.ch/careers",
-    "https://www.postfinance.ch/career",
-    "https://www.postfinance.ch/jobs",
-    "https://www.postfinance.ch/karriere",
-    "https://www.postfinance.ch/offene-stellen",
-    "https://www.postfinance.ch/lavora-con-noi"
+    "https://jobs.postfinance.ch/search/?locale=it_IT",
+    "https://jobs.postfinance.ch/sitemap.xml"
   ],
-  "notes": "",
-  "updatedAt": "2026-02-27T17:06:06.970Z"
+  "notes": "PostFinance careers portal — subsidiary of Swiss Post. Uses SuccessFactors NES platform shared with job.post.ch.",
+  "updatedAt": "2026-04-06T17:00:00.000Z"
 }
