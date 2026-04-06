@@ -2115,6 +2115,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-san-gottardo-attesa.title': 'Ore di attesa al portale nord del San Gottardo',
     'blog.article.traffico-san-gottardo-attesa.excerpt': 'Il traffico verso sud ha causato forti disagi al San Gottardo nel pomeriggio del Giovedì Santo, con una coda di 15 chilometri al portale nord e tempi di attesa fino a due ore e mezza.',
     'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Traffico intenso al San Gottardo',
+    'blog.article.tax-free-come-cresce.title': 'A Como il Tax Free continua a crescere grazie ai clienti ticinesi',
+    'blog.article.tax-free-come-cresce.excerpt': 'Lo scorso anno un aumento del 6 per cento. Chi arriva dal Ticino lo fa soprattutto per acquisti nella grande distribuzione.',
+    'blog.article.tax-free-come-cresce.imageAlt': 'Centro commerciale vicino al confine italo-svizzero',
 };
 
 export default blogMetaIt;

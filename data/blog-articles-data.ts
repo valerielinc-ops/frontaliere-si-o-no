@@ -6125,4 +6125,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/traffico-san-gottardo-attesa.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tax-free-come-cresce',
+    category: 'fiscale',
+    date: '2026-04-06T16:04:35.632Z',
+    image: '/images/blog/tax-free-come-cresce.jpg',
+    hasCalculator: true,
+  },
 ];

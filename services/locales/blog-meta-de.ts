@@ -2115,6 +2115,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-san-gottardo-attesa.title': 'Stau am Nordportal des San Gottardo',
     'blog.article.traffico-san-gottardo-attesa.excerpt': 'Der Verkehr nach Süden hat am späten Gründonnerstag erhebliche Schwierigkeiten am San Gottardo verursacht, mit einer Stauzeit von 15 Kilometern am Nordportal und Wartezeiten von bis zu zweieinhalb Stunden.',
     'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Verkehrsstau am San Gottardo',
+    'blog.article.tax-free-come-cresce.title': 'In Como der Tax Free-Shopping weiter auf dem Vormarsch dank der Kunden aus dem Tessin',
+    'blog.article.tax-free-come-cresce.excerpt': 'Im letzten Jahr ein Plus von 6 Prozent. Die Kunden aus dem Tessin kommen vor allem für Einkäufe im Grosshandel.',
+    'blog.article.tax-free-come-cresce.imageAlt': 'Einkaufszentrum nahe der italienisch-schweizerischen Grenze',
 };
 
 export default blogMetaDe;

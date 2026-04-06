@@ -12217,6 +12217,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tax-free-come-cresce': {
+    title: 'A Como il Tax Free continua a crescere grazie ai clienti ticinesi | Frontaliere Ticino',
+    description: 'Scopri come i clienti ticinesi stanno contribuendo alla crescita del Tax Free a Como. Aumento del 6% degli acquisti Tax Free. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, como, free, continua, crescere',
+    ogTitle: 'Tax Free in crescita a Como',
+    ogDescription: 'I clienti ticinesi contribuiscono alla crescita del Tax Free a Como con un aumento del 6% degli acquisti.',
+    canonicalPath: '/articoli-frontaliere/tax-free-come-cresce',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "A Como il Tax Free continua a crescere grazie ai clienti ticinesi",
+      "description": "Scopri come i clienti ticinesi stanno contribuendo alla crescita del Tax Free a Como. Aumento del 6% degli acquisti Tax Free. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tax-free-come-cresce.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro commerciale vicino al confine italo-svizzero"
+      },
+      "datePublished": "2026-04-06T16:04:35+00:00",
+      "dateModified": "2026-04-06T16:04:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tax-free-come-cresce`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

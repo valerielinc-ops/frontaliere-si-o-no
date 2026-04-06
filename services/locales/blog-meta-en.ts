@@ -2115,6 +2115,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-san-gottardo-attesa.title': 'Long Hours of Waiting at the North Portal of the San Gottardo',
     'blog.article.traffico-san-gottardo-attesa.excerpt': 'Traffic heading south caused significant disruptions to the San Gottardo in the afternoon of Holy Thursday, with a 15-kilometer queue at the north portal and waiting times of up to two and a half hours.',
     'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Traffic jam at San Gottardo',
+    'blog.article.tax-free-come-cresce.title': 'In Como, il Tax Free continua a crescere grazie ai clienti ticinesi',
+    'blog.article.tax-free-come-cresce.excerpt': 'Lo scorso anno un aumento del 6 per cento. Chi arriva dal Ticino lo fa soprattutto per acquisti nella grande distribuzione.',
+    'blog.article.tax-free-come-cresce.imageAlt': 'Shopping center near the Italian-Swiss border',
 };
 
 export default blogMetaEn;

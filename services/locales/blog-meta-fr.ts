@@ -2115,6 +2115,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-san-gottardo-attesa.title': 'Attente di plusieurs heures au portail nord du San Gottardo',
     'blog.article.traffico-san-gottardo-attesa.excerpt': 'Le trafic vers le sud a causé de forts inconvénients au San Gottardo dans l\'après-midi de la Jeudi saint, avec une file d\'attente de 15 kilomètres au portail nord et des temps d\'attente jusqu\'à deux heures et demie.',
     'blog.article.traffico-san-gottardo-attesa.imageAlt': 'Embouteillage au San Gottardo',
+    'blog.article.tax-free-come-cresce.title': 'A Como, le Tax Free continue de croître grâce aux clients tessinois',
+    'blog.article.tax-free-come-cresce.excerpt': 'L\'année dernière, une augmentation de 6 pour cent. Ceux qui viennent du Tessin le font principalement pour des achats dans la grande distribution.',
+    'blog.article.tax-free-come-cresce.imageAlt': 'Centre commercial près de la frontière italo-suisse',
 };
 
 export default blogMetaFr;
