@@ -20,7 +20,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang } from './lib/dedicated-crawler-common.mjs';
+import { translateMissingJobLocales, validateDedicatedLocaleCoverage, detectLang, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { buildPdfBackedDescription, extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import { parseLwphrOpenJobs, inferLwphrLocation, inferLwphrCategory, buildLwphrLocalizedPayload, extractTitleFromPdfText, reconcilePdfTitle } from './lib/lwphr-job-parser.mjs';
 
@@ -158,21 +158,8 @@ async function mergeJobs(discoveredJobs) {
   const existingTarget = existing.filter(isTargetJob);
   const existingByKey = new Map(existingTarget.map((job) => [jobMatchKey(job), job]));
 
-  let added = 0;
-  let updated = 0;
-  const mergedTarget = [];
-  for (const job of discoveredJobs) {
-    const key = jobMatchKey(job);
-    const prev = existingByKey.get(key);
-    if (!prev) {
-      added += 1;
-      mergedTarget.push(job);
-      continue;
-    }
-    const same = JSON.stringify({ ...prev, updatedAt: undefined }) === JSON.stringify({ ...job, updatedAt: undefined });
-    if (!same) updated += 1;
-    mergedTarget.push({ ...prev, ...job });
-  }
+  // Preserve existing AI translations and slugs
+  const mergedTarget = mergePreserveLocaleData(existingTarget, discoveredJobs);
 
   const beforeSnapshot = snapshotJobSlugs(existingTarget);
   const allJobs = [...nonTargetJobs, ...mergedTarget];
@@ -197,7 +184,7 @@ async function mergeJobs(discoveredJobs) {
   writeJobsSummary(mergedTarget, 'LWPHR');
   printPublishedJobUrls(mergedTarget, 'LWPHR');
   const removed = Math.max(0, existingTarget.length - mergedTarget.length);
-  console.log(`📦 Merge results:\n  ➕ Added: ${added}\n  🔄 Updated: ${updated}\n  🗑️  Removed (stale): ${removed}\n  📊 Total jobs in file: ${allJobs.length}`);
+  console.log(`📦 Merge results:\n  ➕ Added: ${newJobs.length}\n  🔄 Updated: ${mergedTarget.length - newJobs.length}\n  🗑️  Removed (stale): ${removed}\n  📊 Total jobs in file: ${allJobs.length}`);
   return { diff };
 }
 

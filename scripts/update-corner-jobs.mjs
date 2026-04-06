@@ -33,6 +33,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   deriveLocalizedSlug,
+  mergePreserveLocaleData,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseCornerOfferFull,
@@ -280,6 +281,7 @@ function mergeParsedCornerJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(CORNER_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonCorner = allJobs.filter((job) => !isCornerJob(job));
+  const cornerExisting = allJobs.filter(isCornerJob);
 
   const byUrl = new Map();
   for (const job of parsedJobs) {
@@ -287,7 +289,10 @@ function mergeParsedCornerJobs(parsedJobs) {
     if (!key) continue;
     byUrl.set(key, job);
   }
-  const cleanCornerJobs = [...byUrl.values()].sort(
+  const deduped = [...byUrl.values()];
+
+  // Preserve existing AI translations and slugs
+  const cleanCornerJobs = mergePreserveLocaleData(cornerExisting, deduped).sort(
     (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
   );
   const merged = [...nonCorner, ...cleanCornerJobs];

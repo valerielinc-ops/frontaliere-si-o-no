@@ -48,7 +48,7 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { translateMissingJobLocales, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import { translateMissingJobLocales, validateDedicatedLocaleCoverage, mergePreserveLocaleData } from './lib/dedicated-crawler-common.mjs';
 import { freeTranslateWithRetry } from './lib/free-translate.mjs';
 import { GRIGIONI_CITIES, TICINO_CITIES, inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
 import { parseSbbDetailPage, MIN_SBB_DESC_LENGTH } from './lib/sbb-job-parser.mjs';
@@ -952,6 +952,7 @@ function mergeParsedSbbJobs(parsedJobs) {
   const existing = readExistingCrawlerJobs(SBB_KEY, DATA_JOBS);
   const allJobs = Array.isArray(existing) ? existing : [];
   const nonSbb = allJobs.filter((job) => !isSbbJob(job));
+  const sbbExisting = allJobs.filter(isSbbJob);
 
   const byUrl = new Map();
   for (const job of parsedJobs) {
@@ -959,7 +960,12 @@ function mergeParsedSbbJobs(parsedJobs) {
     if (!key) continue;
     byUrl.set(key, job);
   }
-  const cleanSbbJobs = [...byUrl.values()].sort((a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || '')));
+  const deduped = [...byUrl.values()];
+
+  // Preserve existing AI translations and slugs
+  const cleanSbbJobs = mergePreserveLocaleData(sbbExisting, deduped).sort(
+    (a, b) => String(b.postedDate || '').localeCompare(String(a.postedDate || ''))
+  );
   const merged = [...nonSbb, ...cleanSbbJobs];
   writeJobsFiles(merged);
   return cleanSbbJobs;
