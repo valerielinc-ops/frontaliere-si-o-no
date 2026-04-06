@@ -2136,6 +2136,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.raffica-chiusure-a9-2026.title': 'Chiusure e deviazioni sulla A9: cosa fare durante la raffica',
     'blog.article.raffica-chiusure-a9-2026.excerpt': 'Nuova settimana e subito raffica di chiusure e deviazioni sulla A9',
     'blog.article.raffica-chiusure-a9-2026.imageAlt': 'Lavori sulla A9 in Ticino',
+    'blog.article.conflitto-medio-oriente-energia-ticino.title': 'Conflitto in Medio Oriente: impatto miliardario sull’energia in Ticino e Italia',
+    'blog.article.conflitto-medio-oriente-energia-ticino.excerpt': 'Il diesel supera i 2 CHF/litro in Ticino dopo l’attacco all’Iran. Rincari energetici per famiglie e imprese: 5 miliardi all’anno in Svizzera.',
+    'blog.article.conflitto-medio-oriente-energia-ticino.imageAlt': 'Bellinzona con traffico di frontalieri e auto svizzere e italiane al mattino.',
 };
 
 export default blogMetaIt;

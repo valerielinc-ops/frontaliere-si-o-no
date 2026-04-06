@@ -2136,6 +2136,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.raffica-chiusure-a9-2026.title': 'Closures and diversions on A9: what to do during the storm',
     'blog.article.raffica-chiusure-a9-2026.excerpt': 'New week and already a storm of closures and diversions on A9',
     'blog.article.raffica-chiusure-a9-2026.imageAlt': 'Roadwork on A9 highway in Ticino',
+    'blog.article.conflitto-medio-oriente-energia-ticino.title': 'Middle East conflict: billion-euro impact on energy in Ticino and Italy',
+    'blog.article.conflitto-medio-oriente-energia-ticino.excerpt': 'Diesel exceeds 2 CHF/liter in Ticino after the attack on Iran. Energy price hikes for households and businesses: 5 billion per year in Switzerland.',
+    'blog.article.conflitto-medio-oriente-energia-ticino.imageAlt': 'Bellinzona with commuter traffic and Swiss and Italian cars in the morning.',
 };
 
 export default blogMetaEn;

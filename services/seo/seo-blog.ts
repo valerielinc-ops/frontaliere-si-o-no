@@ -12420,6 +12420,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conflitto-medio-oriente-energia-ticino': {
+    title: 'Conflitto in Medio Oriente: impatto miliardario sull’energia in Ticino e | Frontaliere Ticino',
+    description: 'Diesel oltre 2 CHF/litro in Ticino dopo escalation nel Golfo Persico. Rincari energetici: 5 miliardi CHF all’anno per la Svizzera. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, conflitto, medio, oriente, impatto',
+    ogTitle: 'Conflitto Medio Oriente: energia Ticino e Italia',
+    ogDescription: 'Diesel supera 2 CHF/litro in Ticino. Rincari energetici: 5 miliardi CHF per Svizzera, impatto su frontalieri e famiglie.',
+    canonicalPath: '/articoli-frontaliere/conflitto-medio-oriente-energia-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Di più La fattura miliardaria del conflitto in Medio Oriente per l’energia in Svizzera e in Italia",
+      "description": "Diesel oltre 2 CHF/litro in Ticino dopo escalation nel Golfo Persico. Rincari energetici: 5 miliardi CHF all’anno per la Svizzera. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/conflitto-medio-oriente-energia-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona con traffico di frontalieri e auto svizzere e italiane al mattino."
+      },
+      "datePublished": "2026-04-06T22:51:35+00:00",
+      "dateModified": "2026-04-06T22:51:35+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/conflitto-medio-oriente-energia-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

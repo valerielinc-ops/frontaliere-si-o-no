@@ -6174,4 +6174,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/raffica-chiusure-a9-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'conflitto-medio-oriente-energia-ticino',
+    category: 'novita',
+    date: '2026-04-06T22:51:35.657Z',
+    image: '/images/blog/conflitto-medio-oriente-energia-ticino.jpg',
+    hasCalculator: true,
+  },
 ];

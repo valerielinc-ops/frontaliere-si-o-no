@@ -2136,6 +2136,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.raffica-chiusure-a9-2026.title': 'Chiusure e deviazioni sulla A9: cosa fare durante la raffica',
     'blog.article.raffica-chiusure-a9-2026.excerpt': 'Nuova settimana e subito raffica di chiusure e deviazioni sulla A9',
     'blog.article.raffica-chiusure-a9-2026.imageAlt': 'Travaux de la A9 au Tessin',
+    'blog.article.conflitto-medio-oriente-energia-ticino.title': 'Conflit au Moyen-Orient : impact milliardaire sur l\'énergie au Tessin et en Italie',
+    'blog.article.conflitto-medio-oriente-energia-ticino.excerpt': 'Le diesel dépasse les 2 CHF/litre au Tessin après l\'attaque contre l\'Iran. Hausses des prix de l\'énergie pour les ménages et les entreprises : 5 milliards par an en Suisse.',
+    'blog.article.conflitto-medio-oriente-energia-ticino.imageAlt': 'Bellinzona avec trafic de frontaliers et voitures suisses et italiennes le matin.',
 };
 
 export default blogMetaFr;
