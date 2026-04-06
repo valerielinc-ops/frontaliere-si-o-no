@@ -1,0 +1,60 @@
+name: Submit IndexNow Batch
+
+on:
+  workflow_dispatch:
+    inputs:
+      endpoint:
+        description: 'Target engine (leave empty for all)'
+        required: false
+        default: ''
+        type: choice
+        options:
+          - ''
+          - bing
+          - yandex
+          - indexnow
+      sitemap:
+        description: 'Sitemap filter (e.g. "jobs", "blog", leave empty for all)'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Dry run (preview only, no submissions)'
+        required: false
+        default: false
+        type: boolean
+
+permissions:
+  contents: read
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Build to generate full sitemaps
+        run: npx vite build --logLevel warn
+        env:
+          NODE_OPTIONS: '--max-old-space-size=4096'
+
+      - name: Submit IndexNow batch
+        run: |
+          ARGS=""
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            ARGS="$ARGS --dry-run"
+          fi
+          if [ -n "${{ inputs.endpoint }}" ]; then
+            ARGS="$ARGS --endpoint ${{ inputs.endpoint }}"
+          fi
+          if [ -n "${{ inputs.sitemap }}" ]; then
+            ARGS="$ARGS --sitemap ${{ inputs.sitemap }}"
+          fi
+          node scripts/submit-indexnow-batch.mjs $ARGS
