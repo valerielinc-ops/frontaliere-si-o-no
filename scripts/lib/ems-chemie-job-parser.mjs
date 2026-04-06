@@ -51,6 +51,24 @@ export function slugify(value = '') {
     .slice(0, 180);
 }
 
+/**
+ * Strip the trailing " | Location | <Company> AG Location" suffix that the
+ * EMS career portal appends to every job title. Covers both the parent
+ * EMS-CHEMIE AG label and the subsidiary EFTEC AG label. Without stripping,
+ * the suffix leaks into the slug as `…-ems-chemie-ag-domat-ems` which the
+ * build then doubles when it appends its own company suffix.
+ *
+ * Examples:
+ *   "Leiter Controlling | Domat/Ems | EMS-CHEMIE AG Domat/Ems"             → "Leiter Controlling"
+ *   "Transportdisponent ... | Romanshorn | EFTEC AG Romanshorn"            → "Transportdisponent ..."
+ *   "Leiter Controlling"                                                    → "Leiter Controlling"
+ */
+export function stripEmsChemieTitleSuffix(value = '') {
+  return String(value || '')
+    .replace(/\s*\|\s*[^|]*\|\s*(?:EMS-?CHEMIE|EFTEC)\s+AG[^|]*$/i, '')
+    .trim();
+}
+
 /* ── Location helpers ──────────────────────────────────────── */
 
 /**
@@ -270,7 +288,7 @@ export function parseDetailPage(html) {
 export function buildJob(raw) {
   if (!raw || !raw.title) return null;
 
-  const title = normalizeSpace(raw.title);
+  const title = stripEmsChemieTitleSuffix(normalizeSpace(raw.title));
   if (!title || title.length < 3) return null;
 
   const location = raw.location || 'Domat/Ems';

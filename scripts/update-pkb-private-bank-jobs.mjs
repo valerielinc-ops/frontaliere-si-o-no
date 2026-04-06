@@ -55,7 +55,11 @@ async function main() {
 
     const _before = snapshotJobSlugs(readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS).filter(isCompanyJob))
 
-  const rawJobs = await fetchPkbJobs();
+  const rawJobs = (await fetchPkbJobs()).filter((j) => {
+    const t = String(j?.title || '').trim().toLowerCase();
+    // Drop the "Disclaimer" footer block the listing parser captures as a job.
+    return t && t !== 'disclaimer';
+  });
   if (rawJobs.length === 0) { console.log('\u26a0\ufe0f No PKB jobs found. Keeping existing.'); return; }
 
   console.log(`\ud83e\udde9 Found ${rawJobs.length} PKB Private Bank jobs.`);
