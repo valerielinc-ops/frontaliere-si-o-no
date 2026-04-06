@@ -1,19 +1,21 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-04-06T09:44:22.892Z",
+  "generatedAt": "2026-04-06T21:20:56.907Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9794,
-  "avgDurationMs": 9794,
+  "unchangedCount": 3,
+  "durationMs": 9684,
+  "avgDurationMs": 9684,
   "durationHistory": [
-    9794
+    9684
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Consulente tecnico interno di vendita (m/f/d)",
       "slug": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
@@ -119,7 +121,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
