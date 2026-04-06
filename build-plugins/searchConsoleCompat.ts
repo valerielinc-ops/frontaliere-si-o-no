@@ -27,6 +27,25 @@ const COMPAT_REDIRECTS: Record<string, string> = {
   '/en/cross-border-articles/communal-elections-ticino-2026/': '/en/cross-border-articles/municipal-elections-ticino/',
   '/fr/articles-frontalier/elections-communales-tessin-2026/': '/fr/articles-frontalier/elections-municipales-tessin/',
   '/vivere-in-ticino/vivere-in-svizzera': '/vivere-in-ticino/',
+  // Utility pages not in sitemaps but indexed by Google → redirect to closest section
+  '/contattaci': '/chi-siamo/',
+  '/en/contact-us': '/en/about-us/',
+  '/de/kontakt': '/de/ueber-uns/',
+  '/fr/contactez-nous': '/fr/a-propos/',
+  '/servizi-partner': '/chi-siamo/',
+  '/en/partner-services': '/en/about-us/',
+  '/de/partner-dienste': '/de/ueber-uns/',
+  '/fr/services-partenaires': '/fr/a-propos/',
+  '/consulenza': '/chi-siamo/',
+  '/en/consulting': '/en/about-us/',
+  '/de/beratung': '/de/ueber-uns/',
+  '/fr/consultation': '/fr/a-propos/',
+  '/stato-api': '/',
+  '/en/api-status': '/en/',
+  '/de/api-status': '/de/',
+  '/fr/etat-api': '/fr/',
+  '/privacy': '/privacy/',
+  '/fr/confidentialite': '/fr/confidentialite/',
 };
 
 /**
