@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 694,
+        "numberOfItems": 695,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4261,7 +4261,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 691, "name": "Fuga da Dubai, il Ticino come alternativa?", "url": `${BASE_URL}/articoli-frontaliere/fuga-da-dubai-ticino-alternativa` },
           { "@type": "ListItem", "position": 692, "name": "Traffico intenso al San Gottardo", "url": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-attesa` },
           { "@type": "ListItem", "position": 693, "name": "A Como il Tax Free continua a crescere grazie a...", "url": `${BASE_URL}/articoli-frontaliere/tax-free-come-cresce` },
-          { "@type": "ListItem", "position": 694, "name": "Crisi traffico San Gottardo Pasquetta 2026: imp...", "url": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026` }
+          { "@type": "ListItem", "position": 694, "name": "Crisi traffico San Gottardo Pasquetta 2026: imp...", "url": `${BASE_URL}/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026` },
+          { "@type": "ListItem", "position": 695, "name": "Controlli più severi per auto immatricolate in ...", "url": `${BASE_URL}/articoli-frontaliere/controlli-auto-immatricolate-grigioni` }
         ]
       }
     ]

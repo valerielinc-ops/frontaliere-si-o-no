@@ -2121,6 +2121,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.traffico-san-gottardo-pasquetta-2026.title': '10 km von Stau am San Gottardo: Rekord-Störungen am Ostermontag',
     'blog.article.traffico-san-gottardo-pasquetta-2026.excerpt': 'Der Rückweg von Ostermontag ist blockiert: 10 km von Stau am San Gottardo und 2 Stunden Verspätung. Der Autobahnzubringer von Airolo ist geschlossen.',
     'blog.article.traffico-san-gottardo-pasquetta-2026.imageAlt': 'Stau am Gotthard-Tunnel an Ostermontag 2026',
+    'blog.article.controlli-auto-immatricolate-grigioni.title': 'Strengere Kontrollen für in Graubünden registrierte Autos',
+    'blog.article.controlli-auto-immatricolate-grigioni.excerpt': 'Ticino verstärkt die Kontrollen von Autos mit gründnerischen Kennzeichen, die jedoch im Kanton stationiert sind, um Steuererhebelung zu bekämpfen.',
+    'blog.article.controlli-auto-immatricolate-grigioni.imageAlt': 'Auto mit Graubündner Kennzeichen in Lugano, Tessin geparkt',
 };
 
 export default blogMetaDe;

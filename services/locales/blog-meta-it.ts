@@ -2121,6 +2121,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.traffico-san-gottardo-pasquetta-2026.title': '10 km di coda al San Gottardo: disagi record per Pasquetta',
     'blog.article.traffico-san-gottardo-pasquetta-2026.excerpt': 'Rientro da Pasquetta bloccato: 10 km di coda al San Gottardo e 2 ore di ritardo. Chiuso il raccordo di Airolo.',
     'blog.article.traffico-san-gottardo-pasquetta-2026.imageAlt': 'Traffico al San Gottardo durante Pasquetta 2026',
+    'blog.article.controlli-auto-immatricolate-grigioni.title': 'Controlli più severi per auto immatricolate in Grigioni',
+    'blog.article.controlli-auto-immatricolate-grigioni.excerpt': 'Il Ticino intensifica i controlli sulle auto con targhe grigionesi ma stazionate nel cantone, per contrastare l\'elusione fiscale.',
+    'blog.article.controlli-auto-immatricolate-grigioni.imageAlt': 'Auto con targa grigionese parcheggiata a Lugano, Ticino',
 };
 
 export default blogMetaIt;

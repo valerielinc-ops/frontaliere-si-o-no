@@ -12275,6 +12275,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-auto-immatricolate-grigioni': {
+    title: 'Controlli più severi per auto immatricolate in Grigioni | Frontaliere Ticino',
+    description: 'Il Ticino intensifica i controlli sulle auto con targhe grigionesi per contrastare l\'elusione fiscale. Tutte le novità e cosa fare. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, severi, auto, immatricolate',
+    ogTitle: 'Controlli più severi per auto immatricolate Grigioni',
+    ogDescription: 'Il Canton Ticino intensifica i controlli sulle auto con targhe grigionesi per verificare il rispetto delle norme federali.',
+    canonicalPath: '/articoli-frontaliere/controlli-auto-immatricolate-grigioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli più severi per auto immatricolate in Grigioni",
+      "description": "Il Ticino intensifica i controlli sulle auto con targhe grigionesi per contrastare l'elusione fiscale. Tutte le novità e cosa fare. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-auto-immatricolate-grigioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Auto con targa grigionese parcheggiata a Lugano, Ticino"
+      },
+      "datePublished": "2026-04-06T18:01:26+00:00",
+      "dateModified": "2026-04-06T18:01:26+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-auto-immatricolate-grigioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

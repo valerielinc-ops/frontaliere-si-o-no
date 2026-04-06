@@ -6139,4 +6139,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/traffico-san-gottardo-pasquetta-2026.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controlli-auto-immatricolate-grigioni',
+    category: 'fiscale',
+    date: '2026-04-06T18:01:26.849Z',
+    image: '/images/blog/controlli-auto-immatricolate-grigioni.jpg',
+    hasCalculator: true,
+  },
 ];

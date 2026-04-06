@@ -1960,6 +1960,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-traffico-san-gottardo-attesa': { name: 'Traffico', path: '/articoli-frontaliere/traffico-san-gottardo-attesa', parent: 'blog' },
     'blog-tax-free-come-cresce': { name: 'Economia', path: '/articoli-frontaliere/tax-free-come-cresce', parent: 'blog' },
     'blog-traffico-san-gottardo-pasquetta-2026': { name: 'Traffico Gottardo', path: '/articoli-frontaliere/traffico-san-gottardo-pasquetta-2026', parent: 'blog' },
+    'blog-controlli-auto-immatricolate-grigioni': { name: 'Controlli auto Grigioni', path: '/articoli-frontaliere/controlli-auto-immatricolate-grigioni', parent: 'blog' },
   };
 
   const info = sectionNames[section];

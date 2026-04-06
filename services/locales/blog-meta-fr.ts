@@ -2121,6 +2121,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.traffico-san-gottardo-pasquetta-2026.title': '10 km de file au San Gottardo : difficultés record pour le lundi de Pâques',
     'blog.article.traffico-san-gottardo-pasquetta-2026.excerpt': 'Le retour du lundi de Pâques est bloqué : 10 km de files d\'attente au San Gottardo et 2 heures de retard. Le raccordement d\'Airolo est fermé.',
     'blog.article.traffico-san-gottardo-pasquetta-2026.imageAlt': 'Embouteillage au tunnel du Saint-Gothard lundi de Pâques 2026',
+    'blog.article.controlli-auto-immatricolate-grigioni.title': 'Contrôles plus sévères pour les voitures immatriculées en Grisons',
+    'blog.article.controlli-auto-immatricolate-grigioni.excerpt': 'Le Tessin renforce les contrôles sur les voitures avec plaques d\'immatriculation grisonnes mais stationnées dans le canton, pour lutter contre l\'évasion fiscale.',
+    'blog.article.controlli-auto-immatricolate-grigioni.imageAlt': 'Voiture avec plaque grisonne garée à Lugano, Tessin',
 };
 
 export default blogMetaFr;

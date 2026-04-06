@@ -2121,6 +2121,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.traffico-san-gottardo-pasquetta-2026.title': '10 km of traffic jam at the San Gottardo: record disruptions for Easter Monday',
     'blog.article.traffico-san-gottardo-pasquetta-2026.excerpt': 'Easter Monday return trip blocked: 10 km of traffic jam at the San Gottardo and 2 hours of delay. The Airolo bypass is closed.',
     'blog.article.traffico-san-gottardo-pasquetta-2026.imageAlt': 'San Gottardo tunnel traffic jam Easter Monday 2026',
+    'blog.article.controlli-auto-immatricolate-grigioni.title': 'Stricter Controls for Cars Registered in Grisons',
+    'blog.article.controlli-auto-immatricolate-grigioni.excerpt': 'The Ticino intensifies controls on cars with Grisons license plates but parked in the canton, to counter tax evasion 📊💡⚠️.',
+    'blog.article.controlli-auto-immatricolate-grigioni.imageAlt': 'Car with Grisons license plate parked in Lugano, Ticino',
 };
 
 export default blogMetaEn;
