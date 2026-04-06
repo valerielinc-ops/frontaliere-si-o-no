@@ -2094,6 +2094,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.scambio-abiti-bellinzona.title': 'À Bellinzona, l\'échange de vêtements unit socialité et durabilité',
     'blog.article.scambio-abiti-bellinzona.excerpt': 'L\'initiative de l\'association Meteora favorise la convivialité, la solidarité et l\'attention à l\'environnement.',
     'blog.article.scambio-abiti-bellinzona.imageAlt': 'Image de personnes participant à un échange de vêtements à Bellinzona.',
+    'blog.article.protesta-costi-cure-domicilio.title': 'Manifestation contre les coûts pour les soins à domicile',
+    'blog.article.protesta-costi-cure-domicilio.excerpt': 'Samedi 18 avril, rassemblement en place publique à Bellinzona contre l\'introduction des coûts pour les soins à domicile.',
+    'blog.article.protesta-costi-cure-domicilio.imageAlt': 'Protestation contre les coûts des soins à domicile à Bellinzona',
 };
 
 export default blogMetaFr;

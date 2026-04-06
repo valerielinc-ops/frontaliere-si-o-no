@@ -12014,6 +12014,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-protesta-costi-cure-domicilio': {
+    title: 'Protesta contro i costi per le cure a domicilio | Frontaliere Ticino',
+    description: 'Protesta contro l\'introduzione dei costi per le cure a domicilio in Ticino. Sabato 18 aprile, manifestazione in piazza a Bellinzona. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, protesta, contro, costi, cure',
+    ogTitle: 'Protesta contro i costi per le cure a domicilio',
+    ogDescription: 'Protesta contro l\'introduzione dei costi per le cure a domicilio in Ticino.',
+    canonicalPath: '/articoli-frontaliere/protesta-costi-cure-domicilio',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Protesta contro i costi per le cure a domicilio",
+      "description": "Protesta contro l'introduzione dei costi per le cure a domicilio in Ticino. Sabato 18 aprile, manifestazione in piazza a Bellinzona. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/protesta-costi-cure-domicilio.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Protesta contro i costi per le cure a domicilio a Bellinzona"
+      },
+      "datePublished": "2026-04-06T05:41:17+00:00",
+      "dateModified": "2026-04-06T05:41:17+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/protesta-costi-cure-domicilio`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1951,6 +1951,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-trump-intesa-o-inferno': { name: 'Tensione tra Stati Uniti e Cina', path: '/articoli-frontaliere/trump-intesa-o-inferno', parent: 'blog' },
     'blog-coop-richiama-formaggi-salmonelle': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/coop-richiama-formaggi-salmonelle', parent: 'blog' },
     'blog-scambio-abiti-bellinzona': { name: 'Bellinzona', path: '/articoli-frontaliere/scambio-abiti-bellinzona', parent: 'blog' },
+    'blog-protesta-costi-cure-domicilio': { name: 'Protesta contro i costi per le cure a', path: '/articoli-frontaliere/protesta-costi-cure-domicilio', parent: 'blog' },
   };
 
   const info = sectionNames[section];

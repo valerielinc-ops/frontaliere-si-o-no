@@ -6076,4 +6076,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/scambio-abiti-bellinzona.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'protesta-costi-cure-domicilio',
+    category: 'pratico',
+    date: '2026-04-06T05:41:17.505Z',
+    image: '/images/blog/protesta-costi-cure-domicilio.jpg',
+    hasCalculator: true,
+  },
 ];
