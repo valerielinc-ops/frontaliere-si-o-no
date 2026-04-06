@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-04-06T09:56:23.812Z",
+  "assembledAt": "2026-04-06T21:33:07.553Z",
   "jobs": [
     {
       "title": "HR Business Partner",
@@ -62,7 +62,8 @@
         }
       },
       "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828"
+      "postalCode": "6828",
+      "needsRetranslation": true
     },
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
@@ -183,7 +184,8 @@
       "postalCode": "6828",
       "previousSlugs": [
         "metal-amp-inventory-controller-mks-pamp-castel-san-pietro"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
