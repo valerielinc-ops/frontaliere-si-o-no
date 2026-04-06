@@ -464,6 +464,11 @@ function assembleSummaries() {
 
   for (const entry of sliceEntries) {
     const crawlerJobs = jobsByCrawler.get(entry.key);
+
+    // Always set activeJobCount from the actual job slice — the source of truth.
+    // summary.total only reflects the last crawl run and is 0 on earlyExit.
+    entry.activeJobCount = crawlerJobs ? crawlerJobs.length : 0;
+
     if (crawlerJobs && crawlerJobs.length > 0) {
       const qualityAggregate = computeCrawlerQualityAggregate(crawlerJobs, entry.key);
       entry.qualityScore = {

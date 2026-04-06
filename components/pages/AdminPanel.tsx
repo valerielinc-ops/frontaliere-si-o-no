@@ -86,6 +86,7 @@ interface CrawlerSummaryRow {
   label: string;
   generatedAt: string | null;
   total: number;
+  activeJobCount: number;
   newCount: number;
   updatedCount: number;
   removedCount: number;
@@ -576,6 +577,7 @@ export default function AdminPanel() {
             label: String(entry?.label || 'Crawler'),
             generatedAt: entry?.generatedAt ? String(entry.generatedAt) : null,
             total: Number(entry?.total || 0),
+            activeJobCount: entry?.activeJobCount != null ? Number(entry.activeJobCount) : Number(entry?.total || 0),
             newCount: Number(entry?.newCount || 0),
             updatedCount: Number(entry?.updatedCount || 0),
             removedCount: Number(entry?.removedCount || 0),
@@ -1459,7 +1461,7 @@ export default function AdminPanel() {
                     result = compareNumber(a.summary?.unchangedCount || 0, b.summary?.unchangedCount || 0);
                     break;
                   case 'total':
-                    result = compareNumber((a.summary?.total || 0) - (a.summary?.removedCount || 0), (b.summary?.total || 0) - (b.summary?.removedCount || 0));
+                    result = compareNumber(a.summary?.activeJobCount || 0, b.summary?.activeJobCount || 0);
                     break;
                   case 'duration':
                     result = compareNumber(a.summary?.durationMs || 0, b.summary?.durationMs || 0);
@@ -1486,7 +1488,7 @@ export default function AdminPanel() {
                   acc.removed += r.summary.removedCount;
                   acc.unchanged += r.summary.unchangedCount;
                   acc.total += r.summary.total;
-                  acc.active += r.summary.total - r.summary.removedCount;
+                  acc.active += r.summary.activeJobCount;
                 }
                 return acc;
               }, { newCount: 0, updated: 0, removed: 0, unchanged: 0, total: 0, active: 0 });
@@ -1730,7 +1732,7 @@ export default function AdminPanel() {
                           <th className="text-center py-2 px-1.5 font-semibold text-blue-700 dark:text-blue-400 whitespace-nowrap" title="Offerte aggiornate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('updatedCount', 'Aggiornati', { align: 'center', className: 'text-blue-700 dark:text-blue-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-red-700 dark:text-red-400 whitespace-nowrap" title="Offerte rimosse nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('removedCount', 'Rimossi', { align: 'center', className: 'text-red-700 dark:text-red-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap" title="Offerte non cambiate nell'ultima esecuzione del crawler (Δ run — distinto dal delta giornaliero del job board)">{renderCrawlerSortHeader('unchangedCount', 'Invariati', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
-                          <th className="text-center py-2 px-1.5 font-semibold text-violet-700 dark:text-violet-400 whitespace-nowrap">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-violet-700 dark:text-violet-400' })}</th>
+                          <th className="text-center py-2 px-1.5 font-semibold text-violet-700 dark:text-violet-400 whitespace-nowrap" title="Totale offerte attive nella slice del crawler (dal job slice, non dal delta dell'ultima run)">{renderCrawlerSortHeader('total', 'Attivi', { align: 'center', className: 'text-violet-700 dark:text-violet-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold text-slate-500 dark:text-slate-400 whitespace-nowrap">{renderCrawlerSortHeader('duration', '⏱️ Durata', { align: 'center', className: 'text-slate-500 dark:text-slate-400' })}</th>
                           <th className="text-center py-2 px-1.5 font-semibold whitespace-nowrap" title="Quality score: media ponderata su pulizia testo, ricchezza contenuto, qualità traduzione, completezza dati (0–100)">{renderCrawlerSortHeader('quality', '📊 Qualità', { align: 'center' })}</th>
                           <th className="text-center py-2 px-2 font-semibold">{renderCrawlerSortHeader('status', 'Stato', { align: 'center' })}</th>
@@ -1815,13 +1817,13 @@ export default function AdminPanel() {
                                     <span className="text-slate-500 dark:text-slate-600 text-[10px]">0</span>
                                   ) : '—'}
                                 </td>
-                                {/* Annunci (attivi) */}
+                                {/* Annunci (attivi) — from actual job slice, not crawl-run delta */}
                                 <td className="text-center py-2 px-1.5">
-                                  {s && (s.total - s.removedCount) > 0 ? (
+                                  {s && s.activeJobCount > 0 ? (
                                     <button onClick={() => toggleExpand(row.key, 'active')}
                                       className={`inline-flex items-center gap-0.5 text-violet-700 dark:text-violet-400 font-bold hover:underline cursor-pointer ${expanded === 'active' ? 'underline' : ''}`}>
                                       {expanded === 'active' ? <ChevronDown size={10} /> : <ChevronRight size={10} />}
-                                      {s.total - s.removedCount}
+                                      {s.activeJobCount}
                                     </button>
                                   ) : s ? (
                                     <span className="text-slate-500 dark:text-slate-600 text-[10px]">0</span>
