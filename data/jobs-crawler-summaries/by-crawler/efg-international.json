@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-05T21:07:32.280Z",
+  "generatedAt": "2026-04-06T09:34:43.124Z",
   "total": 21,
   "newCount": 0,
   "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 23570,
-  "avgDurationMs": 23570,
+  "durationMs": 30115,
+  "avgDurationMs": 30115,
   "durationHistory": [
-    23570
+    30115
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -94,7 +94,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.190Z",
+      "crawledAt": "2026-04-06T09:34:40.937Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -209,7 +209,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.189Z",
+      "crawledAt": "2026-04-06T09:34:40.937Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-06",
@@ -326,7 +326,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.189Z",
+      "crawledAt": "2026-04-06T09:34:40.936Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -433,7 +433,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.188Z",
+      "crawledAt": "2026-04-06T09:34:40.935Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -551,7 +551,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.188Z",
+      "crawledAt": "2026-04-06T09:34:40.935Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-24",
@@ -663,7 +663,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.187Z",
+      "crawledAt": "2026-04-06T09:34:40.934Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-03",
@@ -786,7 +786,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.187Z",
+      "crawledAt": "2026-04-06T09:34:40.934Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -918,7 +918,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.186Z",
+      "crawledAt": "2026-04-06T09:34:40.933Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1039,7 +1039,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.186Z",
+      "crawledAt": "2026-04-06T09:34:40.933Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1055,6 +1055,58 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5877",
+      "slug": "back-office-cash-reconciliation-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Back-Office Cash reconciliation specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-06T09:34:40.932Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2025-12-10",
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1166,7 +1218,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.185Z",
+      "crawledAt": "2026-04-06T09:34:40.932Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1313,7 +1365,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.184Z",
+      "crawledAt": "2026-04-06T09:34:40.931Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1329,58 +1381,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5877",
-      "slug": "back-office-cash-reconciliation-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Back-Office Cash reconciliation specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-05T21:07:30.184Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2025-12-10",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1478,7 +1478,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.184Z",
+      "crawledAt": "2026-04-06T09:34:40.931Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1530,7 +1530,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.183Z",
+      "crawledAt": "2026-04-06T09:34:40.930Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1643,7 +1643,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.183Z",
+      "crawledAt": "2026-04-06T09:34:40.930Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -1758,7 +1758,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.181Z",
+      "crawledAt": "2026-04-06T09:34:40.929Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -1774,6 +1774,59 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6194",
+      "slug": "internship-business-management-global-markets-treasury-efg-zurich",
+      "company": "EFG International AG",
+      "title": "Internship – Business Management, Global Markets & Treasury",
+      "location": "Zurich",
+      "canton": "ZH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-02",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6194",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As part of the Business Management team within the Global Markets & Treasury division, you will gain hands-on exposure to how strategic and operational decisions are supported through data, reporting and analysis. Working closely with senior team members, you will contribute to the production of key management information and help ensure that decision-makers have timely, accurate and insightful material at their disposal.</span></p><p><span>You will be involved in a broad range of activities, from understanding and mapping processes, managing data and dashboards to preparing presentations for senior stakeholders. This role offers an excellent opportunity to develop a solid understanding of Global Markets & Treasury business and associated financial and risk metrics, and experience how a leading financial institution operates on a day-to-day basis.</span></p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type:square;\"><li style=\"tab-stops:list 36.0pt;\"><span>Understanding, documenting and assisting in improving processes for Global Markets & Treasury.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and maintain data sources and dashboards, ensuring information is accurate, consistent and up to date.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Produce regular and ad hoc management reports (financials, risk metrics and KPIs) to support monitoring and decision-making.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Prepare clear, well-structured presentations for committees, management forums and ad hoc business requests.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate with colleagues across functions to gather input, validate data and ensure alignment of information.</span></li></ul><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type:square;\"><li style=\"tab-stops:list 36.0pt;\"><span>Graduate student available for six months for internship (required by University) – </span>Depending on the needs of the organisation, the internship may be extended for an additional six month.</li><li style=\"tab-stops:list 36.0pt;\"><span>Strong numerical and analytical skills, with a keen attention to detail and data quality.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Good command of Excel and PowerPoint; familiarity with data visualisation tools (e.g. dashboards) is an advantage.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to structure information clearly and present it in a concise, visually appealing way.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills and willingness to interact with different stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive, organised and able to manage multiple tasks and deadlines. Open minded, curious and eager to learn.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Very good knowledge of written and spoken English; additional national language is an asset.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:square;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate</strong>: Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit..</span></li></ul><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-06T09:34:40.928Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "datePosted": "2026-04-02",
+      "sourceLang": "en",
+      "salaryMin": 82500,
+      "salaryMax": 111500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true,
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -1811,7 +1864,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.180Z",
+      "crawledAt": "2026-04-06T09:34:40.927Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1939,7 +1992,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.180Z",
+      "crawledAt": "2026-04-06T09:34:40.927Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1955,59 +2008,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6194",
-      "slug": "internship-business-management-global-markets-treasury-efg-zurich",
-      "company": "EFG International AG",
-      "title": "Internship – Business Management, Global Markets & Treasury",
-      "location": "Zurich",
-      "canton": "ZH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-02",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6194",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p><p><span><strong>Job Description</strong></span></p><p><span>As part of the Business Management team within the Global Markets & Treasury division, you will gain hands-on exposure to how strategic and operational decisions are supported through data, reporting and analysis. Working closely with senior team members, you will contribute to the production of key management information and help ensure that decision-makers have timely, accurate and insightful material at their disposal.</span></p><p><span>You will be involved in a broad range of activities, from understanding and mapping processes, managing data and dashboards to preparing presentations for senior stakeholders. This role offers an excellent opportunity to develop a solid understanding of Global Markets & Treasury business and associated financial and risk metrics, and experience how a leading financial institution operates on a day-to-day basis.</span></p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type:square;\"><li style=\"tab-stops:list 36.0pt;\"><span>Understanding, documenting and assisting in improving processes for Global Markets & Treasury.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Manage and maintain data sources and dashboards, ensuring information is accurate, consistent and up to date.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Produce regular and ad hoc management reports (financials, risk metrics and KPIs) to support monitoring and decision-making.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Prepare clear, well-structured presentations for committees, management forums and ad hoc business requests.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Collaborate with colleagues across functions to gather input, validate data and ensure alignment of information.</span></li></ul><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type:square;\"><li style=\"tab-stops:list 36.0pt;\"><span>Graduate student available for six months for internship (required by University) – </span>Depending on the needs of the organisation, the internship may be extended for an additional six month.</li><li style=\"tab-stops:list 36.0pt;\"><span>Strong numerical and analytical skills, with a keen attention to detail and data quality.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Good command of Excel and PowerPoint; familiarity with data visualisation tools (e.g. dashboards) is an advantage.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Ability to structure information clearly and present it in a concise, visually appealing way.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Strong communication skills and willingness to interact with different stakeholders.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Proactive, organised and able to manage multiple tasks and deadlines. Open minded, curious and eager to learn.</span></li><li style=\"tab-stops:list 36.0pt;\"><span>Very good knowledge of written and spoken English; additional national language is an asset.</span></li></ul><p><span><strong>Our Values</strong></span></p><ul style=\"list-style-type:square;\"><li style=\"tab-stops:list 36.0pt;\"><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Passionate</strong>: Being committed and striving for excellence.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset.</span></li><li style=\"tab-stops:list 36.0pt;\"><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit..</span></li></ul><p><span>Please ensure to attach a cover letter to your CV when filling the application.</span></p><p> </p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-05T21:07:30.179Z",
-      "addressLocality": "Zurich",
-      "addressCountry": "CH",
-      "datePosted": "2026-04-02",
-      "sourceLang": "en",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
         "translation": 25,
         "completeness": 25
       }
@@ -2072,7 +2072,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.179Z",
+      "crawledAt": "2026-04-06T09:34:40.926Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2150,7 +2150,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-05T21:07:30.178Z",
+      "crawledAt": "2026-04-06T09:34:40.925Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
