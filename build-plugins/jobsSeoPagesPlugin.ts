@@ -4151,7 +4151,7 @@ ${(() => {
           const jobTitle = String(ejData?.titleByLocale?.[locale] || ejData?.title || gscInfo?.titleByLocale?.[locale] || gscInfo?.title || slugInfo?.title || copy.title);
           const jobCompany = String(ejData?.company || gscInfo?.company || slugInfo?.company || '');
           const jobLocation = String(ejData?.location || ejData?.addressLocality || gscInfo?.location || slugInfo?.location || '');
-          const jobDescription = String(ejData?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.[locale] || '');
+          const jobDescription = String(ejData?.descriptionByLocale?.[locale] || ejData?.descriptionByLocale?.it || ejData?.description || gscInfo?.descriptionByLocale?.[locale] || gscInfo?.descriptionByLocale?.it || '');
 
           // Title for <title> tag: use job title if available (including slug-extracted)
           const hasRealTitle = !!(ejData?.title || gscInfo?.title || slugInfo?.title);
@@ -4366,27 +4366,30 @@ ${hreflangLinks}
       const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title || '';
       const realExpiredAt = ejData?.expiredAt || '';
       if (!realTitle || !realExpiredAt || !jobCompany) return '';
+      // Compute description with locale fallback chain, then HTML template fallback
+      const finalDescription = jobDescription || (() => {
+        const parts: string[] = [];
+        parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+        if (locale === 'it') {
+          parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
+        } else if (locale === 'en') {
+          parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
+        } else if (locale === 'de') {
+          parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
+        } else {
+          parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
+        }
+        parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
+        if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
+        return parts.join('');
+      })();
+      // Skip JobPosting entirely if description < 30 chars (matching active job page behavior)
+      if (finalDescription.length < 30) return '';
       const jp: Record<string, unknown> = {
         '@context': 'https://schema.org',
         '@type': 'JobPosting',
         title: realTitle,
-        description: jobDescription || (() => {
-          // Build an HTML description from template data to avoid plain-text fallback
-          const parts: string[] = [];
-          parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
-          if (locale === 'it') {
-            parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
-          } else if (locale === 'en') {
-            parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
-          } else if (locale === 'de') {
-            parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
-          } else {
-            parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
-          }
-          parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
-          if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
-          return parts.join('');
-        })(),
+        description: finalDescription,
         url: selfUrl,
         // Use real expiredAt — never use Date.now() fallback which refreshes every build
         // and causes Google to see the job as "just expired" indefinitely.

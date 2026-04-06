@@ -746,20 +746,41 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   newFrontierTaxSim: {
     title: 'Simulazione Tasse Nuovi Frontalieri 2026 | Calcolo IRPEF e Imposta alla Fonte',
-    description: 'Simulazione tasse nuovi frontalieri post 2023: imposta alla fonte Ticino, IRPEF con franchigia \u20AC10.000, credito d\'imposta e netto 2026.',
-    keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri',
+    description: 'Simulazione tasse nuovi frontalieri: calcola imposta alla fonte Ticino, IRPEF con franchigia €10.000, credito d\'imposta e stipendio netto 2026. Simulatore gratuito.',
+    keywords: 'simulazione tasse nuovi frontalieri, calcolo tasse nuovi frontalieri 2026, imposta alla fonte nuovi frontalieri, IRPEF frontalieri franchigia 10000, nuovo accordo frontalieri tasse, doppia imposizione nuovi frontalieri, differenza vecchi nuovi frontalieri tasse, franchigia nuovi frontalieri',
     ogTitle: 'Simulazione Tasse Nuovi Frontalieri 2026',
-    ogDescription: 'Calcola le tasse come nuovo frontaliere: imposta alla fonte CH + IRPEF Italia con franchigia \u20AC10.000 e credito d\'imposta. Simulatore gratuito.',
+    ogDescription: 'Calcola le tasse come nuovo frontaliere: imposta alla fonte CH + IRPEF Italia con franchigia €10.000 e credito d\'imposta. Simulatore gratuito.',
     canonicalPath: '/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri',
     structuredData: [
       {
         "@context": "https://schema.org",
-        "@type": "WebPage",
+        "@type": "WebApplication",
         "name": "Simulazione Tasse Nuovi Frontalieri 2026",
         "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri`,
-        "description": "Guida e simulatore per il calcolo delle tasse dei nuovi frontalieri secondo il nuovo accordo fiscale Italia-Svizzera 2024.",
+        "description": "Simulatore gratuito per il calcolo delle tasse dei nuovi frontalieri secondo il nuovo accordo fiscale Italia-Svizzera: imposta alla fonte, IRPEF con franchigia €10.000, credito d'imposta.",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "Web",
+        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "CHF" },
         "inLanguage": "it",
         "dateModified": BUILD_DATE_ISO,
+        "provider": {
+          "@type": "Organization",
+          "name": "Frontaliere Ticino",
+          "url": BASE_URL
+        }
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "HowTo",
+        "name": "Come simulare le tasse come nuovo frontaliere",
+        "description": "Guida passo-passo per calcolare le tasse come nuovo frontaliere (assunto dopo luglio 2023) con il simulatore gratuito di Frontaliere Ticino.",
+        "totalTime": "PT2M",
+        "step": [
+          { "@type": "HowToStep", "position": 1, "name": "Inserisci lo stipendio lordo annuo in CHF", "text": "Inserisci il tuo stipendio lordo annuo in franchi svizzeri. Il simulatore lo userà per calcolare contributi sociali (AVS 5,3%, LPP, AC 1,1%) e imposta alla fonte.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri` },
+          { "@type": "HowToStep", "position": 2, "name": "Seleziona stato civile e numero di figli", "text": "Scegli stato civile (celibe/nubile, coniugato, genitore solo) e indica i figli a carico. Questi dati determinano la tabella d'imposta alla fonte (A, B, C o H) e le detrazioni IRPEF.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri` },
+          { "@type": "HowToStep", "position": 3, "name": "Indica il comune di residenza in Italia", "text": "Il comune di residenza determina l'addizionale regionale e comunale IRPEF. I nuovi frontalieri residenti entro 20 km dal confine hanno le stesse regole fiscali di quelli oltre 20 km dal 2024.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri` },
+          { "@type": "HowToStep", "position": 4, "name": "Leggi il risultato: netto mensile in EUR", "text": "Il simulatore mostra il dettaglio completo: imposta alla fonte CH (80% dell'aliquota ordinaria), contributi sociali svizzeri, IRPEF italiana con franchigia €10.000, credito d'imposta per evitare la doppia tassazione, e lo stipendio netto mensile convertito in EUR.", "url": `${BASE_URL}/tasse-e-pensione/simulazione-tasse-nuovi-frontalieri` }
+        ]
       },
       {
         "@context": "https://schema.org",
@@ -770,15 +791,15 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Come vengono tassati i nuovi frontalieri dal 2024?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "I nuovi frontalieri (assunti dopo il 17/07/2023) pagano l'imposta alla fonte in Svizzera (80% dell'aliquota ordinaria in Ticino) e l'IRPEF in Italia con una franchigia di \u20AC10.000 sul reddito estero. Un credito d'imposta evita la doppia imposizione."
+              "text": "I nuovi frontalieri (assunti dopo il 17/07/2023) pagano l'imposta alla fonte in Svizzera (80% dell'aliquota ordinaria in Ticino) e l'IRPEF in Italia con una franchigia di €10.000 sul reddito estero. Un credito d'imposta evita la doppia imposizione."
             }
           },
           {
             "@type": "Question",
-            "name": "Cos'\u00e8 la franchigia di \u20AC10.000 per i nuovi frontalieri?",
+            "name": "Cos'è la franchigia di €10.000 per i nuovi frontalieri?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "La franchigia di \u20AC10.000 \u00e8 una deduzione sul reddito da lavoro dipendente prodotto in Svizzera: i primi \u20AC10.000 di reddito non vengono tassati in Italia. Si applica a tutti i lavoratori frontalieri con rientro giornaliero (Art. 1 c.175 L.147/2013, modificato da Art. 4 L.83/2023)."
+              "text": "La franchigia di €10.000 è una deduzione sul reddito da lavoro dipendente prodotto in Svizzera: i primi €10.000 di reddito non vengono tassati in Italia. Si applica a tutti i lavoratori frontalieri con rientro giornaliero (Art. 1 c.175 L.147/2013, modificato da Art. 4 L.83/2023)."
             }
           },
           {
@@ -786,7 +807,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "name": "Come funziona il credito d'imposta per evitare la doppia tassazione?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Le imposte pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana tramite il credito d'imposta nel quadro CE della dichiarazione dei redditi. Il credito non pu\u00f2 superare la quota di IRPEF relativa al reddito estero."
+              "text": "Le imposte pagate in Svizzera (imposta alla fonte) vengono detratte dall'IRPEF italiana tramite il credito d'imposta nel quadro CE della dichiarazione dei redditi. Il credito non può superare la quota di IRPEF relativa al reddito estero."
             }
           },
           {
@@ -795,6 +816,30 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
             "acceptedAnswer": {
               "@type": "Answer",
               "text": "Usa il simulatore gratuito: inserisci lo stipendio lordo annuo in CHF, stato civile, figli e comune di residenza. Il calcolatore applica automaticamente contributi svizzeri (AVS, LPP, AC), imposta alla fonte Ticino, IRPEF con franchigia e credito d'imposta, mostrando il netto mensile in EUR."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Come si calcolano le tasse per i nuovi frontalieri 2026?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il calcolo segue tre fasi: prima si sottraggono i contributi sociali svizzeri (AVS 5,3%, AC 1,1%, LPP in base all'età), poi si applica l'imposta alla fonte cantonale al 80% dell'aliquota ordinaria in base alla tabella A/B/C/H, infine si calcola l'IRPEF italiana sul reddito convertito in EUR meno la franchigia di €10.000, detraendo il credito d'imposta per le tasse già versate in Svizzera."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qual è la franchigia per nuovi frontalieri?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "La franchigia per i nuovi frontalieri è di €10.000 annui. Questo significa che i primi €10.000 di reddito da lavoro prodotto in Svizzera sono esenti da IRPEF in Italia. La franchigia si applica automaticamente in fase di dichiarazione dei redditi e riduce significativamente il carico fiscale italiano rispetto all'imposizione ordinaria."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Differenza tra vecchi e nuovi frontalieri per le tasse?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "I vecchi frontalieri (assunti prima del 17/07/2023 e residenti entro 20 km dal confine) pagano solo l'imposta alla fonte in Svizzera e sono esenti IRPEF in Italia. I nuovi frontalieri pagano sia l'imposta alla fonte svizzera (ridotta all'80%) sia l'IRPEF italiana, ma beneficiano della franchigia di €10.000 e del credito d'imposta. Per stipendi sotto €35.000 la differenza netta è spesso inferiore a €100/mese."
             }
           }
         ]
@@ -2393,7 +2438,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   jobboard: {
     title: 'Offerte di Lavoro Ticino 2026 | Aggiornate Ogni Giorno',
     description: 'Offerte di lavoro Ticino: 1500+ posti vacanti aggiornati ogni giorno. Cerca lavoro in banche, tech, farmaceutica e sanità da 100+ aziende. Candidatura diretta.',
-    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi',
+    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, offerte di lavoro più richieste ticino',
     ogTitle: 'Offerte di Lavoro Ticino 2026 | Aggiornate Ogni Giorno',
     ogDescription: 'Oltre 1500 offerte di lavoro in Ticino aggiornate ogni giorno. Posizioni in banche, tech, farmaceutica, sanità e industria. 100+ aziende. Candidati gratis!',
     canonicalPath: '/cerca-lavoro-ticino',
@@ -2416,12 +2461,29 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       },
       {
         "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Offerte di Lavoro Ticino — Frontaliere Ticino",
+        "url": `${BASE_URL}/cerca-lavoro-ticino`,
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": `${BASE_URL}/cerca-lavoro-ticino?q={search_term_string}`
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@context": "https://schema.org",
         "@type": "FAQPage",
         "mainEntity": [
           { "@type": "Question", "name": "Come trovare offerte di lavoro in Ticino per frontalieri?", "acceptedAnswer": { "@type": "Answer", "text": "Su Frontaliere Ticino puoi consultare offerte aggiornate quotidianamente da oltre 100 aziende ticinesi. Filtra per settore (banche, tech, farmaceutica, sanità), località (Lugano, Mendrisio, Bellinzona) e tipo di contratto. Ogni offerta include stima salariale e link diretto per candidarti." } },
           { "@type": "Question", "name": "Quali sono i settori con più offerte di lavoro in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "I settori con più offerte per frontalieri in Ticino sono: farmaceutica e life science, servizi finanziari e bancari, tecnologia e IT, sanità e ospedaliero, logistica e trasporti, industria e manifattura. Le aziende farmaceutiche nel Mendrisiotto offrono le posizioni meglio retribuite." } },
           { "@type": "Question", "name": "Serve il permesso G per lavorare in Ticino come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Sì, per lavorare in Ticino come frontaliere serve il permesso G (Grenzgängerbewilligung). Il datore di lavoro svizzero avvia la pratica. Il permesso è rinnovabile ogni 5 anni e richiede il rientro quotidiano nel paese di residenza (Italia). Dal 2023, con il nuovo accordo, anche i residenti oltre 20 km dal confine possono ottenere il permesso G." } },
-          { "@type": "Question", "name": "Quanto guadagna un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio medio di un frontaliere in Ticino varia per settore: farmaceutica CHF 85.000-120.000/anno, finanza CHF 80.000-110.000, IT CHF 75.000-100.000, sanità CHF 65.000-90.000, commercio CHF 55.000-70.000. Usa il nostro simulatore fiscale gratuito per calcolare il netto dopo tasse svizzere e italiane." } }
+          { "@type": "Question", "name": "Quanto guadagna un frontaliere in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Lo stipendio medio di un frontaliere in Ticino varia per settore: farmaceutica CHF 85.000-120.000/anno, finanza CHF 80.000-110.000, IT CHF 75.000-100.000, sanità CHF 65.000-90.000, commercio CHF 55.000-70.000. Usa il nostro simulatore fiscale gratuito per calcolare il netto dopo tasse svizzere e italiane." } },
+          { "@type": "Question", "name": "Quante offerte di lavoro ci sono in Ticino?", "acceptedAnswer": { "@type": "Answer", "text": "Su Frontaliere Ticino sono pubblicate oltre 1.500 offerte di lavoro attive in Canton Ticino, aggiornate ogni giorno tramite crawler automatici da più di 100 aziende. Le posizioni coprono Lugano, Mendrisio, Bellinzona, Locarno e Chiasso, con annunci in tutti i settori principali: farmaceutica, finanza, IT, sanità, logistica e industria." } },
+          { "@type": "Question", "name": "Quali sono le offerte di lavoro più richieste in Ticino nel 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Nel 2026 i profili più richiesti in Ticino sono: sviluppatori software e specialisti IT, infermieri e operatori sociosanitari (OSS), tecnici di laboratorio farmaceutico, contabili e analisti finanziari, e ingegneri meccanici. Le posizioni nel settore pharma e life science offrono le retribuzioni più alte, seguite da finanza e tecnologia." } },
+          { "@type": "Question", "name": "Come candidarsi per offerte di lavoro in Ticino come frontaliere?", "acceptedAnswer": { "@type": "Answer", "text": "Cerca tra le offerte filtrando per settore, località o tipo di contratto. Ogni annuncio include un link diretto alla candidatura ufficiale sul sito dell'azienda. Non serve creare un account: selezioni l'offerta, clicchi 'Candidati' e vieni reindirizzato alla pagina HR dell'azienda. Il tuo datore di lavoro avvierà la pratica per il permesso G." } }
         ]
       }
     ]
@@ -3086,7 +3148,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "dateModified": BUILD_DATE_ISO,
         "datePublished": "2024-06-01",
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "temporalCoverage": "2023/2026",
         "variableMeasured": [
           { "@type": "PropertyValue", "name": "Stipendio mediano", "value": "CHF per settore e livello" },
@@ -3126,7 +3188,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "dateModified": BUILD_DATE_ISO,
       "datePublished": "2024-06-01",
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
       "temporalCoverage": "2024/2026",
       "variableMeasured": [
         { "@type": "PropertyValue", "name": "Qualità della vita", "value": "Indice composito per comune" },
@@ -3154,7 +3216,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Osservatorio giornaliero del job board Frontaliere Ticino con trend annunci, aziende attive, localita piu dinamiche e salary range osservati nelle offerte.",
         "dateModified": BUILD_DATE_ISO,
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "datePublished": "2024-06-01",
         "temporalCoverage": "2024/2026",
         "variableMeasured": [
@@ -3192,7 +3254,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Dati storici del traffico ai valichi di frontiera tra Svizzera e Italia con tendenze e confronti",
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
       "datePublished": "2024-01-01",
       "temporalCoverage": "2020/2026",
       "variableMeasured": [
@@ -3220,7 +3282,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Serie storica mensile del tasso di disoccupazione registrata in Svizzera (SECO) dal 2016",
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-      "creator": { "@type": "Organization", "name": "SECO — Segreteria di Stato dell'economia" },
+      "creator": { "@type": "Organization", "name": "SECO — Segreteria di Stato dell'economia", "url": "https://www.seco.admin.ch" },
       "datePublished": "2016-01-01",
       "temporalCoverage": "2016/2026",
       "variableMeasured": [
@@ -3269,7 +3331,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Dataset comparativo dei prezzi benzina tra comuni di confine italiani e stazioni svizzere dell'area di frontiera.",
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
       "datePublished": "2024-01-01",
       "temporalCoverage": "2024/2026",
       "variableMeasured": [
@@ -3297,7 +3359,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
       "description": "Dataset dei premi LAMal per comune e cantone svizzero, con evoluzione storica e confronto tra fasce d'età.",
       "dateModified": BUILD_DATE_ISO,
       "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-      "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+      "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
       "datePublished": "2024-01-01",
       "temporalCoverage": "2024/2026",
       "variableMeasured": [
@@ -3326,7 +3388,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "description": "Statistiche sui ristorni fiscali versati ai comuni italiani di frontiera",
         "dateModified": BUILD_DATE_ISO,
         "license": "https://creativecommons.org/licenses/by-nc/4.0/",
-        "creator": { "@type": "Organization", "name": "Frontaliere Ticino" },
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch" },
         "datePublished": "2024-01-01",
         "temporalCoverage": "2020/2026",
         "variableMeasured": [
