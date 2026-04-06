@@ -6167,4 +6167,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'raffica-chiusure-a9-2026',
+    category: 'pratico',
+    date: '2026-04-06T21:51:21.831Z',
+    image: '/images/blog/raffica-chiusure-a9-2026.jpg',
+    hasCalculator: true,
+  },
 ];

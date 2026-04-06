@@ -2133,6 +2133,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.title': 'Lavizzara: problemi alla rete idrica, niente acqua potabile in varie zone',
     'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.excerpt': 'La rete idrica di Lavizzara è stata colpita da problemi, causando la mancanza di acqua potabile in varie zone',
     'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.imageAlt': 'Acqua non potabile a Lavizzara',
+    'blog.article.raffica-chiusure-a9-2026.title': 'Chiusure e deviazioni sulla A9: cosa fare durante la raffica',
+    'blog.article.raffica-chiusure-a9-2026.excerpt': 'Nuova settimana e subito raffica di chiusure e deviazioni sulla A9',
+    'blog.article.raffica-chiusure-a9-2026.imageAlt': 'Lavori sulla A9 in Ticino',
 };
 
 export default blogMetaIt;

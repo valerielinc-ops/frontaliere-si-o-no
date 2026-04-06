@@ -2133,6 +2133,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.title': 'Lavizzara: Probleme mit der Wasserversorgung, kein Trinkwasser in verschiedenen Gebieten',
     'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.excerpt': 'Die Wasserversorgungsnetze in Lavizzara sind von Problemen betroffen, was zu einer Wasserknappheit in verschiedenen Bereichen geführt hat.',
     'blog.article.lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone.imageAlt': 'Kein Trinkwasser in Lavizzara',
+    'blog.article.raffica-chiusure-a9-2026.title': 'Sperrungen und Umleitungen auf der A9: Was tun bei der Sturmfront?',
+    'blog.article.raffica-chiusure-a9-2026.excerpt': 'Neue Woche und gleich Sturmfront von Sperrungen und Umleitungen auf der A9.',
+    'blog.article.raffica-chiusure-a9-2026.imageAlt': 'Arbeiten auf der A9 in Tessin',
 };
 
 export default blogMetaDe;

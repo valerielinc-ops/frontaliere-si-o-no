@@ -12391,6 +12391,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-raffica-chiusure-a9-2026': {
+    title: 'Chiusure e deviazioni sulla A9: cosa fare durante la raffica | Frontaliere Ticino',
+    description: 'Nuova settimana e subito raffica di chiusure e deviazioni sulla A9. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, chiusure, deviazioni, sulla, cosa',
+    ogTitle: 'Chiusure e deviazioni sulla A9: cosa fare durante la raffica',
+    ogDescription: 'Nuova settimana e subito raffica di chiusure e deviazioni sulla A9',
+    canonicalPath: '/articoli-frontaliere/raffica-chiusure-a9-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Chiusure e deviazioni sulla A9: cosa fare durante la raffica",
+      "description": "Nuova settimana e subito raffica di chiusure e deviazioni sulla A9. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/raffica-chiusure-a9-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Lavori sulla A9 in Ticino"
+      },
+      "datePublished": "2026-04-06T21:51:21+00:00",
+      "dateModified": "2026-04-06T21:51:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/raffica-chiusure-a9-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

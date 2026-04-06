@@ -1964,6 +1964,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-locarno-magadino-trasporto': { name: 'Trasporto lacustre', path: '/articoli-frontaliere/locarno-magadino-trasporto', parent: 'blog' },
     'blog-prezzi-benzina-ticino': { name: 'Prezzi benzina', path: '/articoli-frontaliere/prezzi-benzina-ticino', parent: 'blog' },
     'blog-lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone': { name: 'Lavizzara', path: '/articoli-frontaliere/lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone', parent: 'blog' },
+    'blog-raffica-chiusure-a9-2026': { name: 'Chiusure e deviazioni sulla A9', path: '/articoli-frontaliere/raffica-chiusure-a9-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];
