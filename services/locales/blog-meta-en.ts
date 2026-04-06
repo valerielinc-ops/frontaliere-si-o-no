@@ -2097,6 +2097,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.protesta-costi-cure-domicilio.title': 'Protest Against Home Care Costs',
     'blog.article.protesta-costi-cure-domicilio.excerpt': 'Saturday, April 18, demonstration in Piazza in Bellinzona against the introduction of costs for home care.',
     'blog.article.protesta-costi-cure-domicilio.imageAlt': 'Protest against home care costs in Bellinzona',
+    'blog.article.acqua-non-potabile-lavizzara.title': 'Lavizzara: Non-Potable Water in Certain Areas',
+    'blog.article.acqua-non-potabile-lavizzara.excerpt': 'The Lavizzara Municipality has declared the water from Piano di Peccia non suitable for drinking until further notice, affecting several hamlets in the valley.',
+    'blog.article.acqua-non-potabile-lavizzara.imageAlt': 'Ticino landscape with lake and mountains, panoramic view of nature and traditional houses',
 };
 
 export default blogMetaEn;

@@ -6083,4 +6083,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/protesta-costi-cure-domicilio.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'acqua-non-potabile-lavizzara',
+    category: 'novita',
+    date: '2026-04-06T08:01:59.598Z',
+    image: '/images/blog/acqua-non-potabile-lavizzara.jpg',
+    hasCalculator: true,
+  },
 ];

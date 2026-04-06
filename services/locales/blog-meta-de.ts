@@ -2097,6 +2097,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.protesta-costi-cure-domicilio.title': 'Proteste gegen die Kosten für Heimbehandlungen',
     'blog.article.protesta-costi-cure-domicilio.excerpt': 'Am Samstag, den 18. April, wird in Bellinzona eine Demonstration in der Piazza gegen die Einführung von Kosten für Heimbehandlungen stattfinden.',
     'blog.article.protesta-costi-cure-domicilio.imageAlt': 'Protest gegen die Kosten für die häusliche Pflege in Bellinzona',
+    'blog.article.acqua-non-potabile-lavizzara.title': 'Lavizzara: Wasser in einigen Orten nicht trinkbar',
+    'blog.article.acqua-non-potabile-lavizzara.excerpt': 'Der Gemeinderat von Lavizzara hat das Wasser aus Piano di Peccia bis auf Weiteres für nicht trinkbar erklärt, was mehrere Ortschaften des Tals betrifft.',
+    'blog.article.acqua-non-potabile-lavizzara.imageAlt': 'Tessin Landschaft mit See und Bergen, Panoramablick auf Natur und traditionelle Häuser',
 };
 
 export default blogMetaDe;

@@ -2097,6 +2097,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.protesta-costi-cure-domicilio.title': 'Protesta contro i costi per le cure a domicilio',
     'blog.article.protesta-costi-cure-domicilio.excerpt': 'Sabato 18 aprile, manifestazione in piazza a Bellinzona contro l\'introduzione dei costi per le cure a domicilio.',
     'blog.article.protesta-costi-cure-domicilio.imageAlt': 'Protesta contro i costi per le cure a domicilio a Bellinzona',
+    'blog.article.acqua-non-potabile-lavizzara.title': 'Lavizzara: acqua non potabile in alcune località',
+    'blog.article.acqua-non-potabile-lavizzara.excerpt': 'Il Municipio di Lavizzara ha dichiarato l\'acqua di Piano di Peccia non potabile fino a nuovo avviso, coinvolgendo diverse frazioni della vallata.',
+    'blog.article.acqua-non-potabile-lavizzara.imageAlt': 'Paesaggio ticinese con lago e montagne, vista panoramica sulla natura e case tradizionali',
 };
 
 export default blogMetaIt;

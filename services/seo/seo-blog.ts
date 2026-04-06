@@ -12043,6 +12043,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-acqua-non-potabile-lavizzara': {
+    title: 'Lavizzara: acqua non potabile in alcune località | Frontaliere Ticino',
+    description: 'Il Municipio di Lavizzara ha dichiarato l\'acqua di Piano di Peccia non potabile fino a nuovo avviso, coinvolgendo diverse frazioni della vallata.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavizzara, acqua, potabile, alcune',
+    ogTitle: 'Lavizzara: acqua non potabile in alcune località',
+    ogDescription: 'Il Municipio di Lavizzara ha dichiarato l\'acqua di Piano di Peccia non potabile fino a nuovo avviso, coinvolgendo diverse frazioni della vallata.',
+    canonicalPath: '/articoli-frontaliere/acqua-non-potabile-lavizzara',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lavizzara: acqua non potabile in alcune località",
+      "description": "Il Municipio di Lavizzara ha dichiarato l'acqua di Piano di Peccia non potabile fino a nuovo avviso, coinvolgendo diverse frazioni della vallata.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/acqua-non-potabile-lavizzara.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Paesaggio ticinese con lago e montagne, vista panoramica sulla natura e case tradizionali"
+      },
+      "datePublished": "2026-04-06T08:01:59+00:00",
+      "dateModified": "2026-04-06T08:01:59+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/acqua-non-potabile-lavizzara`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -1952,6 +1952,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-coop-richiama-formaggi-salmonelle': { name: 'Frontaliere Ticino', path: '/articoli-frontaliere/coop-richiama-formaggi-salmonelle', parent: 'blog' },
     'blog-scambio-abiti-bellinzona': { name: 'Bellinzona', path: '/articoli-frontaliere/scambio-abiti-bellinzona', parent: 'blog' },
     'blog-protesta-costi-cure-domicilio': { name: 'Protesta contro i costi per le cure a', path: '/articoli-frontaliere/protesta-costi-cure-domicilio', parent: 'blog' },
+    'blog-acqua-non-potabile-lavizzara': { name: 'Lavizzara', path: '/articoli-frontaliere/acqua-non-potabile-lavizzara', parent: 'blog' },
   };
 
   const info = sectionNames[section];
