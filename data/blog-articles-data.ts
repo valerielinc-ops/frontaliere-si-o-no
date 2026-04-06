@@ -6097,4 +6097,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/nuova-direttrice-servizi-sociali-bellinzona.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'riaperta-galleria-monte-ceneri',
+    category: 'novita',
+    date: '2026-04-06T10:41:42.841Z',
+    image: '/images/blog/riaperta-galleria-monte-ceneri.jpg',
+    hasCalculator: true,
+  },
 ];

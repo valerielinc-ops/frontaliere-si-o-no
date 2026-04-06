@@ -3569,7 +3569,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 688,
+        "numberOfItems": 689,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4255,7 +4255,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 685, "name": "A Bellinzona lo scambio abiti unisce socialità ...", "url": `${BASE_URL}/articoli-frontaliere/scambio-abiti-bellinzona` },
           { "@type": "ListItem", "position": 686, "name": "Protesta contro i costi per le cure a domicilio", "url": `${BASE_URL}/articoli-frontaliere/protesta-costi-cure-domicilio` },
           { "@type": "ListItem", "position": 687, "name": "Lavizzara: acqua non potabile in alcune località", "url": `${BASE_URL}/articoli-frontaliere/acqua-non-potabile-lavizzara` },
-          { "@type": "ListItem", "position": 688, "name": "Nuova direttrice per i Servizi sociali di Belli...", "url": `${BASE_URL}/articoli-frontaliere/nuova-direttrice-servizi-sociali-bellinzona` }
+          { "@type": "ListItem", "position": 688, "name": "Nuova direttrice per i Servizi sociali di Belli...", "url": `${BASE_URL}/articoli-frontaliere/nuova-direttrice-servizi-sociali-bellinzona` },
+          { "@type": "ListItem", "position": 689, "name": "Riaperta la galleria del Monte Ceneri: tornata ...", "url": `${BASE_URL}/articoli-frontaliere/riaperta-galleria-monte-ceneri` }
         ]
       }
     ]

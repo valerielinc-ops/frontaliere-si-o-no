@@ -2103,6 +2103,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.nuova-direttrice-servizi-sociali-bellinzona.title': 'Nuova direttrice per i Servizi sociali di Bellinzona',
     'blog.article.nuova-direttrice-servizi-sociali-bellinzona.excerpt': 'Federica Giudici è stata nominata nuova direttrice dei Servizi sociali di Bellinzona',
     'blog.article.nuova-direttrice-servizi-sociali-bellinzona.imageAlt': 'Federica Giudici, nuova direttrice dei Servizi sociali di Bellinzona',
+    'blog.article.riaperta-galleria-monte-ceneri.title': 'Riaperta la galleria del Monte Ceneri: tornata alla normalità la circolazione',
+    'blog.article.riaperta-galleria-monte-ceneri.excerpt': 'La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea.',
+    'blog.article.riaperta-galleria-monte-ceneri.imageAlt': 'La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea.',
 };
 
 export default blogMetaIt;

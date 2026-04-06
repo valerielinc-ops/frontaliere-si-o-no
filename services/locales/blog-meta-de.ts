@@ -2103,6 +2103,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.nuova-direttrice-servizi-sociali-bellinzona.title': 'Neue Leiterin für die Sozialdienste von Bellinzona',
     'blog.article.nuova-direttrice-servizi-sociali-bellinzona.excerpt': 'Federica Giudici ist die neue Leiterin der Sozialdienste von Bellinzona',
     'blog.article.nuova-direttrice-servizi-sociali-bellinzona.imageAlt': 'Federica Giudici, neue Direktorin der sozialen Dienste in Bellinzona',
+    'blog.article.riaperta-galleria-monte-ceneri.title': 'Galleria del Monte Ceneri wieder geöffnet: Normalverkehr aufgenommen',
+    'blog.article.riaperta-galleria-monte-ceneri.excerpt': 'Die Galleria del Monte Ceneri ist nach der vorübergehenden Schließung wieder geöffnet worden.',
+    'blog.article.riaperta-galleria-monte-ceneri.imageAlt': 'Der Monte-Ceneri-Tunnel wurde nach einer vorübergehenden Schließung wieder geöffnet.',
 };
 
 export default blogMetaDe;

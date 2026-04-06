@@ -12101,6 +12101,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-riaperta-galleria-monte-ceneri': {
+    title: 'Riaperta la galleria del Monte Ceneri: tornata alla normalità la | Frontaliere Ticino',
+    description: 'La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea causata da un infortunio Tecnico. La circolazione è tornata alla normalità e gli',
+    keywords: 'frontalieri, ticino, svizzera, italia, riaperta, galleria, monte, ceneri',
+    ogTitle: 'Riaperta la galleria del Monte Ceneri: tornata alla normalità la circolazione',
+    ogDescription: 'La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea causata da un infortunio Tecnico. La circolazione è tornata alla normalità e gli',
+    canonicalPath: '/articoli-frontaliere/riaperta-galleria-monte-ceneri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Riaperta la galleria del Monte Ceneri: tornata alla normalità la circolazione",
+      "description": "La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea causata da un infortunio Tecnico. La circolazione è tornata alla normalità e gli",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/riaperta-galleria-monte-ceneri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La galleria del Monte Ceneri è stata riaperta dopo la chiusura temporanea."
+      },
+      "datePublished": "2026-04-06T10:41:42+00:00",
+      "dateModified": "2026-04-06T10:41:42+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/riaperta-galleria-monte-ceneri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
