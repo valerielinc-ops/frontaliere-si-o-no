@@ -45,6 +45,7 @@ Use our [salary calculator](nav:calculator) to model your net pay under both the
 - **Set rate alerts** to execute conversions when the market moves in your favor
 
 Over a 10-year career as a frontaliere, the difference between a passive and an active exchange strategy can easily exceed **10,000 EUR** in cumulative savings. That is money that belongs in your pocket, not in a bank's margin. Start optimizing today.`,
+    'blog.article.guida-cambio-franco-euro-frontaliere.faq': '[{"q":"How can I avoid paying high fees for currency exchange?","a":"Choose an exchange service with a low spread and fixed commissions of less than 5 CHF per transaction. Some examples are Wise, Revolut, and Neon."},{"q":"What is the best time of year to change your salary to euros considering the stability of the CHF-EUR exchange rate?","a":"The months of January-February and June-July tend to offer more stable rates due to decisions by the Swiss Central Bank (SNB) and lower pre-holiday volatility."}]',
 };
 
 export default bodyGuidaCambioFrancoEuroFrontaliere;
