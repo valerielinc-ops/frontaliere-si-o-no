@@ -1,10 +1,14 @@
 name: Sync GSC Orphan Job Slugs
 
-# Runs weekly to keep orphan data synchronized with Google Search Console.
-# Also runs after translate-pending completes (new jobs may create new orphans).
+# Runs twice a week to keep orphan data synchronized with Google Search Console.
+# Also triggered after translate-pending completes (new jobs may create new orphans).
 on:
   schedule:
-    - cron: '30 14 * * 0'  # Every Sunday at 14:30 UTC
+    - cron: '30 14 * * 0'  # Sunday at 14:30 UTC
+    - cron: '30 14 * * 3'  # Wednesday at 14:30 UTC
+  workflow_run:
+    workflows: ['Translate Pending Jobs']
+    types: [completed]
   workflow_dispatch:
     inputs:
       enable_url_inspection:
