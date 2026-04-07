@@ -2163,6 +2163,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.turisti-in-como-ztl.title': 'La famigliola di turisti investita in centro a Como è una sentenza: la rivoluzione della Ztl serve e serve ora',
     'blog.article.turisti-in-como-ztl.excerpt': 'Il tema dell\'affollamento del centro storico di Como è una questione molto complessa, che richiede attenzione e soluzioni concrete.',
     'blog.article.turisti-in-como-ztl.imageAlt': 'Un furgone in retromarcia investe una famigliola di turisti in centro a Como',
+    'blog.article.niederlander-droga-ticino.title': 'Niederländer con quattro chili di cocaina fermato al confine',
+    'blog.article.niederlander-droga-ticino.excerpt': 'Un cittadino olandese è stato fermato con quattro chili di cocaina al confine di Kreuzlingen, Svizzera.',
+    'blog.article.niederlander-droga-ticino.imageAlt': 'Scena fotorealistica di un valico alpino con un\'auto della polizia',
 };
 
 export default blogMetaIt;

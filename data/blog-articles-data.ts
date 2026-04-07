@@ -6237,4 +6237,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/turisti-in-como-ztl.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'niederlander-droga-ticino',
+    category: 'novita',
+    date: '2026-04-07T14:11:49.566Z',
+    image: '/images/blog/niederlander-droga-ticino.jpg',
+    hasCalculator: false,
+  },
 ];

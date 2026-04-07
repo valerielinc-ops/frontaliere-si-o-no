@@ -2163,6 +2163,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.turisti-in-como-ztl.title': 'La famille de touristes renversée en centre-ville de Como est une sentence : la révolution de la Ztl est nécessaire et nécessaire maintenant',
     'blog.article.turisti-in-como-ztl.excerpt': 'Le thème de l\'encombrement du centre historique de Como est une question très complexe qui nécessite de l\'attention et des solutions concrètes. 💡',
     'blog.article.turisti-in-como-ztl.imageAlt': 'Un camion en marche arrière touche une famille de touristes à Como',
+    'blog.article.niederlander-droga-ticino.title': 'Néerlandais arrêté avec quatre kilos de cocaïne à la frontière',
+    'blog.article.niederlander-droga-ticino.excerpt': 'Un citoyen néerlandais a été arrêté avec quatre kilos de cocaïne à la frontière de Kreuzlingen, en Suisse.',
+    'blog.article.niederlander-droga-ticino.imageAlt': 'Scène photoréaliste d\'un col alpin avec une voiture de police',
 };
 
 export default blogMetaFr;

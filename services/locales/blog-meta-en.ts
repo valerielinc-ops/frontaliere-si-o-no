@@ -2163,6 +2163,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.turisti-in-como-ztl.title': 'The family of tourists hit in the center of Como is a verdict: the ZTL revolution is needed and it\'s needed now',
     'blog.article.turisti-in-como-ztl.excerpt': 'The issue of overcrowding in Como\'s historic center is a very complex matter that requires attention and concrete solutions.',
     'blog.article.turisti-in-como-ztl.imageAlt': 'A car reversing into a family of tourists in Como, Italy',
+    'blog.article.niederlander-droga-ticino.title': 'Dutchman with four kilos of cocaine stopped at the border',
+    'blog.article.niederlander-droga-ticino.excerpt': 'A Dutch citizen was stopped with four kilos of cocaine at the Kreuzlingen border, Switzerland.',
+    'blog.article.niederlander-droga-ticino.imageAlt': 'Photorealistic scene of an alpine pass with a police car',
 };
 
 export default blogMetaEn;

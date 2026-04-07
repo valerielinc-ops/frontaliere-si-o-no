@@ -2163,6 +2163,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.turisti-in-como-ztl.title': 'Die Touristengeschwister, die in Como im Zentrum ums Leben gekommen sind, sind eine Entscheidung: die Revolution der ZTL ist notwendig und jetzt ist sie nötig',
     'blog.article.turisti-in-como-ztl.excerpt': 'Das Thema der Überfüllung des historischen Zentrums von Como ist eine sehr komplexe Frage, die Aufmerksamkeit und konkrete Lösungen erfordert.',
     'blog.article.turisti-in-como-ztl.imageAlt': 'Ein Lastwagen in Kommt nach vorne in eine Familie von Touristen',
+    'blog.article.niederlander-droga-ticino.title': 'Niederländer mit vier Kilogramm Kokain am Grenzübergang angehalten',
+    'blog.article.niederlander-droga-ticino.excerpt': 'Ein niederländischer Staatsbürger wurde mit vier Kilogramm Kokain am Grenzübergang Kreuzlingen, Schweiz, angehalten.',
+    'blog.article.niederlander-droga-ticino.imageAlt': 'Fotorealistische Szene eines Alpenpasses mit einem Polizeiauto',
 };
 
 export default blogMetaDe;

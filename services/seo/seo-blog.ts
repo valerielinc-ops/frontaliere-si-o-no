@@ -12681,6 +12681,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-niederlander-droga-ticino': {
+    title: 'Niederländer con quattro chili di cocaina fermato al confine | Frontaliere Ticino',
+    description: 'Un cittadino olandese è stato fermato con quattro chili di cocaina al confine di Kreuzlingen, Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, niederländer, quattro, chili, cocaina',
+    ogTitle: 'Niederländer con quattro chili di cocaina fermato al confine',
+    ogDescription: 'Un cittadino olandese è stato fermato con quattro chili di cocaina al confine di Kreuzlingen, Svizzera.',
+    canonicalPath: '/articoli-frontaliere/niederlander-droga-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Niederländer con quattro chili di cocaina fermato al confine",
+      "description": "Un cittadino olandese è stato fermato con quattro chili di cocaina al confine di Kreuzlingen, Svizzera. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/niederlander-droga-ticino.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Scena fotorealistica di un valico alpino con un'auto della polizia"
+      },
+      "datePublished": "2026-04-07T14:11:49+00:00",
+      "dateModified": "2026-04-07T14:11:49+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/niederlander-droga-ticino`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
