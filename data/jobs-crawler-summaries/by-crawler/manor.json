@@ -1,16 +1,16 @@
 {
   "key": "manor",
   "label": "Manor",
-  "generatedAt": "2026-04-07T09:44:56.544Z",
-  "total": 4,
+  "generatedAt": "2026-04-07T21:39:44.440Z",
+  "total": 2,
   "newCount": 0,
-  "updatedCount": 4,
-  "removedCount": 0,
+  "updatedCount": 2,
+  "removedCount": 2,
   "unchangedCount": 0,
-  "durationMs": 8229,
-  "avgDurationMs": 8229,
+  "durationMs": 4845,
+  "avgDurationMs": 4845,
   "durationHistory": [
-    8229
+    4845
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -59,7 +59,9 @@
         "translation": 20,
         "completeness": 11
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Collaboratore/trice servizio (Manora) 50%",
       "company": "Manor AG",
@@ -75,12 +77,22 @@
       "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 70,
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 20,
-        "completeness": 11
+        "completeness": 22
       }
     },
     {
@@ -98,15 +110,24 @@
       "slug": "manor-collaborateur-trice-service-manora-50-locarno",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 70,
+      "sourceLang": "it",
+      "salaryMin": 57500,
+      "salaryMax": 77500,
+      "currency": "CHF",
+      "streetAddress": "Piazza Dante",
+      "postalCode": "6900",
+      "addressLocality": "Lugano",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
         "translation": 20,
-        "completeness": 11
+        "completeness": 22
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }

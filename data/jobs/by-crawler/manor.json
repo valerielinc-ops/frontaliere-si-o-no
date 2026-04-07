@@ -1,6 +1,6 @@
 {
   "crawlerKey": "manor",
-  "assembledAt": "2026-04-07T09:44:56.543Z",
+  "assembledAt": "2026-04-07T21:39:44.440Z",
   "jobs": [
     {
       "title": "Polydesigner 3D AFC 100%",
@@ -90,6 +90,7 @@
         "fr": "Apprenti/e Polydesigner 3D AFC 100%"
       },
       "crawledAt": "",
+      "needsRetranslation": true,
       "sourceLang": "it",
       "salaryMin": 46500,
       "salaryMax": 62500,
@@ -101,116 +102,6 @@
           "@type": "QuantitativeValue",
           "minValue": 46500,
           "maxValue": 62500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Piazza Dante",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "title": "Collaboratore/trice servizio (Manora) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Locarno-Collaboratoretrice-servizio-%28Manora%29-50/1345112255/",
-      "location": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hospitality",
-      "description": "Collaboratore/trice servizio (Manora) 50% presso Manor, con sede a Locarno, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaboratore/trice servizio (Manora) 50% presso Manor, con sede a Locarno, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Collaboratore/trice servizio (Manora) 50% presso Manor, con sede a Locarno, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaboratore/trice servizio (Manora) 50% at Manor, located in Locarno, Canton Ticino, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaboratore/trice servizio (Manora) 50% bei Manor, gelegen in Locarno, Kanton Tessin, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaboratore/trice servizio (Manora) 50% chez Manor, situé à Locarno, Canton du Tessin, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-03-12",
-      "source": "company-website",
-      "slug": "manor-collaboratore-trice-servizio-manora-50-locarno",
-      "slugByLocale": {
-        "it": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "en": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "de": "manor-collaboratore-trice-servizio-manora-50-locarno",
-        "fr": "manor-collaboratore-trice-servizio-manora-50-locarno"
-      },
-      "titleByLocale": {
-        "it": "Collaboratore/trice servizio (Manora) 50%",
-        "en": "Collaboratore/trice servizio (Manora) 50%",
-        "de": "Collaboratore/trice servizio (Manora) 50%",
-        "fr": "Collaboratore/trice servizio (Manora) 50%"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 57500,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 77500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Piazza Dante",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "title": "Collaborateur/trice service (Manora) 50%",
-      "company": "Manor AG",
-      "companyKey": "manor",
-      "url": "https://positions.manor.ch/job/Locarno-Collaborateurtrice-service-%28Manora%29-50/1345092855/",
-      "location": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "category": "hospitality",
-      "description": "Collaborateur/trice service (Manora) 50% presso Manor, con sede a Locarno, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionIt": "Collaborateur/trice service (Manora) 50% presso Manor, con sede a Locarno, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-      "descriptionByLocale": {
-        "it": "Collaborateur/trice service (Manora) 50% presso Manor, con sede a Locarno, Canton Ticino, Svizzera. Manor è una delle principali catene di grandi magazzini svizzere, con una vasta gamma di prodotti tra cui moda, bellezza, casa, alimentari e ristoranti Manora. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al cliente.",
-        "en": "Collaborateur/trice service (Manora) 50% at Manor, located in Locarno, Canton Ticino, Switzerland. Manor is one of Switzerland's leading department store chains, offering a wide range of products including fashion, beauty, home, food, and Manora restaurants. This position offers the opportunity to work in a dynamic, customer-oriented environment.",
-        "de": "Collaborateur/trice service (Manora) 50% bei Manor, gelegen in Locarno, Kanton Tessin, Schweiz. Manor ist eine der führenden Warenhausgruppen der Schweiz mit einem vielfältigen Angebot in den Bereichen Mode, Beauty, Home, Food und Manora-Restaurants. Diese Stelle bietet die Möglichkeit, in einem dynamischen und kundenorientierten Umfeld zu arbeiten.",
-        "fr": "Collaborateur/trice service (Manora) 50% chez Manor, situé à Locarno, Canton du Tessin, Suisse. Manor est l'un des principaux groupes de grands magasins suisses, offrant une large gamme de produits comprenant mode, beauté, maison, alimentation et restaurants Manora. Ce poste offre la possibilité de travailler dans un environnement dynamique et orienté vers le client."
-      },
-      "postedDate": "2026-03-12",
-      "source": "company-website",
-      "slug": "manor-collaborateur-trice-service-manora-50-locarno",
-      "slugByLocale": {
-        "it": "manor-collaborateur-trice-service-manora-50-locarno",
-        "en": "manor-collaborateur-trice-service-manora-50-locarno",
-        "de": "manor-collaborateur-trice-service-manora-50-locarno",
-        "fr": "manor-collaborateur-trice-service-manora-50-locarno"
-      },
-      "titleByLocale": {
-        "it": "Collaborateur/trice service (Manora) 50%",
-        "en": "Collaborateur/trice service (Manora) 50%",
-        "de": "Collaborateur/trice service (Manora) 50%",
-        "fr": "Collaborateur/trice service (Manora) 50%"
-      },
-      "crawledAt": "",
-      "needsRetranslation": true,
-      "sourceLang": "it",
-      "salaryMin": 57500,
-      "salaryMax": 77500,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 57500,
-          "maxValue": 77500,
           "unitText": "YEAR"
         }
       },
