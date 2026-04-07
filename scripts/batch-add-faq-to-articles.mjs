@@ -20,7 +20,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { resolve, basename } from 'path';
-import { callLLM, initScoreStore, getStats, flushScores } from './lib/ai-models.mjs';
+import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores } from './lib/ai-models.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
 const args = process.argv.slice(2);
@@ -230,6 +230,26 @@ function discoverArticles() {
 
 // ── FAQ generation via AI ────────────────────────────────────
 
+// Preferred models for FAQ (Gemini free tier — reliable JSON output)
+const FAQ_MODELS = [
+  AI_MODELS.GEMINI_FLASH,
+  AI_MODELS.GEMINI_2_FLASH,
+  AI_MODELS.GEMINI_FLASH_LITE,
+];
+
+async function callFaqModel(messages, opts = {}) {
+  // Try Gemini models first (free, reliable JSON), then fall back to chain
+  for (const model of FAQ_MODELS) {
+    try {
+      return await callSingleModel(messages, { ...opts, model });
+    } catch {
+      // Model exhausted or failed — try next
+    }
+  }
+  // All Gemini exhausted — fall back to general chain
+  return callLLM(messages, opts);
+}
+
 async function generateFaqIT(articleId, bodyText) {
   const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera 3-5 coppie FAQ (domanda/risposta) in italiano.
 
@@ -246,7 +266,7 @@ ${bodyText.slice(0, 6000)}
 Rispondi SOLO con un JSON array (no markdown, no code fences):
 [{"q":"Domanda 1?","a":"Risposta 1."},{"q":"Domanda 2?","a":"Risposta 2."}]`;
 
-  const raw = await callLLM(
+  const raw = await callFaqModel(
     [{ role: 'user', content: prompt }],
     { temperature: 0.5, maxTokens: 2000, jsonMode: true },
   );
@@ -267,7 +287,7 @@ ${JSON.stringify(faqArray)}
 Respond ONLY with the translated JSON array (no markdown, no code fences):
 [{"q":"...","a":"..."}]`;
 
-  const raw = await callLLM(
+  const raw = await callFaqModel(
     [{ role: 'user', content: prompt }],
     { temperature: 0.3, maxTokens: 2000, jsonMode: true },
   );
