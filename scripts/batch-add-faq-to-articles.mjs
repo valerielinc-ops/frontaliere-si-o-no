@@ -20,7 +20,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { resolve, basename } from 'path';
-import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores } from './lib/ai-models.mjs';
+import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel } from './lib/ai-models.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
 const args = process.argv.slice(2);
@@ -250,15 +250,17 @@ async function rateLimitedDelay() {
 
 async function callFaqModel(messages, opts = {}) {
   await rateLimitedDelay();
-  // Try Gemini models first (free, reliable JSON), then fall back to chain
+  // Try Gemini models first — force-clear exhaustion from previous runs
+  // (ScoreStore persists exhaustion to Firestore, but with rate limiting we're safe)
   for (const model of FAQ_MODELS) {
     try {
+      resetExhaustedModel(model);
       return await callSingleModel(messages, { ...opts, model, maxRetriesPerModel: 4, backoffMs: 5000 });
     } catch {
-      // Model exhausted or failed — try next Gemini variant
+      // Model genuinely failed — try next Gemini variant
     }
   }
-  // All Gemini exhausted — fall back to general chain
+  // All Gemini failed — fall back to general chain
   return callLLM(messages, opts);
 }
 

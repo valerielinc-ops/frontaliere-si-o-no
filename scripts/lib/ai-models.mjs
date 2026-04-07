@@ -820,6 +820,11 @@ export function resetState() {
   _stats.errors = [];
 }
 
+/** Remove a specific model from the exhausted set so it can be retried */
+export function resetExhaustedModel(modelId) {
+  _exhaustedModels.delete(modelId);
+}
+
 // ── Internal helpers ─────────────────────────────────────────
 
 function isRetryableError(status, bodyText = '') {
