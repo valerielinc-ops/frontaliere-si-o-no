@@ -1,61 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T15:43:30.070Z",
-    "label": "before",
-    "total": 1318,
-    "needsRetranslation": 634,
-    "incomplete": 114,
-    "complete": 1204,
-    "missingByLocale": {
-      "it": 71,
-      "en": 113,
-      "de": 40,
-      "fr": 111
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "Lidl Svizzera",
-        "pending": 5
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T15:47:40.645Z",
-    "label": "after",
-    "total": 1318,
-    "needsRetranslation": 525,
-    "incomplete": 108,
-    "complete": 1210,
-    "missingByLocale": {
-      "it": 71,
-      "en": 108,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T16:24:21.787Z",
     "label": "before",
     "total": 1317,
@@ -9582,6 +9526,118 @@
       {
         "company": "ALDI SUISSE",
         "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-07T02:29:53.613Z",
+    "label": "before",
+    "total": 1521,
+    "needsRetranslation": 234,
+    "incomplete": 135,
+    "complete": 1386,
+    "missingByLocale": {
+      "it": 72,
+      "en": 36,
+      "de": 35,
+      "fr": 43
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 49
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 15
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lombardi Group",
+        "pending": 9
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 7
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 6
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 3
+      },
+      {
+        "company": "Allianz Suisse",
+        "pending": 3
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-07T02:30:18.252Z",
+    "label": "after",
+    "total": 1521,
+    "needsRetranslation": 141,
+    "incomplete": 49,
+    "complete": 1472,
+    "missingByLocale": {
+      "it": 13,
+      "en": 16,
+      "de": 10,
+      "fr": 18
+    },
+    "topPending": [
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 3
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 3
+      },
+      {
+        "company": "Manor AG",
+        "pending": 3
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
       }
     ]
   }
