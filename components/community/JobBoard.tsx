@@ -3655,15 +3655,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
   const openDetail = (job: JobListing) => {
     if (!authResolved) return;
-    if (!hasAccess) {
-      authUnlockCandidateRef.current = job.id;
-      setPendingJob(job);
-      setAuthError(null);
-      setAuthGateOpen(true);
-      requestSlot('job-auth-gate', POPUP_PRIORITY.AUTH_GATE);
-      Analytics.trackSelectContent('job_board_auth_gate_open', `${job.company}_${job.title}`);
-      return;
-    }
+    // Always navigate to the detail page — the inline auth gate handles
+    // unauthenticated users with a blurred preview + sign-in form,
+    // giving more context than a modal popup and boosting conversion.
     savedListState.current = { page, scrollY: window.scrollY };
     onJobRouteChange?.(deriveLocalizedJobSlug(job, locale));
     window.scrollTo({ top: 0, behavior: 'instant' });
