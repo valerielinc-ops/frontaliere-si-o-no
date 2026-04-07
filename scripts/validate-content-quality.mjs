@@ -61,11 +61,16 @@ function isJobPage(path) {
 
 function isIndividualJobPage(path) {
   if (!isJobPage(path)) return false;
-  // Company pages and search filter pages are listing pages, not individual job postings
   const slug = path.split('/').pop() || '';
-  if (slug.startsWith('azienda-') || slug.startsWith('ricerca-')) return false;
-  // Editorial hub pages (offerte-oggi, foglio-ufficiale, nurses hub, care clusters) are
-  // CollectionPage aggregations, not individual job postings
+  // Company pages (azienda-*, company-*, unternehmen-*, entreprise-*)
+  if (/^(azienda|company|unternehmen|entreprise)-/.test(slug)) return false;
+  // Search/filter pages (ricerca-*, search-*, suche-*, recherche-*)
+  if (/^(ricerca|search|suche|recherche)-/.test(slug)) return false;
+  // Pagination pages (pagina-N, page-N, seite-N)
+  if (/^(pagina|page|seite)-\d+$/.test(slug)) return false;
+  // Filter combo pages (lavoro-part-time, part-time-jobs, teilzeit-jobs, emploi-partiel, etc.)
+  if (/^(lavoro|jobs?|stellen|emploi|offerte)-(part-time|full-time|tempo-pieno|teilzeit|vollzeit|temps-partiel|temps-plein)/.test(slug)) return false;
+  // Editorial hub pages (offerte-oggi, foglio-ufficiale, nurses hub, care clusters)
   const editorialSlugs = [
     'offerte-di-lavoro-ticino-oggi', 'ticino-jobs-today', 'jobs-tessin-heute', 'offres-emploi-tessin-aujourdhui',
     'foglio-ufficiale-offerte-di-lavoro-ticino', 'official-gazette-ticino-jobs', 'amtsblatt-stellen-tessin', 'feuille-officielle-emplois-tessin',

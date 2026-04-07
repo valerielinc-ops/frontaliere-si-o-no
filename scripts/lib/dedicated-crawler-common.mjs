@@ -1268,12 +1268,12 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
         const localizedTitle = String(job.titleByLocale[locale] || '').trim();
         const isSourceLocale = locale === titleSourceLang;
         // FRO-284: Detect foreign words in slug (e.g. German compound words in IT slug)
-        // German compound words are typically 15+ chars without hyphens.
+        // Two checks: (1) long compound words (15+ chars), (2) known German job title words.
         // IMPORTANT: Only flag when the LOCALE doesn't match the word's language.
-        // German compound words (einzelhandelsausbildung, versicherungsberater) are
-        // EXPECTED in DE slugs — not foreign. Only flag them in IT/EN/FR slugs.
         const FOREIGN_WORD_PATTERN = /(?:^|-)([a-z]{15,})(?:-|$)/;
-        const hasForeignWord = !isSourceLocale && locale !== 'de' && existingSlug && FOREIGN_WORD_PATTERN.test(existingSlug);
+        const slugTokens = existingSlug ? existingSlug.split('-').filter(t => t.length > 4) : [];
+        const hasKnownGermanWord = slugTokens.some(t => DE_TITLE_WORDS.has(t));
+        const hasForeignWord = !isSourceLocale && locale !== 'de' && existingSlug && (FOREIGN_WORD_PATTERN.test(existingSlug) || hasKnownGermanWord);
         const staleCompany = String(job.company || '').trim();
         const staleLocation = String(job.addressLocality || job.location || '').trim();
         const isStaleSlug = isSourceLocale
@@ -1344,6 +1344,17 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           job.titleByLocale[locale] = heuristicallyLocalized;
           jobChanged = true;
         }
+      }
+    }
+
+    // Quality gate: detect German words in non-DE titles (partial translation)
+    // Flag for retranslation so the AI pipeline can produce a proper translation.
+    for (const locale of DEFAULT_LOCALES) {
+      if (locale === 'de') continue;
+      const currentTitle = String(job.titleByLocale[locale] || '').trim();
+      if (currentTitle && titleHasGermanWords(currentTitle, locale) && !job.needsRetranslation) {
+        job.needsRetranslation = true;
+        jobChanged = true;
       }
     }
 
@@ -1892,6 +1903,16 @@ function titleHasItalianWords(text, targetLocale) {
   if (targetLocale === 'it') return false;
   const words = String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').split(/[^a-z]+/).filter(w => w.length > 4);
   return words.some(w => IT_TITLE_WORDS.has(w));
+}
+
+// Common German job-title words that should NOT appear in non-DE translations.
+// Catches partially translated titles (e.g. "Collaboratore/trice Mitarbeiterin Kueche").
+const DE_TITLE_WORDS = new Set('mitarbeiter,mitarbeiterin,mitarbeiterinnen,schichtleiter,schichtleiterin,betriebsmechaniker,betriebsmechanikerin,betriebselektriker,betriebselektrikerin,verkaufer,verkauferin,filialleiter,filialleiterin,sicherheitsbeauftragter,fleischfachmann,fleischfachfrau,fleischfachassistent,fleischfachassistentin,ausbildung,ausbildungsverantwortlicher,ausbildungsverantwortliche,instandhaltungstechniker,produktionsmitarbeiter,sachbearbeiter,sachbearbeiterin,kundenberater,kundenberaterin,warenlager,kueche,stall,bezirksleitung,kaufmann,kauffrau,anlagenfuehrer,anlagenfuehrerin,vertriebsinnendienst,betriebskalkulation,lebensmittelpraktiker,lebensmittelpraktikerin,lebensmitteltechnik,reinigung'.split(','));
+
+function titleHasGermanWords(text, targetLocale) {
+  if (targetLocale === 'de') return false;
+  const words = String(text || '').toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/ue/g, 'ue').split(/[^a-z]+/).filter(w => w.length > 4);
+  return words.some(w => DE_TITLE_WORDS.has(w));
 }
 
 export async function aiTranslateJobTitleDCC({ title, locale, sourceLang = 'en' }, ctx = {}) {

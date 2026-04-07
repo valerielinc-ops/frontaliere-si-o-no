@@ -86,8 +86,13 @@ export function webpPlugin(rootDir: string): Plugin {
             converted++;
           }),
         );
-        for (const r of results) {
-          if (r.status === 'rejected') errors++;
+        for (let j = 0; j < results.length; j++) {
+          const r = results[j];
+          if (r.status === 'rejected') {
+            const failedPath = batch[j].replace(distDir + '/', '');
+            console.warn(`[webp-plugin] ❌ Failed: ${failedPath} — ${r.reason?.message || r.reason}`);
+            errors++;
+          }
         }
       }
 
