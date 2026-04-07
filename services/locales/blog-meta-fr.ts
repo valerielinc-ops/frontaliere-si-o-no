@@ -2151,6 +2151,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.controlli-varese-esposto-espulsione.title': 'Contrôles au cœur de Varese : plainte et expulsion',
     'blog.article.controlli-varese-esposto-espulsione.excerpt': 'Dans l\'après-midi du 23 mars, des contrôles approfondis dans le centre de Varese ont conduit à une plainte pénale et à l\'expulsion d\'un homme. Détails des opérations et implications pour les frontaliers tessinois.',
     'blog.article.controlli-varese-esposto-espulsione.imageAlt': 'Police et contrôles frontière Varese-Tessino près de Gaggiolo, scène urbaine avec trafic et agents en action.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Accident à Arogno : un homme de 31 ans dans un état grave après une chute',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'Un homme de 31 ans a fait une chute dans un ravin lors d\'une fête à Arogno. Les opérations de secours ont été complexes.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'Vue du lac de Lugano au crépuscule avec les montagnes reflétées sur l\'eau',
 };
 
 export default blogMetaFr;

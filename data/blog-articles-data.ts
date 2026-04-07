@@ -6209,4 +6209,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/controlli-varese-esposto-espulsione.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'incidente-arogno-31enne-gravi-condizioni',
+    category: 'pratico',
+    date: '2026-04-07T08:21:30.383Z',
+    image: '/images/blog/incidente-arogno-31enne-gravi-condizioni.jpg',
+    hasCalculator: true,
+  },
 ];

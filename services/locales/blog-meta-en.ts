@@ -2151,6 +2151,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.controlli-varese-esposto-espulsione.title': 'Checks in the Heart of Varese: Complaint and Expulsion',
     'blog.article.controlli-varese-esposto-espulsione.excerpt': 'On the afternoon of March 23, extensive checks in the center of Varese led to a criminal complaint and the expulsion of a man. Details of the operations and the implications for Swiss border crossers.',
     'blog.article.controlli-varese-esposto-espulsione.imageAlt': 'Police and border checks at Varese-Ticino border near Gaggiolo, urban scene with traffic and officers.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Accident in Arogno: 31-Year-Old in Critical Condition After a Fall',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'A 31-year-old man fell into a ravine during a celebration in Arogno. Rescue operations were complex.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'View of Lake Lugano at dusk with mountains reflected on the water',
 };
 
 export default blogMetaEn;

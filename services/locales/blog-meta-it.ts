@@ -2151,6 +2151,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.controlli-varese-esposto-espulsione.title': 'Controlli nel cuore di Varese: denuncia e espulsione',
     'blog.article.controlli-varese-esposto-espulsione.excerpt': 'Nel pomeriggio del 23 marzo, controlli estesi nel centro di Varese hanno portato a una denuncia penale e all\'espulsione di un uomo. I dettagli delle operazioni e le implicazioni per i frontalieri ticinesi.',
     'blog.article.controlli-varese-esposto-espulsione.imageAlt': 'Polizia e controlli al confine tra Varese e Ticino presso Gaggiolo, scena urbana con traffico e agenti in azione.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Incidente ad Arogno: 31enne in gravi condizioni dopo una caduta',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'Un uomo di 31 anni è precipitato in una scarpata durante una festa ad Arogno. Le operazioni di soccorso sono state complesse.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'Vista del lago di Lugano al tramonto con montagne riflesse sull\'acqua',
 };
 
 export default blogMetaIt;

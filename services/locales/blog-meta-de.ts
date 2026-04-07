@@ -2151,6 +2151,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.controlli-varese-esposto-espulsione.title': 'Kontrollen im Herzen von Varese: Anzeige und Abschiebung',
     'blog.article.controlli-varese-esposto-espulsione.excerpt': 'Am Nachmittag des 23. März wurden im Zentrum von Varese umfangreiche Kontrollen durchgeführt, die zu einer strafrechtlichen Anzeige und der Abschiebung eines Mannes führten. Die Details der Einsätze und die Auswirkungen für die Grenzgänger aus dem Tessin.',
     'blog.article.controlli-varese-esposto-espulsione.imageAlt': 'Polizei und Grenzkontrollen bei Varese-Ticino in Gaggiolo, städtische Szene mit Verkehr und Beamten.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Unfall in Arogno: 31-Jähriger nach Sturz in schlechtem Zustand',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'Ein 31-jähriger Mann stürzte während einer Feier in Arogno eine Böschung hinab. Die Rettungsarbeiten waren sehr aufwendig.',
+    'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'Blick auf den Luganersee bei Sonnenuntergang mit Bergen, die sich im Wasser spiegeln',
 };
 
 export default blogMetaDe;

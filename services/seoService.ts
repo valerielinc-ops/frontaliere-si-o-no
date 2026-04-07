@@ -1970,6 +1970,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-lavoro-notte-lincendio-laveno-mombello': { name: 'Notizie', path: '/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello', parent: 'blog' },
     'blog-prevenzione-maschile-centro-beccaria': { name: 'Salute', path: '/articoli-frontaliere/prevenzione-maschile-centro-beccaria', parent: 'blog' },
     'blog-controlli-varese-esposto-espulsione': { name: 'Controlli nel cuore di Varese', path: '/articoli-frontaliere/controlli-varese-esposto-espulsione', parent: 'blog' },
+    'blog-incidente-arogno-31enne-gravi-condizioni': { name: 'Incidente Arogno', path: '/articoli-frontaliere/incidente-arogno-31enne-gravi-condizioni', parent: 'blog' },
   };
 
   const info = sectionNames[section];

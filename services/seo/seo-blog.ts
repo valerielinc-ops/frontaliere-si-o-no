@@ -12565,6 +12565,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-arogno-31enne-gravi-condizioni': {
+    title: 'Incidente ad Arogno: 31enne in gravi condizioni dopo una caduta | Frontaliere Ticino',
+    description: 'Un uomo di 31 anni è precipitato in una scarpata durante una festa ad Arogno. Scopri i dettagli dell\'incidente e i consigli per la sicurezza. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, arogno, 31enne, gravi',
+    ogTitle: 'Incidente ad Arogno: 31enne in gravi condizioni | Frontaliere Ticino',
+    ogDescription: 'Un uomo di 31 anni è precipitato in una scarpata durante una festa ad Arogno. Scopri i dettagli dell\'incidente e i consigli per la sicurezza.',
+    canonicalPath: '/articoli-frontaliere/incidente-arogno-31enne-gravi-condizioni',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente ad Arogno: 31enne in gravi condizioni dopo una caduta durante una festa",
+      "description": "Un uomo di 31 anni è precipitato in una scarpata durante una festa ad Arogno. Scopri i dettagli dell'incidente e i consigli per la sicurezza. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-arogno-31enne-gravi-condizioni.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano al tramonto con montagne riflesse sull'acqua"
+      },
+      "datePublished": "2026-04-07T08:21:30+00:00",
+      "dateModified": "2026-04-07T08:21:30+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-arogno-31enne-gravi-condizioni`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
