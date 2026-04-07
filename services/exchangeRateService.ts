@@ -141,7 +141,7 @@ async function fetchFromTwelveData(): Promise<number | null> {
       }
     } catch (e) {
       // Don't report abort (timeout) or network errors on non-final attempts
-      const isAbort = e instanceof DOMException && e.name === 'AbortError';
+      const isAbort = (e instanceof Error && e.name === 'AbortError') || (e instanceof DOMException && e.name === 'AbortError');
       if (attempt < TWELVEDATA_MAX_RETRIES && !isAbort) {
         await new Promise(r => setTimeout(r, TWELVEDATA_RETRY_DELAYS[attempt]));
         continue;
