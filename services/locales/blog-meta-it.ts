@@ -2157,6 +2157,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carburanti-ticino-aumento-prezzi.title': 'Carburanti in Ticino, prezzi in aumento: +19 millesimi di benzina e +46 millesimi di diesel',
     'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Prezzi dei carburanti in aumento in Ticino, secondo l\'agenzia Adnkronos',
     'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Benzinaio in aumento dei prezzi dei carburanti in Ticino',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'La Provincia di Varese investe su manutenzione delle strade e del verde con i ristorni dei frontalieri',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'La Provincia di Varese ha approvato il piano per l’utilizzo dei ristorni dei frontalieri relativi all’anno 2023, per un importo complessivo di 5.655.131,28 euro. Le risorse sono destinate a interventi di interesse pubblico legati alla mobilità e alle infrastrutture utilizzate dai lavoratori frontalieri',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'La Provincia di Varese investe su manutenzione delle strade e del verde con i ristorni dei frontalieri',
 };
 
 export default blogMetaIt;

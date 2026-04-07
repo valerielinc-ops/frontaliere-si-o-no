@@ -2157,6 +2157,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carburanti-ticino-aumento-prezzi.title': 'Carburants au Tessin, prix en hausse: +19 centimes de gazole et +46 centimes de diesel',
     'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Prix des carburants en hausse au Tessin, selon l\'agence Adnkronos',
     'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Station-service avec prix des carburants en hausse au Tessin',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'La Province de Varese investit dans l\'entretien des routes et des espaces verts grâce aux ristournes des frontaliers',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'La Province de Varese a approuvé le plan d\'utilisation des ristournes des frontaliers pour l\'année 2023, pour un montant total de 5 655 131,28 euros. Les ressources sont destinées à des interventions d\'intérêt public liées à la mobilité et aux infrastructures utilisées par les travailleurs frontaliers',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'La Province de Varese investit dans l\'entretien des routes et des espaces verts avec les retours des travailleurs frontaliers',
 };
 
 export default blogMetaFr;

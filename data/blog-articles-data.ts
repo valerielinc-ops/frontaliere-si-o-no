@@ -6223,4 +6223,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/carburanti-ticino-aumento-prezzi.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026',
+    category: 'pratico',
+    date: '2026-04-07T11:12:19.625Z',
+    image: '/images/blog/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.jpg',
+    hasCalculator: true,
+  },
 ];

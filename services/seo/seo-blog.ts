@@ -12623,6 +12623,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026': {
+    title: 'La Provincia di Varese investe su manutenzione delle strade e del verde | Frontaliere Ticino',
+    description: 'La Provincia di Varese investe in manutenzione delle strade e del verde con i ristorni dei frontalieri relativi all’anno 2023, per un importo complessivo di',
+    keywords: 'frontalieri, ticino, svizzera, italia, provincia, varese, investe, manutenzione',
+    ogTitle: 'Provincia di Varese: investimenti in manutenzione delle strade e del verde con i ristorni',
+    ogDescription: 'La Provincia di Varese investe in manutenzione delle strade e del verde con i ristorni dei frontalieri relativi all’anno 2023, per un importo complessivo di',
+    canonicalPath: '/articoli-frontaliere/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La Provincia di Varese investe in manutenzione delle strade e del verde con i ristorni dei",
+      "description": "La Provincia di Varese investe in manutenzione delle strade e del verde con i ristorni dei frontalieri relativi all’anno 2023, per un importo complessivo di",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "La Provincia di Varese investe su manutenzione delle strade e del verde con i ristorni dei frontalieri"
+      },
+      "datePublished": "2026-04-07T11:12:19+00:00",
+      "dateModified": "2026-04-07T11:12:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

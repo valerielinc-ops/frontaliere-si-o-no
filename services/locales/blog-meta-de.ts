@@ -2157,6 +2157,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carburanti-ticino-aumento-prezzi.title': 'Prezzi dei carburanti in aumento in Ticino: +19 millesimi di benzina e +46 millesimi di diesel',
     'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Prezzi dei carburanti in aumento in Ticino, secondo l\'agenzia Adnkronos',
     'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Benzinestation mit steigenden Kraftstoffpreisen in Ticino',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'Die Provinz Varese investiert in die Instandhaltung von Straßen und Grünflächen mit den Rückerstattungen der Grenzgänger',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'Die Provinz Varese hat den Plan für die Verwendung der Rückerstattungen der Grenzgänger für das Jahr 2023 gebilligt, mit einem Gesamtbetrag von 5.655.131,28 Euro. Die Mittel sind für öffentliche Interessen zugeordnet, die mit der Mobilität und den Infrastrukturen zusammenhängen, die von den Grenzgängern verwendet werden.',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'Die Provinz Varese investiert in die Unterhaltung von Straßen und Grünflächen mit den Rückflüssen der Grenzarbeiter',
 };
 
 export default blogMetaDe;

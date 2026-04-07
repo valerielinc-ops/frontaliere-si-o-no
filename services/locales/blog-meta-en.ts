@@ -2157,6 +2157,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carburanti-ticino-aumento-prezzi.title': 'Fuel Prices in Ticino Rise: +19 Millesimi of Benzina and +46 Millesimi of Diesel',
     'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Fuel prices increase in Ticino, according to Adnkronos agency',
     'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Gas station with increasing fuel prices in Ticino',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'The Province of Varese Invests in Road Maintenance and Green Spaces with Border Workers\' Reimbursements',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'The Province of Varese has approved the plan for the use of border workers\' reimbursements for the year 2023, totaling 5,655,131.28 euros. The funds are allocated for public interest interventions related to mobility and infrastructure used by border workers.',
+    'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'The Province of Varese invests in road and green maintenance with the returns of the cross-border workers',
 };
 
 export default blogMetaEn;
