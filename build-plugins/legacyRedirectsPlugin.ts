@@ -185,7 +185,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
         description: `URL legacy o non piu disponibile collegata a ${to}.`,
         body: `Questa URL ${kind === 'company' ? 'azienda' : kind === 'search' ? 'di ricerca' : 'dell annuncio'} non e piu la versione corretta. Abbiamo mantenuto una pagina compatibile per evitare un errore e aiutare Google a consolidare la canonical.`,
         ctaLabel: 'Apri la pagina corretta',
-        noindex: false,
+        noindex: true,
         hreflangEntries: hreflangMap.get(`${BASE_URL}${to}`),
       });
 

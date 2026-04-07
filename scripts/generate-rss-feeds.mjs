@@ -235,11 +235,13 @@ function generateRssFeed(locale, articles, slugs, localizedTitles, localizedExce
     const title = localizedTitles.get(articleId) || article.headline;
     const excerpt = localizedExcerpts.get(articleId) || article.excerpt || article.description;
     const imageUrl = resolveImageUrl(article.imageFile, articleId);
+    const fullBody = blogBodies.get(articleId) || '';
 
     items.push({
       title,
       slug,
       excerpt: excerpt.slice(0, 500),
+      fullBody,
       pubDate: article.datePublished,
       category: article.articleSection,
       imageUrl,

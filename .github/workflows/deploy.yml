@@ -40,6 +40,9 @@ concurrency:
   group: deploy-github-pages-live
   cancel-in-progress: false
 
+env:
+  PLAYWRIGHT_BROWSERS_PATH: /home/runner/.cache/ms-playwright
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -49,6 +52,22 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v5
+
+      - name: Skip if newer commit exists on main
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          LATEST_SHA=$(gh api repos/${{ github.repository }}/commits/main --jq .sha)
+          if [ "$LATEST_SHA" != "${{ github.sha }}" ]; then
+            echo "⏭️ Skipping deploy — newer commit ${LATEST_SHA:0:7} supersedes this run (${GITHUB_SHA:0:7})"
+            echo "SKIP_DEPLOY=true" >> "$GITHUB_ENV"
+          fi
+
+      - name: Cancel stale run
+        if: env.SKIP_DEPLOY == 'true'
+        run: |
+          echo "::notice::Deploy skipped — a newer commit is already queued or deploying."
+          exit 1
 
       - name: Setup Node.js
         uses: actions/setup-node@v5
@@ -144,8 +163,20 @@ jobs:
       - name: Validate structured data completeness (blocking)
         run: node scripts/validate-structured-data-completeness.mjs
 
+      - name: Cache Playwright browsers
+        id: playwright-cache
+        uses: actions/cache@v4
+        with:
+          path: ${{ env.PLAYWRIGHT_BROWSERS_PATH }}
+          key: playwright-chromium-${{ hashFiles('package-lock.json') }}
+
       - name: Install Playwright browsers for SPA render validation
+        if: steps.playwright-cache.outputs.cache-hit != 'true'
         run: npx playwright install --with-deps chromium
+
+      - name: Install Playwright system dependencies (cache hit)
+        if: steps.playwright-cache.outputs.cache-hit == 'true'
+        run: npx playwright install-deps chromium
 
       - name: Validate SPA render — canonical, schema, robots (blocking)
         timeout-minutes: 5
@@ -222,35 +253,34 @@ jobs:
             "$OG_DESCRIPTION" \
             "$ARTICLE_CATEGORY"
 
-      - name: Google Indexing API — JobPosting only
+      - name: Post-deploy indexing (parallel)
         if: success()
         continue-on-error: true
-        run: node scripts/submit-google-indexing-jobs.js
-
-      - name: Submit to IndexNow (Bing, Yandex)
-        if: success()
-        continue-on-error: true
-        # Forward ARTICLE_URL when the deploy was triggered by article-generation,
-        # so the Bing URL Submission API receives only the new article (4 hreflang
-        # alternates) instead of re-submitting already-indexed news items every
-        # deploy. Routine deploys leave ARTICLE_URL empty and skip the Bing URL
-        # Submission channel entirely — IndexNow fan-out (quota-free) still runs.
-        # See docs/bing-quota-investigation.md.
+        timeout-minutes: 5
         env:
           ARTICLE_URL: ${{ github.event.inputs.article_url }}
-        run: node scripts/submit-indexnow.js
+        run: |
+          # Run all indexing submissions in parallel — saves ~2 min vs sequential
+          node scripts/submit-google-indexing-jobs.js &
+          PID_GOOGLE=$!
+          node scripts/submit-indexnow.js &
+          PID_INDEXNOW=$!
+          node scripts/submit-google-indexing.js &
+          PID_GSC=$!
+          node scripts/verify-post-deploy-seo.mjs &
+          PID_SEO=$!
 
-      - name: Google Search Console — sitemap ping & inspection
-        if: success()
-        continue-on-error: true
-        timeout-minutes: 5
-        run: node scripts/submit-google-indexing.js
+          # Wait for all and collect exit codes (continue-on-error at step level)
+          FAIL=0
+          wait $PID_GOOGLE  || { echo "⚠️ Google Indexing API failed"; FAIL=1; }
+          wait $PID_INDEXNOW || { echo "⚠️ IndexNow submission failed"; FAIL=1; }
+          wait $PID_GSC     || { echo "⚠️ GSC submission failed"; FAIL=1; }
+          wait $PID_SEO     || { echo "⚠️ Post-deploy SEO verification failed"; FAIL=1; }
 
-      - name: Post-deploy SEO verification (Layer 2)
-        if: success()
-        continue-on-error: true
-        timeout-minutes: 5
-        run: node scripts/verify-post-deploy-seo.mjs
+          if [ $FAIL -ne 0 ]; then
+            echo "::warning::Some post-deploy indexing steps failed (non-blocking)"
+          fi
+          echo "✅ Post-deploy indexing complete"
 
       - name: Report failure to Linear
         if: failure()

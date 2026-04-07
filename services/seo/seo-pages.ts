@@ -2437,7 +2437,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   jobboard: {
     title: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
-    description: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidati gratis, senza registrazione.',
+    description: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta — gratis, senza registrazione.',
     keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
     ogTitle: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
     ogDescription: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta — gratis!',
