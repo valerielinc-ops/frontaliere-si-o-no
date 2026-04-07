@@ -2169,6 +2169,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.stop-agli-artigiani-per-caso.title': 'Stop agli \'artigiani per caso\' in Lombardia: multe fino a 25.000 euro',
     'blog.article.stop-agli-artigiani-per-caso.excerpt': 'La Lombardia introduce nuove regole per gli artigiani: stop agli \'artigiani per caso\' e multe severe per chi utilizza impropriamente il termine \'artigianale\'.',
     'blog.article.stop-agli-artigiani-per-caso.imageAlt': 'Artigiano al lavoro in un laboratorio',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.title': 'Incendi nel Luganese: arrestato un piromane italiano',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.excerpt': 'Bellinzona, 7 aprile 2026 - Un italiano arrestato per incendi nel Luganese',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.imageAlt': 'Bellinzona, Ticino',
 };
 
 export default blogMetaIt;

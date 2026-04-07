@@ -12739,6 +12739,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incendi-nel-luganese-arrestato-un-piromane': {
+    title: 'Incendi nel Luganese: arrestato un piromane italiano | Frontaliere Ticino',
+    description: 'Bellinzona, 7 aprile 2026 - Un italiano arrestato per incendi nel Luganese. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incendi, luganese, arrestato, piromane',
+    ogTitle: 'Incendi nel Luganese: arrestato un piromane italiano',
+    ogDescription: 'Bellinzona, 7 aprile 2026 - Un italiano arrestato per incendi nel Luganese',
+    canonicalPath: '/articoli-frontaliere/incendi-nel-luganese-arrestato-un-piromane',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incendi nel Luganese: arrestato un piromane italiano",
+      "description": "Bellinzona, 7 aprile 2026 - Un italiano arrestato per incendi nel Luganese. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incendi-nel-luganese-arrestato-un-piromane.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Bellinzona, Ticino"
+      },
+      "datePublished": "2026-04-07T17:18:39+00:00",
+      "dateModified": "2026-04-07T17:18:39+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incendi-nel-luganese-arrestato-un-piromane`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

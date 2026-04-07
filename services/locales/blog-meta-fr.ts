@@ -2169,6 +2169,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.stop-agli-artigiani-per-caso.title': 'Fin aux \'artisans par hasard\' en Lombardie : amendes jusqu\'à 25 000 euros',
     'blog.article.stop-agli-artigiani-per-caso.excerpt': 'La Lombardie introduit de nouvelles règles pour les artisans : fin aux \'artisans par hasard\' et amendes sévères pour ceux qui utilisent improprement le terme \'artisanale\'.',
     'blog.article.stop-agli-artigiani-per-caso.imageAlt': 'Artisan au travail dans un laboratoire',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.title': 'Incendis dans le Luganais : arrêté un pyromane italien',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.excerpt': 'Bellizona, 7 avril 2026 - Un Italien arrêté pour incendis dans le Luganais',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.imageAlt': 'Bellinzona, Suisse',
 };
 
 export default blogMetaFr;

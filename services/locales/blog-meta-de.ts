@@ -2169,6 +2169,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.stop-agli-artigiani-per-caso.title': 'Ende mit \'Zubehörhandwerkern\' in Lombardien: Bußgelder bis zu 25.000 Euro',
     'blog.article.stop-agli-artigiani-per-caso.excerpt': 'Lombardien einführt neue Regeln für Handwerker: Ende mit \'Zubehörhandwerkern\' und schwere Bußgelder für missbräuchliche Nutzung des Begriffs \'handwerklich\'',
     'blog.article.stop-agli-artigiani-per-caso.imageAlt': 'Handwerker bei der Arbeit in einem Labor',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.title': 'Brände im Luganerland: Italiener wegen Brandstiftung festgenommen',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.excerpt': 'Bellinzona, 7. April 2026 - Ein Italiener wegen Bränden im Luganerland festgenommen',
+    'blog.article.incendi-nel-luganese-arrestato-un-piromane.imageAlt': 'Bellinzona, Schweiz',
 };
 
 export default blogMetaDe;

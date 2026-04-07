@@ -6251,4 +6251,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/stop-agli-artigiani-per-caso.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'incendi-nel-luganese-arrestato-un-piromane',
+    category: 'novita',
+    date: '2026-04-07T17:18:39.539Z',
+    image: '/images/blog/incendi-nel-luganese-arrestato-un-piromane.jpg',
+    hasCalculator: true,
+  },
 ];
