@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mks-pamp",
-  "assembledAt": "2026-04-06T21:33:07.553Z",
+  "assembledAt": "2026-04-07T09:49:23.408Z",
   "jobs": [
     {
       "title": "HR Business Partner",
@@ -48,7 +48,6 @@
         "partenaire-operationnel-rh-mks-pamp-castel-san-pietro",
         "hr-business-partner-mks-pamp-castel-san-pietro",
         "hr-business-partner-mks-pamp-castel-san-pietro-v3h9nn",
-        "hr-business-partner-mks-pamp-castel-san-pietro-v3h9nn",
         "ressources-humaines-business-partner-mks-pamp-castel-san-pietro-v3h9nn"
       ],
       "salaryMin": 58000,
@@ -65,7 +64,8 @@
         }
       },
       "streetAddress": "Via delle Fornaci",
-      "postalCode": "6828"
+      "postalCode": "6828",
+      "needsRetranslation": true
     },
     {
       "title": "Idraulico Manutentore Macchinari Industriali",
@@ -186,7 +186,8 @@
       "postalCode": "6828",
       "previousSlugs": [
         "metal-amp-inventory-controller-mks-pamp-castel-san-pietro"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Specialista tecnico chimico responsabile conduzione impianto",
