@@ -288,6 +288,7 @@ function generateRssFeed(locale, articles, slugs, localizedTitles, localizedExce
       <link>${BASE_URL}</link>
     </image>
     <atom:link href="${feedUrl}" rel="self" type="application/rss+xml"/>
+    <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
 ${itemsXml}
   </channel>
 </rss>

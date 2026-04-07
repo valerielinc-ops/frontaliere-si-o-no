@@ -573,7 +573,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
                 '@type': 'ImageObject',
                 url: imgU,
                 width: 1200,
-                height: en.img?.includes('/images/places/') ? 563 : 675,
+                height: 675,
               },
               url: full,
               inLanguage: locale,
@@ -624,11 +624,10 @@ export function ogPagesPlugin(rootDir: string): Plugin {
                 '@type': 'ImageObject',
                 url: imgU,
                 width: 1200,
-                height: en.img?.includes('/images/places/') ? 563 : 675,
+                height: 675,
               },
               url: full,
               inLanguage: locale,
-              // Reference standalone Organization defined in index.html (FRO-312)
               publisher: { '@id': `${BASE_URL}/#organization` },
               author: authorObj,
               mainEntityOfPage: full,
@@ -762,7 +761,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
     <meta property="og:description" content="${esc(localizedDesc)}">
     <meta property="og:image" content="${imgU}">
     <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="${en.img?.includes('/images/places/') ? '563' : '675'}">
+    <meta property="og:image:height" content="675">
     <meta property="og:image:type" content="${en.img?.includes('.webp') ? 'image/webp' : 'image/jpeg'}">
     <meta property="og:locale" content="${LOC_TAG[locale] ?? 'it_IT'}">
     <meta property="og:site_name" content="Frontaliere Ticino">

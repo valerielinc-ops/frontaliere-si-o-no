@@ -277,6 +277,46 @@ async function pingSitemaps(accessToken) {
   return { ok, fail };
 }
 
+// ── 1b. WebSub Hub Ping ─────────────────────────────────────
+async function pingWebSubHub() {
+  log('🔔', 'WebSub hub ping...');
+  const HUB_URL = 'https://pubsubhubbub.appspot.com/';
+  const feeds = [
+    `${SITE_URL}/rss.xml`,
+    `${SITE_URL}/rss-en.xml`,
+    `${SITE_URL}/rss-de.xml`,
+    `${SITE_URL}/rss-fr.xml`,
+  ];
+
+  let ok = 0;
+  let fail = 0;
+  for (const feedUrl of feeds) {
+    try {
+      const body = new URLSearchParams({
+        'hub.mode': 'publish',
+        'hub.url': feedUrl,
+      });
+      const res = await fetchWithRetry(HUB_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body.toString(),
+      });
+      if (res.ok || res.status === 204) {
+        ok++;
+        log('✅', `WebSub: ${feedUrl}`);
+      } else {
+        fail++;
+        log('⚠️', `WebSub ${feedUrl}: ${res.status}`);
+      }
+    } catch (err) {
+      fail++;
+      log('❌', `WebSub ${feedUrl}: ${err.message}`);
+    }
+  }
+  log('📊', `WebSub: ${ok} OK, ${fail} errori`);
+  return { ok, fail };
+}
+
 // ── 2. URL Inspection (sample) ──────────────────────────────
 async function inspectUrls(accessToken) {
   log('🔍', `URL Inspection (campione di ${MAX_INSPECT_URLS} URL)...`);
@@ -487,6 +527,10 @@ async function main() {
 
     // 1. Ping sitemaps
     await pingSitemaps(accessToken);
+    console.log('');
+
+    // 1b. Notify WebSub hub (no auth needed)
+    await pingWebSubHub();
     console.log('');
 
     // 2. Inspect sample URLs
