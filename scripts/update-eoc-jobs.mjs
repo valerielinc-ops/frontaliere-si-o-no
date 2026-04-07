@@ -20,7 +20,11 @@ import {
   assembleJobsDataset,
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage } from './lib/dedicated-crawler-common.mjs';
+import {
+  runDedicatedBaseCrawler,
+  validateDedicatedLocaleCoverage,
+  stableSlugHash,
+} from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -118,6 +122,44 @@ function deriveLocalizedSlug(job, locale) {
   const explicit = String(job?.slugByLocale?.[locale] || '').trim();
   if (explicit) return explicit;
   return String(job?.slug || '').trim();
+}
+
+/**
+ * Build a regenerated EOC slug with a stable per-job disambiguator suffix.
+ *
+ * EOC publishes multiple legitimate openings for the same role at the same
+ * location (e.g. 3 nurses in Bellinzona). The previous formula
+ * `{title}-eoc-{location}` collapsed those distinct postings to a single slug,
+ * and the housekeeping dedup pass silently removed the duplicates — the run
+ * at https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/24070266989
+ * lost 13 jobs (155 → 142) this way.
+ *
+ * The disambiguator is `stableSlugHash(job)`, which derives a 6-char hash from
+ * `fingerprintJob(job)`. EOC URLs include `/Vacancies/{id}/Description/4`, so
+ * `extractJobIdentityFromUrl` returns `umantis.com|{vacancyId}` and each
+ * vacancy gets a unique deterministic suffix that survives across crawl runs.
+ *
+ * The function is exported for tests (pure: no I/O, no module-level state).
+ *
+ * @param {object} job - Job object with at least { title, url } populated
+ * @param {string} location - Resolved EOC city (e.g. "Bellinzona")
+ * @returns {string} Regenerated slug, length-capped at 90 chars
+ */
+export function buildEocRegeneratedSlug(job, location) {
+  const suffix = stableSlugHash(job) || '';
+  const baseInput = `${job?.title || ''}-eoc-${location || ''}`;
+  const baseSlug = baseInput
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (!baseSlug) return '';
+  if (!suffix) return baseSlug.slice(0, 90);
+  // Reserve room for the `-{suffix}` tail (7 chars) so the final slug stays ≤ 90.
+  const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
+  const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+  return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -404,20 +446,31 @@ function cleanEocDescription(desc = '') {
 }
 
 /**
- * Post-process all EOC jobs in data/jobs.json to fix company name,
- * location, and description after base crawler extraction.
+ * Pure in-memory post-processing for EOC jobs.
+ *
+ * Mutates each EOC job in place to fix company name, location, canton,
+ * description and slug. Returns the same array (caller-friendly: lets the
+ * caller decide where to persist) plus a summary of how many fields were
+ * touched. No filesystem I/O — exported for unit testing.
+ *
+ * Slug handling: only jobs whose existing slug contains boilerplate or is
+ * absurdly long (> 120 chars) get regenerated. Other slugs are left alone
+ * to preserve SEO continuity. The regeneration uses a stable per-vacancy
+ * disambiguator (see buildEocRegeneratedSlug) so distinct openings with the
+ * same title + location no longer collapse to the same slug.
+ *
+ * @param {object[]} jobs - Full jobs array (will be mutated in place)
+ * @returns {{ jobs: object[], stats: { fixedJobs:number, fixedCompany:number, fixedLocation:number, fixedDescription:number, fixedSlug:number } }}
  */
-function postProcessEocJobs() {
-  if (!fs.existsSync(DATA_JOBS)) return;
-  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
-  const jobs = Array.isArray(raw) ? raw : [];
+export function postProcessEocJobsInMemory(jobs) {
+  const list = Array.isArray(jobs) ? jobs : [];
   let fixedJobs = 0;
   let fixedCompany = 0;
   let fixedLocation = 0;
   let fixedDescription = 0;
   let fixedSlug = 0;
 
-  for (const job of jobs) {
+  for (const job of list) {
     if (!isEocJob(job)) continue;
     let changed = false;
 
@@ -464,17 +517,20 @@ function postProcessEocJobs() {
       changed = true;
     }
 
-    // Regenerate slug if it contains boilerplate
+    // Regenerate slug if it contains boilerplate or is absurdly long.
+    // The replacement slug includes a stable per-vacancy disambiguator so
+    // multiple openings with the same title + location stay unique. The
+    // gating is preserved intact: well-formed existing slugs are NEVER
+    // touched, so jobs already indexed by Google keep their canonical URL.
     if (job.slug && (job.slug.includes('permette-di-combinare') || job.slug.length > 120)) {
-      const slugBase = `${job.title}-eoc-${loc}`
-        .toLowerCase()
-        .normalize('NFD')
-        .replace(/[\u0300-\u036f]/g, '')
-        .replace(/[^a-z0-9]+/g, '-')
-        .replace(/^-+|-+$/g, '')
-        .slice(0, 90);
-      if (slugBase && slugBase !== job.slug) {
-        job.slug = slugBase;
+      const newSlug = buildEocRegeneratedSlug(job, loc);
+      if (newSlug && newSlug !== job.slug) {
+        // Preserve the previous slug for SEO bridge pages.
+        if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+        if (!job.previousSlugs.includes(job.slug)) {
+          job.previousSlugs.push(job.slug);
+        }
+        job.slug = newSlug;
         fixedSlug++;
         changed = true;
       }
@@ -485,50 +541,42 @@ function postProcessEocJobs() {
     }
   }
 
-  // Deduplicate EOC jobs by slug (multiple Umantis vacancies can map to same slug)
-  const slugSeen = new Map();
-  let dupeCount = 0;
-  const deduped = [];
-  for (const job of jobs) {
-    if (!isEocJob(job)) {
-      deduped.push(job);
-      continue;
-    }
-    const slug = String(job.slug || '').trim();
-    if (!slug) {
-      deduped.push(job);
-      continue;
-    }
-    const prev = slugSeen.get(slug);
-    if (prev) {
-      // Keep the one with more recent crawledAt; discard the other
-      const prevTs = prev.crawledAt ? new Date(prev.crawledAt).getTime() : 0;
-      const currTs = job.crawledAt ? new Date(job.crawledAt).getTime() : 0;
-      if (currTs > prevTs) {
-        const idx = deduped.indexOf(prev);
-        if (idx !== -1) deduped[idx] = job;
-        slugSeen.set(slug, job);
-      }
-      dupeCount++;
-      continue;
-    }
-    slugSeen.set(slug, job);
-    deduped.push(job);
-  }
-  if (dupeCount > 0) {
-    console.log(`🧹 EOC slug dedup: removed ${dupeCount} duplicate(s).`);
-  }
+  return {
+    jobs: list,
+    stats: { fixedJobs, fixedCompany, fixedLocation, fixedDescription, fixedSlug },
+  };
+}
 
-  if (fixedJobs > 0 || dupeCount > 0) {
-    const finalJobs = dupeCount > 0 ? deduped : jobs;
-    fs.writeFileSync(DATA_JOBS, JSON.stringify(finalJobs, null, 2) + '\n');
-    // Also update public copy
-    const publicPath = path.resolve(ROOT, 'public', 'data', 'jobs.json');
-    fs.mkdirSync(path.dirname(publicPath), { recursive: true });
-    fs.writeFileSync(publicPath, JSON.stringify(finalJobs, null, 2) + '\n');
+/**
+ * Post-process all EOC jobs in data/jobs.json to fix company name,
+ * location, and description after base crawler extraction.
+ *
+ * Reads the legacy in-process file written by shared-jobs-crawler
+ * (data/jobs.json — gitignored, populated in-memory by the base crawler
+ * inside this same Node run), mutates it in place, then writes it back so
+ * the downstream slice write step in main() picks up the corrected fields.
+ *
+ * The previous version of this function also ran a slug-based dedup loop
+ * and wrote to public/data/jobs.json. That dedup was the cause of the
+ * 155 → 142 regression: the broken slug formula collapsed distinct openings
+ * to the same slug, then the dedup silently dropped them. With the per-job
+ * disambiguator now baked into buildEocRegeneratedSlug, the dedup is no
+ * longer needed and the public/data/jobs.json write was dead anyway in the
+ * slice-based pipeline.
+ */
+function postProcessEocJobs() {
+  if (!fs.existsSync(DATA_JOBS)) return;
+  const raw = JSON.parse(fs.readFileSync(DATA_JOBS, 'utf-8'));
+  const jobs = Array.isArray(raw) ? raw : [];
+
+  const { stats } = postProcessEocJobsInMemory(jobs);
+
+  if (stats.fixedJobs > 0) {
+    fs.writeFileSync(DATA_JOBS, JSON.stringify(jobs, null, 2) + '\n');
     console.log(
-      `🔧 Post-processed ${fixedJobs} EOC jobs ` +
-      `(company=${fixedCompany}, location=${fixedLocation}, description=${fixedDescription}, slug=${fixedSlug}).`
+      `🔧 Post-processed ${stats.fixedJobs} EOC jobs ` +
+      `(company=${stats.fixedCompany}, location=${stats.fixedLocation}, ` +
+      `description=${stats.fixedDescription}, slug=${stats.fixedSlug}).`
     );
   }
 }
@@ -649,7 +697,18 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ EOC crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+// Only run main() when invoked as a script, not when imported by tests.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((err) => {
+    console.error(`❌ EOC crawler failed: ${err?.message || err}`);
+    process.exit(1);
+  });
+}
