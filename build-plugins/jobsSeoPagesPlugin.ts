@@ -4008,7 +4008,11 @@ ${(() => {
           bridgeClaimedPaths.add(p);
         }
       }
-      const expiredSlugs = Object.keys(tracking).filter((s) => !currentSlugs.has(s) && !bridgeSlugSet.has(s));
+      // Include ALL tracking keys except direct bridge slugs. Keys that happen to
+      // match a currentSlug value are included because their locale paths may differ
+      // from the active job's paths — writeSoftLandingPage already skips paths
+      // where active or bridge pages exist (via _writtenPaths / activeJobDirs).
+      const expiredSlugs = Object.keys(tracking).filter((s) => !bridgeSlugSet.has(s));
 
       const expiredBannerCopy: Record<string, { title: string; banner: string }> = {
         it: { title: 'Offerta non più disponibile', banner: 'Questa posizione non è più attiva. Di seguito trovi i dettagli originali e posizioni simili.' },
