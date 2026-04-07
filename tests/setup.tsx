@@ -39,6 +39,8 @@ vi.mock('@/services/firebase', () => ({
   db: {},
   getApp: vi.fn(async () => ({})),
   getConfigValue: vi.fn(() => ''),
+  createTrace: vi.fn(async () => null),
+  measureTrace: vi.fn(async (_name: string, fn: () => Promise<any>) => fn()),
 }));
 
 // Mock the real Firebase SDK packages so they never initialise in tests
@@ -48,6 +50,11 @@ vi.mock('firebase/analytics', () => ({
   setUserId: vi.fn(),
   setUserProperties: vi.fn(),
   isSupported: vi.fn(() => Promise.resolve(false)),
+}));
+
+vi.mock('firebase/performance', () => ({
+  getPerformance: vi.fn(() => ({})),
+  trace: vi.fn(() => ({ start: vi.fn(), stop: vi.fn(), putAttribute: vi.fn(), putMetric: vi.fn() })),
 }));
 
 // Mock Auth Service

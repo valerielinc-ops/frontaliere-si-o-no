@@ -136,6 +136,7 @@ export default defineConfig(({ mode }) => {
                   if (id.includes('/firestore')) return 'vendor-firebase-firestore';
                   if (id.includes('/auth')) return 'vendor-firebase-auth';
                   if (id.includes('/analytics')) return 'vendor-firebase-analytics';
+                  if (id.includes('/performance')) return 'vendor-firebase-performance';
                   if (id.includes('/remote-config')) return 'vendor-firebase-remote-config';
                   if (id.includes('/app-check')) return 'vendor-firebase-appcheck';
                   return 'vendor-firebase-core';
@@ -144,6 +145,7 @@ export default defineConfig(({ mode }) => {
                   if (id.includes('/firestore')) return 'vendor-firebase-firestore';
                   if (id.includes('/auth')) return 'vendor-firebase-auth';
                   if (id.includes('/analytics')) return 'vendor-firebase-analytics';
+                  if (id.includes('/performance')) return 'vendor-firebase-performance';
                   if (id.includes('/remote-config')) return 'vendor-firebase-remote-config';
                   if (id.includes('/app-check')) return 'vendor-firebase-appcheck';
                   return 'vendor-firebase-core';

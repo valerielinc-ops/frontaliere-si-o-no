@@ -10,6 +10,7 @@
 
 import type { FirebaseApp } from "firebase/app";
 import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
+import type { FirebasePerformance, PerformanceTrace } from "firebase/performance";
 import type { AppCheck } from "firebase/app-check";
 import type { RemoteConfig } from "firebase/remote-config";
 import { reportCaughtError } from '@/services/errorReporter';
@@ -197,6 +198,83 @@ const analytics: FirebaseAnalytics = new Proxy({} as FirebaseAnalytics, {
     return Reflect.has(_analytics, prop);
   },
 });
+
+// ─── Lazy Firebase Performance Monitoring ───────────────────
+// Loaded AFTER first interaction (same trigger as Analytics) to avoid
+// penalizing Lighthouse. The ~80KB vendor-firebase-performance chunk
+// downloads only when initPerformance() is called.
+let _perf: FirebasePerformance | null = null;
+
+async function initPerformance(): Promise<FirebasePerformance | null> {
+  if (_perf) return _perf;
+  if (import.meta.env.MODE === 'test') return null;
+  try {
+    const { getPerformance } = await import("firebase/performance");
+    _perf = getPerformance(await getAppInstance());
+    firebaseWarn('[Firebase] Performance Monitoring initialized');
+  } catch (e) {
+    // Ad blocker or environment where perf monitoring is unsupported
+    firebaseWarn('[Firebase] Performance Monitoring unavailable:', e);
+  }
+  return _perf;
+}
+
+/**
+ * Create a custom performance trace for measuring critical operations.
+ * Returns start/stop helpers. Silently no-ops if Performance is unavailable.
+ *
+ * Usage:
+ *   const t = await createTrace('calculate_simulation');
+ *   t.start();
+ *   // ... do work ...
+ *   t.putAttribute('scenario', 'child');
+ *   t.putMetric('input_count', 15);
+ *   t.stop();
+ */
+export async function createTrace(name: string): Promise<PerformanceTrace | null> {
+  try {
+    const perf = _perf || await initPerformance();
+    if (!perf) return null;
+    const { trace } = await import("firebase/performance");
+    return trace(perf, name);
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Convenience: measure an async operation as a Firebase Performance trace.
+ * Automatically starts the trace, awaits the function, records duration, and stops.
+ *
+ * Usage:
+ *   const rate = await measureTrace('fetch_exchange_rate', () => fetchTwelveData());
+ */
+export async function measureTrace<T>(
+  name: string,
+  fn: () => Promise<T>,
+  attributes?: Record<string, string>,
+): Promise<T> {
+  const t = await createTrace(name);
+  if (t) {
+    if (attributes) {
+      for (const [k, v] of Object.entries(attributes)) {
+        try { t.putAttribute(k, v.slice(0, 100)); } catch { /* attribute limit */ }
+      }
+    }
+    t.start();
+  }
+  try {
+    const result = await fn();
+    if (t) t.stop();
+    return result;
+  } catch (e) {
+    if (t) {
+      try { t.putAttribute('error', 'true'); } catch { /* ignore */ }
+      t.stop();
+    }
+    throw e;
+  }
+}
 
 // Inizializza App Check con reCAPTCHA v3
 // La Site Key viene caricata da Remote Config
@@ -473,6 +551,8 @@ if (typeof window !== 'undefined') {
     // Warm up analytics (triggers gtag.js download) during idle time
     // instead of blocking initial page load
     try { await getAnalyticsInstance(); } catch { /* ignore */ }
+    // Initialize Performance Monitoring after analytics (separate chunk, ~80KB)
+    initPerformance().catch(() => { /* perf monitoring is non-critical */ });
     await initRemoteConfig()
       .catch(err => {
         firebaseError('Errore auto-inizializzazione Firebase:', err);
