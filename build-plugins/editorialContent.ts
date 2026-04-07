@@ -1565,6 +1565,101 @@ export const SECTION_EDITORIAL: SectionEditorialMap = {
       'Le contenu est mis à jour en continu pour refléter les changements législatifs, les nouveaux taux d\'imposition et l\'évolution des accords bilatéraux. La plateforme fonctionne indépendamment de toute institution financière, assureur ou employeur.',
     ],
   },
+
+  // ───── Contact ─────────────────────────────────────────────
+  '/contattaci': {
+    en: [
+      'Frontaliere Ticino is available for questions about taxation, pensions, work permits, and daily life for cross-border workers between Switzerland and Italy. The team responds to practical queries about platform tools, calculator error reports, and suggestions for new features.',
+      'Responses are provided within 48 business hours. For complex tax questions (tax returns, tax credits, 2026 new cross-border worker regime), we recommend the dedicated consulting service with professionals specialising in cross-border taxation between Switzerland and Italy.',
+      'The platform operates independently of banks, insurance companies, and employers: all information provided is impartial and based on official Swiss and Italian sources (FTA, Italian Revenue Agency, SECO, INPS).',
+    ],
+    de: [
+      'Frontaliere Ticino steht für Fragen zu Besteuerung, Vorsorge, Arbeitsbewilligungen und Alltagsleben für Grenzgänger zwischen der Schweiz und Italien zur Verfügung. Das Team beantwortet praktische Anfragen zu den Plattform-Tools, meldet Rechenfehler und nimmt Vorschläge für neue Funktionen entgegen.',
+      'Antworten werden innerhalb von 48 Arbeitsstunden bereitgestellt. Für komplexe Steuerfragen (Steuererklärung, Steuergutschriften, Regelung für neue Grenzgänger 2026) empfehlen wir den dedizierten Beratungsservice mit Fachleuten für grenzüberschreitende Besteuerung.',
+      'Die Plattform arbeitet unabhängig von Banken, Versicherungen und Arbeitgebern: Alle bereitgestellten Informationen sind unparteiisch und basieren auf offiziellen Schweizer und italienischen Quellen (ESTV, Agenzia delle Entrate, SECO, INPS).',
+    ],
+    fr: [
+      'Frontaliere Ticino est disponible pour les questions sur la fiscalité, la prévoyance, les permis de travail et la vie quotidienne des travailleurs frontaliers entre la Suisse et l\'Italie. L\'équipe répond aux questions pratiques sur les outils de la plateforme, signalements d\'erreurs et suggestions de nouvelles fonctionnalités.',
+      'Les réponses sont fournies dans les 48 heures ouvrables. Pour les questions fiscales complexes (déclaration de revenus, crédits d\'impôt, régime des nouveaux frontaliers 2026), nous recommandons le service de consultation dédié avec des professionnels spécialisés en fiscalité transfrontalière.',
+      'La plateforme fonctionne indépendamment des banques, assurances et employeurs : toutes les informations fournies sont impartiales et basées sur des sources officielles suisses et italiennes (AFC, Agenzia delle Entrate, SECO, INPS).',
+    ],
+  },
+
+  // ───── Consulting ─────────────────────────────────────────────
+  '/consulenza': {
+    en: [
+      'The tax consulting service is designed for cross-border workers who need personalised assistance with taxation, pensions, and fiscal optimisation in the Swiss-Italian cross-border context. Consultants specialise in the regulations of both countries and are up to date on the 2026 New Tax Agreement.',
+      'Key areas include: Italian tax returns for Swiss income, choosing the tax regime (old vs new cross-border workers), calculating and applying the €10,000 exemption, optimising foreign tax credits (Art. 165 TUIR), AVS/LPP/pillar 3a pension planning, and choosing between LAMal and NHS.',
+      'Each consultation starts from an analysis of your individual situation — marital status, distance from the border, years of employment in Switzerland, gross income — to identify the most advantageous tax strategy.',
+    ],
+    de: [
+      'Der Steuerberatungsservice richtet sich an Grenzgänger, die persönliche Unterstützung bei Besteuerung, Vorsorge und steuerlicher Optimierung im schweizerisch-italienischen Grenzgängerkontext benötigen. Die Berater sind auf die Regelungen beider Länder spezialisiert und auf dem aktuellen Stand des Neuen Steuerabkommens 2026.',
+      'Die Hauptbereiche umfassen: italienische Steuererklärung für Schweizer Einkommen, Wahl des Steuerregimes (alte vs. neue Grenzgänger), Berechnung und Anwendung des Freibetrags von €10.000, Optimierung der Steuergutschriften für im Ausland gezahlte Steuern (Art. 165 TUIR), AHV/BVG/Säule-3a-Vorsorgeplanung.',
+      'Jede Beratung beginnt mit einer Analyse der individuellen Situation — Familienstand, Entfernung zur Grenze, Beschäftigungsjahre in der Schweiz, Bruttoeinkommen — um die vorteilhafteste Steuerstrategie zu identifizieren.',
+    ],
+    fr: [
+      'Le service de consultation fiscale s\'adresse aux travailleurs frontaliers ayant besoin d\'une assistance personnalisée en matière de fiscalité, prévoyance et optimisation fiscale dans le contexte transfrontalier Suisse-Italie. Les consultants sont spécialisés dans les réglementations des deux pays et à jour sur le Nouvel Accord Fiscal 2026.',
+      'Les domaines principaux incluent : déclaration de revenus italienne pour les revenus suisses, choix du régime fiscal (anciens vs nouveaux frontaliers), calcul et application de la franchise de 10 000 €, optimisation des crédits d\'impôt pour impôts payés à l\'étranger (Art. 165 TUIR), planification AVS/LPP/3e pilier.',
+      'Chaque consultation part de l\'analyse de la situation individuelle — état civil, distance de la frontière, années d\'emploi en Suisse, revenu brut — pour identifier la stratégie fiscale la plus avantageuse.',
+    ],
+  },
+
+  // ───── Privacy ─────────────────────────────────────────────
+  '/privacy': {
+    en: [
+      'Frontaliere Ticino processes user personal data in compliance with the General Data Protection Regulation (GDPR, EU Regulation 2016/679) and the Swiss Federal Act on Data Protection (nFADP 2023). The platform does not require mandatory registration: all calculators and comparators can be used without providing personal data.',
+      'Data collected (email addresses for job alerts, browsing data via Google Analytics 4) is used exclusively for operating the services requested by the user and for aggregate analysis of platform usage. Data is never shared with third parties for marketing purposes.',
+      'Tax and pension simulations run entirely in the user\'s browser: the data entered into calculators (salary, marital status, number of children) is never transmitted to servers. This architecture ensures maximum confidentiality of personal financial information.',
+    ],
+    de: [
+      'Frontaliere Ticino verarbeitet personenbezogene Daten der Nutzer in Übereinstimmung mit der Datenschutz-Grundverordnung (DSGVO, EU-Verordnung 2016/679) und dem Schweizer Bundesgesetz über den Datenschutz (nDSG 2023). Die Plattform erfordert keine obligatorische Registrierung: Alle Rechner und Vergleicher können ohne Angabe persönlicher Daten genutzt werden.',
+      'Erhobene Daten (E-Mail-Adressen für Jobbenachrichtigungen, Browsing-Daten über Google Analytics 4) werden ausschließlich für den Betrieb der vom Nutzer angeforderten Dienste und für die aggregierte Analyse der Plattformnutzung verwendet. Daten werden niemals für Marketingzwecke an Dritte weitergegeben.',
+      'Steuer- und Vorsorgesimulationen laufen vollständig im Browser des Nutzers: Die in die Rechner eingegebenen Daten (Gehalt, Familienstand, Kinderzahl) werden niemals an Server übertragen. Diese Architektur gewährleistet maximale Vertraulichkeit persönlicher Finanzinformationen.',
+    ],
+    fr: [
+      'Frontaliere Ticino traite les données personnelles des utilisateurs conformément au Règlement Général sur la Protection des Données (RGPD, Règlement UE 2016/679) et à la Loi fédérale suisse sur la protection des données (nLPD 2023). La plateforme ne requiert aucune inscription obligatoire : tous les calculateurs et comparateurs sont utilisables sans fournir de données personnelles.',
+      'Les données éventuellement collectées (adresse e-mail pour les alertes emploi, données de navigation via Google Analytics 4) sont utilisées exclusivement pour le fonctionnement des services demandés par l\'utilisateur et pour l\'analyse agrégée de l\'utilisation de la plateforme. Aucune donnée n\'est cédée à des tiers à des fins marketing.',
+      'Les simulations fiscales et de prévoyance s\'exécutent entièrement dans le navigateur de l\'utilisateur : les données saisies dans les calculateurs (salaire, état civil, nombre d\'enfants) ne sont jamais transmises aux serveurs. Cette architecture garantit la confidentialité maximale des informations financières personnelles.',
+    ],
+  },
+
+  // ───── API Status ─────────────────────────────────────────────
+  '/stato-api': {
+    en: [
+      'This page shows the real-time operational status of all external services used by the Frontaliere Ticino platform: CHF/EUR exchange rate (TwelveData API), border crossing traffic (Google Maps API), reCAPTCHA for form protection, and Firebase for storage and configurations.',
+      'The platform is designed to work even when one or more external services are temporarily unavailable: exchange rates have a local cache with fallback to the most recent data, border traffic uses estimates based on historical data, and calculators run entirely in the browser without depending on remote servers.',
+      'The history of outages and average availability of each service are visible on this page, along with average API latency and data update frequency.',
+    ],
+    de: [
+      'Diese Seite zeigt den Echtzeit-Betriebsstatus aller von der Plattform Frontaliere Ticino genutzten externen Dienste: CHF/EUR-Wechselkurs (TwelveData API), Grenzverkehr (Google Maps API), reCAPTCHA für Formularschutz und Firebase für Speicherung und Konfigurationen.',
+      'Die Plattform ist so konzipiert, dass sie auch bei vorübergehender Nichtverfügbarkeit eines oder mehrerer externer Dienste funktioniert: Wechselkurse haben einen lokalen Cache mit Fallback auf die neuesten Daten, und die Rechner laufen vollständig im Browser ohne Abhängigkeit von Remote-Servern.',
+      'Die Historie der Ausfälle und die durchschnittliche Verfügbarkeit jedes Dienstes sind auf dieser Seite sichtbar, zusammen mit der durchschnittlichen API-Latenz und der Datenaktualisierungsfrequenz.',
+    ],
+    fr: [
+      'Cette page affiche l\'état opérationnel en temps réel de tous les services externes utilisés par la plateforme Frontaliere Ticino : taux de change CHF/EUR (TwelveData API), trafic aux postes frontière (Google Maps API), reCAPTCHA pour la protection des formulaires et Firebase pour le stockage et les configurations.',
+      'La plateforme est conçue pour fonctionner même lorsqu\'un ou plusieurs services externes sont temporairement indisponibles : les taux de change disposent d\'un cache local avec repli sur les données les plus récentes, et les calculateurs fonctionnent entièrement dans le navigateur sans dépendre de serveurs distants.',
+      'L\'historique des interruptions et la disponibilité moyenne de chaque service sont visibles sur cette page, ainsi que la latence moyenne des API et la fréquence de mise à jour des données.',
+    ],
+  },
+
+  // ───── Blog index ─────────────────────────────────────────────
+  '/articoli-frontaliere': {
+    en: [
+      '<strong>Cross-Border Articles</strong> is the editorial hub of Frontaliere Ticino with over 700 in-depth articles for cross-border workers between Italy and Switzerland. Content covers taxation (2026 New Agreement, IRPEF, withholding tax), pensions (AVS, LPP, pillar 3a), practical guides (permits, banking, customs), and legislative updates.',
+      'The articles section is built as an editorial hub: each piece dives deep into an operational topic and links to tools or guides so readers can move quickly from news to numerical simulation. Topics range from the 2026 New Agreement taxation rules to practical guides on opening a Swiss bank account.',
+      'Main categories: Tax (cross-border taxation, withholding tax, IRPEF), Practical (permits, customs, transport, banking), News (Swiss and Italian legislative updates), Pension (AVS, LPP, pillar 3a). Articles are updated whenever significant regulatory changes occur.',
+    ],
+    de: [
+      '<strong>Grenzgänger-Artikel</strong> ist der redaktionelle Hub von Frontaliere Ticino mit über 700 Vertiefungsartikeln für Grenzgänger zwischen Italien und der Schweiz. Die Inhalte decken Besteuerung (Neues Abkommen 2026, IRPEF, Quellensteuer), Vorsorge (AHV, BVG, Säule 3a), praktische Leitfäden (Bewilligungen, Bank, Zoll) und Gesetzesänderungen ab.',
+      'Die Artikelsektion ist als redaktioneller Hub aufgebaut: Jeder Beitrag vertieft ein operatives Thema und verlinkt auf Tools oder Leitfäden, sodass Leser schnell von der Nachricht zur numerischen Simulation gelangen.',
+      'Hauptkategorien: Steuer (Grenzgängerbesteuerung, Quellensteuer, IRPEF), Praktisch (Bewilligungen, Zoll, Transport, Bank), Neuigkeiten (Schweizer und italienische Gesetzesänderungen), Vorsorge (AHV, BVG, Säule 3a). Artikel werden bei jeder bedeutenden Rechtsänderung aktualisiert.',
+    ],
+    fr: [
+      '<strong>Articles Frontalier</strong> est le hub éditorial de Frontaliere Ticino avec plus de 700 articles approfondis pour les travailleurs frontaliers entre l\'Italie et la Suisse. Les contenus couvrent la fiscalité (Nouvel Accord 2026, IRPEF, impôt à la source), la prévoyance (AVS, LPP, 3e pilier), des guides pratiques (permis, banque, douane) et les mises à jour législatives.',
+      'La section articles est conçue comme un hub éditorial : chaque contenu approfondit un thème opérationnel et renvoie aux outils ou guides pour passer rapidement de l\'information à la simulation chiffrée.',
+      'Catégories principales : Fiscal (fiscalité frontalière, impôt à la source, IRPEF), Pratique (permis, douane, transport, banque), Actualités (mises à jour législatives suisses et italiennes), Prévoyance (AVS, LPP, 3e pilier). Les articles sont mis à jour à chaque modification réglementaire significative.',
+    ],
+  },
 };
 
 /**

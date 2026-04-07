@@ -1777,6 +1777,39 @@ export function staticPagesPlugin(rootDir: string): Plugin {
               `<p style="color:#64748b;font-size:0.8rem;margin-top:.5rem;">Fonte: <a href="https://www.bfs.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">UST/BFS</a> · Agenzia delle Entrate · Canton Ticino DFE</p>` +
               `</div></details>`,
             );
+          } else if (canonicalPath === '/contattaci' || canonicalPath === '/contattaci/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Contatta Frontaliere Ticino</h2>`,
+              `Frontaliere Ticino è a disposizione per domande su tassazione, previdenza, permessi di lavoro e vita quotidiana per i lavoratori transfrontalieri tra Svizzera e Italia. Il team risponde a quesiti pratici legati agli strumenti della piattaforma, segnalazioni di errori nei calcolatori e suggerimenti per nuove funzionalità.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Tempi di risposta e canali disponibili</h2>`,
+              `Le risposte vengono fornite entro 48 ore lavorative. Per domande fiscali complesse (dichiarazione dei redditi, crediti d'imposta, regime nuovi frontalieri 2026) consigliamo il servizio di consulenza dedicato con professionisti specializzati in fiscalità transfrontaliera.`,
+              `La piattaforma è indipendente da banche, assicurazioni e datori di lavoro: le informazioni fornite sono imparziali e basate su fonti ufficiali svizzere e italiane (AFC, Agenzia delle Entrate, SECO, INPS).`,
+            );
+          } else if (canonicalPath === '/consulenza' || canonicalPath === '/consulenza/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Consulenza fiscale per frontalieri Svizzera-Italia</h2>`,
+              `Il servizio di consulenza fiscale è rivolto ai lavoratori frontalieri che necessitano di assistenza personalizzata su tassazione, previdenza e ottimizzazione fiscale nel contesto transfrontaliero Svizzera-Italia. I consulenti sono specializzati nelle normative di entrambi i paesi e aggiornati sul Nuovo Accordo Fiscale 2026.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Aree di consulenza disponibili</h2>`,
+              `Le aree principali includono: dichiarazione dei redditi italiana per redditi svizzeri, scelta del regime fiscale (vecchi vs nuovi frontalieri), calcolo e applicazione della franchigia di €10.000, ottimizzazione dei crediti d'imposta per imposte pagate all'estero (Art. 165 TUIR), pianificazione previdenziale AVS/LPP/terzo pilastro 3a, e scelta tra LAMal e SSN.`,
+              `Ogni consulenza parte dall'analisi della situazione individuale — stato civile, distanza dal confine, anzianità lavorativa in Svizzera, reddito lordo — per identificare la strategia fiscale più vantaggiosa. I professionisti utilizzano gli stessi parametri dei simulatori del sito, verificati sulle tabelle ufficiali dell'Amministrazione federale delle contribuzioni e dell'Agenzia delle Entrate.`,
+              `<p style="color:#64748b;font-size:0.8rem;margin-top:4px;">Fonte: <a href="https://www.estv.admin.ch" style="color:#2563eb;text-decoration:none;" rel="noopener">AFC</a> · <a href="https://www.agenziaentrate.gov.it" style="color:#2563eb;text-decoration:none;" rel="noopener">Agenzia delle Entrate</a></p>`,
+            );
+          } else if (canonicalPath === '/privacy' || canonicalPath === '/privacy/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Informativa sulla privacy per i frontalieri</h2>`,
+              `Frontaliere Ticino tratta i dati personali degli utenti nel rispetto del Regolamento Generale sulla Protezione dei Dati (GDPR, Regolamento UE 2016/679) e della Legge federale svizzera sulla protezione dei dati (LPD, nLPD 2023). La piattaforma non richiede registrazione obbligatoria: tutti i calcolatori e i comparatori possono essere utilizzati senza fornire dati personali.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Dati raccolti e finalità del trattamento</h2>`,
+              `I dati eventualmente raccolti (indirizzo e-mail per le allerte lavoro, dati di navigazione tramite Google Analytics 4) vengono utilizzati esclusivamente per il funzionamento dei servizi richiesti dall'utente e per l'analisi aggregata dell'utilizzo della piattaforma. Non vengono ceduti a terzi per finalità di marketing.`,
+              `Le simulazioni fiscali e previdenziali vengono eseguite interamente nel browser dell'utente: i dati inseriti nei calcolatori (stipendio, stato civile, numero di figli) non vengono mai trasmessi ai server. Questa architettura garantisce la massima riservatezza delle informazioni finanziarie personali.`,
+            );
+          } else if (canonicalPath === '/stato-api' || canonicalPath === '/stato-api/') {
+            editorialBlocks.push(
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Stato dei servizi e delle API</h2>`,
+              `Questa pagina mostra lo stato operativo in tempo reale di tutti i servizi esterni utilizzati dalla piattaforma Frontaliere Ticino: tasso di cambio CHF/EUR (TwelveData API), traffico ai valichi di frontiera (Google Maps API), reCAPTCHA per la protezione dei moduli, e Firebase per l'archiviazione e le configurazioni.`,
+              `<h2 style="font-size:1.05rem;font-weight:700;margin:1rem 0 .5rem">Affidabilità e fallback dei dati</h2>`,
+              `La piattaforma è progettata per funzionare anche quando uno o più servizi esterni sono temporaneamente non disponibili: i tassi di cambio hanno una cache locale con fallback ai dati più recenti, il traffico ai valichi utilizza stime basate su dati storici, e i calcolatori funzionano interamente nel browser senza dipendenze da server remoti.`,
+              `Lo storico delle interruzioni e la disponibilità media di ciascun servizio sono visibili in questa pagina, insieme alla latenza media delle API e alla frequenza di aggiornamento dei dati.`,
+            );
           } else {
             // Fallback for pages without a specific section match
             editorialBlocks.push(

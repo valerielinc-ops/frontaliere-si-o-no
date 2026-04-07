@@ -218,7 +218,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Pagina spostata | Frontaliere Ticino</title>
     <meta name="description" content="Questa URL legacy ha una pagina canonica aggiornata su Frontaliere Ticino.">
-    <meta name="robots" content="index,follow">
+    <meta name="robots" content="noindex,follow">
     <link rel="canonical" href="${BASE_URL}${to}">${hreflangTags}
     <script type="application/ld+json">${redirectLd}</script>
     ${GTAG_SNIPPET}
