@@ -1,6 +1,6 @@
 {
   "crawlerKey": "dxt-commodities",
-  "assembledAt": "2026-04-06T21:10:24.101Z",
+  "assembledAt": "2026-04-07T09:27:04.251Z",
   "jobs": [
     {
       "url": "https://dxt.com/careers/?panel=20897_1",
@@ -67,7 +67,8 @@
       "postalCode": "6900",
       "addressLocality": "Lugano",
       "addressRegion": "TI",
-      "addressCountry": "CH"
+      "addressCountry": "CH",
+      "needsRetranslation": true
     }
   ]
 }
