@@ -1,6 +1,6 @@
 {
   "crawlerKey": "axa-svizzera",
-  "assembledAt": "2026-04-07T07:44:03.013Z",
+  "assembledAt": "2026-04-07T09:04:27.965Z",
   "jobs": [
     {
       "title": "Consulente Assicurativo per il Luganese",
@@ -20,7 +20,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60-100%",
@@ -63,7 +63,8 @@
         "consulente-assicurativo-per-il-luganese-axa-svizzera-axa",
         "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb",
         "consulente-assicurativo-per-il-luganese-axa-svizzera-kfihmb"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Collaboratore/Collaboratrice Servizio Interno",
@@ -83,7 +84,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -144,7 +145,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80%",
@@ -207,7 +208,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -248,7 +249,8 @@
       "postalCode": "6901",
       "previousSlugs": [
         "senior-underwriter-responsabilita-civile-axa-svizzera-axa-assicurazioni"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Consulente Assicurativo",
@@ -268,7 +270,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "",
@@ -312,6 +314,65 @@
       ]
     },
     {
+      "title": "Consulente Assicurativo",
+      "slug": "consulente-assicurativo",
+      "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/7da4e753-c869-4ef6-afe3-65b2ba0021f1",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": "() Agenzia principale Nicola Locarnini, Manno",
+      "addressLocality": "AXA",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "assicurazioni",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2026-04-07",
+      "employmentType": "part-time",
+      "contractType": "part-time",
+      "workload": "50-100%",
+      "validThrough": "",
+      "description": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+      "titleByLocale": {
+        "it": "Consulente Assicurativo",
+        "fr": "Consulente Assicurativo",
+        "en": "Consulente Assicurativo",
+        "de": "Consulente Assicurativo"
+      },
+      "descriptionByLocale": {
+        "it": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "en": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "de": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale.",
+        "fr": "Vieni da AXA, la compagnia di assicurazioni leader del mercato svizzero, ti attende nel ruolo di\n\nPronti per nuove sfide? Ricerchiamo persone motivate per potenziare il nostro team di consulenti dell'Agenzia principale di Manno\n\nQuale assicuratore leader in Svizzera, offriamo a persone ambiziose interessanti opportunità di carriera e uno stimolante margine di autonomia imprenditoriale.\n\n- Consulenza competente e orientata alle esigenze della clientela nei rami generali\n- Acquisizione di nuovi clienti\n- Cura e sviluppo della clientela esistente\n- Intermediazione di ulteriori prodotti del Gruppo AXA\n\n- Metodo di lavoro indipendente e orientato agli obiettivi nonché forte ambizione\n- Elevata flessibilità e capacità d'imporsi\n- Spiccate doti di comunicazione e di socializzazione\n- Dimestichezza nell'uso dei comuni programmi informatici\n- Oltre all'italiano, padronanza di un'ulteriore lingua nazionale\n- Residenza e radicamento nel tessuto sociale della Regione\n\n## Il nostro processo di candidatura\nConoscete il nostro processo di candidatura e ricevete le risposte alle domande che i candidati ci pongono spesso. Se avete bisogno di supporto durante il processo di candidatura, contattateci. I nostri colleghi del Recruiting saranno lieti di aiutarvi.\n\n## Diversity & Inclusion\nLa diversità, le pari opportunità e l'inclusione sono fondamentali per noi in AXA. La nostra cultura aziendale promuove il rispetto e l'apertura, affinché ogni persona da noi possa esprimere appieno il proprio potenziale."
+      },
+      "slugByLocale": {
+        "it": "consulente-assicurativo",
+        "en": "consulente-assicurativo",
+        "de": "consulente-assicurativo",
+        "fr": "consulente-assicurativo-axa-svizzera-axa"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via della Posta 2",
+      "postalCode": "6901"
+    },
+    {
       "title": "Consulente Assicurativo per il Mendrisiotto",
       "slug": "consulente-assicurativo-per-il-mendrisiotto",
       "url": "https://jobs.axa.ch/posizioni-aperte/consulente-assicurativo-per-il-mendrisiotto/feda0a6f-d9e7-4fd0-871d-d41b0556f7ec",
@@ -329,7 +390,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "it",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "part-time",
       "contractType": "part-time",
       "workload": "60%",
@@ -370,7 +431,67 @@
       "postalCode": "6901",
       "previousSlugs": [
         "consulente-assicurativo-per-il-mendrisiotto-axa-svizzera-agenzia-generale-andrea-tarello"
-      ]
+      ],
+      "needsRetranslation": true
+    },
+    {
+      "title": "Spezialist AI Governance & Prozesse (all genders)",
+      "slug": "spezialist-ai-governance-prozesse-all-genders",
+      "url": "https://jobs.axa.ch/posizioni-aperte/spezialist-ai-governance-prozesse-all-genders/693680e7-14fc-4085-89c7-38b9a2df291c",
+      "applyUrl": "https://jobs.axa.ch/apply/ats/693680e7-14fc-4085-89c7-38b9a2df291c",
+      "company": "AXA Svizzera",
+      "companyKey": "axa-svizzera",
+      "companyDomain": "axa.ch",
+      "location": "Smart Working",
+      "addressLocality": "Pionierstrasse 3",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "informatica",
+      "sector": "assicurazioni",
+      "source": "axa-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-04-07",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "workload": "80-100%",
+      "validThrough": "",
+      "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nIn der heutigen Zeit der rasanten AI-Entwicklung ist ein Spezialist für AI Governance & Prozesse unerlässlich, damit durch automatisierte Governance-Prozesse die AI Use Cases effizienter und schneller umgesetzt werden können. Diese Rolle hilft mit, den notwendigen Rahmen, der Innovationen nicht nur beschleunigt, sondern auch sicherstellt, dass regulatorische Anforderungen von Beginn an berücksichtigt werden, zu schaffen. Der Mehrwert liegt in der Risikominimierung, der Steigerung des Vertrauens und der Ermöglichung einer sicheren, strategischen und konformen Nutzung von AI, wodurch wir das volle Potenzial ausschöpfen können.Als Spezialist AI Governance & Prozesse unterstützt du unser Team dabei, einen transparenten, effizienten und regulatorisch konformen Einsatz von Künstlicher Intelligenz (AI) bei AXA Schweiz sicherzustellen. Du wirkst aktiv an der Pflege unseres AI-Inventars mit und bringst dich bei der Optimierung unserer Governance-Prozesse ein – auch durch den intelligenten Einsatz von AI. Dies ist eine ideale Einstiegsposition, um dich in einem hochrelevanten Zukunftsfeld zu entwickeln.Wenn du eine spannende Einstiegsposition in einem der wichtigsten und dynamischsten Bereiche der Digitalisierung suchst und die Chance packen willst an der Schnittstelle von modernster Technologie und AI Governance mitzuwirken, dann freuen wir uns auf deine Bewerbung.\n\nAXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen.\n\n## Dein Beitrag\n- Du gestaltest und optimierst das AI-Governance-Framework durch deine aktive Mitarbeit bei der Analyse, Erstellung und Pflege von Standards und Best Practices für den verantwortungsvollen Einsatz von AI in der AXA Schweiz.\n- Du verantwortest das unternehmensweite AI-Inventar und entwickelst es weiter, einschliesslich der Dokumentation von Use Cases, Datenquellen und Risikobewertungen und agierst als zentrale Ansprechperson.\n- Du unterstützt bei der Identifikation, Bewertung und Minderung von Risiken im Zusammenhang mit AI-Anwendungen sowie der Koordination und Durchführung von Kontrollen zur Sicherstellung der Compliance.\n- Du bist Ansprechperson für die Fachbereiche bei AI-relevanten Fragen und der Anwendung von Best Practices, um eine korrekte und effiziente Nutzung der AI-Governance zu gewährleisten.\n- Du analysierst die bestehenden Governance-Prozesse auf Effizienzpotenziale und beteiligst dich aktiv an der Konzeption und Umsetzung von AI-gestützten Lösungen zur Automatisierung und Optimierung dieser Abläufe.\n\n## Deine Fähigkeiten und Talente\n- Du verfügst über abgeschlossenes (Bachelor, Master) in Wirtschaftsinformatik, Informatik, Data Science oder eine vergleichbare Ausbildung.\n- Du hast bereits erste Berührungspunkte mit AI Governance und idealerweise erste Grundlagenkenntnisse oder praktische Erfahrungen.\n- Du besitzt ein konzeptionelles Verständnis von AI-/Machine Learning-Technologien und deren Lebenszyklus.\n- Dein analytisches Denkvermögen und das Interesse an der Optimierung und Automatisierung von (Governance-)Prozessen runden deine Fähigkeiten ab.\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift sind zwingend erforderlich\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+      "titleByLocale": {
+        "de": "Spezialist AI Governance & Prozesse (all genders)",
+        "it": "Spezialist AI Governance & Prozesse (all genders)",
+        "en": "Spezialist AI Governance & Prozesse (all genders)",
+        "fr": "Spezialist AI Governance & Prozesse (all genders)"
+      },
+      "descriptionByLocale": {
+        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nIn der heutigen Zeit der rasanten AI-Entwicklung ist ein Spezialist für AI Governance & Prozesse unerlässlich, damit durch automatisierte Governance-Prozesse die AI Use Cases effizienter und schneller umgesetzt werden können. Diese Rolle hilft mit, den notwendigen Rahmen, der Innovationen nicht nur beschleunigt, sondern auch sicherstellt, dass regulatorische Anforderungen von Beginn an berücksichtigt werden, zu schaffen. Der Mehrwert liegt in der Risikominimierung, der Steigerung des Vertrauens und der Ermöglichung einer sicheren, strategischen und konformen Nutzung von AI, wodurch wir das volle Potenzial ausschöpfen können.Als Spezialist AI Governance & Prozesse unterstützt du unser Team dabei, einen transparenten, effizienten und regulatorisch konformen Einsatz von Künstlicher Intelligenz (AI) bei AXA Schweiz sicherzustellen. Du wirkst aktiv an der Pflege unseres AI-Inventars mit und bringst dich bei der Optimierung unserer Governance-Prozesse ein – auch durch den intelligenten Einsatz von AI. Dies ist eine ideale Einstiegsposition, um dich in einem hochrelevanten Zukunftsfeld zu entwickeln.Wenn du eine spannende Einstiegsposition in einem der wichtigsten und dynamischsten Bereiche der Digitalisierung suchst und die Chance packen willst an der Schnittstelle von modernster Technologie und AI Governance mitzuwirken, dann freuen wir uns auf deine Bewerbung.\n\nAXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen.\n\n## Dein Beitrag\n- Du gestaltest und optimierst das AI-Governance-Framework durch deine aktive Mitarbeit bei der Analyse, Erstellung und Pflege von Standards und Best Practices für den verantwortungsvollen Einsatz von AI in der AXA Schweiz.\n- Du verantwortest das unternehmensweite AI-Inventar und entwickelst es weiter, einschliesslich der Dokumentation von Use Cases, Datenquellen und Risikobewertungen und agierst als zentrale Ansprechperson.\n- Du unterstützt bei der Identifikation, Bewertung und Minderung von Risiken im Zusammenhang mit AI-Anwendungen sowie der Koordination und Durchführung von Kontrollen zur Sicherstellung der Compliance.\n- Du bist Ansprechperson für die Fachbereiche bei AI-relevanten Fragen und der Anwendung von Best Practices, um eine korrekte und effiziente Nutzung der AI-Governance zu gewährleisten.\n- Du analysierst die bestehenden Governance-Prozesse auf Effizienzpotenziale und beteiligst dich aktiv an der Konzeption und Umsetzung von AI-gestützten Lösungen zur Automatisierung und Optimierung dieser Abläufe.\n\n## Deine Fähigkeiten und Talente\n- Du verfügst über abgeschlossenes (Bachelor, Master) in Wirtschaftsinformatik, Informatik, Data Science oder eine vergleichbare Ausbildung.\n- Du hast bereits erste Berührungspunkte mit AI Governance und idealerweise erste Grundlagenkenntnisse oder praktische Erfahrungen.\n- Du besitzt ein konzeptionelles Verständnis von AI-/Machine Learning-Technologien und deren Lebenszyklus.\n- Dein analytisches Denkvermögen und das Interesse an der Optimierung und Automatisierung von (Governance-)Prozessen runden deine Fähigkeiten ab.\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift sind zwingend erforderlich\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "it": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nIn der heutigen Zeit der rasanten AI-Entwicklung ist ein Spezialist für AI Governance & Prozesse unerlässlich, damit durch automatisierte Governance-Prozesse die AI Use Cases effizienter und schneller umgesetzt werden können. Diese Rolle hilft mit, den notwendigen Rahmen, der Innovationen nicht nur beschleunigt, sondern auch sicherstellt, dass regulatorische Anforderungen von Beginn an berücksichtigt werden, zu schaffen. Der Mehrwert liegt in der Risikominimierung, der Steigerung des Vertrauens und der Ermöglichung einer sicheren, strategischen und konformen Nutzung von AI, wodurch wir das volle Potenzial ausschöpfen können.Als Spezialist AI Governance & Prozesse unterstützt du unser Team dabei, einen transparenten, effizienten und regulatorisch konformen Einsatz von Künstlicher Intelligenz (AI) bei AXA Schweiz sicherzustellen. Du wirkst aktiv an der Pflege unseres AI-Inventars mit und bringst dich bei der Optimierung unserer Governance-Prozesse ein – auch durch den intelligenten Einsatz von AI. Dies ist eine ideale Einstiegsposition, um dich in einem hochrelevanten Zukunftsfeld zu entwickeln.Wenn du eine spannende Einstiegsposition in einem der wichtigsten und dynamischsten Bereiche der Digitalisierung suchst und die Chance packen willst an der Schnittstelle von modernster Technologie und AI Governance mitzuwirken, dann freuen wir uns auf deine Bewerbung.\n\nAXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen.\n\n## Dein Beitrag\n- Du gestaltest und optimierst das AI-Governance-Framework durch deine aktive Mitarbeit bei der Analyse, Erstellung und Pflege von Standards und Best Practices für den verantwortungsvollen Einsatz von AI in der AXA Schweiz.\n- Du verantwortest das unternehmensweite AI-Inventar und entwickelst es weiter, einschliesslich der Dokumentation von Use Cases, Datenquellen und Risikobewertungen und agierst als zentrale Ansprechperson.\n- Du unterstützt bei der Identifikation, Bewertung und Minderung von Risiken im Zusammenhang mit AI-Anwendungen sowie der Koordination und Durchführung von Kontrollen zur Sicherstellung der Compliance.\n- Du bist Ansprechperson für die Fachbereiche bei AI-relevanten Fragen und der Anwendung von Best Practices, um eine korrekte und effiziente Nutzung der AI-Governance zu gewährleisten.\n- Du analysierst die bestehenden Governance-Prozesse auf Effizienzpotenziale und beteiligst dich aktiv an der Konzeption und Umsetzung von AI-gestützten Lösungen zur Automatisierung und Optimierung dieser Abläufe.\n\n## Deine Fähigkeiten und Talente\n- Du verfügst über abgeschlossenes (Bachelor, Master) in Wirtschaftsinformatik, Informatik, Data Science oder eine vergleichbare Ausbildung.\n- Du hast bereits erste Berührungspunkte mit AI Governance und idealerweise erste Grundlagenkenntnisse oder praktische Erfahrungen.\n- Du besitzt ein konzeptionelles Verständnis von AI-/Machine Learning-Technologien und deren Lebenszyklus.\n- Dein analytisches Denkvermögen und das Interesse an der Optimierung und Automatisierung von (Governance-)Prozessen runden deine Fähigkeiten ab.\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift sind zwingend erforderlich\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "en": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nIn der heutigen Zeit der rasanten AI-Entwicklung ist ein Spezialist für AI Governance & Prozesse unerlässlich, damit durch automatisierte Governance-Prozesse die AI Use Cases effizienter und schneller umgesetzt werden können. Diese Rolle hilft mit, den notwendigen Rahmen, der Innovationen nicht nur beschleunigt, sondern auch sicherstellt, dass regulatorische Anforderungen von Beginn an berücksichtigt werden, zu schaffen. Der Mehrwert liegt in der Risikominimierung, der Steigerung des Vertrauens und der Ermöglichung einer sicheren, strategischen und konformen Nutzung von AI, wodurch wir das volle Potenzial ausschöpfen können.Als Spezialist AI Governance & Prozesse unterstützt du unser Team dabei, einen transparenten, effizienten und regulatorisch konformen Einsatz von Künstlicher Intelligenz (AI) bei AXA Schweiz sicherzustellen. Du wirkst aktiv an der Pflege unseres AI-Inventars mit und bringst dich bei der Optimierung unserer Governance-Prozesse ein – auch durch den intelligenten Einsatz von AI. Dies ist eine ideale Einstiegsposition, um dich in einem hochrelevanten Zukunftsfeld zu entwickeln.Wenn du eine spannende Einstiegsposition in einem der wichtigsten und dynamischsten Bereiche der Digitalisierung suchst und die Chance packen willst an der Schnittstelle von modernster Technologie und AI Governance mitzuwirken, dann freuen wir uns auf deine Bewerbung.\n\nAXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen.\n\n## Dein Beitrag\n- Du gestaltest und optimierst das AI-Governance-Framework durch deine aktive Mitarbeit bei der Analyse, Erstellung und Pflege von Standards und Best Practices für den verantwortungsvollen Einsatz von AI in der AXA Schweiz.\n- Du verantwortest das unternehmensweite AI-Inventar und entwickelst es weiter, einschliesslich der Dokumentation von Use Cases, Datenquellen und Risikobewertungen und agierst als zentrale Ansprechperson.\n- Du unterstützt bei der Identifikation, Bewertung und Minderung von Risiken im Zusammenhang mit AI-Anwendungen sowie der Koordination und Durchführung von Kontrollen zur Sicherstellung der Compliance.\n- Du bist Ansprechperson für die Fachbereiche bei AI-relevanten Fragen und der Anwendung von Best Practices, um eine korrekte und effiziente Nutzung der AI-Governance zu gewährleisten.\n- Du analysierst die bestehenden Governance-Prozesse auf Effizienzpotenziale und beteiligst dich aktiv an der Konzeption und Umsetzung von AI-gestützten Lösungen zur Automatisierung und Optimierung dieser Abläufe.\n\n## Deine Fähigkeiten und Talente\n- Du verfügst über abgeschlossenes (Bachelor, Master) in Wirtschaftsinformatik, Informatik, Data Science oder eine vergleichbare Ausbildung.\n- Du hast bereits erste Berührungspunkte mit AI Governance und idealerweise erste Grundlagenkenntnisse oder praktische Erfahrungen.\n- Du besitzt ein konzeptionelles Verständnis von AI-/Machine Learning-Technologien und deren Lebenszyklus.\n- Dein analytisches Denkvermögen und das Interesse an der Optimierung und Automatisierung von (Governance-)Prozessen runden deine Fähigkeiten ab.\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift sind zwingend erforderlich\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
+        "fr": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nIn der heutigen Zeit der rasanten AI-Entwicklung ist ein Spezialist für AI Governance & Prozesse unerlässlich, damit durch automatisierte Governance-Prozesse die AI Use Cases effizienter und schneller umgesetzt werden können. Diese Rolle hilft mit, den notwendigen Rahmen, der Innovationen nicht nur beschleunigt, sondern auch sicherstellt, dass regulatorische Anforderungen von Beginn an berücksichtigt werden, zu schaffen. Der Mehrwert liegt in der Risikominimierung, der Steigerung des Vertrauens und der Ermöglichung einer sicheren, strategischen und konformen Nutzung von AI, wodurch wir das volle Potenzial ausschöpfen können.Als Spezialist AI Governance & Prozesse unterstützt du unser Team dabei, einen transparenten, effizienten und regulatorisch konformen Einsatz von Künstlicher Intelligenz (AI) bei AXA Schweiz sicherzustellen. Du wirkst aktiv an der Pflege unseres AI-Inventars mit und bringst dich bei der Optimierung unserer Governance-Prozesse ein – auch durch den intelligenten Einsatz von AI. Dies ist eine ideale Einstiegsposition, um dich in einem hochrelevanten Zukunftsfeld zu entwickeln.Wenn du eine spannende Einstiegsposition in einem der wichtigsten und dynamischsten Bereiche der Digitalisierung suchst und die Chance packen willst an der Schnittstelle von modernster Technologie und AI Governance mitzuwirken, dann freuen wir uns auf deine Bewerbung.\n\nAXA ist nicht nur eine Versicherung. Rund 600 Software- und System-Entwickler arbeiten auf dem Platz Schweiz und entwickeln inhouse die Technologie von morgen. Dabei kollaborieren wir auch in globalen Teams und Netzwerken.Wir prägen und integrieren neueste Tools, veranstalten Hackathons und unsere agilen Produktteams laufen selbstorganisiert und sind von A bis Z eigenverantwortlich.Um den digitalen Wandel aktiv zu gestalten, bauen wir auf smarte und neugierige Talente sowie technologieaffine Mitarbeitende, die danach streben, den Unterschied zu machen.\n\n## Dein Beitrag\n- Du gestaltest und optimierst das AI-Governance-Framework durch deine aktive Mitarbeit bei der Analyse, Erstellung und Pflege von Standards und Best Practices für den verantwortungsvollen Einsatz von AI in der AXA Schweiz.\n- Du verantwortest das unternehmensweite AI-Inventar und entwickelst es weiter, einschliesslich der Dokumentation von Use Cases, Datenquellen und Risikobewertungen und agierst als zentrale Ansprechperson.\n- Du unterstützt bei der Identifikation, Bewertung und Minderung von Risiken im Zusammenhang mit AI-Anwendungen sowie der Koordination und Durchführung von Kontrollen zur Sicherstellung der Compliance.\n- Du bist Ansprechperson für die Fachbereiche bei AI-relevanten Fragen und der Anwendung von Best Practices, um eine korrekte und effiziente Nutzung der AI-Governance zu gewährleisten.\n- Du analysierst die bestehenden Governance-Prozesse auf Effizienzpotenziale und beteiligst dich aktiv an der Konzeption und Umsetzung von AI-gestützten Lösungen zur Automatisierung und Optimierung dieser Abläufe.\n\n## Deine Fähigkeiten und Talente\n- Du verfügst über abgeschlossenes (Bachelor, Master) in Wirtschaftsinformatik, Informatik, Data Science oder eine vergleichbare Ausbildung.\n- Du hast bereits erste Berührungspunkte mit AI Governance und idealerweise erste Grundlagenkenntnisse oder praktische Erfahrungen.\n- Du besitzt ein konzeptionelles Verständnis von AI-/Machine Learning-Technologien und deren Lebenszyklus.\n- Dein analytisches Denkvermögen und das Interesse an der Optimierung und Automatisierung von (Governance-)Prozessen runden deine Fähigkeiten ab.\n- Gute Deutsch- und Englischkenntnisse in Wort und Schrift sind zwingend erforderlich\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann."
+      },
+      "slugByLocale": {
+        "de": "spezialist-ai-governance-prozesse-all-genders",
+        "it": "spezialist-ai-governance-prozesse-all-genders",
+        "en": "spezialist-ai-governance-prozesse-all-genders",
+        "fr": "spezialist-ai-governance-prozesse-all-genders"
+      },
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via della Posta 2",
+      "postalCode": "6901"
     },
     {
       "title": "Sachbearbeiter:in Front Office Leistungen Ambulant",
@@ -390,7 +511,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -452,7 +573,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "100%",
@@ -516,7 +637,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -561,69 +682,6 @@
       "postalCode": "6901"
     },
     {
-      "title": "Head Foundations Customer Services CO PV Life (all genders)",
-      "slug": "head-foundations-customer-services-co-pv-life-tutti-i-generi-axa-svizzera-pionierstrasse-3",
-      "url": "https://jobs.axa.ch/posizioni-aperte/head-foundations-customer-services-co-pv-life-all-genders/0c242b2d-1d64-4c41-8673-8e6bfbdc966d",
-      "applyUrl": "https://jobs.axa.ch/apply/ats/0c242b2d-1d64-4c41-8673-8e6bfbdc966d",
-      "company": "AXA Svizzera",
-      "companyKey": "axa-svizzera",
-      "companyDomain": "axa.ch",
-      "location": "Winterthur / Smart Working",
-      "addressLocality": "Pionierstrasse 3",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "direzione",
-      "sector": "assicurazioni",
-      "source": "axa-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-04-06",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "workload": "80-100%",
-      "validThrough": "",
-      "description": "Komm zur AXA, der führenden Versicherung der Schweiz - als\n\nGestalte mit uns die Zukunft des Kundenservices – mit viel Freiraum, Verantwortung und der Chance, echte Wirkung zu erzielen.Im Bereich «Customer Operations» Personenversicherungen Life stellen wir unsere Kunden, Stiftungen und Partner ins Zentrum. Dabei richten wir unsere Innovationen konsequent an ihren Bedürfnissen aus. Unsere Mitarbeitenden sind dabei der Schlüssel zum Erfolg! Unser Ziel: ein Service-Erlebnis, das begeistert.\n\nIm Bereich Customer Operations gestalten wir die individuellen Erlebnisse unserer Kundinnen und Kunden im Schaden- und Leistungsfall. Sie stehen bei uns im Mittelpunkt und gemeinsam mit ihnen finden wir die passende Lösung. So gewährleisten wir mit unserer Customer-first-Mentalität höchste Kundenzufriedenheit.\n\n## Dein Beitrag\n- Du leitest strategisch und operativ den Bereich Foundations Customer Services, bestehend aus den Teams Vested Benefits (Freizügigkeits- und 3a Konti) sowie Contact Center Personenversicherungen (2. und 3. Säule)\n- Du führst eine Organisation mit 45 Mitarbeitenden, entwickelst Talente und stärkst eine Kultur des Miteinanders\n- Du erkennst Marktchancen, entwickelst das Leistungsangebot und das Wachstum Vested Benefits weiter.\n- Du sorgst dafür, dass unsere Services schneller, einfacher und noch kundenorientierter werden – sowohl durch optimierte Prozesse und Systeme als auch durch eine kundennahe Denk- und Handlungsweise\n- Du organisierst die Geschäftsführung der Rendita Stiftungen und sorgst dafür, dass das Tagesgeschäft der Stiftungen reibungslos und effizient abläuft\n- Du stellst die Qualitätssicherung sicher, behältst die KPIs und das Budget im Blick und gewährleistest, dass alle Vorgaben erfüllt werden\n\n## Deine Fähigkeiten und Talente\n- Du verfügst über einen Master in BWL/Management oder eine vergleichbare Ausbildung\n- Du bringst fundierte Kenntnisse in der beruflichen Vorsorge sowie mindestens 3-5 Jahre Führungserfahrung im Bereich Vested Benefits, Contact Center oder einer ähnlichen Service-Organisation mit\n- Du hast Erfahrung in der Marktbearbeitung, der Akquisition und Betreuung von Kooperationspartner sowie in Produkt- und Preisgestaltung\n- Du begeisterst dich für Veränderungen, Teamführung und moderne Arbeitsweisen\n- Du bringst ausgeprägtes strategisches Denken, analytisches Flair und eine hohe Kundenorientierung mit\n- Du zeichnest dich durch eine offene, durchsetzungsstarke Persönlichkeit aus, die Freude am Stakeholder-Management hat\n\n## Unser Bewerbungsprozess\nLerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter.\n\n## Smart Working\nBei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest.\n\n## Diversity & Inclusion\nVielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-      "titleByLocale": {
-        "it": "Head Foundations Customer Services CO PV Life (tutti i generi)",
-        "en": "Head Foundations Customer Services CO PV Life (all genders)",
-        "de": "Head Foundations Customer Services CO PV Life (alle Geschlechter)",
-        "fr": "Head Foundations Customer Services CO PV Vie (tous les genres)"
-      },
-      "descriptionByLocale": {
-        "it": "Giungi all'AXA, la principale assicurazione della Svizzera - come Gestisci con noi il futuro del servizio al cliente - con molto spazio, responsabilità e la possibilità di ottenere un vero impatto. Nel settore \"Customer Operations\" assicurazioni sulla vita, mettiamo al centro i nostri clienti, le fondazioni e i partner. In questo modo, le nostre innovazioni sono sempre orientate ai loro bisogni. I nostri dipendenti sono la chiave del successo! Il nostro obiettivo: un'esperienza di servizio che entusiasma. Nel settore Customer Operations, progettiamo le esperienze individuali dei nostri clienti nel caso di danni e prestazioni. Sono al centro e insieme a loro troviamo la soluzione adatta. In questo modo, garantiamo con la nostra mentalità \"Customer-first\" la massima soddisfazione dei nostri clienti. ## Il tuo contributo - Guidi strategicamente e operativamente il settore Foundations Customer Services, composto dai team Vested Benefits (conti di libertà di movimento e 3a) e Contact Center assicurazioni sulla vita (2. e 3. pilastro) - Guidi un'organizzazione con 45 dipendenti, sviluppi talenti e rafforzi una cultura del confronto - Riconosci le opportunità di mercato, sviluppi l'offerta di prestazioni e il crescita di Vested Benefits. - Assicuri che i nostri servizi siano più veloci, più semplici e più orientati ai clienti - sia attraverso processi e sistemi ottimizzati che attraverso un approccio e un comportamento più vicini ai clienti - Organizza la gestione aziendale delle fondazioni di rendita e assicuri che il lavoro di ogni giorno delle fondazioni scorra senza intoppi e in modo efficiente - Assicuri la qualità, tenga d'occhio i KPI e il budget e garantisca che tutte le prescrizioni siano rispettate ## Le tue competenze e talenti - Hai un master in economia aziendale/management o una formazione equivalente - Hai conoscenze approfondite nella previdenza professionale e almeno 3-5 anni di esperienza di leadership nel settore Vested Benefits, Contact Center o in un'organizzazione di servizio simile - Hai esperienza nella gestione del mercato, nell'acquisizione e nella gestione dei partner di cooperazione e nella gestione dei prodotti e dei prezzi - Ti entusiasmi le trasformazioni, la leadership del team e le moderne modalità di lavoro - Hai un pensiero strategico sviluppato, un senso analitico e un alto livello di orientamento ai clienti - Ti distingui per una personalità aperta, decisa e capace di gestire i stakeholder ## Il nostro processo di candidatura Conosci il nostro processo di candidatura e ottieni risposte alle domande che i candidati ci pongono più frequentemente. Se hai bisogno di aiuto durante il processo di candidatura, non esitare a contattarci. Le colleghe e i colleghi del recruiting ti aiuteranno con piacere. ## Smart Working All'AXA, ci fidiamo della tua fiducia, della tua flessibilità e della tua collaborazione. Al centro del nostro nuovo modello di lavoro \"Smart Working\" c'è il tuo contributo ai nostri obiettivi aziendali e non il luogo in cui lavori. ## Diversità & Inclusion La diversità, l'uguaglianza delle opportunità e l'inclusione sono per noi alla AXA priorità. La nostra cultura aziendale promuove il rispetto e l'apertura, in modo che ogni persona possa sviluppare il suo pieno potenziale con noi.",
-        "en": "Join AXA, the leading insurance company in Switzerland - as Shape the future of customer service - with plenty of space, responsibility, and the chance to make a real impact. In the \"Customer Operations\" life insurance sector, we put our customers, foundations, and partners at the center. In this way, our innovations are always tailored to their needs. Our employees are the key to success! Our goal: an experience that delights. In the Customer Operations sector, we design individual experiences for our customers in the case of damage and benefits. They are at the center and together we find the right solution. In this way, we guarantee with our \"Customer-first\" mentality the highest customer satisfaction. ## Your contribution - Strategically and operationally lead the Foundations Customer Services sector, consisting of the Vested Benefits teams (mobility and 3a accounts) and Contact Center life insurance (2nd and 3rd pillar) - Lead an organization with 45 employees, develop talents, and strengthen a culture of collaboration - Identify market opportunities, develop the performance offer, and the growth of Vested Benefits. - Ensure that our services are faster, simpler, and more customer-oriented - both through optimized processes and systems and through a more customer-centric thinking and behavior - Organize the management of the endowment funds and ensure that the daily work of the foundations runs smoothly and efficiently - Ensure quality, keep an eye on KPIs and budget, and ensure that all requirements are met ## Your skills and talents - Have a master's degree in business administration/management or equivalent training - Have in-depth knowledge of professional pre-vision and at least 3-5 years of leadership experience in the Vested Benefits, Contact Center, or similar service organization sector - Have experience in market management, acquisition, and management of cooperation partners, and product and price management - Are enthusiastic about transformations, team leadership, and modern ways of working - Have developed strategic thinking, analytical sense, and high customer orientation - Distinguish yourself by an open, decisive, and stakeholder management-capable personality ## Our application process Get to know our application process and get answers to the questions that candidates ask us most frequently. If you need help during the application process, don't hesitate to contact us. The colleagues from the recruiting team will help you with pleasure. ## Smart Working At AXA, we trust in your trust, flexibility, and teamwork. At the center of our new \"Smart Working\" model is your contribution to our corporate goals and not the place where you work. ## Diversity & Inclusion Diversity, equal opportunities, and inclusion are top priorities for us at AXA. Our corporate culture promotes respect and openness, so that every person can develop their full potential with us.",
-        "de": "Komm zur AXA, der führenden Versicherung der Schweiz - als Gestalte mit uns die Zukunft des Kundenservices – mit viel Freiraum, Verantwortung und der Chance, echte Wirkung zu erzielen.Im Bereich «Customer Operations» Personenversicherungen Life stellen wir unsere Kunden, Stiftungen und Partner ins Zentrum. Dabei richten wir unsere Innovationen konsequent an ihren Bedürfnissen aus. Unsere Mitarbeitenden sind dabei der Schlüssel zum Erfolg! Unser Ziel: ein Service-Erlebnis, das begeistert. Im Bereich Customer Operations gestalten wir die individuellen Erlebnisse unserer Kundinnen und Kunden im Schaden- und Leistungsfall. Sie stehen bei uns im Mittelpunkt und gemeinsam mit ihnen finden wir die passende Lösung. So gewährleisten wir mit unserer Customer-first-Mentalität höchste Kundenzufriedenheit. ## Dein Beitrag - Du leitest strategisch und operativ den Bereich Foundations Customer Services, bestehend aus den Teams Vested Benefits (Freizügigkeits- und 3a Konti) sowie Contact Center Personenversicherungen (2. und 3. Säule) - Du führst eine Organisation mit 45 Mitarbeitenden, entwickelst Talente und stärkst eine Kultur des Miteinanders - Du erkennst Marktchancen, entwickelst das Leistungsangebot und das Wachstum Vested Benefits weiter. - Du sorgst dafür, dass unsere Services schneller, einfacher und noch kundenorientierter werden – sowohl durch optimierte Prozesse und Systeme als auch durch eine kundennahe Denk- und Handlungsweise - Du organisierst die Geschäftsführung der Rendita Stiftungen und sorgst dafür, dass das Tagesgeschäft der Stiftungen reibungslos und effizient abläuft - Du stellst die Qualitätssicherung sicher, behältst die KPIs und das Budget im Blick und gewährleistest, dass alle Vorgaben erfüllt werden ## Deine Fähigkeiten und Talente - Du verfügst über einen Master in BWL/Management oder eine vergleichbare Ausbildung - Du bringst fundierte Kenntnisse in der beruflichen Vorsorge sowie mindestens 3-5 Jahre Führungserfahrung im Bereich Vested Benefits, Contact Center oder einer ähnlichen Service-Organisation mit - Du hast Erfahrung in der Marktbearbeitung, der Akquisition und Betreuung von Kooperationspartner sowie in Produkt- und Preisgestaltung - Du begeisterst dich für Veränderungen, Teamführung und moderne Arbeitsweisen - Du bringst ausgeprägtes strategisches Denken, analytisches Flair und eine hohe Kundenorientierung mit - Du zeichnest dich durch eine offene, durchsetzungsstarke Persönlichkeit aus, die Freude am Stakeholder-Management hat ## Unser Bewerbungsprozess Lerne unseren Bewerbungsprozess kennen und erhalte Antworten auf Fragen, die Bewerbende uns häufig stellen. Solltest du während des Bewerbungsprozesses Unterstützung benötigen, melde dich einfach. Die Kolleginnen und Kollegen vom Recruiting helfen dir gerne weiter. ## Smart Working Bei der AXA setzen wir auf Vertrauen, Flexibilität und Teamarbeit. Im Zentrum unseres neuen Arbeitsmodells \"Smart Working\" steht dein Beitrag zu den Unternehmenszielen und nicht der Ort, an dem du arbeitest. ## Diversity & Inclusion Vielfalt, Chancengerechtigkeit und Inklusion liegen uns bei der AXA am Herzen. Unsere Unternehmenskultur fördert Respekt und Offenheit, damit jede Person bei uns ihr volles Potential entfalten kann.",
-        "fr": "Rejoins AXA, la principale compagnie d'assurance de la Suisse - comme Construis la future du service client - avec beaucoup d'espace, de responsabilité et la chance de faire un impact réel. Dans le secteur \"Customer Operations\" assurances vie, nous mettons nos clients, nos fondations et nos partenaires au centre. De cette façon, nos innovations sont toujours adaptées à leurs besoins. Nos employés sont la clé du succès ! Notre objectif : une expérience qui enchante. Dans le secteur Customer Operations, nous conçons des expériences individuelles pour nos clients dans le cas de dommages et de prestations. Ils sont au centre et ensemble, nous trouvons la solution adaptée. De cette façon, nous garantirons avec notre mentalité \"Customer-first\" la plus haute satisfaction des clients. ## Votre contribution - Dirigez stratégiquement et opérationnellement le secteur Foundations Customer Services, composé des équipes Vested Benefits (comptes de mobilité et 3a) et Contact Center assurances vie (2ème et 3ème pilier) - Dirigez une organisation de 45 employés, développez des talents et renforcez une culture de collaboration - Identifiez les opportunités de marché, développez l'offre de prestations et la croissance de Vested Benefits. - Assurez-vous que nos services soient plus rapides, plus simples et plus orientés vers les clients - à la fois par des processus et des systèmes optimisés et par un comportement et une pensée plus centrés sur les clients - Organisez la gestion des fonds de pension et assurez-vous que le travail quotidien des fondations fonctionne sans encombre et de manière efficace - Assurez la qualité, tenez un œil sur les KPI et le budget et assurez-vous que toutes les exigences soient respectées ## Vos compétences et talents - Ayez un master en administration des entreprises/gestion ou une formation équivalente - Ayez une connaissance approfondie de la prévoyance professionnelle et au moins 3-5 ans d'expérience de leadership dans le secteur Vested Benefits, Contact Center ou dans une organisation de service similaire - Ayez une expérience dans la gestion du marché, l'acquisition et la gestion des partenaires de coopération et la gestion des produits et des prix - Soyez enthousiasmé par les transformations, la direction d'équipe et les façons de travailler modernes - Ayez une pensée stratégique développée, un sens analytique et une haute orientation client - Distinguez-vous par une personnalité ouverte, décisive et capable de gérer les stakeholders ## Notre processus de candidature Connaître notre processus de candidature et obtenir des réponses aux questions que les candidats nous posent le plus fréquemment. Si vous avez besoin d'aide pendant le processus de candidature, n'hésitez pas à nous contacter. Les collègues du recrutement vous aideront avec plaisir. ## Smart Working Chez AXA, nous nous fions à votre confiance, à votre flexibilité et à votre collaboration. Au centre de notre nouveau modèle de travail \"Smart Working\" est votre contribution à nos objectifs corporatifs et non le lieu où vous travaillez. ## Diversité & Inclusion La diversité, l'égalité des chances et l'inclusion sont des priorités pour nous à AXA. Notre culture d'entreprise promeut le respect et l'ouverture, de sorte que chaque personne puisse développer son plein potentiel avec nous."
-      },
-      "slugByLocale": {
-        "it": "head-foundations-customer-services-co-pv-life-tutti-i-generi-axa-svizzera-pionierstrasse-3",
-        "en": "head-foundations-customer-services-co-pv-life-all-genders",
-        "de": "head-foundations-customer-services-co-pv-life-alle-geschlechter-axa-svizzera-pionierstrasse-3",
-        "fr": "head-foundations-customer-services-co-pv-vie-tous-les-genres-axa-svizzera-pionierstrasse-3"
-      },
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 72000,
-          "maxValue": 97000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via della Posta 2",
-      "postalCode": "6901",
-      "previousSlugs": [
-        "head-foundations-customer-services-co-pv-life-all-genders",
-        "head-foundations-customer-services-co-pv-life-alle-geschlechter-axa-svizzera-winterthur-smart-working-ainoqm",
-        "head-foundations-customer-services-co-pv-life-alle-geschlechter-axa-svizzera-winterthur-smart-working-ainoqm"
-      ]
-    },
-    {
       "title": "Leiter:in Innendienst für die Generalagentur Vorsorge & Vermögen Chur",
       "slug": "responsabile-servizio-interno-per-la-agenzia-generale-previdenza-patrimonio-chur-axa-svizzera-axa",
       "url": "https://jobs.axa.ch/posizioni-aperte/leiter-in-innendienst-fuer-die-generalagentur-vorsorge-vermoegen-chur/a34a92f0-26f1-4eaf-bdf1-6188b5dd1a80",
@@ -641,7 +699,7 @@
       "sector": "assicurazioni",
       "source": "axa-dedicated-crawler",
       "sourceLang": "de",
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "employmentType": "full-time",
       "contractType": "full-time",
       "workload": "80-100%",
@@ -682,7 +740,6 @@
       "postalCode": "6901",
       "previousSlugs": [
         "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur",
-        "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-ticino",
         "leiter-in-innendienst-fur-die-generalagentur-vorsorge-vermogen-chur-axa-svizzera-ticino"
       ]
     }
