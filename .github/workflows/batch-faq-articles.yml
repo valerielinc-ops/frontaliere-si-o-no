@@ -6,12 +6,12 @@ on:
       limit:
         description: 'Number of articles to process per run'
         required: false
-        default: '50'
+        default: '200'
         type: string
       concurrency:
         description: 'Parallel articles (AI calls)'
         required: false
-        default: '3'
+        default: '1'
         type: string
       skip_translate:
         description: 'Skip EN/DE/FR translation (Italian FAQ only)'
@@ -29,7 +29,7 @@ permissions:
 jobs:
   generate-faq:
     runs-on: ubuntu-latest
-    timeout-minutes: 50
+    timeout-minutes: 90
 
     steps:
       - name: Checkout
