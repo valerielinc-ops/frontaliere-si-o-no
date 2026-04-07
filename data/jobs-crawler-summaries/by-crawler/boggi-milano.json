@@ -1,16 +1,16 @@
 {
   "key": "boggi-milano",
   "label": "Boggi Milano",
-  "generatedAt": "2026-04-07T09:08:31.119Z",
+  "generatedAt": "2026-04-07T21:03:28.678Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7335,
-  "avgDurationMs": 7335,
+  "durationMs": 6220,
+  "avgDurationMs": 6220,
   "durationHistory": [
-    7335
+    6220
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -225,42 +225,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Treasury Coordinator",
-      "slug": "coordinatore-del-tesoro-boggi-milano-mendrisio",
-      "url": "https://boggimilano1.recruitee.com/l/it/o/treasury-coordinator-3",
-      "applyUrl": "https://boggimilano1.recruitee.com/o/treasury-coordinator-3/c/new",
-      "company": "Boggi Milano",
-      "companyKey": "boggi-milano",
-      "companyDomain": "recruitee.com",
-      "location": "Mendrisio, Ticino",
-      "addressLocality": "Mendrisio",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "finance",
-      "sector": "Moda & Retail",
-      "source": "boggi-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-03-02",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 82500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "streetAddress": "Via A. Maspoli 18",
-      "postalCode": "6850",
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
