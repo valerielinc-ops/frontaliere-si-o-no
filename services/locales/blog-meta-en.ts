@@ -2166,6 +2166,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.niederlander-droga-ticino.title': 'Dutchman with four kilos of cocaine stopped at the border',
     'blog.article.niederlander-droga-ticino.excerpt': 'A Dutch citizen was stopped with four kilos of cocaine at the Kreuzlingen border, Switzerland.',
     'blog.article.niederlander-droga-ticino.imageAlt': 'Photorealistic scene of an alpine pass with a police car',
+    'blog.article.stop-agli-artigiani-per-caso.title': 'Stop to \'accidental craftsmen\' in Lombardy: fines of up to 25,000 euros',
+    'blog.article.stop-agli-artigiani-per-caso.excerpt': 'Lombardy introduces new rules for craftsmen: stop to \'accidental craftsmen\' and severe fines for those who improperly use the term \'artisanal\'.',
+    'blog.article.stop-agli-artigiani-per-caso.imageAlt': 'Craftsman at work in a laboratory',
 };
 
 export default blogMetaEn;

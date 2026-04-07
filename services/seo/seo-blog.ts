@@ -12710,6 +12710,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-stop-agli-artigiani-per-caso': {
+    title: 'Stop agli \'artigiani per caso\' in Lombardia: multe fino a 25.000 euro | Frontaliere Ticino',
+    description: 'La Lombardia introduce nuove regole per gli artigiani: stop agli \'artigiani per caso\' e multe severe per chi utilizza impropriamente il termine \'artigianale\'.',
+    keywords: 'frontalieri, ticino, svizzera, italia, stop, agli, artigiani, caso',
+    ogTitle: 'Stop agli \'artigiani per caso\' in Lombardia',
+    ogDescription: 'La Lombardia introduce nuove regole per gli artigiani: stop agli \'artigiani per caso\' e multe severe per chi utilizza impropriamente il termine \'artigianale\'.',
+    canonicalPath: '/articoli-frontaliere/stop-agli-artigiani-per-caso',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Stop agli 'artigiani per caso' in Lombardia: multe fino a 25.000 euro",
+      "description": "La Lombardia introduce nuove regole per gli artigiani: stop agli 'artigiani per caso' e multe severe per chi utilizza impropriamente il termine 'artigianale'.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/stop-agli-artigiani-per-caso.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Artigiano al lavoro in un laboratorio"
+      },
+      "datePublished": "2026-04-07T16:08:21+00:00",
+      "dateModified": "2026-04-07T16:08:21+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stop-agli-artigiani-per-caso`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

@@ -2166,6 +2166,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.niederlander-droga-ticino.title': 'Néerlandais arrêté avec quatre kilos de cocaïne à la frontière',
     'blog.article.niederlander-droga-ticino.excerpt': 'Un citoyen néerlandais a été arrêté avec quatre kilos de cocaïne à la frontière de Kreuzlingen, en Suisse.',
     'blog.article.niederlander-droga-ticino.imageAlt': 'Scène photoréaliste d\'un col alpin avec une voiture de police',
+    'blog.article.stop-agli-artigiani-per-caso.title': 'Fin aux \'artisans par hasard\' en Lombardie : amendes jusqu\'à 25 000 euros',
+    'blog.article.stop-agli-artigiani-per-caso.excerpt': 'La Lombardie introduit de nouvelles règles pour les artisans : fin aux \'artisans par hasard\' et amendes sévères pour ceux qui utilisent improprement le terme \'artisanale\'.',
+    'blog.article.stop-agli-artigiani-per-caso.imageAlt': 'Artisan au travail dans un laboratoire',
 };
 
 export default blogMetaFr;

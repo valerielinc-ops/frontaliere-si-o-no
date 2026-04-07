@@ -6244,4 +6244,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/niederlander-droga-ticino.jpg',
     hasCalculator: false,
   },
+  {
+    id: 'stop-agli-artigiani-per-caso',
+    category: 'novita',
+    date: '2026-04-07T16:08:21.953Z',
+    image: '/images/blog/stop-agli-artigiani-per-caso.jpg',
+    hasCalculator: true,
+  },
 ];

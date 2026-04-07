@@ -1975,6 +1975,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026': { name: 'Provincia di Varese: investimenti in', path: '/articoli-frontaliere/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026', parent: 'blog' },
     'blog-turisti-in-como-ztl': { name: 'La famigliola di turisti investita in ce', path: '/articoli-frontaliere/turisti-in-como-ztl', parent: 'blog' },
     'blog-niederlander-droga-ticino': { name: 'Traffico di droga', path: '/articoli-frontaliere/niederlander-droga-ticino', parent: 'blog' },
+    'blog-stop-agli-artigiani-per-caso': { name: 'Economia', path: '/articoli-frontaliere/stop-agli-artigiani-per-caso', parent: 'blog' },
   };
 
   const info = sectionNames[section];

@@ -2166,6 +2166,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.niederlander-droga-ticino.title': 'Niederländer con quattro chili di cocaina fermato al confine',
     'blog.article.niederlander-droga-ticino.excerpt': 'Un cittadino olandese è stato fermato con quattro chili di cocaina al confine di Kreuzlingen, Svizzera.',
     'blog.article.niederlander-droga-ticino.imageAlt': 'Scena fotorealistica di un valico alpino con un\'auto della polizia',
+    'blog.article.stop-agli-artigiani-per-caso.title': 'Stop agli \'artigiani per caso\' in Lombardia: multe fino a 25.000 euro',
+    'blog.article.stop-agli-artigiani-per-caso.excerpt': 'La Lombardia introduce nuove regole per gli artigiani: stop agli \'artigiani per caso\' e multe severe per chi utilizza impropriamente il termine \'artigianale\'.',
+    'blog.article.stop-agli-artigiani-per-caso.imageAlt': 'Artigiano al lavoro in un laboratorio',
 };
 
 export default blogMetaIt;

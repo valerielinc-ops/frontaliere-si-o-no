@@ -2166,6 +2166,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.niederlander-droga-ticino.title': 'Niederländer mit vier Kilogramm Kokain am Grenzübergang angehalten',
     'blog.article.niederlander-droga-ticino.excerpt': 'Ein niederländischer Staatsbürger wurde mit vier Kilogramm Kokain am Grenzübergang Kreuzlingen, Schweiz, angehalten.',
     'blog.article.niederlander-droga-ticino.imageAlt': 'Fotorealistische Szene eines Alpenpasses mit einem Polizeiauto',
+    'blog.article.stop-agli-artigiani-per-caso.title': 'Ende mit \'Zubehörhandwerkern\' in Lombardien: Bußgelder bis zu 25.000 Euro',
+    'blog.article.stop-agli-artigiani-per-caso.excerpt': 'Lombardien einführt neue Regeln für Handwerker: Ende mit \'Zubehörhandwerkern\' und schwere Bußgelder für missbräuchliche Nutzung des Begriffs \'handwerklich\'',
+    'blog.article.stop-agli-artigiani-per-caso.imageAlt': 'Handwerker bei der Arbeit in einem Labor',
 };
 
 export default blogMetaDe;
