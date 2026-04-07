@@ -1,18 +1,83 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-04-06T21:15:11.489Z",
-  "total": 2,
-  "newCount": 0,
+  "generatedAt": "2026-04-07T09:31:52.704Z",
+  "total": 3,
+  "newCount": 2,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 17774,
-  "avgDurationMs": 17774,
+  "unchangedCount": 1,
+  "durationMs": 22656,
+  "avgDurationMs": 22656,
   "durationHistory": [
-    17774
+    22656
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-7haru0",
+      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0",
+      "company": "Fust",
+      "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
+      "location": "Tenero-Contra, Ticino",
+      "canton": "TI",
+      "category": "admin",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/487fa484-fe53-4cf8-87d3-556586d07a03",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Ticino",
+        "canton": "TI"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-04-07T09:31:51.316Z",
+      "needsRetranslation": true,
+      "sourceLang": "it",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "id": "company-pztp1c",
+      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+      "company": "Fust",
+      "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
+      "location": "Grigioni",
+      "canton": "GR",
+      "category": "admin",
+      "contract": "part-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/8139f27d-7bdc-4eb9-ae69-221825f2cddd",
+      "source": "Company Careers Crawler",
+      "_targetScope": {
+        "type": "adapter_seed_meta",
+        "location": "Grigioni",
+        "canton": "GR"
+      },
+      "companyKey": "fust",
+      "companyDomain": "fust.ch",
+      "crawledAt": "2026-04-07T09:31:51.316Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "_qualityScore": 75,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
@@ -41,45 +106,6 @@
       "sourceLang": "it",
       "salaryMin": 80000,
       "salaryMax": 108000,
-      "streetAddress": "Via Industria 1",
-      "postalCode": "6593",
-      "addressLocality": "Cadenazzo",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 95,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "company-ie4nz4",
-      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-cadenazzo",
-      "company": "Fust",
-      "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
-      "location": "Tenero-Contra, Ticino",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-11",
-      "url": "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/2bef43a6-24ae-4b97-b27d-36d51a64383d",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "fust",
-      "companyDomain": "fust.ch",
-      "crawledAt": "2026-03-31T21:17:44.158Z",
-      "sourceLang": "it",
-      "salaryMin": 46500,
-      "salaryMax": 62500,
       "streetAddress": "Via Industria 1",
       "postalCode": "6593",
       "addressLocality": "Cadenazzo",

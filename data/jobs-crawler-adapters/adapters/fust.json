@@ -10,23 +10,30 @@
     "jsonld"
   ],
   "seedUrls": [
+    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/487fa484-fe53-4cf8-87d3-556586d07a03",
     "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/b5d19edf-4fa0-4b42-8d10-dc555330d56a",
-    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/2bef43a6-24ae-4b97-b27d-36d51a64383d"
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/8139f27d-7bdc-4eb9-ae69-221825f2cddd"
   ],
   "seedMetaByUrl": {
+    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/487fa484-fe53-4cf8-87d3-556586d07a03": {
+      "location": "Ticino",
+      "canton": "TI",
+      "company": "Fust",
+      "contract": "A tempo determinato"
+    },
     "https://jobs.fust.ch/posti-vacanti/montatore-trice-di-impianti-sanitari-per-cucine-bagni/b5d19edf-4fa0-4b42-8d10-dc555330d56a": {
       "location": "Ticino",
       "canton": "TI",
       "company": "Fust",
       "contract": "A tempo indeterminato"
     },
-    "https://jobs.fust.ch/posti-vacanti/apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto/2bef43a6-24ae-4b97-b27d-36d51a64383d": {
-      "location": "Ticino",
-      "canton": "TI",
+    "https://jobs.fust.ch/offene-stellen/heimliefermonteur-in-von-elektrohaushaltgeraeten/8139f27d-7bdc-4eb9-ae69-221825f2cddd": {
+      "location": "Grigioni",
+      "canton": "GR",
       "company": "Fust",
-      "contract": "A tempo determinato"
+      "contract": "A tempo indeterminato"
     }
   },
   "notes": "Fust (Coop Group) — Prospective.ch JobBooster (Career Center 1000103). Detail pages on jobs.fust.ch with JSON-LD JobPosting.",
-  "updatedAt": "2026-04-06T21:14:55.420Z"
+  "updatedAt": "2026-04-07T09:31:31.954Z"
 }
