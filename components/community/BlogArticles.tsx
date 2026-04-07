@@ -12,7 +12,7 @@ const KEYWORD_LINKS_GI = KEYWORD_LINKS.map(kl => ({
   giPattern: new RegExp(kl.pattern.source, 'gi'),
 }));
 import { Analytics } from '@/services/analytics';
-import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore } from 'lucide-react';
+import { BookOpen, Clock, ChevronRight, Calculator, ArrowRight, Calendar, ArrowLeft, Share2, Copy, Check, ChevronLeft, CheckCircle2, Lightbulb, AlertTriangle, BarChart3, Heart, Coins, TrendingUp, FileText, Receipt, Scale, Home, Briefcase, ShieldCheck, MapPin, ShoppingBag, Train, Building2, Mail, Coffee, ExternalLink, Baby, Search, PenLine, Newspaper, User, List, ChevronDown, RefreshCw, Bookmark as BookmarkIcon, Printer, ThumbsUp, ThumbsDown, MessageSquareMore, HelpCircle } from 'lucide-react';
 import type { LucideIcon } from 'lucide-react';
 import { PARTNERS, buildAffiliateUrl, type AffiliatePartner, type ComparatorContext } from '@/services/affiliateService';
 const AdSenseBanner = lazy(() => import('@/components/shared/AdSenseBanner'));
@@ -1923,6 +1923,48 @@ function BlogArticles({
                 </Fragment>
               ))}
             </div>
+
+            {/* Visible FAQ section */}
+            {(() => {
+              const faqKey = `blog.article.${article.id}.faq`;
+              const faqRaw = t(faqKey);
+              if (faqRaw === faqKey) return null;
+              try {
+                const faqPairs = JSON.parse(faqRaw);
+                if (!Array.isArray(faqPairs) || faqPairs.length < 2) return null;
+                const validPairs = faqPairs.filter((p: { q?: string; a?: string }) => p.q && p.a && p.q.length > 5 && p.a.length > 10).slice(0, 8);
+                if (validPairs.length < 2) return null;
+                return (
+                  <div className="mt-8 border border-amber-200 dark:border-amber-800/40 bg-amber-50/50 dark:bg-amber-950/20 rounded-xl overflow-hidden">
+                    <button
+                      onClick={() => {
+                        const el = document.getElementById('article-faq-content');
+                        if (el) el.classList.toggle('hidden');
+                        const btn = document.getElementById('article-faq-toggle');
+                        if (btn) btn.classList.toggle('rotate-180');
+                      }}
+                      className="w-full flex items-center justify-between p-4 sm:p-5 text-left"
+                      aria-expanded="false"
+                      aria-controls="article-faq-content"
+                    >
+                      <span className="flex items-center gap-2 text-base font-bold text-amber-900 dark:text-amber-200">
+                        <HelpCircle size={20} className="text-amber-600 dark:text-amber-400" />
+                        {locale === 'en' ? 'Frequently Asked Questions' : locale === 'de' ? 'Häufig gestellte Fragen' : locale === 'fr' ? 'Questions fréquentes' : 'Domande frequenti'}
+                      </span>
+                      <ChevronDown id="article-faq-toggle" size={18} className="text-amber-600 dark:text-amber-400 transition-transform duration-200" />
+                    </button>
+                    <div id="article-faq-content" className="hidden px-4 sm:px-5 pb-4 sm:pb-5 space-y-3">
+                      {validPairs.map((pair: { q: string; a: string }, i: number) => (
+                        <div key={i} className="border-t border-amber-200/60 dark:border-amber-800/30 pt-3">
+                          <p className="font-semibold text-sm text-slate-800 dark:text-slate-200">{pair.q}</p>
+                          <p className="text-sm text-slate-600 dark:text-slate-400 mt-1 leading-relaxed">{pair.a}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                );
+              } catch { return null; }
+            })()}
 
             {/* Contextual CTA widgets */}
             {articleCTAs.length > 0 && (
