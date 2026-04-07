@@ -19,13 +19,14 @@ Disallow: /*?status=*
 # Canonical host (www → non-www redirect)
 Host: https://frontaliereticino.ch
 
-# Sitemap locations (index includes pages, blog, glossario, news, and jobs sub-sitemaps)
+# Sitemap locations (index includes pages, blog, glossario, news, jobs, and guides sub-sitemaps)
 Sitemap: https://frontaliereticino.ch/sitemap.xml
 Sitemap: https://frontaliereticino.ch/sitemap-pages.xml
 Sitemap: https://frontaliereticino.ch/sitemap-blog.xml
 Sitemap: https://frontaliereticino.ch/sitemap-glossario.xml
 Sitemap: https://frontaliereticino.ch/sitemap-news.xml
 Sitemap: https://frontaliereticino.ch/sitemap-jobs.xml
+Sitemap: https://frontaliereticino.ch/sitemap-guides.xml
 
 # AI-readable content files (llmstxt.org standard)
 # /llms.txt — structured site summary for AI systems
