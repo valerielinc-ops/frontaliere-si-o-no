@@ -337,6 +337,7 @@ Die Wahl zwischen KVG und SSN ist eine der wichtigsten finanziellen Entscheidung
 3. **Halten Sie die 3-Monats-Frist ein** — tragen Sie das Datum in den Kalender ein und schieben Sie es nicht auf
 
 *Hauptquellen: BAG, Krankenversicherungsstatistik 2025; Priminfo.admin.ch, KVG-Prämien 2026; INPS, Rundschreiben Gesundheitsbeiträge Grenzgänger 2024; Art. 2 KVV (Verordnung über die Krankenversicherung); Freizügigkeitsabkommen EU-CH, Anhang II; OECD Health at a Glance 2024.*`,
+    'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Wie funktioniert das Recht auf Wahlfreiheit für grenzüberschreitende Pendler, die in der Schweiz arbeiten?","a":"Grenzüberschreitende Pendler haben das Recht, zwischen einer Registrierung bei der Schweizer KVG oder der Aufrechterhaltung der italienischen NHS-Abdeckung zu wählen. Die Entscheidung muss innerhalb von 3 Monaten nach Arbeitsbeginn in der Schweiz mitgeteilt werden."},{"q":"Wie viele Grenzpendler arbeiten in der Schweiz und welchen Prozentsatz wählt die KVG?","a":"Laut Daten von 2025 arbeiten allein im Kanton Tessin mehr als 78.000 grenzüberschreitende Pendler. Etwa 35 % von ihnen wählen die Schweizer KVG, während 65 % den italienischen NHS beibehalten."}]',
 };
 
 export default bodyLamalVsSsnDecisione;

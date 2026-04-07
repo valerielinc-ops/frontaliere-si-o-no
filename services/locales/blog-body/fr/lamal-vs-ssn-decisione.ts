@@ -337,6 +337,7 @@ Le choix entre LAMal et SSN est l'une des décisions financières les plus impor
 3. **Respectez le délai de 3 mois** — marquez la date dans votre calendrier et ne procrastinez pas
 
 *Sources principales : OFSP/BAG, Statistiques de l'assurance-maladie 2025 ; Priminfo.admin.ch, Primes LAMal 2026 ; INPS, Circulaire cotisations sanitaires frontaliers 2024 ; art. 2 OAMal (Ordonnance sur l'assurance-maladie) ; Accord sur la libre circulation des personnes UE-CH, annexe II ; OCDE Panorama de la santé 2024.*`,
+    'blog.article.lamal-vs-ssn-decisione.faq': '[{"q":"Comment fonctionne le droit de choix pour les navetteurs transfrontaliers travaillant en Suisse ?","a":"Les navetteurs transfrontaliers ont le droit de choisir entre s’enregistrer auprès de la KVG suisse ou maintenir la couverture du NHS italien. Le choix doit être communiqué dans les 3 mois suivant le début du travail en Suisse."},{"q":"Combien de navetteurs transfrontaliers travaillent en Suisse et quel pourcentage le KVG choisit-il ?","a":"Selon les données de 2025, plus de 78 000 navetteurs transfrontaliers travaillent rien que dans le canton du Tessin. Environ 35 % d’entre eux choisissent le KVG suisse, tandis que 65 % conservent le NHS italien."}]',
 };
 
 export default bodyLamalVsSsnDecisione;
