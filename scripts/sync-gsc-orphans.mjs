@@ -41,8 +41,8 @@ const ENABLE_WAYBACK = process.env.ENABLE_WAYBACK === '1';
 const LOCALE_PREFIXES = {
   it: ['/cerca-lavoro-ticino/'],
   en: ['/en/find-jobs-ticino/', '/en/find-job-ticino/', '/en/job-search-ticino/'],
-  de: ['/de/jobs-im-tessin/', '/de/jobsuche-tessin/'],
-  fr: ['/fr/recherche-emploi-tessin/', '/fr/trouver-emploi-tessin/'],
+  de: ['/de/jobs-im-tessin/', '/de/jobsuche-tessin/', '/de/stellenangebote-tessin/'],
+  fr: ['/fr/recherche-emploi-tessin/', '/fr/trouver-emploi-tessin/', '/fr/emplois-tessin/'],
 };
 
 const ALL_PREFIXES = Object.values(LOCALE_PREFIXES).flat();
@@ -177,8 +177,10 @@ async function fetchGscJobUrls(accessToken) {
     '/en/job-search-ticino/',
     '/de/jobs-im-tessin/',
     '/de/jobsuche-tessin/',
+    '/de/stellenangebote-tessin/',  // old DE prefix
     '/fr/recherche-emploi-tessin/',
     '/fr/trouver-emploi-tessin/',
+    '/fr/emplois-tessin/',          // old FR prefix
   ];
 
   for (const expression of filterExpressions) {
@@ -1107,25 +1109,33 @@ async function main() {
   }
 
   // Step 2c: Merge with previously known orphans
-  // Existing orphans that are still not in knownSlugs must be preserved —
-  // GSC Search Analytics only covers ~18 months and the domain/URL-prefix
-  // property switch can return different result sets.
+  // Preserve ALL previously-enriched entries — even if the slug is now in knownSlugs.
+  // The enrichment data (GSC queries, titles, company info) is used by the build
+  // plugin to create richer soft-landing pages. Without it, pages degrade to generic
+  // "Mercato del lavoro in Ticino" fallback content.
   const existingEnriched = readJsonSafe(dataPath('orphan-enriched-data.json'));
   if (Array.isArray(existingEnriched) && existingEnriched.length > 0) {
     const currentKeys = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
     let preserved = 0;
+    let preservedKnown = 0;
     for (const prev of existingEnriched) {
       if (!prev.slug) continue;
       const key = `${prev.locale || 'it'}:${prev.slug}`;
-      // Skip if already in the new set or now matched to a real job
-      if (currentKeys.has(key) || knownSlugs.has(prev.slug)) continue;
+      // Skip if already in the new orphan set from this run
+      if (currentKeys.has(key)) continue;
       currentKeys.add(key);
       // Mark source so we can distinguish fresh GSC data from carried-over entries
       if (!prev.source) prev.source = 'previous-run';
+      // Keep enrichment data even for slugs now in tracking — the build plugin
+      // uses it for GSC queries, titles, and descriptions in soft-landing pages.
+      if (knownSlugs.has(prev.slug)) {
+        prev.source = 'enrichment-only';
+        preservedKnown++;
+      }
       orphans.push(prev);
       preserved++;
     }
-    console.log(`  📋 Preserved ${preserved} previously-known orphans not in current GSC results`);
+    console.log(`  📋 Preserved ${preserved} previously-known orphans (${preservedKnown} now in tracking, kept for enrichment data)`);
     console.log(`  📊 Total orphans after merge: ${orphans.length}`);
   }
 
@@ -1148,6 +1158,8 @@ async function main() {
     }
 
     for (const o of orphans) {
+      // Skip enrichment-only entries (already in tracking, no new compat paths needed)
+      if (o.source === 'enrichment-only') continue;
       // 1. Add basic slug × 4 locale paths
       const basicPaths = [
         `/cerca-lavoro-ticino/${o.slug}`,
@@ -1222,6 +1234,8 @@ async function main() {
     }
 
     for (const o of orphans) {
+      // Skip enrichment-only entries — they're already in tracking
+      if (o.source === 'enrichment-only') continue;
       // Check if this slug already exists as a locale path in another entry
       let existingKey = null;
       for (const locale of ['it', 'en', 'de', 'fr']) {
