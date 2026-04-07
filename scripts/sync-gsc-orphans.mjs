@@ -1130,21 +1130,60 @@ async function main() {
   }
 
   // Step 2d: Feed back orphan paths to compat file for build-time coverage
-  // This ensures newly discovered orphans get compat pages on the next build,
-  // even before the orphan pipeline generates full soft-landing pages.
+  // Add both slug-based paths AND any already-tracked locale-specific paths
   let feedbackAdded = 0;
   if (!DRY_RUN) {
     const existingCompatPaths = new Set((compatData?.paths || []).filter(Boolean));
+    const trackingFile = dataPath('all-known-job-slugs.json');
+    const trackingData = readJsonSafe(trackingFile) || {};
+
+    // Build reverse index: locale path → tracking entry
+    const pathToTrackingEntry = new Map();
+    for (const [key, entry] of Object.entries(trackingData)) {
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        if (entry[locale]) pathToTrackingEntry.set(entry[locale], entry);
+      }
+      // Also index by key
+      pathToTrackingEntry.set(key, entry);
+    }
+
     for (const o of orphans) {
-      // Build all locale paths for this orphan
-      const itPath = `/cerca-lavoro-ticino/${o.slug}`;
-      const enPath = `/en/find-jobs-ticino/${o.slug}`;
-      const dePath = `/de/jobs-im-tessin/${o.slug}`;
-      const frPath = `/fr/trouver-emploi-tessin/${o.slug}`;
-      for (const p of [itPath, enPath, dePath, frPath]) {
+      // 1. Add basic slug × 4 locale paths
+      const basicPaths = [
+        `/cerca-lavoro-ticino/${o.slug}`,
+        `/en/find-jobs-ticino/${o.slug}`,
+        `/de/jobs-im-tessin/${o.slug}`,
+        `/fr/trouver-emploi-tessin/${o.slug}`,
+      ];
+      for (const p of basicPaths) {
         if (!existingCompatPaths.has(p)) {
           existingCompatPaths.add(p);
           feedbackAdded++;
+        }
+      }
+
+      // 2. If this slug is a tracking key, add its (possibly translated) locale paths
+      if (trackingData[o.slug]) {
+        for (const locale of ['it', 'en', 'de', 'fr']) {
+          const tracked = trackingData[o.slug][locale];
+          if (tracked && !existingCompatPaths.has(tracked)) {
+            existingCompatPaths.add(tracked);
+            feedbackAdded++;
+          }
+        }
+      }
+
+      // 3. If the orphan's original GSC path is tracked under a different key, add all sibling paths
+      if (o.path) {
+        const trackingEntry = pathToTrackingEntry.get(o.path);
+        if (trackingEntry) {
+          for (const locale of ['it', 'en', 'de', 'fr']) {
+            const p = trackingEntry[locale];
+            if (p && !existingCompatPaths.has(p)) {
+              existingCompatPaths.add(p);
+              feedbackAdded++;
+            }
+          }
         }
       }
     }
@@ -1161,13 +1200,49 @@ async function main() {
     }
   }
 
-  // Step 2e: Auto-register orphan slugs in tracking file
+  // Step 2e: Auto-register orphan slugs in tracking file (dedup-aware)
   let trackingAdded = 0;
+  let trackingPatched = 0;
   if (!DRY_RUN) {
     const trackingFile = dataPath('all-known-job-slugs.json');
     const tracking = readJsonSafe(trackingFile) || {};
+
+    // Build reverse index: slug-in-any-locale-path → tracking key
+    const slugToKey = new Map();
+    for (const [key, entry] of Object.entries(tracking)) {
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const p = entry[locale];
+        if (p) {
+          // Extract slug from path
+          const parts = p.split('/');
+          const lastPart = parts[parts.length - 1];
+          if (lastPart) slugToKey.set(`${locale}:${lastPart}`, key);
+        }
+      }
+    }
+
     for (const o of orphans) {
-      if (!tracking[o.slug]) {
+      // Check if this slug already exists as a locale path in another entry
+      let existingKey = null;
+      for (const locale of ['it', 'en', 'de', 'fr']) {
+        const found = slugToKey.get(`${locale}:${o.slug}`);
+        if (found && found !== o.slug) {
+          existingKey = found;
+          break;
+        }
+      }
+
+      if (existingKey) {
+        // Slug already tracked under a different key — ensure all 4 locales exist
+        const entry = tracking[existingKey];
+        let patched = false;
+        if (!entry.it) { entry.it = `/cerca-lavoro-ticino/${existingKey}`; patched = true; }
+        if (!entry.en) { entry.en = `/en/find-jobs-ticino/${existingKey}`; patched = true; }
+        if (!entry.de) { entry.de = `/de/jobs-im-tessin/${existingKey}`; patched = true; }
+        if (!entry.fr) { entry.fr = `/fr/trouver-emploi-tessin/${existingKey}`; patched = true; }
+        if (patched) trackingPatched++;
+      } else if (!tracking[o.slug]) {
+        // New slug — add to tracking
         tracking[o.slug] = {
           it: `/cerca-lavoro-ticino/${o.slug}`,
           en: `/en/find-jobs-ticino/${o.slug}`,
@@ -1176,7 +1251,7 @@ async function main() {
         };
         trackingAdded++;
       } else {
-        // Ensure all 4 locales exist
+        // Already tracked under this key — ensure all 4 locales exist
         const entry = tracking[o.slug];
         if (!entry.it) entry.it = `/cerca-lavoro-ticino/${o.slug}`;
         if (!entry.en) entry.en = `/en/find-jobs-ticino/${o.slug}`;
@@ -1184,9 +1259,9 @@ async function main() {
         if (!entry.fr) entry.fr = `/fr/trouver-emploi-tessin/${o.slug}`;
       }
     }
-    if (trackingAdded > 0) {
+    if (trackingAdded > 0 || trackingPatched > 0) {
       fs.writeFileSync(trackingFile, JSON.stringify(tracking, null, 2) + '\n');
-      console.log(`  ✅ Registered ${trackingAdded} orphan slugs in tracking file (total: ${Object.keys(tracking).length})`);
+      console.log(`  ✅ Tracking: ${trackingAdded} new slugs registered, ${trackingPatched} existing entries patched (total: ${Object.keys(tracking).length})`);
     }
   }
 
@@ -1216,6 +1291,55 @@ async function main() {
     console.warn(`  ⚠️  Expired jobs enrichment failed: ${err.message}`);
   }
 
+  // Step 7: Bottom-up tracking coverage report
+  // Check how many tracking paths are expected to need self-healing at build time.
+  // This is informational — the build plugin handles the actual gap-filling.
+  console.log('\n📊 Step 7: Tracking coverage analysis...');
+  const finalTracking = readJsonSafe(dataPath('all-known-job-slugs.json')) || {};
+  const totalTrackingPaths = Object.keys(finalTracking).length * 4;
+  
+  // Count paths that are likely covered by active jobs
+  let likelyCovered = 0;
+  const bySliceDir = dataPath('jobs', 'by-crawler');
+  const activeSlugSet = new Set();
+  if (fs.existsSync(bySliceDir)) {
+    for (const f of fs.readdirSync(bySliceDir)) {
+      if (!f.endsWith('.json')) continue;
+      try {
+        const slice = JSON.parse(fs.readFileSync(path.join(bySliceDir, f), 'utf-8'));
+        const jobs = Array.isArray(slice) ? slice : (slice.jobs || []);
+        for (const job of jobs) {
+          for (const locale of ['it', 'en', 'de', 'fr']) {
+            const s = job.slugByLocale?.[locale] || job.slug;
+            if (s) activeSlugSet.add(`${locale}:${s}`);
+          }
+          if (job.slug) activeSlugSet.add(`it:${job.slug}`);
+          // Also count previousSlugs as covered (bridge pages)
+          for (const ps of (job.previousSlugs || [])) {
+            for (const locale of ['it', 'en', 'de', 'fr']) {
+              activeSlugSet.add(`${locale}:${ps}`);
+            }
+          }
+        }
+      } catch {}
+    }
+  }
+
+  // Count tracking entries where the key itself is an active slug
+  let trackingKeysCoveredByActive = 0;
+  let trackingKeysExpired = 0;
+  for (const key of Object.keys(finalTracking)) {
+    const isActive = activeSlugSet.has(`it:${key}`) || activeSlugSet.has(`en:${key}`) || activeSlugSet.has(`de:${key}`) || activeSlugSet.has(`fr:${key}`);
+    if (isActive) trackingKeysCoveredByActive++;
+    else trackingKeysExpired++;
+  }
+
+  console.log(`  Tracking keys: ${Object.keys(finalTracking).length}`);
+  console.log(`  Covered by active/bridge: ${trackingKeysCoveredByActive}`);
+  console.log(`  Expired (soft-landing eligible): ${trackingKeysExpired}`);
+  console.log(`  Active job slugs (all locales): ${activeSlugSet.size}`);
+  console.log(`  ℹ️  Build-time self-healing will cover any remaining gaps`);
+
   // Summary
   console.log('\n' + '═'.repeat(60));
   console.log('📊 Summary');
@@ -1236,7 +1360,7 @@ async function main() {
   }
 
   // Signal to workflow whether deploy is needed
-  const compatChanged = feedbackAdded > 0 || trackingAdded > 0;
+  const compatChanged = feedbackAdded > 0 || trackingAdded > 0 || trackingPatched > 0;
   if (compatChanged) {
     console.log('\n🚀 DEPLOY_RECOMMENDED=true — orphan data changed, rebuild needed for new soft-landing pages');
   }
