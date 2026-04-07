@@ -1,18 +1,47 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-06T21:48:17.417Z",
-  "total": 23,
-  "newCount": 0,
+  "generatedAt": "2026-04-07T10:04:51.265Z",
+  "total": 24,
+  "newCount": 1,
   "updatedCount": 22,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 20851,
-  "avgDurationMs": 20851,
+  "durationMs": 24360,
+  "avgDurationMs": 24360,
   "durationHistory": [
-    20851
+    24360
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "company-213ie5",
+      "slug": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1",
+      "company": "Amministrazione Cantonale Ticino",
+      "title": "Capo arte a tempo parziale (90%), presso le Strutture carcerarie, Lugano-Cadro",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "other",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://www.concorsi.ti.ch/offerte-d'impieghi.html?yid=4146",
+      "source": "Company Careers Crawler",
+      "salaryMin": 63297,
+      "salaryMax": 99178,
+      "companyKey": "amministrazione-cantonale-ti",
+      "companyDomain": "concorsi.ti.ch",
+      "crawledAt": "2026-04-07T10:04:43.985Z",
+      "needsRetranslation": true,
+      "_qualityScore": 66,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 2,
+        "completeness": 19
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "company-213ie6",
