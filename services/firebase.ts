@@ -60,8 +60,6 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
   CLARITY_PROJECT_ID: 'vqi1r9wejc',
   // FRO-353: Feature flag for Job Alerts (default off until testing complete)
   ENABLE_JOB_ALERTS: 'false',
-  // Feature flag for Amazon Creator Products (off until API access restored)
-  ENABLE_AMAZON_PRODUCTS: 'false',
   // FRO-323: LinkedIn Sign-In client ID (empty = feature disabled)
   LINKEDIN_SIGNIN_CLIENT_ID: '',
 };

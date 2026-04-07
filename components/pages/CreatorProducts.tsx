@@ -1,9 +1,8 @@
-import React, { useMemo, useState, useCallback, useEffect } from 'react';
+import React, { useMemo, useState, useCallback } from 'react';
 import { ExternalLink, Sparkles } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
 import { getCreatorProductsForContext } from '@/services/creatorProductsService';
-import { getConfigValue } from '@/services/firebase';
 
 interface CreatorProductsProps {
   contextText: string;
@@ -21,11 +20,6 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
 }) => {
   const { t } = useTranslation();
   const [failedImages, setFailedImages] = useState<Set<string>>(new Set());
-  const [enabled, setEnabled] = useState(false);
-
-  useEffect(() => {
-    getConfigValue('ENABLE_AMAZON_PRODUCTS').then((v) => setEnabled(v === 'true'));
-  }, []);
 
   const handleImgLoad = useCallback((id: string) => (e: React.SyntheticEvent<HTMLImageElement>) => {
     // Amazon CDN returns a 1×1 transparent GIF for missing images (HTTP 200,
@@ -42,7 +36,7 @@ const CreatorProducts: React.FC<CreatorProductsProps> = ({
 
   const products = useMemo(() => getCreatorProductsForContext({ contextText, maxCards, offset }), [contextText, maxCards, offset]);
 
-  if (!enabled || !products.length) return null;
+  if (!products.length) return null;
 
   return (
     <div className={`overflow-visible rounded-xl border border-slate-200 dark:border-slate-700 bg-white/90 dark:bg-slate-800/90 p-3 space-y-2.5 ${className}`}>
