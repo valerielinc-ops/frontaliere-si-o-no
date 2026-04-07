@@ -4463,6 +4463,67 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS})`);
   }
 
+  // Repetition / loop detection — reject articles where the AI got stuck in a generation loop
+  {
+    const itContent = data.content.it || data.content;
+    const allBodies = ['body1', 'body2', 'body3'].map(k => itContent?.[k] || '');
+
+    // 1. Detect repeated paragraphs within a single body field (AI loop)
+    for (const [idx, body] of allBodies.entries()) {
+      const paragraphs = body.split(/\n\n+/).map(p => p.trim()).filter(p => p.length > 60);
+      const seen = new Map();
+      let dupeCount = 0;
+      for (const p of paragraphs) {
+        // Normalize for comparison (strip trailing punctuation differences)
+        const normalized = p.replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
+        seen.set(normalized, (seen.get(normalized) || 0) + 1);
+        if (seen.get(normalized) > 1) dupeCount++;
+      }
+      if (dupeCount >= 3) {
+        throw new Error(`Articolo rigettato: body${idx + 1} contiene ${dupeCount} paragrafi ripetuti (AI loop). Rigenera.`);
+      }
+    }
+
+    // 2. Detect repeated sentences across the entire article (>40 chars, appearing 4+ times)
+    const allText = allBodies.join('\n\n');
+    const sentences = allText.split(/[.!?]\s+/).map(s => s.trim().toLowerCase().replace(/\s+/g, ' ')).filter(s => s.length > 40);
+    const sentCounts = new Map();
+    for (const s of sentences) {
+      sentCounts.set(s, (sentCounts.get(s) || 0) + 1);
+    }
+    const heavyRepeats = [...sentCounts.entries()].filter(([, c]) => c >= 4);
+    if (heavyRepeats.length > 0) {
+      throw new Error(`Articolo rigettato: ${heavyRepeats.length} frasi ripetute 4+ volte (AI loop). Esempio: "${heavyRepeats[0][0].substring(0, 80)}..." (${heavyRepeats[0][1]}x)`);
+    }
+
+    // 3. Detect title duplicated as first line in body fields
+    const title = String(itContent?.title || '').trim();
+    if (title) {
+      let titleInBodyCount = 0;
+      for (const body of allBodies) {
+        const firstLine = body.split('\n')[0].trim();
+        if (firstLine === title || firstLine.startsWith(title)) titleInBodyCount++;
+      }
+      if (titleInBodyCount >= 2) {
+        // Auto-fix: strip title from body fields instead of rejecting
+        for (const field of ['body1', 'body2', 'body3']) {
+          if (itContent?.[field]) {
+            const lines = itContent[field].split('\n');
+            if (lines[0].trim() === title || lines[0].trim().startsWith(title)) {
+              // Remove title line and any blank line after it
+              lines.shift();
+              while (lines.length > 0 && lines[0].trim() === '') lines.shift();
+              itContent[field] = lines.join('\n');
+              console.error(`  🧹 Rimosso titolo duplicato da it.${field}`);
+            }
+          }
+        }
+      }
+    }
+
+    console.error(`  ✅ [repetition-check] Nessun loop AI rilevato`);
+  }
+
   // Step 3a.0b: Strip leaked internal URLs from IT
   for (const field of ['body1', 'body2', 'body3']) {
     if (data.content.it?.[field]) {
