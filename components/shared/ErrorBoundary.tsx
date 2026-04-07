@@ -1,5 +1,5 @@
 import React, { Component, ErrorInfo, ReactNode } from 'react';
-import { Analytics } from '../../services/analytics';
+import { Analytics, decodeReactError } from '../../services/analytics';
 import { AlertTriangle, RefreshCw } from 'lucide-react';
 import { t } from '../../services/i18n';
 
@@ -35,16 +35,29 @@ export class ErrorBoundary extends Component<Props, State> {
 
   public static getDerivedStateFromError(error: Error): State {
     const msg = error?.message || '';
+    // Decode React minified errors for human-readable hints
+    const decoded = decodeReactError(msg);
+    const isDecoded = decoded !== msg;
     const hint = msg.includes('dynamically imported module') || msg.includes('Loading chunk') || error?.name === 'ChunkLoadError'
       ? 'chunk'
       : msg.includes('fetch') || msg.includes('Network')
         ? 'network'
-        : `${(error?.name || 'Error').slice(0, 30)}:${msg.slice(0, 60)}`;
+        : isDecoded
+          ? decoded.slice(0, 90)
+          : `${(error?.name || 'Error').slice(0, 30)}:${msg.slice(0, 60)}`;
     return { hasError: true, errorDigest: ErrorBoundary.fingerprint(error), errorHint: hint };
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
     console.error('Uncaught error:', error, errorInfo);
+
+    // Extract the first React component name from componentStack
+    // Format: "\n    at ComponentName (url)" or "\n    at ComponentName"
+    let crashedComponent = 'Unknown';
+    if (errorInfo.componentStack) {
+      const match = errorInfo.componentStack.match(/^\s*at\s+([A-Z][A-Za-z0-9_$]*)/m);
+      if (match) crashedComponent = match[1];
+    }
 
     // Chunk errors are handled by lazyRetry (clear caches + retry import).
     // If we reach ErrorBoundary, lazyRetry already exhausted its retry.
@@ -59,7 +72,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
     if (isChunkError) {
       Analytics.trackAppError('chunk_load', {
-        message: `[ErrorBoundary] ${error.name}: ${msg.slice(0, 120)}`,
+        message: `[ErrorBoundary:${crashedComponent}] ${error.name}: ${msg.slice(0, 120)}`,
         stack: error.stack?.slice(0, 500) || '',
         pagePath: window.location.pathname + window.location.search,
         fatal: true,
@@ -71,7 +84,7 @@ export class ErrorBoundary extends Component<Props, State> {
 
     // Rich error tracking to Firebase Analytics
     Analytics.trackAppError('error_boundary', {
-      message: `${error.name}: ${error.message}`,
+      message: `[ErrorBoundary:${crashedComponent}] ${error.name}: ${error.message}`,
       stack: error.stack?.slice(0, 500) || '',
       componentStack: errorInfo.componentStack?.slice(0, 300) || '',
       pagePath: window.location.pathname + window.location.search,

@@ -300,6 +300,148 @@ type AttributionContext = {
 
 const truncate = (v: string, max = 120): string => v.slice(0, max);
 
+// ─── Error Tracking Helpers ────────────────────────────────────
+
+/** Session-level error counter for detecting cascading failures */
+let sessionErrorCount = 0;
+
+/**
+ * Decode React production "Minified React error" messages into human-readable form.
+ * React 18/19 production builds replace error messages with codes like:
+ *   "Minified React error #31; visit https://react.dev/errors/31 for the full message..."
+ * This map covers the most common production errors.
+ */
+const REACT_ERROR_CODES: Record<number, string> = {
+  31: 'Objects are not valid as a React child',
+  130: 'Element type is invalid: expected a string or class/function but got undefined/null',
+  152: 'Nothing was returned from render',
+  185: 'Maximum update depth exceeded (infinite re-render loop)',
+  286: 'Component suspended while the fallback boundary was already showing',
+  310: 'Cannot update a component from inside the function body of a different component',
+  321: 'useContext requires a valid React context (got undefined)',
+  362: 'Hooks can only be called inside the body of a function component',
+  394: 'Cannot call a class as a function',
+  418: 'Hydration failed because the server-rendered HTML didn\'t match the client',
+  421: 'This Suspense boundary received an update before it finished hydrating',
+  422: 'Server-rendered HTML was replaced by client rendering',
+  423: 'Text content mismatch between server and client',
+  425: 'Entire root switched to client rendering (hydration bail-out)',
+  426: 'Switched to client rendering because the server-rendered HTML was replaced',
+};
+
+/**
+ * Decode a React minified error message into a human-readable version.
+ * Input:  "Minified React error #310; visit https://react.dev/errors/310 for the full message..."
+ * Output: "React#310: Cannot update a component from inside the function body of a different component"
+ * If not a React error, returns the original message unchanged.
+ */
+export function decodeReactError(message: string): string {
+  if (!message) return message;
+  const match = message.match(/Minified React error #(\d+)/);
+  if (!match) return message;
+  const code = parseInt(match[1], 10);
+  const decoded = REACT_ERROR_CODES[code];
+  return decoded
+    ? `React#${code}: ${decoded}`
+    : `React#${code}: (unknown — see https://react.dev/errors/${code})`;
+}
+
+/**
+ * Extract meaningful app frames from a (potentially minified) stack trace.
+ * Filters out node_modules, browser internals, webpack, and chunk loader frames.
+ * Returns the first 3 relevant frames as "file:line:col → ..." (max 200 chars).
+ */
+export function extractAppFrames(stack: string): string {
+  if (!stack) return '';
+  const lines = stack.split('\n');
+  const appFrames: string[] = [];
+
+  // Patterns that identify our source code in the stack
+  const appPatterns = [/src\//, /components\//, /services\//, /\/assets\//, /frontaliereticino\.ch/];
+  // Patterns to exclude (third-party, browser internals)
+  const excludePatterns = [/node_modules/, /webpack/, /chunk-[A-Za-z0-9]+\.js/, /<anonymous>/, /^Error/, /native code/];
+
+  for (const line of lines) {
+    const trimmed = line.trim();
+    if (!trimmed.startsWith('at ') && !trimmed.match(/^\w+@/)) continue;
+    if (excludePatterns.some(p => p.test(trimmed))) continue;
+    if (!appPatterns.some(p => p.test(trimmed))) continue;
+
+    // Extract file:line:col from formats like:
+    //   at functionName (file.ts:10:5)
+    //   at file.ts:10:5
+    //   functionName@file.ts:10:5
+    const match = trimmed.match(/(?:at\s+)?(?:.*?\s+\()?([^()]+?):(\d+):(\d+)\)?$/);
+    if (match) {
+      const file = match[1].replace(/^.*\//, ''); // basename only
+      appFrames.push(`${file}:${match[2]}:${match[3]}`);
+    }
+    if (appFrames.length >= 3) break;
+  }
+
+  return appFrames.join(' → ').slice(0, 200);
+}
+
+/**
+ * Lightweight browser name + version extraction from user agent string.
+ * Returns e.g. "Chrome/125", "Safari/17.5", "Firefox/126", "Edge/125".
+ * No external dependency — just regex matching on the most common browsers.
+ */
+export function parseBrowserInfo(ua: string): string {
+  if (!ua) return 'unknown';
+  // Order matters: check specific browsers before generic ones
+  const patterns: [RegExp, string][] = [
+    [/EdgA?\/(\d+[\d.]*)/, 'Edge'],
+    [/OPR\/(\d+[\d.]*)/, 'Opera'],
+    [/SamsungBrowser\/(\d+[\d.]*)/, 'Samsung'],
+    [/UCBrowser\/(\d+[\d.]*)/, 'UCBrowser'],
+    [/CriOS\/(\d+[\d.]*)/, 'Chrome-iOS'],
+    [/FxiOS\/(\d+[\d.]*)/, 'Firefox-iOS'],
+    [/Chrome\/(\d+[\d.]*)/, 'Chrome'],
+    [/Firefox\/(\d+[\d.]*)/, 'Firefox'],
+    [/Version\/(\d+[\d.]*).*Safari/, 'Safari'],
+    [/MSIE\s(\d+[\d.]*)/, 'IE'],
+    [/Trident.*rv:(\d+[\d.]*)/, 'IE'],
+  ];
+  for (const [re, name] of patterns) {
+    const m = ua.match(re);
+    if (m) return `${name}/${m[1]}`;
+  }
+  return 'other';
+}
+
+/**
+ * Get Microsoft Clarity session ID for cross-referencing with session replays.
+ * Returns null if Clarity isn't loaded or the API isn't available.
+ */
+function getClaritySessionId(): string | null {
+  try {
+    const c = (window as any).clarity;
+    if (typeof c !== 'function') return null;
+    // Clarity v0.7+ exposes session ID via the 'get' command
+    const result = c('get', 'id');
+    if (typeof result === 'string' && result.length > 0) return result;
+  } catch { /* Clarity not available */ }
+  return null;
+}
+
+/**
+ * Derive the active section/tab from the current URL path.
+ * Returns a human-readable section name (e.g. "calculator", "job-board", "guide/permits").
+ */
+function deriveActiveSection(): string {
+  try {
+    const path = window.location.pathname;
+    // Remove locale prefix (e.g. /en/, /de/, /fr/)
+    const stripped = path.replace(/^\/(en|de|fr)\//, '/');
+    // Take first 2 meaningful path segments
+    const segments = stripped.split('/').filter(Boolean).slice(0, 2);
+    return segments.join('/') || 'home';
+  } catch {
+    return 'unknown';
+  }
+}
+
 function sanitizeChatbotQuestion(raw: string): string {
   return truncate(
     String(raw || '')
@@ -700,20 +842,27 @@ export const Analytics = {
       ? `${window.location.pathname}${window.location.search}`
       : '/');
 
+    // Decode React minified errors (e.g., "Minified React error #310" → human-readable)
+    const decodedMessage = decodeReactError(info.message || 'unknown');
+
     // GA4 recommended exception event — include error_type and error_message
     // so the Data API can query them regardless of which event name is used.
     log('exception', {
-      description: truncate(`[${type}] ${info.message || 'unknown'}`, 150),
+      description: truncate(`[${type}] ${decodedMessage}`, 150),
       fatal: info.fatal ?? false,
       error_type: type,
-      error_message: truncate(info.message || 'unknown', 100),
+      error_message: truncate(decodedMessage, 100),
     });
+
+    // Increment session error counter for cascade detection
+    sessionErrorCount++;
 
     // Custom event with rich context for Firebase Console dashboards
     log('app_error', {
       error_type: type || 'uncategorized',
-      error_message: truncate(info.message || 'unknown', 200),
+      error_message: truncate(decodedMessage, 200),
       error_stack: truncate(info.stack || '', 500),
+      error_source: extractAppFrames(info.stack || ''),
       page_path: truncate(pagePath, 180),
       page_title: truncate(info.pageTitle || document.title || '', 80),
       is_fatal: info.fatal ?? false,
@@ -721,6 +870,11 @@ export const Analytics = {
       status_code: info.statusCode ?? 0,
       api_endpoint: truncate(info.apiEndpoint || '', 100),
       component_stack: truncate(info.componentStack || '', 200),
+      active_section: deriveActiveSection(),
+      locale: document.documentElement.lang || navigator.language || 'unknown',
+      browser_info: parseBrowserInfo(navigator.userAgent || ''),
+      clarity_session_id: getClaritySessionId() || '',
+      session_error_sequence: sessionErrorCount,
       user_agent: truncate(navigator.userAgent || '', 150),
       connection_type: truncate(
         (navigator as any).connection?.effectiveType || 'unknown',

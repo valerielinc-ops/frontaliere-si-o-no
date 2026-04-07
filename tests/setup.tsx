@@ -116,6 +116,9 @@ vi.mock('@/services/analytics', () => ({
     trackFunnelStep: vi.fn(),
     trackConsentChange: vi.fn(),
   },
+  extractAppFrames: vi.fn((stack: string) => stack ? 'mock-file.ts:1:1' : ''),
+  parseBrowserInfo: vi.fn(() => 'Chrome/125'),
+  decodeReactError: vi.fn((msg: string) => msg),
 }));
 
 // Mock Consent Service

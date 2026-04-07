@@ -1302,6 +1302,13 @@ function BlogArticles({
     else setGridRevealCount(6);
   }, [currentPage, selectedCategory]);
 
+  // Category stats for the list-view header (must be above early returns to maintain stable hook order)
+  const categoryStats = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const a of articles) counts[a.category] = (counts[a.category] || 0) + 1;
+    return counts;
+  }, [articles]);
+
   /** Returns imageAlt translation if available, falls back to article title */
   const getImageAlt = (id: string) => {
     const altKey = `blog.article.${id}.imageAlt`;
@@ -2357,12 +2364,6 @@ function BlogArticles({
   }
 
   // ── List View (Newspaper style) ──────────────────────
-
-  const categoryStats = useMemo(() => {
-    const counts: Record<string, number> = {};
-    for (const a of articles) counts[a.category] = (counts[a.category] || 0) + 1;
-    return counts;
-  }, [articles]);
 
   return (
     <div className="max-w-5xl mx-auto space-y-6">
