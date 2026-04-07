@@ -86,13 +86,21 @@ jobs:
           echo "🚀 Running: node scripts/batch-add-faq-to-articles.mjs $ARGS"
           node scripts/batch-add-faq-to-articles.mjs $ARGS
 
-          # Count modified files for the summary
+      - name: Fix FAQ locales (translate missing/wrong-locale FAQs)
+        id: fix-locales
+        run: |
+          echo "🔍 Checking FAQ locale issues..."
+          node scripts/fix-faq-locales.mjs --limit 500
+
+      - name: Count modified files
+        id: count
+        run: |
           MODIFIED=$(git diff --name-only -- 'services/locales/blog-body/' | wc -l | tr -d ' ')
           echo "modified_count=$MODIFIED" >> "$GITHUB_OUTPUT"
           echo "📊 Modified blog body files: $MODIFIED"
 
       - name: Commit and push changes
-        if: steps.faq.outputs.modified_count != '0'
+        if: steps.count.outputs.modified_count != '0'
         run: |
           git add services/locales/blog-body/
           git add -f data/batch-faq-progress.json 2>/dev/null || true
@@ -102,7 +110,7 @@ jobs:
             exit 0
           fi
 
-          MODIFIED=${{ steps.faq.outputs.modified_count }}
+          MODIFIED=${{ steps.count.outputs.modified_count }}
           git commit -m "❓ Auto-generated FAQ for ${MODIFIED} blog articles"
 
           # Push with retry (handles concurrent pushes from other workflows)
@@ -120,7 +128,7 @@ jobs:
           exit 1
 
       - name: Trigger deploy
-        if: steps.faq.outputs.modified_count != '0'
+        if: steps.count.outputs.modified_count != '0'
         run: bash scripts/lib/trigger-deploy.sh
 
       - name: Summary
@@ -130,4 +138,4 @@ jobs:
           echo "- **Articles limit**: ${{ inputs.limit || '50' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Concurrency**: ${{ inputs.concurrency || '3' }}" >> "$GITHUB_STEP_SUMMARY"
           echo "- **Skip translate**: ${{ inputs.skip_translate || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
-          echo "- **Modified files**: ${{ steps.faq.outputs.modified_count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Modified files**: ${{ steps.count.outputs.modified_count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
