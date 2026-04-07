@@ -2154,6 +2154,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Accident à Arogno : un homme de 31 ans dans un état grave après une chute',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'Un homme de 31 ans a fait une chute dans un ravin lors d\'une fête à Arogno. Les opérations de secours ont été complexes.',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'Vue du lac de Lugano au crépuscule avec les montagnes reflétées sur l\'eau',
+    'blog.article.carburanti-ticino-aumento-prezzi.title': 'Carburants au Tessin, prix en hausse: +19 centimes de gazole et +46 centimes de diesel',
+    'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Prix des carburants en hausse au Tessin, selon l\'agence Adnkronos',
+    'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Station-service avec prix des carburants en hausse au Tessin',
 };
 
 export default blogMetaFr;

@@ -2154,6 +2154,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Incidente ad Arogno: 31enne in gravi condizioni dopo una caduta',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'Un uomo di 31 anni è precipitato in una scarpata durante una festa ad Arogno. Le operazioni di soccorso sono state complesse.',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'Vista del lago di Lugano al tramonto con montagne riflesse sull\'acqua',
+    'blog.article.carburanti-ticino-aumento-prezzi.title': 'Carburanti in Ticino, prezzi in aumento: +19 millesimi di benzina e +46 millesimi di diesel',
+    'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Prezzi dei carburanti in aumento in Ticino, secondo l\'agenzia Adnkronos',
+    'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Benzinaio in aumento dei prezzi dei carburanti in Ticino',
 };
 
 export default blogMetaIt;

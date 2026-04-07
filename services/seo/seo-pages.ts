@@ -3631,7 +3631,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 705,
+        "numberOfItems": 706,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4334,7 +4334,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 702, "name": "{\"@context\": \"http://schema.org\", \"@type\": \"New...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello` },
           { "@type": "ListItem", "position": 703, "name": "Prevenzione al maschile: il Centro Beccaria è p...", "url": `${BASE_URL}/articoli-frontaliere/prevenzione-maschile-centro-beccaria` },
           { "@type": "ListItem", "position": 704, "name": "Controlli nel cuore di Varese: denuncia e espul...", "url": `${BASE_URL}/articoli-frontaliere/controlli-varese-esposto-espulsione` },
-          { "@type": "ListItem", "position": 705, "name": "Incidente ad Arogno: 31enne in gravi condizioni...", "url": `${BASE_URL}/articoli-frontaliere/incidente-arogno-31enne-gravi-condizioni` }
+          { "@type": "ListItem", "position": 705, "name": "Incidente ad Arogno: 31enne in gravi condizioni...", "url": `${BASE_URL}/articoli-frontaliere/incidente-arogno-31enne-gravi-condizioni` },
+          { "@type": "ListItem", "position": 706, "name": "Prezzi carburanti in Ticino: +19 millesimi di b...", "url": `${BASE_URL}/articoli-frontaliere/carburanti-ticino-aumento-prezzi` }
         ]
       }
     ]

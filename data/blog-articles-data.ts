@@ -6216,4 +6216,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/incidente-arogno-31enne-gravi-condizioni.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'carburanti-ticino-aumento-prezzi',
+    category: 'fiscale',
+    date: '2026-04-07T09:55:25.056Z',
+    image: '/images/blog/carburanti-ticino-aumento-prezzi.jpg',
+    hasCalculator: true,
+  },
 ];

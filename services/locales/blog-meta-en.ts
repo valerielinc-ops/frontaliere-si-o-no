@@ -2154,6 +2154,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Accident in Arogno: 31-Year-Old in Critical Condition After a Fall',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'A 31-year-old man fell into a ravine during a celebration in Arogno. Rescue operations were complex.',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'View of Lake Lugano at dusk with mountains reflected on the water',
+    'blog.article.carburanti-ticino-aumento-prezzi.title': 'Fuel Prices in Ticino Rise: +19 Millesimi of Benzina and +46 Millesimi of Diesel',
+    'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Fuel prices increase in Ticino, according to Adnkronos agency',
+    'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Gas station with increasing fuel prices in Ticino',
 };
 
 export default blogMetaEn;

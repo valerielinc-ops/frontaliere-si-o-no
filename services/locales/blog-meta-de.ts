@@ -2154,6 +2154,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incidente-arogno-31enne-gravi-condizioni.title': 'Unfall in Arogno: 31-Jähriger nach Sturz in schlechtem Zustand',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.excerpt': 'Ein 31-jähriger Mann stürzte während einer Feier in Arogno eine Böschung hinab. Die Rettungsarbeiten waren sehr aufwendig.',
     'blog.article.incidente-arogno-31enne-gravi-condizioni.imageAlt': 'Blick auf den Luganersee bei Sonnenuntergang mit Bergen, die sich im Wasser spiegeln',
+    'blog.article.carburanti-ticino-aumento-prezzi.title': 'Prezzi dei carburanti in aumento in Ticino: +19 millesimi di benzina e +46 millesimi di diesel',
+    'blog.article.carburanti-ticino-aumento-prezzi.excerpt': 'Prezzi dei carburanti in aumento in Ticino, secondo l\'agenzia Adnkronos',
+    'blog.article.carburanti-ticino-aumento-prezzi.imageAlt': 'Benzinestation mit steigenden Kraftstoffpreisen in Ticino',
 };
 
 export default blogMetaDe;

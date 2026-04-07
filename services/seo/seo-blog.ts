@@ -12594,6 +12594,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburanti-ticino-aumento-prezzi': {
+    title: 'Carburanti in Ticino, prezzi in aumento: +19 millesimi di benzina e +46 | Frontaliere Ticino',
+    description: 'Prezzi dei carburanti in aumento in Ticino, secondo l\'agenzia Adnkronos. Ecco i dati aggiornati martedì 7 aprile 2026. Dati aggiornati 2026 per frontalieri in',
+    keywords: 'frontalieri, ticino, svizzera, italia, carburanti, prezzi, aumento, millesimi',
+    ogTitle: 'Prezzi carburanti in Ticino in aumento',
+    ogDescription: 'I prezzi dei carburanti in Ticino sono aumentati di +19 millesimi di benzina e +46 millesimi di diesel rispetto a venerdì scorso, secondo Adnkronos.',
+    canonicalPath: '/articoli-frontaliere/carburanti-ticino-aumento-prezzi',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prezzi carburanti in Ticino: +19 millesimi di benzina e +46 millesimi di diesel",
+      "description": "Prezzi dei carburanti in aumento in Ticino, secondo l'agenzia Adnkronos. Ecco i dati aggiornati martedì 7 aprile 2026. Dati aggiornati 2026 per frontalieri in",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/carburanti-ticino-aumento-prezzi.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Benzinaio in aumento dei prezzi dei carburanti in Ticino"
+      },
+      "datePublished": "2026-04-07T09:55:25+00:00",
+      "dateModified": "2026-04-07T09:55:25+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-ticino-aumento-prezzi`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;
