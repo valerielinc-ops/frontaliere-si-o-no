@@ -395,6 +395,113 @@ function renderBackPage(doc: PDFKit.PDFDocument): void {
   );
 }
 
+/* ── HTML Landing Page for each PDF ──────────────────────── */
+
+function generateLandingPage(guide: PdfGuide, pdfSizeKb: string, dateStamp: string): string {
+  const canonical = `${BASE_URL}/guides/${guide.filename}/`;
+  const pdfUrl = `${BASE_URL}/guides/${guide.filename}.pdf`;
+  const esc = (s: string) => s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+  const jsonLd = JSON.stringify({
+    '@context': 'https://schema.org',
+    '@type': 'DigitalDocument',
+    name: guide.title,
+    description: guide.subtitle,
+    url: canonical,
+    encodingFormat: 'application/pdf',
+    encoding: { '@type': 'MediaObject', contentUrl: pdfUrl, encodingFormat: 'application/pdf' },
+    author: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+    publisher: { '@type': 'Organization', name: 'Frontaliere Ticino', url: BASE_URL },
+    datePublished: dateStamp,
+    dateModified: dateStamp,
+    inLanguage: 'it',
+    isAccessibleForFree: true,
+  });
+
+  return `<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>${esc(guide.title)} | Frontaliere Ticino</title>
+<meta name="description" content="${esc(guide.subtitle)}">
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<link rel="canonical" href="${canonical}">
+<meta property="og:type" content="article">
+<meta property="og:title" content="${esc(guide.title)}">
+<meta property="og:description" content="${esc(guide.subtitle)}">
+<meta property="og:url" content="${canonical}">
+<meta property="og:site_name" content="Frontaliere Ticino">
+<meta property="og:image" content="${BASE_URL}/icons/icon-512x512.png">
+<meta property="og:image:width" content="512">
+<meta property="og:image:height" content="512">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="${esc(guide.title)}">
+<meta name="twitter:description" content="${esc(guide.subtitle)}">
+<script type="application/ld+json">${jsonLd}</script>
+<style>
+body{font-family:system-ui,-apple-system,sans-serif;max-width:720px;margin:2rem auto;padding:0 1rem;color:#334155;line-height:1.6}
+h1{color:#1e293b;font-size:1.75rem;margin-bottom:0.25rem}
+.subtitle{color:#64748b;font-size:1.1rem;margin-bottom:2rem}
+.download-box{background:#f0f9ff;border:1px solid #bae6fd;border-radius:12px;padding:1.5rem;text-align:center;margin:2rem 0}
+.download-btn{display:inline-block;background:#2563eb;color:#fff;padding:0.75rem 2rem;border-radius:8px;text-decoration:none;font-weight:600;font-size:1.1rem}
+.download-btn:hover{background:#1d4ed8}
+.meta{color:#64748b;font-size:0.9rem;margin-top:0.5rem}
+nav{margin-top:2rem;padding-top:1rem;border-top:1px solid #e2e8f0;font-size:0.9rem;color:#64748b}
+nav a{color:#2563eb;text-decoration:none}
+</style>
+</head>
+<body>
+<article>
+<h1>${esc(guide.title)}</h1>
+<p class="subtitle">${esc(guide.subtitle)}</p>
+<div class="download-box">
+<a class="download-btn" href="${pdfUrl}" download>📥 Scarica PDF (${pdfSizeKb} KB)</a>
+<p class="meta">Formato PDF · Gratuito · Aggiornato ${dateStamp}</p>
+</div>
+<p>Questa guida fa parte delle risorse gratuite di <a href="${BASE_URL}/">Frontaliere Ticino</a> per i lavoratori transfrontalieri tra Svizzera e Italia.</p>
+<p>Consulta anche l'<a href="${BASE_URL}/articoli-frontaliere/${guide.articleSlug}/">articolo completo online</a> per la versione aggiornata in tempo reale.</p>
+</article>
+<nav>
+<a href="/">Simulatore Fiscale</a> · <a href="/guida-frontaliere/">Guida Frontaliere</a> · <a href="/articoli-frontaliere/">Articoli</a> · <a href="/cerca-lavoro-ticino/">Lavoro Ticino</a>
+</nav>
+</body>
+</html>`;
+}
+
+/* ── Sitemap update ─────────────────────────────────────── */
+
+function updateGuidesSitemap(fs: typeof import('node:fs'), rootDir: string, generatedGuides: PdfGuide[], dateStamp: string): void {
+  const entries = generatedGuides.map(g => {
+    const landingUrl = `${BASE_URL}/guides/${g.filename}/`;
+    const pdfUrl = `${BASE_URL}/guides/${g.filename}.pdf`;
+    return `  <url>
+    <loc>${landingUrl}</loc>
+    <lastmod>${dateStamp}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>${pdfUrl}</loc>
+    <lastmod>${dateStamp}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>`;
+  }).join('\n');
+
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+${entries}
+</urlset>
+`;
+  // Write to both public/ (source) and dist/ (deployed)
+  const publicPath = path.join(rootDir, 'public', 'sitemap-guides.xml');
+  const distPath = path.join(rootDir, 'dist', 'sitemap-guides.xml');
+  fs.writeFileSync(distPath, sitemap, 'utf-8');
+  // Also update public/ so the repo stays in sync
+  fs.writeFileSync(publicPath, sitemap, 'utf-8');
+}
+
 /* ── Vite Plugin ──────────────────────────────────────────── */
 
 export function pdfWhitepapersPlugin(rootDir: string): Plugin {
@@ -406,7 +513,9 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
       const outDir = path.join(rootDir, 'dist', 'guides');
       fs.mkdirSync(outDir, { recursive: true });
 
+      const dateStamp = new Date().toISOString().slice(0, 10);
       let generated = 0;
+      const generatedGuides: PdfGuide[] = [];
 
       for (const guide of GUIDES) {
         try {
@@ -422,13 +531,28 @@ export function pdfWhitepapersPlugin(rootDir: string): Plugin {
 
           const sizeKb = (pdfBuffer.length / 1024).toFixed(1);
           console.log(`[pdf-guides]   ✓ ${guide.filename}.pdf (${sizeKb} KB)`);
+
+          // Generate HTML landing page
+          const landingDir = path.join(rootDir, 'dist', 'guides', guide.filename);
+          fs.mkdirSync(landingDir, { recursive: true });
+          const landingHtml = generateLandingPage(guide, sizeKb, dateStamp);
+          fs.writeFileSync(path.join(landingDir, 'index.html'), landingHtml, 'utf-8');
+          console.log(`[pdf-guides]   ✓ ${guide.filename}/index.html (landing page)`);
+
           generated++;
+          generatedGuides.push(guide);
         } catch (err) {
           console.warn(`[pdf-guides] ⚠ Failed to generate ${guide.filename}.pdf:`, err);
         }
       }
 
-      console.log(`[pdf-guides] Generated ${generated} PDF whitepapers in dist/guides/`);
+      // Update sitemap-guides.xml with both landing pages and PDF URLs
+      if (generatedGuides.length > 0) {
+        updateGuidesSitemap(fs, rootDir, generatedGuides, dateStamp);
+        console.log(`[pdf-guides] Updated sitemap-guides.xml (${generatedGuides.length * 2} URLs)`);
+      }
+
+      console.log(`[pdf-guides] Generated ${generated} PDF whitepapers + landing pages in dist/guides/`);
     },
   };
 }
