@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T17:26:23.947Z",
-    "label": "before",
-    "total": 1317,
-    "needsRetranslation": 163,
-    "incomplete": 108,
-    "complete": 1209,
-    "missingByLocale": {
-      "it": 71,
-      "en": 108,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T17:29:18.166Z",
-    "label": "after",
-    "total": 1317,
-    "needsRetranslation": 146,
-    "incomplete": 108,
-    "complete": 1209,
-    "missingByLocale": {
-      "it": 71,
-      "en": 108,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T17:34:56.297Z",
     "label": "before",
     "total": 1317,
@@ -9688,6 +9640,62 @@
     "needsRetranslation": 50,
     "incomplete": 7,
     "complete": 1514,
+    "missingByLocale": {
+      "it": 6,
+      "en": 5,
+      "de": 3,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-07T07:53:17.966Z",
+    "label": "before",
+    "total": 1493,
+    "needsRetranslation": 50,
+    "incomplete": 7,
+    "complete": 1486,
+    "missingByLocale": {
+      "it": 6,
+      "en": 5,
+      "de": 3,
+      "fr": 7
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-07T07:53:55.512Z",
+    "label": "after",
+    "total": 1493,
+    "needsRetranslation": 50,
+    "incomplete": 7,
+    "complete": 1486,
     "missingByLocale": {
       "it": 6,
       "en": 5,
