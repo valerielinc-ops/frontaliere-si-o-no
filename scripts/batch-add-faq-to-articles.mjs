@@ -21,6 +21,8 @@
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { resolve, basename } from 'path';
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel } from './lib/ai-models.mjs';
+import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { detectLanguage } from './lib/detect-language.mjs';
 
 // ── CLI argument parsing ─────────────────────────────────────
 const args = process.argv.slice(2);
@@ -216,40 +218,81 @@ function extractBodyContent(fileContent) {
   return bodies.join('\n\n');
 }
 
-/** Discover all articles that need FAQ across all 4 locales */
+/** Check if FAQ text is in the wrong locale (same logic as job crawlers) */
+function isWrongLocale(faqArray, expectedLocale) {
+  const allText = faqArray.map(p => `${p.q} ${p.a}`).join(' ');
+  if (allText.length < 50) return false;
+  const detected = detectLanguage(allText, expectedLocale);
+  return detected !== expectedLocale;
+}
+
+function extractFaqFromContent(fileContent) {
+  const faqMatch = fileContent.match(/\.faq['']\s*:\s*[''`](.+?)[''`]\s*[,}]/s);
+  if (!faqMatch) return null;
+  try {
+    return JSON.parse(faqMatch[1].replace(/\\'/g, "'"));
+  } catch { return null; }
+}
+
+const MIN_FAQ_PAIRS = 3;
+
+/**
+ * Discover articles that need work:
+ * - needsGeneration: IT has no .faq key → needs AI generation
+ * - needsTopUp: IT .faq exists but < MIN_FAQ_PAIRS → needs extra AI pairs
+ * - needsTranslation: EN/DE/FR missing or wrong locale
+ */
 function discoverArticles() {
   const itDir = resolve(BODY_DIR, 'it');
   const files = readdirSync(itDir).filter(f => f.endsWith('.ts')).sort();
-  const articles = [];
+  const needsGeneration = [];
+  const needsTopUp = [];
+  const needsTranslation = [];
 
   for (const file of files) {
     const itPath = `${BODY_DIR}/it/${file}`;
     const itContent = read(itPath);
     const articleId = extractArticleId(itContent);
-    if (!articleId) {
-      console.error(`⚠️  Cannot extract article ID from ${file}, skipping`);
+    if (!articleId) continue;
+
+    const itHasFaq = hasFaqKey(itContent);
+
+    if (!itHasFaq) {
+      needsGeneration.push({ id: articleId, file, itContent });
       continue;
     }
 
-    // Check ALL 4 locales — only process if NONE have .faq
-    let anyHasFaq = false;
-    for (const locale of LOCALES) {
+    // IT FAQ exists — check pair count and locale translations
+    const itFaq = extractFaqFromContent(itContent);
+    if (!itFaq || itFaq.length === 0) continue;
+
+    // Top-up: not enough pairs
+    if (itFaq.length < MIN_FAQ_PAIRS) {
+      needsTopUp.push({ id: articleId, file, itContent, existingFaq: itFaq });
+    }
+
+    // Translation: check each non-IT locale
+    const missingLocales = [];
+    for (const locale of ['en', 'de', 'fr']) {
       const localePath = `${BODY_DIR}/${locale}/${file}`;
-      if (existsSync(resolve(localePath))) {
-        const locContent = read(localePath);
-        if (hasFaqKey(locContent)) {
-          anyHasFaq = true;
-          break;
+      if (!existsSync(resolve(localePath))) continue;
+      const locContent = read(localePath);
+      if (!hasFaqKey(locContent)) {
+        missingLocales.push(locale);
+      } else {
+        const localeFaq = extractFaqFromContent(locContent);
+        if (localeFaq && isWrongLocale(localeFaq, locale)) {
+          missingLocales.push(locale);
         }
       }
     }
 
-    if (!anyHasFaq) {
-      articles.push({ id: articleId, file, itContent });
+    if (missingLocales.length > 0) {
+      needsTranslation.push({ id: articleId, file, itFaq, missingLocales });
     }
   }
 
-  return articles;
+  return { needsGeneration, needsTopUp, needsTranslation };
 }
 
 // ── FAQ generation via AI ────────────────────────────────────
@@ -289,12 +332,13 @@ async function callFaqModel(messages, opts = {}) {
 }
 
 async function generateFaqIT(articleId, bodyText) {
-  const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera 3-5 coppie FAQ (domanda/risposta) in italiano.
+  const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera ESATTAMENTE 5 coppie FAQ (domanda/risposta) in italiano. Il MINIMO ASSOLUTO è 3 coppie.
 
 REGOLE:
+- Genera ALMENO 3 coppie, idealmente 5
 - Ogni domanda deve essere una query di ricerca naturale che un frontaliere potrebbe digitare su Google
 - Ogni risposta deve essere concisa e autosufficiente (40-80 parole), con dati concreti
-- Le FAQ devono coprire i punti chiave dell'articolo
+- Le FAQ devono coprire aspetti DIVERSI dell'articolo
 - Usa apostrofi diritti ('), mai virgolette curve
 - NON ripetere il titolo dell'articolo nelle domande
 
@@ -331,25 +375,74 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
   return faq;
 }
 
-async function translateFaq(faqArray, targetLang) {
-  const langName = targetLang === 'en' ? 'English' : targetLang === 'de' ? 'German' : 'French';
+/**
+ * Generate additional FAQ pairs to reach MIN_FAQ_PAIRS (3-5).
+ * Provides existing FAQ so AI avoids duplicates.
+ */
+async function generateTopUpFaqIT(articleId, bodyText, existingFaq) {
+  const needed = MIN_FAQ_PAIRS - existingFaq.length;
+  const existingQs = existingFaq.map(p => p.q).join('\n- ');
 
-  const prompt = `Translate these FAQ pairs from Italian to ${langName}. Keep the exact same JSON array format. Maintain the meaning, tone, and factual accuracy. Use natural phrasing in the target language, not literal translation. Use straight apostrophes ('), never curly quotes.
+  const prompt = `Sei un esperto di lavoro transfrontaliero Svizzera-Italia. Leggi questo articolo e genera esattamente ${needed + 2} coppie FAQ (domanda/risposta) NUOVE in italiano.
 
-${JSON.stringify(faqArray)}
+DOMANDE GIÀ ESISTENTI (NON ripeterle né riformularle):
+- ${existingQs}
 
-Respond ONLY with the translated JSON array (no markdown, no code fences):
-[{"q":"...","a":"..."}]`;
+REGOLE:
+- Le nuove FAQ devono coprire aspetti DIVERSI da quelli già presenti
+- Ogni domanda deve essere una query di ricerca naturale che un frontaliere potrebbe digitare su Google
+- Ogni risposta deve essere concisa e autosufficiente (40-80 parole), con dati concreti
+- Usa apostrofi diritti ('), mai virgolette curve
+
+ARTICOLO:
+${bodyText.slice(0, 6000)}
+
+Rispondi SOLO con un JSON array (no markdown, no code fences):
+[{"q":"Domanda 1?","a":"Risposta 1."},{"q":"Domanda 2?","a":"Risposta 2."}]`;
 
   const raw = await callFaqModel(
     [{ role: 'user', content: prompt }],
-    { temperature: 0.3, maxTokens: 2000, jsonMode: true },
+    { temperature: 0.5, maxTokens: 2000, jsonMode: true },
   );
 
-  const parsed = JSON.parse(repairJsonArray(raw));
+  const repaired = repairJsonArray(raw);
+  let parsed;
+  try {
+    parsed = JSON.parse(repaired);
+  } catch (parseErr) {
+    const regexFaq = extractFaqFromText(raw);
+    if (regexFaq && regexFaq.length >= 1) return regexFaq;
+    throw parseErr;
+  }
   const faq = extractFaqArray(parsed);
-  if (!faq) throw new Error(`Translation to ${targetLang} is not an array`);
-  return faq;
+  if (!faq) {
+    const regexFaq = extractFaqFromText(raw);
+    if (regexFaq && regexFaq.length >= 1) return regexFaq;
+    throw new Error('Top-up FAQ response is not an array');
+  }
+
+  // Deduplicate: remove any pair whose question is too similar to existing ones
+  const existingLower = existingFaq.map(p => p.q.toLowerCase());
+  return faq.filter(p => {
+    const qLower = p.q.toLowerCase();
+    return !existingLower.some(eq => eq === qLower || eq.includes(qLower) || qLower.includes(eq));
+  });
+}
+
+async function translateFaq(faqArray, targetLang) {
+  const results = [];
+  for (const pair of faqArray) {
+    const [translatedQ, translatedA] = await Promise.all([
+      freeTranslateWithRetry({ text: pair.q, sourceLang: 'it', targetLang }),
+      freeTranslateWithRetry({ text: pair.a, sourceLang: 'it', targetLang }),
+    ]);
+    if (translatedQ && translatedA && translatedQ.length > 10 && translatedA.length > 20) {
+      results.push({ q: translatedQ, a: translatedA });
+    } else {
+      results.push(pair); // Keep Italian pair as fallback
+    }
+  }
+  return results.length > 0 ? results : null;
 }
 
 /** Validate FAQ array: min 1 pair, q>10 chars, a>20 chars */
@@ -366,6 +459,19 @@ function validateFaq(faq) {
 
 // ── File modification ────────────────────────────────────────
 
+/** Replace existing FAQ value in a body file */
+function replaceFaqInBodyFile(filePath, faqArray) {
+  let content = read(filePath);
+  const jsonStr = JSON.stringify(faqArray).replace(/'/g, "\\'");
+  const replaced = content.replace(
+    /(\.faq'\s*:\s*')(.+?)('\s*[,])/s,
+    `$1${jsonStr}$3`
+  );
+  if (replaced === content) return false;
+  write(filePath, replaced);
+  return true;
+}
+
 /**
  * Insert FAQ key into a body file.
  * Finds the last body key line and appends the FAQ key after it, before `};`
@@ -373,8 +479,10 @@ function validateFaq(faq) {
 function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
   let content = read(filePath);
 
-  // Already has FAQ? Skip.
-  if (hasFaqKey(content)) return false;
+  // Already has FAQ? Replace instead of insert.
+  if (hasFaqKey(content)) {
+    return replaceFaqInBodyFile(filePath, faqArray);
+  }
 
   const faqJsonStr = JSON.stringify(faqArray);
   const escapedFaq = escapeForSingleQuoteTS(faqJsonStr);
@@ -441,11 +549,11 @@ async function processArticle(articleId, file, itBodyContent) {
     }
   }
 
-  // 3. Validate
+  // 3. Validate — need at least MIN_FAQ_PAIRS for new articles
   const validFaq = validateFaq(itFaq);
-  if (!validFaq) {
-    console.error(`${label} ❌ FAQ validation failed (got ${itFaq?.length || 0} pairs)`);
-    return { success: false, error: 'Validation failed' };
+  if (!validFaq || validFaq.length < MIN_FAQ_PAIRS) {
+    console.error(`${label} ❌ FAQ validation failed (got ${validFaq?.length || itFaq?.length || 0} pairs, need ≥${MIN_FAQ_PAIRS})`);
+    return { success: false, error: `Only ${validFaq?.length || 0} pairs (need ≥${MIN_FAQ_PAIRS})` };
   }
   console.error(`${label} ✅ ${validFaq.length} FAQ pairs generated`);
 
@@ -475,16 +583,12 @@ async function processArticle(articleId, file, itBodyContent) {
       }
 
       let faqForLocale;
-      if (translations[i].status === 'fulfilled') {
-        faqForLocale = validateFaq(translations[i].value);
-        if (!faqForLocale) {
-          console.error(`${label} ⚠️  ${locale.toUpperCase()} FAQ validation failed, using Italian fallback`);
-          faqForLocale = validFaq;
-        } else {
-          console.error(`${label} ✅ ${locale.toUpperCase()} translated (${faqForLocale.length} pairs)`);
-        }
+      if (translations[i].status === 'fulfilled' && translations[i].value) {
+        faqForLocale = translations[i].value;
+        console.error(`${label} ✅ ${locale.toUpperCase()} translated (${faqForLocale.length} pairs)`);
       } else {
-        console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed: ${translations[i].reason?.message}, using Italian fallback`);
+        const reason = translations[i].status === 'rejected' ? translations[i].reason?.message : 'null result';
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed: ${reason}, using Italian fallback`);
         faqForLocale = validFaq;
       }
 
@@ -493,6 +597,99 @@ async function processArticle(articleId, file, itBodyContent) {
   }
 
   return { success: true, faqCount: validFaq.length };
+}
+
+// ── Process article top-up (existing FAQ < MIN_FAQ_PAIRS) ────
+
+async function processTopUp(articleId, file, itContent, existingFaq) {
+  const label = `[${articleId}] [TOP-UP ${existingFaq.length}→${MIN_FAQ_PAIRS}+]`;
+
+  const bodyText = extractBodyContent(itContent);
+  if (!bodyText || bodyText.length < 100) {
+    console.error(`${label} ⚠️  Body too short, skipping`);
+    return { success: false, error: 'Body too short' };
+  }
+
+  // 1. Generate additional FAQ pairs
+  console.error(`${label} 🇮🇹 Generating ${MIN_FAQ_PAIRS - existingFaq.length}+ extra FAQ pairs...`);
+  let newPairs;
+  try {
+    newPairs = await generateTopUpFaqIT(articleId, bodyText, existingFaq);
+  } catch (err) {
+    console.error(`${label} ❌ Top-up generation failed: ${err.message}`);
+    return { success: false, error: err.message };
+  }
+
+  if (!newPairs || newPairs.length === 0) {
+    console.error(`${label} ❌ No new pairs generated`);
+    return { success: false, error: 'No new pairs' };
+  }
+
+  // 2. Merge: existing + new, cap at 7
+  const merged = [...existingFaq, ...newPairs].slice(0, 7);
+  const validMerged = validateFaq(merged);
+  if (!validMerged || validMerged.length < MIN_FAQ_PAIRS) {
+    console.error(`${label} ❌ Merged FAQ still only ${validMerged?.length || 0} pairs`);
+    return { success: false, error: 'Not enough pairs after merge' };
+  }
+  console.error(`${label} ✅ ${existingFaq.length} existing + ${newPairs.length} new = ${validMerged.length} total`);
+
+  // 3. Write updated IT FAQ
+  const itPath = `${BODY_DIR}/it/${file}`;
+  if (!replaceFaqInBodyFile(itPath, validMerged)) {
+    return { success: false, error: 'Failed to write updated IT FAQ' };
+  }
+
+  // 4. Translate and update all locales
+  if (!SKIP_TRANSLATE) {
+    for (const locale of ['en', 'de', 'fr']) {
+      const localePath = `${BODY_DIR}/${locale}/${file}`;
+      if (!existsSync(resolve(localePath))) continue;
+
+      try {
+        const translated = await translateFaq(validMerged, locale);
+        if (translated) {
+          insertFaqIntoBodyFile(localePath, articleId, translated);
+          console.error(`${label} ✅ ${locale.toUpperCase()} translated (${translated.length} pairs)`);
+        } else {
+          insertFaqIntoBodyFile(localePath, articleId, validMerged);
+          console.error(`${label} ⚠️  ${locale.toUpperCase()} translation failed, using Italian`);
+        }
+      } catch (err) {
+        insertFaqIntoBodyFile(localePath, articleId, validMerged);
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} error: ${err.message}, using Italian`);
+      }
+    }
+  }
+
+  return { success: true, faqCount: validMerged.length };
+}
+
+// ── Process translation-only (IT FAQ ok, locale missing/wrong) ──
+
+async function processTranslation(articleId, file, itFaq, missingLocales) {
+  const label = `[${articleId}] [TRANSLATE ${missingLocales.join(',')}]`;
+  let fixed = 0;
+
+  for (const locale of missingLocales) {
+    const localePath = `${BODY_DIR}/${locale}/${file}`;
+    if (!existsSync(resolve(localePath))) continue;
+
+    try {
+      const translated = await translateFaq(itFaq, locale);
+      if (translated) {
+        insertFaqIntoBodyFile(localePath, articleId, translated);
+        console.error(`${label} ✅ ${locale.toUpperCase()} (${translated.length} pairs)`);
+        fixed++;
+      } else {
+        console.error(`${label} ⚠️  ${locale.toUpperCase()} translation null`);
+      }
+    } catch (err) {
+      console.error(`${label} ❌ ${locale.toUpperCase()}: ${err.message}`);
+    }
+  }
+
+  return { success: fixed > 0, faqCount: fixed };
 }
 
 // ── Concurrency control ──────────────────────────────────────
@@ -530,53 +727,66 @@ async function main() {
     await initScoreStore();
   }
 
-  // 1. Discover articles needing FAQ
+  // 1. Discover articles needing work
   console.error('📂 Scanning articles...');
-  const allArticles = discoverArticles();
-  console.error(`   Found ${allArticles.length} articles without FAQ`);
+  const { needsGeneration, needsTopUp, needsTranslation } = discoverArticles();
+  console.error(`   🆕 Need generation:  ${needsGeneration.length}`);
+  console.error(`   📈 Need top-up (<${MIN_FAQ_PAIRS} pairs): ${needsTopUp.length}`);
+  console.error(`   🌐 Need translation: ${needsTranslation.length}`);
 
-  // 2. Load progress and filter already-completed
+  // 2. Load progress and filter already-completed (only for generation)
   const progress = loadProgress();
   const completedSet = new Set(progress.completed);
-  const pendingArticles = allArticles.filter(a => !completedSet.has(a.id));
-  console.error(`   Already completed: ${progress.completed.length}`);
-  console.error(`   Pending: ${pendingArticles.length}`);
+  const pendingGeneration = needsGeneration.filter(a => !completedSet.has(a.id));
+  console.error(`   Already generated:  ${progress.completed.length}`);
+  console.error(`   Pending generation: ${pendingGeneration.length}`);
 
-  // 3. Apply limit
-  const toProcess = pendingArticles.slice(0, LIMIT);
-  console.error(`   Will process: ${toProcess.length}`);
+  const totalWork = pendingGeneration.length + needsTopUp.length + needsTranslation.length;
+  if (totalWork === 0) {
+    console.error('\n✅ Nothing to process — all articles have ≥3 FAQ pairs in all locales.');
+    return;
+  }
+
+  // 3. Apply limit (generation first, then top-up, then translation)
+  let remaining = LIMIT;
+  const genSlice = pendingGeneration.slice(0, remaining);
+  remaining -= genSlice.length;
+  const topUpSlice = needsTopUp.slice(0, remaining);
+  remaining -= topUpSlice.length;
+  const transSlice = needsTranslation.slice(0, remaining);
+  console.error(`   Will process: ${genSlice.length} gen + ${topUpSlice.length} top-up + ${transSlice.length} translate`);
   console.error('');
 
-  if (toProcess.length === 0) {
-    console.error('✅ Nothing to process — all articles have FAQ or are completed.');
-    return;
-  }
-
-  // 4. Dry run — just list articles
+  // 4. Dry run
   if (DRY_RUN) {
-    console.error('── DRY RUN — would process: ──');
-    for (const article of toProcess) {
-      const bodyText = extractBodyContent(article.itContent);
-      console.error(`  • ${article.id} (${bodyText.length} chars body)`);
+    console.error('── DRY RUN ──');
+    if (genSlice.length > 0) {
+      console.error('\n🆕 Generation:');
+      for (const a of genSlice) console.error(`  • ${a.id}`);
     }
-    console.error('');
-    console.error(`Total: ${toProcess.length} articles`);
-    const estimatedCalls = toProcess.length * (SKIP_TRANSLATE ? 1 : 4);
-    console.error(`Estimated API calls: ${estimatedCalls}`);
+    if (topUpSlice.length > 0) {
+      console.error(`\n📈 Top-up (to ≥${MIN_FAQ_PAIRS} pairs):`);
+      for (const a of topUpSlice) console.error(`  • ${a.id} (${a.existingFaq.length} → ${MIN_FAQ_PAIRS}+)`);
+    }
+    if (transSlice.length > 0) {
+      console.error('\n🌐 Translation:');
+      for (const a of transSlice) console.error(`  • ${a.id} [${a.missingLocales.join(',')}]`);
+    }
     return;
   }
 
-  // 5. Process articles with concurrency control
+  // 5. Process all work
   let successCount = 0;
   let failCount = 0;
   let totalFaq = 0;
+  let step = 0;
+  const totalSteps = genSlice.length + topUpSlice.length + transSlice.length;
 
-  const tasks = toProcess.map((article, i) => async () => {
-    const num = `[${i + 1}/${toProcess.length}]`;
-    console.error(`\n${num} Processing ${article.id}...`);
-
+  // 5a. Generation tasks
+  const genTasks = genSlice.map((article) => async () => {
+    step++;
+    console.error(`\n[${step}/${totalSteps}] 🆕 ${article.id}`);
     const result = await processArticle(article.id, article.file, article.itContent);
-
     if (result.success) {
       successCount++;
       totalFaq += result.faqCount || 0;
@@ -585,13 +795,35 @@ async function main() {
       failCount++;
       progress.failed.push({ id: article.id, error: result.error, at: new Date().toISOString() });
     }
-
-    // Save progress after each article
     saveProgress(progress);
     return result;
   });
 
-  await runWithConcurrency(tasks, CONCURRENCY);
+  // 5b. Top-up tasks
+  const topUpTasks = topUpSlice.map((article) => async () => {
+    step++;
+    console.error(`\n[${step}/${totalSteps}] 📈 ${article.id} (${article.existingFaq.length} pairs)`);
+    const result = await processTopUp(article.id, article.file, article.itContent, article.existingFaq);
+    if (result.success) {
+      successCount++;
+      totalFaq += result.faqCount || 0;
+    } else {
+      failCount++;
+    }
+    return result;
+  });
+
+  // 5c. Translation tasks
+  const transTasks = transSlice.map((article) => async () => {
+    step++;
+    console.error(`\n[${step}/${totalSteps}] 🌐 ${article.id} [${article.missingLocales.join(',')}]`);
+    const result = await processTranslation(article.id, article.file, article.itFaq, article.missingLocales);
+    if (result.success) successCount++;
+    else failCount++;
+    return result;
+  });
+
+  await runWithConcurrency([...genTasks, ...topUpTasks, ...transTasks], CONCURRENCY);
 
   // 6. Flush AI model scores
   try {
@@ -605,13 +837,19 @@ async function main() {
   console.error('\n═══════════════════════════════════════════════════════════');
   console.error('  SUMMARY');
   console.error('═══════════════════════════════════════════════════════════');
-  console.error(`  Articles processed: ${successCount + failCount}`);
-  console.error(`  ✅ FAQ generated:   ${successCount} (${totalFaq} total FAQ pairs)`);
+  console.error(`  Total processed:    ${successCount + failCount}`);
+  console.error(`  ✅ Succeeded:       ${successCount}`);
   console.error(`  ❌ Failed:          ${failCount}`);
+  console.error(`  🆕 Generated:       ${genSlice.length}`);
+  console.error(`  📈 Top-ups:         ${topUpSlice.length}`);
+  console.error(`  🌐 Translations:    ${transSlice.length}`);
   console.error(`  🤖 AI calls:        ${stats.calls || 0}`);
   console.error(`  🔄 AI fallbacks:    ${stats.fallbacks || 0}`);
-  console.error(`  📊 Total completed: ${progress.completed.length}/${allArticles.length}`);
+  console.error(`  📊 Total completed: ${progress.completed.length}/${needsGeneration.length + progress.completed.length}`);
   console.error('═══════════════════════════════════════════════════════════');
+
+  // Translation cascade stats
+  try { logCascadeSummary(); } catch { /* optional */ }
 
   if (failCount > 0) {
     console.error('\n❌ Failed articles:');

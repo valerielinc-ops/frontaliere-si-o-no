@@ -2,10 +2,9 @@
 /**
  * fix-faq-locales.mjs
  * 
- * Scans EN/DE/FR blog body files for FAQ keys that are still in Italian.
- * Re-translates them using the free translation cascade (DeepL, Azure,
- * MyMemory, Lingva, etc.) — same pipeline as job crawlers.
- * Also fills in missing FAQ for locales that have the IT version.
+ * Scans EN/DE/FR blog body files for FAQ keys that are still in Italian
+ * or missing entirely. Uses the same detection (trigram-based detectLanguage)
+ * and translation (freeTranslateWithRetry cascade) as the job crawlers.
  *
  * Usage:
  *   node scripts/fix-faq-locales.mjs [--dry-run] [--limit N]
@@ -16,6 +15,7 @@ import { resolve, basename } from 'path';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
+import { detectLanguage } from './lib/detect-language.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -28,26 +28,7 @@ const LIMIT = limitIdx >= 0 ? parseInt(args[limitIdx + 1], 10) : Infinity;
 
 const BODY_DIR = resolve(ROOT, 'services/locales/blog-body');
 
-// Italian detection heuristics — common Italian words/patterns unlikely in EN/DE/FR
-const ITALIAN_MARKERS = [
-  /\bdell['']/i, /\bnella\b/i, /\bquesto\b/i, /\bquali\b/i,
-  /\bviene\b/i, /\bsono\b/i, /\banche\b/i, /\bdella\b/i,
-  /\bdelle\b/i, /\bdegli\b/i, /\bperché\b/i, /\bil ruolo\b/i,
-  /\bl['']aumento\b/i, /\bfrontalieri\b/i, /\blavoro\b/i,
-  /\bricerca\b/i, /\bpossono\b/i, /\bquanto\b/i, /\brischi\b/i,
-  /\bimpatto\b/i, /\bimporto\b/i, /\bcosa\b/i, /\bcome\b/i,
-  /\bdopo\b/i, /\bprima\b/i, /\bstato\b/i, /\bavere\b/i,
-  /\bessere\b/i, /\bsulla\b/i, /\bsulle\b/i, /\bsugli\b/i,
-  /\bquando\b/i, /\bdovr[àa]\b/i, /\bpuò\b/i, /\bsarà\b/i,
-];
-
-function isLikelyItalian(text) {
-  let hits = 0;
-  for (const marker of ITALIAN_MARKERS) {
-    if (marker.test(text)) hits++;
-  }
-  return hits >= 3;
-}
+// ── File helpers ────────────────────────────────────────────
 
 function extractFaqFromFile(filePath) {
   if (!existsSync(filePath)) return null;
@@ -55,11 +36,13 @@ function extractFaqFromFile(filePath) {
   const faqMatch = content.match(/\.faq['']\s*:\s*[''`](.+?)[''`]\s*[,}]/s);
   if (!faqMatch) return null;
   try {
-    const raw = faqMatch[1].replace(/\\'/g, "'");
-    return JSON.parse(raw);
-  } catch {
-    return null;
-  }
+    return JSON.parse(faqMatch[1].replace(/\\'/g, "'"));
+  } catch { return null; }
+}
+
+function hasFaqKey(filePath) {
+  if (!existsSync(filePath)) return false;
+  return /\.faq['']\s*:/.test(readFileSync(filePath, 'utf-8'));
 }
 
 function replaceFaqInFile(filePath, newFaqArray) {
@@ -72,32 +55,39 @@ function replaceFaqInFile(filePath, newFaqArray) {
   writeFileSync(filePath, content, 'utf-8');
 }
 
-// ── Translation using free cascade (same as job crawlers) ───
-
-async function translateFaqPair(pair, targetLang) {
-  const [translatedQ, translatedA] = await Promise.all([
-    freeTranslateWithRetry({ text: pair.q, sourceLang: 'it', targetLang }),
-    freeTranslateWithRetry({ text: pair.a, sourceLang: 'it', targetLang }),
-  ]);
-
-  if (!translatedQ || !translatedA) return null;
-  return { q: translatedQ, a: translatedA };
+function insertFaqKey(filePath, articleId, faqArray) {
+  let content = readFileSync(filePath, 'utf-8');
+  const jsonStr = JSON.stringify(faqArray).replace(/'/g, "\\'");
+  const closingIdx = content.lastIndexOf('};');
+  if (closingIdx === -1) return false;
+  const faqLine = `    'blog.article.${articleId}.faq': '${jsonStr}',\n`;
+  content = content.slice(0, closingIdx) + faqLine + content.slice(closingIdx);
+  writeFileSync(filePath, content, 'utf-8');
+  return true;
 }
+
+// ── Language detection (same as job crawlers) ───────────────
+
+function isWrongLocale(faqArray, expectedLocale) {
+  const allText = faqArray.map(p => `${p.q} ${p.a}`).join(' ');
+  if (allText.length < 50) return false; // too short to detect
+  const detected = detectLanguage(allText, expectedLocale);
+  return detected !== expectedLocale;
+}
+
+// ── Translation (same cascade as job crawlers) ──────────────
 
 async function translateFaqArray(faqArray, targetLang) {
   const results = [];
   for (const pair of faqArray) {
-    try {
-      const translated = await translateFaqPair(pair, targetLang);
-      if (translated && translated.q.length > 10 && translated.a.length > 20) {
-        results.push(translated);
-      } else {
-        // Keep Italian as fallback for this pair
-        results.push(pair);
-      }
-    } catch (err) {
-      console.error(`  Translation error: ${err.message}`);
-      results.push(pair); // Keep Italian for this pair
+    const [translatedQ, translatedA] = await Promise.all([
+      freeTranslateWithRetry({ text: pair.q, sourceLang: 'it', targetLang }),
+      freeTranslateWithRetry({ text: pair.a, sourceLang: 'it', targetLang }),
+    ]);
+    if (translatedQ && translatedA && translatedQ.length > 10 && translatedA.length > 20) {
+      results.push({ q: translatedQ, a: translatedA });
+    } else {
+      results.push(pair); // Keep Italian pair as fallback
     }
   }
   return results.length > 0 ? results : null;
@@ -108,44 +98,39 @@ async function translateFaqArray(faqArray, targetLang) {
 async function main() {
   console.log('🔍 Scanning for FAQ locale issues...\n');
 
-  const itFiles = readdirSync(resolve(BODY_DIR, 'it')).filter(f => f.endsWith('.ts'));
+  const itDir = resolve(BODY_DIR, 'it');
+  const itFiles = readdirSync(itDir).filter(f => f.endsWith('.ts'));
   const issues = [];
 
   for (const file of itFiles) {
     const articleId = basename(file, '.ts');
-    const itFaq = extractFaqFromFile(resolve(BODY_DIR, 'it', file));
+    const itPath = resolve(BODY_DIR, 'it', file);
+    const itFaq = extractFaqFromFile(itPath);
     if (!itFaq || itFaq.length === 0) continue;
 
     for (const locale of ['en', 'de', 'fr']) {
       const localePath = resolve(BODY_DIR, locale, file);
       if (!existsSync(localePath)) continue;
 
-      const localeFaq = extractFaqFromFile(localePath);
-      if (!localeFaq) {
+      if (!hasFaqKey(localePath)) {
         issues.push({ articleId, file, locale, reason: 'missing', itFaq });
       } else {
-        const allText = localeFaq.map(p => `${p.q} ${p.a}`).join(' ');
-        if (isLikelyItalian(allText)) {
-          issues.push({ articleId, file, locale, reason: 'italian_text', itFaq });
+        const localeFaq = extractFaqFromFile(localePath);
+        if (localeFaq && isWrongLocale(localeFaq, locale)) {
+          issues.push({ articleId, file, locale, reason: 'wrong_locale', itFaq });
         }
       }
     }
   }
 
-  console.log(`Found ${issues.length} FAQ locale issues:`);
   const byReason = {};
-  for (const i of issues) {
-    byReason[i.reason] = (byReason[i.reason] || 0) + 1;
-  }
-  for (const [reason, count] of Object.entries(byReason)) {
-    console.log(`  ${reason}: ${count}`);
-  }
+  for (const i of issues) byReason[i.reason] = (byReason[i.reason] || 0) + 1;
+  console.log(`Found ${issues.length} FAQ locale issues:`);
+  for (const [reason, count] of Object.entries(byReason)) console.log(`  ${reason}: ${count}`);
 
   if (DRY_RUN) {
-    console.log('\n🏁 Dry run — listing issues:');
-    for (const i of issues.slice(0, 50)) {
-      console.log(`  ${i.locale.toUpperCase()} ${i.reason}: ${i.articleId}`);
-    }
+    console.log('\n🏁 Dry run — first 50 issues:');
+    for (const i of issues.slice(0, 50)) console.log(`  ${i.locale.toUpperCase()} ${i.reason}: ${i.articleId}`);
     if (issues.length > 50) console.log(`  ... and ${issues.length - 50} more`);
     return;
   }
@@ -170,19 +155,20 @@ async function main() {
         continue;
       }
 
+      // Verify the translation is actually in the right locale
+      if (isWrongLocale(translated, issue.locale)) {
+        console.error(`${label} ❌ Translation still detected as wrong locale`);
+        failed++;
+        continue;
+      }
+
       const localePath = resolve(BODY_DIR, issue.locale, issue.file);
       if (issue.reason === 'missing') {
-        let content = readFileSync(localePath, 'utf-8');
-        const jsonStr = JSON.stringify(translated).replace(/'/g, "\\'");
-        const closingIdx = content.lastIndexOf('};');
-        if (closingIdx === -1) {
-          console.error(`${label} ❌ Could not find closing }; in file`);
+        if (!insertFaqKey(localePath, issue.articleId, translated)) {
+          console.error(`${label} ❌ Could not insert FAQ key`);
           failed++;
           continue;
         }
-        const faqKey = `    'blog.article.${issue.articleId}.faq': '${jsonStr}',\n`;
-        content = content.slice(0, closingIdx) + faqKey + content.slice(closingIdx);
-        writeFileSync(localePath, content, 'utf-8');
       } else {
         replaceFaqInFile(localePath, translated);
       }
