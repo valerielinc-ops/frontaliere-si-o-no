@@ -1969,6 +1969,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-fronteria-ticino-scarpata-airogno': { name: 'Breadcrumb 2-3 parole', path: '/articoli-frontaliere/fronteria-ticino-scarpata-airogno', parent: 'blog' },
     'blog-lavoro-notte-lincendio-laveno-mombello': { name: 'Notizie', path: '/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello', parent: 'blog' },
     'blog-prevenzione-maschile-centro-beccaria': { name: 'Salute', path: '/articoli-frontaliere/prevenzione-maschile-centro-beccaria', parent: 'blog' },
+    'blog-controlli-varese-esposto-espulsione': { name: 'Controlli nel cuore di Varese', path: '/articoli-frontaliere/controlli-varese-esposto-espulsione', parent: 'blog' },
   };
 
   const info = sectionNames[section];

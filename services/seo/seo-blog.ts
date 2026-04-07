@@ -12536,6 +12536,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-controlli-varese-esposto-espulsione': {
+    title: 'Controlli nel cuore di Varese: denuncia e espulsione | Frontaliere Ticino',
+    description: 'Nel pomeriggio del 23 marzo, controlli estesi nel centro di Varese hanno portato a una denuncia penale e all\'espulsione di un uomo. I dettagli delle operazioni',
+    keywords: 'frontalieri, ticino, svizzera, italia, controlli, cuore, varese, denuncia',
+    ogTitle: 'Controlli nel cuore di Varese: denuncia e espulsione',
+    ogDescription: 'Nel pomeriggio del 23 marzo, controlli estesi nel centro di Varese hanno portato a una denuncia penale e all\'espulsione di un uomo. I dettagli delle operazioni',
+    canonicalPath: '/articoli-frontaliere/controlli-varese-esposto-espulsione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Controlli nel cuore di Varese: denuncia e espulsione",
+      "description": "Nel pomeriggio del 23 marzo, controlli estesi nel centro di Varese hanno portato a una denuncia penale e all'espulsione di un uomo. I dettagli delle operazioni",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/controlli-varese-esposto-espulsione.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Polizia e controlli al confine tra Varese e Ticino presso Gaggiolo, scena urbana con traffico e agenti in azione."
+      },
+      "datePublished": "2026-04-07T06:58:22+00:00",
+      "dateModified": "2026-04-07T06:58:22+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/controlli-varese-esposto-espulsione`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

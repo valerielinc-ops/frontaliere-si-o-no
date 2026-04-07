@@ -2148,6 +2148,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.prevenzione-maschile-centro-beccaria.title': 'Prävention für alle Altersgruppen: Das Zentrum Beccaria ist ein wichtiger Referenzpunkt',
     'blog.article.prevenzione-maschile-centro-beccaria.excerpt': 'Das Zentrum Beccaria in Bellinzona bietet Präventionsdienste für die Urologie für alle Altersgruppen an.',
     'blog.article.prevenzione-maschile-centro-beccaria.imageAlt': 'Bellinzona Beccaria-Zentrum',
+    'blog.article.controlli-varese-esposto-espulsione.title': 'Kontrollen im Herzen von Varese: Anzeige und Abschiebung',
+    'blog.article.controlli-varese-esposto-espulsione.excerpt': 'Am Nachmittag des 23. März wurden im Zentrum von Varese umfangreiche Kontrollen durchgeführt, die zu einer strafrechtlichen Anzeige und der Abschiebung eines Mannes führten. Die Details der Einsätze und die Auswirkungen für die Grenzgänger aus dem Tessin.',
+    'blog.article.controlli-varese-esposto-espulsione.imageAlt': 'Polizei und Grenzkontrollen bei Varese-Ticino in Gaggiolo, städtische Szene mit Verkehr und Beamten.',
 };
 
 export default blogMetaDe;

@@ -6202,4 +6202,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/prevenzione-maschile-centro-beccaria.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'controlli-varese-esposto-espulsione',
+    category: 'fiscale',
+    date: '2026-04-07T06:58:22.765Z',
+    image: '/images/blog/controlli-varese-esposto-espulsione.jpg',
+    hasCalculator: true,
+  },
 ];

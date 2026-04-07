@@ -2148,6 +2148,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.prevenzione-maschile-centro-beccaria.title': 'Prevenzione al maschile: il Centro Beccaria è punto di riferimento per ogni età',
     'blog.article.prevenzione-maschile-centro-beccaria.excerpt': 'Il Centro Beccaria di Bellinzona offre servizi di prevenzione urologica per tutti gli età.',
     'blog.article.prevenzione-maschile-centro-beccaria.imageAlt': 'Centro Beccaria a Bellinzona',
+    'blog.article.controlli-varese-esposto-espulsione.title': 'Controlli nel cuore di Varese: denuncia e espulsione',
+    'blog.article.controlli-varese-esposto-espulsione.excerpt': 'Nel pomeriggio del 23 marzo, controlli estesi nel centro di Varese hanno portato a una denuncia penale e all\'espulsione di un uomo. I dettagli delle operazioni e le implicazioni per i frontalieri ticinesi.',
+    'blog.article.controlli-varese-esposto-espulsione.imageAlt': 'Polizia e controlli al confine tra Varese e Ticino presso Gaggiolo, scena urbana con traffico e agenti in azione.',
 };
 
 export default blogMetaIt;
