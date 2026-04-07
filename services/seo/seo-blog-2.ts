@@ -16,7 +16,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/olio-chimica-produzione-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Olio di girasole e chimica nella produzione",
       "description": "Scopri l'inchiesta sulla produzione di olio di girasole, le implicazioni per frontalieri e i rischi per la salute. Confronta costi e qualità ora!",
       "image": {
@@ -46,7 +46,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/incidente-mortale-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Incidente mortale a Porlezza",
       "description": "Sabato tragico a Porlezza: un frontaliere 19enne perde la vita in uno scontro auto-scooter. Implicazioni per la sicurezza stradale. Dati aggiornati 2026 per",
       "image": {
@@ -76,7 +76,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/svizzera-dovrebbe-rinunciare-mediazione',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Svizzera e Iran: mediazione in dubbio",
       "description": "La Svizzera dovrebbe rinunciare al mandato di mediazione tra USA e Iran? Il dibattito a Palazzo federale e l'impatto per i frontalieri. Dati aggiornati 2026 per",
       "image": {
@@ -106,7 +106,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/sanremo-frontalieri-impatti',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Sanremo 2026: Impatti transfrontalieri",
       "description": "Sanremo 2026, un ponte tra culture e economie per frontalieri in Ticino. Scopri impatti e consigli pratici. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -136,7 +136,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/lavorare-germania-educatori',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Educatori in Germania: stipendi fino a 3.000€",
       "description": "Nuove opportunità in Germania per educatori: fino a 3.000€ al mese, corsi di tedesco inclusi e rimborsi per il trasferimento. Dati aggiornati 2026 per",
       "image": {
@@ -166,7 +166,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/porto-ceresio-lungolago-lavori',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Porto Ceresio rinnova il lungolago",
       "description": "Porto Ceresio avvia i lavori per un lungolago più sicuro e funzionale. Implicazioni per frontalieri e turismo. Info e strumenti utili. Dati aggiornati 2026 per",
       "image": {
@@ -196,7 +196,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/casa-hockey-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "La Casa dell'Hockey in Ticino",
       "description": "Novità dalla Casa dell'Hockey: impatto sul territorio e opportunità per frontalieri. Scopri le dinamiche economiche e sportive in Ticino. Dati aggiornati 2026",
       "image": {
@@ -226,7 +226,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tassazione-individuale-svizzera',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tassazione individuale e lavoro in Ticino",
       "description": "La riforma della tassazione individuale in Svizzera potrebbe creare fino a 20.000 posti di lavoro, impattando frontalieri e aziende ticinesi. Dati aggiornati",
       "image": {
@@ -256,7 +256,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/film-frontaliers-sabotage-varese',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Frontaliers Sabotage: il film che unisce Ticino e Varese",
       "description": "Il film \"Frontaliers Sabotage\", un successo in Ticino con oltre 15.000 spettatori, sbarca a Varese il 3 marzo. Un'analisi del fenomeno e delle sue implicazioni",
       "image": {
@@ -286,7 +286,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-accordo-ps',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Salario Minimo Ticino: PS Vota Sì",
       "description": "Il PS ticinese dà il via libera al compromesso sul salario minimo, ma l'iniziativa popolare resta. Analisi dell'impatto per i frontalieri e il mercato del",
       "image": {
@@ -316,7 +316,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiasso-fede-adulti-integrazione',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Fede adulta a Chiasso, impatto frontalieri",
       "description": "A Chiasso, la cresima a 40 anni rivela un Ticino che riscopre la fede per scelta. Analisi delle dinamiche sociali e implicazioni per i frontalieri nella città",
       "image": {
@@ -346,7 +346,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/sicurezza-confine-ticino-brogeda',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Controlli Rafforzati al Confine Ticinese",
       "description": "Una coppia fermata con eroina a Chiasso-Brogeda evidenzia l'intensità dei controlli. Scopri le implicazioni per i frontalieri e le regole doganali.",
       "image": {
@@ -376,7 +376,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/stipendi-manager-energia-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tetto salari manager energia: il dibattito federale e il suo riverbero",
       "description": "Un'iniziativa parlamentare propone un tetto ai salari dei manager energetici pubblici. Scopri l'impatto di questa discussione sul costo della vita e sui",
       "image": {
@@ -406,7 +406,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/lavoro-educatori-germania-alternativa-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Educatori in Germania: stipendi fino a 3mila euro, un'alternativa per i",
       "description": "Scopri le opportunità per educatori in Germania con stipendi fino a 3.000 euro, un'alternativa per i giovani della fascia di confine italiana che solitamente",
       "image": {
@@ -436,7 +436,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/gandria-lusso-immobiliare-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Christian Constantin investe 10,6 milioni in un complesso residenziale",
       "description": "L'imprenditore Christian Constantin investe 10,6 milioni di franchi in 14 appartamenti di lusso a Gandria, Luganese. Analisi dell'impatto sul mercato",
       "image": {
@@ -466,7 +466,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/vandalismo-bus-ticino-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Vandalismo sui bus: impatto sui frontalieri e il Ticino",
       "description": "Un furto di sedile su un autobus Varesino solleva interrogativi sulla sicurezza dei trasporti pubblici, un servizio cruciale per migliaia di frontalieri in Tici",
       "image": {
@@ -496,7 +496,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/ticino-voto-anti-dumping-salariale',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Iniziativa 'Anti-Dumping' Salariale al Voto in Ticino",
       "description": "L'8 marzo 2026 il Ticino decide sull'iniziativa 'anti-dumping' per blindare i salari con notifica contratti obbligatoria e più controlli. Impatto sui",
       "image": {
@@ -526,7 +526,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/controlli-stradali-ticino-frontalieri-marzo-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Controlli velocità mobili in Ticino per i frontalieri a marzo 2026",
       "description": "La Polizia cantonale e comunale intensificheranno i controlli mobili della velocità in Ticino dal 2 all'8 marzo 2026. Scopri le sanzioni e i consigli pratici",
       "image": {
@@ -556,7 +556,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/comuni-confine-nuove-regole-fiscali',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Nuove regole fiscali per i comuni di confine",
       "description": "Esplora l'impatto del nuovo accordo fiscale sulla definizione dei Comuni di confine e sulle tasse dei frontalieri in Ticino. Scopri chi è 'vecchio' o 'nuovo'",
       "image": {
@@ -586,7 +586,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tragedia-stradale-frontaliere-porlezza',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tragedia sul confine: muore frontaliere 19enne a Porlezza",
       "description": "Un giovane frontaliere comasco di soli 19 anni ha perso la vita in un tragico incidente stradale a Porlezza, sulla via Ceresio, mentre si recava al lavoro in Ti",
       "image": {
@@ -616,7 +616,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiasso-como-autostrada-a9-chiusure-notturne-cantieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Chiusure A9 Chiasso-Como: Impatto sul Traffico Frontaliero",
       "description": "L'autostrada A9 tra Chiasso e Como chiude di notte per trasporti eccezionali e riaprono i cantieri diurni. Scopri le deviazioni e l'impatto sul tuo tragitto",
       "image": {
@@ -646,7 +646,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiasso-comunita-evoluzione-sociale',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Chiasso: Fede Adulta e Cambiamento Sociale",
       "description": "A Chiasso, il fenomeno delle cresime a 40 anni rivela un cambiamento sociale profondo. Analisi delle implicazioni per la comunità e i frontalieri nel Ticino",
       "image": {
@@ -676,7 +676,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tragedia-pendolare-frontaliere-porletta',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Incidente mortale a Porletta: frontaliere 19enne perde la vita",
       "description": "Un 19enne di Como perde la vita in un incidente a Porletta il 28 febbraio 2026. Un drammatico monito sui rischi del pendolarismo e l'importanza della sicurezza",
       "image": {
@@ -706,7 +706,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/a9-como-chiasso-disagi-notturni-frontiera',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A9 Como-Chiasso chiude di notte per trasporti eccezionali e cantieri",
       "description": "L'autostrada A9 tra Como Centro e Chiasso chiuderà di notte il 3-4 marzo 2026 per trasporti eccezionali. Riprendono i cantieri diurni con disagi per i",
       "image": {
@@ -736,7 +736,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/economia-svizzera-ripresa-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Ripresa economica 2026",
       "description": "Il PIL svizzero cresce del 0,2% nel Q4 2025, segno di una ripresa economica parziale dopo un anno difficile. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -766,7 +766,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/frontalieri-nuova-mappa-fiscale-comuni-confine',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Nuova regola 20km per comuni di confine",
       "description": "Il nuovo accordo fiscale italo-svizzero definisce i comuni di confine con la regola dei 20 km. Scopri come cambia la tassazione per i frontalieri in Ticino e",
       "image": {
@@ -796,7 +796,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiusure-notturne-a9-chiasso-como-marzo-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A9 Chiasso-Como: Chiusure Notturne e Cantieri a Marzo 2026 per",
       "description": "Avviso per i frontalieri: nuove chiusure notturne e cantieri diurni sull'A9 Lainate-Como-Chiasso a marzo 2026. Prepara il tuo viaggio con i nostri consigli e",
       "image": {
@@ -826,7 +826,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiusura-notturna-a9-chiasso-como-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A9 Chiasso-Como: Chiusure Notturne e Cantieri per Frontalieri",
       "description": "L'autostrada A9 tra Como e Chiasso subisce chiusure notturne e cantieri diurni da marzo 2026. Guida pratica per i frontalieri per gestire i disagi e pianificare",
       "image": {
@@ -856,7 +856,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiusure-a9-trasporti-speciali-como-chiasso',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A9 Chiasso-Como: Chiusure e Cantieri per Trasporti Eccezionali",
       "description": "Scopri le chiusure notturne e i cantieri diurni sull'A9 tra Chiasso e Como (3-4 marzo 2026) e l'impatto sui frontalieri ticinesi. Consigli su percorsi",
       "image": {
@@ -886,7 +886,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/iniziativa-salari-ticino-voto-anti-dumping',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Iniziativa anti-dumping salariale in Ticino: voto decisivo per i",
       "description": "L'8 marzo 2026 il Ticino vota sull'iniziativa anti-dumping. Controlli rafforzati e notifica contratti per contrastare salari bassi. Scopri le implicazioni per i",
       "image": {
@@ -916,7 +916,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/dumping-salariale-ticino-voto-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Ticino vota iniziativa anti-dumping salariale",
       "description": "L'8 marzo 2026 il Ticino vota su un'iniziativa per combattere il dumping salariale. Scopri cosa prevede, l'impatto sui frontalieri e il dibattito sui costi e la",
       "image": {
@@ -946,7 +946,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/scontro-fatale-porlezza-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Scontro fatale a Porlezza: frontaliere perde la vita",
       "description": "Un giovane frontaliere comasco di 19 anni perde la vita in un incidente auto-scooter a Porlezza il 28 febbraio 2026. Analisi e consigli per la sicurezza",
       "image": {
@@ -976,7 +976,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/frontalieri-confine-disparita-fiscale',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Nuove regole per i comuni di confine penalizzano i frontalieri",
       "description": "Scopri come la nuova definizione di \"Comune di confine\" sta influenzando la tassazione dei frontalieri in Ticino, con casi di perdite significative.",
       "image": {
@@ -1006,7 +1006,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/iniziativa-anti-dumping-salari-ticino-voto',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Iniziativa anti-dumping salariale in Ticino al voto",
       "description": "L'8 marzo 2026 il Ticino vota sull'iniziativa anti-dumping salariale. Scopri cosa prevede, l'impatto sui frontalieri e le ragioni di sì e no. Il salario mediano",
       "image": {
@@ -1036,7 +1036,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/nestle-bonus-lombardia-welfare-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Nestlé Italia bonus dipendenti",
       "description": "Scopri come il colosso svizzero Nestlé premia i dipendenti in Italia con bonus fino a 2.900€ e un sistema welfare. Analisi per i frontalieri che lavorano in",
       "image": {
@@ -1066,7 +1066,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/a9-chiasso-como-chiusure-notturne-cantieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A9 Chiasso-Como: Chiusure Notturne e Cantieri per Frontalieri",
       "description": "L'autostrada A9 tra Chiasso e Como chiude di notte per trasporti eccezionali e riprendono i cantieri diurni da marzo 2026, causando disagi ai frontalieri",
       "image": {
@@ -1096,7 +1096,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mercato-lavoro-ticino-rallenta-2025',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Mercato del Lavoro Ticino in Contrazione nel Q4 2025",
       "description": "L'occupazione in Ticino cala nel Q4 2025 (-0.9% annuo), in controtendenza rispetto alla Svizzera. Analisi e consigli per i frontalieri sul dumping salariale",
       "image": {
@@ -1126,7 +1126,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/comuni-frontiera-nuove-regole-fiscali',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Comuni di confine: la distanza che vale 150'000 euro per i frontalieri",
       "description": "Scopri l'impatto delle nuove regole sui Comuni di confine entro 20km, le disparità fiscali per i 'nuovi frontalieri' e come verificare il tuo status. Con dati",
       "image": {
@@ -1156,7 +1156,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/franco-forte-impatto-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Franco Forte: Vantaggi e Sfide per i Frontalieri in Ticino",
       "description": "Analisi dell'impatto del franco svizzero forte sui frontalieri e sull'economia ticinese a febbraio 2026, con consigli pratici per la gestione del cambio valuta",
       "image": {
@@ -1186,7 +1186,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tragedia-frontaliere-porlezza-via-ceresio',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tragico incidente frontaliere Porletta, implicazioni previdenziali",
       "description": "Un giovane frontaliere comasco muore in un incidente a Porletta il 28 febbraio 2026. Analisi delle implicazioni previdenziali e assicurative per le famiglie dei",
       "image": {
@@ -1216,7 +1216,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiusure-notturne-a9-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A9 Chiasso-Como: Cantieri Notturni e Traffico Frontaliero",
       "description": "L'autostrada A9 tra Chiasso e Como è nuovamente interessata da chiusure notturne per lavori. Scoprite gli orari, le deviazioni e come gestire il vostro tragitto",
       "image": {
@@ -1246,7 +1246,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/salario-minimo-compromesso-ps-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Salario Minimo Ticino: PS apre al compromesso con condizioni",
       "description": "Il Partito Socialista ticinese apre al compromesso sul salario minimo sociale, proponendo un aumento fino a 22.25 CHF/ora e paletti su benefit e deroghe ai CCL",
       "image": {
@@ -1276,7 +1276,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/compromesso-salario-minimo-condizioni',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Salario Minimo Ticino: PS Apre a Compromesso Condizionato",
       "description": "Il PS ticinese acconsente al compromesso sul salario minimo (21.75-22.25 CHF), ma pone condizioni su benefit e deroghe ai CCL. Scopri l'impatto per i",
       "image": {
@@ -1306,7 +1306,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/chiasso-comunita-cambiamento-valori',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Chiasso: La Comunità Si Riscopre Tra Fede e Nuovi Valori",
       "description": "Don Feliciani di Chiasso rivela che la cresima si fa a 40 anni per scelta. Un segnale di come la comunità ticinese si evolve, cruciale per i frontalieri che",
       "image": {
@@ -1336,7 +1336,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/pendolarismo-fatale-frontaliere-porlezza',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tragedia Porlezza: giovane frontaliere morto",
       "description": "Un giovane frontaliere comasco muore in un incidente a Porlezza. Analisi dei rischi del pendolarismo e consigli su sicurezza stradale e tutele assicurative per",
       "image": {
@@ -1366,7 +1366,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-trattative-compromesso',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Salario Minimo Ticinese: PS apre al compromesso con condizioni su",
       "description": "Il PS ticinese approva il controprogetto per il salario minimo, chiedendo condizioni su benefit e deroghe ai CCL. Previsto aumento a 21,75-22,25 CHF/ora. Scopri",
       "image": {
@@ -1396,7 +1396,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/trevano-campus-riqualifica-12-milioni-lavori',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Riqualifica Campus Trevano, Nuove Opportunità Lavorative",
       "description": "Il Canton Ticino investe 12.6 milioni per la riqualifica del campus di Trevano (CSIA, palestre, piscina). Scopri l'impatto sul mercato del lavoro e le",
       "image": {
@@ -1426,7 +1426,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/lavena-ponte-tresa-nuovo-sagrato-chiesa',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Lavena Ponte Tresa: nuovo sagrato per la chiesa",
       "description": "Scopri l'investimento di 150mila euro per il nuovo sagrato della chiesa di Lavena Ponte Tresa e le implicazioni per i frontalieri che attraversano q",
       "image": {
@@ -1456,7 +1456,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/sportello-lavoro-varese-frontalieri-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Sportello Openjobmetis a Varese supporta i frontalieri verso il Ticino",
       "description": "Scopri come lo sportello Openjobmetis a Castronno, Varese, ogni giovedì pomeriggio, può supportare i frontalieri nella ricerca di lavoro e nell'orientamento",
       "image": {
@@ -1486,7 +1486,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/controlli-stradali-intensivi-frontiera-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Radar senza quartiere: controlli intensivi in Ticino per i frontalieri",
       "description": "Dal 2 all'8 marzo 2026, il Ticino intensifica i controlli radar mobili nelle aree di frontiera come Chiasso, Mendrisio e Stabio. Guida pratica per frontalieri",
       "image": {
@@ -1516,7 +1516,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/settimana-di-controlli-radar-intensivi-confine-ticino-marzo',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Controlli radar intensivi per i frontalieri in Ticino dal 2 all'8 marzo",
       "description": "Dal 2 all'8 marzo 2026, controlli radar mobili intensivi nelle aree di confine del Ticino. Presta attenzione per evitare multe salate e ritiro patente. Guida",
       "image": {
@@ -1546,7 +1546,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/controlli-frontiera-ticino-rafforzati',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Controlli Intensificati al Confine Ticinese: Cosa Cambia per i",
       "description": "Una settimana di controlli intensificati al confine ticinese ha messo sotto la lente i frontalieri. Scopri le normative, i rischi e i consigli pratici per",
       "image": {
@@ -1576,7 +1576,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/lavori-risanamento-a13-cadenazzo-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Lavori di risanamento sulla A13 Cadenazzo–S. Antonino nel 2026",
       "description": "Dal 2 marzo al 26 giugno 2026 lavori di risanamento sulla A13 tra Cadenazzo e S. Antonino per migliorare sicurezza e traffico. Dati aggiornati 2026 per",
       "image": {
@@ -1606,7 +1606,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/salario-minimo-ticino-intesa-storica',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Salario Minimo Ticino: La Politica Sfiora l'Accordo dopo la Guerra dei",
       "description": "Il Ticino è vicino a un accordo sul salario minimo, con aumenti a tappe fino a 22,25 CHF/ora. Scopri le implicazioni per i frontalieri e le imprese.",
       "image": {
@@ -1636,7 +1636,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/sicurezza-stradale-ticino-marzo',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Controlli della velocità mobili in Ticino: Avviso per i frontalieri a",
       "description": "La Polizia cantonale intensifica i controlli di velocità mobili in Ticino dal 2 al 8 marzo 2026. Consigli pratici per i frontalieri per evitare multe salate.",
       "image": {
@@ -1666,7 +1666,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/a13-cantieri-frontalieri-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A13 Cadenazzo: Lavori di Risanamento e Impatto sul Traffico Frontaliero",
       "description": "Lavori di risanamento sulla A13 Cadenazzo–S. Antonino da marzo a giugno 2026: impatto sul traffico frontaliero, orari e consigli per gli spostamenti in Ticino.",
       "image": {
@@ -1696,7 +1696,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/bns-utile-calo-2025-impatto-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "BNS, utile 2025 in forte calo: cosa significa per il Ticino?",
       "description": "Analisi dei risultati 2025 della BNS: utile a 26,1 miliardi CHF, calo significativo. Impatto su economia ticinese, franco svizzero e potere d'acquisto dei",
       "image": {
@@ -1726,7 +1726,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/polizia-cantonale-nuovi-gendarmi',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Nuovi Gendarmi: il Ticino Rafforza la Sicurezza Cantonale",
       "description": "La Polizia cantonale ticinese avvia la formazione SCP 2026 a Giubiasco per 10 nuovi gendarmi. Un investimento chiave per la sicurezza nel Cantone e per i",
       "image": {
@@ -1756,7 +1756,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/competenze-tecniche-frontalieri-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Carenza di Competenze Tecniche nel Piemonte Orientale e Opportunità per",
       "description": "Scopri come la domanda di profili tecnici specializzati nel Piemonte orientale si riflette nel Canton Ticino, creando opportunità per i frontalieri. Analisi e",
       "image": {
@@ -1786,7 +1786,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/polizia-cantonale-reclutamento-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Ticino: La Scuola di Polizia 2026 accoglie 21 nuovi aspiranti gendarmi a",
       "description": "La Scuola di polizia 2026 ha aperto a Giubiasco, accogliendo 21 aspiranti per rafforzare la sicurezza del Canton Ticino, cruciale per residenti e frontalieri.",
       "image": {
@@ -1816,7 +1816,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/mercato-auto-febbraio-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "A febbraio in crescita il mercato dell’auto",
       "description": "Scopri l'andamento del mercato automobilistico in Ticino a febbraio 2026 con dati e analisi. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -1846,7 +1846,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/como-nuovi-poliziotti-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Como, in servizio 8 nuovi poliziotti: sono 7 agenti e un viceispettore",
       "description": "Otto nuovi poliziotti sono stati accolti a Como, rafforzando la sicurezza nella comunità locale. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -1876,7 +1876,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/sesto-calende-sicurezza-frontalieri',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Cresce a Sesto Calende il Controllo di Vicinato: Implicazioni per i",
       "description": "A Sesto Calende cresce il 'Controllo di Vicinato'. Scopri l'impatto di queste iniziative sulla sicurezza dei frontalieri che lavorano in Ticino e come",
       "image": {
@@ -1906,7 +1906,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/nessun-prelievo-avs-sulle-mance',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Nessun prelievo AVS sulle mance",
       "description": "Scopri come l'esenzione delle mance dai contributi sociali impatta i lavoratori in Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -1936,7 +1936,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/imposizione-individuale-donne-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Imposizione Individuale delle Coppie Sposate: Un Voto Cruciale per il",
       "description": "Analisi dell'imposizione individuale delle coppie sposate in Svizzera e il suo potenziale impatto sul mercato del lavoro ticinese, con stime di migliaia di",
       "image": {
@@ -1966,7 +1966,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-vantaggio-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tassa salute frontalieri: vantaggio per il Ticino?",
       "description": "Scopri come la tassa sulla salute dei frontalieri può diventare un vantaggio per il Ticino. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -1996,7 +1996,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/docenti-frontalieri-permesso-lavoro',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Ticino: Docenti frontalieri senza valido permesso di lavoro? Il Governo",
       "description": "Il Governo del Ticino chiarisce la situazione riguardo ai permessi di lavoro per docenti frontalieri. Scopri di più. Dati aggiornati 2026 per frontalieri in",
       "image": {
@@ -2026,7 +2026,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/iniziativa-anti-dumping-ticino-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Iniziativa anti-dumping in Ticino",
       "description": "Il 8 marzo si vota in Ticino per contrastare il dumping salariale e sociale con una nuova iniziativa. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -2056,7 +2056,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/comuni-confine-fiscalita-disparita',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Comuni di Confine: L'Impatto Fiscale sui Frontalieri in Ticino",
       "description": "Scopri come la classificazione del tuo comune di residenza influisce sui vantaggi fiscali da frontaliero in Ticino. Un caso da 150.000 euro. Dati aggiornati",
       "image": {
@@ -2086,7 +2086,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/svizzera-ue-pacchetto-accordi',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Svizzera-UE: firmato il pacchetto di accordi",
       "description": "Scopri il nuovo pacchetto di accordi tra Svizzera e UE e le sue implicazioni per il Ticino e i frontalieri. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -2116,7 +2116,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tassa-salute-berna-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tassa sulla salute: «Berna intende allinearsi al Ticino?»",
       "description": "Scopri come la tassa sulla salute italiana impatta i frontalieri in Ticino e le reazioni del Consiglio federale. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -2146,7 +2146,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tassa-salute-svizzera-vantaggio',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tassa sulla salute, la Svizzera sfrutti la situazione a suo vantaggio",
       "description": "Scopri come la tassa sulla salute in Italia può influenzare il mercato del lavoro in Ticino e le opportunità per frontalieri. Dati aggiornati 2026 per",
       "image": {
@@ -2176,7 +2176,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/ai-lombardia-impatto-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "La Lombardia vara la prima legge sull’Intelligenza Artificiale",
       "description": "La Lombardia ha approvato la sua prima legge sull'Intelligenza Artificiale. Scopri come questa normativa influenzerà i frontalieri e le imprese del Canton",
       "image": {
@@ -2206,7 +2206,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/crisi-golfo-carburanti-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Crisi nel Golfo: Carburanti e Logistica, l'impatto economico in Ticino",
       "description": "La crisi nel Golfo Persico fa sentire il suo peso in Ticino: aumentano i prezzi di gasolio e benzina e si registrano interruzioni nella logistica aerea. Analisi",
       "image": {
@@ -2236,7 +2236,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/rincari-benzina-frontalieri-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Possibili rincari della benzina fino a 2 franchi al litro per il",
       "description": "Conflitto in Medio Oriente: benzina verso i 2 CHF/litro. Impatto concreto su frontalieri, pendolari e aziende del Canton Ticino. Strategie e strumenti.",
       "image": {
@@ -2266,7 +2266,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/crisi-olio-prezzi-benzina-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Crisi in Medio Oriente e benzina: «Approvvigionamento garantito, ma il",
       "description": "La crisi in Medio Oriente spinge il prezzo del petrolio e della benzina in Ticino. Approfondimento su approvvigionamento, rincari e consigli pratici.",
       "image": {
@@ -2296,7 +2296,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/benzina-ticino-oriente',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Crisi benzina Ticino",
       "description": "Analisi sull'impatto della crisi in Medio Oriente sui prezzi della benzina in Ticino; scorte, orientamenti di prezzo e consigli pratici per frontalieri.",
       "image": {
@@ -2326,7 +2326,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/ai-lombardia-ticino-frontaliere-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "In Lombardia la rivoluzione AI, Fermi: “La usano le grandi imprese, poco",
       "description": "La nuova legge lombarda sull'intelligenza artificiale cambia il mercato del lavoro per i frontalieri ticinesi. Scopri opportunità e sfide nel 2026.",
       "image": {
@@ -2356,7 +2356,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/carpooling-ticino-corsie-frontaliere-2026',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Carpooling in Ticino: dai progetti pilota alle corsie frontaliere nel",
       "description": "Scopri le nuove corsie riservate al carpooling ai valichi di Ticino per frontalieri, con incentivi e risparmi nel 2026. Dati aggiornati 2026 per frontalieri in",
       "image": {
@@ -2386,7 +2386,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-governo-svizzero',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Il Governo svizzero interviene sulla tassa sulla salute dei frontalieri",
       "description": "Scontro sulla tassa sulla salute dei frontalieri in Ticino. Scopri le novità dal Governo svizzero. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
@@ -5147,7 +5147,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/guida-cambio-franco-euro-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Cambio CHF-EUR per frontalieri: guida completa per risparmiare",
       "description": "Come ottimizzare il cambio franco-euro: confronto tra banche, fintech e broker, strategie di cambio frazionato e impatto fiscale.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1344, "height": 756, "caption": "Banconote in franchi svizzeri e euro su una scrivania con calcolatrice e grafici di cambio valuta" },
@@ -5172,7 +5172,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/guida-pensione-frontaliere-avs-lpp',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Pensione frontaliere 2026: AVS, LPP e terzo pilastro spiegati",
       "description": "Guida completa alla pensione per chi lavora in Svizzera: tre pilastri, totalizzazione Italia-Svizzera e simulazione della rendita.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/bellinzona.webp`, "width": 1344, "height": 756, "caption": "Coppia di pensionati che passeggia lungo il lago di Lugano con le Alpi sullo sfondo" },
@@ -5197,7 +5197,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/vivere-svizzera-vs-italia-frontaliere',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Vivere in Svizzera o Italia: confronto reale per frontalieri",
       "description": "Permesso B o Permesso G? Confronto dettagliato su costi, tasse, sanità, qualità della vita con esempi pratici 2026.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/locarno.webp`, "width": 1344, "height": 756, "caption": "Vista panoramica del confine italo-svizzero con il lago di Lugano e i tetti di un villaggio italiano" },
@@ -5222,7 +5222,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/dumping-salariale-diritti-lavoratore-ticino',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Dumping salariale in Ticino: come riconoscerlo e difendersi",
       "description": "Guida ai diritti del lavoratore frontaliere contro il dumping salariale: forme più comuni, a chi rivolgersi e procedure legali.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/mendrisio.webp`, "width": 1344, "height": 756, "caption": "Operai su un cantiere edile in Ticino con elmetti di sicurezza e documentazione contrattuale" },
@@ -5247,7 +5247,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/malattia-frontaliere-guida-assicurazione',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Malattia e infortunio frontaliere: guida LAMal, IJM e diritti",
       "description": "Tutto sulla copertura sanitaria del frontaliere: LAMal vs CMI, indennità giornaliere, protezione dal licenziamento e malattie rare.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/castelgrande.webp`, "width": 1344, "height": 756, "caption": "Medico in camice bianco in un ospedale svizzero che consulta documenti con un paziente" },
@@ -5272,7 +5272,7 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     canonicalPath: '/articoli-frontaliere/strumenti-frontaliere-guida-comparatori',
     structuredData: {
       "@context": "https://schema.org",
-      "@type": "BlogPosting",
+      "@type": "NewsArticle",
       "headline": "Tutti gli strumenti per frontalieri: calcolatori e comparatori",
       "description": "Panoramica completa dei calcolatori e comparatori gratuiti per frontalieri: stipendio, cambio, assicurazione, pensione e lavoro.",
       "image": { "@type": "ImageObject", "url": `${BASE_URL}/images/places/lugano-view.webp`, "width": 1344, "height": 756, "caption": "Schermo di computer con grafici finanziari e calcolatrice in un ufficio moderno con vista sulle montagne" },

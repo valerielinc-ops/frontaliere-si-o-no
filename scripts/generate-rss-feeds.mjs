@@ -180,9 +180,50 @@ function resolveImageUrl(imageFile, articleId) {
   return `${BASE_URL}/icons/icon-512x512.png`;
 }
 
+// ── Blog body parsing ─────────────────────────────────────────────────
+
+/**
+ * Parse full article bodies from blog-body/{locale}/*.ts files.
+ * Returns Map<articleId, fullBodyHtml>.
+ */
+function parseBlogBodies(locale) {
+  const bodies = new Map();
+  const bodyDir = path.join(ROOT, 'services', 'locales', 'blog-body', locale);
+  if (!fs.existsSync(bodyDir)) return bodies;
+
+  const files = fs.readdirSync(bodyDir).filter(f => f.endsWith('.ts'));
+  // Match: 'blog.article.{id}.bodyN': `...` or '...'
+  const rx = /['"]blog\.article\.([^'"]+)\.(body\d+)['"]\s*:\s*[`']((?:[^`'\\]|\\.)*)(?:[`'])/g;
+
+  for (const file of files) {
+    const src = fs.readFileSync(path.join(bodyDir, file), 'utf-8');
+    const articleParts = new Map(); // articleId → { body1: '...', body2: '...' }
+    let m;
+    rx.lastIndex = 0;
+    while ((m = rx.exec(src)) !== null) {
+      const [, id, part, text] = m;
+      if (!articleParts.has(id)) articleParts.set(id, new Map());
+      articleParts.get(id).set(part, text);
+    }
+
+    for (const [id, parts] of articleParts) {
+      // Sort body1, body2, body3... and concatenate
+      const sorted = [...parts.entries()]
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([, v]) => v)
+        .join('\n');
+      if (sorted.length > 50) {
+        bodies.set(id, sorted);
+      }
+    }
+  }
+
+  return bodies;
+}
+
 // ── RSS feed generation ───────────────────────────────────────────────
 
-function generateRssFeed(locale, articles, slugs, localizedTitles, localizedExcerpts) {
+function generateRssFeed(locale, articles, slugs, localizedTitles, localizedExcerpts, localizedBodies) {
   const meta = LOCALE_META[locale];
   const feedUrl = locale === 'it' ? `${BASE_URL}/rss.xml` : `${BASE_URL}/rss-${locale}.xml`;
 
@@ -214,15 +255,21 @@ function generateRssFeed(locale, articles, slugs, localizedTitles, localizedExce
 
   const lastBuildDate = toRfc822(topItems[0].pubDate);
 
-  const itemsXml = topItems.map(item => `    <item>
+  const itemsXml = topItems.map(item => {
+    const body = localizedBodies?.get(item.articleId);
+    const contentEncoded = body
+      ? `\n      <content:encoded><![CDATA[${body}]]></content:encoded>`
+      : '';
+    return `    <item>
       <title>${escapeXml(item.title)}</title>
       <link>${BASE_URL}${meta.articlePrefix}${item.slug}/</link>
-      <description><![CDATA[${item.excerpt}]]></description>
+      <description><![CDATA[${item.excerpt}]]></description>${contentEncoded}
       <pubDate>${toRfc822(item.pubDate)}</pubDate>
       <guid isPermaLink="true">${BASE_URL}${meta.articlePrefix}${item.slug}/</guid>
       <category>${escapeXml(item.category)}</category>
       <media:content url="${escapeXml(item.imageUrl)}" medium="image"/>
-    </item>`).join('\n');
+    </item>`;
+  }).join('\n');
 
   return `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"
@@ -268,7 +315,8 @@ function main() {
   for (const locale of LOCALES) {
     const titles = parseLocalizedTitles(locale);
     const excerpts = parseLocalizedExcerpts(locale);
-    const feed = generateRssFeed(locale, articles, slugs, titles, excerpts);
+    const bodies = parseBlogBodies(locale);
+    const feed = generateRssFeed(locale, articles, slugs, titles, excerpts, bodies);
 
     if (!feed) {
       console.warn(`   ⚠️  No items for ${locale} feed — skipping`);
