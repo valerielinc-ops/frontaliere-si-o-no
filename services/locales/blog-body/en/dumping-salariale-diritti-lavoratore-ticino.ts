@@ -87,6 +87,7 @@ In 2024, the MPS (Movimento per il Socialismo) anti-dumping initiative was rejec
 - **Explore opportunities** on the [job board](nav:job-board) — sometimes the best response to dumping is finding an employer who values fair pay
 
 Wage dumping is not a fact of life. It is a violation of Swiss law, and you have concrete, accessible tools to fight it.`,
+    'blog.article.dumping-salariale-diritti-lavoratore-ticino.faq': '[{"q":"How can I recognize if I am suffering from wage dumping?","a":"Wage dumping can manifest itself in the form of a correct basic wage but actual hours higher than the contractual ones, lower professional classification, fake part-time, illegitimate deductions or no adjustment to inflation. Check your salary with the salary calculator and compare it with the CEA minimums in your industry."},{"q":"What is the minimum hourly wage guaranteed by the Cantonal Minimum Wage Law in Ticino in 2026?","a":"The guaranteed minimum hourly wage is CHF 19.75/hour, equivalent to approximately CHF 3,530/month at 100% employment."}]',
 };
 
 export default bodyDumpingSalarialeDirittiLavoratoreTicino;
