@@ -1,16 +1,16 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-04-06T21:11:08.448Z",
+  "generatedAt": "2026-04-07T09:27:46.818Z",
   "total": 21,
   "newCount": 0,
   "updatedCount": 21,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 24634,
-  "avgDurationMs": 24634,
+  "durationMs": 24465,
+  "avgDurationMs": 24465,
   "durationHistory": [
-    24634
+    24465
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -94,7 +94,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.238Z",
+      "crawledAt": "2026-04-07T09:27:44.596Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -209,7 +209,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.237Z",
+      "crawledAt": "2026-04-07T09:27:44.596Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-06",
@@ -221,6 +221,113 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "needsRetranslation": true,
+      "_qualityScore": 100,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-6103",
+      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
+      "company": "EFG International AG",
+      "title": "Temp Contract - IT Business Analyst/Developer",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "tech",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [],
+            "responsibilities": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
+              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
+              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
+              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
+              "<span>Escalate issues in timely manner with all required stakeholders</span>",
+              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
+              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
+              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
+            ],
+            "requirements": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Goal-oriented</span>",
+              "<span>Excellent knowledge of MS Office</span>",
+              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
+              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
+              "<span>English (French/German/Italian would be beneficial)</span>",
+              "<span>Effective interpersonal skill in negotiation and influencing</span>",
+              "<span>Must be able to travel from time to time if required</span>",
+              "<span>Previous experience in financial industry would be preferable</span>",
+              "<span>Expectation to be office based</span>",
+              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
+              "Hands-on: Being proactive to rapidly deliver high-quality results"
+            ],
+            "benefits": [],
+            "process": [
+              "Should you wish to apply for this position use this link to apply."
+            ],
+            "highlights": [
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
+            ],
+            "keywords": [
+              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
+              "<span>Strong communication skills (written and oral)</span>",
+              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
+              "<span>Strong attention to detail </span>",
+              "<span>Ability to be independent and take ownership of tasks</span>",
+              "<span>Provide day-to-day support of the various application systems.</span>",
+              "<span>Document new system enhancements",
+              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
+              "<span>Configuration"
+            ],
+            "sections": [
+              {
+                "id": "details",
+                "heading": "Specification of Core Function",
+                "paragraphs": [
+                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
+                ],
+                "bullets": []
+              }
+            ],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-07T09:27:44.595Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "sourceLang": "en",
+      "salaryMin": 72500,
+      "salaryMax": 97500,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "datePosted": "2026-03-10",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -326,7 +433,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.237Z",
+      "crawledAt": "2026-04-07T09:27:44.595Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -337,113 +444,6 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "datePosted": "2026-02-27",
-      "_qualityScore": 100,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-6103",
-      "slug": "temp-contract-business-analista-sviluppatore-efg-international-ag-lugano-n9334f",
-      "company": "EFG International AG",
-      "title": "Temp Contract - IT Business Analyst/Developer",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "tech",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/6103",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [],
-            "responsibilities": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration, roll-out, training and application support of Charles River / Aladdin and surrounding applications</span>",
-              "<span>Define and test required solutions to enhance the existing features and functionalities of the IT solutions</span>",
-              "<span>Obtain expertise in using and configuring the Charles River / Aladdin applications</span>",
-              "<span>Progress in timely manner with defining changes and the delivery of required changes in the systems</span>",
-              "<span>Escalate issues in timely manner with all required stakeholders</span>",
-              "<span>Progress work according to agreed priorities (and ensure that priorities are understood if there are any ambiguities)</span>",
-              "<span>Conduct and document and agree gap analysis of any required changes with Vendor and business users</span>",
-              "<span>Prepare, agree and document detailed process flows, test plan, test execution reports and other project documentation</span>"
-            ],
-            "requirements": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Goal-oriented</span>",
-              "<span>Excellent knowledge of MS Office</span>",
-              "<span>Software experience: Microsoft SQL, Excel Macros, Visual Basic </span>",
-              "<span>Knowledge of Charles River and / or BlackRock Aladdin (preferable)</span>",
-              "<span>English (French/German/Italian would be beneficial)</span>",
-              "<span>Effective interpersonal skill in negotiation and influencing</span>",
-              "<span>Must be able to travel from time to time if required</span>",
-              "<span>Previous experience in financial industry would be preferable</span>",
-              "<span>Expectation to be office based</span>",
-              "Accountability: Taking ownership for tasks and challenges, as well as seeking continuous improvement",
-              "Hands-on: Being proactive to rapidly deliver high-quality results"
-            ],
-            "benefits": [],
-            "process": [
-              "Should you wish to apply for this position use this link to apply."
-            ],
-            "highlights": [
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements, implement and test enhancements, provide training to users </span>",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering, Economics, maths, etc…)</span>",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>"
-            ],
-            "keywords": [
-              "<span>Bachelor or Master degree qualification in a numerate subject (e.g. Engineering",
-              "<span>Strong communication skills (written and oral)</span>",
-              "<span>Excellent analytical and problem-solving skills /ability to think quick on your feet)</span>",
-              "<span>Strong attention to detail </span>",
-              "<span>Ability to be independent and take ownership of tasks</span>",
-              "<span>Provide day-to-day support of the various application systems.</span>",
-              "<span>Document new system enhancements",
-              "<span>Liaise with existing users and technical analysts and the relevant application vendors</span>",
-              "<span>Configuration"
-            ],
-            "sections": [
-              {
-                "id": "details",
-                "heading": "Specification of Core Function",
-                "paragraphs": [
-                  "Our team delivers solutions and provides support for internal and third-party systems in place for the Investment Client Solution (ICS) business. Support, business analysis, testing and development is provided for all business lines of the ICS including Advisory, Discretionary and New Capital Funds. The main aspect of this role is Support and Business Analyst functions. The role involves interaction with a wide range of end users from all aspects of the business (e.g. Front office, Middle office, Back office, Risk and Compliance as well as IT). The role involves providing support for Production critical issues, understanding and challenging business change requirements, testing changes, co-ordinating delivery workstreams, devising workable efficient scalable solutions to meet business requirements."
-                ],
-                "bullets": []
-              }
-            ],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-06T21:11:06.236Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "sourceLang": "en",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "datePosted": "2026-03-10",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -551,7 +551,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.236Z",
+      "crawledAt": "2026-04-07T09:27:44.594Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-24",
@@ -683,7 +683,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.235Z",
+      "crawledAt": "2026-04-07T09:27:44.593Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -794,7 +794,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.235Z",
+      "crawledAt": "2026-04-07T09:27:44.593Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-02-03",
@@ -917,7 +917,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.235Z",
+      "crawledAt": "2026-04-07T09:27:44.593Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -1039,7 +1039,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.234Z",
+      "crawledAt": "2026-04-07T09:27:44.592Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1055,6 +1055,58 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
+        "translation": 25,
+        "completeness": 25
+      }
+    },
+    {
+      "id": "efg-5877",
+      "slug": "back-office-cash-reconciliation-specialist-efg-geneve",
+      "company": "EFG International AG",
+      "title": "Back-Office Cash reconciliation specialist",
+      "location": "Geneve",
+      "canton": "GE",
+      "category": "admin",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-12-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
+      "source": "Oracle HCM API",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 3
+          }
+        }
+      },
+      "crawledAt": "2026-04-07T09:27:44.591Z",
+      "addressLocality": "Geneve",
+      "addressCountry": "CH",
+      "datePosted": "2025-12-10",
+      "sourceLang": "en",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1166,7 +1218,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.233Z",
+      "crawledAt": "2026-04-07T09:27:44.591Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1313,7 +1365,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.232Z",
+      "crawledAt": "2026-04-07T09:27:44.590Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-02-11",
@@ -1329,58 +1381,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
-    {
-      "id": "efg-5877",
-      "slug": "back-office-cash-reconciliation-specialist-efg-geneve",
-      "company": "EFG International AG",
-      "title": "Back-Office Cash reconciliation specialist",
-      "location": "Geneve",
-      "canton": "GE",
-      "category": "admin",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-12-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5877",
-      "source": "Oracle HCM API",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span>General Info</span></p> <ul> <li><span>Department</span>: <span>Back Office Cash Reconciliation Specialist</span></li> <li><span>Work</span><span> </span><span>time</span><span> </span><span>Percentage</span><span>: 100%</span></li> <li><span>Location</span><span>: Geneva</span></li> </ul>Our Company <p>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </p> <p>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</p> <p><span>Our Purpose and Mission</span></p> <p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p> <p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span></p>Job Description <p><span>We are seeking a skilled Back Office Cash Reconciliation Specialist to join our team in Geneva. This position offers the opportunity to contribute to a dynamic environment where precision, collaboration, and proactive problem-solving are highly valued. Main duties include</span></p> <ul> <li><span>Cash Reconciliation</span> <ul> <li><span>Perform reconciliation of cash correspondents for all EFG entities</span></li> <li><span>Manually input statements from correspondents not automatically reconciled</span></li> <li><span>Monitor, check, and investigate cash differences on a daily basis</span> <ul> <li><span>Establish and maintain a list of pending cash amounts</span></li> </ul></li> <li><span>Manage treatment and follow-up of current files</span></li> <li><span>Claim and recover missing statements from counterparties</span></li> </ul></li> <li><span>Investigation on Customer Wires</span> <ul> <li><span>Demonstrate strong knowledge of cash transfer activities (e.g., MT103, MT202, etc.)</span></li> <li><span>Understand the roles of each counterparty involved in wire payments</span></li> <li><span>Draft and send SWIFT messages (e.g., MTx99, MTx95, MTx96, etc.) as needed</span></li> <li><span>Take responsibility for managing investigations from start to finish</span></li> <li><span>Apply familiarity with compliance requirements throughout investigations</span></li> <li><span>Communicate effectively in English, both orally and in writing</span></li> </ul></li> </ul>Skills and experience <ul> <li><span>Minimum of 2 years’ experience in cash reconciliation and/or investigation of customer wire transfers </span></li> <li><span>General understanding of Back-Office operations within banking </span></li> <li><span>French mother tongue and fluent English (spoken and written); additional languages are an asset </span></li> <li><span>Knowledge of GTMatch, GTExchange, and Globus is advantageous </span></li> <li><span>Proficient in MS Office suite </span></li> <li><span>Solution-oriented, pragmatic, and precise </span></li> <li><span>Strong team player, comfortable working in open space environments </span></li> <li><span>Resilient under pressure, flexible, and adaptable </span></li> <li><span>Proactive with excellent attention to detail</span></li> </ul>Our Values <ul> <li><span>Accountability</span><span>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></li> <li><span>Hands-on</span><span>: Being proactive to rapidly deliver high-quality results</span></li> <li><span>Passionate</span><span>: Being committed and striving for excellence</span></li> <li><span>Solution-driven</span><span>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></li> <li><span>Partnership-oriented</span><span>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></li> </ul> <ol> <li><span><b>Please ensure to attach a cover letter to your CV when filling the application.</b></span></li> </ol>Application <ol> <li><span>Should you wish to apply for this position use this link to apply.</span></li> </ol>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 3
-          }
-        }
-      },
-      "crawledAt": "2026-04-06T21:11:06.232Z",
-      "addressLocality": "Geneve",
-      "addressCountry": "CH",
-      "datePosted": "2025-12-10",
-      "sourceLang": "en",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
         "translation": 25,
         "completeness": 25
       }
@@ -1478,7 +1478,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.232Z",
+      "crawledAt": "2026-04-07T09:27:44.590Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2025-12-02",
@@ -1530,7 +1530,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.231Z",
+      "crawledAt": "2026-04-07T09:27:44.589Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -1643,7 +1643,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.231Z",
+      "crawledAt": "2026-04-07T09:27:44.589Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-03-25",
@@ -1758,7 +1758,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.229Z",
+      "crawledAt": "2026-04-07T09:27:44.588Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-03-31",
@@ -1811,7 +1811,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.228Z",
+      "crawledAt": "2026-04-07T09:27:44.587Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -1864,7 +1864,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.228Z",
+      "crawledAt": "2026-04-07T09:27:44.587Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -1992,7 +1992,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.227Z",
+      "crawledAt": "2026-04-07T09:27:44.586Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -2072,7 +2072,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.226Z",
+      "crawledAt": "2026-04-07T09:27:44.585Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
@@ -2150,7 +2150,7 @@
           }
         }
       },
-      "crawledAt": "2026-04-06T21:11:06.225Z",
+      "crawledAt": "2026-04-07T09:27:44.584Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-02",
