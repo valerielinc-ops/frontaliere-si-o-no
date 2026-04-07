@@ -6419,7 +6419,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Headline JSON-LD",
+      "headline": "Referendum in Ticino: separazione delle carriere di giudici e PM",
       "description": "Il referendum del 22-23 marzo in Ticino punta alla separazione delle carriere di giudici e pubblici ministeri, rafforzando la trasparenza e l’imparzialità.",
       "image": {
         "@type": "ImageObject",
@@ -7559,7 +7559,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Headline JSON-LD",
+      "headline": "Migranti problematici in Ticino: il governo decide strutture dedicate",
       "description": "Il Governo del Canton Ticino approva strutture dedicate per migranti problematici. Normative, scadenze e impatti sulla frontiera svizzero-italiana.",
       "image": {
         "@type": "ImageObject",
@@ -12450,23 +12450,23 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
   },
 
   'blog-fronteria-ticino-scarpata-airogno': {
-    title: 'Titolo giornalistico con keyword (max 60 chars) | Frontaliere Ticino',
-    description: 'Meta description 150-160 chars. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, titolo, giornalistico, keyword, chars',
-    ogTitle: 'OG title (max 60 chars)',
-    ogDescription: 'OG desc (max 160 chars)',
+    title: 'Lavoro frontaliero in Ticino: normative 2026 | Frontaliere Ticino',
+    description: 'Calo del 14,6% dei lavoratori extracomunitari in Ticino: cosa cambia con la nuova LCFL 2025 e come adattarsi alle nuove normative frontaliere.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lavoro frontaliero, LCFL, normative 2026, lavoratori extracomunitari',
+    ogTitle: 'Lavoro frontaliero in Ticino: normative 2026 e prospettive',
+    ogDescription: 'Calo del 14,6% dei lavoratori extracomunitari in Ticino: cosa cambia con la nuova LCFL 2025 e come adattarsi alle nuove normative frontaliere.',
     canonicalPath: '/articoli-frontaliere/fronteria-ticino-scarpata-airogno',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
-      "headline": "Headline JSON-LD",
-      "description": "Meta description 150-160 chars. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "headline": "Lavoro frontaliero in Ticino: normative 2026 e prospettive",
+      "description": "Calo del 14,6% dei lavoratori extracomunitari in Ticino: cosa cambia con la nuova LCFL 2025 e come adattarsi alle nuove normative frontaliere.",
       "image": {
         "@type": "ImageObject",
         "url": `${BASE_URL}/images/blog/fronteria-ticino-scarpata-airogno.jpg`,
         "width": 1200,
         "height": 675,
-        "caption": "Un uomo cade dalla scarpata ad Arogno, ma non è in pericolo di vita."
+        "caption": "Frontalieri in Ticino al mattino, traffico al confine svizzero-italiano."
       },
       "datePublished": "2026-04-06T23:51:18+00:00",
       "dateModified": "2026-04-06T23:51:18+00:00",

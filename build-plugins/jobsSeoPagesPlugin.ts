@@ -3742,8 +3742,21 @@ ${(() => {
       } catch { /* file missing or malformed — start fresh */ }
 
       const currentSlugs = new Set<string>();
+      // Collect slug values that differ from slugByLocale.it — these are legacy
+      // identifier slugs that no longer have an active page at that path. They
+      // should be treated as previous slugs (bridge pages), not as current.
+      const implicitPreviousSlugs: { job: typeof validJobs[0]; slug: string }[] = [];
       for (const job of validJobs) {
-        currentSlugs.add(job.slug);
+        const itSlug = localizedSlug(job, 'it');
+        // Only add job.slug to currentSlugs if it matches the actual IT page slug.
+        // When they differ, the old slug needs a bridge page, not exclusion.
+        if (job.slug === itSlug) {
+          currentSlugs.add(job.slug);
+        } else {
+          // job.slug is a legacy identifier — treat as implicit previous slug
+          // so it gets a bridge page pointing to the current URL
+          implicitPreviousSlugs.push({ job, slug: job.slug });
+        }
         // Also mark all localized slugs as "current" so they aren't treated as
         // expired when they appear as orphan tracking keys. Without this, a
         // German master slug that differs from the IT localizedSlug can end up
@@ -3825,9 +3838,12 @@ ${(() => {
         let compatAdded = 0;
         const COMPAT_JOB_PATTERNS: { re: RegExp; locale: string; prefix: string }[] = [
           { re: /\/cerca-lavoro-ticino\/([^/]+)\/?$/, locale: 'it', prefix: '/cerca-lavoro-ticino/' },
-          { re: /\/en\/find-job-ticino\/([^/]+)\/?$/, locale: 'en', prefix: '/en/find-job-ticino/' },
+          { re: /\/en\/find-jobs?-ticino\/([^/]+)\/?$/, locale: 'en', prefix: '/en/find-jobs-ticino/' },
+          { re: /\/en\/job-search-ticino\/([^/]+)\/?$/, locale: 'en', prefix: '/en/find-jobs-ticino/' },
           { re: /\/de\/jobs-im-tessin\/([^/]+)\/?$/, locale: 'de', prefix: '/de/jobs-im-tessin/' },
+          { re: /\/de\/jobsuche-tessin\/([^/]+)\/?$/, locale: 'de', prefix: '/de/jobs-im-tessin/' },
           { re: /\/fr\/trouver-emploi-tessin\/([^/]+)\/?$/, locale: 'fr', prefix: '/fr/trouver-emploi-tessin/' },
+          { re: /\/fr\/recherche-emploi-tessin\/([^/]+)\/?$/, locale: 'fr', prefix: '/fr/trouver-emploi-tessin/' },
         ];
         const SKIP_PREFIX_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
         for (const p of compatPaths) {
@@ -3950,6 +3966,22 @@ ${(() => {
           bridgeSlugSet.add(s);
           const itPath = (tracking[s] as any)?.it;
           if (itPath) bridgeItPaths.add(itPath);
+        }
+      }
+      // Add implicit previous slugs (job.slug ≠ slugByLocale.it) to bridge set
+      // and ensure they're in previousSlugs for bridge page generation
+      for (const { job, slug } of implicitPreviousSlugs) {
+        bridgeSlugSet.add(slug);
+        if (!Array.isArray(job.previousSlugs)) job.previousSlugs = [];
+        if (!job.previousSlugs.includes(slug)) job.previousSlugs.push(slug);
+        // Ensure tracking has this slug with correct locale paths
+        if (!tracking[slug]) {
+          tracking[slug] = {
+            it: `/${sectionByLocale.it}/${slug}`,
+            en: `/en/${sectionByLocale.en}/${slug}`,
+            de: `/de/${sectionByLocale.de}/${slug}`,
+            fr: `/fr/${sectionByLocale.fr}/${slug}`,
+          };
         }
       }
       // Expand: any tracking key whose IT path is the same as a bridge path is also a bridge
@@ -4236,7 +4268,7 @@ ${(() => {
             searchSugParts.push(`<p>Torna alla <a href="${BASE_URL}/cerca-lavoro-ticino/">Job Board completa</a> per trovare la tua prossima opportunit\u00e0 lavorativa come frontaliere in Svizzera.</p>`);
             staticBodyParts.push(`<section><h2>Offerte simili in ${esc(displayCanton)}</h2>${searchSugParts.join('\n')}</section>`);
           } else if (locale === 'en') {
-            staticBodyParts.push(`<section><h2>Similar jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${BASE_URL}/en/find-job-ticino/">complete job board</a> with over 1000 active positions in Ticino.</p>${jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${BASE_URL}/en/find-job-ticino/">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
+            staticBodyParts.push(`<section><h2>Similar jobs in ${esc(displayCanton)}</h2><p>Browse our <a href="${BASE_URL}/en/find-jobs-ticino/">complete job board</a> with over 1000 active positions in Ticino.</p>${jobLocation ? `<p>Search for more jobs near ${esc(jobLocation)}: <a href="${BASE_URL}/en/find-jobs-ticino/">Jobs in ${esc(displayCanton)}</a></p>` : ''}<p>Find your next opportunity as a cross-border worker in Switzerland.</p></section>`);
           } else if (locale === 'de') {
             staticBodyParts.push(`<section><h2>\u00c4hnliche Stellen im ${esc(displayCanton)}</h2><p>Durchsuchen Sie unser <a href="${BASE_URL}/de/job-suche-tessin/">komplettes Job Board</a> mit \u00fcber 1000 aktiven Stellen im Tessin.</p>${jobLocation ? `<p>Weitere Stellen in der N\u00e4he von ${esc(jobLocation)}: <a href="${BASE_URL}/de/job-suche-tessin/">Jobs im ${esc(displayCanton)}</a></p>` : ''}<p>Finden Sie Ihre n\u00e4chste Stelle als Grenzg\u00e4nger in der Schweiz.</p></section>`);
           } else {
