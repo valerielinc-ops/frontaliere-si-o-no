@@ -2175,6 +2175,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Health Tax for Cross-Border Workers: UFIS Receives Answers from Switzerland and Lombardy, but Doubts Remain',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'The Union of Italian Cross-Border Workers in Switzerland (UFIS) has received official responses regarding the \'health tax\', but highlights inconsistencies between Bern and Milan, leaving thousands of workers in limbo.',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Cross-border worker with backpack between Ticino and Lombardy',
+    'blog.article.tassa-salute-frontalieri.title': 'Health tax for cross-border workers: Lombardy cannot opt out',
+    'blog.article.tassa-salute-frontalieri.excerpt': 'The Lombardy Region cannot exempt itself from applying the health tax to cross-border workers, as confirmed by President Attilio Fontana.',
+    'blog.article.tassa-salute-frontalieri.imageAlt': 'Cross-border workers in Ticino',
 };
 
 export default blogMetaEn;

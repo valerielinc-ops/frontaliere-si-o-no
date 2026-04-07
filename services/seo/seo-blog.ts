@@ -12797,6 +12797,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri': {
+    title: 'Tassa salute frontalieri: la Lombardia non può sottrarsi | Frontaliere Ticino',
+    description: 'La Regione Lombardia non può esimersi dall\'applicazione della tassa sulla salute dei frontalieri. Scopri cosa significa per i lavoratori. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, sottrarsi',
+    ogTitle: 'Tassa salute frontalieri',
+    ogDescription: 'La Regione Lombardia non può esimersi dall\'applicazione della tassa sulla salute dei frontalieri. Scopri cosa significa per i lavoratori.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tassa salute frontalieri: la Lombardia non può sottrarsi",
+      "description": "La Regione Lombardia non può esimersi dall'applicazione della tassa sulla salute dei frontalieri. Scopri cosa significa per i lavoratori. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontalieri al confine italo-svizzero"
+      },
+      "datePublished": "2026-04-07T19:40:57+00:00",
+      "dateModified": "2026-04-07T19:40:57+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

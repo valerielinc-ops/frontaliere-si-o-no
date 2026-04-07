@@ -2175,6 +2175,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Tassa Salute Frontalieri: UFIS Ottiene Risposte da Svizzera e Lombardia, ma Dubbi Persistono',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'L\'Unione Frontalieri Italiani in Svizzera (UFIS) riceve risposte ufficiali su \'tassa sanità\' ma segnalano incongruenze tra Berna e Milano, lasciando in sospeso migliaia di lavoratori.',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Frontaliero con bagno a spalla tra Ticino e Lombardia',
+    'blog.article.tassa-salute-frontalieri.title': 'Tassa salute frontalieri: la Lombardia non può sottrarsi',
+    'blog.article.tassa-salute-frontalieri.excerpt': 'La Regione Lombardia non può esimersi dall\'applicazione della tassa sulla salute dei frontalieri, come confermato dal presidente Attilio Fontana.',
+    'blog.article.tassa-salute-frontalieri.imageAlt': 'Frontalieri al confine italo-svizzero',
 };
 
 export default blogMetaIt;

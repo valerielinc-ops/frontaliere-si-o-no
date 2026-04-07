@@ -6265,4 +6265,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/tassa-salute-frontalieri-ufis-risposte.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-salute-frontalieri',
+    category: 'fiscale',
+    date: '2026-04-07T19:40:57.603Z',
+    image: '/images/blog/tassa-salute-frontalieri.jpg',
+    hasCalculator: true,
+  },
 ];

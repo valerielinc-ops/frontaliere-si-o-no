@@ -2175,6 +2175,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Taxe Santé Frontaliers : L\'UFIS reçoit des réponses de la Suisse et de la Lombardie, mais les doutes persistent',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'L\'Union des Frontaliers Italiens en Suisse (UFIS) reçoit des réponses officielles sur l\'« impôt santé », mais signale des incohérences entre Berne et Milan, laissant en suspens des milliers de travailleurs.',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Travailleur frontalier avec sac à dos entre Tessin et Lombardie',
+    'blog.article.tassa-salute-frontalieri.title': 'Tasse de santé frontaliers : la Lombardie ne peut pas s\'exonérer',
+    'blog.article.tassa-salute-frontalieri.excerpt': 'La Région Lombardie ne peut pas s\'exonérer de l\'application de la taxe de santé des frontaliers, comme confirmé par le président Attilio Fontana.',
+    'blog.article.tassa-salute-frontalieri.imageAlt': 'Travailleurs frontaliers au Tessin',
 };
 
 export default blogMetaFr;

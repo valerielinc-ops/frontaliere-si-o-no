@@ -2175,6 +2175,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Gesundheitssteuer für Grenzgänger: UFIS erhält Antworten aus der Schweiz und der Lombardei, aber Zweifel bestehen weiter',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'Die Union der italienischen Grenzgänger in der Schweiz (UFIS) erhält offizielle Antworten zur \'Gesundheitssteuer\', weist jedoch auf Inkonsistenzen zwischen Bern und Mailand hin, die Tausende Arbeitnehmer in Ungewissheit belassen.',
     'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Grenzarbeiter mit Rucksack zwischen Tessin und Lombardei',
+    'blog.article.tassa-salute-frontalieri.title': 'Gesundheitssteuer für Grenzgänger: Die Lombardei kann sich nicht entziehen',
+    'blog.article.tassa-salute-frontalieri.excerpt': 'Die Region Lombardei kann sich nicht der Anwendung der Gesundheitssteuer für Grenzgänger entziehen, wie der Präsident Attilio Fontana bestätigt hat.',
+    'blog.article.tassa-salute-frontalieri.imageAlt': 'Grenzgänger in Tessin',
 };
 
 export default blogMetaDe;
