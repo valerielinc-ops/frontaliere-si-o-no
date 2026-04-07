@@ -1,16 +1,16 @@
 {
   "key": "banca-cler",
   "label": "Cler",
-  "generatedAt": "2026-04-07T09:16:42.994Z",
-  "total": 5,
+  "generatedAt": "2026-04-07T21:11:43.911Z",
+  "total": 4,
   "newCount": 0,
-  "updatedCount": 5,
-  "removedCount": 0,
+  "updatedCount": 4,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 20122,
-  "avgDurationMs": 20122,
+  "durationMs": 20721,
+  "avgDurationMs": 20721,
   "durationHistory": [
-    20122
+    20721
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -37,7 +37,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-07T09:16:24.588Z",
+      "crawledAt": "2026-04-07T21:11:25.892Z",
       "id": "company-67xwtt",
       "contract": "full-time",
       "currency": "CHF",
@@ -77,7 +77,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-07T09:16:25.113Z",
+      "crawledAt": "2026-04-07T21:11:26.468Z",
       "id": "company-7od0f",
       "contract": "full-time",
       "currency": "CHF",
@@ -86,6 +86,7 @@
       "salaryMax": 111500,
       "streetAddress": "Via Pretorio 13",
       "postalCode": "6900",
+      "needsRetranslation": true,
       "_qualityScore": 87,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -117,7 +118,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-07T09:16:25.617Z",
+      "crawledAt": "2026-04-07T21:11:27.061Z",
       "id": "company-vlfwqx",
       "contract": "full-time",
       "currency": "CHF",
@@ -157,7 +158,7 @@
       "validThrough": "",
       "employmentType": "full_time",
       "contractType": "permanent",
-      "crawledAt": "2026-04-07T09:16:26.125Z",
+      "crawledAt": "2026-04-07T21:11:27.622Z",
       "id": "company-g1x21d",
       "contract": "full-time",
       "currency": "CHF",
@@ -173,10 +174,12 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Marktgebietsleiterin Zentral (w/m)",
-      "slug": "marktgebietsleiterin-zentral-w-m-banca-cler",
+      "slug": "direttrice-del-mercato-centrale-w-m-banca-cler-bellinzona",
       "url": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/marktgebietsleiterin-zentral-w-m-2622",
       "applyUrl": "https://www.cler.ch/de/bank-cler/jobs-und-karriere/suchen-und-bewerben/offene-stellen/marktgebietsleiterin-zentral-w-m-2622",
       "company": "Banca Cler",
@@ -191,7 +194,7 @@
       "category": "finance",
       "sector": "Banca / Servizi finanziari",
       "department": "Private Banking und Privatkunden",
-      "source": "cler-dedicated-crawler",
+      "source": "Company Careers Crawler",
       "sourceLang": "de",
       "postedDate": "2026-02-20",
       "validThrough": "",
@@ -215,6 +218,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
