@@ -544,33 +544,35 @@ export const Analytics = {
    * Attribution is captured once per session via traffic_attribution,
    * not repeated on every page_view to keep events clean.
    *
-   * DEDUPLICATION: Static HTML pages include a lightweight gtag.js snippet
-   * that fires page_view immediately on load (to capture bounces before
-   * React hydrates). When the SPA hydrates and calls this method for the
-   * first page, it skips the Firebase page_view to avoid a duplicate.
-   * The flag `window.__GTAG_PAGE_VIEW_SENT__` is set by the static snippet.
+   * BOUNCE CAPTURE: Static HTML pages include a lightweight gtag.js snippet
+   * that fires page_view immediately on load (to capture sessions that bounce
+   * before React hydrates). Firebase also fires page_view unconditionally so
+   * that sessions where gtag.js is blocked (ad blockers, ~30-40% of users)
+   * still have a page_view with correct page_location in GA4.
+   * This means non-blocked users get a duplicate page_view (gtag + Firebase)
+   * on the initial page, which is a minor metric inflation but correct.
    */
   trackPageView: (path: string, title?: string) => {
     const now = Date.now();
     if (path === lastTrackedPagePath && now - lastTrackedPageAt < 500) return;
-    // Skip the first page_view if gtag.js already sent it from the static HTML.
-    // This prevents duplicate page_view events when the SPA hydrates on a
-    // static page that was pre-rendered by a build plugin.
+    // NOTE: We intentionally do NOT skip Firebase page_view even when
+    // window.__GTAG_PAGE_VIEW_SENT__ is set by static HTML pages.
+    //
+    // The flag is set synchronously by the inline GTAG_SNIPPET before gtag.js
+    // loads (gtag.js is async). When gtag.js is blocked by an ad blocker or
+    // privacy browser (~30-40% of users), the flag is set but gtag never fires
+    // page_view. Other Firebase events (e.g. funnel_step) still fire, creating
+    // a GA4 session with no page_view → landing page = "(not set)".
+    //
+    // By always firing the Firebase page_view, we ensure every session has a
+    // page_view with correct page_location. Non-blocked users get a duplicate
+    // page_view (gtag + Firebase), which is a minor metric inflation but far
+    // better than 25% of sessions having "(not set)" landing page.
+    //
+    // The flag is cleared here so it doesn't interfere with any future code.
     const w = window as unknown as Record<string, unknown>;
     if (w.__GTAG_PAGE_VIEW_SENT__) {
-      // Clear the flag so subsequent SPA navigations track normally.
       delete w.__GTAG_PAGE_VIEW_SENT__;
-      // Still update internal state so time-on-page tracking works correctly.
-      lastTrackedPagePath = path;
-      lastTrackedPageAt = now;
-      previousScreen = currentScreen;
-      currentScreen = path;
-      _maxScrollDepth = 0;
-      const pageContext = deriveAnalyticsPageContext(path);
-      tagClarity('page_template', pageContext.pageTemplate);
-      tagClarity('content_group', pageContext.contentGroup);
-      _deadClickCount = 0;
-      return;
     }
     // Calculate time spent on previous page (for pagesPerSession accuracy)
     const timeOnPrevPage = previousScreen ? now - lastTrackedPageAt : 0;
