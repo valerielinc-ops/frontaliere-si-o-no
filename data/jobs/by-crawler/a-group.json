@@ -1,6 +1,6 @@
 {
   "crawlerKey": "a-group",
-  "assembledAt": "2026-04-07T08:56:00.856Z",
+  "assembledAt": "2026-04-07T20:50:56.716Z",
   "jobs": [
     {
       "title": "Ingegnere edile Jr.",
@@ -127,7 +127,8 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Tecnico di cantiere (Ingegere edile o Geometra)",
