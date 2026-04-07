@@ -4654,6 +4654,46 @@ ${hreflangLinks}
         console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated ${bridgeCount} previousSlugs full-content pages`);
       }
 
+      /* ── Self-healing: cover any tracking paths not yet written ──── */
+      // Safety net: any tracking path that wasn't covered by active, soft-landing,
+      // or bridge pages gets a minimal redirect page pointing to the job listing.
+      // This handles edge cases like locale-variant tracking keys that match a
+      // currentSlug value but whose locale paths differ from the active job paths.
+      let healedCount = 0;
+      for (const [, paths] of Object.entries(tracking) as [string, Record<string, string>][]) {
+        for (const locale of localeList) {
+          const relPath = paths?.[locale];
+          if (!relPath) continue;
+          const absFile = np.join(distDir, relPath.replace(/^\//, ''), 'index.html');
+          if (_writtenPaths.has(absFile)) continue;
+
+          const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}`.replace(/\/+/g, '/');
+          const listingUrl = `${BASE_URL}${withSlash(listingPath)}`;
+          const localeCopy = {
+            it: { title: 'Offerta di lavoro aggiornata', body: 'Questa posizione è stata aggiornata o rimossa. Consulta le offerte disponibili.', cta: 'Vedi tutte le offerte' },
+            en: { title: 'Job listing updated', body: 'This position has been updated or removed. Browse available listings.', cta: 'View all listings' },
+            de: { title: 'Stellenangebot aktualisiert', body: 'Diese Stelle wurde aktualisiert oder entfernt. Durchsuchen Sie die verfügbaren Angebote.', cta: 'Alle Angebote ansehen' },
+            fr: { title: 'Offre d\'emploi mise à jour', body: 'Cette offre a été mise à jour ou supprimée. Consultez les offres disponibles.', cta: 'Voir toutes les offres' },
+          };
+          const copy = localeCopy[locale] ?? localeCopy.it;
+          const html = buildCanonicalBridgePage({
+            canonicalUrl: listingUrl,
+            pathLabel: listingPath,
+            title: `${copy.title} | Frontaliere Ticino`,
+            description: copy.body,
+            body: copy.body,
+            ctaLabel: copy.cta,
+            lang: locale,
+            noindex: true,
+          });
+          writeSoftLandingPage(relPath.replace(/^\//, ''), html);
+          healedCount++;
+        }
+      }
+      if (healedCount > 0) {
+        console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Self-healed ${healedCount} tracking paths with no prior coverage`);
+      }
+
       /* ── Flush all buffered writes in parallel batches ── */
       const t0 = Date.now();
       await _flushAllWrites();
