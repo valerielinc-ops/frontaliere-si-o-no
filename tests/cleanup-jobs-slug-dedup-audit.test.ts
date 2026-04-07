@@ -31,7 +31,7 @@ interface RunResult {
   stderr: string;
 }
 
-async function runCleanup(slicePath: string): Promise<RunResult> {
+async function runCleanup(slicePath: string, expiredDir: string): Promise<RunResult> {
   return await new Promise<RunResult>((resolveRun, rejectRun) => {
     const child = spawn(process.execPath, [SCRIPT_PATH], {
       env: {
@@ -39,6 +39,7 @@ async function runCleanup(slicePath: string): Promise<RunResult> {
         JOBS_SLICE_FILE: slicePath,
         JOBS_SKIP_LOCALE_HARDENING: '1',
         JOBS_SKIP_URL_VALIDATION: '1',
+        JOBS_EXPIRED_SLICES_DIR: expiredDir,
       },
     });
 
@@ -63,8 +64,12 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
     const slicePath = path.join(dir, 'test-crawler.json');
 
     // 3 jobs share slug "engineer-lugano"; 1 unique. Newer wins.
+    // Use a unique crawlerKey per test run so the expired/by-crawler/ slice
+    // path written by archiveExpiredJobsPerCrawler doesn't collide with other
+    // tests or the real dataset.
+    const crawlerKey = `test-crawler-audit-${Date.now()}`;
     const slice = {
-      crawlerKey: 'test-crawler',
+      crawlerKey,
       jobs: [
         {
           id: 'job-1-old',
@@ -107,12 +112,14 @@ describe('cleanup-jobs slice slug dedup audit logging', () => {
     };
     fs.writeFileSync(slicePath, JSON.stringify(slice, null, 2), 'utf-8');
 
-    const result = await runCleanup(slicePath);
+    const expiredDir = path.join(dir, 'expired');
+    const result = await runCleanup(slicePath, expiredDir);
     const output = result.stdout + result.stderr;
 
     expect(result.code, output).toBe(0);
-    // Audit log line: a clear summary count
-    expect(output).toContain('Removed 2 within-slice duplicate-slug jobs');
+    // Audit log line: a clear summary count. The architectural fix renamed
+    // "Removed" to "Archived" because losers are now preserved in expired/.
+    expect(output).toContain('Archived 2 within-slice duplicate-slug jobs from slice');
 
     // Resulting slice has exactly 2 jobs (1 unique + 1 winner)
     const parsed = JSON.parse(fs.readFileSync(slicePath, 'utf-8'));
