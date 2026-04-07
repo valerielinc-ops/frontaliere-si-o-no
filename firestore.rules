@@ -91,5 +91,11 @@ service cloud.firestore {
     match /exchangeHistory/{docId} {
       allow read, write: if true;
     }
+
+    // Job page views — public increment for popularity ranking
+    match /job_views/{slug} {
+      allow read: if true;
+      allow write: if true;
+    }
   }
 }
