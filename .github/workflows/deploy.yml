@@ -254,6 +254,15 @@ jobs:
             "$OG_DESCRIPTION" \
             "$ARTICLE_CATEGORY"
 
+      - name: Restore indexing API daily tracker
+        id: indexing-cache
+        uses: actions/cache@v4
+        with:
+          path: /tmp/indexing-api-submitted-today.json
+          key: indexing-api-${{ github.run_id }}
+          restore-keys: |
+            indexing-api-
+
       - name: Post-deploy indexing (parallel)
         if: success()
         continue-on-error: true
