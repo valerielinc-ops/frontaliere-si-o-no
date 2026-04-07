@@ -208,17 +208,19 @@ function gitCommitAndPush(label) {
       `git diff --cached --quiet || git commit -m "❓ FAQ batch checkpoint (${label})"`,
       { cwd: ROOT, stdio: 'pipe', timeout: 30000 }
     );
-    // Push if GITHUB_PAT is available (CI environment)
-    const pat = process.env.GITHUB_PAT;
-    const repo = process.env.GITHUB_REPOSITORY;
-    if (pat && repo) {
-      execSync(
-        `git push https://x-access-token:${pat}@github.com/${repo}.git HEAD:main`,
-        { cwd: ROOT, stdio: 'pipe', timeout: 60000 }
-      );
+    // Push using default GITHUB_TOKEN (permissions: contents: write)
+    try {
+      execSync('git push origin main', { cwd: ROOT, stdio: 'pipe', timeout: 60000 });
       console.error(`💾 Checkpoint pushed: ${label}`);
-    } else {
-      console.error(`💾 Checkpoint committed (no push — local): ${label}`);
+    } catch (pushErr) {
+      // Rebase and retry once (handles concurrent pushes)
+      try {
+        execSync('git pull --rebase origin main', { cwd: ROOT, stdio: 'pipe', timeout: 30000 });
+        execSync('git push origin main', { cwd: ROOT, stdio: 'pipe', timeout: 60000 });
+        console.error(`💾 Checkpoint pushed (after rebase): ${label}`);
+      } catch {
+        console.error(`⚠️  Checkpoint committed but push failed: ${pushErr.message?.slice(0, 100)}`);
+      }
     }
   } catch (err) {
     console.error(`⚠️  Checkpoint failed: ${err.message?.slice(0, 100)}`);
