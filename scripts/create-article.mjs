@@ -2262,6 +2262,25 @@ function validate(data) {
   // Convention: Italian slug === article id for all articles.
   data.slugs.it = data.id;
 
+  // Sanitize ALL locale slugs: strip diacritics and non-ASCII characters.
+  // AI models often generate slugs with accented characters (ä, ö, ü, é, è, etc.)
+  // which cause XML parsing issues in sitemaps and Bing Webmaster Tools errors.
+  for (const locale of ['en', 'de', 'fr']) {
+    if (data.slugs[locale]) {
+      const original = data.slugs[locale];
+      data.slugs[locale] = String(data.slugs[locale])
+        .normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+        .toLowerCase()
+        .replace(/[^a-z0-9-]/g, '-')
+        .replace(/-+/g, '-')
+        .replace(/^-|-$/g, '')
+        .slice(0, 80);
+      if (data.slugs[locale] !== original) {
+        console.warn(`  ⚠️  Slug ${locale} sanitizzato: "${original}" → "${data.slugs[locale]}"`);
+      }
+    }
+  }
+
   // ── Validate internal links in body content ──
   const VALID_NAV_ACTIONS = new Set([
     'calculator', 'exchange', 'health', 'cost-of-living', 'pension', 'pillar3',
