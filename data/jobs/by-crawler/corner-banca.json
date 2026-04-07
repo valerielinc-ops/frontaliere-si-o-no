@@ -1,7 +1,83 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-04-07T09:22:49.078Z",
+  "assembledAt": "2026-04-07T21:17:52.405Z",
   "jobs": [
+    {
+      "id": "corner-banca-f803e5cc9fe2",
+      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+      "slugByLocale": {
+        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
+        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
+        "de": "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+        "fr": "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Candidatura spontanea apprendistato",
+      "titleByLocale": {
+        "it": "Candidatura spontanea apprendistato",
+        "en": "Spontaneous Apprenticeship Application",
+        "de": "Spontane Bewerbung für Ausbildung",
+        "fr": "Candidature spontanée pour un apprentissage"
+      },
+      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\n \n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\nDiploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\nSpiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+      "descriptionByLocale": {
+        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7. Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
+        "en": "Apprenticeship: Eligible Candidates Bright students who have completed secondary school and are about to enter the workforce. They obtain a diploma at the end of a dual training program that includes a rotation between offices aimed at providing them with the necessary knowledge of the sector. Duration 4 years (informatics) Informatics Apprenticeship Program: Application Development / Infrastructure Management / Digital Business Development School Education: Extended profile with integrated maturity, at the Technical Professional Center in Locarno. Inter-company courses: Ameti Bodio. Requirements Secondary school diploma with all attitudinal levels and an average above 4.7. Strong motivation, passion for human contact, desire to study and familiarity with numbers and computer programs.",
+        "de": "Ausbildung: Bewerbergruppe Bereitschaftige Schüler, die die Sekundarschule abgeschlossen haben und in den Beruf eintreten. Sie erhalten am Ende einer dualen Ausbildung ein Diplom, das sie durch eine Rotation zwischen Büros erhalten, die ihnen die notwendigen Kenntnisse des Sektors vermitteln. Dauer 4 Jahre (Informatik) Informatik-Ausbildungsprogramm: Anwendungsentwicklung / Infrastrukturverwaltung / Digitale Geschäftsentwicklung Schulbildung: Erweitertes Profil mit integrierter Reifeprüfung, am Technischen Berufsbildungszentrum in Locarno. Interunternehmenskurse: Ameti Bodio. Anforderungen Abitur mit allen attitudinalen Niveaus und einem Durchschnitt über 4,7. Starke Motivation, Leidenschaft für den Menschenkontakt, Wunsch, zu lernen und Vertrautheit mit Zahlen und Computerprogrammen.",
+        "fr": "Apprentissage: Candidats admissibles Étudiants brillants qui ont terminé le collège et sont sur le point d'entrer dans la vie active. Ils obtiennent un diplôme à la fin d'un programme de formation dual qui comprend une rotation entre les bureaux destinée à leur fournir les connaissances nécessaires du secteur. Durée 4 ans (informatique) Programme d'apprentissage en informatique : développement d'applications / gestion des infrastructures / développement commercial numérique Éducation scolaire : profil étendu avec maturité intégrée, au Centre Professionnel Technique à Locarno. Cours inter-entreprises : Ameti Bodio. Exigences Diplôme du collège avec tous les niveaux attitudinaux et une moyenne supérieure à 4,7. Motivation forte, passion pour le contact humain, envie d'apprendre et familiarité avec les chiffres et les programmes informatiques."
+      },
+      "requirements": [
+        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
+        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "en": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ],
+        "de": [
+          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
+        ]
+      },
+      "location": "Switzerland",
+      "canton": "TI",
+      "addressLocality": "Switzerland",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "temporary",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2025-10-02",
+      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "crawledAt": "2026-04-07T21:17:50.542Z",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland"
+      ],
+      "sourceLang": "it",
+      "needsRetranslation": true,
+      "salaryMin": 61000,
+      "salaryMax": 83000,
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61000,
+          "maxValue": 83000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
     {
       "id": "corner-banca-fe61b84a0935",
       "slug": "employee-card-onboarding-corner-banca-lugano",
@@ -65,11 +141,12 @@
       "postedDate": "2026-02-26",
       "url": "https://jobs.corner.ch/o/employee-card-onboarding",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.403Z",
+      "crawledAt": "2026-04-07T21:17:50.541Z",
       "previousSlugs": [
         "addetto-all-emission-carte-cliente-corner-banca-lugano"
       ],
       "sourceLang": "en",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -126,7 +203,7 @@
       "postedDate": "2026-02-03",
       "url": "https://jobs.corner.ch/o/it-card-management-analyst-specialist",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.403Z",
+      "crawledAt": "2026-04-07T21:17:50.541Z",
       "previousSlugs": [
         "analista-specialista-gestione-carte-it-corner-banca-lugano",
         "it-card-management-analista-specialista-corner-banca-lugano",
@@ -146,81 +223,6 @@
           "@type": "QuantitativeValue",
           "minValue": 72500,
           "maxValue": 97500,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-f803e5cc9fe2",
-      "slug": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-      "slugByLocale": {
-        "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
-        "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
-        "fr": "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Candidatura spontanea apprendistato",
-      "titleByLocale": {
-        "it": "Candidatura spontanea apprendistato",
-        "en": "Spontaneous Apprenticeship Application",
-        "de": "Spontane Bewerbung für Ausbildung",
-        "fr": "Candidature spontanée pour un apprentissage"
-      },
-      "description": "Apprendistato:\n\nDestinatari\n\nStudenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore.\n\nDurata\n\n4 anni (informatica)\n\n \n\nProgramma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale\n\nFormazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno.\n\nCorsi interaziendali: Ameti Bodio.\n\nRequisiti\n\nDiploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.\n\nSpiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-      "descriptionByLocale": {
-        "it": "Apprendistato: Destinatari Studenti brillanti che hanno terminato le scuole medie e si apprestano ad entrare nel mondo del lavoro. Ottengono il diploma al termine di una formazione duale che comprende una rotazione tra gli uffici orientata a fornire loro le necessarie conoscenze del settore. Durata 4 anni (informatica) Programma scolastico apprendistato informatico sviluppo applicazioni / gestione infrastrutture / sviluppo business digitale Formazione scolastica: profilo esteso con maturità integrata, presso il Centro Professionale Tecnico a Locarno. Corsi interaziendali: Ameti Bodio. Requisiti Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7. Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici.",
-        "en": "Apprenticeship: Eligible Candidates Bright students who have completed secondary school and are about to enter the workforce. They obtain a diploma at the end of a dual training program that includes a rotation between offices aimed at providing them with the necessary knowledge of the sector. Duration 4 years (informatics) Informatics Apprenticeship Program: Application Development / Infrastructure Management / Digital Business Development School Education: Extended profile with integrated maturity, at the Technical Professional Center in Locarno. Inter-company courses: Ameti Bodio. Requirements Secondary school diploma with all attitudinal levels and an average above 4.7. Strong motivation, passion for human contact, desire to study and familiarity with numbers and computer programs.",
-        "de": "Ausbildung: Bewerbergruppe Bereitschaftige Schüler, die die Sekundarschule abgeschlossen haben und in den Beruf eintreten. Sie erhalten am Ende einer dualen Ausbildung ein Diplom, das sie durch eine Rotation zwischen Büros erhalten, die ihnen die notwendigen Kenntnisse des Sektors vermitteln. Dauer 4 Jahre (Informatik) Informatik-Ausbildungsprogramm: Anwendungsentwicklung / Infrastrukturverwaltung / Digitale Geschäftsentwicklung Schulbildung: Erweitertes Profil mit integrierter Reifeprüfung, am Technischen Berufsbildungszentrum in Locarno. Interunternehmenskurse: Ameti Bodio. Anforderungen Abitur mit allen attitudinalen Niveaus und einem Durchschnitt über 4,7. Starke Motivation, Leidenschaft für den Menschenkontakt, Wunsch, zu lernen und Vertrautheit mit Zahlen und Computerprogrammen.",
-        "fr": "Apprentissage: Candidats admissibles Étudiants brillants qui ont terminé le collège et sont sur le point d'entrer dans la vie active. Ils obtiennent un diplôme à la fin d'un programme de formation dual qui comprend une rotation entre les bureaux destinée à leur fournir les connaissances nécessaires du secteur. Durée 4 ans (informatique) Programme d'apprentissage en informatique : développement d'applications / gestion des infrastructures / développement commercial numérique Éducation scolaire : profil étendu avec maturité intégrée, au Centre Professionnel Technique à Locarno. Cours inter-entreprises : Ameti Bodio. Exigences Diplôme du collège avec tous les niveaux attitudinaux et une moyenne supérieure à 4,7. Motivation forte, passion pour le contact humain, envie d'apprendre et familiarité avec les chiffres et les programmes informatiques."
-      },
-      "requirements": [
-        "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7.",
-        "Spiccata motivazione, passione verso il contatto con le persone, voglia di studiare e dimestichezza con le cifre e i programmi informatici."
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "en": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ],
-        "de": [
-          "Diploma delle scuole medie con tutti i livelli attitudinali e una media superiore al 4.7."
-        ]
-      },
-      "location": "Switzerland",
-      "canton": "TI",
-      "addressLocality": "Switzerland",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "temporary",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-10-02",
-      "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.403Z",
-      "previousSlugs": [
-        "initiativbewerbung-lehre-corner-banca-switzerland",
-        "unsolicited-application-apprenticeship-corner-banca-switzerland"
-      ],
-      "sourceLang": "it",
-      "salaryMin": 61000,
-      "salaryMax": 83000,
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 61000,
-          "maxValue": 83000,
           "unitText": "YEAR"
         }
       },
@@ -287,7 +289,7 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/risk-manager-asset-liability-management-alm-and-liquidity-risk-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.402Z",
+      "crawledAt": "2026-04-07T21:17:50.540Z",
       "previousSlugs": [
         "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
         "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
@@ -296,6 +298,7 @@
         "responsable-des-risques-gestion-des-actifs-et-passifs-alm-et-risque-de-liquidite-corner-banca-lugano"
       ],
       "sourceLang": "en",
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 147000,
       "baseSalary": {
@@ -380,7 +383,7 @@
       "postedDate": "2026-03-09",
       "url": "https://jobs.corner.ch/o/collaboratore-servizi-logistici-ufficio-tecnico-1",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.402Z",
+      "crawledAt": "2026-04-07T21:17:50.540Z",
       "previousSlugs": [
         "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
         "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
@@ -388,6 +391,7 @@
         "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano-h1bnmt"
       ],
       "sourceLang": "it",
+      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
@@ -406,85 +410,84 @@
       "employmentType": "FULL_TIME"
     },
     {
-      "id": "corner-banca-363ccb9527a5",
-      "slug": "credit-e-client-advisor-m-f-corner-banca-lugano",
+      "id": "corner-banca-9a08d15ac96b",
+      "slug": "employee-collection-team-zurich-corner-banca-wallisellen",
       "slugByLocale": {
-        "it": "credit-e-client-advisor-m-f-corner-banca-lugano",
-        "en": "credit-e-client-advisor-m-f-corner-banca-lugano",
-        "de": "credit-e-client-advisor-m-f-corner-banca-lugano",
-        "fr": "credit-e-client-advisor-m-f-corner-banca-lugano"
+        "it": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "en": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "de": "employee-collection-team-zurich-corner-banca-wallisellen",
+        "fr": "employee-collection-team-zurich-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
       "companyDomain": "corner.ch",
-      "title": "Credit & Client Advisor (m/f)",
+      "title": "Employee Collection Team Zürich",
       "titleByLocale": {
-        "it": "Credit & Client Consulente (m/f)",
-        "en": "Credit & Client Advisor (m/f)",
-        "de": "Credit & Client Berater (m/f)",
-        "fr": "Credit & Client Conseiller (m/f)"
+        "it": "Employee Collection Team Zürich",
+        "en": "Employee Collection Team Zürich",
+        "de": "Employee Collection Team Zürich",
+        "fr": "Employee Collection Team Zürich"
       },
-      "description": "To strengthen our team, we are looking for a dynamic, motivated and customer-oriented professional.\n\nKey Responsibilities:\n\nManaging customer interactions via phone and email\n\nActively listening to client needs and supporting the identification of suitable solutions\n\nAnalyzing financial documentation, including salary slips and financial statements\n\nConducting preliminary assessments of credit risk and clients’ financial capacity\n\nCollaborating with the team on case processing and monitoring\n\nMaintaining and updating data in internal systems\n\nExcellent knowledge of at least three of the following languages: Italian, German, French, and English\n\nCommercial training or equivalent qualification\n\nStrong communication skills and active listening abilities\n\nInterest in and ability to analyze financial data (salary slips, financial statements, economic documentation)\n\nAnalytical mindset and accuracy in risk assessment\n\nTeam spirit, reliability, and sense of responsibility\n\nGood IT skills, including proficiency with spreadsheets\n\nIdeal Profile:\n\nYoung, curious individual with a strong willingness to learn\n\nProfessional and customer-oriented approach\n\nAbility to work in a structured and organized manner",
+      "description": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\nPhone contact with clients for credit management and debt recovery\n\nActive listening to clients’ situations and identification of sustainable payment solutions\n\nNegotiation of repayment plans and monitoring of agreed arrangements\n\nManagement and updating of cases in internal systems\n\nCollaboration with the team to monitor open positions\n\nMaintaining a professional and empathetic approach even in sensitive situations\n\nCommercial training (commercial apprenticeship or equivalent qualification)\n\nNative German and good knowledge of English\n\nExcellent communication skills and strong customer listening abilities\n\nAptitude for managing customer relationships over the phone\n\nEmpathy, mediation skills, and solution-oriented mindset\n\nAttention to detail and organizational skills\n\nTeam spirit and reliability\n\nIdeal profile\n\nYoung, motivated person eager to grow professionally\n\nAbility to remain calm and professional even in difficult conversations\n\nTeam-oriented attitude and collaborative mindset",
       "descriptionByLocale": {
-        "it": "Descrizione Per rinforzare il nostro team, stiamo cercando un professionista dinamico, motivato e orientato ai clienti. ## Mansioni - Gestire le interazioni con i clienti tramite telefono e email - Ascoltare attivamente le esigenze dei clienti e supportare l'identificazione di soluzioni adatte - Analizzare la documentazione finanziaria, compresi i fogli di pagamento e le dichiarazioni finanziarie - Condurre valutazioni preliminari del rischio di credito e della capacità finanziaria dei clienti - Collaborare con il team nel processo di gestione e monitoraggio dei casi - Mantenere e aggiornare i dati nei sistemi interni ## Requisiti - Eccellente conoscenza di almeno tre delle seguenti lingue: italiano, tedesco, francese e inglese - Formazione commerciale o equivalente qualifica - Abilità di comunicazione forti e ascolto attivo - Interesse e capacità di analizzare dati finanziari (fogli di pagamento, dichiarazioni finanziarie, documentazione economica) - Mindset analitico e accuratezza nella valutazione del rischio - Spirito di squadra, affidabilità e senso di responsabilità - Buone abilità IT, compresa la padronanza di fogli di calcolo ## Cosa offriamo - Profilo ideale: giovane, curioso individuo con una forte volontà di apprendimento - Approccio professionale e orientato ai clienti - Capacità di lavorare in modo strutturato e organizzato",
-        "en": "Descrizione To strengthen our team, we are looking for a dynamic, motivated and customer-oriented professional. ## Mansioni - Gestire le interazioni con i clienti tramite telefono e email - Ascoltare attivamente le esigenze dei clienti e supportare l'identificazione di soluzioni adatte - Analizzare la documentazione finanziaria, compresi i fogli di pagamento e le dichiarazioni finanziarie - Condurre valutazioni preliminari del rischio di credito e della capacità finanziaria dei clienti - Collaborare con il team nel processo di gestione e monitoraggio dei casi - Mantenere e aggiornare i dati nei sistemi interni ## Requisiti - Eccellente conoscenza di almeno tre delle seguenti lingue: italiano, tedesco, francese e inglese - Formazione commerciale o equivalente qualifica - Abilità di comunicazione forti e ascolto attivo - Interesse e capacità di analizzare dati finanziari (fogli di pagamento, dichiarazioni finanziarie, documentazione economica) - Mindset analitico e accuratezza nella valutazione del rischio - Spirito di squadra, affidabilità e senso di responsabilità - Buone abilità IT, compresa la padronanza di fogli di calcolo ## Cosa offriamo - Profilo ideale: giovane, curioso individuo con una forte volontà di apprendimento - Approccio professionale e orientato ai clienti - Capacità di lavorare in modo strutturato e organizzato",
-        "de": "Beschreibung Um unser Team zu stärken, suchen wir einen dynamischen, motivierten und kundenorientierten Fachmann. ## Aufgaben - Die Interaktionen mit den Kunden über Telefon und E-Mail verwalten - Die Bedürfnisse der Kunden aktiv anhören und die Identifizierung von geeigneten Lösungen unterstützen - Die finanzielle Dokumentation analysieren, einschließlich der Lohnabrechnungen und der Finanzberichte - Vorläufige Kreditrisikobewertungen und finanzielle Leistungsfähigkeit der Kunden durchführen - Mit dem Team im Prozess der Fälle-Verwaltung und -Überwachung zusammenarbeiten - Die Daten in den internen Systemen pflegen und aktualisieren ## Anforderungen - Ausgezeichnete Kenntnisse von mindestens drei der folgenden Sprachen: Italienisch, Deutsch, Französisch und Englisch - Handelsausbildung oder gleichwertige Qualifikation - Starke Kommunikationsfähigkeiten und aktives Zuhören - Interesse und Fähigkeit, finanzielle Daten (Lohnabrechnungen, Finanzberichte, wirtschaftliche Dokumentation) zu analysieren - Analytisches Denkvermögen und Genauigkeit bei der Risikobewertung - Teamgeist, Zuverlässigkeit und Verantwortungsbewusstsein - Gute IT-Fähigkeiten, einschließlich der Beherrschung von Tabellenkalkulationen ## Was wir bieten - Idealprofil: junger, neugieriger Mensch mit starker Lernbereitschaft - Professioneller Ansatz und kundenorientierte Herangehensweise - Fähigkeit, strukturiert und organisiert zu arbeiten",
-        "fr": "Description Pour renforcer notre équipe, nous recherchons un professionnel dynamique, motivé et orienté vers les clients. ## Tâches - Gérer les interactions avec les clients par téléphone et par e-mail - Écouter activement les besoins des clients et soutenir l'identification de solutions appropriées - Analyser la documentation financière, y compris les bulletins de salaire et les déclarations financières - Effectuer des évaluations préliminaires du risque de crédit et de la capacité financière des clients - Collaborer avec l'équipe dans le processus de gestion et de suivi des dossiers - Maintenir et mettre à jour les données dans les systèmes internes ## Exigences - Connaissances exceptionnelles de au moins trois des langues suivantes : italien, allemand, français et anglais - Formation commerciale ou équivalente qualification - Compétences de communication fortes et écoute active - Intérêt et capacité d'analyser des données financières (bulletins de salaire, déclarations financières, documentation économique) - Esprit analytique et précision dans l'évaluation du risque - Esprit d'équipe, fiabilité et sens de la responsabilité - Bonnes compétences en informatique, y compris la maîtrise de feuilles de calcul ## Ce que nous offrons - Profil idéal : jeune, curieux individu avec une forte volonté d'apprendre - Approche professionnelle et orientée vers les clients - Capacité de travailler de manière structurée et organisée"
+        "it": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\nPhone contact with clients for credit management and debt recovery\n\nActive listening to clients’ situations and identification of sustainable payment solutions\n\nNegotiation of repayment plans and monitoring of agreed arrangements\n\nManagement and updating of cases in internal systems\n\nCollaboration with the team to monitor open positions\n\nMaintaining a professional and empathetic approach even in sensitive situations\n\nCommercial training (commercial apprenticeship or equivalent qualification)\n\nNative German and good knowledge of English\n\nExcellent communication skills and strong customer listening abilities\n\nAptitude for managing customer relationships over the phone\n\nEmpathy, mediation skills, and solution-oriented mindset\n\nAttention to detail and organizational skills\n\nTeam spirit and reliability\n\nIdeal profile\n\nYoung, motivated person eager to grow professionally\n\nAbility to remain calm and professional even in difficult conversations\n\nTeam-oriented attitude and collaborative mindset",
+        "en": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\nPhone contact with clients for credit management and debt recovery\n\nActive listening to clients’ situations and identification of sustainable payment solutions\n\nNegotiation of repayment plans and monitoring of agreed arrangements\n\nManagement and updating of cases in internal systems\n\nCollaboration with the team to monitor open positions\n\nMaintaining a professional and empathetic approach even in sensitive situations\n\nCommercial training (commercial apprenticeship or equivalent qualification)\n\nNative German and good knowledge of English\n\nExcellent communication skills and strong customer listening abilities\n\nAptitude for managing customer relationships over the phone\n\nEmpathy, mediation skills, and solution-oriented mindset\n\nAttention to detail and organizational skills\n\nTeam spirit and reliability\n\nIdeal profile\n\nYoung, motivated person eager to grow professionally\n\nAbility to remain calm and professional even in difficult conversations\n\nTeam-oriented attitude and collaborative mindset",
+        "de": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\nPhone contact with clients for credit management and debt recovery\n\nActive listening to clients’ situations and identification of sustainable payment solutions\n\nNegotiation of repayment plans and monitoring of agreed arrangements\n\nManagement and updating of cases in internal systems\n\nCollaboration with the team to monitor open positions\n\nMaintaining a professional and empathetic approach even in sensitive situations\n\nCommercial training (commercial apprenticeship or equivalent qualification)\n\nNative German and good knowledge of English\n\nExcellent communication skills and strong customer listening abilities\n\nAptitude for managing customer relationships over the phone\n\nEmpathy, mediation skills, and solution-oriented mindset\n\nAttention to detail and organizational skills\n\nTeam spirit and reliability\n\nIdeal profile\n\nYoung, motivated person eager to grow professionally\n\nAbility to remain calm and professional even in difficult conversations\n\nTeam-oriented attitude and collaborative mindset",
+        "fr": "We are looking for a motivated and customer-oriented professional to join our team in a dynamic and growing environment. The ideal candidate is eager to develop their skills in client relationship management and credit recovery, combining strong communication abilities with empathy and a solution-driven approach. This role offers the opportunity to work closely with clients, negotiate sustainable payment solutions, and contribute to maintaining positive and professional relationships even in sensitive situations.\n\nKey Responsibilities:\n\nPhone contact with clients for credit management and debt recovery\n\nActive listening to clients’ situations and identification of sustainable payment solutions\n\nNegotiation of repayment plans and monitoring of agreed arrangements\n\nManagement and updating of cases in internal systems\n\nCollaboration with the team to monitor open positions\n\nMaintaining a professional and empathetic approach even in sensitive situations\n\nCommercial training (commercial apprenticeship or equivalent qualification)\n\nNative German and good knowledge of English\n\nExcellent communication skills and strong customer listening abilities\n\nAptitude for managing customer relationships over the phone\n\nEmpathy, mediation skills, and solution-oriented mindset\n\nAttention to detail and organizational skills\n\nTeam spirit and reliability\n\nIdeal profile\n\nYoung, motivated person eager to grow professionally\n\nAbility to remain calm and professional even in difficult conversations\n\nTeam-oriented attitude and collaborative mindset"
       },
       "requirements": [
-        "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
-        "Commercial training or equivalent qualification",
-        "Strong communication skills and active listening abilities",
-        "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
-        "Analytical mindset and accuracy in risk assessment",
-        "Team spirit, reliability, and sense of responsibility",
-        "Good IT skills, including proficiency with spreadsheets\n\nIdeal Profile:",
-        "Young, curious individual with a strong willingness to learn",
-        "Professional and customer-oriented approach",
-        "Ability to work in a structured and organized manner"
+        "Commercial training (commercial apprenticeship or equivalent qualification)",
+        "Native German and good knowledge of English",
+        "Excellent communication skills and strong customer listening abilities",
+        "Aptitude for managing customer relationships over the phone",
+        "Empathy, mediation skills, and solution-oriented mindset",
+        "Attention to detail and organizational skills",
+        "Team spirit and reliability\n\nIdeal profile",
+        "Young, motivated person eager to grow professionally",
+        "Ability to remain calm and professional even in difficult conversations",
+        "Team-oriented attitude and collaborative mindset"
       ],
       "requirementsByLocale": {
         "it": [
-          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
-          "Commercial training or equivalent qualification",
-          "Strong communication skills and active listening abilities",
-          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
-          "Analytical mindset and accuracy in risk assessment",
-          "Team spirit, reliability, and sense of responsibility",
-          "Good IT skills, including proficiency with spreadsheets Ideal Profile:",
-          "Young, curious individual with a strong willingness to learn"
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability\n\nIdeal profile",
+          "Young, motivated person eager to grow professionally",
+          "Ability to remain calm and professional even in difficult conversations",
+          "Team-oriented attitude and collaborative mindset"
         ],
         "en": [
-          "Excellent knowledge of at least three of the following languages: Italian, German, French, and English",
-          "Commercial training or equivalent qualification",
-          "Strong communication skills and active listening abilities",
-          "Interest in and ability to analyze financial data (salary slips, financial statements, economic documentation)",
-          "Analytical mindset and accuracy in risk assessment",
-          "Team spirit, reliability, and sense of responsibility",
-          "Good IT skills, including proficiency with spreadsheets Ideal Profile:",
-          "Young, curious individual with a strong willingness to learn"
-        ]
+          "Commercial training (commercial apprenticeship or equivalent qualification)",
+          "Native German and good knowledge of English",
+          "Excellent communication skills and strong customer listening abilities",
+          "Aptitude for managing customer relationships over the phone",
+          "Empathy, mediation skills, and solution-oriented mindset",
+          "Attention to detail and organizational skills",
+          "Team spirit and reliability\n\nIdeal profile",
+          "Young, motivated person eager to grow professionally",
+          "Ability to remain calm and professional even in difficult conversations",
+          "Team-oriented attitude and collaborative mindset"
+        ],
+        "de": [],
+        "fr": []
       },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
+      "location": "Wallisellen",
+      "canton": "ZH",
+      "addressLocality": "Wallisellen",
       "addressCountry": "CH",
       "category": "sales",
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-03-24",
-      "url": "https://jobs.corner.ch/o/credit-client-advisor-mf",
+      "url": "https://jobs.corner.ch/o/employee-collection-team-zurich",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.401Z",
-      "previousSlugs": [
-        "credit-client-consulente-m-f-corner-banca-lugano",
-        "credit-client-berater-m-f-corner-banca-lugano",
-        "credit-client-advisor-m-f-corner-banca-lugano",
-        "credit-client-berater-m-f-corner-banca-lugano-8cp3r5",
-        "credit-client-conseiller-m-f-corner-banca-lugano-8cp3r5",
-        "credit-client-conseiller-m-f-corner-banca-lugano"
-      ],
+      "crawledAt": "2026-04-07T21:17:50.539Z",
+      "needsRetranslation": true,
       "sourceLang": "en",
       "salaryMin": 54000,
       "salaryMax": 73000,
@@ -571,13 +574,14 @@
       "postedDate": "2026-03-18",
       "url": "https://jobs.corner.ch/o/compliance-officer-senior",
       "source": "Corner Dedicated Parser (Recruitee API)",
-      "crawledAt": "2026-04-07T09:22:47.401Z",
+      "crawledAt": "2026-04-07T21:17:50.539Z",
       "previousSlugs": [
         "responsabile-compliance-senior-corner-banca-lugano",
         "compliance-officer-senior-corner-banca-lugano-nnfx9o",
         "leitender-compliance-beauftragter-corner-banca-lugano-nnfx9o"
       ],
       "sourceLang": "en",
+      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 147000,
       "baseSalary": {
