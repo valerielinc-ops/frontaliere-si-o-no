@@ -3110,14 +3110,13 @@ async function generateArticleImage(data) {
       const sharpMod = await import('sharp');
       const shp = sharpMod.default || sharpMod;
       const meta = await shp(imgPath).metadata();
-      if (meta.width && meta.width < 1200) {
-        const newH = Math.round((meta.height / meta.width) * 1200);
+      if (meta.width && (meta.width < 1200 || meta.height < 675)) {
         const buf = await shp(imgPath)
-          .resize({ width: 1200, height: newH, kernel: 'lanczos3', withoutEnlargement: false })
+          .resize({ width: 1200, height: 675, fit: 'cover', position: 'attention' })
           .jpeg({ quality: 82, progressive: true, mozjpeg: true, chromaSubsampling: '4:2:0' })
           .toBuffer();
         writeFileSync(imgPath, buf);
-        console.error(`  📐 Upscaled ${meta.width}×${meta.height} → 1200×${newH} (Google News/Discover minimum)`);
+        console.error(`  📐 Resized ${meta.width}×${meta.height} → 1200×675 (Google Discover minimum)`);
       }
     } catch {
       // sharp not available — image stays as-is (acceptable in rare CI edge cases)
