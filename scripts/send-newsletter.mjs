@@ -770,7 +770,7 @@ async function sendEmailBatchSes(emails) {
       chunk.map(async (item) => {
         const cmd = new SendEmailCommand({
           FromEmailAddress: item.payload.from || FROM_EMAIL,
-          Destination: { ToAddresses: [item.payload.to] },
+          Destination: { ToAddresses: Array.isArray(item.payload.to) ? item.payload.to : [item.payload.to] },
           Content: {
             Simple: {
               Subject: { Data: item.payload.subject, Charset: 'UTF-8' },
