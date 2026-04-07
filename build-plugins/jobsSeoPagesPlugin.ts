@@ -3984,9 +3984,29 @@ ${(() => {
           };
         }
       }
-      // Expand: any tracking key whose IT path is the same as a bridge path is also a bridge
-      for (const [key, paths] of Object.entries(tracking) as [string, any][]) {
-        if (paths?.it && bridgeItPaths.has(paths.it)) bridgeSlugSet.add(key);
+      // FRO-SEO: Build a set of actual FILE PATHS that bridge pages will claim.
+      // Previously we excluded entire tracking keys whose IT path matched any bridge
+      // IT path. This was too aggressive: locale-variant keys (EN/DE/FR slug →
+      // same IT path) have DIFFERENT translated locale paths that don't conflict
+      // with bridge pages (which use the IT slug for all locales). The old approach
+      // created a "dead zone" of ~1,700 tracking keys with NO pages generated.
+      // Now we exclude only the specific locale paths that actually conflict.
+      const bridgeClaimedPaths = new Set<string>();
+      for (const job of validJobs) {
+        const prevSlugs = Array.isArray(job.previousSlugs) ? job.previousSlugs : [];
+        for (const oldSlug of prevSlugs) {
+          if (!oldSlug) continue;
+          for (const locale of localeList) {
+            const p = `${localePrefix[locale]}/${sectionByLocale[locale]}/${oldSlug}`.replace(/\/+/g, '/');
+            bridgeClaimedPaths.add(p);
+          }
+        }
+      }
+      for (const { slug } of implicitPreviousSlugs) {
+        for (const locale of localeList) {
+          const p = `${localePrefix[locale]}/${sectionByLocale[locale]}/${slug}`.replace(/\/+/g, '/');
+          bridgeClaimedPaths.add(p);
+        }
       }
       const expiredSlugs = Object.keys(tracking).filter((s) => !currentSlugs.has(s) && !bridgeSlugSet.has(s));
 
@@ -4174,6 +4194,8 @@ ${(() => {
         for (const locale of localeList) {
           const relPath = paths[locale];
           if (!relPath) continue;
+          // Skip paths claimed by bridge pages to avoid canonical conflicts
+          if (bridgeClaimedPaths.has(relPath)) continue;
           const selfUrl = `${BASE_URL}${withSlash(relPath)}`;
           const listingPath = `${localePrefix[locale]}/${sectionByLocale[locale]}/`.replace(/\/+/g, '/');
           const copy = expiredBannerCopy[locale] ?? expiredBannerCopy.it;
@@ -4548,7 +4570,7 @@ ${hreflangLinks}
         const itPath = paths.it ? withSlash(paths.it) : '';
         const itPageFile = itPath ? np.join(distDir, itPath.slice(1), 'index.html') : '';
         const itPageOverwritten = itPageFile && _writtenPaths.has(itPageFile);
-        if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten) {
+        if (itPath && itBodyWordCount >= MIN_INDEXABLE_WORDS && !itPageOverwritten && !bridgeClaimedPaths.has(paths.it)) {
           const altLinks = localeList.map((l) => {
             const p = paths[l];
             if (!p) return '';
