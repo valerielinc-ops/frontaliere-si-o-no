@@ -114,7 +114,7 @@ jobs:
 
       - name: Build
         env:
-          NODE_OPTIONS: '--max-old-space-size=4096'
+          NODE_OPTIONS: '--max-old-space-size=7168'
         run: npm run build:prod
 
       - name: SPA fallback (GitHub Pages serves 404.html for unknown paths)
