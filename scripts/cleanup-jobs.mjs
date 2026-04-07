@@ -305,6 +305,7 @@ async function main() {
       // Within-slice dedup (slug)
       const seenSlug = new Map();
       const deduped = [];
+      const dedupCollisions = []; // { removedId, keptId, slug }
       for (const job of kept) {
         const slug = String(job.slug || '').trim();
         if (!slug) { deduped.push(job); continue; }
@@ -316,11 +317,23 @@ async function main() {
             const idx = deduped.indexOf(prev);
             if (idx !== -1) deduped[idx] = job;
             seenSlug.set(slug, job);
+            // Newer job wins; the previously-kept job is the one being removed.
+            dedupCollisions.push({ removedId: prev.id, keptId: job.id, slug });
+          } else {
+            // Existing kept job stays; current job is removed.
+            dedupCollisions.push({ removedId: job.id, keptId: prev.id, slug });
           }
           continue;
         }
         seenSlug.set(slug, job);
         deduped.push(job);
+      }
+      const dedupCount = kept.length - deduped.length;
+      if (dedupCount > 0) {
+        console.log(`🧹 Removed ${dedupCount} within-slice duplicate-slug jobs from slice.`);
+        for (const c of dedupCollisions.slice(0, 5)) {
+          console.log(`   - ${c.removedId} (duplicate of ${c.keptId}) slug=${c.slug}`);
+        }
       }
       kept = deduped;
 
@@ -476,6 +489,7 @@ async function main() {
   // ── 4. Slug dedup (different URLs mapping to the same slug) ──
   const seenSlug = new Map();
   const afterSlugDedup = [];
+  const slugDedupCount0 = removed.length;
   for (const job of kept) {
     const slug = String(job.slug || '').trim();
     if (!slug) { afterSlugDedup.push(job); continue; }
@@ -493,6 +507,10 @@ async function main() {
     }
     seenSlug.set(slug, job);
     afterSlugDedup.push(job);
+  }
+  const slugDedupCount = removed.length - slugDedupCount0;
+  if (slugDedupCount > 0) {
+    console.log(`🧹 Removed ${slugDedupCount} duplicate-slug jobs`);
   }
   kept = afterSlugDedup;
 
