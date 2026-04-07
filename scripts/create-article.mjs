@@ -4425,7 +4425,90 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     const itWords = italianBodyWordCount(data);
     lastWordCount = itWords;
     if (itWords >= CREATE_ARTICLE_MIN_IT_WORDS) {
-      console.error(`  ✅ Soglia parole IT raggiunta: ${itWords} (min ${CREATE_ARTICLE_MIN_IT_WORDS})`);
+      // ── Repetition check INSIDE the loop — triggers retry if AI looped ──
+      const itContentLoop = data.content.it || data.content;
+      const allBodiesLoop = ['body1', 'body2', 'body3'].map(k => itContentLoop?.[k] || '');
+      let hasRepetition = false;
+      let repetitionReason = '';
+
+      // 1. Detect repeated paragraphs within a single body field
+      for (const [idx, body] of allBodiesLoop.entries()) {
+        const paragraphs = body.split(/\n\n+/).map(p => p.trim()).filter(p => p.length > 60);
+        const seen = new Map();
+        let dupeCount = 0;
+        for (const p of paragraphs) {
+          const normalized = p.replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
+          seen.set(normalized, (seen.get(normalized) || 0) + 1);
+          if (seen.get(normalized) > 1) dupeCount++;
+        }
+        if (dupeCount >= 3) {
+          hasRepetition = true;
+          repetitionReason = `body${idx + 1} ha ${dupeCount} paragrafi ripetuti`;
+          break;
+        }
+      }
+
+      // 2. Detect sentences repeated 4+ times across all bodies
+      if (!hasRepetition) {
+        const allText = allBodiesLoop.join('\n\n');
+        const sentences = allText.split(/[.!?]\s+/).map(s => s.trim().toLowerCase().replace(/\s+/g, ' ')).filter(s => s.length > 40);
+        const sentCounts = new Map();
+        for (const s of sentences) sentCounts.set(s, (sentCounts.get(s) || 0) + 1);
+        const heavyRepeats = [...sentCounts.entries()].filter(([, c]) => c >= 4);
+        if (heavyRepeats.length > 0) {
+          hasRepetition = true;
+          repetitionReason = `${heavyRepeats.length} frasi ripetute 4+ volte: "${heavyRepeats[0][0].substring(0, 60)}..." (${heavyRepeats[0][1]}x)`;
+        }
+      }
+
+      if (hasRepetition) {
+        console.error(`  ⚠️  AI loop rilevato: ${repetitionReason} — rigenero (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+        if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) continue;
+        // Last attempt: auto-strip duplicate paragraphs as fallback
+        console.error(`  🔧 Ultimo tentativo: auto-deduplica paragrafi ripetuti...`);
+        for (const field of ['body1', 'body2', 'body3']) {
+          if (itContentLoop?.[field]) {
+            const paras = itContentLoop[field].split(/\n\n+/);
+            const seen = new Set();
+            const unique = [];
+            for (const p of paras) {
+              const norm = p.trim().replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
+              if (norm.length < 60 || !seen.has(norm)) {
+                seen.add(norm);
+                unique.push(p);
+              }
+            }
+            itContentLoop[field] = unique.join('\n\n');
+          }
+        }
+        console.error(`  ✅ Auto-deduplica completata`);
+        break;
+      }
+
+      // 3. Auto-strip title duplicated as first line in body fields
+      const titleCheck = String(itContentLoop?.title || '').trim();
+      if (titleCheck) {
+        let titleInBodyCount = 0;
+        for (const body of allBodiesLoop) {
+          const firstLine = body.split('\n')[0].trim();
+          if (firstLine === titleCheck || firstLine.startsWith(titleCheck)) titleInBodyCount++;
+        }
+        if (titleInBodyCount >= 2) {
+          for (const field of ['body1', 'body2', 'body3']) {
+            if (itContentLoop?.[field]) {
+              const lines = itContentLoop[field].split('\n');
+              if (lines[0].trim() === titleCheck || lines[0].trim().startsWith(titleCheck)) {
+                lines.shift();
+                while (lines.length > 0 && lines[0].trim() === '') lines.shift();
+                itContentLoop[field] = lines.join('\n');
+                console.error(`  🧹 Rimosso titolo duplicato da it.${field}`);
+              }
+            }
+          }
+        }
+      }
+
+      console.error(`  ✅ Soglia parole IT raggiunta: ${itWords} (min ${CREATE_ARTICLE_MIN_IT_WORDS}), nessun loop AI`);
       break;
     }
     if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
@@ -4463,68 +4546,7 @@ async function generateAndValidateArticle(url, sourceContext = null) {
     console.error(`  ✅ [thin-content] Body finale: ${itPlainCharsFinal} chars (min: ${MIN_BODY_CHARS})`);
   }
 
-  // Repetition / loop detection — reject articles where the AI got stuck in a generation loop
-  {
-    const itContent = data.content.it || data.content;
-    const allBodies = ['body1', 'body2', 'body3'].map(k => itContent?.[k] || '');
-
-    // 1. Detect repeated paragraphs within a single body field (AI loop)
-    for (const [idx, body] of allBodies.entries()) {
-      const paragraphs = body.split(/\n\n+/).map(p => p.trim()).filter(p => p.length > 60);
-      const seen = new Map();
-      let dupeCount = 0;
-      for (const p of paragraphs) {
-        // Normalize for comparison (strip trailing punctuation differences)
-        const normalized = p.replace(/[.!?,;:\s]+$/g, '').toLowerCase().replace(/\s+/g, ' ');
-        seen.set(normalized, (seen.get(normalized) || 0) + 1);
-        if (seen.get(normalized) > 1) dupeCount++;
-      }
-      if (dupeCount >= 3) {
-        throw new Error(`Articolo rigettato: body${idx + 1} contiene ${dupeCount} paragrafi ripetuti (AI loop). Rigenera.`);
-      }
-    }
-
-    // 2. Detect repeated sentences across the entire article (>40 chars, appearing 4+ times)
-    const allText = allBodies.join('\n\n');
-    const sentences = allText.split(/[.!?]\s+/).map(s => s.trim().toLowerCase().replace(/\s+/g, ' ')).filter(s => s.length > 40);
-    const sentCounts = new Map();
-    for (const s of sentences) {
-      sentCounts.set(s, (sentCounts.get(s) || 0) + 1);
-    }
-    const heavyRepeats = [...sentCounts.entries()].filter(([, c]) => c >= 4);
-    if (heavyRepeats.length > 0) {
-      throw new Error(`Articolo rigettato: ${heavyRepeats.length} frasi ripetute 4+ volte (AI loop). Esempio: "${heavyRepeats[0][0].substring(0, 80)}..." (${heavyRepeats[0][1]}x)`);
-    }
-
-    // 3. Detect title duplicated as first line in body fields
-    const title = String(itContent?.title || '').trim();
-    if (title) {
-      let titleInBodyCount = 0;
-      for (const body of allBodies) {
-        const firstLine = body.split('\n')[0].trim();
-        if (firstLine === title || firstLine.startsWith(title)) titleInBodyCount++;
-      }
-      if (titleInBodyCount >= 2) {
-        // Auto-fix: strip title from body fields instead of rejecting
-        for (const field of ['body1', 'body2', 'body3']) {
-          if (itContent?.[field]) {
-            const lines = itContent[field].split('\n');
-            if (lines[0].trim() === title || lines[0].trim().startsWith(title)) {
-              // Remove title line and any blank line after it
-              lines.shift();
-              while (lines.length > 0 && lines[0].trim() === '') lines.shift();
-              itContent[field] = lines.join('\n');
-              console.error(`  🧹 Rimosso titolo duplicato da it.${field}`);
-            }
-          }
-        }
-      }
-    }
-
-    console.error(`  ✅ [repetition-check] Nessun loop AI rilevato`);
-  }
-
-  // Step 3a.0b: Strip leaked internal URLs from IT
+    // Step 3a.0b: Strip leaked internal URLs from IT
   for (const field of ['body1', 'body2', 'body3']) {
     if (data.content.it?.[field]) {
       const before = data.content.it[field];
