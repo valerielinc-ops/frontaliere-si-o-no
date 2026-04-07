@@ -46,15 +46,15 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify GH_MODELS_PAT is set
+      - name: Verify GITHUB_PAT is set
         env:
-          GH_MODELS_PAT: ${{ secrets.GH_MODELS_PAT }}
+          GH_MODELS_PAT: ${{ secrets.GITHUB_PAT }}
         run: |
           if [ -z "$GH_MODELS_PAT" ]; then
-            echo "❌ GH_MODELS_PAT secret is not set. Cannot call AI models."
+            echo "❌ GITHUB_PAT secret is not set. Cannot call AI models."
             exit 1
           fi
-          echo "✅ GH_MODELS_PAT is available"
+          echo "✅ GITHUB_PAT is available (mapped to GH_MODELS_PAT)"
 
       - name: Configure git identity
         run: |
@@ -64,7 +64,7 @@ jobs:
       - name: Run batch FAQ generation
         id: faq
         env:
-          GH_MODELS_PAT: ${{ secrets.GH_MODELS_PAT }}
+          GH_MODELS_PAT: ${{ secrets.GITHUB_PAT }}
         run: |
           ARGS="--limit ${{ inputs.limit || '50' }} --concurrency ${{ inputs.concurrency || '3' }}"
           if [ "${{ inputs.skip_translate }}" = "true" ]; then
