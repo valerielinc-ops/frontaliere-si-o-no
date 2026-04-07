@@ -30,7 +30,9 @@ const JOB_LISTING_PATH = '/cerca-lavoro-ticino/';
 
 const SAMPLE_ARG = process.argv.find(a => a.startsWith('--sample='));
 const SAMPLE_SIZE = SAMPLE_ARG ? Number(SAMPLE_ARG.split('=')[1]) : 5;
-const TIMEOUT_PER_PAGE = 30_000; // 30s per page (SPA loads Firebase RC, translations)
+// External requests are blocked (see context.route below), so navigation finishes
+// as soon as the local server responds. 15s is plenty of headroom for slow CI.
+const TIMEOUT_PER_PAGE = 15_000;
 const SPA_SETTLE_MS = 3_000; // wait for SPA hydration
 
 // ── MIME types ──────────────────────────────────────────────
@@ -192,6 +194,38 @@ async function main() {
     viewport: { width: 1280, height: 720 },
   });
 
+  // Stub ALL external requests with empty 200 responses. The validator only
+  // inspects DOM produced by SPA hydration (canonical link, JSON-LD scripts,
+  // robots meta) — none of that depends on Firebase Remote Config, Google
+  // Fonts, GA, GTM, or any other third-party network. Letting these requests
+  // through made `page.goto` wait indefinitely on hung connections — that is
+  // what blew the 5-min action timeout and broke deploys (each page hit the
+  // 30s page timeout). We *fulfill* (not abort) so that fetch error handlers
+  // in the SPA don't fire and crash React hydration mid-render.
+  await context.route('**/*', (route) => {
+    const url = route.request().url();
+    if (url.startsWith('http://127.0.0.1:') || url.startsWith('http://localhost:')) {
+      return route.continue();
+    }
+    const accept = route.request().headers()['accept'] || '';
+    let contentType = 'application/octet-stream';
+    let body = '';
+    if (accept.includes('json') || /\.json(\?|$)/.test(url)) {
+      contentType = 'application/json';
+      body = '{}';
+    } else if (accept.includes('css') || /\.css(\?|$)/.test(url)) {
+      contentType = 'text/css';
+    } else if (accept.includes('javascript') || /\.m?js(\?|$)/.test(url)) {
+      contentType = 'application/javascript';
+    } else if (accept.includes('image') || /\.(png|jpe?g|webp|svg|gif|ico)(\?|$)/i.test(url)) {
+      contentType = 'image/svg+xml';
+      body = '<svg xmlns="http://www.w3.org/2000/svg"/>';
+    } else if (accept.includes('html')) {
+      contentType = 'text/html';
+    }
+    return route.fulfill({ status: 200, contentType, body });
+  });
+
   let errors = 0;
   let warnings = 0;
   let passed = 0;
@@ -213,9 +247,12 @@ async function main() {
         staticJpCount = matches ? matches.length : 0;
       }
 
-      // Navigate and wait for SPA hydration
-      await page.goto(url, { timeout: TIMEOUT_PER_PAGE, waitUntil: 'networkidle' });
-      // Extra settle time for async data loading
+      // Navigate and wait for SPA hydration. We use `domcontentloaded` (not
+      // `networkidle`) because external requests are blocked at the context
+      // level — there is no "network idle" signal to wait for, and the SPA's
+      // canonical/JSON-LD/robots tags are written by React on first render.
+      await page.goto(url, { timeout: TIMEOUT_PER_PAGE, waitUntil: 'domcontentloaded' });
+      // Extra settle time for React hydration + useEffect-driven schema injection
       await page.waitForTimeout(SPA_SETTLE_MS);
 
       // Extract DOM state
