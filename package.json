@@ -184,6 +184,7 @@
     "prepush": "node scripts/assemble-jobs-dataset.mjs --stats && npm run validate:blog-meta-placeholders && npm run validate:crawler-summaries && npm run validate:third-party-secrets && npm run validate:jobs-crawler-keys && npm test && npm run build && cp dist/index.html dist/404.html && node scripts/flat-content-replace.mjs && npm run test:post-build && npm run validate:structured-data && npm run validate:jobs-rich-results && npm run validate:jobs-quality && npm run validate:sitemap-links && node scripts/validate-soft404.mjs && node scripts/validate-canonical.mjs && node scripts/validate-content-quality.mjs"
   },
   "dependencies": {
+    "@aws-sdk/client-sesv2": "^3.1025.0",
     "@google/genai": "^1.44.0",
     "@types/leaflet": "^1.9.21",
     "fast-xml-parser": "^5.4.2",

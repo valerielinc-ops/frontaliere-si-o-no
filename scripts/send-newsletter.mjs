@@ -41,10 +41,14 @@ const RESEND_ENDPOINT = 'https://api.resend.com/emails/batch';
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
 const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
 const BATCH_SIZE = 50;
-const DAILY_SEND_LIMIT = 100; // Resend free tier: max 100/day
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
+
+// ── Email provider selection ──
+// SES = primary (no daily cap, $0.10/1000), Resend = fallback for transactional
+const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'ses'; // 'ses' or 'resend'
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'ses' ? 500 : 100; // SES sandbox=200, prod=50k+
 
 /**
  * Run async tasks with bounded concurrency.
@@ -668,7 +672,7 @@ async function persistDelivery(recipient, messageId, meta) {
   }
 }
 
-async function sendEmailBatch(emails, apiKey) {
+async function sendEmailBatchResend(emails, apiKey) {
   if (!emails.length) return { sent: [], failed: [] };
   const batches = [];
   for (let i = 0; i < emails.length; i += BATCH_SIZE) {
@@ -730,6 +734,107 @@ async function sendEmailBatch(emails, apiKey) {
   }
 
   return { sent, failed };
+}
+
+// ─── AWS SES send ───────────────────────────────────────────
+
+let _sesClient = null;
+
+async function getSesClient() {
+  if (_sesClient) return _sesClient;
+  const { SESv2Client } = await import('@aws-sdk/client-sesv2');
+  _sesClient = new SESv2Client({
+    region: process.env.AWS_SES_REGION || 'eu-central-1',
+    credentials: {
+      accessKeyId: process.env.AWS_SES_ACCESS_KEY_ID,
+      secretAccessKey: process.env.AWS_SES_SECRET_ACCESS_KEY,
+    },
+  });
+  return _sesClient;
+}
+
+async function sendEmailBatchSes(emails) {
+  if (!emails.length) return { sent: [], failed: [] };
+  const { SendEmailCommand } = await import('@aws-sdk/client-sesv2');
+  const client = await getSesClient();
+
+  const sent = [];
+  const failed = [];
+
+  // SES doesn't have a native batch API like Resend — send individually
+  // but with concurrency control to respect SES rate limits
+  const SES_CONCURRENCY = 5; // SES sandbox = 1/sec, prod = 14/sec
+  for (let i = 0; i < emails.length; i += SES_CONCURRENCY) {
+    const chunk = emails.slice(i, i + SES_CONCURRENCY);
+    const results = await Promise.allSettled(
+      chunk.map(async (item) => {
+        const cmd = new SendEmailCommand({
+          FromEmailAddress: item.payload.from || FROM_EMAIL,
+          Destination: { ToAddresses: [item.payload.to] },
+          Content: {
+            Simple: {
+              Subject: { Data: item.payload.subject, Charset: 'UTF-8' },
+              Body: { Html: { Data: item.payload.html, Charset: 'UTF-8' } },
+            },
+          },
+          EmailTags: (item.payload.tags || []).map(t => ({
+            Name: t.name, Value: t.value,
+          })),
+        });
+        const res = await client.send(cmd);
+        return { item, messageId: res.MessageId };
+      })
+    );
+
+    for (const result of results) {
+      if (result.status === 'fulfilled') {
+        const { item, messageId } = result.value;
+        sent.push(item);
+        await persistDelivery(item.recipient, messageId, item.meta);
+      } else {
+        const reason = result.reason;
+        // Throttling — stop immediately
+        if (reason?.name === 'TooManyRequestsException' || reason?.$metadata?.httpStatusCode === 429) {
+          console.warn('\u26a0\ufe0f  SES rate limited — stopping. Remaining emails will be retried next run.');
+          // Add remaining unsent emails to failed
+          const remaining = emails.slice(i + SES_CONCURRENCY);
+          failed.push(...remaining);
+          // Add this chunk's failed items
+          const chunkFailed = results
+            .filter(r => r.status === 'rejected')
+            .map((_, idx) => chunk[idx]);
+          failed.push(...chunkFailed);
+          return { sent, failed };
+        }
+        // Find which item failed
+        const idx = results.indexOf(result);
+        failed.push(chunk[idx]);
+        console.warn(`\u26a0\ufe0f  SES send failed: ${reason?.message?.slice(0, 200)}`);
+      }
+    }
+
+    console.log(`\u2705 SES batch: ${chunk.length} processed (${sent.length} confirmed, ${failed.length} failed)`);
+
+    // Brief pause between chunks to respect rate limits
+    if (i + SES_CONCURRENCY < emails.length) {
+      await new Promise(r => setTimeout(r, 1100)); // ~1 sec for sandbox safety
+    }
+  }
+
+  return { sent, failed };
+}
+
+async function sendEmailBatch(emails, apiKey) {
+  if (EMAIL_PROVIDER === 'ses' && process.env.AWS_SES_ACCESS_KEY_ID) {
+    console.log(`📧 Sending via AWS SES (${emails.length} emails)`);
+    return sendEmailBatchSes(emails);
+  }
+  if (!apiKey) {
+    console.error('\u274c No email provider configured (need RESEND_API_KEY or AWS_SES_ACCESS_KEY_ID)');
+    return { sent: [], failed: emails };
+  }
+  console.log(`📧 Sending via Resend (${emails.length} emails)`);
+  return sendEmailBatchResend(emails, apiKey);
 }
 
 // ─── Issue number (real campaign count) ─────────────────────

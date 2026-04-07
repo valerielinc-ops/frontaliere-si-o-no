@@ -46,6 +46,11 @@ const RC_TO_ENV = {
   NEWSLETTER_SECRET:              ['NEWSLETTER_SECRET'],
   NEWSLETTER_FROM:                ['NEWSLETTER_FROM'],
 
+  // AWS SES (newsletter bulk sending)
+  AWS_SES_ACCESS_KEY_ID:          ['AWS_SES_ACCESS_KEY_ID'],
+  AWS_SES_SECRET_ACCESS_KEY:      ['AWS_SES_SECRET_ACCESS_KEY'],
+  AWS_SES_REGION:                 ['AWS_SES_REGION'],
+
   // Server-only keys (stored with SERVER_ prefix in RC)
   SERVER_FB_PAGE_ACCESS_TOKEN:    ['FB_PAGE_ACCESS_TOKEN'],
   SERVER_GA4_PROPERTY_ID:         ['GA4_PROPERTY_ID'],

@@ -101,6 +101,7 @@ jobs:
 
       - name: Run newsletter job
         env:
+          EMAIL_PROVIDER: ses
           NEWSLETTER_EXPERIMENTAL_MODE: false
           NEWSLETTER_ENABLE_SEND: true
           NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM || '' }}
