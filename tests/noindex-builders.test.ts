@@ -82,7 +82,7 @@ describe('SEO builder noindex guards', () => {
       expect(block).toContain('noindex: false');
     });
 
-    it('legacy redirect pages use index,follow (canonicalized, not noindex)', () => {
+    it('legacy redirect pages use noindex,follow (archived, not canonical)', () => {
       const legacySource = readFileSync(
         path.resolve(__dirname, '..', 'build-plugins', 'legacyRedirectsPlugin.ts'),
         'utf-8',
@@ -91,7 +91,7 @@ describe('SEO builder noindex guards', () => {
       const end = legacySource.indexOf('for (const [fromRaw', start);
       const block = legacySource.slice(start, end);
       expect(block).toContain('buildCanonicalBridgePage');
-      expect(block).toContain('noindex: false');
+      expect(block).toContain('noindex: true');
     });
   });
 });
