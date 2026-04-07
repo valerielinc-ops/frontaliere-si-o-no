@@ -855,6 +855,65 @@ function slugJaccard(slugA, slugB) {
 }
 
 /**
+ * Normalize a free-form location string into a slug fragment
+ * (e.g. "Sant'Antonino" → "sant-antonino", "Cadenazzo " → "cadenazzo").
+ * Used both to compare caller-supplied locations and to extract trailing
+ * location tails from existing slugs.
+ *
+ * @param {string} location
+ * @returns {string}
+ */
+function locationToSlugFragment(location) {
+  return String(location || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+/**
+ * Extract the trailing location segment from a slug, given an optional
+ * caller-supplied location hint. The slug format used by dedicated crawlers is:
+ *
+ *     {title-tokens}-{company-slug}-{location-slug}
+ *
+ * Where {location-slug} may itself contain hyphens (e.g. "arbedo-castione",
+ * "sant-antonino") or include a stable hash suffix appended after the location.
+ *
+ * Strategy:
+ *  1. If a hint is provided, find the slugified hint inside the slug and
+ *     return it verbatim. This handles multi-token cities reliably.
+ *  2. Otherwise return the last hyphen-separated token as a best-effort tail.
+ *     Two-token cities (e.g. "arbedo-castione") fall back to the last token,
+ *     but the heuristic is only used to detect *differences* — and for the
+ *     Lidl case the trailing tokens "castione" and "antonino" still differ
+ *     enough to surface the bug.
+ *
+ * Returns an empty string when nothing reliable can be extracted.
+ *
+ * @param {string} slug
+ * @param {string} [locationHint]
+ * @returns {string}
+ */
+function extractSlugLocationSegment(slug, locationHint = '') {
+  const cleanSlug = String(slug || '').trim();
+  if (!cleanSlug) return '';
+
+  const hintFragment = locationToSlugFragment(locationHint);
+  if (hintFragment) {
+    // Match the hint as a whole hyphen-bounded segment to avoid false positives
+    // (e.g. avoid matching "lugano" inside "lugano-istituti-sociali").
+    const re = new RegExp(`(?:^|-)${hintFragment.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}(?:-|$)`);
+    if (re.test(cleanSlug)) return hintFragment;
+  }
+
+  // Fallback: last hyphen-separated token (best-effort).
+  const parts = cleanSlug.split('-').filter(Boolean);
+  return parts.length > 0 ? parts[parts.length - 1] : '';
+}
+
+/**
  * Returns true when existingSlug still represents the same job as newSlug —
  * i.e. the slug should NOT be updated because the title changed only slightly.
  *
@@ -866,13 +925,45 @@ function slugJaccard(slugA, slugB) {
  * Fallback to a 4-token prefix check for very short slugs (< 4 tokens) where
  * Jaccard is unreliable.
  *
+ * ── Location-aware precondition ───────────────────────────────────────────
+ * When the same role is published in multiple cities (e.g. Lidl apprenticeships
+ * in Biasca, Locarno, Cadenazzo, …) the title tokens are identical and only the
+ * trailing city differs. The Jaccard score on the title-heavy portion easily
+ * clears 0.80, so the function used to incorrectly mark the two slugs as the
+ * same job — collapsing N distinct openings into one. The precondition below
+ * makes the function return `false` whenever both sides expose a non-empty
+ * location segment AND those segments differ, regardless of Jaccard score.
+ *
+ * Callers that have access to the job object SHOULD pass `existingLocation` and
+ * `newLocation` for maximum precision; the function falls back to extracting
+ * the trailing slug segment when no hint is provided.
+ *
  * @param {string} existingSlug
  * @param {string} newSlug
- * @param {number} [threshold=0.80]
+ * @param {number | { threshold?: number, existingLocation?: string, newLocation?: string }} [thresholdOrOpts=0.80]
+ *   For backwards compatibility this parameter accepts either a number
+ *   (the Jaccard threshold) or an options object.
  */
-export function isSlugStable(existingSlug, newSlug, threshold = 0.80) {
+export function isSlugStable(existingSlug, newSlug, thresholdOrOpts = 0.80) {
+  // Normalise the legacy `threshold` numeric parameter to an options object.
+  const opts =
+    typeof thresholdOrOpts === 'number'
+      ? { threshold: thresholdOrOpts }
+      : (thresholdOrOpts && typeof thresholdOrOpts === 'object' ? thresholdOrOpts : {});
+  const threshold = typeof opts.threshold === 'number' ? opts.threshold : 0.80;
+
   if (!existingSlug) return false;
+
+  // Caller-supplied location hints take priority and act as a strict guard
+  // against collapsing distinct city openings into one slug — applied even
+  // for byte-identical strings (defensive: a buggy upstream may already have
+  // collapsed two jobs to the same slug and is now asking us to re-validate).
+  const hintLocA = locationToSlugFragment(opts.existingLocation);
+  const hintLocB = locationToSlugFragment(opts.newLocation);
+  if (hintLocA && hintLocB && hintLocA !== hintLocB) return false;
+
   if (existingSlug === newSlug) return true;
+
   const tokensA = slugTokenSet(existingSlug);
   const tokensB = slugTokenSet(newSlug);
   // For very short slugs fall back to first-4-token prefix overlap
@@ -884,8 +975,24 @@ export function isSlugStable(existingSlug, newSlug, threshold = 0.80) {
   // Containment check: if the existing slug's tokens are all present in the new slug
   // (or vice versa), the new slug is just an extension of the existing one (e.g. adding
   // company/location suffix). Treat as stable to avoid unnecessary URL churn.
+  // The caller-provided location guard above already prevents the multi-city
+  // collapse case, so containment is safe to apply here.
   if (tokensA.size >= 4 && [...tokensA].every((t) => tokensB.has(t))) return true;
   if (tokensB.size >= 4 && [...tokensB].every((t) => tokensA.has(t))) return true;
+
+  // ── Auto-extracted location precondition ────────────────────────────────
+  // The caller did not (or could not) supply locations, but the slug format
+  // used by dedicated crawlers embeds the location as the trailing segment.
+  // When both slugs expose a non-empty trailing segment AND those segments
+  // differ, treat them as different jobs regardless of Jaccard score. This
+  // catches the Lidl regression where the same role is published in 7 cities
+  // and the title-heavy Jaccard score clears 0.80.
+  const autoLocA = extractSlugLocationSegment(existingSlug);
+  const autoLocB = extractSlugLocationSegment(newSlug);
+  if (autoLocA && autoLocB && autoLocA !== autoLocB) {
+    return false;
+  }
+
   return slugJaccard(existingSlug, newSlug) >= threshold;
 }
 
@@ -901,7 +1008,13 @@ function slugMatchesTitle(slug, title, company = '', location = '') {
     .replace(/[\u0300-\u036f]/g, '')
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
-  return isSlugStable(slug, slugified);
+  // Both inputs describe the same job, so the location hint is identical on
+  // both sides — passing it is a no-op for the location precondition but
+  // keeps the call self-documenting and aligned with other call sites.
+  return isSlugStable(slug, slugified, {
+    existingLocation: location,
+    newLocation: location,
+  });
 }
 
 export function hardenJobLocaleFields({ dataJobsPath }) {
@@ -4146,9 +4259,16 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       ])];
     }
 
-    // Preserve slug (use existing if stable)
+    // Preserve slug (use existing if stable). Pass per-job location hints so
+    // that two distinct city openings (e.g. Lidl in Cadenazzo vs Locarno) can
+    // never be merged into one slug even when their title-token Jaccard score
+    // exceeds the 0.80 threshold.
     if (old.slug && fresh.slug && old.slug !== fresh.slug) {
-      if (isSlugStable(old.slug, fresh.slug)) {
+      const stable = isSlugStable(old.slug, fresh.slug, {
+        existingLocation: old.addressLocality || old.location || '',
+        newLocation: fresh.addressLocality || fresh.location || '',
+      });
+      if (stable) {
         fresh.slug = old.slug;
       } else {
         // Slug genuinely changed — capture old one

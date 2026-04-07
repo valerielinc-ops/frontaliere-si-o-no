@@ -1849,9 +1849,16 @@ function ensureLocaleFields(job) {
     // When shouldRegenerateLocalizedSlug fires but the derived slug is essentially the same as
     // the current one (e.g. an English job title that produces identical IT and EN slugs), skip
     // regeneration to avoid unnecessary URL churn and the appended hash suffix.
+    // Pass per-job location hints so isSlugStable can never collapse two
+    // distinct city openings (e.g. Lidl in Cadenazzo vs Locarno) into the
+    // same slug even when the title-token Jaccard score exceeds 0.80.
+    const _slugLocationHint = String(out.addressLocality || out.location || '');
     const willDiscardSlug =
       isLowQualityLocalizedSlug(currentSlug) ||
-      (shouldRegenerateLocalizedSlug && !isSlugStable(currentSlug, derivedSlug));
+      (shouldRegenerateLocalizedSlug && !isSlugStable(currentSlug, derivedSlug, {
+        existingLocation: _slugLocationHint,
+        newLocation: _slugLocationHint,
+      }));
     // Save old locale slug before discarding so the build plugin can generate bridge/redirect
     // pages for previously-indexed locale URLs (prevents SEO 404s on locale-specific paths).
     if (willDiscardSlug && currentSlug) {

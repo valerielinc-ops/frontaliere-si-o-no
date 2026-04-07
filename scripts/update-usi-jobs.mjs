@@ -1032,7 +1032,13 @@ async function postProcessUsiJobs() {
       if (localizedTitle) {
         const newSlug = slugify(localizedTitle, citySuffix);
         const existingSlug = String(job.slugByLocale?.[locale] || '').trim();
-        if (newSlug && !isSlugStable(existingSlug, newSlug)) {
+        // Pass per-job location hint so isSlugStable can never collapse two
+        // distinct city openings into the same slug.
+        const _slugLocationHint = String(job.addressLocality || job.location || '');
+        if (newSlug && !isSlugStable(existingSlug, newSlug, {
+          existingLocation: _slugLocationHint,
+          newLocation: _slugLocationHint,
+        })) {
           job.slugByLocale[locale] = newSlug;
           fixed++;
         }

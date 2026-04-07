@@ -679,7 +679,13 @@ async function cleanLisJobs() {
       const existingSlug = String(job.slug || '').trim();
       // Only update when genuinely different — minor title wording changes
       // (capitalisation, preposition swaps) should not generate new slugs.
-      if (!isSlugStable(existingSlug, cleanSlug)) {
+      // Pass per-job location hint so isSlugStable can never collapse two
+      // distinct city openings into the same slug.
+      const _slugLocationHint = String(job.addressLocality || job.location || '');
+      if (!isSlugStable(existingSlug, cleanSlug, {
+        existingLocation: _slugLocationHint,
+        newLocation: _slugLocationHint,
+      })) {
         job.slug = cleanSlug;
         slugChanged = true;
       }

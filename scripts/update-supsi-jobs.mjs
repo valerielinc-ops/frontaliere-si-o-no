@@ -721,13 +721,20 @@ function normalizeSupsiRow(job) {
   // Rebuild slug and slugByLocale from cleaned data.
   // Use Jaccard token similarity via isSlugStable: minor title wording changes
   // (capitalisation, preposition swaps) should not generate new slugs.
+  // Pass per-job location hint so isSlugStable can never collapse two distinct
+  // city openings into the same slug.
   const newSlug = slugifySupsi(`${cleanedTitle}-${SUPSI_COMPANY_NAME}-${cleanedLocation}`);
   const slugByLocale = { ...(cleanedLocaleFields.slugByLocale || {}) };
   for (const locale of SUPSI_LOCALES) {
     const localeTitle = cleanedLocaleFields.titleByLocale?.[locale] || cleanedTitle;
     const candidate = slugifySupsi(`${localeTitle}-${SUPSI_COMPANY_NAME}-${cleanedLocation}`);
     const existing = String(slugByLocale[locale] || '').trim();
-    if (!isSlugStable(existing, candidate)) slugByLocale[locale] = candidate;
+    if (!isSlugStable(existing, candidate, {
+      existingLocation: cleanedLocation,
+      newLocation: cleanedLocation,
+    })) {
+      slugByLocale[locale] = candidate;
+    }
   }
   cleanedLocaleFields.slugByLocale = slugByLocale;
 
