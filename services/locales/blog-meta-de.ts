@@ -2160,6 +2160,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'Die Provinz Varese investiert in die Instandhaltung von Straßen und Grünflächen mit den Rückerstattungen der Grenzgänger',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'Die Provinz Varese hat den Plan für die Verwendung der Rückerstattungen der Grenzgänger für das Jahr 2023 gebilligt, mit einem Gesamtbetrag von 5.655.131,28 Euro. Die Mittel sind für öffentliche Interessen zugeordnet, die mit der Mobilität und den Infrastrukturen zusammenhängen, die von den Grenzgängern verwendet werden.',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'Die Provinz Varese investiert in die Unterhaltung von Straßen und Grünflächen mit den Rückflüssen der Grenzarbeiter',
+    'blog.article.turisti-in-como-ztl.title': 'Die Touristengeschwister, die in Como im Zentrum ums Leben gekommen sind, sind eine Entscheidung: die Revolution der ZTL ist notwendig und jetzt ist sie nötig',
+    'blog.article.turisti-in-como-ztl.excerpt': 'Das Thema der Überfüllung des historischen Zentrums von Como ist eine sehr komplexe Frage, die Aufmerksamkeit und konkrete Lösungen erfordert.',
+    'blog.article.turisti-in-como-ztl.imageAlt': 'Ein Lastwagen in Kommt nach vorne in eine Familie von Touristen',
 };
 
 export default blogMetaDe;

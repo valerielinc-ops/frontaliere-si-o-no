@@ -2160,6 +2160,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'La Province de Varese investit dans l\'entretien des routes et des espaces verts grâce aux ristournes des frontaliers',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'La Province de Varese a approuvé le plan d\'utilisation des ristournes des frontaliers pour l\'année 2023, pour un montant total de 5 655 131,28 euros. Les ressources sont destinées à des interventions d\'intérêt public liées à la mobilité et aux infrastructures utilisées par les travailleurs frontaliers',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'La Province de Varese investit dans l\'entretien des routes et des espaces verts avec les retours des travailleurs frontaliers',
+    'blog.article.turisti-in-como-ztl.title': 'La famille de touristes renversée en centre-ville de Como est une sentence : la révolution de la Ztl est nécessaire et nécessaire maintenant',
+    'blog.article.turisti-in-como-ztl.excerpt': 'Le thème de l\'encombrement du centre historique de Como est une question très complexe qui nécessite de l\'attention et des solutions concrètes. 💡',
+    'blog.article.turisti-in-como-ztl.imageAlt': 'Un camion en marche arrière touche une famille de touristes à Como',
 };
 
 export default blogMetaFr;

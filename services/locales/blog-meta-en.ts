@@ -2160,6 +2160,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'The Province of Varese Invests in Road Maintenance and Green Spaces with Border Workers\' Reimbursements',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'The Province of Varese has approved the plan for the use of border workers\' reimbursements for the year 2023, totaling 5,655,131.28 euros. The funds are allocated for public interest interventions related to mobility and infrastructure used by border workers.',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'The Province of Varese invests in road and green maintenance with the returns of the cross-border workers',
+    'blog.article.turisti-in-como-ztl.title': 'The family of tourists hit in the center of Como is a verdict: the ZTL revolution is needed and it\'s needed now',
+    'blog.article.turisti-in-como-ztl.excerpt': 'The issue of overcrowding in Como\'s historic center is a very complex matter that requires attention and concrete solutions.',
+    'blog.article.turisti-in-como-ztl.imageAlt': 'A car reversing into a family of tourists in Como, Italy',
 };
 
 export default blogMetaEn;

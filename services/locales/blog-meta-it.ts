@@ -2160,6 +2160,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.title': 'La Provincia di Varese investe su manutenzione delle strade e del verde con i ristorni dei frontalieri',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.excerpt': 'La Provincia di Varese ha approvato il piano per l’utilizzo dei ristorni dei frontalieri relativi all’anno 2023, per un importo complessivo di 5.655.131,28 euro. Le risorse sono destinate a interventi di interesse pubblico legati alla mobilità e alle infrastrutture utilizzate dai lavoratori frontalieri',
     'blog.article.provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026.imageAlt': 'La Provincia di Varese investe su manutenzione delle strade e del verde con i ristorni dei frontalieri',
+    'blog.article.turisti-in-como-ztl.title': 'La famigliola di turisti investita in centro a Como è una sentenza: la rivoluzione della Ztl serve e serve ora',
+    'blog.article.turisti-in-como-ztl.excerpt': 'Il tema dell\'affollamento del centro storico di Como è una questione molto complessa, che richiede attenzione e soluzioni concrete.',
+    'blog.article.turisti-in-como-ztl.imageAlt': 'Un furgone in retromarcia investe una famigliola di turisti in centro a Como',
 };
 
 export default blogMetaIt;

@@ -12652,6 +12652,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-turisti-in-como-ztl': {
+    title: 'La famigliola di turisti investita in centro a Como è una sentenza: la | Frontaliere Ticino',
+    description: 'Il tema dell\'affollamento del centro storico di Como è una questione molto complessa, che richiede attenzione e soluzioni concrete. Dati aggiornati 2026 per',
+    keywords: 'frontalieri, ticino, svizzera, italia, famigliola, turisti, investita, centro',
+    ogTitle: 'La famigliola di turisti investita in centro a Como è una',
+    ogDescription: 'Il tema dell\'affollamento del centro storico di Como è una questione molto complessa, che richiede attenzione e soluzioni concrete.',
+    canonicalPath: '/articoli-frontaliere/turisti-in-como-ztl',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "La famigliola di turisti investita in centro a Como è una",
+      "description": "Il tema dell'affollamento del centro storico di Como è una questione molto complessa, che richiede attenzione e soluzioni concrete. Dati aggiornati 2026 per",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/turisti-in-como-ztl.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Un furgone in retromarcia investe una famigliola di turisti in centro a Como"
+      },
+      "datePublished": "2026-04-07T12:13:06+00:00",
+      "dateModified": "2026-04-07T12:13:06+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/turisti-in-como-ztl`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

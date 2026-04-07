@@ -1973,6 +1973,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incidente-arogno-31enne-gravi-condizioni': { name: 'Incidente Arogno', path: '/articoli-frontaliere/incidente-arogno-31enne-gravi-condizioni', parent: 'blog' },
     'blog-carburanti-ticino-aumento-prezzi': { name: 'Prezzi carburanti in Ticino', path: '/articoli-frontaliere/carburanti-ticino-aumento-prezzi', parent: 'blog' },
     'blog-provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026': { name: 'Provincia di Varese: investimenti in', path: '/articoli-frontaliere/provincia-di-varese-investe-su-manutenzione-delle-strade-e-del-verde-con-i-ristorni-dei-frontalieri-2026', parent: 'blog' },
+    'blog-turisti-in-como-ztl': { name: 'La famigliola di turisti investita in ce', path: '/articoli-frontaliere/turisti-in-como-ztl', parent: 'blog' },
   };
 
   const info = sectionNames[section];
