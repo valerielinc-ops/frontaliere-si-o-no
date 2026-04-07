@@ -1,16 +1,16 @@
 {
   "key": "citta-di-lugano",
   "label": "Città di Lugano",
-  "generatedAt": "2026-04-07T09:15:30.625Z",
+  "generatedAt": "2026-04-07T21:10:35.932Z",
   "total": 11,
   "newCount": 0,
-  "updatedCount": 11,
+  "updatedCount": 9,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 7845,
-  "avgDurationMs": 7845,
+  "unchangedCount": 2,
+  "durationMs": 20965,
+  "avgDurationMs": 20965,
   "durationHistory": [
-    7845
+    20965
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -212,78 +212,6 @@
       "postedDate": "2026-04-07",
       "source": "company-website",
       "slug": "addetti-e-pulizia-urbana-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "operai/e generici/che presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=DEE821FDCC15E6ABC1258D940036C117",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "operations",
-      "postedDate": "2026-04-07",
-      "source": "company-website",
-      "slug": "operai-e-generici-che-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
-      "deadline": "",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "cassieri/e presso l'Amministrazione comunale (concorso valido per l'anno 2026)",
-      "company": "Città di Lugano",
-      "companyKey": "citta-di-lugano",
-      "url": "https://www.lugano.ch/downloadConcorsi?name=Allegato1.pdf&unid=B628C51863CAA220C1258D9400366BF2",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "streetAddress": "Piazza della Riforma",
-      "employmentType": "FULL_TIME",
-      "category": "administration",
-      "postedDate": "2026-04-07",
-      "source": "company-website",
-      "slug": "cassieri-e-presso-l-amministrazione-comunale-concorso-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
       "_targetScope": {
         "canton": "TI",
@@ -790,7 +718,7 @@
       "category": "education",
       "postedDate": "2026-04-07",
       "source": "company-website",
-      "slug": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di",
+      "slug": "educatori-trici-dell-infanzia-presso-i-servizi-extrascolastici-della-divisione-socialita-valido-per-l-anno-2026-citta-di-lugano",
       "deadline": "",
       "_targetScope": {
         "canton": "TI",
