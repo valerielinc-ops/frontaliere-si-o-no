@@ -1,6 +1,6 @@
 {
   "crawlerKey": "amministrazione-cantonale-ti",
-  "assembledAt": "2026-04-07T10:04:51.262Z",
+  "assembledAt": "2026-04-07T21:59:52.618Z",
   "jobs": [
     {
       "id": "company-213ie5",
@@ -39,13 +39,14 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1-213ie5",
-        "en": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1-213ie5",
-        "de": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1-213ie5",
+        "en": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-bellinzona",
+        "de": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-lugano-213ie5",
         "fr": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-lugano"
       },
       "sourceLang": "it",
       "previousSlugs": [
-        "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1"
+        "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1",
+        "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-amministrazione-cantonale-ticino-lugano-213ie5"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -440,7 +441,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0o",
@@ -564,7 +566,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-213j0g",
@@ -1015,7 +1018,8 @@
         "capo-ufficio-iii-part-time-80-full-time-100-amministrazione-cantonale-ticino-camorino-213if6",
         "chef-de-bureau-iii-a-temps-partiel-80-a-temps-plein-100-amministrazione-cantonale-ticino-camorino",
         "capo-ufficio-iii-a-tempo-parziale-80-a-tempo-pieno-100-presso-la-sezione-del-militare-e-della-protezione-della-popolazione-centro-cantonale--213if6"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213if3",
@@ -1213,7 +1217,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "ispettore-trice-specialista-a-tempo-pieno-100-presso-la-polizia-cantonale-polizia-giudiziaria-rg1-sezione-reati-economico-finanziari-sref-lu-213if1"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-213iez",

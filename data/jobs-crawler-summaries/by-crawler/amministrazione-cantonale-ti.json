@@ -1,21 +1,22 @@
 {
   "key": "amministrazione-cantonale-ti",
   "label": "Ti.CH",
-  "generatedAt": "2026-04-07T10:04:51.265Z",
+  "generatedAt": "2026-04-07T21:59:52.621Z",
   "total": 24,
-  "newCount": 1,
-  "updatedCount": 22,
+  "newCount": 0,
+  "updatedCount": 23,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 24360,
-  "avgDurationMs": 24360,
+  "durationMs": 27306,
+  "avgDurationMs": 27306,
   "durationHistory": [
-    24360
+    27306
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-213ie5",
-      "slug": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1",
+      "slug": "capo-arte-a-tempo-parziale-90-presso-le-strutture-carcerarie-lugano-cadro-orario-di-lavoro-42-ore-settimanali-per-un-rapporto-d-impiego-al-1-213ie5",
       "company": "Amministrazione Cantonale Ticino",
       "title": "Capo arte a tempo parziale (90%), presso le Strutture carcerarie, Lugano-Cadro",
       "location": "Lugano",
@@ -33,16 +34,21 @@
       "companyDomain": "concorsi.ti.ch",
       "crawledAt": "2026-04-07T10:04:43.985Z",
       "needsRetranslation": true,
-      "_qualityScore": 66,
+      "sourceLang": "it",
+      "streetAddress": "Piazza Governo",
+      "postalCode": "6501",
+      "addressLocality": "Bellinzona",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 2,
-        "completeness": 19
+        "translation": 4,
+        "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "company-213ie6",
       "slug": "1-apprendista-operatore-trice-di-edifici-e-infrastrutture-afc-per-il-periodo-dal-17-agosto-2026-al-16-agosto-2029-presso",
