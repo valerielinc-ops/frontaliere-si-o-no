@@ -1,10 +1,10 @@
 {
   "crawlerKey": "cedes",
-  "assembledAt": "2026-04-06T20:56:58.043Z",
+  "assembledAt": "2026-04-07T09:13:33.896Z",
   "jobs": [
     {
       "id": "cedes-08f2188aed4b",
-      "slug": "packaging-line-worker-100-cedes-landquart",
+      "slug": "operatore-di-linea-di-confezionamento-100-cedes-ag-landquart",
       "slugByLocale": {
         "it": "operatore-di-linea-di-confezionamento-100-cedes-ag-landquart",
         "en": "packaging-line-worker-100-cedes-landquart",
@@ -39,10 +39,13 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "url": "https://www.cedes.com/en/career/jobs/packaging-line-worker-100-1/",
       "source": "CEDES Dedicated Parser",
-      "crawledAt": "2026-04-06T20:56:56.368Z",
+      "crawledAt": "2026-04-07T09:13:32.106Z",
+      "previousSlugs": [
+        "packaging-line-worker-100-cedes-landquart"
+      ],
       "sourceLang": "en",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -56,14 +59,11 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302",
-      "previousSlugs": [
-        "packaging-line-worker-100-cedes-landquart"
-      ]
+      "postalCode": "7302"
     },
     {
       "id": "cedes-3fa516c3ca31",
-      "slug": "unsolicited-applications-cedes-landquart",
+      "slug": "candidature-non-richiesta-cedes-ag-landquart",
       "slugByLocale": {
         "it": "candidature-non-richiesta-cedes-ag-landquart",
         "en": "unsolicited-applications-cedes-landquart",
@@ -98,10 +98,14 @@
       "employmentType": "FULL_TIME",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "url": "https://www.cedes.com/en/career/jobs/unsolicited-applications/",
       "source": "CEDES Dedicated Parser",
-      "crawledAt": "2026-04-06T20:56:56.079Z",
+      "crawledAt": "2026-04-07T09:13:31.801Z",
+      "previousSlugs": [
+        "unsolicited-applications-cedes-landquart",
+        "unsolicited-applications-cedes-ag-landquart"
+      ],
       "sourceLang": "en",
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -115,12 +119,7 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "7302",
-      "previousSlugs": [
-        "unsolicited-applications-cedes-landquart",
-        "unsolicited-applications-cedes-ag-landquart",
-        "unsolicited-applications-cedes-ag-landquart"
-      ]
+      "postalCode": "7302"
     }
   ]
 }
