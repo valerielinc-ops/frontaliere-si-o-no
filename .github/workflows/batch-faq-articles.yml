@@ -1,0 +1,124 @@
+name: Batch FAQ Generation
+
+on:
+  workflow_dispatch:
+    inputs:
+      limit:
+        description: 'Number of articles to process per run'
+        required: false
+        default: '50'
+        type: string
+      concurrency:
+        description: 'Parallel articles (AI calls)'
+        required: false
+        default: '3'
+        type: string
+      skip_translate:
+        description: 'Skip EN/DE/FR translation (Italian FAQ only)'
+        required: false
+        default: false
+        type: boolean
+
+concurrency:
+  group: batch-faq-articles
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+
+jobs:
+  generate-faq:
+    runs-on: ubuntu-latest
+    timeout-minutes: 50
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Verify GH_MODELS_PAT is set
+        env:
+          GH_MODELS_PAT: ${{ secrets.GH_MODELS_PAT }}
+        run: |
+          if [ -z "$GH_MODELS_PAT" ]; then
+            echo "❌ GH_MODELS_PAT secret is not set. Cannot call AI models."
+            exit 1
+          fi
+          echo "✅ GH_MODELS_PAT is available"
+
+      - name: Configure git identity
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+      - name: Run batch FAQ generation
+        id: faq
+        env:
+          GH_MODELS_PAT: ${{ secrets.GH_MODELS_PAT }}
+        run: |
+          ARGS="--limit ${{ inputs.limit || '50' }} --concurrency ${{ inputs.concurrency || '3' }}"
+          if [ "${{ inputs.skip_translate }}" = "true" ]; then
+            ARGS="$ARGS --skip-translate"
+          fi
+
+          echo "🚀 Running: node scripts/batch-add-faq-to-articles.mjs $ARGS"
+          node scripts/batch-add-faq-to-articles.mjs $ARGS
+
+          # Count modified files for the summary
+          MODIFIED=$(git diff --name-only -- 'services/locales/blog-body/' | wc -l | tr -d ' ')
+          echo "modified_count=$MODIFIED" >> "$GITHUB_OUTPUT"
+          echo "📊 Modified blog body files: $MODIFIED"
+
+      - name: Commit and push changes
+        if: steps.faq.outputs.modified_count != '0'
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+        run: |
+          git add services/locales/blog-body/ data/batch-faq-progress.json
+
+          if git diff --cached --quiet; then
+            echo "ℹ️  No changes to commit"
+            exit 0
+          fi
+
+          MODIFIED=${{ steps.faq.outputs.modified_count }}
+          git commit -m "❓ Auto-generated FAQ for ${MODIFIED} blog articles"
+
+          # Push with retry (handles concurrent pushes from other workflows)
+          REMOTE_URL="https://x-access-token:${GITHUB_PAT}@github.com/${{ github.repository }}.git"
+          for attempt in 1 2 3; do
+            if git push "$REMOTE_URL" HEAD:main; then
+              echo "✅ Changes committed and pushed to main"
+              exit 0
+            fi
+            echo "⚠️  Push attempt $attempt failed — rebasing..."
+            git pull --rebase origin main || true
+            sleep 3
+          done
+          echo "❌ Push failed after 3 attempts"
+          exit 1
+
+      - name: Trigger deploy
+        if: steps.faq.outputs.modified_count != '0'
+        env:
+          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
+        run: bash scripts/lib/trigger-deploy.sh
+
+      - name: Summary
+        if: always()
+        run: |
+          echo "### Batch FAQ Generation Summary" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Articles limit**: ${{ inputs.limit || '50' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Concurrency**: ${{ inputs.concurrency || '3' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Skip translate**: ${{ inputs.skip_translate || 'false' }}" >> "$GITHUB_STEP_SUMMARY"
+          echo "- **Modified files**: ${{ steps.faq.outputs.modified_count || '0' }}" >> "$GITHUB_STEP_SUMMARY"
