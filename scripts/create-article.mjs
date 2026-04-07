@@ -4045,7 +4045,8 @@ function modifySitemap(data) {
 function modifySitemapNews(data) {
   const file = 'public/sitemap-news.xml';
   let src = read(file);
-  const today = new Date().toISOString().slice(0, 10);
+  const now = new Date().toISOString();
+  const today = now.slice(0, 10);
 
   // Ensure xmlns:image namespace is present (for Google News image discovery)
   if (!src.includes('xmlns:image=')) {
@@ -4081,7 +4082,7 @@ function modifySitemapNews(data) {
         <news:name>Frontaliere Ticino</news:name>
         <news:language>it</news:language>
       </news:publication>
-      <news:publication_date>${today}</news:publication_date>
+      <news:publication_date>${now}</news:publication_date>
       <news:title>${String(data.content.it.title || '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</news:title>
       <news:keywords>${String(data.seo.keywords || 'frontalieri, ticino, svizzera').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</news:keywords>
     </news:news>

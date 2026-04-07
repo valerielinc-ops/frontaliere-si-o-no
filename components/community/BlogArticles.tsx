@@ -1083,7 +1083,7 @@ function BlogArticles({
     const wordCount = estimateReadingMinutes(article.id, t) * 200; // reverse from ~200 wpm
     const jsonLd = {
       '@context': 'https://schema.org',
-      '@type': article.category === 'novita' ? 'NewsArticle' : 'BlogPosting',
+      '@type': 'NewsArticle',
       headline: title,
       description: excerpt.startsWith('blog.article.') ? title : excerpt,
       datePublished: `${article.date}T00:00:00+01:00`,
@@ -1104,6 +1104,7 @@ function BlogArticles({
           url: 'https://frontaliereticino.ch/icons/icon-512x512.png',
         },
       },
+      isPartOf: { '@type': 'WebSite', '@id': 'https://frontaliereticino.ch/#website', name: 'Frontaliere Ticino' },
       mainEntityOfPage: canonicalUrl,
       image: `https://frontaliereticino.ch${article.image}`,
       inLanguage: locale,

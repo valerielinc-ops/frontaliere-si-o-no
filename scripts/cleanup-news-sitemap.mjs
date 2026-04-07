@@ -28,10 +28,11 @@ let kept = 0;
 let removed = 0;
 
 const freshBlocks = urlBlocks.filter(block => {
-  const dateMatch = block.match(/<news:publication_date>(\d{4}-\d{2}-\d{2})<\/news:publication_date>/);
+  const dateMatch = block.match(/<news:publication_date>([^<]+)<\/news:publication_date>/);
   if (!dateMatch) return true; // keep if no date found (safety)
   
-  const pubDate = new Date(dateMatch[1] + 'T00:00:00Z').getTime();
+  const pubDate = new Date(dateMatch[1]).getTime();
+  if (isNaN(pubDate)) return true; // keep if unparseable
   if (pubDate >= cutoff) {
     kept++;
     return true;
@@ -46,12 +47,16 @@ if (removed === 0) {
   process.exit(0);
 }
 
-// Rebuild the XML
-const header = `<?xml version="1.0" encoding="UTF-8"?>
+// Rebuild the XML — preserve original namespaces
+const nsMatch = src.match(/<urlset[^>]*>/);
+const header = nsMatch?.[0] || `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">`;
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">`;
 
-const output = header + '\n\n' + freshBlocks.map(b => '  ' + b.replace(/^  /gm, '  ')).join('\n\n') + '\n\n</urlset>\n';
+const xmlDecl = src.includes('<?xml') ? '<?xml version="1.0" encoding="UTF-8"?>\n' : '';
+const output = xmlDecl + header + '\n\n' + freshBlocks.map(b => '  ' + b.replace(/^  /gm, '  ')).join('\n\n') + '\n\n</urlset>\n';
 
 writeFileSync(SITEMAP_PATH, output, 'utf-8');
 console.log(`✅ sitemap-news.xml: kept ${kept}, removed ${removed} articles older than ${MAX_AGE_HOURS}h`);
