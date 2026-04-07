@@ -3137,10 +3137,10 @@
       },
       "crawledAt": "2026-04-07T21:22:38.126Z",
       "slugByLocale": {
-        "it": "cybersecurity-internal-penetration-tester-efg-geneve",
+        "it": "tester-di-penetrazione-interno-per-la-cybersecurity-efg-international-ag-geneve",
         "en": "cybersecurity-internal-penetration-tester-efg-geneve",
-        "de": "cybersecurity-internal-penetration-tester-efg-geneve",
-        "fr": "cybersecurity-internal-penetration-tester-efg-geneve"
+        "de": "interner-penetrationstester-fur-cybersicherheit-efg-international-ag-geneve",
+        "fr": "testeur-de-penetration-interne-pour-la-cybersecurite-efg-international-ag-geneve"
       },
       "addressLocality": "Geneve",
       "addressCountry": "CH",
@@ -3161,7 +3161,10 @@
       "streetAddress": "Via Pretorio 22",
       "postalCode": "6900",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "cybersecurity-internal-penetration-tester-efg-geneve"
+      ]
     }
   ]
 }
