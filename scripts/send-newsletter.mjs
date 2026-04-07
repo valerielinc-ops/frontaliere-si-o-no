@@ -125,7 +125,9 @@ async function generateAISubject(ctx) {
       { role: 'system', content: system },
       { role: 'user', content: user },
     ], { temperature: 0.8, maxTokens: 80 });
-    const subject = result.trim().replace(/^["']|["']$/g, '').slice(0, 80);
+    const raw = result.trim().replace(/^["']|["']$/g, '');
+    // Hard cap at 50 chars to prevent truncation in email clients
+    const subject = raw.length > 50 ? raw.slice(0, 47) + '...' : raw;
     return subject || null;
   } catch (e) {
     console.warn('\u26a0\ufe0f AI subject failed:', e.message?.slice(0, 200));

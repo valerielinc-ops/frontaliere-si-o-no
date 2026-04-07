@@ -417,24 +417,32 @@ export function buildBriefingPrompt(ctx) {
     weekday: 'long', day: 'numeric', month: 'long', year: 'numeric',
   });
 
+  // Compute weekly change using the SAME previousRate as the hero card
+  // to avoid inconsistency between card percentage and AI briefing text
+  const cardPct = ctx.exchangeRate && ctx.exchangeRate.previousRate > 0
+    ? ((ctx.exchangeRate.rate - ctx.exchangeRate.previousRate) / ctx.exchangeRate.previousRate * 100)
+    : 0;
+  const cardPctStr = `${cardPct >= 0 ? '+' : ''}${cardPct.toFixed(1)}%`;
+
   const rateTrend = ctx.exchangeRate
-    ? `CHF/EUR rate as of ${todayStr}: ${ctx.exchangeRate.rate.toFixed(4)} (previous: ${ctx.exchangeRate.previousRate.toFixed(4)})`
+    ? `CHF/EUR rate as of ${todayStr}: ${ctx.exchangeRate.rate.toFixed(4)} (previous week: ${ctx.exchangeRate.previousRate.toFixed(4)}, weekly change: ${cardPctStr})`
     : 'Exchange rate data unavailable';
 
+  // Use card-consistent percentage in the insight line too
   const insightLine = ctx.exchangeInsight
-    ? `Market insight: ${ctx.exchangeInsight.headline}. ${ctx.exchangeInsight.summary}`
+    ? `Market insight: CHF/EUR ${cardPct > 0.2 ? 'strengthening' : cardPct < -0.2 ? 'weakening' : 'stable'} (${cardPctStr} weekly). ${ctx.exchangeInsight.summary}`
     : '';
 
   const jobLines = (ctx.matchedJobs || []).slice(0, 3)
     .map((j) => {
       const url = j.url ? `${BASE_URL}${j.url.startsWith('/') ? j.url : '/' + j.url}` : '';
+      if (!url) return null; // Skip jobs without URLs — AI must not mention unlinkable jobs
       const postedInfo = j.postedDate || j.crawledAt || j.createdAt
         ? ` (posted: ${new Date(j.postedDate || j.crawledAt || j.createdAt).toLocaleDateString('it-CH')})`
         : '';
-      return url
-        ? `- ${j.title} at ${j.company} (${j.location})${postedInfo} → URL: ${url}`
-        : `- ${j.title} at ${j.company} (${j.location})${postedInfo}`;
+      return `- ${j.title} at ${j.company} (${j.location})${postedInfo} → URL: ${url}`;
     })
+    .filter(Boolean)
     .join('\n');
 
   const factLine = ctx.weeklyFact
@@ -457,7 +465,8 @@ export function buildBriefingPrompt(ctx) {
     `You write the opening section of a weekly email newsletter for "Frontaliere Ticino", a platform for cross-border workers (frontalieri) between Italy and Switzerland.`,
     `Write in ${langName}. Be warm, conversational, and practical. Like a knowledgeable friend sharing useful updates.`,
     `Output 2-3 short paragraphs. Use simple HTML: <p> tags for paragraphs, <strong> for emphasis, <a href="URL" style="color:#2563eb;text-decoration:underline;"> for links. No greetings, no sign-offs, no subject line.`,
-    `When you mention a job position that has a URL, hyperlink ONLY the job title — keep company and location as plain text. Example: "un ruolo di <a href="https://frontaliereticino.ch/cerca-lavoro-ticino/software-engineer/" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso Board International a Chiasso". For site tools with a URL, hyperlink only the tool name the same way.`,
+    `CRITICAL JOB LINKING RULE: When you mention a job, you MUST hyperlink the job title using the exact URL provided. Example: "un ruolo di <a href="https://frontaliereticino.ch/cerca-lavoro-ticino/software-engineer/" style="color:#2563eb;text-decoration:underline;">Software Engineer</a> presso Board International a Chiasso". NEVER mention a job title in bold (<strong>) without a hyperlink. If a job has no URL, do NOT mention it at all.`,
+    `CRITICAL EXCHANGE RATE RULE: Use ONLY the weekly change percentage provided in the data below. Do NOT calculate or invent a different percentage.`,
     `Naturally weave in the exchange rate, any relevant job or fiscal context, and the weekly fact if interesting. Do NOT list everything — pick what matters most for this reader.`,
     `CRITICAL: Only mention dates that are explicitly provided in the data below. NEVER invent, guess, or assume dates for events, job postings, or facts. If no date is given for something, do not add one. Today's date is ${todayStr}.`,
     `Keep total length under 200 words. Be concise but engaging.`,
@@ -493,16 +502,21 @@ export function buildSubjectPrompt(ctx) {
 
   const system = [
     `Generate a single email subject line for the weekly "Frontaliere Ticino" newsletter.`,
-    `Write in ${langName}. Max 55 characters. Be specific and personal — mention a concrete number, place, or fact.`,
-    `Do NOT use generic phrases like "Weekly update" or "Newsletter". Make it feel like news, not marketing.`,
+    `Write in ${langName}. STRICTLY 40-50 characters (count carefully). Be curiosity-driven and click-worthy.`,
+    `Use a pattern like: "⚡ Tasso CHF giù: quanto perdi?" or "📊 3 aziende assumono a Lugano" or "💰 Nuova aliquota: simula il netto".`,
+    `Do NOT list multiple topics. Pick ONE hook and make it irresistible. Do NOT include the exact exchange rate number.`,
+    `Do NOT use generic phrases like "Weekly update", "Newsletter", "Novità". Make it feel urgent and personal.`,
     `Output ONLY the subject line, nothing else. No quotes, no explanation.`,
   ].join(' ');
 
   const hints = [];
-  if (ctx.exchangeRate) hints.push(`CHF/EUR: ${ctx.exchangeRate.rate.toFixed(4)}`);
-  if (ctx.matchedJobs?.[0]) hints.push(`Top job: ${ctx.matchedJobs[0].title}`);
+  if (ctx.exchangeRate) {
+    const dir = ctx.exchangeRate.rate > (ctx.exchangeRate.previousRate || ctx.exchangeRate.rate) ? 'up' : 'down';
+    hints.push(`CHF/EUR trend: ${dir}`);
+  }
+  if (ctx.matchedJobs?.[0]) hints.push(`Top job sector: ${ctx.matchedJobs[0].company}`);
   if (ctx.subscriber?.locationInterest) hints.push(`Location: ${ctx.subscriber.locationInterest}`);
-  if (ctx.briefingSummary) hints.push(`Briefing starts with: ${ctx.briefingSummary.slice(0, 100)}`);
+  if (ctx.briefingSummary) hints.push(`Theme: ${ctx.briefingSummary.slice(0, 60)}`);
 
   return { system, user: hints.join(' | ') || 'Generate a compelling subject for cross-border workers' };
 }
@@ -511,10 +525,10 @@ export function buildSubjectPrompt(ctx) {
  * Fallback content when AI is unavailable.
  */
 export const FALLBACK_SUBJECT = {
-  it: '\u26a1 Il tuo luned\u00ec da frontaliere: cambio, lavoro e zero fuffa',
-  en: '\u26a1 Your Monday briefing: rates, jobs, zero fluff',
-  de: '\u26a1 Dein Montags-Briefing: Kurs, Stellen, kein Bl\u00f6dsinn',
-  fr: '\u26a1 Ton lundi de frontalier : taux, emplois, z\u00e9ro blabla',
+  it: '\u26a1 Frontaliere: cambio, lavoro, zero fuffa',
+  en: '\u26a1 Your Monday briefing: rates, jobs',
+  de: '\u26a1 Dein Briefing: Kurs, Jobs, kein Quatsch',
+  fr: '\u26a1 Ton briefing: taux, emplois, z\u00e9ro blabla',
 };
 
 export function getFallbackBriefing(locale, exchangeRate) {
