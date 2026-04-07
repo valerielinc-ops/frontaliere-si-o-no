@@ -40,7 +40,7 @@ const ENABLE_WAYBACK = process.env.ENABLE_WAYBACK === '1';
 // ── Locale path prefixes ─────────────────────────────────
 const LOCALE_PREFIXES = {
   it: ['/cerca-lavoro-ticino/'],
-  en: ['/en/find-job-ticino/', '/en/job-search-ticino/'],
+  en: ['/en/find-jobs-ticino/', '/en/find-job-ticino/', '/en/job-search-ticino/'],
   de: ['/de/jobs-im-tessin/', '/de/jobsuche-tessin/'],
   fr: ['/fr/recherche-emploi-tessin/', '/fr/trouver-emploi-tessin/'],
 };
@@ -172,7 +172,8 @@ async function fetchGscJobUrls(accessToken) {
   // Query per locale group to get best coverage
   const filterExpressions = [
     '/cerca-lavoro-ticino/',
-    '/en/find-job-ticino/',
+    '/en/find-jobs-ticino/',    // current route (plural)
+    '/en/find-job-ticino/',     // legacy route (singular)
     '/en/job-search-ticino/',
     '/de/jobs-im-tessin/',
     '/de/jobsuche-tessin/',
@@ -1076,7 +1077,7 @@ async function main() {
   const compatPathsFile = dataPath('seo-404-compat-paths.json');
   const compatData = readJsonSafe(compatPathsFile);
   if (compatData?.paths && Array.isArray(compatData.paths)) {
-    const COMPAT_JOB_RE = /^\/(cerca-lavoro-ticino|en\/find-job-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin)\/([^/]+)\/?$/;
+    const COMPAT_JOB_RE = /^\/(cerca-lavoro-ticino|en\/find-jobs?-ticino|de\/jobs-im-tessin|fr\/trouver-emploi-tessin)\/([^/]+)\/?$/;
     const SKIP_RE = /^(?:search|ricerca|suche|recherche|azienda|company|unternehmen|entreprise)-/;
     const existingSlugs = new Set(orphans.map((o) => `${o.locale}:${o.slug}`));
     let compatAdded = 0;
@@ -1128,6 +1129,67 @@ async function main() {
     console.log(`  📊 Total orphans after merge: ${orphans.length}`);
   }
 
+  // Step 2d: Feed back orphan paths to compat file for build-time coverage
+  // This ensures newly discovered orphans get compat pages on the next build,
+  // even before the orphan pipeline generates full soft-landing pages.
+  let feedbackAdded = 0;
+  if (!DRY_RUN) {
+    const existingCompatPaths = new Set((compatData?.paths || []).filter(Boolean));
+    for (const o of orphans) {
+      // Build all locale paths for this orphan
+      const itPath = `/cerca-lavoro-ticino/${o.slug}`;
+      const enPath = `/en/find-jobs-ticino/${o.slug}`;
+      const dePath = `/de/jobs-im-tessin/${o.slug}`;
+      const frPath = `/fr/trouver-emploi-tessin/${o.slug}`;
+      for (const p of [itPath, enPath, dePath, frPath]) {
+        if (!existingCompatPaths.has(p)) {
+          existingCompatPaths.add(p);
+          feedbackAdded++;
+        }
+      }
+    }
+    if (feedbackAdded > 0) {
+      const updatedCompat = {
+        ...compatData,
+        paths: [...existingCompatPaths].filter(p => typeof p === 'string' && p.startsWith('/')).sort(),
+        lastUpdated: new Date().toISOString().split('T')[0]
+      };
+      fs.writeFileSync(compatPathsFile, JSON.stringify(updatedCompat, null, 2) + '\n');
+      console.log(`  ✅ Fed back ${feedbackAdded} orphan paths to seo-404-compat-paths.json`);
+    } else {
+      console.log(`  📝 No new orphan paths to feed back`);
+    }
+  }
+
+  // Step 2e: Auto-register orphan slugs in tracking file
+  let trackingAdded = 0;
+  if (!DRY_RUN) {
+    const trackingFile = dataPath('all-known-job-slugs.json');
+    const tracking = readJsonSafe(trackingFile) || {};
+    for (const o of orphans) {
+      if (!tracking[o.slug]) {
+        tracking[o.slug] = {
+          it: `/cerca-lavoro-ticino/${o.slug}`,
+          en: `/en/find-jobs-ticino/${o.slug}`,
+          de: `/de/jobs-im-tessin/${o.slug}`,
+          fr: `/fr/trouver-emploi-tessin/${o.slug}`,
+        };
+        trackingAdded++;
+      } else {
+        // Ensure all 4 locales exist
+        const entry = tracking[o.slug];
+        if (!entry.it) entry.it = `/cerca-lavoro-ticino/${o.slug}`;
+        if (!entry.en) entry.en = `/en/find-jobs-ticino/${o.slug}`;
+        if (!entry.de) entry.de = `/de/jobs-im-tessin/${o.slug}`;
+        if (!entry.fr) entry.fr = `/fr/trouver-emploi-tessin/${o.slug}`;
+      }
+    }
+    if (trackingAdded > 0) {
+      fs.writeFileSync(trackingFile, JSON.stringify(tracking, null, 2) + '\n');
+      console.log(`  ✅ Registered ${trackingAdded} orphan slugs in tracking file (total: ${Object.keys(tracking).length})`);
+    }
+  }
+
   // Step 3: Enrich from local sources
   const enrichedOrphans = enrichFromLocalSources(orphans);
 
@@ -1171,6 +1233,12 @@ async function main() {
     for (const o of topImpressions) {
       console.log(`    ${o.totalImpressions.toString().padStart(6)} imp  ${o.slug.slice(0, 60)}`);
     }
+  }
+
+  // Signal to workflow whether deploy is needed
+  const compatChanged = feedbackAdded > 0 || trackingAdded > 0;
+  if (compatChanged) {
+    console.log('\n🚀 DEPLOY_RECOMMENDED=true — orphan data changed, rebuild needed for new soft-landing pages');
   }
 
   console.log('\n✅ Done');
