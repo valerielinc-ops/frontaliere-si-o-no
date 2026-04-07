@@ -25,7 +25,7 @@
  *   NEWSLETTER_EXPERIMENTAL_MODE=false, NEWSLETTER_ENABLE_SEND=true
  */
 
-import { createHmac } from 'node:crypto';
+import { createHash, createHmac } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -43,6 +43,35 @@ const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
 const BATCH_SIZE = 50;
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
+const AI_CONCURRENCY = 5; // Max parallel AI calls
+
+/**
+ * Run async tasks with bounded concurrency.
+ * @param {Array} items
+ * @param {(item: any) => Promise<any>} fn
+ * @param {number} concurrency
+ * @returns {Promise<any[]>}
+ */
+async function pMap(items, fn, concurrency = AI_CONCURRENCY) {
+  const results = new Array(items.length);
+  let cursor = 0;
+  async function worker() {
+    while (cursor < items.length) {
+      const i = cursor++;
+      results[i] = await fn(items[i], i);
+    }
+  }
+  await Promise.all(Array.from({ length: Math.min(concurrency, items.length) }, () => worker()));
+  return results;
+}
+
+/**
+ * Compute a stable hash for a set of matched job slugs to identify cohorts.
+ */
+function jobSetHash(matchedJobs) {
+  const slugs = matchedJobs.map(j => j.url || j.title).sort().join('|');
+  return createHash('sha256').update(slugs).digest('hex').slice(0, 16);
+}
 
 function readArgValue(name) {
   const index = process.argv.indexOf(name);
@@ -198,6 +227,28 @@ async function personalizeHtmlForRecipient(email, html) {
 
   // Generate ONE custom token per subscriber (reused for all links)
   const customToken = await getOrCreateCustomToken(email);
+
+  const replacements = new Map();
+  const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
+  for (const href of uniqueHrefs) {
+    const wrapped = makeAuthenticatedUrl(href, email, customToken);
+    replacements.set(href, wrapped);
+  }
+
+  let personalized = html;
+  for (const [original, wrapped] of replacements.entries()) {
+    personalized = personalized.replaceAll(`href="${original}"`, `href="${wrapped}"`);
+  }
+  return personalized;
+}
+
+/**
+ * Synchronous HTML personalization using a pre-generated auth token.
+ * Used by the optimized pipeline where tokens are generated in bulk beforehand.
+ */
+function personalizeHtmlWithToken(email, html, customToken) {
+  const hrefMatches = [...html.matchAll(/href="([^"]+)"/g)];
+  if (!hrefMatches.length) return html;
 
   const replacements = new Map();
   const uniqueHrefs = [...new Set(hrefMatches.map((m) => m[1]).filter(shouldWrapNewsletterHref))];
@@ -818,8 +869,7 @@ async function main() {
     }
   }
 
-  // ── Build personalized emails ──
-  const emails = [];
+  // ── Build personalized emails (optimized pipeline) ──
   let aiSuccessCount = 0;
   let aiFallbackCount = 0;
 
@@ -834,47 +884,113 @@ async function main() {
     }
   }
 
-  for (const subscriber of subscribers) {
+  // ── Phase 1: Match jobs for all subscribers & build cohorts ──
+  console.log('\n📋 Phase 1: Job matching & cohort grouping...');
+  const subscriberData = subscribers.map((subscriber) => {
     const locale = nlNormLocale(subscriber.locale);
-
-    // Smart job matching with URL validation
     const matchedJobs = validateJobUrls(
       matchJobsForSubscriber(subscriber, jobs, 4),
       jobs,
     );
+    const cohortKey = `${locale}:${jobSetHash(matchedJobs)}`;
+    return { subscriber, locale, matchedJobs, cohortKey };
+  });
 
-    // AI briefing
-    let briefing;
-    if (noAI) {
-      briefing = getFallbackBriefing(locale, exchangeRate);
-      aiFallbackCount++;
-    } else {
-      briefing = await generateAIBriefing({
-        subscriber, exchangeRate, exchangeInsight, matchedJobs, weeklyFact, featuredTool,
+  // Group by cohort (same locale + same job set = same AI briefing)
+  const cohorts = new Map();
+  for (const entry of subscriberData) {
+    if (!cohorts.has(entry.cohortKey)) {
+      cohorts.set(entry.cohortKey, {
+        locale: entry.locale,
+        matchedJobs: entry.matchedJobs,
+        subscriber: entry.subscriber, // representative subscriber for AI prompt
+        members: [],
       });
-      if (briefing) {
-        aiSuccessCount++;
-      } else {
-        briefing = getFallbackBriefing(locale, exchangeRate);
-        aiFallbackCount++;
+    }
+    cohorts.get(entry.cohortKey).members.push(entry);
+  }
+  console.log(`  ${subscribers.length} subscribers → ${cohorts.size} cohorts`);
+
+  // ── Phase 2: Generate 1 AI briefing per cohort (parallel) ──
+  console.log('🧠 Phase 2: AI briefings (1 per cohort, parallel)...');
+  const cohortEntries = [...cohorts.entries()];
+  const briefingResults = noAI
+    ? cohortEntries.map(([key, c]) => [key, getFallbackBriefing(c.locale, exchangeRate)])
+    : await pMap(cohortEntries, async ([key, cohort]) => {
+        const briefing = await generateAIBriefing({
+          subscriber: cohort.subscriber,
+          exchangeRate, exchangeInsight,
+          matchedJobs: cohort.matchedJobs,
+          weeklyFact, featuredTool,
+        });
+        return [key, briefing];
+      }, AI_CONCURRENCY);
+
+  const briefingMap = new Map();
+  for (const [key, briefing] of briefingResults) {
+    const cohort = cohorts.get(key);
+    if (briefing) {
+      briefingMap.set(key, briefing);
+      aiSuccessCount++;
+    } else {
+      briefingMap.set(key, getFallbackBriefing(cohort.locale, exchangeRate));
+      aiFallbackCount++;
+    }
+  }
+  console.log(`  ✓ ${aiSuccessCount} AI briefings, ${aiFallbackCount} fallbacks`);
+
+  // ── Phase 3: Generate 1 AI subject per locale ──
+  console.log('✏️  Phase 3: AI subjects (1 per locale)...');
+  const locales = [...new Set(subscriberData.map(d => d.locale))];
+  const subjectMap = new Map();
+
+  if (subjectOverride) {
+    for (const loc of locales) subjectMap.set(loc, subjectOverride);
+  } else if (noAI) {
+    for (const loc of locales) subjectMap.set(loc, FALLBACK_SUBJECT[loc] || FALLBACK_SUBJECT.it);
+  } else {
+    // Pick a representative cohort per locale (the one with most members)
+    const localeRepresentatives = new Map();
+    for (const [key, cohort] of cohorts) {
+      const loc = cohort.locale;
+      const existing = localeRepresentatives.get(loc);
+      if (!existing || cohort.members.length > existing.members.length) {
+        localeRepresentatives.set(loc, { ...cohort, briefing: briefingMap.get(key) });
       }
     }
 
-    // AI subject
-    let subject;
-    if (subjectOverride) {
-      subject = subjectOverride;
-    } else if (noAI) {
-      subject = FALLBACK_SUBJECT[locale] || FALLBACK_SUBJECT.it;
-    } else {
-      subject = await generateAISubject({
-        subscriber, exchangeRate, matchedJobs,
-        briefingSummary: briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '',
+    await pMap(locales, async (loc) => {
+      const rep = localeRepresentatives.get(loc);
+      const briefingText = rep?.briefing?.replace(/<[^>]+>/g, '').slice(0, 100) || '';
+      const subject = await generateAISubject({
+        subscriber: rep?.subscriber || { locale: loc },
+        exchangeRate,
+        matchedJobs: rep?.matchedJobs || [],
+        briefingSummary: briefingText,
       });
-      if (!subject) subject = FALLBACK_SUBJECT[locale] || FALLBACK_SUBJECT.it;
-    }
+      subjectMap.set(loc, subject || FALLBACK_SUBJECT[loc] || FALLBACK_SUBJECT.it);
+    }, locales.length); // All locale subjects in parallel (max 4)
+  }
+  console.log(`  ✓ ${subjectMap.size} subjects: ${[...subjectMap.entries()].map(([l, s]) => `${l}="${s}"`).join(', ')}`);
 
-    // Build HTML
+  // ── Phase 4: Generate Firebase Auth tokens in parallel ──
+  console.log('🔑 Phase 4: Auth tokens (parallel)...');
+  const tokenMap = new Map();
+  await pMap(subscribers, async (subscriber) => {
+    const token = await getOrCreateCustomToken(subscriber.email);
+    tokenMap.set(subscriber.email, token);
+  }, 10); // Higher concurrency for auth tokens (fast, no AI)
+  console.log(`  ✓ ${tokenMap.size} tokens generated`);
+
+  // ── Phase 5: Assemble emails (CPU-only, no async) ──
+  console.log('📦 Phase 5: Assembling emails...');
+  const metrics = loadDashboardMetrics();
+  const emails = [];
+
+  for (const { subscriber, locale, matchedJobs, cohortKey } of subscriberData) {
+    const briefing = briefingMap.get(cohortKey);
+    const subject = subjectMap.get(locale);
+
     const html = buildNewsletter({
       aiBriefing: briefing,
       exchangeRate,
@@ -883,17 +999,16 @@ async function main() {
       article: featuredArticle,
       featuredTool,
       weeklyFact,
-      metrics: loadDashboardMetrics(),
+      metrics,
       locale,
       issueNumber,
       unsubscribeUrl: makeUnsubscribeUrl(subscriber.email),
       resubscribeUrl: makeResubscribeUrl(subscriber.email),
     });
 
-    // Personalize with autologin links
-    const personalizedHtml = await personalizeHtmlForRecipient(subscriber.email, html);
-
-    // Validate all job URLs in final HTML — remove broken links
+    // Personalize links with pre-generated auth token
+    const customToken = tokenMap.get(subscriber.email);
+    const personalizedHtml = personalizeHtmlWithToken(subscriber.email, html, customToken);
     const sanitizedHtml = sanitizeJobUrls(personalizedHtml, validJobSlugs);
 
     emails.push({
@@ -909,15 +1024,15 @@ async function main() {
           { name: 'campaign_id', value: campaignId },
           { name: 'subscriber_locale', value: locale },
           { name: 'source_channel', value: subscriber.sourceChannel || 'newsletter_page' },
-          { name: 'version', value: 'v2-ai' },
+          { name: 'version', value: 'v2-ai-cohort' },
         ],
       },
     });
-
-    console.log(`  \u2713 ${subscriber.email} (${locale}) | jobs: ${matchedJobs.length} | AI: ${briefing !== getFallbackBriefing(locale, exchangeRate) ? 'yes' : 'fallback'}`);
   }
 
-  console.log(`\n\ud83e\udde0 AI stats: ${aiSuccessCount} AI briefings, ${aiFallbackCount} fallbacks`);
+  console.log(`\n🧠 AI stats: ${aiSuccessCount} cohort briefings (${cohorts.size} cohorts), ${aiFallbackCount} fallbacks, ${subjectMap.size} subjects`);
+  console.log(`📊 Savings: ${subscribers.length * 2} AI calls → ${aiSuccessCount + aiFallbackCount + subjectMap.size} (${Math.round((1 - (aiSuccessCount + aiFallbackCount + subjectMap.size) / (subscribers.length * 2)) * 100)}% reduction)`);
+
 
   // ── Send ──
   const apiKey = process.env.RESEND_API_KEY;
