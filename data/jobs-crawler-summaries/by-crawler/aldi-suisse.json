@@ -1,55 +1,19 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-04-07T08:58:49.661Z",
+  "generatedAt": "2026-04-07T20:53:45.971Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4409,
-  "avgDurationMs": 4409,
+  "unchangedCount": 2,
+  "durationMs": 3309,
+  "avgDurationMs": 3309,
   "durationHistory": [
-    4409
+    3309
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "aldi-suisse-c84740c470c4",
-      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-      "company": "ALDI SUISSE",
-      "companyKey": "aldi-suisse",
-      "companyDomain": "aldi.ch",
-      "title": "Stellvertretender Filialleiter (m/w/d)",
-      "location": "en in elf Ländern weltweit. Seit dem",
-      "postalCode": "6928",
-      "canton": "TI",
-      "addressLocality": "en in elf Ländern weltweit. Seit dem",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "streetAddress": "Centro Monda 8",
-      "employmentType": "PART_TIME",
-      "category": "retail",
-      "contract": "full-time",
-      "workPercentage": "",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-04-07",
-      "url": "https://www.jobs.aldi.ch/job/1287177101",
-      "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-07T08:58:47.833Z",
-      "sourceLang": "de",
-      "needsRetranslation": true,
-      "salaryMin": 66000,
-      "salaryMax": 89000,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    },
     {
       "id": "aldi-suisse-2b7849368ea3",
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
@@ -73,11 +37,50 @@
       "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-07T08:58:47.832Z",
-      "sourceLang": "de",
+      "crawledAt": "2026-04-07T20:53:44.243Z",
       "needsRetranslation": true,
+      "sourceLang": "de",
       "salaryMin": 54000,
       "salaryMax": 73000,
+      "_qualityScore": 96,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 21,
+        "translation": 25,
+        "completeness": 25
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "id": "aldi-suisse-c84740c470c4",
+      "slug": "stellvertretender-filialleiter-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
+      "company": "ALDI SUISSE",
+      "companyKey": "aldi-suisse",
+      "companyDomain": "aldi.ch",
+      "title": "Stellvertretender Filialleiter (m/w/d)",
+      "location": "en in elf Ländern weltweit. Seit dem",
+      "postalCode": "6928",
+      "canton": "TI",
+      "addressLocality": "en in elf Ländern weltweit. Seit dem",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "streetAddress": "Centro Monda 8",
+      "employmentType": "PART_TIME",
+      "category": "retail",
+      "contract": "full-time",
+      "workPercentage": "",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-04-07",
+      "url": "https://www.jobs.aldi.ch/job/1287177101",
+      "source": "ALDI Suisse Dedicated Parser",
+      "crawledAt": "2026-04-07T20:53:44.244Z",
+      "needsRetranslation": true,
+      "sourceLang": "de",
+      "salaryMin": 66000,
+      "salaryMax": 89000,
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -109,7 +112,7 @@
       "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-07T08:58:47.830Z",
+      "crawledAt": "2026-04-07T20:53:44.241Z",
       "sourceLang": "de",
       "needsRetranslation": true,
       "salaryMin": 43000,
@@ -122,7 +125,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

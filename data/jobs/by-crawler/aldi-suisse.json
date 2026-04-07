@@ -1,6 +1,6 @@
 {
   "crawlerKey": "aldi-suisse",
-  "assembledAt": "2026-04-07T08:58:49.661Z",
+  "assembledAt": "2026-04-07T20:53:45.971Z",
   "jobs": [
     {
       "id": "aldi-suisse-c84740c470c4",
@@ -76,12 +76,12 @@
       "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-07T08:58:47.833Z",
+      "crawledAt": "2026-04-07T20:53:44.244Z",
       "previousSlugs": [
         "stellvertretender-filialleiter-m-w-d-aldi-suisse"
       ],
-      "sourceLang": "de",
       "needsRetranslation": true,
+      "sourceLang": "de",
       "salaryMin": 66000,
       "salaryMax": 89000,
       "baseSalary": {
@@ -100,9 +100,9 @@
       "slug": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
       "slugByLocale": {
         "it": "addetto-a-alle-vendite-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-        "en": "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8",
+        "en": "sales-associate-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
         "de": "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8",
-        "fr": "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8"
+        "fr": "vendeur-se-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem"
       },
       "company": "ALDI SUISSE",
       "companyKey": "aldi-suisse",
@@ -166,13 +166,14 @@
       "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-07T08:58:47.832Z",
+      "crawledAt": "2026-04-07T20:53:44.243Z",
       "previousSlugs": [
         "addetto-vendite-m-f-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem",
-        "mitarbeiter-verkauf-m-w-d-aldi-suisse"
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse",
+        "mitarbeiter-verkauf-m-w-d-aldi-suisse-en-in-elf-landern-weltweit-seit-dem-4n4np8"
       ],
-      "sourceLang": "de",
       "needsRetranslation": true,
+      "sourceLang": "de",
       "salaryMin": 54000,
       "salaryMax": 73000,
       "baseSalary": {
@@ -255,11 +256,12 @@
       "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-07T08:58:47.830Z",
+      "crawledAt": "2026-04-07T20:53:44.241Z",
       "previousSlugs": [
         "lernender-detailhandel-m-w-d-aldi-suisse"
       ],
       "sourceLang": "de",
+      "needsRetranslation": true,
       "salaryMin": 43000,
       "salaryMax": 58000,
       "baseSalary": {
