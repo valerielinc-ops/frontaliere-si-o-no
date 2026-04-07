@@ -41,9 +41,9 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "specialista-del-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-interdiscount-jegensdorf-oal0zl",
-        "en": "retail-specialist-efz-creating-shopping-experiences-interdiscount-jegensdorf",
-        "de": "einzelhandelsspezialist-efz-einkaufserlebnisse-schaffen-interdiscount-jegensdorf",
-        "fr": "specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf"
+        "en": "retail-specialist-efz-creating-shopping-experiences-fust-swiss-household-services-ag-tenero-contra",
+        "de": "einzelhandelsspezialist-efz-einkaufserlebnisse-schaffen-fust-swiss-household-services-ag-tenero-contra",
+        "fr": "specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra"
       },
       "addressLocality": "Tenero-Contra",
       "salaryMin": 46500,
@@ -72,7 +72,10 @@
         "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino",
         "einzelhandelsausbildung-afc-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino",
         "apprentissage-en-vente-au-detail-afc-creation-d-experiences-d-achat-fust-tenero-contra-ticino",
-        "apprentissage-commerce-de-detail-cfc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra"
+        "apprentissage-commerce-de-detail-cfc-creation-d-experiences-d-achat-fust-swiss-household-services-ag-tenero-contra",
+        "retail-specialist-efz-creating-shopping-experiences-interdiscount-jegensdorf",
+        "einzelhandelsspezialist-efz-einkaufserlebnisse-schaffen-interdiscount-jegensdorf",
+        "specialiste-du-commerce-de-detail-efz-creer-des-experiences-d-achat-interdiscount-jegensdorf"
       ]
     },
     {
@@ -122,10 +125,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufer-in-kassen-services-jumbo-chur-graubunden-w27wx3",
-        "en": "verkaufer-in-kassen-services-jumbo-chur-graubunden-w27wx3",
+        "it": "venditore-a-cassa-service-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-associate-cash-services-jumbo-division-der-coop-genossenschaft-chur",
         "de": "verkaufer-in-kassen-services-jumbo-chur-graubunden-w27wx3",
-        "fr": "verkaufer-in-kassen-services-jumbo-chur-graubunden-w27wx3"
+        "fr": "vendeur-vendeuse-caisses-services-jumbo-division-der-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -140,7 +143,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-chur-graubunden-w27wx3"
+      ]
     },
     {
       "id": "company-m2qsz9",
@@ -180,10 +186,10 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "verkausberater-in-schmuck-coop-city-chur-graubunden-m2qsz9",
-        "en": "verkausberater-in-schmuck-coop-city-chur-graubunden-m2qsz9",
+        "it": "venditore-a-di-gioielli-coop-genossenschaft-chur",
+        "en": "jewelry-sales-associate-coop-genossenschaft-chur",
         "de": "verkausberater-in-schmuck-coop-city-chur-graubunden-m2qsz9",
-        "fr": "verkausberater-in-schmuck-coop-city-chur-graubunden-m2qsz9"
+        "fr": "vendeur-euse-de-bijoux-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -198,7 +204,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkausberater-in-schmuck-coop-city-chur-graubunden-m2qsz9"
+      ]
     },
     {
       "id": "company-3ylfsj",
@@ -247,10 +256,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-textil-coop-city-chur-graubunden-3ylfsj",
-        "en": "verkaufsberater-in-textil-coop-city-chur-graubunden-3ylfsj",
+        "it": "venditore-a-tessuti-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-advisor-textiles-jumbo-division-der-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-textil-coop-city-chur-graubunden-3ylfsj",
-        "fr": "verkaufsberater-in-textil-coop-city-chur-graubunden-3ylfsj"
+        "fr": "conseiller-ere-de-vente-textiles-jumbo-division-der-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -265,7 +274,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-textil-coop-city-chur-graubunden-3ylfsj"
+      ]
     },
     {
       "id": "company-iuprgz",
@@ -314,10 +326,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz",
-        "en": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz",
+        "it": "venditore-a-garden-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz",
-        "fr": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz"
+        "fr": "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -332,7 +344,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz"
+      ]
     },
     {
       "id": "company-pztp1c",
@@ -657,10 +672,10 @@
         "fr": []
       },
       "slugByLocale": {
-        "it": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz",
-        "en": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz",
+        "it": "venditore-a-garden-jumbo-division-der-coop-genossenschaft-chur",
+        "en": "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-chur",
         "de": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz",
-        "fr": "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz"
+        "fr": "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-chur"
       },
       "addressLocality": "Chur",
       "sourceLang": "de",
@@ -690,7 +705,8 @@
         "verkaufsberater-in-garden-jumbo-chur-graubunden-ii2387",
         "venditore-a-garden-jumbo-division-der-coop-genossenschaft-chur",
         "sales-advisor-garden-jumbo-division-der-coop-genossenschaft-chur",
-        "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-chur"
+        "conseiller-ere-de-vente-jardin-jumbo-division-der-coop-genossenschaft-chur",
+        "verkaufsberater-in-garden-jumbo-chur-graubunden-iuprgz"
       ]
     },
     {

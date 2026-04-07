@@ -350,7 +350,7 @@
       "slugByLocale": {
         "it": "consulente-per-la-sicurezza-axa-svizzera-axa",
         "en": "insurance-consultant-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
-        "de": "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca",
+        "de": "versicherungsberater-axa-svizzera-agenzia-principale-nicola-locarnini-manno",
         "fr": "consulente-assicurativo-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
       },
       "salaryMin": 58000,
@@ -370,7 +370,8 @@
       "postalCode": "6901",
       "previousSlugs": [
         "consulente-assicurativo-axa-svizzera-axa",
-        "consulente-assicurativo"
+        "consulente-assicurativo",
+        "versicherungsberater-axa-svizzera-agenzia-principale-igor-scheggia-biasca"
       ]
     },
     {
@@ -472,9 +473,9 @@
       },
       "slugByLocale": {
         "de": "spezialist-ai-governance-prozesse-all-genders",
-        "it": "spezialist-ai-governance-prozesse-all-genders",
-        "en": "spezialist-ai-governance-prozesse-all-genders",
-        "fr": "spezialist-ai-governance-prozesse-all-genders"
+        "it": "specialista-ai-governance-processi-axa-svizzera-smart-working",
+        "en": "ai-governance-processes-specialist-axa-svizzera-smart-working",
+        "fr": "specialiste-de-la-gouvernance-et-des-processus-de-l-ia-axa-svizzera-smart-working"
       },
       "salaryMin": 58000,
       "salaryMax": 78000,
@@ -490,7 +491,10 @@
         }
       },
       "streetAddress": "Via della Posta 2",
-      "postalCode": "6901"
+      "postalCode": "6901",
+      "previousSlugs": [
+        "spezialist-ai-governance-prozesse-all-genders"
+      ]
     },
     {
       "title": "Sachbearbeiter:in Front Office Leistungen Ambulant",
