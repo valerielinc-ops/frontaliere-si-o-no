@@ -535,6 +535,9 @@ const translations: Record<string, string> = {
     'consulting.footerLink': 'Consulenze',
     'blog.title': 'Guida Frontaliere',
     'blog.subtitle': 'Articoli pratici per il frontaliere in Ticino',
+    'blog.statsArticles': 'articoli',
+    'blog.statsNews': 'notizie',
+    'blog.statsUpdated': 'Aggiornato ogni giorno',
     'glossary.title': 'Glossario del Frontaliere',
 
     // Contact Page

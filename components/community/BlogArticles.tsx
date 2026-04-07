@@ -2358,16 +2358,42 @@ function BlogArticles({
 
   // ── List View (Newspaper style) ──────────────────────
 
+  const categoryStats = useMemo(() => {
+    const counts: Record<string, number> = {};
+    for (const a of articles) counts[a.category] = (counts[a.category] || 0) + 1;
+    return counts;
+  }, [articles]);
+
   return (
     <div className="max-w-5xl mx-auto space-y-6">
-      {/* Header */}
-      <div className="text-center mb-6">
+      {/* Header with stats hook */}
+      <div className="text-center mb-2">
         <h1 className="text-2xl sm:text-3xl font-bold text-slate-800 dark:text-slate-100 mb-2 flex items-center justify-center gap-2">
           <BookOpen size={28} className="text-indigo-600" />
           {t('blog.title')}
         </h1>
         <p className="text-slate-600 dark:text-slate-400">{t('blog.subtitle')}</p>
       </div>
+
+      {/* Stats bar — gives immediate sense of depth and freshness */}
+      {articles.length > 0 && (
+        <div className="flex flex-wrap items-center justify-center gap-3 sm:gap-5 text-sm">
+          <span className="inline-flex items-center gap-1.5 font-semibold text-indigo-700 dark:text-indigo-300">
+            <FileText size={15} />
+            {articles.length} {t('blog.statsArticles')}
+          </span>
+          <span className="text-slate-300 dark:text-slate-600">|</span>
+          <span className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+            <Newspaper size={15} />
+            {categoryStats['novita'] || 0} {t('blog.statsNews')}
+          </span>
+          <span className="text-slate-300 dark:text-slate-600">|</span>
+          <span className="inline-flex items-center gap-1.5 text-slate-600 dark:text-slate-400">
+            <TrendingUp size={15} />
+            {t('blog.statsUpdated')}
+          </span>
+        </div>
+      )}
 
       {/* Category filter */}
       <div className="flex flex-wrap gap-2 justify-center">

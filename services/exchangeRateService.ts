@@ -107,7 +107,9 @@ async function saveFirestoreRate(rate: number): Promise<void> {
     const msg = e instanceof Error ? e.message : String(e);
     if (msg.includes('permission') || msg.includes('Permission') || msg.includes('PERMISSION_DENIED')) {
       firestoreWriteBlocked = true;
-      reportCaughtError(e, 'exchangeRate.firestoreWrite', { apiEndpoint: 'config/exchange_rate' });
+      // Permission denied is expected for anonymous/unauthenticated users — silently
+      // block future writes rather than reporting noise to analytics.
+      console.warn('[ExchangeRate] Firestore write blocked: insufficient permissions');
     }
     // Other transient errors (network, etc.) are silently ignored — next fetch will retry
   }

@@ -74,16 +74,24 @@ async function ensureFirebaseAuth(): Promise<void> {
       ]);
       _authModule = authModule;
       const appInstance = await firebaseModule.getApp();
-      _auth = authModule.getAuth(appInstance);
+      // Use a local variable until fully initialized — assigning to _auth early
+      // creates a race condition where concurrent callers hit `if (_auth) return`
+      // and call SDK methods (e.g. isSignInWithEmailLink) on a partially-initialized
+      // instance, causing Firebase to call extractQuerystring(authDomain) before
+      // authDomain is populated, throwing TypeError: Cannot read properties of
+      // undefined (reading 'indexOf').
+      const authInstance = authModule.getAuth(appInstance);
       // Ensure session survives even if IndexedDB is unavailable
-      await authModule.setPersistence(_auth, authModule.browserLocalPersistence);
+      await authModule.setPersistence(authInstance, authModule.browserLocalPersistence);
       // Wait for Firebase Auth internal initialization to complete.
       // getAuth() returns synchronously but internal config (apiKey, authDomain)
       // may not be ready yet — calling SDK methods before this resolves causes
       // TypeError on internal property access (e.g. indexOf on undefined).
-      if (typeof _auth.authStateReady === 'function') {
-        await _auth.authStateReady();
+      if (typeof authInstance.authStateReady === 'function') {
+        await authInstance.authStateReady();
       }
+      // Only expose _auth after full initialization is confirmed.
+      _auth = authInstance;
       logAuthDebug('ensureFirebaseAuth:ready', {
         authDomain: appInstance?.options?.authDomain || null,
         hasCurrentUser: Boolean(_auth?.currentUser),

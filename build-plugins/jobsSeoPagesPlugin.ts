@@ -3632,6 +3632,51 @@ ${(() => {
           comboCount++;
         }
 
+        // 4) ruolo + Ticino combinations — from internal search demand
+        // Users search for specific roles: Medico, Infermiere, Autista, Cuoco, Piastrellista, etc.
+        const roleTypes: { key: string; match: RegExp; labels: Record<'it' | 'en' | 'de' | 'fr', string> }[] = [
+          { key: 'medico', match: /\b(medic[oa]|arzt|doctor|médecin|assistente di studio medico|medical)\b/i, labels: { it: 'Medico', en: 'Doctor', de: 'Arzt', fr: 'Médecin' } },
+          { key: 'infermiere', match: /\b(infermier[ea]|nurse|krankenpfleger|infirmier|pflege)\b/i, labels: { it: 'Infermiere', en: 'Nurse', de: 'Krankenpfleger', fr: 'Infirmier' } },
+          { key: 'autista', match: /\b(autista|driver|fahrer|chauffeur|conducente)\b/i, labels: { it: 'Autista', en: 'Driver', de: 'Fahrer', fr: 'Chauffeur' } },
+          { key: 'cuoco', match: /\b(cuoc[oa]|chef|koch|cuisinier|aiuto cuoco)\b/i, labels: { it: 'Cuoco', en: 'Chef', de: 'Koch', fr: 'Cuisinier' } },
+          { key: 'piastrellista', match: /\b(piastrellista|tiler|plattenleger|carreleur|muratore|mason)\b/i, labels: { it: 'Piastrellista', en: 'Tiler', de: 'Plattenleger', fr: 'Carreleur' } },
+          { key: 'elettricista', match: /\b(elettricista|electrician|elektriker|électricien)\b/i, labels: { it: 'Elettricista', en: 'Electrician', de: 'Elektriker', fr: 'Électricien' } },
+          { key: 'vendita', match: /\b(vendit[oa]r[ei]|addett[oa] (alle )?vendite?|sales|verkäufer|vendeur|shop assistant|commess[oa])\b/i, labels: { it: 'Vendita', en: 'Sales', de: 'Verkauf', fr: 'Vente' } },
+          { key: 'educatore', match: /\b(educator[ei]|educatric[ei]|educator|erzieher|éducateur)\b/i, labels: { it: 'Educatore', en: 'Educator', de: 'Erzieher', fr: 'Éducateur' } },
+          { key: 'contabile', match: /\b(contabil[ei]|accountant|buchhalter|comptable|ragionier)\b/i, labels: { it: 'Contabile', en: 'Accountant', de: 'Buchhalter', fr: 'Comptable' } },
+          { key: 'meccanico', match: /\b(meccanic[oa]|mechanic|mechaniker|mécanicien)\b/i, labels: { it: 'Meccanico', en: 'Mechanic', de: 'Mechaniker', fr: 'Mécanicien' } },
+        ];
+        for (const role of roleTypes) {
+          const comboKey = `${role.key}-ticino`;
+          if (searchLeaderMap.has(comboKey)) { comboCount++; continue; }
+          generateComboPage(comboKey, {
+            it: {
+              title: `Lavoro ${role.labels.it} in Ticino | Frontaliere Ticino`,
+              description: (c) => `${c} offerte di lavoro come ${role.labels.it.toLowerCase()} in Ticino. Posizioni aggiornate ogni giorno, candidatura diretta.`,
+              heading: `Lavoro come ${role.labels.it} in Ticino`,
+            },
+            en: {
+              title: `${role.labels.en} jobs in Ticino | Frontaliere Ticino`,
+              description: (c) => `${c} ${role.labels.en.toLowerCase()} job openings in Ticino. Updated daily, apply directly.`,
+              heading: `${role.labels.en} jobs in Ticino`,
+            },
+            de: {
+              title: `${role.labels.de} Jobs im Tessin | Frontaliere Ticino`,
+              description: (c) => `${c} offene ${role.labels.de}-Stellen im Tessin. Täglich aktualisiert, direkt bewerben.`,
+              heading: `${role.labels.de} Jobs im Tessin`,
+            },
+            fr: {
+              title: `Emploi ${role.labels.fr} au Tessin | Frontaliere Ticino`,
+              description: (c) => `${c} offres d'emploi ${role.labels.fr.toLowerCase()} au Tessin. Mises à jour quotidiennes, postulez directement.`,
+              heading: `Emploi ${role.labels.fr} au Tessin`,
+            },
+          }, (job) => {
+            const title = normalizeSearchTerm([job?.title, job?.titleByLocale?.it].filter(Boolean).join(' '));
+            return role.match.test(title);
+          });
+          comboCount++;
+        }
+
         if (comboCount > 0) {
           console.log(`\x1b[36m[jobs-seo-pages]\x1b[0m Generated combo search pages from ${comboCount} combinations`);
         }
@@ -4171,6 +4216,80 @@ ${(() => {
       let legacyCount = 0;
       const expiredSitemapEntries: string[] = [];
 
+      // Pre-compute invariant HTML fragments for soft-landing pages (~69K pages).
+      // Avoids re-building the same ~2KB of boilerplate for each page.
+      const currentYear = new Date().getFullYear();
+      const darkModeScript = `<script>(function(){if(localStorage.theme==='dark'||((!('theme' in localStorage))&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})()</script>`;
+      const darkModeStyles = `<style>
+      .dark body{background:#0f172a;color:#e2e8f0}
+      .dark .ft-static-nav{background:rgba(15,23,42,.7);border-color:rgba(30,41,59,.5)}
+      .dark .ft-static-nav a{color:#93c5fd}
+      .dark .ft-static-article{color:#e2e8f0}
+      .dark .ft-static-article a{color:#818cf8}
+      .dark .ft-static-footer{background:rgba(15,23,42,.5);border-color:rgba(30,41,59,1);color:#94a3b8}
+      .dark .ft-static-footer a{color:#93c5fd}
+    </style>`;
+      const navSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28"><rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b"/><rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8"/><rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626"/><path d="M34 58v12M28 64h12" stroke="white" stroke-width="3" stroke-linecap="round"/><mask id="m"><rect x="54" y="52" width="24" height="24" rx="6" fill="white"/></mask><g mask="url(#m)"><rect x="54" y="52" width="8" height="24" fill="#16a34a"/><rect x="62" y="52" width="8" height="24" fill="white"/><rect x="70" y="52" width="8" height="24" fill="#dc2626"/></g></svg>`;
+      const spaBundleCss = hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : '';
+      const spaBundleJs = hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : '';
+      // Per-locale pre-built nav + footer (only 4 strings to cache)
+      const localeShells = Object.fromEntries(localeList.map(l => {
+        const lp = `${localePrefix[l]}/${sectionByLocale[l]}/`.replace(/\/+/g, '/');
+        const sectionLink = `${BASE_URL}${lp}`;
+        const sectionName = esc(localeCopy[l].sectionName);
+        const nav = `<nav class="ft-static-nav" aria-label="Navigazione principale" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,232,240,.5);box-shadow:0 1px 2px rgba(0,0,0,.05);padding:0 16px">
+        <div style="max-width:2400px;width:95%;margin:0 auto;display:flex;align-items:center;height:56px;gap:12px">
+          <a href="${BASE_URL}/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#2563eb;font-weight:700;font-size:15px;font-family:system-ui,sans-serif">
+            ${navSvg}
+            Frontaliere Ticino
+          </a>
+          <span style="flex:1"></span>
+          <a href="${sectionLink}" style="font-size:13px;color:#4f46e5;text-decoration:none;font-family:system-ui,sans-serif">${sectionName}</a>
+        </div>
+      </nav>`;
+        const footer = `<footer class="ft-static-footer" style="border-top:1px solid rgba(226,232,240,.6);background:rgba(255,255,255,.5);padding:24px 16px;margin-top:auto;font-family:system-ui,sans-serif;font-size:13px;color:#64748b;text-align:center">
+        <div style="max-width:1280px;margin:0 auto">
+          &copy; ${currentYear} <a href="${BASE_URL}/" style="color:#4f46e5;text-decoration:none">Frontaliere Ticino</a> &mdash;
+          <a href="${sectionLink}" style="color:#4f46e5;text-decoration:none">${sectionName}</a>
+        </div>
+      </footer>`;
+        return [l, { nav, footer, listingPath: lp }];
+      }));
+
+      // Assembler: builds a complete soft-landing HTML page from pre-computed parts + dynamic slots
+      const buildSoftLandingHtml = (locale: string, pageTitle: string, pageDesc: string, robotsTag: string,
+        selfUrl: string, hreflangLinks: string, jsonLdScripts: string, expiredWindowData: string,
+        staticBodyJson: string, staticBody: string): string => {
+        const shell = localeShells[locale];
+        return `<!DOCTYPE html>
+<html lang="${locale}">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>${pageTitle}</title>
+    <meta name="description" content="${pageDesc}">${robotsTag}
+    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
+    <link rel="canonical" href="${selfUrl}">
+${hreflangLinks}
+    ${darkModeScript}
+    ${darkModeStyles}
+    ${jsonLdScripts}
+    <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};window.__STATIC_BODY_HTML__=${staticBodyJson};</script>${spaBundleCss}
+    ${SPA_ACTION_REDIRECT_SCRIPT}
+    ${GTAG_SNIPPET}
+  </head>
+  <body>
+    <div id="root">
+      ${shell.nav}
+      <article class="ft-static-article" style="max-width:1280px;margin:0 auto;padding:24px 16px;font-family:system-ui,sans-serif;color:#334155;">
+        ${staticBody}
+      </article>
+      ${shell.footer}
+    </div>${spaBundleJs}
+  </body>
+</html>`;
+      };
       const writeSoftLandingPage = (outRelPath: string, html: string) => {
         // Normalize: strip trailing slashes to prevent flat files like ".html" (hidden files)
         const normPath = outRelPath.replace(/\/+$/, '');
@@ -4397,173 +4516,120 @@ ${(() => {
           // from long-tail searches). Pages below threshold get noindex,follow.
           const expiredRobotsTag = robotsMetaForContent(staticBody);
 
-          const softLandingHtml = `<!DOCTYPE html>
-<html lang="${locale}">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>${pageTitle}</title>
-    <meta name="description" content="${pageDesc}">${expiredRobotsTag}
-    <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)">
-    <meta name="theme-color" content="#0f172a" media="(prefers-color-scheme: dark)">
-    <link rel="canonical" href="${selfUrl}">
-${hreflangLinks}
-    <script>(function(){if(localStorage.theme==='dark'||((!('theme' in localStorage))&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.classList.add('dark')}})()</script>
-    <style>
-      .dark body{background:#0f172a;color:#e2e8f0}
-      .dark .ft-static-nav{background:rgba(15,23,42,.7);border-color:rgba(30,41,59,.5)}
-      .dark .ft-static-nav a{color:#93c5fd}
-      .dark .ft-static-article{color:#e2e8f0}
-      .dark .ft-static-article a{color:#818cf8}
-      .dark .ft-static-footer{background:rgba(15,23,42,.5);border-color:rgba(30,41,59,1);color:#94a3b8}
-      .dark .ft-static-footer a{color:#93c5fd}
-    </style>
-    <script type="application/ld+json">${JSON.stringify({
-      '@context': 'https://schema.org',
-      '@type': 'BreadcrumbList',
-      itemListElement: [
-        { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: BASE_URL + '/' },
-        { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
-        { '@type': 'ListItem', position: 3, name: jobTitle },
-      ],
-    })}</script>
-    ${(() => {
-      // Only emit JobPosting when we have real job data: title + expiredAt + company.
-      // Generic fallback titles ("Offerta non più disponibile") must NOT appear as
-      // JobPosting schema — they pollute Google's job index with low-quality entries
-      // and inflate the GSC valid-jobs count with meaningless entries.
-      const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title || '';
-      const realExpiredAt = ejData?.expiredAt || '';
-      if (!realTitle || !realExpiredAt || !jobCompany) return '';
-      // Compute description with locale fallback chain, then HTML template fallback
-      const finalDescription = jobDescription || (() => {
-        const parts: string[] = [];
-        parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
-        if (locale === 'it') {
-          parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
-        } else if (locale === 'en') {
-          parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
-        } else if (locale === 'de') {
-          parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
-        } else {
-          parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
-        }
-        parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
-        if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
-        return parts.join('');
-      })();
-      // Skip JobPosting entirely if description < 30 chars (matching active job page behavior)
-      if (finalDescription.length < 30) return '';
-      const jp: Record<string, unknown> = {
-        '@context': 'https://schema.org',
-        '@type': 'JobPosting',
-        title: realTitle,
-        description: finalDescription,
-        url: selfUrl,
-        // Use real expiredAt — never use Date.now() fallback which refreshes every build
-        // and causes Google to see the job as "just expired" indefinitely.
-        validThrough: new Date(realExpiredAt).toISOString(),
-        datePosted: (() => {
-          if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
-          if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
-          const d = new Date(realExpiredAt); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
-        })(),
-        employmentType: (() => {
-          const c = String(ejData?.contract || '').toLowerCase();
-          if (c === 'full-time' || c === 'full_time') return 'FULL_TIME';
-          if (c === 'part-time' || c === 'part_time') return 'PART_TIME';
-          if (c === 'temporary') return 'TEMPORARY';
-          if (c === 'internship' || c === 'intern') return 'INTERN';
-          if (c === 'contract' || c === 'contractor') return 'CONTRACTOR';
-          return 'OTHER';
-        })(),
-        hiringOrganization: { '@type': 'Organization', name: jobCompany },
-      };
-      // FRO-343: Enrich jobLocation with postalCode and streetAddress
-      // Always emit jobLocation — fall back to Ticino/Lugano when data is missing
-      {
-        const address: Record<string, string> = {
-          '@type': 'PostalAddress',
-          addressLocality: jobLocation || 'Ticino',
-          addressRegion: 'TI',
-          addressCountry: 'CH',
-        };
-        // Try postalCode from ejData, slug-extracted, then swiss-postal-codes lookup
-        const ejPostalCode = ejData?.postalCode || slugInfo?.postalCode;
-        if (ejPostalCode) {
-          address.postalCode = ejPostalCode;
-        } else if (jobLocation && plzLookup[jobLocation]) {
-          address.postalCode = plzLookup[jobLocation];
-        } else {
-          address.postalCode = '6900'; // Lugano default
-        }
-        // Try streetAddress from ejData, then company HQ, then addressLocality fallback
-        const ejStreet = ejData?.streetAddress;
-        if (ejStreet) {
-          address.streetAddress = ejStreet;
-        } else if ((ejData?.companyKey || slugInfo?.companyKey) && COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || '']) {
-          const hq = COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || ''];
-          address.streetAddress = hq.streetAddress;
-          if (!address.postalCode || address.postalCode === '6900') address.postalCode = hq.postalCode;
-        } else {
-          // Final fallback: use addressLocality (per CLAUDE.md SEO rules)
-          address.streetAddress = address.addressLocality || 'Ticino';
-        }
-        jp.jobLocation = { '@type': 'Place', address };
-      }
-      // FRO-343: Add baseSalary — always present, with Ticino minimum wage fallback
-      if (ejData?.salaryMin || ejData?.salaryMax) {
-        const salaryValue: Record<string, unknown> = { '@type': 'QuantitativeValue' };
-        if (ejData.salaryMin && ejData.salaryMax) {
-          salaryValue.minValue = ejData.salaryMin;
-          salaryValue.maxValue = ejData.salaryMax;
-        } else {
-          salaryValue.value = ejData.salaryMin || ejData.salaryMax;
-        }
-        salaryValue.unitText = ejData?.salaryPeriod || 'YEAR';
-        jp.baseSalary = {
-          '@type': 'MonetaryAmount',
-          currency: ejData?.salaryCurrency || 'CHF',
-          value: salaryValue,
-        };
-      } else {
-        // Fallback: Ticino minimum wage ~CHF 41,080/year
-        jp.baseSalary = {
-          '@type': 'MonetaryAmount',
-          currency: 'CHF',
-          value: { '@type': 'QuantitativeValue', minValue: 41080, unitText: 'YEAR' },
-        };
-      }
-      return `<script type="application/ld+json">${JSON.stringify(jp)}</script>`;
-    })()}
-    <script>window.__EXPIRED_JOB_DATA__=${expiredWindowData};window.__STATIC_BODY_HTML__=${staticBodyJson};</script>${hasSpaBundle ? `\n    <link rel="stylesheet" href="/assets/${entryCss}" crossorigin media="all" data-clarity-unmask="true">` : ''}
-    ${SPA_ACTION_REDIRECT_SCRIPT}
-    ${GTAG_SNIPPET}
-  </head>
-  <body>
-    <div id="root">
-      <nav class="ft-static-nav" aria-label="Navigazione principale" style="position:sticky;top:0;z-index:50;background:rgba(255,255,255,.7);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid rgba(226,232,240,.5);box-shadow:0 1px 2px rgba(0,0,0,.05);padding:0 16px">
-        <div style="max-width:2400px;width:95%;margin:0 auto;display:flex;align-items:center;height:56px;gap:12px">
-          <a href="${BASE_URL}/" style="display:flex;align-items:center;gap:10px;text-decoration:none;color:#2563eb;font-weight:700;font-size:15px;font-family:system-ui,sans-serif">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" width="28" height="28"><rect x="10" y="10" width="80" height="80" rx="16" fill="#1e293b"/><rect x="22" y="22" width="56" height="20" rx="4" fill="#94a3b8"/><rect x="22" y="52" width="24" height="24" rx="6" fill="#dc2626"/><path d="M34 58v12M28 64h12" stroke="white" stroke-width="3" stroke-linecap="round"/><mask id="m"><rect x="54" y="52" width="24" height="24" rx="6" fill="white"/></mask><g mask="url(#m)"><rect x="54" y="52" width="8" height="24" fill="#16a34a"/><rect x="62" y="52" width="8" height="24" fill="white"/><rect x="70" y="52" width="8" height="24" fill="#dc2626"/></g></svg>
-            Frontaliere Ticino
-          </a>
-          <span style="flex:1"></span>
-          <a href="${BASE_URL}${listingPath}" style="font-size:13px;color:#4f46e5;text-decoration:none;font-family:system-ui,sans-serif">${esc(localeCopy[locale].sectionName)}</a>
-        </div>
-      </nav>
-      <article class="ft-static-article" style="max-width:1280px;margin:0 auto;padding:24px 16px;font-family:system-ui,sans-serif;color:#334155;">
-        ${staticBody}
-      </article>
-      <footer class="ft-static-footer" style="border-top:1px solid rgba(226,232,240,.6);background:rgba(255,255,255,.5);padding:24px 16px;margin-top:auto;font-family:system-ui,sans-serif;font-size:13px;color:#64748b;text-align:center">
-        <div style="max-width:1280px;margin:0 auto">
-          &copy; ${new Date().getFullYear()} <a href="${BASE_URL}/" style="color:#4f46e5;text-decoration:none">Frontaliere Ticino</a> &mdash;
-          <a href="${BASE_URL}${listingPath}" style="color:#4f46e5;text-decoration:none">${esc(localeCopy[locale].sectionName)}</a>
-        </div>
-      </footer>
-    </div>${hasSpaBundle ? `\n    <script type="module" crossorigin src="/assets/${entryJs}"></script>` : ''}
-  </body>
-</html>`;
+          // Build JSON-LD scripts (BreadcrumbList + optional JobPosting)
+          const breadcrumbLd = `<script type="application/ld+json">${JSON.stringify({
+            '@context': 'https://schema.org',
+            '@type': 'BreadcrumbList',
+            itemListElement: [
+              { '@type': 'ListItem', position: 1, name: 'Frontaliere Ticino', item: BASE_URL + '/' },
+              { '@type': 'ListItem', position: 2, name: localeCopy[locale].sectionName, item: `${BASE_URL}${listingPath}` },
+              { '@type': 'ListItem', position: 3, name: jobTitle },
+            ],
+          })}</script>`;
+
+          const jobPostingLd = (() => {
+            // Only emit JobPosting when we have real job data
+            const realTitle = ejData?.titleByLocale?.[locale] || ejData?.title || '';
+            const realExpiredAt = ejData?.expiredAt || '';
+            if (!realTitle || !realExpiredAt || !jobCompany) return '';
+            const finalDescription = jobDescription || (() => {
+              const parts: string[] = [];
+              parts.push(`<p><strong>${esc(copy.banner)}</strong></p>`);
+              if (locale === 'it') {
+                parts.push(`<p>Questa posizione di ${esc(realTitle)} presso ${esc(jobCompany)}${jobLocation ? ` a ${esc(jobLocation)}` : ' in Ticino'} non è più disponibile.</p>`);
+              } else if (locale === 'en') {
+                parts.push(`<p>This ${esc(realTitle)} position at ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' in Ticino'} is no longer available.</p>`);
+              } else if (locale === 'de') {
+                parts.push(`<p>Diese Stelle als ${esc(realTitle)} bei ${esc(jobCompany)}${jobLocation ? ` in ${esc(jobLocation)}` : ' im Tessin'} ist nicht mehr verfügbar.</p>`);
+              } else {
+                parts.push(`<p>Ce poste de ${esc(realTitle)} chez ${esc(jobCompany)}${jobLocation ? ` à ${esc(jobLocation)}` : ' au Tessin'} n'est plus disponible.</p>`);
+              }
+              parts.push(`<p>${locale === 'it' ? 'Azienda' : locale === 'en' ? 'Company' : locale === 'de' ? 'Unternehmen' : 'Entreprise'}: ${esc(jobCompany)}</p>`);
+              if (jobLocation) parts.push(`<p>${locale === 'it' ? 'Sede' : locale === 'en' ? 'Location' : locale === 'de' ? 'Standort' : 'Lieu'}: ${esc(jobLocation)}</p>`);
+              return parts.join('');
+            })();
+            if (finalDescription.length < 30) return '';
+            const jp: Record<string, unknown> = {
+              '@context': 'https://schema.org',
+              '@type': 'JobPosting',
+              title: realTitle,
+              description: finalDescription,
+              url: selfUrl,
+              validThrough: new Date(realExpiredAt).toISOString(),
+              datePosted: (() => {
+                if (ejData?.postedDate) { const d = new Date(ejData.postedDate); if (!isNaN(d.getTime())) return d.toISOString(); }
+                if (ejData?.crawledAt) { const d = new Date(ejData.crawledAt); if (!isNaN(d.getTime())) { d.setUTCDate(d.getUTCDate() - 30); return d.toISOString(); } }
+                const d = new Date(realExpiredAt); d.setUTCDate(d.getUTCDate() - 30); return d.toISOString();
+              })(),
+              employmentType: (() => {
+                const c = String(ejData?.contract || '').toLowerCase();
+                if (c === 'full-time' || c === 'full_time') return 'FULL_TIME';
+                if (c === 'part-time' || c === 'part_time') return 'PART_TIME';
+                if (c === 'temporary') return 'TEMPORARY';
+                if (c === 'internship' || c === 'intern') return 'INTERN';
+                if (c === 'contract' || c === 'contractor') return 'CONTRACTOR';
+                return 'OTHER';
+              })(),
+              hiringOrganization: { '@type': 'Organization', name: jobCompany },
+            };
+            {
+              const address: Record<string, string> = {
+                '@type': 'PostalAddress',
+                addressLocality: jobLocation || 'Ticino',
+                addressRegion: 'TI',
+                addressCountry: 'CH',
+              };
+              const ejPostalCode = ejData?.postalCode || slugInfo?.postalCode;
+              if (ejPostalCode) {
+                address.postalCode = ejPostalCode;
+              } else if (jobLocation && plzLookup[jobLocation]) {
+                address.postalCode = plzLookup[jobLocation];
+              } else {
+                address.postalCode = '6900';
+              }
+              const ejStreet = ejData?.streetAddress;
+              if (ejStreet) {
+                address.streetAddress = ejStreet;
+              } else if ((ejData?.companyKey || slugInfo?.companyKey) && COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || '']) {
+                const hq = COMPANY_HQ_ADDRESSES[ejData?.companyKey || slugInfo?.companyKey || ''];
+                address.streetAddress = hq.streetAddress;
+                if (!address.postalCode || address.postalCode === '6900') address.postalCode = hq.postalCode;
+              } else {
+                address.streetAddress = address.addressLocality || 'Ticino';
+              }
+              jp.jobLocation = { '@type': 'Place', address };
+            }
+            if (ejData?.salaryMin || ejData?.salaryMax) {
+              const salaryValue: Record<string, unknown> = { '@type': 'QuantitativeValue' };
+              if (ejData.salaryMin && ejData.salaryMax) {
+                salaryValue.minValue = ejData.salaryMin;
+                salaryValue.maxValue = ejData.salaryMax;
+              } else {
+                salaryValue.value = ejData.salaryMin || ejData.salaryMax;
+              }
+              salaryValue.unitText = ejData?.salaryPeriod || 'YEAR';
+              jp.baseSalary = {
+                '@type': 'MonetaryAmount',
+                currency: ejData?.salaryCurrency || 'CHF',
+                value: salaryValue,
+              };
+            } else {
+              jp.baseSalary = {
+                '@type': 'MonetaryAmount',
+                currency: 'CHF',
+                value: { '@type': 'QuantitativeValue', minValue: 41080, unitText: 'YEAR' },
+              };
+            }
+            return `<script type="application/ld+json">${JSON.stringify(jp)}</script>`;
+          })();
+
+          const jsonLdScripts = breadcrumbLd + (jobPostingLd ? '\n    ' + jobPostingLd : '');
+
+          const softLandingHtml = buildSoftLandingHtml(
+            locale, pageTitle, pageDesc, expiredRobotsTag,
+            selfUrl, hreflangLinks, jsonLdScripts, expiredWindowData,
+            staticBodyJson, staticBody
+          );
 
           writeSoftLandingPage(relPath.slice(1), softLandingHtml);
           expiredCount++;

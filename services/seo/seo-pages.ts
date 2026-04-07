@@ -285,9 +285,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   // ─── Section landing pages ──────────────────────────────────,
 
   calcolatore: {
-    title: 'Calcolatore Stipendio Frontaliere | Simulazioni e Strumenti',
-    description: 'Con 60.000 CHF lordi/anno un frontaliere netta circa 3.200–3.500 €/mese dopo AVS (5,3%), imposta alla fonte (8–10%) e IRPEF con franchigia 10.000 € (2026).',
-    keywords: 'calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
+    title: 'Calcolatore Stipendio Netto Frontaliere 2026 | 8 Simulatori',
+    description: 'Calcola stipendio netto frontaliere: deduzioni AVS (5,3%), imposta alla fonte (8–10%), IRPEF con franchigia 10.000 €. 8 simulatori gratuiti, calcolo istantaneo.',
+    keywords: 'calcolo stipendio frontaliere, simulatore stipendio netto, busta paga frontaliere, confronto ral svizzera italia, calcolatore imposte alla fonte 2026, etax ticino 2026, calcolo stipendio netto svizzera, imposta alla fonte ticino, bonus frontaliere, congedo parentale frontaliere, permesso g vs b',
     ogTitle: 'Calcolatore Stipendio Frontaliere 2026 | Strumenti Gratuiti',
     ogDescription: 'Un frontaliere con 60.000 CHF lordi/anno netta circa 3.200–3.500 €/mese dopo contributi svizzeri e tasse italiane. Usa 8 simulatori gratuiti per calcolare il tuo netto esatto (accordo 2026).',
     canonicalPath: '/calcola-stipendio',
@@ -477,11 +477,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   fisco: {
-    title: 'Fisco e Previdenza Frontalieri | Tasse, Pensione, Pilastro 3',
-    description: 'Dal 2024 i nuovi frontalieri pagano imposta alla fonte CH (6–15%) più IRPEF con franchigia 10.000 €. I vecchi mantengono il regime pre-2024. Guida completa.',
-    keywords: 'tasse frontalieri 2026, dichiarazione redditi frontaliere, ristorni fiscali ticino, pensione frontaliere avs lpp, terzo pilastro 3a frontaliere, scadenze fiscali frontaliere, quiz fiscale frontaliere',
-    ogTitle: 'Fisco e Previdenza Frontalieri 2026 | Guida Completa',
-    ogDescription: 'Nuovo accordo 2026: nuovi frontalieri pagano 6–15% di imposta alla fonte CH + IRPEF IT con franchigia 10.000 €. Vecchi frontalieri mantengono il regime pre-2024. Guida a tasse, pensione e previdenza.',
+    title: 'Calcolatore Imposte alla Fonte 2026 | Tasse e Pensione Frontalieri',
+    description: 'Calcolatore imposte alla fonte Ticino 2026: nuovi frontalieri pagano 6–15% CH più IRPEF con franchigia 10.000 €. Vecchi mantengono regime pre-2024. eTax, AVS, LPP.',
+    keywords: 'tasse frontalieri 2026, calcolatore imposte alla fonte 2026, etax ticino 2026, dichiarazione redditi frontaliere, ristorni fiscali ticino, pensione frontaliere avs lpp, terzo pilastro 3a frontaliere, scadenze fiscali frontaliere, imposta alla fonte ticino, calcolo stipendio netto svizzera',
+    ogTitle: 'Calcolatore Imposte alla Fonte 2026 | Frontaliere Ticino',
+    ogDescription: 'Nuovo accordo 2026: calcola imposte alla fonte Ticino (6–15%) + IRPEF con franchigia 10.000 €. Guida completa a tasse, eTax, pensione AVS/LPP e previdenza.',
     canonicalPath: '/tasse-e-pensione',
     structuredData: [
       {
@@ -2107,9 +2107,9 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
 
   payslip: {
     title: 'Calcolo Imposta alla Fonte 2026 | Busta Paga Frontaliere',
-    description: 'Calcolo imposta alla fonte 2026: busta paga frontaliere Svizzera con stipendio lordo, deduzioni AVS, AC, LPP e netto. Simulazione cedolino per permesso G.',
-    keywords: 'busta paga svizzera, cedolino svizzera frontaliere, calcolo stipendio netto svizzera, deduzioni AVS AC LPP, imposta alla fonte calcolo, stipendio frontaliere dettaglio',
-    ogTitle: 'Calcolo Imposta alla Fonte 2026 | Busta Paga Frontaliere',
+    description: 'Calcolatore imposta alla fonte 2026: busta paga frontaliere Svizzera con lordo, deduzioni AVS, AC, LPP e netto. Simulazione cedolino eTax per permesso G Ticino.',
+    keywords: 'busta paga svizzera, cedolino svizzera frontaliere, calcolo stipendio netto svizzera, deduzioni AVS AC LPP, imposta alla fonte calcolo, stipendio frontaliere dettaglio, calcolatore imposte alla fonte 2026, etax ticino, calcolo imposta fonte ticino',
+    ogTitle: 'Calcolatore Imposta alla Fonte 2026 | Busta Paga Frontaliere',
     ogDescription: '📄 Calcolo imposta alla fonte 2026: busta paga frontaliere Svizzera con deduzioni AVS, LPP e netto in dettaglio.',
     canonicalPath: '/calcola-stipendio/simula-busta-paga',
     structuredData: {
@@ -2436,11 +2436,11 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
   },
 
   jobboard: {
-    title: 'Offerte di Lavoro Ticino 2026 | Aggiornate Ogni Giorno',
-    description: 'Offerte di lavoro Ticino: 1500+ posti vacanti aggiornati ogni giorno. Cerca lavoro in banche, tech, farmaceutica e sanità da 100+ aziende. Candidatura diretta.',
-    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, offerte di lavoro più richieste ticino',
-    ogTitle: 'Offerte di Lavoro Ticino 2026 | Aggiornate Ogni Giorno',
-    ogDescription: 'Oltre 1500 offerte di lavoro in Ticino aggiornate ogni giorno. Posizioni in banche, tech, farmaceutica, sanità e industria. 100+ aziende. Candidati gratis!',
+    title: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
+    description: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta — gratis, senza registrazione.',
+    keywords: 'offerte di lavoro ticino, lavoro ticino, offerte lavoro ticino, cerco lavoro ticino, posti vacanti ticino, offerte di lavoro frontalieri svizzera, lavoro frontaliere ticino 2026, impiego ticino, lavoro lugano, lavoro mendrisio, offerte lavoro ticino oggi, posti di lavoro ticino, lavoro ticino offerte, offerte di lavoro lugano, lavoro in ticino, offerte di lavoro ticino negli ultimi 3 giorni, lavoro ticino da ieri, lavoro ticino negli ultimi 3 giorni',
+    ogTitle: 'Offerte di Lavoro Ticino Oggi — 1500+ Posti da 100 Aziende',
+    ogDescription: 'Cerchi lavoro in Ticino? 1500+ offerte aggiornate ogni giorno da Lugano, Mendrisio e Bellinzona. Banche, IT, pharma, sanità. Candidatura diretta — gratis!',
     canonicalPath: '/cerca-lavoro-ticino',
     structuredData: [
       {
