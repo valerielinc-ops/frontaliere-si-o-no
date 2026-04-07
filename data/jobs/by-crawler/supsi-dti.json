@@ -1,6 +1,6 @@
 {
   "crawlerKey": "supsi-dti",
-  "assembledAt": "2026-04-07T10:03:30.312Z",
+  "assembledAt": "2026-04-07T22:16:05.425Z",
   "jobs": [
     {
       "id": "company-l4u53i",
@@ -73,30 +73,8 @@
           "Strong publication record in fields such as privacy, machine learning, and/or natural language processing.",
           "Demonstrated ability to collaborate effectively in interdisciplinary and international teams."
         ],
-        "de": [
-          "Il/La candidato/a ideale soddisferà i seguenti requisiti essenziali:",
-          "Dottorato di Ricerca in Informatica, Data Science, Machine Learning o ambiti affini.",
-          "Esperienza comprovata con privacy-enhancing technologies e loro applicazione a modelli di machine learning.",
-          "Solida esperienza con framework di deep learning (es. PyTorch, TensorFlow) e strumenti di data science (es. NumPy, Pandas, Scikit-learn).",
-          "Ottima padronanza di linguaggi di programmazione, in particolare in Python, con familiarità con sistemi di controllo versione (es. Git).",
-          "Solida preparazione matematica, inclusi algebra lineare, teoria della probabilità, ottimizzazione e crittografia.",
-          "Conoscenza approfondita degli algoritmi di machine learning, con particolare attenzione ai modelli basati su transformer.",
-          "Capacità di lavorare in autonomia e di gestire scadenze e deliverable di progetto.",
-          "Storico di pubblicazioni in ambiti quali privacy, machine learning e/o elaborazione del linguaggio naturale.",
-          "Comprovata capacità di collaborare efficacemente in team interdisciplinari e internazionali."
-        ],
-        "fr": [
-          "Il/La candidato/a ideale soddisferà i seguenti requisiti essenziali:",
-          "Dottorato di Ricerca in Informatica, Data Science, Machine Learning o ambiti affini.",
-          "Esperienza comprovata con privacy-enhancing technologies e loro applicazione a modelli di machine learning.",
-          "Solida esperienza con framework di deep learning (es. PyTorch, TensorFlow) e strumenti di data science (es. NumPy, Pandas, Scikit-learn).",
-          "Ottima padronanza di linguaggi di programmazione, in particolare in Python, con familiarità con sistemi di controllo versione (es. Git).",
-          "Solida preparazione matematica, inclusi algebra lineare, teoria della probabilità, ottimizzazione e crittografia.",
-          "Conoscenza approfondita degli algoritmi di machine learning, con particolare attenzione ai modelli basati su transformer.",
-          "Capacità di lavorare in autonomia e di gestire scadenze e deliverable di progetto.",
-          "Storico di pubblicazioni in ambiti quali privacy, machine learning e/o elaborazione del linguaggio naturale.",
-          "Comprovata capacità di collaborare efficacemente in team interdisciplinari e internazionali."
-        ]
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-manno",
@@ -127,7 +105,8 @@
       "previousSlugs": [
         "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dti-lugano",
         "ricercatrice-ricercatore-con-phd-nell-area-del-privacy-preserving-data-processing-supsi-dt"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u53h",
@@ -195,51 +174,9 @@
           "Requisiti preferenziali",
           "Esperienza in attività di formazione, incluse attività di supporto didattico e di esercitazione, supervisione o sviluppo di materiali formativi."
         ],
-        "en": [
-          "Master (MSc. o MSE) in Ingegneria con specializzazione in Business Engineering, Ingegneria Gestionale o Ingegneria industriale.",
-          "Solida conoscenza dei principali riferimenti normativi e metodologici in ambito di valutazione della sostenibilità, quali gli standard ISO (ISO 14040/44), il Greenhouse Gas Protocol (Corporate, Scope 1-2-3), il metodo Product Environmental Footprint (PEF), il regolamento Ecodesign for Sustainable Products Regulation (ESPR) e quadri regolatori affini.",
-          "Competenze avanzate nelle metodologie di Life Cycle Assessment (LCA) applicate a prodotti e processi industriali (preferibilmente inclusi i processi di trasformazione di materiali polimerici, dell’industria tessile e dell’industria delle costruzioni).",
-          "Esperienza documentabile nell’utilizzo operativo di software LCA (quali openLCA e SimaPro o affini), con particolare riferimento alla costruzione, gestione e validazione di modelli che utilizzano dati da Ecoinvent, nonché alla loro integrazione in workflow strutturati di analisi e reporting.",
-          "Capacità di tradurre esigenze di modellizzazione e valutazione della sostenibilità in specifiche metodologiche chiare, facilitando l’interazione tra chi sviluppa i modelli e chi ne utilizza i risultati in contesti decisionali o applicativi.",
-          "Esperienza nella redazione di deliverable tecnici e report di progetto di ricerca in ambito della sostenibilità industriale, con attenzione alla coerenza metodologica, alla tracciabilità dei dati e alla chiarezza espositiva verso stakeholder eterogenei.",
-          "Capacità documentata di contribuire alla redazione di proposte di progetti di ricerca, e alla produzione di contributi scientifici e tecnici nell’ambito della sostenibilità ambientale e sociale.",
-          "Capacità di coordinare piccoli gruppi di ricerca nell'ambito di progetti di ricerca finanziati, mantenendo un approccio scientifico e collaborativo.",
-          "Attitudine a operare in modo autonomo all’interno di contesti progettuali strutturati, contribuendo in maniera proattiva allo sviluppo delle attività di ricerca e alla risoluzione di problematiche metodologiche.",
-          "Capacità relazionali e di collaborazione in ambito nazionale e internazionale.",
-          "Ottima conoscenza della lingua inglese e di quella italiana; la conoscenza di una seconda lingua nazionale costituisce titolo preferenziale.",
-          "Requisiti preferenziali",
-          "Esperienza in attività di formazione, incluse attività di supporto didattico e di esercitazione, supervisione o sviluppo di materiali formativi."
-        ],
-        "de": [
-          "Master (MSc. o MSE) in Ingegneria con specializzazione in Business Engineering, Ingegneria Gestionale o Ingegneria industriale.",
-          "Solida conoscenza dei principali riferimenti normativi e metodologici in ambito di valutazione della sostenibilità, quali gli standard ISO (ISO 14040/44), il Greenhouse Gas Protocol (Corporate, Scope 1-2-3), il metodo Product Environmental Footprint (PEF), il regolamento Ecodesign for Sustainable Products Regulation (ESPR) e quadri regolatori affini.",
-          "Competenze avanzate nelle metodologie di Life Cycle Assessment (LCA) applicate a prodotti e processi industriali (preferibilmente inclusi i processi di trasformazione di materiali polimerici, dell’industria tessile e dell’industria delle costruzioni).",
-          "Esperienza documentabile nell’utilizzo operativo di software LCA (quali openLCA e SimaPro o affini), con particolare riferimento alla costruzione, gestione e validazione di modelli che utilizzano dati da Ecoinvent, nonché alla loro integrazione in workflow strutturati di analisi e reporting.",
-          "Capacità di tradurre esigenze di modellizzazione e valutazione della sostenibilità in specifiche metodologiche chiare, facilitando l’interazione tra chi sviluppa i modelli e chi ne utilizza i risultati in contesti decisionali o applicativi.",
-          "Esperienza nella redazione di deliverable tecnici e report di progetto di ricerca in ambito della sostenibilità industriale, con attenzione alla coerenza metodologica, alla tracciabilità dei dati e alla chiarezza espositiva verso stakeholder eterogenei.",
-          "Capacità documentata di contribuire alla redazione di proposte di progetti di ricerca, e alla produzione di contributi scientifici e tecnici nell’ambito della sostenibilità ambientale e sociale.",
-          "Capacità di coordinare piccoli gruppi di ricerca nell'ambito di progetti di ricerca finanziati, mantenendo un approccio scientifico e collaborativo.",
-          "Attitudine a operare in modo autonomo all’interno di contesti progettuali strutturati, contribuendo in maniera proattiva allo sviluppo delle attività di ricerca e alla risoluzione di problematiche metodologiche.",
-          "Capacità relazionali e di collaborazione in ambito nazionale e internazionale.",
-          "Ottima conoscenza della lingua inglese e di quella italiana; la conoscenza di una seconda lingua nazionale costituisce titolo preferenziale.",
-          "Requisiti preferenziali",
-          "Esperienza in attività di formazione, incluse attività di supporto didattico e di esercitazione, supervisione o sviluppo di materiali formativi."
-        ],
-        "fr": [
-          "Master (MSc. o MSE) in Ingegneria con specializzazione in Business Engineering, Ingegneria Gestionale o Ingegneria industriale.",
-          "Solida conoscenza dei principali riferimenti normativi e metodologici in ambito di valutazione della sostenibilità, quali gli standard ISO (ISO 14040/44), il Greenhouse Gas Protocol (Corporate, Scope 1-2-3), il metodo Product Environmental Footprint (PEF), il regolamento Ecodesign for Sustainable Products Regulation (ESPR) e quadri regolatori affini.",
-          "Competenze avanzate nelle metodologie di Life Cycle Assessment (LCA) applicate a prodotti e processi industriali (preferibilmente inclusi i processi di trasformazione di materiali polimerici, dell’industria tessile e dell’industria delle costruzioni).",
-          "Esperienza documentabile nell’utilizzo operativo di software LCA (quali openLCA e SimaPro o affini), con particolare riferimento alla costruzione, gestione e validazione di modelli che utilizzano dati da Ecoinvent, nonché alla loro integrazione in workflow strutturati di analisi e reporting.",
-          "Capacità di tradurre esigenze di modellizzazione e valutazione della sostenibilità in specifiche metodologiche chiare, facilitando l’interazione tra chi sviluppa i modelli e chi ne utilizza i risultati in contesti decisionali o applicativi.",
-          "Esperienza nella redazione di deliverable tecnici e report di progetto di ricerca in ambito della sostenibilità industriale, con attenzione alla coerenza metodologica, alla tracciabilità dei dati e alla chiarezza espositiva verso stakeholder eterogenei.",
-          "Capacità documentata di contribuire alla redazione di proposte di progetti di ricerca, e alla produzione di contributi scientifici e tecnici nell’ambito della sostenibilità ambientale e sociale.",
-          "Capacità di coordinare piccoli gruppi di ricerca nell'ambito di progetti di ricerca finanziati, mantenendo un approccio scientifico e collaborativo.",
-          "Attitudine a operare in modo autonomo all’interno di contesti progettuali strutturati, contribuendo in maniera proattiva allo sviluppo delle attività di ricerca e alla risoluzione di problematiche metodologiche.",
-          "Capacità relazionali e di collaborazione in ambito nazionale e internazionale.",
-          "Ottima conoscenza della lingua inglese e di quella italiana; la conoscenza di una seconda lingua nazionale costituisce titolo preferenziale.",
-          "Requisiti preferenziali",
-          "Esperienza in attività di formazione, incluse attività di supporto didattico e di esercitazione, supervisione o sviluppo di materiali formativi."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-in-metodi-di-valutazione-della-sostenibilita-per-prodotti-e-processi-industriali-supsi-dti-manno",
@@ -334,51 +271,15 @@
           "Attitudine al lavoro autonomo, spirito d’iniziativa e capacità di interagire efficacemente in contesti di ricerca multidisciplinari e orientati all’innovazione.",
           "Ottima conoscenza della lingua inglese e italiana; la padronanza di una seconda lingua nazionale costituisce titolo preferenziale."
         ],
-        "en": [
-          "Master (MSc o MSE) in Ingegneria, preferibilmente in Ingegneria Gestionale, Industriale, Meccanica, Business Engineering o discipline affini.",
-          "Competenze consolidate nelle metodologie di valutazione della sostenibilità ambientale, con particolare riferimento ad approcci prospettici, comparativi ed ex-ante applicati a tecnologie emergenti, materiali innovativi o nuovi modelli di prodotto.",
-          "Conoscenza dei principali schemi di dichiarazione ambientale di prodotto (es. ISO 14025, EPD) e familiarità con meccanismi di verifica e trasparenza tipici di tali schemi di dichiarazione, con attenzione a tracciabilità dei dati e assunzioni.",
-          "Capacità di inquadrare e applicare framework regolatori e concettuali rilevanti per la sostenibilità dei prodotti e dei processi industriali, traducendoli in criteri operativi di analisi e valutazione.",
-          "Esperienza nell’utilizzo della valutazione ambientale come strumento di supporto alla progettazione e all’innovazione, inclusa la capacità di strutturare analisi coerenti con requisiti di impatto, robustezza metodologica e leggibilità per stakeholder non specialisti.",
-          "Capacità documentabile di orchestrare la convergenza tra requisiti metodologici e vincoli dei team tecnici, garantendo coerenza tra rigore metodologico e implementazione di soluzioni digitali.",
-          "Comprovata capacità di contribuire in modo sostanziale alla scrittura di proposte di progetto a livello nazionale ed europeo sui temi della sostenibilità e della circular economy, con particolare riferimento alla definizione del concept scientifico, dell’impostazione metodologica e degli elementi di impatto, come dimostrabile tramite esperienza pregressa in attività di proposal writing.",
-          "Capacità di coordinare piccoli gruppi di ricerca nell'ambito di progetti di ricerca finanziati, mantenendo un approccio scientifico e collaborativo.",
-          "Capacità di sviluppare una produzione scientifica autonoma, con contributi a conferenze e/o riviste scientifiche.",
-          "Attitudine al lavoro autonomo, spirito d’iniziativa e capacità di interagire efficacemente in contesti di ricerca multidisciplinari e orientati all’innovazione.",
-          "Ottima conoscenza della lingua inglese e italiana; la padronanza di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "de": [
-          "Master (MSc o MSE) in Ingegneria, preferibilmente in Ingegneria Gestionale, Industriale, Meccanica, Business Engineering o discipline affini.",
-          "Competenze consolidate nelle metodologie di valutazione della sostenibilità ambientale, con particolare riferimento ad approcci prospettici, comparativi ed ex-ante applicati a tecnologie emergenti, materiali innovativi o nuovi modelli di prodotto.",
-          "Conoscenza dei principali schemi di dichiarazione ambientale di prodotto (es. ISO 14025, EPD) e familiarità con meccanismi di verifica e trasparenza tipici di tali schemi di dichiarazione, con attenzione a tracciabilità dei dati e assunzioni.",
-          "Capacità di inquadrare e applicare framework regolatori e concettuali rilevanti per la sostenibilità dei prodotti e dei processi industriali, traducendoli in criteri operativi di analisi e valutazione.",
-          "Esperienza nell’utilizzo della valutazione ambientale come strumento di supporto alla progettazione e all’innovazione, inclusa la capacità di strutturare analisi coerenti con requisiti di impatto, robustezza metodologica e leggibilità per stakeholder non specialisti.",
-          "Capacità documentabile di orchestrare la convergenza tra requisiti metodologici e vincoli dei team tecnici, garantendo coerenza tra rigore metodologico e implementazione di soluzioni digitali.",
-          "Comprovata capacità di contribuire in modo sostanziale alla scrittura di proposte di progetto a livello nazionale ed europeo sui temi della sostenibilità e della circular economy, con particolare riferimento alla definizione del concept scientifico, dell’impostazione metodologica e degli elementi di impatto, come dimostrabile tramite esperienza pregressa in attività di proposal writing.",
-          "Capacità di coordinare piccoli gruppi di ricerca nell'ambito di progetti di ricerca finanziati, mantenendo un approccio scientifico e collaborativo.",
-          "Capacità di sviluppare una produzione scientifica autonoma, con contributi a conferenze e/o riviste scientifiche.",
-          "Attitudine al lavoro autonomo, spirito d’iniziativa e capacità di interagire efficacemente in contesti di ricerca multidisciplinari e orientati all’innovazione.",
-          "Ottima conoscenza della lingua inglese e italiana; la padronanza di una seconda lingua nazionale costituisce titolo preferenziale."
-        ],
-        "fr": [
-          "Master (MSc o MSE) in Ingegneria, preferibilmente in Ingegneria Gestionale, Industriale, Meccanica, Business Engineering o discipline affini.",
-          "Competenze consolidate nelle metodologie di valutazione della sostenibilità ambientale, con particolare riferimento ad approcci prospettici, comparativi ed ex-ante applicati a tecnologie emergenti, materiali innovativi o nuovi modelli di prodotto.",
-          "Conoscenza dei principali schemi di dichiarazione ambientale di prodotto (es. ISO 14025, EPD) e familiarità con meccanismi di verifica e trasparenza tipici di tali schemi di dichiarazione, con attenzione a tracciabilità dei dati e assunzioni.",
-          "Capacità di inquadrare e applicare framework regolatori e concettuali rilevanti per la sostenibilità dei prodotti e dei processi industriali, traducendoli in criteri operativi di analisi e valutazione.",
-          "Esperienza nell’utilizzo della valutazione ambientale come strumento di supporto alla progettazione e all’innovazione, inclusa la capacità di strutturare analisi coerenti con requisiti di impatto, robustezza metodologica e leggibilità per stakeholder non specialisti.",
-          "Capacità documentabile di orchestrare la convergenza tra requisiti metodologici e vincoli dei team tecnici, garantendo coerenza tra rigore metodologico e implementazione di soluzioni digitali.",
-          "Comprovata capacità di contribuire in modo sostanziale alla scrittura di proposte di progetto a livello nazionale ed europeo sui temi della sostenibilità e della circular economy, con particolare riferimento alla definizione del concept scientifico, dell’impostazione metodologica e degli elementi di impatto, come dimostrabile tramite esperienza pregressa in attività di proposal writing.",
-          "Capacità di coordinare piccoli gruppi di ricerca nell'ambito di progetti di ricerca finanziati, mantenendo un approccio scientifico e collaborativo.",
-          "Capacità di sviluppare una produzione scientifica autonoma, con contributi a conferenze e/o riviste scientifiche.",
-          "Attitudine al lavoro autonomo, spirito d’iniziativa e capacità di interagire efficacemente in contesti di ricerca multidisciplinari e orientati all’innovazione.",
-          "Ottima conoscenza della lingua inglese e italiana; la padronanza di una seconda lingua nazionale costituisce titolo preferenziale."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "slugByLocale": {
         "it": "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsabile-supsi-dti-m",
-        "en": "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsabile-supsi-dti-lugano",
-        "de": "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsabile-supsi-dti-lugano",
-        "fr": "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsabile-supsi-dti-lugano"
+        "en": "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-manager-supsi-dti-manno",
+        "de": "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-verantwortlicher-supsi-d",
+        "fr": "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsable-supsi-dti-ma"
       },
       "country": "CH",
       "sourceLang": "it",
@@ -402,7 +303,8 @@
       "employmentType": "FULL_TIME",
       "previousSlugs": [
         "ricercatrice-ricercatore-in-metodi-di-valutazione-prospettica-della-sostenibilita-e-innovazione-responsabile-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti31",
@@ -472,45 +374,9 @@
           "Ottime capacità comunicative e doti di problem-solving.",
           "Attitudine al lavoro in team e in singolo."
         ],
-        "en": [
-          "Formazione quale AFC in Informatica o titolo equivalente.",
-          "Almeno 5 anni di esperienza professionale in posizioni simili.",
-          "Ottime conoscenze di sistemi operativi client (Windows, MacOS, Linux).",
-          "Comprovata esperienza nella configurazione e amministrazione di Client.",
-          "Conoscenza ambienti virtualizzati (es.: VMWare).",
-          "Ottime conoscenze del pacchetto Microsoft Office.",
-          "Esperienza nell’utilizzo di sistemi di ticketing.",
-          "Esperienza nella distribuzione automatizzata di applicativi e sistemi operativi.",
-          "Buone conoscenze della lingua italiana e inglese.",
-          "Ottime capacità comunicative e doti di problem-solving.",
-          "Attitudine al lavoro in team e in singolo."
-        ],
-        "de": [
-          "Formazione quale AFC in Informatica o titolo equivalente.",
-          "Almeno 5 anni di esperienza professionale in posizioni simili.",
-          "Ottime conoscenze di sistemi operativi client (Windows, MacOS, Linux).",
-          "Comprovata esperienza nella configurazione e amministrazione di Client.",
-          "Conoscenza ambienti virtualizzati (es.: VMWare).",
-          "Ottime conoscenze del pacchetto Microsoft Office.",
-          "Esperienza nell’utilizzo di sistemi di ticketing.",
-          "Esperienza nella distribuzione automatizzata di applicativi e sistemi operativi.",
-          "Buone conoscenze della lingua italiana e inglese.",
-          "Ottime capacità comunicative e doti di problem-solving.",
-          "Attitudine al lavoro in team e in singolo."
-        ],
-        "fr": [
-          "Formazione quale AFC in Informatica o titolo equivalente.",
-          "Almeno 5 anni di esperienza professionale in posizioni simili.",
-          "Ottime conoscenze di sistemi operativi client (Windows, MacOS, Linux).",
-          "Comprovata esperienza nella configurazione e amministrazione di Client.",
-          "Conoscenza ambienti virtualizzati (es.: VMWare).",
-          "Ottime conoscenze del pacchetto Microsoft Office.",
-          "Esperienza nell’utilizzo di sistemi di ticketing.",
-          "Esperienza nella distribuzione automatizzata di applicativi e sistemi operativi.",
-          "Buone conoscenze della lingua italiana e inglese.",
-          "Ottime capacità comunicative e doti di problem-solving.",
-          "Attitudine al lavoro in team e in singolo."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -598,33 +464,9 @@
           "Ottima conoscenza della lingua italiana (parlato e scritto).",
           "Buona conoscenza della lingua di una seconda lingua nazionale e dell’inglese."
         ],
-        "en": [
-          "Master in ingegneria o scienze ambientali, Geo-scienze o discipline affini conseguito al massimo da tre anni.",
-          "Esperienza lavorativa nell’ambito dell’idrologia o delle scienze acquatiche o la tesi di master in tali discipline costituisce titolo preferenziale.",
-          "Buone conoscenze dei Sistemi Informativi Territoriali (GIS), ottime conoscenze del pacchetto office.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione ed alla multidisciplinarietà.",
-          "Flessibilità per il raggiungimento degli obiettivi e capacità di lavorare rispettando le scadenze stabilite.",
-          "Ottima conoscenza della lingua italiana (parlato e scritto).",
-          "Buona conoscenza della lingua di una seconda lingua nazionale e dell’inglese."
-        ],
-        "de": [
-          "Master in ingegneria o scienze ambientali, Geo-scienze o discipline affini conseguito al massimo da tre anni.",
-          "Esperienza lavorativa nell’ambito dell’idrologia o delle scienze acquatiche o la tesi di master in tali discipline costituisce titolo preferenziale.",
-          "Buone conoscenze dei Sistemi Informativi Territoriali (GIS), ottime conoscenze del pacchetto office.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione ed alla multidisciplinarietà.",
-          "Flessibilità per il raggiungimento degli obiettivi e capacità di lavorare rispettando le scadenze stabilite.",
-          "Ottima conoscenza della lingua italiana (parlato e scritto).",
-          "Buona conoscenza della lingua di una seconda lingua nazionale e dell’inglese."
-        ],
-        "fr": [
-          "Master in ingegneria o scienze ambientali, Geo-scienze o discipline affini conseguito al massimo da tre anni.",
-          "Esperienza lavorativa nell’ambito dell’idrologia o delle scienze acquatiche o la tesi di master in tali discipline costituisce titolo preferenziale.",
-          "Buone conoscenze dei Sistemi Informativi Territoriali (GIS), ottime conoscenze del pacchetto office.",
-          "Attitudine al lavoro di gruppo, con forte orientamento alla collaborazione ed alla multidisciplinarietà.",
-          "Flessibilità per il raggiungimento degli obiettivi e capacità di lavorare rispettando le scadenze stabilite.",
-          "Ottima conoscenza della lingua italiana (parlato e scritto).",
-          "Buona conoscenza della lingua di una seconda lingua nazionale e dell’inglese."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -733,28 +575,8 @@
           "Developing your skills to perform long-term scientific research, from literature research, over project planning, execution, data analysis and publication.",
           "Opportunities to present results at international conferences."
         ],
-        "de": [
-          "Requisiti essenziali",
-          "Laurea magistrale in Ingegneria Meccanica, Scienza dei materiali, Fisica, Ingegneria Civile, Ingegneria Strutturale o in una disciplina strettamente correlata.",
-          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
-          "Esperienza o attitudine nell’esecuzione di prove sperimentali, acquisizione/analisi dati, nella modellazione numerica (ad esempio Abaqus) e nella programmazione (ad esempio Matlab).",
-          "Curiosità scientifica, capacità di analisi e problem solving, e attitudine a lavorare sia in modo autonomo sia all’interno di un ambiente di ricerca interdisciplinare e internazionale.",
-          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
-          "Requisiti preferenziali",
-          "La conoscenza di altre lingue costituisce un titolo preferenziale; la conoscenza dell’italiano è un vantaggio per la comunicazione all’interno del consorzio di progetto.",
-          "L’esperienza o la conoscenza nell’utilizzo della Split Hopkinson Tensile Bar (SHTB) è considerata un requisito aggiuntivo di valore."
-        ],
-        "fr": [
-          "Requisiti essenziali",
-          "Laurea magistrale in Ingegneria Meccanica, Scienza dei materiali, Fisica, Ingegneria Civile, Ingegneria Strutturale o in una disciplina strettamente correlata.",
-          "Spiccato interesse per il comportamento dei materiali in condizioni dinamiche (ad esempio Split Hopkinson Bar).",
-          "Esperienza o attitudine nell’esecuzione di prove sperimentali, acquisizione/analisi dati, nella modellazione numerica (ad esempio Abaqus) e nella programmazione (ad esempio Matlab).",
-          "Curiosità scientifica, capacità di analisi e problem solving, e attitudine a lavorare sia in modo autonomo sia all’interno di un ambiente di ricerca interdisciplinare e internazionale.",
-          "Eccellente conoscenza della lingua inglese (scritta e parlata).",
-          "Requisiti preferenziali",
-          "La conoscenza di altre lingue costituisce un titolo preferenziale; la conoscenza dell’italiano è un vantaggio per la comunicazione all’interno del consorzio di progetto.",
-          "L’esperienza o la conoscenza nell’utilizzo della Split Hopkinson Tensile Bar (SHTB) è considerata un requisito aggiuntivo di valore."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -815,9 +637,9 @@
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
         "it": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
-        "en": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
-        "de": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
-        "fr": "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno"
+        "en": "apprentice-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
+        "de": "lernende-r-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
+        "fr": "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno"
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice / Operatore socioassistenziale AFC, indirizzo Infanzia",
@@ -840,30 +662,9 @@
           "Interesse per l’ambito sociale ed educativo.",
           "Proattività, precisione, puntualità e capacità di seguire istruzioni e portare a termine i compiti assegnati."
         ],
-        "en": [
-          "Licenza di scuola media con buoni risultati scolastici.",
-          "Spiccata propensione al contatto con le persone, senso dell’accoglienza e senso di responsabilità.",
-          "Buone capacità relazionali e comunicative con interlocutori diversi.",
-          "Attitudine al lavoro di squadra e alla collaborazione.",
-          "Interesse per l’ambito sociale ed educativo.",
-          "Proattività, precisione, puntualità e capacità di seguire istruzioni e portare a termine i compiti assegnati."
-        ],
-        "de": [
-          "Licenza di scuola media con buoni risultati scolastici.",
-          "Spiccata propensione al contatto con le persone, senso dell’accoglienza e senso di responsabilità.",
-          "Buone capacità relazionali e comunicative con interlocutori diversi.",
-          "Attitudine al lavoro di squadra e alla collaborazione.",
-          "Interesse per l’ambito sociale ed educativo.",
-          "Proattività, precisione, puntualità e capacità di seguire istruzioni e portare a termine i compiti assegnati."
-        ],
-        "fr": [
-          "Licenza di scuola media con buoni risultati scolastici.",
-          "Spiccata propensione al contatto con le persone, senso dell’accoglienza e senso di responsabilità.",
-          "Buone capacità relazionali e comunicative con interlocutori diversi.",
-          "Attitudine al lavoro di squadra e alla collaborazione.",
-          "Interesse per l’ambito sociale ed educativo.",
-          "Proattività, precisione, puntualità e capacità di seguire istruzioni e portare a termine i compiti assegnati."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "previousSlugs": [
         "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello-knv2mj",
@@ -873,7 +674,6 @@
         "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-s",
         "apprendista-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-supsinido-del-campus-est-di-viganello",
         "apprentice-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-usi-su",
-        "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno",
         "apprenti-e-operatrice-operatore-socioassistenziale-afc-indirizzo-infanzia-supsi-dti-manno"
       ],
       "country": "CH",
@@ -895,7 +695,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4u53f",
@@ -971,26 +772,8 @@
           "Interest in machine learning applied to atomistic systems.",
           "Ability to work in a team and in a transdisciplinary research environment."
         ],
-        "de": [
-          "Laurea magistrale (conseguita o in fase di completamento) in Chimica, Fisica, Scienza dei Materiali, Ingegneria o discipline affini",
-          "Forte interesse per la modellazione molecolare e la chimica computazionale",
-          "Competenze di programmazione (Python, C/C++, o simili)",
-          "Buona conoscenza della lingua inglese.",
-          "Esperienza (anche durante tesi magistrale) con software di simulazione molecolare (es. CP2K, Quantum Espresso, Gaussian, LAMMPS o simili)",
-          "Conoscenze di base in metodi computazionali per la chimica e la fisica",
-          "Interesse per machine learning applicato a sistemi atomistici",
-          "Attitudine al lavoro in team e alla ricerca transdisciplinare."
-        ],
-        "fr": [
-          "Laurea magistrale (conseguita o in fase di completamento) in Chimica, Fisica, Scienza dei Materiali, Ingegneria o discipline affini",
-          "Forte interesse per la modellazione molecolare e la chimica computazionale",
-          "Competenze di programmazione (Python, C/C++, o simili)",
-          "Buona conoscenza della lingua inglese.",
-          "Esperienza (anche durante tesi magistrale) con software di simulazione molecolare (es. CP2K, Quantum Espresso, Gaussian, LAMMPS o simili)",
-          "Conoscenze di base in metodi computazionali per la chimica e la fisica",
-          "Interesse per machine learning applicato a sistemi atomistici",
-          "Attitudine al lavoro in team e alla ricerca transdisciplinare."
-        ]
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1015,7 +798,8 @@
       "previousSlugs": [
         "dottoranda-dottorando-in-modellazione-molecolare-di-materiali-per-l-energia-e-la-sostenibilita-supsi-dti-lugano-l4u53f",
         "home-supsi-dti-lugano"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "company-hm5vuy",
@@ -1055,9 +839,9 @@
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
         "it": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno",
-        "en": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
+        "en": "manager-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno",
         "de": "verantwortlicher-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano",
-        "fr": "responsabile-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-lugano"
+        "fr": "responsable-del-corso-di-laurea-bachelor-in-ingegneria-gestionale-supsi-dti-manno"
       },
       "titleByLocale": {
         "it": "Responsabile del Corso di laurea Bachelor in Ingegneria gestionale",
@@ -1085,45 +869,9 @@
           "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
           "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
         ],
-        "en": [
-          "Master in Ingegneria gestionale o discipline affini con almeno 5 anni di esperienza professionale dopo la fine degli studi, distribuita tra il settore aziendale e/o l’ambito accademico. Il dottorato di ricerca (PhD) nel settore disciplinare in oggetto costituisce titolo preferenziale.",
-          "Conoscenza dello stato dell’arte tecnico-scientifico e del contesto professionale delle discipline di riferimento.",
-          "Ottima conoscenza del sistema universitario e di formazione svizzero,",
-          "Comprovate esperienze nell’insegnamento e ottime valutazioni delle proprie attività di insegnamento.",
-          "Qualifica didattica o disponibilità a conseguirla entro 3 anni dall’entrata in servizio.",
-          "Autonomia, capacità di ascolto, ottime doti organizzative e gestionali.",
-          "Capacità relazionali, comunicative e di lavoro in team.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Ottima conoscenza dell’italiano e dell’inglese necessaria. La buona conoscenza del tedesco e/o del francese costituisce requisito preferenziale.",
-          "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
-          "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
-        ],
-        "de": [
-          "Master in Ingegneria gestionale o discipline affini con almeno 5 anni di esperienza professionale dopo la fine degli studi, distribuita tra il settore aziendale e/o l’ambito accademico. Il dottorato di ricerca (PhD) nel settore disciplinare in oggetto costituisce titolo preferenziale.",
-          "Conoscenza dello stato dell’arte tecnico-scientifico e del contesto professionale delle discipline di riferimento.",
-          "Ottima conoscenza del sistema universitario e di formazione svizzero,",
-          "Comprovate esperienze nell’insegnamento e ottime valutazioni delle proprie attività di insegnamento.",
-          "Qualifica didattica o disponibilità a conseguirla entro 3 anni dall’entrata in servizio.",
-          "Autonomia, capacità di ascolto, ottime doti organizzative e gestionali.",
-          "Capacità relazionali, comunicative e di lavoro in team.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Ottima conoscenza dell’italiano e dell’inglese necessaria. La buona conoscenza del tedesco e/o del francese costituisce requisito preferenziale.",
-          "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
-          "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
-        ],
-        "fr": [
-          "Master in Ingegneria gestionale o discipline affini con almeno 5 anni di esperienza professionale dopo la fine degli studi, distribuita tra il settore aziendale e/o l’ambito accademico. Il dottorato di ricerca (PhD) nel settore disciplinare in oggetto costituisce titolo preferenziale.",
-          "Conoscenza dello stato dell’arte tecnico-scientifico e del contesto professionale delle discipline di riferimento.",
-          "Ottima conoscenza del sistema universitario e di formazione svizzero,",
-          "Comprovate esperienze nell’insegnamento e ottime valutazioni delle proprie attività di insegnamento.",
-          "Qualifica didattica o disponibilità a conseguirla entro 3 anni dall’entrata in servizio.",
-          "Autonomia, capacità di ascolto, ottime doti organizzative e gestionali.",
-          "Capacità relazionali, comunicative e di lavoro in team.",
-          "Disponibilità e flessibilità per il raggiungimento degli obiettivi.",
-          "Ottima conoscenza dell’italiano e dell’inglese necessaria. La buona conoscenza del tedesco e/o del francese costituisce requisito preferenziale.",
-          "Conoscenza e relazioni con il settore disciplinare e professionale di riferimento a livello locale e/o nazionale.",
-          "Esperienze e responsabilità nella ricerca nel settore disciplinare di riferimento."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
@@ -1184,9 +932,9 @@
       "crawledAt": "2026-03-31T21:47:14.853Z",
       "slugByLocale": {
         "it": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
-        "en": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
+        "en": "apprentice-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno",
         "de": "lernende-r-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino",
-        "fr": "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino"
+        "fr": "apprenti-e-operatrice-informatica-operatore-informatico-afc-supsi-dti-manno"
       },
       "titleByLocale": {
         "it": "Apprendista Operatrice Informatica / Operatore Informatico AFC",
@@ -1209,30 +957,9 @@
           "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
           "capacità di seguire istruzioni e portare a termine compiti"
         ],
-        "en": [
-          "licenza di scuola media",
-          "spiccato interesse per le materie scientifiche e ottimi risultati scolastici",
-          "attitudine al contatto con l’utente, capacità comunicative e orientamento al servizio",
-          "predisposizione al ragionamento logico, senso tecnico e buone capacità pratiche",
-          "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "capacità di seguire istruzioni e portare a termine compiti"
-        ],
-        "de": [
-          "licenza di scuola media",
-          "spiccato interesse per le materie scientifiche e ottimi risultati scolastici",
-          "attitudine al contatto con l’utente, capacità comunicative e orientamento al servizio",
-          "predisposizione al ragionamento logico, senso tecnico e buone capacità pratiche",
-          "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "capacità di seguire istruzioni e portare a termine compiti"
-        ],
-        "fr": [
-          "licenza di scuola media",
-          "spiccato interesse per le materie scientifiche e ottimi risultati scolastici",
-          "attitudine al contatto con l’utente, capacità comunicative e orientamento al servizio",
-          "predisposizione al ragionamento logico, senso tecnico e buone capacità pratiche",
-          "buone capacità di comprensione, spirito metodico, accuratezza e precisione",
-          "capacità di seguire istruzioni e portare a termine compiti"
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "previousSlugs": [
         "apprendista-operatrice-informatica-operatore-informatico-afc-supsi-dti-ticino-l4wp0m",
@@ -1259,7 +986,8 @@
       "addressLocality": "Manno",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-l4ti2z",
@@ -1323,36 +1051,9 @@
           "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
           "Flessibilità rivolta al buon funzionamento del Servizio."
         ],
-        "en": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "de": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ],
-        "fr": [
-          "Diploma SUP o titolo universitario nel settore educativo (Bachelor in lavoro sociale con curriculum Educatore, Laurea in Scienze dell’educazione o analogo), oppure diploma di una Scuola superiore di grado terziario (diploma SSS di Educatrice/tore dell’infanzia) oppure Attestato Federale di Capacità come OSA Infanzia.",
-          "Riconoscimento SEFRI richiesto nel caso in cui il titolo di studio fosse stato conseguito all’estero.",
-          "Esperienza pregressa in un nido dell’infanzia e/o in un contesto analogo costituisce requisito preferenziale.",
-          "Conoscenza dei principi pedagogici e delle metodologie educative applicabili al contesto della prima infanzia.",
-          "Capacità relazionale e comunicativa con i bambini e le famiglie.",
-          "Attitudine al lavoro di gruppo e alla collaborazione.",
-          "Approccio partecipativo rivolto all’implementazione del progetto pedagogico.",
-          "Flessibilità rivolta al buon funzionamento del Servizio."
-        ]
+        "en": [],
+        "de": [],
+        "fr": []
       },
       "country": "CH",
       "sourceLang": "it",
