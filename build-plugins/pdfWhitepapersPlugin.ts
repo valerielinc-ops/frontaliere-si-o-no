@@ -7,6 +7,7 @@ interface PdfGuide {
   title: string;
   subtitle: string;
   articleSlug: string;
+  bodyText: string;
 }
 
 const GUIDES: PdfGuide[] = [
@@ -15,24 +16,28 @@ const GUIDES: PdfGuide[] = [
     title: 'Guida Completa Frontaliere 2026',
     subtitle: 'Tutto ciò che devi sapere per lavorare in Svizzera dal confine italiano',
     articleSlug: 'guida-completa-frontaliere',
+    bodyText: 'La guida completa per frontalieri 2026 copre ogni aspetto della vita lavorativa transfrontaliera: dal calcolo dello stipendio netto con il nuovo accordo fiscale Italia-Svizzera, alla scelta tra permesso G e permesso B, passando per la dichiarazione dei redditi, i contributi AVS/LPP, e le deduzioni fiscali disponibili. Include tabelle comparative aggiornate, esempi pratici di busta paga e una checklist completa per chi inizia a lavorare in Ticino.',
   },
   {
     filename: 'permesso-g-vantaggi-svantaggi',
     title: 'Permesso G: Vantaggi e Svantaggi',
     subtitle: 'Analisi completa del permesso per frontalieri nel 2026',
     articleSlug: 'permesso-g-vantaggi-svantaggi',
+    bodyText: 'Il permesso G (Grenzgängerbewilligung) è il documento che autorizza i frontalieri a lavorare in Svizzera risiedendo in Italia. Questa guida analizza in dettaglio vantaggi e svantaggi: dalla tassazione alla fonte con il nuovo accordo 2026, alle prestazioni sociali (AVS, disoccupazione, maternità), fino ai costi di trasporto e alla qualità di vita. Confronto pratico tra restare in Italia con permesso G e trasferirsi in Svizzera con permesso B.',
   },
   {
     filename: 'lamal-vs-ssn-frontalieri',
     title: 'LAMal vs SSN per Frontalieri',
     subtitle: 'Guida alla scelta dell\'assicurazione sanitaria',
     articleSlug: 'lamal-vs-ssn-decisione',
+    bodyText: 'I frontalieri italiani in Svizzera possono scegliere tra l\'assicurazione obbligatoria svizzera LAMal e il Servizio Sanitario Nazionale italiano (SSN). Questa guida confronta costi, coperture, franchigie e tempi di attesa di entrambe le opzioni. Include simulazioni di premio per i principali assicuratori LAMal nei cantoni di frontiera (Ticino, Grigioni, Vallese) e analizza i casi in cui conviene optare per il diritto di scelta SSN entro 3 mesi dall\'inizio dell\'impiego.',
   },
   {
     filename: 'trovare-lavoro-ticino-frontaliere',
     title: 'Trovare Lavoro in Ticino',
     subtitle: 'Strategie efficaci per frontalieri nel mercato svizzero',
     articleSlug: 'trovare-lavoro-ticino',
+    bodyText: 'Il mercato del lavoro ticinese offre opportunità in settori come farmaceutica, finanza, logistica e IT, con salari mediamente superiori a quelli italiani. Questa guida presenta le strategie più efficaci per trovare lavoro come frontaliere: dai portali specializzati (jobs.ch, jobscout24) alle agenzie interinali, dalla candidatura spontanea alle aziende del Luganese fino al networking professionale. Include consigli su CV svizzero, colloquio di lavoro e aspettative salariali per ruolo.',
   },
 ];
 
@@ -459,6 +464,7 @@ nav a{color:#2563eb;text-decoration:none}
 <a class="download-btn" href="${pdfUrl}" download>📥 Scarica PDF (${pdfSizeKb} KB)</a>
 <p class="meta">Formato PDF · Gratuito · Aggiornato ${dateStamp}</p>
 </div>
+<p>${esc(guide.bodyText)}</p>
 <p>Questa guida fa parte delle risorse gratuite di <a href="${BASE_URL}/">Frontaliere Ticino</a> per i lavoratori transfrontalieri tra Svizzera e Italia.</p>
 <p>Consulta anche l'<a href="${BASE_URL}/articoli-frontaliere/${guide.articleSlug}/">articolo completo online</a> per la versione aggiornata in tempo reale.</p>
 </article>
