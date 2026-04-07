@@ -2145,6 +2145,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.lavoro-notte-lincendio-laveno-mombello.title': 'Hommes et drones en action pour surveiller l\'incendie de Laveno-Mombello',
     'blog.article.lavoro-notte-lincendio-laveno-mombello.excerpt': 'Les urgences nocturnes à Laveno-Mombello nécessitent une intervention rapide et coordonnée.',
     'blog.article.lavoro-notte-lincendio-laveno-mombello.imageAlt': 'Hommes et drones travaillent la nuit pour contrôler l\'incendie à Laveno Mombello',
+    'blog.article.prevenzione-maschile-centro-beccaria.title': 'Prévention masculine : le Centre Beccaria est point de référence pour tout âge',
+    'blog.article.prevenzione-maschile-centro-beccaria.excerpt': 'Le Centre Beccaria de Bellinzona propose des services de prévention urologique pour tous les âges.',
+    'blog.article.prevenzione-maschile-centro-beccaria.imageAlt': 'Centre Beccaria de Bellinzona',
 };
 
 export default blogMetaFr;

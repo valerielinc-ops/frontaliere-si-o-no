@@ -2145,6 +2145,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.lavoro-notte-lincendio-laveno-mombello.title': 'Men and drones at work at night to control the fire in Laveno Mombello',
     'blog.article.lavoro-notte-lincendio-laveno-mombello.excerpt': 'The nighttime emergencies in Laveno Mombello require a rapid and coordinated intervention.',
     'blog.article.lavoro-notte-lincendio-laveno-mombello.imageAlt': 'Men working and drones at night to control the fire in Laveno Mombello',
+    'blog.article.prevenzione-maschile-centro-beccaria.title': 'Prevention for Men: The Beccaria Center is a Reference Point for All Ages',
+    'blog.article.prevenzione-maschile-centro-beccaria.excerpt': 'The Beccaria Center in Bellinzona offers urological prevention services for all ages.',
+    'blog.article.prevenzione-maschile-centro-beccaria.imageAlt': 'Bellinzona Center Beccaria',
 };
 
 export default blogMetaEn;

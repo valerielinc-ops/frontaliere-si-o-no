@@ -2145,6 +2145,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.lavoro-notte-lincendio-laveno-mombello.title': 'Uomini e droni al lavoro nella notte per tenere sotto controllo l\'incendio di Laveno Mombello',
     'blog.article.lavoro-notte-lincendio-laveno-mombello.excerpt': 'Le emergenze notturne a Laveno Mombello richiedono un intervento rapido e coordinato.',
     'blog.article.lavoro-notte-lincendio-laveno-mombello.imageAlt': 'Uomini e droni al lavoro nella notte per tenere sotto controllo l\'incendio di Laveno Mombello',
+    'blog.article.prevenzione-maschile-centro-beccaria.title': 'Prevenzione al maschile: il Centro Beccaria è punto di riferimento per ogni età',
+    'blog.article.prevenzione-maschile-centro-beccaria.excerpt': 'Il Centro Beccaria di Bellinzona offre servizi di prevenzione urologica per tutti gli età.',
+    'blog.article.prevenzione-maschile-centro-beccaria.imageAlt': 'Centro Beccaria a Bellinzona',
 };
 
 export default blogMetaIt;

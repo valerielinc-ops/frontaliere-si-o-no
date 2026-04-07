@@ -3631,7 +3631,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 702,
+        "numberOfItems": 703,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4331,7 +4331,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 699, "name": "Chiusure e deviazioni sulla A9: cosa fare duran...", "url": `${BASE_URL}/articoli-frontaliere/raffica-chiusure-a9-2026` },
           { "@type": "ListItem", "position": 700, "name": "Di più La fattura miliardaria del conflitto in ...", "url": `${BASE_URL}/articoli-frontaliere/conflitto-medio-oriente-energia-ticino` },
           { "@type": "ListItem", "position": 701, "name": "Headline JSON-LD", "url": `${BASE_URL}/articoli-frontaliere/fronteria-ticino-scarpata-airogno` },
-          { "@type": "ListItem", "position": 702, "name": "{\"@context\": \"http://schema.org\", \"@type\": \"New...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello` }
+          { "@type": "ListItem", "position": 702, "name": "{\"@context\": \"http://schema.org\", \"@type\": \"New...", "url": `${BASE_URL}/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello` },
+          { "@type": "ListItem", "position": 703, "name": "Prevenzione al maschile: il Centro Beccaria è p...", "url": `${BASE_URL}/articoli-frontaliere/prevenzione-maschile-centro-beccaria` }
         ]
       }
     ]

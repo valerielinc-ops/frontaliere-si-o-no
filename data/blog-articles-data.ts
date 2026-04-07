@@ -6195,4 +6195,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/lavoro-notte-lincendio-laveno-mombello.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'prevenzione-maschile-centro-beccaria',
+    category: 'pratico',
+    date: '2026-04-07T05:29:50.266Z',
+    image: '/images/blog/prevenzione-maschile-centro-beccaria.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -12507,6 +12507,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-prevenzione-maschile-centro-beccaria': {
+    title: 'Prevenzione al maschile: il Centro Beccaria è punto di riferimento per | Frontaliere Ticino',
+    description: 'Il Centro Beccaria di Bellinzona offre servizi di prevenzione urologica per tutti gli età. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, prevenzione, maschile, centro, beccaria',
+    ogTitle: 'Prevenzione al maschile: il Centro Beccaria è punto di riferimento per ogni età',
+    ogDescription: 'Il Centro Beccaria di Bellinzona offre servizi di prevenzione urologica per tutti gli età.',
+    canonicalPath: '/articoli-frontaliere/prevenzione-maschile-centro-beccaria',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Prevenzione al maschile: il Centro Beccaria è punto di riferimento per ogni età",
+      "description": "Il Centro Beccaria di Bellinzona offre servizi di prevenzione urologica per tutti gli età. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/prevenzione-maschile-centro-beccaria.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Centro Beccaria a Bellinzona"
+      },
+      "datePublished": "2026-04-07T05:29:50+00:00",
+      "dateModified": "2026-04-07T05:29:50+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/prevenzione-maschile-centro-beccaria`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

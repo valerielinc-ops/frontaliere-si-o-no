@@ -1968,6 +1968,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-conflitto-medio-oriente-energia-ticino': { name: 'Energia e rincari', path: '/articoli-frontaliere/conflitto-medio-oriente-energia-ticino', parent: 'blog' },
     'blog-fronteria-ticino-scarpata-airogno': { name: 'Breadcrumb 2-3 parole', path: '/articoli-frontaliere/fronteria-ticino-scarpata-airogno', parent: 'blog' },
     'blog-lavoro-notte-lincendio-laveno-mombello': { name: 'Notizie', path: '/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello', parent: 'blog' },
+    'blog-prevenzione-maschile-centro-beccaria': { name: 'Salute', path: '/articoli-frontaliere/prevenzione-maschile-centro-beccaria', parent: 'blog' },
   };
 
   const info = sectionNames[section];
