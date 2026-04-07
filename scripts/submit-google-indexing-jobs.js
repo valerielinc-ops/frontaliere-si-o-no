@@ -17,17 +17,21 @@
  *     Search Console property for the site.
  */
 
-import { readFileSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, existsSync } from 'node:fs';
 import { createSign } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
 
 const SITE_URL = 'https://frontaliereticino.ch';
-const MAX_SUBMISSIONS = Math.max(1, Math.min(100, Number(process.env.GSC_JOBS_INDEXING_MAX || 50)));
+// Budget: 200 requests/day total. Reserve 40 for articles (10 articles × 4 locales).
+// Remaining 160 for job URLs, spread across deploys.
+const DAILY_BUDGET = 160;
+const MAX_PER_DEPLOY = Math.max(1, Math.min(30, Number(process.env.GSC_JOBS_INDEXING_MAX || 15)));
 const MAX_RETRIES = 2;
 const INDEXING_API = 'https://indexing.googleapis.com/v3/urlNotifications:publish';
 const INDEXING_SCOPE = 'https://www.googleapis.com/auth/indexing';
 const TOKEN_URI = 'https://oauth2.googleapis.com/token';
+const SUBMITTED_URLS_PATH = '/tmp/indexing-api-submitted-today.json';
 
 function sleep(ms) {
   return new Promise((r) => setTimeout(r, ms));
@@ -226,20 +230,56 @@ function buildJobUrls(jobs) {
   return urls;
 }
 
-function sortAndLimit(urls) {
+function sortAndLimit(urls, alreadySubmitted) {
   const unique = new Map();
   for (const item of urls) {
     if (!unique.has(item.url)) unique.set(item.url, item);
   }
 
   const list = [...unique.values()];
+  // Prioritize never-submitted URLs, then by recency
   list.sort((a, b) => {
+    const aSubmitted = alreadySubmitted.has(a.url) ? 1 : 0;
+    const bSubmitted = alreadySubmitted.has(b.url) ? 1 : 0;
+    if (aSubmitted !== bSubmitted) return aSubmitted - bSubmitted;
     const da = Date.parse(a.date || '') || 0;
     const db = Date.parse(b.date || '') || 0;
     return db - da;
   });
 
-  return list.slice(0, MAX_SUBMISSIONS);
+  // Filter out already-submitted URLs and cap to per-deploy max
+  const fresh = list.filter((item) => !alreadySubmitted.has(item.url));
+  return fresh.slice(0, MAX_PER_DEPLOY);
+}
+
+// ── Daily submission tracker ────────────────────────────────
+// Tracks which URLs were already submitted today to avoid burning quota
+// on the same URLs across multiple deploys per day.
+
+function loadSubmittedToday() {
+  try {
+    if (!existsSync(SUBMITTED_URLS_PATH)) return new Set();
+    const data = JSON.parse(readFileSync(SUBMITTED_URLS_PATH, 'utf-8'));
+    // Ignore stale data from a previous day
+    const today = new Date().toISOString().slice(0, 10);
+    if (data.date !== today) return new Set();
+    return new Set(data.urls || []);
+  } catch {
+    return new Set();
+  }
+}
+
+function saveSubmittedToday(urls) {
+  try {
+    const today = new Date().toISOString().slice(0, 10);
+    const existing = loadSubmittedToday();
+    for (const u of urls) existing.add(u);
+    const payload = { date: today, urls: [...existing], count: existing.size };
+    writeFileSync(SUBMITTED_URLS_PATH, JSON.stringify(payload, null, 2));
+    log('💾', `Tracked ${existing.size} URLs submitted today`);
+  } catch (err) {
+    log('⚠️', `Failed to save submission tracker: ${err.message}`);
+  }
 }
 
 // ── Submit a single URL ─────────────────────────────────────
@@ -288,6 +328,17 @@ async function submitUrl(accessToken, url, attempt = 1) {
 async function main() {
   log('📨', 'Google Indexing API — JobPosting URL notifications');
 
+  // 0. Check daily budget
+  const alreadySubmitted = loadSubmittedToday();
+  if (alreadySubmitted.size >= DAILY_BUDGET) {
+    log('ℹ️', `Daily budget reached (${alreadySubmitted.size}/${DAILY_BUDGET} URLs) — skipping`);
+    process.exit(0);
+  }
+
+  const remaining = DAILY_BUDGET - alreadySubmitted.size;
+  const deployMax = Math.min(MAX_PER_DEPLOY, remaining);
+  log('📊', `Budget: ${alreadySubmitted.size}/${DAILY_BUDGET} used today, ${remaining} remaining, max ${deployMax} this deploy`);
+
   // 1. Authenticate
   let auth;
   try {
@@ -311,9 +362,10 @@ async function main() {
     process.exit(0);
   }
 
-  const jobUrls = sortAndLimit(buildJobUrls(jobs));
+  const allJobUrls = buildJobUrls(jobs);
+  const jobUrls = sortAndLimit(allJobUrls, alreadySubmitted).slice(0, deployMax);
   if (jobUrls.length === 0) {
-    log('ℹ️', 'No job URLs found to submit');
+    log('ℹ️', `No new job URLs to submit (${alreadySubmitted.size} already submitted today)`);
     process.exit(0);
   }
 
@@ -325,9 +377,10 @@ async function main() {
   }
 
   // 4. Submit batch (first URL already submitted by probe, start from index 1)
-  log('📨', `Submitting ${jobUrls.length} JobPosting URLs to Indexing API`);
+  log('📨', `Submitting ${jobUrls.length} new JobPosting URLs to Indexing API (${alreadySubmitted.size} already submitted today)`);
 
-  let ok = 1; // first URL was the probe
+  const submitted = [jobUrls[0].url]; // probe URL counts
+  let ok = 1;
   let fail = 0;
 
   let consecutive429 = 0;
@@ -341,6 +394,7 @@ async function main() {
     if (result.ok) {
       ok += 1;
       consecutive429 = 0;
+      submitted.push(item.url);
     } else {
       fail += 1;
       log('⚠️', `Failed (${result.status}): ${item.url} ${result.body || ''}`.trim());
@@ -365,7 +419,10 @@ async function main() {
     await sleep(120);
   }
 
-  log('📊', `Job indexing: ${ok} submitted, ${fail} failed (of ${jobUrls.length} total)`);
+  // 5. Persist submitted URLs for dedup across deploys today
+  saveSubmittedToday(submitted);
+
+  log('📊', `Job indexing: ${ok} submitted, ${fail} failed (of ${jobUrls.length} total). Daily total: ${alreadySubmitted.size + submitted.length}/${DAILY_BUDGET}`);
 }
 
 main().catch((err) => {
