@@ -668,6 +668,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           // Previous generic FAQPage was removed 2026-03-27 for Bing "conflicting markups";
           // article-specific FAQs are content-relevant and avoid that issue.
           let faqLdTag = '';
+          let visibleFaqHtml = '';
           const articleCategory = articleCategoryById[en.articleId] ?? '';
           if (EVERGREEN_CATEGORIES.has(articleCategory)) {
             const rawBody = blogBodyRawByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyRawByLocale.it?.[en.articleId];
@@ -691,6 +692,17 @@ export function ogPagesPlugin(rootDir: string): Plugin {
                 };
                 faqLdTag = `\n    <script type="application/ld+json">${JSON.stringify(faqSchema).replace(/</g, '\\u003c')}</script>`;
                 faqCount++;
+
+                // Render FAQ as visible HTML for AI crawlers that don't parse JSON-LD
+                const faqLabel = locale === 'en' ? 'Frequently Asked Questions'
+                  : locale === 'de' ? 'Häufig gestellte Fragen'
+                  : locale === 'fr' ? 'Questions fréquentes'
+                  : 'Domande frequenti';
+                visibleFaqHtml = `<details style="margin:1.5rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:700;font-size:1rem;color:#1e293b;padding:.25rem 0">${faqLabel}</summary><dl style="margin-top:.5rem">` +
+                  faqPairs.slice(0, 10).map(pair =>
+                    `<dt style="font-weight:600;margin:.75rem 0 .25rem;color:#334155">${esc(pair.question)}</dt><dd style="margin:0 0 .5rem;color:#475569;line-height:1.6">${esc(pair.answer).substring(0, 500)}</dd>`
+                  ).join('') +
+                  `</dl></details>`;
               }
             }
           }
@@ -771,7 +783,7 @@ ${headTags}
     ${GTAG_SNIPPET}
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
-    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · ${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso).split('T')[0])}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
+    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · ${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso).split('T')[0])}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
     <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
   </body>
 </html>`;

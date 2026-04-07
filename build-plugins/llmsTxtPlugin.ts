@@ -224,6 +224,20 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
             `${articleCount}+ Blog Articles`
           );
         }
+        // Inject dynamic job board statistics from actual data
+        const jobsDataPathForSummary = path.join(distDir, 'data', 'jobs.json');
+        if (fs.existsSync(jobsDataPathForSummary)) {
+          try {
+            const jobsRaw = JSON.parse(fs.readFileSync(jobsDataPathForSummary, 'utf-8'));
+            const activeJobs = Array.isArray(jobsRaw) ? jobsRaw : (jobsRaw.jobs ?? []);
+            const jobCount = activeJobs.length;
+            const companyCount = new Set(activeJobs.map((j: any) => j.company).filter(Boolean)).size;
+            if (jobCount > 0) {
+              content = content.replace(/1[,.]?500\+?\s*(?:active\s+)?(?:job\s+)?(?:listings|offerte|posizioni)/gi, `${jobCount.toLocaleString('en-US')}+ job listings`);
+              content = content.replace(/100\+?\s*(?:companies|aziende|employers|Ticino employers)/gi, `${companyCount}+ Ticino employers`);
+            }
+          } catch { /* jobs.json not parseable, keep static counts */ }
+        }
         // Append auto-generated page index (replace existing if present)
         const autoGenMarker = '## Complete Page Index (Auto-Generated)';
         const markerIdx = content.indexOf(autoGenMarker);
@@ -260,6 +274,20 @@ export function llmsTxtPlugin(rootDir: string): Plugin {
           /verified as of \w+ \d{4}/g,
           `verified as of ${monthYear}`
         );
+        // Inject dynamic job board statistics from actual data
+        const jobsDataPath = path.join(distDir, 'data', 'jobs.json');
+        if (fs.existsSync(jobsDataPath)) {
+          try {
+            const jobsRaw = JSON.parse(fs.readFileSync(jobsDataPath, 'utf-8'));
+            const activeJobs = Array.isArray(jobsRaw) ? jobsRaw : (jobsRaw.jobs ?? []);
+            const jobCount = activeJobs.length;
+            const companyCount = new Set(activeJobs.map((j: any) => j.company).filter(Boolean)).size;
+            if (jobCount > 0) {
+              content = content.replace(/1[,.]?500\+?\s*(?:active\s+)?(?:job\s+)?(?:listings|offerte|posizioni)/gi, `${jobCount.toLocaleString('en-US')}+ job listings`);
+              content = content.replace(/100\+?\s*(?:companies|aziende|employers|Ticino employers)/gi, `${companyCount}+ Ticino employers`);
+            }
+          } catch { /* jobs.json not parseable, keep static counts */ }
+        }
         // Append page index to llms-full.txt as well
         const autoGenMarker = '## Complete Page Index (Auto-Generated)';
         const markerIdx = content.indexOf(autoGenMarker);
