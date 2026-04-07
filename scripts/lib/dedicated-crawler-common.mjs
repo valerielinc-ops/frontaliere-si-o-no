@@ -1036,13 +1036,6 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   for (const job of raw) {
     let jobChanged = false;
 
-    // Cap previousSlugs to prevent unbounded growth from historical slug churn.
-    // Keep only the 20 most recent (last entries = most recent additions).
-    if (Array.isArray(job.previousSlugs) && job.previousSlugs.length > 20) {
-      job.previousSlugs = job.previousSlugs.slice(-20);
-      jobChanged = true;
-    }
-
     // Snapshot all current slugs before hardening so we can detect renames.
     // slugsBefore: Set for detecting globally-lost slugs (e.g. job.slug rename).
     // slugsByLocaleBefore: per-locale map for detecting locale-specific slug changes
@@ -4277,7 +4270,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.previousSlugs = [...new Set([
         ...(old.previousSlugs || []),
         ...(fresh.previousSlugs || []),
-      ])].slice(0, 20); // Cap to prevent unbounded growth
+      ])];
     }
 
     // Preserve slug (use existing if stable). Pass per-job location hints so
