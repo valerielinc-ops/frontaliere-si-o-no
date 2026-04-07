@@ -568,7 +568,7 @@ async function main() {
         if (idx !== -1) afterTcDedup[idx] = job;
         seenTitleCompany.set(tcKey, job);
       }
-      removed.push({ id: job.id, url: job.url, reason: 'duplicate title+company' });
+      removed.push({ id: job.id, title: job.title, url: job.url, reason: 'duplicate title+company' });
       continue;
     }
     seenTitleCompany.set(tcKey, job);
@@ -620,7 +620,8 @@ async function main() {
 
   console.log(`⚠️  Rimossi ${removed.length} job non più disponibili:`);
   for (const r of removed.slice(0, 30)) {
-    console.log(`   - ${r.id} (${r.status ?? '?'}) ${r.reason}`);
+    const label = r.id || r.title || r.url || 'unknown';
+    console.log(`   - ${label} (${r.status ?? '?'}) ${r.reason}`);
   }
   if (removed.length > 30) console.log(`   … +${removed.length - 30} altri`);
 

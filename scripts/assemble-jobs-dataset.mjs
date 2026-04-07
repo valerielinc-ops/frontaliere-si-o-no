@@ -41,7 +41,7 @@ import {
 } from './lib/crawler-summary-store.mjs';
 import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { hardenJobsWithStructuredSalary } from './lib/structured-salary.mjs';
-import { computeCrawlerQualityAggregate, computeJobQualityScore } from './lib/dedicated-crawler-common.mjs';
+import { computeCrawlerQualityAggregate, computeJobQualityScore, buildStableId } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -416,6 +416,20 @@ function assembleJobs() {
 
   if (slugDupeCount > 0) {
     console.log(`  🧹 Slug dedup: removed ${slugDupeCount} entries with duplicate slugs (${deduped.length} remaining)`);
+  }
+
+  // ── Backfill missing IDs ─────────────────────────────────────────────
+  // Some crawlers write slices without job IDs. Assign a stable hash-based
+  // ID so cleanup-jobs.mjs and the build system can identify them.
+  let backfilledIds = 0;
+  for (const job of deduped) {
+    if (!job.id) {
+      job.id = buildStableId(job);
+      backfilledIds++;
+    }
+  }
+  if (backfilledIds > 0) {
+    console.log(`  🆔 Backfilled ${backfilledIds} missing job IDs (of ${deduped.length} total)`);
   }
 
   return hardenJobsWithStructuredSalary(deduped).jobs;
