@@ -1,6 +1,6 @@
 {
   "crawlerKey": "abb-svizzera-sede-ticino",
-  "assembledAt": "2026-04-06T20:40:14.565Z",
+  "assembledAt": "2026-04-07T08:57:03.675Z",
   "jobs": [
     {
       "id": "company-l7apjs",
@@ -55,7 +55,6 @@
         "ingegnere-di-supporto-tecnico-80-100-abb-svizzera-sede-ticino-quartino",
         "80-100-f-e-hw-ingenieur-abb-svizzera-sede-ticino-quartino-ticino",
         "80-100-ingenieur-hw-r-d-abb-svizzera-sede-ticino-quartino-ticino",
-        "80-100-r-d-hw-ingegnere-abb-svizzera-sede-ticino-quartino",
         "80-100-r-d-hw-ingegnere-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 82500,
@@ -144,7 +143,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-2jc587",
@@ -191,7 +191,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "shift-leader-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino-ticino-2jc587",
-        "capo-turno-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino",
         "capo-turno-collaudo-ipu-modular-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "country": "CH",
@@ -213,7 +212,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-n0py3i",
@@ -362,7 +362,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-vs8x2l",
@@ -410,7 +411,6 @@
       "previousSlugs": [
         "shift-leader-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
         "shift-leader-assemblage-emballage-80-100-abb-svizzera-sede-ticino-quartino-ticino-vs8x2l",
-        "capo-turno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino",
         "capo-turno-assemblaggio-imballo-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "country": "CH",
@@ -432,7 +432,8 @@
       "addressLocality": "Quartino",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-qt8s1o",
@@ -482,7 +483,6 @@
       "previousSlugs": [
         "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-qt8s1o",
         "80-100-r-d-ingenieur-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino",
-        "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino",
         "80-100-r-d-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 82500,
@@ -551,7 +551,6 @@
       "sourceLang": "en",
       "previousSlugs": [
         "80-100-r-d-senior-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino-ticino-hsi9t8",
-        "80-100-r-d-senior-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino",
         "80-100-r-d-senior-ingegnere-energy-storage-systems-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 109000,
@@ -691,7 +690,6 @@
         "r-d-certification-engineer-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
         "r-d-certification-engineer-abb-svizzera-sede-ticino-quartino-ticino",
         "r-d-certification-ingenieur-abb-svizzera-sede-ticino-quartino-ticino-o66kxn",
-        "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino",
         "r-d-certification-ingegnere-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 72000,
@@ -828,7 +826,6 @@
       "previousSlugs": [
         "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino-ticino-tooege",
         "technical-support-ingenieur-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino",
         "technical-support-ingegnere-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 82500,
@@ -979,7 +976,6 @@
         "ingegnere-di-test-abb-svizzera-sede-ticino-quartino",
         "ricerca-ingegnere-di-test-80-abb-svizzera-sede-ticino",
         "ingenieur-test-80-100-abb-svizzera-sede-ticino-quartino-ticino",
-        "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino",
         "test-ingegnere-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 82500,
@@ -1199,7 +1195,6 @@
       "previousSlugs": [
         "inside-sales-service-specialista-80-100-abb-svizzera-sede-ticino-ticino-b9qjfm",
         "inside-sales-service-specialista-80-100-abb-svizzera-sede-ticino-ticino",
-        "specialista-di-vendita-interna-servizi-80-100-abb-svizzera-sede-ticino-quartino",
         "specialista-di-vendita-interna-servizi-80-100-abb-svizzera-sede-ticino-quartino"
       ],
       "salaryMin": 72000,
