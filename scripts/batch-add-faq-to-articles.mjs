@@ -352,7 +352,7 @@ Respond ONLY with the translated JSON array (no markdown, no code fences):
   return faq;
 }
 
-/** Validate FAQ array: min 2 pairs, q>10 chars, a>20 chars */
+/** Validate FAQ array: min 1 pair, q>10 chars, a>20 chars */
 function validateFaq(faq) {
   if (!Array.isArray(faq)) return null;
   const valid = faq
@@ -361,7 +361,7 @@ function validateFaq(faq) {
       pair.q.length > 10 && pair.a.length > 20
     )
     .slice(0, 7); // Cap at 7 pairs
-  return valid.length >= 2 ? valid : null;
+  return valid.length >= 1 ? valid : null;
 }
 
 // ── File modification ────────────────────────────────────────
