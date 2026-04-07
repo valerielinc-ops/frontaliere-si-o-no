@@ -671,9 +671,9 @@ async function processTopUp(articleId, file, itContent, existingFaq) {
   // 2. Merge: existing + new, cap at 7
   const merged = [...existingFaq, ...newPairs].slice(0, 7);
   const validMerged = validateFaq(merged);
-  if (!validMerged || validMerged.length < MIN_FAQ_PAIRS) {
-    console.error(`${label} ❌ Merged FAQ still only ${validMerged?.length || 0} pairs`);
-    return { success: false, error: 'Not enough pairs after merge' };
+  if (!validMerged || validMerged.length <= existingFaq.length) {
+    console.error(`${label} ❌ No improvement (${validMerged?.length || 0} pairs, had ${existingFaq.length})`);
+    return { success: false, error: 'No improvement after merge' };
   }
   console.error(`${label} ✅ ${existingFaq.length} existing + ${newPairs.length} new = ${validMerged.length} total`);
 
