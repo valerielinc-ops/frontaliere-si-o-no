@@ -52,7 +52,12 @@
     "bellinzona-crescita-qualita-vita",
     "benzina-ticino-oriente",
     "camion-panne-san-gottardo-traffico-bloccato",
-    "competenze-tecniche-frontalieri-ticino"
+    "competenze-tecniche-frontalieri-ticino",
+    "acqua-mendrisiotto-prezzi-2026",
+    "acqua-non-potabile-lavizzara",
+    "chiusure-a9-trasporti-speciali",
+    "incidente-giovane-frontaliere",
+    "lavena-ponte-tresa-territorio-poroso"
   ],
   "failed": [
     {
@@ -2389,8 +2394,3323 @@
       "id": "dazi-usa-rimborsi-ritardi",
       "error": "FAQ response is not an array",
       "at": "2026-04-07T15:44:38.033Z"
+    },
+    {
+      "id": "acquarossa-nuovo-polo-filovia-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:26.618Z"
+    },
+    {
+      "id": "addiofrontalierelongo",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:32.197Z"
+    },
+    {
+      "id": "addizionale-irpef-mappa-comuni",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:36.462Z"
+    },
+    {
+      "id": "agente-sicurezza-investito-cadenazzo",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:39.708Z"
+    },
+    {
+      "id": "agenzia-trasporto-nuovo",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:45.221Z"
+    },
+    {
+      "id": "aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:49.046Z"
+    },
+    {
+      "id": "aggregazione-rischio-basso-mendrisiotto",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:53.463Z"
+    },
+    {
+      "id": "ai-lombardia-ticino-frontaliere-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:52:57.490Z"
+    },
+    {
+      "id": "ampliamento-parco-eolico-san-gottardo-digital-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:01.886Z"
+    },
+    {
+      "id": "apprendisti-frontalieri-riforma-permesso-g",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:05.962Z"
+    },
+    {
+      "id": "aprire-conto-bancario-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:10.863Z"
+    },
+    {
+      "id": "arca-russa-chiasso-cultura-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:15.412Z"
+    },
+    {
+      "id": "architetti-sottopagati-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:20.420Z"
+    },
+    {
+      "id": "arte-anima-ticino-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:24.155Z"
+    },
+    {
+      "id": "asilo-nido-frontaliere-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:28.188Z"
+    },
+    {
+      "id": "banche-ticino-disoccupazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:34.213Z"
+    },
+    {
+      "id": "bellinzona-paese-dormitorio",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:37.972Z"
+    },
+    {
+      "id": "bellinzona-scomparsa-ricerche-ticino-piemonte",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:42.945Z"
+    },
+    {
+      "id": "benzina-conveniente",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:46.547Z"
+    },
+    {
+      "id": "benzina-ticino-taglio-accise",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:51.354Z"
+    },
+    {
+      "id": "berna-discute-approvvigionamento-economico-e-13esima-avs",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:53:55.182Z"
+    },
+    {
+      "id": "best-cross-border-worker-calculator-switzerland",
+      "error": "Body too short",
+      "at": "2026-04-07T15:53:55.183Z"
+    },
+    {
+      "id": "bilaterali-iii-cassis-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:02.072Z"
+    },
+    {
+      "id": "bilaterali-iii-parlamento-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:05.563Z"
+    },
+    {
+      "id": "bilaterali-iii-ticino-parlamento-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:09.430Z"
+    },
+    {
+      "id": "bilaterali-terza-fase-parlamento-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:13.223Z"
+    },
+    {
+      "id": "bilaterali-ue-svizzera-firma",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:19.192Z"
+    },
+    {
+      "id": "bns-utile-calo-2025-impatto-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:23.674Z"
+    },
+    {
+      "id": "bonus-famiglia-frontalieri-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:27.464Z"
+    },
+    {
+      "id": "borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:33.785Z"
+    },
+    {
+      "id": "borse-in-rosso-prezzo-petrolio-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:37.625Z"
+    },
+    {
+      "id": "bossi-commemorazione-bagarrata",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:40.310Z"
+    },
+    {
+      "id": "bossi-morto-ticino-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:45.061Z"
+    },
+    {
+      "id": "bossi-voleva-bene-al-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:50.556Z"
+    },
+    {
+      "id": "bps-suisse-risultati-bper",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:53.924Z"
+    },
+    {
+      "id": "bps-suisse-utili-consigli-crisi",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:54:58.884Z"
+    },
+    {
+      "id": "byd-expansion-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:03.361Z"
+    },
+    {
+      "id": "cabov-precipita-forte-vento",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:08.219Z"
+    },
+    {
+      "id": "calcolo-pensione-avs-inps",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:13.335Z"
+    },
+    {
+      "id": "calcolo-tasse-entro-confine",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:16.478Z"
+    },
+    {
+      "id": "calo-entrate-irregolari-chiasso",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:21.533Z"
+    },
+    {
+      "id": "calo-frontalieri-non-tassa-salute",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:26.148Z"
+    },
+    {
+      "id": "calo-frontalieri-ragioni-economiche",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:30.245Z"
+    },
+    {
+      "id": "camedo-buffet-eventi-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:35.267Z"
+    },
+    {
+      "id": "campione-italia-fine-dissesto",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:40.023Z"
+    },
+    {
+      "id": "cane-morto-binarie-campo-calcio",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:42.990Z"
+    },
+    {
+      "id": "cannabis-sequestro-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:48.061Z"
+    },
+    {
+      "id": "cannabis-sequestro-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:52.303Z"
+    },
+    {
+      "id": "cantiere-viale-geno-como",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:55:56.721Z"
+    },
+    {
+      "id": "cantieri-a9-disagi-frontiera",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:02.578Z"
+    },
+    {
+      "id": "cantieri-notturni-lugano-marzo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:06.383Z"
+    },
+    {
+      "id": "cantieri-traffico-a9-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:11.893Z"
+    },
+    {
+      "id": "cantieri-traffico-frontiera",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:15.977Z"
+    },
+    {
+      "id": "carburante-prezzo-salito-opportunismo",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:20.724Z"
+    },
+    {
+      "id": "carburante-ticino-costo-aumenti",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:24.989Z"
+    },
+    {
+      "id": "carburanti-prezzo-rialzo-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:28.927Z"
+    },
+    {
+      "id": "carburanti-rincari-confine-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:33.455Z"
+    },
+    {
+      "id": "carburanti-ticino-aumento-prezzi",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:38.124Z"
+    },
+    {
+      "id": "carenza-farmaci-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:42.937Z"
+    },
+    {
+      "id": "carnevale-2026-lugano-laboratori-creativi-figli-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:46.291Z"
+    },
+    {
+      "id": "carnevale-bambini-lugano-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:51.001Z"
+    },
+    {
+      "id": "carnevale-bambini-lugano-tinguely",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:56:56.219Z"
+    },
+    {
+      "id": "carnevale-blenio-chiescia-bosc",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:01.070Z"
+    },
+    {
+      "id": "caro-carburante-benzina-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:04.974Z"
+    },
+    {
+      "id": "carpooling-aziendale-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:08.918Z"
+    },
+    {
+      "id": "carpooling-ticino-corsie-frontaliere-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:14.199Z"
+    },
+    {
+      "id": "casa-hockey-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:18.774Z"
+    },
+    {
+      "id": "casa-oltre-confine-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:22.594Z"
+    },
+    {
+      "id": "casellario-giudiziale-ue-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:28.845Z"
+    },
+    {
+      "id": "cassa-malati-franchigia-minima-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:31.704Z"
+    },
+    {
+      "id": "cassa-malati-leghista-applicata-subito",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:36.946Z"
+    },
+    {
+      "id": "catastrofi-ticino-prontezza-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:40.834Z"
+    },
+    {
+      "id": "centovallina-riapertura-treni",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:44.531Z"
+    },
+    {
+      "id": "centrale-elettrica-grono-attiva",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:50.477Z"
+    },
+    {
+      "id": "centrodestra-stop-ristorni-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:55.211Z"
+    },
+    {
+      "id": "checklist-documenti-lavoro-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:57:58.237Z"
+    },
+    {
+      "id": "chiamate-shock-arresti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:03.259Z"
+    },
+    {
+      "id": "chiasso-como-cantieri-a9-disagi",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:07.880Z"
+    },
+    {
+      "id": "chiasso-comunita-cambiamento-valori",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:13.031Z"
+    },
+    {
+      "id": "chiasso-comunita-evoluzione-sociale",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:16.833Z"
+    },
+    {
+      "id": "chiasso-fede-adulti-integrazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:21.192Z"
+    },
+    {
+      "id": "chiasso-jazz-festival-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:25.785Z"
+    },
+    {
+      "id": "chiasso-missione-emergenza-luci-blu",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:31.077Z"
+    },
+    {
+      "id": "chiasso-missione-emergenza",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:33.843Z"
+    },
+    {
+      "id": "chiasso-ora-terra-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:39.050Z"
+    },
+    {
+      "id": "chiasso-piano-regolatore-telefonia",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:44.071Z"
+    },
+    {
+      "id": "chiasso-tassa-refezione-scuola-infanzia",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:48.597Z"
+    },
+    {
+      "id": "chiasso-verde-sufficiente",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:52.397Z"
+    },
+    {
+      "id": "chiasso-zanzara-tigre-strategia-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:58:57.704Z"
+    },
+    {
+      "id": "chiusa-val-bedretto",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:01.794Z"
+    },
+    {
+      "id": "chiusure-autostrada-confine-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:18.152Z"
+    },
+    {
+      "id": "chiusure-notturne-a4-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:22.666Z"
+    },
+    {
+      "id": "chiusure-notturne-autostrada",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:26.942Z"
+    },
+    {
+      "id": "cinema-frontaliers-ticino-varese",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:30.900Z"
+    },
+    {
+      "id": "cioccolato-meno-ma-pagato-di-piu",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:36.476Z"
+    },
+    {
+      "id": "cocaina-lusso-perquisizioni-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:41.010Z"
+    },
+    {
+      "id": "code-nord-san-gottardo",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:44.327Z"
+    },
+    {
+      "id": "com-aziende-lavoro-como",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:49.296Z"
+    },
+    {
+      "id": "comitati-malpensa-cuv-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:54.883Z"
+    },
+    {
+      "id": "como-asfaltature-war-costs",
+      "error": "Validation failed",
+      "at": "2026-04-07T15:59:59.479Z"
+    },
+    {
+      "id": "como-lago-pasqua-boom-prenotazioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:02.998Z"
+    },
+    {
+      "id": "como-nuovi-poliziotti-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:08.536Z"
+    },
+    {
+      "id": "compromesso-salario-minimo-condizioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:11.861Z"
+    },
+    {
+      "id": "comuni-confine-fiscalita-disparita",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:16.452Z"
+    },
+    {
+      "id": "comuni-confine-nuove-regole",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:21.193Z"
+    },
+    {
+      "id": "comuni-frontalieri-distanza",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:26.088Z"
+    },
+    {
+      "id": "comuni-investono-turismo-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:30.168Z"
+    },
+    {
+      "id": "comuni-locarno-futuro-aggregazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:34.159Z"
+    },
+    {
+      "id": "comuni-migliori-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:38.851Z"
+    },
+    {
+      "id": "confine-a9-disagi-marzo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:44.818Z"
+    },
+    {
+      "id": "confine-fiscale-nuovi-comuni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:47.588Z"
+    },
+    {
+      "id": "confine-tesissimo-assegni-familiari",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:53.336Z"
+    },
+    {
+      "id": "confini-comunali-impatto-fiscale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:00:57.711Z"
+    },
+    {
+      "id": "conflitto-medio-oriente-energia-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:02.475Z"
+    },
+    {
+      "id": "confronto-assicurazioni-auto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:05.836Z"
+    },
+    {
+      "id": "confusione-tassa-salute-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:10.106Z"
+    },
+    {
+      "id": "congedo-genitori-frontaliere-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:16.623Z"
+    },
+    {
+      "id": "congestione-a2-san-gottardo-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:18.992Z"
+    },
+    {
+      "id": "congresso-svizzera-italia-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:23.888Z"
+    },
+    {
+      "id": "congresso-svizzera-italia-varese-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:28.925Z"
+    },
+    {
+      "id": "consiglio-stati-soluzione-mista-13esima-avs",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:33.352Z"
+    },
+    {
+      "id": "conti-federali-aumento-iva-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:37.881Z"
+    },
+    {
+      "id": "contrabbando-ai-confine-aumentano-droga-e-sigarette",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:43.599Z"
+    },
+    {
+      "id": "contrabbando-argento-frontiera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:46.647Z"
+    },
+    {
+      "id": "contrabbando-pokemon-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:50.808Z"
+    },
+    {
+      "id": "contrabbando-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:01:55.036Z"
+    },
+    {
+      "id": "contratti-collettivi-salari-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:01.022Z"
+    },
+    {
+      "id": "contributi-sociali-busta-paga",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:05.008Z"
+    },
+    {
+      "id": "controlli-auto-immatricolate-grigioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:09.768Z"
+    },
+    {
+      "id": "controlli-cantieri-mendrisio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:13.669Z"
+    },
+    {
+      "id": "controlli-cantieri-mendrisiotto-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:19.235Z"
+    },
+    {
+      "id": "controlli-cantieri-mendrisiotto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:21.630Z"
+    },
+    {
+      "id": "controlli-frontiera-ticino-rafforzati",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:26.873Z"
+    },
+    {
+      "id": "controlli-radar-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:31.569Z"
+    },
+    {
+      "id": "controlli-stradali-intensivi-frontiera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:38.529Z"
+    },
+    {
+      "id": "controlli-stradali-ticino-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:40.435Z"
+    },
+    {
+      "id": "controlli-varese-esposto-espulsione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:46.155Z"
+    },
+    {
+      "id": "controlli-velocita-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:50.320Z"
+    },
+    {
+      "id": "controllo-affitti-nazionale-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:54.697Z"
+    },
+    {
+      "id": "coop-richiama-formaggi-salmonelle",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:02:58.591Z"
+    },
+    {
+      "id": "cooperazione-giudiziaria-svizzera-italia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:04.327Z"
+    },
+    {
+      "id": "corpi-in-prestito-arte-agno",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:07.583Z"
+    },
+    {
+      "id": "corsi-a-b-scuola-media-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:12.990Z"
+    },
+    {
+      "id": "corso-pastori-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:17.251Z"
+    },
+    {
+      "id": "costi-cure-domicilio-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:21.670Z"
+    },
+    {
+      "id": "costo-pendolare-auto-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:26.941Z"
+    },
+    {
+      "id": "costo-reale-auto-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:31.100Z"
+    },
+    {
+      "id": "costo-vita-svizzera-mappa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:35.098Z"
+    },
+    {
+      "id": "costo-vita-ticino-vs-lombardia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:39.530Z"
+    },
+    {
+      "id": "costo-vivere-lugano-trasferirsi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:43.620Z"
+    },
+    {
+      "id": "costo-vivere-mappa-comuni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:03:59.314Z"
+    },
+    {
+      "id": "cpi-caso-hospita-rivalutazione-periti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:02.099Z"
+    },
+    {
+      "id": "crescita-economica-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:06.227Z"
+    },
+    {
+      "id": "crescita-misera-libera-circolazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:10.818Z"
+    },
+    {
+      "id": "crescita-sicurezza-ticino-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:15.057Z"
+    },
+    {
+      "id": "crisi-golfo-carburanti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:19.467Z"
+    },
+    {
+      "id": "crisi-olio-prezzi-benzina-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:25.528Z"
+    },
+    {
+      "id": "crisi-spermatozoi-svizzera-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:28.896Z"
+    },
+    {
+      "id": "crisi-turismo-golfo-persico",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:32.913Z"
+    },
+    {
+      "id": "cu-2026-novita-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:37.114Z"
+    },
+    {
+      "id": "cu-telelavoro-regole-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:42.594Z"
+    },
+    {
+      "id": "cure-a-domicilio-tassa-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:04:46.203Z"
+    },
+    {
+      "id": "cure-domicilio-ticino-politica",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:04.991Z"
+    },
+    {
+      "id": "cure-domicilio-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:07.887Z"
+    },
+    {
+      "id": "dagatra-incontro-migranti-chiasso",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:12.449Z"
+    },
+    {
+      "id": "daniela-rebuzzi-mostra-caslano",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:15.900Z"
+    },
+    {
+      "id": "danni-riparati-centovallina",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:22.199Z"
+    },
+    {
+      "id": "datori-lavoro-cauti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:26.026Z"
+    },
+    {
+      "id": "dazi-trump-export-ticinese",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:30.886Z"
+    },
+    {
+      "id": "dazi-usa-impatto-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:34.698Z"
+    },
+    {
+      "id": "dazi-usa-rimborsi-ritardi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:38.508Z"
+    },
+    {
+      "id": "de-andre-anime-salve-locarno",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:43.646Z"
+    },
+    {
+      "id": "denaro-non-dichiarato-dogana-brogeda",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:48.006Z"
+    },
+    {
+      "id": "deputazione-ticinese-italofoni-2024",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:53.013Z"
+    },
+    {
+      "id": "dichiarazione-imposta-digitale-ticino-26",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:05:56.868Z"
+    },
+    {
+      "id": "dichiarazione-redditi-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:01.610Z"
+    },
+    {
+      "id": "diesel-aumento-prezzi-svizzera-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:06.782Z"
+    },
+    {
+      "id": "disagi-tilo-sciopero-italia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:10.323Z"
+    },
+    {
+      "id": "disoccupazione-stabile-svizzera-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:15.617Z"
+    },
+    {
+      "id": "disoccupazione-svizzera-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:19.728Z"
+    },
+    {
+      "id": "disoccupazione-svizzera-ticino-gennaio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:24.459Z"
+    },
+    {
+      "id": "diventare-pastore-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:29.808Z"
+    },
+    {
+      "id": "diversita-religiosa-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:34.093Z"
+    },
+    {
+      "id": "divieto-cellulari-scuola-ticino-2024",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:38.601Z"
+    },
+    {
+      "id": "divieto-cellulari-scuola-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:42.439Z"
+    },
+    {
+      "id": "divieto-smartphone-scuola-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:46.144Z"
+    },
+    {
+      "id": "divieto-smartphone-scuola-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:50.511Z"
+    },
+    {
+      "id": "docenti-frontalieri-permesso-lavoro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:56.131Z"
+    },
+    {
+      "id": "dogana-chiasso-centro-tecnologico",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:06:59.855Z"
+    },
+    {
+      "id": "domeniche-senza-auto-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:05.015Z"
+    },
+    {
+      "id": "dominicano-auto-svizzera-arresto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:08.727Z"
+    },
+    {
+      "id": "droga-al-confine-ticino-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:13.719Z"
+    },
+    {
+      "id": "droga-brogeda-sequestro-cocaina",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:18.190Z"
+    },
+    {
+      "id": "dumping-salari-architetti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:23.661Z"
+    },
+    {
+      "id": "dumping-salariale-diritti-lavoratore-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:27.864Z"
+    },
+    {
+      "id": "dumping-salariale-iniziativa-mps",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:31.473Z"
+    },
+    {
+      "id": "dumping-salariale-ticino-no-iniziativa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:35.865Z"
+    },
+    {
+      "id": "dumping-salariale-ticino-no",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:41.189Z"
+    },
+    {
+      "id": "economia-svizzera-ripresa-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:45.476Z"
+    },
+    {
+      "id": "elezioni-comunali-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:51.207Z"
+    },
+    {
+      "id": "elicottero-rega-locarno",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:54.065Z"
+    },
+    {
+      "id": "energia-costi-ticino-rincari-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:07:58.356Z"
+    },
+    {
+      "id": "energia-ets-von-der-leyen",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:03.353Z"
+    },
+    {
+      "id": "eolico-gottardo-ampliamento-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:07.633Z"
+    },
+    {
+      "id": "eroina-auto-chiasso-brogeda",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:12.334Z"
+    },
+    {
+      "id": "esame-complementare-passerella-aperte-pre-iscrizioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:16.768Z"
+    },
+    {
+      "id": "eurocity-bloccato-caos-pendolari",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:20.669Z"
+    },
+    {
+      "id": "eurospin-luino-occhio-al-cambio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:25.673Z"
+    },
+    {
+      "id": "farmaci-competitiva-europa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:30.471Z"
+    },
+    {
+      "id": "fatture-mediche-gonfiate-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:34.711Z"
+    },
+    {
+      "id": "fermato-brogeda-cocaina",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:40.894Z"
+    },
+    {
+      "id": "fonderie-svizzere-crisi-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:44.243Z"
+    },
+    {
+      "id": "fondi-hcap-restituiti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:52.235Z"
+    },
+    {
+      "id": "franchigia-minima-sanitario-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:56.771Z"
+    },
+    {
+      "id": "franco-forte-impatto-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:08:59.278Z"
+    },
+    {
+      "id": "franco-forte-problemi-economici",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:04.005Z"
+    },
+    {
+      "id": "franco-forte-stipendio-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:08.490Z"
+    },
+    {
+      "id": "franco-svizzero-a-valori-record-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:13.305Z"
+    },
+    {
+      "id": "franco-svizzero-frontalieri-ricchi-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:18.273Z"
+    },
+    {
+      "id": "franco-svizzero-impatti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:21.945Z"
+    },
+    {
+      "id": "franco-svizzero-minimi-euro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:26.754Z"
+    },
+    {
+      "id": "frode-cassa-compensazione-avs-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:31.453Z"
+    },
+    {
+      "id": "frontaliere-ticino-10-milioni-voto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:36.155Z"
+    },
+    {
+      "id": "frontaliere-ticino-investito-cantiere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:39.689Z"
+    },
+    {
+      "id": "frontalieri-calo-economia-ticinese",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:44.135Z"
+    },
+    {
+      "id": "frontalieri-casa-zurigo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:49.620Z"
+    },
+    {
+      "id": "frontalieri-confine-disparita-fiscale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:53.372Z"
+    },
+    {
+      "id": "frontalieri-economia-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:09:58.138Z"
+    },
+    {
+      "id": "frontalieri-prezzi-carburanti-italia-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:02.926Z"
+    },
+    {
+      "id": "frontalieri-redditi-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:06.625Z"
+    },
+    {
+      "id": "frontalieri-salari-dibattito-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:10.808Z"
+    },
+    {
+      "id": "frontalieri-salari-polemica-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:15.871Z"
+    },
+    {
+      "id": "frontalieri-tassa-salute-piemonte",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:19.895Z"
+    },
+    {
+      "id": "frontalieri-tassa-salute-ritiro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:25.157Z"
+    },
+    {
+      "id": "frontalieri-tassa-salute-teatro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:28.993Z"
+    },
+    {
+      "id": "frontalieri-ticino-calo-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:34.834Z"
+    },
+    {
+      "id": "frontalieri-ticino-calo-q4-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:38.415Z"
+    },
+    {
+      "id": "frontalieri-ticino-controtendenza-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:42.749Z"
+    },
+    {
+      "id": "frontalieri-ticino-dati-ingannevoli",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:47.962Z"
+    },
+    {
+      "id": "frontalieri-ticino-dati-q4-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:52.076Z"
+    },
+    {
+      "id": "frontalieri-ticino-decreto-omnibus",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:10:56.637Z"
+    },
+    {
+      "id": "frontaliers-sabotage-varese-successo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:00.519Z"
+    },
+    {
+      "id": "frontaliers-sabotage-varese",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:07.863Z"
+    },
+    {
+      "id": "fronteria-ticino-scarpata-airogno",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:10.158Z"
+    },
+    {
+      "id": "frontiera-a9-disagi-marzo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:16.623Z"
+    },
+    {
+      "id": "fuga-da-dubai-ticino-alternativa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:19.628Z"
+    },
+    {
+      "id": "funivia-monte-lema-stagione-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:24.223Z"
+    },
+    {
+      "id": "funivia-monteviasco-orari-corsi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:28.020Z"
+    },
+    {
+      "id": "furbata-dogana-argento",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:33.155Z"
+    },
+    {
+      "id": "furti-supermercati-ponte-tresa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:37.601Z"
+    },
+    {
+      "id": "fusione-valle-calanca-comuni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:41.765Z"
+    },
+    {
+      "id": "gadda-incalza-governo-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:46.775Z"
+    },
+    {
+      "id": "galenica-bichsel-ristrutturazione-lavoro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:50.656Z"
+    },
+    {
+      "id": "galleria-del-ceneri-chiusa-per-problemi-tecnici",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:11:55.613Z"
+    },
+    {
+      "id": "gandria-lusso-immobiliare-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:00.014Z"
+    },
+    {
+      "id": "gasolio-costi-pullman-ticino-lago-como",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:05.305Z"
+    },
+    {
+      "id": "gavetta-tossica-architetti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:08.942Z"
+    },
+    {
+      "id": "gestione-scontri-frontali-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:14.344Z"
+    },
+    {
+      "id": "giovani-ticino-comuni-innovazioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:32.173Z"
+    },
+    {
+      "id": "giustizia-in-bilico-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:38.029Z"
+    },
+    {
+      "id": "giustizia-referendum-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:40.670Z"
+    },
+    {
+      "id": "globalisti-fuga-medio-oriente-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:44.985Z"
+    },
+    {
+      "id": "governo-getta-spugna-kebab-case",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:50.504Z"
+    },
+    {
+      "id": "governo-tavolo-frontalieri-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:54.189Z"
+    },
+    {
+      "id": "gravincidente-stradale-regina-feriti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:12:58.209Z"
+    },
+    {
+      "id": "guasto-tra-parabiago-e-rho",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:02.930Z"
+    },
+    {
+      "id": "guida-cambio-franco-euro-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:07.927Z"
+    },
+    {
+      "id": "guida-completa-frontaliere",
+      "error": "Body too short",
+      "at": "2026-04-07T16:13:07.928Z"
+    },
+    {
+      "id": "guida-contributi-sociali-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:12.734Z"
+    },
+    {
+      "id": "guida-dichiarazione-redditi-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:16.708Z"
+    },
+    {
+      "id": "guida-michelin-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:20.789Z"
+    },
+    {
+      "id": "guida-pensione-frontaliere-avs-lpp",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:26.308Z"
+    },
+    {
+      "id": "hic-sunt-leones-confini-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:29.714Z"
+    },
+    {
+      "id": "hockey-chiasso-wild-boars-bis",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:35.022Z"
+    },
+    {
+      "id": "ict-reatto-commissione-tri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:38.609Z"
+    },
+    {
+      "id": "il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:44.546Z"
+    },
+    {
+      "id": "imposizione-individuale-donne-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:48.123Z"
+    },
+    {
+      "id": "imposizione-individuale-rivoluzione-fiscale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:54.168Z"
+    },
+    {
+      "id": "imposizione-individuale-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:13:57.992Z"
+    },
+    {
+      "id": "incendi-boschivi-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:02.302Z"
+    },
+    {
+      "id": "incidente-arogno-31enne-gravi-condizioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:05.966Z"
+    },
+    {
+      "id": "incidente-mortale-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:22.321Z"
+    },
+    {
+      "id": "incidente-stradale-laghi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:28.792Z"
+    },
+    {
+      "id": "incidente-viadotto-brogeda-como",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:31.905Z"
+    },
+    {
+      "id": "inclusione-migranti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:36.650Z"
+    },
+    {
+      "id": "infermieri-svizzera-frontalieri-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:54.553Z"
+    },
+    {
+      "id": "infiltrazioni-criminali-ticino-grigioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:14:57.237Z"
+    },
+    {
+      "id": "inflazione-frontalieri-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:02.234Z"
+    },
+    {
+      "id": "infortuni-sul-lavoro-protesi-hi-tech",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:06.959Z"
+    },
+    {
+      "id": "iniziativa-anti-dumping-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:13.081Z"
+    },
+    {
+      "id": "iniziativa-anti-dumping-voto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:17.016Z"
+    },
+    {
+      "id": "iniziativa-contro-dumping-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:20.376Z"
+    },
+    {
+      "id": "iniziativa-salari-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:25.199Z"
+    },
+    {
+      "id": "iniziative-cassa-malati-costituzionalista-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:29.904Z"
+    },
+    {
+      "id": "inverno-ticino-nevicate-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:34.664Z"
+    },
+    {
+      "id": "investimenti-sicurezza-turismo-valsolda-26",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:37.626Z"
+    },
+    {
+      "id": "investimento-pedone-bioggio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:44.284Z"
+    },
+    {
+      "id": "iran-conflitto-rincari-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:47.308Z"
+    },
+    {
+      "id": "iran-tajani-non-tratta-navi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:51.928Z"
+    },
+    {
+      "id": "italia-taglia-accise-benzinai-preoccupati",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:15:56.865Z"
+    },
+    {
+      "id": "iva-bassa-svizzera-immagine-ingannevole",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:01.264Z"
+    },
+    {
+      "id": "kebab-case-3-5-words-max-40-chars",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:05.712Z"
+    },
+    {
+      "id": "kebab-case-borse-freddo-2024",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:10.185Z"
+    },
+    {
+      "id": "kebab-case-rossi-bruxelles-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:13.834Z"
+    },
+    {
+      "id": "kebab-case-ticino-nubifragio-grigioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:19.505Z"
+    },
+    {
+      "id": "kebab-case-turismo-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:22.652Z"
+    },
+    {
+      "id": "kuhne-nagel-tagli-posti-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:28.728Z"
+    },
+    {
+      "id": "la-navigazione-rafforza-offerta-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:32.408Z"
+    },
+    {
+      "id": "la-quinta-svizzera-che-ha-un-debole-per-milano",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:36.416Z"
+    },
+    {
+      "id": "ladri-di-auto-scappano-con-40-chiavi-e-una-skoda",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:41.670Z"
+    },
+    {
+      "id": "ladri-intercettati-lavena-ponte-tresa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:45.992Z"
+    },
+    {
+      "id": "lago-maggiore-accesso-tutto-l-anno",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:50.206Z"
+    },
+    {
+      "id": "lamal-cmi-scelta-frontaliere-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:55.310Z"
+    },
+    {
+      "id": "lamal-vs-cmi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:16:59.368Z"
+    },
+    {
+      "id": "lamal-vs-ssn-decisione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:04.209Z"
+    },
+    {
+      "id": "lavena-ponte-tresa-addio-antonio-cannavale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:08.822Z"
+    },
+    {
+      "id": "lavena-ponte-tresa-annaffiatoi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:13.535Z"
+    },
+    {
+      "id": "lavena-ponte-tresa-bicicletta-grave",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:17.438Z"
+    },
+    {
+      "id": "lavena-ponte-tresa-giro-spaccio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:21.374Z"
+    },
+    {
+      "id": "lavena-ponte-tresa-verde",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:34.679Z"
+    },
+    {
+      "id": "lavena-sagrato-nuovo-investimento",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:38.776Z"
+    },
+    {
+      "id": "lavizzara-problemi-alla-rete-idrica-niente-acqua-potabile-in-varie-zone",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:43.090Z"
+    },
+    {
+      "id": "lavorare-germania-educatori",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:47.585Z"
+    },
+    {
+      "id": "lavori-a8-castellanza-notturni-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:52.000Z"
+    },
+    {
+      "id": "lavori-linea-locarno-cadenazzo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:17:57.825Z"
+    },
+    {
+      "id": "lavori-notturni-via-lavizzari",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:01.256Z"
+    },
+    {
+      "id": "lavori-rete-ferroviaria-tilo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:06.363Z"
+    },
+    {
+      "id": "lavori-risanamento-a13-cadenazzo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:10.008Z"
+    },
+    {
+      "id": "lavoro-carceri-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:15.005Z"
+    },
+    {
+      "id": "lavoro-economia-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:18.746Z"
+    },
+    {
+      "id": "lavoro-educatori-germania-alternativa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:23.204Z"
+    },
+    {
+      "id": "lavoro-notte-lincendio-laveno-mombello",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:27.792Z"
+    },
+    {
+      "id": "lavoro-richiedenti-asilo-ucraini-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:32.867Z"
+    },
+    {
+      "id": "lavoro-sommerso-varesotto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:36.482Z"
+    },
+    {
+      "id": "legionellosi-ticino-allarme",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:41.465Z"
+    },
+    {
+      "id": "limite-popolazione-10-milioni-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:45.816Z"
+    },
+    {
+      "id": "lo-statuto-s-non-deve-trasformarsi-in-permesso-b",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:51.113Z"
+    },
+    {
+      "id": "locarno-magadino-trasporto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:18:55.573Z"
+    },
+    {
+      "id": "locarno-stop-case-vacanza",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:00.067Z"
+    },
+    {
+      "id": "locarno-stop-residenze-secondarie",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:03.848Z"
+    },
+    {
+      "id": "logistica-sostenibile-a22",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:09.531Z"
+    },
+    {
+      "id": "lombardia-affitto-famiglie-varesine",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:13.664Z"
+    },
+    {
+      "id": "lombardia-export-calzature",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:16.865Z"
+    },
+    {
+      "id": "lombardia-sport-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:22.636Z"
+    },
+    {
+      "id": "long-covid-malattia-professionale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:26.614Z"
+    },
+    {
+      "id": "lotta-violenza-di-genere-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:32.560Z"
+    },
+    {
+      "id": "lugano-airport-fondi-salvati-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:35.963Z"
+    },
+    {
+      "id": "lugano-manifestazioni-regole-polemica",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:40.917Z"
+    },
+    {
+      "id": "lugano-park-ride-bus-sovvenzioni-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:45.206Z"
+    },
+    {
+      "id": "lugano-sicurezza-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:49.082Z"
+    },
+    {
+      "id": "lutto-porlezza-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:53.283Z"
+    },
+    {
+      "id": "made-in-italy-doganali-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:19:58.797Z"
+    },
+    {
+      "id": "magliaso-zona-educativa-ripresa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:01.883Z"
+    },
+    {
+      "id": "malattia-frontaliere-guida-assicurazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:09.308Z"
+    },
+    {
+      "id": "malattie-rare-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:11.640Z"
+    },
+    {
+      "id": "malcantone-fai-di-primavera-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:18.216Z"
+    },
+    {
+      "id": "mappa-fiscale-comuni-frontiera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:22.250Z"
+    },
+    {
+      "id": "maternita-cassazione-diritti-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:26.125Z"
+    },
+    {
+      "id": "maternita-paternita-frontaliere-guida",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:30.410Z"
+    },
+    {
+      "id": "maternita-paternita-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:34.293Z"
+    },
+    {
+      "id": "medici-manca-verbano-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:38.471Z"
+    },
+    {
+      "id": "medio-vedeggio-gruppo-lavoro-aggregazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:42.861Z"
+    },
+    {
+      "id": "mercado-immobiliare-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:48.827Z"
+    },
+    {
+      "id": "mercato-auto-febbraio-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:52.367Z"
+    },
+    {
+      "id": "mercato-lavoro-ticino-frena-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:20:56.852Z"
+    },
+    {
+      "id": "mercato-lavoro-ticino-q4-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:01.581Z"
+    },
+    {
+      "id": "migranti-dublino-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:07.604Z"
+    },
+    {
+      "id": "migranti-seghezzone-risparmi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:10.275Z"
+    },
+    {
+      "id": "minimo-salariale-ticino-accordo-ps",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:15.571Z"
+    },
+    {
+      "id": "mobilita-infermieri-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:19.592Z"
+    },
+    {
+      "id": "monete-argento-sanzionato-ponte-chiasso",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:23.749Z"
+    },
+    {
+      "id": "morte-bimbo-efamilia-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:30.041Z"
+    },
+    {
+      "id": "mozzarella-clandestina-2026-ricerca",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:33.368Z"
+    },
+    {
+      "id": "mutuo-casa-frontalieri-italia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:37.635Z"
+    },
+    {
+      "id": "nakba-mostra-giubiasco-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:41.956Z"
+    },
+    {
+      "id": "naspi-disoccupazione-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:46.609Z"
+    },
+    {
+      "id": "naspi-ex-frontalieri-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:50.350Z"
+    },
+    {
+      "id": "naspi-frontaliere-italia-requisiti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:21:56.364Z"
+    },
+    {
+      "id": "navigazione-lago-lugano-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:01.198Z"
+    },
+    {
+      "id": "nei-test-neonati-ticinesi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:05.276Z"
+    },
+    {
+      "id": "nessun-prelievo-avs-sulle-mance",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:08.588Z"
+    },
+    {
+      "id": "nestle-200-posti-lombardia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:14.316Z"
+    },
+    {
+      "id": "nestle-bonus-lombardia-welfare",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:17.736Z"
+    },
+    {
+      "id": "neutralita-svizzera-parere-nazionale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:23.537Z"
+    },
+    {
+      "id": "nevicata-record-bosco-gurin",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:26.675Z"
+    },
+    {
+      "id": "nevicate-strade-bloccate-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:31.075Z"
+    },
+    {
+      "id": "no-iniziativa-antidumping-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:36.524Z"
+    },
+    {
+      "id": "nomine-annullate-sims-tram",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:41.075Z"
+    },
+    {
+      "id": "nomine-sims-illegittime",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:45.997Z"
+    },
+    {
+      "id": "nubifragio-coira-mesolcina-ristoro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:50.099Z"
+    },
+    {
+      "id": "nuova-direttrice-servizi-sociali-bellinzona",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:55.139Z"
+    },
+    {
+      "id": "nuovi-radar-ticino-multe",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:22:57.751Z"
+    },
+    {
+      "id": "nuovo-accordo-fiscale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:02.794Z"
+    },
+    {
+      "id": "occhiali-intelligenti-ticino-innovazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:08.204Z"
+    },
+    {
+      "id": "ogm-fallimento-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:12.015Z"
+    },
+    {
+      "id": "olio-chimica-produzione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:16.317Z"
+    },
+    {
+      "id": "ora-legale-permanente-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:21.451Z"
+    },
+    {
+      "id": "paradosso-ticino-lavoro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:26.225Z"
+    },
+    {
+      "id": "parco-vedeggio-comuni-firman",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:29.845Z"
+    },
+    {
+      "id": "partiti-ticino-stop-ristorni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:34.729Z"
+    },
+    {
+      "id": "pasqua-messaggio-di-avvenire",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:38.363Z"
+    },
+    {
+      "id": "passaggio-statuto-s-permesso-b",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:43.762Z"
+    },
+    {
+      "id": "pazienti-ticino-protesta",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:47.718Z"
+    },
+    {
+      "id": "pendolarismo-affitto-tempo-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:52.396Z"
+    },
+    {
+      "id": "pendolarismo-fatale-frontaliere-porlezza",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:23:57.936Z"
+    },
+    {
+      "id": "pensione-et-ticino-sentiero",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:01.753Z"
+    },
+    {
+      "id": "permessi-dimora-diversi-opinioni",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:07.784Z"
+    },
+    {
+      "id": "permessi-dubbi-roveredo-insoddisfatta",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:28.580Z"
+    },
+    {
+      "id": "permesso-b-vs-g-differenze",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:31.540Z"
+    },
+    {
+      "id": "permesso-g-apprendisti-frontali",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:36.049Z"
+    },
+    {
+      "id": "permesso-g-pro-contro-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:40.646Z"
+    },
+    {
+      "id": "permesso-g-vantaggi-svantaggi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:44.654Z"
+    },
+    {
+      "id": "permesso-s-salari-bassi-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:24:48.708Z"
+    },
+    {
+      "id": "pfaffikon-kanton-schwyz-franzosi-einbrecher",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:01.237Z"
+    },
+    {
+      "id": "pilastro-3a-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:03.952Z"
+    },
+    {
+      "id": "pirati-strada-ticino-italiani-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:09.422Z"
+    },
+    {
+      "id": "piscina-chiasso-copertura-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:12.876Z"
+    },
+    {
+      "id": "piscina-chiasso-investimento",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:17.619Z"
+    },
+    {
+      "id": "piscina-chiasso-rinnovo-sicurezza",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:21.932Z"
+    },
+    {
+      "id": "piu-interventi-soccorso-meno-vittime-montagna-ticino-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:31.106Z"
+    },
+    {
+      "id": "polizia-cantonale-nuovi-gendarmi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:33.920Z"
+    },
+    {
+      "id": "polizia-cantonale-reclutamento-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:38.614Z"
+    },
+    {
+      "id": "porrentruy-piscina-comunale-divieto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:46.045Z"
+    },
+    {
+      "id": "porto-ceresio-lungolago-lavori",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:48.319Z"
+    },
+    {
+      "id": "prelievo-secondo-pilastro-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:53.889Z"
+    },
+    {
+      "id": "premio-la-rondine-2026-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:25:57.178Z"
+    },
+    {
+      "id": "prevenzione-maschile-centro-beccaria",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:02.348Z"
+    },
+    {
+      "id": "prezzi-benzina-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:07.441Z"
+    },
+    {
+      "id": "prezzi-carburanti-ticino-marzo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:11.209Z"
+    },
+    {
+      "id": "prezzi-dinamici-ticino-futuro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:16.821Z"
+    },
+    {
+      "id": "primo-giorno-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:20.951Z"
+    },
+    {
+      "id": "problemi-rotaia-bellinzona-lugano",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:24.265Z"
+    },
+    {
+      "id": "processo-mendrisio-19-capit",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:29.119Z"
+    },
+    {
+      "id": "protesta-costi-cure-domicilio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:33.468Z"
+    },
+    {
+      "id": "quanto-costa-la-discriminazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:38.239Z"
+    },
+    {
+      "id": "radar-confine-ticino-marzo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:42.753Z"
+    },
+    {
+      "id": "radar-ticino-riduzione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:47.831Z"
+    },
+    {
+      "id": "raffica-chiusure-a9-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:51.832Z"
+    },
+    {
+      "id": "rauschenberg-arte-mendrisiotto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:26:57.007Z"
+    },
+    {
+      "id": "referendum-giustizia-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:01.790Z"
+    },
+    {
+      "id": "referendum-opposizione-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:05.379Z"
+    },
+    {
+      "id": "referendum-ue-svizzera-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:10.317Z"
+    },
+    {
+      "id": "referendum-varese-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:14.401Z"
+    },
+    {
+      "id": "revoca-uso-acqua-magliaso",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:19.111Z"
+    },
+    {
+      "id": "riaperta-galleria-monte-ceneri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:23.177Z"
+    },
+    {
+      "id": "riapertura-casetta-chiosco-davesco",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:28.228Z"
+    },
+    {
+      "id": "ricchi-fuga-medio-oriente-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:32.522Z"
+    },
+    {
+      "id": "riforma-giustizia-pace-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:37.190Z"
+    },
+    {
+      "id": "riforma-scolastica-ticino-difficolta",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:41.611Z"
+    },
+    {
+      "id": "rifugiati-ucraini-assistenza-2027",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:46.079Z"
+    },
+    {
+      "id": "rincari-benzina-frontalieri-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:50.467Z"
+    },
+    {
+      "id": "rinnovo-concessioni-snl-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:27:54.108Z"
+    },
+    {
+      "id": "riscaldamento-casa-ticino-norme",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:00.119Z"
+    },
+    {
+      "id": "rischio-lugano-young-boys",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:02.949Z"
+    },
+    {
+      "id": "rissa-lavena-ponte-tres",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:09.185Z"
+    },
+    {
+      "id": "ristorni-congelati-gobbi-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:12.912Z"
+    },
+    {
+      "id": "ristorni-congelati-scontro-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:17.413Z"
+    },
+    {
+      "id": "ristorni-congelati-ticino-italia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:22.441Z"
+    },
+    {
+      "id": "ristorni-fiscali-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:26.117Z"
+    },
+    {
+      "id": "ristorni-frontalieri-scontro-ticino-lombardia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:31.495Z"
+    },
+    {
+      "id": "ristorni-imprese-allarme-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:35.461Z"
+    },
+    {
+      "id": "ristorni-lombardia-reazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:40.848Z"
+    },
+    {
+      "id": "ristorni-reazione-lombardia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:46.313Z"
+    },
+    {
+      "id": "ristorni-salute-2026-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:48.893Z"
+    },
+    {
+      "id": "ristorni-scontro-gobbi-berna",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:53.319Z"
+    },
+    {
+      "id": "ritardo-sconto-carburante-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:28:57.724Z"
+    },
+    {
+      "id": "ronte-tresa-rissa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:02.486Z"
+    },
+    {
+      "id": "roveredo-permessi-anticrimine",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:07.398Z"
+    },
+    {
+      "id": "rsi-archivio-gottardo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:11.513Z"
+    },
+    {
+      "id": "rsi-mostra-storia-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:16.361Z"
+    },
+    {
+      "id": "rsi-storia-svizzera-italiana-mostra",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:20.853Z"
+    },
+    {
+      "id": "salari-bassi-rischio-povert",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:25.936Z"
+    },
+    {
+      "id": "salari-minimi-ccl-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:30.478Z"
+    },
+    {
+      "id": "salari-ticino-voto-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:34.975Z"
+    },
+    {
+      "id": "salario-minimo-compromesso-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:38.114Z"
+    },
+    {
+      "id": "salario-minimo-per-il-controprogetto-la-strada-e-in-discesa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:42.258Z"
+    },
+    {
+      "id": "salario-minimo-ps-compromesso",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:47.171Z"
+    },
+    {
+      "id": "salario-minimo-sociale-ticino-dibattito",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:51.736Z"
+    },
+    {
+      "id": "salario-minimo-ticino-accordo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:29:57.126Z"
+    },
+    {
+      "id": "salario-minimo-ticino-intesa-storica",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:02.280Z"
+    },
+    {
+      "id": "salario-minimo-ticino-trattative",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:05.367Z"
+    },
+    {
+      "id": "salute-prevenzione-burocrazia-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:09.958Z"
+    },
+    {
+      "id": "san-gottardo-code-giovedi-santo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:14.050Z"
+    },
+    {
+      "id": "sanita-fontana-fedriga",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:18.979Z"
+    },
+    {
+      "id": "sanita-integrativa-lombardia-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:23.057Z"
+    },
+    {
+      "id": "sanita-locarnese-licenziamenti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:28.638Z"
+    },
+    {
+      "id": "sanita-manifesto-varese-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:31.946Z"
+    },
+    {
+      "id": "sanita-ticino-tagli-orselina",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:36.747Z"
+    },
+    {
+      "id": "sanremo-2026-aiello-gassmann",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:41.525Z"
+    },
+    {
+      "id": "sanremo-frontalieri-impatti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:46.376Z"
+    },
+    {
+      "id": "sargans-teenage-robbery-catch",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:51.782Z"
+    },
+    {
+      "id": "scambio-abiti-bellinzona",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:30:55.252Z"
+    },
+    {
+      "id": "scambio-dati-polizia-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:00.634Z"
+    },
+    {
+      "id": "scende-limite-nevicate-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:05.188Z"
+    },
+    {
+      "id": "sciopero-treni-tilo-febbraio-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:13.758Z"
+    },
+    {
+      "id": "sconto-benzina-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:19.526Z"
+    },
+    {
+      "id": "sentimento-osservazione-masi-lugano",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:22.373Z"
+    },
+    {
+      "id": "separazione-carriere-giudici",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:27.665Z"
+    },
+    {
+      "id": "sequestro-cocaina-brogeda-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:31.404Z"
+    },
+    {
+      "id": "sequestro-stupefacenti-ecuador",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:37.025Z"
+    },
+    {
+      "id": "sesto-calende-centro-sportivo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:40.401Z"
+    },
+    {
+      "id": "sesto-calende-sicurezza-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:45.321Z"
+    },
+    {
+      "id": "settanta-chili-di-mozzarella",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:49.138Z"
+    },
+    {
+      "id": "sette-cantieri-mendrisio-kebab-case",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:53.195Z"
+    },
+    {
+      "id": "sfruttamento-corsieri-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:31:58.685Z"
+    },
+    {
+      "id": "sicurezza-confine-ticino-brogeda",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:03.251Z"
+    },
+    {
+      "id": "sicurezza-lago-maggiore",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:07.926Z"
+    },
+    {
+      "id": "sicurezza-lavoro-audit-suva",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:12.417Z"
+    },
+    {
+      "id": "sicurezza-lavoro-controlli-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:16.028Z"
+    },
+    {
+      "id": "sicurezza-privata-chiasso-nebiopoli",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:21.091Z"
+    },
+    {
+      "id": "sicurezza-stazioni-treni-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:25.021Z"
+    },
+    {
+      "id": "sicurezza-stradale-ticino-marzo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:29.203Z"
+    },
+    {
+      "id": "simulazione-fiscale-frontaliere-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:34.166Z"
+    },
+    {
+      "id": "sindacati-contro-snl-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:39.193Z"
+    },
+    {
+      "id": "sindacati-ticino-leonardo-cascina-costa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:43.175Z"
+    },
+    {
+      "id": "smart-working-frontalieri-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:47.433Z"
+    },
+    {
+      "id": "smartphone-a-scuola-e-nuove-direttive",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:52.017Z"
+    },
+    {
+      "id": "smood-chiusura-impatto-lavoro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:32:57.175Z"
+    },
+    {
+      "id": "snl-stagione-green-concessione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:01.684Z"
+    },
+    {
+      "id": "soggiorni-irregolari-2026-mendrisio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:05.996Z"
+    },
+    {
+      "id": "sondaggio-tamedia-iva-esercito-avs",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:09.954Z"
+    },
+    {
+      "id": "sospensione-costi-utenti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:15.567Z"
+    },
+    {
+      "id": "sostituzione-caldaia-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:19.297Z"
+    },
+    {
+      "id": "spazi-verdi-in-citta-rilassamento",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:23.590Z"
+    },
+    {
+      "id": "spese-sanitarie-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:28.958Z"
+    },
+    {
+      "id": "spiagge-libere-sul-lago-maggiore",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:33.113Z"
+    },
+    {
+      "id": "spirit-varesini-valico-tassa-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:36.778Z"
+    },
+    {
+      "id": "sportello-lavoro-varese-frontalieri-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:42.221Z"
+    },
+    {
+      "id": "stabio-municipio-cambios",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:46.937Z"
+    },
+    {
+      "id": "stalking-swiss-2026-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:51.050Z"
+    },
+    {
+      "id": "startup-investimenti-boom-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:55.095Z"
+    },
+    {
+      "id": "stipendi-manager-energia-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:33:59.958Z"
+    },
+    {
+      "id": "stipendio-netto-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:04.540Z"
+    },
+    {
+      "id": "stop-export-materiale-bellico",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:09.462Z"
+    },
+    {
+      "id": "stop-ristorni-mozione-partiti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:13.375Z"
+    },
+    {
+      "id": "stop-ristorni-tassa-salute",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:18.383Z"
+    },
+    {
+      "id": "strada-incidenti-vezia-cureglia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:21.889Z"
+    },
+    {
+      "id": "strumenti-frontaliere-guida-comparatori",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:28.400Z"
+    },
+    {
+      "id": "strutture-dedicate-migranti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:30.696Z"
+    },
+    {
+      "id": "successo-farmaceutica-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:35.391Z"
+    },
+    {
+      "id": "supsi-bachelor-sostenibilita-2027",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:39.936Z"
+    },
+    {
+      "id": "supsi-nuova-direttrice-formazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:45.829Z"
+    },
+    {
+      "id": "svincolo-a2-biasca-rischi-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:50.276Z"
+    },
+    {
+      "id": "svizzera-cern-ricerca-chip",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:53.779Z"
+    },
+    {
+      "id": "svizzera-frontalieri-franco-lavoro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:34:58.813Z"
+    },
+    {
+      "id": "svizzera-mediazione-iran-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:02.977Z"
+    },
+    {
+      "id": "svizzera-recessione-cieslakiewicz",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:06.665Z"
+    },
+    {
+      "id": "svizzera-servizio-pubblico-canone-tv",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:11.455Z"
+    },
+    {
+      "id": "svizzera-ue-pacchetto-accordi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:17.168Z"
+    },
+    {
+      "id": "svizzeri-bloccati-medio-oriente",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:20.317Z"
+    },
+    {
+      "id": "svizzeri-dubitano-difesa-paese",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:25.125Z"
+    },
+    {
+      "id": "swissminiatur-miniera-doro-sessa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:29.152Z"
+    },
+    {
+      "id": "swissminiatur-miniera-sessa-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:34.061Z"
+    },
+    {
+      "id": "taglio-alle-accise-mette-sotto-pressione-i-distributori-ticinesi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:38.940Z"
+    },
+    {
+      "id": "tassa-attraversamento-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:42.820Z"
+    },
+    {
+      "id": "tassa-automobilisti-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:47.120Z"
+    },
+    {
+      "id": "tassa-mensa-asilo-chiasso",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:51.854Z"
+    },
+    {
+      "id": "tassa-salute-berna-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:35:56.142Z"
+    },
+    {
+      "id": "tassa-salute-frontalieri-governo-svizzero",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:01.561Z"
+    },
+    {
+      "id": "tassa-salute-frontalieri-vantaggio-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:05.609Z"
+    },
+    {
+      "id": "tassa-salute-lombardia-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:10.130Z"
+    },
+    {
+      "id": "tassa-salute-lombardia-rinvio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:15.521Z"
+    },
+    {
+      "id": "tassa-salute-scontro-ticino-berna",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:19.502Z"
+    },
+    {
+      "id": "tassa-salute-svizzera-vantaggio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:23.954Z"
+    },
+    {
+      "id": "tassa-salute-tensioni-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:28.338Z"
+    },
+    {
+      "id": "tassa-traffico-pesante-camion-elettrici",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:32.154Z"
+    },
+    {
+      "id": "tassa-transito-automobilisti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:36.892Z"
+    },
+    {
+      "id": "tassa-transito-parlamento-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:41.918Z"
+    },
+    {
+      "id": "tassa-transito-svizzera-2023",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:46.193Z"
+    },
+    {
+      "id": "tassa-transito-ticino-pedemontana",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:51.010Z"
+    },
+    {
+      "id": "tassazione-individuale-lavoro-donne",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:55.285Z"
+    },
+    {
+      "id": "tassazione-individuale-lavoro-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:36:59.918Z"
+    },
+    {
+      "id": "tassazione-individuale-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:05.119Z"
+    },
+    {
+      "id": "tassi-ipotecari-ticino-medio-oriente-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:09.545Z"
+    },
+    {
+      "id": "tax-free-come-cresce",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:12.855Z"
+    },
+    {
+      "id": "telefonate-choc-truffa-anziani-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:18.247Z"
+    },
+    {
+      "id": "telelavoro-accordo-definitivo-italia",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:22.751Z"
+    },
+    {
+      "id": "telelavoro-italia-svizzera-ratifica",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:26.836Z"
+    },
+    {
+      "id": "tf-permesso-integrazione-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:31.101Z"
+    },
+    {
+      "id": "ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:35.357Z"
+    },
+    {
+      "id": "ticino-attenti-ai-radar-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:40.806Z"
+    },
+    {
+      "id": "ticino-biglietti-senza-contanti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:45.414Z"
+    },
+    {
+      "id": "ticino-carburante-alle-stelle-quadri-berna-riduca-tasse",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:49.899Z"
+    },
+    {
+      "id": "ticino-carburanti-prezzo-potere-acquisto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:54.803Z"
+    },
+    {
+      "id": "ticino-confine-droga",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:37:57.433Z"
+    },
+    {
+      "id": "ticino-lombardia-manifatturiero",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:02.970Z"
+    },
+    {
+      "id": "ticino-no-anti-dumping",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:06.756Z"
+    },
+    {
+      "id": "ticino-prevenzione-incendi-scuole-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:12.559Z"
+    },
+    {
+      "id": "ticino-spitex-contributo-pressione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:15.711Z"
+    },
+    {
+      "id": "ticino-svolta-per-apprendisti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:23.918Z"
+    },
+    {
+      "id": "ticino-swissminiatur-inaugura-miniera-doro-sessa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:26.125Z"
+    },
+    {
+      "id": "ticino-voto-anti-dumping",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:31.620Z"
+    },
+    {
+      "id": "tilo-25-milioni-passeggeri-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:36.076Z"
+    },
+    {
+      "id": "tilo-record-passeggeri-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:40.187Z"
+    },
+    {
+      "id": "tir-colonna-disagi-valico-brogeda",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:45.272Z"
+    },
+    {
+      "id": "traffico-san-gottardo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:49.478Z"
+    },
+    {
+      "id": "traffico-san-gottardo-attesa",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:53.170Z"
+    },
+    {
+      "id": "traffico-san-gottardo-pasquetta-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:38:58.019Z"
+    },
+    {
+      "id": "tragedia-pendolare-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:03.035Z"
+    },
+    {
+      "id": "tragedia-stradale-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:07.479Z"
+    },
+    {
+      "id": "tragedia-titlis-raffica-vento",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:12.226Z"
+    },
+    {
+      "id": "tram-treno-luganese-passo-avanti",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:16.682Z"
+    },
+    {
+      "id": "tramonto-a-cadenazzo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:21.157Z"
+    },
+    {
+      "id": "trasferimento-ufficio-postale-chiasso",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:25.167Z"
+    },
+    {
+      "id": "trasporti-lombardia-ticino-record-tilo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:29.906Z"
+    },
+    {
+      "id": "trasporti-pubblici-crescita-svizzera",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:34.120Z"
+    },
+    {
+      "id": "trattative-acordo-usa-oltre-31-marzo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:39.162Z"
+    },
+    {
+      "id": "trattative-dazi-non-valido-31-marzo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:44.931Z"
+    },
+    {
+      "id": "tredicesima-avs-busta-paga-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:47.744Z"
+    },
+    {
+      "id": "tredicesima-avs-finanziamento-busta-paga",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:53.028Z"
+    },
+    {
+      "id": "tredicesima-avs-finanziamento-contributi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:39:57.025Z"
+    },
+    {
+      "id": "tredicesima-avs-finanziamento-misto-proposta",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:02.805Z"
+    },
+    {
+      "id": "tredicesima-avs-finanziamento-misto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:06.347Z"
+    },
+    {
+      "id": "tredicesima-avs-finanziamento-scontro",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:11.391Z"
+    },
+    {
+      "id": "tredicesima-avs-iva-contributi",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:14.656Z"
+    },
+    {
+      "id": "tredicesima-avs-soluzione-mista-stati",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:19.373Z"
+    },
+    {
+      "id": "tredicesima-avs-stipendi-iva",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:24.063Z"
+    },
+    {
+      "id": "tredicesima-avs-stipendio-iva",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:33.075Z"
+    },
+    {
+      "id": "tredicesima-avs-stipendio-trattenute",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:35.628Z"
+    },
+    {
+      "id": "tredicesima-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:40.668Z"
+    },
+    {
+      "id": "treni-varese-milano-ceresio-express",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:44.594Z"
+    },
+    {
+      "id": "trevano-campus-riqualifica",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:49.441Z"
+    },
+    {
+      "id": "trin-tunnel-grave-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:53.827Z"
+    },
+    {
+      "id": "trippa-dogana-novazzano",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:40:57.661Z"
+    },
+    {
+      "id": "trojani-capo-servizi-esercito-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:03.045Z"
+    },
+    {
+      "id": "trovare-lavoro-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:07.277Z"
+    },
+    {
+      "id": "truffa-falso-bancario-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:12.715Z"
+    },
+    {
+      "id": "truffa-lavoro-svizzera-anticipo-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:16.707Z"
+    },
+    {
+      "id": "truffe-chiamate-shock-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:21.137Z"
+    },
+    {
+      "id": "trump-intesa-o-inferno",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:25.879Z"
+    },
+    {
+      "id": "turismo-luganese-formazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:30.184Z"
+    },
+    {
+      "id": "turismo-pasquale-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:33.967Z"
+    },
+    {
+      "id": "turisti-in-como-ztl",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:38.062Z"
+    },
+    {
+      "id": "turisti-ticinesi-bloccati-medio-oriente",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:44.295Z"
+    },
+    {
+      "id": "tutela-sovranita-dati-sanitari",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:48.060Z"
+    },
+    {
+      "id": "ubs-fusione-credit-suisse-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:52.119Z"
+    },
+    {
+      "id": "ucraini-in-ticino-aiuti-incognite",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:41:56.569Z"
+    },
+    {
+      "id": "ufficio-postale-chiasso-trasloco",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:00.785Z"
+    },
+    {
+      "id": "un-passaporto-di-fedelt",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:06.824Z"
+    },
+    {
+      "id": "un-test-per-dare-un-nome-al-dolore",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:10.630Z"
+    },
+    {
+      "id": "universita-ticino-frontalieri",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:14.748Z"
+    },
+    {
+      "id": "usi-startup-centre-ranking",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:18.824Z"
+    },
+    {
+      "id": "utile-bns-2025-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:24.557Z"
+    },
+    {
+      "id": "vacanze-di-pasqua-san-gottardo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:28.099Z"
+    },
+    {
+      "id": "valanghe-allerta-livello-4-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:32.822Z"
+    },
+    {
+      "id": "valposchiavo-turismo-2025",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:37.421Z"
+    },
+    {
+      "id": "vandalismo-bus-frontalieri-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:41.480Z"
+    },
+    {
+      "id": "varese-india-export-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:45.782Z"
+    },
+    {
+      "id": "varese-si-ubriaca-infortuna",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:51.377Z"
+    },
+    {
+      "id": "varese-soroptimist-studio-fibrosi-polmonare",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:55.581Z"
+    },
+    {
+      "id": "via-francisca-cammino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:42:59.614Z"
+    },
+    {
+      "id": "viaggio-delle-batterie-verso-seconda-vita",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:04.139Z"
+    },
+    {
+      "id": "vini-ticinesi-collaborazione",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:08.853Z"
+    },
+    {
+      "id": "violenza-adolescenti-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:13.433Z"
+    },
+    {
+      "id": "violenza-donne-consiglio-europa-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:18.201Z"
+    },
+    {
+      "id": "visita-ticinese-coira-criminalita-organizzata",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:21.925Z"
+    },
+    {
+      "id": "vivere-piu-lungo-ticino",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:26.202Z"
+    },
+    {
+      "id": "vivere-svizzera-vs-italia-frontaliere",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:31.886Z"
+    },
+    {
+      "id": "votazioni-8-marzo-iniziativa-ssr-aperto",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:35.975Z"
+    },
+    {
+      "id": "votazioni-federali-tassazione-individuale",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:40.112Z"
+    },
+    {
+      "id": "votazioni-imposizione-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:44.487Z"
+    },
+    {
+      "id": "voto-corrispondenza-ticino-2026",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:49.622Z"
+    },
+    {
+      "id": "walter-bonatti-in-capo-al-mondo",
+      "error": "Validation failed",
+      "at": "2026-04-07T16:43:53.487Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-04-07T15:44:38.033Z"
+  "updatedAt": "2026-04-07T16:43:53.488Z"
 }
