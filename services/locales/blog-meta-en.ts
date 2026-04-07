@@ -2142,6 +2142,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.fronteria-ticino-scarpata-airogno.title': 'Border Crossings in Ticino: A Daily Reality',
     'blog.article.fronteria-ticino-scarpata-airogno.excerpt': 'The Swiss canton of Ticino, located in the southern part of the country, shares a border with Italy. According to recent data, the number of people crossing the border daily is increasing, with a total of 12,500 individuals passing through the border in 2022. This trend is expected to continue in the coming years, with the canton\'s population projected to grow by 10% by 2030. 📊💡',
     'blog.article.fronteria-ticino-scarpata-airogno.imageAlt': 'A man falls from the scarpata ad Arogno, but is not in danger of life.',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.title': 'Men and drones at work at night to control the fire in Laveno Mombello',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.excerpt': 'The nighttime emergencies in Laveno Mombello require a rapid and coordinated intervention.',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.imageAlt': 'Men working and drones at night to control the fire in Laveno Mombello',
 };
 
 export default blogMetaEn;

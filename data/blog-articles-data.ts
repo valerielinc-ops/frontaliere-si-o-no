@@ -6188,4 +6188,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/fronteria-ticino-scarpata-airogno.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'lavoro-notte-lincendio-laveno-mombello',
+    category: 'novita',
+    date: '2026-04-07T03:25:56.716Z',
+    image: '/images/blog/lavoro-notte-lincendio-laveno-mombello.jpg',
+    hasCalculator: true,
+  },
 ];

@@ -2142,6 +2142,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.fronteria-ticino-scarpata-airogno.title': 'Titolo giornalistico con keyword (max 60 chars)',
     'blog.article.fronteria-ticino-scarpata-airogno.excerpt': 'Sottotitolo con dati concreti (max 160 chars)',
     'blog.article.fronteria-ticino-scarpata-airogno.imageAlt': 'Un uomo cade dalla scarpata ad Arogno, ma non è in pericolo di vita.',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.title': 'Uomini e droni al lavoro nella notte per tenere sotto controllo l\'incendio di Laveno Mombello',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.excerpt': 'Le emergenze notturne a Laveno Mombello richiedono un intervento rapido e coordinato.',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.imageAlt': 'Uomini e droni al lavoro nella notte per tenere sotto controllo l\'incendio di Laveno Mombello',
 };
 
 export default blogMetaIt;

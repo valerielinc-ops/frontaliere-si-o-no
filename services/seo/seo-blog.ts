@@ -12478,6 +12478,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lavoro-notte-lincendio-laveno-mombello': {
+    title: 'Uomini e droni al lavoro nella notte per tenere sotto controllo | Frontaliere Ticino',
+    description: 'Le emergenze notturne a Laveno Mombello richiedono un intervento rapido e coordinato. Dati aggiornati 2026 per frontalieri in Ticino.',
+    keywords: 'frontalieri, ticino, svizzera, italia, uomini, droni, lavoro, nella',
+    ogTitle: 'Uomini e droni al lavoro nella notte per tenere sotto controllo l\'incendio di Laveno',
+    ogDescription: 'Le emergenze notturne a Laveno Mombello richiedono un intervento rapido e coordinato.',
+    canonicalPath: '/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "{\"@context\": \"http://schema.org\", \"@type\": \"NewsArticle\", \"headline\": \"Uomini e droni al lavoro",
+      "description": "Le emergenze notturne a Laveno Mombello richiedono un intervento rapido e coordinato. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/lavoro-notte-lincendio-laveno-mombello.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uomini e droni al lavoro nella notte per tenere sotto controllo l'incendio di Laveno Mombello"
+      },
+      "datePublished": "2026-04-07T03:25:56+00:00",
+      "dateModified": "2026-04-07T03:25:56+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

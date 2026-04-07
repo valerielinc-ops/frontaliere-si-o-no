@@ -1967,6 +1967,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-raffica-chiusure-a9-2026': { name: 'Chiusure e deviazioni sulla A9', path: '/articoli-frontaliere/raffica-chiusure-a9-2026', parent: 'blog' },
     'blog-conflitto-medio-oriente-energia-ticino': { name: 'Energia e rincari', path: '/articoli-frontaliere/conflitto-medio-oriente-energia-ticino', parent: 'blog' },
     'blog-fronteria-ticino-scarpata-airogno': { name: 'Breadcrumb 2-3 parole', path: '/articoli-frontaliere/fronteria-ticino-scarpata-airogno', parent: 'blog' },
+    'blog-lavoro-notte-lincendio-laveno-mombello': { name: 'Notizie', path: '/articoli-frontaliere/lavoro-notte-lincendio-laveno-mombello', parent: 'blog' },
   };
 
   const info = sectionNames[section];

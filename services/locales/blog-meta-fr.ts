@@ -2142,6 +2142,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.fronteria-ticino-scarpata-airogno.title': 'Titolo giornalistico con keyword (max 60 chars)',
     'blog.article.fronteria-ticino-scarpata-airogno.excerpt': 'Sottotitolo con dati concreti (max 160 chars)',
     'blog.article.fronteria-ticino-scarpata-airogno.imageAlt': 'Un homme tombe de la scarpata ad Arogno, mais n\'est pas en danger de vie.',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.title': 'Hommes et drones en action pour surveiller l\'incendie de Laveno-Mombello',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.excerpt': 'Les urgences nocturnes à Laveno-Mombello nécessitent une intervention rapide et coordonnée.',
+    'blog.article.lavoro-notte-lincendio-laveno-mombello.imageAlt': 'Hommes et drones travaillent la nuit pour contrôler l\'incendie à Laveno Mombello',
 };
 
 export default blogMetaFr;
