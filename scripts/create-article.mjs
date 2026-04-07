@@ -1662,7 +1662,12 @@ Genera JSON (no markdown, no code fences):
       "excerpt": "Sottotitolo con dati concreti (max 160 chars)",
       "body1": "Lead giornalistico: FATTI (chi, cosa, dove, quando, perché). Solo cronaca. 300-400 parole. Min 1 ### sotto-sezione.",
       "body2": "Analisi tecnica: normative, confronti, tabelle, calcoli. Contenuto DIVERSO da body1. 300-400 parole. Min 1 ### sotto-sezione.",
-      "body3": "Azione pratica: procedura step-by-step, scadenze, strumenti + CTA finale. NON riassumere body1/body2. 300-400 parole."
+      "body3": "Azione pratica: procedura step-by-step, scadenze, strumenti + CTA finale. NON riassumere body1/body2. 300-400 parole.",
+      "faq": [
+        {"q": "Domanda frequente 1 dal contenuto dell'articolo?", "a": "Risposta concisa con dati concreti. 50-100 parole."},
+        {"q": "Domanda frequente 2?", "a": "Risposta con riferimenti normativi o calcoli."},
+        {"q": "Domanda frequente 3?", "a": "Risposta pratica con procedura o scadenza."}
+      ]
     }
   },
   "seo": {
@@ -1682,7 +1687,8 @@ REGOLE FINALI:
 - Slug: lowercase, trattini, no accenti, max 50 chars
 - hasCalculator: true sempre
 - Apostrofi diritti ('), normative 2026
-- imagePrompt: scena fotorealistica Ticino, DSLR, non sembrare AI`;
+- imagePrompt: scena fotorealistica Ticino, DSLR, non sembrare AI
+- FAQ: genera 3-5 coppie domanda/risposta che riassumono i punti chiave dell'articolo. Le domande devono essere quelle che un frontaliere cercherebbe su Google. Risposte: 50-100 parole ciascuna, con dati concreti.`;
 
   const minWordsInstruction = `\n\nMINIMUM LENGTH (CRITICAL — STRICTLY ENFORCED):
 - body1+body2+body3 MUST total ≥${minItalianWords} words. This is HARD-enforced: content below this threshold will be REJECTED.
@@ -1703,7 +1709,7 @@ ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttem
 
   const llmMessages = [
     { role: 'system', content: 'Sei un giornalista finanziario esperto di lavoro transfrontaliero in Ticino. Rispondi SOLO con JSON valido, senza markdown.' },
-    { role: 'user', content: prompt + minWordsInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.it (title, excerpt, body1, body2, body3), seo.\nNON includere content.en, content.de, content.fr — verranno generati separatamente.` }
+    { role: 'user', content: prompt + minWordsInstruction + `\n\n⚠️ ISTRUZIONE SPECIALE PER QUESTA CHIAMATA:\nGenera SOLO il JSON con questi campi: id, category, image, hasCalculator, imagePrompt, imageAlt (4 lingue), slugs (4 lingue), content.it (title, excerpt, body1, body2, body3, faq), seo.\nNON includere content.en, content.de, content.fr — verranno generati separatamente.` }
   ];
 
   let itRaw;
@@ -1726,6 +1732,26 @@ ${generationAttempt > 1 ? `- ⚠️ RETRY ${generationAttempt}/${generationAttem
     throw new Error('Risposta IT non contiene content.it e non può essere normalizzata');
   }
   validateItalianPayload(itContent, 'it');
+
+  // Preserve FAQ from AI response (not in REQUIRED_IT_BODY_FIELDS, extracted separately)
+  const rawFaq = itData?.content?.it?.faq || itData?.content?.faq || itData?.faq;
+  if (rawFaq) {
+    if (!Array.isArray(rawFaq)) {
+      console.error('  ⚠️  FAQ non è un array, lo rimuovo');
+    } else {
+      const validFaq = rawFaq.filter(pair =>
+        pair && typeof pair.q === 'string' && typeof pair.a === 'string' &&
+        pair.q.length > 10 && pair.a.length > 20
+      ).slice(0, 7);
+      if (validFaq.length < 2) {
+        console.error(`  ⚠️  FAQ troppo poche (${validFaq.length}), rimuovo`);
+      } else {
+        itContent.faq = validFaq;
+        console.error(`  ✅ FAQ: ${validFaq.length} coppie valide`);
+      }
+    }
+  }
+
   console.error(`  ✅ IT + metadata completati`);
 
   // Calls 2-4 are now deferred — see translateArticle() below
@@ -1982,7 +2008,18 @@ async function translateArticle(data) {
       return { [bodyKey]: sanitizeBodyText(joined) };
     }
 
-    const [partMeta, partB1, partB2, partB3] = await Promise.all([
+    // Translate FAQ if present (small payload, single call)
+    const faqTranslation = sourceContent.faq && Array.isArray(sourceContent.faq) && sourceContent.faq.length > 0
+      ? callWithRetry(makePrompt(
+          `CONTENUTO ITALIANO DA TRADURRE:\n- faq: ${JSON.stringify(sourceContent.faq)}`,
+          '{"faq": [{"q": "...", "a": "..."}]}',
+        ), 1500, `${targetLang}:faq`).catch(err => {
+          console.error(`  ⚠️  FAQ translation failed for ${targetLang}: ${err.message}`);
+          return { faq: sourceContent.faq }; // Fallback to Italian
+        })
+      : Promise.resolve({});
+
+    const [partMeta, partB1, partB2, partB3, partFaq] = await Promise.all([
       // Call 1: title + excerpt (small, ~300 tokens output)
       callWithRetry(makePrompt(
         `CONTENUTO ITALIANO DA TRADURRE:\n- title: ${sourceContent.title}\n- excerpt: ${sourceContent.excerpt}`,
@@ -1992,9 +2029,11 @@ async function translateArticle(data) {
       translateBodyField('body1', sourceContent.body1, targetLang),
       translateBodyField('body2', sourceContent.body2, targetLang),
       translateBodyField('body3', sourceContent.body3, targetLang),
+      // Call 5: FAQ (optional)
+      faqTranslation,
     ]);
 
-    const [partA, partB] = [{ ...partMeta, ...partB1 }, { ...partB2, ...partB3 }];
+    const [partA, partB] = [{ ...partMeta, ...partB1 }, { ...partB2, ...partB3, ...partFaq }];
 
     const parsed = { ...partA, ...partB };
     console.error(`  ✅ ${targetLang.toUpperCase()} completato`);
@@ -2252,6 +2291,22 @@ function validate(data) {
         return linkText; // strip invalid nav link, keep text
       });
       data.content[locale][field] = text;
+    }
+    // Validate FAQ structure if present (keep as array, don't coerce to string)
+    if (data.content[locale].faq) {
+      const faq = data.content[locale].faq;
+      if (typeof faq === 'string') {
+        try { data.content[locale].faq = JSON.parse(faq); } catch { delete data.content[locale].faq; }
+      }
+      if (Array.isArray(data.content[locale].faq)) {
+        data.content[locale].faq = data.content[locale].faq.filter(pair =>
+          pair && typeof pair.q === 'string' && typeof pair.a === 'string' &&
+          pair.q.length > 10 && pair.a.length > 20
+        ).slice(0, 7);
+        if (data.content[locale].faq.length < 2) delete data.content[locale].faq;
+      } else {
+        delete data.content[locale].faq;
+      }
     }
   }
 
@@ -3641,10 +3696,16 @@ function buildBodyFile(data, locale) {
   const id = data.id;
   const camel = id.replace(/-(\w)/g, (_, ch) => ch.toUpperCase());
   const varName = 'body' + camel.charAt(0).toUpperCase() + camel.slice(1);
+
+  // Build FAQ line if present
+  const faqLine = c.faq && Array.isArray(c.faq) && c.faq.length > 0
+    ? `\n    'blog.article.${id}.faq': '${escapeForSingleQuoteTS(JSON.stringify(c.faq))}',`
+    : '';
+
   return `const ${varName}: Record<string, string> = {
     'blog.article.${id}.body1': '${escapeForSingleQuoteTS(c.body1)}',
     'blog.article.${id}.body2': '${escapeForSingleQuoteTS(c.body2)}',
-    'blog.article.${id}.body3': '${escapeForSingleQuoteTS(c.body3)}',
+    'blog.article.${id}.body3': '${escapeForSingleQuoteTS(c.body3)}',${faqLine}
 };
 
 export default ${varName};
