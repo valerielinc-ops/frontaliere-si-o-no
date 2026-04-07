@@ -1,10 +1,10 @@
 {
   "crawlerKey": "fust",
-  "assembledAt": "2026-04-07T09:31:52.703Z",
+  "assembledAt": "2026-04-07T21:26:44.365Z",
   "jobs": [
     {
       "id": "company-7haru0",
-      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0",
+      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-cadenazzo",
       "company": "Fust",
       "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
       "location": "Tenero-Contra, Ticino",
@@ -40,7 +40,7 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0",
+        "it": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-cadenazzo",
         "en": "retail-sales-training-afc-creating-customer-experience-fust-tenero-contra-ticino",
         "de": "lehre-detailhandel-efz-einkaufserlebnisse-schaffen-fust-tenero-contra-ticino",
         "fr": "apprentissage-commerce-de-detail-cfc-creation-d-experiences-d-achat-fust-tenero-contra-ticino"
@@ -71,7 +71,7 @@
     },
     {
       "id": "company-pztp1c",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+      "slug": "installatore-di-elettrodomestici-a-domicilio-fust-cadenazzo",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Grigioni",
@@ -107,15 +107,16 @@
       },
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "installatore-di-elettrodomestici-a-domicilio-fust-grigioni",
+        "it": "installatore-di-elettrodomestici-a-domicilio-fust-cadenazzo",
         "en": "home-delivery-fitter-of-electrical-household-appliances-fust-grigioni",
-        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-pztp1c",
+        "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-cadenazzo",
         "fr": "livreur-a-domicile-monteur-d-electromenager-fust-grigioni"
       },
       "sourceLang": "de",
       "previousSlugs": [
         "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-pztp1c",
-        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+        "installatore-di-elettrodomestici-a-domicilio-fust-grigioni"
       ],
       "salaryMin": 58000,
       "salaryMax": 78000,

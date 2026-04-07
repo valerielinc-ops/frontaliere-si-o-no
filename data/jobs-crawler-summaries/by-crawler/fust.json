@@ -1,21 +1,22 @@
 {
   "key": "fust",
   "label": "Fust",
-  "generatedAt": "2026-04-07T09:31:52.704Z",
+  "generatedAt": "2026-04-07T21:26:44.366Z",
   "total": 3,
-  "newCount": 2,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 22656,
-  "avgDurationMs": 22656,
+  "durationMs": 18440,
+  "avgDurationMs": 18440,
   "durationHistory": [
-    22656
+    18440
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "company-7haru0",
-      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0",
+      "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-cadenazzo",
       "company": "Fust",
       "title": "Apprendistato commercio al dettaglio AFC \"Creazione di esperienze d'acquisto\"",
       "location": "Tenero-Contra, Ticino",
@@ -35,19 +36,26 @@
       "companyKey": "fust",
       "companyDomain": "fust.ch",
       "crawledAt": "2026-04-07T09:31:51.316Z",
-      "needsRetranslation": true,
       "sourceLang": "it",
-      "_qualityScore": 75,
+      "salaryMin": 46500,
+      "salaryMax": 62500,
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
       "id": "company-pztp1c",
-      "slug": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+      "slug": "installatore-di-elettrodomestici-a-domicilio-fust-cadenazzo",
       "company": "Fust",
       "title": "Heimliefermonteur:in von Elektrohaushaltgeräten",
       "location": "Grigioni",
@@ -67,18 +75,24 @@
       "companyKey": "fust",
       "companyDomain": "fust.ch",
       "crawledAt": "2026-04-07T09:31:51.316Z",
-      "needsRetranslation": true,
       "sourceLang": "de",
-      "_qualityScore": 75,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "streetAddress": "Via Industria 1",
+      "postalCode": "6593",
+      "addressLocality": "Cadenazzo",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 16,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 25
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": [
     {
