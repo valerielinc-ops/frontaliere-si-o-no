@@ -2,7 +2,7 @@
  * Generate OG landing pages for blog articles.
  *
  * For every blog article in seo-blog.ts, writes a full static HTML page
- * with OG/Twitter meta, hreflang alternates, JSON-LD (BlogPosting),
+ * with OG/Twitter meta, hreflang alternates, JSON-LD (NewsArticle),
  * article body text, and the SPA entry bundle so the page hydrates into
  * the React app on load.
  */
@@ -301,7 +301,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
         let files: string[] = [];
         try { files = fs.readdirSync(dir); } catch { return out; }
-        const rx = /'blog\.article\.([^']+)\.(body\d+)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+        const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
         for (const file of files) {
           if (!file.endsWith('.ts')) continue;
           let src = '';
@@ -346,7 +346,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         const dir = np.resolve(rootDir, 'services', 'locales', 'blog-body', locale);
         let files: string[] = [];
         try { files = fs.readdirSync(dir); } catch { return out; }
-        const rx = /'blog\.article\.([^']+)\.(body\d+)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
+        const rx = /'blog\.article\.([^']+)\.(body\d+|faq)'\s*:\s*'((?:[^'\\]|\\.)*)'/g;
         for (const file of files) {
           if (!file.endsWith('.ts')) continue;
           let src = '';
@@ -376,6 +376,26 @@ export function ogPagesPlugin(rootDir: string): Plugin {
         if (/^\d{4}-\d{2}-\d{2}$/.test(value)) return `${value}T00:00:00+01:00`;
         if (/^\d{4}-\d{2}-\d{2}T/.test(value)) return `${value}+01:00`;
         return value;
+      };
+
+      // Human-readable date+time for Google News (answer/9607104: "show both a clear date and time")
+      const MONTH_NAMES: Record<string, string[]> = {
+        it: ['gennaio','febbraio','marzo','aprile','maggio','giugno','luglio','agosto','settembre','ottobre','novembre','dicembre'],
+        en: ['January','February','March','April','May','June','July','August','September','October','November','December'],
+        de: ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'],
+        fr: ['janvier','février','mars','avril','mai','juin','juillet','août','septembre','octobre','novembre','décembre'],
+      };
+      const formatHumanDateTime = (isoStr: string, locale: string): string => {
+        try {
+          const d = new Date(isoStr);
+          if (isNaN(d.getTime())) return isoStr.split('T')[0];
+          const day = d.getDate();
+          const month = (MONTH_NAMES[locale] || MONTH_NAMES.it)[d.getMonth()];
+          const year = d.getFullYear();
+          const hh = String(d.getHours()).padStart(2, '0');
+          const mm = String(d.getMinutes()).padStart(2, '0');
+          return `${day} ${month} ${year}, ${hh}:${mm}`;
+        } catch { return isoStr.split('T')[0]; }
       };
 
       /* ── 3. Write OG landing pages ──────────────────────────────── */
@@ -457,7 +477,10 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           const localeForMeta: 'en' | 'de' | 'fr' | null =
             (locale === 'en' || locale === 'de' || locale === 'fr') ? locale : null;
           const localizedMeta = localeForMeta ? blogMetaByLocale[localeForMeta][en.articleId] : null;
-          const localizedTitle = localizedMeta?.title || en.ogT;
+          const localizedTitleRaw = localizedMeta?.title || en.ogT;
+          // Pure headline without publisher suffix — Google News requires <title>, <h1>, and
+          // headline structured data to match (Publisher Center answer/9607104)
+          const localizedTitle = localizedTitleRaw.replace(/\s*\|\s*Frontaliere Ticino\s*$/i, '');
           const localizedDesc = localizedMeta?.excerpt || en.ogD;
           // Pad short descriptions to ≥150 chars for Bing (locale variant excerpts are often <150)
           const LOCALE_DESC_CONTEXT: Partial<Record<string, string>> = {
@@ -472,11 +495,8 @@ export function ogPagesPlugin(rootDir: string): Plugin {
           const metaDesc = metaDescRaw.length > 155
             ? metaDescRaw.substring(0, 152) + '…'
             : metaDescRaw;
-          const localizedPageTitle = localizedMeta?.title ? `${localizedMeta.title} | Frontaliere Ticino` : en.title;
-          // Truncate to ≤65 chars for HTML <title> (Bing display limit); OG title keeps full value
-          const htmlPageTitle = localizedPageTitle.length > 65
-            ? localizedPageTitle.substring(0, 64) + '…'
-            : localizedPageTitle;
+          // <title> = pure headline + publisher suffix, matching <h1> content
+          const htmlPageTitle = `${localizedTitle} | Frontaliere Ticino`;
           const articleBodyLocale = (locale === 'it' || locale === 'en' || locale === 'de' || locale === 'fr') ? locale : 'it';
           const localizedBody = blogBodyByLocale[articleBodyLocale][en.articleId] ?? blogBodyByLocale.it[en.articleId];
           const allBodyKeys = localizedBody ? Object.keys(localizedBody).sort((a, b) => {
@@ -505,7 +525,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
                 sameAs: ['https://www.linkedin.com/in/valerie-linc/'],
               };
 
-          // Build the JSON-LD object, respecting source @type (Event vs BlogPosting)
+          // Build the JSON-LD object, respecting source @type (Event vs NewsArticle)
           const isEvent = en.sdType === 'Event';
           let ldObj: Record<string, unknown>;
 
@@ -594,10 +614,10 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             const performer = parseNestedObj('performer');
             if (performer) ldObj.performer = performer;
           } else {
-            // BlogPosting — matches SPA runtime schema from BlogArticles.tsx
+            // NewsArticle — Google News eligibility (Publisher Center answer/9607104)
             ldObj = {
               '@context': 'https://schema.org',
-              '@type': 'BlogPosting',
+              '@type': 'NewsArticle',
               headline: localizedTitle,
               description: localizedDesc,
               image: {
@@ -612,6 +632,7 @@ export function ogPagesPlugin(rootDir: string): Plugin {
               publisher: { '@id': `${BASE_URL}/#organization` },
               author: authorObj,
               mainEntityOfPage: full,
+              isPartOf: { '@type': 'WebSite', '@id': `${BASE_URL}/#website`, name: 'Frontaliere Ticino' },
               speakable: {
                 '@type': 'SpeakableSpecification',
                 cssSelector: ['article h1', 'article h2', 'article p'],
@@ -663,48 +684,71 @@ export function ogPagesPlugin(rootDir: string): Plugin {
             ],
           }).replace(/</g, '\\u003c');
 
-          // Article-specific FAQPage schema extracted from body content H2 headings.
-          // Only for evergreen articles (fiscale, pratico, pensione) with ≥2 question-like headings.
-          // Previous generic FAQPage was removed 2026-03-27 for Bing "conflicting markups";
-          // article-specific FAQs are content-relevant and avoid that issue.
+          // Article-specific FAQPage schema: prefer structured `faq` key from body data,
+          // fall back to heuristic extraction from H2 headings for evergreen articles.
           let faqLdTag = '';
           let visibleFaqHtml = '';
           const articleCategory = articleCategoryById[en.articleId] ?? '';
-          if (EVERGREEN_CATEGORIES.has(articleCategory)) {
-            const rawBody = blogBodyRawByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyRawByLocale.it?.[en.articleId];
-            if (rawBody) {
-              const rawBodyKeys = Object.keys(rawBody).sort((a, b) => {
-                const na = parseInt(a.replace('body', ''), 10);
-                const nb = parseInt(b.replace('body', ''), 10);
-                return na - nb;
-              });
-              const rawBodyText = rawBodyKeys.map(k => rawBody[k]).filter(Boolean).join('\n\n');
-              const faqPairs = extractArticleFaqPairs(rawBodyText);
-              if (faqPairs.length >= 2) {
-                const faqSchema = {
-                  '@context': 'https://schema.org',
-                  '@type': 'FAQPage',
-                  mainEntity: faqPairs.slice(0, 10).map(pair => ({
-                    '@type': 'Question',
-                    name: pair.question,
-                    acceptedAnswer: { '@type': 'Answer', text: pair.answer },
-                  })),
-                };
-                faqLdTag = `\n    <script type="application/ld+json">${JSON.stringify(faqSchema).replace(/</g, '\\u003c')}</script>`;
-                faqCount++;
 
-                // Render FAQ as visible HTML for AI crawlers that don't parse JSON-LD
-                const faqLabel = locale === 'en' ? 'Frequently Asked Questions'
-                  : locale === 'de' ? 'Häufig gestellte Fragen'
-                  : locale === 'fr' ? 'Questions fréquentes'
-                  : 'Domande frequenti';
-                visibleFaqHtml = `<details style="margin:1.5rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:700;font-size:1rem;color:#1e293b;padding:.25rem 0">${faqLabel}</summary><dl style="margin-top:.5rem">` +
-                  faqPairs.slice(0, 10).map(pair =>
-                    `<dt style="font-weight:600;margin:.75rem 0 .25rem;color:#334155">${esc(pair.question)}</dt><dd style="margin:0 0 .5rem;color:#475569;line-height:1.6">${esc(pair.answer).substring(0, 500)}</dd>`
-                  ).join('') +
-                  `</dl></details>`;
-              }
+          // Try structured FAQ from body data first (new articles with AI-generated FAQ)
+          let faqPairsFromData: Array<{ question: string; answer: string }> | null = null;
+          const articleBodyData = blogBodyRawByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyRawByLocale.it?.[en.articleId];
+          if (articleBodyData) {
+            const faqRaw = articleBodyData['faq'];
+            if (faqRaw) {
+              try {
+                const parsed = JSON.parse(faqRaw);
+                if (Array.isArray(parsed) && parsed.length >= 2) {
+                  faqPairsFromData = parsed
+                    .filter((p: any) => p.q && p.a && p.q.length > 10 && p.a.length > 20)
+                    .map((p: any) => ({ question: String(p.q), answer: String(p.a) }));
+                  if (faqPairsFromData!.length < 2) faqPairsFromData = null;
+                }
+              } catch { /* invalid JSON, fall through to heuristic */ }
             }
+          }
+
+          // Use structured FAQ if available, otherwise fall back to heuristic for evergreen articles
+          const useFaqPairs = faqPairsFromData ?? (() => {
+            if (!EVERGREEN_CATEGORIES.has(articleCategory)) return null;
+            const rawBody = blogBodyRawByLocale[articleBodyLocale]?.[en.articleId] ?? blogBodyRawByLocale.it?.[en.articleId];
+            if (!rawBody) return null;
+            const rawBodyKeys = Object.keys(rawBody).sort((a, b) => {
+              const na = parseInt(a.replace(/\D/g, ''), 10);
+              const nb = parseInt(b.replace(/\D/g, ''), 10);
+              return na - nb;
+            });
+            const rawBodyText = rawBodyKeys
+              .filter(k => k.includes('body'))
+              .map(k => rawBody[k])
+              .filter(Boolean)
+              .join('\n\n');
+            const pairs = extractArticleFaqPairs(rawBodyText);
+            return pairs.length >= 2 ? pairs : null;
+          })();
+
+          if (useFaqPairs && useFaqPairs.length >= 2) {
+            const faqSchema = {
+              '@context': 'https://schema.org',
+              '@type': 'FAQPage',
+              mainEntity: useFaqPairs.slice(0, 10).map(pair => ({
+                '@type': 'Question',
+                name: pair.question,
+                acceptedAnswer: { '@type': 'Answer', text: pair.answer },
+              })),
+            };
+            faqLdTag = `\n    <script type="application/ld+json">${JSON.stringify(faqSchema).replace(/</g, '\\u003c')}</script>`;
+            faqCount++;
+
+            const faqLabel = locale === 'en' ? 'Frequently Asked Questions'
+              : locale === 'de' ? 'Häufig gestellte Fragen'
+              : locale === 'fr' ? 'Questions fréquentes'
+              : 'Domande frequenti';
+            visibleFaqHtml = `<details style="margin:1.5rem 0;border:1px solid #e2e8f0;border-radius:8px;padding:.5rem .75rem"><summary style="cursor:pointer;font-weight:700;font-size:1rem;color:#1e293b;padding:.25rem 0">${faqLabel}</summary><dl style="margin-top:.5rem">` +
+              useFaqPairs.slice(0, 10).map(pair =>
+                `<dt style="font-weight:600;margin:.75rem 0 .25rem;color:#334155">${esc(pair.question)}</dt><dd style="margin:0 0 .5rem;color:#475569;line-height:1.6">${esc(pair.answer).substring(0, 500)}</dd>`
+              ).join('') +
+              `</dl></details>`;
           }
 
           const headTags = `    <meta charset="utf-8">
@@ -783,7 +827,7 @@ ${headTags}
     ${GTAG_SNIPPET}
   </head>
   <body class="bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 overflow-x-hidden">
-    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · ${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso).split('T')[0])}</p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
+    <div id="root"><article><h1>${esc(localizedTitle)}</h1><p class="article-byline" style="font-size:0.85rem;color:#64748b;margin:0.25rem 0 1rem">Di Valerie Linc · <time datetime="${esc(normalizeDateTime(en.datePub || en.dateMod || todayIso))}">${esc(formatHumanDateTime(normalizeDateTime(en.datePub || en.dateMod || todayIso), locale))}</time></p><p>${esc(localizedDesc)}</p>${articleBodyHtml}${visibleFaqHtml}<nav><a href="/">Simulatore Fiscale</a> | <a href="/compara-servizi/">Confronta Servizi</a> | <a href="/tasse-e-pensione/">Tasse e Pensione</a> | <a href="/guida-frontaliere/">Guida Frontaliere</a> | <a href="/domande-frequenti-frontalieri/">FAQ</a> | <a href="/glossario-frontaliere/">Glossario</a> | <a href="/articoli-frontaliere/">Articoli</a></nav></article></div>
     <script type="module" crossorigin fetchpriority="high" src="/assets/${entryJs}"></script>
   </body>
 </html>`;
