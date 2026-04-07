@@ -1977,6 +1977,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-niederlander-droga-ticino': { name: 'Traffico di droga', path: '/articoli-frontaliere/niederlander-droga-ticino', parent: 'blog' },
     'blog-stop-agli-artigiani-per-caso': { name: 'Economia', path: '/articoli-frontaliere/stop-agli-artigiani-per-caso', parent: 'blog' },
     'blog-incendi-nel-luganese-arrestato-un-piromane': { name: 'Incendi nel Luganese', path: '/articoli-frontaliere/incendi-nel-luganese-arrestato-un-piromane', parent: 'blog' },
+    'blog-tassa-salute-frontalieri-ufis-risposte': { name: 'Tassa Salute Frontalieri', path: '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte', parent: 'blog' },
   };
 
   const info = sectionNames[section];

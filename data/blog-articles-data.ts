@@ -6258,4 +6258,11 @@ export const ARTICLES: Article[] = [
     image: '/images/blog/incendi-nel-luganese-arrestato-un-piromane.jpg',
     hasCalculator: true,
   },
+  {
+    id: 'tassa-salute-frontalieri-ufis-risposte',
+    category: 'fiscale',
+    date: '2026-04-07T18:55:19.924Z',
+    image: '/images/blog/tassa-salute-frontalieri-ufis-risposte.jpg',
+    hasCalculator: true,
+  },
 ];

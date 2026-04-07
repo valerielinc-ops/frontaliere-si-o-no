@@ -2172,6 +2172,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.title': 'Blazes in the Luganese: Italian pyromaniac arrested',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.excerpt': 'Bellinzona, 7 April 2026 - An Italian arrested for blazes in the Luganese region',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.imageAlt': 'Bellinzona, Switzerland',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Health Tax for Cross-Border Workers: UFIS Receives Answers from Switzerland and Lombardy, but Doubts Remain',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'The Union of Italian Cross-Border Workers in Switzerland (UFIS) has received official responses regarding the \'health tax\', but highlights inconsistencies between Bern and Milan, leaving thousands of workers in limbo.',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Cross-border worker with backpack between Ticino and Lombardy',
 };
 
 export default blogMetaEn;

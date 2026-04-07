@@ -2172,6 +2172,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.title': 'Incendi nel Luganese: arrestato un piromane italiano',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.excerpt': 'Bellinzona, 7 aprile 2026 - Un italiano arrestato per incendi nel Luganese',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.imageAlt': 'Bellinzona, Ticino',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Tassa Salute Frontalieri: UFIS Ottiene Risposte da Svizzera e Lombardia, ma Dubbi Persistono',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'L\'Unione Frontalieri Italiani in Svizzera (UFIS) riceve risposte ufficiali su \'tassa sanità\' ma segnalano incongruenze tra Berna e Milano, lasciando in sospeso migliaia di lavoratori.',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Frontaliero con bagno a spalla tra Ticino e Lombardia',
 };
 
 export default blogMetaIt;

@@ -12768,6 +12768,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tassa-salute-frontalieri-ufis-risposte': {
+    title: 'Tassa Salute Frontalieri: UFIS Ottiene Risposte da Svizzera e Lombardia | Frontaliere Ticino',
+    description: 'Ultimi aggiornamenti sulla \'tassa della salute\' per frontalieri. Risposte ufficiali da Svizzera e Lombardia, ma dubbi persistono. Scopri cosa fare.',
+    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, ufis, ottiene',
+    ogTitle: 'Tassa Salute Frontalieri: Risposte Ufficiali e Dubbi',
+    ogDescription: 'UIFS riceve risposte da Svizzera e Lombardia sulla tassa sanitaria, ma frontalieri ancora in sospeso. Dettagli e azioni pratiche.',
+    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Frontalieri e Tassa Salute: Più Chiarezza, ma Ancora Dubbi",
+      "description": "Ultimi aggiornamenti sulla 'tassa della salute' per frontalieri. Risposte ufficiali da Svizzera e Lombardia, ma dubbi persistono. Scopri cosa fare.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-ufis-risposte.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliero con bagno a spalla tra Ticino e Lombardia"
+      },
+      "datePublished": "2026-04-07T18:55:19+00:00",
+      "dateModified": "2026-04-07T18:55:19+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

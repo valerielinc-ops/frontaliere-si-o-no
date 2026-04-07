@@ -2172,6 +2172,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.title': 'Incendis dans le Luganais : arrêté un pyromane italien',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.excerpt': 'Bellizona, 7 avril 2026 - Un Italien arrêté pour incendis dans le Luganais',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.imageAlt': 'Bellinzona, Suisse',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Taxe Santé Frontaliers : L\'UFIS reçoit des réponses de la Suisse et de la Lombardie, mais les doutes persistent',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'L\'Union des Frontaliers Italiens en Suisse (UFIS) reçoit des réponses officielles sur l\'« impôt santé », mais signale des incohérences entre Berne et Milan, laissant en suspens des milliers de travailleurs.',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Travailleur frontalier avec sac à dos entre Tessin et Lombardie',
 };
 
 export default blogMetaFr;

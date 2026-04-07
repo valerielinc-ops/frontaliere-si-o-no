@@ -2172,6 +2172,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.title': 'Brände im Luganerland: Italiener wegen Brandstiftung festgenommen',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.excerpt': 'Bellinzona, 7. April 2026 - Ein Italiener wegen Bränden im Luganerland festgenommen',
     'blog.article.incendi-nel-luganese-arrestato-un-piromane.imageAlt': 'Bellinzona, Schweiz',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.title': 'Gesundheitssteuer für Grenzgänger: UFIS erhält Antworten aus der Schweiz und der Lombardei, aber Zweifel bestehen weiter',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.excerpt': 'Die Union der italienischen Grenzgänger in der Schweiz (UFIS) erhält offizielle Antworten zur \'Gesundheitssteuer\', weist jedoch auf Inkonsistenzen zwischen Bern und Mailand hin, die Tausende Arbeitnehmer in Ungewissheit belassen.',
+    'blog.article.tassa-salute-frontalieri-ufis-risposte.imageAlt': 'Grenzarbeiter mit Rucksack zwischen Tessin und Lombardei',
 };
 
 export default blogMetaDe;
