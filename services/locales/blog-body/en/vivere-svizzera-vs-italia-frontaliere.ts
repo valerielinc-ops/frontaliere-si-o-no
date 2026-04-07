@@ -75,6 +75,7 @@ Before deciding, complete these steps:
 6. **Explore the job market** on the [job board](nav:job-board) — a higher-paying position might tip the balance
 
 The right answer depends on your salary, family, commute distance, career stage, and personal priorities. What does not change is the importance of making this decision with data, not assumptions. Run the numbers, stress-test the scenarios, and choose the path that optimizes both your wallet and your well-being.`,
+    'blog.article.vivere-svizzera-vs-italia-frontaliere.faq': '[{"q":"How much more does it cost to stay in Lugano than in Como or Varese?","a":"A two-room apartment in Lugano costs between 1,800-2,200 CHF/month, while in Como it is 700-900 EUR and in Varese it costs between 550-750 EUR, with a minimum difference of around 1,000 EUR per month."},{"q":"What is the main tax advantage of Permit G over Permit B for low salaries?","a":"For salaries under CHF 70,000, the G Permit offers significant tax savings thanks to the IRPEF exemption of EUR 10,000, which compensates for the double taxable amount."}]',
 };
 
 export default bodyVivereSvizzeraVsItaliaFrontaliere;
