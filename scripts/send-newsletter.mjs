@@ -596,6 +596,7 @@ function buildEmailHeaders(email, campaign) {
   const emailKey = Buffer.from(String(email).toLowerCase()).toString('hex').slice(0, 24);
   return {
     'List-Unsubscribe': `<${makeUnsubscribeUrl(email)}>, <${makeMailtoUnsubscribe(email)}>`,
+    'List-Unsubscribe-Post': 'List-Unsubscribe=One-Click',
     'List-ID': `Frontaliere Weekly <weekly.frontaliereticino.ch>`,
     'Feedback-ID': `${campaignKey}:frontaliere-weekly:frontaliere-ticino`,
     'X-Entity-Ref-ID': `${campaignKey}-${emailKey}`,
@@ -768,6 +769,9 @@ async function sendEmailBatchSes(emails) {
     const chunk = emails.slice(i, i + SES_CONCURRENCY);
     const results = await Promise.allSettled(
       chunk.map(async (item) => {
+        const sesHeaders = Object.entries(item.payload.headers || {}).map(
+          ([Name, Value]) => ({ Name, Value })
+        );
         const cmd = new SendEmailCommand({
           FromEmailAddress: item.payload.from || FROM_EMAIL,
           Destination: { ToAddresses: Array.isArray(item.payload.to) ? item.payload.to : [item.payload.to] },
@@ -775,6 +779,7 @@ async function sendEmailBatchSes(emails) {
             Simple: {
               Subject: { Data: item.payload.subject, Charset: 'UTF-8' },
               Body: { Html: { Data: item.payload.html, Charset: 'UTF-8' } },
+              Headers: sesHeaders,
             },
           },
           EmailTags: (item.payload.tags || []).map(t => ({
