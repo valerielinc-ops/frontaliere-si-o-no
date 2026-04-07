@@ -1,6 +1,8 @@
 name: Batch FAQ Generation
 
 on:
+  schedule:
+    - cron: '30 0 * * *'  # Daily at 00:30 UTC (after Gemini quota reset)
   workflow_dispatch:
     inputs:
       limit:
@@ -76,7 +78,7 @@ jobs:
       - name: Run batch FAQ generation
         id: faq
         run: |
-          ARGS="--limit ${{ inputs.limit || '50' }} --concurrency ${{ inputs.concurrency || '3' }}"
+          ARGS="--limit ${{ inputs.limit || '200' }} --concurrency ${{ inputs.concurrency || '1' }}"
           if [ "${{ inputs.skip_translate }}" = "true" ]; then
             ARGS="$ARGS --skip-translate"
           fi

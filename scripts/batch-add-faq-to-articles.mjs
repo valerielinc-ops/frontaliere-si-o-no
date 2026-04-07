@@ -132,6 +132,7 @@ function repairJsonArray(s) {
  *  - direct array: [...]
  *  - wrapped object: {"faq": [...]} or {"faqs": [...]} or {"questions": [...]}
  *  - single-key object with array value: {"anything": [...]}
+ *  - object with q/a keys directly: {"q":"...","a":"..."} → wrap as [obj]
  */
 function extractFaqArray(parsed) {
   if (Array.isArray(parsed)) return parsed;
@@ -144,8 +145,31 @@ function extractFaqArray(parsed) {
     const vals = Object.values(parsed);
     const arrVal = vals.find((v) => Array.isArray(v));
     if (arrVal) return arrVal;
+    // Single Q&A object: {"q": "...", "a": "..."}
+    if (typeof parsed.q === 'string' && typeof parsed.a === 'string') return [parsed];
+    // Numbered keys: {"1": {"q":"...","a":"..."}, "2": {...}}
+    const numVals = Object.values(parsed).filter((v) => v && typeof v === 'object' && v.q && v.a);
+    if (numVals.length >= 2) return numVals;
   }
   return null;
+}
+
+/** Last-resort: extract Q&A pairs from plain text using regex patterns */
+function extractFaqFromText(raw) {
+  const pairs = [];
+  // Pattern: **D: ...** / **R: ...** or "Domanda: ... Risposta: ..."
+  const qaPat = /(?:domanda|question|q)\s*[:.]?\s*["""]?(.{15,200}?)["""]?\s*(?:risposta|answer|a)\s*[:.]?\s*["""]?(.{20,500}?)["""]?\s*(?=(?:domanda|question|q)\s*[:.]\s|$)/gis;
+  let m;
+  while ((m = qaPat.exec(raw)) !== null) {
+    pairs.push({ q: m[1].trim(), a: m[2].trim() });
+  }
+  if (pairs.length >= 2) return pairs;
+  // Pattern: numbered "1. Q: ... A: ..."
+  const numPat = /\d+\.\s*(?:Q|D)[:.]\s*(.{15,200}?)\s*(?:A|R)[:.]\s*(.{20,500}?)(?=\d+\.\s*(?:Q|D)[:.]\s|$)/gis;
+  while ((m = numPat.exec(raw)) !== null) {
+    pairs.push({ q: m[1].trim(), a: m[2].trim() });
+  }
+  return pairs.length >= 2 ? pairs : null;
 }
 
 /** Load progress file or create empty state */
@@ -285,9 +309,25 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
     { temperature: 0.5, maxTokens: 2000, jsonMode: true },
   );
 
-  const parsed = JSON.parse(repairJsonArray(raw));
+  const repaired = repairJsonArray(raw);
+  let parsed;
+  try {
+    parsed = JSON.parse(repaired);
+  } catch (parseErr) {
+    // Try extracting Q&A pairs via regex as last resort
+    const regexFaq = extractFaqFromText(raw);
+    if (regexFaq && regexFaq.length >= 2) return regexFaq;
+    console.error(`  [JSON parse failed] ${parseErr.message} — raw[0:300]: ${raw.slice(0, 300).replace(/\n/g, '\\n')}`);
+    throw parseErr;
+  }
   const faq = extractFaqArray(parsed);
-  if (!faq) throw new Error('FAQ response is not an array');
+  if (!faq) {
+    // Try extracting from raw text as last resort
+    const regexFaq = extractFaqFromText(raw);
+    if (regexFaq && regexFaq.length >= 2) return regexFaq;
+    console.error(`  [extractFaqArray null] type=${typeof parsed} keys=${parsed ? Object.keys(parsed).join(',') : 'N/A'} raw[0:300]: ${raw.slice(0, 300).replace(/\n/g, '\\n')}`);
+    throw new Error('FAQ response is not an array');
+  }
   return faq;
 }
 
