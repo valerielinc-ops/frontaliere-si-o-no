@@ -1,16 +1,16 @@
 {
   "key": "aldi-suisse",
   "label": "ALDI Suisse",
-  "generatedAt": "2026-04-06T20:42:08.610Z",
+  "generatedAt": "2026-04-07T08:58:49.661Z",
   "total": 3,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 7512,
-  "avgDurationMs": 7512,
+  "durationMs": 4409,
+  "avgDurationMs": 4409,
   "durationHistory": [
-    7512
+    4409
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -34,19 +34,19 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1287177101",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-06T20:42:07.013Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-04-07T08:58:47.833Z",
       "sourceLang": "de",
-      "salaryMin": 54000,
-      "salaryMax": 73000,
-      "_qualityScore": 87,
+      "needsRetranslation": true,
+      "salaryMin": 66000,
+      "salaryMax": 89000,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 16,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -70,19 +70,19 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1266053601",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-06T20:42:07.012Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-04-07T08:58:47.832Z",
       "sourceLang": "de",
+      "needsRetranslation": true,
       "salaryMin": 54000,
       "salaryMax": 73000,
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     },
@@ -106,19 +106,19 @@
       "workPercentage": "",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-04-06",
+      "postedDate": "2026-04-07",
       "url": "https://www.jobs.aldi.ch/job/1224938701",
       "source": "ALDI Suisse Dedicated Parser",
-      "crawledAt": "2026-04-06T20:42:07.011Z",
-      "needsRetranslation": true,
+      "crawledAt": "2026-04-07T08:58:47.830Z",
       "sourceLang": "de",
+      "needsRetranslation": true,
       "salaryMin": 43000,
       "salaryMax": 58000,
-      "_qualityScore": 92,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
-        "translation": 21,
+        "translation": 25,
         "completeness": 25
       }
     }
