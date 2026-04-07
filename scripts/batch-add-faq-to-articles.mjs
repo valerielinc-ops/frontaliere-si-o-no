@@ -20,6 +20,7 @@
 
 import { readFileSync, writeFileSync, readdirSync, existsSync } from 'fs';
 import { resolve, basename } from 'path';
+import { execSync } from 'child_process';
 import { callLLM, callSingleModel, AI_MODELS, initScoreStore, getStats, flushScores, resetExhaustedModel } from './lib/ai-models.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './lib/free-translate.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
@@ -190,6 +191,48 @@ function saveProgress(progress) {
   progress.updatedAt = new Date().toISOString();
   write(PROGRESS_FILE, JSON.stringify(progress, null, 2));
 }
+
+/** Incremental git commit — saves work so CI timeout doesn't lose progress */
+let _lastCommitStep = 0;
+const COMMIT_EVERY = 25;
+
+function gitCommitAndPush(label) {
+  try {
+    execSync(
+      'git add services/locales/blog-body/ && git add -f data/batch-faq-progress.json 2>/dev/null; ' +
+      `git diff --cached --quiet || git commit -m "❓ FAQ batch checkpoint (${label})"`,
+      { cwd: ROOT, stdio: 'pipe', timeout: 30000 }
+    );
+    // Push if GITHUB_PAT is available (CI environment)
+    const pat = process.env.GITHUB_PAT;
+    const repo = process.env.GITHUB_REPOSITORY;
+    if (pat && repo) {
+      execSync(
+        `git push https://x-access-token:${pat}@github.com/${repo}.git HEAD:main`,
+        { cwd: ROOT, stdio: 'pipe', timeout: 60000 }
+      );
+      console.error(`💾 Checkpoint pushed: ${label}`);
+    } else {
+      console.error(`💾 Checkpoint committed (no push — local): ${label}`);
+    }
+  } catch (err) {
+    console.error(`⚠️  Checkpoint failed: ${err.message?.slice(0, 100)}`);
+  }
+}
+
+function commitIfNeeded(currentStep) {
+  if ((currentStep - _lastCommitStep) >= COMMIT_EVERY) {
+    _lastCommitStep = currentStep;
+    gitCommitAndPush(`step ${currentStep}`);
+  }
+}
+
+// Graceful shutdown: commit+push on SIGTERM (GitHub Actions sends this before kill)
+process.on('SIGTERM', () => {
+  console.error('\n⚠️  SIGTERM — saving progress...');
+  gitCommitAndPush('interrupted');
+  process.exit(0);
+});
 
 // ── Article discovery ────────────────────────────────────────
 
@@ -796,6 +839,7 @@ async function main() {
       progress.failed.push({ id: article.id, error: result.error, at: new Date().toISOString() });
     }
     saveProgress(progress);
+    commitIfNeeded(step);
     return result;
   });
 
@@ -810,6 +854,7 @@ async function main() {
     } else {
       failCount++;
     }
+    commitIfNeeded(step);
     return result;
   });
 
@@ -820,6 +865,7 @@ async function main() {
     const result = await processTranslation(article.id, article.file, article.itFaq, article.missingLocales);
     if (result.success) successCount++;
     else failCount++;
+    commitIfNeeded(step);
     return result;
   });
 
