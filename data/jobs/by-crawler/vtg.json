@@ -1,6 +1,6 @@
 {
   "crawlerKey": "vtg",
-  "assembledAt": "2026-04-06T21:53:06.832Z",
+  "assembledAt": "2026-04-07T10:09:34.394Z",
   "jobs": [
     {
       "id": "company-84ss1r",
@@ -67,7 +67,8 @@
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
       "addressCountry": "CH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "id": "company-h0fllu",
@@ -238,7 +239,7 @@
       "slugByLocale": {
         "it": "impiegato-a-in-logistica-magazzino-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
         "en": "logistician-warehouse-ambri-andermatt-swiss-armed-forces-vtg-ambri",
-        "de": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-ambri-d62hnl",
+        "de": "logistiker-in-lager-ambri-andermatt-swiss-armed-forces-vtg-bellinzona",
         "fr": "logisticien-ne-entrepot-ambri-andermatt-swiss-armed-forces-vtg-ambri"
       },
       "titleByLocale": {
