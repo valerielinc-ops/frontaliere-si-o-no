@@ -1,16 +1,16 @@
 {
   "key": "fincons-group",
   "label": "Fincons Group",
-  "generatedAt": "2026-04-07T09:30:47.622Z",
+  "generatedAt": "2026-04-07T21:25:48.920Z",
   "total": 7,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 1225,
-  "avgDurationMs": 1225,
+  "durationMs": 2085,
+  "avgDurationMs": 2085,
   "durationHistory": [
-    1225
+    2085
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -302,48 +302,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Senior IT Business Analyst",
-      "slug": "analista-aziendale-it-senior-fincons-group-lugano",
-      "url": "https://fincons.applytojob.com/apply/IlM9qNvu4O/Senior-IT-Business-Analyst",
-      "applyUrl": "https://fincons.applytojob.com/apply/IlM9qNvu4O/Senior-IT-Business-Analyst",
-      "company": "Fincons Group",
-      "companyKey": "fincons-group",
-      "companyDomain": "finconsgroup.com",
-      "location": "Lugano",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6900",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "source": "fincons-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-02-03",
-      "validThrough": "2026-05-04",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "metadata": {
-        "experienceRequirements": "Experienced",
-        "uniqueJobCode": "job_20260203082143_71O1MXGC5VNGEYEO",
-        "listingLocation": "Lugano, Switzerland",
-        "listingDepartment": ""
-      },
-      "salaryMin": 94000,
-      "salaryMax": 127000,
-      "currency": "CHF",
-      "streetAddress": "Via Industria 3",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
