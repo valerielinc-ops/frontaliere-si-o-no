@@ -41,6 +41,7 @@ const RESEND_ENDPOINT = 'https://api.resend.com/emails/batch';
 const DEFAULT_FROM_EMAIL = 'Frontaliere Ticino <newsletter@frontaliereticino.ch>';
 const FROM_EMAIL = process.env.NEWSLETTER_FROM || DEFAULT_FROM_EMAIL;
 const BATCH_SIZE = 50;
+const DAILY_SEND_LIMIT = 100; // Resend free tier: max 100/day
 const EXPERIMENTAL_MODE = process.env.NEWSLETTER_EXPERIMENTAL_MODE !== 'false';
 const SEND_ENABLED = process.env.NEWSLETTER_ENABLE_SEND === 'true';
 const AI_CONCURRENCY = 5; // Max parallel AI calls
@@ -598,6 +599,45 @@ function buildEmailHeaders(email, campaign) {
   };
 }
 
+// ─── Campaign Resume Tracking ───────────────────────────────
+
+/**
+ * Fetch emails already sent for this campaign from Firestore.
+ * Reads the _meta_ campaign log to find sent recipients.
+ */
+async function fetchAlreadySent(campaignId) {
+  if (!db) return new Set();
+  try {
+    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
+    const snap = await metaRef.collection('campaign_sends').doc(campaignId).get();
+    if (!snap.exists) return new Set();
+    const data = snap.data();
+    return new Set(data.sentEmails || []);
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Campaign resume fetch failed:', e?.message);
+    return new Set();
+  }
+}
+
+/**
+ * Persist the list of sent emails for this campaign (append, not replace).
+ */
+async function persistCampaignSends(campaignId, newlySentEmails) {
+  if (!db || !newlySentEmails.length) return;
+  const FieldValue = adminSdk?.firestore?.FieldValue;
+  try {
+    const metaRef = db.collection('newsletter_subscribers').doc('_meta_');
+    const docRef = metaRef.collection('campaign_sends').doc(campaignId);
+    await docRef.set({
+      sentEmails: FieldValue ? FieldValue.arrayUnion(...newlySentEmails) : newlySentEmails,
+      lastRunAt: new Date(),
+      updatedAt: new Date(),
+    }, { merge: true });
+  } catch (e) {
+    console.warn('\u26a0\ufe0f Campaign send tracking failed:', e?.message);
+  }
+}
+
 // ─── Resend API ─────────────────────────────────────────────
 
 async function persistDelivery(recipient, messageId, meta) {
@@ -710,39 +750,82 @@ async function logSend(count, subject, status) {
  *
  * Skipped when NEWSLETTER_SKIP_QA_GATE=true (CI emergency override only).
  */
+/**
+ * Inline QA validation — runs essential checks on the first generated email
+ * before sending any. No external report file required.
+ * Returns true if all checks pass.
+ */
+function inlineQaCheck(sampleHtml, subject) {
+  const checks = [];
+  const fail = (name, detail) => checks.push({ name, passed: false, detail });
+  const pass = (name) => checks.push({ name, passed: true });
+
+  // Subject line
+  if (!subject || subject.length < 10) fail('subject_present', `Subject too short: "${subject}"`);
+  else if (subject.length > 55) fail('subject_length', `Subject > 55 chars (${subject.length}): "${subject}"`);
+  else pass('subject_ok');
+
+  // HTML structure
+  if (!sampleHtml || sampleHtml.length < 500) fail('html_present', 'HTML body too short');
+  else pass('html_present');
+
+  // Unsubscribe link
+  if (!sampleHtml.includes('unsubscribe')) fail('unsubscribe_link', 'Missing unsubscribe link');
+  else pass('unsubscribe_link');
+
+  // Exchange rate card
+  if (!sampleHtml.includes('CHF') && !sampleHtml.includes('EUR')) fail('exchange_rate', 'Missing exchange rate');
+  else pass('exchange_rate');
+
+  // Job links (at least one cerca-lavoro link)
+  if (!sampleHtml.includes('cerca-lavoro-ticino')) fail('job_links', 'No job links found in HTML');
+  else pass('job_links');
+
+  // No raw template variables
+  if (/\{\{[^}]+\}\}/.test(sampleHtml)) fail('no_template_vars', 'Unresolved {{template}} variables');
+  else pass('no_template_vars');
+
+  // Unsubscribe URL with action param
+  if (!sampleHtml.includes('action=unsubscribe')) fail('unsubscribe_url', 'Missing ?action=unsubscribe URL');
+  else pass('unsubscribe_url');
+
+  const failed = checks.filter(c => !c.passed);
+  if (failed.length > 0) {
+    console.error(`\u274c Inline QA failed (${failed.length}/${checks.length} checks):`);
+    for (const f of failed) console.error(`  \u2717 ${f.name}: ${f.detail}`);
+    return false;
+  }
+  console.log(`\u2705 Inline QA passed (${checks.length}/${checks.length} checks)`);
+  return true;
+}
+
 function enforceQaGate() {
   if (process.env.NEWSLETTER_SKIP_QA_GATE === 'true') {
-    console.warn('\u26a0\ufe0f  QA gate skipped (NEWSLETTER_SKIP_QA_GATE=true) — proceed with caution.');
+    console.warn('\u26a0\ufe0f  QA gate skipped (NEWSLETTER_SKIP_QA_GATE=true) — inline QA will run before send.');
     return;
   }
 
-  const today = new Date().toISOString().slice(0, 10); // YYYY-MM-DD UTC
+  const today = new Date().toISOString().slice(0, 10);
   const reportPath = path.join(QA_DIR, `${today}-report.json`);
 
-  if (!fs.existsSync(reportPath)) {
-    console.error('\u274c  QA gate: no QA report found for today (' + today + ').');
-    console.error('   Run first: node scripts/newsletter-qa.mjs');
-    console.error('   Then retry: node scripts/send-newsletter.mjs --send');
-    process.exit(1);
+  // If a file-based report exists, use it; otherwise fall through to inline QA (runs after email assembly)
+  if (fs.existsSync(reportPath)) {
+    let report;
+    try {
+      report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
+    } catch {
+      console.warn('\u26a0\ufe0f  QA report unreadable — inline QA will run before send.');
+      return;
+    }
+    if (!report.passed) {
+      console.error('\u274c  QA gate: today\'s report has FAILED checks. Fix issues or set NEWSLETTER_SKIP_QA_GATE=true.');
+      process.exit(1);
+    }
+    const ageHours = ((Date.now() - new Date(report.generatedAt).getTime()) / 3.6e6).toFixed(1);
+    console.log(`\u2705 QA file gate passed — report from ${ageHours}h ago (${report.checksPassed}/${report.checksTotal} checks).`);
+  } else {
+    console.log('\u2139\ufe0f  No QA report for today — inline QA will validate before send.');
   }
-
-  let report;
-  try {
-    report = JSON.parse(fs.readFileSync(reportPath, 'utf8'));
-  } catch {
-    console.error('\u274c  QA gate: could not read QA report at ' + reportPath);
-    process.exit(1);
-  }
-
-  if (!report.passed) {
-    console.error('\u274c  QA gate: today\'s QA report has FAILED checks.');
-    console.error('   Fix the issues and re-run: node scripts/newsletter-qa.mjs');
-    process.exit(1);
-  }
-
-  const age = Date.now() - new Date(report.generatedAt).getTime();
-  const ageHours = (age / (1000 * 60 * 60)).toFixed(1);
-  console.log(`\u2705 QA gate passed — report from ${ageHours}h ago (${report.checksPassed}/${report.checksTotal} checks OK).`);
 }
 
 // ─── Main ───────────────────────────────────────────────────
@@ -1033,6 +1116,36 @@ async function main() {
   console.log(`\n🧠 AI stats: ${aiSuccessCount} cohort briefings (${cohorts.size} cohorts), ${aiFallbackCount} fallbacks, ${subjectMap.size} subjects`);
   console.log(`📊 Savings: ${subscribers.length * 2} AI calls → ${aiSuccessCount + aiFallbackCount + subjectMap.size} (${Math.round((1 - (aiSuccessCount + aiFallbackCount + subjectMap.size) / (subscribers.length * 2)) * 100)}% reduction)`);
 
+  // ── Inline QA check on first email ──
+  if (emails.length > 0) {
+    const samplePayload = emails[0].payload;
+    const qaOk = inlineQaCheck(samplePayload.html, samplePayload.subject);
+    if (!qaOk) {
+      console.error('\u274c Inline QA failed — aborting send. Fix the issues and retry.');
+      process.exit(1);
+    }
+  }
+
+  // ── Resume tracking: skip already-sent subscribers ──
+  const alreadySent = mode === 'send' ? await fetchAlreadySent(campaignId) : new Set();
+  let pendingEmails = emails;
+  if (alreadySent.size > 0) {
+    pendingEmails = emails.filter(e => !alreadySent.has(normalizeEmail(e.recipient.email)));
+    console.log(`📋 Resume: ${alreadySent.size} already sent, ${pendingEmails.length} remaining`);
+  }
+
+  // ── Daily cap: limit to DAILY_SEND_LIMIT for production sends ──
+  let cappedEmails = pendingEmails;
+  if (mode === 'send' && pendingEmails.length > DAILY_SEND_LIMIT) {
+    cappedEmails = pendingEmails.slice(0, DAILY_SEND_LIMIT);
+    console.log(`⏱️  Daily cap: sending ${cappedEmails.length}/${pendingEmails.length} (limit: ${DAILY_SEND_LIMIT}/day). Run again tomorrow for the rest.`);
+  }
+
+  if (cappedEmails.length === 0) {
+    console.log('\u2705 All subscribers already received this campaign. Nothing to send.');
+    if (flushScores) await flushScores();
+    return;
+  }
 
   // ── Send ──
   const apiKey = process.env.RESEND_API_KEY;
@@ -1041,8 +1154,18 @@ async function main() {
     process.exit(1);
   }
 
-  const totalSent = await sendEmailBatch(emails, apiKey);
-  console.log(`\u2705 Newsletter sent: ${totalSent}/${subscribers.length}`);
+  const totalSent = await sendEmailBatch(cappedEmails, apiKey);
+
+  // ── Track sent emails for resume ──
+  const sentEmailList = cappedEmails.slice(0, totalSent).map(e => normalizeEmail(e.recipient.email));
+  await persistCampaignSends(campaignId, sentEmailList);
+
+  const totalForCampaign = alreadySent.size + totalSent;
+  const totalSubscribers = emails.length;
+  console.log(`\u2705 Newsletter sent: ${totalSent} today | ${totalForCampaign}/${totalSubscribers} total for campaign`);
+  if (totalForCampaign < totalSubscribers) {
+    console.log(`\u23f3 ${totalSubscribers - totalForCampaign} remaining — run again tomorrow to continue.`);
+  }
 
   const sampleSubject = emails[0]?.payload?.subject || 'N/A';
   await logSend(totalSent, sampleSubject, totalSent > 0 ? 'sent' : 'failed');

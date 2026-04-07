@@ -3842,7 +3842,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
             slug: focusedJob.slug || null,
             company: focusedJob.company || null,
             location: focusedJob.location || null,
-            category: normalizeJobCategory(focusedJob) || null,
+            category: normalizeJobCategory(focusedJob.category, focusedJob.title) || null,
             searchQuery: searchQuery.trim() || null,
           }
         : {

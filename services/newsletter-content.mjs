@@ -500,23 +500,46 @@ export function buildSubjectPrompt(ctx) {
   const locale = ctx.subscriber?.locale || 'it';
   const langName = LOCALE_NAMES[locale] || 'Italian';
 
+  // Day of week for time-sensitive hooks
+  const dayNames = { it: ['domenica','lunedì','martedì','mercoledì','giovedì','venerdì','sabato'], en: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'], de: ['Sonntag','Montag','Dienstag','Mittwoch','Donnerstag','Freitag','Samstag'], fr: ['dimanche','lundi','mardi','mercredi','jeudi','vendredi','samedi'] };
+  const today = (dayNames[locale] || dayNames.it)[new Date().getDay()];
+
   const system = [
-    `Generate a single email subject line for the weekly "Frontaliere Ticino" newsletter.`,
-    `Write in ${langName}. STRICTLY 40-50 characters (count carefully). Be curiosity-driven and click-worthy.`,
-    `Use a pattern like: "⚡ Tasso CHF giù: quanto perdi?" or "📊 3 aziende assumono a Lugano" or "💰 Nuova aliquota: simula il netto".`,
-    `Do NOT list multiple topics. Pick ONE hook and make it irresistible. Do NOT include the exact exchange rate number.`,
-    `Do NOT use generic phrases like "Weekly update", "Newsletter", "Novità". Make it feel urgent and personal.`,
-    `Output ONLY the subject line, nothing else. No quotes, no explanation.`,
-  ].join(' ');
+    `You are a world-class email copywriter for "Frontaliere Ticino", a fintech app for Swiss-Italian cross-border workers.`,
+    `Write ONE email subject line in ${langName}. STRICTLY 40-50 characters including emoji. Count carefully.`,
+    ``,
+    `PROVEN PATTERNS (pick one and adapt):`,
+    `- Curiosity gap: "⚡ Il tasso CHF scende: quanto perdi?"`,
+    `- Number + location: "📊 3 aziende assumono a Lugano"`,
+    `- Direct benefit: "💰 Simula il netto 2026 in 30 sec"`,
+    `- Urgency/FOMO: "🔥 Scadenza fiscale: hai controllato?"`,
+    `- Question hook: "🤔 Permesso G o B? Il calcolo che conta"`,
+    `- News peg: "📰 ${today}: cosa cambia per i frontalieri"`,
+    ``,
+    `RULES:`,
+    `- Start with ONE emoji (⚡💰📊🔥🤔📰🏦💼)`,
+    `- Use "tu/you" voice, never "noi/we"`,
+    `- NO exact numbers (exchange rates, percentages)`,
+    `- NO generic words: "update", "newsletter", "novità", "weekly"`,
+    `- ONE hook only. Make the reader NEED to open the email.`,
+    `- Output ONLY the subject line. No quotes, no explanation.`,
+  ].join('\n');
 
   const hints = [];
   if (ctx.exchangeRate) {
-    const dir = ctx.exchangeRate.rate > (ctx.exchangeRate.previousRate || ctx.exchangeRate.rate) ? 'up' : 'down';
-    hints.push(`CHF/EUR trend: ${dir}`);
+    const pct = ctx.exchangeRate.previousRate
+      ? ((ctx.exchangeRate.rate - ctx.exchangeRate.previousRate) / ctx.exchangeRate.previousRate * 100)
+      : 0;
+    const dir = pct > 0.1 ? 'strengthening' : pct < -0.1 ? 'weakening' : 'stable';
+    hints.push(`CHF/EUR trend: ${dir} (${pct > 0 ? '+' : ''}${pct.toFixed(1)}%)`);
   }
-  if (ctx.matchedJobs?.[0]) hints.push(`Top job sector: ${ctx.matchedJobs[0].company}`);
-  if (ctx.subscriber?.locationInterest) hints.push(`Location: ${ctx.subscriber.locationInterest}`);
-  if (ctx.briefingSummary) hints.push(`Theme: ${ctx.briefingSummary.slice(0, 60)}`);
+  if (ctx.matchedJobs?.length) {
+    const companies = [...new Set(ctx.matchedJobs.map(j => j.company))].slice(0, 3);
+    hints.push(`Hot companies: ${companies.join(', ')}`);
+    if (ctx.matchedJobs[0]?.location) hints.push(`Job location: ${ctx.matchedJobs[0].location}`);
+  }
+  if (ctx.subscriber?.locationInterest) hints.push(`Reader location: ${ctx.subscriber.locationInterest}`);
+  if (ctx.briefingSummary) hints.push(`Theme: ${ctx.briefingSummary.slice(0, 80)}`);
 
   return { system, user: hints.join(' | ') || 'Generate a compelling subject for cross-border workers' };
 }
