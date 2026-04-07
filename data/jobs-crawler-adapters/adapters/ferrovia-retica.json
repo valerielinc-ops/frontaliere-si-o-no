@@ -8,6 +8,7 @@
     "html"
   ],
   "seedUrls": [
+    "https://www.rhb.ch/it/job/technische-r-kontrolleur-in-50-100_2026-2180/",
     "https://www.rhb.ch/it/job/leiter-in-bahnproduktion-50-100_2026-2179/",
     "https://www.rhb.ch/it/job/leiter-in-betrieb-and-kundeninfo-bernina-sud-50-100_2026-2178/",
     "https://www.rhb.ch/it/job/standortleiter-in-zugvorbereitung-and-reinigung-nord-and-mittelbunden-50-100_2026-2172/",
@@ -16,10 +17,13 @@
     "https://www.rhb.ch/it/job/horizontverantwortliche-r-planung-50-100_2026-2175/",
     "https://www.rhb.ch/it/job/leiter-in-geschaftssteuerung-50-100_2026-2176/",
     "https://www.rhb.ch/it/job/spezialist-in-anlagebuchhaltung-50-100_2026-2160/",
-    "https://www.rhb.ch/it/job/technische-r-einkaufer-in-50-100_2026-2170/",
-    "https://www.rhb.ch/it/job/teamleiter-in-elektroanlagen-sud-80-100_2026-2168/"
+    "https://www.rhb.ch/it/job/technische-r-einkaufer-in-50-100_2026-2170/"
   ],
   "seedMetaByUrl": {
+    "https://www.rhb.ch/it/job/technische-r-kontrolleur-in-50-100_2026-2180/": {
+      "company": "Ferrovia Retica (RhB)",
+      "companyDomain": "rhb.ch"
+    },
     "https://www.rhb.ch/it/job/leiter-in-bahnproduktion-50-100_2026-2179/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
@@ -55,12 +59,8 @@
     "https://www.rhb.ch/it/job/technische-r-einkaufer-in-50-100_2026-2170/": {
       "company": "Ferrovia Retica (RhB)",
       "companyDomain": "rhb.ch"
-    },
-    "https://www.rhb.ch/it/job/teamleiter-in-elektroanlagen-sud-80-100_2026-2168/": {
-      "company": "Ferrovia Retica (RhB)",
-      "companyDomain": "rhb.ch"
     }
   },
   "notes": "Rhaetian Railway, largest employer in Graubünden. Career page HTML crawler.",
-  "updatedAt": "2026-04-07T09:29:59.156Z"
+  "updatedAt": "2026-04-07T21:25:01.140Z"
 }

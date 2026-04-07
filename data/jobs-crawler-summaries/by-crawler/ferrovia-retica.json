@@ -1,18 +1,45 @@
 {
   "key": "ferrovia-retica",
   "label": "Ferrovia Retica (RhB)",
-  "generatedAt": "2026-04-07T09:30:00.790Z",
+  "generatedAt": "2026-04-07T21:25:02.792Z",
   "total": 10,
-  "newCount": 2,
-  "updatedCount": 8,
-  "removedCount": 2,
-  "unchangedCount": 0,
-  "durationMs": 17676,
-  "avgDurationMs": 17676,
+  "newCount": 1,
+  "updatedCount": 6,
+  "removedCount": 1,
+  "unchangedCount": 3,
+  "durationMs": 18561,
+  "avgDurationMs": 18561,
   "durationHistory": [
-    17676
+    18561
   ],
   "newJobs": [
+    {
+      "title": "Technische/r Kontrolleur/in (50-100%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/technische-r-kontrolleur-in-50-100_2026-2180/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "PART_TIME",
+      "category": "transport",
+      "postedDate": "2026-04-07",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "technische-r-kontrolleur-in-50-100-ferrovia-retica-rhb-chur",
+      "percentage": "50-100%",
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 2,
+        "completeness": 17
+      }
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Leiter/in Bahnproduktion (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -30,12 +57,17 @@
       "sourceLang": "de",
       "slug": "leiter-in-bahnproduktion-50-100-ferrovia-retica-rhb-chur",
       "percentage": "50-100%",
-      "_qualityScore": 64,
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 2,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
@@ -55,16 +87,19 @@
       "sourceLang": "de",
       "slug": "leiter-in-betrieb-kundeninfo-bernina-sud-50-100-ferrovia-retica-rhb-bernina",
       "percentage": "50-100%",
-      "_qualityScore": 62,
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 2,
-        "completeness": 17
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Standortleiter/in Zugvorbereitung & Reinigung / Nord- & Mittelbünden (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -80,35 +115,6 @@
       "postedDate": "2026-04-07",
       "source": "company-website",
       "slug": "standortleiter-in-zugvorbereitung-reinigung-nord-mittelbunden-50-100-ferrovia-retica-rhb-davos",
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Standortleiter/in Zugvorbereitung & Reinigung / Bernina Süd (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/standortleiter-in-zugvorbereitung-and-reinigung-bernina-sud-50-100_2026-2174/",
-      "location": "Poschiavo",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7742",
-      "streetAddress": "Piazza della Stazione, 7742 Poschiavo",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-07",
-      "source": "company-website",
-      "slug": "standortleiter-in-zugvorbereitung-reinigung-bernina-sud-50-100-ferrovia-retica-rhb-poschiavo",
       "percentage": "50-100%",
       "crawledAt": "",
       "sourceLang": "de",
@@ -153,35 +159,6 @@
       }
     },
     {
-      "title": "Horizontverantwortliche/r Planung (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/horizontverantwortliche-r-planung-50-100_2026-2175/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-07",
-      "source": "company-website",
-      "slug": "horizontverantwortliche-r-planung-50-100-ferrovia-retica-rhb-chur",
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
       "title": "Leiter/in Geschäftssteuerung (50-100%)",
       "company": "Ferrovia Retica (RhB)",
       "companyKey": "ferrovia-retica",
@@ -207,35 +184,6 @@
         "cleanliness": 25,
         "richness": 18,
         "translation": 19,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Spezialist/in Anlagebuchhaltung (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/spezialist-in-anlagebuchhaltung-50-100_2026-2160/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-07",
-      "source": "company-website",
-      "slug": "spezialist-in-anlagebuchhaltung-50-100-ferrovia-retica-rhb-chur",
-      "percentage": "50-100%",
-      "crawledAt": "",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
         "completeness": 22
       }
     },
@@ -267,7 +215,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Teamleiter/in Elektroanlagen Süd (80-100% )",
       "company": "Ferrovia Retica (RhB)",
@@ -282,68 +232,8 @@
       "category": "engineering",
       "postedDate": "2026-04-07",
       "source": "company-website",
-      "slug": "teamleiter-in-elektroanlagen-sud-80-100-ferrovia-retica-rhb-chur",
+      "slug": "teamleiter-in-elektroanlagen-sud-80-100-ferrovia-retica-samedan",
       "percentage": "80-100%",
-      "crawledAt": "",
-      "sourceLang": "de",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
-  "removedJobs": [
-    {
-      "title": "Kunden- und Reiseberater/in Railservice (80-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/kunden-und-reiseberater-in-railservice-80-100_2026-2169/",
-      "location": "Bernina",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "technology",
-      "postedDate": "2026-04-06",
-      "source": "company-website",
-      "slug": "kunden-e-reiseberater-in-railservice-80-100-ferrovia-retica-rhb-bernina",
-      "percentage": "80-100%",
-      "crawledAt": "",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Mechaniker/-in (50-100%)",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/mechaniker-in-50-100_2026-2164/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "PART_TIME",
-      "category": "engineering",
-      "postedDate": "2026-04-06",
-      "source": "company-website",
-      "slug": "mechaniker-in-50-100-ferrovia-retica-samedan",
-      "percentage": "50-100%",
       "crawledAt": "",
       "sourceLang": "de",
       "salaryMin": 72000,
@@ -359,6 +249,33 @@
     }
   ],
   "unchangedJobs": [
+    {
+      "title": "Technische/r Kontrolleur/in (50-100%)",
+      "company": "Ferrovia Retica (RhB)",
+      "companyKey": "ferrovia-retica",
+      "url": "https://www.rhb.ch/it/job/technische-r-kontrolleur-in-50-100_2026-2180/",
+      "location": "Chur",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7000",
+      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
+      "employmentType": "PART_TIME",
+      "category": "transport",
+      "postedDate": "2026-04-07",
+      "source": "company-website",
+      "sourceLang": "de",
+      "slug": "technische-r-kontrolleur-in-50-100-ferrovia-retica-rhb-chur",
+      "percentage": "50-100%",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 62,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 2,
+        "completeness": 17
+      }
+    },
     {
       "title": "Leiter/in Bahnproduktion (50-100%)",
       "company": "Ferrovia Retica (RhB)",
@@ -378,12 +295,15 @@
       "percentage": "50-100%",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 64,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "_qualityScore": 69,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 2,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
@@ -405,12 +325,15 @@
       "percentage": "50-100%",
       "crawledAt": "",
       "needsRetranslation": true,
-      "_qualityScore": 62,
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "_qualityScore": 67,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
         "translation": 2,
-        "completeness": 17
+        "completeness": 22
       }
     },
     {
@@ -608,35 +531,6 @@
       "sourceLang": "de",
       "salaryMin": 58000,
       "salaryMax": 78000,
-      "currency": "CHF",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Teamleiter/in Elektroanlagen Süd (80-100% )",
-      "company": "Ferrovia Retica (RhB)",
-      "companyKey": "ferrovia-retica",
-      "url": "https://www.rhb.ch/it/job/teamleiter-in-elektroanlagen-sud-80-100_2026-2168/",
-      "location": "Chur",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7000",
-      "streetAddress": "Bahnhofstrasse 25, 7001 Chur",
-      "employmentType": "FULL_TIME",
-      "category": "engineering",
-      "postedDate": "2026-04-07",
-      "source": "company-website",
-      "slug": "teamleiter-in-elektroanlagen-sud-80-100-ferrovia-retica-samedan",
-      "percentage": "80-100%",
-      "crawledAt": "",
-      "sourceLang": "de",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
       "currency": "CHF",
       "_qualityScore": 90,
       "_qualityBreakdown": {
