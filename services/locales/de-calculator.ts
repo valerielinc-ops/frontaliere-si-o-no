@@ -382,6 +382,10 @@ const deCalculator: Record<string, string> = {
     'calc.faq.a2': 'Das hängt von der persönlichen Situation ab. Bewilligung B (Aufenthalter) bietet Zugang zu allen Schweizer Diensten, hat aber hohe Lebenshaltungskosten. Bewilligung G (Grenzgänger) behält niedrigere italienische Kosten, bedeutet aber Pendeln und mögliche Doppelbesteuerung für neue Grenzgänger.',
     'calc.faq.q3': 'Wie funktioniert die Quellensteuer für Grenzgänger?',
     'calc.faq.a3': 'Die Quellensteuer wird direkt vom Schweizer Arbeitgeber vom Lohn abgezogen. Die Sätze variieren nach Kanton, Familienstand und Einkommen. Im Tessin reichen sie von 0% bis 24%. Die Tabellen sind A (ledig), B (verheiratet, ein Einkommen), C (verheiratet, zwei Einkommen), H (alleinerziehend). (Quelle: Kanton Tessin DFE 2026)',
+    'results.compareCta.title': 'Was wäre, wenn sich etwas ändert?',
+    'results.compareCta.subtitle': 'Passen Sie Gehalt, Kinderzahl oder Familienstand an und sehen Sie sofort, wie sich Ihr Nettoeinkommen verändert.',
+    'results.compareCta.button': 'Szenarien vergleichen',
+    'results.compareCta.hint': 'Was-wäre-wenn-Simulator — kostenlos',
 };
 
 export default deCalculator;

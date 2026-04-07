@@ -394,5 +394,9 @@ const translations: Record<string, string> = {
     'calc.faq.a2': 'Dipende dalla situazione personale. Il Permesso B (residente) offre accesso a tutti i servizi svizzeri ma ha costi di vita elevati. Il Permesso G (frontaliere) mantiene i costi italiani più bassi ma comporta pendolarismo e possibile doppia tassazione per i nuovi frontalieri.',
     'calc.faq.q3': 'Come funziona l\'imposta alla fonte per i frontalieri?',
     'calc.faq.a3': 'L\'imposta alla fonte viene trattenuta direttamente dal datore di lavoro svizzero sulla busta paga. Le aliquote variano per cantone, stato civile e reddito. In Ticino vanno dallo 0% al 24%. Le tabelle sono A (single), B (coniugato un reddito), C (coniugato due redditi), H (monoparentale). (Fonte: Canton Ticino DFE 2026)',
+    'results.compareCta.title': 'E se cambiasse qualcosa?',
+    'results.compareCta.subtitle': 'Modifica stipendio, figli o situazione familiare e scopri subito come cambiano i tuoi numeri netti.',
+    'results.compareCta.button': 'Confronta scenari diversi',
+    'results.compareCta.hint': 'Simulatore "Cosa Cambia Se" — gratuito',
 };
 export default translations;

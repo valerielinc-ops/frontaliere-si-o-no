@@ -1,5 +1,5 @@
 import React, { useState, useCallback, Suspense, useEffect, useRef } from 'react';
-import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check } from 'lucide-react';
+import { ScrollText, Trophy, Armchair, Info, PartyPopper, Calculator, ChevronRight, Home, Briefcase, Heart, AlertCircle, ShoppingBag, ShieldCheck, User, Coins, Baby, TrainFront, Maximize2, Minimize2, Share2, Check, ArrowRight, Sliders } from 'lucide-react';
 // jsPDF and autoTable are lazy-imported inside exportPDF() — only needed on user click (~134KB gzip saved from critical path)
 import { SimulationResult, TaxResult, TaxBreakdownItem, SimulationInputs } from '../../types';
 import { lazyRetry } from '@/services/lazyRetry';
@@ -753,6 +753,41 @@ const ResultsViewBase: React.FC<Props> = ({ result, inputs, focusArea = null, on
             context="salary-simulation"
           />
         </Suspense>
+
+        {/* Compare scenarios CTA — drives users from 'calculate' to 'compare' funnel step */}
+        {nav && (
+          <div className="mb-6 group">
+            <button
+              type="button"
+              aria-label={t('results.compareCta.button')}
+              onClick={() => {
+                Analytics.trackFunnelStep('compare', { source: 'results_cta' });
+                nav.navigateTo('calculator', 'whatif');
+              }}
+              className="w-full text-left rounded-2xl border border-indigo-200 dark:border-indigo-700 bg-gradient-to-br from-indigo-50 via-white to-violet-50 dark:from-indigo-950/60 dark:via-slate-900 dark:to-violet-950/40 p-5 sm:p-6 shadow-sm hover:shadow-md hover:border-indigo-300 dark:hover:border-indigo-600 transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+            >
+              <div className="flex items-start gap-4">
+                <div className="shrink-0 w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-900/60 flex items-center justify-center text-indigo-600 dark:text-indigo-400 group-hover:bg-indigo-200 dark:group-hover:bg-indigo-800/70 transition-colors">
+                  <Sliders size={20} />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <p className="text-sm font-bold text-indigo-800 dark:text-indigo-300 mb-1">
+                    {t('results.compareCta.title')}
+                  </p>
+                  <p className="text-xs text-slate-600 dark:text-slate-400 leading-relaxed">
+                    {t('results.compareCta.subtitle')}
+                  </p>
+                  <div className="mt-3 inline-flex items-center gap-1.5 text-xs font-semibold text-indigo-700 dark:text-indigo-400 group-hover:gap-2.5 transition-all duration-150">
+                    {t('results.compareCta.button')} <ArrowRight size={14} />
+                  </div>
+                </div>
+              </div>
+              <p className="mt-3 text-[11px] text-slate-400 dark:text-slate-600 border-t border-indigo-100 dark:border-indigo-900/40 pt-2.5">
+                {t('results.compareCta.hint')}
+              </p>
+            </button>
+          </div>
+        )}
 
         {/* Post-calculation newsletter CTA */}
         <Suspense fallback={null}>

@@ -382,6 +382,10 @@ const enCalculator: Record<string, string> = {
     'calc.faq.a2': 'It depends on your personal situation. Permit B (resident) gives access to all Swiss services but has high living costs. Permit G (cross-border) keeps lower Italian living costs but involves commuting and possible double taxation for new cross-border workers.',
     'calc.faq.q3': 'How does withholding tax work for cross-border workers?',
     'calc.faq.a3': 'Withholding tax is deducted directly by the Swiss employer from the paycheck. Rates vary by canton, marital status, and income. In Ticino they range from 0% to 24%. Tables are A (single), B (married single income), C (married dual income), H (single parent). (Source: Canton Ticino DFE 2026)',
+    'results.compareCta.title': 'What if something changed?',
+    'results.compareCta.subtitle': 'Adjust salary, number of children or family status and instantly see how your net income shifts.',
+    'results.compareCta.button': 'Compare different scenarios',
+    'results.compareCta.hint': 'What-if simulator — free',
 };
 
 export default enCalculator;

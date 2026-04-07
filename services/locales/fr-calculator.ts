@@ -382,6 +382,10 @@ const frCalculator: Record<string, string> = {
     'calc.faq.a2': 'Cela dépend de votre situation personnelle. Le permis B (résident) donne accès à tous les services suisses mais a des coûts de vie élevés. Le permis G (frontalier) maintient des coûts italiens plus bas mais implique des trajets et une possible double imposition pour les nouveaux frontaliers.',
     'calc.faq.q3': 'Comment fonctionne l\'impôt à la source pour les frontaliers ?',
     'calc.faq.a3': 'L\'impôt à la source est retenu directement par l\'employeur suisse sur le salaire. Les taux varient par canton, état civil et revenu. Au Tessin, ils vont de 0% à 24%. Les barèmes sont A (célibataire), B (marié un revenu), C (marié deux revenus), H (monoparental). (Source : Canton du Tessin DFE 2026)',
+    'results.compareCta.title': 'Et si quelque chose changeait\u00a0?',
+    'results.compareCta.subtitle': 'Ajustez le salaire, le nombre d\u2019enfants ou la situation familiale et voyez instantan\u00e9ment l\u2019impact sur votre revenu net.',
+    'results.compareCta.button': 'Comparer diff\u00e9rents sc\u00e9narios',
+    'results.compareCta.hint': 'Simulateur \u00ab\u00a0et-si\u00a0\u00bb \u2014 gratuit',
 };
 
 export default frCalculator;
