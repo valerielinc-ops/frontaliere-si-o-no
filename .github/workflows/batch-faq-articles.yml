@@ -92,7 +92,8 @@ jobs:
       - name: Commit and push changes
         if: steps.faq.outputs.modified_count != '0'
         run: |
-          git add services/locales/blog-body/ data/batch-faq-progress.json
+          git add services/locales/blog-body/
+          git add -f data/batch-faq-progress.json 2>/dev/null || true
 
           if git diff --cached --quiet; then
             echo "ℹ️  No changes to commit"

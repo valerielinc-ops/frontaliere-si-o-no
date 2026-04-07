@@ -99,10 +99,19 @@ function escapeForSingleQuoteTS(s) {
 /** Strip markdown fences and extract JSON array from LLM output */
 function repairJsonArray(s) {
   let c = s.replace(/^```(?:json)?\s*/m, '').replace(/\s*```\s*$/m, '').trim();
-  // Extract array
-  const start = c.indexOf('[');
-  const end = c.lastIndexOf(']');
-  if (start !== -1 && end !== -1 && end > start) c = c.slice(start, end + 1);
+  // Try to extract array first
+  const arrStart = c.indexOf('[');
+  const arrEnd = c.lastIndexOf(']');
+  if (arrStart !== -1 && arrEnd !== -1 && arrEnd > arrStart) {
+    c = c.slice(arrStart, arrEnd + 1);
+  } else {
+    // No array brackets — try object wrapping (model may return {"faq": [...]})
+    const objStart = c.indexOf('{');
+    const objEnd = c.lastIndexOf('}');
+    if (objStart !== -1 && objEnd !== -1 && objEnd > objStart) {
+      c = c.slice(objStart, objEnd + 1);
+    }
+  }
   // Fix literal newlines inside strings
   let out = '';
   let inStr = false;
@@ -117,6 +126,26 @@ function repairJsonArray(s) {
     out += ch;
   }
   return out;
+}
+
+/** Extract FAQ array from various LLM response shapes:
+ *  - direct array: [...]
+ *  - wrapped object: {"faq": [...]} or {"faqs": [...]} or {"questions": [...]}
+ *  - single-key object with array value: {"anything": [...]}
+ */
+function extractFaqArray(parsed) {
+  if (Array.isArray(parsed)) return parsed;
+  if (parsed && typeof parsed === 'object') {
+    // Try known keys first
+    for (const key of ['faq', 'faqs', 'questions', 'data', 'results', 'items']) {
+      if (Array.isArray(parsed[key])) return parsed[key];
+    }
+    // Fallback: first array-valued property
+    const vals = Object.values(parsed);
+    const arrVal = vals.find((v) => Array.isArray(v));
+    if (arrVal) return arrVal;
+  }
+  return null;
 }
 
 /** Load progress file or create empty state */
@@ -223,8 +252,9 @@ Rispondi SOLO con un JSON array (no markdown, no code fences):
   );
 
   const parsed = JSON.parse(repairJsonArray(raw));
-  if (!Array.isArray(parsed)) throw new Error('FAQ response is not an array');
-  return parsed;
+  const faq = extractFaqArray(parsed);
+  if (!faq) throw new Error('FAQ response is not an array');
+  return faq;
 }
 
 async function translateFaq(faqArray, targetLang) {
@@ -243,8 +273,9 @@ Respond ONLY with the translated JSON array (no markdown, no code fences):
   );
 
   const parsed = JSON.parse(repairJsonArray(raw));
-  if (!Array.isArray(parsed)) throw new Error(`Translation to ${targetLang} is not an array`);
-  return parsed;
+  const faq = extractFaqArray(parsed);
+  if (!faq) throw new Error(`Translation to ${targetLang} is not an array`);
+  return faq;
 }
 
 /** Validate FAQ array: min 2 pairs, q>10 chars, a>20 chars */
