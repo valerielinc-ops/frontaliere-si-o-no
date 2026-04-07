@@ -388,10 +388,10 @@
       "needsRetranslation": true,
       "requirementsByLocale": {},
       "slugByLocale": {
-        "it": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
-        "en": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni",
+        "it": "installatore-di-elettrodomestici-a-domicilio-fust-swiss-household-services-ag-oberburen",
+        "en": "home-delivery-fitter-of-electrical-household-appliances-fust-swiss-household-services-ag-oberburen",
         "de": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni-pztp1c",
-        "fr": "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
+        "fr": "livreur-a-domicile-monteur-d-electromenager-fust-swiss-household-services-ag-oberburen"
       },
       "addressLocality": "Oberbüren",
       "sourceLang": "de",
@@ -406,7 +406,10 @@
           "maxValue": 78000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugs": [
+        "heimliefermonteur-in-von-elektrohaushaltgeraten-fust-grigioni"
+      ]
     },
     {
       "id": "company-a6mxm2",
