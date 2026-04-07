@@ -92,6 +92,9 @@ jobs:
       - name: Validate third-party secrets are not committed (blocking)
         run: npm run validate:third-party-secrets
 
+      - name: Mine all job slugs for comprehensive 404 coverage
+        run: node scripts/mine-all-job-slugs.mjs
+
       - name: Fetch Amazon product data
         continue-on-error: true
         run: node scripts/fetch-amazon-products.mjs

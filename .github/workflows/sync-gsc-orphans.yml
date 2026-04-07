@@ -81,6 +81,10 @@ jobs:
         if: ${{ inputs.dry_run != true }}
         run: node scripts/reconcile-job-slugs.mjs
 
+      - name: Mine all job slugs for comprehensive coverage
+        if: ${{ inputs.dry_run != true }}
+        run: node scripts/mine-all-job-slugs.mjs
+
       - name: Check for changes
         id: changes
         run: |
