@@ -35,6 +35,7 @@ import {
   validateDedicatedLocaleCoverage,
   detectLang,
   mergeLocaleTextMap,
+  stableSlugHash,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   parseAxaListingPage,
@@ -257,12 +258,86 @@ async function enrichWithDetails(listings) {
   return relevant;
 }
 
-function buildAxaJob(row) {
+/**
+ * Build a regenerated AXA slug with a stable per-vacancy disambiguator suffix.
+ *
+ * AXA publishes multiple legitimate openings for the same role at different
+ * (or even the same) Ticino cities — e.g. several "Consulente Assicurativo"
+ * positions across Lugano, Manno, Biasca. The previous formula `slugify(title)`
+ * collapsed those distinct postings to a single slug, and the housekeeping
+ * dedup pass silently removed the duplicates: the audit at
+ * /tmp/housekeeping-audit-2026-04-07.md identified 16 silent losses over 30
+ * days in axa-svizzera.
+ *
+ * Each AXA vacancy URL contains a unique UUID under
+ * `/posizioni-aperte/{slug}/{uuid}`. `stableSlugHash(job)` derives a 6-char
+ * hash from `fingerprintJob(job)`, which falls back to the canonical URL when
+ * no path-id pattern matches — so each vacancy gets a unique deterministic
+ * suffix that survives across crawl runs.
+ *
+ * Pure function: no I/O, no module-level state. Exported for tests.
+ *
+ * @param {object} job - Job-like object with at least { title, url } populated
+ * @param {string} location - Resolved AXA city (e.g. "Lugano")
+ * @returns {string} Regenerated slug, length-capped at 90 chars
+ */
+export function buildAxaRegeneratedSlug(job, location) {
+  const suffix = stableSlugHash(job) || '';
+  const baseInput = `${job?.title || ''}-axa-${location || ''}`;
+  const baseSlug = baseInput
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (!baseSlug) return '';
+  if (!suffix) return baseSlug.slice(0, 90);
+  const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
+  const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+  return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
+}
+
+export function buildAxaJob(row) {
   const localized = buildAxaLocalizedContent(row, row.excerpt || '');
   const canton = inferAxaCanton(row.location, row.address);
   const category = inferAxaCategory(row.title, row.description);
   const detailUrl = row.detailUrl || row.url;
-  const slug = slugify(row.title);
+
+  // Resolve the per-job city BEFORE building the slug so we never collapse
+  // multiple openings of the same role to the same slug. Falling back to
+  // `addressLocality = COMPANY_DEFAULTS['axa-svizzera']` (Lugano) is the Lidl
+  // trap that triggers `hardenJobLocaleFields` to re-derive the slug from
+  // `[title, company, defaultAddressLocality]` and silently dedup losers.
+  // Swiss address format is "Street N, PostalCode City" — prefer the listing
+  // location field, then fall back to the post-postal-code segment of the
+  // street address. The first segment of split(',') is the street, never the
+  // city.
+  const isUsableCity = (value) => {
+    const v = String(value || '').trim();
+    if (!v) return false;
+    if (v.length < 2) return false;
+    // Reject parser junk like "()", "[]", "-", and pure-punctuation strings.
+    if (!/[a-zA-Z]/.test(v)) return false;
+    return true;
+  };
+  const addressLocality = (() => {
+    const fromLocation = String(row.location || '').trim();
+    if (isUsableCity(fromLocation)) return fromLocation;
+    const segments = String(row.address || '')
+      .split(',')
+      .map((s) => s.trim())
+      .filter(Boolean);
+    if (segments.length === 0) return '';
+    const last = segments[segments.length - 1] || '';
+    const cityFromLast = last.replace(/^\d{4}\s*/, '').trim();
+    if (isUsableCity(cityFromLast)) return cityFromLast;
+    return last;
+  })();
+  const resolvedLocation = addressLocality || 'Ticino';
+  const slug = buildAxaRegeneratedSlug(
+    { title: row.title, url: detailUrl },
+    resolvedLocation,
+  );
 
   // Employment type from workload
   let employmentType = 'full-time';
@@ -283,8 +358,8 @@ function buildAxaJob(row) {
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,
-    location: row.location || row.address?.split(',')[0] || 'Ticino',
-    addressLocality: row.address?.split(',')[0]?.trim() || row.location || '',
+    location: resolvedLocation,
+    addressLocality,
     addressRegion: canton,
     addressCountry: 'CH',
     canton,
@@ -465,7 +540,18 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((error) => {
-  console.error(`❌ AXA crawler failed: ${error?.stack || error}`);
-  process.exitCode = 1;
-});
+// Only run main() when invoked as a script, not when imported by tests.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((error) => {
+    console.error(`❌ AXA crawler failed: ${error?.stack || error}`);
+    process.exitCode = 1;
+  });
+}

@@ -31,7 +31,11 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import {
+  runDedicatedBaseCrawler,
+  validateDedicatedLocaleCoverage,
+  mergeLocaleTextMap,
+  stableSlugHash,
 } from './lib/dedicated-crawler-common.mjs';
 import { parseSwisscomJobDescription } from './lib/swisscom-job-parser.mjs';
 import { inferSwissTargetCanton, isTargetSwissLocation } from './lib/target-swiss-locations.mjs';
@@ -59,19 +63,6 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
-}
-
-function slugify(text = '', suffix = '') {
-  let s = text
-    .toLowerCase()
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .replace(/[^a-z0-9]+/g, '-')
-    .replace(/^-+|-+$/g, '');
-  if (suffix) {
-    s = `${s}-${suffix}`.replace(/--+/g, '-');
-  }
-  return s.slice(0, 90);
 }
 
 function stripHtml(html = '') {
@@ -302,6 +293,128 @@ function buildPublicUrl(externalPath) {
   return `${SWISSCOM_PUBLIC_BASE}${externalPath}`;
 }
 
+/**
+ * Build a regenerated Swisscom slug with a stable per-vacancy disambiguator
+ * suffix.
+ *
+ * Swisscom publishes the same apprenticeship/role across multiple Ticino
+ * cities (e.g. R-0002524 Bellinzona, R-0002525 Grancia, R-0002527 Balerna for
+ * the same "Apprendistato Impiegato/a del commercio al dettaglio AFC"). The
+ * previous formula `slugify(title, swisscom-{city})` did include the city,
+ * but the crawler did not set per-job `addressLocality`, so
+ * `applyCompanyDefaults` filled it with the hardcoded HQ city `Bellinzona`
+ * and `hardenJobLocaleFields` re-derived the slug from
+ * `[title, company, addressLocality]` collapsing every per-city slug to one.
+ *
+ * The audit at /tmp/housekeeping-audit-2026-04-07.md identified 4 silent
+ * losses in swisscom-sede-ticino over 30 days from this exact pattern.
+ *
+ * `stableSlugHash(job)` derives a 6-char hash from `fingerprintJob(job)`,
+ * which on Swisscom Workday URLs returns
+ * `id|myworkdayjobs.com|{title-and-jobreqid}` so each vacancy gets a unique
+ * deterministic suffix that survives across crawl runs and across
+ * `hardenJobLocaleFields` slug refresh cycles.
+ *
+ * Pure function: no I/O, no module-level state. Exported for tests.
+ *
+ * @param {object} job - Job-like object with at least { title, url } populated
+ * @param {string} city - Resolved Swisscom city (e.g. "Bellinzona")
+ * @returns {string} Regenerated slug, length-capped at 90 chars
+ */
+export function buildSwisscomRegeneratedSlug(job, city) {
+  const suffix = stableSlugHash(job) || '';
+  const baseInput = `${job?.title || ''}-swisscom-${city || ''}`;
+  const baseSlug = baseInput
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+  if (!baseSlug) return '';
+  if (!suffix) return baseSlug.slice(0, 90);
+  const baseMaxLen = Math.max(0, 90 - (suffix.length + 1));
+  const trimmedBase = baseSlug.slice(0, baseMaxLen).replace(/-+$/, '');
+  return trimmedBase ? `${trimmedBase}-${suffix}` : suffix;
+}
+
+/**
+ * Build a normalized Swisscom job from a Workday listing + detail pair.
+ *
+ * Pure function: no I/O, no network. Exported for tests so the slug
+ * disambiguation behaviour can be exercised end-to-end without hitting the
+ * Workday API.
+ *
+ * Critical: ALWAYS sets `addressLocality` to the per-job city. Without this,
+ * `applyCompanyDefaults` overwrites it with the hardcoded
+ * `COMPANY_DEFAULTS['swisscom-sede-ticino'].addressLocality = 'Bellinzona'`,
+ * triggering the `hardenJobLocaleFields` slug-collision regression.
+ *
+ * @param {object} listing - Workday job posting summary (title, externalPath, locationsText)
+ * @param {object} detail - Workday job detail payload (jobPostingInfo)
+ * @returns {object} Normalized job object ready for the merge step
+ */
+export function buildSwisscomJob(listing = {}, detail = {}) {
+  const info = detail?.jobPostingInfo || {};
+  const title = normalizeSpace(info.title || listing.title || '');
+  const externalPath = listing.externalPath || '';
+  const locationRaw = info.location || listing.locationsText || '';
+  const city = parseWorkdayLocation(locationRaw);
+  const canton = inferCanton(city);
+
+  const descriptionHtml = info.jobDescription || '';
+  const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
+  const parsedDescription = parseSwisscomJobDescription(descriptionHtml, title);
+  const publicUrl = buildPublicUrl(externalPath);
+
+  const descIt = parsedDescription.description || buildFallbackDescription(title, descriptionText, city);
+  const reqIt = Array.isArray(parsedDescription.requirements) ? parsedDescription.requirements : [];
+
+  const slug = buildSwisscomRegeneratedSlug({ title, url: publicUrl }, city);
+  const employmentType = detectEmploymentType(info.timeType || '');
+  const jobReqId = info.jobReqId || (listing.bulletFields || [])[0] || '';
+
+  const job = {
+    url: publicUrl,
+    applyUrl: publicUrl,
+    title,
+    company: SWISSCOM_COMPANY_NAME,
+    companyKey: SWISSCOM_KEY,
+    location: city,
+    addressLocality: city,
+    canton,
+    country: 'CH',
+    description: descIt,
+    descriptionByLocale: {
+      it: descIt,
+    },
+    requirements: reqIt,
+    requirementsByLocale: {
+      it: reqIt,
+    },
+    titleByLocale: {
+      it: title,
+    },
+    slug,
+    slugByLocale: {
+      it: slug,
+      en: slug,
+    },
+    category: detectCategory(title),
+    datePosted: info.startDate || new Date().toISOString().split('T')[0],
+    source: 'swisscom-workday-crawler',
+    employmentType,
+    experienceLevel: detectExperienceLevel(title),
+    sector: 'Tecnologia & IT',
+    _targetScope: { canton, location: city },
+  };
+
+  if (jobReqId) {
+    job.jobReqId = jobReqId;
+  }
+
+  return job;
+}
+
 // ─────────────────────────────────────────────────────────────
 // Fetch and build all Swisscom Ticino jobs
 // ─────────────────────────────────────────────────────────────
@@ -326,68 +439,10 @@ async function fetchSwisscomJobs() {
     // Small delay between detail fetches
     await new Promise(r => setTimeout(r, 200));
 
-    const info = detail?.jobPostingInfo || {};
-    const title = normalizeSpace(info.title || listing.title || '');
-    if (!title || title.length < 3) {
+    const job = buildSwisscomJob(listing, detail);
+    if (!job.title || job.title.length < 3) {
       console.log(`  ⏭️  Skipped — empty title`);
       continue;
-    }
-
-    const locationRaw = info.location || listing.locationsText || '';
-    const city = parseWorkdayLocation(locationRaw);
-    const canton = inferCanton(city);
-
-    const descriptionHtml = info.jobDescription || '';
-    const descriptionText = normalizeSpace(stripHtml(descriptionHtml));
-    const parsedDescription = parseSwisscomJobDescription(descriptionHtml, title);
-    const publicUrl = buildPublicUrl(externalPath);
-
-    // Use the structured Italian description from the Workday HTML whenever possible.
-    const descIt = parsedDescription.description || buildFallbackDescription(title, descriptionText, city);
-    const reqIt = Array.isArray(parsedDescription.requirements) ? parsedDescription.requirements : [];
-
-    // Include city in slug to keep same-title jobs in different cities unique
-    const slugSuffix = `swisscom-${slugify(city)}`;
-    const slug = slugify(title, slugSuffix);
-    const employmentType = detectEmploymentType(info.timeType || '');
-    const jobReqId = info.jobReqId || (listing.bulletFields || [])[0] || '';
-
-    const job = {
-      url: publicUrl,
-      applyUrl: publicUrl,
-      title,
-      company: SWISSCOM_COMPANY_NAME,
-      companyKey: SWISSCOM_KEY,
-      location: city,
-      canton,
-      country: 'CH',
-      description: descIt,
-      descriptionByLocale: {
-        it: descIt,
-      },
-      requirements: reqIt,
-      requirementsByLocale: {
-        it: reqIt,
-      },
-      titleByLocale: {
-        it: title,
-      },
-      slug,
-      slugByLocale: {
-        it: slug,
-        en: slugify(title, slugSuffix),
-      },
-      category: detectCategory(title),
-      datePosted: info.startDate || new Date().toISOString().split('T')[0],
-      source: 'swisscom-workday-crawler',
-      employmentType,
-      experienceLevel: detectExperienceLevel(title),
-      sector: 'Tecnologia & IT',
-      _targetScope: { canton, location: city },
-    };
-
-    if (jobReqId) {
-      job.jobReqId = jobReqId;
     }
 
     jobs.push(job);
@@ -588,6 +643,14 @@ function postProcessSwisscomJobs() {
       job.location = 'Bellinzona';
       fixed++;
     }
+    // Mirror per-job city onto addressLocality so applyCompanyDefaults does
+    // not overwrite it with the hardcoded HQ city — that overwrite is what
+    // triggers hardenJobLocaleFields to collapse per-city slugs and silently
+    // dedup losers in cleanup-jobs.mjs.
+    if (!job.addressLocality && job.location) {
+      job.addressLocality = job.location;
+      fixed++;
+    }
   }
 
   if (fixed > 0) {
@@ -723,7 +786,18 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => {
-  console.error(`❌ Swisscom crawler failed: ${err?.message || err}`);
-  process.exit(1);
-});
+// Only run main() when invoked as a script, not when imported by tests.
+const isInvokedDirectly = (() => {
+  try {
+    return import.meta.url === `file://${process.argv[1]}`;
+  } catch {
+    return false;
+  }
+})();
+
+if (isInvokedDirectly) {
+  main().catch((err) => {
+    console.error(`❌ Swisscom crawler failed: ${err?.message || err}`);
+    process.exit(1);
+  });
+}
