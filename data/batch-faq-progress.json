@@ -22,7 +22,11 @@
     "autotrasporto-rincari-confine-2026",
     "banche-sindacati-piattaforma-aumento",
     "avs-saronno-referendum",
-    "aziende-como-assumono-lavoratori"
+    "aziende-como-assumono-lavoratori",
+    "abolizione-imposta-valore-locativo-2029",
+    "accesso-libero-alle-rive",
+    "accordi-svizzera-ue-2026",
+    "credito-imposta-doppia-tassazione"
   ],
   "failed": [
     {
@@ -509,8 +513,988 @@
       "id": "cannabis-sequestro-ticino",
       "error": "FAQ response is not an array",
       "at": "2026-04-07T14:25:12.263Z"
+    },
+    {
+      "id": "accordi-bilaterali-3-parlamento",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:29:51.923Z"
+    },
+    {
+      "id": "accordi-svizzera-ue-parmelin-bruxelles",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:30:37.128Z"
+    },
+    {
+      "id": "accordo-ue-frontalieri-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:30:42.610Z"
+    },
+    {
+      "id": "accordo-ue-svizzera-impatto-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:30:51.242Z"
+    },
+    {
+      "id": "accordo-ue-svizzera-mercato-interno-impatto-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:31:00.272Z"
+    },
+    {
+      "id": "accordo-ue-svizzera-mercato-interno",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:31:09.249Z"
+    },
+    {
+      "id": "accordo-ue-voto-obbligatorio-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:31:18.355Z"
+    },
+    {
+      "id": "acinque-lancia-piano-genitorialita",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:31:27.244Z"
+    },
+    {
+      "id": "acqua-mendrisiotto-prezzi-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:31:36.239Z"
+    },
+    {
+      "id": "acqua-non-potabile-lavizzara",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:31:45.313Z"
+    },
+    {
+      "id": "acquarossa-nuovo-polo-filovia-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:31:54.289Z"
+    },
+    {
+      "id": "addiofrontalierelongo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:32:03.420Z"
+    },
+    {
+      "id": "addizionale-irpef-mappa-comuni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:32:12.312Z"
+    },
+    {
+      "id": "affitti-rialzo-crisi-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:32:21.321Z"
+    },
+    {
+      "id": "agente-sicurezza-investito-cadenazzo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:32:30.654Z"
+    },
+    {
+      "id": "agenzia-trasporto-nuovo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:32:39.445Z"
+    },
+    {
+      "id": "aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:32:48.247Z"
+    },
+    {
+      "id": "aggregazione-rischio-basso-mendrisiotto",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:32:57.380Z"
+    },
+    {
+      "id": "ai-lombardia-ticino-frontaliere-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:33:06.393Z"
+    },
+    {
+      "id": "ampliamento-parco-eolico-san-gottardo-digital-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:33:15.318Z"
+    },
+    {
+      "id": "apprendisti-frontalieri-riforma-permesso-g",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:33:24.362Z"
+    },
+    {
+      "id": "aprire-conto-bancario-frontaliere",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:33:33.681Z"
+    },
+    {
+      "id": "arca-russa-chiasso-cultura-frontaliere",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:33:42.432Z"
+    },
+    {
+      "id": "architetti-sottopagati-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:33:51.246Z"
+    },
+    {
+      "id": "arte-anima-ticino-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:34:00.266Z"
+    },
+    {
+      "id": "asilo-nido-frontaliere-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:34:09.458Z"
+    },
+    {
+      "id": "asilo-nido-ticino-guida-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:34:18.289Z"
+    },
+    {
+      "id": "assegni-familiari-frontalieri-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:34:27.622Z"
+    },
+    {
+      "id": "assicurazione-auto-rincari-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:34:36.311Z"
+    },
+    {
+      "id": "assicurazione-malattia-famiglia",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:34:45.319Z"
+    },
+    {
+      "id": "aumentare-gia-il-prezzo-della-benzina",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:34:54.285Z"
+    },
+    {
+      "id": "aumento-contingente-uova-svizzera",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:35:03.285Z"
+    },
+    {
+      "id": "aumento-export-bellico-svizzero-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:35:12.227Z"
+    },
+    {
+      "id": "aumento-franchigia-minima",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:35:21.242Z"
+    },
+    {
+      "id": "aumento-inchieste-penali-2025",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:35:30.358Z"
+    },
+    {
+      "id": "aumento-iva-costo-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:35:39.359Z"
+    },
+    {
+      "id": "aumento-mezzi-pubblici-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:35:48.326Z"
+    },
+    {
+      "id": "banche-ticino-disoccupazione",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:35:57.277Z"
+    },
+    {
+      "id": "baseball-italia-porto-rico-world-classic",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:36:06.243Z"
+    },
+    {
+      "id": "bellinzona-auscultazione-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:36:15.259Z"
+    },
+    {
+      "id": "bellinzona-crescita-qualita-vita",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:36:24.220Z"
+    },
+    {
+      "id": "bellinzona-paese-dormitorio",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:36:33.404Z"
+    },
+    {
+      "id": "bellinzona-scomparsa-ricerche-ticino-piemonte",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:36:42.345Z"
+    },
+    {
+      "id": "benzina-conveniente",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:36:51.539Z"
+    },
+    {
+      "id": "benzina-ticino-oriente",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:37:00.268Z"
+    },
+    {
+      "id": "benzina-ticino-taglio-accise",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:37:09.246Z"
+    },
+    {
+      "id": "berna-discute-approvvigionamento-economico-e-13esima-avs",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:37:18.281Z"
+    },
+    {
+      "id": "best-cross-border-worker-calculator-switzerland",
+      "error": "Body too short",
+      "at": "2026-04-07T14:37:18.281Z"
+    },
+    {
+      "id": "bilaterali-iii-cassis-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:37:27.341Z"
+    },
+    {
+      "id": "bilaterali-iii-parlamento-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:37:36.284Z"
+    },
+    {
+      "id": "bilaterali-iii-ticino-parlamento-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:37:45.456Z"
+    },
+    {
+      "id": "bilaterali-terza-fase-parlamento-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:37:54.387Z"
+    },
+    {
+      "id": "bilaterali-ue-svizzera-firma",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:38:03.392Z"
+    },
+    {
+      "id": "bns-utile-calo-2025-impatto-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:38:12.404Z"
+    },
+    {
+      "id": "bonus-famiglia-frontalieri-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:38:21.277Z"
+    },
+    {
+      "id": "borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:38:30.376Z"
+    },
+    {
+      "id": "borse-in-rosso-prezzo-petrolio-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:38:39.431Z"
+    },
+    {
+      "id": "bossi-commemorazione-bagarrata",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:38:48.358Z"
+    },
+    {
+      "id": "bossi-morto-ticino-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:38:57.310Z"
+    },
+    {
+      "id": "bossi-voleva-bene-al-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:39:06.352Z"
+    },
+    {
+      "id": "bps-suisse-risultati-bper",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:39:15.266Z"
+    },
+    {
+      "id": "bps-suisse-utili-consigli-crisi",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:39:24.310Z"
+    },
+    {
+      "id": "byd-expansion-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:39:33.333Z"
+    },
+    {
+      "id": "cabov-precipita-forte-vento",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:39:42.312Z"
+    },
+    {
+      "id": "calcolo-pensione-avs-inps",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:39:51.388Z"
+    },
+    {
+      "id": "calcolo-tasse-entro-confine",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:40:00.403Z"
+    },
+    {
+      "id": "calo-entrate-irregolari-chiasso",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:40:09.268Z"
+    },
+    {
+      "id": "calo-frontalieri-non-tassa-salute",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:40:18.426Z"
+    },
+    {
+      "id": "calo-frontalieri-ragioni-economiche",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:40:27.263Z"
+    },
+    {
+      "id": "camedo-buffet-eventi-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:40:36.295Z"
+    },
+    {
+      "id": "camion-panne-san-gottardo-traffico-bloccato",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:40:45.229Z"
+    },
+    {
+      "id": "campione-italia-fine-dissesto",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:40:54.273Z"
+    },
+    {
+      "id": "cane-morto-binarie-campo-calcio",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:41:03.286Z"
+    },
+    {
+      "id": "cannabis-sequestro-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:41:12.529Z"
+    },
+    {
+      "id": "cannabis-sequestro-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:41:21.650Z"
+    },
+    {
+      "id": "cantiere-viale-geno-como",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:41:30.252Z"
+    },
+    {
+      "id": "cantieri-a9-disagi-frontiera",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:41:39.360Z"
+    },
+    {
+      "id": "cantieri-notturni-lugano-marzo-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:41:48.354Z"
+    },
+    {
+      "id": "cantieri-traffico-a9-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:41:57.339Z"
+    },
+    {
+      "id": "cantieri-traffico-frontiera",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:42:06.325Z"
+    },
+    {
+      "id": "carburante-prezzo-salito-opportunismo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:42:15.322Z"
+    },
+    {
+      "id": "carburante-ticino-costo-aumenti",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:42:24.396Z"
+    },
+    {
+      "id": "carburanti-prezzo-rialzo-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:42:34.335Z"
+    },
+    {
+      "id": "carburanti-rincari-confine-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:42:42.470Z"
+    },
+    {
+      "id": "carburanti-ticino-aumento-prezzi",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:42:51.402Z"
+    },
+    {
+      "id": "carenza-farmaci-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:43:00.350Z"
+    },
+    {
+      "id": "carnevale-2026-lugano-laboratori-creativi-figli-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:43:09.267Z"
+    },
+    {
+      "id": "carnevale-bambini-lugano-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:43:18.263Z"
+    },
+    {
+      "id": "carnevale-bambini-lugano-tinguely",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:43:27.401Z"
+    },
+    {
+      "id": "carnevale-blenio-chiescia-bosc",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:43:36.326Z"
+    },
+    {
+      "id": "caro-carburante-benzina-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:43:45.397Z"
+    },
+    {
+      "id": "carpooling-aziendale-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:43:54.477Z"
+    },
+    {
+      "id": "carpooling-ticino-corsie-frontaliere-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:44:03.444Z"
+    },
+    {
+      "id": "casa-hockey-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:44:12.333Z"
+    },
+    {
+      "id": "casa-oltre-confine-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:44:21.256Z"
+    },
+    {
+      "id": "casellario-giudiziale-ue-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:44:30.416Z"
+    },
+    {
+      "id": "cassa-malati-franchigia-minima-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:44:39.955Z"
+    },
+    {
+      "id": "cassa-malati-leghista-applicata-subito",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:44:48.282Z"
+    },
+    {
+      "id": "catastrofi-ticino-prontezza-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:44:57.511Z"
+    },
+    {
+      "id": "centovallina-riapertura-treni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:45:06.302Z"
+    },
+    {
+      "id": "centrale-elettrica-grono-attiva",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:45:15.301Z"
+    },
+    {
+      "id": "centrodestra-stop-ristorni-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:45:24.428Z"
+    },
+    {
+      "id": "checklist-documenti-lavoro-svizzera",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:45:33.436Z"
+    },
+    {
+      "id": "chiamate-shock-arresti-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:45:42.453Z"
+    },
+    {
+      "id": "chiasso-como-cantieri-a9-disagi",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:45:51.374Z"
+    },
+    {
+      "id": "chiasso-comunita-cambiamento-valori",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:46:00.503Z"
+    },
+    {
+      "id": "chiasso-comunita-evoluzione-sociale",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:46:09.345Z"
+    },
+    {
+      "id": "chiasso-fede-adulti-integrazione",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:46:18.407Z"
+    },
+    {
+      "id": "chiasso-jazz-festival-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:46:27.340Z"
+    },
+    {
+      "id": "chiasso-missione-emergenza-luci-blu",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:46:36.457Z"
+    },
+    {
+      "id": "chiasso-missione-emergenza",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:46:45.868Z"
+    },
+    {
+      "id": "chiasso-ora-terra-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:46:54.483Z"
+    },
+    {
+      "id": "chiasso-piano-regolatore-telefonia",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:47:03.412Z"
+    },
+    {
+      "id": "chiasso-tassa-refezione-scuola-infanzia",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:47:12.460Z"
+    },
+    {
+      "id": "chiasso-verde-sufficiente",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:47:21.420Z"
+    },
+    {
+      "id": "chiasso-zanzara-tigre-strategia-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:47:30.389Z"
+    },
+    {
+      "id": "chiusa-val-bedretto",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:47:39.320Z"
+    },
+    {
+      "id": "chiusure-a9-trasporti-speciali",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:47:48.400Z"
+    },
+    {
+      "id": "chiusure-autostrada-confine-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:47:57.470Z"
+    },
+    {
+      "id": "chiusure-notturne-a4-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:48:06.482Z"
+    },
+    {
+      "id": "chiusure-notturne-autostrada",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:48:15.299Z"
+    },
+    {
+      "id": "cinema-frontaliers-ticino-varese",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:48:24.301Z"
+    },
+    {
+      "id": "cioccolato-meno-ma-pagato-di-piu",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:48:33.404Z"
+    },
+    {
+      "id": "cocaina-lusso-perquisizioni-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:48:42.310Z"
+    },
+    {
+      "id": "code-nord-san-gottardo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:48:51.303Z"
+    },
+    {
+      "id": "com-aziende-lavoro-como",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:49:00.300Z"
+    },
+    {
+      "id": "comitati-malpensa-cuv-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:49:09.311Z"
+    },
+    {
+      "id": "como-asfaltature-war-costs",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:49:18.416Z"
+    },
+    {
+      "id": "como-lago-pasqua-boom-prenotazioni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:49:27.433Z"
+    },
+    {
+      "id": "como-nuovi-poliziotti-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:49:36.362Z"
+    },
+    {
+      "id": "competenze-tecniche-frontalieri-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:49:45.294Z"
+    },
+    {
+      "id": "compromesso-salario-minimo-condizioni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:49:54.307Z"
+    },
+    {
+      "id": "comuni-confine-fiscalita-disparita",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:50:03.453Z"
+    },
+    {
+      "id": "comuni-confine-nuove-regole",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:50:12.315Z"
+    },
+    {
+      "id": "comuni-frontalieri-distanza",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:50:21.355Z"
+    },
+    {
+      "id": "comuni-investono-turismo-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:50:30.344Z"
+    },
+    {
+      "id": "comuni-locarno-futuro-aggregazione",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:50:39.340Z"
+    },
+    {
+      "id": "comuni-migliori-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:50:48.352Z"
+    },
+    {
+      "id": "confine-a9-disagi-marzo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:50:57.284Z"
+    },
+    {
+      "id": "confine-fiscale-nuovi-comuni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:51:06.743Z"
+    },
+    {
+      "id": "confine-tesissimo-assegni-familiari",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:51:15.325Z"
+    },
+    {
+      "id": "confini-comunali-impatto-fiscale",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:51:24.421Z"
+    },
+    {
+      "id": "conflitto-medio-oriente-energia-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:51:33.315Z"
+    },
+    {
+      "id": "confronto-assicurazioni-auto",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:51:42.397Z"
+    },
+    {
+      "id": "confusione-tassa-salute-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:51:51.374Z"
+    },
+    {
+      "id": "congedo-genitori-frontaliere-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:52:00.430Z"
+    },
+    {
+      "id": "congestione-a2-san-gottardo-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:52:09.314Z"
+    },
+    {
+      "id": "congresso-svizzera-italia-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:52:18.304Z"
+    },
+    {
+      "id": "congresso-svizzera-italia-varese-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:52:27.386Z"
+    },
+    {
+      "id": "consiglio-stati-soluzione-mista-13esima-avs",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:52:36.424Z"
+    },
+    {
+      "id": "conti-federali-aumento-iva-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:52:45.311Z"
+    },
+    {
+      "id": "contrabbando-ai-confine-aumentano-droga-e-sigarette",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:52:54.442Z"
+    },
+    {
+      "id": "contrabbando-argento-frontiera",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:53:04.133Z"
+    },
+    {
+      "id": "contrabbando-pokemon-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:53:12.414Z"
+    },
+    {
+      "id": "contrabbando-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:53:21.284Z"
+    },
+    {
+      "id": "contratti-collettivi-salari-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:53:30.418Z"
+    },
+    {
+      "id": "contributi-sociali-busta-paga",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:53:39.433Z"
+    },
+    {
+      "id": "controlli-auto-immatricolate-grigioni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:53:48.522Z"
+    },
+    {
+      "id": "controlli-cantieri-mendrisio",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:53:57.373Z"
+    },
+    {
+      "id": "controlli-cantieri-mendrisiotto-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:54:06.277Z"
+    },
+    {
+      "id": "controlli-cantieri-mendrisiotto",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:54:15.315Z"
+    },
+    {
+      "id": "controlli-frontiera-ticino-rafforzati",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:54:24.331Z"
+    },
+    {
+      "id": "controlli-radar-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:54:33.347Z"
+    },
+    {
+      "id": "controlli-stradali-intensivi-frontiera",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:54:42.597Z"
+    },
+    {
+      "id": "controlli-stradali-ticino-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:54:51.478Z"
+    },
+    {
+      "id": "controlli-varese-esposto-espulsione",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:55:00.457Z"
+    },
+    {
+      "id": "controlli-velocita-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:55:09.302Z"
+    },
+    {
+      "id": "controllo-affitti-nazionale-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:55:18.360Z"
+    },
+    {
+      "id": "coop-richiama-formaggi-salmonelle",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:55:27.418Z"
+    },
+    {
+      "id": "cooperazione-giudiziaria-svizzera-italia",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:55:36.413Z"
+    },
+    {
+      "id": "corpi-in-prestito-arte-agno",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:55:45.865Z"
+    },
+    {
+      "id": "corsi-a-b-scuola-media-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:55:54.485Z"
+    },
+    {
+      "id": "corso-pastori-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:56:03.403Z"
+    },
+    {
+      "id": "costi-cure-domicilio-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:56:12.396Z"
+    },
+    {
+      "id": "costo-pendolare-auto-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:56:21.463Z"
+    },
+    {
+      "id": "costo-reale-auto-frontaliere",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:56:30.293Z"
+    },
+    {
+      "id": "costo-vita-svizzera-mappa",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:56:39.359Z"
+    },
+    {
+      "id": "costo-vita-ticino-vs-lombardia",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:56:48.344Z"
+    },
+    {
+      "id": "costo-vivere-lugano-trasferirsi",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:56:57.545Z"
+    },
+    {
+      "id": "costo-vivere-mappa-comuni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:57:06.544Z"
+    },
+    {
+      "id": "cpi-caso-hospita-rivalutazione-periti",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:57:15.519Z"
+    },
+    {
+      "id": "crescita-economica-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:57:33.323Z"
+    },
+    {
+      "id": "crescita-misera-libera-circolazione",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:57:42.496Z"
+    },
+    {
+      "id": "crescita-sicurezza-ticino-2025",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:57:51.466Z"
+    },
+    {
+      "id": "crisi-golfo-carburanti-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:58:00.423Z"
+    },
+    {
+      "id": "crisi-olio-prezzi-benzina-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:58:09.479Z"
+    },
+    {
+      "id": "crisi-spermatozoi-svizzera-ticino",
+      "error": "Bad Unicode escape in JSON at position 3025 (line 1 column 3026)",
+      "at": "2026-04-07T14:58:19.143Z"
+    },
+    {
+      "id": "crisi-turismo-golfo-persico",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:58:27.307Z"
+    },
+    {
+      "id": "cu-2026-novita-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:58:36.424Z"
+    },
+    {
+      "id": "cu-telelavoro-regole-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:58:45.343Z"
+    },
+    {
+      "id": "cure-a-domicilio-tassa-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:58:54.704Z"
+    },
+    {
+      "id": "cure-domicilio-ticino-politica",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:59:03.510Z"
+    },
+    {
+      "id": "cure-domicilio-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:59:12.458Z"
+    },
+    {
+      "id": "dagatra-incontro-migranti-chiasso",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:59:21.428Z"
+    },
+    {
+      "id": "daniela-rebuzzi-mostra-caslano",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:59:30.365Z"
+    },
+    {
+      "id": "danni-riparati-centovallina",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:59:39.446Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-04-07T14:25:12.263Z"
+  "updatedAt": "2026-04-07T14:59:39.446Z"
 }
