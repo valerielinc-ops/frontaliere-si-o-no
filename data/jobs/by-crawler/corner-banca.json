@@ -8,8 +8,8 @@
       "slugByLocale": {
         "it": "candidatura-spontanea-apprendistato-corner-banca-switzerland",
         "en": "unsolicited-application-apprenticeship-corner-banca-switzerland",
-        "de": "initiativbewerbung-lehre-corner-banca-switzerland",
-        "fr": "unsolicited-application-apprenticeship-corner-banca-switzerland"
+        "de": "spontane-bewerbung-fur-ausbildung-corner-banca-switzerland",
+        "fr": "candidature-spontanee-pour-un-apprentissage-corner-banca-switzerland"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -71,7 +71,11 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "initiativbewerbung-lehre-corner-banca-switzerland",
+        "unsolicited-application-apprenticeship-corner-banca-switzerland"
+      ]
     },
     {
       "id": "corner-banca-fe61b84a0935",
@@ -79,7 +83,7 @@
       "slugByLocale": {
         "it": "employee-card-onboarding-corner-banca-lugano",
         "en": "employee-card-onboarding-corner-banca-lugano",
-        "de": "employee-card-onboarding-corner-banca-lugano",
+        "de": "kartenaufnahme-corner-banca-lugano",
         "fr": "employee-card-onboarding-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
@@ -138,7 +142,8 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "crawledAt": "2026-04-06T21:06:10.332Z",
       "previousSlugs": [
-        "addetto-all-emission-carte-cliente-corner-banca-lugano"
+        "addetto-all-emission-carte-cliente-corner-banca-lugano",
+        "employee-card-onboarding-corner-banca-lugano"
       ],
       "sourceLang": "en",
       "salaryMin": 58000,
@@ -164,7 +169,7 @@
       "slugByLocale": {
         "it": "it-card-management-analyst-specialist-corner-banca-lugano",
         "en": "it-card-management-analyst-specialist-corner-banca-lugano",
-        "de": "it-card-management-analyst-specialist-corner-banca-lugano",
+        "de": "it-kartenmanagement-analyst-spezialist-corner-banca-lugano",
         "fr": "it-card-management-analyst-specialist-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
@@ -199,7 +204,8 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "crawledAt": "2026-04-06T21:06:10.332Z",
       "previousSlugs": [
-        "analista-specialista-gestione-carte-it-corner-banca-lugano"
+        "analista-specialista-gestione-carte-it-corner-banca-lugano",
+        "it-card-management-analyst-specialist-corner-banca-lugano"
       ],
       "needsRetranslation": true,
       "sourceLang": "en",
@@ -224,10 +230,10 @@
       "id": "corner-banca-0454316cb6c7",
       "slug": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
       "slugByLocale": {
-        "it": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
+        "it": "responsabile-del-rischio-gestione-dell-attivita-e-della-passivita-alm-e-del-rischio-di-liquidita-corner-banca-lugano",
         "en": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
         "de": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano",
-        "fr": "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
+        "fr": "responsable-des-risques-gestion-de-l-actif-et-du-passif-alm-et-risque-de-liquidite-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -280,7 +286,8 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "crawledAt": "2026-04-06T21:06:10.331Z",
       "previousSlugs": [
-        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano"
+        "risk-manager-asset-liability-management-alm-e-rischio-di-liquidita-corner-banca-lugano",
+        "risk-manager-asset-liability-management-alm-and-liquidity-risk-corner-banca-lugano"
       ],
       "sourceLang": "en",
       "salaryMin": 109000,
@@ -305,9 +312,9 @@
       "slug": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
       "slugByLocale": {
         "it": "collaboratore-servizi-logistici-ufficio-tecnico-corner-banca-lugano",
-        "en": "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
-        "de": "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
-        "fr": "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano"
+        "en": "logistics-services-coordinator-technical-office-corner-banca-lugano",
+        "de": "logistikdienstleistungskoordinator-technisches-buro-corner-banca-lugano",
+        "fr": "coordinateur-coordinateuse-des-services-logistiques-bureau-technique-corner-banca-lugano"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -369,7 +376,11 @@
       "source": "Corner Dedicated Parser (Recruitee API)",
       "crawledAt": "2026-04-06T21:06:10.331Z",
       "sourceLang": "it",
-      "previousSlugs": [],
+      "previousSlugs": [
+        "collaboratore-servizi-logistici-ufficio-technician-corner-banca-lugano",
+        "collaboratore-servizi-logistici-ufficio-techniker-corner-banca-lugano",
+        "collaboratore-servizi-logistici-ufficio-technicien-corner-banca-lugano"
+      ],
       "salaryMin": 58000,
       "salaryMax": 78000,
       "baseSalary": {
