@@ -10,6 +10,7 @@ interface Props {
 interface State {
   hasError: boolean;
   errorDigest: string;
+  errorHint: string;
 }
 
 export class ErrorBoundary extends Component<Props, State> {
@@ -19,6 +20,7 @@ export class ErrorBoundary extends Component<Props, State> {
   public state: State = {
     hasError: false,
     errorDigest: '',
+    errorHint: '',
   };
 
   /** Simple hash for error fingerprinting (correlation across events). */
@@ -32,7 +34,13 @@ export class ErrorBoundary extends Component<Props, State> {
   }
 
   public static getDerivedStateFromError(error: Error): State {
-    return { hasError: true, errorDigest: ErrorBoundary.fingerprint(error) };
+    const msg = error?.message || '';
+    const hint = msg.includes('dynamically imported module') || msg.includes('Loading chunk') || error?.name === 'ChunkLoadError'
+      ? 'chunk'
+      : msg.includes('fetch') || msg.includes('Network')
+        ? 'network'
+        : `${(error?.name || 'Error').slice(0, 30)}:${msg.slice(0, 60)}`;
+    return { hasError: true, errorDigest: ErrorBoundary.fingerprint(error), errorHint: hint };
   }
 
   public componentDidCatch(error: Error, errorInfo: ErrorInfo) {
@@ -92,7 +100,7 @@ export class ErrorBoundary extends Component<Props, State> {
           </p>
           {this.state.errorDigest && (
             <p className="text-xs text-slate-500 dark:text-slate-400 mb-4 font-mono">
-              REF: {this.state.errorDigest}
+              REF: {this.state.errorDigest}{this.state.errorHint && this.state.errorHint !== 'chunk' && this.state.errorHint !== 'network' ? ` — ${this.state.errorHint}` : ''}
             </p>
           )}
           <button

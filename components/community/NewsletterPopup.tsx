@@ -373,9 +373,9 @@ const NewsletterPopup: React.FC = () => {
 
   return createPortal(
     <div className="fixed inset-0 z-[2147483647] flex items-center justify-center p-4 bg-black/40 backdrop-blur-sm animate-fade-in">
-      <div className="relative w-full max-w-md bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+      <div className="relative w-full max-w-md max-h-[90dvh] flex flex-col bg-white dark:bg-slate-800 rounded-2xl shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
         {/* Header gradient */}
-        <div className="bg-gradient-to-r from-teal-600 to-emerald-700 p-4 sm:p-6 text-white">
+        <div className="bg-gradient-to-r from-teal-600 to-emerald-700 p-4 sm:p-6 text-white shrink-0">
           <button
             onClick={handleDismiss}
             className="absolute top-3 right-3 p-1.5 text-white/70 hover:text-white hover:bg-white/20 rounded-lg transition-colors"
@@ -397,7 +397,7 @@ const NewsletterPopup: React.FC = () => {
         </div>
 
         {/* Body */}
-        <div className="p-6">
+        <div className="p-6 overflow-y-auto overscroll-contain">
           {(status === 'success' || status === 'pending') ? (
             <div className="text-center py-4">
               {status === 'pending' ? (
