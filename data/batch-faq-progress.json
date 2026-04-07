@@ -1,6 +1,28 @@
 {
   "completed": [
-    "a13-cantieri-frontalieri-ticino"
+    "a13-cantieri-frontalieri-ticino",
+    "a9-como-chiasso-disagi-notturni",
+    "a2-giornico-cantiere-disagi-frontalieri",
+    "abbonamenti-sconti-treni-ticino",
+    "a9-chiasso-como-chiusure-frontalieri",
+    "a9-chiasso-como-cantieri-frontalieri",
+    "ai-lombardia-impatto-ticino",
+    "aiuti-energia-proroga-taglio",
+    "anziana-si-difende-da-una-scippatrice-e-la-fa-arrestare",
+    "annunci-lavoro-dumping-ticino-governo",
+    "apertura-pesca-ticino",
+    "apprendisti-frontalieri-permessi-g",
+    "ampliamento-parco-eolico-san-gottardo",
+    "agriscambio",
+    "ambasciatore-italiano-ritorno-berna",
+    "aumento-iva-esercito-impatto-spesa",
+    "auto-intrusione-frontalieri-ticino",
+    "autostrada-a9-disagi-frontalieri",
+    "auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate",
+    "autotrasporto-rincari-confine-2026",
+    "banche-sindacati-piattaforma-aumento",
+    "avs-saronno-referendum",
+    "aziende-como-assumono-lavoratori"
   ],
   "failed": [
     {
@@ -97,8 +119,398 @@
       "id": "acquarossa-nuovo-polo-filovia-2026",
       "error": "FAQ response is not an array",
       "at": "2026-04-07T14:10:28.395Z"
+    },
+    {
+      "id": "accordi-bilaterali-3-parlamento",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:33.927Z"
+    },
+    {
+      "id": "accordi-svizzera-ue-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:34.122Z"
+    },
+    {
+      "id": "accordi-svizzera-ue-parmelin-bruxelles",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:34.387Z"
+    },
+    {
+      "id": "abolizione-imposta-valore-locativo-2029",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:34.489Z"
+    },
+    {
+      "id": "accordo-ue-frontalieri-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:34.753Z"
+    },
+    {
+      "id": "accordo-ue-svizzera-impatto-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:34.833Z"
+    },
+    {
+      "id": "accordo-ue-svizzera-mercato-interno-impatto-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:34.853Z"
+    },
+    {
+      "id": "accordo-ue-svizzera-mercato-interno",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:35.255Z"
+    },
+    {
+      "id": "accordo-ue-voto-obbligatorio-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:35.302Z"
+    },
+    {
+      "id": "acinque-lancia-piano-genitorialita",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:35.493Z"
+    },
+    {
+      "id": "addiofrontalierelongo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:36.232Z"
+    },
+    {
+      "id": "acqua-non-potabile-lavizzara",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:38.523Z"
+    },
+    {
+      "id": "accesso-libero-alle-rive",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:40.999Z"
+    },
+    {
+      "id": "acquarossa-nuovo-polo-filovia-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:41.682Z"
+    },
+    {
+      "id": "acqua-mendrisiotto-prezzi-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:43.185Z"
+    },
+    {
+      "id": "affitti-rialzo-crisi-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:45.227Z"
+    },
+    {
+      "id": "agente-sicurezza-investito-cadenazzo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:47.508Z"
+    },
+    {
+      "id": "addizionale-irpef-mappa-comuni",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:48.345Z"
+    },
+    {
+      "id": "agenzia-trasporto-nuovo",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:48.384Z"
+    },
+    {
+      "id": "aggregazione-basso-mendrisiotto-rizza-chiasso-autocritica",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:48.689Z"
+    },
+    {
+      "id": "aggregazione-rischio-basso-mendrisiotto",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:21:51.963Z"
+    },
+    {
+      "id": "ai-lombardia-ticino-frontaliere-2026",
+      "error": "All AI models failed. Chain: [Ministral-3B → cerebras/llama3.1-8b → nvidia/nvidia/llama-3.3-nemotron-super-49b-v1 → gpt-4.1-nano → hf/meta-llama/Llama-3.3-70B-Instruct → gpt-4o → groq/llama-3.3-70b-versatile → groq/qwen/qwen3-32b → groq/openai/gpt-oss-20b → openrouter/google/gemma-3-27b-it:free → groq/meta-llama/llama-4-scout-17b-16e-instruct → openrouter/mistralai/mistral-small-3.1-24b-instruct:free → openrouter/qwen/qwen3-coder:free → groq/gemma2-9b-it → groq/llama-3.1-8b-instant → sn/DeepSeek-V3-0324 → sn/Qwen2.5-72B-Instruct → openrouter/deepseek/deepseek-r1-zero:free → openrouter/arcee-ai/trinity-large-preview:free → openrouter/mistralai/mistral-nemo:free → nvidia/meta/llama-3.1-8b-instruct → nvidia/microsoft/phi-3-mini-4k-instruct → openrouter/nvidia/nemotron-3-super-120b-a12b:free → openrouter/qwen/qwen3-next-80b-a3b-instruct:free → openrouter/stepfun/step-3.5-flash:free → openrouter/nvidia/nemotron-3-nano-30b-a3b:free → openrouter/minimax/minimax-m2.5:free → openrouter/openai/gpt-oss-120b:free → openrouter/nousresearch/hermes-3-llama-3.1-405b:free → openrouter/z-ai/glm-4.5-air:free → openrouter/google/gemma-3-12b-it:free → openrouter/nvidia/nemotron-nano-9b-v2:free → openrouter/arcee-ai/trinity-mini:free → groq/llama3-8b-8192 → groq/llama3-70b-8192 → openrouter/deepseek/deepseek-chat-v3-0324:free → openrouter/qwen/qwen-2.5-72b-instruct:free → openrouter/microsoft/phi-4:free → openrouter/microsoft/phi-4-reasoning:free → openrouter/moonshotai/kimi-k2:free → openrouter/deepseek/deepseek-r1:free → openrouter/meta-llama/llama-4-maverick-17b-128e-instruct:free → openrouter/mistralai/mistral-small-3.2-24b-instruct:free → groq/meta-llama/llama-4-maverick-17b-128e-instruct → groq/qwen/qwq-32b → groq/compound-beta → hf/Qwen/Qwen2.5-72B-Instruct → hf/google/gemma-3-27b-it → hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503 → gpt-4.1 → Llama-3.2-90B-Vision-Instruct → Phi-4 → DeepSeek-R1 → gemini-2.0-flash → gpt-5-mini → o4-mini → o3-mini → sn/Meta-Llama-3.3-70B-Instruct → gpt-4o-mini → gpt-5-nano → DeepSeek-V3-0324 → Cohere-command-r-08-2024 → Codestral-2501 → Llama-4-Maverick-17B-128E-Instruct-FP8 → gpt-4.1-mini → Llama-3.3-70B-Instruct → Llama-4-Scout-17B-16E-Instruct → Cohere-command-a → Cohere-command-r-plus-08-2024 → Meta-Llama-3.1-405B-Instruct → hf/mistralai/Mistral-7B-Instruct-v0.3 → Meta-Llama-3.1-8B-Instruct → groq/openai/gpt-oss-120b → openrouter/meta-llama/llama-3.3-70b-instruct:free → hf/HuggingFaceH4/zephyr-7b-beta → gemini-2.5-flash-lite → gemini-2.5-flash → DeepSeek-R1-0528 → gemini-2.5-pro]. Errors: hf/meta-llama/Llama-3.3-70B-Instruct: [HuggingFace/meta-llama/Llama-3.3-70B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, sub | hf/Qwen/Qwen2.5-72B-Instruct: [HuggingFace/Qwen/Qwen2.5-72B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe t | hf/google/gemma-3-27b-it: [HuggingFace/google/gemma-3-27b-it] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PR | hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503: [HuggingFace/mistralai/Mistral-Small-3.1-24B-Instruct-2503] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-Small-3.1-24B-Instruct-2503' is not a chat model.\",\"type\":\"invalid_req | hf/mistralai/Mistral-7B-Instruct-v0.3: [HuggingFace/mistralai/Mistral-7B-Instruct-v0.3] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-7B-Instruct-v0.3' is not a chat model.\",\"type\":\"invalid_request_error\",\"param\":\"m | hf/HuggingFaceH4/zephyr-7b-beta: [HuggingFace/HuggingFaceH4/zephyr-7b-beta] HTTP 400: {\"error\":{\"message\":\"The requested model 'HuggingFaceH4/zephyr-7b-beta' is not supported by any provider you have enabled.\",\"type\":\"invalid_request",
+      "at": "2026-04-07T14:22:14.895Z"
+    },
+    {
+      "id": "ampliamento-parco-eolico-san-gottardo-digital-2026",
+      "error": "All AI models failed. Chain: [Ministral-3B → cerebras/llama3.1-8b → nvidia/nvidia/llama-3.3-nemotron-super-49b-v1 → gpt-4.1-nano → gpt-4o → groq/llama-3.3-70b-versatile → groq/qwen/qwen3-32b → groq/openai/gpt-oss-20b → openrouter/google/gemma-3-27b-it:free → groq/meta-llama/llama-4-scout-17b-16e-instruct → openrouter/mistralai/mistral-small-3.1-24b-instruct:free → openrouter/qwen/qwen3-coder:free → groq/gemma2-9b-it → groq/llama-3.1-8b-instant → sn/DeepSeek-V3-0324 → sn/Qwen2.5-72B-Instruct → openrouter/deepseek/deepseek-r1-zero:free → openrouter/arcee-ai/trinity-large-preview:free → openrouter/mistralai/mistral-nemo:free → nvidia/meta/llama-3.1-8b-instruct → nvidia/microsoft/phi-3-mini-4k-instruct → openrouter/nvidia/nemotron-3-super-120b-a12b:free → openrouter/qwen/qwen3-next-80b-a3b-instruct:free → openrouter/stepfun/step-3.5-flash:free → openrouter/nvidia/nemotron-3-nano-30b-a3b:free → openrouter/minimax/minimax-m2.5:free → openrouter/openai/gpt-oss-120b:free → openrouter/nousresearch/hermes-3-llama-3.1-405b:free → openrouter/z-ai/glm-4.5-air:free → openrouter/google/gemma-3-12b-it:free → openrouter/nvidia/nemotron-nano-9b-v2:free → openrouter/arcee-ai/trinity-mini:free → groq/llama3-8b-8192 → groq/llama3-70b-8192 → openrouter/deepseek/deepseek-chat-v3-0324:free → openrouter/qwen/qwen-2.5-72b-instruct:free → openrouter/microsoft/phi-4:free → openrouter/microsoft/phi-4-reasoning:free → openrouter/moonshotai/kimi-k2:free → openrouter/deepseek/deepseek-r1:free → openrouter/meta-llama/llama-4-maverick-17b-128e-instruct:free → openrouter/mistralai/mistral-small-3.2-24b-instruct:free → groq/meta-llama/llama-4-maverick-17b-128e-instruct → groq/qwen/qwq-32b → groq/compound-beta → gpt-4.1 → Llama-3.2-90B-Vision-Instruct → Phi-4 → DeepSeek-R1 → gemini-2.0-flash → gpt-5-mini → o4-mini → o3-mini → sn/Meta-Llama-3.3-70B-Instruct → gpt-4o-mini → gpt-5-nano → DeepSeek-V3-0324 → Cohere-command-r-08-2024 → Codestral-2501 → hf/meta-llama/Llama-3.3-70B-Instruct → Llama-4-Maverick-17B-128E-Instruct-FP8 → gpt-4.1-mini → Llama-3.3-70B-Instruct → Llama-4-Scout-17B-16E-Instruct → Cohere-command-a → Cohere-command-r-plus-08-2024 → Meta-Llama-3.1-405B-Instruct → Meta-Llama-3.1-8B-Instruct → groq/openai/gpt-oss-120b → openrouter/meta-llama/llama-3.3-70b-instruct:free → hf/mistralai/Mistral-7B-Instruct-v0.3 → hf/HuggingFaceH4/zephyr-7b-beta → gemini-2.5-flash-lite → gemini-2.5-flash → hf/Qwen/Qwen2.5-72B-Instruct → hf/google/gemma-3-27b-it → hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503 → DeepSeek-R1-0528 → gemini-2.5-pro]. Errors: hf/meta-llama/Llama-3.3-70B-Instruct: [HuggingFace/meta-llama/Llama-3.3-70B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, sub | hf/mistralai/Mistral-7B-Instruct-v0.3: [HuggingFace/mistralai/Mistral-7B-Instruct-v0.3] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-7B-Instruct-v0.3' is not a chat model.\",\"type\":\"invalid_request_error\",\"param\":\"m | hf/HuggingFaceH4/zephyr-7b-beta: [HuggingFace/HuggingFaceH4/zephyr-7b-beta] HTTP 400: {\"error\":{\"message\":\"The requested model 'HuggingFaceH4/zephyr-7b-beta' is not supported by any provider you have enabled.\",\"type\":\"invalid_request | hf/Qwen/Qwen2.5-72B-Instruct: [HuggingFace/Qwen/Qwen2.5-72B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe t | hf/google/gemma-3-27b-it: [HuggingFace/google/gemma-3-27b-it] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PR | hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503: [HuggingFace/mistralai/Mistral-Small-3.1-24B-Instruct-2503] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-Small-3.1-24B-Instruct-2503' is not a chat model.\",\"type\":\"invalid_req",
+      "at": "2026-04-07T14:22:29.897Z"
+    },
+    {
+      "id": "apprendisti-frontalieri-riforma-permesso-g",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:22:55.529Z"
+    },
+    {
+      "id": "aprire-conto-bancario-frontaliere",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:22:58.871Z"
+    },
+    {
+      "id": "arca-russa-chiasso-cultura-frontaliere",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:01.785Z"
+    },
+    {
+      "id": "architetti-sottopagati-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:02.567Z"
+    },
+    {
+      "id": "asilo-nido-frontaliere-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:06.300Z"
+    },
+    {
+      "id": "asilo-nido-ticino-guida-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:07.594Z"
+    },
+    {
+      "id": "arte-anima-ticino-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:08.899Z"
+    },
+    {
+      "id": "assegni-familiari-frontalieri-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:11.601Z"
+    },
+    {
+      "id": "assicurazione-auto-rincari-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:11.758Z"
+    },
+    {
+      "id": "assicurazione-malattia-famiglia",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:12.707Z"
+    },
+    {
+      "id": "aumentare-gia-il-prezzo-della-benzina",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:16.066Z"
+    },
+    {
+      "id": "aumento-export-bellico-svizzero-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:17.773Z"
+    },
+    {
+      "id": "aumento-contingente-uova-svizzera",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:17.905Z"
+    },
+    {
+      "id": "aumento-franchigia-minima",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:18.766Z"
+    },
+    {
+      "id": "aumento-inchieste-penali-2025",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:23:19.844Z"
+    },
+    {
+      "id": "aumento-iva-costo-ticino-2026",
+      "error": "All AI models failed. Chain: [nvidia/nvidia/llama-3.3-nemotron-super-49b-v1 → Ministral-3B → cerebras/llama3.1-8b → gpt-4.1-nano → sn/DeepSeek-V3-0324 → gpt-4o → groq/llama-3.3-70b-versatile → nvidia/meta/llama-3.1-8b-instruct → Llama-3.2-90B-Vision-Instruct → groq/qwen/qwen3-32b → groq/openai/gpt-oss-20b → groq/meta-llama/llama-4-scout-17b-16e-instruct → openrouter/mistralai/mistral-small-3.1-24b-instruct:free → openrouter/qwen/qwen3-coder:free → groq/gemma2-9b-it → groq/llama-3.1-8b-instant → sn/Qwen2.5-72B-Instruct → openrouter/deepseek/deepseek-r1-zero:free → openrouter/arcee-ai/trinity-large-preview:free → openrouter/mistralai/mistral-nemo:free → nvidia/microsoft/phi-3-mini-4k-instruct → openrouter/nvidia/nemotron-3-super-120b-a12b:free → openrouter/qwen/qwen3-next-80b-a3b-instruct:free → openrouter/stepfun/step-3.5-flash:free → openrouter/nvidia/nemotron-3-nano-30b-a3b:free → openrouter/minimax/minimax-m2.5:free → openrouter/openai/gpt-oss-120b:free → openrouter/nousresearch/hermes-3-llama-3.1-405b:free → openrouter/z-ai/glm-4.5-air:free → openrouter/google/gemma-3-12b-it:free → openrouter/nvidia/nemotron-nano-9b-v2:free → openrouter/arcee-ai/trinity-mini:free → groq/llama3-8b-8192 → groq/llama3-70b-8192 → openrouter/deepseek/deepseek-chat-v3-0324:free → openrouter/qwen/qwen-2.5-72b-instruct:free → openrouter/microsoft/phi-4:free → openrouter/microsoft/phi-4-reasoning:free → openrouter/moonshotai/kimi-k2:free → openrouter/deepseek/deepseek-r1:free → openrouter/meta-llama/llama-4-maverick-17b-128e-instruct:free → openrouter/mistralai/mistral-small-3.2-24b-instruct:free → groq/meta-llama/llama-4-maverick-17b-128e-instruct → groq/qwen/qwq-32b → groq/compound-beta → Phi-4 → DeepSeek-R1 → gemini-2.0-flash → gpt-5-mini → o4-mini → o3-mini → sn/Meta-Llama-3.3-70B-Instruct → openrouter/google/gemma-3-27b-it:free → gpt-4o-mini → gpt-5-nano → DeepSeek-V3-0324 → Cohere-command-r-08-2024 → Codestral-2501 → Llama-4-Maverick-17B-128E-Instruct-FP8 → gpt-4.1-mini → Llama-3.3-70B-Instruct → Llama-4-Scout-17B-16E-Instruct → Cohere-command-a → Cohere-command-r-plus-08-2024 → Meta-Llama-3.1-405B-Instruct → Meta-Llama-3.1-8B-Instruct → groq/openai/gpt-oss-120b → openrouter/meta-llama/llama-3.3-70b-instruct:free → hf/meta-llama/Llama-3.3-70B-Instruct → gemini-2.5-flash-lite → gemini-2.5-flash → DeepSeek-R1-0528 → hf/mistralai/Mistral-7B-Instruct-v0.3 → hf/HuggingFaceH4/zephyr-7b-beta → hf/Qwen/Qwen2.5-72B-Instruct → hf/google/gemma-3-27b-it → hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503 → gpt-4.1 → gemini-2.5-pro]. Errors: Llama-3.2-90B-Vision-Instruct: [Llama-3.2-90B-Vision-Instruct] HTTP 429: {\"error\":{\"code\":\"RateLimitReached\",\"message\":\"Rate limit of 2 per 0s exceeded for UserConcurrentRequests. Please wait 0 seconds before retrying.\",\"details\":\" | hf/meta-llama/Llama-3.3-70B-Instruct: [HuggingFace/meta-llama/Llama-3.3-70B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, sub | hf/mistralai/Mistral-7B-Instruct-v0.3: [HuggingFace/mistralai/Mistral-7B-Instruct-v0.3] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-7B-Instruct-v0.3' is not a chat model.\",\"type\":\"invalid_request_error\",\"param\":\"m | hf/HuggingFaceH4/zephyr-7b-beta: [HuggingFace/HuggingFaceH4/zephyr-7b-beta] HTTP 400: {\"error\":{\"message\":\"The requested model 'HuggingFaceH4/zephyr-7b-beta' is not supported by any provider you have enabled.\",\"type\":\"invalid_request | hf/Qwen/Qwen2.5-72B-Instruct: [HuggingFace/Qwen/Qwen2.5-72B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe t | hf/google/gemma-3-27b-it: [HuggingFace/google/gemma-3-27b-it] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PR | hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503: [HuggingFace/mistralai/Mistral-Small-3.1-24B-Instruct-2503] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-Small-3.1-24B-Instruct-2503' is not a chat model.\",\"type\":\"invalid_req",
+      "at": "2026-04-07T14:23:44.373Z"
+    },
+    {
+      "id": "aumento-mezzi-pubblici-ticino",
+      "error": "All AI models failed. Chain: [nvidia/nvidia/llama-3.3-nemotron-super-49b-v1 → Ministral-3B → cerebras/llama3.1-8b → gpt-4.1-nano → sn/DeepSeek-V3-0324 → gpt-4o → groq/llama-3.3-70b-versatile → nvidia/meta/llama-3.1-8b-instruct → groq/qwen/qwen3-32b → Llama-3.2-90B-Vision-Instruct → groq/openai/gpt-oss-20b → groq/meta-llama/llama-4-scout-17b-16e-instruct → openrouter/mistralai/mistral-small-3.1-24b-instruct:free → openrouter/qwen/qwen3-coder:free → groq/gemma2-9b-it → groq/llama-3.1-8b-instant → sn/Qwen2.5-72B-Instruct → openrouter/deepseek/deepseek-r1-zero:free → openrouter/arcee-ai/trinity-large-preview:free → openrouter/mistralai/mistral-nemo:free → nvidia/microsoft/phi-3-mini-4k-instruct → openrouter/nvidia/nemotron-3-super-120b-a12b:free → openrouter/qwen/qwen3-next-80b-a3b-instruct:free → openrouter/stepfun/step-3.5-flash:free → openrouter/nvidia/nemotron-3-nano-30b-a3b:free → openrouter/minimax/minimax-m2.5:free → openrouter/openai/gpt-oss-120b:free → openrouter/nousresearch/hermes-3-llama-3.1-405b:free → openrouter/z-ai/glm-4.5-air:free → openrouter/google/gemma-3-12b-it:free → openrouter/nvidia/nemotron-nano-9b-v2:free → openrouter/arcee-ai/trinity-mini:free → groq/llama3-8b-8192 → groq/llama3-70b-8192 → openrouter/deepseek/deepseek-chat-v3-0324:free → openrouter/qwen/qwen-2.5-72b-instruct:free → openrouter/microsoft/phi-4:free → openrouter/microsoft/phi-4-reasoning:free → openrouter/moonshotai/kimi-k2:free → openrouter/deepseek/deepseek-r1:free → openrouter/meta-llama/llama-4-maverick-17b-128e-instruct:free → openrouter/mistralai/mistral-small-3.2-24b-instruct:free → groq/meta-llama/llama-4-maverick-17b-128e-instruct → groq/qwen/qwq-32b → groq/compound-beta → Phi-4 → DeepSeek-R1 → gemini-2.0-flash → gpt-5-mini → o4-mini → o3-mini → sn/Meta-Llama-3.3-70B-Instruct → openrouter/google/gemma-3-27b-it:free → hf/meta-llama/Llama-3.3-70B-Instruct → gpt-4o-mini → gpt-5-nano → DeepSeek-V3-0324 → Cohere-command-r-08-2024 → Codestral-2501 → Llama-4-Maverick-17B-128E-Instruct-FP8 → gpt-4.1-mini → Llama-3.3-70B-Instruct → Llama-4-Scout-17B-16E-Instruct → Cohere-command-a → Cohere-command-r-plus-08-2024 → Meta-Llama-3.1-405B-Instruct → Meta-Llama-3.1-8B-Instruct → groq/openai/gpt-oss-120b → openrouter/meta-llama/llama-3.3-70b-instruct:free → gemini-2.5-flash-lite → gemini-2.5-flash → DeepSeek-R1-0528 → hf/mistralai/Mistral-7B-Instruct-v0.3 → hf/HuggingFaceH4/zephyr-7b-beta → hf/Qwen/Qwen2.5-72B-Instruct → hf/google/gemma-3-27b-it → hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503 → gpt-4.1 → gemini-2.5-pro]. Errors: hf/meta-llama/Llama-3.3-70B-Instruct: [HuggingFace/meta-llama/Llama-3.3-70B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, sub | hf/mistralai/Mistral-7B-Instruct-v0.3: [HuggingFace/mistralai/Mistral-7B-Instruct-v0.3] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-7B-Instruct-v0.3' is not a chat model.\",\"type\":\"invalid_request_error\",\"param\":\"m | hf/HuggingFaceH4/zephyr-7b-beta: [HuggingFace/HuggingFaceH4/zephyr-7b-beta] HTTP 400: {\"error\":{\"message\":\"The requested model 'HuggingFaceH4/zephyr-7b-beta' is not supported by any provider you have enabled.\",\"type\":\"invalid_request | hf/Qwen/Qwen2.5-72B-Instruct: [HuggingFace/Qwen/Qwen2.5-72B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe t | hf/google/gemma-3-27b-it: [HuggingFace/google/gemma-3-27b-it] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PR | hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503: [HuggingFace/mistralai/Mistral-Small-3.1-24B-Instruct-2503] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-Small-3.1-24B-Instruct-2503' is not a chat model.\",\"type\":\"invalid_req",
+      "at": "2026-04-07T14:23:46.103Z"
+    },
+    {
+      "id": "banche-ticino-disoccupazione",
+      "error": "All AI models failed. Chain: [nvidia/nvidia/llama-3.3-nemotron-super-49b-v1 → Ministral-3B → cerebras/llama3.1-8b → gpt-4.1-nano → sn/DeepSeek-V3-0324 → gpt-4o → groq/llama-3.3-70b-versatile → Llama-3.2-90B-Vision-Instruct → nvidia/meta/llama-3.1-8b-instruct → groq/openai/gpt-oss-20b → groq/meta-llama/llama-4-scout-17b-16e-instruct → groq/gemma2-9b-it → groq/llama-3.1-8b-instant → openrouter/deepseek/deepseek-r1-zero:free → openrouter/arcee-ai/trinity-large-preview:free → openrouter/mistralai/mistral-nemo:free → nvidia/microsoft/phi-3-mini-4k-instruct → openrouter/nvidia/nemotron-3-super-120b-a12b:free → openrouter/qwen/qwen3-next-80b-a3b-instruct:free → openrouter/stepfun/step-3.5-flash:free → openrouter/nvidia/nemotron-3-nano-30b-a3b:free → openrouter/minimax/minimax-m2.5:free → openrouter/openai/gpt-oss-120b:free → openrouter/nousresearch/hermes-3-llama-3.1-405b:free → openrouter/z-ai/glm-4.5-air:free → openrouter/google/gemma-3-12b-it:free → openrouter/nvidia/nemotron-nano-9b-v2:free → openrouter/arcee-ai/trinity-mini:free → groq/llama3-8b-8192 → groq/llama3-70b-8192 → openrouter/deepseek/deepseek-chat-v3-0324:free → openrouter/qwen/qwen-2.5-72b-instruct:free → openrouter/microsoft/phi-4:free → openrouter/microsoft/phi-4-reasoning:free → openrouter/moonshotai/kimi-k2:free → openrouter/deepseek/deepseek-r1:free → openrouter/meta-llama/llama-4-maverick-17b-128e-instruct:free → openrouter/mistralai/mistral-small-3.2-24b-instruct:free → groq/meta-llama/llama-4-maverick-17b-128e-instruct → groq/qwen/qwq-32b → groq/compound-beta → Phi-4 → DeepSeek-R1 → groq/qwen/qwen3-32b → gemini-2.0-flash → gpt-5-mini → o4-mini → o3-mini → sn/Meta-Llama-3.3-70B-Instruct → openrouter/google/gemma-3-27b-it:free → openrouter/qwen/qwen3-coder:free → gpt-4o-mini → gpt-5-nano → DeepSeek-V3-0324 → Cohere-command-r-08-2024 → Codestral-2501 → Llama-4-Maverick-17B-128E-Instruct-FP8 → gpt-4.1-mini → Llama-3.3-70B-Instruct → Llama-4-Scout-17B-16E-Instruct → Cohere-command-a → Cohere-command-r-plus-08-2024 → Meta-Llama-3.1-405B-Instruct → openrouter/mistralai/mistral-small-3.1-24b-instruct:free → sn/Qwen2.5-72B-Instruct → Meta-Llama-3.1-8B-Instruct → groq/openai/gpt-oss-120b → openrouter/meta-llama/llama-3.3-70b-instruct:free → gemini-2.5-flash-lite → gemini-2.5-flash → DeepSeek-R1-0528 → hf/meta-llama/Llama-3.3-70B-Instruct → gpt-4.1 → hf/mistralai/Mistral-7B-Instruct-v0.3 → hf/HuggingFaceH4/zephyr-7b-beta → hf/Qwen/Qwen2.5-72B-Instruct → hf/google/gemma-3-27b-it → hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503 → gemini-2.5-pro]. Errors: hf/meta-llama/Llama-3.3-70B-Instruct: [HuggingFace/meta-llama/Llama-3.3-70B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, sub | hf/mistralai/Mistral-7B-Instruct-v0.3: [HuggingFace/mistralai/Mistral-7B-Instruct-v0.3] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-7B-Instruct-v0.3' is not a chat model.\",\"type\":\"invalid_request_error\",\"param\":\"m | hf/HuggingFaceH4/zephyr-7b-beta: [HuggingFace/HuggingFaceH4/zephyr-7b-beta] HTTP 400: {\"error\":{\"message\":\"The requested model 'HuggingFaceH4/zephyr-7b-beta' is not supported by any provider you have enabled.\",\"type\":\"invalid_request | hf/Qwen/Qwen2.5-72B-Instruct: [HuggingFace/Qwen/Qwen2.5-72B-Instruct] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe t | hf/google/gemma-3-27b-it: [HuggingFace/google/gemma-3-27b-it] HTTP 402: {\"error\":\"You have depleted your monthly included credits. Purchase pre-paid credits to continue using Inference Providers. Alternatively, subscribe to PR | hf/mistralai/Mistral-Small-3.1-24B-Instruct-2503: [HuggingFace/mistralai/Mistral-Small-3.1-24B-Instruct-2503] HTTP 400: {\"error\":{\"message\":\"The requested model 'mistralai/Mistral-Small-3.1-24B-Instruct-2503' is not a chat model.\",\"type\":\"invalid_req",
+      "at": "2026-04-07T14:24:18.400Z"
+    },
+    {
+      "id": "bellinzona-crescita-qualita-vita",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:28.432Z"
+    },
+    {
+      "id": "bellinzona-paese-dormitorio",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:28.777Z"
+    },
+    {
+      "id": "baseball-italia-porto-rico-world-classic",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:31.944Z"
+    },
+    {
+      "id": "bellinzona-scomparsa-ricerche-ticino-piemonte",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:32.310Z"
+    },
+    {
+      "id": "benzina-conveniente",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:34.129Z"
+    },
+    {
+      "id": "best-cross-border-worker-calculator-switzerland",
+      "error": "Body too short",
+      "at": "2026-04-07T14:24:34.129Z"
+    },
+    {
+      "id": "benzina-ticino-oriente",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:35.573Z"
+    },
+    {
+      "id": "bellinzona-auscultazione-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:37.607Z"
+    },
+    {
+      "id": "bilaterali-iii-cassis-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:38.886Z"
+    },
+    {
+      "id": "benzina-ticino-taglio-accise",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:41.131Z"
+    },
+    {
+      "id": "bilaterali-iii-ticino-parlamento-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:42.132Z"
+    },
+    {
+      "id": "berna-discute-approvvigionamento-economico-e-13esima-avs",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:42.721Z"
+    },
+    {
+      "id": "bilaterali-iii-parlamento-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:43.429Z"
+    },
+    {
+      "id": "bilaterali-terza-fase-parlamento-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:44.375Z"
+    },
+    {
+      "id": "bonus-famiglia-frontalieri-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:48.206Z"
+    },
+    {
+      "id": "bilaterali-ue-svizzera-firma",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:48.359Z"
+    },
+    {
+      "id": "borse-in-rosso-prezzo-petrolio-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:49.137Z"
+    },
+    {
+      "id": "borsa-di-zurigo-sprazzi-qu-c3-a0-l-27umor-grigio-resta",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:50.020Z"
+    },
+    {
+      "id": "bns-utile-calo-2025-impatto-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:50.803Z"
+    },
+    {
+      "id": "bossi-commemorazione-bagarrata",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:52.759Z"
+    },
+    {
+      "id": "bossi-voleva-bene-al-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:54.816Z"
+    },
+    {
+      "id": "bps-suisse-risultati-bper",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:55.745Z"
+    },
+    {
+      "id": "bps-suisse-utili-consigli-crisi",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:55.842Z"
+    },
+    {
+      "id": "bossi-morto-ticino-frontalieri",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:56.085Z"
+    },
+    {
+      "id": "byd-expansion-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:24:57.235Z"
+    },
+    {
+      "id": "calcolo-tasse-entro-confine",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:00.257Z"
+    },
+    {
+      "id": "calo-entrate-irregolari-chiasso",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:01.451Z"
+    },
+    {
+      "id": "cabov-precipita-forte-vento",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:01.729Z"
+    },
+    {
+      "id": "calcolo-pensione-avs-inps",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:02.723Z"
+    },
+    {
+      "id": "calo-frontalieri-non-tassa-salute",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:03.198Z"
+    },
+    {
+      "id": "camion-panne-san-gottardo-traffico-bloccato",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:06.535Z"
+    },
+    {
+      "id": "camedo-buffet-eventi-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:06.589Z"
+    },
+    {
+      "id": "calo-frontalieri-ragioni-economiche",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:07.303Z"
+    },
+    {
+      "id": "cane-morto-binarie-campo-calcio",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:07.922Z"
+    },
+    {
+      "id": "campione-italia-fine-dissesto",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:07.923Z"
+    },
+    {
+      "id": "cannabis-sequestro-ticino-2026",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:11.820Z"
+    },
+    {
+      "id": "cannabis-sequestro-ticino",
+      "error": "FAQ response is not an array",
+      "at": "2026-04-07T14:25:12.263Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-04-07T14:10:28.395Z"
+  "updatedAt": "2026-04-07T14:25:12.263Z"
 }
