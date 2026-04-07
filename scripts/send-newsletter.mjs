@@ -669,34 +669,67 @@ async function persistDelivery(recipient, messageId, meta) {
 }
 
 async function sendEmailBatch(emails, apiKey) {
-  if (!emails.length) return 0;
+  if (!emails.length) return { sent: [], failed: [] };
   const batches = [];
   for (let i = 0; i < emails.length; i += BATCH_SIZE) {
     batches.push(emails.slice(i, i + BATCH_SIZE));
   }
 
-  let totalSent = 0;
+  const sent = [];
+  const failed = [];
+
   for (const batch of batches) {
-    const res = await fetch(RESEND_ENDPOINT, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
-      body: JSON.stringify(batch.map((e) => e.payload)),
-    });
+    let res;
+    try {
+      res = await fetch(RESEND_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Authorization: `Bearer ${apiKey}` },
+        body: JSON.stringify(batch.map((e) => e.payload)),
+      });
+    } catch (netErr) {
+      console.error(`\u274c Network error: ${netErr.message}`);
+      failed.push(...batch);
+      continue;
+    }
+
     if (!res.ok) {
       const err = await res.text().catch(() => '');
       console.error(`\u274c Resend batch error: ${res.status} ${err.slice(0, 300)}`);
-    } else {
-      const data = await res.json().catch(() => ({}));
-      totalSent += batch.length;
-      console.log(`\u2705 Sent batch: ${batch.length} emails`);
-      // Persist deliveries
-      await Promise.all(batch.map(async (item, i) => {
-        const msgId = data?.data?.[i]?.id || null;
-        await persistDelivery(item.recipient, msgId, item.meta);
-      }));
+      // On 429 (rate limit), stop sending — remaining emails go to failed
+      if (res.status === 429) {
+        console.warn('\u26a0\ufe0f  Rate limited — stopping. Remaining emails will be retried next run.');
+        failed.push(...batch);
+        // Also add all subsequent batches to failed
+        const currentIdx = batches.indexOf(batch);
+        for (let j = currentIdx + 1; j < batches.length; j++) failed.push(...batches[j]);
+        break;
+      }
+      failed.push(...batch);
+      continue;
     }
+
+    const data = await res.json().catch(() => ({}));
+    const results = data?.data || [];
+
+    // Match each email with its Resend response to know exactly which succeeded
+    for (let i = 0; i < batch.length; i++) {
+      const item = batch[i];
+      const result = results[i];
+      const msgId = result?.id || null;
+
+      if (msgId) {
+        sent.push(item);
+        await persistDelivery(item.recipient, msgId, item.meta);
+      } else {
+        // Resend returned no ID for this email — treat as failed
+        failed.push(item);
+      }
+    }
+
+    console.log(`\u2705 Batch: ${batch.length} sent (${sent.length} confirmed so far)`);
   }
-  return totalSent;
+
+  return { sent, failed };
 }
 
 // ─── Issue number (real campaign count) ─────────────────────
@@ -1154,21 +1187,24 @@ async function main() {
     process.exit(1);
   }
 
-  const totalSent = await sendEmailBatch(cappedEmails, apiKey);
+  const { sent, failed } = await sendEmailBatch(cappedEmails, apiKey);
 
-  // ── Track sent emails for resume ──
-  const sentEmailList = cappedEmails.slice(0, totalSent).map(e => normalizeEmail(e.recipient.email));
+  // ── Track only confirmed-sent emails for resume ──
+  const sentEmailList = sent.map(e => normalizeEmail(e.recipient.email));
   await persistCampaignSends(campaignId, sentEmailList);
 
-  const totalForCampaign = alreadySent.size + totalSent;
+  const totalForCampaign = alreadySent.size + sent.length;
   const totalSubscribers = emails.length;
-  console.log(`\u2705 Newsletter sent: ${totalSent} today | ${totalForCampaign}/${totalSubscribers} total for campaign`);
+  console.log(`\u2705 Newsletter: ${sent.length} sent, ${failed.length} failed today | ${totalForCampaign}/${totalSubscribers} total for campaign`);
+  if (failed.length > 0) {
+    console.log(`\u26a0\ufe0f  ${failed.length} emails failed — they will be retried on the next run.`);
+  }
   if (totalForCampaign < totalSubscribers) {
     console.log(`\u23f3 ${totalSubscribers - totalForCampaign} remaining — run again tomorrow to continue.`);
   }
 
   const sampleSubject = emails[0]?.payload?.subject || 'N/A';
-  await logSend(totalSent, sampleSubject, totalSent > 0 ? 'sent' : 'failed');
+  await logSend(sent.length, sampleSubject, sent.length > 0 ? 'sent' : 'failed');
 
   if (flushScores) await flushScores();
 }
