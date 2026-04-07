@@ -1,16 +1,16 @@
 {
   "key": "lis-lugano-istituti-sociali",
   "label": "LIS",
-  "generatedAt": "2026-04-07T09:43:40.295Z",
+  "generatedAt": "2026-04-07T21:38:37.665Z",
   "total": 13,
   "newCount": 0,
   "updatedCount": 13,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 22614,
-  "avgDurationMs": 22614,
+  "durationMs": 23837,
+  "avgDurationMs": 23837,
   "durationHistory": [
-    22614
+    23837
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -385,10 +385,10 @@
       "currency": "CHF",
       "salaryExtraction": {
         "strategyVersion": "lis_salary_v2",
-        "textHash": "ce8a4f8938d29c07a288",
+        "textHash": "7c5289c47057ec4c7cba",
         "source": "lis_regex_text",
         "confidence": 0.98,
-        "extractedAt": "2026-04-07T09:43:40.230Z"
+        "extractedAt": "2026-04-07T21:38:37.598Z"
       },
       "sourceLang": "it",
       "addressLocality": "Lugano",
