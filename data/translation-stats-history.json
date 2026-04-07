@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T16:24:21.787Z",
-    "label": "before",
-    "total": 1317,
-    "needsRetranslation": 183,
-    "incomplete": 108,
-    "complete": 1209,
-    "missingByLocale": {
-      "it": 71,
-      "en": 108,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T16:29:04.463Z",
-    "label": "after",
-    "total": 1317,
-    "needsRetranslation": 163,
-    "incomplete": 108,
-    "complete": 1209,
-    "missingByLocale": {
-      "it": 71,
-      "en": 108,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T16:56:05.523Z",
     "label": "before",
     "total": 1317,
@@ -9637,6 +9589,102 @@
       },
       {
         "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-07T03:33:18.975Z",
+    "label": "before",
+    "total": 1521,
+    "needsRetranslation": 141,
+    "incomplete": 49,
+    "complete": 1472,
+    "missingByLocale": {
+      "it": 13,
+      "en": 16,
+      "de": 10,
+      "fr": 18
+    },
+    "topPending": [
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "LWP Ledermann Wieting & Partners",
+        "pending": 7
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "ALDI SUISSE",
+        "pending": 3
+      },
+      {
+        "company": "Cornèr Banca",
+        "pending": 3
+      },
+      {
+        "company": "Manor AG",
+        "pending": 3
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-07T03:36:36.843Z",
+    "label": "after",
+    "total": 1521,
+    "needsRetranslation": 80,
+    "incomplete": 12,
+    "complete": 1509,
+    "missingByLocale": {
+      "it": 9,
+      "en": 6,
+      "de": 4,
+      "fr": 8
+    },
+    "topPending": [
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
+      },
+      {
+        "company": "Prada Group",
+        "pending": 2
+      },
+      {
+        "company": "Amministrazione Cantonale Ticino",
+        "pending": 1
+      },
+      {
+        "company": "Banca del Sempione",
+        "pending": 1
+      },
+      {
+        "company": "Cornèr Banca",
         "pending": 1
       }
     ]
