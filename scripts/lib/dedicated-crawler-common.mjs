@@ -1036,6 +1036,13 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
   for (const job of raw) {
     let jobChanged = false;
 
+    // Cap previousSlugs to prevent unbounded growth from historical slug churn.
+    // Keep only the 20 most recent (last entries = most recent additions).
+    if (Array.isArray(job.previousSlugs) && job.previousSlugs.length > 20) {
+      job.previousSlugs = job.previousSlugs.slice(-20);
+      jobChanged = true;
+    }
+
     // Snapshot all current slugs before hardening so we can detect renames.
     // slugsBefore: Set for detecting globally-lost slugs (e.g. job.slug rename).
     // slugsByLocaleBefore: per-locale map for detecting locale-specific slug changes
@@ -1291,7 +1298,11 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
             .replace(/[^a-z0-9]+/g, '-')
             .replace(/^-+|-+$/g, '')
             .slice(0, 120);
-          if (derived && derived !== existingSlug) {
+          if (derived && derived !== existingSlug && !isSlugStable(existingSlug, derived, {
+            threshold: 0.70,
+            existingLocation: staleLocation,
+            newLocation: staleLocation,
+          })) {
             const reason = 'stale_slug';
             slugChangeCount[reason] = (slugChangeCount[reason] || 0) + 1;
             console.log(`  🔄 SLUG [${locale}] ${reason}: ${job.companyKey || job.company} | ${existingSlug} → ${derived}`);
@@ -1365,6 +1376,16 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
           : (locale === 'it' && needsItalianSlugRepair(localizedSlug)) ? 'italian_repair'
           : needsBoilerplateSlugRepair(localizedSlug) ? 'boilerplate_repair'
           : 'company_repair';
+        // Skip replacement if existing slug is semantically equivalent (prevents churn)
+        // BUT always allow italian_repair and boilerplate_repair — those fix real quality issues
+        const isQualityRepair = reason === 'italian_repair' || reason === 'boilerplate_repair';
+        if (!isQualityRepair && localizedSlug && isSlugStable(localizedSlug, nextSlug, {
+          threshold: 0.70,
+          existingLocation: location,
+          newLocation: location,
+        })) {
+          continue; // slug is close enough — don't churn
+        }
         slugChangeCount[reason] = (slugChangeCount[reason] || 0) + 1;
         console.log(`  🔄 SLUG [${locale}] ${reason}: ${job.companyKey || job.company} | ${localizedSlug || '(empty)'} → ${nextSlug}`);
         job.slugByLocale[locale] = nextSlug;
@@ -4256,7 +4277,7 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
       fresh.previousSlugs = [...new Set([
         ...(old.previousSlugs || []),
         ...(fresh.previousSlugs || []),
-      ])];
+      ])].slice(0, 20); // Cap to prevent unbounded growth
     }
 
     // Preserve slug (use existing if stable). Pass per-job location hints so
