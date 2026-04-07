@@ -46,15 +46,27 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Verify GITHUB_PAT is set
+      - name: Prepare Firebase credentials
         env:
-          GH_MODELS_PAT: ${{ secrets.GITHUB_PAT }}
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
-          if [ -z "$GH_MODELS_PAT" ]; then
-            echo "❌ GITHUB_PAT secret is not set. Cannot call AI models."
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "❌ FIREBASE_SERVICE_ACCOUNT_JSON secret is not set."
             exit 1
           fi
-          echo "✅ GITHUB_PAT is available (mapped to GH_MODELS_PAT)"
+          echo "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      - name: Verify GH_MODELS_PAT is set
+        run: |
+          if [ -z "$GH_MODELS_PAT" ]; then
+            echo "❌ GH_MODELS_PAT not loaded from Remote Config. Cannot call AI models."
+            exit 1
+          fi
+          echo "✅ GH_MODELS_PAT loaded from Firebase Remote Config"
 
       - name: Configure git identity
         run: |
@@ -63,8 +75,6 @@ jobs:
 
       - name: Run batch FAQ generation
         id: faq
-        env:
-          GH_MODELS_PAT: ${{ secrets.GITHUB_PAT }}
         run: |
           ARGS="--limit ${{ inputs.limit || '50' }} --concurrency ${{ inputs.concurrency || '3' }}"
           if [ "${{ inputs.skip_translate }}" = "true" ]; then
@@ -81,8 +91,6 @@ jobs:
 
       - name: Commit and push changes
         if: steps.faq.outputs.modified_count != '0'
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
         run: |
           git add services/locales/blog-body/ data/batch-faq-progress.json
 
@@ -110,8 +118,6 @@ jobs:
 
       - name: Trigger deploy
         if: steps.faq.outputs.modified_count != '0'
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_PAT }}
         run: bash scripts/lib/trigger-deploy.sh
 
       - name: Summary
