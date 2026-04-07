@@ -66,7 +66,7 @@
       "id": "otis-2ad7ac1459d1",
       "slug": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032",
       "slugByLocale": {
-        "it": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032",
+        "it": "vivier-dei-talenti-vaud-tecnico-montatore-manutentore-otis-sa-1032",
         "en": "talent-pool-vaud-technician-fitter-repairman-service-otis-sa-1032",
         "de": "vivier-der-talente-vaud-techniker-monteur-instandsetzer-otis-sa-1032",
         "fr": "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
@@ -117,7 +117,10 @@
           "unitText": "YEAR"
         }
       },
-      "postalCode": "1032"
+      "postalCode": "1032",
+      "previousSlugs": [
+        "vivier-des-talents-vaud-service-technicien-monteur-repairman-otis-1032"
+      ]
     },
     {
       "id": "otis-40bff711697f",
