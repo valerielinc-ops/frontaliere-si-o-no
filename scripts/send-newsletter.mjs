@@ -780,6 +780,7 @@ async function sendEmailBatchSes(emails) {
           EmailTags: (item.payload.tags || []).map(t => ({
             Name: t.name, Value: t.value,
           })),
+          ConfigurationSetName: 'frontaliere-newsletter',
         });
         const res = await client.send(cmd);
         return { item, messageId: res.MessageId };
