@@ -63,13 +63,24 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       }
       async function _flushAllWrites() {
         const BATCH = 300;
+        let failed = 0;
         for (let i = 0; i < _pendingWrites.length; i += BATCH) {
-          await Promise.all(
+          const results = await Promise.allSettled(
             _pendingWrites.slice(i, i + BATCH).map(async w => {
-              await fs.promises.mkdir(np.dirname(w.p), { recursive: true });
-              return fs.promises.writeFile(w.p, w.c, 'utf-8');
+              // _md already created dirs synchronously — only need writeFile.
+              // Defensive mkdir retry in case dir was removed between _qw and flush.
+              try {
+                await fs.promises.writeFile(w.p, w.c, 'utf-8');
+              } catch {
+                fs.mkdirSync(np.dirname(w.p), { recursive: true });
+                await fs.promises.writeFile(w.p, w.c, 'utf-8');
+              }
             })
           );
+          failed += results.filter(r => r.status === 'rejected').length;
+        }
+        if (failed > 0) {
+          console.warn(`\x1b[33m[jobs-seo-pages]\x1b[0m ⚠ ${failed}/${_pendingWrites.length} writes failed during flush`);
         }
       }
 

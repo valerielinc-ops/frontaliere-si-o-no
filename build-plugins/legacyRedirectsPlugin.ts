@@ -247,6 +247,15 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
       }
 
       const compatPathsPath = path.resolve(rootDir, 'data/seo-404-compat-paths.json');
+      // Job URL patterns handled exclusively by jobsSeoPagesPlugin (active + bridge + soft-landing + self-healing).
+      // Writing thin compat pages for job paths is harmful: if jobsSeoPagesPlugin's flush fails,
+      // the thin compat page survives and Google indexes it instead of enriched content.
+      const JOB_SECTION_PREFIXES = [
+        '/cerca-lavoro-ticino/', '/en/find-jobs-ticino/', '/de/stellenangebote-tessin/', '/fr/trouver-emploi-tessin/',
+        '/en/find-jobs-ticino/', '/de/jobs-im-tessin/', '/fr/emplois-tessin/',
+      ];
+      const isJobPath = (p: string): boolean => JOB_SECTION_PREFIXES.some(prefix => p.startsWith(prefix));
+      let skippedJobPaths = 0;
       if (fs.existsSync(compatPathsPath)) {
         const compatPathsRaw = JSON.parse(fs.readFileSync(compatPathsPath, 'utf-8'));
         const compatPaths = Array.isArray(compatPathsRaw?.paths) ? compatPathsRaw.paths : [];
@@ -255,6 +264,8 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
           if (!resolution) continue;
           const from = normalize(String(compatPathRaw || ''));
           if (from === '/' || from === resolution.canonicalPath) continue;
+          // Skip job paths — handled by jobsSeoPagesPlugin with enriched content
+          if (isJobPath(from)) { skippedJobPaths++; continue; }
           const outDir = path.join(distDir, from.slice(1));
           fs.mkdirSync(outDir, { recursive: true });
           // Skip if a higher-priority plugin (e.g. soft-landing pages) already generated this page
@@ -278,7 +289,7 @@ export function legacyRedirectsPlugin(rootDir: string): Plugin {
         console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${count} legacy redirect pages`);
       }
       if (compatCount > 0) {
-        console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${compatCount} Search Console compatibility pages`);
+        console.log(`\x1b[36m[legacy-redirects]\x1b[0m Generated ${compatCount} Search Console compatibility pages${skippedJobPaths > 0 ? ` (skipped ${skippedJobPaths} job paths → handled by jobs plugin)` : ''}`);
       }
     },
   };

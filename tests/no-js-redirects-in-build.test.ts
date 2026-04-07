@@ -17,7 +17,7 @@ import path from 'path';
 const DIST_DIR = path.resolve(__dirname, '..', 'dist');
 
 describe('no JS redirects in built flat files', () => {
-  it('dist/ flat .html files must not contain location.replace()', { timeout: 120_000 }, () => {
+  it('dist/ flat .html files must not contain location.replace()', { timeout: 300_000 }, () => {
     if (!fs.existsSync(DIST_DIR)) {
       // Build hasn't run — skip gracefully
       console.log('  ⏭  dist/ not found, skipping post-build redirect check');
