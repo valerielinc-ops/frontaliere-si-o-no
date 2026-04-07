@@ -716,7 +716,10 @@
     "votazioni-federali-tassazione-individuale",
     "votazioni-imposizione-ticino-2026",
     "voto-corrispondenza-ticino-2026",
-    "walter-bonatti-in-capo-al-mondo"
+    "walter-bonatti-in-capo-al-mondo",
+    "divieto-cellulari-scuola-ticino",
+    "incendi-nel-luganese-arrestato-un-piromane",
+    "lavoro-sommerso-varesotto"
   ],
   "failed": [
     {
@@ -6388,8 +6391,18 @@
       "id": "lavoro-sommerso-varesotto",
       "error": "Validation failed",
       "at": "2026-04-07T17:13:27.343Z"
+    },
+    {
+      "id": "best-cross-border-worker-calculator-switzerland",
+      "error": "Body too short",
+      "at": "2026-04-07T20:26:16.311Z"
+    },
+    {
+      "id": "guida-completa-frontaliere",
+      "error": "Body too short",
+      "at": "2026-04-07T20:26:26.786Z"
     }
   ],
   "startedAt": "2026-04-07T14:09:54.940Z",
-  "updatedAt": "2026-04-07T17:38:51.352Z"
+  "updatedAt": "2026-04-07T20:26:50.041Z"
 }
