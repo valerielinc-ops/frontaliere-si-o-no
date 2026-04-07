@@ -77,9 +77,6 @@ jobs:
 
       - name: Run batch FAQ generation
         id: faq
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
-          GITHUB_REPOSITORY: ${{ github.repository }}
         run: |
           ARGS="--limit ${{ inputs.limit || '200' }} --concurrency ${{ inputs.concurrency || '1' }}"
           if [ "${{ inputs.skip_translate }}" = "true" ]; then
@@ -104,8 +101,6 @@ jobs:
 
       - name: Commit and push changes
         if: steps.count.outputs.modified_count != '0'
-        env:
-          GITHUB_PAT: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git add services/locales/blog-body/
           git add -f data/batch-faq-progress.json 2>/dev/null || true
