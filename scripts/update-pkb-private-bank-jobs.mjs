@@ -70,7 +70,7 @@ async function main() {
     return {
       id: `pkb-private-bank-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'pkb.ch',
-      title: raw.title, titleByLocale: { it: raw.title },
+      title: raw.title, titleByLocale: { it: raw.title }, sourceLang: detectLang(desc || raw.title, 'en'),
       description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
       location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6900', streetAddress: 'Via S. Balestra 1',
