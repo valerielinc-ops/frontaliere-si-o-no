@@ -41,6 +41,7 @@ import { validateJobUrls } from './lib/validate-job-url.mjs';
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
+  detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 
@@ -399,6 +400,7 @@ async function fetchCaseificioJobs() {
       titleByLocale: { it: listing.title },
       descriptionByLocale: { it: description },
       slugByLocale: { it: slug },
+      sourceLang: detectLang(description || listing.title, 'it'),
       _targetScope: { canton: 'TI', location: 'Airolo' },
     };
 

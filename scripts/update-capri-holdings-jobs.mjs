@@ -39,6 +39,7 @@ import {
 import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
+  detectLang,
   normalize,
   normalizeKey,
   mergeLocaleTextMap,
@@ -356,6 +357,7 @@ async function fetchCapriHoldingsJobs() {
       source: 'capri-holdings-workday-crawler',
       employmentType: detectEmploymentType(info.timeType || ''),
       experienceLevel: detectExperienceLevel(title),
+      sourceLang: detectLang(descEn || title, 'en'),
       sector: 'Fashion / Luxury Retail',
       _brand: brand,
       _targetScope: { canton: canton || '', location: city || locationRaw || '' },

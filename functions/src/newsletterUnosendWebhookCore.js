@@ -149,12 +149,20 @@ async function persistUnosendEvent(db, eventType, eventData) {
 
 export async function handleUnosendWebhookRequest({ payload, headers, signingSecret }) {
   // Verify signature
-  const signature = headers['x-unosend-signature'] || '';
-  if (signingSecret) {
+  const signature = headers['x-unosend-signature'] || headers['x-webhook-signature'] || '';
+  console.log(`[unosendWebhook] Signature header: "${signature ? signature.slice(0, 20) + '...' : 'MISSING'}"`);
+  console.log(`[unosendWebhook] Secret configured: ${signingSecret ? 'yes' : 'no'}`);
+  
+  if (signingSecret && signature) {
     const isValid = verifyUnosendSignature({ payload, signature, signingSecret });
     if (!isValid) {
+      // Log available headers for debugging
+      const sigHeaders = Object.keys(headers).filter(h => h.includes('sign') || h.includes('unosend') || h.includes('webhook'));
+      console.warn(`[unosendWebhook] Signature mismatch. Relevant headers: ${sigHeaders.join(', ')}`);
       throw new Error('Invalid Unosend webhook signature');
     }
+  } else if (signingSecret && !signature) {
+    console.warn('[unosendWebhook] No signature header found — skipping verification');
   }
 
   const body = typeof payload === 'string' ? JSON.parse(payload) : payload;

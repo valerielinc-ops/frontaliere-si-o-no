@@ -30,7 +30,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -360,6 +360,7 @@ async function fetchBraccoJobs() {
       source: 'bracco-workday-crawler',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
+      sourceLang: detectLang(descEn || title, 'en'),
       sector: 'Healthcare / Imaging diagnostico',
       _targetScope: { canton, location: city },
     };

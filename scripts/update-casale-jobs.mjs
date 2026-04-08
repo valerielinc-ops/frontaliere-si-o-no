@@ -13,7 +13,7 @@ import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawl
 import { writeJobsCrawlerSlice, writeSummaryCrawlerSlice,
   registerCrawlerSummaryGuard, assembleJobsDataset, readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, mergeLocaleTextMap } from './lib/dedicated-crawler-common.mjs';
 import { parseApiResponse, buildJobFromApi, parseListingPage, slugify, detectCategory, detectExperienceLevel } from './lib/casale-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -68,7 +68,7 @@ async function fetchJobs() {
       slug, slugByLocale: { en: slug, it: slug },
       category: detectCategory(built.title),
       datePosted: built.datePosted,
-      source: 'casale-careers-crawler', employmentType: built.employmentType,
+      source: 'casale-careers-crawler', sourceLang: detectLang(description || built.title, 'en'), employmentType: built.employmentType,
       experienceLevel: detectExperienceLevel(built.title),
       sector: 'Ingegneria / Chimica',
       _targetScope: { canton: 'TI', location: built.city || 'Lugano' },

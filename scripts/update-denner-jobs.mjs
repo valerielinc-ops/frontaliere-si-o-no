@@ -283,6 +283,7 @@ async function fetchAndParseDetailPages(urls) {
         postedDate: jsonLd?.datePosted || new Date().toISOString().slice(0, 10),
         url,
         source: 'Denner/Migros Dedicated Parser',
+        sourceLang: detectLang(description || rawTitle, 'it'),
         crawledAt: new Date().toISOString(),
       });
     }

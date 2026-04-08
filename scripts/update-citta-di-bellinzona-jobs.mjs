@@ -102,7 +102,7 @@ async function main() {
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: raw.datePosted, validThrough: raw.deadline || undefined,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
-      source: 'Bellinzona Dedicated Parser', crawledAt: new Date().toISOString(),
+      source: 'Bellinzona Dedicated Parser', sourceLang: detectLang(desc || raw.title, 'it'), crawledAt: new Date().toISOString(),
     });
   }
 

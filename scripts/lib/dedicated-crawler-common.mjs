@@ -4202,27 +4202,56 @@ export function localeTextCoverage(map = {}, minChars = 1) {
   return c;
 }
 
-export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1) {
+export function mergeLocaleTextMap(a = {}, b = {}, minChars = 1, sourceLocale = null) {
   const out = {};
-  // Detect source-lang value in b to guard against overwriting real translations
-  // with source-language copies. Many parsers put the same Italian title in all
-  // four locale slots; we must not let that overwrite an existing EN/DE/FR translation.
-  const bSourceValues = new Set();
-  for (const srcLocale of ['it', 'en']) {
-    const v = normalizeSpace(String(b?.[srcLocale] || ''));
-    if (v.length >= minChars) bSourceValues.add(v);
+
+  // When sourceLocale is known: only the source locale slot from `b` is
+  // authoritative. For every other locale, keep existing `a` (real translation)
+  // and never overwrite it with crawler data that is almost certainly a
+  // source-language copy or stale text.
+  if (sourceLocale) {
+    for (const locale of LOCALES) {
+      const av = normalizeSpace(String(a?.[locale] || ''));
+      const bv = normalizeSpace(String(b?.[locale] || ''));
+      if (locale === sourceLocale) {
+        // Source locale: new data wins (the crawler just fetched it)
+        out[locale] = bv.length >= minChars ? bv : (av.length >= minChars ? av : undefined);
+      } else {
+        // Non-source locale: keep existing translation; only use b if a is empty
+        if (av.length >= minChars) {
+          out[locale] = av;
+        } else if (bv.length >= minChars) {
+          out[locale] = bv;
+        }
+      }
+      if (out[locale] === undefined) delete out[locale];
+    }
+    return out;
   }
+
+  // Fallback: no sourceLocale — use cross-locale-duplicate heuristic.
+  // Detect source-lang value in b across ALL locales to guard against
+  // overwriting real translations with source-language copies.
+  const bValues = {};
+  for (const locale of LOCALES) {
+    const v = normalizeSpace(String(b?.[locale] || ''));
+    if (v.length >= minChars) bValues[locale] = v;
+  }
+  const bValueCounts = new Map();
+  for (const v of Object.values(bValues)) {
+    bValueCounts.set(v, (bValueCounts.get(v) || 0) + 1);
+  }
+
   for (const locale of LOCALES) {
     const av = normalizeSpace(String(a?.[locale] || ''));
     const bv = normalizeSpace(String(b?.[locale] || ''));
     if (av.length < minChars && bv.length < minChars) continue;
     if (av.length < minChars) { out[locale] = bv; continue; }
     if (bv.length < minChars) { out[locale] = av; continue; }
-    // If `b` has the same value across multiple locales (source-lang copy pattern)
+    // If `b` has the same value in 2+ locale slots (source-lang copy pattern)
     // and `a` has a DIFFERENT value for this locale, keep `a` — it's a real translation.
-    const bIsCrossLocaleDuplicate = (locale !== 'it') && bSourceValues.has(bv) &&
-      LOCALES.filter(l => l !== locale).some(l => normalizeSpace(String(b?.[l] || '')) === bv);
-    if (bIsCrossLocaleDuplicate && av !== bv) {
+    const bIsCrossLocaleDuplicate = (bValueCounts.get(bv) || 0) >= 2 && av !== bv;
+    if (bIsCrossLocaleDuplicate) {
       out[locale] = av;
     } else {
       out[locale] = bv.length >= av.length ? bv : av;
@@ -4273,16 +4302,43 @@ export function mergePreserveLocaleData(existingJobs, freshJobs, opts = {}) {
     // Preserve stable ID from existing job
     if (old.id) fresh.id = old.id;
 
+    // Determine source language for locale-aware merging
+    const srcLang = fresh.sourceLang || old.sourceLang || null;
+
     // Merge locale maps: keep existing translations, update source-locale slot
     fresh.titleByLocale = mergeLocaleTextMap(
-      old.titleByLocale, fresh.titleByLocale || {}, 3
+      old.titleByLocale, fresh.titleByLocale || {}, 3, srcLang
     );
     fresh.descriptionByLocale = mergeLocaleTextMap(
-      old.descriptionByLocale, fresh.descriptionByLocale || {}, 30
+      old.descriptionByLocale, fresh.descriptionByLocale || {}, 30, srcLang
     );
     fresh.slugByLocale = mergeLocaleTextMap(
-      old.slugByLocale, fresh.slugByLocale || {}, 3
+      old.slugByLocale, fresh.slugByLocale || {}, 3, srcLang
     );
+
+    // Apply isSlugStable to each locale in slugByLocale — prevent slug churn
+    // from minor title wording changes (e.g. "per la Ricerca" → "di ricerca")
+    if (old.slugByLocale && fresh.slugByLocale) {
+      for (const locale of LOCALES) {
+        const oldSlug = old.slugByLocale[locale];
+        const newSlug = fresh.slugByLocale[locale];
+        if (oldSlug && newSlug && oldSlug !== newSlug) {
+          const stable = isSlugStable(oldSlug, newSlug, {
+            existingLocation: old.addressLocality || old.location || '',
+            newLocation: fresh.addressLocality || fresh.location || '',
+          });
+          if (stable) {
+            fresh.slugByLocale[locale] = oldSlug;
+          } else {
+            // Slug genuinely changed — capture old one in previousSlugs
+            fresh.previousSlugs = [...new Set([
+              ...(fresh.previousSlugs || []),
+              oldSlug,
+            ])];
+          }
+        }
+      }
+    }
 
     // Preserve requirement locale maps
     if (old.requirementsByLocale && !fresh.requirementsByLocale) {
@@ -4540,10 +4596,10 @@ export function mergeAndDeduplicate(existingJobs, incomingJobs, qualityCfg, opti
       source: (next.source === 'Company Careers Crawler' || prev.source !== 'Company Careers Crawler')
         ? next.source
         : prev.source,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3),
-      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale || {}, next.titleByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, next.descriptionByLocale || {}, 120, next.sourceLang || prev.sourceLang || null),
       requirementsByLocale: mergeLocaleRequirementsMap(prev.requirementsByLocale || {}, next.requirementsByLocale || {}),
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale || {}, next.slugByLocale || {}, 3, next.sourceLang || prev.sourceLang || null),
       previousSlugs: [
         ...new Set([
           ...(Array.isArray(prev.previousSlugs) ? prev.previousSlugs : []),

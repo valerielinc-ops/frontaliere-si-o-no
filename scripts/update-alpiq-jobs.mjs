@@ -87,7 +87,7 @@ async function main() {
       employmentType: inferEmploymentType(raw.title, raw.description || '', raw.percentage || ''),
       category: 'energy', contract: raw.contractType === 'Temporary' ? 'temporary' : 'full-time',
       currency: 'CHF', featured: false, postedDate: new Date().toISOString().slice(0, 10),
-      url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', crawledAt: new Date().toISOString(),
+      url: raw.url, applyUrl: raw.applyUrl, source: 'Alpiq Dedicated Parser', sourceLang: detectLang(desc || raw.title, 'en'), crawledAt: new Date().toISOString(),
     };
   });
 

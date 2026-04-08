@@ -43,6 +43,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import { extractPdfJobContentFromUrl } from './lib/pdf-job-content.mjs';
 import {
@@ -274,6 +275,7 @@ async function fetchFartJobs() {
       employmentType: detectEmploymentType(listing.title),
       experienceLevel: detectExperienceLevel(listing.title),
       source: 'fart-crawler',
+      sourceLang: detectLang(description || listing.title, 'it'),
       postedDate: new Date().toISOString().slice(0, 10),
       titleByLocale: { it: listing.title },
       descriptionByLocale: { it: description },

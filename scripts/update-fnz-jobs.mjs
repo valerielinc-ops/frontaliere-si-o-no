@@ -43,6 +43,7 @@ import {
   runDedicatedBaseCrawler,
   validateDedicatedLocaleCoverage,
   mergeLocaleTextMap,
+  detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -364,6 +365,7 @@ async function fetchFnzJobs() {
       category: detectCategory(title),
       datePosted: info.startDate || new Date().toISOString().split('T')[0],
       source: 'fnz-workday-crawler',
+      sourceLang: detectLang(descEn || title, 'en'),
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Fintech / Servizi finanziari',

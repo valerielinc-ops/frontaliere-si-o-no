@@ -36,6 +36,7 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
+  detectLang,
   normalize,
   normalizeKey,
 } from './lib/dedicated-crawler-common.mjs';

@@ -250,11 +250,10 @@ export function buildJob(raw) {
     slug: slugify(`${title}-citta-di-lugano`),
     slugByLocale: {
       it: slugify(`${title}-citta-di-lugano`),
-      en: slugify(`${title}-city-of-lugano`),
-      de: slugify(`${title}-stadt-lugano`),
-      fr: slugify(`${title}-ville-de-lugano`),
     },
-    titleByLocale: { it: title, en: title, de: title, fr: title },
+    titleByLocale: { it: title },
+    descriptionByLocale: { it: finalDescription },
+    sourceLang: 'it',
     deadline: raw.deadline || '',
     _targetScope: { canton: 'TI', location: 'Lugano' },
   };

@@ -209,12 +209,14 @@ function mergeJobs(discoveredJobs) {
     // When description was enriched from detail page, clear stale locale translations
     // so translateMissingJobLocales() regenerates them from the new rich content
     const prevDesc = job._enrichedFromDetail ? {} : (prev.descriptionByLocale || {});
+    const srcLang = job.sourceLang || prev.sourceLang || null;
     const clean = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
-      descriptionByLocale: { ...prevDesc, ...(job.descriptionByLocale || {}) },
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, srcLang),
+      descriptionByLocale: mergeLocaleTextMap(prev.descriptionByLocale || {}, { ...prevDesc, ...(job.descriptionByLocale || {}) }, 30, srcLang),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
+      needsRetranslation: job._enrichedFromDetail ? true : (prev.needsRetranslation || false),
     };
     delete clean._enrichedFromDetail;
     return clean;

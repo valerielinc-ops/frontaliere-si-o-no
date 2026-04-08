@@ -35,7 +35,7 @@ import {
   readExistingCrawlerJobs,
 } from './assemble-jobs-dataset.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
-import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap,
+import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, mergeLocaleTextMap, detectLang,
 } from './lib/dedicated-crawler-common.mjs';
 import {
   normalizeSpace,
@@ -228,6 +228,7 @@ async function fetchDxtJobs() {
       category: detectCategory(parsed.title),
       datePosted: new Date().toISOString().split('T')[0],
       source: 'dxt-careers-crawler',
+      sourceLang: detectLang(descEn || parsed.title, 'en'),
       employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(parsed.title),
       sector: 'Energia / Trading materie prime',

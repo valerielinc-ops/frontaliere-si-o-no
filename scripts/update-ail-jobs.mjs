@@ -43,6 +43,7 @@ import {
   runDedicatedBaseCrawler,
   translateMissingJobLocales,
   validateDedicatedLocaleCoverage,
+  detectLang,
   mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 import {
@@ -402,6 +403,7 @@ async function fetchAilJobs() {
       descriptionByLocale: { it: description },
       slug,
       slugByLocale: { it: slug },
+      sourceLang: detectLang(description || title, 'it'),
       _targetScope: { canton: 'TI', location: 'Lugano' },
     };
 

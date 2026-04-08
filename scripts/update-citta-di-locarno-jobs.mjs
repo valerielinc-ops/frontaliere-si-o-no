@@ -100,7 +100,7 @@ async function main() {
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,
       postedDate: raw.datePosted,
       url: raw.url, pdfUrl: raw.pdfUrl, applyUrl: raw.applyUrl,
-      source: 'Locarno Dedicated Parser', crawledAt: new Date().toISOString(),
+      source: 'Locarno Dedicated Parser', sourceLang: detectLang(desc || raw.title, 'it'), crawledAt: new Date().toISOString(),
     });
   }
 

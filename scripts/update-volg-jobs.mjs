@@ -670,15 +670,17 @@ function mergeJobs(discoveredJobs) {
     updated += 1;
     // When description was enriched from the detail page, clear stale
     // translations so translateMissingJobLocales regenerates them.
+    const srcLang = job.sourceLang || prev.sourceLang || null;
     const descByLocale = job._enrichedFromDetail
-      ? {}
-      : { ...(prev.descriptionByLocale || {}), ...(job.descriptionByLocale || {}) };
+      ? mergeLocaleTextMap(prev.descriptionByLocale || {}, job.descriptionByLocale || {}, 30, srcLang)
+      : mergeLocaleTextMap(prev.descriptionByLocale || {}, job.descriptionByLocale || {}, 30, srcLang);
     const merged = {
       ...prev,
       ...job,
-      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3),
+      titleByLocale: mergeLocaleTextMap(prev.titleByLocale, job.titleByLocale, 3, srcLang),
       descriptionByLocale: descByLocale,
-      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3),
+      slugByLocale: mergeLocaleTextMap(prev.slugByLocale, job.slugByLocale, 3, srcLang),
+      needsRetranslation: job._enrichedFromDetail ? true : (prev.needsRetranslation || false),
     };
     delete merged._enrichedFromDetail;
     return merged;

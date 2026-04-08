@@ -262,6 +262,7 @@ function parseCornerOffer(offer) {
     postedDate: toIsoDate(offer.published_at || offer.created_at),
     url: careersUrl,
     source: 'Corner Dedicated Parser (Recruitee API)',
+    sourceLang: detectLang(description || title, 'en'),
     crawledAt: new Date().toISOString(),
   };
 }

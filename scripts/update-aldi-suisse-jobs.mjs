@@ -275,6 +275,7 @@ async function fetchAndParseDetailPages(urls) {
         postedDate: new Date().toISOString().slice(0, 10),
         url,
         source: 'ALDI Suisse Dedicated Parser',
+        sourceLang: detectLang(description || rawTitle, 'it'),
         crawledAt: new Date().toISOString(),
       });
     }

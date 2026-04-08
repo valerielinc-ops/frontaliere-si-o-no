@@ -531,6 +531,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       postedDate,
       url,
       source: 'Oracle HCM API',
+      sourceLang: detectLang(description || title),
       companyKey: EFG_KEY,
       companyDomain: EFG_OFFICIAL_HOST,
       titleByLocale: { en: title },

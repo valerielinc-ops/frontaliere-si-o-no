@@ -44,6 +44,7 @@ import {
   deriveLocalizedSlug,
   normalize,
   normalizeKey,
+  detectLang,
 mergeLocaleTextMap,
 } from './lib/dedicated-crawler-common.mjs';
 
@@ -312,10 +313,8 @@ async function fetchBancaSempioneJobs() {
       },
       titleByLocale: {
         it: title,
-        en: title,
-        de: title,
-        fr: title,
       },
+      sourceLang: detectLang(descEn || title, 'it'),
     };
 
     console.log(`  ✅ ${title} (${location}, ${canton || country || '?'})`);
