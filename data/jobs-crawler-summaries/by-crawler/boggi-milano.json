@@ -1,18 +1,49 @@
 {
   "key": "boggi-milano",
   "label": "Boggi Milano",
-  "generatedAt": "2026-04-08T09:07:23.871Z",
+  "generatedAt": "2026-04-08T20:57:41.222Z",
   "total": 6,
-  "newCount": 0,
-  "updatedCount": 6,
-  "removedCount": 0,
+  "newCount": 1,
+  "updatedCount": 5,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 9997,
-  "avgDurationMs": 9997,
+  "durationMs": 7377,
+  "avgDurationMs": 7377,
   "durationHistory": [
-    9997
+    7377
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "Cercasi Neolaureato/a in Ingegneria Gestionale per stage in ambito Purchasing",
+      "slug": "cercasi-neolaureato-a-in-ingegneria-gestionale-per-stage-in-ambito-purchasing-boggi-milano-mendrisio-ticino",
+      "url": "https://boggimilano1.recruitee.com/l/it/o/cercasi-neolaureatoa-in-ingegneria-gestionale-per-stage-in-ambito-purchasing",
+      "applyUrl": "https://boggimilano1.recruitee.com/o/cercasi-neolaureatoa-in-ingegneria-gestionale-per-stage-in-ambito-purchasing/c/new",
+      "company": "Boggi Milano",
+      "companyKey": "boggi-milano",
+      "companyDomain": "recruitee.com",
+      "location": "Mendrisio, Ticino",
+      "addressLocality": "Mendrisio",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "canton": "TI",
+      "country": "CH",
+      "category": "internship",
+      "sector": "Moda & Retail",
+      "source": "boggi-dedicated-crawler",
+      "sourceLang": "it",
+      "postedDate": "2025-11-26",
+      "employmentType": "internship",
+      "contractType": "internship",
+      "validThrough": "",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 20,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "INTERNATIONAL DISTRIBUTION SPECIALIST",
@@ -41,6 +72,7 @@
       "currency": "CHF",
       "streetAddress": "Via A. Maspoli 18",
       "postalCode": "6850",
+      "id": "boggi-milano-1eda7d050cc9",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -76,6 +108,7 @@
       "currency": "CHF",
       "streetAddress": "Via A. Maspoli 18",
       "postalCode": "6850",
+      "id": "boggi-milano-e3632f69a9af",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -111,6 +144,7 @@
       "currency": "CHF",
       "streetAddress": "Via A. Maspoli 18",
       "postalCode": "6850",
+      "id": "boggi-milano-2f33a8326479",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -146,6 +180,7 @@
       "currency": "CHF",
       "streetAddress": "Via A. Maspoli 18",
       "postalCode": "6850",
+      "id": "boggi-milano-3a6cbc92ab7c",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -181,6 +216,7 @@
       "currency": "CHF",
       "streetAddress": "Via A. Maspoli 18",
       "postalCode": "6850",
+      "id": "boggi-milano-0b2963438640",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -188,10 +224,12 @@
         "translation": 25,
         "completeness": 25
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Apac Import Support (STAGE)",
-      "slug": "apac-import-support-stage-boggi-milano-mendrisio-ticino",
+      "slug": "supporto-all-importazione-apac-stage-boggi-milano-mendrisio",
       "url": "https://boggimilano1.recruitee.com/l/it/o/apac-import-support-stage",
       "applyUrl": "https://boggimilano1.recruitee.com/o/apac-import-support-stage/c/new",
       "company": "Boggi Milano",
@@ -216,6 +254,7 @@
       "currency": "CHF",
       "streetAddress": "Via A. Maspoli 18",
       "postalCode": "6850",
+      "id": "boggi-milano-acbd71234752",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -225,6 +264,5 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
