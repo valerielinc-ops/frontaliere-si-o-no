@@ -33,7 +33,8 @@ const BODY_DIR = resolve(ROOT, 'services/locales/blog-body');
 function extractFaqFromFile(filePath) {
   if (!existsSync(filePath)) return null;
   const content = readFileSync(filePath, 'utf-8');
-  const faqMatch = content.match(/\.faq['']\s*:\s*[''`](.+?)[''`]\s*[,}]/s);
+  // Escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
+  const faqMatch = content.match(/\.faq['']\s*:\s*[']((?:[^'\\]|\\.)*)[']\s*[,}]/);
   if (!faqMatch) return null;
   try {
     return JSON.parse(faqMatch[1].replace(/\\'/g, "'"));
@@ -48,9 +49,10 @@ function hasFaqKey(filePath) {
 function replaceFaqInFile(filePath, newFaqArray) {
   let content = readFileSync(filePath, 'utf-8');
   const jsonStr = JSON.stringify(newFaqArray).replace(/'/g, "\\'");
+  // Escape-aware regex + function replacer to avoid $-pattern issues
   content = content.replace(
-    /(\.faq['']\s*:\s*[''`])(.+?)([''`]\s*[,}])/s,
-    `$1${jsonStr}$3`
+    /(\.faq['']\s*:\s*[''])((?:[^'\\]|\\.)*)(['']\s*[,}])/,
+    (_match, g1, _g2, g3) => g1 + jsonStr + g3
   );
   writeFileSync(filePath, content, 'utf-8');
 }

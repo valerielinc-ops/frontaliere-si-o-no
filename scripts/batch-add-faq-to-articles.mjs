@@ -277,7 +277,8 @@ function isWrongLocale(faqArray, expectedLocale) {
 }
 
 function extractFaqFromContent(fileContent) {
-  const faqMatch = fileContent.match(/\.faq['']\s*:\s*[''`](.+?)[''`]\s*[,}]/s);
+  // Use escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
+  const faqMatch = fileContent.match(/\.faq['']\s*:\s*[']((?:[^'\\]|\\.)*)[']\s*[,}]/);
   if (!faqMatch) return null;
   try {
     return JSON.parse(faqMatch[1].replace(/\\'/g, "'"));
@@ -513,11 +514,20 @@ function validateFaq(faq) {
 function replaceFaqInBodyFile(filePath, faqArray) {
   let content = read(filePath);
   const jsonStr = JSON.stringify(faqArray).replace(/'/g, "\\'");
+  // Use escape-aware regex: (?:[^'\\]|\\.)* correctly skips \' sequences
+  // and function replacer avoids $ interpretation in replacement string
   const replaced = content.replace(
-    /(\.faq'\s*:\s*')(.+?)('\s*[,])/s,
-    `$1${jsonStr}$3`
+    /(\.faq'\s*:\s*')((?:[^'\\]|\\.)*)('\s*,)/,
+    (_match, g1, _g2, g3) => g1 + jsonStr + g3
   );
   if (replaced === content) return false;
+  // Post-write validation: verify the file is still valid TS
+  try {
+    new Function(replaced);
+  } catch (syntaxErr) {
+    console.error(`  ❌ replaceFaqInBodyFile produced invalid TS in ${filePath}: ${syntaxErr.message}`);
+    return false;
+  }
   write(filePath, replaced);
   return true;
 }
@@ -564,6 +574,14 @@ function insertFaqIntoBodyFile(filePath, articleId, faqArray) {
 
   if (!hasFaqKey(content)) {
     console.error(`  ❌ Failed to insert FAQ into ${filePath}`);
+    return false;
+  }
+
+  // Post-write validation: verify the file is still valid TS
+  try {
+    new Function(content);
+  } catch (syntaxErr) {
+    console.error(`  ❌ insertFaqIntoBodyFile produced invalid TS in ${filePath}: ${syntaxErr.message}`);
     return false;
   }
 
