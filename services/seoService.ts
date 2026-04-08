@@ -1963,6 +1963,7 @@ function buildBreadcrumbs(section: string, route: AppRoute, locale: Locale, blog
     'blog-incendi-nel-luganese-arrestato-un-piromane': { name: 'Incendi nel Luganese', path: '/articoli-frontaliere/incendi-nel-luganese-arrestato-un-piromane', parent: 'blog' },
     'blog-front-alieri-soci-sagl-nodi-fiscali-2026': { name: 'Frontalieri fiscali', path: '/articoli-frontaliere/front-alieri-soci-sagl-nodi-fiscali-2026', parent: 'blog' },
     'blog-benzina-cara-ticino': { name: 'Benzina più cara in Svizzera', path: '/articoli-frontaliere/benzina-cara-ticino', parent: 'blog' },
+    'blog-incidente-rampa-a9-chiasso-2026': { name: 'Incidenti', path: '/articoli-frontaliere/incidente-rampa-a9-chiasso-2026', parent: 'blog' },
   };
 
   const info = sectionNames[section];

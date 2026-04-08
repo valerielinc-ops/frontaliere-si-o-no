@@ -2130,6 +2130,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.title': 'Tassa salute: accordo frontalieri prevale',
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.excerpt': 'DFAE conferma che l\'accordo italo-svizzero prevale sul diritto interno per la tassa sulla salute dei frontalieri',
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.imageAlt': 'Valico di confine tra Italia e Svizzera a Lugano',
+    'blog.article.incidente-rampa-a9-chiasso-2026.title': 'Incidente sulla rampa A9 per Chiasso: code e feriti lievi',
+    'blog.article.incidente-rampa-a9-chiasso-2026.excerpt': 'Tre auto coinvolte sul viadotto Brogeda. Strada chiusa per due ore. Ferite lievi per tre persone.',
+    'blog.article.incidente-rampa-a9-chiasso-2026.imageAlt': 'Viadotto Brogeda con veicoli di emergenza e code sulla rampa dell\'A9 verso Chiasso.',
 };
 
 export default blogMetaIt;

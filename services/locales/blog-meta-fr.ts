@@ -2130,6 +2130,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.title': 'Taxe santé: accord frontalier l\'emporte',
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.excerpt': 'DFAE confirme que l\'accord italo-suisse prévaut sur le droit interne pour la taxe sur la santé des frontalier',
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.imageAlt': 'Frontière entre l\'Italie et la Suisse à Lugano',
+    'blog.article.incidente-rampa-a9-chiasso-2026.title': 'Accident sur la bretelle d\'accès à l\'A9 en direction de Chiasso : embouteillages et blessés légers',
+    'blog.article.incidente-rampa-a9-chiasso-2026.excerpt': 'Trois voitures impliquées sur le viaduc de Brogeda. Route fermée pendant deux heures. Trois personnes légèrement blessées.',
+    'blog.article.incidente-rampa-a9-chiasso-2026.imageAlt': 'Viaduc de Brogeda avec véhicules d\'urgence et embouteillages sur la rampe de l\'A9 vers Chiasso.',
 };
 
 export default blogMetaFr;

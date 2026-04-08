@@ -2130,6 +2130,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.title': 'Health tax: border agreement prevails',
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.excerpt': 'DFAE confirms that the Italian-Swiss agreement prevails over domestic law for the health tax of border residents',
     'blog.article.tassa-salute-frontalieri-accordo-frontalieri.imageAlt': 'Border crossing between Italy and Switzerland in Lugano',
+    'blog.article.incidente-rampa-a9-chiasso-2026.title': 'A9 ramp accident near Chiasso: queues and minor injuries',
+    'blog.article.incidente-rampa-a9-chiasso-2026.excerpt': 'Three cars involved on the Brogeda viaduct. Road closed for two hours. Three people slightly injured.',
+    'blog.article.incidente-rampa-a9-chiasso-2026.imageAlt': 'Brogeda viaduct with emergency vehicles and traffic jams on the A9 ramp towards Chiasso.',
 };
 
 export default blogMetaEn;

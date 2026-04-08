@@ -12575,6 +12575,35 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-incidente-rampa-a9-chiasso-2026': {
+    title: 'Incidente sulla rampa A9 per Chiasso: code e feriti lievi | Frontaliere Ticino',
+    description: 'Tre auto coinvolte in un incidente sulla rampa dell\'A9 verso Chiasso. Strada chiusa per due ore. Ferite lievi per tre persone. Disagi per i frontalieri.',
+    keywords: 'frontalieri, ticino, svizzera, italia, incidente, sulla, rampa, chiasso',
+    ogTitle: 'Incidente sulla rampa A9 per Chiasso: code e feriti lievi',
+    ogDescription: 'Tre auto coinvolte in un incidente sulla rampa dell\'A9 verso Chiasso. Strada chiusa per due ore. Ferite lievi per tre persone.',
+    canonicalPath: '/articoli-frontaliere/incidente-rampa-a9-chiasso-2026',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Incidente sulla rampa A9 per Chiasso: code e feriti lievi",
+      "description": "Tre auto coinvolte in un incidente sulla rampa dell'A9 verso Chiasso. Strada chiusa per due ore. Ferite lievi per tre persone. Disagi per i frontalieri.",
+      "image": {
+        "@type": "ImageObject",
+        "url": `${BASE_URL}/images/blog/incidente-rampa-a9-chiasso-2026.jpg`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Viadotto Brogeda con veicoli di emergenza e code sulla rampa dell'A9 verso Chiasso."
+      },
+      "datePublished": "2026-04-08T14:45:09+00:00",
+      "dateModified": "2026-04-08T14:45:09+00:00",
+      "inLanguage": "it",
+      "author": {"@id": "https://frontaliereticino.ch/#organization"},
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/incidente-rampa-a9-chiasso-2026`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA;

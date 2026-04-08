@@ -3631,7 +3631,7 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
         "@context": "https://schema.org",
         "@type": "ItemList",
         "name": "Articoli Frontaliere",
-        "numberOfItems": 716,
+        "numberOfItems": 717,
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Stipendio netto frontaliere 2026", "url": `${BASE_URL}/articoli-frontaliere/stipendio-netto-frontaliere-2026` },
           { "@type": "ListItem", "position": 2, "name": "Nuovo Accordo Fiscale 2024", "url": `${BASE_URL}/articoli-frontaliere/nuovo-accordo-fiscale-2024` },
@@ -4344,7 +4344,8 @@ const SEO_PAGES_METADATA: Record<string, SEOMetadata> = {
           { "@type": "ListItem", "position": 712, "name": "Frontalieri e Tassa Salute: Più Chiarezza, ma A...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-ufis-risposte` },
           { "@type": "ListItem", "position": 713, "name": "Tassa salute frontalieri: la Lombardia non può ...", "url": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri` },
           { "@type": "ListItem", "position": 714, "name": "Frontalieri e nodi fiscali tra Italia e Svizzera", "url": `${BASE_URL}/articoli-frontaliere/front-alieri-soci-sagl-nodi-fiscali-2026` },
-          { "@type": "ListItem", "position": 715, "name": "Benzina più cara in Svizzera: ticinesi e fronta...", "url": `${BASE_URL}/articoli-frontaliere/benzina-cara-ticino` }
+          { "@type": "ListItem", "position": 715, "name": "Benzina più cara in Svizzera: ticinesi e fronta...", "url": `${BASE_URL}/articoli-frontaliere/benzina-cara-ticino` },
+          { "@type": "ListItem", "position": 717, "name": "Incidente sulla rampa A9 per Chiasso: code e fe...", "url": `${BASE_URL}/articoli-frontaliere/incidente-rampa-a9-chiasso-2026` }
         ]
       }
     ]
