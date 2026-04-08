@@ -73,10 +73,10 @@ async function main() {
     const jobSlug = slugify(`${raw.title}-alpiq-${raw.location || 'switzerland'}`);
     const desc = raw.description || `Posizione aperta presso Alpiq (${raw.location || 'Svizzera'}). Alpiq \u00e8 uno dei principali produttori di energia in Svizzera con centrali idroelettriche in Ticino. Candidati tramite il portale SuccessFactors.`;
     return {
-      id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug, en: jobSlug, de: jobSlug, fr: jobSlug },
+      id: `alpiq-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'alpiq.com',
-      title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
-      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      title: raw.title, titleByLocale: { it: raw.title },
+      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
       location: raw.location || 'Switzerland',
       canton: raw.location && /airolo|biasca|locarno|bellinzona|lugano|mendrisio|chiasso|rodi|ritom|piotta/i.test(raw.location) ? 'TI' : '',
       postalCode: ALPIQ_PLZ[raw.location?.toLowerCase()] || '',

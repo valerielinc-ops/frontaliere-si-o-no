@@ -134,7 +134,7 @@ async function main() {
 
     // Build rich locale-specific descriptions (200+ chars each)
     const descByLocale = hasRealDescription
-      ? { it: detailDesc, en: detailDesc, de: detailDesc, fr: detailDesc }
+      ? { en: detailDesc }
       : buildPradaDescriptions(raw.title, loc, dept);
 
     const description = descByLocale.it;
@@ -147,16 +147,16 @@ async function main() {
     parsedJobs.push({
       id: `prada-${urlHash}`,
       slug: jobSlug,
-      slugByLocale: { it: jobSlug, en: jobSlug, de: jobSlug, fr: jobSlug },
+      slugByLocale: { en: jobSlug },
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: 'pradagroup.com',
       title: raw.title,
-      titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
+      titleByLocale: { en: raw.title },
       description,
       descriptionByLocale: descByLocale,
       requirements: [],
-      requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      requirementsByLocale: { en: [] },
       location: loc,
       canton: 'TI',
       addressLocality: loc,

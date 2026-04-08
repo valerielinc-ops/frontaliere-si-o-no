@@ -91,10 +91,10 @@ async function main() {
     });
 
     parsedJobs.push({
-      id: raw.id, slug: raw.slug, slugByLocale: { it: raw.slug, en: raw.slug, de: raw.slug, fr: raw.slug },
+      id: raw.id, slug: raw.slug, slugByLocale: { it: raw.slug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'locarno.ch',
-      title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
-      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      title: raw.title, titleByLocale: { it: raw.title },
+      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
       location: 'Locarno', canton: 'TI', addressLocality: 'Locarno', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6600', streetAddress: 'Piazza Grande 18',
       category: 'public-admin', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,

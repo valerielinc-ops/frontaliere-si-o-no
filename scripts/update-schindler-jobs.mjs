@@ -337,21 +337,15 @@ function parseSchindlerJob(searchResult, detailData) {
   const id = `schindler-${urlHash}`;
   const slugBase = slugify(`${title}-schindler-${city}`);
 
-  // Build locale variants (Italian source — same title for all locales)
-  const titleByLocale = { it: title, en: title, de: title, fr: title };
+  // Schindler posts only in Italian — set source locale only.
+  // translate-pending pipeline will fill other locales.
+  const titleByLocale = { it: title };
   const slugByLocale = {
     it: slugify(`${title}-schindler-${city}`),
-    en: slugify(`${title}-schindler-${city}`),
-    de: slugify(`${title}-schindler-${city}`),
-    fr: slugify(`${title}-schindler-${city}`),
   };
-  // Schindler posts only in Italian — copy to all locales as fallback.
-  // Workflow runs with JOBS_SCHINDLER_STRICT=0, so untranslated is a soft issue.
+  // Schindler posts only in Italian — source locale only.
   const descriptionByLocale = {
     it: description,
-    en: description,
-    de: description,
-    fr: description,
   };
 
   return {
@@ -366,7 +360,7 @@ function parseSchindlerJob(searchResult, detailData) {
     description,
     descriptionByLocale,
     requirements: [],
-    requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+    requirementsByLocale: { it: [] },
     location: city,
     canton,
     addressLocality: city,

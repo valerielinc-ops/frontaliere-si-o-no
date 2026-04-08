@@ -68,10 +68,10 @@ async function main() {
     const jobSlug = slugify(`${raw.title}-pkb-private-bank-lugano`);
     const desc = `Posizione aperta presso PKB Private Bank SA a Lugano (TI). PKB \u00e8 una banca privata svizzera indipendente fondata nel 1958, specializzata in gestione patrimoniale e private banking. Candidati tramite il portale ufficiale.`;
     return {
-      id: `pkb-private-bank-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug, en: jobSlug, de: jobSlug, fr: jobSlug },
+      id: `pkb-private-bank-${urlHash}`, slug: jobSlug, slugByLocale: { it: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'pkb.ch',
-      title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
-      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      title: raw.title, titleByLocale: { it: raw.title },
+      description: desc, descriptionByLocale: { it: desc }, requirements: [], requirementsByLocale: { it: [] },
       location: 'Lugano', canton: 'TI', addressLocality: 'Lugano', addressRegion: 'TI', addressCountry: 'CH',
       postalCode: '6900', streetAddress: 'Via S. Balestra 1',
       category: 'finance', contract: 'full-time', employmentType: inferEmploymentType(raw.title, raw.description || ''), currency: 'CHF', featured: false,

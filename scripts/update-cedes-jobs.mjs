@@ -63,11 +63,11 @@ async function main() {
     const jobSlug = slugify(`${raw.title}-cedes-${raw.location}`);
     parsedJobs.push({
       id: `cedes-${urlHash}`, slug: jobSlug,
-      slugByLocale: { it: jobSlug, en: jobSlug, de: jobSlug, fr: jobSlug },
+      slugByLocale: { de: jobSlug },
       company: COMPANY_NAME, companyKey: COMPANY_KEY, companyDomain: 'cedes.com',
-      title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
-      description, descriptionByLocale: { it: description },
-      requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      title: raw.title, titleByLocale: { de: raw.title },
+      description, descriptionByLocale: { de: description },
+      requirements: [], requirementsByLocale: { de: [] },
       location: raw.location || 'Landquart', canton: 'GR',
       addressLocality: raw.location || 'Landquart', addressCountry: 'CH',
       category: 'technology', contract: 'full-time',

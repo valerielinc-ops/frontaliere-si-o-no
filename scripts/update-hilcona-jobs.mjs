@@ -65,11 +65,11 @@ async function main() {
     const jobSlug = slugify(`${raw.title}-hilcona-${loc}`);
     parsedJobs.push({
       id: `hilcona-${urlHash}`, slug: jobSlug,
-      slugByLocale: { it: jobSlug, en: jobSlug, de: jobSlug, fr: jobSlug },
+      slugByLocale: { de: jobSlug },
       company, companyKey: COMPANY_KEY, companyDomain: 'bellfoodgroup.com',
-      title: raw.title, titleByLocale: { it: raw.title, en: raw.title, de: raw.title, fr: raw.title },
-      description, descriptionByLocale: { it: description },
-      requirements: [], requirementsByLocale: { it: [], en: [], de: [], fr: [] },
+      title: raw.title, titleByLocale: { de: raw.title },
+      description, descriptionByLocale: { de: description },
+      requirements: [], requirementsByLocale: { de: [] },
       location: loc, canton: 'GR',
       addressLocality: loc, addressCountry: 'CH',
       category: 'manufacturing', contract: detail.contractType || 'full-time',
