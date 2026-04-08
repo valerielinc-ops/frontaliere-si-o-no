@@ -292,12 +292,13 @@ export function createRecaptchaAppCheckProvider(
   siteKey: string,
   targetWindow: RecaptchaLikeWindow | undefined,
 ) {
-  // We always load enterprise.js, so prefer the Enterprise provider.
-  // Check for the enterprise *object* (not just .ready) because .ready may
-  // not yet be a function even though the enterprise client is available.
+  // Only use Enterprise provider when enterprise.js was explicitly loaded
+  // AND the enterprise client is actually available. Using Enterprise provider
+  // with a standard v3 key causes HTTP 400 + 4h throttle.
   const hasEnterpriseClient =
     targetWindow?.grecaptcha?.enterprise != null &&
-    typeof targetWindow.grecaptcha.enterprise === 'object';
+    typeof targetWindow.grecaptcha.enterprise === 'object' &&
+    typeof targetWindow.grecaptcha.enterprise.ready === 'function';
   if (hasEnterpriseClient && typeof appCheckModule.ReCaptchaEnterpriseProvider === 'function') {
     return new appCheckModule.ReCaptchaEnterpriseProvider(siteKey);
   }
@@ -312,7 +313,12 @@ async function loadRecaptchaScript(siteKey: string): Promise<void> {
 
   return new Promise((resolve, reject) => {
     const script = document.createElement('script');
-    script.src = `https://www.google.com/recaptcha/enterprise.js?render=${siteKey}`;
+    // Use v3 API by default. Enterprise requires a separate key type registered
+    // in the reCAPTCHA Enterprise console. Using enterprise.js with a v3 key
+    // causes a 400 error + 4h throttle from Firebase App Check.
+    const useEnterprise = (window as any).__RECAPTCHA_ENTERPRISE === true;
+    const apiPath = useEnterprise ? 'enterprise.js' : 'api.js';
+    script.src = `https://www.google.com/recaptcha/${apiPath}?render=${siteKey}`;
     script.async = true;
     script.defer = true;
     

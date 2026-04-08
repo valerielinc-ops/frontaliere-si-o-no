@@ -2,6 +2,18 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 
+// Auto-reload once when a deploy replaces JS/CSS chunks while user has stale index.html.
+// Vite fires this event before the error reaches React ErrorBoundary.
+window.addEventListener('vite:preloadError', (_event) => {
+  const key = '_deployReload';
+  const last = sessionStorage.getItem(key);
+  // Allow one reload per 5-minute window to prevent infinite loops
+  if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
+    sessionStorage.setItem(key, String(Date.now()));
+    window.location.reload();
+  }
+});
+
 const rootElement = document.getElementById('root');
 if (!rootElement) {
   throw new Error("Could not find root element to mount to");
