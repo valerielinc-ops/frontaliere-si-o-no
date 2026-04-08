@@ -1,18 +1,21 @@
 {
   "key": "coop-ticino",
   "label": "Coop",
-  "generatedAt": "2026-04-08T09:23:18.464Z",
+  "generatedAt": "2026-04-08T14:28:06.793Z",
   "total": 169,
-  "newCount": 2,
+  "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 167,
-  "durationMs": 214911,
-  "avgDurationMs": 214911,
+  "unchangedCount": 169,
+  "durationMs": 193879,
+  "avgDurationMs": 193879,
   "durationHistory": [
-    214911
+    193879
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "company-ax2hqv",
       "slug": "consulente-vendita-do-it-jumbo-tenero-contra-ticino",
@@ -35,14 +38,15 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-08T09:21:37.003Z",
-      "needsRetranslation": true,
       "addressLocality": "Tenero-Contra",
-      "_qualityScore": 78,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 15,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
     },
     {
@@ -67,20 +71,18 @@
       "companyKey": "coop-ticino",
       "companyDomain": "coop.ch",
       "crawledAt": "2026-04-08T09:21:37.003Z",
-      "needsRetranslation": true,
       "addressLocality": "Castione",
-      "_qualityScore": 68,
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "needsRetranslation": true,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
-        "translation": 4,
-        "completeness": 14
+        "translation": 25,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "id": "company-7haru0",
       "slug": "apprendistato-commercio-al-dettaglio-afc-creazione-di-esperienze-d-acquisto-fust-tenero-contra-ticino-7haru0",
@@ -1038,75 +1040,6 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-fguj4",
-      "slug": "meccanico-operativo-uomo-donna-marche-dietlikon",
-      "company": "Marché Restaurants Schweiz AG",
-      "title": "Betriebsmechaniker (w/m/d)",
-      "location": "Dietlikon",
-      "canton": "TI",
-      "category": "admin",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/betriebsmechaniker-w-m-d/e80cebf5-54a1-4dc7-bdce-cf037bafef8a",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Ticino",
-        "canton": "TI"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Dietlikon",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "_qualityScore": 93,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "id": "company-63izi7",
-      "slug": "verkaufer-in-food-coop-zernez-graubunden-63izi7",
-      "company": "Coop Genossenschaft",
-      "title": "Verkäufer:in Food",
-      "location": "Zernez",
-      "canton": "GR",
-      "category": "admin",
-      "contract": "part-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-03-18",
-      "url": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/97a3ccb4-5269-4e5b-bc91-4d4700d9e50c",
-      "source": "Company Careers Crawler",
-      "_targetScope": {
-        "type": "adapter_seed_meta",
-        "location": "Grigioni",
-        "canton": "GR"
-      },
-      "companyKey": "coop-ticino",
-      "companyDomain": "coop.ch",
-      "crawledAt": "2026-03-31T07:18:28.826Z",
-      "addressLocality": "Zernez",
-      "sourceLang": "de",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "needsRetranslation": true,
-      "_qualityScore": 94,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 25,
         "translation": 25,
         "completeness": 19
       }
