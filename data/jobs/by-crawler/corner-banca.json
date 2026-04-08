@@ -412,7 +412,7 @@
         "it": "employee-collection-team-zurich-corner-banca-wallisellen",
         "en": "employee-collection-team-zurich-corner-banca-wallisellen",
         "de": "employee-collection-team-zurich-corner-banca-wallisellen",
-        "fr": "employee-collection-team-zurich-corner-banca-wallisellen"
+        "fr": "employe-equipe-recouvrement-zurich-corner-banca-wallisellen"
       },
       "company": "Cornèr Banca",
       "companyKey": "corner-banca",
@@ -499,7 +499,10 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "previousSlugs": [
+        "employee-collection-team-zurich-corner-banca-wallisellen"
+      ]
     },
     {
       "id": "corner-banca-b9d1611cce63",
