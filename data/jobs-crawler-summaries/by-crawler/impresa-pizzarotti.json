@@ -1,54 +1,16 @@
 {
   "key": "impresa-pizzarotti",
   "label": "pizzarotti",
-  "generatedAt": "2026-04-07T21:45:51.590Z",
-  "total": 1,
+  "generatedAt": "2026-04-08T09:49:59.012Z",
+  "total": 0,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 2282,
-  "avgDurationMs": 2282,
-  "durationHistory": [
-    2282
-  ],
   "newJobs": [],
-  "updatedJobs": [
-    {
-      "title": "PREVENTIVISTA - SVIZZERA",
-      "slug": "preventivista-svizzera-impresa-pizzarotti-c-s-p-a-bellinzona-svizzera",
-      "url": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/preventivista-svizzera-672374/it/",
-      "applyUrl": "https://inrecruiting.intervieweb.it/impresapizzarotti/jobs/preventivista-svizzera-672374/it/",
-      "company": "Impresa Pizzarotti & C. S.p.A.",
-      "companyKey": "impresa-pizzarotti",
-      "companyDomain": "pizzarotti.it",
-      "location": "Bellinzona, Svizzera",
-      "addressLocality": "Bellinzona, Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "canton": "TI",
-      "country": "CH",
-      "category": "tech",
-      "sector": "Costruzioni & Infrastrutture",
-      "source": "pizzarotti-dedicated-crawler",
-      "sourceLang": "it",
-      "postedDate": "2026-04-07",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "salaryMin": 72500,
-      "salaryMax": 97500,
-      "currency": "CHF",
-      "postalCode": "6500",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "updatedJobs": [],
   "removedJobs": [],
-  "unchangedJobs": []
+  "unchangedJobs": [],
+  "earlyExit": true,
+  "exitCode": 0
 }
