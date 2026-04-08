@@ -20,18 +20,49 @@ function normalizeEmail(value) {
 }
 
 // ── Signature verification ───────────────────────────────────
+// Unosend uses Svix under the hood. Svix signing:
+// - Headers: webhook-id, webhook-timestamp, webhook-signature
+// - Signature format: "v1,{base64_hmac}" (multiple sigs separated by space)
+// - Signed content: "{webhook-id}.{webhook-timestamp}.{body}"
+// - Secret: base64-decode after stripping "whsec_" prefix
 
-export function verifyUnosendSignature({ payload, signature, signingSecret }) {
-  if (!signingSecret || !payload || !signature) return false;
-  const expected = 'sha256=' + crypto
-    .createHmac('sha256', signingSecret)
-    .update(payload)
-    .digest('hex');
-  try {
-    return crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(signature));
-  } catch {
-    return false;
+export function verifyUnosendSignature({ payload, headers, signingSecret }) {
+  if (!signingSecret || !payload) return false;
+
+  const msgId = headers['webhook-id'];
+  const timestamp = headers['webhook-timestamp'];
+  const signatureHeader = headers['webhook-signature'];
+
+  if (!msgId || !timestamp || !signatureHeader) return false;
+
+  // Strip whsec_ prefix and base64-decode the secret
+  const secretBytes = Buffer.from(
+    signingSecret.startsWith('whsec_') ? signingSecret.slice(6) : signingSecret,
+    'base64'
+  );
+
+  // Signed content: "{webhook-id}.{webhook-timestamp}.{body}"
+  const toSign = `${msgId}.${timestamp}.${payload}`;
+  const expected = crypto
+    .createHmac('sha256', secretBytes)
+    .update(toSign, 'utf8')
+    .digest('base64');
+
+  // Signature header: "v1,{b64} v1,{b64}" — check each
+  const signatures = signatureHeader.split(' ');
+  for (const sig of signatures) {
+    const parts = sig.split(',');
+    if (parts.length < 2) continue;
+    const sigValue = parts.slice(1).join(',');
+    try {
+      if (crypto.timingSafeEqual(Buffer.from(expected), Buffer.from(sigValue))) {
+        return true;
+      }
+    } catch {
+      // length mismatch — continue
+    }
   }
+  return false;
 }
 
 // ── Event type mapping (Unosend → our normalized types) ──────
@@ -148,21 +179,16 @@ async function persistUnosendEvent(db, eventType, eventData) {
 // ── Request handler ──────────────────────────────────────────
 
 export async function handleUnosendWebhookRequest({ payload, headers, signingSecret }) {
-  // Verify signature
-  const signature = headers['x-unosend-signature'] || headers['x-webhook-signature'] || '';
-  console.log(`[unosendWebhook] Signature header: "${signature ? signature.slice(0, 20) + '...' : 'MISSING'}"`);
-  console.log(`[unosendWebhook] Secret configured: ${signingSecret ? 'yes' : 'no'}`);
-  
-  if (signingSecret && signature) {
-    const isValid = verifyUnosendSignature({ payload, signature, signingSecret });
+  // Verify Svix-style signature
+  if (signingSecret) {
+    const isValid = verifyUnosendSignature({ payload, headers, signingSecret });
     if (!isValid) {
-      // Log available headers for debugging
-      const sigHeaders = Object.keys(headers).filter(h => h.includes('sign') || h.includes('unosend') || h.includes('webhook'));
-      console.warn(`[unosendWebhook] Signature mismatch. Relevant headers: ${sigHeaders.join(', ')}`);
+      const svixHeaders = ['webhook-id', 'webhook-timestamp', 'webhook-signature']
+        .map(h => `${h}: ${headers[h] ? 'present' : 'MISSING'}`)
+        .join(', ');
+      console.warn(`[unosendWebhook] Signature mismatch. ${svixHeaders}`);
       throw new Error('Invalid Unosend webhook signature');
     }
-  } else if (signingSecret && !signature) {
-    console.warn('[unosendWebhook] No signature header found — skipping verification');
   }
 
   const body = typeof payload === 'string' ? JSON.parse(payload) : payload;

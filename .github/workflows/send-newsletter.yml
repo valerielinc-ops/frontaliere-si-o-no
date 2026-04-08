@@ -55,6 +55,17 @@ on:
         required: false
         default: ''
         type: string
+      provider:
+        description: 'Email provider (cascade = multi-provider default)'
+        required: false
+        default: 'cascade'
+        type: choice
+        options:
+          - cascade
+          - mailgun
+          - mailjet
+          - unosend
+          - resend
 
 permissions:
   contents: read
@@ -101,7 +112,7 @@ jobs:
 
       - name: Run newsletter job
         env:
-          EMAIL_PROVIDER: cascade
+          EMAIL_PROVIDER: ${{ inputs.provider || 'cascade' }}
           NEWSLETTER_EXPERIMENTAL_MODE: false
           NEWSLETTER_ENABLE_SEND: true
           NEWSLETTER_FROM: ${{ secrets.NEWSLETTER_FROM || '' }}

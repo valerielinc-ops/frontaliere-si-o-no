@@ -225,12 +225,17 @@ const SEND_FNS = {
 
 /**
  * Send a single email via the first available provider with remaining quota.
+ * @param {Object} email - Email payload
+ * @param {string} [forceProvider] - If set, only use this specific provider
  * @returns {{ messageId: string, provider: string }}
  */
-async function sendSingle(email) {
+async function sendSingle(email, forceProvider) {
   const errors = [];
+  const providers = forceProvider
+    ? PROVIDERS.filter(p => p.id === forceProvider)
+    : PROVIDERS;
 
-  for (const provider of PROVIDERS) {
+  for (const provider of providers) {
     if (!isProviderConfigured(provider.id)) continue;
     if (remainingQuota(provider.id) <= 0) continue;
 
@@ -240,7 +245,6 @@ async function sendSingle(email) {
       return result;
     } catch (err) {
       errors.push(`[${provider.id}] ${err.message}`);
-      // If rate limited (429), mark this provider as exhausted for the day
       if (err.message.includes('429')) {
         incrementCounter(provider.id, remainingQuota(provider.id));
         console.warn(`⚠️  ${provider.id} rate-limited — skipping for today`);
@@ -262,11 +266,12 @@ async function sendSingle(email) {
  * @param {Array} emails - Array of { payload, recipient, meta }
  * @param {Object} [opts]
  * @param {number} [opts.concurrency=3] - Max parallel sends
+ * @param {string} [opts.forceProvider] - Force a specific provider (skip cascade)
  * @param {Function} [opts.onSent] - Called after each successful send: (item, result) => void
  * @returns {{ sent: Array, failed: Array }}
  */
 export async function sendEmailCascade(emails, opts = {}) {
-  const { concurrency = 3, onSent } = opts;
+  const { concurrency = 3, forceProvider, onSent } = opts;
   const sent = [];
   const failed = [];
 
@@ -288,7 +293,7 @@ export async function sendEmailCascade(emails, opts = {}) {
       const i = idx++;
       const item = emails[i];
       try {
-        const result = await sendSingle(item.payload);
+        const result = await sendSingle(item.payload, forceProvider);
         sent.push({ ...item, ...result });
         if (onSent) await onSent(item, result);
       } catch (err) {

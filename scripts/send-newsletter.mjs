@@ -47,10 +47,13 @@ const AI_CONCURRENCY = 5; // Max parallel AI calls
 
 // ── Email provider selection ──
 // cascade = multi-provider free tier cascade (default)
+// mailgun/mailjet/unosend = force a specific cascade provider
 // resend = Resend only (legacy fallback)
 const EMAIL_PROVIDER = process.env.EMAIL_PROVIDER || 'cascade';
-// cascade = 600/day total across all providers, resend = 100
-const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'cascade' ? 600 : 100;
+const SINGLE_PROVIDERS = ['mailgun', 'mailjet', 'unosend'];
+const IS_SINGLE_PROVIDER = SINGLE_PROVIDERS.includes(EMAIL_PROVIDER);
+// cascade/single = 600/day total, resend = 100
+const DAILY_SEND_LIMIT = EMAIL_PROVIDER === 'resend' ? 100 : 600;
 
 /**
  * Run async tasks with bounded concurrency.
@@ -766,6 +769,20 @@ async function sendEmailBatchResend(emails, apiKey) {
 
 
 async function sendEmailBatch(emails, apiKey) {
+  // Single provider mode: force a specific provider via cascade
+  if (IS_SINGLE_PROVIDER) {
+    console.log(`📧 Sending via ${EMAIL_PROVIDER} only (${emails.length} emails)`);
+    const { sendEmailCascade, logProviderSummary } = await import('./lib/email-cascade.mjs');
+    const result = await sendEmailCascade(emails, {
+      concurrency: 3,
+      forceProvider: EMAIL_PROVIDER,
+      onSent: async (item, res) => {
+        await persistDelivery(item.recipient, res.messageId, { ...item.meta, provider: res.provider });
+      },
+    });
+    logProviderSummary();
+    return result;
+  }
   // Cascade: multi-provider free tier (default)
   if (EMAIL_PROVIDER === 'cascade') {
     console.log(`📧 Sending via email cascade (${emails.length} emails)`);
