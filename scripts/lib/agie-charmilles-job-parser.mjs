@@ -18,7 +18,7 @@
  * We filter for Ticino-relevant positions (Losone = canton TI).
  */
 
-import { isTicinoRelevant, isGrigioniRelevant } from './target-swiss-locations.mjs';
+import { isTicinoRelevant, isGrigioniRelevant, TARGET_CANTONS } from './target-swiss-locations.mjs';
 import { isTargetCanton } from './crawler-location-config.mjs';
 
 const BASE_URL = 'https://www.find-your-future.ch';
@@ -157,7 +157,7 @@ export function inferAgieCharmillesCanton(job = {}) {
   const city = (job.city || '').toLowerCase();
   if (/losone|locarno|ascona|muralto|minusio|bellinzona|lugano|mendrisio|chiasso/i.test(city)) return 'TI';
   if (isGrigioniRelevant(city)) return 'GR';
-  return job.canton || 'TI';
+  return job.canton || TARGET_CANTONS[0];
 }
 
 /**

@@ -573,7 +573,7 @@ function postProcessZegnaJobs() {
       continue;
     }
 
-    if (String(job.location || '').match(/zurich|zürich|geneva|gen[eè]ve|lausanne|basel|bern|berne/i) || String(job.canton || '').toUpperCase() !== 'TI') {
+    if (String(job.location || '').match(/zurich|zürich|geneva|gen[eè]ve|lausanne|basel|bern|berne/i) || !isTargetCanton(String(job.canton || '').toUpperCase())) {
       removed++;
       continue;
     }
