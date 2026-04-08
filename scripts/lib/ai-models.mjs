@@ -1,11 +1,12 @@
 /**
- * Centralized AI Model Service — v12 (free-only, 74 models, 10 providers)
+ * Centralized AI Model Service — v13 (free-only, 80+ models, 11 providers)
  *
  * Single source of truth for all LLM calls across scripts (jobs crawler,
  * article generator, company parser, etc.).
  *
  * Features:
- * - Extended fallback chain with 91 FREE models across 10 providers
+ * - Extended fallback chain with 80+ FREE models across 11 providers
+ * - **Dynamic OpenRouter discovery**: auto-detects new free models at runtime
  * - **Scored model selection**: models gain/lose score based on success/failure,
  *   so models that keep working float to the top and broken ones sink down,
  *   avoiding repeated failures that slow the crawl
@@ -41,6 +42,8 @@
  *   Mistral 7B, Zephyr 7B
  * - SambaNova Cloud (SAMBANOVA_API_KEY) — Ultra-fast free tier inference
  *   Llama 4 Maverick 17B, Llama 3.3 70B, DeepSeek V3, Qwen 2.5 72B
+ * - Cohere (COHERE_API_KEY) — OpenAI-compatible endpoint, free trial tier
+ *   Command A, Command R+, Command R (1000 calls/month, 20 req/min)
  *
  * Environment variables:
  * - GH_MODELS_PAT — GitHub Models token (covers GPT, Llama, Phi, Cohere, etc.)
@@ -53,6 +56,7 @@
  * - NVIDIA_NIM_API_KEY — NVIDIA NIM API key (optional, free tier)
  * - HUGGINGFACE_API_KEY — HuggingFace API key (optional, free tier)
  * - SAMBANOVA_API_KEY — SambaNova Cloud API key (optional, ultra-fast free tier)
+ * - COHERE_API_KEY — Cohere API key (optional, free trial tier)
  */
 
 // ── Model catalog ────────────────────────────────────────────
@@ -133,6 +137,14 @@ export const AI_MODELS = Object.freeze({
   OR_LLAMA_4_MAVERICK: 'openrouter/meta-llama/llama-4-maverick-17b-128e-instruct:free',
   OR_MISTRAL_SM_31:    'openrouter/mistralai/mistral-small-3.2-24b-instruct:free',
 
+  // ── OpenRouter additional free models (2026-04) ──
+  OR_GEMMA_4_31B:      'openrouter/google/gemma-4-31b-it:free',
+  OR_GEMMA_4_26B:      'openrouter/google/gemma-4-26b-a4b-it:free',
+  OR_NV_NEMOTRON_12B_VL:'openrouter/nvidia/nemotron-nano-12b-v2-vl:free',
+  OR_GPT_OSS_20B:      'openrouter/openai/gpt-oss-20b:free',
+  OR_DOLPHIN_24B:      'openrouter/cognitivecomputations/dolphin-mistral-24b-venice-edition:free',
+  OR_GEMMA_3N_E4B:     'openrouter/google/gemma-3n-e4b-it:free',
+
   // ── Groq additional models (OpenAI-compatible, ultra-fast inference) ──
   GROQ_GEMMA2_9B:      'groq/gemma2-9b-it',
   GROQ_LLAMA_3_1_70B:  'groq/llama-3.1-70b-versatile',
@@ -172,6 +184,12 @@ export const AI_MODELS = Object.freeze({
   SN_LLAMA_3_3_70B:    'sn/Meta-Llama-3.3-70B-Instruct',
   SN_DEEPSEEK_V3:      'sn/DeepSeek-V3-0324',
   SN_QWEN_2_5_72B:     'sn/Qwen2.5-72B-Instruct',
+
+  // ── Cohere Direct (OpenAI-compatible, free trial tier) ──
+  // Free trial: 1000 calls/month, 20 req/min for chat
+  COH_CMD_A:           'cohere/command-a-03-2025',
+  COH_CMD_R_PLUS:      'cohere/command-r-plus-08-2024',
+  COH_CMD_R:           'cohere/command-r-08-2024',
 });
 
 /**
@@ -204,6 +222,8 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.COHERE_CMD_A,       // 12. Cohere latest          (GitHub Models)
   AI_MODELS.GROQ_LLAMA_3_3,     // 13. Llama 3.3 70B          (Groq)
   AI_MODELS.COHERE_CMD_R_PLUS,  // 14. Cohere multilingual    (GitHub Models)
+  AI_MODELS.COH_CMD_A,          // 14b. Cohere Command A      (Cohere direct - 1000/month)
+  AI_MODELS.COH_CMD_R_PLUS,     // 14c. Cohere Command R+     (Cohere direct - 1000/month)
   AI_MODELS.LLAMA_3_1_405B,     // 15. Meta 405B flagship     (GitHub Models)
   AI_MODELS.GROQ_QWEN3_32B,      // 16. Qwen3 32B              (Groq - ultra fast)
   AI_MODELS.SN_LLAMA_3_3_70B,   // 16b. Llama 3.3 70B         (SambaNova - ultra fast)
@@ -220,11 +240,13 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.OR_GEMMA_3_27B,     // 26. Gemma 3 27B instruct   (OpenRouter free)
   // CB_LLAMA_3_1_70B removed — Cerebras 404 (model deprecated 2026-03)
   AI_MODELS.COHERE_CMD_R,       // 29. Cohere Command R       (GitHub Models)
+  AI_MODELS.COH_CMD_R,          // 29b. Cohere Command R      (Cohere direct - 1000/month)
   // GROQ_LLAMA_3_1_70B removed — decommissioned 2026-03 (HTTP 422 from Groq)
   AI_MODELS.DEEPSEEK_R1_0528,   // 31. DeepSeek R1 0528       (GitHub Models)
   AI_MODELS.DEEPSEEK_R1,        // 32. DeepSeek R1 reasoning  (GitHub Models)
   AI_MODELS.GROQ_LLAMA_4_SCT,   // 33. Llama 4 Scout          (Groq)
-  AI_MODELS.OR_MISTRAL_SM,      // 34. Mistral Small 3.1      (OpenRouter free)
+  AI_MODELS.OR_GEMMA_4_31B,     // 34. Gemma 4 31B             (OpenRouter free — replaces Mistral Small 3.1)
+  // OR_MISTRAL_SM removed from OpenRouter free list (2026-04)
   AI_MODELS.O4_MINI,            // 35. OpenAI o4-mini reason  (GitHub Models)
   AI_MODELS.CODESTRAL,          // 36. Mistral Codestral      (GitHub Models)
   AI_MODELS.GEMINI_FLASH_LITE,  // 37. Google flash lite      (Gemini API free)
@@ -233,12 +255,14 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GROQ_LLAMA_3_1_8B,  // 40. Llama 3.1 8B instant   (Groq)
   AI_MODELS.SN_DEEPSEEK_V3,      // 40b. DeepSeek V3           (SambaNova - ultra fast)
   AI_MODELS.SN_QWEN_2_5_72B,    // 40c. Qwen 2.5 72B          (SambaNova - ultra fast)
-  AI_MODELS.OR_DEEPSEEK_R1Z,    // 41. DeepSeek R1 Zero        (OpenRouter free)
+  AI_MODELS.OR_GEMMA_4_26B,     // 41. Gemma 4 26B MoE         (OpenRouter free — replaces DeepSeek R1 Zero)
+  // OR_DEEPSEEK_R1Z removed from OpenRouter free list (2026-04)
   AI_MODELS.LLAMA_3_1_8B,       // 42. Meta 8B fast           (GitHub Models)
   AI_MODELS.MINISTRAL_3B,       // 43. Mistral 3B fast        (GitHub Models)
   AI_MODELS.O3_MINI,            // 44. OpenAI o3-mini reason  (GitHub Models)
   AI_MODELS.OR_TRINITY,         // 45. Arcee Trinity Large    (OpenRouter free)
-  AI_MODELS.OR_MISTRAL_NEMO,    // 46. Mistral Nemo           (OpenRouter free)
+  AI_MODELS.OR_DOLPHIN_24B,     // 46. Dolphin Mistral 24B     (OpenRouter free — replaces Mistral Nemo)
+  // OR_MISTRAL_NEMO removed from OpenRouter free list (2026-04)
   AI_MODELS.CB_LLAMA_3_1_8B,    // 47. Llama 3.1 8B           (Cerebras - ultra fast)
   // TGT_QWEN_2_5_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
   // TGT_MISTRAL_7B removed — Together AI HTTP 401 (account unauthorized 2026-03)
@@ -266,14 +290,12 @@ export const DEFAULT_CHAIN = [
   AI_MODELS.GROQ_LLAMA3_8B,      // 67. Llama 3 8B              (Groq)
   AI_MODELS.GROQ_LLAMA3_70B,     // 68. Llama 3 70B             (Groq)
   // ── Extended capacity: new models (2026-04) ──
-  AI_MODELS.OR_DEEPSEEK_V3,      // 69. DeepSeek V3              (OpenRouter free)
-  AI_MODELS.OR_QWEN_2_5_72B,     // 70. Qwen 2.5 72B             (OpenRouter free)
-  AI_MODELS.OR_PHI_4,            // 71. Microsoft Phi-4           (OpenRouter free)
-  AI_MODELS.OR_PHI_4_REASON,     // 72. Phi-4 Reasoning           (OpenRouter free)
-  AI_MODELS.OR_KIMI_K2,          // 73. Moonshot Kimi K2          (OpenRouter free)
-  AI_MODELS.OR_DEEPSEEK_R1,      // 74. DeepSeek R1               (OpenRouter free)
-  AI_MODELS.OR_LLAMA_4_MAVERICK, // 75. Llama 4 Maverick          (OpenRouter free)
-  AI_MODELS.OR_MISTRAL_SM_31,    // 76. Mistral Small 3.2         (OpenRouter free)
+  // ── Extended capacity: new OpenRouter free models (2026-04, replacing removed models) ──
+  AI_MODELS.OR_GPT_OSS_20B,      // 69. GPT-OSS 20B              (OpenRouter free — replaces DeepSeek V3)
+  AI_MODELS.OR_NV_NEMOTRON_12B_VL, // 70. Nemotron 12B VL         (OpenRouter free — replaces Qwen 2.5 72B)
+  AI_MODELS.OR_GEMMA_3N_E4B,     // 71. Gemma 3n E4B              (OpenRouter free — replaces Phi-4)
+  // OR_DEEPSEEK_V3, OR_QWEN_2_5_72B, OR_PHI_4, OR_PHI_4_REASON removed from OpenRouter free list (2026-04)
+  // OR_KIMI_K2, OR_DEEPSEEK_R1, OR_LLAMA_4_MAVERICK, OR_MISTRAL_SM_31 removed from OpenRouter free list (2026-04)
   AI_MODELS.GROQ_LLAMA_4_MAV,    // 77. Llama 4 Maverick          (Groq)
   AI_MODELS.GROQ_QWQ_32B,        // 78. QwQ 32B reasoning         (Groq)
   AI_MODELS.GROQ_COMPOUND,       // 79. Compound Beta             (Groq)
@@ -295,6 +317,7 @@ const PROVIDER = Object.freeze({
   NVIDIA:      'nvidia',
   HUGGINGFACE: 'huggingface',
   SAMBANOVA:   'sambanova',
+  COHERE:      'cohere',
 });
 
 // ── Endpoints ────────────────────────────────────────────────
@@ -308,6 +331,7 @@ const FIREWORKS_API_BASE  = 'https://api.fireworks.ai/inference/v1/chat/completi
 const NVIDIA_API_BASE     = 'https://integrate.api.nvidia.com/v1/chat/completions';
 const HUGGINGFACE_API_BASE = 'https://router.huggingface.co/v1/chat/completions';
 const SAMBANOVA_API_BASE   = 'https://api.sambanova.ai/v1/chat/completions';
+const COHERE_API_BASE      = 'https://api.cohere.ai/compatibility/v1/chat/completions';
 
 // ── API keys (lazy-loaded from environment) ──────────────────
 function getGhModelsPat()       { return (process.env.GH_MODELS_PAT || '').trim(); }
@@ -320,6 +344,7 @@ function getFireworksApiKey()   { return (process.env.FIREWORKS_API_KEY || '').t
 function getNvidiaApiKey()      { return (process.env.NVIDIA_API_KEY || process.env.NVIDIA_NIM_API_KEY || '').trim(); }
 function getHuggingFaceApiKey() { return (process.env.HUGGINGFACE_API_KEY || '').trim(); }
 function getSambaNovaApiKey()  { return (process.env.SAMBANOVA_API_KEY || '').trim(); }
+function getCohereApiKey()    { return (process.env.COHERE_API_KEY || '').trim(); }
 
 // ── Provider detection ───────────────────────────────────────
 /**
@@ -344,6 +369,7 @@ function getProvider(model) {
   if (model.startsWith('nvidia/'))      return PROVIDER.NVIDIA;
   if (model.startsWith('hf/'))          return PROVIDER.HUGGINGFACE;
   if (model.startsWith('sn/'))          return PROVIDER.SAMBANOVA;
+  if (model.startsWith('cohere/'))     return PROVIDER.COHERE;
   return PROVIDER.GITHUB;
 }
 
@@ -367,6 +393,7 @@ function getApiModelId(model) {
   if (model.startsWith('nvidia/'))      return model.slice(7);   // 7 chars: "nvidia/"
   if (model.startsWith('hf/'))          return model.slice(3);   // 3 chars: "hf/"
   if (model.startsWith('sn/'))          return model.slice(3);   // 3 chars: "sn/"
+  if (model.startsWith('cohere/'))     return model.slice(7);   // 7 chars: "cohere/"
   return model;
 }
 
@@ -383,6 +410,7 @@ function getApiKeyForProvider(provider) {
     case PROVIDER.NVIDIA:      return getNvidiaApiKey();
     case PROVIDER.HUGGINGFACE: return getHuggingFaceApiKey();
     case PROVIDER.SAMBANOVA:   return getSambaNovaApiKey();
+    case PROVIDER.COHERE:      return getCohereApiKey();
     default: return '';
   }
 }
@@ -507,6 +535,97 @@ function _decayScore(score, lastUsedISO) {
   return Math.round(score * 0.10);                  // > 24h: 10%
 }
 
+// ── Dynamic OpenRouter free model discovery ──────────────────
+/**
+ * Fetch current free models from OpenRouter API and append any new
+ * ones to the DEFAULT_CHAIN. This avoids manually maintaining the
+ * OR free model list — new models are auto-discovered each run.
+ *
+ * - Queries GET /api/v1/models, filters for IDs ending in `:free`
+ * - Skips models already in the chain (static entries)
+ * - Skips tiny models (context_length < 8192) — not useful for translation
+ * - Appends new models as `openrouter/{id}` entries
+ * - Caches result for the process lifetime
+ * - Falls back silently to static list if API is unreachable
+ *
+ * Call from initScoreStore() or before first callLLM().
+ */
+let _orDiscoveryDone = false;
+const _dynamicOrModels = [];
+
+export async function discoverOpenRouterFreeModels() {
+  if (_orDiscoveryDone) return _dynamicOrModels;
+  _orDiscoveryDone = true;
+
+  const apiKey = getOpenRouterApiKey();
+  if (!apiKey) {
+    console.warn('⚠️  [OR-Discovery] No OPENROUTER_API_KEY — skipping dynamic discovery');
+    return _dynamicOrModels;
+  }
+
+  try {
+    const controller = new AbortController();
+    const timeout = setTimeout(() => controller.abort(), 10_000);
+    const res = await fetch('https://openrouter.ai/api/v1/models', {
+      headers: {
+        'Authorization': `Bearer ${apiKey}`,
+        'HTTP-Referer': 'https://frontaliereticino.ch',
+      },
+      signal: controller.signal,
+    });
+    clearTimeout(timeout);
+
+    if (!res.ok) {
+      console.warn(`⚠️  [OR-Discovery] API returned ${res.status} — using static list`);
+      return _dynamicOrModels;
+    }
+
+    const data = await res.json();
+    const freeModels = (data.data || []).filter(m => m.id.endsWith(':free'));
+
+    // Build set of existing OR models in the chain
+    const existingIds = new Set(
+      DEFAULT_CHAIN
+        .filter(m => m.startsWith('openrouter/'))
+        .map(m => m.slice(11)) // strip "openrouter/" prefix to get bare ID
+    );
+
+    let added = 0;
+    for (const m of freeModels) {
+      if (existingIds.has(m.id)) continue;
+      // Skip tiny models — not useful for translation/article generation
+      if ((m.context_length || 0) < 8192) continue;
+
+      const fullId = `openrouter/${m.id}`;
+      _dynamicOrModels.push(fullId);
+      DEFAULT_CHAIN.push(fullId);
+      added++;
+    }
+
+    // Also mark OR models in chain that are no longer free
+    const currentFreeIds = new Set(freeModels.map(m => m.id));
+    let staleCount = 0;
+    for (const model of DEFAULT_CHAIN) {
+      if (!model.startsWith('openrouter/')) continue;
+      const bareId = model.slice(11);
+      if (!currentFreeIds.has(bareId)) {
+        // Pre-emptively exhaust stale models so they're skipped
+        markModelExhausted(model);
+        staleCount++;
+      }
+    }
+
+    if (added > 0 || staleCount > 0) {
+      console.log(`🔍 [OR-Discovery] ${freeModels.length} free models found, ${added} new added to chain, ${staleCount} stale pre-exhausted`);
+    }
+    return _dynamicOrModels;
+  } catch (e) {
+    const msg = e.name === 'AbortError' ? 'timeout' : e.message;
+    console.warn(`⚠️  [OR-Discovery] Failed (${msg}) — using static list`);
+    return _dynamicOrModels;
+  }
+}
+
 // ── Firestore init & load ────────────────────────────────────
 
 /**
@@ -586,6 +705,13 @@ export async function initScoreStore() {
   } catch (err) {
     console.warn(`⚠️  [ScoreStore] Firestore unavailable — using in-memory scores only: ${err?.message || err}`);
     _firestoreDb = null;
+  }
+
+  // Discover new OpenRouter free models (non-blocking, fire-and-forget on error)
+  try {
+    await discoverOpenRouterFreeModels();
+  } catch {
+    // Already logged inside discoverOpenRouterFreeModels
   }
 }
 
@@ -949,6 +1075,10 @@ const MODEL_MAX_OUTPUT_TOKENS = {
   'Cohere-command-a': 8192,
   'Cohere-command-r-plus-08-2024': 8192,
   'Cohere-command-r-08-2024': 4096,
+  // Cohere direct models (same limits)
+  'command-a-03-2025': 8192,
+  'command-r-plus-08-2024': 8192,
+  'command-r-08-2024': 4096,
   // Groq Llama 4 family enforces max_tokens <= 8192.
   'meta-llama/llama-4-scout-17b-16e-instruct': 8192,
 };
@@ -1219,6 +1349,16 @@ function _callSambaNova(model, messages, opts) {
   });
 }
 
+function _callCohere(model, messages, opts) {
+  const apiModel = getApiModelId(model);
+  return _callOpenAICompatible(apiModel, messages, opts, {
+    endpoint: COHERE_API_BASE,
+    apiKey: getCohereApiKey(),
+    providerName: 'Cohere',
+    trackAs: model,
+  });
+}
+
 /**
  * Call a single Gemini model with retry.
  * Returns the text content on success.
@@ -1344,6 +1484,7 @@ function _callModel(model, messages, opts) {
     case PROVIDER.NVIDIA:      return _callNvidia(model, messages, opts);
     case PROVIDER.HUGGINGFACE: return _callHuggingFace(model, messages, opts);
     case PROVIDER.SAMBANOVA:   return _callSambaNova(model, messages, opts);
+    case PROVIDER.COHERE:      return _callCohere(model, messages, opts);
     default: throw new Error(`[${model}] Unknown provider: ${provider}`);
   }
 }
