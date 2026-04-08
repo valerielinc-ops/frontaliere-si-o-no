@@ -1,23 +1,23 @@
 {
   "key": "ems-chemie",
   "label": "EMS-Chemie AG",
-  "generatedAt": "2026-04-08T09:26:33.865Z",
+  "generatedAt": "2026-04-08T21:17:00.289Z",
   "total": 10,
-  "newCount": 2,
+  "newCount": 1,
   "updatedCount": 8,
-  "removedCount": 2,
-  "unchangedCount": 0,
-  "durationMs": 2564,
-  "avgDurationMs": 2564,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 2940,
+  "avgDurationMs": 2940,
   "durationHistory": [
-    2564
+    2940
   ],
   "newJobs": [
     {
-      "title": "Distribution Manager (m/w/d) 100%",
+      "title": "Leiter Finanzbuchhaltung (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/distribution-manager-m-w-d/422b427e-8f2c-42c7-87fd-d91d1d23dd46",
+      "url": "https://jobs.ems-group.com/offene-stellen/leiter-finanzbuchhaltung-m-w-d/a36b0fbe-404c-49e8-b025-33718b7d34b5",
       "location": "Domat/Ems",
       "canton": "GR",
       "country": "CH",
@@ -30,7 +30,7 @@
       "category": "science",
       "postedDate": "2026-04-08",
       "source": "company-website",
-      "slug": "distribution-manager-m-w-d-100-ems-chemie-domat-ems",
+      "slug": "leiter-finanzbuchhaltung-m-w-d-100-ems-chemie-domat-ems",
       "_qualityScore": 60,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -38,7 +38,9 @@
         "translation": 8,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "title": "Leitung Assistenz Marketing & Verkauf (m/w/d) 100%",
       "company": "EMS-Chemie AG",
@@ -57,16 +59,20 @@
       "postedDate": "2026-04-08",
       "source": "company-website",
       "slug": "leitung-assistenz-marketing-verkauf-m-w-d-100-ems-chemie-domat-ems",
-      "_qualityScore": 64,
+      "crawledAt": "",
+      "id": "ems-chemie-8e248a9314f1",
+      "sourceLang": "it",
+      "salaryMin": 58000,
+      "salaryMax": 78000,
+      "currency": "CHF",
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 8,
-        "completeness": 17
+        "translation": 25,
+        "completeness": 22
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Anwendungstechniker Technische Fasern 100%",
       "company": "EMS-Chemie AG",
@@ -90,37 +96,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Assistentin der Geschäftsleitung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/assistentin-der-geschaeftsleitung-m-w-d/5b5bf485-b5d8-41b0-af41-daa8b5dda267",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-08",
-      "source": "company-website",
-      "slug": "assistentin-der-geschaftsleitung-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
+      "id": "ems-chemie-84154a577bee",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -152,6 +128,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
+      "id": "ems-chemie-ede055479e24",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -183,6 +160,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
+      "id": "ems-chemie-423a98fac3a2",
       "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -214,6 +192,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
+      "id": "ems-chemie-67c54bdda271",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -245,6 +224,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
+      "id": "ems-chemie-5dbf8c40f526",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -276,6 +256,7 @@
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
+      "id": "ems-chemie-f1add2d99da7",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -307,6 +288,7 @@
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
+      "id": "ems-chemie-eb46f35e579f",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -318,10 +300,10 @@
   ],
   "removedJobs": [
     {
-      "title": "Leiter Finanzbuchhaltung (m/w/d) 100%",
+      "title": "Assistentin der Geschäftsleitung (m/w/d) 100%",
       "company": "EMS-Chemie AG",
       "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/leiter-finanzbuchhaltung-m-w-d/a36b0fbe-404c-49e8-b025-33718b7d34b5",
+      "url": "https://jobs.ems-group.com/offene-stellen/assistentin-der-geschaeftsleitung-m-w-d/5b5bf485-b5d8-41b0-af41-daa8b5dda267",
       "location": "Domat/Ems",
       "canton": "GR",
       "country": "CH",
@@ -332,45 +314,15 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "category": "science",
-      "postedDate": "2026-04-07",
+      "postedDate": "2026-04-08",
       "source": "company-website",
-      "slug": "responsabile-contabilita-finanziaria-m-w-d-100-ems-chemie-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 72000,
-      "salaryMax": 97000,
-      "currency": "CHF",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Projektleiter Kunststoffanwendungen Automobil (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/projektleiter-kunststoffanwendungen-automobil-m-w-d/44cffe11-aebf-4512-8f3f-927ac47d0b64",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-07",
-      "source": "company-website",
-      "slug": "project-manager-applicazioni-plastiche-automobilistica-m-f-d-100-domat-ems-ems-chemie-ag-domat-ems-ems-chemie-ag-domat-e",
+      "slug": "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
       "crawledAt": "",
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
+      "id": "ems-chemie-ead17b510bd8",
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -398,19 +350,18 @@
       "category": "science",
       "postedDate": "2026-04-08",
       "source": "company-website",
-      "slug": "distribution-manager-m-w-d-100-ems-chemie-domat-ems",
+      "slug": "responsabile-distribuzione-m-p-g-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-ec7647a8dad5",
       "sourceLang": "it",
       "salaryMin": 72000,
       "salaryMax": 97000,
       "currency": "CHF",
-      "_qualityScore": 73,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 10,
-        "translation": 16,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -433,17 +384,16 @@
       "source": "company-website",
       "slug": "leitung-assistenz-marketing-vendita-m-w-d-100-ems-chemie-ag-domat-ems",
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "ems-chemie-8e248a9314f1",
       "sourceLang": "it",
       "salaryMin": 58000,
       "salaryMax": 78000,
       "currency": "CHF",
-      "_qualityScore": 82,
+      "_qualityScore": 86,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 21,
+        "translation": 25,
         "completeness": 22
       }
     },
@@ -471,39 +421,6 @@
       "salaryMax": 78000,
       "currency": "CHF",
       "id": "ems-chemie-84154a577bee",
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 10,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Assistentin der Geschäftsleitung (m/w/d) 100%",
-      "company": "EMS-Chemie AG",
-      "companyKey": "ems-chemie",
-      "url": "https://jobs.ems-group.com/offene-stellen/assistentin-der-geschaeftsleitung-m-w-d/5b5bf485-b5d8-41b0-af41-daa8b5dda267",
-      "location": "Domat/Ems",
-      "canton": "GR",
-      "country": "CH",
-      "postalCode": "7013",
-      "streetAddress": "Via Innovativa 1",
-      "addressLocality": "Domat/Ems",
-      "addressRegion": "GR",
-      "addressCountry": "CH",
-      "employmentType": "FULL_TIME",
-      "category": "science",
-      "postedDate": "2026-04-08",
-      "source": "company-website",
-      "slug": "assistente-del-consiglio-direttivo-lunedi-f-d-al-100-herrliberg-ems-chemie-ag-herrliberg-ems-chemie-ag-domat-ems",
-      "crawledAt": "",
-      "sourceLang": "it",
-      "salaryMin": 58000,
-      "salaryMax": 78000,
-      "currency": "CHF",
-      "id": "ems-chemie-ead17b510bd8",
-      "needsRetranslation": true,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -701,6 +618,39 @@
         "cleanliness": 25,
         "richness": 10,
         "translation": 25,
+        "completeness": 22
+      }
+    },
+    {
+      "title": "Leiter Finanzbuchhaltung (m/w/d) 100%",
+      "company": "EMS-Chemie AG",
+      "companyKey": "ems-chemie",
+      "url": "https://jobs.ems-group.com/offene-stellen/leiter-finanzbuchhaltung-m-w-d/a36b0fbe-404c-49e8-b025-33718b7d34b5",
+      "location": "Domat/Ems",
+      "canton": "GR",
+      "country": "CH",
+      "postalCode": "7013",
+      "streetAddress": "Via Innovativa 1",
+      "addressLocality": "Domat/Ems",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "science",
+      "postedDate": "2026-04-08",
+      "source": "company-website",
+      "slug": "leiter-finanzbuchhaltung-m-w-d-100-ems-chemie-ag-domat-ems",
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "ems-chemie-a5b502c2da24",
+      "sourceLang": "it",
+      "salaryMin": 72000,
+      "salaryMax": 97000,
+      "currency": "CHF",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 10,
+        "translation": 16,
         "completeness": 22
       }
     }
