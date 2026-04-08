@@ -2137,35 +2137,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-tassa-salute-svizzera-vantaggio': {
-    title: 'Tassa sulla salute: la Svizzera può trarne vantaggio | Frontaliere Ticino',
-    description: 'Scopri come la tassa sulla salute in Italia può influenzare il mercato del lavoro in Ticino e le opportunità per frontalieri. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, tassa, sulla, salute, trarne',
-    ogTitle: 'Tassa sulla salute: opportunità per il Ticino',
-    ogDescription: 'Analisi della tassa sulla salute e il suo impatto sui frontalieri in Ticino.',
-    canonicalPath: '/articoli-frontaliere/tassa-salute-svizzera-vantaggio',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tassa sulla salute, la Svizzera sfrutti la situazione a suo vantaggio",
-      "description": "Scopri come la tassa sulla salute in Italia può influenzare il mercato del lavoro in Ticino e le opportunità per frontalieri. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-salute-svizzera-vantaggio.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Vista panoramica di Bellinzona, Ticino con architettura storica."
-      },
-      "datePublished": "2026-03-02T23:53:59+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-svizzera-vantaggio`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-ai-lombardia-impatto-ticino': {
     title: 'Lombardia vara legge AI: quale impatto per il Ticino e i | Frontaliere Ticino',
@@ -2377,35 +2348,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-tassa-salute-frontalieri-governo-svizzero': {
-    title: 'Il Governo svizzero interviene sulla tassa sulla salute | Frontaliere Ticino',
-    description: 'Scontro sulla tassa sulla salute dei frontalieri in Ticino. Scopri le novità dal Governo svizzero. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, governo, svizzero, interviene, sulla',
-    ogTitle: 'Tassa salute frontalieri: il Governo svizzero interviene',
-    ogDescription: 'Scontro sulla tassa sulla salute dei frontalieri in Ticino. Scopri le novità dal Governo svizzero.',
-    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri-governo-svizzero',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Il Governo svizzero interviene sulla tassa sulla salute dei frontalieri",
-      "description": "Scontro sulla tassa sulla salute dei frontalieri in Ticino. Scopri le novità dal Governo svizzero. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri-governo-svizzero.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Panorama del Lago di Lugano al tramonto."
-      },
-      "datePublished": "2026-03-03T08:52:06+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri-governo-svizzero`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-kuhne-nagel-tagli-posti-ticino-2026': {
     title: 'Kühne+Nagel: oltre 2.000 posti a rischio e impatto anche | Frontaliere Ticino',
@@ -3967,35 +3909,6 @@ const BLOG_SEO_METADATA_2: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-frontalieri-ticino-decreto-omnibus': {
-    title: 'Frontalieri, i sindacati alzano la voce | Frontaliere Ticino',
-    description: 'I sindacati chiedono l\'intervento urgente del governo italiano e della Regione Lombardia per risolvere i problemi dei lavoratori frontalieri. Dati aggiornati',
-    keywords: 'frontalieri, ticino, svizzera, italia, sindacati, alzano, voce, decreto',
-    ogTitle: 'Frontalieri Ticino | Decreto Omnibus e tassa sulla salute',
-    ogDescription: 'I sindacati chiedono l\'intervento urgente del governo italiano e della Regione Lombardia per risolvere i problemi dei lavoratori frontalieri',
-    canonicalPath: '/articoli-frontaliere/frontalieri-ticino-decreto-omnibus',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Frontalieri, i sindacati alzano la voce: Decreto Omnibus ignorato dal",
-      "description": "I sindacati chiedono l'intervento urgente del governo italiano e della Regione Lombardia per risolvere i problemi dei lavoratori frontalieri. Dati aggiornati",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontalieri-ticino-decreto-omnibus.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Strada trafficata a Lugano"
-      },
-      "datePublished": "2026-03-13T11:52:37+00:00",
-      "dateModified": BUILD_DATE_ISO,
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontalieri-ticino-decreto-omnibus`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["h1", ".article-body p:first-of-type"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-apertura-pesca-ticino': {
     title: 'Apertura della pesca in Ticino | Frontaliere Ticino',

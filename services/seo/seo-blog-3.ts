@@ -1567,35 +1567,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-elicottero-rega-locarno': {
-    title: 'Ticino: nuovo elicottero Rega a Locarno | Frontaliere Ticino',
-    description: 'La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3, per migliorare i servizi di emergenza medica e di ricerca e salvataggio.',
-    keywords: 'frontalieri, ticino, svizzera, italia, nuovo, elicottero, rega, locarno',
-    ogTitle: 'Ticino: nuovo elicottero Rega a Locarno',
-    ogDescription: 'La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3, per migliorare i servizi di emergenza medica e di ricerca e salvataggio.',
-    canonicalPath: '/articoli-frontaliere/elicottero-rega-locarno',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Ticino: nuovo elicottero Rega a Locarno",
-      "description": "La base Rega di Locarno riceve un elicottero di ultima generazione, un Airbus H145 D3, per migliorare i servizi di emergenza medica e di ricerca e salvataggio.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/elicottero-rega-locarno.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Elicottero Rega a Locarno"
-      },
-      "datePublished": "2026-03-23T17:35:59+00:00",
-      "dateModified": "2026-03-23T17:35:59+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/elicottero-rega-locarno`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-funivia-monte-lema-stagione-2026': {
     title: 'Funivia Monte Lema, nuova stagione 2026: orari estesi e prezzi | Frontaliere Ticino',
@@ -1627,35 +1598,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-stabio-municipio-cambios': {
-    title: 'Cambio al Municipio di Stabio | Frontaliere Ticino',
-    description: 'Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo. Leggi le ultime notizie sul cambio di leadership al Municipio di Stabio. Dati aggiornati',
-    keywords: 'frontalieri, ticino, svizzera, italia, cambio, municipio, stabio, cihan',
-    ogTitle: 'Cambio al Municipio di Stabio',
-    ogDescription: 'Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo. Leggi le ultime notizie sul cambio di leadership al Municipio di Stabio.',
-    canonicalPath: '/articoli-frontaliere/stabio-municipio-cambios',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Cambio al Municipio di Stabio",
-      "description": "Cihan Aydemir lascia il Municipio di Stabio, subentra Katia Camponovo. Leggi le ultime notizie sul cambio di leadership al Municipio di Stabio. Dati aggiornati",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/stabio-municipio-cambios.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Municipio di Stabio"
-      },
-      "datePublished": "2026-03-23T18:35:00+00:00",
-      "dateModified": "2026-03-23T18:35:00+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/stabio-municipio-cambios`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-crescita-economica-ticino-2026': {
     title: 'Crescita economica moderata in Svizzera nel 2026 | Frontaliere Ticino',
@@ -1687,35 +1629,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-lombardia-sport-ticino': {
-    title: 'Lombardia investe 30 milioni per lo sport | Frontaliere Ticino',
-    description: 'La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province. Scopri di più sul Bando Impianti Sportivi 2025.',
-    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, investe, milioni, sport',
-    ogTitle: 'Lombardia investe 30 milioni per lo sport',
-    ogDescription: 'La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province. Scopri di più sul Bando Impianti Sportivi 2025.',
-    canonicalPath: '/articoli-frontaliere/lombardia-sport-ticino',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Lombardia investe 30 milioni per lo sport",
-      "description": "La Regione Lombardia ha stanziato 30 milioni di euro per finanziare progetti sportivi nelle province. Scopri di più sul Bando Impianti Sportivi 2025.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lombardia-sport-ticino.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Impianto sportivo in Lombardia"
-      },
-      "datePublished": "2026-03-23T19:36:51+00:00",
-      "dateModified": "2026-03-23T19:36:51+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-sport-ticino`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-giustizia-referendum-ticino': {
     title: 'Referendum sulla giustizia in Italia: la posizione di Salvini e il | Frontaliere Ticino',
@@ -2017,35 +1930,6 @@ const BLOG_SEO_METADATA_3: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-datori-lavoro-cauti': {
-    title: 'I datori di lavoro svizzeri restano cauti | Frontaliere Ticino',
-    description: 'Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, datori, lavoro, svizzeri, restano',
-    ogTitle: 'I datori di lavoro svizzeri restano cauti',
-    ogDescription: 'Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo',
-    canonicalPath: '/articoli-frontaliere/datori-lavoro-cauti',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "I datori di lavoro svizzeri restano cauti",
-      "description": "Rallentamento delle prospettive occupazionali in Svizzera, con un aumento del ricorso al lavoro temporaneo. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/datori-lavoro-cauti.webp`,
-        "width": 1344,
-        "height": 756,
-        "caption": "Ufficio a Lugano con vista sul lago"
-      },
-      "datePublished": "2026-03-25T02:58:53+00:00",
-      "dateModified": "2026-03-25T02:58:53+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/datori-lavoro-cauti`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] },
-      "isAccessibleForFree": true
-    }
-  },
 
   'blog-chiasso-missione-emergenza-luci-blu': {
     title: 'Chiasso in Missione emergenza: enti di primo intervento a contatto con | Frontaliere Ticino',

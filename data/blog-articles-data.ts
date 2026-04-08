@@ -1779,15 +1779,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-02T23:22:43.121Z',
     image: '/images/blog/tassa-salute-berna-ticino.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'tassa-salute-svizzera-vantaggio',
-    category: 'fiscale',
-    date: '2026-03-02T23:53:59.093Z',
-    image: '/images/blog/tassa-salute-svizzera-vantaggio.webp',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'ai-lombardia-impatto-ticino',
     category: 'novita',
     date: '2026-03-03T04:45:59.353Z',
@@ -1835,15 +1827,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-03T08:38:23.727Z',
     image: '/images/blog/carpooling-ticino-corsie-frontaliere-2026.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'tassa-salute-frontalieri-governo-svizzero',
-    category: 'novita',
-    date: '2026-03-03T08:52:06.040Z',
-    image: '/images/blog/tassa-salute-frontalieri-governo-svizzero.webp',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'kuhne-nagel-tagli-posti-ticino-2026',
     category: 'novita',
     date: '2026-03-03T09:15:24.889Z',
@@ -2528,15 +2512,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-13T10:07:51.178Z',
     image: '/images/blog/lavena-ponte-tresa-giro-spaccio.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'frontalieri-ticino-decreto-omnibus',
-    category: 'fiscale',
-    date: '2026-03-13T11:52:37.871Z',
-    image: '/images/blog/frontalieri-ticino-decreto-omnibus.webp',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'apertura-pesca-ticino',
     category: 'novita',
     date: '2026-03-13T14:35:03.915Z',
@@ -5193,43 +5169,19 @@ export const ARTICLES: Article[] = [
     date: '2026-03-23T17:11:03.536Z',
     image: '/images/blog/nomine-sims-illegittime.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'elicottero-rega-locarno',
-    category: 'novita',
-    date: '2026-03-23T17:35:59.394Z',
-    image: '/images/blog/elicottero-rega-locarno.webp',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'funivia-monte-lema-stagione-2026',
     category: 'novita',
     date: '2026-03-23T18:01:12.067Z',
     image: '/images/blog/funivia-monte-lema-stagione-2026.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'stabio-municipio-cambios',
-    category: 'novita',
-    date: '2026-03-23T18:35:00.780Z',
-    image: '/images/blog/stabio-municipio-cambios.webp',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'crescita-economica-ticino-2026',
     category: 'novita',
     date: '2026-03-23T19:09:10.943Z',
     image: '/images/blog/crescita-economica-ticino-2026.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'lombardia-sport-ticino',
-    category: 'pratico',
-    date: '2026-03-23T19:36:51.174Z',
-    image: '/images/blog/lombardia-sport-ticino.webp',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'giustizia-referendum-ticino',
     category: 'novita',
     date: '2026-03-24T05:01:49.744Z',
@@ -5298,15 +5250,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-24T21:51:51.047Z',
     image: '/images/blog/lavena-ponte-tresa-verde.webp',
     hasCalculator: true,
-  },
-  {
-    id: 'datori-lavoro-cauti',
-    category: 'pratico',
-    date: '2026-03-25T02:58:53.338Z',
-    image: '/images/blog/datori-lavoro-cauti.webp',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'chiasso-missione-emergenza-luci-blu',
     category: 'novita',
     date: '2026-03-25T05:07:20.675Z',
@@ -5585,15 +5529,7 @@ export const ARTICLES: Article[] = [
     date: '2026-03-31T13:56:59.738Z',
     image: '/images/blog/sicurezza-lago-maggiore.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'monete-argento-sanzionato-ponte-chiasso',
-    category: 'fiscale',
-    date: '2026-03-31T21:56:43.674Z',
-    image: '/images/blog/monete-argento-sanzionato-ponte-chiasso.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'best-cross-border-worker-calculator-switzerland',
     category: 'pratico',
     date: '2026-03-31T10:00:00+01:00',
@@ -5620,22 +5556,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-01T10:16:07.575Z',
     image: '/images/blog/aumento-contingente-uova-svizzera.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'congresso-svizzera-italia-2026',
-    category: 'fiscale',
-    date: '2026-04-01T14:02:50.963Z',
-    image: '/images/blog/congresso-svizzera-italia-2026.jpg',
-    hasCalculator: true,
-  },
-  {
-    id: 'il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga',
-    category: 'novita',
-    date: '2026-04-01T19:19:40.705Z',
-    image: '/images/blog/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'lavori-notturni-via-lavizzari',
     category: 'novita',
     date: '2026-04-01T21:55:31.506Z',
@@ -5648,15 +5569,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-02T03:21:20.111Z',
     image: '/images/blog/limite-popolazione-10-milioni-ticino.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'contrabbando-argento-frontiera',
-    category: 'fiscale',
-    date: '2026-04-02T07:29:45.638Z',
-    image: '/images/blog/contrabbando-argento-frontiera.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'settanta-chili-di-mozzarella',
     category: 'novita',
     date: '2026-04-02T10:15:12.482Z',
@@ -5711,15 +5624,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-03T11:25:19.456Z',
     image: '/images/blog/ticino-lombardia-manifatturiero.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'lombardia-export-calzature',
-    category: 'novita',
-    date: '2026-04-03T12:04:48.798Z',
-    image: '/images/blog/lombardia-export-calzature.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'dogana-chiasso-centro-tecnologico',
     category: 'novita',
     date: '2026-04-03T13:27:44.156Z',
@@ -5809,15 +5714,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-03T21:49:27.052Z',
     image: '/images/blog/turismo-pasquale-ticino-2026.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'agente-sicurezza-investito-cadenazzo',
-    category: 'pratico',
-    date: '2026-04-03T22:47:07.040Z',
-    image: '/images/blog/agente-sicurezza-investito-cadenazzo.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'mozzarella-clandestina-2026-ricerca',
     category: 'fiscale',
     date: '2026-04-03T23:46:50.097Z',
@@ -5865,22 +5762,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-04T08:59:43.094Z',
     image: '/images/blog/aumento-mezzi-pubblici-ticino.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'frontaliere-ticino-investito-cantiere',
-    category: 'novita',
-    date: '2026-04-04T09:53:43.886Z',
-    image: '/images/blog/frontaliere-ticino-investito-cantiere.jpg',
-    hasCalculator: true,
-  },
-  {
-    id: 'banche-sindacati-piattaforma-aumento',
-    category: 'pratico',
-    date: '2026-04-04T10:50:54.818Z',
-    image: '/images/blog/banche-sindacati-piattaforma-aumento.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'addiofrontalierelongo',
     category: 'novita',
     date: '2026-04-04T11:41:51.882Z',
@@ -6180,15 +6062,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-06T22:51:35.657Z',
     image: '/images/blog/conflitto-medio-oriente-energia-ticino.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'fronteria-ticino-scarpata-airogno',
-    category: 'pratico',
-    date: '2026-04-06T23:51:18.909Z',
-    image: '/images/blog/fronteria-ticino-scarpata-airogno.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'lavoro-notte-lincendio-laveno-mombello',
     category: 'novita',
     date: '2026-04-07T03:25:56.716Z',
@@ -6264,15 +6138,7 @@ export const ARTICLES: Article[] = [
     date: '2026-04-07T18:55:19.924Z',
     image: '/images/blog/tassa-salute-frontalieri-ufis-risposte.jpg',
     hasCalculator: true,
-  },
-  {
-    id: 'tassa-salute-frontalieri',
-    category: 'fiscale',
-    date: '2026-04-07T19:40:57.603Z',
-    image: '/images/blog/tassa-salute-frontalieri.jpg',
-    hasCalculator: true,
-  },
-  {
+  },  {
     id: 'front-alieri-soci-sagl-nodi-fiscali-2026',
     category: 'fiscale',
     date: '2026-04-08T07:05:08.270Z',

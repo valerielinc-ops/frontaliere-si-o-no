@@ -10129,34 +10129,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-monete-argento-sanzionato-ponte-chiasso': {
-    title: 'Monete d\'argento preziose nascoste in auto: sanzionato un uomo a Ponte | Frontaliere Ticino',
-    description: 'Un uomo è stato sanzionato per aver nascosto sette monete d\'argento preziose in auto al valico di Ponte Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.',
-    keywords: 'frontalieri, ticino, svizzera, italia, monete, argento, preziose, nascoste',
-    ogTitle: 'Monete d\'argento preziose nascoste in auto: sanzionato un uomo a Ponte Chiasso',
-    ogDescription: 'Un uomo è stato sanzionato per aver nascosto sette monete d\'argento preziose in auto al valico di Ponte Chiasso.',
-    canonicalPath: '/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Monete d'argento preziose nascoste in auto: sanzionato un uomo a Ponte Chiasso",
-      "description": "Un uomo è stato sanzionato per aver nascosto sette monete d'argento preziose in auto al valico di Ponte Chiasso. Dati aggiornati 2026 per frontalieri in Ticino.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/monete-argento-sanzionato-ponte-chiasso.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Un uomo è stato sanzionato per aver nascosto monete d'argento preziose in auto al valico di Ponte Chiasso"
-      },
-      "datePublished": "2026-03-31T21:56:43+00:00",
-      "dateModified": "2026-03-31T21:56:43+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/monete-argento-sanzionato-ponte-chiasso`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-ambasciatore-italiano-ritorno-berna': {
     title: 'Rientro dell\'ambasciatore italiano a Berna dopo polemiche sul caso | Frontaliere Ticino',
@@ -10245,63 +10217,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-congresso-svizzera-italia-2026': {
-    title: 'Dieci anni di confronto su fiscalità e frontalieri | Frontaliere Ticino',
-    description: 'Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri. Scopri il programma e le opzioni di registrazione. Dati aggiornati',
-    keywords: 'frontalieri, ticino, svizzera, italia, dieci, anni, confronto, fiscalità',
-    ogTitle: 'Congresso Svizzera-Italia 2026',
-    ogDescription: 'Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri. Scopri il programma e le opzioni di registrazione.',
-    canonicalPath: '/articoli-frontaliere/congresso-svizzera-italia-2026',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Congresso Svizzera-Italia 2026",
-      "description": "Il Congresso Svizzera-Italia torna a Varese per discutere di novità fiscali e frontalieri. Scopri il programma e le opzioni di registrazione. Dati aggiornati",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/congresso-svizzera-italia-2026.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Convegno Svizzera-Italia a Varese"
-      },
-      "datePublished": "2026-04-01T14:02:50+00:00",
-      "dateModified": "2026-04-01T14:02:50+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/congresso-svizzera-italia-2026`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
-  'blog-il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga': {
-    title: 'Il medico prescrive la cannabis per un disturbo cronico, la cassa malati | Frontaliere Ticino',
-    description: 'L\'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la',
-    keywords: 'frontalieri, ticino, svizzera, italia, medico, prescrive, cannabis, disturbo',
-    ogTitle: 'Il medico prescrive la cannabis per un disturbo cronico, la cassa malati non paga',
-    ogDescription: 'L\'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la',
-    canonicalPath: '/articoli-frontaliere/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Il medico prescrive la cannabis per un disturbo cronico, la cassa malati non paga",
-      "description": "L'articolo riporta il caso di un paziente che ha ricevuto una prescrizione di cannabis da un medico per un disturbo cronico, ma la cassa malati non ha pagato la",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Un medico esamina un paziente"
-      },
-      "datePublished": "2026-04-01T19:19:40+00:00",
-      "dateModified": "2026-04-01T19:19:40+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/il-medico-prescrive-la-cannabis-per-un-disturbo-cronico-la-cassa-malati-non-paga`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-lavori-notturni-via-lavizzari': {
     title: 'Lavori notturni di pavimentazione in Via Lavizzari a Chiasso | Frontaliere Ticino',
@@ -10361,34 +10277,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-contrabbando-argento-frontiera': {
-    title: 'Contrabbando d\'argento: sette pezzi d\'argento in conio | Frontaliere Ticino',
-    description: 'La dogana svizzera ha sequestrato sette pezzi d\'argento in conio durante un controllo di routine alla frontiera italo-svizzera. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, contrabbando, argento, sette, pezzi',
-    ogTitle: 'Contrabbando d\'argento: sette pezzi sequestrati',
-    ogDescription: 'La dogana svizzera ha sequestrato sette pezzi d\'argento in conio durante un controllo di routine',
-    canonicalPath: '/articoli-frontaliere/contrabbando-argento-frontiera',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Contrabbando d'argento: una storia di collaborazione",
-      "description": "La dogana svizzera ha sequestrato sette pezzi d'argento in conio durante un controllo di routine alla frontiera italo-svizzera. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/contrabbando-argento-frontiera.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Contrabbando d'argento sulla frontiera"
-      },
-      "datePublished": "2026-04-02T07:29:45+00:00",
-      "dateModified": "2026-04-02T07:29:45+00:00",
-      "inLanguage": "it",
-      "author": {"@type": "Person", "name": "Valerie Linc", "jobTitle": "Esperta fiscale frontalieri", "url": "https://frontaliereticino.ch/chi-siamo/", "sameAs": "https://www.linkedin.com/in/valerie-linc/"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/contrabbando-argento-frontiera`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-settanta-chili-di-mozzarella': {
     title: 'Settanta chili di mozzarella nel bagagliaio del SUV. Doppio sequestro | Frontaliere Ticino',
@@ -10622,34 +10510,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-lombardia-export-calzature': {
-    title: 'La Lombardia guida la crescita dell\'export calzaturiero italiano | Frontaliere Ticino',
-    description: 'Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, lombardia, crescita, dell, export',
-    ogTitle: 'La Lombardia guida la crescita dell\'export calzaturiero italiano',
-    ogDescription: 'Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%.',
-    canonicalPath: '/articoli-frontaliere/lombardia-export-calzature',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "La Lombardia guida la crescita dell'export calzaturiero italiano",
-      "description": "Nel 2025, la Lombardia registra un fatturato di 12,8 miliardi di euro nel settore calzaturiero, con un export in crescita del 7,9%. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/lombardia-export-calzature.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Scarpe italiane con bandiera lombarda"
-      },
-      "datePublished": "2026-04-03T12:04:48+00:00",
-      "dateModified": "2026-04-03T12:04:48+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/lombardia-export-calzature`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-dogana-chiasso-centro-tecnologico': {
     title: 'La dogana di Chiasso si prepara a diventare un moderno centro | Frontaliere Ticino',
@@ -10912,34 +10772,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-agente-sicurezza-investito-cadenazzo': {
-    title: 'Agente di sicurezza investito a Cadenazzo: gravi ferite | Frontaliere Ticino',
-    description: 'Un agente di sicurezza è stato investito da un\'auto a Cadenazzo, Ticino. La sua vita è in pericolo. Leggi l\'articolo per conoscere le ultime notizie.',
-    keywords: 'frontalieri, ticino, svizzera, italia, agente, sicurezza, investito, cadenazzo',
-    ogTitle: 'Agente di sicurezza investito a Cadenazzo: gravi ferite',
-    ogDescription: 'Un agente di sicurezza è stato investito da un\'auto a Cadenazzo, Ticino. La sua vita è in pericolo. Leggi l\'articolo per conoscere le ultime notizie.',
-    canonicalPath: '/articoli-frontaliere/agente-sicurezza-investito-cadenazzo',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Agente di sicurezza investito a Cadenazzo: gravi ferite",
-      "description": "Un agente di sicurezza è stato investito da un'auto a Cadenazzo, Ticino. La sua vita è in pericolo. Leggi l'articolo per conoscere le ultime notizie.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/agente-sicurezza-investito-cadenazzo.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Agente di sicurezza investito da un'auto a Cadenazzo, Ticino."
-      },
-      "datePublished": "2026-04-03T22:47:07+00:00",
-      "dateModified": "2026-04-03T22:47:07+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/agente-sicurezza-investito-cadenazzo`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-mozzarella-clandestina-2026-ricerca': {
     title: 'Mozzarella \'clandestina\' in Ticino: come fare la ricerca giusta? | Frontaliere Ticino',
@@ -11144,63 +10976,7 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-frontaliere-ticino-investito-cantiere': {
-    title: 'Frontaliere investito in un cantiere a Cadenazzo, Ticino | Frontaliere Ticino',
-    description: 'Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino. Dati aggiornati 2026 per',
-    keywords: 'frontalieri, ticino, svizzera, italia, investito, cantiere, cadenazzo, salvatore',
-    ogTitle: 'Frontaliere investito in un cantiere a Cadenazzo, Ticino',
-    ogDescription: 'Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino',
-    canonicalPath: '/articoli-frontaliere/frontaliere-ticino-investito-cantiere',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Frontaliere investito in un cantiere a Cadenazzo, Ticino",
-      "description": "Salvatore Longo, un frontaliere di Luino, è deceduto dopo essere stato investito da un mezzo in un cantiere a Cadenazzo, Ticino. Dati aggiornati 2026 per",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/frontaliere-ticino-investito-cantiere.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Un frontaliere investito in un cantiere a Cadenazzo, Ticino"
-      },
-      "datePublished": "2026-04-04T09:53:43+00:00",
-      "dateModified": "2026-04-04T09:53:43+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/frontaliere-ticino-investito-cantiere`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
-  'blog-banche-sindacati-piattaforma-aumento': {
-    title: 'Banche e sindacati si accordano sull\'aumento stipendi e riduzione orario | Frontaliere Ticino',
-    description: 'La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell\'orario settimanale da 37 a 35 ore. Dati aggiornati 2026 per frontalieri in',
-    keywords: 'frontalieri, ticino, svizzera, italia, banche, sindacati, accordano, sull',
-    ogTitle: 'Banche e sindacati si accordano sull\'aumento stipendi e riduzione orario',
-    ogDescription: 'La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell\'orario settimanale da 37 a 35 ore.',
-    canonicalPath: '/articoli-frontaliere/banche-sindacati-piattaforma-aumento',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Banche e sindacati si accordano sull'aumento stipendi e riduzione orario",
-      "description": "La piattaforma approvata prevede un aumento di 518 euro mensili e una riduzione dell'orario settimanale da 37 a 35 ore. Dati aggiornati 2026 per frontalieri in",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/banche-sindacati-piattaforma-aumento.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Lago di Lugano e montagne ticinesi"
-      },
-      "datePublished": "2026-04-04T10:50:54+00:00",
-      "dateModified": "2026-04-04T10:50:54+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/banche-sindacati-piattaforma-aumento`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-addiofrontalierelongo': {
     title: 'Addio a Salvatore Longo, il frontaliere di Luino morto sul lavoro a | Frontaliere Ticino',
@@ -12449,34 +12225,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-fronteria-ticino-scarpata-airogno': {
-    title: 'Lavoro frontaliero in Ticino: normative 2026 | Frontaliere Ticino',
-    description: 'Calo del 14,6% dei lavoratori extracomunitari in Ticino: cosa cambia con la nuova LCFL 2025 e come adattarsi alle nuove normative frontaliere.',
-    keywords: 'frontalieri, ticino, svizzera, italia, lavoro frontaliero, LCFL, normative 2026, lavoratori extracomunitari',
-    ogTitle: 'Lavoro frontaliero in Ticino: normative 2026 e prospettive',
-    ogDescription: 'Calo del 14,6% dei lavoratori extracomunitari in Ticino: cosa cambia con la nuova LCFL 2025 e come adattarsi alle nuove normative frontaliere.',
-    canonicalPath: '/articoli-frontaliere/fronteria-ticino-scarpata-airogno',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Lavoro frontaliero in Ticino: normative 2026 e prospettive",
-      "description": "Calo del 14,6% dei lavoratori extracomunitari in Ticino: cosa cambia con la nuova LCFL 2025 e come adattarsi alle nuove normative frontaliere.",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/fronteria-ticino-scarpata-airogno.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Frontalieri in Ticino al mattino, traffico al confine svizzero-italiano."
-      },
-      "datePublished": "2026-04-06T23:51:18+00:00",
-      "dateModified": "2026-04-06T23:51:18+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/fronteria-ticino-scarpata-airogno`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-lavoro-notte-lincendio-laveno-mombello': {
     title: 'Uomini e droni al lavoro nella notte per tenere sotto controllo | Frontaliere Ticino',
@@ -12797,34 +12545,6 @@ const BLOG_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
-  'blog-tassa-salute-frontalieri': {
-    title: 'Tassa salute frontalieri: la Lombardia non può sottrarsi | Frontaliere Ticino',
-    description: 'La Regione Lombardia non può esimersi dall\'applicazione della tassa sulla salute dei frontalieri. Scopri cosa significa per i lavoratori. Dati aggiornati 2026',
-    keywords: 'frontalieri, ticino, svizzera, italia, tassa, salute, lombardia, sottrarsi',
-    ogTitle: 'Tassa salute frontalieri',
-    ogDescription: 'La Regione Lombardia non può esimersi dall\'applicazione della tassa sulla salute dei frontalieri. Scopri cosa significa per i lavoratori.',
-    canonicalPath: '/articoli-frontaliere/tassa-salute-frontalieri',
-    structuredData: {
-      "@context": "https://schema.org",
-      "@type": "NewsArticle",
-      "headline": "Tassa salute frontalieri: la Lombardia non può sottrarsi",
-      "description": "La Regione Lombardia non può esimersi dall'applicazione della tassa sulla salute dei frontalieri. Scopri cosa significa per i lavoratori. Dati aggiornati 2026",
-      "image": {
-        "@type": "ImageObject",
-        "url": `${BASE_URL}/images/blog/tassa-salute-frontalieri.jpg`,
-        "width": 1200,
-        "height": 675,
-        "caption": "Frontalieri al confine italo-svizzero"
-      },
-      "datePublished": "2026-04-07T19:40:57+00:00",
-      "dateModified": "2026-04-07T19:40:57+00:00",
-      "inLanguage": "it",
-      "author": {"@id": "https://frontaliereticino.ch/#organization"},
-      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
-      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/tassa-salute-frontalieri`,
-      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
-    }
-  },
 
   'blog-front-alieri-soci-sagl-nodi-fiscali-2026': {
     title: 'Frontalieri e soci di Sagl: nuovi nodi fiscali tra Italia e Svizzera | Frontaliere Ticino',

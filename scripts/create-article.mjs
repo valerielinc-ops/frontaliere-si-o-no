@@ -915,8 +915,8 @@ function assertTaxHealthConsistency(contentIt, sourceContext = null, pageContent
 }
 
 /**
- * Fact-check: warn about numbers/percentages in the article not found in source.
- * Non-blocking — logs warnings for human review.
+ * Fact-check: BLOCKING — reject articles with too many unsourced numbers.
+ * Throws if > 60% of specific numbers in the article are not found in the source.
  */
 function factCheckNumbers(contentIt, pageContent = '') {
   const articleText = [
@@ -933,7 +933,116 @@ function factCheckNumbers(contentIt, pageContent = '') {
   const sourceText = pageContent.toLowerCase();
   const unsourced = [...articleNumbers].filter(n => !sourceText.includes(n));
   if (unsourced.length > 0) {
-    console.error(`  ⚠️  Fact-check: ${unsourced.length} numeri nell'articolo non trovati nella fonte: ${unsourced.slice(0, 8).join(', ')}`);
+    const ratio = unsourced.length / articleNumbers.size;
+    console.error(`  ⚠️  Fact-check: ${unsourced.length}/${articleNumbers.size} numeri non trovati nella fonte: ${unsourced.slice(0, 8).join(', ')}`);
+    if (unsourced.length >= 4 && ratio > 0.6) {
+      throw new Error(`Articolo rigettato: ${unsourced.length}/${articleNumbers.size} numeri (${(ratio * 100).toFixed(0)}%) non trovati nella fonte — possibile allucinazione.`);
+    }
+  }
+}
+
+// Known real Swiss/Italian legal references that articles may legitimately cite
+const KNOWN_LEGAL_REFS = new Set([
+  'dl 167/2024', 'd.lgs 147/2015', 'd.lgs 241/1997', 'd.lgs 917/1986',
+  'dl 78/2010', 'dl 138/2011', 'dl 66/2014', 'dl 50/2017', 'dl 34/2019',
+  'dl 34/2020', 'dl 18/2020', 'dl 104/2020', 'dl 73/2021', 'dl 41/2021',
+  'dl 4/2019', 'dl 48/2023', 'dl 145/2023', 'dl 212/2023', 'dl 19/2024',
+  'dl 113/2024', 'dpr 917/1986', 'dpr 600/1973', 'dpr 633/1972',
+  'l. 147/2013', 'l. 190/2014', 'l. 208/2015', 'l. 232/2016', 'l. 205/2017',
+  'l. 145/2018', 'l. 160/2019', 'l. 178/2020', 'l. 234/2021', 'l. 197/2022',
+  'l. 213/2023', 'l. 207/2024',
+  'd.lgs 286/1998', 'd.lgs 81/2008', 'd.lgs 66/2003',
+]);
+
+// Patterns that signal fabricated content
+const FABRICATED_INSTITUTION_PATTERNS = [
+  /codice\s+federale\s+del\s+lavoro/i,
+  /\bCFL\b(?!\s*[A-Z])/,
+  /dipartimento\s+delle\s+entrate\b/i,
+  /codice\s+federale\s+(?:della\s+)?(?:salute|sanità)/i,
+  /ministero\s+(?:federale|cantonale)\s+del(?:la)?\s+(?:lavoro|salute|finanz)/i,
+];
+
+/**
+ * BLOCKING — Detect fabricated legal references, fake institutions, and hallucinated laws.
+ * Throws if the article contains references to non-existent laws or institutions.
+ */
+function assertNoFabricatedReferences(contentIt) {
+  const articleText = [
+    contentIt?.title || '',
+    contentIt?.body1 || '', contentIt?.body2 || '', contentIt?.body3 || '',
+  ].join(' ');
+  const articleLower = articleText.toLowerCase();
+
+  // Check for fabricated institutions
+  for (const pattern of FABRICATED_INSTITUTION_PATTERNS) {
+    if (pattern.test(articleText)) {
+      throw new Error(`Articolo rigettato: riferimento a istituzione inesistente — pattern: ${pattern.source}`);
+    }
+  }
+
+  // Extract legal references and check against known-real list
+  const legalRefPattern = /\b(?:d\.?l\.?g?s?\.?|dpr|l\.)\s*(?:n\.?\s*)?(\d{1,4})\s*[\/]\s*(\d{4})\b/gi;
+  const foundRefs = [];
+  let m;
+  while ((m = legalRefPattern.exec(articleLower)) !== null) {
+    const full = m[0].replace(/\s+/g, ' ').trim();
+    const normalized = full
+      .replace(/\.+/g, '.')
+      .replace(/\s*n\.?\s*/g, ' ')
+      .replace(/\.\s/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim()
+      .replace(/\.$/, '');
+    foundRefs.push(normalized);
+  }
+
+  if (foundRefs.length > 0) {
+    const unknownRefs = foundRefs.filter(ref => {
+      const variants = [
+        ref,
+        ref.replace(/\./g, ''),
+        ref.replace(/d\.lgs/g, 'd.lgs'),
+        ref.replace(/d lgs/g, 'd.lgs'),
+      ];
+      return !variants.some(v => KNOWN_LEGAL_REFS.has(v));
+    });
+
+    if (unknownRefs.length > 0) {
+      console.error(`  ⚠️  Riferimenti normativi non riconosciuti: ${unknownRefs.join(', ')}`);
+      if (unknownRefs.length >= 2) {
+        throw new Error(`Articolo rigettato: ${unknownRefs.length} riferimenti normativi non riconosciuti (possibile allucinazione): ${unknownRefs.join(', ')}`);
+      }
+    }
+  }
+
+  // Check for suspiciously specific fake percentages with "tassa" context
+  const taxRatePattern = /tass[ae]\s+(?:\w+\s+){0,5}(\d{1,2}(?:[.,]\d+)?)\s*%/gi;
+  while ((m = taxRatePattern.exec(articleLower)) !== null) {
+    const rate = parseFloat(m[1].replace(',', '.'));
+    if (rate === 10 && /tassa\s+(?:sulla\s+)?salute/i.test(m[0])) {
+      throw new Error('Articolo rigettato: "tassa sulla salute del 10%" è un dato inventato — non esiste.');
+    }
+  }
+
+  // Check for commonly hallucinated convention date
+  if (/convenzione.*9\s+marzo\s+1976/i.test(articleText) || /9\s+marzo\s+1976.*convenzione/i.test(articleText)) {
+    throw new Error('Articolo rigettato: la Convenzione italo-svizzera è del 9 dicembre 1976, non 9 marzo.');
+  }
+
+  // Check for fabricated Swiss acronyms
+  const fakeAcronyms = [
+    { pattern: /\bUFOL\b/, real: 'SECO' },
+    { pattern: /\bUWL\b/, real: 'SECO' },
+    { pattern: /\bUSTTI\b/, real: 'USTAT' },
+    { pattern: /\bUBSP\b/, real: 'UFSP/BAG' },
+    { pattern: /\bONSSL\b/, real: 'SUVA' },
+    { pattern: /\bROSSL\b/, real: 'SUVA' },
+  ];
+  for (const { pattern, real } of fakeAcronyms) {
+    if (pattern.test(articleText)) {
+      throw new Error(`Articolo rigettato: "${pattern.source}" è un acronimo inventato — l'ente reale è ${real}.`);
+    }
   }
 }
 
@@ -1613,6 +1722,16 @@ ANTI-AI (CRITICO): Il testo NON deve sembrare generato da AI. Regole:
 TICINO: L'articolo DEVE riguardare Canton Ticino, confine italo-svizzero, o frontalieri. Riferimenti locali: Canton Ticino, SUPSI, USI, EOC, Lugano, Bellinzona, Locarno, Mendrisio, DFE, SECO.
 
 FACT-CHECK (CRITICO): NON inventare fatti. Usa SOLO informazioni presenti in SOURCE CONTENT/HEADLINE/RELATED per: platea interessata, importi, date, scadenze, riferimenti normativi. Se un dato non è esplicito nella fonte, scrivi che non è specificato. Le citazioni dirette devono essere presenti VERBATIM nella fonte. NON usare "secondo esperti" senza citare la fonte specifica. NON aggiungere contesto di background non verificato.
+
+DIVIETI SPECIFICI (BLOCCANTI — l'articolo verrà RIGETTATO automaticamente se violati):
+- NON inventare leggi inesistenti (es. "D.Lgs 299/2006", "LCFL del 1992", "LFP", "RTL", "LTL"). Se non conosci il riferimento esatto, NON citarlo.
+- NON inventare acronimi di enti (es. "CFL", "UFOL", "UWL", "USTTI", "UBSP", "ONSSL"). Enti reali: SECO, USTAT, UFSP/BAG, SUVA, DFE, DSS.
+- NON inventare il "Codice federale del lavoro" — NON ESISTE. La legge svizzera sul lavoro è la "Legge sul lavoro" (LL/ArG).
+- NON inventare il "Dipartimento delle Entrate" — NON ESISTE.
+- La Convenzione italo-svizzera sulla doppia imposizione è del 9 DICEMBRE 1976, NON 9 marzo.
+- NON inventare una "tassa sulla salute del 10%", "imposta sul reddito del 10% in Svizzera", o percentuali fiscali a caso.
+- NON inventare studi, sondaggi, o statistiche con percentuali precise (es. "il 73,2% dei frontalieri...") senza fonte.
+- Se vuoi citare una legge, usa SOLO queste (verificate): DPR 917/1986 (TUIR), D.Lgs 147/2015, DL 167/2024, L. 207/2024 (Legge di Bilancio 2025), Convenzione 9/12/1976, Nuovo Accordo Frontalieri 2023.
 
 ANTI-CLICKBAIT (CRITICO — Google Discover compliance):
 - Il titolo DEVE essere DESCRITTIVO e SPECIFICO: soggetto + azione + contesto.
@@ -4460,8 +4579,29 @@ async function generateAndValidateArticle(url, sourceContext = null) {
       throw consistencyErr;
     }
 
-    // Step 3a.0b: Fact-check — warn about numbers not found in source
-    factCheckNumbers(data.content.it, pageContent);
+    // Step 3a.0b: Fact-check — BLOCKING if too many unsourced numbers
+    try {
+      factCheckNumbers(data.content.it, pageContent);
+    } catch (factErr) {
+      console.error(`  ⚠️  ${factErr.message}`);
+      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+        console.error(`  🔄 Rigenero contenuto IT per numeri non verificati (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+        continue;
+      }
+      throw factErr;
+    }
+
+    // Step 3a.0c: Fabricated references check — BLOCKING
+    try {
+      assertNoFabricatedReferences(data.content.it);
+    } catch (fabErr) {
+      console.error(`  ⚠️  ${fabErr.message}`);
+      if (attempt < CREATE_ARTICLE_MIN_WORDS_RETRIES) {
+        console.error(`  🔄 Rigenero contenuto IT per riferimenti inventati (${attempt}/${CREATE_ARTICLE_MIN_WORDS_RETRIES})...`);
+        continue;
+      }
+      throw fabErr;
+    }
 
     const itWords = italianBodyWordCount(data);
     lastWordCount = itWords;
