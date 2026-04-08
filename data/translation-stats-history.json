@@ -1,53 +1,5 @@
 [
   {
-    "timestamp": "2026-03-30T18:11:25.755Z",
-    "label": "before",
-    "total": 1317,
-    "needsRetranslation": 146,
-    "incomplete": 108,
-    "complete": 1209,
-    "missingByLocale": {
-      "it": 71,
-      "en": 108,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
-    "timestamp": "2026-03-30T18:12:07.333Z",
-    "label": "after",
-    "total": 1317,
-    "needsRetranslation": 107,
-    "incomplete": 108,
-    "complete": 1209,
-    "missingByLocale": {
-      "it": 71,
-      "en": 108,
-      "de": 36,
-      "fr": 107
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 107
-      },
-      {
-        "company": "LWP Ledermann Wieting & Partners",
-        "pending": 1
-      }
-    ]
-  },
-  {
     "timestamp": "2026-03-30T18:17:53.017Z",
     "label": "before",
     "total": 1317,
@@ -9906,6 +9858,118 @@
       {
         "company": "Hilcona AG",
         "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T02:30:22.650Z",
+    "label": "before",
+    "total": 1538,
+    "needsRetranslation": 260,
+    "incomplete": 172,
+    "complete": 1366,
+    "missingByLocale": {
+      "it": 78,
+      "en": 59,
+      "de": 59,
+      "fr": 65
+    },
+    "topPending": [
+      {
+        "company": "Läderach (Schweiz) AG",
+        "pending": 50
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 41
+      },
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lombardi Group",
+        "pending": 9
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 8
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 6
+      },
+      {
+        "company": "Denner",
+        "pending": 5
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-04-08T02:32:03.007Z",
+    "label": "after",
+    "total": 1538,
+    "needsRetranslation": 152,
+    "incomplete": 74,
+    "complete": 1464,
+    "missingByLocale": {
+      "it": 27,
+      "en": 27,
+      "de": 26,
+      "fr": 31
+    },
+    "topPending": [
+      {
+        "company": "LIS – Lugano Istituti Sociali",
+        "pending": 13
+      },
+      {
+        "company": "Lidl Svizzera",
+        "pending": 8
+      },
+      {
+        "company": "Davos Klosters Bergbahnen AG",
+        "pending": 6
+      },
+      {
+        "company": "EOC – Ente Ospedaliero Cantonale",
+        "pending": 5
+      },
+      {
+        "company": "SUPSI / DTI",
+        "pending": 5
+      },
+      {
+        "company": "Città di Mendrisio",
+        "pending": 4
+      },
+      {
+        "company": "Denner",
+        "pending": 4
+      },
+      {
+        "company": "Hilcona AG",
+        "pending": 4
+      },
+      {
+        "company": "Ferrovia Retica (RhB)",
+        "pending": 3
+      },
+      {
+        "company": "Otis SA",
+        "pending": 3
       }
     ]
   }
