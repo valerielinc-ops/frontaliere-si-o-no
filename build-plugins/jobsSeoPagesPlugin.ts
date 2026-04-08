@@ -47,6 +47,31 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       const distDir = np.resolve(rootDir, 'dist');
       const jobsPath = np.resolve(rootDir, 'data/jobs.json');
 
+      // ─── Parameterized defaults ──────────────────────────────────────────
+      // Change DEFAULT_CANTON to expand the primary target region.
+      // See scripts/lib/crawler-location-config.mjs for the central switch.
+      const DEFAULT_CANTON = 'TI';
+      const DEFAULT_POSTAL_CODE = '6900';
+      const DEFAULT_CANTON_DISPLAY = 'Ticino';
+      const CANTON_DISPLAY: Record<string, string> = {
+        'TI': 'Ticino', 'GR': 'Graubünden', 'ZH': 'Zürich', 'BE': 'Bern',
+        'LU': 'Luzern', 'BS': 'Basel', 'GE': 'Genève', 'VD': 'Vaud',
+        'AG': 'Aargau', 'SG': 'St. Gallen', 'VS': 'Valais', 'FR': 'Fribourg',
+        'NE': 'Neuchâtel', 'ZG': 'Zug', 'SH': 'Schaffhausen', 'SO': 'Solothurn',
+        'BL': 'Basel-Landschaft', 'TG': 'Thurgau', 'SZ': 'Schwyz', 'GL': 'Glarus',
+        'JU': 'Jura', 'NW': 'Nidwalden', 'OW': 'Obwalden', 'AR': 'Appenzell AR',
+        'AI': 'Appenzell AI', 'UR': 'Uri',
+      };
+      const CANTON_FALLBACK_POSTAL: Record<string, string> = {
+        'TI': '6900', 'GR': '7000', 'ZH': '8001', 'BE': '3001',
+        'LU': '6003', 'BS': '4001', 'GE': '1201', 'VD': '1003',
+        'AG': '5001', 'SG': '9001', 'VS': '1950', 'FR': '1700',
+        'NE': '2000', 'ZG': '6300', 'SH': '8200', 'SO': '4500',
+        'BL': '4410', 'TG': '8500', 'SZ': '6430', 'GL': '8750',
+        'JU': '2800', 'NW': '6370', 'OW': '6060', 'AR': '9100',
+        'AI': '9050', 'UR': '6460',
+      };
+
       /* ── Buffered write system: collect all writes, flush in parallel at the end ── */
       const _pendingWrites: { p: string; c: string }[] = [];
       const _ensuredDirs = new Set<string>();
@@ -94,6 +119,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
       const hasSpaBundle = !!(entryJs && entryCss);
       if (!hasSpaBundle) console.warn('[jobs-seo-pages] Could not find SPA entry bundles — pages will be static-only');
 
+      // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
       const sectionByLocale: Record<'it' | 'en' | 'de' | 'fr', string> = {
         it: 'cerca-lavoro-ticino',
         en: 'find-jobs-ticino',
@@ -668,7 +694,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         'sion': 'VS', 'brig': 'VS', 'visp': 'VS', 'sierre': 'VS', 'martigny': 'VS',
       };
 
-      /** Derive canton code from job location/addressLocality, falling back to job.canton or 'TI' */
+      /** Derive canton code from job location/addressLocality, falling back to job.canton or DEFAULT_CANTON */
       const deriveCanton = (job: any): string => {
         const explicitCanton = String(job.canton || job.addressRegion || '').toUpperCase().trim();
         if (explicitCanton && explicitCanton.length === 2 && /^[A-Z]{2}$/.test(explicitCanton)) return explicitCanton;
@@ -680,7 +706,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         for (const c of candidates) {
           if (CITY_TO_CANTON[c]) return CITY_TO_CANTON[c];
         }
-        return 'TI';
+        return DEFAULT_CANTON;
       };
 
       /** Derive streetAddress from job data, company HQ, or city generic.
@@ -715,8 +741,8 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           if (CITY_GENERIC_ADDRESS[c]) return CITY_GENERIC_ADDRESS[c];
         }
         // 7. Canton capital fallback — always produces a result
-        const canton = String(job.canton || job.addressRegion || 'TI').toUpperCase().trim();
-        return CANTON_CAPITAL_ADDRESS[canton] || CANTON_CAPITAL_ADDRESS['TI'] || 'Piazza Governo';
+        const canton = String(job.canton || job.addressRegion || DEFAULT_CANTON).toUpperCase().trim();
+        return CANTON_CAPITAL_ADDRESS[canton] || CANTON_CAPITAL_ADDRESS[DEFAULT_CANTON] || 'Piazza Governo';
       };
       // Map internal category strings to O*NET-SOC major group codes for Google Jobs.
       // https://www.onetcenter.org/taxonomy.html
@@ -784,6 +810,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
         de: 'suche',
         fr: 'recherche',
       };
+      // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
       const searchPageCopy: Record<'it' | 'en' | 'de' | 'fr', {
         title: (name: string) => string;
         description: (name: string, count: number) => string;
@@ -920,12 +947,12 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
           const cleanDesc = cleanMetaDescription(localizedDescriptionRaw);
           // Build an SEO-friendly meta description with salary and CTA
           const metaIntro = locale === 'de'
-            ? `${localizedTitle} bei ${job.company} in ${job.location || 'Ticino'}.`
+            ? `${localizedTitle} bei ${job.company} in ${job.location || DEFAULT_CANTON_DISPLAY}.`
             : locale === 'fr'
-              ? `${localizedTitle} chez ${job.company} à ${job.location || 'Ticino'}.`
+              ? `${localizedTitle} chez ${job.company} à ${job.location || DEFAULT_CANTON_DISPLAY}.`
               : locale === 'en'
-                ? `${localizedTitle} at ${job.company} in ${job.location || 'Ticino'}.`
-                : `${localizedTitle} presso ${job.company} a ${job.location || 'Ticino'}.`;
+                ? `${localizedTitle} at ${job.company} in ${job.location || DEFAULT_CANTON_DISPLAY}.`
+                : `${localizedTitle} presso ${job.company} a ${job.location || DEFAULT_CANTON_DISPLAY}.`;
           // Inline salary snippet for meta description (before salaryText is computed)
           const metaSalaryMin = Number(job.salaryMin);
           const metaSalaryMax = Number(job.salaryMax);
@@ -1057,7 +1084,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
                   ? 'not specified'
                   : 'non indicato');
           const rawLocality = String(job.addressLocality || '').trim();
-          const addressLocality = isValidAddress(rawLocality) ? rawLocality : String(job.location || 'Ticino');
+          const addressLocality = isValidAddress(rawLocality) ? rawLocality : String(job.location || DEFAULT_CANTON_DISPLAY);
           const addressRegion = deriveCanton(job);
           const addressCountry = String(job.addressCountry || 'CH');
           const rawPostal = String(job.postalCode || '').trim();
@@ -1139,7 +1166,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
                 addressLocality,
                 addressRegion,
                 addressCountry,
-                postalCode: postalCode || '6900',
+                postalCode: postalCode || CANTON_FALLBACK_POSTAL[addressRegion] || DEFAULT_POSTAL_CODE,
               },
             },
             // FRO-358: baseSalary fallback must use a valid minValue > 0 (validator rejects 0).
@@ -1370,7 +1397,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       <article class="proposal">
         <section class="hero">
           <h1 class="hero-title">${esc(localizedTitle)}</h1>
-          <div class="hero-sub">${esc(job.company)} · ${esc(job.location)} (${esc(job.canton || 'TI')})</div>
+          <div class="hero-sub">${esc(job.company)} · ${esc(job.location)} (${esc(job.canton || DEFAULT_CANTON)})</div>
           <div class="hero-meta">
             <span>${esc(`Categoria: ${String(job.category || 'other')}`)}</span>
             <span>${esc(`Contratto: ${String(job.contract || 'other')}`)}</span>
@@ -1388,7 +1415,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       </article>
       ${related.length > 0 ? `<section class="related"><h2>${esc(localeCopy[locale].relatedJobs)}</h2><ul style="list-style:none;padding:0;margin:0">${relatedHtml}</ul></section>` : ''}
       ${(() => {
-        const dc = String(job.canton || 'TI') === 'TI' ? 'Ticino' : String(job.canton || 'TI');
+        const dc = CANTON_DISPLAY[String(job.canton || DEFAULT_CANTON)] || String(job.canton || DEFAULT_CANTON);
         const loc = esc(job.location || dc);
         const co = esc(job.company || '');
         const taxUrl = `${BASE_URL}${locale === 'it' ? '/' : `/${locale}/`}`;
@@ -1400,12 +1427,14 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
           fr: { healthcare: 'santé', technology: 'technologie', finance: 'services financiers', engineering: 'ingénierie', hospitality: 'hôtellerie', retail: 'commerce', manufacturing: 'industrie', education: 'formation', construction: 'construction', logistics: 'logistique', sales: 'ventes', administration: 'administration' },
         };
         const sectorName = sectorLabel[locale]?.[cat] || sectorLabel[locale]?.['administration'] || '';
+        // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
         const frontalierInfo: Record<string, string> = {
           it: `<section class="section"><h4>Informazioni per frontalieri</h4><p>${co ? `${co} si trova` : 'Questa posizione si trova'} a ${loc} in Canton ${esc(dc)}. Per lavorare come frontaliere in Svizzera serve il <strong>Permesso G</strong>, rinnovabile annualmente. Il Canton ${esc(dc)} applica l'<strong>imposta alla fonte</strong> con aliquote variabili sul reddito lordo, mentre i frontalieri dal 2024 sono soggetti al <strong>Nuovo Accordo fiscale</strong> che prevede una tassazione concorrente Italia-Svizzera.</p><p>I contributi sociali svizzeri includono AVS (5,3%), assicurazione disoccupazione (1,1%) e LPP (previdenza professionale). Usa il nostro <a href="${taxUrl}">simulatore fiscale gratuito</a> per calcolare il tuo stipendio netto e confrontare i costi della vita tra Svizzera e Italia.</p></section>`,
           en: `<section class="section"><h4>Information for cross-border workers</h4><p>${co ? `${co} is located` : 'This position is located'} in ${loc}, Canton of ${esc(dc)}. Cross-border workers need a <strong>G Permit</strong>, renewable annually, to work in Switzerland. The Canton of ${esc(dc)} applies <strong>withholding tax</strong> at variable rates on gross income, and since 2024 the <strong>New Tax Agreement</strong> introduces concurrent taxation between Italy and Switzerland.</p><p>Swiss social contributions include AVS (5.3%), unemployment insurance (1.1%) and LPP (occupational pension). Use our <a href="${taxUrl}">free tax simulator</a> to calculate your net salary and compare the cost of living between Switzerland and Italy.</p></section>`,
           de: `<section class="section"><h4>Informationen für Grenzgänger</h4><p>${co ? `${co} befindet sich` : 'Diese Stelle befindet sich'} in ${loc} im Kanton ${esc(dc)}. Grenzgänger benötigen eine <strong>G-Bewilligung</strong> (jährlich erneuerbar), um in der Schweiz zu arbeiten. Der Kanton ${esc(dc)} erhebt eine <strong>Quellensteuer</strong> mit variablen Sätzen auf das Bruttoeinkommen. Seit 2024 gilt das <strong>Neue Steuerabkommen</strong> mit konkurrierender Besteuerung zwischen Italien und der Schweiz.</p><p>Die Schweizer Sozialabgaben umfassen AHV (5,3%), Arbeitslosenversicherung (1,1%) und BVG (berufliche Vorsorge). Nutzen Sie unseren <a href="${taxUrl}">kostenlosen Steuersimulator</a>, um Ihr Nettogehalt zu berechnen und die Lebenshaltungskosten zwischen der Schweiz und Italien zu vergleichen.</p></section>`,
           fr: `<section class="section"><h4>Informations pour les frontaliers</h4><p>${co ? `${co} se trouve` : 'Ce poste se trouve'} à ${loc} dans le Canton du ${esc(dc)}. Les travailleurs frontaliers ont besoin d'un <strong>permis G</strong> (renouvelable annuellement) pour travailler en Suisse. Le Canton du ${esc(dc)} applique un <strong>impôt à la source</strong> à taux variable sur le revenu brut. Depuis 2024, le <strong>Nouvel Accord fiscal</strong> introduit une imposition concurrente entre l'Italie et la Suisse.</p><p>Les cotisations sociales suisses comprennent l'AVS (5,3%), l'assurance chômage (1,1%) et la LPP (prévoyance professionnelle). Utilisez notre <a href="${taxUrl}">simulateur fiscal gratuit</a> pour calculer votre salaire net et comparer le coût de la vie entre la Suisse et l'Italie.</p></section>`,
         };
+        // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
         const faqSection: Record<string, string> = {
           it: `<section class="section"><h4>Domande frequenti</h4><dl><dt><strong>Qual è lo stipendio netto per un frontaliere in ${esc(dc)}?</strong></dt><dd>Lo stipendio netto dipende dal reddito lordo, dallo stato civile e dal numero di figli. In Canton ${esc(dc)} l'imposta alla fonte varia dal 2% al 15% circa. ${sectorName ? `Nel settore ${sectorName} in Ticino ` : ''}Usa il nostro simulatore per un calcolo personalizzato.</dd><dt><strong>Serve la cassa malati svizzera LAMal come frontaliere?</strong></dt><dd>I nuovi frontalieri dal 2024 devono iscriversi alla LAMal svizzera entro 3 mesi dall'inizio del lavoro. I premi variano per cantone, modello assicurativo e franchigia. Confronta i premi con il nostro <a href="${BASE_URL}/compara-servizi/assicurazione-malattia/">comparatore LAMal</a>.</dd></dl></section>`,
           en: `<section class="section"><h4>Frequently asked questions</h4><dl><dt><strong>What is the net salary for a cross-border worker in ${esc(dc)}?</strong></dt><dd>Net salary depends on gross income, marital status and number of children. In the Canton of ${esc(dc)}, withholding tax ranges from about 2% to 15%. ${sectorName ? `In the ${sectorName} sector in Ticino ` : ''}Use our simulator for a personalised calculation.</dd><dt><strong>Do cross-border workers need Swiss LAMal health insurance?</strong></dt><dd>New cross-border workers since 2024 must enrol in Swiss LAMal within 3 months of starting work. Premiums vary by canton, insurance model and deductible. Compare premiums with our <a href="${BASE_URL}/en/compare-services/health-insurance/">LAMal comparator</a>.</dd></dl></section>`,
@@ -1468,6 +1497,7 @@ ${jobLd ? `    <script type="application/ld+json">${jobLd}</script>\n` : ''}    
       }
 
       /* ── Company landing pages ────────────────────────────────── */
+      // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
       const companyCopy: Record<'it' | 'en' | 'de' | 'fr', {
         title: (companyName: string) => string;
         description: (companyName: string, count: number) => string;
@@ -1624,17 +1654,18 @@ ${hreflangHtml}
 ${(() => {
             // Collect location info from company jobs
             const companyLocations = [...new Set(companyJobs.map((j: any) => String(j.location || '')).filter(Boolean))];
-            const companyCantons = [...new Set(companyJobs.map((j: any) => String(j.canton || 'TI')).filter(Boolean))];
+            const companyCantons = [...new Set(companyJobs.map((j: any) => String(j.canton || DEFAULT_CANTON)).filter(Boolean))];
             const companySectors = [...new Set(companyJobs.map((j: any) => String(j.category || j.sector || '')).filter(Boolean))];
             const companyContracts = [...new Set(companyJobs.map((j: any) => String(j.contract || '')).filter(Boolean))];
             const primaryLocation = companyLocations[0] || '';
-            const primaryCanton = companyCantons[0] || 'TI';
-            const displayCanton = primaryCanton === 'TI' ? 'Ticino' : primaryCanton;
+            const primaryCanton = companyCantons[0] || DEFAULT_CANTON;
+            const displayCanton = CANTON_DISPLAY[primaryCanton] || primaryCanton;
             const locationListStr = companyLocations.slice(0, 5).join(', ');
             const listingUrl = `${BASE_URL}${withSlash(`${localePrefix[locale]}/${sectionSlug}`.replace(/\/+/g, '/'))}`;
 
             const parts: string[] = [];
 
+            // BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text
             // Company info section
             if (locale === 'it') {
               parts.push(`<section style="margin-top:20px"><h2>Informazioni su ${esc(companyName)}</h2>`);
