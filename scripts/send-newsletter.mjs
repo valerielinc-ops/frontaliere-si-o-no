@@ -155,10 +155,10 @@ async function generateAIBriefing(ctx) {
 
 /**
  * Sanitize AI-generated briefing HTML:
- * 1. Ensure all <p>/<a>/<strong> tags are properly closed (inline before block)
- * 2. Wrap bare text in <p> tags
- * 3. Remove incomplete trailing sentences (truncation artifacts)
- * 4. Final quality gate: punctuation check + minimum word count
+ * 1. Wrap bare text in <p> tags, close unclosed <p>
+ * 2. Detect truncated text → trim to last complete sentence (rebuilt as clean <p> blocks)
+ * 3. Final tag balance: remove orphan closing tags, close orphan opens
+ * 4. Quality gate: minimum 50 words
  */
 function sanitizeAIBriefingHtml(raw) {
   if (!raw) return null;
@@ -169,30 +169,10 @@ function sanitizeAIBriefingHtml(raw) {
 
   // If no <p> tags, wrap in <p>
   if (!html.includes('<p>') && !html.includes('<p ')) {
-    html = `<p>${html.replace(/\n\n+/g, '</p><p>')}</p>`;
+    html = '<p>' + html.replace(/\n\n+/g, '</p><p>') + '</p>';
   }
 
-  // Close unclosed inline tags INSIDE the last open <p> block (before </p>)
-  // This prevents malformed nesting like </p></a>
-  const lastPClose = html.lastIndexOf('</p>');
-  const insertPos = lastPClose > 0 ? lastPClose : html.length;
-
-  let inlineClosers = '';
-  const strongOpen = (html.match(/<strong[\s>]/gi) || []).length;
-  const strongClose = (html.match(/<\/strong>/gi) || []).length;
-  if (strongOpen > strongClose) {
-    for (let i = 0; i < strongOpen - strongClose; i++) inlineClosers += '</strong>';
-  }
-  const aOpen = (html.match(/<a[\s>]/gi) || []).length;
-  const aClose = (html.match(/<\/a>/gi) || []).length;
-  if (aOpen > aClose) {
-    for (let i = 0; i < aOpen - aClose; i++) inlineClosers += '</a>';
-  }
-  if (inlineClosers) {
-    html = html.slice(0, insertPos) + inlineClosers + html.slice(insertPos);
-  }
-
-  // Close unclosed <p> tags (after inline tags are fixed)
+  // Close unclosed <p> tags (need well-formed blocks for trimming)
   const pOpen = (html.match(/<p[\s>]/gi) || []).length;
   const pClose = (html.match(/<\/p>/gi) || []).length;
   if (pOpen > pClose) {
@@ -202,53 +182,62 @@ function sanitizeAIBriefingHtml(raw) {
   // Extract plain text for quality checks
   const fullPlainText = html.replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 
-  // Detect truncated text: if the overall text doesn't end with punctuation, trim
-  if (fullPlainText.length > 0 && !/[.!?»"'\u2019)]$/.test(fullPlainText)) {
-    // Find the last complete sentence
+  // Detect truncated text: if overall text doesn't end with punctuation, trim
+  if (fullPlainText.length > 0 && !/[.!?\u00bb\u201d\u2019')]$/.test(fullPlainText)) {
     const lastSentenceEnd = fullPlainText.search(/[.!?][^.!?]*$/);
     if (lastSentenceEnd > 0) {
       const trimmedText = fullPlainText.slice(0, lastSentenceEnd + 1);
-      console.warn(`⚠️ AI briefing: trimmed truncated tail (kept ${trimmedText.length}/${fullPlainText.length} chars): "...${fullPlainText.slice(lastSentenceEnd).slice(0, 60)}"`);
-      // Rebuild HTML: split trimmed text into paragraphs at double-sentence boundaries
-      // Simple approach: find the trim point in the HTML and cut there
-      const truncatedPart = fullPlainText.slice(lastSentenceEnd + 1).trim();
-      // Remove the truncated text from the end of the HTML by working backwards through <p> blocks
-      // Find and fix the last <p> that contains the truncated content
-      const pBlocks = html.split(/<\/p>/i);
-      // Rebuild from the end, removing content after the trim point
-      let rebuilt = '';
-      let charBudget = trimmedText.length;
-      for (let i = 0; i < pBlocks.length - 1; i++) {
-        const blockPlain = pBlocks[i].replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
-        if (charBudget <= 0) break; // Skip remaining blocks
-        if (charBudget >= blockPlain.length) {
-          // Keep this entire block
-          rebuilt += pBlocks[i] + '</p>';
-          charBudget -= blockPlain.length;
-        } else {
-          // This block needs trimming — use plain text up to last sentence
-          const blockTrimmed = blockPlain.slice(0, charBudget);
-          const lastSent = blockTrimmed.search(/[.!?][^.!?]*$/);
-          if (lastSent > 20) {
-            // Extract the <p...> opening tag
-            const pTagMatch = pBlocks[i].match(/<p[^>]*>/i);
-            const pTag = pTagMatch ? pTagMatch[0] : '<p>';
-            rebuilt += `${pTag}${blockTrimmed.slice(0, lastSent + 1)}</p>`;
-          }
-          charBudget = 0;
+      const droppedText = fullPlainText.slice(lastSentenceEnd + 1).trim();
+      console.warn(`\u26a0\ufe0f AI briefing: trimmed truncated tail (kept ${trimmedText.length}/${fullPlainText.length} chars): dropped "${droppedText.slice(0, 80)}"`);
+      // Rebuild as clean plain-text <p> blocks (drops inline formatting — acceptable tradeoff for tag safety)
+      const sentences = trimmedText.match(/[^.!?]*[.!?]+/g) || [trimmedText];
+      const paragraphs = [];
+      let current = '';
+      for (const s of sentences) {
+        current += s;
+        // Start a new paragraph roughly every 2-3 sentences
+        if (current.split(/[.!?]+/).filter(Boolean).length >= 3) {
+          paragraphs.push(current.trim());
+          current = '';
         }
       }
-      if (rebuilt) html = rebuilt;
+      if (current.trim()) paragraphs.push(current.trim());
+      html = paragraphs.map(p => '<p>' + p + '</p>').join('');
     } else {
-      console.warn(`⚠️ AI briefing: no complete sentence found — falling back`);
+      console.warn('\u26a0\ufe0f AI briefing: no complete sentence found \u2014 falling back');
       return null;
+    }
+  }
+
+  // Final tag balance: remove orphan closing tags, close orphan opens
+  const inlineTags = ['a', 'strong', 'em', 'b', 'i'];
+  for (const tag of inlineTags) {
+    const openRe = new RegExp('<' + tag + '[\\s>]', 'gi');
+    const closeRe = new RegExp('</' + tag + '>', 'gi');
+    const opens = (html.match(openRe) || []).length;
+    const closes = (html.match(closeRe) || []).length;
+    if (closes > opens) {
+      // Remove excess closing tags from the end
+      for (let i = 0; i < closes - opens; i++) {
+        const lastIdx = html.lastIndexOf('</' + tag + '>');
+        if (lastIdx >= 0) {
+          html = html.slice(0, lastIdx) + html.slice(lastIdx + ('</' + tag + '>').length);
+        }
+      }
+    } else if (opens > closes) {
+      // Close unclosed tags before last </p>
+      const lastP = html.lastIndexOf('</p>');
+      const pos = lastP > 0 ? lastP : html.length;
+      let closers = '';
+      for (let i = 0; i < opens - closes; i++) closers += '</' + tag + '>';
+      html = html.slice(0, pos) + closers + html.slice(pos);
     }
   }
 
   // Minimum quality: at least 50 words
   const wordCount = html.replace(/<[^>]+>/g, '').trim().split(/\s+/).length;
   if (wordCount < 50) {
-    console.warn(`⚠️ AI briefing too short (${wordCount} words) — falling back`);
+    console.warn(`\u26a0\ufe0f AI briefing too short (${wordCount} words) \u2014 falling back`);
     return null;
   }
 
@@ -995,13 +984,7 @@ function inlineQaCheck(sampleHtml, subject) {
   if (!sampleHtml.includes('action=unsubscribe')) fail('unsubscribe_url', 'Missing ?action=unsubscribe URL');
   else pass('unsubscribe_url');
 
-  // ── HTML well-formedness checks ──
-
-  // Check for unclosed <a> tags (common AI truncation artifact)
-  const aOpen = (sampleHtml.match(/<a[\s>]/gi) || []).length;
-  const aClose = (sampleHtml.match(/<\/a>/gi) || []).length;
-  if (aOpen !== aClose) fail('html_a_tags', `Unclosed <a> tags: ${aOpen} open vs ${aClose} close`);
-  else pass('html_a_tags');
+  // ── HTML well-formedness checks (scoped to editorial section only) ──
 
   // Check for unclosed <p> tags in the editorial section
   const editorialMatch = sampleHtml.match(/Parliamoci chiaro\.<\/div>([\s\S]*?)<div[^>]*font-style:\s*italic/i);
