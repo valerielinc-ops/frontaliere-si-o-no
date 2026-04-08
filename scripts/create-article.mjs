@@ -1033,11 +1033,60 @@ function assertNoFabricatedReferences(contentIt) {
   }
 }
 
+// ── Reference sheet of verified domain facts ──
+// Fed into the LLM fact-check prompt so the model cross-checks against known-good data
+// instead of relying solely on training data.
+const VERIFIED_DOMAIN_FACTS = `
+FATTI VERIFICATI DI RIFERIMENTO — usa come ground truth:
+
+CONVENZIONI E ACCORDI:
+- Convenzione italo-svizzera contro le doppie imposizioni: firmata 9 DICEMBRE 1976 (NON marzo, NON 1974)
+- Nuovo Accordo Frontalieri: firmato 23 DICEMBRE 2020, in vigore dal 1° GENNAIO 2024
+- Periodo transitorio: dal 2024 al 2033 (10 anni) per chi era già frontaliere prima del 17/7/2023
+- Ratifica italiana: Legge 83 del 13 GIUGNO 2023
+
+ALIQUOTE SVIZZERE:
+- AVS/AI/IPG: 5.3% dipendente (10.6% totale)
+- AD (AC): 1.1% fino a CHF 148'200 (2024)
+- LAINF (LAA): 0.7%-1.5% (varia per settore)
+- IGM (IJM): ~0.5%-1.0% (perdita guadagno malattia, non obbligatoria federale)
+- LPP: dal 25 anni, contributi variabili per fascia d'età (7%-18% salario coordinato)
+
+ALIQUOTE ITALIANE (2024-2026):
+- IRPEF: 23% fino €28'000, 35% €28'001-€50'000, 43% oltre €50'000
+- Franchigia nuovo accordo: €10'000 esenti per NUOVI frontalieri (dal 2024)
+- Vecchi frontalieri (ante 17/7/2023): esenzione €7'500 fino al 2033
+
+ISTITUZIONI REALI:
+- Svizzera: SECO, SEM, SUVA, USTAT, UFSP (BAG in tedesco), SUPSI, USI, EOC, DFE, DSS, ARE, BFS
+- Italia: INPS, Agenzia delle Entrate, MEF, Guardia di Finanza, INAIL
+- Bilaterali: non sono "accordi EU-Svizzera" (la Svizzera NON è membro UE/EEA)
+- BPS (SUISSE), UFAS, UFG, UDSC, Fedpol = istituzioni REALI
+
+NUMERI FRONTALIERI:
+- Frontalieri in Ticino: ~79'000 (USTAT, 2024) — circa 30% della forza lavoro cantonale
+- Frontalieri totali CH: ~400'000
+- Quota ristorno fiscale ai comuni italiani: 40% dell'imposta alla fonte (vecchio accordo)
+
+GEOGRAFIA:
+- Valichi principali: Brogeda (Chiasso), Gaggiolo (Stabio), Ponte Tresa, Dirinella (Gandria)
+- Autostrade svizzere: A2 (Chiasso-Gottardo), A13 (San Bernardino)
+- In Svizzera NON esistono "SS" (Strade Statali) — quelle sono italiane
+- Comuni frontalieri TI: Chiasso, Mendrisio, Stabio, Balerna, Vacallo, Novazzano, Coldrerio
+
+ASSICURAZIONI:
+- LAMal: obbligatoria per residenti CH. Frontalieri G hanno diritto d'opzione (LAMal o sistema italiano)
+- Franchige LAMal adulti: CHF 300, 500, 1'000, 1'500, 2'000, 2'500
+- LAMAL non è "tassa sulla salute" — è assicurazione malattia
+`;
+
 /**
- * PRIMARY BLOCKING — LLM-based fact verification.
- * This is the main fact-checking gate. Uses a DIFFERENT model from the generator
- * to cross-check all factual claims: laws, institutions, rates, statistics, dates.
- * Falls back through multiple models for robustness.
+ * PRIMARY BLOCKING — Multi-model consensus fact verification.
+ *
+ * Queries 2 DIFFERENT verification models and requires CONSENSUS to pass.
+ * If either model finds critical issues, the article is blocked.
+ * This prevents a single model from hallucinating "PASS" on fabricated content.
+ *
  * Returns { passed: boolean, issues: object[] }
  */
 async function llmFactCheck(contentIt, sourceContent = '', sourceUrl = '') {
@@ -1056,123 +1105,181 @@ ARTICOLO DA VERIFICARE:
 ${articleText.slice(0, 8000)}
 """
 
-${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio.' : `FONTE ORIGINALE (l'articolo doveva basarsi su questo testo):\n"""\n${sourceContent.slice(0, 6000)}\n"""`}
+${isEvergreen ? 'NOTA: Articolo evergreen senza fonte specifica. Verifica basandoti sulle tue conoscenze del dominio e sui fatti di riferimento sotto.' : `FONTE ORIGINALE (l'articolo doveva basarsi su questo testo):\n"""\n${sourceContent.slice(0, 6000)}\n"""`}
+
+${VERIFIED_DOMAIN_FACTS}
 
 VERIFICA SISTEMATICA — controlla OGNI categoria:
 
-1. **LEGGI E DECRETI**: Ogni riferimento normativo (D.Lgs, DL, DPR, L.) deve esistere realmente con numero e anno corretti. Verifica che il contenuto attribuito alla legge sia corretto. ${isEvergreen ? '' : 'Se il riferimento NON è presente nella fonte originale, segnalalo come sospetto.'}
+1. **LEGGI E DECRETI**: Ogni riferimento normativo (D.Lgs, DL, DPR, L.) deve esistere realmente con numero e anno corretti. Verifica che il contenuto attribuito alla legge sia corretto. Confronta con i fatti verificati sopra. ${isEvergreen ? '' : 'Se il riferimento NON è presente nella fonte originale, segnalalo come sospetto.'}
 
-2. **ISTITUZIONI E ENTI**: Ogni istituzione menzionata deve esistere. Acronimi svizzeri reali: SECO, SEM, SUVA, USTAT, BAG/UFSP, AVS, LPP, LAMal, SUPSI. Acronimi italiani reali: INPS, Agenzia delle Entrate, MEF. Segnala acronimi che non riconosci.
+2. **ISTITUZIONI E ENTI**: Ogni istituzione menzionata deve esistere realmente. Confronta con la lista di istituzioni reali nei fatti verificati. Segnala qualsiasi acronimo NON presente in quella lista come sospetto. NON esiste: "Codice federale del lavoro", "CFL", "UFOL", "UWL", "Commissione federale per i frontalieri", "Ufficio federale dell'integrazione sanitaria (UFIS)".
 
-3. **ALIQUOTE E CIFRE FISCALI**: AVS=5.3%, AC=1.1%, IRPEF scaglioni 2024-2026, aliquote cantonali TI. Devono corrispondere ai valori reali.
+3. **ALIQUOTE E CIFRE FISCALI**: Confronta OGNI aliquota con i valori nei fatti verificati. AVS=5.3%, AC=1.1%, IRPEF 23%/35%/43%. Se un'aliquota non corrisponde = critical.
 
-4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome. Senza attribuzione precisa a un ente o studio reale = probabile invenzione.
+4. **STATISTICHE E PERCENTUALI**: Percentuali precise con decimali (es. "il 73,2% dei frontalieri") DEVONO provenire da studi reali citati per nome E ISTITUTO. Senza attribuzione precisa = probabile invenzione. ECCEZIONE: arrotondamenti a numeri interi da fonti note (es. "circa il 30% della forza lavoro" da USTAT) sono accettabili.
 
-5. **DATE E EVENTI**: Convenzione italo-svizzera originale = 1974. Nuovo Accordo = firmato 23 dicembre 2020. Verifica tutte le date. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
+5. **DATE E EVENTI**: Confronta con le date verificate: Convenzione 9/12/1976, Nuovo Accordo 23/12/2020, vigenza dal 1/1/2024, Legge 83/2023. ${isEvergreen ? '' : 'Date presenti nell\'articolo ma ASSENTI dalla fonte = altamente sospette.'}
 
-6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "VERIFICA CRITICA: confronta ogni affermazione dell'articolo con la fonte originale. Se l'articolo aggiunge fatti, cifre, date o dichiarazioni NON presenti nella fonte, segnalali come 'critical' nella categoria 'coerenza'. L'articolo doveva RISCRIVERE la fonte, non aggiungere informazioni inventate."}
+6. **COERENZA CON LA FONTE**: ${isEvergreen ? 'N/A per evergreen.' : "VERIFICA CRITICA: confronta ogni affermazione dell'articolo con la fonte originale. Se l'articolo aggiunge fatti, cifre, date o dichiarazioni NON presenti nella fonte, segnalali come 'critical'. L'articolo doveva RISCRIVERE la fonte, non aggiungere informazioni inventate."}
 
-7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste, dichiarazioni che sembrano plausibili ma potrebbero non essere mai avvenuti. ${isEvergreen ? '' : 'Se un fatto è presente nell\'articolo ma NON nella fonte, è molto probabilmente inventato.'}
+7. **FATTI INVENTATI**: Cerca eventi, conferenze, referendum, proteste, dichiarazioni che sembrano plausibili ma potrebbero non essere mai avvenuti. SEGNALE D'ALLARME: eventi descritti con molti dettagli specifici (data precisa, luogo, partecipanti) che non appaiono in nessuna fonte nota.
 
-8. **NOMI DI PERSONE E CITAZIONI**: Verifica che ogni persona citata (politici, ministri, funzionari) esista realmente con il ruolo indicato. Citazioni dirette ("ha dichiarato:") di persone non verificabili sono quasi sempre inventate dall'IA.
+8. **NOMI DI PERSONE E CITAZIONI**: Verifica che ogni persona citata (politici, consiglieri federali, funzionari) esista realmente con il ruolo indicato. Consiglieri federali attuali (2024-2027): Baume-Schneider, Parmelin, Cassis, Keller-Sutter, Amherd, Jans, Rösti. Citazioni dirette ("ha dichiarato:") di persone non verificabili sono quasi sempre inventate dall'IA.
 
-9. **GEOGRAFIA E STRADE**: In Svizzera le strade sono: autostrade (A2, A13), strade cantonali, strade nazionali. NON si usano le sigle italiane "SS" (Strada Statale). Comuni ticinesi devono essere reali e nella posizione geografica corretta.
+9. **SVIZZERA ≠ UE**: La Svizzera NON è membro dell'Unione Europea né dello Spazio Economico Europeo (SEE/EEA). Frasi come "accordo EU-Svizzera", "normativa UE applicabile in Svizzera" o "la Svizzera come membro" sono ERRORI. I rapporti sono regolati da Accordi Bilaterali I (1999) e II (2004).
 
 10. **PATTERN COMUNI DI HALLUCINATION IA**: Segnala come "critical" se trovi:
-   - Decreti/leggi con acronimi inventati (es. DEMAS, LCFL)
-   - "Commissione" o "Osservatorio" seguiti da nomi troppo specifici e mai sentiti
-   - Percentuali con decimali precise senza attribuzione a fonte reale (es. "il 67,3% dei frontalieri")
-   - Leggi con "entrata in vigore nel 2020/2022/2024" senza numero di legge verificabile
+   - Decreti/leggi con acronimi inventati (DEMAS, LCFL, CFL, ecc.)
+   - "Commissione" o "Osservatorio" con nomi troppo specifici e mai sentiti
+   - Percentuali precise con decimali senza attribuzione a fonte reale
+   - Leggi "entrate in vigore nel 20XX" senza numero di legge verificabile
+   - "Tassa sulla salute" come imposta separata (non esiste — la LAMal è un'assicurazione)
+   - Ministri o funzionari con nomi plausibili ma non verificabili
+   - Accordi/protocolli bilaterali mai firmati (controllare attentamente)
 
-CRITERI DI GIUDIZIO:
-- "critical" = fatto verificabilmente FALSO o ASSENTE dalla fonte (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto, dato aggiunto non nella fonte originale)
-- "major" = fatto sospetto ma non verificabile con certezza (percentuale precisa senza fonte chiara, dato plausibile ma non confermabile)
-- FAIL = almeno 1 critical O almeno 3 major
-- PASS = nessun fatto verificabilmente falso trovato
+CRITERI DI GIUDIZIO STRETTI:
+- "critical" = fatto verificabilmente FALSO, o CONTRADDICE i fatti verificati di riferimento, o ASSENTE dalla fonte originale (legge inesistente, istituzione inventata, aliquota sbagliata, evento mai avvenuto)
+- "major" = fatto sospetto non verificabile con certezza (percentuale senza fonte, dato plausibile ma non confermabile)
+- "minor" = imprecisione che non fuorvia il lettore (arrotondamento, data approssimata)
+- FAIL = almeno 1 critical O almeno 2 major
+- PASS = nessun fatto verificabilmente falso, al massimo minor
+
+ATTENZIONE: se hai dubbi su un fatto, è MEGLIO segnalarlo come "major" che ignorarlo. Un falso positivo (segnalare un fatto vero come sospetto) è preferibile a un falso negativo (non segnalare un fatto falso).
 
 Rispondi SOLO in JSON valido:
 {
-  "verdict": "PASS",
-  "confidence": 0.9,
-  "issues": []
-}
-
-oppure:
-
-{
-  "verdict": "FAIL",
-  "confidence": 0.8,
+  "verdict": "PASS" | "FAIL",
+  "confidence": 0.0-1.0,
   "issues": [
-    { "claim": "testo dell'affermazione", "reason": "perché è falsa", "severity": "critical", "category": "leggi" }
+    { "claim": "testo dell'affermazione", "reason": "perché è problematica", "severity": "critical|major|minor", "category": "categoria" }
   ]
 }
 
-Categorie valide per "category": leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati`;
+Categorie valide: leggi, istituzioni, aliquote, statistiche, date, coerenza, fatti_inventati, persone, geografia, eu_svizzera`;
 
-  // Try multiple verification models for robustness
+  // ── Multi-model consensus: query 2 models, require agreement ──
   const verificationModels = [
     AI_MODELS.GPT_4_1,
     AI_MODELS.GPT4O,
     AI_MODELS.GEMINI_FLASH,
   ].filter(Boolean);
 
-  for (const model of verificationModels) {
-    try {
-      const raw = await callLLM(
-        [{ role: 'user', content: prompt }],
-        { model, temperature: 0.1, maxTokens: 3000, timeout: 90_000 }
-      );
+  const modelResults = [];
 
-      const jsonMatch = raw.match(/\{[\s\S]*\}/);
-      if (!jsonMatch) {
-        console.error(`  ⚠️  LLM fact-check (${model}): risposta non JSON — provo modello successivo`);
-        continue;
-      }
+  // Query up to 2 models in parallel for consensus
+  const modelsToQuery = verificationModels.slice(0, 2);
+  const promises = modelsToQuery.map(model => _runSingleFactCheck(model, prompt));
+  const settled = await Promise.allSettled(promises);
 
-      let result;
-      try {
-        result = JSON.parse(jsonMatch[0]);
-      } catch {
-        console.error(`  ⚠️  LLM fact-check (${model}): JSON non valido — provo modello successivo`);
-        continue;
-      }
-
-      const verdict = (result.verdict || '').toUpperCase();
-      const confidence = Number(result.confidence) || 0;
-      const issues = Array.isArray(result.issues) ? result.issues : [];
-      const criticalIssues = issues.filter(i => i.severity === 'critical');
-      const majorIssues = issues.filter(i => i.severity === 'major');
-
-      console.error(`  🔍 LLM fact-check (${model}): verdict=${verdict} confidence=${confidence.toFixed(2)} issues=${issues.length} (critical=${criticalIssues.length}, major=${majorIssues.length})`);
-      for (const issue of issues) {
-        console.error(`     ${issue.severity === 'critical' ? '🚨' : '⚠️'}  [${issue.category || '?'}] "${(issue.claim || '').slice(0, 80)}" — ${(issue.reason || '').slice(0, 100)}`);
-      }
-
-      // BLOCKING: any critical issue at reasonable confidence
-      if (verdict === 'FAIL' && criticalIssues.length > 0 && confidence >= 0.6) {
-        return { passed: false, issues: criticalIssues };
-      }
-
-      // BLOCKING: 3+ major issues suggest a pattern of fabrication
-      if (verdict === 'FAIL' && majorIssues.length >= 3 && confidence >= 0.6) {
-        return { passed: false, issues: majorIssues };
-      }
-
-      // Warn but pass for lower confidence or isolated major issues
-      if (verdict === 'FAIL') {
-        console.error(`  ⚠️  LLM fact-check: FAIL ma confidence bassa (${confidence.toFixed(2)}) o ${majorIssues.length} major isolati — accettato con warning`);
-      }
-
-      return { passed: true, issues };
-    } catch (err) {
-      console.error(`  ⚠️  LLM fact-check (${model}): errore ${err.message} — provo modello successivo`);
-      continue;
+  for (let i = 0; i < settled.length; i++) {
+    const s = settled[i];
+    if (s.status === 'fulfilled' && s.value) {
+      modelResults.push({ model: modelsToQuery[i], ...s.value });
+    } else {
+      const reason = s.status === 'rejected' ? s.reason?.message : 'no result';
+      console.error(`  ⚠️  LLM fact-check (${modelsToQuery[i]}): fallito — ${reason}`);
     }
   }
 
-  // All verification models failed — this is a problem, block to be safe
-  console.error('  🚨 LLM fact-check: TUTTI i modelli di verifica hanno fallito — articolo bloccato per sicurezza');
-  throw new Error('Fact-check impossibile: tutti i modelli di verifica non disponibili. Articolo bloccato per precauzione.');
+  // If both primary models failed, try fallback
+  if (modelResults.length === 0 && verificationModels.length > 2) {
+    try {
+      const fallback = await _runSingleFactCheck(verificationModels[2], prompt);
+      if (fallback) modelResults.push({ model: verificationModels[2], ...fallback });
+    } catch (err) {
+      console.error(`  ⚠️  LLM fact-check fallback (${verificationModels[2]}): ${err.message}`);
+    }
+  }
+
+  if (modelResults.length === 0) {
+    console.error('  🚨 LLM fact-check: TUTTI i modelli di verifica hanno fallito — articolo bloccato per sicurezza');
+    throw new Error('Fact-check impossibile: tutti i modelli di verifica non disponibili. Articolo bloccato per precauzione.');
+  }
+
+  // ── Consensus logic ──
+  // Merge all critical/major issues found by ANY model (union of issues)
+  const allCritical = [];
+  const allMajor = [];
+  const seenClaims = new Set();
+
+  for (const r of modelResults) {
+    for (const issue of r.issues) {
+      // Deduplicate by claim text similarity (first 60 chars)
+      const key = (issue.claim || '').slice(0, 60).toLowerCase().replace(/\s+/g, ' ');
+      if (seenClaims.has(key)) continue;
+      seenClaims.add(key);
+
+      if (issue.severity === 'critical') allCritical.push(issue);
+      else if (issue.severity === 'major') allMajor.push(issue);
+    }
+  }
+
+  // Log per-model results
+  for (const r of modelResults) {
+    console.error(`  🔍 LLM fact-check (${r.model}): verdict=${r.verdict} confidence=${r.confidence.toFixed(2)} issues=${r.issues.length} (critical=${r.issues.filter(i => i.severity === 'critical').length}, major=${r.issues.filter(i => i.severity === 'major').length})`);
+    for (const issue of r.issues) {
+      console.error(`     ${issue.severity === 'critical' ? '🚨' : '⚠️'}  [${issue.category || '?'}] "${(issue.claim || '').slice(0, 80)}" — ${(issue.reason || '').slice(0, 100)}`);
+    }
+  }
+
+  // BLOCKING: ANY model found critical issues → block
+  if (allCritical.length > 0) {
+    console.error(`  🚨 Consensus: ${allCritical.length} critical issues trovati — BLOCCATO`);
+    return { passed: false, issues: allCritical };
+  }
+
+  // BLOCKING: 2+ major issues (lowered from 3 — stricter)
+  if (allMajor.length >= 2) {
+    console.error(`  🚨 Consensus: ${allMajor.length} major issues — BLOCCATO`);
+    return { passed: false, issues: allMajor };
+  }
+
+  // If only 1 model ran and it said FAIL with low confidence, still block
+  if (modelResults.length === 1 && modelResults[0].verdict === 'FAIL') {
+    const r = modelResults[0];
+    if (r.confidence >= 0.5 && (r.issues.filter(i => i.severity !== 'minor').length > 0)) {
+      console.error(`  ⚠️  Single-model FAIL (${r.model}, confidence=${r.confidence.toFixed(2)}) — BLOCCATO per precauzione`);
+      return { passed: false, issues: r.issues.filter(i => i.severity !== 'minor') };
+    }
+  }
+
+  // Warn if there are major issues but not enough to block
+  if (allMajor.length > 0) {
+    console.error(`  ⚠️  Consensus: ${allMajor.length} major issue(s) — accettato con warning`);
+  }
+
+  return { passed: true, issues: [...allCritical, ...allMajor] };
+}
+
+/**
+ * Run a single fact-check against one model. Returns parsed result or null.
+ */
+async function _runSingleFactCheck(model, prompt) {
+  const raw = await callLLM(
+    [{ role: 'user', content: prompt }],
+    { model, temperature: 0.0, maxTokens: 4000, timeout: 120_000 }
+  );
+
+  const jsonMatch = raw.match(/\{[\s\S]*\}/);
+  if (!jsonMatch) {
+    console.error(`  ⚠️  LLM fact-check (${model}): risposta non JSON`);
+    return null;
+  }
+
+  let result;
+  try {
+    result = JSON.parse(jsonMatch[0]);
+  } catch {
+    console.error(`  ⚠️  LLM fact-check (${model}): JSON non valido`);
+    return null;
+  }
+
+  const verdict = (result.verdict || '').toUpperCase();
+  const confidence = Number(result.confidence) || 0;
+  const issues = Array.isArray(result.issues) ? result.issues : [];
+
+  return { verdict, confidence, issues };
 }
 
 // assertNoFabricatedStatistics() REMOVED — replaced by LLM-based fact-checking.
