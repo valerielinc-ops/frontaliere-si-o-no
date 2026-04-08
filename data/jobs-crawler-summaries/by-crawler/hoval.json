@@ -1,19 +1,21 @@
 {
   "key": "hoval",
   "label": "Hoval",
-  "generatedAt": "2026-04-08T09:36:36.428Z",
+  "generatedAt": "2026-04-08T21:26:52.486Z",
   "total": 3,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 11220,
-  "avgDurationMs": 11220,
+  "unchangedCount": 3,
+  "durationMs": 9703,
+  "avgDurationMs": 9703,
   "durationHistory": [
-    11220
+    9703
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Consulente tecnico interno di vendita (m/f/d)",
       "slug": "consulente-tecnico-interno-di-vendita-m-f-d-hoval-mezzovico",
@@ -41,6 +43,7 @@
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
+      "id": "hoval-72a73da64922",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -76,6 +79,7 @@
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
+      "id": "hoval-6730a1f78044",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -111,6 +115,7 @@
       "currency": "CHF",
       "streetAddress": "Via Pasquale Lucchini 4",
       "postalCode": "6900",
+      "id": "hoval-ddbbc366783b",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -119,7 +124,5 @@
         "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
